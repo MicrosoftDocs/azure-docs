@@ -80,12 +80,6 @@ Azure Private 5G Core provides proactive, real-time analysis of all message traf
 
 :::image type="content" source="media/azure-private-5g-core/distributed-tracing-web-gui.png" alt-text="Distributed tracing web GUI displaying details of a successful PDU session establishment.":::
 
-Azure Private 5G Core is also integrated with industry standard cloud native monitoring tools, such as Prometheus and Grafana, allowing for real-time analysis of system performance, fault identification and troubleshooting. You can use a number of packet core dashboards to monitor key metrics relating to your private mobile network. They also allow you to view information on firing alerts, ensuring you can react quickly to emerging issues.
-
-:::image type="content" source="media/azure-private-5g-core/packet-core-dashboards.png" alt-text="Packet core dashboards with panels displaying metrics including registered devices and PDU sessions.":::
-
-
-
 ### 5GC features
 
 |Feature  |Description  |
@@ -111,4 +105,5 @@ Azure Private 5G Core includes and utilizes the following Azure services.
 <!--
 DJR - we should include appropriate links for the deployment process and for SIM / policy provisioning as well ##
 -->
+- [Learn more about the key components of a private mobile network](key-components-of-a-private-mobile-network.md)
 - [Learn more about the prerequisites for deploying a private mobile network](complete-private-mobile-network-prerequisites.md)

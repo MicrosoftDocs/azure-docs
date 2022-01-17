@@ -15,9 +15,7 @@ In this how-to guide, you'll carry out each of the tasks you need to complete be
 
 ## Complete the prerequisite tasks
 
-You must do the following before you can deploy a private mobile network. 
-
-<!-- DJR Will need a little more here to cover how specific tasks can be found in the detailed instructions column -->
+You must do the following before you can deploy a private mobile network. Detailed instructions for how to carry out each step are included in the **Detailed instructions** column where applicable.
 
 | Step No. | Description | Detailed instructions |
 |--|--|--|
@@ -34,4 +32,8 @@ You must do the following before you can deploy a private mobile network.
 | 11. | Create a Network Function Manager Device resource and register it with your Azure Stack Edge Pro device. | [Tutorial: Create a Network Function Manager Device resource (Preview)](/azure/network-function-manager/create-device) |
 
 ## Next steps
-<!-- DJR this will need to be links to the quickstart guides -->
+
+You can either try deploying an example private mobile network, or you can jump straight in to collecting the information you'll need to deploy your own private mobile network.
+
+- [Quickstart: Deploy an example private mobile network](quickstart-deploy-a-private-mobile-network-azure-portal.md)
+- [Collect the required information to deploy your own private mobile network](collect-required-information-for-private-mobile-network)

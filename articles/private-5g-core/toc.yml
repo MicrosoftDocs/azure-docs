@@ -3,7 +3,17 @@ items:
   items:
   - name: What is Azure Private 5G Core Preview?
     href: private-5g-core-overview.md
+- name: Quickstarts
+  items:
+  - name: Quickstart - Deploy an example private mobile network using the Azure portal
+    href: quickstart-deploy-a-private-mobile-network-azure-portal.md
 - name: How-to
   items:
   - name: Complete the prerequisite tasks for deploying a private mobile network
     href: complete-private-mobile-network-prerequisites.md
+  - name: Deploy a private mobile network - Azure portal
+    href: how-to-guide-deploy-a-private-mobile-network-azure-portal.md
+- name: Concepts
+  items:
+  - name: Key components of a private mobile network
+    href: key-components-of-a-private-mobile-network.md
