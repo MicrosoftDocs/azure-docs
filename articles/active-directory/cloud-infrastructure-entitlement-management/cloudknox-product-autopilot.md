@@ -125,7 +125,7 @@ The Amazon Web Services (AWS), Microsoft Azure (Azure), and Google Cloud Platfor
 
 4. Click **Apply**.
 
-5. To export the recommendations to email, in the top right side of the screen, click **Export**.
+5. To export the recommendations to email, in the top-right side of the screen, click **Export**.
 
 	 The following message displays in green across the top of the screen if the export is successful: **Recommendations Exported Successfully** .
 

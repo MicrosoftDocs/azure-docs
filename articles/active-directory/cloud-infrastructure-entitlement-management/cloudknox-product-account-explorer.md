@@ -44,7 +44,7 @@ The **Account Explorer** in Microsoft CloudKnox Permissions Management (CloudKno
 
 4. To view all the identities from various accounts that can assume this role, click the caret icon to the left of the role name.
 
-5. To view a graph of all the identities that can access the specified account and through which role(s), click the role name . 
+5. To view a graph of all the identities that can access the specified account and through which role(s), click the role name. 
 
      If CloudKnox is monitoring the external account, it lists specific identities from the accounts that can assume this role. Otherwise, it lists the identities declared in the **Trusted Entity** section.
 
@@ -73,8 +73,6 @@ The **Account Explorer** in Microsoft CloudKnox Permissions Management (CloudKno
 
      For more information about the **Privilege Creep Index** and SCP information, see [Dashboard](https://docs.aws.amazon.com/IAM/latest/UserGuide/product-dashboard.html).
 
-## Next steps
+<!---## Next steps--->
 
-[Sentry installation - AWS](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203.html)
 
-[CloudKnox FortSentry registration](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/CloudKnox%20FortSentry%20Registration%20f9f85592b2cf48aca0c0effd604a0827.html)

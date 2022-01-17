@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Create and view a role/policy in the the Just Enough Permissions (JEP) Controller 
-description: How to review data and create and view a role/policy in the the Just Enough Permissions (JEP) Controller.
+title: Microsoft CloudKnox Permissions Management - Create and view a role/policy in the Just Enough Permissions (JEP) Controller 
+description: How to review data and create and view a role/policy in the Just Enough Permissions (JEP) Controller.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Create and view a role/policy in the JEP Controller
 
-This topic describes how you can use the the Just Enough Permissions (JEP) Controller in Microsoft CloudKnox Permissions Management (CloudKnox) to:
+This topic describes how you can use the Just Enough Permissions (JEP) Controller in Microsoft CloudKnox Permissions Management (CloudKnox) to:
 - Review and interpret role/policy data.
 - Create a role/policy in the  JEP Controller.
 
