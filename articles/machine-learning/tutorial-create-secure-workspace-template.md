@@ -15,7 +15,7 @@ ms.topic: tutorial
 
 Templates provide a convenient way to create reproducible service deployments. The template defines what will be created, with some information provided by you when you use the template. For example, specifying a unique name for the Azure Machine Learning workspace.
 
-In this tutorial, you learn how to use a [Microsoft Bicep](/azure/azure-resource-manager/bicep/overview) and [Hashicorp Terraform](https://www.terraform.io/) template to create the following Azure resources:
+In this tutorial, you learn how to use a [Microsoft Bicep](../azure-resource-manager/bicep/overview.md) and [Hashicorp Terraform](https://www.terraform.io/) template to create the following Azure resources:
 
 * Azure Virtual Network. The following resources are secured behind this VNet:
     * Azure Machine Learning workspace
@@ -40,7 +40,7 @@ You must also have either a Bash or Azure PowerShell command line.
 
 # [Bicep](#tab/bicep)
 
-1. To install the command-line tools, see [Set up Bicep development and deployment environments](/azure/azure-resource-manager/bicep/install).
+1. To install the command-line tools, see [Set up Bicep development and deployment environments](../azure-resource-manager/bicep/install.md).
 
 1. The Bicep template used in this article is located at [https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure). Use the following commands to clone the GitHub repo to your development environment:
 
@@ -113,7 +113,7 @@ The template consists of multiple files. The following table describes what each
 ---
 
 > [!IMPORTANT]
-> The DSVM and Azure Bastion is used as an easy way to connect to the secured workspace for this tutorial. In a production environment, we recommend using an [Azure VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) to access the resources inside the VNet directly from your on-premises network.
+> The DSVM and Azure Bastion is used as an easy way to connect to the secured workspace for this tutorial. In a production environment, we recommend using an [Azure VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [Azure ExpressRoute](../expressroute/expressroute-introduction.md) to access the resources inside the VNet directly from your on-premises network.
 
 ## Configure the template
 
@@ -223,8 +223,8 @@ After the template completes, use the following steps to connect to the DSVM:
 > [!IMPORTANT]
 > The Data Science Virtual Machine (DSVM) and any compute instance resources bill you for every hour that they are running. To avoid excess charges, you should stop these resources when they are not in use. For more information, see the following articles:
 > 
-> * [Create/manage VMs (Linux)](/azure/virtual-machines/linux/tutorial-manage-vm).
-> * [Create/manage VMs (Windows)](/azure/virtual-machines/windows/tutorial-manage-vm).
+> * [Create/manage VMs (Linux)](../virtual-machines/linux/tutorial-manage-vm.md).
+> * [Create/manage VMs (Windows)](../virtual-machines/windows/tutorial-manage-vm.md).
 > * [Create/manage compute instance](how-to-create-manage-compute-instance.md).
 
 To continue learning how to use the secured workspace from the DSVM, see [Tutorial: Get started with a Python script in Azure Machine Learning](tutorial-1st-experiment-hello-world.md).
