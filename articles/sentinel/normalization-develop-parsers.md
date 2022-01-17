@@ -242,13 +242,16 @@ Handle the results as follows:
 | Message | Action |
 | ------- | ------ |
 | **(0) Error: Missing mandatory field [\<Field\>]** | Add this field to your parser. In many cases, this would be a derived value or a constant value, and not a field already available from the source. |
-| **(0) Error: Missing mandatory alias [\<Field\>] aliasing column [\<Field\>]** | Add this alias to your parser. |
+| **(0) Error: Missing mandatory alias [\<Field\>] aliasing existing column [\<Field\>]** | Add this alias to your parser. |
+| **(0) Error: Missing mandatory alias [\<Field\>] aliasing missing column [\<Field\>]** | This error accompanies a similar error on | **(0) Error: Missing recommended alias [\<Field\>] aliasing existing column [\<Field\>]** | Add this alias to your parser. |
+the aliased field. Correct the aliased field error and add this alias to your parser. |
+| **(0) Error: Missing optional alias [\<Field\>] aliasing existing column [\<Field\>]** | Add this alias to your parser. |
 | **(0) Error: type mismatch for field [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>]** | Make sure that the type of normalized field is correct, usually by using a [conversion function](/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as `tostring`. |
 | **(1) Warning: Missing recommended field [\<Field\>]** | Consider adding this field to your parser. |
-| **(1) Warning: Missing recommended alias [\<Field\>] aliasing column [\<Field\>]** | Add this alias to your parser if the aliased field is available in the parser. |
+| **(1) Warning: Missing recommended alias [\<Field\>] aliasing non-existent column [\<Field\>]** | If you add the aliased field to the parser, make sure to add this alias as well. |
+| **(1) Warning: Missing optional alias [\<Field\>] aliasing non-existent column [\<Field\>]** | If you add the aliased field to the parser, make sure to add this alias as well. |
 | **(2) Info: Missing optional field [\<Field\>]** | While optional fields are often missing, it is worth reviewing the list to determine if any of the optional fields can be mapped from the source. |
 | **(2) Info: extra unnormalized field [\<Field\>]** | While unnormalized fields are valid, it is worth reviewing the list to determine if any of the unnormalized values can be mapped to an optional field. |
-| **(2) Info: Missing optional alias [\<Field\>] aliasing column [\<Field\>]** | Add this alias to your parser if the aliased field is available in the parser. |
 |||
 
 > [!NOTE]
