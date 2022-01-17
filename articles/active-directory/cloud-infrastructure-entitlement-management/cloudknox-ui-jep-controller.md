@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # The Just Enough Permissions (JEP) Controller dashboard
 
-The Microsoft CloudKnox Permissions Management **JEP Controller** dashboard provides an overview of roles/policies, permissions, a list of existing requests for permissions, and requests for permissions you have made.
+The Microsoft CloudKnox Permissions Management (CloudKnox) Just Enough Permissions (JEP) Controller dashboard provides an overview of roles/policies, permissions, a list of existing requests for permissions, and requests for permissions you have made.
 
 This topic provides an overview of the components of the **JEP Controller** dashboard.
 
@@ -22,13 +22,13 @@ This topic provides an overview of the components of the **JEP Controller** dash
 > Only users with the **Viewer**, **Controller**, or **Administrator** role can view this tab. </p>Only users with the **Controller** and **Administrator** role can make changes on this tab.
 
 > [!NOTE]
-> A role/policy is an object associated with an identity or resource that defines their permissions. </p>The Amazon Web Services (AWS) authorization system uses the term *policy*. The Microsoft Azure and Google Cloud Platform (GCP) authorization systems both use the term *role*. </p>In the CloudKnox documentation, we use *role/policy* to refer to both terms.
+> A role/policy is an object associated with an identity or resource that defines their permissions. </p>The Amazon Web Services (AWS) authorization system uses the term *policy* to refer to these objects. The Microsoft Azure and Google Cloud Platform (GCP) authorization systems both use the term *role*. </p>In the CloudKnox documentation, we use *role/policy* to refer to to these objects for the three authorization systems.
 
 ## The Roles/Policies tab 
 
 Use the **Role/Policies** tab to add filters to your role/policy.
 
-- **Authorization System Type** - Displays a drop-down list of authorization system types you can access. May include Amazon Web Services (AWS), Microsoft Azure (Azure), Google Cloud Platform (GCP), and so on.
+- **Authorization System Type** - Displays a drop-down list of authorization system types you can access. May include Amazon Web Services (AWS), Microsoft Azure (Azure), and Google Cloud Platform (GCP).
 - **Authorization System** - Displays a list of authorization systems accounts you can access.
 - **Role/Policy Type** - A drop-down list of available role/policy types. You can select **All**, **Custom**, **System**, or **CloudKnox only**.
 - **Role/Policy Status** - A drop-down list of available role/policy statuses. You can select **All**, **Assigned**, or **Unassigned**.
@@ -53,32 +53,39 @@ Use the **Role/Policies** tab to add filters to your role/policy.
 
     When the file is successfully exported, a message appears: **Exported successfully.**
 
-    - Check your email for the message from the CloudKnox Customer Success Team. This email contains a link to the **Role Policy Details** report in CSV format.
-        <!---Ad Link reports@cloudknox.io---> 
-    - The email includes a link to the **Reports** dashboard where you can configure how and when you can automatically receive reports.
+    - Check your email for the message from the CloudKnox Customer Success Team. This email contains a link to: 
+        - The **Role Policy Details** report in CSV format.
+        - The **Reports** dashboard where you can configure how and when you can automatically receive reports.
+
+    <!---Ad Link reports@cloudknox.io---> 
 
 
 ## The Permissions tab
 
 Use the **Permissions** tab to add filters to your permissions.
 
-- **Authorization System Type** - Displays a drop-down list of authorization system types you can access. May include AWS, Azure, GCP, and so on.
-- **Authorization System** - Displays a list of authorization systems accounts you can access.
-- **Search For** - From the drop-down list, select **Group**, **User**, or **Role**.
-- **User Status** - From the drop-down list, select **Any**, **Active**, or **Inactive**.
-- **Privilege Creep Index** - From the drop-down list, select **Any**, **High**, **Medium**, or **Low**.
-- **Task Usage** - From the drop-down list, select **Any**, **Granted**, **Used**, or **Unused**.
-- **Enter a username** - From the drop-down list, select  a username.
-- **Enter a Group Name** - From the drop-down list, select  a group name.
+The **Permissions** tab displays the following information:
+
+- **Authorization System Type** - A drop-down list of authorization system types you can access. May include AWS, Azure, GCP, and so on.
+- **Authorization System** - A list of authorization systems accounts you can access.
+- **Search For** - A drop-down list from which you can select **Group**, **User**, or **Role**.
+- **User Status** - A drop-down list from which you can select **Any**, **Active**, or **Inactive**.
+- **Privilege Creep Index** - A drop-down list from which you can select **Any**, **High**, **Medium**, or **Low**.
+- **Task Usage** - A drop-down list from which you can select **Any**, **Granted**, **Used**, or **Unused**.
+- **Enter a username** - A drop-down list from which you can select  a username.
+- **Enter a Group Name** - A drop-down list from which you can select  a group name.
 - **Apply** - Select to save the changes you've made.
 - **Reset Filter** - Select to discard the changes you've made.
-
 - **Export CSV** - Select to export the displayed list of roles/policies as a CSV file. 
 
     When the file is successfully exported, a message appears: **Exported successfully.**
 
-     - Check your email for the message from the CloudKnox Customer Success Team. This email contains a link to the **Role Policy Details** report in CSV format.
-        <!---Ad Link reports@cloudknox.io---> 
+    - Check your email for the message from the CloudKnox Customer Success Team. This email contains a link to: 
+        - The **Role Policy Details** report in CSV format.
+        - The **Reports** dashboard where you can configure how and when you can automatically receive reports.
+
+    <!---Ad Link reports@cloudknox.io---> 
+
 ## The Requests tab 
 
 Use the **Requests** tab to view a list of **Pending**, **Approved**, and **Processed** requests for permissions your team members have made.
@@ -87,19 +94,22 @@ Use the **Requests** tab to view a list of **Pending**, **Approved**, and **Proc
 
 The **Pending Requests** table displays the following information:
 
-- **Summary** - Displays a summary of the request.
-- **Submitted By** - Displays the name of the user who submitted the request.
-- **On Behalf Of** - Displays the name of the user on whose behalf the request was made.
-- **Authorization System** - Displays the authorization system the user selected.
-- **Task/Scope/Policies** - Displays the type of task/scope/policy selected.
--  **Request Date** - Displays the date when the request was made.
-- **Submitted** - Displays the period since the request was made.
+- **Summary** - A summary of the request.
+- **Submitted By** - The name of the user who submitted the request.
+- **On Behalf Of** - The name of the user on whose behalf the request was made.
+- **Authorization System** - The authorization system the user selected.
+- **Task/Scope/Policies** - The type of task/scope/policy selected.
+-  **Request Date** - The date when the request was made.
+- **Submitted** - The period since the request was made.
 - The ellipses **(...)** menu - Select the ellipses, and then select **Details**, **Approve**, or **Reject**.
 - Select an option:
     - **Reload** - Select to refresh the displayed list of roles/policies.
     - **Search** - Select to search for a specific role/policy.
     - **||| Columns** - From the drop-down list, select the columns you want to display.
-        - Select **Reset to default** to return to the system defaults. 
+
+**To return to the previous view:**
+
+- Select the up arrow.  
 
 ### The Approved Requests tab
 
@@ -117,19 +127,22 @@ Use the **My Requests** tab to view a list of **Pending**, **Approved**, and **P
 
 The **Pending Requests** table displays the following information:
 
-- **Summary** - Displays a summary of the request.
-- **Submitted By** - Displays the name of the user who submitted the request.
-- **On Behalf Of** - Displays the name of the user on whose behalf the request was made.
-- **Authorization System** - Displays the authorization system the user selected.
-- **Task/Scope/Policies** - Displays the type of task/scope/policy selected.
--  **Request Date** - Displays the date when the request was made.
-- **Submitted** - Displays the period since the request was made.
+- **Summary** - A summary of the request.
+- **Submitted By** - The name of the user who submitted the request.
+- **On Behalf Of** - The name of the user on whose behalf the request was made.
+- **Authorization System** - The authorization system the user selected.
+- **Task/Scope/Policies** - The type of task/scope/policy selected.
+-  **Request Date** - The date when the request was made.
+- **Submitted** - The time period since the request was made.
 - The ellipses **(...)** menu - Select the ellipses, and then select **Details**, **Approve**, or **Reject**.
 - Other available actions:
     - **Reload** - Select to refresh the displayed list of roles/policies.
     - **Search** - Select to search for a specific role/policy.
     - **||| Columns** - From the drop-down list, select the columns you want to display.
-        - Select **Reset to default** to return to the system defaults. 
+
+**To return to the previous view:**
+
+- Select the up arrow.  
 
 ### The Approved Requests tab
 
@@ -139,7 +152,11 @@ The **Approved Requests** table displays information about the requests that hav
 
 The **Processed Requests** table displays information about the requests that have been processed.
 
-- **New Request** - Select to create a new permissions request. For more information, see Create a new permissions request.
+### Create a new permissions request 
+
+- To create a new permissions request, select **New Request**.
+
+For more information, see Create a new permissions request.
 <!---Add link--->
 
 <!---## Next steps--->

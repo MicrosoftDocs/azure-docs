@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # The Compliance dashboard
 
-The Microsoft CloudKnox Permissions Management **Compliance** dashboard provides an overview of how you can follow the national, regional, and industry-specific requirements that govern the collection and use of data.
+The Microsoft CloudKnox Permissions Management (CloudKnox) **Compliance** dashboard provides an overview of how you can follow the national, regional, and industry-specific requirements that govern the collection and use of data.
 
 This topic provides an overview of the components of the **Compliance** dashboard.
 
@@ -42,7 +42,7 @@ The **Compliance** dashboard displays the following information:
 
 - **Search** - Enter criteria to search for the required authorization system.
  
-## More information about Compliance standards
+## Information about Compliance standards
 
 ### Amazon Web Services (AWS)
 

@@ -87,6 +87,12 @@
     - name: Define and manage users, roles, and access levels
       href: cloudknox-product-define-permission-levels.md
     - name: Usage analytics 
+    - name: Create and save product alerts
+      href: cloudknox-product-alerts.md 
+    - name: Create a rule
+      href: cloudknox-howto-create-rule.md 
+    - name: Filter and query user activity
+      href: cloudknox-product-audit-trail.md
       expanded: true
       items:
       - name: Analyze usage for an identity, a task, or an authorization system
@@ -108,8 +114,24 @@
   - name: Dashboards
     expanded: true
     items:
-    - name: The CloudKnox Settings dashboard
+    - name: The CloudKnox dashboard
+      href: cloudknox-ui-dashboard.md
+    - name: The Settings dashboard
       href: cloudknox-ui-product-settings.md
+    - name: The User Management dashboard
+      href: cloudknox-ui-user-management.md
+    - name: The Integrations dashboard
+      href: cloudknox-ui-integrations.md
+    - name: The Account Settings dashboard
+      href: cloudknox-ui-account-settings.md
+    - name: The Activity Triggers dashboard
+      href: cloudknox-ui-triggers.md
+    - name: The Tasks pane
+      href: cloudknox-ui-tasks.md
+    - name: The Account Explorer
+      href: cloudknox-product-account-explorer.md
+    - name: The product account settings
+      href: cloudknox-product-account-settings.md
     - name: The Usage Analytics dashboard
       href: cloudknox-ui-usage-analytics.md
     - name: The Usage Analytics explorers
@@ -192,11 +214,6 @@
       href: cloudknox-faqs.md
     - name: Multi-cloud glossary for CloudKnox
       href: cloudknox-multi-cloud-glossary.md
-  #- name: Compliance
-    #expanded: true
-    #items:
-    #- name: Compliance with established guidelines
-      #href: cloudknox-product-compliance.md
   #- name: Concepts
     #expanded: true
     #items: 
