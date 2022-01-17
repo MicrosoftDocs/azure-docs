@@ -26,7 +26,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 ## Define the data source
 
-A primary difference between a table indexer and other indexers is the data source assignment. The data source definition specifies "type": `"azuretable"` and how to connect.
+A primary difference between a table indexer and other indexers is the data source assignment. The data source definition specifies "type": `"azuretable"`, a content path, and how to connect.
 
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
@@ -47,8 +47,7 @@ A primary difference between a table indexer and other indexers is the data sour
 
 1. Optionally, set "query" to a filter on PartitionKey. This is a best practice that improves performance. If "query" is specified any other way, the indexer will execute a full table scan, resulting in poor performance if the tables are large.
 
-> [!TIP]
-> The Import data wizard will build a data source for you, including a valid connection string for system-assigned and shared key credentials. If you have trouble setting up the connection programmatically, [use the wizard](search-get-started-portal.md) as a syntax check. 
+A data source definition can also include additional properties for [soft deletion policies](#soft-delete-using-custom-metadata) and [field mappings](search-indexer-field-mappings.md) if field names and types are not the same.
 
 <a name="Credentials"></a>
 
@@ -84,7 +83,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
     {
         "name" : "my-search-index",
         "fields": [
-            { "name": "key", "type": "Edm.String", "key": true, "searchable": false },
+            { "name": "ID", "type": "Edm.String", "key": true, "searchable": false },
             { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
         ]
     }
@@ -94,7 +93,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
    A table indexer will populate the key field with concatenated partition and row keys from the table. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then the `Key` field's value is `PK1RK1`. If the partition key is null, just the row key is used.
 
-1. Check for field correspondence between entity fields and search fields. If names and types don't match, [add field mappings](search-indexer-field-mappings.md) to the indexer definition to ensure the source-to-destination path is clear.
+1. Create additional fields that correspond to entity fields. Using the same names and compatible [data types](/rest/api/searchservice/supported-data-types) minimizes the need for [field mappings](search-indexer-field-mappings.md).
 
 ## Configure the table indexer
 
@@ -105,7 +104,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
     {
         "name" : "table-indexer",
         "dataSourceName" : "my-table-datasource",
-        "targetIndexName" : "my-target-index",
+        "targetIndexName" : "my-search-index",
         "schedule" : { "interval" : "PT2H" }
     }
     ```
@@ -114,9 +113,13 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
 ## Change and deletion detection
 
-When you set up a table indexer to run on a schedule, it reindexes only new or updated rows, as determined by a row's `Timestamp` value. When indexing out of Azure Table Storage, you don’t have to specify a change detection policy. Incremental indexing is enabled for you automatically.
+After an initial search index is created, you might want subsequent indexer jobs to pick up only new and changed documents. Fortunately, content in Azure Storage is timestamped, which gives indexers sufficient information for determining what's new and changed automatically. For search content that originates from Azure Table Storage, the indexer keeps track of the entity's `Timestamp` timestamp and reindexes only new and changed content.
 
-To indicate that certain documents must be removed from the index, you can use a soft delete strategy. Instead of deleting a row, add a property to indicate that it's deleted, and set up a soft deletion detection policy on the data source. For example, the following policy considers that a row is deleted if the row has a property `IsDeleted` with the value `"true"`:
+Although change detection is a given, deletion detection is not. If you want to detect deleted entities, make sure to use a "soft delete" approach. If you delete the files outright in a table, corresponding search documents will not be removed from the search index.
+
+## Soft delete using custom metadata
+
+To indicate that certain documents must be removed from the search index, you can use a soft delete strategy. Instead of deleting an entity, add a property to indicate that it's deleted, and set up a soft deletion detection policy on the data source. For example, the following policy considers that an entity is deleted if it has an `IsDeleted` property set to `"true"`:
 
 ```http
 PUT https://[service name].search.windows.net/datasources?api-version=2020-06-30

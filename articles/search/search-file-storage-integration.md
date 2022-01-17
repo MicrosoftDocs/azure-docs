@@ -35,9 +35,9 @@ The Azure Files indexer can extract text from the following document formats:
 
 ## Define the data source
 
-A primary difference between a file share indexer and other indexers is the data source assignment. The data source definition specifies "type": `"azurefile"` and how to connect.
+A primary difference between a file share indexer and other indexers is the data source assignment. The data source definition specifies "type": `"azurefile"`, a content path, and how to connect.
 
-1. [Create or update a data source](/rest/api/searchservice/preview-api/create-or-update-data-source) to set its definition, using a preview API version 2020-06-30-Preview or 2021-04-30-Preview.
+1. [Create or update a data source](/rest/api/searchservice/preview-api/create-or-update-data-source) to set its definition, using a preview API version 2020-06-30-Preview or 2021-04-30-Preview for "type": `"azurefile"`.
 
     ```json
     {
@@ -53,6 +53,8 @@ A primary difference between a file share indexer and other indexers is the data
 1. Set "credentials" to an Azure Storage connection string. The next section describes the supported formats.
 
 1. Set "container" to the root file share, and use "query" to specify any subfolders.
+
+A data source definition can also include additional properties for [soft deletion policies](#soft-delete-using-custom-metadata) and [field mappings](search-indexer-field-mappings.md) if field names and types are not the same.
 
 <a name="Credentials"></a>
 
@@ -87,8 +89,6 @@ The SAS should have the list and read permissions on the file share. For more in
 
 In the [search index](search-what-is-an-index.md), add fields to accept the content and metadata of your Azure files. 
 
-If you have a large number of files of various document types, you can include file metadata and system properties in your index to gain the ability to sort, filter, and facet on that information across all files in the share.
-
 1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store file content, metadata, and system properties:
 
     ```json
@@ -106,11 +106,11 @@ If you have a large number of files of various document types, you can include f
     }
     ```
 
-1. Create a key field ("key": true) to uniquely identify each search document based on unique identifiers in the files. The indexer will identify and base64-encode a value for this field. No field mappings are necessary.
+1. Create a key field ("key": true) to uniquely identify each search document based on unique identifiers in the files. For this data source type, the indexer will automatically identify and encode a value for this field. No field mappings are necessary.
 
 1. Add a "content" field to store extracted text from each file. 
 
-1. Add fields for standard metadata properties. In file indexing, the standard metadata properties are the same as blob metadata properties. The file indexer automatically creates internal field mappings for these properties. You still have to add the fields you want to use the index definition, but you can omit creating field mappings in the indexer.
+1. Add fields for standard metadata properties. In file indexing, the standard metadata properties are the same as blob metadata properties. The file indexer automatically creates internal field mappings for these properties that converts hyphenated property names to underscored property names. You still have to add the fields you want to use the index definition, but you can omit creating field mappings in the data source.
 
     + **metadata_storage_name** (`Edm.String`) - the file name. For example, if you have a file /my-share/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
     + **metadata_storage_path** (`Edm.String`) - the full URI of the file, including the storage account. For example, `https://myaccount.file.core.windows.net/my-share/my-folder/subfolder/resume.pdf`
@@ -152,17 +152,17 @@ If you have a large number of files of various document types, you can include f
 
 ## Change and deletion detection
 
-After an initial search index is created, you might want subsequent indexer jobs to only pick up new and changed documents. For search content that originates from Azure File Storage, change detection occurs automatically when you use a schedule to trigger indexing. By default, the service reindexes only the changed files, as determined by the file's `LastModified` timestamp. In contrast with other data sources supported by search indexers, file share files always have a timestamp, which eliminates the need to set up a change detection policy manually.
+After an initial search index is created, you might want subsequent indexer jobs to pick up only new and changed documents. Fortunately, content in Azure Storage is timestamped, which gives indexers sufficient information for determining what's new and changed automatically. For search content that originates from Azure File Storage, the indexer keeps track of the file's `LastModified` timestamp and reindexes only new and changed files.
 
-Although change detection is a given, deletion detection is not. If you want to detect deleted files, make sure to use a "soft delete" approach. If you delete the files outright, corresponding documents will not be removed from the search index.
+Although change detection is a given, deletion detection is not. If you want to detect deleted files, make sure to use a "soft delete" approach. If you delete the files outright in a file share, corresponding search documents will not be removed from the search index.
 
 ## Soft delete using custom metadata
 
 This method uses a file's metadata to determine whether a search document should be removed from the index. This method requires two separate actions, deleting the search document from the index, followed by file deletion in Azure Storage.
 
-There are steps to follow in both File storage and Cognitive Search, but there are no other feature dependencies. This capability is supported in generally available APIs.
+There are steps to follow in both File storage and Cognitive Search, but there are no other feature dependencies. 
 
-1. Add a custom metadata key-value pair to the file to indicate to Azure Cognitive Search that it is logically deleted.
+1. Add a custom metadata key-value pair to the file in Azure storage to indicate to Azure Cognitive Search that it is logically deleted.
 
 1. Configure a soft deletion column detection policy on the data source. For example, the following policy considers a file to be deleted if it has a metadata property `IsDeleted` with the value `true`:
 
@@ -184,11 +184,11 @@ There are steps to follow in both File storage and Cognitive Search, but there a
     }
     ```
 
-1. Once the indexer has processed the blob and deleted the document from the index, you can delete the blob in Azure Blob Storage.
+1. Once the indexer has processed the file and deleted the document from the search index, you can delete the file in Azure Storage.
 
 ### Reindexing undeleted files (using custom metadata)
 
-After an indexer processes a deleted file and removes the corresponding search document from the index, it won't revisit that file if you restore it later if the blob's `LastModified` timestamp is older than the last indexer run.
+After an indexer processes a deleted file and removes the corresponding search document from the index, it won't revisit that file if you restore it later if the file's `LastModified` timestamp is older than the last indexer run.
 
 If you would like to reindex that document, change the `"softDeleteMarkerValue" : "false"` for that file and rerun the indexer.
 

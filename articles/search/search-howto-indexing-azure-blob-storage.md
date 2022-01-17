@@ -38,7 +38,7 @@ The Azure Cognitive Search blob indexer can extract text from the following docu
 
 ## Define the data source
 
-A primary difference between a blob indexer and other indexers is the data source assignment. The data source definition specifies "type": `"azureblob"` and how to connect.
+A primary difference between a blob indexer and other indexers is the data source assignment. The data source definition specifies "type": `"azureblob"`, a content path, and how to connect
 
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
@@ -56,6 +56,8 @@ A primary difference between a blob indexer and other indexers is the data sourc
 1. Set "credentials" to an Azure Storage connection string. The next section describes the supported formats.
 
 1. Set "container" to the blob container, and use "query" to specify any subfolders.
+
+A data source definition can also include additional properties for [soft deletion policies](search-howto-index-changed-deleted-blobs.md) and [field mappings](search-indexer-field-mappings.md) if field names and types are not the same.
 
 <a name="credentials"></a>
 
