@@ -713,8 +713,6 @@ Pitch changes can be applied at the sentence level.
 | `format` | Provides additional information about the precise formatting of the element's text for content types that might have ambiguous formats. SSML defines formats for content types that use them (see table below). | Optional |
 | `detail` | Indicates the level of detail to be spoken. For example, this attribute might request that the speech synthesis engine pronounce punctuation marks. There are no standard values defined for `detail`. | Optional |
 
-<!-- I don't understand the last sentence. Don't we know which one Cortana uses? -->
-
 The following are the supported content types for the `interpret-as` and `format` attributes. Include the `format` attribute only if `interpret-as` is set to date and time.
 
 | interpret-as | format | Interpretation |
