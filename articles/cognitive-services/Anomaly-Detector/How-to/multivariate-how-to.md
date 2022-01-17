@@ -27,7 +27,7 @@ To test out this feature, try this SDK [Notebook](https://github.com/Azure-Sampl
 
 ## Multivariate Anomaly Detector APIs Overview
 
-Generally, multivariate anomaly detector includes a set of APIs, covering the whole lifecycle of training and inference. For more details, refer to [Anomaly Detector API Operations](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview-1/operations/DetectAnomaly). Here are the **8 APIs** in MVAD:
+Generally, multivariate anomaly detector includes a set of APIs, covering the whole lifecycle of training and inference. For more information, refer to [Anomaly Detector API Operations](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview-1/operations/DetectAnomaly). Here are the **8 APIs** in MVAD:
 
 | APIs | Description           | 
 | ------------- | ---------------- | 
@@ -144,7 +144,7 @@ A sample response is
 }
 ```
 
-The response contains 4 fields, `models`, `currentCount`, `maxCount`, and `nextLink`.
+The response contains four fields, `models`, `currentCount`, `maxCount`, and `nextLink`.
 
 * `models` contains the created time, last updated time, model ID, display name, variable counts, and the status of each model.
 * `currentCount` contains the number of trained multivariate models.
@@ -213,9 +213,9 @@ The response contains 4 fields, `models`, `currentCount`, `maxCount`, and `nextL
 
 You will receive more detailed information about the queried model. The response contains meta information about the model, its training parameters, and diagnostic information. Diagnostic Information is useful for debugging and tracing training progress.
 
-* `epochIds` indicates how many epochs the model has been trained out of a total of 100 epochs. For example, if the model is still in training status, `epochId` might be `[10, 20, 30, 40, 50]` which means that it has completed its 50th training epoch, and therefore is halfway complete.
+* `epochIds` indicates how many epochs the model has been trained out of a total of 100 epochs. For example, if the model is still in training status, `epochId` might be `[10, 20, 30, 40, 50]` , which means that it has completed its 50th training epoch, and therefore is halfway complete.
 * `trainLosses` and `validationLosses` are used to check whether the optimization progress converges in which case the two losses should decrease gradually.
-* `latenciesInSeconds` contains the time cost for each epoch and is recorded every 10 epochs. In this example, the 10th epoch takes approximately 0.34 seconds. This would be helpful to estimate the completion time of training.
+* `latenciesInSeconds` contains the time cost for each epoch and is recorded every 10 epochs. In this example, the 10th epoch takes approximately 0.34 second. This would be helpful to estimate the completion time of training.
 * `variableStates` summarizes information about each variable. It is a list ranked by `filledNARatio` in descending order. It tells how many data points are used for each variable and `filledNARatio` tells how many points are missing. Usually we need to reduce `filledNARatio` as much as possible.
 Too many missing data points will deteriorate model accuracy.
 * Errors during data processing will be included in the `errors` field.
@@ -227,9 +227,9 @@ You could choose the asynchronous API, or the synchronous API for inference.
 
 | Asynchronous API | Synchronous API           | 
 | ------------- | ---------------- | 
-| More suitable for batch use cases when customers don’t need to get inference results immediately and want to detect anomalies and get results over a longer time period.| When customers want to get inference immediately and want to detect multivariate anomalies in real-time, this API is recommended. Also suitable for customers having difficulties conducting the previous compressing and uploading process for inference. | 
+| More suitable for batch use cases when customers don’t need to get inference results immediately and want to detect anomalies and get results over a longer time period.| When customers want to get inference immediately and want to detect multivariate anomalies in real time, this API is recommended. Also suitable for customers having difficulties conducting the previous compressing and uploading process for inference. | 
 
-To perform asynchronous inference, simply provide the blob source path to the zip file containing the inference data, the start time, and end time.
+To perform asynchronous inference, provide the blob source path to the zip file containing the inference data, the start time, and end time.
 
 This inference is asynchronous, so the results are not returned immediately. Notice that you need to save in a variable the link of the results in the **response header** which contains the `resultId`, so that you may know where to get the results afterwards.
 
@@ -352,11 +352,11 @@ The response contains the result status, variable information, inference paramet
     1. Error code `InsufficientHistoricalData`. This usually happens only with the first few timestamps because the model inferences data in a window-based manner and it needs historical data to make a decision. For the first few timestamps, there is insufficient historical data, so inference cannot be performed on them. In this case, the error message can be ignored.
     1. `"isAnomaly": false` indicates the current timestamp is not an anomaly.
         * `severity ` indicates the relative severity of the anomaly and for normal data it is always 0.
-        * `score` is the raw output of the model on which the model makes a decision which could be non-zero even for normal data points.
+        * `score` is the raw output of the model on which the model makes a decision, which could be non-zero even for normal data points.
     1. `"isAnomaly": true` indicates an anomaly at the current timestamp.
         * `severity ` indicates the relative severity of the anomaly and for abnormal data it is always greater than 0.
         * `score` is the raw output of the model on which the model makes a decision. `severity` is a derived value from `score`. Every data point has a `score`.
-        * `contributors` is a list containing the contribution score of each variable. Higher contribution scores indicate higher possibility of the root cause. This list is often used for interpreting anomalies as well as diagnosing the root causes.
+        * `contributors` is a list containing the contribution score of each variable. Higher contribution scores indicate higher possibility of the root cause. This list is often used for interpreting anomalies and diagnosing the root causes.
 
 > [!NOTE]
 > A common pitfall is taking all data points with `isAnomaly`=`true` as anomalies. That may end up with too many false positives.
@@ -366,7 +366,7 @@ The response contains the result status, variable information, inference paramet
 
 ## (NEW) Inference with synchronous API 
 
-With the synchronous API, you can get inference results point by point in real-time, and no need for compressing and uploading task like training and asynchronous inference. Here are some requirements for the synchronous API:
+With the synchronous API, you can get inference results point by point in real time, and no need for compressing and uploading task like training and asynchronous inference. Here are some requirements for the synchronous API:
 * Need to put data in **JSON format** into the API request body.
 * The inference results are limited to up to 10 data points, which means you could detect **1 to 10 timestamps** with one synchronous API call.
 * Due to payload limitation, the size of inference data in the request body is limited, which support at most `2880` timestamps * `300` variables.
@@ -377,7 +377,7 @@ You submit a bunch of timestamps of multiple variables into in JSON format in th
 
 `https://{endpoint}/anomalydetector/v1.1-preview.1/multivariate/models/{modelId}/last/detect`
 
-A sample request looks like following format, this case is detecting last 2 timestamps (`detectingPoints` is 2) of 3 variables in one synchronous API call.
+A sample request looks like following format, this case is detecting last two timestamps (`detectingPoints` is 2) of 3 variables in one synchronous API call.
 
 ```json
 {
@@ -440,7 +440,7 @@ You will get the JSON response of inference results in real time after you call 
 | ------------- | ---------------- | 
 | `interpretation`| This field only appears when a timestamp is detected as anomalous, which contains `variables`, `contributionScore`, `correlationChanges`. | 
 | `correlationChanges`| This field only appears when a timestamp is detected as anomalous, which included in interpretation. It contains `changedVariables` and `changedValues` that interpret which correlations between variables changed.  | 
-| `changedVariables`| This field will show which variables that have big change in correlation with `variable`. | 
+| `changedVariables`| This field will show which variables that have significant change in correlation with `variable`. | 
 | `changedValues`| This field calculates a number between 0 and 1 showing how much the correlation changed between variables. The bigger the number is, the greater the change on correlations.  | 
 
 
