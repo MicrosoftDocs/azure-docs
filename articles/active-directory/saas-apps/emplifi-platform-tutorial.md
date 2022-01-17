@@ -75,7 +75,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | **Identifier** |
     |-------|
-    | `https://<CustomerName>.account.socialbakers.com |
+    | `https://<CustomerName>.account.socialbakers.com` |
     | `https://<CustomerName>.account.emplifi.io` |
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
