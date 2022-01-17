@@ -1,7 +1,7 @@
 ---
-title: Language identification test - Speech service
+title: Language identification - Speech service
 titleSuffix: Azure Cognitive Services
-description: Language identification test is used to determine the language being spoken in audio passed to the Speech SDK when compared against a list of provided languages.
+description: Language identification is used to determine the language being spoken in audio passed to the Speech SDK when compared against a list of provided languages.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -13,7 +13,7 @@ ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
 
-# Language identification (single page prototype)
+# Language identification
 
 Language identification is used to recognize natural languages spoken in audio when compared against a list of [supported languages](language-support.md). 
 
@@ -46,24 +46,24 @@ Continuous recognition can identify multiple languages for the duration of the a
 You can choose to prioritize accuracy or latency during speech recognition. 
 
 > [!NOTE]
-> The `Accuracy` and `Latency` prioritization modes are only supported with Speech SDKs in C#, C++, and Python.
+> Low latency is prioritized by default with the Speech SDK. You can choose to prioritize accuracy or latency with the Speech SDKs for C#, C++, and Python.
 
-Set the priority to `Latency` if you need a low-latency result such as during live streaming. Set the priority to `Accuracy` if the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning. Allowing the engine more time will improve recognition results.
+Prioritize `Latency` if you need a low-latency result such as during live streaming. Set the priority to `Accuracy` if the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning. Allowing the engine more time will improve recognition results.
 
 * **At-start:** With at-start recognition in `Latency` mode the result is returned in less than 5 seconds. With at-start recognition in `Accuracy` mode the result is returned in 30 seconds. 
 
 * **Continuous:** With continuous recognition in `Latency` mode the results are returned every 2 seconds for the duration of the audio. With continuous recognition in `Accuracy` mode the results are returned within no set time frame for the duration of the audio.
 
 If none of the candidate languages are present in the audio or if the recognition confidence is low, the returned result can vary by mode. 
-* In `Latency` mode the Speech service returns one of the candidate languages provided, even if those languages were not in the audio. For example, if `fr-FR` (French) and `en-US` (English) are provided as candidates, but German is spoken, either "French" or "English" would be returned. 
-* In `Accuracy` mode the Speech service returns "Unknown" if none of the candidate languages are detected or if the recognition confidence is low. 
+* In `Latency` priority mode the Speech service returns one of the candidate languages provided, even if those languages were not in the audio. For example, if `fr-FR` (French) and `en-US` (English) are provided as candidates, but German is spoken, either "French" or "English" would be returned. 
+* In `Accuracy` priority mode the Speech service returns "Unknown" if none of the candidate languages are detected or if the recognition confidence is low. 
 
 ## Standalone language identification
 
 You use standalone language identification when you only need to detect the natural language in an audio source. 
 
 > [!NOTE]
-> Standalone source language recognition is only supported with Speech SDKs in C#, C++, and Python.
+> Standalone source language recognition is only supported with the Speech SDKs for C#, C++, and Python.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -173,7 +173,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 ### [Continuous](#tab/continuous)
 
 
-:::code language="cpp" source="~/samples-cognitive-services-speech-sdk/samples/python/console/speech_language_detection_sample.py" id="SpeechContinuousLanguageDetectionWithFile":::
+:::code language="python" source="~/samples-cognitive-services-speech-sdk/samples/python/console/speech_language_detection_sample.py" id="SpeechContinuousLanguageDetectionWithFile":::
 
 ---
 
@@ -639,13 +639,58 @@ You use Speech translation language identification when you need to detect the n
 
 ### [At-start](#tab/at-start)
 
-Need at-start sample
+
+```csharp
+using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
+using Microsoft.CognitiveServices.Speech.Translation;
+
+public static async Task RecognizeOnceSpeechTranslationAsync()
+{
+    var speechTranslationConfig = SpeechTranslationConfig.FromSubscription(key, region);
+
+    speechTranslationConfig.SetProperty(PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, "Latency");
+
+    //Source lang is required, but is currently NoOp 
+    string fromLanguage = "en-US";
+    speechTranslationConfig.SpeechRecognitionLanguage = fromLanguage;
+
+    speechTranslationConfig.AddTargetLanguage("de");
+    speechTranslationConfig.AddTargetLanguage("fr");
+
+    var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromLanguages(new string[] { "en-US", "zh-CN" });
+
+    using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
+
+    using (var recognizer = new TranslationRecognizer(
+        speechTranslationConfig, 
+        autoDetectSourceLanguageConfig,
+        audioConfig))
+    {
+        
+        Console.WriteLine("Say something or read from file...");
+        var result = await recognizer.RecognizeOnceAsync().ConfigureAwait(false);
+
+        if (result.Reason == ResultReason.TranslatedSpeech)
+        {
+            var lidResult = result.Properties.GetProperty(PropertyId.SpeechServiceConnection_AutoDetectSourceLanguageResult);
+
+            Console.WriteLine($"RECOGNIZED in '{lidResult}': Text={result.Text}");
+            foreach (var element in result.Translations)
+            {
+                Console.WriteLine($"    TRANSLATED into '{element.Key}': {element.Value}");
+            }
+        }
+    }
+}
+```
 
 ### [Continuous](#tab/continuous)
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
+using Microsoft.CognitiveServices.Speech.Translation;
 
 public static async Task MultiLingualTranslation()
 {
@@ -654,7 +699,7 @@ public static async Task MultiLingualTranslation()
     var endpointString = $"wss://{region}.stt.speech.microsoft.com/speech/universal/v2";
     var endpointUrl = new Uri(endpointString);
     
-    var config = SpeechConfig.FromEndpoint(endpointUrl, "<paste-your-subscription-key>");
+    var config = SpeechTranslationConfig.FromEndpoint(endpointUrl, "<paste-your-subscription-key>");
 
     // Source lang is required, but is currently NoOp 
     string fromLanguage = "en-US";
@@ -756,7 +801,7 @@ See more examples of speech translation language identification on [GitHub](http
 
 ### [At-start](#tab/at-start)
 
-Need at-start sample
+:::code language="cpp" source="~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/translation_samples.cpp" id="TranslationAndLanguageIdWithMicrophone":::
 
 ### [Continuous](#tab/continuous)
 
@@ -764,13 +809,14 @@ Need at-start sample
 using namespace std;
 using namespace Microsoft::CognitiveServices::Speech;
 using namespace Microsoft::CognitiveServices::Speech::Audio;
+using namespace Microsoft::CognitiveServices::Speech::Translation;
 
 void MultiLingualTranslation()
 {
     auto region = "<paste-your-region>";
     // currently the v2 endpoint is required for this design pattern
     auto endpointString = std::format("wss://{}.stt.speech.microsoft.com/speech/universal/v2", region);
-    auto config = SpeechConfig::FromEndpoint(endpointString, "<paste-your-subscription-key>");
+    auto config = SpeechTranslationConfig::FromEndpoint(endpointString, "<paste-your-subscription-key>");
 
     config->SetProperty(PropertyId::SpeechServiceConnection_ContinuousLanguageIdPriority, "Latency");
     auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "zh-CN" });
@@ -860,70 +906,13 @@ See more examples of speech translation language identification on [GitHub](http
 
 ### [At-start](#tab/at-start)
 
-Need at-start sample
+:::code language="python" source="~/samples-cognitive-services-speech-sdk/samples/python/console/translation_sample.py" id="TranslationOnceWithFile":::
 
 ### [Continuous](#tab/continuous)
 
-```python
-def translation_continuous():
-    """performs continuous speech translation from input from an audio file"""
+:::code language="python" source="~/samples-cognitive-services-speech-sdk/samples/python/console/translation_sample.py" id="TranslationContinuous":::
 
-    # set up translation parameters: source language and target languages
-    translation_config = speechsdk.translation.SpeechTranslationConfig(
-        subscription=speech_key, region=service_region,
-        speech_recognition_language='en-US',
-        target_languages=('de', 'fr'), voice_name="de-DE-Hedda")
-    audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
-
-    # Creates a translation recognizer using and audio file as input.
-    recognizer = speechsdk.translation.TranslationRecognizer(
-        translation_config=translation_config, audio_config=audio_config)
-
-    def result_callback(event_type, evt):
-        """callback to display a translation result"""
-        print("{}: {}\n\tTranslations: {}\n\tResult Json: {}".format(
-            event_type, evt, evt.result.translations.items(), evt.result.json))
-
-    done = False
-
-    def stop_cb(evt):
-        """callback that signals to stop continuous recognition upon receiving an event `evt`"""
-        print('CLOSING on {}'.format(evt))
-        nonlocal done
-        done = True
-
-    # connect callback functions to the events fired by the recognizer
-    recognizer.session_started.connect(lambda evt: print('SESSION STARTED: {}'.format(evt)))
-    recognizer.session_stopped.connect(lambda evt: print('SESSION STOPPED {}'.format(evt)))
-    # event for intermediate results
-    recognizer.recognizing.connect(lambda evt: result_callback('RECOGNIZING', evt))
-    # event for final result
-    recognizer.recognized.connect(lambda evt: result_callback('RECOGNIZED', evt))
-    # cancellation event
-    recognizer.canceled.connect(lambda evt: print('CANCELED: {} ({})'.format(evt, evt.reason)))
-
-    # stop continuous recognition on either session stopped or canceled events
-    recognizer.session_stopped.connect(stop_cb)
-    recognizer.canceled.connect(stop_cb)
-
-    def synthesis_callback(evt):
-        """
-        callback for the synthesis event
-        """
-        print('SYNTHESIZING {}\n\treceived {} bytes of audio. Reason: {}'.format(
-            evt, len(evt.result.audio), evt.result.reason))
-
-    # connect callback to the synthesis event
-    recognizer.synthesizing.connect(synthesis_callback)
-
-    # start translation
-    recognizer.start_continuous_recognition()
-
-    while not done:
-        time.sleep(.5)
-
-    recognizer.stop_continuous_recognition()
-```
+---
 
 See more examples of speech translation language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/translation_sample.py).
 
