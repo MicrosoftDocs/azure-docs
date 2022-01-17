@@ -222,19 +222,70 @@ You can also combine multiple templates to a single deploy process using [linked
 
 ## Test parsers
 
-### Mandatory tests
+### Install ASIM testing tools
 
-The following tests are mandatory. A parser that fails will prevent queries using the schema unifying parsers it is part of from working correctly:
+To test ASIM, [deploy the ASIM testing tool](https://aka.ms/ASimTestingTools) to a Microsoft Sentinel workspace where:
+- Your parser is deployed.
+- The source table used by the parser is available.
+- The source table used by the parser is populated with a varied collection of relevant events.
 
-- Make sure that the parser produces all mandatory fields. 
+### Validate the output schema
 
-- Make sure that all normalized fields have the correct type.
+To make sure that your parser produces a valid schema, use the ASIM schema tester by running the following query in the Microsoft Sentinel **Logs** page:
 
-- Make sure that fields with logical types are populated only with permitted values. For example, an IP address field is always populated with a valid IP address, and that an enumerated field always gets permitted values.
+  ```KQL
+  <parser name> | getschema | invoke ASimSchemaTester('<schema>')
+  ```
 
-The ASIM parser testing tool tests for mandatory fields and correct field types. 
+Handle the results as follows:
 
-### Optional tests
+| Message | Action |
+| ------- | ------ |
+| **(0) Error: Missing mandatory field [\<Field\>]** | Add this field to your parser. In many cases, this would be a derived value or a constant value, and not a field already available from the source. |
+| **(0) Error: Missing mandatory alias [\<Field\>] aliasing existing column [\<Field\>]** | Add this alias to your parser. |
+| **(0) Error: Missing mandatory alias [\<Field\>] aliasing missing column [\<Field\>]** | This error accompanies a similar error for the aliased field. Correct the aliased field error and add this alias to your parser. |
+| **(0) Error: Missing recommended alias [\<Field\>] aliasing existing column [\<Field\>]** | Add this alias to your parser. |
+| **(0) Error: Missing optional alias [\<Field\>] aliasing existing column [\<Field\>]** | Add this alias to your parser. |
+| **(0) Error: type mismatch for field [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>]** | Make sure that the type of normalized field is correct, usually by using a [conversion function](/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as `tostring`. |
+| **(1) Warning: Missing recommended field [\<Field\>]** | Consider adding this field to your parser. |
+| **(1) Warning: Missing recommended alias [\<Field\>] aliasing non-existent column [\<Field\>]** | If you add the aliased field to the parser, make sure to add this alias as well. |
+| **(1) Warning: Missing optional alias [\<Field\>] aliasing non-existent column [\<Field\>]** | If you add the aliased field to the parser, make sure to add this alias as well. |
+| **(2) Info: Missing optional field [\<Field\>]** | While optional fields are often missing, it is worth reviewing the list to determine if any of the optional fields can be mapped from the source. |
+| **(2) Info: extra unnormalized field [\<Field\>]** | While unnormalized fields are valid, it is worth reviewing the list to determine if any of the unnormalized values can be mapped to an optional field. |
+|||
+
+> [!NOTE]
+> Errors will prevent content using the parser from working correctly. Warnings will not prevent content from working, but may reduce the quality of the results.
+>
+
+### Validate the output values
+
+To make sure that your parser produces valid values, use the ASIM data tester by running the following query in the Microsoft Sentinel **Logs** page:
+
+  ```KQL
+  <parser name> | limit <X> | invoke ASimDataTester('<schema>')
+  ```
+
+This test is resource intensive and may not work on your entire data set. Set X to the largest number for which the query will not timeout, or set the time range for the query using the time range picker.
+
+Handle the results as follows:
+
+| Message | Action |
+| ------- | ------ |
+| **(0) Error: type mismatch for column  [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>]** | Make sure that the type of normalized field is correct, usually by using a [conversion function](/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as `tostring`.  |
+| **(0) Error: Invalid value(s) (up to 10 listed) for field [\<Field\>] of type [\<Logical Type\>]** | Make sure that the parser maps the correct source field to the output field. If mapped correctly, update the parser to transform the source value to the correct type, value or format. Refer to the [list of logical types](normalization-about-schemas.md#logical-types) for more information on the correct values and formats for each logical type. <br><br>Note that the testing tool lists only a sample of 10 invalid values.   |
+| **(0) Error: Empty value in mandatory field [\<Field\>]** | Mandatory fields should be populated, not just defined. Check whether the field can be populated from other sources for records for which the current source is empty. |
+| **(1) Error: Empty value in recommended field [\<Field\>]** | Recommended fields should usually be populated. Check whether the field can be populated from other sources for records for which the current source is empty. |
+| **(1) Error: Empty value in alias [\<Field\>]** | Check whether the aliased field is mandatory or recommended, and if so, whether it can be populated from other sources. |
+|||
+
+
+> [!NOTE]
+> Errors will prevent content using the parser from working correctly. Warnings will not prevent content from working, but may reduce the quality of the results.
+>
+
+
+### Check for incomplete parsing
 
 Check that fields are populated:
 - A field that is rarely or never populated may indicate incorrect parsing. 
@@ -255,31 +306,6 @@ You can use the following query to test how sparsely populated each field is.
 ``` 
 
 Set the time period to the longest that performance will allow.
-
-### Using the ASIM parser testing tool
-
-Test the parser using the ASIM parser testing tool to find missing mandatory or recommended fields and fields with an incorrect type:
-
-1. [Deploy the ASIM testing tool]() to a Microsoft Sentinel workspace where your parser is deployed and works.
-
-1. Run the following query in the Microsoft Sentinel **Logs** page:
-
-  ```KQL
-  <parser name> | getschema | invoke ASimSchemaTester('<schema>')
-  ```
-
-Handle the results as follows:
-
-| Message | Action |
-| ------- | ------ |
-| **(0) Error: Missing mandatory field [\<Field\>]** | Add this field to your parser. In many cases, this would be a derived value or a constant value, and not a field already available from the source. |
-| **(0) Error: type mismatch for field [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>]** | Make sure that the type of normalized field is correct, usually by using a [conversion function](/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as `tostring`. |
-| **(1) Warning: Missing recommended field [\<Field\>]** | Consider adding this field to your parser. |
-| **(1) Warning: Missing alias [\<Field\>]** | Check if the field the alias refers to exists and if so, add the alias. |
-| **(2) Info: Missing optional field [\<Field\>]** | While optional fields are often missing, it is worth reviewing the list to determine if any of the optional fields can be mapped from the source. |
-| **(2) Info: extra unnormalized field [\<Field\>]** | While unnormalized fields are valid, it is worth reviewing the list to determine if any of the unnormalized values can be mapped to an optional field. |
-|||
-
 
 ## <a name="next-steps"></a>Next steps
 

@@ -190,8 +190,6 @@ items:
       href: custom-keyword-basics.md
     - name: Recommendations and guidelines
       href: keyword-recognition-guidelines.md
-    - name: Region support
-      href: keyword-recognition-region-support.md
 - name: Scenario deep-dives
   items:
     - name: Conversation scenarios
@@ -314,6 +312,7 @@ items:
       displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO
     - name: Swagger documentation
       href: swagger-documentation.md
+      displayName: rest
     - name: Use containers
       items:
         - name: Install and run Speech containers
@@ -340,14 +339,18 @@ items:
       items:
         - name: From Bing Speech
           href: how-to-migrate-from-bing-speech.md
+          displayName: migration, migrate 
         - name: From the Translator Speech API
           href: how-to-migrate-from-translator-speech-api.md
+          displayName: migration, migrate
     - name: Enterprise readiness
       items:
       - name: Set up Virtual Networks
         href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
+        displayName: vpn
       - name: Use customer-managed keys
         href: speech-encryption-of-data-at-rest.md
+        displayName: encrypt, byos
       - name: How to backup and recover speech customization resources
         href: resiliency-and-recovery-plan.md
 - name: Devices
@@ -366,11 +369,12 @@ items:
   items:
     - name: Release notes
       href: releasenotes.md
+      displayName: reference 
     - name: CLI reference
       displayName: SPX, command line
       items:
         - name: Speech CLI configuration options
-          displayName: SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore
+          displayName: SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore, reference
           href: spx-data-store-configuration.md
         - name: Speech CLI batch operations
           displayName: spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch
@@ -401,13 +405,17 @@ items:
     - name: REST API reference
       items:
         - name: Conversation transcription REST APIs
-          href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html  
+          href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html 
+          displayName: reference 
         - name: Speech-to-text REST API
-          href: rest-speech-to-text.md          
+          href: rest-speech-to-text.md 
+          displayName: reference          
         - name: Text-to-speech REST API
           href: rest-text-to-speech.md
+          displayName: reference 
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
+          displayName: reference 
 - name: Responsible use of AI
   items:
     - name: Speech-to-text

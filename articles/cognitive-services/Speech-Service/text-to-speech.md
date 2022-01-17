@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 01/16/2022
 ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: text to speech
@@ -18,17 +18,9 @@ keywords: text to speech
 
 In this overview, you learn about the benefits and capabilities of the Text-to-Speech service, which enables your applications, tools, or devices to convert text into human-like synthesized speech. Use human-like prebuilt neural voices out-of-the-box, or create a custom neural voice unique to your product or brand. For a full list of supported voices, languages, and locales, see [supported languages](language-support.md#text-to-speech).
 
-This documentation contains the following article types:
-
-* **Quickstarts** are getting-started instructions to guide you through making requests to the service.
-* **How-to guides** contain instructions for using the service in more specific or customized ways.
-* **Responsible use of AI** provide in-depth explanations of how the service works, target use cases, limitations, and the responsible use principles.
-
 > [!NOTE]
 >
-> Bing Speech was decommissioned on October 15, 2019. If your applications, tools, or products are using the Bing Speech APIs or Custom Speech, we've created guides to help you migrate to the Speech service.
->
-> * [Migrate from Bing Speech to the Speech service](how-to-migrate-from-bing-speech.md)
+> Bing Speech was decommissioned on October 15, 2019. If your applications, tools, or products are using the Bing Speech APIs or Custom Speech, see [Migrate from Bing Speech to the Speech service](how-to-migrate-from-bing-speech.md).
 
 ## Core features
 
