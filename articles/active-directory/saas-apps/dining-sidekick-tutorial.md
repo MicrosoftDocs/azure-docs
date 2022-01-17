@@ -129,7 +129,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal. This will redirect to Dining Sidekick Sign-on URL where you can initiate the login flow. 
 
-* Go to Dining Sidekick Sign-on URL directly and initiate the login flow from there.
+* Open Dining Sidekick mobile app, choose **Sidekick University** and then initiate the login flow from there.
 
 * You can use Microsoft My Apps. When you click the Dining Sidekick tile in the My Apps, this will redirect to Dining Sidekick Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
