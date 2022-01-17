@@ -29,7 +29,7 @@ Updates in January include:
 - [Communication with suspicious domain alert expanded to included known Log4Shell-related domains](#communication-with-suspicious-domain-alert-expanded-to-included-known-log4shell-related-domains)
 - ['Copy alert JSON' button added to security alert details pane](#copy-alert-json-button-added-to-security-alert-details-pane)
 - [Renamed two recommendations](#renamed-two-recommendations)
-
+- [Deprecate Kubernetes cluster containers should only listen on allowed ports policy](#deprecate-kubernetes-cluster-containers-should-only-listen-on-allowed-ports-policy)
 
 ### Microsoft Defender for Resource Manager updated with new alerts and greater emphasis on high-risk operations mapped to MITRE ATT&CK® Matrix
 
@@ -144,7 +144,7 @@ For consistency with other recommendation names, we've renamed the following two
     - Previous name: Diagnostic logs should be enabled in App Service
     - New name: Diagnostic logs in App Service should be enabled
 
-### 
+### Deprecate Kubernetes cluster containers should only listen on allowed ports policy
 
 We have deprecated the **Kubernetes cluster containers should only listen on allowed ports** policy
 
