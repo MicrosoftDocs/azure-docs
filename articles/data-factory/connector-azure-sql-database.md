@@ -562,7 +562,8 @@ Learn more details from [Invoke a stored procedure from a SQL sink](#invoke-a-st
     }
 ]
 ```
-**Example 1: Upsert data**
+
+**Example 3: Upsert data**
 
 ```json
 "activities":[
@@ -588,7 +589,6 @@ Learn more details from [Invoke a stored procedure from a SQL sink](#invoke-a-st
             "sink": {
                 "type": "AzureSqlSink",
                 "tableOption": "autoCreate",
-                "writeBatchSize": 100000,
                 "writeBehavior": "upsert",
                 "upsertSettings": {
                     "useTempDB": true,
