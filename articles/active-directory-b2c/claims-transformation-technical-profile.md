@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 01/16/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -100,7 +100,8 @@ The claims transformation technical profile enables you to execute a claims tran
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
+| IncludeClaimResolvingInClaimsHandling | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
+| ContentDefinitionReferenceId | No | The identifier of the [content definition](contentdefinitions.md) associated with this technical profile. The content definition metadata is required for [FormatLocalizedString](string-transformations.md#formatlocalizedstring) , [GetLocalizedStringsTransformation](string-transformations.md#getlocalizedstringstransformation), and [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) claims transformations.|
 
 ## Use a validation technical profile
 
