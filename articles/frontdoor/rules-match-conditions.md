@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 01/16/2022
 ms.author: yuajia
 ---
 
@@ -30,7 +30,7 @@ You can use a match condition to:
 
 ## Device type
 
-Use the **device type** match condition to identify requests that have been made from a mobile device or desktop device.  
+Use the **device type** match condition to identify requests that have been made from a mobile device or desktop device.
 
 ### Properties
 
@@ -75,6 +75,123 @@ In this example, we match all requests that have been detected as coming from a 
       'Mobile'
     ]
     '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleIsDeviceConditionParameters'
+  }
+}
+```
+
+---
+
+## HTTP version
+
+Use the **HTTP version** match condition to identify requests that have been made by using a specific version of the HTTP protocol.
+
+> [!NOTE]
+> The **request cookies** match condition is only available on Azure Front Door Standard/Premium.
+
+### Properties
+
+| Property | Supported values |
+|-------|------------------|
+| Operator | <ul><li>In the Azure portal: `Equal`, `Not Equal`</li><li>In ARM templates: `Equal`; use the `negateCondition` property to specify _Not Equal_ |
+| Value | `2.0`, `1.1`, `1.0`, `0.9` |
+
+### Example
+
+In this example, we match all requests that have been sent by using the HTTP 2.0 protocol.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="./media/rules-match-conditions/http-version.png" alt-text="Portal screenshot showing HTTP version match condition.":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "HttpVersion",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "2.0"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleHttpVersionConditionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'HttpVersion'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      '2.0'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleHttpVersionConditionParameters'
+  }
+}
+```
+
+---
+
+## Request cookies
+
+Use the **request cookies** match condition to identify requests that have include a specific cookie.
+
+> [!NOTE]
+> The **request cookies** match condition is only available on Azure Front Door Standard/Premium.
+
+### Properties
+
+| Property | Supported values |
+|-------|------------------|
+| Cookie name | A string value representing the name of the cookie. |
+| Operator | Any operator from the [standard operator list](#operator-list). |
+| Value | One or more string or integer values representing the value of the request header to match. If multiple values are specified, they're evaluated using OR logic. |
+| Case transform | `Lowercase`, `Uppercase` |
+
+### Example
+
+In this example, we match all requests that have include a cookie named `deploymentStampId` with a value of `1`.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="./media/rules-match-conditions/cookies.png" alt-text="Portal screenshot showing request cookies match condition.":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "Cookies",
+  "parameters": {
+    "selector": "deploymentStampId",
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "1"
+    ],
+    "transforms": [],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleCookiesConditionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'Cookies'
+  parameters: {
+    selector: 'deploymentStampId'
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      '1'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleCookiesConditionParameters'
   }
 }
 ```
