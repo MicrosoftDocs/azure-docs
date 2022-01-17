@@ -606,20 +606,20 @@ If you are getting an error while trying to create new Azure AD login or user in
 
 ## Cosmos DB
 
-Serverless SQL pools enable you to query Cosmos DB analytical storage using the `OPENROWSET` function. Make sure that your Cosmos DB container has analytical storage. Make sure that you correctly specified account, database, and container name. also, make sure that you cosmos DB account key is valid - see [prerequisites](query-cosmos-db-analytical-store.md#prerequisites).
+Serverless SQL pools enable you to query Cosmos DB analytical storage using the `OPENROWSET` function. Make sure that your Cosmos DB container has analytical storage. Make sure that you correctly specified account, database, and container name. also, make sure that your Cosmos DB account key is valid - see [prerequisites](query-cosmos-db-analytical-store.md#prerequisites).
 
-### Cannot query CosmosDB using the OPENROWSET function
+### Cannot query Cosmos DB using the OPENROWSET function
 
-If you cannot connect to your Cosmos Db account, take a look at [prerequisites](query-cosmos-db-analytical-store.md#prerequisites). Possible errors and troubleshooting actions are listed in the following table.
+If you cannot connect to your Cosmos DB account, take a look at [prerequisites](query-cosmos-db-analytical-store.md#prerequisites). Possible errors and troubleshooting actions are listed in the following table.
 
 | Error | Root cause |
 | --- | --- |
-| Syntax errors:<br/> - Incorrect syntax near `Openrowset`<br/> - `...` is not a recognized `BULK OPENROWSET` provider option.<br/> - Incorrect syntax near `...` | Possible root causes:<br/> - Not using CosmosDB as the first parameter.<br/> - Using a string literal instead of an identifier in the third parameter.<br/> - Not specifying the third parameter (container name). |
-| There was an error in the CosmosDB connection string. | - The account, database, or key isn't specified. <br/> - There's some option in a connection string that isn't recognized.<br/> - A semicolon (`;`) is placed at the end of a connection string. |
-| Resolving CosmosDB path has failed with the error "Incorrect account name" or "Incorrect database name." | The specified account name, database name, or container can't be found, or analytical storage hasn't been enabled to the specified collection.|
-| Resolving CosmosDB path has failed with the error "Incorrect secret value" or "Secret is null or empty." | The account key isn't valid or is missing. |
+| Syntax errors:<br/> - Incorrect syntax near `Openrowset`<br/> - `...` is not a recognized `BULK OPENROWSET` provider option.<br/> - Incorrect syntax near `...` | Possible root causes:<br/> - Not using Cosmos DB as the first parameter.<br/> - Using a string literal instead of an identifier in the third parameter.<br/> - Not specifying the third parameter (container name). |
+| There was an error in the Cosmos DB connection string. | - The account, database, or key isn't specified. <br/> - There's some option in a connection string that isn't recognized.<br/> - A semicolon (`;`) is placed at the end of a connection string. |
+| Resolving Cosmos DB path has failed with the error "Incorrect account name" or "Incorrect database name." | The specified account name, database name, or container can't be found, or analytical storage hasn't been enabled to the specified collection.|
+| Resolving Cosmos DB path has failed with the error "Incorrect secret value" or "Secret is null or empty." | The account key isn't valid or is missing. |
 
-### UTF-8 collation warning is returned while reading CosmosDB string types
+### UTF-8 collation warning is returned while reading Cosmos DB string types
 
 A serverless SQL pool will return a compile-time warning if the `OPENROWSET` column collation doesn't have UTF-8 encoding. You can easily change the default collation for all `OPENROWSET` functions running in the current database by using the T-SQL statement `alter database current collate Latin1_General_100_CI_AS_SC_UTF8`.
 
@@ -638,15 +638,15 @@ Azure Synapse SQL will return `NULL` instead of the values that you see in the t
 - Possibly wrong column name or path expression in the `WITH` clause. Column name (or path expression after the column type) in the `WITH` clause must match the property names in Cosmos DB collection. Comparison is case-sensitive (for example, `productCode` and `ProductCode` are different properties). Make sure that your column names exactly match the Cosmos DB property names.
 - The property might not be moved to the analytical storage because it violates some [schema constraints](../../cosmos-db/analytical-store-introduction.md#schema-constraints), such as more than 1000  properties or more than 127 nesting levels.
 - If you are using well-defined [schema representation](../../cosmos-db/analytical-store-introduction.md#schema-representation) the value in transactional store might have a wrong type. Well-defined schema locks the types for each property by sampling the documents. Any value added in the transactional store that doesn't match the type is treated as a wrong value and not migrated to the analytical store. 
-- If you are using full-fidelity [schema representation](../../cosmos-db/analytical-store-introduction.md#schema-representation) make sure that you are adding type suffix after property name like `$.price.int64`. If you don't see a value for the referenced path, maybe it is stored under different type path, for example `$.price.float64`. See [how to query Cosmos Db collections in the full-fidelity schema](query-cosmos-db-analytical-store.md#query-items-with-full-fidelity-schema).
+- If you are using full-fidelity [schema representation](../../cosmos-db/analytical-store-introduction.md#schema-representation) make sure that you are adding type suffix after property name like `$.price.int64`. If you don't see a value for the referenced path, maybe it is stored under different type path, for example `$.price.float64`. See [how to query Cosmos DB collections in the full-fidelity schema](query-cosmos-db-analytical-store.md#query-items-with-full-fidelity-schema).
 
 ### Column is not compatible with external data type
 
 The error *Column `column name` of the type `type name` isn't compatible with the external data type `type name`* is returned is the specified column type in the `WITH` clause doesn't match the type in the Azure Cosmos DB container. Try to change the column type as it's described in the section [Azure Cosmos DB to SQL type mappings](query-cosmos-db-analytical-store.md#azure-cosmos-db-to-sql-type-mappings), or use the `VARCHAR` type.
 
-### Resolving CosmosDB path has failed
+### Resolving Cosmos DB path has failed
 
-If you are getting the error: `Resolving CosmosDB path has failed with error 'This request is not authorized to perform this operation.'`, check do you use private endpoints in Cosmos DB. To allow SQL serverless to access an analytical store with private endpoint, you need to [configure private endpoints for Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools).
+If you are getting the error: `Resolving Cosmos DB path has failed with error 'This request is not authorized to perform this operation.'`, check do you use private endpoints in Cosmos DB. To allow SQL serverless to access an analytical store with private endpoint, you need to [configure private endpoints for Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools).
 
 ### CosmosDB performance issues
 
@@ -693,7 +693,7 @@ Now you can continue using Delta Lake folder with Spark pool. You will provide c
 
 ## Performance
 
-The serverless SQL pool assign the resources to the queries based on the size of data set and query complexity. You cannot impact or limit the resources that are provided to the queries. There are some cases where you might experience unexpected query performance degradations and identify the root causes.
+The serverless SQL pool assign the resources to the queries based on the size of data set and query complexity. You cannot change or limit the resources that are provided to the queries. There are some cases where you might experience unexpected query performance degradations and identify the root causes.
 
 ### Query duration is very long
 
@@ -852,7 +852,7 @@ Learn here how to [query Delta Lake files](query-delta-lake-format.md) with [nes
 
 ### Querying Cosmos DB data 
 
-Learn here how to [query Cosmos DB analytical store](query-cosmos-db-analytical-store.md). You can use [online generator](https://htmlpreview.github.io/?https://github.com/Azure-Samples/Synapse/blob/main/SQL/tools/cosmosdb/generate-openrowset.html) to generate the `WITH` clause based on a sample Cosmos Db document.
+Learn here how to [query Cosmos DB analytical store](query-cosmos-db-analytical-store.md). You can use [online generator](https://htmlpreview.github.io/?https://github.com/Azure-Samples/Synapse/blob/main/SQL/tools/cosmosdb/generate-openrowset.html) to generate the `WITH` clause based on a sample Cosmos DB document.
 You can [create views](create-use-views.md#cosmosdb-view) on top of Cosmos DB containers.
 
 ### Querying JSON data 
