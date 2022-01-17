@@ -155,6 +155,7 @@ We have deprecated the **Kubernetes cluster containers should only listen on all
 Limiting the ports a container listens on, provides no value in regards to security since those ports are not exposed externally.
 
 The **[Services should listen on allowed ports only](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/add45209-73f6-4fa5-a5a5-74a451b07fbe)** recommendation sshould be used instead, as that reccomendation controls the ports that an application would be exposed.
+
 ## December 2021
 
 Updates in December include:
