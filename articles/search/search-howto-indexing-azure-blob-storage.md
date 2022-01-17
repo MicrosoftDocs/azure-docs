@@ -124,6 +124,10 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
 ## Configure the blob indexer
 
+Indexer configuration specifies the inputs, parameters, and properties that inform run time behaviors.
+
+Under "configuration", you can control which blobs are indexed, and which are skipped, by the blob's file type or by setting properties on the blob themselves, causing the indexer to skip over them.
+
 1. [Create or update an indexer](/rest/api/searchservice/create-indexer) to use the predefined data source and search index.
 
     ```http
@@ -197,7 +201,7 @@ PUT /indexers/blob-indexer?api-version=2020-06-30
 
 <a name="PartsOfBlobToIndex"></a>
 
-## Set parameters
+### Set parameters
 
 Blob indexers include parameters that optimize indexing for specific use cases, such as content types (JSON, CSV, PDF), or to specify which parts of the blob to index.
 
@@ -262,47 +266,12 @@ It's important to point out that you don't need to define fields for all of the 
 
 ## How blobs are indexed
 
-By default, most blobs are indexed as a single search document in the index, including blobs with structured content, such as JSON or CSV, which are indexed as a single chunk of text. However, for JSON or CSV documents that have an internal structure (delimiters), you can assign parsing modes to generate individual search documents for each line or element. For more information, see [Indexing JSON blobs](search-howto-index-json-blobs.md) and [Indexing CSV blobs](search-howto-index-csv-blobs.md).
+By default, most blobs are indexed as a single search document in the index, including blobs with structured content, such as JSON or CSV, which are indexed as a single chunk of text. However, for JSON or CSV documents that have an internal structure (delimiters), you can assign parsing modes to generate individual search documents for each line or element:
+
++ [Indexing JSON blobs](search-howto-index-json-blobs.md)
++ [Indexing CSV blobs](search-howto-index-csv-blobs.md).
 
 A compound or embedded document (such as a ZIP archive, a Word document with embedded Outlook email containing attachments, or a .MSG file with attachments) is also indexed as a single document. For example, all images extracted from the attachments of an .MSG file will be returned in the normalized_images field within the same search document.
-
-<a name="WhichBlobsAreIndexed"></a>
-
-## How to control which blobs are indexed
-
-You can control which blobs are indexed, and which are skipped, by the blob's file type or by setting properties on the blob themselves, causing the indexer to skip over them.
-
-### Include specific file extensions
-
-Use "indexedFileNameExtensions" to provide a comma-separated list of file extensions to index (with a leading dot). For example, to index only the .PDF and .DOCX blobs, do this:
-
-```http
-PUT /indexers/[indexer name]?api-version=2020-06-30
-{
-    "parameters" : { 
-        "configuration" : { 
-            "indexedFileNameExtensions" : ".pdf, .docx" 
-        } 
-    }
-}
-```
-
-### Exclude specific file extensions
-
-Use "excludedFileNameExtensions" to provide a comma-separated list of file extensions to skip (again, with a leading dot). For example, to index all blobs except those with the .PNG and .JPEG extensions, do this:
-
-```http
-PUT /indexers/[indexer name]?api-version=2020-06-30
-{
-    "parameters" : { 
-        "configuration" : { 
-            "excludedFileNameExtensions" : ".png, .jpeg" 
-        } 
-    }
-}
-```
-
-If both "indexedFileNameExtensions" and "excludedFileNameExtensions" parameters are present, the indexer first looks at "indexedFileNameExtensions", then at "excludedFileNameExtensions". If the same file extension is in both lists, it will be excluded from indexing.
 
 ### Add "skip" metadata the blob
 
