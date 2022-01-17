@@ -35,7 +35,7 @@ Each step is described in detail below.
 
 This diagram illustrates the routing architecture:
 
-![Flowchart illustrating the Front Door routing architecture, including each step and decision point.](media/front-door-routing-architecture/)
+![Flowchart illustrating the Front Door routing architecture, including each step and decision point.](media/front-door-routing-architecture/flowchart.png)
 
 ## <a name = "anycast"></a>Select the Front Door environment for the request (Anycast)
 
