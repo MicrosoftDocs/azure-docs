@@ -16,9 +16,9 @@ ms.author: v-ydequadros
 
 The Autopilot dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) allows administrators to delete, modify, or update in batch mode. They can also delete unused roles, disable access keys older than 90 days, and so on. Autopilot is a multi-step process with the ability to apply or remove recommendations at a given time. AWS, Azure, and GCP each have one rule regarding where a new rule can be created.
 
-For more information on rules for each authorization system, see [How to create a new rule](cloudknox-product-autopilot.md#how-to-create-a-new-rule).
+For more information on rules for each authorization system, see [Create a new rule](cloudknox-product-autopilot.md#create-a-new-rule).
 
-## How to read the Autopilot dashboard
+## View the Autopilot dashboard
 
 The autopilot dashboard provides a table of information about **Autopilot Rules** for administrators. 
 
@@ -56,7 +56,7 @@ The following information displays in the table:
 
 		 Only the user who created the selected rule can add other users to be notified.
 
-## How to create a new rule
+## Create a new rule
 
 ### Authorization system rules
 
@@ -68,7 +68,7 @@ The Amazon Web Services (AWS), Microsoft Azure (Azure), and Google Cloud Platfor
 
 - **GCP** - **Remove Permissions for Unused Service Accounts** - This rule removes permissions from a service account that has at least one permission granted, or is not a Google-managed service account.
 
-**Create a new rule for AWS, Azure, or GCP**
+**Create a rule for AWS, Azure, or GCP**
 
 1. In the upper right corner of the screen, click **New Rule**.
 
@@ -104,7 +104,7 @@ The Amazon Web Services (AWS), Microsoft Azure (Azure), and Google Cloud Platfor
 
 8. Click **Save**.
 
-## How to view, apply, and unapply (undo) recommendations
+## View, apply, and un-apply recommendations
 
 1. In the **Rule Name** column, click the name of the rule.
 

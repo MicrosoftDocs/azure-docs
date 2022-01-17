@@ -68,12 +68,10 @@
   - name: Usage Analytics
     expanded: true
     items:
-      - name: Filter and query user activity
-        href: cloudknox-product-audit-trail.md
-      - name: Analyze usage for an identity, a task, or an authorization system
-        href: cloudknox-howto-analyze-usage.md
       - name: View usage information with the Usage Analytics dashboard
         href: cloudknox-usage-analytics-home.md
+      - name: Analyze usage for an identity, a task, or an authorization system
+        href: cloudknox-howto-analyze-usage.md
       - name: View usage analytics information about users
         href: cloudknox-usage-analytics-users.md
       - name: View usage analytics information about groups
@@ -119,26 +117,6 @@
       href: cloudknox-ui-reports.md
     - name: The Autopilot dashboard
       href: cloudknox-ui-autopilot.md
-    - name: The User Management dashboard
-      href: cloudknox-ui-user-management.md
-    - name: The Integrations dashboard
-      href: cloudknox-ui-integrations.md
-    - name: The Account Settings dashboard
-      href: cloudknox-ui-account-settings.md
-    - name: The Activity Triggers dashboard
-      href: cloudknox-ui-triggers.md
-    - name: The Tasks pane
-      href: cloudknox-ui-tasks.md
-    - name: The CloudKnox dashboard
-      href: cloudknox-ui-dashboard.md
-    - name: The CloudKnox Account Explorer
-      href: cloudknox-product-account-explorer.md
-    - name: Set personal information and account preferences
-      href: cloudknox-product-account-settings.md
-    - name: Create and save product alerts
-      href: cloudknox-product-alerts.md 
-    - name: Filter and query user activity
-      href: cloudknox-product-audit-trail.md
   - name: Data management
     expanded: true
     items:
@@ -149,8 +127,6 @@
   - name: User management
     expanded: true
     items:
-    - name: View details about identities, resources, and tasks
-      href: cloudknox-usage-analytics-home.md
     - name: Manage permissions with the JEP Controller
       href: cloudknox-product-jep-controller.md
     - name: Filter and query user activity
@@ -185,7 +161,7 @@
     items:
     - name: FAQs
       href: cloudknox-faqs.md
-    - name: Multi-cloud glossary for CloudKnox
+    - name: Glossary
       href: cloudknox-multi-cloud-glossary.md
   #- name: Concepts
     #expanded: true
