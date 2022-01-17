@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/06/2022
+ms.date: 01/15/2022
 
 # As a developer, I want to connect to my single-tenant logic app workflows with virtual networks using private endpoints and VNet integration.
 ---
@@ -117,6 +117,12 @@ For more information, review [Create single-tenant logic app workflows in Azure 
 
 To secure outbound traffic from your logic app, you can integrate your logic app with a virtual network. First, create and test an example workflow. You can then set up VNet integration.
 
+> [!IMPORTANT]
+> You can't change the subnet size after assignment, so use a subnet that's large enough to accommodate 
+> the scale that your app might reach. To avoid any issues with subnet capacity, use a `/26` subnet with 64 addresses. 
+> If you create the subnet for virtual network integration with the Azure portal, you must use `/27` as the minimum subnet size.
+
+
 ### Create and test the workflow
 
 1. If you haven't already, in the [Azure portal](https://portal.azure.com), create a single-tenant based logic app, and a blank workflow.
@@ -150,8 +156,9 @@ To secure outbound traffic from your logic app, you can integrate your logic app
 > [!IMPORTANT]
 > For the Azure Logic Apps runtime to work, you need to have an uninterrupted connection to the backend storage. 
 > For Azure-hosted managed connectors to work, you need to have an uninterrupted connection to the managed API service.
+> With VNet integration, you need to make sure no firewall or network security policy is blocking these connections. 
 
-### Considerations for outbound traffic through private endpoints
+### Considerations for outbound traffic through VNet integration
 
 Setting up virtual network integration affects only outbound traffic. To secure inbound traffic, which continues to use the App Service shared endpoint, review [Set up inbound traffic through private endpoints](#set-up-inbound).
 

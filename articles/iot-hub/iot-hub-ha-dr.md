@@ -40,11 +40,12 @@ IoT Hub supports [Availability Zones](../availability-zones/az-overview.md). An 
 - Canada Central
 - Central US
 - France Central
-- West Us 2
+- Germany West Central
 - Japan East
 - North Europe
 - Southeast Asia
 - UK South
+- West Us 2
 
 ## Cross region DR
 

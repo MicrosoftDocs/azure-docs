@@ -93,4 +93,4 @@ For more information, see:
 - [Customize alert details in Azure Sentinel](customize-alert-details.md)
 - [Manage template versions for your scheduled analytics rules in Azure Sentinel](manage-analytics-rule-templates.md)
 - [Use the health monitoring workbook](monitor-data-connector-health.md)
-- [Log data ingestion time in Azure Monitor](/azure/azure-monitor/logs/data-ingestion-time)
+- [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md)
