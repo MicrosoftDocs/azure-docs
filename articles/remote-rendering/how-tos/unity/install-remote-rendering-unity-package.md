@@ -23,7 +23,7 @@ To add the package to a project you need to:
 1. [Download the Mixed Reality Feature Tool](https://aka.ms/mrfeaturetool)
 1. Follow the [full instructions](/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool) on how to use the tool.
 1. On the **Discover Features** page tick the box for the **Microsoft Azure Remote Rendering** package under **Azure Mixed Reality Services** and select the version of the package you wish to add to your project
-1. If you want to use OpenXR also add the **Mixed Reality OpenXR Plugin** package under **Azure Mixed Reality Services** in the same way.
+1. If you want to use OpenXR, also add the **Mixed Reality OpenXR Plugin** package under **Azure Mixed Reality Services** in the same way.
 
 ![Mixed_Reality_feature_tool_package](media/mixed-reality-feature-tool-package.png)
 
@@ -40,7 +40,7 @@ To install the Remote Rendering package manually, you need to:
       npm pack com.microsoft.azure.remote-rendering --registry https://pkgs.dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging/Unity-packages/npm/registry
       ```
 
-      If you want to use OpenXR run the following command to download the platform support package to the current folder.
+      If you want to use OpenXR, run the following command to download the platform support package to the current folder.
 
       ```cmd
       npm pack com.microsoft.mixedreality.openxr --registry https://pkgs.dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging/Unity-packages/npm/registry
@@ -61,7 +61,7 @@ To install the Remote Rendering package manually, you need to:
           }
           ```
 
-          If you want to use OpenXR you also need the platform support package. Edit the contents of `Scripts/unity_sample_dependencies.json` to
+          If you want to use OpenXR, you also need the platform support package. Edit the contents of `Scripts/unity_sample_dependencies.json` to
 
           ```json
           {
