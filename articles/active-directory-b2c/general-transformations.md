@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 01/14/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article provides examples for using general claims transformations of the Identity Experience Framework schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [ClaimsTransformations](claimstransformations.md).
+This article provides examples for using general claims transformations of the Identity Experience Framework schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [claims transformations](claimstransformations.md).
 
 ## CopyClaim
 
@@ -26,8 +26,8 @@ Copy value of a claim to another. Both claims must be from the same type.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | string, int | The claim type which is to be copied. |
-| OutputClaim | outputClaim | string, int | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
+| InputClaim | inputClaim | string, int | The claim type, which is to be copied. |
+| OutputClaim | outputClaim | string, int | The claim that is produced after this claims transformation has been invoked. |
 
 Use this claims transformation to copy a value from a string or numeric claim, to another claim. The following example copies the externalEmail claim value to email claim.
 
@@ -42,7 +42,7 @@ Use this claims transformation to copy a value from a string or numeric claim, t
 </ClaimsTransformation>
 ```
 
-### Example
+### CopyClaim example
 
 - Input claims:
     - **inputClaim**: bob@contoso.com
@@ -56,7 +56,7 @@ Checks if the **inputClaim** exists or not and sets **outputClaim** to true or f
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |Any | The input claim whose existence needs to be verified. |
-| OutputClaim | outputClaim | boolean | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
+| OutputClaim | outputClaim | boolean | The claim that is produced after this claims transformation has been invoked. |
 
 Use this claims transformation to check if a claim exists or contains any value. The return value is a boolean that indicates whether the claim exists. Following example checks if the email address exists.
 
@@ -71,7 +71,7 @@ Use this claims transformation to check if a claim exists or contains any value.
 </ClaimsTransformation>
 ```
 
-### Example
+### DoesClaimExist example
 
 - Input claims:
   - **inputClaim**: someone@contoso.com
@@ -87,7 +87,7 @@ Hash the provided plain text using the salt and a secret. The hashing algorithm 
 | InputClaim | plaintext | string | The input claim to be encrypted |
 | InputClaim | salt | string | The salt parameter. You can create a random value, using `CreateRandomString` claims transformation. |
 | InputParameter | randomizerSecret | string | Points to an existing Azure AD B2C **policy key**. To create a new policy key: In your Azure AD B2C tenant, under **Manage**, select **Identity Experience Framework**. Select **Policy keys** to view the keys that are available in your tenant. Select **Add**. For **Options**, select **Manual**. Provide a name (the prefix *B2C_1A_* might be added automatically.). In the **Secret** text box, enter any secret you want to use, such as 1234567890. For **Key usage**, select **Signature**. Select **Create**. |
-| OutputClaim | hash | string | The ClaimType that is produced after this claims transformation has been invoked. The claim configured in the `plaintext` inputClaim. |
+| OutputClaim | hash | string | The claim that is produced after this claims transformation has been invoked. The claim configured in the `plaintext` inputClaim. |
 
 ```xml
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">
@@ -104,7 +104,7 @@ Hash the provided plain text using the salt and a secret. The hashing algorithm 
 </ClaimsTransformation>
 ```
 
-### Example
+### Hash example
 
 - Input claims:
   - **plaintext**: MyPass@word1
@@ -112,3 +112,7 @@ Hash the provided plain text using the salt and a secret. The hashing algorithm 
   - **randomizerSecret**: B2C_1A_AccountTransformSecret
 - Output claims:
   - **outputClaim**: CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U=
+
+## Next steps
+
+- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation) on the Azure AD B2C community GitHub repo
