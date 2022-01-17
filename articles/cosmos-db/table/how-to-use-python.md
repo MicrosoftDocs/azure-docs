@@ -77,7 +77,7 @@ table_service = TableServiceClient(endpoint="https://<myaccount>.table.core.wind
 
 ## Connect to Azure Cosmos DB
 
-To connect to Azure Cosmos DB, copy your primary connection string from the Azure portal, and create a `TableServiceClient` object using your copied connection string:
+To connect to Azure Cosmos DB, copy your primary connection string from the Azure portal, and create a `TableService` object using your copied connection string:
 
 ```python
 from azure.cosmosdb.table import TableService
@@ -94,9 +94,9 @@ table_service.create_table('tasktable')
 
 ## Add an entity to a table
 
-Create a table in your account and get a `TableClient` to perform operations on the newly created table. To add an entity, you first create an object that represents your entity, then pass the object to the `TableClient.create_entity method`. The entity object can be a dictionary or an object of type `TableEntity`, and defines your entity's property names and values. Every entity must include the required [PartitionKey and RowKey](#partitionkey-and-rowkey) properties, in addition to any other properties you define for the entity.
+Create a table in your account and get a `TableClient` to perform operations on the newly created table. To add an entity, you first create an object that represents your entity, then pass the object to the `TableClient.create_entity` method. The entity object can be a dictionary or an object of type `TableEntity`, and defines your entity's property names and values. Every entity must include the required [PartitionKey and RowKey](#partitionkey-and-rowkey) properties, in addition to any other properties you define for the entity.
 
-This example creates a dictionary object representing an entity, then passes it to the `insert_entity` method to add it to the table:
+This example creates a dictionary object representing an entity, then passes it to the `create_entity` method to add it to the table:
 
 ```python
 table_client = table_service.get_table_client(table_name="tasktable")
@@ -195,7 +195,8 @@ The query in the following code returns only the descriptions of entities in the
 > The following snippet works only against the Azure Storage. It is not supported by the Storage Emulator.
 
 ```python
-tasks = table_client.query_entities(query_filter="PartitionKey eq 'tasksSeattle'", select='description')
+tasks = table_client.query_entities(
+    query_filter="PartitionKey eq 'tasksSeattle'", select='description')
 for task in tasks:
     print(task['description'])
 ```
