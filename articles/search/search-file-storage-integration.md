@@ -48,7 +48,7 @@ A primary difference between a file share indexer and other indexers is the data
     }
     ```
 
-1. Set "type" to "azurefile" (required).
+1. Set "type" to `"azurefile"` (required).
 
 1. Set "credentials" to an Azure Storage connection string. The next section describes the supported formats.
 
@@ -118,7 +118,7 @@ In the [search index](search-what-is-an-index.md), add fields to accept the cont
     + **metadata_storage_last_modified** (`Edm.DateTimeOffset`) - last modified timestamp for the file. Azure Cognitive Search uses this timestamp to identify changed files, to avoid reindexing everything after the initial indexing.
     + **metadata_storage_size** (`Edm.Int64`) - file size in bytes.
     + **metadata_storage_content_md5** (`Edm.String`) - MD5 hash of the file content, if available.
-    + **metadata_storage_sas_token** (`Edm.String`) - A temporary SAS token that can be used by [custom skills](cognitive-search-custom-skill-interface.md) to get access to the file. This token shouldn't stored for later use as it might expire.
+    + **metadata_storage_sas_token** (`Edm.String`) - A temporary SAS token that can be used by [custom skills](cognitive-search-custom-skill-interface.md) to get access to the file. This token shouldn't be stored for later use as it might expire.
 
 ## Configure the file indexer
 
