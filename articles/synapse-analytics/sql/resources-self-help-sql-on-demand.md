@@ -648,7 +648,7 @@ The error *Column `column name` of the type `type name` isn't compatible with th
 
 If you are getting the error: `Resolving Cosmos DB path has failed with error 'This request is not authorized to perform this operation.'`, check do you use private endpoints in Cosmos DB. To allow SQL serverless to access an analytical store with private endpoint, you need to [configure private endpoints for Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools).
 
-### CosmosDB performance issues
+### Cosmos DB performance issues
 
 If you are experiencing some unexpected performance issues, make sure that you applied the best practices, such as:
 - Make sure that you have placed the client application, serverless pool, and Cosmos DB analytical storage in [the same region](best-practices-serverless-sql-pool.md#colocate-your-azure-cosmos-db-analytical-storage-and-serverless-sql-pool).
@@ -752,7 +752,7 @@ Make sure that a user has permissions to access databases, [permissions to execu
 
 You must use read-only Cosmos DB key to access your analytical storage, so make sure that it did not expire or that it is not re-generated.
 
-If you are getting the [Resolving Cosmos DB path has failed](#resolving-cosmosdb-path-has-failed) error, make sure that you configured firewall.
+If you are getting the [Resolving Cosmos DB path has failed](#resolving-cosmos-db-path-has-failed) error, make sure that you configured firewall.
 
 ### Cannot access Lakehouse/Spark database
 
