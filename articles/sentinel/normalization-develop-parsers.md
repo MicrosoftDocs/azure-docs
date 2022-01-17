@@ -258,7 +258,6 @@ Handle the results as follows:
 > Errors will prevent content using the parser from working correctly. Warnings will not prevent content from working, but may reduce the quality of the results.
 >
 
-
 ### Validate the output values
 
 To make sure that your parser produces valid values, use the ASIM data tester by running the following query in the Microsoft Sentinel **Logs** page:
