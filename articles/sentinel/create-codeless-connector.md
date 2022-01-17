@@ -613,7 +613,7 @@ After creating your [JSON configuration file](#connector-json-configuration-synt
 
 1. In Microsoft Sentinel, go to the **Logs** page and verify that you see the logs from your data source flowing in to your workspace.
 
-If you don't see data flowing into Microsoft Sentinel, check your data source documentation and troubleshooting resources, check the configuration details, and check the connectivity.
+If you don't see data flowing into Microsoft Sentinel, check your data source documentation and troubleshooting resources, check the configuration details, and check the connectivity. For more information, see [Monitor the health of your data connectors](monitor-data-connector-health.md).
 
 ### Disconnect your connector
 
