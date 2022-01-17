@@ -1,5 +1,5 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Glossary
+title: Microsoft CloudKnox Permissions Management - The CloudKnox Glossary
 description:  Microsoft CloudKnox Permissions Management glossary
 services: active-directory
 author: Yvonne-deQ
@@ -12,7 +12,7 @@ ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Glossary 
+# The CloudKnox Glossary 
 
 This glossary provides a list of some of the commonly used multi-cloud terms at Microsoft CloudKnox Permissions Management. It's intended to help users navigate through cloud-specific terms such as Microsoft Azure roles, Amazon Web Services identities, and cloud-generic terms like cloud permissions management.
 
