@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management product compliance
-description: How to read Microsoft CloudKnox Permissions Management's Compliance dashboard.
+title: Microsoft CloudKnox Permissions Management - View product compliance guidelines
+description: How to view product compliance guidelines in the Microsoft CloudKnox Permissions Management Compliance dashboard.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/13/2021
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management product compliance
+# View product compliance guidelines
 
 Compliance is the state of following various established guidelines or specifications.
 CloudKnox currently supports the Center for Internet Security (CIS) Benchmarks standard, Amazon Web Services (AWS) Well-Architected Framework, Next Generation Security and Privacy (NIST) 800-53, and Payment Card Industry / Data Security Standards (PCI DSS) benchmark frameworks.

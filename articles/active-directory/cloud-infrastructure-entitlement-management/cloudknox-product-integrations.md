@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - View integrated authorization systems
-description: View integrated authorization systems in Microsoft CloudKnox Permissions Management.
+title: Microsoft CloudKnox Permissions Management - View integration information about an authorization system
+description: View integration information about an authorization system in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - View integrated authorization systems 
+# View integration information about an authorization system 
 
 The **Integrations** dashboard in the Microsoft CloudKnox Permissions Management application allows you to view all your authorization systems in one place, and to ensure all applications are functioning as one. This information helps improve quality and performance as a whole.
 

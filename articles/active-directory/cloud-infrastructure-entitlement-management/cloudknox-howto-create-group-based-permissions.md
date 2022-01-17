@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - Create group-based permissions
+# Create group-based permissions
 
 This topic describes how you can create group-based permissions in Microsoft CloudKnox Permissions Management.
 

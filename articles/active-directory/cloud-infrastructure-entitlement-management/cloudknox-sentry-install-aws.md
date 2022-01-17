@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/13/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
@@ -392,21 +392,35 @@ Follow the instructions below to configure the Sentry in CloudKnox dashboard.
 
 2. Select an option to update each configuration.
 
-      1 - Add/Update member accounts</p>
-      2 - Add/Update master account</p>
-      3 - Add/Update CloudTrail accounts</p>
-      4 - Remove master accounts</p>
-      5 - Delete member accounts</p>
-      6 - Delete CloudTrail accounts</p>
-      7 - Add/Update Okta IdP</p>
-      8 - Add/Update AD IdP</p>
-      9 - Delete IdP</p>
-      10 - Add IdP to member accounts</p>
-      11 - Remove IdP from member accounts</p>
-      12 - Delete configuration</p>
-      13 - Display configuration</p>
+      1 - Add/Update member accounts
+
+      2 - Add/Update master account
+
+      3 - Add/Update CloudTrail accounts
+
+      4 - Remove master accounts
+
+      5 - Delete member accounts
+
+      6 - Delete CloudTrail accounts
+
+      7 - Add/Update Okta IdP
+
+      8 - Add/Update AD IdP
+
+      9 - Delete IdP
+
+      10 - Add IdP to member accounts
+
+      11 - Remove IdP from member accounts
+
+      12 - Delete configuration
+
+      13 - Display configuration
+
       Q - Quit Configuration
 
+<!---Lines 395-408 (2nd note): Confirm that the arabic numerals (for the options), "AD", and "IdP" all directly mirror the UI. If "AD" does NOT directly mirror the UI, correct it to "Azure AD".--->
 
 ### Post installation
 

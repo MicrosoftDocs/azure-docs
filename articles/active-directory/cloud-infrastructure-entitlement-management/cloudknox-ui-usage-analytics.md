@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/10/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - The Usage Analytics dashboard
+# The Usage Analytics dashboard
 
 The Microsoft CloudKnox Permissions Management **Usage Analytics** dashboard provides an overview of CloudKnox users and how they access their authorization systems and accounts. 
 

@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/10/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management Sentry - Configure and monitor Google Cloud Platform (GCP) projects
+# Configure and monitor Google Cloud Platform (GCP) projects
 
 After you've deployed the Microsoft CloudKnox Permissions Management Sentry, you can add other Google Cloud Platform (GCP) projects and monitor them.
 

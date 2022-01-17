@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management product data sources
-description: How to use Microsoft CloudKnox Permissions Management's Data Sources page to collect Authorization System data.
+title: Microsoft CloudKnox Permissions Management - Collect authorization system data
+description: How to collect authorization system data in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2021
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management product data sources
+# Collect authorization system data
 
 Microsoft CloudKnox Permissions Management's **Data Sources** page collects data associated with each authorization system and associated accounts. It also provides specific information related to data types, including entitlements and benchmarks.
 

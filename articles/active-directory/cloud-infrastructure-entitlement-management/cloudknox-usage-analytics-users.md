@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - View usage analytics about users
+# View usage analytics about users
 
 The CloudKnox **Usage Analytics** feature contains details about identities, resources, and tasks that you can use make informed decisions about granting privileges, and reducing risk on unused privileges.
 
@@ -247,7 +247,7 @@ There are many filter options on the **Users** screen, including filters by **Au
     1. Click **Add Tag**. 
     1. Select the **Authorization System Type**. 
 
-       The **Authorization System Type** drop-down list won't have multiple options if the current user is part of only one authorization system.
+       The **Authorization System Type** drop-down list won't have multiple options if the current user is only part of one authorization system.
 
     1. Click in the **Tag** box. 
 

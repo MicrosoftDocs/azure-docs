@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/29/2021
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management -  Analyze usage for an identity, a task, or an authorization system
+# Analyze usage for an identity, a task, or an authorization system
 
 This topic describes how you can use the Usage Analytics dashboard to analyze usage for an authorization system, a task, or an identity type (user).
 

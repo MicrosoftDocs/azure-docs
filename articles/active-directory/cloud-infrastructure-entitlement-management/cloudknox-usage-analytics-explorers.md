@@ -12,7 +12,7 @@ ms.date: 01/11/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - The Usage Analytics explorers
+# The Usage Analytics explorers
 
 The CloudKnox **Usage Analytics** feature contains details about identities, resources, and tasks that you can use make informed decisions about granting privileges, and reducing risk on unused privileges.
 

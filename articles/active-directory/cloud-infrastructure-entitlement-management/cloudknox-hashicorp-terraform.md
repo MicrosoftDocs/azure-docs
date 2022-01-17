@@ -1,5 +1,5 @@
 ---
-title: Microsoft CloudKnox Permissions Management integration with HashiCorp Terraform
+title: Microsoft CloudKnox Permissions Management - Integration with HashiCorp Terraform
 description: How to configure the HashiCorp Terraform integration with Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/09/2021
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
 
-# Microsoft CloudKnox Permissions Management integration with HashiCorp Terraform
+# Integration with HashiCorp Terraform
 
 This topic describes how to configure the HashiCorp Terraform integration with Microsoft CloudKnox Permissions Management.
 

@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management FAQs (For internal users and existing CloudKnox users)
-description: Frequently asked questions about Microsoft CloudKnox Permissions Management
+title: Microsoft CloudKnox Permissions Management - Frequently asked questions (FAQs) 
+description: Frequently asked questions (FAQs) about Microsoft CloudKnox Permissions Management
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: faq
-ms.date: 12/22/2021
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management FAQs (For internal users and existing CloudKnox users only)
+# Frequently asked questions (FAQs)
 
 This section answers frequently asked questions (FAQs) from internal and existing Microsoft CloudKnox Permissions Management users only.
 

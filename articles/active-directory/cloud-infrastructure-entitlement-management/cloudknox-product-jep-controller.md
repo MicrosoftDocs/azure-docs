@@ -1,6 +1,6 @@
 ---
 title: Microsoft CloudKnox Permissions Management - Manage permissions with the Just Enough Privilege (JEP) Controller
-description: How to use the Microsoft CloudKnox Permissions Management Roles/Policies tab to manage permissions.
+description: How to manage permissions with the Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/12/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - Manage permissions with the Just Enough Privilege (JEP) Controller
+# Manage permissions with the Just Enough Privilege (JEP) Controller
 
 The Just Enough Privilege (JEP) Controller at Microsoft CloudKnox Permissions Management (CloudKnox) allows users to request privileges on-demand (POD). The JEP Controller also allows system administrators to adjust permissions and remediate excessive permissions based on activity data from Usage Analytics. 
 

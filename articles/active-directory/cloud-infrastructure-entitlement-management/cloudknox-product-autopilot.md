@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Autopilot
-description: How to use Microsoft CloudKnox Permissions Management's Autopilot function to delete, modify, or update rules in batch mode.
+title: Microsoft CloudKnox Permissions Management - Manage users with the Autopilot dashboard
+description: How to manage users with the Autopilot dashboard in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2021
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - Autopilot
+# Manage users with the Autopilot dashboard
 
-Microsoft CloudKnox Permissions Management's Autopilot function allows administrators to delete, modify, or update in batch mode. They can also delete unused roles, disable access keys older than 90 days, and so on. Autopilot is a multi-step process with the ability to apply or remove recommendations at a given time. AWS, Azure, and GCP each have one rule regarding where a new rule can be created.
+Microsoft CloudKnox Permissions Management's Autopilot dashboard allows administrators to delete, modify, or update in batch mode. They can also delete unused roles, disable access keys older than 90 days, and so on. Autopilot is a multi-step process with the ability to apply or remove recommendations at a given time. AWS, Azure, and GCP each have one rule regarding where a new rule can be created.
 
 For more information on rules for each authorization system, see [How to create a new rule](cloudknox-product-autopilot.md#how-to-create-a-new-rule).
 

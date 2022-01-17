@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management audit trail
-description: How to use the Microsoft CloudKnox Permissions Management audit trail to view activities performed in the cloud.
+title: Microsoft CloudKnox Permissions Management - Filter and query user activity 
+description: How to use the Microsoft CloudKnox Permissions Management audit trail to filter and query user activity.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management audit trail
+# Filter and query user activity
 
 Microsoft CloudKnox Permissions Management's audit trail details all user activity performed in the Cloud. It captures all high risk activity in a centralized location, and allows system administrators to query the logs. 
 The audit trail screen provides: 

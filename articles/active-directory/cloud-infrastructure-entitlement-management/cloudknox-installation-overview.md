@@ -7,11 +7,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/13/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - Installation overview
+# Installation overview
 
 Microsoft CloudKnox Permissions Management (CloudKnox) is a multi-cloud, hybrid cloud permissions management platform that provides granular visibility, automated remediation, and continuous monitoring consistently, enforcing least-privilege principles to reduce risk. CloudKnox:
 

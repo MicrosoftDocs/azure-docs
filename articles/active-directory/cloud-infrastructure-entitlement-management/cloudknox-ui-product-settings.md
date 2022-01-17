@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/14/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - The CloudKnox Settings dashboard
+# The CloudKnox Settings dashboard
 
 This topic describes how to use the Microsoft CloudKnox Permissions Management (CloudKnox) **Settings** dashboard to view and modify product settings.
 

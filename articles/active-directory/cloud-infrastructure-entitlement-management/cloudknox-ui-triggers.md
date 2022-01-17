@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/14/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - The Activity Triggers dashboard
+# The Activity Triggers dashboard
 
 This topic describes how to use the Microsoft CloudKnox Permissions Management (CloudKnox) **Activity Triggers** dashboard to view information about activity alerts and triggers.
 

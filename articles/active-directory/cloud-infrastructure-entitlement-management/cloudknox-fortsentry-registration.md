@@ -7,11 +7,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/10/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - Sign up and deploy FortSentry in your organization
+# Sign up and deploy FortSentry in your organization
 
 This article guides you through the process of signing up with Microsoft CloudKnox Permissions Management FortSentry and deploying Fort Sentry in your organization.
 

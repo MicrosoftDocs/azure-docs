@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
 
-# Microsoft CloudKnox Permissions Management Sentry - Configure and monitor Amazon Web Services (AWS) accounts
+# Configure and monitor Amazon Web Services (AWS) accounts
 
 After you've deployed the Microsoft CloudKnox Permissions Management Sentry, you can add other Amazon Web Services (AWS) accounts and monitor them.
 

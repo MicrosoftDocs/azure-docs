@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/13/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Enable Microsoft CloudKnox Permissions Management on your Azure Active Directory (Azure AD) tenant
+# Enable CloudKnox on your Azure Active Directory tenant
 
 This topic describes how to enable Microsoft CloudKnox Permissions Management (CloudKnox) on your Azure Active Directory (Azure AD) tenant.
 
@@ -38,7 +38,7 @@ This topic describes how to enable Microsoft CloudKnox Permissions Management (C
 
 ## Onboard your authorization system on CloudKnox
 
-After enabling CloudKnox on your Azure AD tenant this task, the next step is to onboard your authorization system on CloudKnox. 
+After you've enabled CloudKnox on your Azure AD tenant, your next task is to onboard your authorization system on CloudKnox. 
 
 Open one of the following topics and follow the instructions provided to onboard your authorization system.
 

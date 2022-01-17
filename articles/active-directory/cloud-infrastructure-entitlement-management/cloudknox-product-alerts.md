@@ -1,5 +1,5 @@
 ---
-title: Microsoft CloudKnox Permissions Management product alerts
+title: Microsoft CloudKnox Permissions Management - Create and save product alerts
 description: How to set up alerts through the Microsoft CloudKnox Permissions Management application.
 services: active-directory
 author: Yvonne-deQ
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management product alerts
+# Create and save product alerts
 
 You can set up alerts through Microsoft CloudKnox Permissions Management. CloudKnox will notify you about specific activities being performed or that occur on various authorization systems and associated accounts.
 

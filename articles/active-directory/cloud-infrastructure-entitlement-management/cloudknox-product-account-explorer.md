@@ -1,16 +1,16 @@
 ---
-title: The Microsoft CloudKnox Permissions Management Account Explorer
+title: The Microsoft CloudKnox Permissions Management - The Account Explorer
 description: How to use the Microsoft CloudKnox Permissions Management Account Explorer to view identities.
 services: active-directory
 manager: karenh444
 ms.service: active-directory
-ms.topic: overview
+ms.topic: how-to
 author: Yvonne-deQ
-ms.date: 12/03/2021
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# The Microsoft CloudKnox Permissions Management Account Explorer
+# The Account Explorer
 
 The CloudKnox Permissions Management's **Account Explorer** displays a list of the identities that can access the selected account from an external account. This includes users, roles, EC2 instances and Lambda Functions.
 

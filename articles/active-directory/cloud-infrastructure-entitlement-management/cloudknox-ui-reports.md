@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management Reports dashboard
-description: How to use the Microsoft CloudKnox Permissions Management Reports dashboard.
+title: Microsoft CloudKnox Permissions Management - The Reports dashboard
+description: How to use the Reports dashboard in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,12 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/03/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management Reports dashboard
-
+# The Reports dashboard
 
 The Microsoft CloudKnox Permissions Management **Reports** dashboard provides an overview of CloudKnox system and custom reports.
 
