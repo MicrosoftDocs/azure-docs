@@ -9,22 +9,20 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/14/2022
+ms.date: 01/17/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
 # General claims transformations
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
-This article provides examples for using general claims transformations of the Identity Experience Framework schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [claims transformations](claimstransformations.md).
+This article provides examples for using general claims transformations of the Azure Active Directory B2C (Azure AD B2C) custom policy. For more information, see [claims transformations](claimstransformations.md).
 
 ## CopyClaim
 
 Copy value of a claim to another. Both claims must be from the same type.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string, int | The claim type, which is to be copied. |
 | OutputClaim | outputClaim | string, int | The claim that is produced after this claims transformation has been invoked. |
@@ -42,21 +40,23 @@ Use this claims transformation to copy a value from a string or numeric claim, t
 </ClaimsTransformation>
 ```
 
-### CopyClaim example
+### Example of CopyClaim
 
 - Input claims:
-    - **inputClaim**: bob@contoso.com
+  - **inputClaim**: bob@contoso.com
 - Output claims:
-    - **outputClaim**: bob@contoso.com
+  - **outputClaim**: bob@contoso.com
 
 ## DoesClaimExist
 
-Checks if the **inputClaim** exists or not and sets **outputClaim** to true or false accordingly.
+Checks if the input claim exists, and sets output claim to `true` or `false` accordingly.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |Any | The input claim whose existence needs to be verified. |
 | OutputClaim | outputClaim | boolean | The claim that is produced after this claims transformation has been invoked. |
+
+### Example of DoesClaimExist
 
 Use this claims transformation to check if a claim exists or contains any value. The return value is a boolean that indicates whether the claim exists. Following example checks if the email address exists.
 
@@ -71,8 +71,6 @@ Use this claims transformation to check if a claim exists or contains any value.
 </ClaimsTransformation>
 ```
 
-### DoesClaimExist example
-
 - Input claims:
   - **inputClaim**: someone@contoso.com
 - Output claims:
@@ -82,32 +80,34 @@ Use this claims transformation to check if a claim exists or contains any value.
 
 Hash the provided plain text using the salt and a secret. The hashing algorithm used is SHA-256.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | plaintext | string | The input claim to be encrypted |
 | InputClaim | salt | string | The salt parameter. You can create a random value, using `CreateRandomString` claims transformation. |
 | InputParameter | randomizerSecret | string | Points to an existing Azure AD B2C **policy key**. To create a new policy key: In your Azure AD B2C tenant, under **Manage**, select **Identity Experience Framework**. Select **Policy keys** to view the keys that are available in your tenant. Select **Add**. For **Options**, select **Manual**. Provide a name (the prefix *B2C_1A_* might be added automatically.). In the **Secret** text box, enter any secret you want to use, such as 1234567890. For **Key usage**, select **Signature**. Select **Create**. |
 | OutputClaim | hash | string | The claim that is produced after this claims transformation has been invoked. The claim configured in the `plaintext` inputClaim. |
 
+### Example of Hash 
+
+The following example demonstrates how to hash an email address. The claims transformation adds the salt to the email address before hashing the value. To call this claims transformation, set a value to the `mySalt` claim.
+
 ```xml
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="password" TransformationClaimType="plaintext" />
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="salt" />
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="plaintext" />
+    <InputClaim ClaimTypeReferenceId="mySalt" TransformationClaimType="salt" />
   </InputClaims>
   <InputParameters>
     <InputParameter Id="randomizerSecret" DataType="string" Value="B2C_1A_AccountTransformSecret" />
   </InputParameters>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="hashedPassword" TransformationClaimType="hash" />
+    <OutputClaim ClaimTypeReferenceId="hashedEmail" TransformationClaimType="hash" />
   </OutputClaims>
 </ClaimsTransformation>
 ```
 
-### Hash example
-
 - Input claims:
-  - **plaintext**: MyPass@word1
+  - **plaintext**: someone@contoso.com
   - **salt**: 487624568
   - **randomizerSecret**: B2C_1A_AccountTransformSecret
 - Output claims:
