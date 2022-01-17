@@ -14,7 +14,7 @@ ms.date: 01/05/2022
 
 The Codeless Connector Platform (CCP) provides partners, advanced users, and developers with the ability to create custom connectors, connect them, and ingest data to Microsoft Sentinel. Connectors created via the CCP can be deployed via API, an ARM template, or as a solution in the the Microsoft Sentinel [content hub](sentinel-solutions.md).
 
-Connectors created using CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Microsoft Sentinel.
+Connectors created using CCP are fully SaaS, without any requirements for service installations, and also include [health monitor](monitor-data-connector-health.md)ing and full support from Microsoft Sentinel.
 
 Create your data connector by defining the JSON configuration file, with settings for how the data connector page in Microsoft Sentinel looks and works and polling settings that define how the connection works between Microsoft Sentinel and your data source.
 

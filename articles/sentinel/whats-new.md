@@ -29,9 +29,20 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## January 2021
 
+- [Codeless data connectors (Public preview)](#codeless-data-connectors-public-preview)
 - [SentinelHealth data table (Public preview)](#sentinelhealth-data-table-public-preview)
 - [More workspaces supported for Multiple Workspace View](#more-workspaces-supported-for-multiple-workspace-view)
 - [Kusto Query Language workbook and tutorial](#kusto-query-language-workbook-and-tutorial)
+
+### Codeless data connectors (Public preview)
+
+Microsoft Sentinel now supports a new method for partners, advanced users, and developers to create custom connectors, connect them, and ingest data to Microsoft Sentinel.
+
+CCP provides support either via an ARM template, an API, or as a solution in the the Microsoft Sentinel [content hub](sentinel-solutions.md).
+
+Connectors created using CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Microsoft Sentinel.
+
+For more information, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
 
 ### SentinelHealth data table (Public preview)
 
@@ -68,20 +79,10 @@ Accompanying the new workbook is an explanatory [blog post](https://techcommunit
 
 ## December 2021
 
-- [Codeless data connectors (Public preview)](#codeless-data-connectors-public-preview)
 - [IoT OT Threat Monitoring with Defender for IoT solution](#iot-ot-threat-monitoring-with-defender-for-iot-solution-public-preview)
 - [Ingest GitHub logs into your Microsoft Sentinel workspace](#ingest-github-logs-into-your-microsoft-sentinel-workspace-public-preview)
 - [Apache Log4j Vulnerability Detection solution](#apache-log4j-vulnerability-detection-solution-public-preview)
 
-### Codeless data connectors (Public preview)
-
-Microsoft Sentinel now supports a new method for partners, advanced users, and developers to create custom connectors, connect them, and ingest data to Microsoft Sentinel.
-
-CCP provides support either via an ARM template, an API, or as a solution in the the Microsoft Sentinel [content hub](sentinel-solutions.md).
-
-Connectors created using CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Microsoft Sentinel.
-
-For more information, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
 
 ### Apache Log4j Vulnerability Detection solution
 
