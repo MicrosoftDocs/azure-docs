@@ -2,7 +2,7 @@
 title: Deploy a private mobile network through Azure Private 5G Core - Azure portal
 description: How-to guide showing how to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal 
 author: djrmetaswitch
-ms.author: dirchards
+ms.author: drichards
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 01/03/2021
@@ -40,11 +40,17 @@ In this step, you will create the Mobile Network resource representing your priv
 
 1. Sign in to the Azure portal at [https://aka.ms/PMNSPortal](https://aka.ms/PMNSPortal).
 1. In the Search bar, type *mobile networks* and then select the **Mobile Networks** service from the results that appear.
-:::image type="content" source="media\mobile-networks-search.png" alt-text="Screenshot of the Azure portal showing a search for the Mobile Networks service.":::
+
+    :::image type="content" source="media\mobile-networks-search.png" alt-text="Screenshot of the Azure portal showing a search for the Mobile Networks service.":::
+
 1. On the Mobile Networks page, click **Create**.
-:::image type="content" source="media\create-button-mobile-networks.png" alt-text="Screenshot of the Azure portal showing the Create button on the Mobile Networks page.":::
+
+    :::image type="content" source="media\create-button-mobile-networks.png" alt-text="Screenshot of the Azure portal showing the Create button on the Mobile Networks page.":::
+
 1. Use the information you collected in [Collect private mobile network resource configuration values](collect-required-information-for-private-mobile-network.md#collect-private-mobile-network-resource-configuration-values) to fill out the fields on the **Basics** configuration tab. Once you have done this, click **Next : SIMs >**.
-:::image type="content" source="media\how-to-guide-deploy-a-private-mobile-network-azure-portal\create-private-mobile-network-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab.":::
+
+    :::image type="content" source="media\how-to-guide-deploy-a-private-mobile-network-azure-portal\create-private-mobile-network-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab.":::
+
 1. On the SIMs configuration tab, select your chosen input method by clicking the appropriate radio button next to **How would you like to input the SIMs information?**. You can then input the information you collected in [Collect SIM resource values](collect-required-information-for-private-mobile-network.md#collect-sim-resource-configuration-values).
 
     :::image type="content" source="media\how-to-guide-deploy-a-private-mobile-network-azure-portal\create-private-mobile-network-sims-tab.png" alt-text="Screenshot of the Azure portal showing the SIMs configuration tab.":::
@@ -55,7 +61,7 @@ In this step, you will create the Mobile Network resource representing your priv
 1. Once you have selected the appropriate radio button and provided information for any SIMs you want to provision, click **Review + create**.
 1. Azure will now validate the configuration values you have entered. You should see a message indicating that your values have passed validation, as shown below.
 
-    :::image type="content" source="media\how-to-guide-deploy-a-private-mobile-network-azure-portal\create-private-mobile-network-review-create-tab.png" alt-text="Screenshot of the Azure portal showing the SIMs configuration tab.":::
+    :::image type="content" source="media\how-to-guide-deploy-a-private-mobile-network-azure-portal\create-private-mobile-network-review-create-tab.png" alt-text="Screenshot of the Azure portal showing validated configuration for a private mobile network.":::
 
 If the validation fails, you will see an error message and the configuration tab(s) containing the invalid configuration will be flagged with red dots. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 1. Once the configuration has been validated, click **Create** to create the private mobile network resource and any SIM resources.

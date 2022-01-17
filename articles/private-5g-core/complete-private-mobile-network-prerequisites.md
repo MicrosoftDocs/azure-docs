@@ -36,4 +36,4 @@ You must do the following before you can deploy a private mobile network. Detail
 You can either try deploying an example private mobile network, or you can jump straight in to collecting the information you'll need to deploy your own private mobile network.
 
 - [Quickstart: Deploy an example private mobile network](quickstart-deploy-a-private-mobile-network-azure-portal.md)
-- [Collect the required information to deploy your own private mobile network](collect-required-information-for-private-mobile-network)
+- [Collect the required information to deploy your own private mobile network](collect-required-information-for-private-mobile-network.md)

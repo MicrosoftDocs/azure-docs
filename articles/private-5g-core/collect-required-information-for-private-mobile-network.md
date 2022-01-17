@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Collect the required information to deploy a private mobile network - Azure portal
 
-This how-to guide takes you through the process of collecting the information you'll need to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal. You'll use this information to complete the steps in [Deploy a private mobile network - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal).
+This how-to guide takes you through the process of collecting the information you'll need to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal. You'll use this information to complete the steps in [Deploy a private mobile network - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md).
 
 ## Prerequisites
 
@@ -23,24 +23,18 @@ Collect all of the following values for the resource that will represent your pr
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
-   |The Azure subscription to use to deploy the private mobile network resource. You must use the same subscription for all resources in your private mobile network deployment.                  |**Project details: Subscription**
+   |The Azure subscription to use to deploy the private mobile network resource. You must use the same subscription for all resources in your private mobile network deployment. This is the subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).                 |**Project details: Subscription**
    |The Azure resource group to use to deploy the private mobile network resource. We recommend that you use a new resource group for this resource, and that you include the purpose of this resource group in its name for future identification (for example, *contoso-pmn-rg*).                |**Project details: Resource group**|
    |The name for the private mobile network.           |**Instance details: Mobile network name**|
    |The region in which you are deploying the private mobile network. We recommend that you use the East US region.                         |**Instance details: Region**|
    |The mobile country code for the private mobile network.     |**Network configuration: Mobile country code (MCC)**|
    |The mobile network code for the private mobile network.     |**Network configuration: Mobile network code (MNC)**|
 
-<!-- DJR do we need to provide an explanation of MCC and MNC? 
-
-Should we be pointing out that the subscription should be the one identified in the prereqs? -->
-
 ## Collect SIM resource configuration values
-
-<!-- DJR we may want to leave this to the general provisioning tasks -->
 
 Each SIM resource represents a physical SIM or eSIM that will be served by the private mobile network.
 
-As part of creating your private mobile network, you can provision one or more SIMs that will use it. If you decide not to provision SIMs at this point, you can do so after deploying your private mobile network using the instructions in <!-- DJR will need link here once task is written -->
+As part of creating your private mobile network, you can provision one or more SIMs that will use it. If you decide not to provision SIMs at this point, you can do so after deploying your private mobile network using the instructions in [Provisioning SIMs](provisioning-sims.md).
 
 If you want to provision SIMs as part of deploying your private mobile network, you must choose one of the following provisioning methods.
 
@@ -90,10 +84,10 @@ Each site represents a physical enterprise location (for example, Contoso Corpor
    |Value  |Field name in Azure portal  |
    |---------|---------|
    |The Azure subscription to use to deploy the site resource. You must use the same subscription for all resources in your private mobile network deployment.                  |**Project details: Subscription**
-   |The Azure resource group to use to deploy the site resource. We recommend that you use the same resource group you chose for the private mobile network under **Project details: Resource group** in [Collect private mobile network resource values](#collect-private-mobile-network-resource-values).                |**Project details: Resource group**|
+   |The Azure resource group to use to deploy the site resource. We recommend that you use the same resource group you chose for the private mobile network under **Project details: Resource group** in [Collect private mobile network resource configuration values](#collect-private-mobile-network-resource-configuration-values).                |**Project details: Resource group**|
    |The name for the site.           |**Instance details: Name**|
    |The region in which you are deploying the private mobile network. We recommend that you use the East US region.                         |**Instance details: Region**|
-   |The private mobile network resource representing the network to which you are adding the site. This must match the private mobile network name you chose under **Instance details: Mobile network name** in [Collect private mobile network resource values](#collect-private-mobile-network-resource-values).    |**Network configuration: Mobile network code (MNC)**|
+   |The private mobile network resource representing the network to which you are adding the site. This must match the private mobile network name you chose under **Instance details: Mobile network name** in [Collect private mobile network resource configuration values](#collect-private-mobile-network-resource-configuration-values).    |**Network configuration: Mobile network code (MNC)**|
 
 ## Collect access network configuration values
 
@@ -106,8 +100,6 @@ Collect all the values in the following table to define the packet core instance
    |The network address of the access subnet in CIDR notation.           |**N2 subnet** and **N3 subnet**|
    |The access subnet default gateway.                         |**N2 gateway** and **N3 gateway**|
    |The Tracking Area Codes the packet core instance must support, given as a comma separated list. For example, *0001,0002*.    |**Tracking area codes**|
-
-<!-- DJR do we need to provide more explanation on TACs? -->
 
 ## Collect attached data network configuration values
 
@@ -124,12 +116,12 @@ Collect all the values in the following table to define the packet core instance
 
 ## Collect Kubernetes base VM configuration values
 
-During the deployment of your private mobile network, you will create a Kubernetes base VM on each Azure Stack Edge device. This serves as the platform for the Kubernetes cluster that will run the packet core instance. Collect all of the values in the following table for the Kubernetes base VM. [Collect Kubernetes base VM configuration values](#collect-kubernetes-base-vm-configuration-values)
+During the deployment of your private mobile network, you will create a Kubernetes base VM on each Azure Stack Edge device. This serves as the platform for the Kubernetes cluster that will run the packet core instance. Collect all of the values in the following table for the Kubernetes base VM.
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
    |The Azure subscription to use to deploy the Kubernetes base VM. You must use the same subscription for all resources in your private mobile network deployment.                  |**Project details: Subscription**
-   |The Azure resource group to use to deploy the Kubernetes base VM. We recommend that you use the same resource group you chose for the private mobile network under **Project details: Resource group** in [Collect private mobile network resource values](#collect-private-mobile-network-resource-values).                |**Project details: Resource group**|
+   |The Azure resource group to use to deploy the Kubernetes base VM. We recommend that you use the same resource group you chose for the private mobile network under **Project details: Resource group** in [Collect private mobile network resource configuration values](#collect-private-mobile-network-resource-configuration-values).                |**Project details: Resource group**|
    |The name for the Kubernetes base VM.           |**Instance details: Name**|
    |The region in which you are deploying the private mobile network. We recommend that you use the East US region.                         |**Instance details: Region**|
    |The vendor of the Kubernetes base VM. This is always set to *metaswitch*.   |**Instance details: Vendor**|
@@ -144,4 +136,4 @@ During the deployment of your private mobile network, you will create a Kubernet
 
 You can now use the information you have collected to deploy your private mobile network
 
-- [Deploy a private mobile network - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal)
+- [Deploy a private mobile network - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md)

@@ -39,6 +39,7 @@ Azure Private 5G Core Preview is an Azure cloud service for service providers an
    |**Region**                        |*East US*|
    |**Mobile country code (MCC)**     |*001*|
    |**Mobile country code (MCC)**     |*01*|
+
 1. Once you have filled out all of the fields, click **Next : SIMs >**.
 1. On the **SIMs** configuration tab, select the **Add SIMs later** radio button, and then click **Review + create**.
 1. The Azure portal will now validate the configuration values you have entered. You should see a message indicating your values have passed validation. Click **Create** to create the private mobile network.
@@ -61,6 +62,7 @@ Azure Private 5G Core Preview is an Azure cloud service for service providers an
    |**Mobile network name**  |*Site1*|
    |**Region**               |*East US*|
    |**Mobile network**       |*ContosoPMN*|
+
 1. Click **Next - Packet core >**.
 1. On the **Packet core** configuration tab, set the **Technology type** field to *5G*, and then leave the **Version** and **Custom location** fields blank.
 1. Under the **Access network** heading, fill out the fields as follows.
@@ -74,7 +76,9 @@ Azure Private 5G Core Preview is an Azure cloud service for service providers an
    |**N3 subnet**              |*10.232.46.0/27*|
    |**N3 gateway**             |*10.232.46.1*|
    |**Tracking area codes**    |*0001*|
+
 1. Under the **Attached data networks** heading, fill out the fields as follows.
+
    |Field  |Value  |
    |---------|---------|
    |**Data network** |*internet*|
@@ -83,6 +87,7 @@ Azure Private 5G Core Preview is an Azure cloud service for service providers an
    |**N6 gateway**   |*198.51.100.1*|
    |**UE subnet**    |*192.0.2.0/24*|
    |**NAPT**         |*Enabled*|
+
 1. Click **Review + create**.
 1. The Azure portal will now validate the configuration values you have entered. You should see a message indicating your values have passed validation. Click **Create** to create the site.
 1. The Azure portal will now deploy a **Arc for network functions - Packet Core** resource representing the site's packet core instance into the resource group. You will see the following confirmation screen when the deployment is complete.
@@ -100,7 +105,9 @@ Azure Private 5G Core Preview is an Azure cloud service for service providers an
    |---------|---------|
    |**Subscription**        |\<your subscription\>|
    |**Resource group**      |*Contoso*|
+
 1. Under the **Instance details** heading, fill out the fields as follows.
+
    |Field  |Value  |
    |---------|---------|
    |**Name**         |*ContosoVM*|
@@ -109,12 +116,15 @@ Azure Private 5G Core Preview is an Azure cloud service for service providers an
    |**Device**   |\<Azure Network Function Manager - Device resource name\>|
    |**Vendor SKU**    |\<Kubernetes base VM SKU\>|
    |**SSH public key for admin user (MecUser)**         |\<SSH public key\>|
+
 1. Under the **Instance details** heading, fill out the fields as follows.
+
    |Field  |Value  |
    |---------|---------|
    |**IP address**   |*10.232.46.21*|
    |**Subnet**       |*10.232.46.0.24*|
    |**Vendor**       |*10.232.46.1*|
+
 1. Click **Next - Legal**.
 1. On the **Legal** tab, read the Terms of Use and Privacy Policy. If you agree with these, tick the **I have read and agree to the Terms of use and the Privacy policy** checkbox, and then click the **Review + create** tab.
 1. The Azure portal will now validate the configuration values you have entered. You should see a message indicating your values have passed validation. Click **Create** to create the Kubernetes base VM.
