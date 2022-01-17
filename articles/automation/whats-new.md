@@ -21,7 +21,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## November 2021 
 
-### General Availability of managed identity for Azure Automation 
+### General Availability of Managed Identity for Azure Automation 
 
 **Type:** New feature
 
