@@ -21,7 +21,7 @@ Speech Synthesis Markup Language (SSML) is an XML-based markup language that let
 The Speech service implementation of SSML is based on World Wide Web Consortium's [Speech Synthesis Markup Language Version 1.0](https://www.w3.org/TR/2004/REC-speech-synthesis-20040907/).
 
 > [!IMPORTANT]
-> Chinese, Japanese, and Korean characters count as two characters for billing. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Each Chinese characters are counted as two characters for billing, including Kanji used in Japanese, Hanja used in Korean, or Hanzi used in other languages. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ## Prebuilt neural voice and custom neural voice
 
