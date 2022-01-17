@@ -98,10 +98,10 @@ In the Machine selection pane in the portal, you will notice the **Eligibility**
 - Machine is not using one of the supported images: [Windows Server versions](automanage-windows-server.md#supported-windows-server-versions) and [Linux distros](automanage-linux.md#supported-linux-distributions-and-versions)
 - Machine is not located in a supported [region](#supported-regions)
 - Machine's log analytics workspace is not located in a supported [region](#supported-regions)
-- User does not have permissions to the log analytics workspace's subscription. Check out the [required permissions](#required-RBAC-permissions)
-- The Automanage resource provider is not registered on the subscription. Check out [how to register a Resource Provider](azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1) with the Automanage resource provider: *Microsoft.Automanage*
+- User does not have permissions to the log analytics workspace's subscription. Check out the [required permissions](#required-rbac-permissions)
+- The Automanage resource provider is not registered on the subscription. Check out [how to register a Resource Provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1) with the Automanage resource provider: *Microsoft.Automanage*
 - Machine does not have necessary VM agents installed which the Automanage service requires. Check out the [Windows agent installation](/azure/virtual-machines/extensions/agent-windows) and the [Linux agent installation](/azure/virtual-machines/extensions/agent-linux)
-- Arc machine is not connected. Learn more about the [Arc agent status](azure/azure-arc/servers/overview#agent-status) and [how to connect](/azure/azure-arc/servers/agent-overview#connected-machine-agent-technical-overview)
+- Arc machine is not connected. Learn more about the [Arc agent status](/azure/azure-arc/servers/overview#agent-status) and [how to connect](/azure/azure-arc/servers/agent-overview#connected-machine-agent-technical-overview)
 
 Once you have selected your eligible machines, Click **Enable**, and you're done.
 
