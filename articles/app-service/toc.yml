@@ -391,7 +391,7 @@
         - name: Reference Architectures
           href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
         - name: Deployment Scripts
-          href: /azure/automation/automation-runbook-gallery
+          href: ../automation/automation-runbook-gallery.md
     - name: Troubleshooting
       items:
         - name: Troubleshoot intermittent outbound connection errors
