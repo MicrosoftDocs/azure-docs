@@ -14,9 +14,22 @@ ms.author: duau
 
 # Routing architecture overview
 
-When Azure Front Door receives your client requests, it will do one of two things. Either answer them if you enable caching or forward them to the appropriate application backend as a reverse proxy.
+Front Door traffic routing takes place over multiple stages:
+
+- A Front Door environment is selected for the request.
+- The traffic is directed to the Front Door environment.
+- Front Door matches the traffic to a Front Door profile based on the request's Host header.
+- Web application firewall (WAF) rules are evaluated.
+- A route is selected for the request based on the Front Door profile's configuration.
+- An origin group is selected for the request.
+- A rule set can optionally override the origin group.
+- If caching is enabled and a response is available in the cache, the cached response is returned.
+- An origin within the origin group is selected for the request.
+- The request is forwarded to the origin.
 
 ## <a name = "anycast"></a>Selecting the Front Door environment for traffic routing (Anycast)
+
+Front Door has over 150 environments globally, located in many countries and regions. Every Front Door environment can serve traffic for any request.
 
 Traffic routed to the Azure Front Door environments uses [Anycast](https://en.wikipedia.org/wiki/Anycast) for both DNS (Domain Name System) and HTTP (Hypertext Transfer Protocol) traffic, which allows for user requests to reach the closest environment in the fewest network hops. This architecture offers better round-trip times for end users by maximizing the benefits of Split TCP. Front Door organizes its environments into primary and fallback "rings". The outer ring has environments that are closer to users, offering lower latencies.  The inner ring has environments that can handle the failover for the outer ring environment in case any issues happen. The outer ring is the preferred target for all traffic and the inner ring is to handle traffic overflow from the outer ring. Each frontend host or domain served by Front Door gets assigned a primary VIP (Virtual Internet Protocol addresses), which gets announced by environments in both the inner and outer ring. A fallback VIP is only announced by environments in the inner ring. 
 
