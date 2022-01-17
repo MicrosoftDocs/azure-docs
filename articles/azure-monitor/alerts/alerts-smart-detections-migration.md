@@ -86,7 +86,7 @@ You can start the smart detection migration using the following Azure CLI comman
 az rest --method POST --uri /subscriptions/{subscriptionId}/providers/Microsoft.AlertsManagement/migrateFromSmartDetection?api-version=2021-01-01-preview --body @body.txt
 ```
 
-Where body.txt should include:
+For migrating a single Application Insights resource, body.txt should include:
 
 ```json
 {
@@ -97,7 +97,17 @@ Where body.txt should include:
       "customActionGroupName" : "{actionGroupName}"           
 }
 ```
+For migrating all the Application Insights resources in a subscription, body.txt should include:
 
+```json
+{
+      "scope": [
+	"/subscriptions/{subscriptionId} "
+      ],
+      "actionGroupCreationPolicy" : "{Auto/Custom}",
+      "customActionGroupName" : "{actionGroupName}"           
+}
+```
 **ActionGroupCreationPolicy** selects the policy for migrating the email settings in the smart detection rules into action groups. Allowed values are:
 
 - **'Auto'**, which uses the default action groups as described in this document
