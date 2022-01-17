@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 1/16/2022
+ms.date: 1/17/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -16,13 +16,13 @@ ms.custom: "b2c-support"
 
 # Date claims transformations
 
-This article provides examples for using the date claims transformations of the Identity Experience Framework  schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [ClaimsTransformations](claimstransformations.md).
+This article provides examples for using the date claims transformations of the Identity Experience Framework  schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [claims transformations](claimstransformations.md).
 
 ## AssertDateTimeIsGreaterThan
 
 Asserts that one date is later than a second date. Determines whether the `rightOperand` is greater than the `leftOperand`. If yes, throws an exception.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | leftOperand | string | First claim's type, which should be later than the second claim. |
 | InputClaim | rightOperand | string | Second claim's type, which should be earlier than the first claim. |
@@ -104,7 +104,7 @@ The self-asserted technical profile calls the validation `Example-AssertDates` t
 
 Converts a `DateTime` claim type to a `Date` claim type. The claims transformation removes the time format from the date.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | dateTime | The claim type to be converted. |
 | OutputClaim | outputClaim | date | The claim type that is produced after this claims transformation has been invoked. |
@@ -133,7 +133,7 @@ The following example demonstrates the conversion of the claim `systemDateTime` 
 
 Converts a `Date` claim type to a `DateTime` claim type. The claims transformation converts the time format and adds 12:00:00 AM to the date.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | date | The claim type to be converted. |
 | OutputClaim | outputClaim | dateTime | The claim type that is produced after this claims transformation has been invoked. |
@@ -162,20 +162,17 @@ The following example demonstrates the conversion of the claim `dateOfBirth` (da
 
 Compares two dates and determines whether the first date is later, earlier, or equal to another. The result is a new Boolean claim with a value of `true` or `false`.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | dateTime | The first date to compare whether it's later, earlier, or equal to the second date. Null value throws an exception. |
-| InputClaim | secondDateTime | dateTime | The second date to compare. Null value is treated as the current datetTime. |
+| InputClaim | secondDateTime | dateTime | The second date to compare. Null value is treated as the current date and time. |
 | InputParameter | timeSpanInSeconds | int | Timespan to add to the first date. Possible values: range from negative -2,147,483,648 through positive 2,147,483,647.  |
-| InputParameter | operator | string | One of following values: same, later than, or earlier than. |
+| InputParameter | operator | string | One of following values: `same`, `later than`, or `earlier than`. |
 | OutputClaim | result | boolean | The claim that is produced after this claims transformation has been invoked. |
-
-Use this claims transformation to determine if first date plus the timespan parameter is later, earlier, or equal to another. For example, you may store the last time a user accepted your terms of services (TOS). After three months, you can ask the user to access the TOS again.
-To run the claim transformation, you first need to get the current date and also the last time user accepts the TOS.
 
 ### Example of DateTimeComparison
 
-The following example shows that the first date (2022-01-01T00:00:00) plus 90 days is later than the second date (2022-03-16T00:00:00).
+Use this claims transformation to determine if first date plus the `timeSpanInSeconds` parameter is later, earlier, or equal to another. The following example shows that the first date (2022-01-01T00:00:00) plus 90 days is later than the second date (2022-03-16T00:00:00).
 
 ```xml
 <ClaimsTransformation Id="CompareLastTOSAcceptedWithCurrentDateTime" TransformationMethod="DateTimeComparison">
@@ -206,7 +203,7 @@ The following example shows that the first date (2022-01-01T00:00:00) plus 90 da
 
 Get the current UTC date and time and add the value to a claim type.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | OutputClaim | currentDateTime | dateTime | The claim type that is produced after this claims transformation has been invoked. |
 

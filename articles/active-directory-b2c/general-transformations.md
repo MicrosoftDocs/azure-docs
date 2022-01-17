@@ -9,20 +9,20 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/14/2022
+ms.date: 01/17/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
 # General claims transformations
 
-This article provides examples for using general claims transformations of the Identity Experience Framework schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [claims transformations](claimstransformations.md).
+This article provides examples for using general claims transformations of the Azure Active Directory B2C (Azure AD B2C) custom policy. For more information, see [claims transformations](claimstransformations.md).
 
 ## CopyClaim
 
 Copy value of a claim to another. Both claims must be from the same type.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string, int | The claim type, which is to be copied. |
 | OutputClaim | outputClaim | string, int | The claim that is produced after this claims transformation has been invoked. |
@@ -49,9 +49,9 @@ Use this claims transformation to copy a value from a string or numeric claim, t
 
 ## DoesClaimExist
 
-Checks if the **inputClaim** exists or not and sets **outputClaim** to true or false accordingly.
+Checks if the input claim exists, and sets output claim to `true` or `false` accordingly.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |Any | The input claim whose existence needs to be verified. |
 | OutputClaim | outputClaim | boolean | The claim that is produced after this claims transformation has been invoked. |
@@ -80,7 +80,7 @@ Use this claims transformation to check if a claim exists or contains any value.
 
 Hash the provided plain text using the salt and a secret. The hashing algorithm used is SHA-256.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | plaintext | string | The input claim to be encrypted |
 | InputClaim | salt | string | The salt parameter. You can create a random value, using `CreateRandomString` claims transformation. |

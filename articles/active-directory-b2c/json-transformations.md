@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/16/2022
+ms.date: 01/17/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -22,7 +22,7 @@ This article provides examples for using the JSON claims transformations of the 
 
 Create a JSON single element array from a claim value.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | The claim to be added to the output claim. |
 | OutputClaim | outputClaim | string | The JSON string that is produced after this claims transformation has been invoked. |
@@ -51,7 +51,7 @@ The following example creates a JSON single array.
 
 Use either claim values or constants to generate a JSON string. The path string following dot notation is used to indicate where to insert the data into a JSON string. After splitting by dots, any integers are interpreted as the index of a JSON array and non-integers are interpreted as the index of a JSON object.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | Any string following dot notation | string | The JsonPath of the JSON where the claim value will be inserted into. |
 | InputParameter | Any string following dot notation | string | The JsonPath of the JSON where the constant string value will be inserted into. |
@@ -59,7 +59,7 @@ Use either claim values or constants to generate a JSON string. The path string 
 
 ### Example of GenerateJson
 
-The following example generates a JSON string based on the claim value of "email" and "otp" as well as constant strings. 
+The following example generates a JSON string based on the claim value of "email" and "OTP" and constant strings. 
 
 ```xml
 <ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
@@ -88,7 +88,7 @@ The following claims transformation outputs a JSON string claim that will be the
   - **from.email**: "service@contoso.com"
   - **personalizations.0.subject** "Contoso account email verification code"
 - Output claim:
-  - **requestBody**: 
+  - **outputClaim**: 
 
       ```json
       {
@@ -115,7 +115,7 @@ The following claims transformation outputs a JSON string claim that will be the
 
 ### Another example of GenerateJson
 
-The following example generates a JSON string based on the claim values as well as constant strings.
+The following example generates a JSON string based on the claim values and constant strings.
 
 ```xml
 <ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
@@ -167,7 +167,7 @@ The following claims transformation outputs a JSON string claim that will be the
 
 Get a specified element from a JSON data.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | string | The claims that are used by the claims transformation to get the item. |
 | InputParameter | claimToExtract | string | the name of the JSON element to be extracted. |
@@ -227,7 +227,7 @@ The GetClaimFromJson claims transformation gets a single element from a JSON dat
 
 Get a list of specified elements from Json data.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | jsonSourceClaim | string | The claim with the JSON payload. This claim is used by the claims transformation to get the claims. |
 | InputParameter | errorOnMissingClaims | boolean | Specifies whether to throw an error if one of the claims is missing. |
@@ -262,7 +262,33 @@ In the following example, the claims transformation extracts the following claim
 ```
 
 - Input claims:
-  - **jsonSourceClaim**: [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipID","value":6353399}, {"key":"active","value": true}, {"key":"birthDate","value":"2005-09-23T00:00:00Z"}]
+  - **jsonSourceClaim**:
+      
+      ```json
+      [
+        {
+          "key": "email",
+          "value": "someone@example.com"
+        },
+        {
+          "key": "displayName",
+          "value": "Someone"
+        },
+        {
+          "key": "membershipID",
+          "value": 6353399
+        },
+        {
+          "key": "active",
+          "value": true
+        },
+        {
+          "key": "birthDate",
+          "value": "2005-09-23T00:00:00Z"
+        }
+      ]
+      ```
+
 - Input parameters:
   - **errorOnMissingClaims**: false
   - **includeEmptyClaims**: false
@@ -279,7 +305,7 @@ In the following example, the claims transformation extracts the following claim
 
 Gets a specified numeric (long) element from a JSON data.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | string | The claim with the JSON payload. This claim is used by the claims transformation to get the numeric claim. |
 | InputParameter | claimToExtract | string | The name of the JSON element to extract. |
@@ -304,7 +330,16 @@ In the following example, the claims transformation extracts the `id` element fr
 ```
 
 - Input claims:
-  - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id": 6353399}
+  - **inputJson**: 
+
+    ```json
+    {
+      "emailAddress": "someone@example.com",
+      "displayName": "Someone",
+      "id": 6353399
+    }
+    ```
+
 - Input parameters
   - **claimToExtract**:  id
 - Output claims:
@@ -314,7 +349,7 @@ In the following example, the claims transformation extracts the `id` element fr
 
 Gets the first element from a JSON data.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | string | The claim with the JSON payload. This claim is used by the claims transformation to get the item from the JSON data. |
 | OutputClaim | key | string | The first element key in the JSON. |
@@ -337,7 +372,15 @@ In the following example, the claims transformation extracts the first element (
 ```
 
 - Input claims:
-  - **inputJson**: {"givenName": "Emilty", "lastName": "Smith"}
+  - **inputJson**: 
+
+    ```json
+    {
+      "givenName": "Emily",
+      "lastName": "Smith"
+    }
+    ```
+
 - Output claims:
   - **key**: givenName
   - **value**: Emilty
@@ -347,9 +390,9 @@ In the following example, the claims transformation extracts the first element (
 
 Gets the first element from a JSON data array.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJsonClaim | string | The claim with the JSON payload. This claims is used by the claims transformation to get the item from the JSON array. |
+| InputClaim | inputJsonClaim | string | The claim with the JSON payload. This claim is used by the claims transformation to get the value from the JSON array. |
 | OutputClaim | extractedClaim | string | The claim that is produced after this claims transformation has been invoked, the first element in the JSON array. |
 
 ### Example of GetSingleValueFromJsonArray
@@ -376,7 +419,7 @@ In the following example, the claims transformation extracts the first element (
 
 Convert XML data to JSON format.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | xml | string | The claim with the XML payload. This claim is used by the claims transformation to convert the data from XML to JSON format. |
 | OutputClaim | json | string | The claim that is produced after this claims transformation has been invoked, the data in JSON format. |

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/16/2022
+ms.date: 01/17/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -35,9 +35,9 @@ This article provides examples for using the social account claims transformatio
 
 Adds an `AlternativeSecurityId` to an `alternativeSecurityIdCollection` claim.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | string | The claim to be added to the output claim. |
+| InputClaim | Element | string | The claim to be added to the output claim. |
 | InputClaim | collection | alternativeSecurityIdCollection | The claim that is used by the claims transformation if available in the policy. If provided, the claims transformation adds the `item` at the end of the collection. |
 | OutputClaim | collection | alternativeSecurityIdCollection | The claim that is produced after this claims transformation has been invoked. The new collection that contains both the items from input `collection` and `item`. |
 
@@ -74,7 +74,7 @@ The following example links a new social identity with an existing account. To l
 
 Creates a JSON representation of the user’s alternativeSecurityId property that can be used in the calls to Azure Active Directory. For more information, see the [AlternativeSecurityId](/graph/api/resources/alternativesecurityid) schema.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | key | string | The claim that specifies the unique user identifier used by the social identity provider. |
 | InputClaim | identityProvider | string | The claim that specifies the social account identity provider name, such as facebook.com. |
@@ -82,7 +82,7 @@ Creates a JSON representation of the user’s alternativeSecurityId property tha
 
 ### Example of CreateAlternativeSecurityId
 
-Use this claims transformation to generate a `alternativeSecurityId` ClaimType. It's used by all social identity provider technical profiles, such as `Facebook-OAUTH`. The following claims transformation receives the user social account ID and the identity provider name. The output of this technical profile is a JSON string format that can be used in Azure AD directory services.
+Use this claims transformation to generate a `alternativeSecurityId` claim. It's used by all social identity provider technical profiles, such as `Facebook-OAUTH`. The following claims transformation receives the user social account ID and the identity provider name. The output of this technical profile is a JSON string format that can be used in Azure AD directory services.
 
 ```xml
 <ClaimsTransformation Id="CreateAlternativeSecurityId" TransformationMethod="CreateAlternativeSecurityId">
@@ -106,10 +106,10 @@ Use this claims transformation to generate a `alternativeSecurityId` ClaimType. 
 
 Returns list of issuers from the **alternativeSecurityIdCollection** claim into a new **stringCollection** claim.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | alternativeSecurityIdCollection | alternativeSecurityIdCollection | The claim to be used to get the list of identity providers (issuer). |
-| OutputClaim | identityProvidersCollection | stringCollection | The claim that is produced after this claims transformation has been invoked. List of identity providers associate with the alternativeSecurityIdCollection input claim |
+| OutputClaim | identityProvidersCollection | stringCollection | The claim that is produced after this claims transformation has been invoked. A list of identity providers associated with the input claim. |
 
 ### Example of GetIdentityProvidersFromAlternativeSecurityIdCollectionTransformation
 
@@ -135,7 +135,7 @@ The following claims transformation reads the user **alternativeSecurityIds** cl
 
 Removes an **AlternativeSecurityId** from an **alternativeSecurityIdCollection** claim.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | identityProvider | string | The claim that contains the identity provider name to be removed from the collection. |
 | InputClaim | collection | alternativeSecurityIdCollection | The claim that is used by the claims transformation. The claims transformation removes the identityProvider from the collection. |
@@ -143,7 +143,7 @@ Removes an **AlternativeSecurityId** from an **alternativeSecurityIdCollection**
 
 ### Example of RemoveAlternativeSecurityIdByIdentityProvider
 
-The following example unlinks one of the social identity with an existing account. To unlink a social identity:
+The following example unlinks one of the social identities with an existing account. To unlink a social identity:
 
 1. In the **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserReadUsingObjectId** technical profiles, output the user's **alternativeSecurityIds** claim.
 2. Ask the user to select which social account to remove from the list identity providers that are associated with this user.

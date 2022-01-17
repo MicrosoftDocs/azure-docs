@@ -9,22 +9,22 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/16/2022
+ms.date: 01/17/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
 # StringCollection claims transformations
 
-This article provides examples for using the string collection claims transformations of the Identity Experience Framework  schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [ClaimsTransformations](claimstransformations.md).
+This article provides examples for using the string collection claims transformations of the Identity Experience Framework  schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [claims transformations](claimstransformations.md).
 
 ## AddItemToStringCollection
 
 Adds a string claim to a new unique values stringCollection claim.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | string | The ClaimType to be added to the output claim. |
+| InputClaim | Element | string | The ClaimType to be added to the output claim. |
 | InputClaim | collection | stringCollection | The string collection to be added to the output claim. If the collection contains items, the claims transformation copies the items, and adds the item to the end of the output collection claim. |
 | OutputClaim | collection | stringCollection | The ClaimType that is produced after this claims transformation has been invoked, with the value specified in the input claim. |
 
@@ -56,10 +56,10 @@ The following claims transformation adds the **email** ClaimType to **otherMails
 
 Adds a string parameter to a new unique values stringCollection claim.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | The string collection to be added to the output claim. If the collection contains items, the claims transformation copies the items, and adds the item to the end of the output collection claim. |
-| InputParameter | item | string | The value to be added to the output claim. |
+| InputParameter | Element | string | The value to be added to the output claim. |
 | OutputClaim | collection | stringCollection | The ClaimType that is produced after this claims transformation has been invoked, with the value specified in the input parameter. |
 
 ### Example of AddParameterToStringCollection
@@ -91,14 +91,14 @@ The following example adds a constant email address (admin@contoso.com) to the *
 
 Gets the first item from the provided string collection.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | The ClaimTypes that are used by the claims transformation to get the item. |
 | OutputClaim | extractedItem | string | The ClaimTypes that are produced after this ClaimsTransformation has been invoked. The first item in the collection. |
 
 ### Example of GetSingleItemFromStringCollection
 
-The following example reads the **otherMails** claim and return the first item into the **email** claim.
+The following example reads the **otherMails** claim and returns the first item into the **email** claim.
 
 ```xml
 <ClaimsTransformation Id="CreateEmailFromOtherMails" TransformationMethod="GetSingleItemFromStringCollection">
@@ -121,9 +121,9 @@ The following example reads the **otherMails** claim and return the first item i
 
 Checks if a StringCollection claim type contains an element.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | stringCollection | The claim type which is to be searched. |
+| InputClaim | inputClaim | stringCollection | The claim to be searched. |
 |InputParameter|item|string|The value to search.|
 |InputParameter|ignoreCase|string|Specifies whether this comparison should ignore the case of the strings being compared.|
 | OutputClaim | outputClaim | boolean | The ClaimType that is produced after this ClaimsTransformation has been invoked. A boolean indicator if the collection contains such a string |
@@ -159,9 +159,9 @@ Following example checks whether the `roles` stringCollection claim type contain
 
 Checks if a StringCollection claim type contains a claim value.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | collection | stringCollection | The claim type which is to be searched. |
+| InputClaim | collection | stringCollection | The claim to be searched. |
 | InputClaim | item|string| The claim type that contains the value to search.|
 |InputParameter|ignoreCase|string|Specifies whether this comparison should ignore the case of the strings being compared.|
 | OutputClaim | outputClaim | boolean | The ClaimType that is produced after this ClaimsTransformation has been invoked. A boolean indicator if the collection contains such a string |

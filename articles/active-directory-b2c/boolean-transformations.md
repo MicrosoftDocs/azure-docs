@@ -9,29 +9,29 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/16/2022
+ms.date: 01/17/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
 # Boolean claims transformations
 
-This article provides examples for using the boolean claims transformations of the Identity Experience Framework schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [ClaimsTransformations](claimstransformations.md).
+This article provides examples for using the boolean claims transformations of the Identity Experience Framework schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [claims transformations](claimstransformations.md).
 
 ## AndClaims
 
-Performs an And operation of two boolean inputClaims and sets the outputClaim with result of the operation.
+Computes an `And` operation of two boolean input claims, and sets the output claim with result of the operation.
 
-| Item  | TransformationClaimType  | Data Type  | Notes |
+| Element  | TransformationClaimType  | Data Type  | Notes |
 |-------| ------------------------ | ---------- | ----- |
-| InputClaim | inputClaim1 | boolean | The first ClaimType to evaluate. |
-| InputClaim | inputClaim2  | boolean | The second ClaimType to evaluate. |
-|OutputClaim | outputClaim | boolean | The ClaimTypes that will be produced after this claims transformation has been invoked (true or false). |
+| InputClaim | inputClaim1 | boolean | The first claim to evaluate. |
+| InputClaim | inputClaim2  | boolean | The second claim to evaluate. |
+|OutputClaim | outputClaim | boolean | The claim that will be produced after this claims transformation has been invoked (true or false). |
 
 
 ### Example of AndClaims
 
-The following claims transformation demonstrates how to And two boolean ClaimTypes: `isEmailNotExist`, and `isSocialAccount`. The output claim `presentEmailSelfAsserted` is set to `true` if the value of both input claims are `true`. In an orchestration step, you can use a precondition to preset a self-asserted page, only if a social account email is empty.
+The following claims transformation demonstrates how to `And` two boolean claims: `isEmailNotExist`, and `isSocialAccount`. The output claim `presentEmailSelfAsserted` is set to `true` if the values of both input claims are `true`.
 
 ```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
@@ -56,9 +56,9 @@ The following claims transformation demonstrates how to And two boolean ClaimTyp
 
 Checks that boolean values of two claims are equal, and throws an exception if they are not.
 
-| Item | TransformationClaimType  | Data Type  | Notes |
+| Element | TransformationClaimType  | Data Type  | Notes |
 | ---- | ------------------------ | ---------- | ----- |
-| inputClaim | inputClaim | boolean | The ClaimType to be asserted. |
+| inputClaim | inputClaim | boolean | The claim to be checked. |
 | InputParameter |valueToCompareTo | boolean | The value to compare (true or false). |
 
 The **AssertBooleanClaimIsEqualToValue** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** self-asserted technical profile metadata controls the error message that the technical profile presents to the user. The error messages can be [localized](localization-string-ids.md#claims-transformations-error-messages).
@@ -67,7 +67,7 @@ The **AssertBooleanClaimIsEqualToValue** claims transformation is always execute
 
 ### Example of AssertBooleanClaimIsEqualToValue
 
-The following claims transformation demonstrates how to check the value of a boolean ClaimType with a `true` value. If the value of the `accountEnabled` ClaimType is false, an error message is thrown.
+The following claims transformation demonstrates how to check the value of a boolean claim with a `true` value. If the value of the `accountEnabled` claim is false, an error message is thrown.
 
 ```xml
 <ClaimsTransformation Id="AssertAccountEnabledIsTrue" TransformationMethod="AssertBooleanClaimIsEqualToValue">
@@ -124,15 +124,15 @@ The self-asserted technical profile calls the validation `Example-AssertBoolean`
 
 Checks that boolean value of a claim is equal to `true` or `false`, and return the result of the compression.
 
-| Item | TransformationClaimType  | Data Type  | Notes |
+| Element | TransformationClaimType  | Data Type  | Notes |
 | ---- | ------------------------ | ---------- | ----- |
-| InputClaim | inputClaim | boolean | The ClaimType to be asserted. |
+| InputClaim | inputClaim | boolean | The claim to be compared. |
 | InputParameter |valueToCompareTo | boolean | The value to compare (true or false). |
-| OutputClaim | compareResult | boolean | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
+| OutputClaim | compareResult | boolean | The claim that is produced after this claims transformation has been invoked. |
 
 ### Example of CompareBooleanClaimToValue
 
-The following claims transformation demonstrates how to check the value of a boolean ClaimType with a `true` value. If the value of the `IsAgeOver21Years` ClaimType is equal to `true`, the claims transformation returns `true`, otherwise `false`.
+The following claims transformation demonstrates how to check the value of a boolean claim with a `true` value. If the value of the `IsAgeOver21Years` claim is equal to `true`, the claims transformation returns `true`, otherwise `false`.
 
 ```xml
 <ClaimsTransformation Id="AssertAccountEnabled" TransformationMethod="CompareBooleanClaimToValue">
@@ -157,16 +157,16 @@ The following claims transformation demonstrates how to check the value of a boo
 
 ## NotClaims
 
-Performs a Not operation of the boolean inputClaim and sets the outputClaim with result of the operation.
+Computes a `Not` operation of the boolean input claim and sets the output claim with result of the operation.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | boolean | The claim to be operated. |
-| OutputClaim | outputClaim | boolean | The ClaimTypes that are produced after this ClaimsTransformation has been invoked (true or false). |
+| OutputClaim | outputClaim | boolean | The claim that is produced after this claims transformation has been invoked (true or false). |
 
 ### Example of NotClaims
 
-The following claim transformation demonstrates how to perform logical negation on a claim.
+The following claims transformation demonstrates how to perform logical negation on a claim.
 
 ```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="NotClaims">
@@ -186,17 +186,17 @@ The following claim transformation demonstrates how to perform logical negation 
 
 ## OrClaims
 
-Computes an Or of two boolean inputClaims and sets the outputClaim with result of the operation.
+Computes an `Or` of two boolean claims and sets the output claim with result of the operation.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | boolean | The first ClaimType to evaluate. |
-| InputClaim | inputClaim2 | boolean | The second ClaimType to evaluate. |
-| OutputClaim | outputClaim | boolean | The ClaimTypes that will be produced after this ClaimsTransformation has been invoked (true or false). |
+| InputClaim | inputClaim1 | boolean | The first claim to evaluate. |
+| InputClaim | inputClaim2 | boolean | The second claim to evaluate. |
+| OutputClaim | outputClaim | boolean | The claim that will be produced after this claims transformation has been invoked (true or false). |
 
 ### Example of OrClaims
 
-The following claims transformation demonstrates how to `Or` two boolean ClaimTypes. In the orchestration step, you can use a precondition to preset a self-asserted page, if the value of one of the claims is `true`.
+The following claims transformation demonstrates how to `Or` two boolean claims.
 
 ```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="OrClaims">

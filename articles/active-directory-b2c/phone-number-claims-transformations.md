@@ -9,14 +9,14 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/16/2022
+ms.date: 01/17/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
 # Define phone number claims transformations in Azure AD B2C
 
-This article provides reference and examples for using the phone number claims transformations of the Identity Experience Framework schema in Azure Active Directory B2C (Azure AD B2C). For more information about claims transformations in general, see [ClaimsTransformations](claimstransformations.md).
+This article provides reference and examples for using the phone number claims transformations in Azure Active Directory B2C (Azure AD B2C) custom policy. For more information about claims transformations in general, see [ClaimsTransformations](claimstransformations.md).
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -24,10 +24,10 @@ This article provides reference and examples for using the phone number claims t
 
 Converts a `phoneNumber` data type into a `string` data type.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | phoneNumber | phoneNumber |  The ClaimType to convert to a string. |
-| OutputClaim | phoneNumberString | string | The ClaimType that is produced after this claims transformation has been invoked. |
+| InputClaim | phoneNumber | phoneNumber |  The claim to convert to a string. |
+| OutputClaim | phoneNumberString | string | The claim that is produced after this claims transformation has been invoked. |
 
 ### Example of ConvertPhoneNumberClaimToString
 
@@ -52,9 +52,9 @@ In this example, the cellPhoneNumber claim with a value type of `phoneNumber` is
 
 ## ConvertStringToPhoneNumberClaim
 
-This claim transformation validates the format of the phone number. If it is in a valid format, change it to a standard format used by Azure AD B2C. If the provided phone number is not in a valid format, an error message is returned.
+Validates the format of a phone number. If valid, change it to a standard format used by Azure AD B2C. If the provided phone number is not in a valid format, an error message is returned.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | phoneNumberString | string |  The string claim for the phone number. The phone number has to be in international format, complete with a leading "+" and country/region code. If input claim `country` is provided, the phone number is in local format (without the country/region code). |
 | InputClaim | country | string | [Optional] The string claim for the country/region code of the phone number in ISO3166 format (the two-letter ISO-3166 country/region code). |
@@ -66,7 +66,7 @@ The **ConvertStringToPhoneNumberClaim** claims transformation is always executed
 
 ### Example of ConvertStringToPhoneNumberClaim
 
-The following example checks that the **phoneString** ClaimType is indeed a valid phone number, and then returns the phone number in the standard Azure AD B2C format. Otherwise, an error message is thrown.
+The following example checks that the **phoneString** claim is indeed a valid phone number, and then returns the phone number in the standard Azure AD B2C format. Otherwise, an error message is thrown.
 
 ```xml
 <ClaimsTransformation Id="ConvertStringToPhoneNumber" TransformationMethod="ConvertStringToPhoneNumberClaim">
@@ -108,9 +108,9 @@ The self-asserted technical profile that calls the validation technical profile 
 
 ## GetNationalNumberAndCountryCodeFromPhoneNumberString
 
-This extracts the country/region code and the national number from the input claim, and optionally throws an exception if the supplied phone number is not valid.
+Extracts the country/region code and the national number from the input claim, and optionally throws an exception if the supplied phone number is not valid.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | phoneNumber | string | The string claim of the phone number. The phone number has to be in international format, complete with a leading "+" and country/region code. |
 | InputParameter | throwExceptionOnFailure | boolean | [Optional] A parameter indicating whether an exception is thrown when the phone number is not valid. Default value is false. |

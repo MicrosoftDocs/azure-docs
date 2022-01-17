@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/16/2022
+ms.date: 01/17/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -20,9 +20,9 @@ This article provides examples for using the string claims transformations of th
 
 ## AssertStringClaimsAreEqual
 
-Compare two claims, and throw an exception if they are not equal according to the specified comparison inputClaim1, inputClaim2 and stringComparison.
+Compares two claims, and throw an exception if they are not equal according to the specified comparison inputClaim1, inputClaim2 and stringComparison.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | First claim's type, which is to be compared. |
 | InputClaim | inputClaim2 | string | Second claim's type, which is to be compared. |
@@ -83,9 +83,9 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
 
 ## BuildUri
 
-Create the TOTP URI. The URI is a combination of the user's unique identifier, such as email address, and a secret key. The URI is later converted into a QR code that is presented to the user.
+Creates a time based on time password (TOTP) URI. The URI is a combination of the user's unique identifier, such as email address, and a secret key. The URI is later converted into a QR code that is presented to the user.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | path | string | The user's unique identifier, such as email address, username, or phone number. |
 | InputClaim|  query.secret| string | The TOTP secret key. |
@@ -119,9 +119,9 @@ The following claims transformation generates a TOTP URI that will be displayed 
   - **path**: emily@fabrikam.com
   - **query.secret**: `fay2lj7ynpntjgqa`
 - Input parameters:
-    - **scheme**: `otpauth`
-    - **host**: `totp`
-    - **query.issuer**: `{AuthenticatorIssuer}`
+  - **scheme**: `otpauth`
+  - **host**: `totp`
+  - **query.issuer**: `{AuthenticatorIssuer}`
 - Output claims:
   - **outputClaim**: `otpauth://totp/Contoso%20demo:emily@fabrikam.com?secret=fay2lj7ynpntjgqa&issuer=Contoso+demo`
 
@@ -129,7 +129,7 @@ The following claims transformation generates a TOTP URI that will be displayed 
 
 Changes the case of the provided claim to lower or upper case depending on the operator.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | The claim to be changed. |
 | InputParameter | toCase | string | One of the following values: `LOWER` or `UPPER`. |
@@ -162,9 +162,9 @@ The following claim transformation changes the email claim to lower case.
 
 ## CompareClaims
 
-Determine whether one string claim is equal to another. The result is a new boolean claim with a value of `true` or `false`.
+Determines whether one string claim is equal to another. The result is a new boolean claim with a value of `true` or `false`.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | First claim type, which is to be compared. |
 | InputClaim | inputClaim2 | string | Second claim type, which is to be compared. |
@@ -205,7 +205,7 @@ Use this claims transformation to check if a claim is equal to another claim.  T
 
 Determines whether a claim value is equal to the input parameter value.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | The claim's type, which is to be compared. |
 | InputParameter | operator | string | Possible values: `EQUAL` or `NOT EQUAL`. |
@@ -215,7 +215,7 @@ Determines whether a claim value is equal to the input parameter value.
 
 ### Example of CompareClaimToValue
 
-You can use this claims transformation to check if a claim is equal to a value you specified. For example, the following claims transformation checks if the value of the **termsOfUseConsentVersion** claim is equal to `v1`.
+Use this claims transformation to check if a claim is equal to a value you specified. For example, the following claims transformation checks if the value of the **termsOfUseConsentVersion** claim is equal to `v1`.
 
 ```xml
 <ClaimsTransformation Id="IsTermsOfUseConsentRequiredForVersion" TransformationMethod="CompareClaimToValue">
@@ -244,9 +244,9 @@ You can use this claims transformation to check if a claim is equal to a value y
 
 ## CopyClaimIfPredicateMatch
 
-Copy value of a claim to another if the value of the input claim matches the output claim predicate. 
+Copies value of a claim to another if the value of the input claim matches the output claim predicate. 
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | The claim type, which is to be copied. |
 | OutputClaim | outputClaim | string | The claim type that is produced after this claims transformation has been invoked. The value of the input claim is checked against this claim predicate. |
@@ -273,7 +273,7 @@ The following example tries to copy the signInName claim value to phoneNumber cl
 
 ### Example of CopyClaimIfPredicateMatch that muches the predicate
 
-In this example the claims transformation will copy the value. The signInName claim is in the correct format, phone number.
+In this example, the claims transformation will copy the value. The signInName claim is in the correct format, phone number.
 
 - Input claims:
   - **inputClaim**: +11234567890
@@ -284,7 +284,7 @@ In this example the claims transformation will copy the value. The signInName cl
 
 Creates a TOTP string claim. The output of this claims transformation is a TOTP secret that is later stored in the Azure AD B2C user's account and shared with the Microsoft Authenticator app. The authenticator app uses the key to generate TOTP codes when the user needs to go through MFA. Your policy uses the key to validate the TOTP code provided by the user.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 |----- | ----------------------- | --------- | ----- |
 | OutputClaim | outputClaim | string | The claim that is produced after this claims transformation has been invoked, with the generated TOTP code. |
 
@@ -307,7 +307,7 @@ The following claims transformation creates a secret for the TOTP multi-factor a
 
 Creates a random string using the random number generator. If the random number generator is of type `integer`, optionally a seed parameter and a maximum number may be provided. An optional string format parameter allows the output to be formatted using it, and an optional base64 parameter specifies whether the output is base64 encoded randomGeneratorType [guid, integer] outputClaim (String).
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputParameter | randomGeneratorType | string | Specifies the random value to be generated, `GUID` (global unique ID) or `INTEGER` (a number). |
 | InputParameter | stringFormat | string | [Optional] Format the random value. |
@@ -366,7 +366,7 @@ Following example generates an integer random value between 0 and 1000. The valu
 
 Creates a string claim from the provided input parameter in the transformation.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 |----- | ----------------------- | --------- | ----- |
 | InputParameter | value | string | The string to be set. This input parameter supports [string claims transformation expressions](string-transformations.md#string-claim-transformations-expressions). |
 | OutputClaim | createdClaim | string | The claim that is produced after this claims transformation has been invoked, with the value specified in the input parameter. |
@@ -393,9 +393,9 @@ The following claims transformation creates a string value with terms of service
 
 ## FormatLocalizedString
 
-Format multiple claims according to a provided localized format string. This transformation uses the C# `String.Format` method.
+Formats multiple claims according to a provided localized format string. This transformation uses the C# `String.Format` method.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaims |  |string | The collection of input claims that acts as string format {0}, {1}, {2} parameters. |
 | InputParameter | stringFormatId | string |  The `StringId` of a [localized string](localization.md).   |
@@ -461,9 +461,9 @@ The claims transformation creates a response message based on the localized stri
 
 ## FormatStringClaim
 
-Format a claim according to the provided format string. This transformation uses the C# `String.Format` method.
+Formats a claim according to the provided format string. This transformation uses the C# `String.Format` method.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string |The claim that acts as string format {0} parameter. |
 | InputParameter | stringFormat | string | The string format, including the {0}  parameter. This input parameter supports [string claims transformation expressions](string-transformations.md#string-claim-transformations-expressions).  |
@@ -499,9 +499,9 @@ Use this claims transformation to format any string with one parameter {0}. The 
 
 ## FormatStringMultipleClaims
 
-Format two claims according to the provided format string. This transformation uses the C# `String.Format` method.
+Formats two claims according to the provided format string. This transformation uses the C# `String.Format` method.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 |string | The claim that acts as string format {0} parameter. |
 | InputClaim | inputClaim2 | string | The claim that acts as string format {1} parameter. |
@@ -542,7 +542,7 @@ Use this claims transformation to format any string with two parameters, {0} and
 
 Copies localized strings into claims.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | OutputClaim | The name of the localized string | string | List of claim types that are produced after this claims transformation has been invoked. |
 
@@ -610,9 +610,9 @@ The claims transformation sets the value of the claim type *subject* with the va
 
 ## GetMappedValueFromLocalizedCollection
 
-Looking up an item from a claim **Restriction** collection.
+Maps an element from the input claim's **Restriction** collection.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | mapFromClaim | string | The claim that contains the text to be looked up in the **restrictionValueClaim** claims with the **Restriction** collection.  |
 | OutputClaim | restrictionValueClaim | string | The claim that contains the **Restriction** collection. After the claims transformation has been invoked, the value of this claim contains the value of the selected item. |
@@ -654,9 +654,9 @@ The claims transformation looks up the text of the item and returns its value. I
 
 ## LookupValue
 
-Look up a claim value from a list of values based on the value of another claim.
+Looks up a claim value from a list of values based on the value of another claim.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputParameterId | string | The claim that contains the lookup value |
 | InputParameter | |string | Collection of inputParameters. |
@@ -732,9 +732,9 @@ The following example looks up the domain name in one of the inputParameters col
 
 ## NullClaim
 
-Clean the value of a given claim.
+Cleans the value of a given claim.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | OutputClaim | claim_to_null | string | The claim's value is set to NULL. |
 
@@ -759,7 +759,7 @@ Use this claim transformation to remove unnecessary data from the claims propert
 
 Gets the domain portion of an email address.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | emailAddress | string | The claim that contains the email address. |
 | OutputClaim | domain | string | The claim that is produced after this claims transformation has been invoked - the domain. |
@@ -788,7 +788,7 @@ Use this claims transformation to parse the domain name after the @ symbol of th
 
 Checks that a boolean claim is `true`, or `false`. If yes, sets the output claims with the value present in `outputClaimIfMatched` input parameter.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | claimToMatch | string | The claim type, which is to be checked. Null value throws an exception. |
 | InputParameter | matchTo | string | The value to be compared with `claimToMatch` input claim. Possible values: `true`, or `false`.  |
@@ -826,7 +826,7 @@ For example, the following claims transformation checks if the value of **hasPro
 
 Checks that a string claim `claimToMatch` and `matchTo` input parameter are equal, and sets the output claims with the value present in `outputClaimIfMatched` input parameter, along with  compare result output claim, which is to be set as `true` or `false` based on the result of comparison.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | claimToMatch | string | The claim type, which is to be compared. |
 | InputParameter | matchTo | string | The regular expression to match. |
@@ -902,7 +902,7 @@ Checks whether the provided email address is valid, and return the email alias.
 
 Checks that a string claim and `matchTo` input parameter are equal, and sets the output claims with the value present in `stringMatchMsg` and `stringMatchMsgCode` input parameters, along with  compare result output claim, which is to be set as `true` or `false` based on the result of comparison.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | The claim type, which is to be compared. |
 | InputParameter | matchTo | string | The string to be compared with `inputClaim`. |
@@ -952,7 +952,7 @@ You can use this claims transformation to check if a claim is equal to value you
 
 Checks that a string claim and `matchTo` input parameter are equal, and sets the output claims with the value present in `outputClaimIfMatched` input parameter, along with  compare result output claim, which is to be set as `true` or `false` based on the result of comparison.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | claimToMatch | string | The claim type, which is to be compared. |
 | InputParameter | matchTo | string | The string to be compared with inputClaim. |
@@ -994,9 +994,9 @@ For example, the following claims transformation checks if the value of **ageGro
 
 ## StringContains
 
-Determine whether a specified substring occurs within the input claim. The result is a new boolean claim with a value of `true` or `false`. `true` if the value parameter occurs within this string,  otherwise, `false`.
+Determines whether a specified substring occurs within the input claim. The result is a new boolean claim with a value of `true` or `false`. `true` if the value parameter occurs within this string,  otherwise, `false`.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | The claim type, which is to be searched. |
 |InputParameter|contains|string|The value to search.|
@@ -1034,7 +1034,7 @@ Use this claims transformation to check if a string claim type contains a substr
 
 Extracts parts of a string claim type, beginning at the character at the specified position, and returns the specified number of characters.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | The claim type, which contains the string. |
 | InputParameter | startIndex | int | The zero-based starting character position of a substring in this instance. |
@@ -1072,7 +1072,7 @@ For example, get the phone number country/region prefix.
 
 Searches a claim type string for a specified value, and returns a new claim type string in which all occurrences of a specified string in the current string are replaced with another specified string.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | The claim type, which contains the string. |
 | InputParameter | oldValue | string | The string to be searched. |
@@ -1111,7 +1111,7 @@ For example, normalize a phone number, by removing the `-` characters
 
 Concatenates the elements of a specified string collection claim type, using the specified separator between each element or member.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | stringCollection | A collection that contains the strings to concatenate. |
 | InputParameter | delimiter | string | The string to use as a separator, such as comma `,`. |
@@ -1146,7 +1146,7 @@ The following example takes a string collection of user roles, and converts it t
 
 Returns a string array that contains the substrings in this instance that are delimited by elements of a specified string.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | A string claim type that contains the sub strings to split. |
 | InputParameter | delimiter | string | The string to use as a separator, such as comma `,`. |
@@ -1171,11 +1171,11 @@ The following example takes a comma delimiter string of user roles, and converts
 ```
 
 - Input claims:
-  - **inputClaim**: "Admin,Author,Reader"
+  - **inputClaim**: `Admin,Author,Reader`
 - Input parameters:
   - **delimiter**: ","
 - Output claims:
-  - **outputClaim**: [ "Admin", "Author", "Reader" ]
+  - **outputClaim**: `[ "Admin", "Author", "Reader" ]`
 
 ## String claim transformations expressions
 
