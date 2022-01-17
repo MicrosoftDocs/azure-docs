@@ -504,9 +504,9 @@ sections:
   - name: Networking
     questions:
       - question: |
-          Is it possible to assign a Network Security Group (NSG) to a scale set, so that it applies to all the VM NICs in the set?
+          Is it possible to assign a network security group (NSG) to a scale set, so that it applies to all the VM NICs in the set?
         answer: |
-          Yes. A Network Security Group can be applied directly to a scale set by referencing it in the networkInterfaceConfigurations section of the network profile. Example:
+          Yes. You can apply an NSG directly to a scale set by referencing it in the `networkInterfaceConfigurations` section of the network profile. Here's an example:
 
           ```json
           "networkProfile": {
@@ -545,26 +545,26 @@ sections:
           ```
 
       - question: |
-          How do I do a VIP swap for virtual machine scale sets in the same subscription and same region?
+          How do I do a virtual IP (VIP) swap for virtual machine scale sets in the same subscription and same region?
         answer: |
-          If you have two virtual machine scale sets with Azure Load Balancer front-ends, and they are in the same subscription and region, you could deallocate the public IP addresses from each one, and assign to the other. See [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) for example. This does imply a delay though as the resources are deallocated/allocated at the network level. A faster option is to use Azure Application Gateway with two backend pools, and a routing rule. Alternatively, you could host your application with [Azure App service](https://azure.microsoft.com/services/app-service/) which provides support for fast switching between staging and production slots.
+          If you have two virtual machine scale sets with Azure Load Balancer, and they are in the same subscription and region, you can deallocate the public IP addresses from each one, and assign to the other. For more information, see [VIP swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/). This does imply a delay, though, because the resources are deallocated or allocated at the network level. A faster option is to use Azure Application Gateway with two back-end pools, and a routing rule. Alternatively, you can host your application with [Azure App Service](https://azure.microsoft.com/services/app-service/), which supports fast switching between staging and production slots.
 
       - question: |
           How do I specify a range of private IP addresses to use for static private IP address allocation?
         answer: |
           IP addresses are selected from a subnet that you specify.
 
-          The allocation method of virtual machine scale set IP addresses is always "dynamic," but that doesn't mean that these IP addresses can change. In this case, "dynamic" only means that you do not specify the IP address in a PUT request. Specify the static set by using the subnet.
+          The allocation method of virtual machine scale set IP addresses is always *dynamic*, but that doesn't mean that these IP addresses can change. In this case, dynamic only means that you don't specify the IP address in a `PUT` request. Specify the static set by using the subnet.
 
       - question: |
           How do I deploy a virtual machine scale set to an existing Azure virtual network?
         answer: |
-          To deploy a virtual machine scale set to an existing Azure virtual network, see [Deploy a virtual machine scale set to an existing virtual network](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-existing-vnet).
+          See [Deploy a virtual machine scale set to an existing virtual network](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-existing-vnet).
 
       - question: |
-          Can I use scale sets with Accelerated Networking?
+          Can I use scale sets with accelerated networking?
         answer: |
-          Yes. To use accelerated networking, set enableAcceleratedNetworking to true in your scale set's networkInterfaceConfigurations settings. For example
+          Yes. To use accelerated networking, set `enableAcceleratedNetworking` to `true` in your scale set's `networkInterfaceConfigurations` settings. For example:
 
           ```json
           "networkProfile": {
@@ -585,7 +585,7 @@ sections:
       - question: |
           How can I configure the DNS servers used by a scale set?
         answer: |
-          To create a virtual machine scale set with a custom DNS configuration, add a dnsSettings JSON packet to the scale set networkInterfaceConfigurations section. Example:
+          To create a virtual machine scale set with a custom DNS configuration, add a `dnsSettings` JSON packet to the scale set `networkInterfaceConfigurations` section. Here's an example:
 
           ```json
               "dnsSettings":{
@@ -596,7 +596,7 @@ sections:
       - question: |
           How can I configure a scale set to assign a public IP address to each VM?
         answer: |
-          To create a virtual machine scale set that assigns a public IP address to each VM, make sure the API version of the Microsoft.Compute/virtualMachineScaleSets resource is 2017-03-30, and add a _publicipaddressconfiguration_ JSON packet to the scale set ipConfigurations section. Example:
+          To create a virtual machine scale set that assigns a public IP address to each VM, make sure that the API version of the *Microsoft.Compute/virtualMachineScaleSets* resource is 2017-03-30, and add a `publicipaddressconfiguration` JSON packet to the scale set `ipConfigurations` section. Here's an example:
 
           ```json
               "publicipaddressconfiguration": {
@@ -608,23 +608,23 @@ sections:
           ```
 
       - question: |
-          Can I configure a scale set to work with multiple Application Gateways?
+          Can I configure a scale set to work with multiple application gateways?
         answer: |
-          Yes. You can add the resource IDs for multiple Application Gateway backend address pools to the _applicationGatewayBackendAddressPools_ list in the _ipConfigurations_ section of your scale set network profile.
+          Yes. You can add the resource IDs for multiple application gateway backend address pools to the `applicationGatewayBackendAddressPools` list in the `ipConfigurations` section of your scale set network profile.
 
   - name: Scale
     questions:
       - question: |
           In what case would I create a virtual machine scale set with fewer than two VMs?
         answer: |
-          One reason to create a virtual machine scale set with fewer than two VMs would be to use the elastic properties of a virtual machine scale set. For example, you could deploy a virtual machine scale set with zero VMs to define your infrastructure without paying VM running costs. Then, when you are ready to deploy VMs, increase the "capacity" of the virtual machine scale set to the production instance count.
+          One reason to create a virtual machine scale set with fewer than two VMs is to use the elastic properties of a virtual machine scale set. For example, you can deploy a virtual machine scale set with zero VMs to define your infrastructure without paying VM running costs. Then, when you are ready to deploy VMs, you can increase the capacity of the virtual machine scale set to the production instance count.
 
-          Another reason you might create a virtual machine scale set with fewer than two VMs is if you're concerned less with availability than in using an availability set with discrete VMs. Virtual machine scale sets give you a way to work with undifferentiated compute units that are fungible. This uniformity is a key differentiator for virtual machine scale sets versus availability sets. Many stateless workloads do not track individual units. If the workload drops, you can scale down to one compute unit, and then scale up to many when the workload increases.
+          Another reason you might create a virtual machine scale set with fewer than two VMs is if you're concerned less with availability than with using an availability set with discrete VMs. Virtual machine scale sets give you a way to work with undifferentiated compute units that are fungible. This uniformity is a key differentiator for virtual machine scale sets versus availability sets. Many stateless workloads don't track individual units. If the workload drops, you can scale down to one compute unit, and then scale up to many when the workload increases.
 
       - question: |
           How do I change the number of VMs in a virtual machine scale set?
         answer: |
-          To change the number of VMs in a virtual machine scale set in the Azure portal, from the virtual machine scale set properties section, click on the "Scaling" blade and use the slider bar.
+          To change the number of VMs in a virtual machine scale set in the Azure portal, from the virtual machine scale set **Properties** section, select the **Scaling** pane, and use the slider bar.
 
       - question: |
           How do I define custom alerts for when certain thresholds are reached?
@@ -675,7 +675,7 @@ sections:
       - question: |
           Can I create a scale set in an existing resource group?
         answer: |
-          Yes, you can create a scale set in an existing resource group.
+          Yes, you can.
 
       - question: |
           Can I move a scale set to another resource group?
@@ -683,28 +683,28 @@ sections:
           Yes, you can move scale set resources to a new subscription or resource group.
 
       - question: |
-          How to I update my virtual machine scale set to a new image? How do I manage patching?
+          How do I update my virtual machine scale set to a new image? How do I manage patching?
         answer: |
           To update your virtual machine scale set to a new image, and to manage patching, see [Upgrade a virtual machine scale set](./virtual-machine-scale-sets-upgrade-scale-set.md).
 
       - question: |
           Can I use the reimage operation to reset a VM without changing the image? (That is, I want reset a VM to factory settings rather than to a new image.)
         answer: |
-          Yes, you can use the reimage operation to reset a VM without changing the image. However, if your virtual machine scale set references a platform image with `version = latest`, your VM can update to a later OS image when you call `reimage`.
+          Yes, you can use the reimage operation to reset a VM without changing the image. However, if your virtual machine scale set references a platform image with `version = latest`, your VM can update to a later operating system image when you call `reimage`.
 
       - question: |
-          Is it possible to integrate scale sets with Azure Monitor logs?
+          Is it possible to integrate scale sets with Azure Monitor Logs?
         answer: |
-          Yes, you can by installing the Azure Monitor extension on the scale set VMs. Here is an Azure CLI example:
+          Yes, you can by installing the Azure Monitor extension on the scale set VMs. Here is an example that uses the Azure CLI:
 
           ```azurecli
           az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
           ```
 
-          You can find the required workspaceId and workspaceKey in the Log Analytics workspace of Azure portal. On the Overview page, click the Settings tile. Click the Connected Sources tab at the top.
+          You can find the required `workspaceId` and `workspaceKey` in the Log Analytics workspace of the Azure portal. On the **Overview** page, select the **Settings** tile. Select the **Connected Sources** tab at the top.
 
           > [!NOTE]
-          > If your scale set _upgradePolicy_ is set to Manual, you need to apply the extension to the all VMs in the set by calling upgrade on them. In CLI this would be _az vmss update-instances_.
+          > If your scale set `upgradePolicy` is set to manual, you need to apply the extension to the all VMs in the set by calling upgrade on them. In the Azure CLI, this is `az vmss update-instances`.
 
           [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -713,7 +713,7 @@ sections:
       - question: |
           How do I turn on boot diagnostics?
         answer: |
-          To turn on boot diagnostics, first, create a storage account. Then, put this JSON block in your virtual machine scale set **virtualMachineProfile**, and update the virtual machine scale set:
+          To turn on boot diagnostics, first, create a storage account. Then, put this JSON block in your virtual machine scale set `virtualMachineProfile`, and update the virtual machine scale set:
 
           ```json
           "diagnosticsProfile": {
@@ -724,7 +724,7 @@ sections:
           }
           ```
 
-          When a new VM is created, the InstanceView property of the VM shows the details for the screenshot, and so on. Here's an example:
+          When a new VM is created, the `InstanceView` property of the VM shows the details for the screenshot. Here's an example:
 
           ```json
           "bootDiagnostics": {
@@ -738,26 +738,26 @@ sections:
       - question: |
           How do I get property information for each VM without making multiple calls? For example, how would I get the fault domain for each of the 100 VMs in my virtual machine scale set?
         answer: |
-          To get property information for each VM without making multiple calls, you can call `ListVMInstanceViews` by doing a REST API `GET` on the following resource URI:
+          You can call `ListVMInstanceViews` by doing a REST API `GET` on the following resource URI:
 
           /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
 
       - question: |
           Can I pass different extension arguments to different VMs in a virtual machine scale set?
         answer: |
-          No, you cannot pass different extension arguments to different VMs in a virtual machine scale set. However, extensions can act based on the unique properties of the VM they are running on, such as on the machine name. Extensions also can query instance metadata on http://169.254.169.254 to get more information about the VM.
+          No, you can't. However, extensions can act based on the unique properties of the VM they are running on, such as on the machine name. Extensions also can query instance metadata on `http://169.254.169.254` to get more information about the VM.
 
       - question: |
-          Why are there gaps between my virtual machine scale set VM machine names and VM IDs? For example: 0, 1, 3...
+          Why are there gaps (for example, 0, 1, 3) between my virtual machine scale set VM machine names and VM IDs?
         answer: |
-          There are gaps between your virtual machine scale set VM machine names and VM IDs because your virtual machine scale set **overprovision** property is set to the default value of **true**. If overprovisioning is set to **true**, more VMs than requested are created. Extra VMs are then deleted. In this case, you gain increased deployment reliability, but at the expense of contiguous naming and contiguous Network Address Translation (NAT) rules.
+          Gaps are because your virtual machine scale set `overprovision` property is set to the default value of `true`. If overprovisioning is set to `true`, more VMs than requested are created. Extra VMs are then deleted. In this case, you gain increased deployment reliability, but at the expense of contiguous naming and contiguous network address translation (NAT) rules.
 
-          You can set this property to **false**. For small virtual machine scale sets, this doesn't significantly affect deployment reliability.
+          You can set this property to `false`. For small virtual machine scale sets, this doesn't significantly affect deployment reliability.
 
       - question: |
-          What is the difference between deleting a VM in a virtual machine scale set and deallocating the VM? When should I choose one over the other?
+          What's the difference between deleting a VM in a virtual machine scale set and deallocating the VM? When should I choose one over the other?
         answer: |
-          The main difference between deleting a VM in a virtual machine scale set and deallocating the VM is that `deallocate` doesn't delete the virtual hard disks (VHDs). There are storage costs associated with running `stop deallocate`. You might use one or the other for one of the following reasons:
+          The main difference is that `deallocate` doesn't delete the virtual hard disks (VHDs). There are storage costs associated with running `stop deallocate`. You might use one or the other for one of the following reasons:
 
           - You want to stop paying compute costs, but you want to keep the disk state of the VMs.
           - You want to start a set of VMs more quickly than you could scale out a virtual machine scale set.
@@ -767,7 +767,7 @@ sections:
       - question: |
           How do I take a snapshot of a virtual machine scale set instance?
         answer: |
-          Create a snapshot from an instance of a virtual machine scale set.
+          Create a snapshot from an instance of a virtual machine scale set. Here's an example:
 
           ```azurepowershell-interactive
           $rgname = "myResourceGroup"
@@ -780,7 +780,7 @@ sections:
           New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
           ```
 
-          Create a managed disk from the snapshot.
+          Create a managed disk from the snapshot. Here's an example:
 
           ```azurepowershell-interactive
           $snapshotName = "mySnapshot"
