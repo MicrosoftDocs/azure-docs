@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
-ms.date: 02/17/2021
+ms.date: 01/14/2022
 ms.author: marsma
 ms.custom: mode-api
 #Customer intent: As an application developer, I want to learn how my Node.js Electron desktop application can get an access token and call an API that's protected by a Microsoft identity platform endpoint.
@@ -25,68 +25,24 @@ This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Nod
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download) or another code editor
 
-> [!div renderon="docs"]
-> ## Register and download the sample application
->
-> Follow the steps below to get started.
->
-> #### Step 1: Register the application
-> To register your application and add the app's registration information to your solution manually, follow these steps:
->
-> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-> 1. Search for and select **Azure Active Directory**.
-> 1. Under **Manage**, select **App registrations** > **New registration**.
-> 1. Enter a **Name** for your application, for example `msal-node-desktop`. Users of your app might see this name, and you can change it later.
-> 1. Select **Register** to create the application.
-> 1. Under **Manage**, select **Authentication**.
-> 1. Select **Add a platform** > **Mobile and desktop applications**.
-> 1. In the **Redirect URIs** section, enter `msal://redirect`.
-> 1. Select **Configure**.
+#### Step 1: Configure the application in Azure portal
+For the code sample for this quickstart to work, you need to add a reply URL as **msal://redirect**.
+> [!div class="nextstepaction"]
+> [Make this change for me]()
 
-> [!div class="sxs-lookup" renderon="portal"]
-> #### Step 1: Configure the application in Azure portal
-> For the code sample for this quickstart to work, you need to add a reply URL as **msal://redirect**.
-> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Make this change for me]()
->
-> > [!div id="appconfigured" class="alert alert-info"]
-> > ![Already configured](media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these attributes.
+> [!div class="alert alert-info"]
+> ![Already configured](media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these attributes.
 
 #### Step 2: Download the Electron sample project
 
-> [!div renderon="docs"]
+> [!div  class="nextstepaction"]
 > [Download the code sample](https://github.com/azure-samples/ms-identity-javascript-nodejs-desktop/archive/main.zip)
 
-> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
-> [Download the code sample](https://github.com/azure-samples/ms-identity-javascript-nodejs-desktop/archive/main.zip)
-
-> [!div class="sxs-lookup" renderon="portal"]
+> [!div class="sxs-lookup"]
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 
-> [!div renderon="docs"]
-> #### Step 3: Configure the Electron sample project
->
-> 1. Extract the zip file to a local folder close to the root of the disk, for example, *C:/Azure-Samples*.
-> 1. Edit *.env* and replace the values of the fields `TENANT_ID` and `CLIENT_ID` with the following snippet:
->
->    ```
->    "TENANT_ID": "Enter_the_Tenant_Id_Here",
->    "CLIENT_ID": "Enter_the_Application_Id_Here"
->    ```
->    Where:
->    - `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
->    - `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
->
-> > [!TIP]
-> > To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page in the Azure portal.
-
-> [!div class="sxs-lookup" renderon="portal"]
-> #### Step 4: Run the application
-
-> [!div renderon="docs"]
-> #### Step 4: Run the application
+#### Step 4: Run the application
 
 You'll need to install the dependencies of this sample once:
 

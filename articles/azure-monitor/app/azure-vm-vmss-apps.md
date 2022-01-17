@@ -196,6 +196,16 @@ Extension execution output is logged to files found in the following directories
 C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.ApplicationMonitoringWindows\<version>\
 ```
 
+## Release notes
+
+### 2.8.42
+
+- Updated ApplicationInsights .NET/.NET Core SDK to 2.18.1-redfield.
+
+### 2.8.41
+
+- Added ASP.NET Core Auto-Instrumentation feature.
+
 ## Next steps
 * Learn how to [deploy an application to an Azure virtual machine scale set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-app.md).
 * [Set up Availability web tests](monitor-web-app-availability.md) to be alerted if your endpoint is down.

@@ -105,9 +105,9 @@ Any outbound configuration from a load-balancing rule or outbound rules is super
 
 A network security group allows you to filter inbound and outbound traffic to and from a virtual machine. To monitor outbound traffic flowing from NAT, you can enable NSG flow logs.
 
-To learn more about NSG flow logs, see [NSG Flow Log Overview](/azure/network-watcher/network-watcher-nsg-flow-logging-overview).
+To learn more about NSG flow logs, see [NSG Flow Log Overview](../../network-watcher/network-watcher-nsg-flow-logging-overview.md).
 
-For guides on how to enable NSG flow logs, see [Enabling NSG Flow Logs](/azure/network-watcher/network-watcher-nsg-flow-logging-overview#enabling-nsg-flow-logs).
+For guides on how to enable NSG flow logs, see [Enabling NSG Flow Logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md#enabling-nsg-flow-logs).
 
 ## Performance
 
@@ -235,6 +235,8 @@ Here are some design recommendations for configuring timers:
 ## Limitations
 
 - Basic load balancers and basic Public IP addresses are not compatible with NAT. Use standard SKU load balancers and Public IPs instead.
+  - To upgrade a basic load balancer to standard, see [Upgrade Azure Public Load Balancer](../../load-balancer/upgrade-basic-standard.md)
+  - To upgrade a basic public IP address to standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md)
 - IP fragmentation isn't available for NAT gateway.
 
 ## Next steps

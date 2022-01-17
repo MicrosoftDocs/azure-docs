@@ -1,5 +1,5 @@
 ---
-title: Index data from Azure Blob Storage
+title: Azure Blob indexer
 titleSuffix: Azure Cognitive Search
 description: Set up an Azure Blob indexer to automate indexing of blob content for full text search operations and knowledge mining in Azure Cognitive Search.
 
@@ -9,23 +9,24 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 12/17/2021
-ms.custom: 
+ms.date: 01/17/2022
 ---
 
 # Configure a Blob indexer to import data from Azure Blob Storage
 
-In Azure Cognitive Search, blob indexers are frequently used for both [AI enrichment](cognitive-search-concept-intro.md) and text-oriented processing. This article focuses on how to configure a blob indexer for text-oriented indexing, where just the textual content and metadata are loaded into a search index for full text search scenarios.
+In Azure Cognitive Search, blob [indexers](search-indexer-overview.md) are frequently used for both [AI enrichment](cognitive-search-concept-intro.md) and text-based processing. 
+
+This article focuses on how to configure a blob indexer for text-based indexing, where just the textual content and metadata are loaded into a search index for full text search scenarios. Inputs are your blobs, in a single container. Output is a search index with searchable content and metadata stored in individual fields.
+
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing from Blob Storage.
 
 ## Prerequisites
 
-+ [Azure Blob storage](../storage/blobs/storage-blobs-overview.md), Standard performance (general-purpose v2).
++ [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md), Standard performance (general-purpose v2).
 
 + [Access tiers](../storage/blobs/access-tiers-overview.md) for Blob storage include hot, cool, and archive. Only hot and cool can be accessed by search indexers.
 
-+ Blob content must not exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
-
-This article assumes a basic familiarity with [indexers](search-indexer-overview.md) and [indexer creation](search-howto-create-indexers.md), including tools and SDK support.
++ Blob content cannot exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
 
 <a name="SupportedFormats"></a>
 
@@ -37,7 +38,7 @@ The Azure Cognitive Search blob indexer can extract text from the following docu
 
 ## Define the data source
 
-A primary difference between a blob indexer and other indexers is the data source definition that's assigned to the indexer. The data source definition specifies the data source type ("type": "azureblob") and properties for authentication and connection to the content being indexed.
+A primary difference between a blob indexer and other indexers is the data source assignment. The data source definition specifies the type ("type": `"azureblob"`) and how to connect.
 
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
@@ -50,7 +51,7 @@ A primary difference between a blob indexer and other indexers is the data sourc
     }
     ```
 
-1. Set "type" to "azureblob" (required).
+1. Set "type" to `"azureblob"` (required).
 
 1. Set "credentials" to the connection string, as shown in the above example, or one of the alternative approaches described in the next section. 
 
@@ -80,7 +81,7 @@ You can provide the credentials for the blob container in one of these ways:
 | Container shared access signature |
 |-----------------------------------|
 | `{ "connectionString" : "ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl;" }` |
-| The SAS should have the list and read permissions on the container. For more information on storage shared access signatures, see [Using Shared Access Signatures](../storage/common/storage-sas-overview.md). |
+| The SAS should have the list and read permissions on the container. For more information on Azure Storage shared access signatures, see [Using Shared Access Signatures](../storage/common/storage-sas-overview.md). |
 
 > [!NOTE]
 > If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to "Credentials provided in the connection string are invalid or have expired".  
@@ -102,9 +103,7 @@ A [search index](search-what-is-an-index.md) specifies the fields in a search do
     }
     ```
 
-<a name="DocumentKeys"></a>
-
-1. Designate one string field as the document key that uniquely identifies each document. For blob content, the best candidates for a document key are metadata properties on the blob:
+1. <a name="DocumentKeys"></a> Designate one string field as the document key that uniquely identifies each document. For blob content, the best candidates for a document key are metadata properties on the blob:
 
    + **`metadata_storage_path`** (default). Using the full path ensures uniqueness, but the path contains `/` characters that are [invalid in a document key](/rest/api/searchservice/naming-rules). Use the [base64Encode function](search-indexer-field-mappings.md#base64EncodeFunction) to encode characters (see the example in the next section). If using the portal to define the indexer, the encoding step is built in.
 
@@ -354,5 +353,5 @@ You can also set [blob configuration parameters](/rest/api/searchservice/create-
 
 + [Indexers in Azure Cognitive Search](search-indexer-overview.md)
 + [Create an indexer](search-howto-create-indexers.md)
-+ [AI enrichment over blobs overview](search-blob-ai-integration.md)
++ [AI enrichment overview](cognitive-search-concept-intro.md)
 + [Search over blobs overview](search-blob-storage-integration.md)

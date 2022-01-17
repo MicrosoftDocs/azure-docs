@@ -73,7 +73,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Serverless entities, orchestrations, and stateful functions
-            url: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B206
+            url: /Events/dotnetConf/NET-Conf-2019/B206
           
   # Card
   - title: Application patterns

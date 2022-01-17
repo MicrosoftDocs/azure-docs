@@ -392,5 +392,5 @@ You can also set [blob configuration properties](/rest/api/searchservice/create-
 + [C# Sample: Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md)
 + [Indexers in Azure Cognitive Search](search-indexer-overview.md)
 + [Create an indexer](search-howto-create-indexers.md)
-+ [AI enrichment over blobs overview](search-blob-ai-integration.md)
++ [AI enrichment overview](cognitive-search-concept-intro.md)
 + [Search over blobs overview](search-blob-storage-integration.md)
