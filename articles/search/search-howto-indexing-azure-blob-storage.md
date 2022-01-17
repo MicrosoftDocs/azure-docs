@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 01/17/2022
 ---
 
-# Configure a Blob indexer to import data from Azure Blob Storage
+# Index data from Azure Blob Storage
 
 In Azure Cognitive Search, blob [indexers](search-indexer-overview.md) are frequently used for both [AI enrichment](cognitive-search-concept-intro.md) and text-based processing. 
 
@@ -26,7 +26,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + [Access tiers](../storage/blobs/access-tiers-overview.md) for Blob storage include hot, cool, and archive. Only hot and cool can be accessed by search indexers.
 
-+ Blob content cannot exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
++ Blob containers storing non-binary textual content for text-based indexing. This indexer also supports [AI enrichment](cognitive-search-concept-intro.md) if you have binary files. Note that blob content cannot exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
 
 <a name="SupportedFormats"></a>
 
@@ -38,7 +38,7 @@ The Azure Cognitive Search blob indexer can extract text from the following docu
 
 ## Define the data source
 
-A primary difference between a blob indexer and other indexers is the data source assignment. The data source definition specifies the type ("type": `"azureblob"`) and how to connect.
+A primary difference between a blob indexer and other indexers is the data source assignment. The data source definition specifies "type": `"azureblob"` and how to connect.
 
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
@@ -53,15 +53,15 @@ A primary difference between a blob indexer and other indexers is the data sourc
 
 1. Set "type" to `"azureblob"` (required).
 
-1. Set "credentials" to the connection string, as shown in the above example, or one of the alternative approaches described in the next section. 
+1. Set "credentials" to an Azure Storage connection string. The next section describes the supported formats.
 
-1. Set "container" to the blob container within Azure Storage. If the container uses folders to organize content, set "query" to specify a subfolder.
+1. Set "container" to the blob container, and use "query" to specify any subfolders.
 
 <a name="credentials"></a>
 
 ### Supported credentials and connection strings
 
-You can provide the credentials for the blob container in one of these ways:
+Indexers can connect to a blob container using the following connections.
 
 | Managed identity connection string |
 |------------------------------------|
@@ -71,7 +71,7 @@ You can provide the credentials for the blob container in one of these ways:
 | Full access storage account connection string |
 |-----------------------------------------------|
 |`{ "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }` |
-| You can get the connection string from the Azure portal by navigating to the Storage Account > Settings > Keys (for Classic storage accounts) or Security + networking  > Access keys (for Azure Resource Manager storage accounts). |
+| You can get the connection string from the Storage account page in Azure portal by selecting **Access keys** in the left navigation pane. Make sure to select a full connection string and not just a key. |
 
 | Storage account shared access signature** (SAS) connection string |
 |-------------------------------------------------------------------|
@@ -107,7 +107,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
     }
     ```
 
-1. <a name="DocumentKeys"></a> Designate one string field as the document key that uniquely identifies each document. For blob content, the best candidates for a document key are metadata properties on the blob:
+1. Designate one string field as the document key that uniquely identifies each document. For blob content, the best candidates for a document key are metadata properties on the blob:
 
    + **`metadata_storage_path`** (default). Using the full path ensures uniqueness, but the path contains `/` characters that are [invalid in a document key](/rest/api/searchservice/naming-rules). Use the [base64Encode function](search-indexer-field-mappings.md#base64EncodeFunction) to encode characters (see the example in the next section). If using the portal to define the indexer, the encoding step is built in.
 
@@ -122,7 +122,37 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
 1. Add more fields for any blob metadata that you want in the index. The indexer can read custom metadata properties, [standard metadata](#indexing-blob-metadata) properties, and [content-specific metadata](search-blob-metadata-properties.md) properties.
 
-## Set field mappings
+## Configure the blob indexer
+
+1. [Create or update an indexer](/rest/api/searchservice/create-indexer) to use the predefined data source and search index.
+
+    ```http
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+    {
+      "name" : "my-blob-indexer,
+      "dataSourceName" : "my-blob-datasource",
+      "targetIndexName" : "my-search-index",
+      "parameters": {
+        "batchSize": null,
+        "maxFailedItems": null,
+        "maxFailedItemsPerBatch": null,
+        "configuration:" {
+            "indexedFileNameExtensions" : ".pdf,.docx",
+            "excludedFileNameExtensions" : ".png,.jpeg" 
+        }
+      },
+      "schedule" : { },
+      "fieldMappings" : [ ]
+    }
+    ```
+
+1. In the optional "configuration" section, provide any inclusion or exclusion criteria. If left unspecified, all blobs in the container are retrieved.
+
+   If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, Azure Cognitive Search first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. If the same file extension is present in both lists, it will be excluded from indexing.
+
+1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
+
+### Set field mappings
 
 Field mappings are a section in the indexer definition that maps source fields to destination fields in the search index.
 

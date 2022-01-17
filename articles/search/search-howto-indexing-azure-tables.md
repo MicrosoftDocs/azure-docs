@@ -22,11 +22,11 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + [Azure Table Storage](../storage/tables/table-storage-overview.md)
 
-+ Tables with entities containing non-binary data for text-based indexing
++ Tables with entities containing non-binary textual content for text-based indexing. This indexer also supports [AI enrichment](cognitive-search-concept-intro.md) if you have binary files.
 
 ## Define the data source
 
-A primary difference between a table indexer and other indexers is the data source assignment. The data source definition specifies the type ("type": `"azuretable"`) and how to connect.
+A primary difference between a table indexer and other indexers is the data source assignment. The data source definition specifies "type": `"azuretable"` and how to connect.
 
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
@@ -41,11 +41,7 @@ A primary difference between a table indexer and other indexers is the data sour
 
 1. Set "type" to `"azuretable"` (required).
 
-1. Set "credentials" to the connection string. The following examples show commonly used connection strings for connections using shared access keys or a [system-managed identity](search-howto-managed-identities-storage.md). Additional examples are in the next section.
-
-   + `"connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;"`
-
-   + `"connectionString" : "ResourceId=/subscriptions/[your subscription ID]/[your resource ID]/providers/Microsoft.Storage/storageAccounts/[your storage account];"`
+1. Set "credentials" to an Azure Storage connection string. The next section describes the supported formats.
 
 1. Set "container" to the name of the table.
 
@@ -56,11 +52,14 @@ A primary difference between a table indexer and other indexers is the data sour
 
 <a name="Credentials"></a>
 
-### Credentials for Table Storage
+### Supported credentials and connection strings
 
-You can provide the credentials for the connection in one of these ways: 
+Indexers can connect to a table using the following connections.
 
-+ **Full access storage account connection string**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` You can get the connection string from the Azure portal by going to the **Storage account blade** > **Settings** > **Keys** (for classic storage accounts) or **Settings** > **Access keys** (for Azure Resource Manager storage accounts).
+**Full access storage account connection string**:
+`{ "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }`
+
+You can get the connection string from the Storage account page in Azure portal by selecting **Access keys** in the left navigation pane. Make sure to select a full connection string and not just a key.
 
 + **Managed identity connection string**: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;` 
 This connection string does not require an account key, but you must follow the instructions for [Setting up a connection to an Azure Storage account using a managed identity](search-howto-managed-identities-storage.md).
@@ -91,27 +90,27 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
     }
     ```
 
-1. Check for field correspondence between entity fields and search fields. If names and types don't match, [add field mappings](search-indexer-field-mappings.md) to the indexer definition to ensure the source-to-destination path is clear.
-
 1. Create a key field, but do not define field mappings to alternative unique strings in the table. 
 
    A table indexer will populate the key field with concatenated partition and row keys from the table. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then the `Key` field's value is `PK1RK1`. If the partition key is null, just the row key is used.
 
+1. Check for field correspondence between entity fields and search fields. If names and types don't match, [add field mappings](search-indexer-field-mappings.md) to the indexer definition to ensure the source-to-destination path is clear.
+
 ## Configure the table indexer
 
-[Create Indexer](/rest/api/searchservice/create-indexer) connects a data source with a target search index and provides a schedule to automate the data refresh. 
+1. [Create or update an indexer](/rest/api/searchservice/create-indexer) to use the predefined data source and search index.
 
-An indexer definition for Table Storage uses the global properties for data source, index, [schedule](search-howto-schedule-indexers.md), mapping functions for base-64 encoding, and any field mappings.
+    ```http
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+    {
+        "name" : "table-indexer",
+        "dataSourceName" : "my-table-datasource",
+        "targetIndexName" : "my-target-index",
+        "schedule" : { "interval" : "PT2H" }
+    }
+    ```
 
-```http
-POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
-{
-    "name" : "table-indexer",
-    "dataSourceName" : "my-table-datasource",
-    "targetIndexName" : "my-target-index",
-    "schedule" : { "interval" : "PT2H" }
-}
-```
+1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
 
 ## Change and deletion detection
 

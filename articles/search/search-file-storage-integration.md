@@ -17,13 +17,13 @@ ms.date: 01/17/2022
 
 In this article, learn the steps for extracting content and metadata from file shares in Azure Storage and sending the content to a search index in Azure Cognitive Search. The resulting index can be queried using full text search.
 
-This article supplements [Create an indexer](search-howto-create-indexers.md) with information specific to indexing files in Azure Storage.
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing files in Azure Storage.
 
 ## Prerequisites
 
-+ [Azure Files](https://azure.microsoft.com/services/storage/files/) at the Transaction Optimized tier, with a file share that provides source content.
++ [Azure Files](https://azure.microsoft.com/services/storage/files/), Transaction Optimized tier.
 
-+ File must be stored on [SMB shares](../storage/files/files-smb-protocol.md) (the indexer has an internal dependency on [Azure Files REST API](/rest/api/storageservices/file-service-rest-api). [NFS shares](../storage/files/files-nfs-protocol.md#support-for-azure-storage-features) are not supported.
++ An [SMB file share](../storage/files/files-smb-protocol.md) providing the source content. [NFS shares](../storage/files/files-nfs-protocol.md#support-for-azure-storage-features) are not supported.
 
 + Files should contain non-binary textual content for text-based indexing. This indexer also supports [AI enrichment](cognitive-search-concept-intro.md) if you have binary files.
 
@@ -35,7 +35,7 @@ The Azure Files indexer can extract text from the following document formats:
 
 ## Define the data source
 
-A primary difference between a file share indexer and other indexers is the data source assignment. The data source definition specifies "type": "azurefile" and how to connect.
+A primary difference between a file share indexer and other indexers is the data source assignment. The data source definition specifies "type": `"azurefile"` and how to connect.
 
 1. [Create or update a data source](/rest/api/searchservice/preview-api/create-or-update-data-source) to set its definition, using a preview API version 2020-06-30-Preview or 2021-04-30-Preview.
 
@@ -50,7 +50,7 @@ A primary difference between a file share indexer and other indexers is the data
 
 1. Set "type" to "azurefile" (required).
 
-1. Set "credentials" to an Azure Storage connection string. The next session describes the supported formats.
+1. Set "credentials" to an Azure Storage connection string. The next section describes the supported formats.
 
 1. Set "container" to the root file share, and use "query" to specify any subfolders.
 
@@ -58,7 +58,7 @@ A primary difference between a file share indexer and other indexers is the data
 
 ### Supported credentials and connection strings
 
-You can provide the credentials for the file share in one of these ways:
+Indexers can connect to a file share using the following connections.
 
 **Full access storage account connection string**:
 `{ "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }`
@@ -146,11 +146,9 @@ If you have a large number of files of various document types, you can include f
 
 1. In the optional "configuration" section, provide any inclusion or exclusion criteria. If left unspecified, all files in the file share are retrieved.
 
-   If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, Azure Cognitive Search first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. This means that if the same file extension is present in both lists, it will be excluded from indexing.
+   If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, Azure Cognitive Search first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. If the same file extension is present in both lists, it will be excluded from indexing.
 
-1. See [Create an indexer](search-howto-create-indexers) for more information about other properties.
-
-<a name="deleted-files"></a>
+1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
 
 ## Change and deletion detection
 
