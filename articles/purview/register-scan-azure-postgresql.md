@@ -1,6 +1,6 @@
 ---
 title: 'Connect to and manage an Azure Database for PostgreSQL'
-description: This guide describes how to connect to an Azure Database for PostgreSQL single server in Azure Purview, and use Purview's features to scan and manage your Azure Database for PostgreSQL source.
+description: This guide describes how to connect to an Azure Database for PostgreSQL single server in Azure Purview, and use Azure Purview's features to scan and manage your Azure Database for PostgreSQL source.
 author: evangelinew
 ms.author: evwhite
 ms.service: purview
@@ -23,20 +23,20 @@ This article outlines how to register an Azure Database for PostgreSQL deployed 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
 > [!Important]
->  Purview only supports single server deployment option for Azure Database for PostgreSQL. 
+>  Azure Purview only supports single server deployment option for Azure Database for PostgreSQL. 
 >  Versions 8.x to 12.x
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Purview resource](create-catalog-portal.md).
+* An active [Azure Purview resource](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
-This section describes how to register an Azure Database for PostgreSQL in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
+This section describes how to register an Azure Database for PostgreSQL in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
 
 ### Authentication for registration
 
@@ -51,14 +51,14 @@ Connecting to an Azure Database for PostgreSQL database requires the fully quali
 1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your Azure PostgreSQL Database
 1. Select **Create** to complete
-1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. If your key vault is not connected to Azure Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) of type SQL authentication using the **username** and **password** to set up your scan
 
 ### Steps to register
 
 To register a new Azure Database for PostgreSQL in your data catalog, do the following:
 
-1. Navigate to your Purview account.
+1. Navigate to your Azure Purview account.
 
 1. Select **Data Map** on the left navigation.
 
@@ -84,7 +84,7 @@ Follow the steps below to scan an Azure Database for PostgreSQL database to auto
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://web.purview.azure.com/resource/).
+1. Select the **Data Map** tab on the left pane in the [Azure Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Select the Azure Database for PostgreSQL source that you registered.
 
@@ -112,7 +112,7 @@ To create and run a new scan, do the following:
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

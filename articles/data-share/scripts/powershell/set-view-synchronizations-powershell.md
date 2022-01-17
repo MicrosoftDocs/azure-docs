@@ -4,7 +4,7 @@ description: This PowerShell script sets and gets share synchronization settings
 author: joannapea
 ms.service: data-share
 ms.topic: article
-ms.date: 07/07/2019
+ms.date: 01/03/2022
 ms.author: joanpo 
 ms.custom: devx-track-azurepowershell
 ---

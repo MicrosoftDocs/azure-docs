@@ -102,8 +102,12 @@ The following table provides a high-level features and capabilities comparisons 
 | TimescaleDB, orafce, plv8 | Yes | No |
 | PgCron, lo, pglogical | No | Yes |
 | pgAudit | Preview | Yes |
+| **Security** | | |
+| Azure Active Directory Support (AAD) | Yes | No |
+| Customer managed encryption key (BYOK) | Yes | No |
+| SCRAM Authentication (SHA-256) | No | Yes |
+| Secure Sockets Layer support (SSL) | Yes | Yes |
 | **Other features** | | |
-| Customer managed key (BYOK) | Yes | No |
 | Alerts | Yes | Yes |
 | Microsoft Defender for Cloud | Yes | No |
 | Resource health | Yes | No |

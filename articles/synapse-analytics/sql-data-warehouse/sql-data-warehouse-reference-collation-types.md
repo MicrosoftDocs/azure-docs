@@ -9,7 +9,7 @@ ms.subservice: sql
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: jasonh
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: seo-lt-2019, azure-synapse
 ---
 

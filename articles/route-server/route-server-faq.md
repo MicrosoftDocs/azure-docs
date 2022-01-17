@@ -51,6 +51,10 @@ No. We'll add IPv6 support in the future.
 
 If the route has the same AS path length, Azure Route Server will program multiple copies of the route, each with a different next hop, to the VMs in the virtual network. When the VMs send traffic to the destination of this route, the VM hosts will do Equal-Cost Multi-Path (ECMP) routing. However, if one NVA sends the route with a shorter AS path length than other NVAs, Azure Route Server will only program the route that has the next hop set to this NVA to the VMs in the virtual network.
 
+### Does Azure Route Server preserve the BGP AS Path of the route it receives?
+
+Yes, Azure Route Server propagates the route with the BGP AS Path intact.
+
 ### Does Azure Route Server preserve the BGP communities of the route it receives?
 
 Yes, Azure Route Server propagates the route with the BGP communities as is.

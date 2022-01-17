@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/25/2020
 ms.author: jasonh
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Enabling Synapse workspace features for a dedicated SQL pool (formerly SQL DW)

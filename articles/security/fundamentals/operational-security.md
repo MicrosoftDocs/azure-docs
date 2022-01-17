@@ -10,7 +10,6 @@ editor: TomSh
 ms.assetid: 
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article 
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -307,7 +306,7 @@ For customers interested in storing their [audit events](../../active-directory/
 
 ## Summary
 
-This article summaries protecting your privacy and securing your data, while delivering software and services that help you manage the IT infrastructure of your organization. Microsoft recognizes that when they entrust their data to others, that trust requires rigorous security. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service. Securing and protecting data is a top priority at Microsoft.
+This article summarizes protecting your privacy and securing your data, while delivering software and services that help you manage the IT infrastructure of your organization. Microsoft recognizes that when they entrust their data to others, that trust requires rigorous security. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service. Securing and protecting data is a top priority at Microsoft.
 
 This article explains
 

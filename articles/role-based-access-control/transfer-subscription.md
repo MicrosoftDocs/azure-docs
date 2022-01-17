@@ -5,7 +5,6 @@ services: active-directory
 author: rolyon
 manager: karenhoran
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
 ms.date: 09/04/2021
