@@ -87,7 +87,7 @@ landingContent:
           - text: Overview of CloudKnox system report types
             url: cloudknox-product-reports.md
   # Card
-  - title: Comply with standards with Microsoft CloudKnox Permissions Management
+  - title: Standards compliance with Microsoft CloudKnox Permissions Management
     linkLists:
       - linkListType: overview
         links:
