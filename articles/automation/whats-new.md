@@ -25,7 +25,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 **Type:** New feature
 
-Azure Automation now supports Managed Identities in Azure public, Azure Gov, and Azure China cloud. [System Assigned Managed Identities](/azure/automation/enable-managed-identity-for-automation) is supported for cloud as well as hybrid jobs, while  [User Assigned Managed Identities](/azure/automation/automation-security-overview#managed-identities-preview) is supported only for cloud jobs. Read the [announcement](https://azure.microsoft.com/en-in/updates/azure-automation-managed-identities-ga/) for more information.
+Azure Automation now supports Managed Identities in Azure public, Azure Gov, and Azure China cloud. [System Assigned Managed Identities](/azure/automation/enable-managed-identity-for-automation) is supported for cloud as well as hybrid jobs, while  [User Assigned Managed Identities](/azure/automation/automation-security-overview#managed-identities-preview) is supported only for cloud jobs. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-managed-identities-ga/) for more information.
 
 ### Preview support for PowerShell 7.1 
 
