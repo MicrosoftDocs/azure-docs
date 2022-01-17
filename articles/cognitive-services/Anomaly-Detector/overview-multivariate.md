@@ -35,7 +35,7 @@ To learn how to call the Multivariate Anomaly Detector API, try this [Notebook](
 Multivariate Anomaly Detector includes three main steps, **data preparation**, **training** and **inference**.
  
 ### Data preparation
-For data preparation, you should prepare two parts of data, **training data** and **inference data**. As for training data, you should upload your data to Blob Storage and generate an SAS url which will be used in training API. As for inference data, you could either use the same data format as training data, or send the data into API header which will be formatted as JSON. This depends on what API you choose to use in the inference process.
+For data preparation, you should prepare two parts of data, **training data** and **inference data**. As for training data, you should upload your data to Blob Storage and generate an SAS url which will be used in training API. As for inference data, you could either use the same data format as training data, or send the data into API header, which will be formatted as JSON. This depends on what API you choose to use in the inference process.
  
 ### Training
 When training a model, you should call an asynchronous API on your training data, which means you won't get the model status immediately after calling this API, you should request another API to get the model status.
