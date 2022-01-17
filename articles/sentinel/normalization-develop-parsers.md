@@ -243,8 +243,8 @@ Handle the results as follows:
 | ------- | ------ |
 | **(0) Error: Missing mandatory field [\<Field\>]** | Add this field to your parser. In many cases, this would be a derived value or a constant value, and not a field already available from the source. |
 | **(0) Error: Missing mandatory alias [\<Field\>] aliasing existing column [\<Field\>]** | Add this alias to your parser. |
-| **(0) Error: Missing mandatory alias [\<Field\>] aliasing missing column [\<Field\>]** | This error accompanies a similar error on | **(0) Error: Missing recommended alias [\<Field\>] aliasing existing column [\<Field\>]** | Add this alias to your parser. |
-the aliased field. Correct the aliased field error and add this alias to your parser. |
+| **(0) Error: Missing mandatory alias [\<Field\>] aliasing missing column [\<Field\>]** | This error accompanies a similar error for the aliased field. Correct the aliased field error and add this alias to your parser. |
+| **(0) Error: Missing recommended alias [\<Field\>] aliasing existing column [\<Field\>]** | Add this alias to your parser. |
 | **(0) Error: Missing optional alias [\<Field\>] aliasing existing column [\<Field\>]** | Add this alias to your parser. |
 | **(0) Error: type mismatch for field [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>]** | Make sure that the type of normalized field is correct, usually by using a [conversion function](/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as `tostring`. |
 | **(1) Warning: Missing recommended field [\<Field\>]** | Consider adding this field to your parser. |
