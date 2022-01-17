@@ -104,6 +104,8 @@
       href: service-fabric-tutorial-standalone-install-an-application.md
     - name: 4- Clean up your cluster and delete the infrastructure
       href: service-fabric-tutorial-standalone-clean-up.md
+    - name: 5- FAQs related to Service Fabric Infrastructure Service
+      href: infrastructure-service-faq.md
 - name: Best practices
   items:
   - name: Security
