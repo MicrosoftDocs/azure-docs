@@ -16,11 +16,11 @@ ms.topic: conceptual
 > [!IMPORTANT]
 > Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
 
-A project might have one or many successfully trained models. However, you can publish only one model per project to one or many regions: North America, Europe, and Asia Pacific. You incure `$10 monthly hosting charge per region`.
+A project might have one or many successfully trained models. However, you can publish only one model per project to one or many regions: North America, Europe, and Asia Pacific. You incur `$10 monthly hosting charge per region`.
 
 ## Publish trained model
 
-1. Select **Publish model** blade
+1. Select **Publish model** blade.
 2. Select "en-de with sample data" and select **Publish**
 3. Check desired region(s) 
 4. Select **Publish** (Status should transition from Deploying to Deployed)

@@ -49,7 +49,7 @@ English to French and from French to English, you create two
 projects: one for English -\> French, and one for French -\> English. You
 specify the same category (Technology) for both and leave the project label
 blank. The Category ID for both projects is the same. When you call the Text API to translate from both models, you only change the from and to languages.
-for both English and French translations without having to modify my CategoryID.
+For both English and French translations without having to modify my CategoryID.
 
 ## Next steps
 
