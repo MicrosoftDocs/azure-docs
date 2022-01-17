@@ -39,7 +39,7 @@ You can read an overview of translation and custom translation, learn some tips,
 1. **Create a workspace** - A workspace is a work area for composing and building your custom translation system. A workspace can contain multiple projects, models, and documents. All the work you do in Custom Translator is inside a specific workspace.
 2. **Create a project** - A project is a wrapper for a model, documents, and tests. Each project automatically includes all documents that are uploaded into that workspace that have the correct language pair. For example, if you have both an English to Spanish project and a Spanish to English project, the same documents will be included in both projects.
 3. **Upload parallel documents** - Parallel documents are pairs of documents where one is the translation of the other. One document in the pair contains sentences in the source language and the other document contains these sentences translated into the target language. It doesn't matter which language is marked as "source" and which language is marked as "target" – a parallel document can be used to train a translation system in either direction.
-4. **Train a model** - A model is the system, which provides translation for a specific language pair. The outcome of a successful training is a model. When training a model, three mutually exclusive document types are required: training, tuning, and testing. If only training data is provided when queuing a training, Custom Translator will automatically assemble tuning and testing data. It will use a random subset of sentences from your training documents, and exclude these sentences from the training data itself. A 10,000 parallel sentences is the minimum requirement to train a model.
+4. **Train a model** - A model is the system, which provides translation for a specific language pair. The outcome of a successful training is a model. When training a model, three mutually exclusive document types are required: training, tuning, and testing. If only training data is provided when queuing a training, Custom Translator will automatically assemble tuning and testing data. It will use a random subset of sentences from your training documents, and exclude these sentences from the training data itself. A 10,000 parallel sentence is the minimum requirement to train a model.
 5. **Test (human evaluate)** - The testing set is used to compute the BLEU (Bilingual Evaluation Understudy) score. This score indicates the quality of your translation system. 
 6. **Publish (aka deploy)** - Custom model is made available for runtime translation requests.
 7. **Translate** - Use the same cloud-based, secure, high performance, highly scalable Microsoft Translator [Text API V3](../../reference/v3-0-translate.md?tabs=curl) to make translation requests.
@@ -149,19 +149,21 @@ Once your training has completed successfully, inspect the test set translated s
 
 You can publish one model per project to any region of our three geographies regions; North America, Europe, and Asia Pacific.
 
-### Publish a trained model steps:
+1. Select **Publish model** blade.
 
-1. Select **Publish model** blade
-2. Select "en-de with sample data" and select **Publish**
-3. Check desired region(s) 
-4. Select **Publish** (Status should transition from Deploying to Deployed)
+1. Select "en-de with sample data" and select **Publish**.
+
+1. Check desired region(s).
+
+1. Select **Publish** (Status should transition from Deploying to Deployed).
 
 ![Deploy a trained model](media/quickstart/publish-model.png)
 
 ## Translate
 
 1. Developers should use the category ID when making translation requests using Microsoft Translator [Text API V3](../../reference/v3-0-translate.md?tabs=curl). More information about the Translator Text API can be found on the [API Reference](../../reference/v3-0-reference.md) webpage.
-2. Business users may want to download and install our free [DocumentTranslator app for Windows](https://github.com/MicrosoftTranslator/DocumentTranslator/releases/tag/V2.9.4).
+
+1. Business users may want to download and install our free [DocumentTranslator app for Windows](https://github.com/MicrosoftTranslator/DocumentTranslator/releases/tag/V2.9.4).
 
 ## Next steps
 

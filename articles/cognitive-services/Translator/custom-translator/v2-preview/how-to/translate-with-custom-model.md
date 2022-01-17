@@ -20,7 +20,7 @@ After you publish your custom model to any of our regions; North America, Europe
 
 ## How to translate
 
-1. Developers should use the category ID when making translation requests using Microsoft Translator [Text API V3](../../../reference/v3-0-translate.md?tabs=curl). More information about the Translator Text API can be found on the [API Reference](../../../reference/v3-0-reference.md) webpage.
+1. Developers should use the category ID when making a translation request via Microsoft Translator [Text API V3](../../../reference/v3-0-translate.md?tabs=curl). More information about the Translator Text API can be found on the [API Reference](../../../reference/v3-0-reference.md) webpage.
 2. Business users may want to download and install our free [DocumentTranslator app for Windows](https://github.com/MicrosoftTranslator/DocumentTranslator/releases/tag/V2.9.4).
 
 ## Next steps

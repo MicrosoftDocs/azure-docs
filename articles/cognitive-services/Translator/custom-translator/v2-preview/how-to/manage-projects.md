@@ -16,15 +16,15 @@ ms.topic: conceptual
 > [!IMPORTANT]
 > Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
 
-A project is a container for a models, documents, and tests. Each project automatically includes all documents that are uploaded into that workspace that have the correct language pair.
+A project is a container for models, documents, and tests. Each project automatically includes all documents that are uploaded into that workspace that have the correct language pair.
 
 Creating project is the first step toward building and publishing a model.
 
 ## Create project
 
 1. After sign-in, your default workspace is loaded.
-    - To create a project in different workspace, click **My workspaces**, then click the workspace name
-2. Click **Create project**
+    - To create a project in different workspace, select **My workspaces**, then select the workspace name
+2. Select **Create project**
 3. Enter the following details about your project in the dialog:
 
     a.  **Project name (required):** Give your project a unique, meaningful name. It's not necessary to mention the languages within the title.
@@ -36,7 +36,7 @@ Creating project is the first step toward building and publishing a model.
         documents you intend to translate.
 
     >[!Note]
-    >Click **Show advanced options** to add project label, project description, and domain description
+    >Select **Show advanced options** to add project label, project description, and domain description
 
     d.  **Project label:** The project label distinguishes between
         projects with the same language pair and domain. As best practices,
@@ -60,28 +60,28 @@ Creating project is the first step toward building and publishing a model.
 
     ![Create project dialog](../media/how-to/create-project-dialog.png)
 
-3. Click **Create project**
+3. Select **Create project**
 
 ## Edit project
 
 To modify the project name, project description and domain description:
 
-1. Click the workspace name, e.g., `Contoso MT models`.
-2. Select the project name, e.g., `English to German`.
+1. Select the workspace name, for example, `Contoso MT models`.
+2. Select the project name, for example, `English to German`.
 3. **Edit and Delete** buttons are now visible.
 
     ![Edit project](../media/how-to/edit-project-dialog-1.png)
 
-4. Click **Edit** and fill in or modify existing text.
+4. Select **Edit** and fill in or modify existing text.
 
     ![Edit project details](../media/how-to/edit-project-dialog-2.png)
 
-5. Click **Edit project** to save.
+5. Select **Edit project** to save.
 
 ## Delete project
 
 1. Follow **Edit a project** steps 1-3
-2. Click **Delete** and read the delete message before you click **Delete project** to confirm.
+2. Select **Delete** and read the delete message before you select **Delete project** to confirm.
 
     ![Delete project dialog](../media/how-to/delete-project-1.png)
 
