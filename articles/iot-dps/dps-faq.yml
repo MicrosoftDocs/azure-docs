@@ -30,6 +30,10 @@ sections:
          How can I disable or remove a single device within an enrollment group without affecting any other devices? 
         answer: |
          You can create a disabled individual enrollment entry for the device. To learn more, see [How to disenroll a device from Azure IoT Hub Device Provisioning Service](how-to-revoke-device-access-portal.md).
+      - question: |
+         Can I use a WHERE clause to filer results when querying individual enrollments or enrollment groups? 
+        answer: |
+         Filtering results with a `WHERE` clause is not supported at this time. You can use `SELECT *` to return paged results for all the individual enrollments or enrollment groups in a DPS instance.
   - name: DPS Billing
     questions:
       - question: |
