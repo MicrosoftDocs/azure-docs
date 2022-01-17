@@ -67,8 +67,10 @@ To migrate smart detection in your resource, take the following steps:
    ![Smart detection feed banner](media/alerts-smart-detections-migration/smart-detection-feed-banner.png)
 
 3. Check the option "Migrate all Application Insights resources in this subscription", or leave it unchecked if you want to migrate only the current resource you are in. 
-> [!NOTE]
-> Checking this option will impact all **existing** Application Insights resources (that were not migrated yet). As long as the migration to alerts is in preview, new Application Insights resources will still be created with non-alerts smart detection.
+   > [!NOTE]
+
+   > Checking this option will impact all **existing** Application Insights resources (that were not migrated yet). As long as the migration to alerts is in preview, new Application Insights resources will still be created with non-alerts smart detection.
+
 
 4. Select an action group to be configured for the new alert rules. You can choose between using the default action group (as explained above) or using one of your existing action groups.
 
