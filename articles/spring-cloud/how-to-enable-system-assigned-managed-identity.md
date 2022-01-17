@@ -23,10 +23,8 @@ If you're unfamiliar with managed identities for Azure resources, see the [Manag
 
 ::: zone pivot="sc-enterprise-tier"
 - An already provisioned Azure Spring Cloud Enterprise tier instance. For more information, see [Get started with Enterprise Tier](./get-started-enterprise.md).
-
 - [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
-
-[!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
+- [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 ::: zone-end
 
 ::: zone pivot="sc-standard-tier"
