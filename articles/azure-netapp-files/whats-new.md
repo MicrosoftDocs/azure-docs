@@ -22,10 +22,13 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## January 2022
 
+* [LDAP search scope](configure-ldap-extended-groups.md#ldap-search-scope)
+
+    You might be using the Unix security style with a dual-protocol volume or LDAP with extended groups features in combination with large LDAP topologies. In this case, you might encounter "access denied" errors on Linux clients when interacting with such Azure NetApp Files volumes. You can now use the  **LDAP Search Scope** option to specify the LDAP search scope to avoid "access denied" errors. 
+
 * [Active Directory Domain Services (ADDS) LDAP user-mapping with NFS extended groups](configure-ldap-extended-groups.md) now generally available (GA)
 
     The ADDS LDAP user-mapping with NFS extended groups feature is now generally available. You no longer need to register the feature before using it.
-
 
 ## December 2021
 
