@@ -34,9 +34,118 @@ In this guide, you'll learn how to use [Python APIs for ONNX Runtime](https://on
 
 * Install the [onnxruntime](https://onnxruntime.ai/docs/get-started/with-python.html) package. The methods in this article have been tested with versions 1.3.0 to 1.8.0.
 
+## Import libraries
+
+# [Multi-class image classification ](#tab/multi-class)
+
+```python
+import onnxruntime
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import json
+import glob
+import torch
+from PIL import Image
+from azureml.train.automl.run import AutoMLRun
+from azureml.core import Experiment
+from azureml.core.workspace import Workspace
+from torchvision import transforms
+
+%matplotlib inline
+
+# tested with torch version: '1.7.1', torchvision version: '0.8.2')
+```
+
+# [Multi-label image classification](#tab/multi-label)
+
+```python
+import onnxruntime
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import json
+import glob
+import torch
+from torchvision import transforms
+from PIL import Image
+from azureml.train.automl.run import AutoMLRun
+from azureml.core import Experiment
+from azureml.core.workspace import Workspace
+
+%matplotlib inline
+
+# tested with torch version: '1.7.1', torchvision version: '0.8.2')
+```
+
+# [Object detection with Faster R-CNN](#tab/object-detect-cnn)
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import matplotlib.patches as patches
+import json
+import glob
+from PIL import Image
+from azureml.train.automl.run import AutoMLRun
+from azureml.core import Experiment
+from azureml.core.workspace import Workspace
+
+%matplotlib inline
+
+```
+
+# [Object detection with YOLO](#tab/object-detect-yolo)
+
+For preprocessing and postprocessing required for YOLO, use `yolo_onnx_preprocessing_utils.py` file available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection).
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import matplotlib.patches as patches
+import json
+import glob
+import torch
+from PIL import Image
+from azureml.train.automl.run import AutoMLRun
+from azureml.core import Experiment
+from azureml.core.workspace import Workspace
+from yolo_onnx_preprocessing_utils import preprocess
+from yolo_onnx_preprocessing_utils import non_max_suppression, _convert_to_rcnn_output
+
+
+%matplotlib inline
+
+# tested with torch version: '1.7.1', torchvision version: '0.8.2')
+```
+
+# [Instance segmentation](#tab/instance-segmentation)
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+import json
+import cv2
+import json
+import glob
+from PIL import Image
+from azureml.train.automl.run import AutoMLRun
+from azureml.core import Experiment
+from azureml.core.workspace import Workspace
+
+%matplotlib inline
+```
+
+---
+
 ## Download ONNX model files
 
-You can download ONNX model files from AutoML runs by using the Azure Machine Learning studio UI or the Azure Machine Learning Python SDK. We recommend downloading via the SDK with the experiment name and parent run ID. 
+You can download ONNX model files from AutoML runs by using the Azure Machine Learning studio UI or the Azure Machine Learning Python SDK. We recommend downloading via the SDK with the experiment name and parent run ID.
+
+If you are looking to perform batch inference with object detection/instance segmentation models, navigate to `Model generation for batch scoring` section.
 
 ### Azure Machine Learning studio
 
@@ -59,9 +168,8 @@ The following code returns the best child run based on the relevant primary metr
 
 ```python
 # Select the best child run
-from azureml.train.automl.run import AutoMLRun
 
-run_id = "" # Specify the run ID
+run_id = '' # Specify the run ID
 automl_image_run = AutoMLRun(experiment=experiment, run_id=run_id)
 best_child_run = automl_image_run.get_best_child()
 ```
@@ -69,18 +177,248 @@ best_child_run = automl_image_run.get_best_child()
 Download the *labels.json* file, which contains all the classes and labels in the training dataset.
 
 ```python
-import json
-
-labels_file = "automl_models/labels.json"
-best_child_run.download_file(name="train_artifacts/labels.json", output_file_path=labels_file)
+labels_file = 'automl_models/labels.json'
+best_child_run.download_file(name='train_artifacts/labels.json', output_file_path=labels_file)
 
 ```
 
 Download the *model.onnx* file.
 
 ```python
-onnx_model_path = "automl_models/model.onnx"
-best_child_run.download_file(name="train_artifacts/model.onnx", output_file_path=onnx_model_path)
+onnx_model_path = 'automl_models/model.onnx'
+best_child_run.download_file(name='train_artifacts/model.onnx', output_file_path=onnx_model_path)
+```
+
+### Model generation for batch scoring
+
+# [Multi-class image classification ](#tab/multi-class)
+
+- By default,  generated ONNX model for the best child-run support batch scoring. Proceed to the next section.
+
+# [Multi-label image classification](#tab/multi-label)
+
+- By default,  generated ONNX model for the best child-run support batch scoring. Proceed to the next section.
+
+# [Object detection with Faster R-CNN](#tab/object-detect-cnn)
+
+- By default, Faster R-CNN model doesn't support batch inferencing
+
+- In case of batch inference, use the following procedure to generate an ONNX model for the required batch size (models generated for a specific batch size don't work for other batch sizes)
+
+- While exporting ONNX models, height and width of the images can be set by the user (choose values closer to training images for better predictions) to generate ONNX models. For making inference using generated ONNX model, input images have to be scaled to height and width values used to generate the ONNX model.
+
+- Use [ScriptRunConfig](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) to submit the script `ONNX_batch_model_generator_faster_rcnn.py` available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection), to generate an ONNX model of a specific batch size. Here, we utilize the trained model environment to submit the above script to generate and save the ONNX model to outputs directory
+
+```python
+from azureml.core.script_run_config import ScriptRunConfig
+from azureml.train.automl.run import AutoMLRun
+from azureml.core.workspace import Workspace
+from azureml.core import Experiment
+
+# specify experiment name
+experiment_name = ''
+# specify workspace parameters
+subscription_id = ''
+resource_group = ''
+workspace_name = ''
+
+ws = Workspace.create(name=workspace_name,
+                      subscription_id=subscription_id,
+                      resource_group=resource_group,
+                      exist_ok=True)
+experiment = Experiment(ws, name=experiment_name)
+
+# specify the name of the cluster.
+amlcompute_cluster_name = ''
+
+cts = ws.compute_targets
+if amlcompute_cluster_name in cts and cts[amlcompute_cluster_name].type == 'AmlCompute':
+    print('Found existing compute target.')
+    compute_target = cts[amlcompute_cluster_name]
+else:
+    print('Not found existing compute target.')
+
+# specify the run id of the automl run
+run_id = ''
+automl_image_run = AutoMLRun(experiment=experiment, run_id=run_id)
+best_child_run = automl_image_run.get_best_child()
+
+arguments = ['--batch_size', 5,  # enter the batch size of your choice
+             '--height_onnx', 600,  # enter the height of input to ONNX model
+             '--width_onnx', 800,  # enter the width of input to ONNX model
+             '--experiment_name', experiment_name,
+             '--subscription_id', subscription_id,
+             '--resource_group', resource_group,
+             '--workspace_name', workspace_name,
+             '--run_id', run_id,
+             '--task_type', 'image-object-detection',
+             '--min_size', 600,  # minimum size of the image to be rescaled before feeding it to the backbone
+             '--max_size', 1333,  # maximum size of the image to be rescaled before feeding it to the backbone
+             '--box_score_thresh', 0.3,  # threshold to return proposals with a classification score > box_score_thresh
+             '--box_nms_thresh', 0.5,  # NMS threshold for the prediction head
+             '--box_detections_per_img', 100  # maximum number of detections per image, for all classes
+             ]
+
+# Download and keep the ONNX_batch_model_generator_faster_rcnn.py file in the current directory 
+script_run_config = ScriptRunConfig(source_directory='.',
+                                    script='ONNX_batch_model_generator_faster_rcnn.py',
+                                    arguments=arguments,
+                                    compute_target=compute_target,
+                                    environment=best_child_run.get_environment())
+
+remote_run = experiment.submit(script_run_config)
+remote_run.wait_for_completion(wait_post_processing=True)
+
+```
+
+# [Object detection with YOLO](#tab/object-detect-yolo)
+
+- By default, YOLO model doesn't support batch inferencing
+
+- In case of batch inference, use the following procedure to generate an ONNX model for the required batch size (models generated for a specific batch size don't work for other batch sizes)
+
+- While exporting ONNX models, height and width of the images can be set by the user (choose values closer to training images for better predictions) to generate ONNX models. For making inference using generated ONNX model, input images have to be scaled to height and width values used to generate the ONNX model.
+
+- Use [ScriptRunConfig](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) to submit the script `ONNX_batch_model_generator_yolo.py` available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection), to generate an ONNX model of a specific batch size. Here, we utilize the trained model environment to submit the above script to generate and save the ONNX model to outputs directory
+
+```python
+from azureml.core.script_run_config import ScriptRunConfig
+from azureml.train.automl.run import AutoMLRun
+from azureml.core import Experiment
+from azureml.core.workspace import Workspace
+
+# specify experiment name
+experiment_name = ''
+# specify workspace parameters
+subscription_id = ''
+resource_group = ''
+workspace_name = ''
+
+ws = Workspace.create(name=workspace_name,
+                      subscription_id=subscription_id,
+                      resource_group=resource_group,
+                      exist_ok=True)
+experiment = Experiment(ws, name=experiment_name)
+
+# Choose a name for your cluster.
+amlcompute_cluster_name = ''
+
+cts = ws.compute_targets
+if amlcompute_cluster_name in cts and cts[amlcompute_cluster_name].type == 'AmlCompute':
+    print('Found existing compute target.')
+    compute_target = cts[amlcompute_cluster_name]
+else:
+    print('Not found existing compute target.')
+
+# specify the run id of the automl run
+run_id = ''
+automl_image_run = AutoMLRun(experiment=experiment, run_id=run_id)
+best_child_run = automl_image_run.get_best_child()
+
+arguments = ['--batch_size', 5,  # enter the batch size of your choice
+             '--height_onnx', 640,  # enter the height of input to ONNX model
+             '--width_onnx', 640,  # enter the width of input to ONNX model
+             '--experiment_name', experiment_name,
+             '--subscription_id', subscription_id,
+             '--resource_group', resource_group,
+             '--workspace_name', workspace_name,
+             '--run_id', run_id,
+             '--task_type', 'image-object-detection',
+             '--img_size', 640,  # image size for inference
+             '--model_size', 'medium',  # size of the yolo model
+             '--box_score_thresh', 0.1,  # threshold to return proposals with a classification score > box_score_thresh
+             '--box_iou_thresh', 0.5  # IOU threshold used during inference in nms post processing
+             ]
+# Download and keep the ONNX_batch_model_generator_yolo.py file in the current directory 
+script_run_config = ScriptRunConfig(source_directory='.',
+                                    script='ONNX_batch_model_generator_yolo.py',
+                                    arguments=arguments,
+                                    compute_target=compute_target,
+                                    environment=best_child_run.get_environment())
+
+remote_run = experiment.submit(script_run_config)
+remote_run.wait_for_completion(wait_post_processing=True)
+
+```
+
+# [Instance segmentation](#tab/instance-segmentation)
+
+- By default, Mask R-CNN model doesn't support batch inferencing
+
+- In case of batch inference, use the following procedure to generate an ONNX model for the required batch size (models generated for a specific batch size don't work for other batch sizes)
+
+- While exporting ONNX models, height and width of the images can be set by the user (choose values closer to training images for better predictions) to generate ONNX models. For making inference using generated ONNX model, input images have to be scaled to height and width values used to generate the ONNX model.
+
+- Use [ScriptRunConfig](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) to submit the script `ONNX_batch_model_generator_mask_rcnn.py` available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation), to generate an ONNX model of a specific batch size. Here, we utilize the trained model environment to submit the above script to generate and save the ONNX model to outputs directory
+
+```python
+from azureml.core.script_run_config import ScriptRunConfig
+from azureml.train.automl.run import AutoMLRun
+from azureml.core.workspace import Workspace
+from azureml.core import Experiment
+
+# specify experiment name
+experiment_name = ''
+# specify workspace parameters
+subscription_id = ''
+resource_group = ''
+workspace_name = ''
+
+ws = Workspace.create(name=workspace_name,
+                      subscription_id=subscription_id,
+                      resource_group=resource_group,
+                      exist_ok=True)
+experiment = Experiment(ws, name=experiment_name)
+
+# Choose a name for your cluster.
+amlcompute_cluster_name = ''
+
+cts = ws.compute_targets
+if amlcompute_cluster_name in cts and cts[amlcompute_cluster_name].type == 'AmlCompute':
+    print('Found existing compute target.')
+    compute_target = cts[amlcompute_cluster_name]
+else:
+    print('Not found existing compute target.')
+
+# specify the run id of the automl run
+run_id = ''
+automl_image_run = AutoMLRun(experiment=experiment, run_id=run_id)
+best_child_run = automl_image_run.get_best_child()
+
+arguments = ['--batch_size', 5,  # enter the batch size of your choice
+             '--height_onnx', 600,  # enter the height of input to ONNX model
+             '--width_onnx', 800,  # enter the width of input to ONNX model
+             '--experiment_name', experiment_name,
+             '--subscription_id', subscription_id,
+             '--resource_group', resource_group,
+             '--workspace_name', workspace_name,
+             '--run_id', run_id,
+             '--task_type', 'image-object-detection',
+             '--min_size', 600,  # minimum size of the image to be rescaled before feeding it to the backbone
+             '--max_size', 1333,  # maximum size of the image to be rescaled before feeding it to the backbone
+             '--box_score_thresh', 0.3,  # threshold to return proposals with a classification score > box_score_thresh
+             '--box_nms_thresh', 0.5,  # NMS threshold for the prediction head
+             '--box_detections_per_img', 100  # maximum number of detections per image, for all classes
+             ]
+# Download and keep the ONNX_batch_model_generator_mask_rcnn.py file in the current directory 
+script_run_config = ScriptRunConfig(source_directory='.',
+                                    script='ONNX_batch_model_generator_mask_rcnn.py',
+                                    arguments=arguments,
+                                    compute_target=compute_target,
+                                    environment=best_child_run.get_environment())
+
+remote_run = experiment.submit(script_run_config)
+remote_run.wait_for_completion(wait_post_processing=True)
+
+```
+
+---
+
+Once the batch model is generated, either download it from **Outputs+logs** > **outputs** manually, or use the following method:
+```python
+batch_size= 5  # use the batch size used to generate the model
+onnx_model_path = 'automl_models/model.onnx'  # local path to save the model
+remote_run.download_file(name='outputs/model_'+str(batch_size)+'.onnx', output_file_path=onnx_model_path)
 ```
 
 After the model downloading step, you use the ONNX Runtime Python package to perform inferencing by using the *model.onnx* file. For demonstration purposes, this article uses the datasets from [How to prepare image datasets](how-to-prepare-datasets-for-automl-images.md) for each vision task. 
@@ -92,8 +430,6 @@ We've trained the models for all vision tasks with their respective datasets to 
 The following code snippet loads *labels.json*, where class names are ordered. That is, if the ONNX model predicts a label ID as 2, then it corresponds to the label name given at the third index in the *labels.json* file.
 
 ```python
-import onnxruntime
-
 labels_file = "automl_models/labels.json"
 with open(labels_file) as f:
     classes = json.load(f)
@@ -256,7 +592,7 @@ Perform the following preprocessing steps for the ONNX model inference:
 
 1. Convert the image to RGB.
 2. Resize the image to `valid_resize_size` and `valid_resize_size` values that correspond to the values used in the transformation of the validation dataset during training. The default value for `valid_resize_size` is 256.
-3. Center crop the image to `height_onnx_crop_size` and `width_onnx_crop_size`. This corresponds to `valid_crop_size` with the default value of 224.
+3. Center crop the image to `height_onnx_crop_size` and `width_onnx_crop_size`. It corresponds to `valid_crop_size` with the default value of 224.
 4. Change `HxWxC` to `CxHxW`.
 5. Convert to float type.
 6. Normalize with ImageNet's `mean` = `[0.485, 0.456, 0.406]` and `std` = `[0.229, 0.224, 0.225]`.
@@ -274,64 +610,71 @@ batch, channel, height_onnx_crop_size, width_onnx_crop_size
 
 ```python
 def preprocess(image, resize_size, crop_size_onnx):
-    """perform pre-processing on raw input image
-  
+    """Perform pre-processing on raw input image
+    
     :param image: raw input image
     :type image: PIL image
     :param resize_size: value to resize the image
     :type image: Int
-    :param crop_size_onnx: expected crop size of an input image in onnx model
+    :param crop_size_onnx: expected height of an input image in onnx model
     :type crop_size_onnx: Int
     :return: pre-processed image in numpy format
-    :rtype: ndarray of shape 1xCxHxW
+    :rtype: ndarray 1xCxHxW
     """
 
     image = image.convert('RGB')
     # resize
     image = image.resize((resize_size, resize_size))
-
-    # center crop
+    #  center  crop
     left = (resize_size - crop_size_onnx)/2
     top = (resize_size - crop_size_onnx)/2
     right = (resize_size + crop_size_onnx)/2
     bottom = (resize_size + crop_size_onnx)/2
     image = image.crop((left, top, right, bottom))
+
     np_image = np.array(image)
-
     # HWC -> CHW
-    np_image = np_image.transpose(2, 0, 1)# CxHxW
-
+    np_image = np_image.transpose(2, 0, 1) # CxHxW
     # normalize the image
     mean_vec = np.array([0.485, 0.456, 0.406])
     std_vec = np.array([0.229, 0.224, 0.225])
     norm_img_data = np.zeros(np_image.shape).astype('float32')
     for i in range(np_image.shape[0]):
-        norm_img_data[i,:,:] = (np_image[i,:,:]/255 - mean_vec[i]) / std_vec[i]
-    np_image = np.expand_dims(norm_img_data, axis=0)# 1xCxHxW
+        norm_img_data[i,:,:] = (np_image[i,:,:]/255 - mean_vec[i])/std_vec[i]
+             
+    np_image = np.expand_dims(norm_img_data, axis=0) # 1xCxHxW
     return np_image
 
-from PIL import Image
+# following code loads only batch_size number of images for demonstrating ONNX inference
+# make sure that the data directory has at least batch_size number of images
 
+test_images_path = "automl_models_multi_cls/test_images_dir/*" # replace with path to images
+# Select batch size needed
+batch_size = 5
 # you can modify resize_size based on your trained model
-resize_size = 256 
-
+resize_size = 256
 # height and width will be the same for classification
 crop_size_onnx = height_onnx_crop_size 
-test_image_path = "automl_models/test_image.jpg"
-img = Image.open(test_image_path)
-print("Input image dimensions: ", img.size)
-display(img)
-img_data = preprocess(img, resize_size, crop_size_onnx)
 
+image_files = glob.glob(test_images_path)
+img_processed_list = []
+for i in range(batch_size):
+    img = Image.open(image_files[i])
+    img_processed_list.append(preprocess(img, resize_size, crop_size_onnx))
+    
+if len(img_processed_list) > 1:
+    img_data = np.concatenate(img_processed_list)
+elif len(img_processed_list) == 1:
+    img_data = img_processed_list[0]
+else:
+    img_data = None
+
+assert batch_size == img_data.shape[0]
 ```
 
 ### With PyTorch
 
 ```python
-import torch
-from torchvision import transforms
-# tested with torch version: '1.7.1', torchvision version: '0.8.2')
-
 def _make_3d_tensor(x) -> torch.Tensor:
     """This function is for images that have less channels.
 
@@ -355,15 +698,31 @@ def preprocess(image, resize_size, crop_size_onnx):
     img_data = np.expand_dims(img_data, axis=0)
     return img_data
 
+# following code loads only batch_size number of images for demonstrating ONNX inference
+# make sure that the data directory has at least batch_size number of images
+
+test_images_path = "automl_models_multi_cls/test_images_dir/*" # replace with path to images
+# Select batch size needed
+batch_size = 5
 # you can modify resize_size based on your trained model
 resize_size = 256
+# height and width will be the same for classification
+crop_size_onnx = height_onnx_crop_size 
 
-#height and width will be the same for classification
-test_image_path = "automl_models/test_image.jpg"
-img = Image.open(test_image_path)
-print("Input image dimensions: ", img.size)
-display(img)
-img_data = preprocess(img, resize_size, crop_size_onnx)
+image_files = glob.glob(test_images_path)
+img_processed_list = []
+for i in range(batch_size):
+    img = Image.open(image_files[i])
+    img_processed_list.append(preprocess(img, resize_size, crop_size_onnx))
+    
+if len(img_processed_list) > 1:
+    img_data = np.concatenate(img_processed_list)
+elif len(img_processed_list) == 1:
+    img_data = img_processed_list[0]
+else:
+    img_data = None
+
+assert batch_size == img_data.shape[0]
 ```
 
 # [Multi-label image classification](#tab/multi-label)
@@ -390,64 +749,72 @@ batch, channel, height_onnx_crop_size, width_onnx_crop_size
 
 ```python
 def preprocess(image, resize_size, crop_size_onnx):
-    """perform pre-processing on raw input image
-  
+    """Perform pre-processing on raw input image
+    
     :param image: raw input image
     :type image: PIL image
     :param resize_size: value to resize the image
     :type image: Int
-    :param crop_size_onnx: expected crop size of an input image in onnx model
+    :param crop_size_onnx: expected height of an input image in onnx model
     :type crop_size_onnx: Int
     :return: pre-processed image in numpy format
-    :rtype: ndarray of shape 1xCxHxW
+    :rtype: ndarray 1xCxHxW
     """
 
     image = image.convert('RGB')
     # resize
     image = image.resize((resize_size, resize_size))
-
-    # center crop
+    # center  crop
     left = (resize_size - crop_size_onnx)/2
     top = (resize_size - crop_size_onnx)/2
     right = (resize_size + crop_size_onnx)/2
     bottom = (resize_size + crop_size_onnx)/2
     image = image.crop((left, top, right, bottom))
-    np_image = np.array(image)
 
+    np_image = np.array(image)
     # HWC -> CHW
-    np_image = np_image.transpose(2, 0, 1)# CxHxW
+    np_image = np_image.transpose(2, 0, 1) # CxHxW
 
     # normalize the image
     mean_vec = np.array([0.485, 0.456, 0.406])
     std_vec = np.array([0.229, 0.224, 0.225])
     norm_img_data = np.zeros(np_image.shape).astype('float32')
     for i in range(np_image.shape[0]):
-        norm_img_data[i,:,:] = (np_image[i,:,:]/255 - mean_vec[i]) / std_vec[i]
-    np_image = np.expand_dims(norm_img_data, axis=0)# 1xCxHxW
+        norm_img_data[i,:,:] = (np_image[i,:,:] / 255 - mean_vec[i]) / std_vec[i]    
+    np_image = np.expand_dims(norm_img_data, axis=0) # 1xCxHxW
     return np_image
 
-from PIL import Image
+# following code loads only batch_size number of images for demonstrating ONNX inference
+# make sure that the data directory has at least batch_size number of images
 
+test_images_path = "automl_models_multi_label/test_images_dir/*" # replace with path to images
+# Select batch size needed
+batch_size = 5
 # you can modify resize_size based on your trained model
-resize_size = 256 
-
+resize_size = 256
 # height and width will be the same for classification
 crop_size_onnx = height_onnx_crop_size 
-test_image_path = "automl_models/test_image.jpg"
-img = Image.open(test_image_path)
-print("Input image dimensions: ", img.size)
-display(img)
-img_data = preprocess(img, resize_size, crop_size_onnx)
+
+image_files = glob.glob(test_images_path)
+img_processed_list = []
+for i in range(batch_size):
+    img = Image.open(image_files[i])
+    img_processed_list.append(preprocess(img, resize_size, crop_size_onnx))
+    
+if len(img_processed_list) > 1:
+    img_data = np.concatenate(img_processed_list)
+elif len(img_processed_list) == 1:
+    img_data = img_processed_list[0]
+else:
+    img_data = None
+
+assert batch_size == img_data.shape[0]
 
 ```
 
 ### With PyTorch
 
 ```python
-import torch
-from torchvision import transforms
-# tested with torch version: '1.7.1', torchvision version: '0.8.2')
-
 def _make_3d_tensor(x) -> torch.Tensor:
     """This function is for images that have less channels.
 
@@ -459,6 +826,17 @@ def _make_3d_tensor(x) -> torch.Tensor:
     return x if x.shape[0] == 3 else x.expand((3, x.shape[1], x.shape[2]))
 
 def preprocess(image, resize_size, crop_size_onnx):
+    """Perform pre-processing on raw input image
+    
+    :param image: raw input image
+    :type image: PIL image
+    :param resize_size: value to resize the image
+    :type image: Int
+    :param crop_size_onnx: expected height of an input image in onnx model
+    :type crop_size_onnx: Int
+    :return: pre-processed image in numpy format
+    :rtype: ndarray 1xCxHxW
+    """
     transform = transforms.Compose([
         transforms.Resize(resize_size),
         transforms.CenterCrop(crop_size_onnx),
@@ -469,20 +847,35 @@ def preprocess(image, resize_size, crop_size_onnx):
     img_data = transform(image)
     img_data = img_data.numpy()
     img_data = np.expand_dims(img_data, axis=0)
+    
     return img_data
 
+# following code loads only batch_size number of images for demonstrating ONNX inference
+# make sure that the data directory has at least batch_size number of images
+
+test_images_path = "automl_models_multi_label/test_images_dir/*" # replace with path to images
+# Select batch size needed
+batch_size = 5
 # you can modify resize_size based on your trained model
 resize_size = 256
-
 # height and width will be the same for classification
 crop_size_onnx = height_onnx_crop_size 
-test_image_path = "automl_models/test_image.jpg"
-img = Image.open(test_image_path)
-print("Input image dimensions: ", img.size)
-display(img)
-img_data = preprocess(img, resize_size, crop_size_onnx)
-```
 
+image_files = glob.glob(test_images_path)
+img_processed_list = []
+for i in range(batch_size):
+    img = Image.open(image_files[i])
+    img_processed_list.append(preprocess(img, resize_size, crop_size_onnx))
+    
+if len(img_processed_list) > 1:
+    img_data = np.concatenate(img_processed_list)
+elif len(img_processed_list) == 1:
+    img_data = img_processed_list[0]
+else:
+    img_data = None
+
+assert batch_size == img_data.shape[0]
+```
 
 # [Object detection with Faster R-CNN](#tab/object-detect-cnn)
 
@@ -497,7 +890,7 @@ Then, perform the preprocessing steps.
 
 ```python
 def preprocess(image, height_onnx, width_onnx):
-    """perform pre-processing on raw input image
+    """Perform pre-processing on raw input image
     
     :param image: raw input image
     :type image: PIL image
@@ -506,33 +899,41 @@ def preprocess(image, height_onnx, width_onnx):
     :param width_onnx: expected width of an input image in onnx model
     :type width_onnx: Int
     :return: pre-processed image in numpy format
-    :rtype: ndarray of shape 1xCxHxW
+    :rtype: ndarray 1xCxHxW
     """
 
     image = image.convert('RGB')
     image = image.resize((width_onnx, height_onnx))
     np_image = np.array(image)
     # HWC -> CHW
-    np_image = np_image.transpose(2, 0, 1)# CxHxW
-
-    # Normalize the image
+    np_image = np_image.transpose(2, 0, 1) # CxHxW
+    # normalize the image
     mean_vec = np.array([0.485, 0.456, 0.406])
     std_vec = np.array([0.229, 0.224, 0.225])
     norm_img_data = np.zeros(np_image.shape).astype('float32')
     for i in range(np_image.shape[0]):
-        norm_img_data[i,:,:] = (np_image[i,:,:]/255 - mean_vec[i]) / std_vec[i]
-        
-        
-    np_image = np.expand_dims(norm_img_data, axis=0)# 1xCxHxW
+        norm_img_data[i,:,:] = (np_image[i,:,:] / 255 - mean_vec[i]) / std_vec[i]
+    np_image = np.expand_dims(norm_img_data, axis=0) # 1xCxHxW
     return np_image
 
-from PIL import Image
+# following code loads only batch_size number of images for demonstrating ONNX inference
+# make sure that the data directory has at least batch_size number of images
 
-test_image_path = "automl_models/test_image.jpg"
-img = Image.open(test_image_path)
-print("Input image dimensions: ", img.size)
-display(img)
-img_data = preprocess(img, height_onnx, width_onnx)
+test_images_path = "automl_models_od/test_images_dir/*" # replace with path to images
+image_files = glob.glob(test_images_path)
+img_processed_list = []
+for i in range(batch_size):
+    img = Image.open(image_files[i])
+    img_processed_list.append(preprocess(img, height_onnx, width_onnx))
+    
+if len(img_processed_list) > 1:
+    img_data = np.concatenate(img_processed_list)
+elif len(img_processed_list) == 1:
+    img_data = img_processed_list[0]
+else:
+    img_data = None
+
+assert batch_size == img_data.shape[0]
 ```
 
 # [Object detection with YOLO](#tab/object-detect-yolo)
@@ -547,10 +948,25 @@ batch, channel, height_onnx, width_onnx
 For preprocessing required for YOLO, refer to [yolo_onnx_preprocessing_utils.py](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection).
 
 ```python
-from yolo_onnx_preprocessing_utils import preprocess
 
-test_image_path = "automl_models_od_yolo/test_image.jpg"
-img_data, pad = preprocess(test_image_path)
+# use height and width based on the generated model
+test_images_path = "automl_models_od_yolo/test_images_dir/*" # replace with path to images
+image_files = glob.glob(test_images_path)
+img_processed_list = []
+pad_list = []
+for i in range(batch_size):
+    img_processed, pad = preprocess(image_files[i])
+    img_processed_list.append(img_processed)
+    pad_list.append(pad)
+    
+if len(img_processed_list) > 1:
+    img_data = np.concatenate(img_processed_list)
+elif len(img_processed_list) == 1:
+    img_data = img_processed_list[0]
+else:
+    img_data = None
+
+assert batch_size == img_data.shape[0]
 ```
 
 # [Instance segmentation](#tab/instance-segmentation)
@@ -569,8 +985,8 @@ For `resize_height` and `resize_width`, you can also use the values that you use
 
 ```python
 def preprocess(image, resize_height, resize_width):
-    """perform pre-processing on raw input image
-        
+    """Perform pre-processing on raw input image
+    
     :param image: raw input image
     :type image: PIL image
     :param resize_height: resize height of an input image
@@ -582,30 +998,38 @@ def preprocess(image, resize_height, resize_width):
     """
 
     image = image.convert('RGB')
-    image = image.resize((resize_width,resize_height))
+    image = image.resize((resize_width, resize_height))
     np_image = np.array(image)
-
     # HWC -> CHW
-    np_image = np_image.transpose(2, 0, 1)# CxHxW
-
+    np_image = np_image.transpose(2, 0, 1)  # CxHxW
     # normalize the image
     mean_vec = np.array([0.485, 0.456, 0.406])
     std_vec = np.array([0.229, 0.224, 0.225])
     norm_img_data = np.zeros(np_image.shape).astype('float32')
     for i in range(np_image.shape[0]):
-        norm_img_data[i,:,:] = (np_image[i,:,:]/255 - mean_vec[i]) / std_vec[i]
-    np_image = np.expand_dims(norm_img_data, axis=0)# 1xCxHxW
+        norm_img_data[i,:,:] = (np_image[i,:,:]/255 - mean_vec[i])/std_vec[i]
+    np_image = np.expand_dims(norm_img_data, axis=0)  # 1xCxHxW
     return np_image
 
-from PIL import Image
+# following code loads only batch_size number of images for demonstrating ONNX inference
+# make sure that the data directory has at least batch_size number of images
 # use height and width based on the trained model
-resize_height, resize_width = 600, 800 
-test_image_path = 'automl_models/test_image.jpg'
-img = Image.open(test_image_path)
-print("Input image dimensions: ", img.size)
-display(img)
-img_data = preprocess(img, resize_height, resize_width)
+# use height and width based on the generated model
+test_images_path = "automl_models_is/test_images_dir/*" # replace with path to images
+image_files = glob.glob(test_images_path)
+img_processed_list = []
+for i in range(batch_size):
+    img = Image.open(image_files[i])
+    img_processed_list.append(preprocess(img, height_onnx, width_onnx))
+    
+if len(img_processed_list) > 1:
+    img_data = np.concatenate(img_processed_list)
+elif len(img_processed_list) == 1:
+    img_data = img_processed_list[0]
+else:
+    img_data = None
 
+assert batch_size == img_data.shape[0]
 ```
 
 ---
@@ -614,23 +1038,21 @@ img_data = preprocess(img, resize_height, resize_width)
 
 Inferencing with ONNX Runtime differs for each computer vision task.
 
->[!WARNING]
-> Batch scoring is not currently supported for all computer vision tasks. 
-
 # [Multi-class image classification](#tab/multi-class)
 
 ```python
-def get_predictions_from_ONNX(onnx_session,img_data):
-    """perform predictions with ONNX Runtime
+def get_predictions_from_ONNX(onnx_session, img_data):
+    """Perform predictions with ONNX runtime
     
-    :param onnx_session: onnx inference session
+    :param onnx_session: onnx model session
     :type onnx_session: class InferenceSession
     :param img_data: pre-processed numpy image
     :type img_data: ndarray with shape 1xCxHxW
     :return: scores with shapes
             (1, No. of classes in training dataset) 
-    :rtype: ndarray
+    :rtype: numpy array
     """
+
     sess_input = onnx_session.get_inputs()
     sess_output = onnx_session.get_outputs()
     print(f"No. of inputs : {len(sess_input)}, No. of outputs : {len(sess_output)}")    
@@ -638,6 +1060,7 @@ def get_predictions_from_ONNX(onnx_session,img_data):
     output_names = [ output.name for output in sess_output]
     scores = onnx_session.run(output_names=output_names,\
                                                input_feed={sess_input[0].name: img_data})
+    
     return scores[0]
 
 scores = get_predictions_from_ONNX(session, img_data)
@@ -647,16 +1070,17 @@ scores = get_predictions_from_ONNX(session, img_data)
 
 ```python
 def get_predictions_from_ONNX(onnx_session,img_data):
-    """perform predictions with ONNX Runtime
+    """Perform predictions with ONNX runtime
     
-    :param onnx_session: onnx inference session
+    :param onnx_session: onnx model session
     :type onnx_session: class InferenceSession
     :param img_data: pre-processed numpy image
     :type img_data: ndarray with shape 1xCxHxW
     :return: scores with shapes
             (1, No. of classes in training dataset) 
-    :rtype: ndarray
+    :rtype: numpy array
     """
+    
     sess_input = onnx_session.get_inputs()
     sess_output = onnx_session.get_outputs()
     print(f"No. of inputs : {len(sess_input)}, No. of outputs : {len(sess_output)}")    
@@ -664,6 +1088,7 @@ def get_predictions_from_ONNX(onnx_session,img_data):
     output_names = [ output.name for output in sess_output]
     scores = onnx_session.run(output_names=output_names,\
                                                input_feed={sess_input[0].name: img_data})
+    
     return scores[0]
 
 scores = get_predictions_from_ONNX(session, img_data)
@@ -672,8 +1097,8 @@ scores = get_predictions_from_ONNX(session, img_data)
 # [Object detection with Faster R-CNN](#tab/object-detect-cnn)
 
 ```python
-def get_predictions_from_ONNX(onnx_session,img_data):
-    """perform predictions with ONNX Runtime
+def get_predictions_from_ONNX(onnx_session, img_data):
+    """perform predictions with ONNX runtime
     
     :param onnx_session: onnx model session
     :type onnx_session: class InferenceSession
@@ -683,16 +1108,18 @@ def get_predictions_from_ONNX(onnx_session,img_data):
             (No. of boxes, 4) (No. of boxes,) (No. of boxes,)
     :rtype: tuple
     """
+
     sess_input = onnx_session.get_inputs()
     sess_output = onnx_session.get_outputs()
     
     # predict with ONNX Runtime
-    output_names = [ output.name for output in sess_output]
-    boxes, labels, scores = onnx_session.run(output_names=output_names,\
+    output_names = [output.name for output in sess_output]
+    predictions = onnx_session.run(output_names=output_names,\
                                                input_feed={sess_input[0].name: img_data})
-    return boxes, labels, scores
 
-boxes, labels, scores = get_predictions_from_ONNX(session, img_data)
+    return output_names, predictions
+
+output_names, predictions = get_predictions_from_ONNX(session, img_data)
 ```
 
 # [Object detection with YOLO](#tab/object-detect-yolo)
@@ -725,8 +1152,9 @@ result = get_predictions_from_ONNX(session, img_data)
 The instance segmentation model predicts boxes, labels, scores, and masks. ONNX outputs a predicted mask per instance, along with corresponding bounding boxes and class confidence score. You might need to convert from binary mask to polygon if necessary.
 
 ```python
-def get_predictions_from_ONNX(onnx_session,img_data):
-    """perform predictions with ONNX Runtime
+
+def get_predictions_from_ONNX(onnx_session, img_data):
+    """Perform predictions with ONNX runtime
     
     :param onnx_session: onnx model session
     :type onnx_session: class InferenceSession
@@ -742,12 +1170,11 @@ def get_predictions_from_ONNX(onnx_session,img_data):
     sess_output = onnx_session.get_outputs()
     # predict with ONNX Runtime
     output_names = [ output.name for output in sess_output]
-    boxes, labels, scores, masks = onnx_session.run(output_names=output_names,\
+    predictions = onnx_session.run(output_names=output_names,\
                                                input_feed={sess_input[0].name: img_data})
-    return boxes, labels, scores, masks
+    return output_names, predictions
 
-
-boxes, labels, scores, masks = get_predictions_from_ONNX(session, img_data)
+output_names, predictions = get_predictions_from_ONNX(session, img_data)
 ```
 
 ---
@@ -761,24 +1188,21 @@ Apply `softmax()` over predicted values to get classification confidence scores 
 ### Without PyTorch
 
 ```python
-
 def softmax(x):
-    x = x.reshape(-1)
-    e_x = np.exp(x - np.max(x))
-    return e_x / e_x.sum(axis=0)
-conf_scores = softmax(scores).tolist()
-class_idx = np.argmax(conf_scores)
-print("predicted class:",(class_idx, classes[class_idx]))
+    e_x = np.exp(x - np.max(x, axis=1, keepdims=True))
+    return e_x / np.sum(e_x, axis=1, keepdims=True)
 
+conf_scores = softmax(scores)
+class_preds = np.argmax(conf_scores, axis=1)
+print("predicted classes:", ([(class_idx, classes[class_idx]) for class_idx in class_preds]))
 ```
 
 ### With PyTorch
 
 ```python
-
-conf_scores = torch.nn.functional.softmax(torch.from_numpy(scores), dim=1).tolist()[0]
-class_idx = np.argmax(conf_scores)
-print("predicted class:", (class_idx, classes[class_idx]))
+conf_scores = torch.nn.functional.softmax(torch.from_numpy(scores), dim=1)
+class_preds = torch.argmax(conf_scores, dim=1)
+print("predicted classes:", ([(class_idx.item(), classes[class_idx]) for class_idx in class_preds]))
 ```
 
 # [Multi-label image classification](#tab/multi-label)
@@ -788,35 +1212,41 @@ This step differs from multi-class classification. You need to apply `sigmoid` t
 ### Without PyTorch
 
 ```python
-
-import math
-
 def sigmoid(x):
-    return 1 / (1 + math.exp(-x))
+    return 1 / (1 + np.exp(-x))
 
 # we apply a threshold of 0.5 on confidence scores
-cutoff_threshold = .5
-for class_idx, prob in enumerate([sigmoid(logit) for logit in scores[0]]):
-    if prob > cutoff_threshold:
-        print("predicted class:", (class_idx, classes[class_idx]))
+score_threshold = 0.5
+conf_scores = sigmoid(scores)
+image_wise_preds = np.where(conf_scores > score_threshold)
+for image_idx, class_idx in zip(image_wise_preds[0], image_wise_preds[1]):
+    print('image: {}, class_index: {}, class_name: {}'.format(image_files[image_idx], class_idx, classes[class_idx]))
 ```
 
 ### With PyTorch
 
 ```python
-
 # we apply a threshold of 0.5 on confidence scores
-cutoff_threshold = .5
-conf_scores = torch.sigmoid(torch.from_numpy(scores[0])).tolist()
-for class_idx, prob in enumerate(conf_scores):
-    if prob > cutoff_threshold:
-        print("predicted class:", (class_idx, classes[class_idx]))
+score_threshold = 0.5
+conf_scores = torch.sigmoid(torch.from_numpy(scores))
+image_wise_preds = torch.where(conf_scores > score_threshold)
+for image_idx, class_idx in zip(image_wise_preds[0], image_wise_preds[1]):
+    print('image: {}, class_index: {}, class_name: {}'.format(image_files[image_idx], class_idx, classes[class_idx]))
 ```
 
 For multi-class and multi-label classification, you can follow the same steps mentioned earlier for all the supported algorithms in AutoML.
 
 
 # [Object detection with Faster R-CNN](#tab/object-detect-cnn)
+
+- Predictions are already on the scale of height_onnx, width_onnx
+- In order to transform the predicted box coordinates to original image dimensions 
+    - Either use <br>
+               Xmin * original_width/width_onnx, <br>
+               Ymin * original_height/height_onnx, <br>
+               Xmax * original_width/width_onnx, <br>
+               Ymax * original_height/height_onnx <br>
+    - Or use the following method to scale the box dimensions to be in the range of [0, 1], so that these box coordinates can be multiplied with original images height and width with respective coordinates (as described in [visualization section](#visualize_section)) to get boxes in original image dimensions
 
 ```python
 def _get_box_dims(image_shape, box):
@@ -845,32 +1275,160 @@ def _get_prediction(boxes, labels, scores, image_shape, classes):
 
     return bounding_boxes
 
-bounding_boxes = _get_prediction(boxes, labels, scores, (height_onnx,width_onnx), classes)
-print(json.dumps(bounding_boxes, indent=1))
-
-# Filter the results with a threshold.
-# Replace the threshold for your test scenario.
+# Filter the results with threshold.
+# Please replace the threshold for your test scenario.
 score_threshold = 0.8
-filtered_bounding_boxes = []
-for box in bounding_boxes:
-    if box['score'] >= score_threshold:
-        filtered_bounding_boxes.append(box)
+filtered_boxes_batch = []
+for batch_sample in range(0, batch_size*3, 3):
+    boxes, labels, scores = predictions[batch_sample], predictions[batch_sample + 1], predictions[batch_sample + 2]
+    bounding_boxes = _get_prediction(boxes, labels, scores, (height_onnx, width_onnx), classes)
+    filtered_bounding_boxes = [box for box in bounding_boxes if box['score'] >= score_threshold]
+    filtered_boxes_batch.append(filtered_bounding_boxes)
 ```
 
-### Visualize boxes
+# [Object detection with YOLO](#tab/object-detect-yolo)
+
+The following code creates boxes, labels, and scores. Use these bounding box details to perform the same postprocessing steps as you did for the Faster R-CNN model. 
 
 ```python
+result = non_max_suppression(
+    torch.from_numpy(result),
+    conf_thres=0.1,
+    iou_thres=0.5)
 
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-import matplotlib.patches as patches
-from PIL import Image
-%matplotlib inline
+def _get_box_dims(image_shape, box):
+    box_keys = ['topX', 'topY', 'bottomX', 'bottomY']
+    height, width = image_shape[0], image_shape[1]
 
-IMAGE_SIZE = (18,12)
+    box_dims = dict(zip(box_keys, [coordinate.item() for coordinate in box]))
+
+    box_dims['topX'] = box_dims['topX'] * 1.0 / width
+    box_dims['bottomX'] = box_dims['bottomX'] * 1.0 / width
+    box_dims['topY'] = box_dims['topY'] * 1.0 / height
+    box_dims['bottomY'] = box_dims['bottomY'] * 1.0 / height
+
+    return box_dims
+
+def _get_prediction(label, image_shape, classes):
+    
+    boxes = np.array(label["boxes"])
+    labels = np.array(label["labels"])
+    labels = [label[0] for label in labels]
+    scores = np.array(label["scores"])
+    scores = [score[0] for score in scores]
+
+    bounding_boxes = []
+    for box, label_index, score in zip(boxes, labels, scores):
+        box_dims = _get_box_dims(image_shape, box)
+
+        box_record = {'box': box_dims,
+                      'label': classes[label_index],
+                      'score': score.item()}
+
+        bounding_boxes.append(box_record)
+
+    return bounding_boxes
+
+bounding_boxes_batch = []
+for result_i, pad in zip(result, pad_list):
+    label, image_shape = _convert_to_rcnn_output(result_i, height_onnx, width_onnx, pad)
+    bounding_boxes_batch.append(_get_prediction(label, image_shape, classes))
+print(json.dumps(bounding_boxes_batch, indent=1))
+```
+
+# [Instance segmentation](#tab/instance-segmentation)
+
+- Either use the steps mentioned for Faster R-CNN (in case of Mask R-CNN, each sample has four elements boxes, labels, scores, masks) or refer to visualization section for instance segmentation.
+
+---
+
+<a id='visualize_section'></a>
+## Visualize predictions
+
+
+# [Multi-class image classification ](#tab/multi-class)
+
+Visualize an input image with Labels
+
+```python
+sample_image_index = 0 # change this for an image of interest from image_files list
+IMAGE_SIZE = (18, 12)
 plt.figure(figsize=IMAGE_SIZE)
-img_np = mpimg.imread(test_image_path)
-img = Image.fromarray(img_np.astype('uint8'),'RGB')
+img_np = mpimg.imread(r'automl_models_multi_cls/test_images_dir/1.jpg')
+img = Image.fromarray(img_np.astype('uint8'), 'RGB')
+x, y = img.size
+
+fig,ax = plt.subplots(1, figsize=(15, 15))
+# Display the image
+ax.imshow(img_np)
+
+label = class_preds[sample_image_index]
+if torch.is_tensor(label):
+    label = label.item()
+    
+conf_score = conf_scores[sample_image_index]
+if torch.is_tensor(conf_score):
+    conf_score = np.max(conf_score.tolist())
+else:
+    conf_score = np.max(conf_score)
+
+display_text = '{} ({})'.format(label, round(conf_score, 3))
+print(display_text)
+
+color = 'red'
+plt.text(30, 30, display_text, color=color, fontsize=30)
+
+plt.show()
+```
+
+# [Multi-label image classification](#tab/multi-label)
+
+Visualize an input image with Labels
+
+```python
+sample_image_index = 0 # change this for an image of interest from image_files list
+IMAGE_SIZE = (18, 12)
+plt.figure(figsize=IMAGE_SIZE)
+img_np = mpimg.imread(image_files[sample_image_index])
+img = Image.fromarray(img_np.astype('uint8'), 'RGB')
+x, y = img.size
+
+fig,ax = plt.subplots(1, figsize=(15, 15))
+# Display the image
+ax.imshow(img_np)
+# we apply a threshold of 0.5 on confidence scores
+score_threshold = 0.5
+label_offset_x = 30
+label_offset_y = 30
+if torch.is_tensor(conf_scores):
+    sample_image_scores = conf_scores[sample_image_index].tolist()
+else:
+    sample_image_scores = conf_scores[sample_image_index]
+    
+for index, score in enumerate(sample_image_scores):
+    if score > score_threshold:
+        label = classes[index]
+        display_text = '{} ({})'.format(label, round(score, 3))
+        print(display_text)
+
+        color = 'red'
+        plt.text(label_offset_x, label_offset_y, display_text, color=color, fontsize=30)
+        label_offset_y += 30
+
+plt.show()
+```
+
+# [Object detection with Faster R-CNN](#tab/object-detect-cnn)
+
+Visualize an input image with boxes and Labels
+
+```python
+img_np = mpimg.imread(image_files[1])  # replace with desired image index
+image_boxes = filtered_boxes_batch[1]  # replace with desired image index
+
+IMAGE_SIZE = (18, 12)
+plt.figure(figsize=IMAGE_SIZE)
+img = Image.fromarray(img_np.astype('uint8'), 'RGB')
 x, y = img.size
 print(img.size)
 
@@ -878,16 +1436,16 @@ fig,ax = plt.subplots(1)
 # Display the image
 ax.imshow(img_np)
 
-# Draw a box and label for each detection 
-for detect in filtered_bounding_boxes:
+# Draw box and label for each detection 
+for detect in image_boxes:
     label = detect['label']
     box = detect['box']
-    ymin, xmin, ymax, xmax =  box['topY'],box['topX'], box['bottomY'],box['bottomX']
+    ymin, xmin, ymax, xmax =  box['topY'], box['topX'], box['bottomY'], box['bottomX']
     topleft_x, topleft_y = x * xmin, y * ymin
     width, height = x * (xmax - xmin), y * (ymax - ymin)
     print('{}: {}, {}, {}, {}'.format(detect['label'], topleft_x, topleft_y, width, height))
     rect = patches.Rectangle((topleft_x, topleft_y), width, height, 
-                             linewidth=1, edgecolor='green',facecolor='none')
+                             linewidth=1, edgecolor='green', facecolor='none')
 
     ax.add_patch(rect)
     color = 'green'
@@ -898,39 +1456,15 @@ plt.show()
 
 # [Object detection with YOLO](#tab/object-detect-yolo)
 
-The following code creates boxes, labels, and scores. Use these bounding box details to perform the same postprocessing steps as you did for the Faster R-CNN model. 
+Visualize an input image with boxes and Labels
 
 ```python
-from yolo_onnx_preprocessing_utils import non_max_suppression, _convert_to_rcnn_output
-import torch
+img_np = mpimg.imread(image_files[1])  # replace with desired image index
+image_boxes = bounding_boxes_batch[1]  # replace with desired image index
 
-result = non_max_suppression(
-    torch.from_numpy(result),
-    conf_thres=.1,
-    iou_thres=.5)
-label, image_shape = _convert_to_rcnn_output(result[0], height_onnx, width_onnx, pad)
-boxes = np.array(label["boxes"])
-labels = np.array(label["labels"])
-labels = [label[0] for label in labels]
-scores = np.array(label["scores"])
-scores = [score[0] for score in scores]
-boxes, labels, scores
-```
-
-### Visualize boxes
-
-```python
-
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-import matplotlib.patches as patches
-from PIL import Image
-%matplotlib inline
-
-IMAGE_SIZE = (18,12)
+IMAGE_SIZE = (18, 12)
 plt.figure(figsize=IMAGE_SIZE)
-img_np = mpimg.imread(test_image_path)
-img = Image.fromarray(img_np.astype('uint8'),'RGB')
+img = Image.fromarray(img_np.astype('uint8'), 'RGB')
 x, y = img.size
 print(img.size)
 
@@ -938,16 +1472,16 @@ fig,ax = plt.subplots(1)
 # Display the image
 ax.imshow(img_np)
 
-# Draw a box and label for each detection 
-for detect in filtered_bounding_boxes:
+# Draw box and label for each detection 
+for detect in image_boxes:
     label = detect['label']
     box = detect['box']
-    ymin, xmin, ymax, xmax =  box['topY'],box['topX'], box['bottomY'],box['bottomX']
+    ymin, xmin, ymax, xmax =  box['topY'], box['topX'], box['bottomY'], box['bottomX']
     topleft_x, topleft_y = x * xmin, y * ymin
     width, height = x * (xmax - xmin), y * (ymax - ymin)
     print('{}: {}, {}, {}, {}'.format(detect['label'], topleft_x, topleft_y, width, height))
     rect = patches.Rectangle((topleft_x, topleft_y), width, height, 
-                             linewidth=1, edgecolor='green',facecolor='none')
+                             linewidth=1, edgecolor='green', facecolor='none')
 
     ax.add_patch(rect)
     color = 'green'
@@ -956,21 +1490,14 @@ for detect in filtered_bounding_boxes:
 plt.show()
 ```
 
-
 # [Instance segmentation](#tab/instance-segmentation)
 
-#### Visualize the masks and bounding boxes
+Visualize a sample Input Image with Masks and Labels
 
 ```python
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
-import cv2
-%matplotlib inline
-
 def display_detections(image, boxes, labels, scores, masks, resize_height, 
-                       resize_width, classes, score_threshold=0.3):
-    """visualize boxes and masks
+                       resize_width, classes, score_threshold):
+    """Visualize boxes and masks
     
     :param image: raw image
     :type image: PIL image
@@ -982,16 +1509,15 @@ def display_detections(image, boxes, labels, scores, masks, resize_height,
     :type scores: ndarray
     :param masks: masks with shape (No. of instances, 1, HEIGHT, WIDTH) 
     :type masks:  ndarray
-    :param resize_height: resize height of an input image
+    :param resize_height: expected height of an input image in onnx model
     :type resize_height: Int
-    :param resize_width: resize width of an input image
+    :param resize_width: expected width of an input image in onnx model
     :type resize_width: Int
     :param classes: classes with shape (No. of classes) 
     :type classes:  list
     :param score_threshold: threshold on scores in the range of 0-1
     :type score_threshold: float
-    :return: None     
-   
+    :return: None
     """
 
     _, ax = plt.subplots(1, figsize=(12,9))
@@ -1010,31 +1536,33 @@ def display_detections(image, boxes, labels, scores, masks, resize_height,
                box[2]*original_width/resize_width, 
                box[3]*original_height/resize_height]
         
-        mask = cv2.resize(mask, (image.shape[1],image.shape[0]), 0, 0, interpolation = cv2.INTER_NEAREST)
+        mask = cv2.resize(mask, (image.shape[1], image.shape[0]), 0, 0, interpolation = cv2.INTER_NEAREST)
         # mask is a matrix with values in the range of [0,1]
-        # higher values indicate the presence of an object and vice versa
-        # select the threshold or cutoff value to get objects present               
-        mask = mask > 0.5 
+        # higher values indicate presence of object and vice versa
+        # select threshold or cut-off value to get objects present       
+        mask = mask > score_threshold
         image_masked = image.copy()
         image_masked[mask] = (0, 255, 255)
-        alpha = .5 # alpha blending with range 0 to 1
-        cv2.addWeighted(image_masked, alpha, image, 1 - alpha,0, image)        
+        alpha = .5  # alpha blending with range 0 to 1
+        cv2.addWeighted(image_masked, alpha, image, 1 - alpha,0, image)
         rect = patches.Rectangle((box[0], box[1]), box[2] - box[0], box[3] - box[1],\
                                  linewidth=1, edgecolor='b', facecolor='none')
         ax.annotate(classes[label] + ':' + str(np.round(score, 2)), (box[0], box[1]),\
                     color='w', fontsize=12)
         ax.add_patch(rect)
         
-
     ax.imshow(image)
     plt.show()
 
+score_threshold = 0.5
+img = Image.open(image_files[1])  # replace with desired image index
+image_boxes = filtered_boxes_batch[1]  # replace with desired image index
+boxes, labels, scores, masks = predictions[4:8]  # replace with desired image index
 display_detections(img, boxes.copy(), labels, scores, masks.copy(), 
-                   resize_height, resize_width, classes, score_threshold=.5)
+                   height_onnx, width_onnx, classes, score_threshold)
 ```
 
 ---
-
 
 ## Next steps
 * [Learn more about computer vision tasks in AutoML](how-to-auto-train-image-models.md)
