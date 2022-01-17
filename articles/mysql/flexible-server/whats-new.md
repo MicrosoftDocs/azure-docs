@@ -17,10 +17,6 @@ ms.date: 10/12/2021
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
 ## January 2022
-- **Migrate from locally redundant backup storage to geo-redundant backup storage for existing flexible server**
-
-    Azure Database for MySQL - Flexible Server now provides the added flexibility to migrate to geo-redundant backup storage from locally redundant backup storage post server-create to provide higher data resiliency. Enabling geo-redundancy via the server's Compute + Storage blade empowers customers to recover their existing flexible servers from a geographic disaster or regional failure when they can’t access the server in the primary region. With this feature enabled for their existing servers, customers can perform geo-restore and deploy a new server to the geo-paired Azure region leveraging the original server’s latest available geo-redundant backup. 
-
 - **Bug fixes**
  
     Restart workflow struck issue with servers with HA and Geo-redundant backup option enabled is fixed. 
