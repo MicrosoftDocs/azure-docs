@@ -13,19 +13,26 @@ ms.date: 02/28/2018
 # Enable and download server slow query logs of an Azure Database for PostgreSQL server using Azure CLI
 This sample CLI script enables and downloads the slow query logs of a single Azure Database for PostgreSQL server.
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-## Sample script
-In this sample script, edit the highlighted lines to update the admin username and password to your own. Replace the &lt;log_file_name&gt; in the `az monitor` commands with your own server log file name.
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/server-logs/server-logs.sh?highlight=15-16 "Manipulate with server logs.")]
+### Sample script
+
+:::code language="azurecli" source="~/azure_cli_scripts/postgresql/scale-postgresql-server/server-logs.sh" range="4-51":::
 
 ## Clean up deployment
-Use the following command to remove the resource group and all resources associated with it after the script has been run. 
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/server-logs/delete-postgresql.sh  "Delete the resource group.")]
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
+```
 
 ## Script explanation
+
 This script uses the commands outlined in the following table:
 
 | **Command** | **Notes** |
