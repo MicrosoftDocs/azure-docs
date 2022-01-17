@@ -85,7 +85,7 @@ To control image versions, you will want to import them into your own Azure Cont
 REGISTRY_NAME=<REGISTRY_NAME>
 SOURCE_REGISTRY=k8s.gcr.io
 CONTROLLER_IMAGE=ingress-nginx/controller
-CONTROLLER_TAG=v1.0.4
+CONTROLLER_TAG=v1.1.1
 PATCH_IMAGE=ingress-nginx/kube-webhook-certgen
 PATCH_TAG=v1.1.1
 DEFAULTBACKEND_IMAGE=defaultbackend-amd64
@@ -106,7 +106,7 @@ $RegistryName = "<REGISTRY_NAME>"
 $ResourceGroup = (Get-AzContainerRegistry | Where-Object {$_.name -eq $RegistryName} ).ResourceGroupName
 $SourceRegistry = "k8s.gcr.io"
 $ControllerImage = "ingress-nginx/controller"
-$ControllerTag = "v1.0.4"
+$ControllerTag = "v1.1.1"
 $PatchImage = "ingress-nginx/kube-webhook-certgen"
 $PatchTag = "v1.1.1"
 $DefaultBackendImage = "defaultbackend-amd64"
@@ -144,7 +144,7 @@ ACR_URL=<REGISTRY_URL>
 
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress ingress-nginx/ingress-nginx \
-    --version 4.0.13 \
+    --version 4.0.15 \
     --namespace ingress-basic --create-namespace \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."kubernetes\.io/os"=linux \
@@ -175,6 +175,7 @@ $AcrUrl = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $Regi
 
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress ingress-nginx/ingress-nginx `
+    --version 4.0.15 `
     --namespace ingress-basic --create-namespace `
     --set controller.replicaCount=2 `
     --set controller.nodeSelector."kubernetes\.io/os"=linux `
@@ -315,6 +316,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
@@ -349,6 +351,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/rewrite-target: /static/$2
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
@@ -401,7 +404,7 @@ Alternatively, a more granular approach is to delete the individual resources cr
 $ helm list --namespace ingress-basic
 
 NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
-nginx-ingress           ingress-basic   1               2020-01-06 19:55:46.358275 -0600 CST    deployed        nginx-ingress-1.27.1    0.26.1  
+nginx-ingress           ingress-basic   1               2022-01-17 19:55:46.358275 -0600 CST    deployed        ingress-nginx-4.0.15    1.1.1
 ```
 
 Uninstall the releases with the `helm uninstall` command. The following example uninstalls the NGINX ingress deployment.

@@ -286,7 +286,7 @@ metadata:
     kubernetes.io/ingress.class: azure/application-gateway
 
 spec:
-
+  ingressClassName: azure/application-gateway
   rules:
     - host: bookbuyer.contoso.com
       http:

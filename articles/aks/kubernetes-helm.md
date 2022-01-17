@@ -66,8 +66,8 @@ The following condensed example output shows some of the Helm charts available f
 ```console
 $ helm search repo ingress-nginx
 
-NAME                            CHART VERSION   APP VERSION     DESCRIPTION                                       
-ingress-nginx/ingress-nginx     2.12.0          0.34.1          Ingress controller for Kubernetes using NGINX a...
+NAME                       	CHART VERSION	APP VERSION	DESCRIPTION                                       
+ingress-nginx/ingress-nginx	4.0.15       	1.1.1      	Ingress controller for Kubernetes using NGINX a...
 ```
 
 To update the list of charts, use the [helm repo update][helm-repo-update] command.
@@ -92,19 +92,17 @@ This article uses the [NGINX ingress controller Helm chart][ingress-nginx-helm-c
 
 ```azurecli
 REGISTRY_NAME=<REGISTRY_NAME>
-CONTROLLER_REGISTRY=k8s.gcr.io
+SOURCE_REGISTRY=k8s.gcr.io
 CONTROLLER_IMAGE=ingress-nginx/controller
-CONTROLLER_TAG=v0.48.1
-PATCH_REGISTRY=docker.io
-PATCH_IMAGE=jettech/kube-webhook-certgen
-PATCH_TAG=v1.5.1
-DEFAULTBACKEND_REGISTRY=k8s.gcr.io
+CONTROLLER_TAG=v1.1.1
+PATCH_IMAGE=ingress-nginx/kube-webhook-certgen
+PATCH_TAG=v1.1.1
 DEFAULTBACKEND_IMAGE=defaultbackend-amd64
 DEFAULTBACKEND_TAG=1.5
 
-az acr import --name $REGISTRY_NAME --source $CONTROLLER_REGISTRY/$CONTROLLER_IMAGE:$CONTROLLER_TAG --image $CONTROLLER_IMAGE:$CONTROLLER_TAG
-az acr import --name $REGISTRY_NAME --source $PATCH_REGISTRY/$PATCH_IMAGE:$PATCH_TAG --image $PATCH_IMAGE:$PATCH_TAG
-az acr import --name $REGISTRY_NAME --source $DEFAULTBACKEND_REGISTRY/$DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG --image $DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG
+az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$CONTROLLER_IMAGE:$CONTROLLER_TAG --image $CONTROLLER_IMAGE:$CONTROLLER_TAG
+az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$PATCH_IMAGE:$PATCH_TAG --image $PATCH_IMAGE:$PATCH_TAG
+az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG --image $DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG
 ```
 
 > [!NOTE]
@@ -125,7 +123,7 @@ kubectl create namespace ingress-basic
 
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress ingress-nginx/ingress-nginx \
-    --version 4.0.13 \
+    --version 4.0.15 \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."kubernetes\.io/os"=linux \
@@ -187,8 +185,8 @@ The following example shows the *my-nginx-ingress* release deployed in the previ
 
 ```console
 $ helm list --namespace ingress-basic
-NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
-nginx-ingress   ingress-basic   1               2021-07-28 11:35:29.9623734 -0500 CDT   deployed        ingress-nginx-3.34.0    0.47.0
+NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
+nginx-ingress           ingress-basic   1               2022-01-17 19:55:46.358275 -0600 CST    deployed        ingress-nginx-4.0.15    1.1.1
 ```
 
 ### Clean up resources

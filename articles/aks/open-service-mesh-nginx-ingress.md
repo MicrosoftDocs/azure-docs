@@ -271,7 +271,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
 
 spec:
-
+  ingressClassName: nginx
   rules:
     - host: bookbuyer.contoso.com
       http:

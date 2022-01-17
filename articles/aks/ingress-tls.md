@@ -60,13 +60,13 @@ Use `az acr import` to import those images into your ACR.
 REGISTRY_NAME=<REGISTRY_NAME>
 SOURCE_REGISTRY=k8s.gcr.io
 CONTROLLER_IMAGE=ingress-nginx/controller
-CONTROLLER_TAG=v1.0.4
+CONTROLLER_TAG=v1.1.1
 PATCH_IMAGE=ingress-nginx/kube-webhook-certgen
 PATCH_TAG=v1.1.1
 DEFAULTBACKEND_IMAGE=defaultbackend-amd64
 DEFAULTBACKEND_TAG=1.5
 CERT_MANAGER_REGISTRY=quay.io
-CERT_MANAGER_TAG=v1.5.4
+CERT_MANAGER_TAG=v1.6.1
 CERT_MANAGER_IMAGE_CONTROLLER=jetstack/cert-manager-controller
 CERT_MANAGER_IMAGE_WEBHOOK=jetstack/cert-manager-webhook
 CERT_MANAGER_IMAGE_CAINJECTOR=jetstack/cert-manager-cainjector
@@ -86,24 +86,22 @@ Use `Import-AzContainerRegistryImage` to import those images into your ACR.
 ```azurepowershell
 $RegistryName = "<REGISTRY_NAME>"
 $ResourceGroup = (Get-AzContainerRegistry | Where-Object {$_.name -eq $RegistryName} ).ResourceGroupName
-$ControllerRegistry = "k8s.gcr.io"
+$SourceRegistry = "k8s.gcr.io"
 $ControllerImage = "ingress-nginx/controller"
-$ControllerTag = "v1.0.4"
-$PatchRegistry = "docker.io"
-$PatchImage = "jettech/kube-webhook-certgen"
-$PatchTag = "v1.5.1"
-$DefaultBackendRegistry = "k8s.gcr.io"
+$ControllerTag = "v1.1.1"
+$PatchImage = "ingress-nginx/kube-webhook-certgen"
+$PatchTag = "v1.1.1"
 $DefaultBackendImage = "defaultbackend-amd64"
 $DefaultBackendTag = "1.5"
 $CertManagerRegistry = "quay.io"
-$CertManagerTag = "v1.3.1"
+$CertManagerTag = "v1.6.1"
 $CertManagerImageController = "jetstack/cert-manager-controller"
 $CertManagerImageWebhook = "jetstack/cert-manager-webhook"
 $CertManagerImageCaInjector = "jetstack/cert-manager-cainjector"
 
-Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $ControllerRegistry -SourceImage "${ControllerImage}:${ControllerTag}"
-Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $PatchRegistry -SourceImage "${PatchImage}:${PatchTag}"
-Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $DefaultBackendRegistry -SourceImage "${DefaultBackendImage}:${DefaultBackendTag}"
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $SourceRegistry -SourceImage "${ControllerImage}:${ControllerTag}"
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $SourceRegistry -SourceImage "${PatchImage}:${PatchTag}"
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $SourceRegistry -SourceImage "${DefaultBackendImage}:${DefaultBackendTag}"
 Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageController}:${CertManagerTag}"
 Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageWebhook}:${CertManagerTag}"
 Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $CertManagerRegistry -SourceImage "${CertManagerImageCaInjector}:${CertManagerTag}"
@@ -138,7 +136,7 @@ ACR_URL=<REGISTRY_URL>
 
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress ingress-nginx/ingress-nginx \
-    --version 4.0.13 \
+    --version 4.0.15 \
     --namespace ingress-basic --create-namespace \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."kubernetes\.io/os"=linux \
@@ -172,6 +170,7 @@ $AcrUrl = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $Regi
 
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress ingress-nginx/ingress-nginx `
+    --version 4.0.15 `
     --namespace ingress-basic `
     --set controller.replicaCount=2 `
     --set controller.nodeSelector."kubernetes\.io/os"=linux `
@@ -333,6 +332,7 @@ helm repo update
 
 # Install the cert-manager Helm chart
 helm install cert-manager jetstack/cert-manager \
+  --version v1.6.1 \
   --namespace ingress-basic \
   --version $CERT_MANAGER_TAG \
   --set installCRDs=true \
@@ -359,6 +359,7 @@ helm repo update
 
 # Install the cert-manager Helm chart
 helm install cert-manager jetstack/cert-manager `
+  --version v1.6.1 `
   --namespace ingress-basic `
   --version $CertManagerTag `
   --set installCRDs=true `
@@ -519,6 +520,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - hello-world-ingress.MY_CUSTOM_DOMAIN
@@ -559,6 +561,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - hello-world-ingress.MY_CUSTOM_DOMAIN
@@ -625,9 +628,9 @@ List the Helm releases with the `helm list` command. Look for charts named *ngin
 ```console
 $ helm list --namespace ingress-basic
 
-NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
-cert-manager            ingress-basic   1               2020-01-15 10:23:36.515514 -0600 CST    deployed        cert-manager-v0.13.0    v0.13.0    
-nginx                   ingress-basic   1               2020-01-15 10:09:45.982693 -0600 CST    deployed        nginx-ingress-1.29.1    0.27.0  
+NAME                    NAMESPACE       REVISION        UPDATED                        STATUS          CHART                   APP VERSION
+nginx-ingress           ingress-basic   1               2022-01-17 14:51:03.454165006  deployed        ingress-nginx-4.0.15    1.1.1
+cert-manager            ingress-basic   1               2022-01-17 15:19:03.866212286  deployed        cert-manager-v1.6.1    v1.6.1
 ```
 
 Uninstall the releases with the `helm uninstall` command. The following example uninstalls the NGINX ingress and cert-manager deployments.

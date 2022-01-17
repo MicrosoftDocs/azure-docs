@@ -119,9 +119,11 @@ The following example YAML manifest would distribute traffic for *myapp.com* to 
 ```yaml
 kind: Ingress
 metadata:
- name: myapp-ingress
-   annotations: kubernetes.io/ingress.class: "PublicIngress"
+  name: myapp-ingress
+  annotations: 
+    kubernetes.io/ingress.class: "PublicIngress"
 spec:
+ ingressClassName: PublicIngress
  tls:
  - hosts:
    - myapp.com

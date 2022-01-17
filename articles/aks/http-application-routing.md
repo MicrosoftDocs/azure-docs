@@ -132,6 +132,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: addon-http-application-routing
 spec:
+  ingressClassName: addon-http-application-routing
   rules:
   - host: aks-helloworld.<CLUSTER_SPECIFIC_DNS_ZONE>
     http:
