@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Create an alert trigger
 
-This topic describes how you can create an alert trigger in Microsoft CloudKnox Permissions Management.
+This topic describes how you can create an alert trigger in Microsoft CloudKnox Permissions Management (CloudKnox).
 
 1. To open the **Alerts** tab, select **Alert** (the bell icon) in the top-right corner of the page.
 2. Select the **Alert Triggers** tab.

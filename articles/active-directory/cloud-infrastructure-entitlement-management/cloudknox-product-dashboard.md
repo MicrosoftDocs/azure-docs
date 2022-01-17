@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # View permission metrics on the CloudKnox dashboard
 
-Microsoft CloudKnox Permissions Management provides a visual, operational dashboard that summarizes and updates key statistics and data about an authorization system on an hourly basis. This dashboard is available for Amazon Web Services (AWS), Google Cloud Platform (GCP), Microsoft Azure, and vCenter Server virtual machine.
+Microsoft CloudKnox Permissions Management (CloudKnox) provides a visual, operational dashboard that summarizes and updates key statistics and data about an authorization system on an hourly basis. This dashboard is available for Amazon Web Services (AWS), Google Cloud Platform (GCP), Microsoft Azure, and vCenter Server virtual machine.
 
 This data shows metrics related to avoidable risk. It allows the CloudKnox administrator to quickly and easily identify areas to reduce risks related to the principle of least privilege.
 

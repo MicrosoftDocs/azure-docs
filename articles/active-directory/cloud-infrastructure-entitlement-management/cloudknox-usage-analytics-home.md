@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # View usage information with the Usage Analytics dashboard
 
-The CloudKnox **Usage Analytics** dashboard displays detailed information about identities, resources, and tasks. You can use this information to make decisions about granting privileges and reducing risk on unused privileges.
+The **Usage Analytics** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) displays detailed information about identities, resources, and tasks. You can use this information to make decisions about granting privileges and reducing risk on unused privileges.
 
 <!---Add link.(https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-ui-usage-analytics.html)--->
 

@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Filter and query user activity
 
-Microsoft CloudKnox Permissions Management's audit trail details all user activity performed in the Cloud. It captures all high risk activity in a centralized location, and allows system administrators to query the logs. 
+The audit trail in Microsoft CloudKnox Permissions Management (CloudKnox) details all user activity performed in the Cloud. It captures all high risk activity in a centralized location, and allows system administrators to query the logs. 
 The audit trail screen provides: 
 - The ability to set and save new queries and easily access key data points.
 - The functionality to query across multiple authorization systems at once.

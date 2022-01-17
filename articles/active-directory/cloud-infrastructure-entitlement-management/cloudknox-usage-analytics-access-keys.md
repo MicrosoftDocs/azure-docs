@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # View usage analytics about access keys
 
-The CloudKnox **Usage Analytics** feature contains details about identities, resources, and tasks that you can use make informed decisions about granting privileges, and reducing risk on unused privileges.
+The **Usage Analytics** feature in Microsoft CloudKnox Permissions Management (CloudKnox) contains details about identities, resources, and tasks that you can use make informed decisions about granting privileges, and reducing risk on unused privileges.
 
 - **Users**: Tracks assigned privileges and usage of various identities.
 - **Groups**: Tracks assigned privileges and usage of the group and the group members.

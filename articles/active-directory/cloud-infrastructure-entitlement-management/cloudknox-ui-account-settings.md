@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # The Account Settings dashboard
 
-This topic describes how to use the Microsoft CloudKnox Permissions Management (CloudKnox) **Account Settings** dashboard to view personal and organization information.
+This topic describes how to use the **Account Settings** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) to view personal and organization information.
 
 **To display the Account Settings dashboard**:
 

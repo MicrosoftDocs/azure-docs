@@ -12,7 +12,7 @@ ms.author: v-ydequadros
 
 # The Account Explorer
 
-The CloudKnox Permissions Management's **Account Explorer** displays a list of the identities that can access the selected account from an external account. This includes users, roles, EC2 instances and Lambda Functions.
+The **Account Explorer** in Microsoft CloudKnox Permissions Management (CloudKnox) displays a list of the identities that can access the selected account from an external account. This includes users, roles, EC2 instances and Lambda Functions.
 
 ## How to use the Account Explorer
 

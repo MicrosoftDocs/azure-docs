@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Create group-based permissions
 
-This topic describes how you can create group-based permissions in Microsoft CloudKnox Permissions Management.
+This topic describes how you can create group-based permissions in Microsoft CloudKnox Permissions Management (CloudKnox).
 
 ## Create a group with a custom set of permissions settings
 

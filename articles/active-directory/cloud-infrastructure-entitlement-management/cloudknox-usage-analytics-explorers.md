@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # The Usage Analytics explorers
 
-The Microsoft CloudKnox Permissions Management (CloudKnox) **Usage Analytics** dashboard allows system administrators to collect, analyze, report on, and visualize data about all identity types.
+The **Usage Analytics** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) allows system administrators to collect, analyze, report on, and visualize data about all identity types.
 
 This topic describes how to use the Usage Analytics explorers.
 

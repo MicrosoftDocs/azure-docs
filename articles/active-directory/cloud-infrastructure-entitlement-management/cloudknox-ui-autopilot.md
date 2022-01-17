@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # The Autopilot dashboard
 
-The Microsoft CloudKnox Permissions Management (CloudKnox) **Autopilot** dashboard provides a table of information about **Autopilot Rules** for administrators.
+The **Autopilot** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) provides a table of information about **Autopilot Rules** for administrators.
 
 This topic provides an overview of the components of the **Autopilot** dashboard.
 

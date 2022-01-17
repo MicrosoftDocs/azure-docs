@@ -12,9 +12,9 @@ ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Create and view a role/policy in the Just Enough Permissions Controller
+# Create and view a role/policy in the JEP Controller
 
-This topic describes how you can use the Role/Policy tab in the Just Enough Permissions (JEP) Controller to:
+This topic describes how you can use the the Just Enough Permissions (JEP) Controller in Microsoft CloudKnox Permissions Management (CloudKnox) to:
 - Review and interpret role/policy data.
 - Create a role/policy in the  JEP Controller.
 

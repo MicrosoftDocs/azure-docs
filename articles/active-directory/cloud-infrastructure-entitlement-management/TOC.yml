@@ -19,14 +19,14 @@
     items:
     - name: CloudKnox installation overview 
       href: cloudknox-installation-overview.md
-    - name: Install CloudKnox Sentry on AWS
-      href: cloudknox-sentry-install-aws.md
+    #- name: Install CloudKnox Sentry on AWS
+      #href: cloudknox-sentry-install-aws.md
     #- name: Install CloudKnox with an AWS role (Agentless deployment)
       #href: cloudknox-install-aws-agentless-deployment.md
-    - name: Install CloudKnox Sentry on Azure
-      href: cloudknox-sentry-install-azure.md
-    - name: Install CloudKnox on GCP
-      href: cloudknox-sentry-install-gcp.md
+    #- name: Install CloudKnox Sentry on Azure
+      #href: cloudknox-sentry-install-azure.md
+    #- name: Install CloudKnox on GCP
+      #href: cloudknox-sentry-install-gcp.md
   - name: Integration
     expanded: true
     items:
@@ -84,6 +84,8 @@
       href: cloudknox-product-audit-trail.md
     - name: View permission metrics on the CloudKnox dashboard
       href: cloudknox-product-dashboard.md
+    - name: Set personal information and preferences
+      href: cloudknox-product-account-settings.md
     - name: Define and manage users, roles, and access levels
       href: cloudknox-product-define-permission-levels.md
     - name: Usage analytics 
@@ -130,8 +132,6 @@
       href: cloudknox-ui-tasks.md
     - name: The Account Explorer
       href: cloudknox-product-account-explorer.md
-    - name: The product account settings
-      href: cloudknox-product-account-settings.md
     - name: The Usage Analytics dashboard
       href: cloudknox-ui-usage-analytics.md
     - name: The Usage Analytics explorers

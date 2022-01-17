@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Manage users with the Autopilot dashboard
 
-Microsoft CloudKnox Permissions Management's Autopilot dashboard allows administrators to delete, modify, or update in batch mode. They can also delete unused roles, disable access keys older than 90 days, and so on. Autopilot is a multi-step process with the ability to apply or remove recommendations at a given time. AWS, Azure, and GCP each have one rule regarding where a new rule can be created.
+The Autopilot dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) allows administrators to delete, modify, or update in batch mode. They can also delete unused roles, disable access keys older than 90 days, and so on. Autopilot is a multi-step process with the ability to apply or remove recommendations at a given time. AWS, Azure, and GCP each have one rule regarding where a new rule can be created.
 
 For more information on rules for each authorization system, see [How to create a new rule](cloudknox-product-autopilot.md#how-to-create-a-new-rule).
 

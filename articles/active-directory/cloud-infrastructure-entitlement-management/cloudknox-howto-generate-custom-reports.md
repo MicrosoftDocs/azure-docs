@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Generate custom reports in the Audit Trail dashboard
 
-This topic describes how you can use the Audit Trail dashboard to generate custom reports that you can:
+This topic describes how you can use the Audit Trail dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) to generate custom reports that you can:
 
 - Run on demand.
 - Schedule and run as often as you want.

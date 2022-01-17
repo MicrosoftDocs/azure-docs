@@ -13,9 +13,9 @@ ms.author: v-ydequadros
 
 # Installation overview
 
-Microsoft CloudKnox Permissions Management (CloudKnox) is a multi-cloud, hybrid cloud permissions management platform that provides granular visibility, automated remediation, and continuous monitoring consistently, enforcing least-privilege principles to reduce risk. CloudKnox:
+Microsoft CloudKnox Permissions Management (CloudKnox) is a multi-cloud, hybrid cloud permissions management platform. It provides granular visibility, automated remediation, and continuous monitoring consistently. It enforces least-privilege principles to reduce risk. CloudKnox:
 
-- Works with the Microsoft Azure (Azure), Amazon Web Services (AWS), and Google Cloud Platform (GCP) authorization systems. 
+- Works with the Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP) authorization systems. 
 - Offers complete visibility into privileged access. 
 - Helps organizations create right-size permissions.
 - Consistently enforces least-privilege principles to reduce risk. 
@@ -25,7 +25,7 @@ CloudKnox provides one platform to manage all permissions across all cloud syste
 
 - **Visibility**: Gain insights into effective permissions of all identities, and their usage.
 - **Remediation**: Provision Just Enough Permissions (JEP) with On Demand and Just in time (JIT) in a single step. 
-- **Monitoring**: Continuously monitor activity, alert on anomalies and measure sprawl with the Privilege Creep Index (PCI).
+- **Monitoring**: Continuously monitor activity, alert on anomalies and measure sprawl with the Privilege Creep Index.
 
 CloudKnox enables you to:
 
@@ -36,44 +36,29 @@ CloudKnox enables you to:
 
  **Installation takes about 30 minutes.**
 
-## Install Sentry
+## Install CloudKnox
 
-- For information on how to install Sentry, select the link for the appropriate cloud service provider.
+- For information on how to install CloudKnox, select the link for the appropriate cloud service provider.
 
-- [Amazon Web Services (AWS)](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203.html)
-- [Microsoft Azure (Azure)](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20Azure%20905a96e3a86844dfa1f952ecc8b6cfbc.html)
-- [Google Cloud Platform (GCP)](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20GCP%205335bc39eca14e0592d7282ab48ba479.html)
+- [AWS](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203.html)
+- [Azure](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20Azure%20905a96e3a86844dfa1f952ecc8b6cfbc.html)
+- [GCP](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20GCP%205335bc39eca14e0592d7282ab48ba479.html)
 
 
 ## The CloudKnox home page
 
 When you launch CloudKnox, the home page provides a visual, operational dashboard that summarizes and
-updates key statistics and data about an authorization system hourly. This dashboard provides information for Amazon Web Services (AWS), Google Cloud Platform (GCP), and Microsoft Azure.  
+updates key statistics and data about an authorization system hourly. This dashboard provides information for AWS, Azure, and GCP.  
 
 This data displays metrics related to avoidable risk and contains the following information:
 
-- **Privilege Creep Index** gauge/chart - The gauge identifies how many high-risk privileges have been granted to users and aren't being used. The chart conveys how many users contribute to the PCI score, and where they're on the scale.
+- **Privilege Creep Index** gauge/chart - The gauge identifies how many high-risk privileges have been granted to users and aren't being used. The chart conveys how many users contribute to the Privilege Creep Index score, and where they're on the scale.
 
 - **Usage analytics summary** – A snapshot of permission metrics within the last 90 days.
 
 These metrics enable CloudKnox administrators to quickly and easily identify areas in which they can reduce risks related to the principle of least privilege.
 
-<!---### Privilege Creep Index (PCI)
 
-The PCI is an indicator of an organization's level of exposure to insider threat risks and their ability to enforce the **Principle of least privilege (POLP)**, which is one of the most fundamental and essential concepts in security.  
-
-PCI measures the number of unused high-risk privileges that have been granted to all unique identities. It also takes into account the number of resources that an identity has access to but hasn't touched over the last 90 days.
-
-PCI scores of 100 represent the highest risk to the organization. They indicate:
-
-- A high percentage of identities with excessive high-risk privileges.
-- Broad access to cloud resources, some of which may be unnecessary to the user.
-
-A zero score represents the lowest risk.--->
 
 <!---## Next steps--->
 
-<!---For information on how to enable CloudKnox on your Azure AD tenant, see [Enable Microsoft CloudKnox Permissions Management on your Azure AD tenant](cloudknox-onboard-enable-tenant.html).--->
-<!---For information on how to install AWS on CloudKnox, see [Install CloudKnox Sentry on AWS](cloudknox-sentry-install-aws.md)--->
-<!---For information on how to install Azure on CloudKnox, see [Install CloudKnox Sentry on Azure](cloudknox-sentry-install-azure.md)--->
-<!---For information on how to install GCP on CloudKnox, see [Install CloudKnox Sentry on GCP](cloudknox-sentry-install-gcp.md)--->

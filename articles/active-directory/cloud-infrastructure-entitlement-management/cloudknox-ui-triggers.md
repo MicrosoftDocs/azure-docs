@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # The Activity Triggers dashboard
 
-This topic describes how to use the Microsoft CloudKnox Permissions Management (CloudKnox) **Activity Triggers** dashboard to view information about activity alerts and triggers.
+This topic describes how to use the **Activity Triggers** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) to view information about activity alerts and triggers.
 
 **To display the Activity Triggers dashboard:**
 

@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Create a custom query 
 
-This topic describes how you can use the Audit Trail dashboard to create custom queries that you can modify, save, and run as often as you want.
+This topic describes how you can use the Audit Trail dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) to create custom queries that you can modify, save, and run as often as you want.
 
 ## Open the Audit Trail dashboard
 

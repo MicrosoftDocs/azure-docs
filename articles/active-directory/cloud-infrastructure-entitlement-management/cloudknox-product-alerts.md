@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Create and save product alerts
 
-You can set up alerts through Microsoft CloudKnox Permissions Management. CloudKnox will notify you about specific activities being performed or that occur on various authorization systems and associated accounts.
+You can set up alerts through Microsoft CloudKnox Permissions Management (CloudKnox). CloudKnox will notify you about specific activities being performed or that occur on various authorization systems and associated accounts.
 
 The **Alerts** page provides settings you can use to create and save alerts so you're notified about key data points.
 

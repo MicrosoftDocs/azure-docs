@@ -15,9 +15,9 @@ ms.author: v-ydequadros
 # View product compliance guidelines
 
 Compliance is the state of following various established guidelines or specifications.
-CloudKnox currently supports the Center for Internet Security (CIS) Benchmarks standard, Amazon Web Services (AWS) Well-Architected Framework, Next Generation Security and Privacy (NIST) 800-53, and Payment Card Industry / Data Security Standards (PCI DSS) benchmark frameworks.
+Microsoft CloudKnox Permissions Management (CloudKnox) supports the Center for Internet Security (CIS) Benchmarks standard, Amazon Web Services (AWS) Well-Architected Framework, Next Generation Security and Privacy (NIST) 800-53, and Payment Card Industry / Data Security Standards (PCI DSS) benchmark frameworks.
 
-## How to read the Compliance dashboard
+## View information about a compliance standard
 
 The main **Compliance** page displays all accounts for the selected **Authorization System Type**.
 
@@ -80,7 +80,7 @@ The main **Compliance** page displays all accounts for the selected **Authorizat
 
 - The last box on the dashboard displays the date range for which the information is displayed.
 
-## How to view recommendation details by account
+## View recommendation details by account
 
 1. Select the account name to view details on the recommendations:
 
@@ -104,7 +104,7 @@ The main **Compliance** page displays all accounts for the selected **Authorizat
            A failure usually happens when the CloudKnox account doesn't have sufficient privileges to access the resources.
       - **Ignored** – Displays how many resources the user decided to ignore or exclude from the recommendations.
 
-## How to view details about a recommendation
+## View details about a recommendation
 
 1. View details about a recommendation. 
 
@@ -138,7 +138,7 @@ The main **Compliance** page displays all accounts for the selected **Authorizat
 
 4. Select the **Description** tab to view full details on how to read, use, and remediate a recommendation.
 
-### How to apply filters
+### Apply a filter
 
 There are several filtering options to choose from when filtering the recommendations. When you select a specific account, other filters (listed beginning on step 5) display.
 
@@ -162,7 +162,7 @@ There are several filtering options to choose from when filtering the recommenda
 
 8. CIS Benchmarks and NIST 800-53 – From **Profiles**, choose **All** or the various levels or priorities.
 
-### How to search on the Compliance page
+### Search for information on the Compliance page
 
 1. Select in the **Search for Authorization Systems...** box at the top of the page, and then enter your criteria.
 

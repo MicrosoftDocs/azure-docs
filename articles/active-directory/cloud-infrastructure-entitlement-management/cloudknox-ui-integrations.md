@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # The Integrations dashboard
 
-This topic describes how to use the Microsoft CloudKnox Permissions Management (CloudKnox) **Integrations** dashboard to view available authorization systems.
+This topic describes how to use the **Integrations** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) to view available authorization systems.
 
 **To display the Integrations dashboard**:
 

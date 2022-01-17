@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Set and view configuration settings
 
-This topic describes how to view configuration settings, create and delete a service account, and create a role.
+This topic describes how to view configuration settings, create and delete a service account, and create a role in Microsoft CloudKnox Permissions Management (CloudKnox).
 
 ## View configuration settings
 

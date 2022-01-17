@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Frequently asked questions (FAQs)
 
-This section answers frequently asked questions (FAQs) from internal and existing Microsoft CloudKnox Permissions Management users only.
+This section answers frequently asked questions (FAQs) from Microsoft CloudKnox Permissions Management (CloudKnox) users.
 
 ## Is Microsoft CloudKnox just for Azure? What integrations does CloudKnox have with Azure Active Directory (AD), Azure, and other Microsoft services?
 

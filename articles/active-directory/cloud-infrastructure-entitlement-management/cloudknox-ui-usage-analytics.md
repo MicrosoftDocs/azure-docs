@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # The Usage Analytics dashboard
 
-The Microsoft CloudKnox Permissions Management (CloudKnox) **Usage Analytics** dashboard provides an overview of CloudKnox users and how they access their authorization systems and accounts. 
+The **Usage Analytics** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) provides an overview of CloudKnox users and how they access their authorization systems and accounts. 
 
 This topic provides an overview of the components of the **Usage Analytics** dashboard.
 

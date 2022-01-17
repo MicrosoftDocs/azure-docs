@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Create or approve a request for privileges with the privilege on demand (POD) work flow in the Just Enough Permissions (JEP) Controller
-description: How to create or approve a request for privileges with the privilege on demand (POD) work flow in the Just Enough Permissions (JEP) Controller.
+title: Microsoft CloudKnox Permissions Management - Create or approve a request for privileges in the JEP Controller
+description: How to create or approve a request for privileges in the JEP Controller.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/28/2021
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - Create or approve a request for privileges with the privilege on demand (POD) work flow in the Just Enough Permissions (JEP) Controller
+# Create or approve a request for privileges
 
-This topic describes how you can create or approve a request for privileges with the privilege on demand (POD) work flow in the Just Enough Permissions (JEP) Controller.
+This topic describes how to create or approve a request for privileges in the Just Enough Permissions (JEP) Controller in Microsoft CloudKnox Permissions Management (CloudKnox).
 
-The POD has two workflows:
-- **New Request** – Used by a user to create a request for privileges for a specified duration.
-- **Approver** – Used by an approver to review and approve or reject a user’s request for privileges.
+The JEP Controller has two privilege on demand (POD) workflows you can use:
+- **New Request** – The workflow used by a user to create a request for privileges for a specified duration.
+- **Approver** – The workflow used by an approver to review and approve or reject a user’s request for privileges.
 
 > [!NOTE]
 > You must have access to the JEP Controller to perform these tasks. If you don’t have Controller access, contact your system administrator.

@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Set personal information and account preferences
-description: How to use CloudKnox Permissions Management product account settings to set personal information, passwords, and account preferences.
+title: Microsoft CloudKnox Permissions Management - Set personal information and preferences
+description: How to set personal information, passwords, and account preferences in the Account Settings dashboard in CloudKnox Permissions Management.
 services: active-directory
 manager: karenh444
 ms.service: active-directory
@@ -10,9 +10,9 @@ ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Set personal information and account preferences
+# Set personal information and preferences
 
-The Microsoft CloudKnox Permissions Management **Account Settings** page allows you to set personal information, passwords, and account preferences.
+The Microsoft CloudKnox Permissions Management (CloudKnox) **Account Settings** page allows you to set personal information, passwords, and account preferences.
 
 - Click the caret icon on the right of the top menu bar, and then, from the dropdown menu, select **Account Settings**.
 

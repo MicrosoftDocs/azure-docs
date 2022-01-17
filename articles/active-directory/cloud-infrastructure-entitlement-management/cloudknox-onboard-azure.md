@@ -1,6 +1,6 @@
 ---
-title:  Microsoft CloudKnox Permissions Management - Onboard the Microsoft Azure (Azure) authorization system
-description: How to enable the Microsoft Azure (Azure) authorization system on Microsoft CloudKnox Permissions Management.
+title:  Microsoft CloudKnox Permissions Management - Onboard the Microsoft Azure authorization system
+description: How to enable the Microsoft Azure authorization system on Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/13/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - Onboard the Microsoft Azure (Azure) authorization system
+# Onboard the Microsoft Azure authorization system
 
-This topic describes how to onboard the Microsoft Azure (Azure) authorization system on Microsoft CloudKnox Permissions Management (CloudKnox).
+This topic describes how to onboard the Microsoft Azure authorization system on Microsoft CloudKnox Permissions Management (CloudKnox).
 
 **To onboard the Azure authorization system on CloudKnox:**
 

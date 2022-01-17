@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # The Reports dashboard
 
-The Microsoft CloudKnox Permissions Management (CloudKnox) **Reports** dashboard provides an overview of CloudKnox system and custom reports.
+The **Reports** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) provides an overview of CloudKnox system and custom reports.
 
 This topic provides an overview of the components of the **Reports** dashboard.
 

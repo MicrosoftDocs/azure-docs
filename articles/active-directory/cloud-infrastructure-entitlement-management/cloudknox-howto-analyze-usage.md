@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Analyze usage for an identity, a task, or an authorization system
 
-This topic describes how you can use the Usage Analytics dashboard to analyze usage for an authorization system, a task, or an identity type (user).
+This topic describes how you can use the Usage Analytics dashboard to analyze usage for an authorization system, a task, or an identity type (user) in Microsoft CloudKnox Permissions Management (CloudKnox).
 
 ## Analyze usage for an authorization system
 

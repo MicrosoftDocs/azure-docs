@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # The CloudKnox Settings dashboard
 
-This topic describes how to use the Microsoft CloudKnox Permissions Management (CloudKnox) **Settings** dashboard to view and modify product settings.
+This topic describes how to use the **Settings** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) to view and modify product settings.
 
 **To display the CloudKnox Settings dashboard**
 

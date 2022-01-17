@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Collect authorization system data
 
-Microsoft CloudKnox Permissions Management's **Data Sources** page collects data associated with each authorization system and associated accounts. It also provides specific information related to data types, including entitlements and benchmarks.
+The **Data Sources** page in Microsoft CloudKnox Permissions Management (CloudKnox) collects data associated with each authorization system and associated accounts. It also provides specific information related to data types, including entitlements and benchmarks.
 
 ## How to use the Data Collectors tab
 
