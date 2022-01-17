@@ -132,7 +132,7 @@ Once you've configured provisioning, use the following resources to monitor your
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## Troubleshooting and Tips
-Reach out to [TerraTrue Support](hello@terratrue.com) for help ensuring that your provisioning is working correctly.
+Reach out to `hello@terratrue.com` for help ensuring that your provisioning is working correctly.
 
 TerraTrue provides a revision history of all changes to a user's account visible to any TerraTrue administrator at the link below. All user changes made as a result of SCIM provisioning will be shown with the Actor column being "Scim System User".
 
