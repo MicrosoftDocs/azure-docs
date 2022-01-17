@@ -134,24 +134,23 @@ You've now registered the AppProxyNativeAppSample app in Azure Active Directory.
 The last step is to configure the native app. The snippet below is based on the [Add the Microsoft Authentication Library to your code (.NET C# sample)](application-proxy-configure-native-client-application.md#step-4-add-the-microsoft-authentication-library-to-your-code-net-c-sample) and has been customized for this example. The code must be added to the *Form1.cs* file in the NativeClient sample app where it will cause the [MSAL library](../develop/reference-v2-libraries.md) to acquire the token for requesting the API call, and attach it as bearer to the app header.
 
 > [!NOTE]
-> The sample app uses [Azure Active Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md). Read here how to [add MSAL to your project](../develop/tutorial-v2-windows-desktop.md#add-msal-to-your-project). Remember to [add the reference to MSAL](../develop/tutorial-v2-windows-desktop.md#add-the-code-to-initialize-msal) to the class.
+> The sample app uses [Azure Active Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md). Read here how to [add MSAL to your project](../develop/tutorial-v2-windows-desktop.md#add-msal-to-your-project). Remember to [add the reference to MSAL](../develop/tutorial-v2-windows-desktop.md#add-the-code-to-initialize-msal) to the class and remove the ADAL reference `using Microsoft.IdentityModel.Clients.ActiveDirectory;`.
 
-Variables get their values from the *App.config* file. Replace the contents on the `GetTodoList()` method with the following code snippet:
+In *Form1.cs* remove lines 26 and 30, as they are no longer needed. Replace the contents of the `GetTodoList()` method with the following code snippet:
 
 ```csharp
 // Acquire Access Token from AAD for Proxy Application
-IPublicClientApplication clientApp = PublicClientApplicationBuilder
+var clientApp = PublicClientApplicationBuilder
     .Create(clientId)
     .WithDefaultRedirectUri() // Will automatically use the default Uri for native app
     .WithAuthority(authority)
     .Build();
-
-Microsoft.Identity.Client.AuthenticationResult authResult = null;
 var accounts = await clientApp.GetAccountsAsync();
-IAccount account = accounts.FirstOrDefault();
+var account = accounts.FirstOrDefault();
 
-IEnumerable<string> scopes = new string[] {todoListResourceId + "/user_impersonation"};
+var scopes = new string[] { todoListResourceId + "/user_impersonation" };
 
+AuthenticationResult authResult;
 try
 {
     authResult = await clientApp.AcquireTokenSilent(scopes, account).ExecuteAsync();
@@ -164,14 +163,12 @@ catch (MsalUiRequiredException ex)
 if (authResult != null)
 {
     // Use the Access Token to access the Proxy Application
-    HttpClient httpClient = new HttpClient();
+    var httpClient = new HttpClient();
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
     // Call the To Do list service
-    HttpResponseMessage response = await httpClient.GetAsync(todoListBaseAddress + "/api/values/4");
-    
-    //MessageBox.Show(response.RequestMessage.ToString());
-    string s = await response.Content.ReadAsStringAsync();
-    MessageBox.Show(s);
+    var response = await httpClient.GetAsync(todoListBaseAddress + "/api/values/4");
+    var responseString = await response.Content.ReadAsStringAsync();
+    MessageBox.Show(responseString);
 }
 ```
 
@@ -181,7 +178,7 @@ To configure the native app to connect to Azure Active Directory and call the AP
 
 - Paste the AppProxyNativeAppSample **Application (client) ID** in the `<add key="ida:ClientId" value="" />` field. You can find and copy this value (a GUID) from the AppProxyNativeAppSample **Overview** page.
 
-- Paste the AppProxyNativeAppSample **Redirect URI** in the `<add key="ida:RedirectUri" value="" />` field. You can find and copy this value (a URI) from the AppProxyNativeAppSample **Authentication** page.
+- *This step is optional as MSAL uses the method PublicClientApplicationBuilder.WithDefaultRedirectUri() to insert the recommended reply URI.* Paste the AppProxyNativeAppSample **Redirect URI** in the `<add key="ida:RedirectUri" value="" />` field. You can find and copy this value (a URI) from the AppProxyNativeAppSample **Authentication** page.
 
 - Paste the SecretAPI **Application ID URI** in the `<add key="todo:TodoListResourceId" value="" />` field. You can find and copy this value (a URI) from the SecretAPI **Expose an API** page.
 
