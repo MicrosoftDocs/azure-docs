@@ -37,7 +37,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Azure SQL Database overview
-            url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61
+            url: /shows/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61
       - linkListType: concept
         links:
           - text: What is SQL Database?

@@ -111,7 +111,6 @@ To create and assign the custom role to your subscription with the Azure portal:
 				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete"
 				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read"
 				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action"
-				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read"
     ```
 
 5. When you're finished, select **Ok**.

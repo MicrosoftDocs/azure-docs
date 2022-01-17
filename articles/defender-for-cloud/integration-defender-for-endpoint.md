@@ -2,14 +2,14 @@
 title: Using Microsoft Defender for Endpoint in Microsoft Defender for Cloud to protect native, on-premises, and AWS machines.
 description: Learn about deploying Microsoft Defender for Endpoint from Microsoft Defender for Cloud to protect Azure, hybrid, and multi-cloud machines.
 ms.topic: how-to
-ms.date: 12/06/2021
+ms.date: 01/10/2022
 ---
 
 # Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security solution. Its main features are:
+Microsoft Defender for Endpoint is a holistic, cloud-delivered, endpoint security solution. Its main features are:
 
 - Risk-based vulnerability management and assessment 
 - Attack surface reduction
@@ -99,9 +99,9 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
     :::image type="content" source="./media/integration-defender-for-endpoint/enable-integration-with-edr.png" alt-text="Enable the integration between Microsoft Defender for Cloud and Microsoft's EDR solution, Microsoft Defender for Endpoint":::
 
-    Microsoft Defender for Cloud will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 24 hours.
+    Microsoft Defender for Cloud will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 12 hours. For new machines created after the integration has been enabled, onboarding takes up to an hour.
 
-### [**Linux**)](#tab/linux)
+### [**Linux**](#tab/linux)
 
 You'll deploy Defender for Endpoint to your Linux machines in one of two ways - depending on whether you've already deployed it to your Windows machines:
 
@@ -136,7 +136,7 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
     - Ignore any machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
     - Detect any previous installations of Defender for Endpoint and reconfigure them to integrate with Defender for Cloud
 
-    Onboarding might take up to 1 hour.
+    Microsoft Defender for Cloud will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 12 hours. For new machines created after the integration has been enabled, onboarding takes up to an hour.
 
     > [!NOTE]
     > The next time you return to this page of the Azure portal, the **Enable for Linux machines** button won't be shown. To disable the integration for Linux, you'll need to disable it for Windows too by clearing the checkbox for **Allow Microsoft Defender for Endpoint to access my data**, and selecting **Save**.
@@ -194,10 +194,6 @@ If you've never enabled the integration for Windows, the **Allow Microsoft Defen
 1. Open the [Defender for Endpoint Security Center portal](https://securitycenter.windows.com/). Learn more about the portal's features and icons, in [Defender for Endpoint Security Center portal overview](/windows/security/threat-protection/microsoft-defender-atp/portal-overview). 
 
 
-
-
-
-
 ## Send a test alert
 
 To generate a benign test alert from Defender for Endpoint, select the tab for the relevant operating system of your endpoint:
@@ -243,6 +239,19 @@ For endpoints running Linux:
 
 --- 
 
+## Remove Defender for Endpoint from a machine
+
+To remove the Defender for Endpoint solution from your machines:
+
+1. Disable the integration:
+    1. From Defender for Cloud's menu, select **Environment settings** and select the subscription with the relevant machines.
+    1. Open **Integrations** and clear the checkbox for **Allow Microsoft Defender for Endpoint to access my data**.
+    1. Select **Save**.
+
+1. Remove the MDE.Windows/MDE.Linux extension from the machine.
+
+1. Follow the steps in [Offboard devices from the Microsoft Defender for Endpoint service](/microsoft-365/security/defender-endpoint/offboard-machines?view=o365-worldwide) from the Defender for Endpoint documentation.
+
 ## FAQ - Microsoft Defender for Cloud integration with Microsoft Defender for Endpoint
 
 - [What's this "MDE.Windows" / "MDE.Linux" extension running on my machine?](#whats-this-mdewindows--mdelinux-extension-running-on-my-machine)
@@ -256,13 +265,24 @@ In the past, Microsoft Defender for Endpoint was provisioned by the Log Analytic
 
 Defender for Cloud automatically deploys the extension to machines running:
 
-- Windows Server 2019.
+- Windows Server 2019 & 2022.
 - Windows 10 Virtual Desktop (WVD).
 - Other versions of Windows Server if Defender for Cloud doesn't recognize the OS version (for example, when a custom VM image is used). In this case, Microsoft Defender for Endpoint is still provisioned by the Log Analytics agent.
 - Linux.
 
 > [!IMPORTANT]
-> If you delete the MDE.Windows extension, it will not remove Microsoft Defender for Endpoint. to 'offboard', see [Offboard Windows servers.](/microsoft-365/security/defender-endpoint/configure-server-endpoints).
+> If you delete the MDE.Windows/MDE.Linux extension, it will not remove Microsoft Defender for Endpoint. to 'offboard', see [Offboard Windows servers.](/microsoft-365/security/defender-endpoint/configure-server-endpoints).
+
+
+### I've enabled the solution by the "MDE.Windows" / "MDE.Linux" extension isn't showing on my machine
+
+If you've enabled the integration, but still don't see the extension running on your machines, check the following:
+
+1. If 12 hours hasn't passed since you enabled the solution, you'll need to wait until the end of this period to be sure there's an issue to investigate. 
+1. After 12 hours have passed, if you still don't see the extension running on your machines, check that you've met [Prerequisites](#prerequisites) for the integration.
+1. Ensure you've enabled the [Microsoft Defender for servers](defender-for-servers-introduction.md) plan for the subscriptions related to the machines you're investigating.
+1. If you've moved your Azure subscription between Azure tenants, some manual preparatory steps are required before Defender for Cloud will deploy Defender for Endpoint. For full details, [contact Microsoft support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+
 
 ### What are the licensing requirements for Microsoft Defender for Endpoint?
 Defender for Endpoint is included at no extra cost with **Microsoft Defender for servers**. Alternatively, it can be purchased separately for 50 machines or more.

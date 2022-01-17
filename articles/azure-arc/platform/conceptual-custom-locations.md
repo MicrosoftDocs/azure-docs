@@ -22,6 +22,9 @@ For example, a cluster operator can create a custom location **Contoso-Michigan-
 
 On Arc-enabled Kubernetes clusters, Custom Locations represents an abstraction of a namespace within the Azure Arc-enabled Kubernetes cluster. Custom Locations creates the granular [RoleBindings and ClusterRoleBindings](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) necessary for other Azure services to access the cluster. These other Azure services require cluster access to manage resources you want to deploy on your clusters.
 
+> [!IMPORTANT]
+> In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
+
 ## Architecture for Arc-enabled Kubernetes
 
 When an administrator enables the Custom Locations feature on the cluster, a ClusterRoleBinding is created on the cluster, authorizing the Azure AD application used by the Custom Locations Resource Provider (RP). Once authorized, Custom Locations RP can create ClusterRoleBindings or RoleBindings needed by other Azure RPs to create custom resources on this cluster. The cluster extensions installed on the cluster determines the list of RPs to authorize.
