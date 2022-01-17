@@ -116,7 +116,7 @@ The following sections specify the parameters required for all authentication ty
 
 * **JSON format version**: Defines the data schema in the JSON files. Metrics Advisor supports the following versions. You can choose one to fill in the field:
   
-   * **v1** (default value)
+   * **v1** 
 
       Only the metrics *Name* and *Value* are accepted. For example:
     
