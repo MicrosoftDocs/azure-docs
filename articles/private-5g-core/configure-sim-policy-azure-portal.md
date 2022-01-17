@@ -32,12 +32,12 @@ SIM policies allow you to define different sets of policies and interoperability
 1. In the command bar, select **Create**.
 1. Under **Create a SIM policy**, do the following.
     - Set the **Default slice** field to **slice-1 (Default)**.
-    - Fill out all the other fields using the information you collected from [Collect top-level setting values](collect-required-information-for-sim-policy.md#collect-top-level-setting-values)
+    - Fill out all the other fields using the information you collected from [Collect top-level setting values](collect-required-information-for-sim-policy.md#collect-top-level-setting-values).
 1. Select **Add a network scope**.
 1. On **Add a network scope** on the right, fill out each of the fields using the information you collected from [Collect information for the network scope](collect-required-information-for-sim-policy.md#collect-information-for-the-network-scope).
 1. Select **Add**.
 1. Under **Create a SIM policy**, confirm that your new network scope has the correct configuration.
-1. If you want to assign this SIM policy to one or more existing provisioned SIMs, select **Next ; Assign to SIMs**, and then select your chosen SIMs from the list that appears.
+1. If you want to assign this SIM policy to one or more existing provisioned SIMs, select **Next : Assign to SIMs**, and then select your chosen SIMs from the list that appears.
 
     :::image type="content" source="media\configure-sim-policy-azure-portal\assign-to-sims-tab.png" alt-text="Screenshot of the Azure portal showing the Assign to SIMs tab for a SIM policy.":::
 

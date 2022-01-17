@@ -41,11 +41,17 @@ Do the following to create the service.
 
 1. Sign in to the Azure portal at [https://aka.ms/PMNSPortal](https://aka.ms/PMNSPortal).<!-- Is this the correct link? -->
 1. Search for and select the Mobile Network resource representing your private mobile network.
-:::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
+
+    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
+
 1. In the resource menu, select **Services**.
-:::image type="content" source="media\configure-service-azure-portal\services-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the Services option in the resource menu of a Mobile Network resource.":::
+
+    :::image type="content" source="media\configure-service-azure-portal\services-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the Services option in the resource menu of a Mobile Network resource.":::
+
 1. In the command bar, select **Create**.
-:::image type="content" source="media\configure-service-azure-portal\create-command-bar-option.png" alt-text="Screenshot of the Azure portal showing the Create option in the command bar.":::
+
+    :::image type="content" source="media\configure-service-azure-portal\create-command-bar-option.png" alt-text="Screenshot of the Azure portal showing the Create option in the command bar.":::
+
 1. We'll now enter values to define the QoS characteristics that will be applied to Service Data Flows that match this service. On the Basics tab, fill out the fields as follows.
 
     |Field  |Value  |
@@ -121,7 +127,9 @@ Do the following to create the service.
 1. On the **Basics** configuration tab, select **Review + create**.
 1. Select **Create** to create the service.
 1. The Azure portal will display the following confirmation screen when the service has been created. Select **Go to resource** to see the new service resource.
-:::image type="content" source="media\configure-service-azure-portal\service-resource-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing the successful deployment of a service resource and the Go to resource button.":::
+
+    :::image type="content" source="media\configure-service-azure-portal\service-resource-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing the successful deployment of a service resource and the Go to resource button.":::
+
 1. Confirm that the data flow policy rules and service data flow templates listed at the bottom of the screen are configured as expected.
 
 ## Create a service for blocking traffic from specific sources
@@ -135,11 +143,17 @@ In this step, we'll create a service that blocks traffic from specific sources. 
 Do the following to create the service.
 
 1. Search for and select the Mobile Network resource representing your private mobile network.
-:::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
+
+    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
+
 1. In the resource menu, select **Services**.
-:::image type="content" source="media\configure-service-azure-portal\services-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the Services option in the resource menu of a Mobile Network resource.":::
+
+     :::image type="content" source="media\configure-service-azure-portal\services-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the Services option in the resource menu of a Mobile Network resource.":::
+
 1. In the command bar, select **Create**.
-:::image type="content" source="media\configure-service-azure-portal\create-command-bar-option.png" alt-text="Screenshot of the Azure portal showing the Create option in the command bar.":::
+
+    :::image type="content" source="media\configure-service-azure-portal\create-command-bar-option.png" alt-text="Screenshot of the Azure portal showing the Create option in the command bar.":::
+
 1. We'll now enter values to define the QoS characteristics that will be applied to Service Data Flows that match this service. On the **Basics** tab, fill out the fields as follows.
 
     |Field  |Value  |
@@ -217,7 +231,9 @@ Do the following to create the service.
 1. On the **Basics** configuration tab, select **Review + create**.
 1. Select **Create** to create the service.
 1. The Azure portal will display the following confirmation screen when the service has been created. Select **Go to resource** to see the new service resource.
-:::image type="content" source="media\configure-service-azure-portal\service-resource-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing the successful deployment of a service resource and the Go to resource button.":::
+
+     :::image type="content" source="media\configure-service-azure-portal\service-resource-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing the successful deployment of a service resource and the Go to resource button.":::
+
 1. Confirm that the data flow policy rules and service data flow templates listed at the bottom of the screen are configured as expected.
 
 ## Create a service for limiting traffic
@@ -230,11 +246,17 @@ In this step, we'll create a service that limits the bandwidth of traffic on mat
 Do the following to create the service.
 
 1. Search for and select the Mobile Network resource representing your private mobile network.
-:::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
+
+    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
+
 1. In the resource menu, select **Services**.
-:::image type="content" source="media\configure-service-azure-portal\services-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the Services option in the resource menu of a Mobile Network resource.":::
+
+    :::image type="content" source="media\configure-service-azure-portal\services-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the Services option in the resource menu of a Mobile Network resource.":::
+
 1. In the command bar, select **Create**.
-:::image type="content" source="media\configure-service-azure-portal\create-command-bar-option.png" alt-text="Screenshot of the Azure portal showing the Create option in the command bar.":::
+
+    :::image type="content" source="media\configure-service-azure-portal\create-command-bar-option.png" alt-text="Screenshot of the Azure portal showing the Create option in the command bar.":::
+
 1. We'll now enter values to define the QoS characteristics that will be applied to Service Data Flows that match this service. On the **Basics** tab, fill out the fields as follows.
 
     |Field  |Value  |
@@ -275,7 +297,9 @@ Do the following to create the service.
 1. On the **Basics** configuration tab, select **Review + create**.
 1. Select **Create** to create the service.
 1. The Azure portal will display the following confirmation screen when the service has been created. Select **Go to resource** to see the new service resource.
-:::image type="content" source="media\configure-service-azure-portal\service-resource-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing the successful deployment of a service resource and the Go to resource button.":::
+
+     :::image type="content" source="media\configure-service-azure-portal\service-resource-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing the successful deployment of a service resource and the Go to resource button.":::
+
 1. Confirm that the data flow policy rules and service data flow templates listed at the bottom of the screen are configured as expected.
 
 ## Configure SIM policies
@@ -283,9 +307,13 @@ Do the following to create the service.
 In this step, we will create two SIM policies. The first SIM policy will use the service we created in [Create a service for protocol filtering](#create-a-service-for-protocol-filtering), and the second will use the service we created in [Create a service for blocking traffic from specific sources](#create-a-service-for-blocking-traffic-from-specific-sources). Both SIM policies will use the third service we created in [Create a service for limiting traffic](#create-a-service-for-limiting-traffic).
 
 1. Search for and select the Mobile Network resource representing your private mobile network.
-:::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
+
+    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
+
 1. In the resource menu, select **SIM policies**.
-:::image type="content" source="media\configure-sim-policy-azure-portal\sim-policies-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the SIM policies option in the resource menu of a Mobile Network resource.":::
+
+    :::image type="content" source="media\configure-sim-policy-azure-portal\sim-policies-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the SIM policies option in the resource menu of a Mobile Network resource.":::
+
 1. In the command bar, select **Create**.
 1. On the **Create a SIM policy** blade that appears, fill out the fields as follows.
 
@@ -318,13 +346,19 @@ In this step, we will create two SIM policies. The first SIM policy will use the
 1. Select **Add**.
 1. On the **Basics** configuration tab, select **Review + create**.
 1. The Azure portal will display the following confirmation screen when the SIM policy has been created.
-:::image type="content" source="media\configure-sim-policy-azure-portal\sim-policy-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing confirmation of the successful deployment of a SIM policy.":::
+
+    :::image type="content" source="media\configure-sim-policy-azure-portal\sim-policy-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing confirmation of the successful deployment of a SIM policy.":::
+
 1. Select **Go to resource group**.
 1. The Azure portal will display the resource group containing your private mobile network. Select **Show hidden types** and then select the new **sim-policy-1** resource. <!-- new screenshot and description required -->
 1. We'll now create the other SIM policy. Search for and select the Mobile Network resource representing the private mobile network for which you want to configure a service.
-:::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
+
+    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
+
 1. In the resource menu, select **SIM policies**.
-:::image type="content" source="media\configure-sim-policy-azure-portal\sim-policies-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the SIM policies option in the resource menu of a Mobile Network resource.":::
+
+    :::image type="content" source="media\configure-sim-policy-azure-portal\sim-policies-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the SIM policies option in the resource menu of a Mobile Network resource.":::
+
 1. In the command bar, select **Create**.
 1. On the **Create a SIM policy** blade that appears, fill out the fields as follows.
 
@@ -358,7 +392,9 @@ In this step, we will create two SIM policies. The first SIM policy will use the
 1. On the **Basics** configuration tab, select **Review + create**.
 1. On the **Review + create** configuration tab, select **Review + create**.
 1. The Azure portal will display the following confirmation screen when the SIM policy has been created.
-:::image type="content" source="media\configure-sim-policy-azure-portal\sim-policy-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing confirmation of the successful deployment of a SIM policy.":::
+
+    :::image type="content" source="media\configure-sim-policy-azure-portal\sim-policy-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing confirmation of the successful deployment of a SIM policy.":::
+
 1. Select **Go to resource group**.
 1. The Azure portal will display the resource group containing your private mobile network. Select **Show hidden types** and then select the new **sim-policy-2** resource. <!-- new screenshot and description required -->
 
@@ -389,28 +425,40 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
     ]
     ```
 1. Search for and select the Mobile Network resource representing your private mobile network.
-:::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
+
+    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
+
 1. In the resource menu, select **Add SIMs**.
-:::image type="content" source="media/provision-sims-azure-portal/add-sims.png" alt-text="Screenshot of the Azure portal showing the Add SIMs button on a Mobile Network resource":::
+
+    :::image type="content" source="media/provision-sims-azure-portal/add-sims.png" alt-text="Screenshot of the Azure portal showing the Add SIMs button on a Mobile Network resource":::
+
 1. Select **Create** and then **Upload JSON from file**.
-:::image type="content" source="media/provision-sims-azure-portal/create-new-sim.png" alt-text="Screenshot of the Azure portal showing the Create button and its options - Upload J S O N from file and Add manually.":::
+
+    :::image type="content" source="media/provision-sims-azure-portal/create-new-sim.png" alt-text="Screenshot of the Azure portal showing the Create button and its options - Upload J S O N from file and Add manually.":::
+
 1. Select **Browse** and then select the JSON file you created at the start of this step.
 1. Select **Add**.
 1. The Azure portal will now begin deploying the SIMs. When the deployment is complete, select **Go to resource group**.
-:::image type="content" source="media/provision-sims-azure-portal/multiple-sim-resource-deployment.png" alt-text="Screenshot of the Azure portal showing a completed deployment of SIM resources through a J S O N file and the Go to resource button.":::
+
+    :::image type="content" source="media/provision-sims-azure-portal/multiple-sim-resource-deployment.png" alt-text="Screenshot of the Azure portal showing a completed deployment of SIM resources through a J S O N file and the Go to resource button.":::
+
 1. The Azure portal will display the resource group containing your private mobile network. Select **Show hidden types** and then confirm that your new SIM resources are shown.
-:::image type="content" source="media/provision-sims-azure-portal/resource-group-containing-multiple-sims.png" alt-text="Screenshot of the Azure portal showing a resource group containing new SIM resources.":::
+
+    :::image type="content" source="media/provision-sims-azure-portal/resource-group-containing-multiple-sims.png" alt-text="Screenshot of the Azure portal showing a resource group containing new SIM resources.":::
+
 1. Select the **Mobile Network** resource corresponding to your private mobile network.
-1. In the left hand bar, select **SIMs**.
+1. In the resource menu, select **SIMs**.
 1. Tick the checkbox next to **SIM1** and then select **Assign SIM policy**.
 1. On the **Assign SIM policy** blade, select **sim-policy-1**.
 1. Select the **Assign SIM policy** button.
 1. <!-- still need to confirm what happens post deployment and navigation-->
 1. Select the **Mobile Network** resource corresponding to your private mobile network.
-1. In the left hand bar, select **SIMs**.
+1. In the resource menu, select **SIMs**.
 1. Tick the checkbox next to **SIM2** and then select **Assign SIM policy**.
 1. On the **Assign SIM policy** blade, select **sim-policy-2**.
 1. Select the **Assign SIM policy** button.
+
+You now have now provisioned two SIMs and assigned them to different SIM policies. Each of these SIM policies provides access to a different set of services.
 
 ## Clean up resources
 

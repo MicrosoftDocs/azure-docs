@@ -55,7 +55,7 @@ Each service comprises the following.
   - A preemption capability setting. This setting determines whether the QoS Flow created for this service can preempt another QoS Flow with a lower ARP priority level.
   - A preemption vulnerability setting. This determines whether the QoS Flow created for this service can be preempted by another QoS Flow with a higher ARP priority level.
 
-- One or more **data flow policy rules**, which identify the SDFs to which the service should be applied. You can configure each rule with the following to determine when its applied and the effect it will have.
+- One or more **data flow policy rules**, which identify the SDFs to which the service should be applied. You can configure each rule with the following to determine when it's applied and the effect it will have.
 
   - One or more **service data flow templates**, which provide the packet filters that identify the SDFs on which to match. You can match on an SDF's direction, protocol, target IP address and / or target port. The target IP address and port refer to the component on the data network's end of the connection.
   - A traffic control setting, which determines whether the packet core instance should allow or block traffic matching the SDF(s).
@@ -68,7 +68,7 @@ SIM policies allow you to define different sets of policies and interoperability
 Each SIM policy comprises the following.
 
 - Top-level settings that are applied to every SIM assigned to the SIM policy, such as the UE Aggregated Maximum Bit Rate (UE-AMBR) for downloads and uploads, and the RAT/Frequency Priority ID (RFSP ID).
-- A network scope, which defines how SIMs assigned to this SIM policy will connect to the data network. You can use the network scope to determine the following.
+- A **network scope**, which defines how SIMs assigned to this SIM policy will connect to the data network. You can use the network scope to determine the following.
 
    - The services (as described in [Services](#services)) to which SIMs will have access on this data network.
   - A set of QoS characteristics that will be used to form the default QoS Flow for PDU sessions involving assigned SIMs on this data network.
@@ -88,7 +88,7 @@ During PDU session establishment, the packet core instance will do the following
    - Check uplink packets against the SDFs.
    - Apply any necessary traffic control.
    - Identify the QoS Flow to which each SDF should be bound.
-   - Mark packets with the appropriate QFI to ensure that they receive the correct QoS handling between the UE and the packet core instance without further inspection.
+   - Mark packets with the appropriate QFI to ensure they receive the correct QoS handling between the UE and the packet core instance without further inspection.
 
 1. Inspect downlink packets to check their properties against the service data flow templates of the associated services, and then do the following based on this matching.
 

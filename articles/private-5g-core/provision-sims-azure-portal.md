@@ -84,9 +84,13 @@ In this step, you'll enter provisioning values for your SIMs directly into the A
 1. On the **Add SIMs** blade, use the information you collected in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims) to fill out the fields for one of the SIMs you want to provision.
 1. Select **Add**.
 1. The Azure portal will now begin deploying the SIM. When the deployment is complete, select **Go to resource**.
-:::image type="content" source="media/provision-sims-azure-portal/sim-resource-deployment.png" alt-text="Screenshot of the Azure portal showing a completed deployment of a SIM resource and the Go to resource button.":::
+
+    :::image type="content" source="media/provision-sims-azure-portal/sim-resource-deployment.png" alt-text="Screenshot of the Azure portal showing a completed deployment of a SIM resource and the Go to resource button.":::
+
 1. You will now see details of your new SIM resource.
-:::image type="content" source="media/provision-sims-azure-portal/new-sim-resource.png" alt-text="Screenshot of the Azure portal showing a completed deployment of a SIM resource and the Go to resource button.":::
+
+    :::image type="content" source="media/provision-sims-azure-portal/new-sim-resource.png" alt-text="Screenshot of the Azure portal showing a completed deployment of a SIM resource and the Go to resource button.":::
+
 1. Repeat this entire step for any other SIMs that you want to provision.
 1. If you decided in [Prerequisites](#prerequisites) that you wanted to assign a SIM policy to any of your provisioned SIMs, move to [Optionally, assign a SIM policy](#optionally-assign-a-sim-policy). Otherwise, you've finished your provisioning.
 
@@ -97,9 +101,13 @@ In this step, you'll provision SIMs using a JSON file.
 1. On the **Add SIMs** blade, select **Browse** and then select the JSON file you created in [If applicable, create the JSON file](#if-applicable-create-the-json-file).
 1. Select **Add**. If the **Add** button is greyed out, check your JSON file to confirm that it is correctly formatted.
 1. The Azure portal will now begin deploying the SIMs. When the deployment is complete, select **Go to resource group**.
-:::image type="content" source="media/provision-sims-azure-portal/multiple-sim-resource-deployment.png" alt-text="Screenshot of the Azure portal showing a completed deployment of SIM resources through a J S O N file and the Go to resource button.":::
+
+    :::image type="content" source="media/provision-sims-azure-portal/multiple-sim-resource-deployment.png" alt-text="Screenshot of the Azure portal showing a completed deployment of SIM resources through a J S O N file and the Go to resource button.":::
+
 1. The Azure portal will display the resource group containing your private mobile network. Select **Show hidden types** and then confirm that your new SIM resources are shown.
-:::image type="content" source="media/provision-sims-azure-portal/resource-group-containing-multiple-sims.png" alt-text="Screenshot of the Azure portal showing a completed deployment of SIM resources through a JSON file and the Go to resource button.":::
+
+    :::image type="content" source="media/provision-sims-azure-portal/resource-group-containing-multiple-sims.png" alt-text="Screenshot of the Azure portal showing a completed deployment of SIM resources through a JSON file and the Go to resource button.":::
+
 1. If you decided in [Prerequisites](#prerequisites) that you wanted to assign a SIM policy to any of your provisioned SIMs, move to [Optionally, assign a SIM policy](#optionally-assign-a-sim-policy). Otherwise, you've finished your provisioning.
 
 ## Optionally, assign a SIM policy
@@ -107,14 +115,18 @@ In this step, you'll provision SIMs using a JSON file.
 In this step, you'll assign a SIM policy to your SIMs. This will let the SIMs access your private mobile network.
 
 1. Search for and select the Mobile Network resource representing the private mobile network for which you want to provision SIMs.
-:::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
+
+    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
+
 1. In the resource menu, select **SIMs**.
 1. You'll see a list of provisioned SIMs in the private mobile network. For each SIM policy you want to assign to one or more SIMs, do the following.
     - Tick the checkbox next to the name of each SIM you want to assign to this SIM policy.
     - Select **Assign SIM policy**.
     - On the **Assign SIM policy** blade, select your chosen SIM policy from the **SIM policy** drop down menu.
-    - Select the **Assign SIM policy** button.
-    :::image type="content" source="media/provision-sims-azure-portal/assign-sim-policy.png" alt-text="Screenshot of the Azure portal showing a list of provisioned SIMs and the Assign SIM policy blade.":::<!-- need a step after this for post deployment -->
+    - Select the **Assign SIM policy** button.<!-- need a step after this for post deployment -->
+    
+        :::image type="content" source="media/provision-sims-azure-portal/assign-sim-policy.png" alt-text="Screenshot of the Azure portal showing a list of provisioned SIMs and the Assign SIM policy blade."::: 
+
 1. Repeat this for any other SIM policies you want to assign to SIMs.
 
 ## Next steps
