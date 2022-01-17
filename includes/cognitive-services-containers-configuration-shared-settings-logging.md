@@ -16,19 +16,6 @@ The following logging providers are supported by the container:
 |[Debug](/aspnet/core/fundamentals/logging/#debug-provider)|The ASP.NET Core `Debug` logging provider. All of the ASP.NET Core configuration settings and default values for this logging provider are supported.|
 |[Disk](#disk-logging)|The JSON logging provider. This logging provider writes log data to the output mount.|
 
-This container command stores logging information in the JSON format to the output mount:
-
-```bash
-docker run --rm -it -p 5000:5000 \
---memory 2g --cpus 1 \
---mount type=bind,src=/home/azureuser/output,target=/output \
-<registry-location>/<image-name> \
-Eula=accept \
-Billing=<endpoint> \
-ApiKey=<api-key> \
-Logging:Disk:Format=json
-```
-
 This container command shows debugging information, prefixed with `dbug`, while the container is running:
 
 ```bash
