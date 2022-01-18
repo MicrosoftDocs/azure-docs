@@ -58,8 +58,6 @@ Instead of using the default action group, you select an existing action group t
 
 ### Migrate your smart detection using the Azure portal
 
-Apply the migration to one specific Application Insights resource at a time.
-
 To migrate smart detection in your resource, take the following steps:
 
 1. Select **Smart detection** under the **Investigate** heading in your Application Insights resource left-side menu.
@@ -68,9 +66,15 @@ To migrate smart detection in your resource, take the following steps:
 
    ![Smart detection feed banner](media/alerts-smart-detections-migration/smart-detection-feed-banner.png)
 
-3. Select an action group to be configured for the new alert rules. You can choose between using the default action group (as explained above) or using one of your existing action groups.
+3. Check the option "Migrate all Application Insights resources in this subscription", or leave it unchecked if you want to migrate only the current resource you are in. 
+   > [!NOTE]
+   > Checking this option will impact all **existing** Application Insights resources (that were not migrated yet). As long as the migration to alerts is in preview, new Application Insights resources will still be created with non-alerts smart detection.
 
-4. Select **Migrate** to start the migration process.
+
+
+4. Select an action group to be configured for the new alert rules. You can choose between using the default action group (as explained above) or using one of your existing action groups.
+
+5. Select **Migrate** to start the migration process.
 
    ![Smart detection migration dialog](media/alerts-smart-detections-migration/smart-detection-migration-dialog.png)
 
@@ -84,7 +88,7 @@ You can start the smart detection migration using the following Azure CLI comman
 az rest --method POST --uri /subscriptions/{subscriptionId}/providers/Microsoft.AlertsManagement/migrateFromSmartDetection?api-version=2021-01-01-preview --body @body.txt
 ```
 
-Where body.txt should include:
+For migrating a single Application Insights resource, body.txt should include:
 
 ```json
 {
@@ -95,7 +99,17 @@ Where body.txt should include:
       "customActionGroupName" : "{actionGroupName}"           
 }
 ```
+For migrating all the Application Insights resources in a subscription, body.txt should include:
 
+```json
+{
+      "scope": [
+	"/subscriptions/{subscriptionId} "
+      ],
+      "actionGroupCreationPolicy" : "{Auto/Custom}",
+      "customActionGroupName" : "{actionGroupName}"           
+}
+```
 **ActionGroupCreationPolicy** selects the policy for migrating the email settings in the smart detection rules into action groups. Allowed values are:
 
 - **'Auto'**, which uses the default action groups as described in this document

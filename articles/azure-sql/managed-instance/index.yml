@@ -35,7 +35,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Azure SQL Managed Instance overview
-            url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61
+            url: /shows/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61
       - linkListType: concept
         links:
           - text: What is SQL Managed Instance?
