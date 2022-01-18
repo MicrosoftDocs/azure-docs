@@ -45,34 +45,34 @@ az spring-cloud app deploy
 
 <!--Seems there should be some icon to show the supported or not supported. I left the supported as empty for a better viewer for content writer-->
 
-| Feature                                                            | Java | Python | Node | Netcore | Go |
-|--------------------------------------------------------------------|------|--------|------|---------|----|
-| App lifecycle management                                           |      |        |      |         |    |
-| Access App public endpoint                                         |      |        |      |         |    |
-| Test endpoint                                                      |      |        |      |         |    |
-| Log to LA                                                          |      |        |      |         |    |
-| Third Party  APM Integration (New relic, Dynatrace, AI, and so on) |      | N      | N    | N       | N  |
-| Blue/green deployment                                              |      |        |      |         |    |
-| Custom domain                                                      |      |        |      |         |    |
-| Scaling - auto scaling                                             |      |        |      |         |    |
-| Scaling - manual scaling (in/out, up/down)                         |      |        |      |         |    |
-| Managed Identity                                                   |      |        |      |         |    |
-| Configuration Service                                              |      | N      | N    | N       | N  |
-| Service Registry                                                   |      | N      | N    | N       | N  |
-| VNET                                                               |      |        |      |         |    |
-| Outgoing IP Address                                                |      |        |      |         |    |
-| TLS - e2e TLS (ngix2app, app2app)                                  |      |        |      |         |    |
-| TLS - app2backing service                                          |      |        |      |         |    |
-| advanced troubleshooting - thread/heap/JFR dump                    |      | N      | N    | N       | N  |
-| BYOS                                                               |      |        |      |         |    |
-| Integrate service binding with Resource Connector                  |      | N      | N    | N       | N  |
-| AZ readiness (higher SLA)                                          |      |        |      |         |    |
-| App Lifecycle events                                               |      |        |      |         |    |
-| Reduced app size - 0.5 vCPU and 512 MB                             |      |        |      |         |    |
-| Automate app deployments with Terraform and Azure Pipeline Task    |      |        |      |         |    |
-| Soft Deletion                                                      |      |        |      |         |    |
-| interactive diagnostic experience (AppLens-based)                  |      |        |      |         |    |
-| SLA                                                                |      |        |      |         |    |
+| Feature                                                         | Java | Python | Node | Netcore | Go |
+|-----------------------------------------------------------------|------|--------|------|---------|----|
+| App lifecycle mgmt.                                             | Y    | Y      | Y    | Y       | Y  |
+| Assign endpoint                                                 | Y    | Y      | Y    | Y       | Y  |
+| Azure Monitor                                                   | Y    | Y      | Y    | Y       | Y  |
+| Out of box APM integration                                      | Y    | N      | N    | N       | N  |
+| Blue/green deployment                                           | Y    | Y      | Y    | Y       | Y  |
+| Custom domain                                                   | Y    | Y      | Y    | Y       | Y  |
+| Scaling - auto scaling                                          | Y    | Y      | Y    | Y       | Y  |
+| Scaling - manual scaling (In/out, up/down)                      | Y    | Y      | Y    | Y       | Y  |
+| Managed Identity                                                | Y    | Y      | Y    | Y       | Y  |
+| API portal                                                      | Y    | Y      | Y    | Y       | Y  |
+| Spring Cloud Gateway                                            | Y    | Y      | Y    | Y       | Y  |
+| Application Configuration Service                               | Y    | N      | N    | N       | N  |
+| Service Registry                                                | Y    | N      | N    | N       | N  |
+| VNET                                                            | Y    | Y      | Y    | Y       | Y  |
+| Outgoing IP Address                                             | Y    | Y      | Y    | Y       | Y  |
+| e2e TLS                                                         | Y    | Y      | Y    | Y       | Y  |
+| advanced troubleshooting - thread/heap/JFR dump                 | Y    | N      | N    | N       | N  |
+| Bring your own storage                                          | Y    | Y      | Y    | Y       | Y  |
+| Integrate service binding with Resource Connector               | Y    | N      | N    | N       | N  |
+| Availability Zone                                               | Y    | Y      | Y    | Y       | Y  |
+| App Lifecycle events                                            | Y    | Y      | Y    | Y       | Y  |
+| Reduced app size - 0.5 vCPU and 512 MB                          | Y    | Y      | Y    | Y       | Y  |
+| Automate app deployments with Terraform and Azure Pipeline Task | Y    | Y      | Y    | Y       | Y  |
+| Soft Deletion                                                   | Y    | Y      | Y    | Y       | Y  |
+| interactive diagnostic experience(AppLens-based)                | Y    | Y      | Y    | Y       | Y  |
+| SLA                                                             | Y    | Y      | Y    | Y       | Y  |
 
 ## Next steps
 
