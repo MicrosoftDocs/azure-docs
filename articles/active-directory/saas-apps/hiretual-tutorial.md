@@ -74,28 +74,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
 
-    a. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://api.hiretual.com/v1/users/saml/login/<teamId>`
-
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type the URL:
-    `https://app.hiretual.com/`
+    a. Put “https://app.hiretual.com” as [Identifier (Entity ID)
+    
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://api.hiretual.com/v1/users/saml/login/<teamId>
 
 	> [!NOTE]
-	> This value is not real. Update this value with the actual Reply URL. Contact [Hiretual-SSO Client support team](mailto:support@hiretual.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> Please update the <teamId> value and put it into the [Reply URL]
+.Contact [Hiretual-SSO Client support team](mailto:support@hiretual.com) to get this values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. Hiretual-SSO application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. Please click the [Properties] tab on the left menu bar, then copy the value of [User access URL], please store this URL, you need to put it into the single sign-on settings page in Hiretual App.
 
-	![image](common/default-attributes.png)
-
-1. In addition to above, Hiretual-SSO application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
-	
-	| Name | Source Attribute |
-	| ---------- | --------- |
-	| firstName | user.givenname |
-    | title | user.jobtitle |
-    | lastName | user.surname |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -140,8 +129,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     1. Copy **Entity ID** value from the metadata file and paste in the **Identity Provider Issuer** textbox.
 
     1. Copy **X509 Certificate** from the metadata file and paste the content in the **Certificate** textbox.
-
-    1. Fill the required attributes manually according to your requirement and click **Save**.
 
     1. Enable **Single Sign-On Connection Status** button.
 
