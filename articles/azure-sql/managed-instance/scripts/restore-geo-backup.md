@@ -7,7 +7,7 @@ ms.subservice: backup-restore
 ms.custom: devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: Misliplavo
+author: MilanMSFT
 ms.author: mlazic
 ms.reviewer: mathoma
 ms.date: 07/03/2019
