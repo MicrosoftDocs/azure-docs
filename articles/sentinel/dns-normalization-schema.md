@@ -32,7 +32,7 @@ The most important fields in a DNS event are:
 
 - [DnsQuery](#query), which reports the domain name for which the query was issued.
 
-- The [SrcIpAddr](#srcipaddr) (aliased to [IpAddr](#ipaddr)), which represents the IP address from which the request was generated. 
+- The [SrcIpAddr](#srcipaddr) (aliased to [IpAddr](#ipaddr)), which represents the IP address from which the request was generated. DNS servers typically provide the SrcIpAddr field, but DNS clients sometimes do not provide this field and only provide the [SrcHostname](#srchostname) field. 
 
 - [EventResultDetails](#eventresultdetails), which reports as to whether the request was successful and if not, why.
 
