@@ -12,7 +12,7 @@ ms.date: 12/17/2021
 
 This article will show you how to encrypt VMware vSAN Key Encryption Keys (KEK) with Customer Managed Keys (CMKs) handled by customer-owned Azure Key Vault. 
 
-When CMK encryption are enabled on your Azure VMware Solution private cloud, Azure VMware Solution uses the CMK from your key vault to encrypt the vSAN KEKs. Each ESXi host that participates in the vSAN cluster uses randomly generated Disk Encryption Keys (DEKs) that ESXi uses to encrypt disk data at rest. vSAN encrypts all DEKs with a KEK provided by Azure VMware Solution KMS. Azure VMware Solution private cloud and Key Vault don't need to be in the same subscription.
+When CMK encryption are enabled on your Azure VMware Solution private cloud, Azure VMware Solution uses the CMK from your key vault to encrypt the vSAN KEKs. Each ESXi host that participates in the vSAN cluster uses randomly generated Disk Encryption Keys (DEKs) that ESXi uses to encrypt disk data at rest. vSAN encrypts all DEKs with a KEK provided by Azure VMware Solution KMS. Azure VMware Solution private cloud and Key vault don't need to be in the same subscription.
 
 When managing your own encryption keys, you can do the following actions:
 
@@ -143,24 +143,24 @@ Below is the JSON file used to create an Azure Resource Manager template (ARM te
 System-assigned identity is restricted to one per resource and is tied to the lifecycle of the resource.  You can grant permissions to the managed identity by using Azure Role-Based Access Control (Azure RBAC). The managed identity is authenticated with Azure AD, so you don't have to store any credentials in code.
 
 >[!IMPORTANT]
-> Ensure that Key Vault is in the same region as the Azure VMware Solution private cloud.
+> Ensure that Key vault is in the same region as the Azure VMware Solution private cloud.
 
 # [Portal](#tab/azure-portal)
 
-Navigate to your **Azure Key vault** and provide access to the SDDC on Azure Key vault using the Principal ID captured in the **Enable MSI** tab. Provide permissions
+Navigate to your **Azure Key vault** and provide access to the SDDC on Azure Key vault using the Principal ID captured in the **Enable MSI** tab.
 
 1. From your Azure VMware Solution private cloud, under **Manage**, select **Encryption** and then **Customer-managed keys (CMK)**.
-1. CMK provides two options for key selection form Azure Key Vault.
+1. CMK provides two options for **Key Selection** from Azure Key Vault.
     
     **Option 1**
 
-    1. Under the encryption key, choose the **select from key vault** radio button.
-    1. Select the encryption type and then the **Select key vault and key** option.
-    1. Select the Key Vault and key from the drop down, click **Select**.
+    1. Under **Encryption key**, choose the **select from key vault** button.
+    1. Select the encryption type, then the **Select key vault and key** option.
+    1. Select the Key vault and key from the drop down, click **Select**.
     
     **Option 2**
 
-      1. Under encryption key, choose the **Enter key from URI** radio button.
+      1. Under **Encryption key**, choose the **Enter key from URI** button.
       1. Enter a specific Key URI in the **Key URI** box.
 
     > [!IMPORTANT]
@@ -305,9 +305,9 @@ If a customer wants to change from Customer managed key (CMK) to Microsoft manag
 
 ## Errors  
 
-Errors 403 and 404 occur when managed service identity doesn't have access to Key Vault. These errors occur when a user removes access policies within Key Vault, deletes Key Vault, DNS outages, networking issues, or Key Vault outages.  It results in the delay of update operations on vCenter. The approach is to shut down the hosts to avoid any malicious access to the data within an hour of the error.  Host maintenance and update operations, whether manual or automatic, won't work, but you can still access the private cloud. 
+Errors 403 and 404 occur when managed service identity doesn't have access to Key vault. These errors occur when a user removes access policies within Key vault, deletes Key vault, DNS outages, networking issues, or Key vault outages.  It results in the delay of update operations on vCenter. The approach is to shut down the hosts to avoid any malicious access to the data within an hour of the error.  Host maintenance and update operations, whether manual or automatic, won't work, but you can still access the private cloud. 
 
-When all errors get resolved, access to the data will be restored. No data is lost because of outages. The error will get resolved by Microsoft fixing service outages or by you restoring a KEK or access to the Key Vault. To protect data from errors, Azure VMware Solution caches data encryption keys for as long as possible. You can write the data encryption keys to disks protected by a Microsoft key or a data protection API (DP API). But only if it continues to honor the one-hour window and is cleaned up afterward.
+When all errors get resolved, access to the data will be restored. No data is lost because of outages. The error will get resolved by Microsoft fixing service outages or by you restoring a KEK or access to the Key vault. To protect data from errors, Azure VMware Solution caches data encryption keys for as long as possible. You can write the data encryption keys to disks protected by a Microsoft key or a data protection API (DP API). But only if it continues to honor the one-hour window and is cleaned up afterward.
 
 >[!TIP]
 > You'll be notified if a key or access to the key is revoked. Once revoked, you can then define custom actions to take. If you lose access to your cached data encryption key, make the data inaccessible so you don't lose the data.
