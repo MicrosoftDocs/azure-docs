@@ -89,49 +89,50 @@ Follow these steps to create administrative units with dynamic membership rules 
 
 ### Microsoft Graph API
 
-Use the [Create administrativeUnit](/graph/api/administrativeunit-post-administrativeunits?view=graph-rest-beta) API to create a new administrative unit.
+1. Create a dynamic membership rule using the rule builder and then copy the syntax. For more information, see [Rule builder in the Azure portal](../enterprise-users/groups-dynamic-membership.md#rule-builder-in-the-azure-portal).
 
-#### Add dynamic membership rule for users
+1. Use the [Create administrativeUnit](/graph/api/administrativeunit-post-administrativeunits?view=graph-rest-beta&preserve-view=true) API to create a new administrative unit.
 
-Request
+    The following shows an example of a dynamic membership rule that applies to all users.
 
-```http
-POST https://graph.microsoft.com/beta/administrativeUnits
-```
+    Request
+    
+    ```http
+    POST https://graph.microsoft.com/beta/administrativeUnits
+    ```
+    
+    Body
+    
+    ```http
+    {
+      "displayName": "displayName-value",
+      "description": "description-value",
+      "membershipType": "Dynamic",
+      "membershipRule": "All Users",
+      "membershipRuleProcessingState": "On"
+    }
+    ```
+    
+    The following shows an example of a dynamic membership rule that applies to Windows devices.
 
-Body
-
-```http
-{
-  "displayName": "displayName-value",
-  "description": "description-value",
-  "membershipType": "Dynamic",
-  "membershipRule": "All Users",
-  "membershipRuleProcessingState": "On"
-}
-```
-
-#### Add dynamic membership rule for devices
-
-
-Request
-
-```http
-POST https://graph.microsoft.com/beta/administrativeUnits
-```
-
-Body
-
-```http
-{
-  "displayName": "displayName-value",
-  "description": "description-value",
-  "membershipType": "Dynamic",
-  "membershipRule": "(device.deviceOSType -eq \"Windows\")",
-  "membershipRuleProcessingState": "On"
-}
-```
-
+    Request
+    
+    ```http
+    POST https://graph.microsoft.com/beta/administrativeUnits
+    ```
+    
+    Body
+    
+    ```http
+    {
+      "displayName": "displayName-value",
+      "description": "description-value",
+      "membershipType": "Dynamic",
+      "membershipRule": "(device.deviceOSType -eq \"Windows\")",
+      "membershipRuleProcessingState": "On"
+    }
+    ```
+    
 ## Edit dynamic membership rules
 
 When an administrative unit has been configured for dynamic membership, the usual commands to add or remove members for the administrative unit are disabled as the dynamic membership engine retains the sole ownership of adding or removing members. To make changes to the membership, you can edit the dynamic membership rules.
@@ -157,7 +158,7 @@ Set-AzureADMSAdministrativeUnit -Id $adminUnit.Id -MembershipRule '(user.country
 
 ### Microsoft Graph API
 
-Use the [Update administrativeUnit](/graph/api/administrativeunit-update?view=graph-rest-beta) API to edit the dynamic membership rule.
+Use the [Update administrativeUnit](/graph/api/administrativeunit-update?view=graph-rest-beta&preserve-view=true) API to edit the dynamic membership rule.
 
 Request
 
@@ -203,7 +204,7 @@ Set-AzureADMSAdministrativeUnit -Id $adminUnit.Id -MembershipType "Assigned" -Me
 
 ### Microsoft Graph API
 
-Use the [Update administrativeUnit](/graph/api/administrativeunit-update?view=graph-rest-beta) API to change the membership type setting.
+Use the [Update administrativeUnit](/graph/api/administrativeunit-update?view=graph-rest-beta&preserve-view=true) API to change the membership type setting.
 
 Request
 
