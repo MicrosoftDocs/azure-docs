@@ -113,7 +113,7 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
     1. Expand **Other Settings**
     1. Under **Rendering** change **Color Space** to **Linear** and restart Unity when it asks you to.
     1. Under **Configuration** change **Active Input Handling** to **Both** and restart Unity when it asks you to.
-        ![player settings](./media/player-settings-other-settings.png)
+        ![Player Settings - Other Settings](./media/player-settings-other-settings.png)
     1. Expand **Publishing Settings**
     1. Scroll down to **Capabilities** and select:
         * **InternetClient**
@@ -121,7 +121,7 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
         * **SpatialPerception**
         * **PrivateNetworkClientServer** (*optional*). Select this option if you want to connect the Unity remote debugger to your device.
     1. Under **Supported Device Families**, enable **Holographic** and **Desktop**
-        ![player settings](./media/player-settings-publishing-settings.png)
+        ![Player Settings - Publishing Settings](./media/player-settings-publishing-settings.png)
 
 1. Close or dock the **Project Settings** panel
 1. Open *File->Build Settings*
