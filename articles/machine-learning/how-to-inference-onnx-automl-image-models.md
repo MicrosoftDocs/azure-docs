@@ -207,7 +207,7 @@ best_child_run.download_file(name='train_artifacts/model.onnx', output_file_path
 
 - While exporting ONNX models, height and width of the images can be set by the user (choose values closer to training images for better predictions) to generate ONNX models. For making inference using generated ONNX model, input images have to be scaled to height and width values used to generate the ONNX model.
 
-- Use [ScriptRunConfig](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) to submit the script `ONNX_batch_model_generator_faster_rcnn.py` available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection), to generate an ONNX model of a specific batch size. Here, we utilize the trained model environment to submit the above script to generate and save the ONNX model to outputs directory
+- Use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) to submit the script `ONNX_batch_model_generator_faster_rcnn.py` available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection), to generate an ONNX model of a specific batch size. Here, we utilize the trained model environment to submit the above script to generate and save the ONNX model to outputs directory
 
 ```python
 from azureml.core.script_run_config import ScriptRunConfig
@@ -279,7 +279,7 @@ remote_run.wait_for_completion(wait_post_processing=True)
 
 - While exporting ONNX models, height and width of the images can be set by the user (choose values closer to training images for better predictions) to generate ONNX models. For making inference using generated ONNX model, input images have to be scaled to height and width values used to generate the ONNX model.
 
-- Use [ScriptRunConfig](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) to submit the script `ONNX_batch_model_generator_yolo.py` available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection), to generate an ONNX model of a specific batch size. Here, we utilize the trained model environment to submit the above script to generate and save the ONNX model to outputs directory
+- Use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) to submit the script `ONNX_batch_model_generator_yolo.py` available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection), to generate an ONNX model of a specific batch size. Here, we utilize the trained model environment to submit the above script to generate and save the ONNX model to outputs directory
 
 ```python
 from azureml.core.script_run_config import ScriptRunConfig
@@ -349,7 +349,7 @@ remote_run.wait_for_completion(wait_post_processing=True)
 
 - While exporting ONNX models, height and width of the images can be set by the user (choose values closer to training images for better predictions) to generate ONNX models. For making inference using generated ONNX model, input images have to be scaled to height and width values used to generate the ONNX model.
 
-- Use [ScriptRunConfig](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) to submit the script `ONNX_batch_model_generator_mask_rcnn.py` available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation), to generate an ONNX model of a specific batch size. Here, we utilize the trained model environment to submit the above script to generate and save the ONNX model to outputs directory
+- Use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) to submit the script `ONNX_batch_model_generator_mask_rcnn.py` available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation), to generate an ONNX model of a specific batch size. Here, we utilize the trained model environment to submit the above script to generate and save the ONNX model to outputs directory
 
 ```python
 from azureml.core.script_run_config import ScriptRunConfig
@@ -471,7 +471,7 @@ Every ONNX model has a predefined set of input and output formats.
 
 # [Multi-class image classification ](#tab/multi-class)
 
-This example applies the model trained on the [fridgeObjects](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/fridgeObjects.zip) dataset with 134 images and 4 classes/labels to explain ONNX model inference. For more information on training an image classification task, see the [multi-class image classification notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-classification-multiclass).
+This example applies the model trained on the [fridgeObjects](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/fridgeObjects.zip) dataset with 134 images and 4 classes/labels to explain ONNX model inference. For more information on training an image classification task, see the [multi-class image classification notebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-classification-multiclass).
 
 ### Input format
     
@@ -492,7 +492,7 @@ The output is an array of logits for all the classes/labels.
 
 # [Multi-label image classification](#tab/multi-label)
 
-This example uses the model trained on the [multi-label fridgeObjects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/multilabelFridgeObjects.zip) with 128 images and 4 classes/labels to explain ONNX model inference. For more information on model training for multi-label image classification, see the [multi-label image classification notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-classification-multilabel).
+This example uses the model trained on the [multi-label fridgeObjects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/multilabelFridgeObjects.zip) with 128 images and 4 classes/labels to explain ONNX model inference. For more information on model training for multi-label image classification, see the [multi-label image classification notebook](https://github.com/Azure/azureml-examples/tree/master/python-sdk/tutorials/automl-with-azureml/image-classification-multilabel).
 
 ### Input format
 
@@ -514,7 +514,7 @@ The output is an array of logits for all the classes/labels.
 
 # [Object detection with Faster R-CNN](#tab/object-detect-cnn)
 
-This object detection example uses the model trained on the [fridgeObjects detection dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) of 128 images and 4 classes/labels to explain ONNX model inference. This example trains Faster R-CNN models to demonstrate inference steps. For more information on training object detection models, see the [object detection notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-object-detection).
+This object detection example uses the model trained on the [fridgeObjects detection dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) of 128 images and 4 classes/labels to explain ONNX model inference. This example trains Faster R-CNN models to demonstrate inference steps. For more information on training object detection models, see the [object detection notebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection).
 
 ### Input format
 
@@ -545,7 +545,7 @@ Following table describes boxes, labels and scores returned for each sample in t
 
 # [Object detection with YOLO](#tab/object-detect-yolo)
 
-This object detection example uses the model trained on the [fridgeObjects detection dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) of 128 images and 4 classes/labels to explain ONNX model inference. This example trains YOLO models to demonstrate inference steps. For more information on training object detection models, see the [object detection notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-object-detection). 
+This object detection example uses the model trained on the [fridgeObjects detection dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) of 128 images and 4 classes/labels to explain ONNX model inference. This example trains YOLO models to demonstrate inference steps. For more information on training object detection models, see the [object detection notebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection). 
 
 ### Input format
 
@@ -567,7 +567,7 @@ Each cell in the list indicates box detections of a sample with shape `(n_boxes,
 
 # [Instance segmentation](#tab/instance-segmentation)
 
-For this instance segmentation example, you use the Mask R-CNN model that has been trained on the [fridgeObjects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjectsMask.zip) with 128 images and 4 classes/labels to explain ONNX model inference. For more information on training of the instance segmentation model, see the [instance segmentation notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation).
+For this instance segmentation example, you use the Mask R-CNN model that has been trained on the [fridgeObjects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjectsMask.zip) with 128 images and 4 classes/labels to explain ONNX model inference. For more information on training of the instance segmentation model, see the [instance segmentation notebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation).
 
 >[!IMPORTANT]
 > Only Mask R-CNN is supported for instance segmentation tasks. The input and output formats are based on Mask R-CNN only.
