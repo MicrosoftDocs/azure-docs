@@ -88,7 +88,7 @@ Create a new `POST` request:
     
 3. Select the **Test** tab and enter in the text section: `pm.environment.set("bearerToken", pm.response.json().access_token);` To make the value available to the collection, use the pm.collectionVariables.set method. For more information on the set method and its scope level, see [Using variables in scripts](https://learning.postman.com/docs/sending-requests/variables/#defining-variables-in-scripts).
 4. Select **Save** to save the settings.
-5. Hit **Send**. You should see a response with the Azure AD access token, which is saved to the variable `bearerToken` automatically. You can then use it in all FHIR service API requests.
+5. Select **Send**. You should see a response with the Azure AD access token, which is saved to the variable `bearerToken` automatically. You can then use it in all FHIR service API requests.
 
   [ ![Screenshot of send button.](media/postman/postman-send-button.png) ](media/postman/postman-send-button.png#lightbox)
 
@@ -154,7 +154,7 @@ Select **Bearer Token** as authorization type.  Enter `{{bearerToken}}` in the *
 - **Accept**: `application/fhir+json`
 - **Prefer**:  `respond-async`
 
-Hit **Send**. You should notice a `202 Accepted` response. Select the **Headers** tab of the response and make a note of the value in the **Content-Location**. You can use the value to query the export job status.
+Select **Send**. You should notice a `202 Accepted` response. Select the **Headers** tab of the response and make a note of the value in the **Content-Location**. You can use the value to query the export job status.
 
 [ ![Screenshot of post to create a new patient 202 accepted response.](media/postman/postman-202-accepted-response.png) ](media/postman/postman-202-accepted-response.png#lightbox)
 
