@@ -164,7 +164,7 @@ Navigate to your **Azure Key vault** and provide access to the SDDC on Azure Key
       1. Enter a specific Key URI in the **Key URI** box.
 
     > [!IMPORTANT]
-    > If you'd like to select a specific key version instead of the auto selected latest verion, you'll need to specify key URI with key version. This will affect the CMK key version life cycle,
+    > If you'd like to select a specific key version instead of the auto selected latest version, you'll need to specify key URI with key version. This will affect the CMK key version life cycle,
 
 1. Select **Save** to grant access to the resource. 
 
