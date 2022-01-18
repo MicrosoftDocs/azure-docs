@@ -132,9 +132,7 @@ Not all the filters/predicates are supported in Azure Spring Cloud because of se
 
 ## A quick start example
 
-1. See [Create and configure apps](get-started-enterprise.md#create-and-configure-apps) to create an app in Azure Spring Cloud which the Spring Cloud Gateway would route traffic to. Select `customers-service` in this example.
-
-1. See [Build and deploy applications](get-started-enterprise.md#build-and-deploy-applications) to deploy the `customers-service` app. The app has an API `owners` to which routing rule will be created.
+1. To create an app in Azure Spring Cloud which the Spring Cloud Gateway would route traffic to, follow the instructions in [Quickstart: Build and deploy apps to Azure Spring Cloud using the Enterprise tier](quickstart-deploy-apps-enterprise.md). Select `customers-service` for this example.
 
 1. Assign a public endpoint to the gateway to access it.
 
