@@ -25,7 +25,7 @@ The following are the basic steps needed to use MVAD:
 
 To test out this feature, try this SDK [Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb).
 
-## Multivariate Anomaly Detector APIs Overview
+## Multivariate Anomaly Detector APIs overview
 
 Generally, multivariate anomaly detector includes a set of APIs, covering the whole lifecycle of training and inference. For more information, refer to [Anomaly Detector API Operations](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview-1/operations/DetectAnomaly). Here are the **8 APIs** in MVAD:
 
@@ -57,7 +57,7 @@ Next you need to prepare your training data (and inference data with asynchronou
 [!INCLUDE [mvad-data-schema](../includes/mvad-data-schema.md)]
 
 
-## Train an MVAD model.
+## Train an MVAD model
 
 Here is a sample request body and the sample code in Python to train an MVAD model.
 
@@ -349,14 +349,16 @@ The response contains the result status, variable information, inference paramet
 * `variableStates` lists the information of each variable in the inference request.
 * `setupInfo` is the request body submitted for this inference.
 * `results` contains the detection results. There are three typical types of detection results.
-    1. Error code `InsufficientHistoricalData`. This usually happens only with the first few timestamps because the model inferences data in a window-based manner and it needs historical data to make a decision. For the first few timestamps, there is insufficient historical data, so inference cannot be performed on them. In this case, the error message can be ignored.
-    1. `"isAnomaly": false` indicates the current timestamp is not an anomaly.
-        * `severity ` indicates the relative severity of the anomaly and for normal data it is always 0.
-        * `score` is the raw output of the model on which the model makes a decision, which could be non-zero even for normal data points.
-    1. `"isAnomaly": true` indicates an anomaly at the current timestamp.
-        * `severity ` indicates the relative severity of the anomaly and for abnormal data it is always greater than 0.
-        * `score` is the raw output of the model on which the model makes a decision. `severity` is a derived value from `score`. Every data point has a `score`.
-        * `contributors` is a list containing the contribution score of each variable. Higher contribution scores indicate higher possibility of the root cause. This list is often used for interpreting anomalies and diagnosing the root causes.
+
+* Error code `InsufficientHistoricalData`. This usually happens only with the first few timestamps because the model inferences data in a window-based manner and it needs historical data to make a decision. For the first few timestamps, there is insufficient historical data, so inference cannot be performed on them. In this case, the error message can be ignored.
+
+* `"isAnomaly": false` indicates the current timestamp is not an anomaly.
+      * `severity ` indicates the relative severity of the anomaly and for normal data it is always 0.
+      * `score` is the raw output of the model on which the model makes a decision, which could be non-zero even for normal data points.
+* `"isAnomaly": true` indicates an anomaly at the current timestamp.
+      * `severity ` indicates the relative severity of the anomaly and for abnormal data it is always greater than 0.
+      * `score` is the raw output of the model on which the model makes a decision. `severity` is a derived value from `score`. Every data point has a `score`.
+* `contributors` is a list containing the contribution score of each variable. Higher contribution scores indicate higher possibility of the root cause. This list is often used for interpreting anomalies and diagnosing the root causes.
 
 > [!NOTE]
 > A common pitfall is taking all data points with `isAnomaly`=`true` as anomalies. That may end up with too many false positives.
@@ -364,7 +366,7 @@ The response contains the result status, variable information, inference paramet
 > Please refer to the [FAQ](../concepts/best-practices-multivariate.md#faq) in the best practices document for the difference between `severity` and `score`.
 
 
-## (NEW) Inference with synchronous API 
+## (NEW) inference with synchronous API
 
 > [!NOTE]
 > In v1.1-preview.1, we support synchronous API and add more fields in inference result for both asynchronous API and synchronous API, you could upgrade the API version to access to these features. Once you upgrade, you'll no longer use previous model trained in old version, you should retrain a model to fit for new fields. [Learn more about v1.1-preview.1](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview-1/operations/DetectAnomaly).
@@ -374,7 +376,7 @@ With the synchronous API, you can get inference results point by point in real t
 * The inference results are limited to up to 10 data points, which means you could detect **1 to 10 timestamps** with one synchronous API call.
 * Due to payload limitation, the size of inference data in the request body is limited, which support at most `2880` timestamps * `300` variables.
 
-### Request Schema
+### Request schema
 
 You submit a bunch of timestamps of multiple variables into in JSON format in the request body, with an API call like this:
 
@@ -435,7 +437,7 @@ A sample request looks like following format, this case is detecting last two ti
 }
 ```
 
-### Response Schema
+### Response schema
 
 You will get the JSON response of inference results in real time after you call a synchronous API, which contains following new fields:
 
@@ -533,7 +535,7 @@ See the following example of a JSON response:
 } 
 ```
 
-## Next Steps
+## Next steps
 
 * [What is the Multivariate Anomaly Detector API?](../overview-multivariate.md)
 * [Join us to get more supports!](https://aka.ms/adadvisorsjoin)
