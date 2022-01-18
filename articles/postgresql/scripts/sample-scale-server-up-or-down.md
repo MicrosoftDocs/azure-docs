@@ -13,7 +13,7 @@ ms.date: 08/07/2019
 
 This sample CLI script scales compute and storage for a single Azure Database for PostgreSQL server after querying the metrics. Compute can scale up or down. Storage can only scale up. \
 
-> [!IMPORTANT] \
+> [!IMPORTANT]
 > Storage can only be scaled up, not down.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -23,6 +23,8 @@ This sample CLI script scales compute and storage for a single Azure Database fo
 ## Sample script
 
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+
+### Run the script
 
 > [!IMPORTANT]
 > Update the script with your subscription ID.

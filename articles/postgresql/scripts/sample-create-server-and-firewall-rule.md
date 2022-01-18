@@ -22,6 +22,8 @@ This sample CLI script creates an Azure Database for PostgreSQL server and confi
 
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
+### Run the script
+
 :::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" range="4-31":::
 
 ## Clean up deployment

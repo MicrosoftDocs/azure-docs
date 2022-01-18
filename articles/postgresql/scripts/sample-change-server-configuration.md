@@ -21,6 +21,8 @@ This sample CLI script lists all available configuration parameters as well as t
 
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
+### Run the script
+
 :::code language="azurecli" source="~/azure_cli_scripts/postgresql/change-server-configurations/change-server-configurations.sh" range="4-34":::
 
 ## Clean up deployment

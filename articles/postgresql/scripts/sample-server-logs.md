@@ -22,6 +22,8 @@ This sample CLI script enables and downloads the slow query logs of a single Azu
 
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
+### Run the script
+
 :::code language="azurecli" source="~/azure_cli_scripts/postgresql/server-logs/server-logs.sh" range="4-51":::
 
 ## Clean up deployment

@@ -22,7 +22,9 @@ This sample CLI script restores a single Azure Database for PostgreSQL server to
 
 [!INCLUDE [cli-run-local-sign-in.md](../../../includes/cli-run-local-sign-in.md)]
 
-:::code language="azurecli" source="~/azure_cli_scripts/postgresql/backkup-restore/backup-restore.sh" range="4-40":::
+### Run the script
+
+:::code language="azurecli" source="~/azure_cli_scripts/postgresql/backup-restore/backup-restore.sh" range="4-40":::
 
 ## Clean up deployment
 
