@@ -153,6 +153,7 @@ az spring-cloud create \
     --app-insights <name-or-resource-ID> \
     --sampling-rate <sampling-rate>
 ```
+::: zone-end
 ::: zone pivot="sc-enterprise-tier"
 
 ```azurecli
@@ -416,9 +417,8 @@ The Java agent will be updated/upgraded regularly with the JDK, which may affect
 * Applications created after updating/upgrading will leverage the new version of the Java agent.
 * Existing applications that did not previously use the Java agent will require restart or redeployment to leverage the new version of the Java agent.
 ::: zone-end
-The Java agent will be updated/upgraded when the buildpack is updated.
 ::: zone pivot="sc-enterprise-tier"
-
+The Java agent will be updated/upgraded when the buildpack is updated.
 ::: zone-end
 
 ::: zone pivot="sc-standard-tier"

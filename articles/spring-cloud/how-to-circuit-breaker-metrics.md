@@ -17,7 +17,7 @@ We use the [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-s
 
 ## Prerequisites
 
-* Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./how-to-application-insights.md#enable-java-in-process-agent-for-application-insights).
+* Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./how-to-application-insights.md#manage-application-insights-using-the-azure-portal).
 * Enable dimension collection for resilience4j metrics from the [Application Insights guide](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 * Install git, Maven, and Java, if not already in use by the development computer.
 
