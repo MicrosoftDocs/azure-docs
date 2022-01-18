@@ -264,25 +264,12 @@ In this section, you create a Python console app that initiates a remote **lockD
                 print ( "" )
 
                 method_job_status = iothub_job_manager.get_scheduled_job(method_job_id)
-
-                print("")
-                print("...method job status:")
-                print(str(method_job_status.as_dict()))
+                print ( "...job " + str(method_job_id) + " " + method_job_status.status )
 
                 twin_job_status = iothub_job_manager.get_scheduled_job(twin_job_id)
-
-                print("")
-                print("...twin job status:")
-                print(str(twin_job_status.as_dict()))
-
-                print ( "...twin job " + str(twin_job_id) + " status is " + twin_job_status.status )
-
-                if method_job_status.status == "completed" and twin_job_status.status == "completed":
-                    print( "Jobs complete.  Exiting" )
-                    break
+                print ( "...job " + str(twin_job_id) + " " + twin_job_status.status )
 
                 print ( "Job status posted, press Ctrl-C to exit" )
-
                 time.sleep(WAIT_COUNT)
 
         except msrest.exceptions.HttpOperationError as ex:
