@@ -1,6 +1,6 @@
 ---
 title: Connect to and manage on-premises SQL server instances
-description: This guide describes how to connect to on-premises SQL server instances in Azure Purview, and use Purview's features to scan and manage your on-premises SQL server source.
+description: This guide describes how to connect to on-premises SQL server instances in Azure Purview, and use Azure Purview's features to scan and manage your on-premises SQL server source.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
@@ -26,15 +26,15 @@ This article outlines how to register on-premises SQL server instances, and how 
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Purview resource](create-catalog-portal.md).
+* An active [Azure Purview resource](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
 ## Register
 
-This section describes how to register an on-premises SQL server instance in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
+This section describes how to register an on-premises SQL server instance in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
 
 ### Authentication for registration
 
@@ -44,7 +44,7 @@ There is only one way to set up authentication for SQL server on-premises:
 
 #### SQL Authentication to register
 
-The SQL account must have access to the **master** database. This is because the `sys.databases` is in the master database. The Purview scanner needs to enumerate `sys.databases` in order to find all the SQL databases on the server.
+The SQL account must have access to the **master** database. This is because the `sys.databases` is in the master database. The Azure Purview scanner needs to enumerate `sys.databases` in order to find all the SQL databases on the server.
 
 ##### Creating a new login and user
 
@@ -69,17 +69,17 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/change-password.png" alt-text="change password.":::
 
-##### Storing your SQL login password in a key vault and creating a credential in Purview
+##### Storing your SQL login password in a key vault and creating a credential in Azure Purview
 
 1. Navigate to your key vault in the Azure portal1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your SQL server login
 1. Select **Create** to complete
-1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. If your key vault is not connected to Azure Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the **username** and **password** to setup your scan
 
 ### Steps to register
 
-1. Navigate to your Purview account
+1. Navigate to your Azure Purview account
 
 1. Under Sources and scanning in the left navigation, select **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it is not set up, follow the steps mentioned [here](manage-integration-runtimes.md) to create a self-hosted integration runtime for scanning on an on-premises or Azure VM that has access to your on-premises network.
 
@@ -103,7 +103,7 @@ Follow the steps below to scan on-premises SQL server instances to automatically
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://web.purview.azure.com/resource/).
+1. Select the **Data Map** tab on the left pane in the [Azure Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Select the SQL Server source that you registered.
 
@@ -131,7 +131,7 @@ To create and run a new scan, do the following:
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

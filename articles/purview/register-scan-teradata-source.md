@@ -1,6 +1,6 @@
 ---
 title: Connect to and manage Teradata
-description: This guide describes how to connect to Teradata in Azure Purview, and use Purview's features to scan and manage your Teradata source.
+description: This guide describes how to connect to Teradata in Azure Purview, and use Azure Purview's features to scan and manage your Teradata source.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
@@ -24,7 +24,7 @@ This article outlines how to register Teradata, and how to authenticate and inte
 
 The supported Teradata database versions are 12.x to 17.x.
 
-When scanning Teradata source, Purview supports:
+When scanning Teradata source, Azure Purview supports:
 
 - Extracting technical metadata including:
 
@@ -41,9 +41,9 @@ When scanning Teradata source, Purview supports:
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Purview resource](create-catalog-portal.md).
+* An active [Azure Purview resource](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
@@ -58,7 +58,7 @@ When scanning Teradata source, Purview supports:
 
 ## Register
 
-This section describes how to register Teradata in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
+This section describes how to register Teradata in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
 
 ### Authentication for registration
 
@@ -66,7 +66,7 @@ The only supported authentication for a Teradata source is **Basic authenticatio
 
 ### Steps to register
 
-1.  Navigate to your Purview account.
+1.  Navigate to your Azure Purview account.
 1.  Select **Data Map** on the left navigation.
 1.  Select **Register**
 1.  On Register sources, select **Teradata**. Select **Continue**
@@ -93,7 +93,7 @@ Follow the steps below to scan Teradata to automatically identify assets and cla
 
 1. In the Management Center, select **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to set up a self-hosted integration runtime
 
-1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://web.purview.azure.com/resource/).
+1. Select the **Data Map** tab on the left pane in the [Azure Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Select the registered Teradata source.
 
@@ -141,7 +141,7 @@ Follow the steps below to scan Teradata to automatically identify assets and cla
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

@@ -1,6 +1,6 @@
 ---
 title: 'Connect to and manage dedicated SQL pools (formerly SQL DW)'
-description: This guide describes how to connect to dedicated SQL pools (formerly SQL DW) in Azure Purview, and use Purview's features to scan and manage your dedicated SQL pools source.
+description: This guide describes how to connect to dedicated SQL pools (formerly SQL DW) in Azure Purview, and use Azure Purview's features to scan and manage your dedicated SQL pools source.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
@@ -33,13 +33,13 @@ This article outlines how to register dedicated SQL pools(formerly SQL DW), and 
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Purview resource](create-catalog-portal.md).
+* An active [Azure Purview resource](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
-This section describes how to register dedicated SQL pools in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
+This section describes how to register dedicated SQL pools in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
 
 ### Authentication for registration
 
@@ -50,7 +50,7 @@ There are three ways to set up authentication:
 - [SQL authentication](#sql-authentication-to-register)
 
     > [!Note]
-    > Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about 15 minutes after granting permission, the Purview account should have the appropriate permissions to be able to scan the resource(s).
+    > Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about 15 minutes after granting permission, the Azure Purview account should have the appropriate permissions to be able to scan the resource(s).
 
 #### System or user assigned managed identity to register
 
@@ -90,7 +90,7 @@ It is required to get the Service Principal's application ID and secret:
 1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** of your choice and **Value** as the **Client secret** from your Service Principal
 1. Select **Create** to complete
-1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. If your key vault is not connected to Azure Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to set up your scan.
 
 ##### Granting the Service Principal access
@@ -106,7 +106,7 @@ GO
 ```
 
 > [!Note]
-> Purview will need the **Application (client) ID** and the **client secret** in order to scan.
+> Azure Purview will need the **Application (client) ID** and the **client secret** in order to scan.
 
 #### SQL authentication to register
 
@@ -119,14 +119,14 @@ When authentication method selected is **SQL Authentication**, you need to get y
 1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* for your SQL login
 1. Select **Create** to complete
-1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. If your key vault is not connected to Azure Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to set up your scan.
 
 ### Steps to register
 
-To register a new SQL dedicated pool in Purview, complete the following steps:
+To register a new SQL dedicated pool in Azure Purview, complete the following steps:
 
-1. Navigate to your Purview account.
+1. Navigate to your Azure Purview account.
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On **Register sources**, select **Azure Dedicated SQL Pool (formerly SQL DW)**.
@@ -148,7 +148,7 @@ Follow the steps below to scan dedicated SQL pools to automatically identify ass
 
 To create and run a new scan, complete the following steps:
 
-1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://web.purview.azure.com/resource/).
+1. Select the **Data Map** tab on the left pane in the [Azure Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Select the SQL dedicated pool source that you registered.
 
@@ -176,7 +176,7 @@ To create and run a new scan, complete the following steps:
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)
