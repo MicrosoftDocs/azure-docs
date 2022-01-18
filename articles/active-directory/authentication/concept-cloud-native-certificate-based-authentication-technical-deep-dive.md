@@ -136,13 +136,20 @@ User Certificate:
 
 Authentication policy configuration: Issuer subject rule satisfies single factor authentication.
 
+:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/single-factor.png" alt-text="Screenshot of the Authentication policy configuration showing single-factor authentication required.":::  
+
 1. Sign in using CBA and since the policy was set to satisfy single factor and the user required MFA (via conditional access policy), a second factor was requested.
 1. Sign in was successful.
 1. Sign in to the Azure portal and click your tenant > **Sign in logs**.
 
-You will see several entries in the sign in logs
+You will see several entries in the sign in logs.
 
-Entry 1: This is an entry that requests the X.509 certificate from the user. The status success just means we have validated that CBA is enabled in the tenant and a certificate is requested for authentication.
+:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entries-single.png" alt-text="Screenshot of single-factor authentication entries in the sign-in logs.":::  
+
+Entry 1: This is an entry that requests the X.509 certificate from the user. The status success just means that Azure AD validated that CBA is enabled in the tenant and a certificate is requested for authentication.
+
+:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entry-one.png" alt-text="Screenshot of single-factor authentication entry in the sign-in logs.":::  
+
 
 
 ## Next steps
