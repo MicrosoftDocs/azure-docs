@@ -28,9 +28,9 @@ This topic describes how to enable Microsoft CloudKnox Permissions Management (C
 
     This screen provides information on how to enable CloudKnox on your tenant.
 
-3. To provide access to CloudKnox first party application, create a service principle that points to CloudKnox first party application.
+3. To provide access to CloudKnox first party application, create a service principal that points to CloudKnox first party application.
 
-4. To create a service principle that points to the first party application:
+4. To create a service principal that points to the first party application:
 
     1. Copy the script on the **Welcome** screen:
 

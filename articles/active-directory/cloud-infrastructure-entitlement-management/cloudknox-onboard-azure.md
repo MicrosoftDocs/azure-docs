@@ -55,7 +55,7 @@ This topic describes how to onboard the Microsoft Azure authorization system on 
 
     The script box displays the role assignment script.
 
-1. To give this role assignment to the service principle, copy the script from the box and paste it in the command-line app.
+1. To give this role assignment to the service principal, copy the script from the box and paste it in the command-line app.
 
     <!---Add info on how to do this manually.--->
 
