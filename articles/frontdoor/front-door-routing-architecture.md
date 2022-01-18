@@ -47,7 +47,7 @@ Front Door organizes its environments into primary and fallback "rings". The out
 
 Front Door's architecture ensures that requests from your end users always reach the closest Front Door environment. If the preferred Front Door environment is unhealthy, all traffic automatically moves to the next closest environment.
 
-## <a name = "splittcp"></a>Connect to Front Door environment (Split TCP)
+## <a name = "splittcp"></a>Connect to the Front Door environment (Split TCP)
 
 [Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) is a technique to reduce latencies and TCP problems by breaking a connection that would incur a high round-trip time into smaller pieces.
 
