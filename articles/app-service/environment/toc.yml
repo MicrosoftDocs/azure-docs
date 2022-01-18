@@ -25,17 +25,17 @@
     href: overview-certificates.md
   - name: Diagnostics
     href: ../overview-diagnostics.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-  - name: Migrating to ASEv3
+  - name: Migrating to App Service Environment v3
     href: migrate.md
 - name: How-To guides
   items:
   - name: Using App Service Environment
     href: using.md
-  - name: Provision ASE from an ARM template
+  - name: Provision App Service Environment from an ARM template
     href: create-from-template.md
-  - name: ASE custom settings
+  - name: App Service Environment custom settings
     href: app-service-app-service-environment-custom-settings.md
-  - name: Migrate to ASEv3
+  - name: Migrate to App Service Environment v3
     href: how-to-migrate.md
   - name: Migration alternatives
     href: migration-alternatives.md
