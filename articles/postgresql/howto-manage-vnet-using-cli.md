@@ -50,6 +50,7 @@ VNets and Azure service resources can be in the same or different subscriptions.
    ```azurecli
    echo "Cleaning up resources by removing the resource group..."
    az group delete --name $resourceGroup -y
+   ```
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

@@ -45,7 +45,7 @@ This script uses the commands outlined in the following table:
 | [az network vnet list-endpoint-services](/cli/cli/azure/network/vnet#az-network-vnet-list-endpoint-services) | List which services support VNET service tunneling in a given region. |
 | [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Creates a virtual network. |
 | [az network vnet subnet create](/cli/azure/network/vnet#az-network-vnet-subnet-create) | Create a subnet and associate an existing NSG and route table. |
-| [az network vnet subnet show](/cli/azure/network/vnet#az-network-vnet-subnet-show)
+| [az network vnet subnet show](/cli/azure/network/vnet#az-network-vnet-subnet-show) |Shows details of a subnet. |
 | [az postgresql server vnet-rule create](/cli/azure/postgresql/server/vnet-rule#az-postgresql-server-vnet-rule-create) | Create a virtual network rule to allows access to a PostgreSQL server. |
 | [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
 
