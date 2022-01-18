@@ -186,7 +186,7 @@ automl_image_config = AutoMLImageConfig(compute_target=compute_target)
 
 With support for computer vision tasks, you can control the model algorithm and sweep hyperparameters. These model algorithms and hyperparameters are passed in as the parameter space for the sweep.
 
-The model algorithm is required and is passed in via `model_name` parameter. You can either specify a single `model_name` or choose between multiple. In addition to controlling the model algorithm, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific. [Learn more about the available hyperparameters for these instances](reference-automl-images-hyperparameters.md). 
+The model algorithm is required and is passed in via `model_name` parameter. You can either specify a single `model_name` or choose between multiple. 
 
 ### Supported model algorithms
 
@@ -197,6 +197,9 @@ Task |  Model algorithms | String literal syntax<br> ***`default_model`\**** den
 Image classification<br> (multi-class and multi-label)| **MobileNet**: Light-weighted models for mobile applications <br> **ResNet**: Residual networks<br> **ResNeSt**: Split attention networks<br> **SE-ResNeXt50**: Squeeze-and-Excitation networks<br> **ViT**: Vision transformer networks| `mobilenetv2`   <br>`resnet18` <br>`resnet34` <br> `resnet50`  <br> `resnet101` <br> `resnet152`    <br> `resnest50` <br> `resnest101`  <br> `seresnext`  <br> `vits16r224` (small) <br> ***`vitb16r224`\**** (base) <br>`vitl16r224` (large)|
 Object detection | **YOLOv5**: One stage object detection model   <br>  **Faster RCNN ResNet FPN**: Two stage object detection models  <br> **RetinaNet ResNet FPN**: address class imbalance with Focal Loss <br> <br>*Note: Refer to [`model_size` hyperparameter](reference-automl-images-hyperparameters.md#model-specific-hyperparameters) for YOLOv5 model sizes.*| ***`yolov5`\**** <br> `fasterrcnn_resnet18_fpn` <br> `fasterrcnn_resnet34_fpn` <br> `fasterrcnn_resnet50_fpn` <br> `fasterrcnn_resnet101_fpn` <br> `fasterrcnn_resnet152_fpn` <br> `retinanet_resnet50_fpn` 
 Instance segmentation | **MaskRCNN ResNet FPN**| `maskrcnn_resnet18_fpn` <br> `maskrcnn_resnet34_fpn` <br> ***`maskrcnn_resnet50_fpn`\****  <br> `maskrcnn_resnet101_fpn` <br> `maskrcnn_resnet152_fpn` <br>`maskrcnn_resnet50_fpn`
+
+
+In addition to controlling the model algorithm, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific. [Learn more about the available hyperparameters for these instances](reference-automl-images-hyperparameters.md). 
 
 ### Data augmentation 
 
@@ -300,23 +303,13 @@ arguments = ["--early_stopping", 1, "--evaluation_frequency", 2]
 automl_image_config = AutoMLImageConfig(arguments=arguments)
 ```
 
-## Submit the run
-
-When you have your `AutoMLImageConfig` object ready, you can submit the experiment.
-
-```python
-ws = Workspace.from_config()
-experiment = Experiment(ws, "Tutorial-automl-image-object-detection")
-automl_image_run = experiment.submit(automl_image_config)
-```
-
 ##  Incremental training (optional)
 
 Once the training run is done, you have the option to further train the model by loading the trained model checkpoint. You can either use the same dataset or a different one for incremental training. 
 
 There are two available options for incremental training. You can, 
 
-* Pass the run ID that you want to load the checkpoint from 
+* Pass the run ID that you want to load the checkpoint from.
 * Pass the checkpoints through a FileDataset.
 
 ### Pass the checkpoint via run ID
@@ -371,6 +364,16 @@ automl_image_config = AutoMLImageConfig(task='image-object-detection',
 automl_image_run = experiment.submit(automl_image_config)
 automl_image_run.wait_for_completion(wait_post_processing=True)
 
+```
+
+## Submit the run
+
+When you have your `AutoMLImageConfig` object ready, you can submit the experiment.
+
+```python
+ws = Workspace.from_config()
+experiment = Experiment(ws, "Tutorial-automl-image-object-detection")
+automl_image_run = experiment.submit(automl_image_config)
 ```
 
 ## Outputs and evaluation metrics
