@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 01/18/2022
 ms.author: v-ydequadros
 ---
 
@@ -36,9 +36,9 @@ This topic describes how to enable Microsoft CloudKnox Permissions Management (C
 
         `az ad ap create --id b46c3ac5-9da6-418f-a849-0a7a10b3c6c`
 
-    2. Paste this script into your command-line interface (CLI) and run it.
+    2. Paste this script into your command-line app and run it.
 
-    After the script runs successfully, the service application entities display. 
+    After the script runs successfully, the command-line app displays the service application attributes for the first-party app. 
 
 5. To enable CloudKnox:
 
@@ -51,7 +51,7 @@ This topic describes how to enable Microsoft CloudKnox Permissions Management (C
 
 6. In the CloudKnox **Data Collectors** settings page, select the cloud account provider you want.
 
-7. For information on how to  onboard your authorization system, select one of the following topics and follow the instructions provided:
+7. For information on how to  onboard your authorization system, select one of the following topics and follow the instructions:
 
     - Onboard the Amazon Web Services (AWS) authorization system.
     - Onboard the Microsoft Azure authorization system.
