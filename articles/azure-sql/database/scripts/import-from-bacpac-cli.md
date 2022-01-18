@@ -19,6 +19,8 @@ ms.date: 01/05/2022
 
 This Azure CLI script example imports a database from a *.bacpac* file into a database in SQL Database.  
 
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script

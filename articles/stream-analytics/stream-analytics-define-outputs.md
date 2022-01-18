@@ -20,7 +20,7 @@ Some outputs types support [partitioning](#partitioning), and [output batch size
 | Output type | Partitioning | Security | 
 |-------------|--------------|----------|
 |[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Azure Active Directory user </br> , Managed Identity|
-|[Azure Database Explorer](azure-database-explorer-output.md)|Yes|Managed Identity|
+|[Azure Data Explorer](azure-database-explorer-output.md)|Yes|Managed Identity|
 |[Azure Database for PostgreSQL](postgresql-database-output.md)|Yes|Username and password auth|
 |[Azure SQL Database](sql-database-output.md)|Yes, optional.|SQL user auth, </br> Managed Identity|
 |[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Yes|SQL user auth, </br> Managed Identity (preview)|
