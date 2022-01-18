@@ -186,7 +186,7 @@ automl_image_config = AutoMLImageConfig(compute_target=compute_target)
 
 With support for computer vision tasks, you can control the model algorithm and sweep hyperparameters. These model algorithms and hyperparameters are passed in as the parameter space for the sweep.
 
-The model algorithm is required and is passed in via `model_name` parameter. You can either specify a single `model_name` or choose between multiple. In addition to controlling the model algorithm, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific. [Learn more about the available hyperparameters for these instances](). 
+The model algorithm is required and is passed in via `model_name` parameter. You can either specify a single `model_name` or choose between multiple. In addition to controlling the model algorithm, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific. [Learn more about the available hyperparameters for these instances](reference-automl-images-hyperparameter.md). 
 
 ### Supported model algorithms
 
@@ -197,7 +197,6 @@ Task |  Model algorithms | String literal syntax<br> ***`default_model`\**** den
 Image classification<br> (multi-class and multi-label)| **MobileNet**: Light-weighted models for mobile applications <br> **ResNet**: Residual networks<br> **ResNeSt**: Split attention networks<br> **SE-ResNeXt50**: Squeeze-and-Excitation networks<br> **ViT**: Vision transformer networks| `mobilenetv2`   <br>`resnet18` <br>`resnet34` <br> `resnet50`  <br> `resnet101` <br> `resnet152`    <br> `resnest50` <br> `resnest101`  <br> `seresnext`  <br> `vits16r224` (small) <br> ***`vitb16r224`\**** (base) <br>`vitl16r224` (large)|
 Object detection | **YOLOv5**: One stage object detection model   <br>  **Faster RCNN ResNet FPN**: Two stage object detection models  <br> **RetinaNet ResNet FPN**: address class imbalance with Focal Loss <br> <br>*Note: Refer to [`model_size` hyperparameter](#model-specific-hyperparameters) for YOLOv5 model sizes.*| ***`yolov5`\**** <br> `fasterrcnn_resnet18_fpn` <br> `fasterrcnn_resnet34_fpn` <br> `fasterrcnn_resnet50_fpn` <br> `fasterrcnn_resnet101_fpn` <br> `fasterrcnn_resnet152_fpn` <br> `retinanet_resnet50_fpn` 
 Instance segmentation | **MaskRCNN ResNet FPN**| `maskrcnn_resnet18_fpn` <br> `maskrcnn_resnet34_fpn` <br> ***`maskrcnn_resnet50_fpn`\****  <br> `maskrcnn_resnet101_fpn` <br> `maskrcnn_resnet152_fpn` <br>`maskrcnn_resnet50_fpn`
-
 
 ### Data augmentation 
 
@@ -243,6 +242,7 @@ The primary metric used for model optimization and hyperparameter tuning depends
 
 You can optionally specify the maximum time budget for your AutoML Vision experiment using `experiment_timeout_hours` - the amount of time in hours before the experiment terminates. If none specified, default experiment timeout is seven days (maximum 60 days).
 
+
 ## Sweeping hyperparameters for your model
 
 When training computer vision models, model performance depends heavily on the hyperparameter values selected. Often, you might want to tune the hyperparameters to get optimal performance.
@@ -250,8 +250,11 @@ With support for computer vision tasks in automated ML, you can sweep hyperparam
 
 ### Define the parameter search space
 
-You can define the model algorithms and hyperparameters to sweep in the parameter space. See [Configure model algorithms and hyperparameters](#configure-model-algorithms-and-hyperparameters) for the list of supported model algorithms and hyperparameters for each task type. See [details on supported distributions for discrete and continuous hyperparameters](how-to-tune-hyperparameters.md#define-the-search-space).
+You can define the model algorithms and hyperparameters to sweep in the parameter space. 
 
+* See [Configure model algorithms and hyperparameters](#configure-model-algorithms-and-hyperparameters) for the list of supported model algorithms for each task type. 
+* See [Hyperparameters for computer vision tasks](reference-automl-images-hyperparameters.md)  hyperparameters for each computer vision task type. 
+* See [details on supported distributions for discrete and continuous hyperparameters](how-to-tune-hyperparameters.md#define-the-search-space).
 
 ### Sampling methods for the sweep
 
@@ -261,8 +264,8 @@ When sweeping hyperparameters, you need to specify the sampling method to use fo
 * [Grid sampling](how-to-tune-hyperparameters.md#grid-sampling) 
 * [Bayesian sampling](how-to-tune-hyperparameters.md#bayesian-sampling) 
     
-It should be noted that currently only random sampling supports conditional hyperparameter spaces
-
+> [!NOTE]
+> Currently only random sampling supports conditional hyperparameter spaces.
 
 ### Early termination policies
 
@@ -306,6 +309,70 @@ ws = Workspace.from_config()
 experiment = Experiment(ws, "Tutorial-automl-image-object-detection")
 automl_image_run = experiment.submit(automl_image_config)
 ```
+
+##  Incremental training (optional)
+
+Once the training run is done, you have the option to further train the model by loading the trained model checkpoint. You can either use the same dataset or a different one for incremental training. 
+
+There are two available options for incremental training. You can, 
+
+* Pass the run ID that you want to load the checkpoint from 
+* Pass the checkpoints through a FileDataset.
+
+### Pass the checkpoint via run ID
+To find the run ID from the desired model, you can use the following code. 
+
+```python
+# find a run id to get a model checkpoint from
+target_checkpoint_run = automl_image_run.get_best_child()
+```
+
+To pass a checkpoint via the run ID, you need to use the `checkpoint_run_id` parameter.
+
+```python
+automl_image_config = AutoMLImageConfig(task='image-object-detection',
+                                        compute_target=compute_target,
+                                        training_data=training_dataset,
+                                        validation_data=validation_dataset,
+                                        checkpoint_run_id= target_checkpoint_run.id,
+                                        primary_metric='mean_average_precision',
+                                        **tuning_settings)
+
+automl_image_run = experiment.submit(automl_image_config)
+automl_image_run.wait_for_completion(wait_post_processing=True)
+```
+
+### Pass the checkpoint via FileDataset
+To pass a checkpoint via a FileDataset, you need to use the `checkpoint_dataset_id` and `checkpoint_filename` parameters. 
+
+```python
+# download the checkpoint from the previous run
+model_name = "outputs/model.pt"
+model_local = "checkpoints/model_yolo.pt"
+target_checkpoint_run.download_file(name=model_name, output_file_path=model_local)
+
+# upload the checkpoint to the blob store
+ds.upload(src_dir="checkpoints", target_path='checkpoints')
+
+# create a FileDatset for the checkpoint and register it with your workspace
+ds_path = ds.path('checkpoints/model_yolo.pt')
+checkpoint_yolo = Dataset.File.from_files(path=ds_path)
+checkpoint_yolo = checkpoint_yolo.register(workspace=ws, name='yolo_checkpoint')
+
+automl_image_config = AutoMLImageConfig(task='image-object-detection',
+                                        compute_target=compute_target,
+                                        training_data=training_dataset,
+                                        validation_data=validation_dataset,
+                                        checkpoint_dataset_id= checkpoint_yolo.id,
+                                        checkpoint_filename='model_yolo.pt',
+                                        primary_metric='mean_average_precision',
+                                        **tuning_settings)
+
+automl_image_run = experiment.submit(automl_image_config)
+automl_image_run.wait_for_completion(wait_post_processing=True)
+
+```
+
 ## Outputs and evaluation metrics
 
 The automated ML training runs generates output model files, evaluation metrics, logs and deployment artifacts like the scoring file and the environment file which can be viewed from the outputs and logs and metrics tab of the child runs.
