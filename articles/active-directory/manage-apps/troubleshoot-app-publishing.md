@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 12/20/2021
+ms.date: 1/18/2022
 ms.author: davidmu
 ms.reviewer: jeedes
 #Customer intent: As a publisher of an application, I want troubleshoot a blocked sign-in to the Microsoft Application Network portal.
@@ -23,7 +23,7 @@ This article provides information for resolving a blocked sign-in to the Microso
 
 The user sees this message when trying to sign in to the Microsoft Application Network portal.
 
-![issues resolving application in the gallery](./media/howto-app-gallery-listing/blocked.png)
+:::image type="content" source="/media/howto-app-gallery-listing/blocked.png" alt-text="Screenshot that shows a blocked sign-in to the portal.":::
 
 ## Cause
 

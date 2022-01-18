@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 1/14/2021
+ms.date: 1/18/2022
 ms.author: ergreenl
 ---
 
@@ -57,7 +57,7 @@ Your documentation should at a minimum include the following items:
 - Support mechanisms for users
 - Details about your SCIM endpoint, including the resources and attributes supported
 
-### Documentation on the Microsoft Site
+### Documentation on the Microsoft site
 
 When your application is added to the gallery, documentation is created that explains the step-by-step process. For an example, see [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md). This documentation is created based on your submission to the gallery, and you can easily update it if you make changes to your application using your GitHub account.
 
@@ -82,11 +82,11 @@ You can track application requests by customer name at the Microsoft Application
 
 The timeline for the process of listing a SAML 2.0 or WS-Fed application in the gallery is 7 to 10 business days.
 
-![Timeline for listing a SAML application in the gallery](./media/howto-app-gallery-listing/timeline.png)
+:::image type="content" source="/media/howto-app-gallery-listing/timeline.png" alt-text="Screenshot that shows the timeline for listing a SAML application.":::
 
 The timeline for the process of listing an OpenID Connect application in the gallery is 2 to 5 business days.
 
-![Timeline for listing an OpenID Connect application in the gallery](./media/howto-app-gallery-listing/timeline2.png)
+:::image type="content" source="/media/howto-app-gallery-listing/timeline-2.png" alt-text="Screenshot that shows the timeline for listing an OpenID Connect application.":::
 
 The timeline for the process of listing a SCIM provisioning application in the gallery is variable and depends on numerous factors.
 
@@ -94,7 +94,7 @@ Not all applications can be onboarded. Per the terms and conditions, the choice 
 
 Here's the flow of customer-requested applications.
 
-![Shows the customer-requested apps flow](./media/howto-app-gallery-listing/customer-request-2.png)
+:::image type="content" source="/media/howto-app-gallery-listing/customer-request-2.png" alt-text="Screenshot that shows the the customer-requested apps flow.":::
 
 For any escalations, send email to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com), and a response is sent as soon as possible.
 
