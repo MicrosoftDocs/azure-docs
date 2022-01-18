@@ -44,7 +44,7 @@ When a user tries to sign into an application secured by Azure AD, and if Certif
 1. Azure AD will request a client certificate and the user picks the client certificate and clicks **Ok**.
 
    >[!NOTE] 
-   >CA hints are not supported so the list of certificates can't be further scoped.
+   >Certificate authority (CA) hints are not supported so the list of certificates can't be further scoped.
 
 1. Azure AD does the certificate revocation to make sure the certificate is valid. Azure AD identifies the user in the tenant by using the [username binding configured](how-to-certificate-based-authentication.md) on the tenant by mapping the certificate field value to user attribute value.
 1. If a unique user is found and the user has a conditional access policy and needs multifactor authentication (MFA) and the [certificate authentication binding rule](how-to-certificate-based-authentication.md) satisfies MFA, then Azure AD signs the user in immediately. If the certificate satisfies only a single factor, then it requests the user for a second factor to complete Azure AD MFA.
@@ -101,18 +101,18 @@ An admin can configure the CRL distribution point during the setup process of th
 
 **Typical flow of the CRL check:**
 
-1. Azure AD will attempt to download the CRL at the first sign in event of any user with a certificate of the corresponding trusted issuer / certificate authority (CA). 
-1. Azure AD will cache and re-use the CRL for any subsequent usage. It will honor the “Next update date” and if available “Next CRL Publish date” (used by Windows server CA) in the CRL document.
+1. Azure AD will attempt to download the CRL at the first sign in event of any user with a certificate of the corresponding trusted issuer/certificate authority. 
+1. Azure AD will cache and re-use the CRL for any subsequent usage. It will honor the **Next update date** and if available **Next CRL Publish date** (used by Windows Server CAs) in the CRL document.
 1. The user certificate-based authentication will fail if:
    1. A CRL has been configured for the trusted issuer and Azure AD cannot download the CRL, due to availability, size or latency constraints.
    1. The users certificate is listed as revoked on the CRL.
    
-      :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/user-cert.png" alt-text="Screenshot of the user certificate in the CRL.":::  
+      :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/user-cert.png" alt-text="Screenshot of the revoked user certificate in the CRL.":::  
 
    1. Azure AD will attempt to download a new CRL from the distribution point if the cached CRL document is expired. 
 
 >[!NOTE]
->Azure AD will only check the CRL of the issuing certificate authority but not of the entire PKI trust chain up to the root CA. In case of a CA compromise, the administrator should remove the compromised trusted issuer from the Azure AD tenant configuration. 
+>Azure AD will only check the CRL of the issuing CA but not of the entire PKI trust chain up to the root CA. In case of a CA compromise, the administrator should remove the compromised trusted issuer from the Azure AD tenant configuration. 
 
 >[!IMPORTANT]
 >Due to the nature of CRL caching and publishing cycles, it is highly recommended in case of a certificate revocation to also revoke all sessions of the affected user in Azure AD.
@@ -121,11 +121,11 @@ There is no way for the administrator to manually force or re-trigger the downlo
 
 ## Understanding Sign in logs
 
-Sign-in logs provide information about sign-in and how your resources are used by your users. For more information about sign-in logs, see [Sign-in logs in Azure Active Directory](../reports-monitoring/concept-all-sign-ins.md).
+Sign-in logs provide information about sign-ins and how your resources are used by your users. For more information about sign-in logs, see [Sign-in logs in Azure Active Directory](../reports-monitoring/concept-all-sign-ins.md).
 
-Let's walk through two scenarios, one where the certificate satisfies single factor authentication and the other where the certificate satisfies multi factor.
+Let's walk through two scenarios, one where the certificate satisfies single-factor authentication and another where the certificate satisfies MFA.
 
-**Test scenario configuration:** 
+**Test scenario configuration** 
 User: MFA User with a conditional access policy requiring MFA
 User Binding policy: SAN Principal Name > UserPrincipalName
 User Certificate:
