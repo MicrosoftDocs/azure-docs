@@ -1079,6 +1079,7 @@
   - name: Azure Spring Cloud
     tocHref: /azure/spring-cloud/
     topicHref: /azure/spring-cloud/index
-  - name: Azure Spring Cloud Enterprise tier
-    tocHref: /azure/spring-cloud/enterprise
-    topicHref: /azure/spring-cloud/enterprise/index
+    items:
+    - name: Enterprise tier
+      tocHref: /azure/spring-cloud/enterprise
+      topicHref: /azure/spring-cloud/enterprise/index
