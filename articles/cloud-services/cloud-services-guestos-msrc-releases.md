@@ -11,7 +11,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/11/2022
+ms.date: 1/18/2022
 ms.author: gunnarc
 ---
 
@@ -64,7 +64,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [5005698]: https://support.microsoft.com/kb/5005698
 [5006749]: https://support.microsoft.com/kb/5006749
 [5008287]: https://support.microsoft.com/kb/5008287
-[4494175 ]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
 [2.117]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 [3.104]: ./cloud-services-guestos-update-matrix.md#family-3-releases
