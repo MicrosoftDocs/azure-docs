@@ -54,7 +54,7 @@ An instance of Device Update is associated with a single IoT hub. Select the IoT
 
 10. Click **Next: Review + Create**. After validation, click on **Create**.
 
-   :::image type="content" source="media/create-device-update-account/account-complete.png" alt-text="Screenshot of account deployment complete." lightbox="media/create-device-update-account/account-review.png":::
+   :::image type="content" source="media/create-device-update-account/account-review.png" alt-text="Screenshot of account review." lightbox="media/create-device-update-account/account-review.png":::
 
 11. Review the details and then select **Create**. You will see your deployment is in progress. 
 
