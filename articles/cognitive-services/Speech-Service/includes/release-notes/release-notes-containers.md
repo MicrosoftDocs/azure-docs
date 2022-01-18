@@ -9,7 +9,7 @@ ms.author: eur
 ### 2022-Jan release 2
 
 #### Speech-to-text Container v3.0.0
-- Disconnected Mode support.
+- Support for using containers in [disconnected environments](../../../containers/disconnected-containers.md).
 
 ### 2022-Jan release
 
