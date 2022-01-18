@@ -9,7 +9,7 @@ description: "Learn how to migrate from using the legacy OMS solution to monitor
 
 # Transition from the Container Monitoring Solution to using Container Insights
 
-With both the underlying platform and agent deprecations, on March 1, 2025 the [Container Monitoring Solution](./containers.md) will be retired. If you use the Container Monitoring Solution to ingest data to your Log Analytics workspace, make sure to transition to using [Container Insights](./container-insights-overview) prior to that date.
+With both the underlying platform and agent deprecations, on March 1, 2025 the [Container Monitoring Solution](./containers.md) will be retired. If you use the Container Monitoring Solution to ingest data to your Log Analytics workspace, make sure to transition to using [Container Insights](./container-insights-overview.md) prior to that date.
 
 ## Steps to complete the transition
 
@@ -17,11 +17,11 @@ To transition to Container Insights, we recommend the following approach.
 
 1. Learn about the feature differences between the Container Monitoring Solution and Container Insights to determine which option suits your needs.
 
-2. To use Container Insights, you will need to migrate your workload to Kubernetes. You can find more information on the compatible Kubernetes platforms from [Azure Kubernetes Services (AKS)](../../aks/intro-kubernetes.md) or [Azure Arc enabled Kubernetes](../../azure-arc/kubernetes/overview.md). If using AKS, you can choose to [deploy Container Insights](./container-insights-enable-new-cluster) as a part of the process.
+2. To use Container Insights, you will need to migrate your workload to Kubernetes. You can find more information on the compatible Kubernetes platforms from [Azure Kubernetes Services (AKS)](../../aks/intro-kubernetes.md) or [Azure Arc enabled Kubernetes](../../azure-arc/kubernetes/overview.md). If using AKS, you can choose to [deploy Container Insights](./container-insights-enable-new-cluster.md) as a part of the process.
 
 3. Disable the existing monitoring of the Container Monitoring Solution using one of the following options: [Azure Portal](../insights/solutions.md?tabs=portal#remove-a-monitoring-solution), [PowerShell](https://docs.microsoft.com/powershell/module/az.monitoringsolutions/remove-azmonitorloganalyticssolution?view=azps-7.1.0), or [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics/solution?view=azure-cli-latest#az-monitor-log-analytics-solution-delete)
-4. If you elected to not onboard to Container Insights earlier, you can then deploy Container Insights using Azure CLI, ARM, or Portal following the instructions for [AKS](./container-insights-enable-existing-clusters) or [Arc enabled Kubernetes](./container-insights-enable-arc-enabled-clusters)
-5. Validate that the installation was successful for either your [AKS](./container-insights-enable-existing-clusters#verify-agent-and-solution-deployment) or [Arc](./container-insights-enable-arc-enabled-clusters.md#verify-extension-installation-status) cluster.
+4. If you elected to not onboard to Container Insights earlier, you can then deploy Container Insights using Azure CLI, ARM, or Portal following the instructions for [AKS](./container-insights-enable-existing-clusters.md) or [Arc enabled Kubernetes](./container-insights-enable-arc-enabled-clusters.md)
+5. Validate that the installation was successful for either your [AKS](./container-insights-enable-existing-clusters.md#verify-agent-and-solution-deployment) or [Arc](./container-insights-enable-arc-enabled-clusters.md#verify-extension-installation-status) cluster.
 
 
 ## Container Monitoring Solution vs Container Insights 
@@ -31,7 +31,7 @@ The following table highlights the key differences between monitoring using the 
 | Feature Differences  | Container Monitoring Soluton | Container Insights |
 | ------------------- | ----------------- | ------------------- |
 | Onboarding | Multi-step installation using Azure Marketplace & configuring Log Analytics Agent | Single step onboarding via Azure portal, CLI, or ARM |
-| Agent | Log Analytics Agent (deprecated in 2024) | [Azure Monitor Agent](../agents/azure-monitor-agent-overview)
+| Agent | Log Analytics Agent (deprecated in 2024) | [Azure Monitor Agent](../agents/azure-monitor-agent-overview.md)
 | Alerting | Log based alerts tied to Log Analytics Workspace | Log based alerting and [recommended metric-based](./container-insights-metric-alerts.md) alerts |
 | Metrics | Does not support Azure Monitor metrics | Supports Azure Monitor metrics |
 | Consumption | Viewable only from Log Analytics Workspace | Accessible from both Azure Monitor and AKS/Arc resource blade |
@@ -39,7 +39,7 @@ The following table highlights the key differences between monitoring using the 
 
 ## Next steps
 
-- [Disable Container Monitoring Solution]()
-- [Deploy an Azure Kubernetes Service](./container-insights-enable-new-cluster)
+- [Disable Container Monitoring Solution](./containers.md#Removing-solution-from-your-workspace)
+- [Deploy an Azure Kubernetes Service](./container-insights-enable-new-cluster.md)
 - [Connect your cluster](../../azure-arc/kubernetes/quickstart-connect-cluster.md) to the Azure Arc enabled Kubernetes platform
-- Configure Container Insights for [Azure Kubernetes Service](./container-insights-enable-existing-clusters) or [Arc enabled Kubernetes](./container-insights-enable-arc-enabled-clusters.md) 
+- Configure Container Insights for [Azure Kubernetes Service](./container-insights-enable-existing-clusters.md) or [Arc enabled Kubernetes](./container-insights-enable-arc-enabled-clusters.md) 
