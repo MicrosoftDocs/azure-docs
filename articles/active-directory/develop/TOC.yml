@@ -558,7 +558,7 @@
     - name: Publish to App Source
       href: v2-howto-get-appsource-certified.md
     - name: Publish to Azure AD App Gallery
-      href: v2-howto-app-gallery-listing.md
+      href: ../manage-apps/v2-howto-app-gallery-listing.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Publish to the Office 365 Seller Dashboard
       href: /office/dev/store/add-in-submission-guide
   - name: Remove an app registration
