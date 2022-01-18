@@ -97,35 +97,6 @@ The following parameters can be leveraged to configure Private DNS Zone.
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [system|none]
 ```
-### Create a private AKS cluster with a BYO Private DNS SubZone (Preview)
-
-Prerequisites:
-
-* Azure CLI >= 2.29.0 or Azure CLI with aks-preview extension 0.5.34 or later.
-
-### Register the `EnablePrivateClusterSubZone` preview feature
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-To create an AKS private cluster with SubZone, you must enable the `EnablePrivateClusterSubZone` feature flag on your subscription.
-
-Register the `EnablePrivateClusterSubZone` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "EnablePrivateClusterSubZone"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnablePrivateClusterSubZone')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ### Install the aks-preview CLI extension
 
