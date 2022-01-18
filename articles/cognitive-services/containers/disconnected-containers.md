@@ -85,10 +85,7 @@ Now that you've downloaded your container, you will need to run the container wi
 
 > [!IMPORTANT]
 > * You can only use a license file with the appropriate container that you've been approved for. For example, you cannot use a license file for a speech-to-text container with a form recognizer container. 
-> * If you're using the [Translator container](../translator/containers/translator-how-to-install-container.md), it will generate a docker `run` template that you can use to run the container, containing two additional parameters you will need. Make sure you save these values    :
->    * `MODELS= /path/to/model1/, /path/to/model2/`
->    * `TRANSLATORSYSTEMCONFIG=/path/to/model/config/`
-
+> * If you're using the [Translator container](../translator/containers/translator-how-to-install-container.md), using the example below will generate a docker `run` template that you can use to run the container, containing parameters you will need for the downloaded models and configuration file. Make sure you save this template.
 
 The following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values.
 
@@ -137,7 +134,7 @@ Mounts:License={LICENSE_MOUNT}
 Mounts:Output={OUTPUT_PATH}
 ```
 
-### Additional parameters
+### Additional parameters and commands
 
 See the following sections for additional parameters and commands you may need to run the container.
 
