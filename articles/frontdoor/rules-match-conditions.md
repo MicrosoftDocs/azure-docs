@@ -978,7 +978,7 @@ In this example, we match all requests with a client port of 1234.
 
 ## Server port
 
-The **server port** match condition identifies requests based on the port used by the server (Front Door) side of the TCP connection. <!-- TODO check explanation -->
+The **server port** match condition identifies requests based on the port used by the server (Front Door) side of the TCP connection.
 
 > [!NOTE]
 > The **server port** match condition is only available on Azure Front Door Standard/Premium.
@@ -1198,12 +1198,12 @@ For rules that can transform strings, the following transforms are valid:
 
 | Transform | Description | ARM template support |
 |-|-|-|
-| To lowercase | Converts the string to the lowercase representation. | TODO |
-| To uppercase | Converts the string to the uppercase representation. | TODO |
-| Trim | Trims leading and trailing whitespace from the string. | TODO |
-| Remove nulls | TODO | TODO |
-| URL encode | TODO | TODO |
-| URL decode | TODO | TODO |
+| To lowercase | Converts the string to the lowercase representation. | `Lowercase` |
+| To uppercase | Converts the string to the uppercase representation. | `Uppercase` |
+| Trim | Trims leading and trailing whitespace from the string. | `Trim` |
+| Remove nulls | Removes null values from the string. | `RemoveNulls` |
+| URL encode | URL-encodes the string. | `UrlEncode` |
+| URL decode | URL-decodes the string. | `UrlDecode` |
 
 ## Next steps
 
