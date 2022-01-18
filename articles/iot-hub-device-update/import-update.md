@@ -13,7 +13,7 @@ Learn how to obtain a new update and import it into Device Update for IoT Hub.
 
 ## Prerequisites
 
-* [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md). 
+* [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md).
 * An IoT device (or simulator) [provisioned for Device Update](device-update-agent-provisioning.md) within IoT Hub.
 * [PowerShell 5](/powershell/scripting/install/installing-powershell) or later (includes Linux, macOS, and Windows installs)
 * Supported browsers:
@@ -73,7 +73,7 @@ If you haven't already done so, be sure to familiarize yourself with the basic [
 
 ## Review the generated import manifest
 
-An example manifest output is below. For this example, there are two files that comprise this update: a .json file and a .zip file. If you have questions about any of the items, view the complete [import manifest schema](import-schema.md#import-manifest-schema). 
+An example manifest output is below. For this example, there are two files that comprise this update: a .json file and a .zip file. If you have questions about any of the items, view the complete [import manifest schema](import-schema.md#import-manifest-schema).
 ```json
 {
   "updateId": {
@@ -141,7 +141,7 @@ An example manifest output is below. For this example, there are two files that 
 
    :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Storage Account" lightbox="media/import-update/storage-account-ppr.png":::
 
-7. In your container, select "Upload". The Upload UI will be shown.  
+7. In your container, select "Upload". The Upload UI will be shown.
 
    :::image type="content" source="media/import-update/container-ppr.png" alt-text="Select Container" lightbox="media/import-update/container-ppr.png":::
 
