@@ -842,6 +842,11 @@ This command deletes both container apps, the storage account, the container app
 > [!NOTE]
 > Since `pythonapp` continuously makes calls to `nodeapp` with messages that get persisted into your configured state store, it is important to complete these cleanup steps to avoid ongoing billable operations.
 
+---
+
+> [!TIP]
+> Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
+
 ## Next steps
 
 > [!div class="nextstepaction"]

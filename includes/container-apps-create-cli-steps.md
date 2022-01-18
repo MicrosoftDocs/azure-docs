@@ -1,8 +1,8 @@
 ---
 author: craigshoemaker
 ms.service: app-service
-ms.topic: include
-ms.date: 12/15/2021
+ms.topic: includead
+ms.date: 01/12/2022
 ms.author: cshoe
 ---
 
@@ -24,8 +24,8 @@ az login
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az login
+```powershell
+Connect-AzAccount
 ```
 
 ---
@@ -58,8 +58,8 @@ az provider register --namespace Microsoft.Web
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az provider register --namespace Microsoft.Web
+```powershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.Web
 ```
 
 ---
@@ -98,10 +98,8 @@ az group create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az group create `
-  --name $RESOURCE_GROUP `
-  --location "$LOCATION"
+```powershell
+New-AzResourceGroup -Name $RESOURCE_GROUP -Location $LOCATION
 ```
 
 ---
@@ -126,10 +124,11 @@ az monitor log-analytics workspace create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az monitor log-analytics workspace create `
-  --resource-group $RESOURCE_GROUP `
-  --workspace-name $LOG_ANALYTICS_WORKSPACE
+```powershell
+New-AzOperationalInsightsWorkspace `
+  -Location $LOCATION `
+  -Name $LOG_ANALYTICS_WORKSPACE `
+  -ResourceGroupName $RESOURCE_GROUP
 ```
 
 ---
@@ -149,7 +148,7 @@ LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-sh
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
+$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name $LOG_ANALYTICS_WORKSPACE).CustomerId
 ```
 
 ```powershell
