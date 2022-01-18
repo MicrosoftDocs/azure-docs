@@ -84,15 +84,17 @@ Establishing a TCP connection requires three roundtrips from the client to the s
 
 ::: zone-end
 
-## Match request to a Front Door profile
-
 ::: zone pivot="front-door-standard-premium"
+
+## Match request to a Front Door profile
 
 When Front Door receives an HTTP request, it uses the request's `Host` header to match the request to the correct customer's Front Door profile. If the request is using a [custom domain name](front-door-custom-domain.md), the domain name must be registered with Front Door to enable requests to be matched to your profile.
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
+
+## Match request to a Front Door
 
 When Front Door receives an HTTP request, it uses the request's `Host` header to match the request to the correct customer's Front Door. If the request is using a [custom domain name](front-door-custom-domain.md), the domain name must be registered with Front Door to enable requests to be matched to your profile.
 
@@ -104,17 +106,21 @@ The client and server perform a TLS handshake using the TLS certificate you've c
 
 If your domain has enabled the Web Application Firewall, the WAF rules are evaluated. If a rule has been violated, Front Door returns an error to the client and the request processing stops.
 
+::: zone pivot="front-door-standard-premium"
+
 ## Match a route
 
 Front Door matches the request to a route. Learn more about the [route matching process](front-door-route-matching.md).
-
-::: zone pivot="front-door-standard-premium"
 
 The route specifies the [origin group](standard-premium/concept-origin.md) that the request should be sent to.
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
+
+## Match a routing rule
+
+Front Door matches the request to a routing rule. Learn more about the [route matching process](front-door-route-matching.md).
 
 The route specifies the [backend pool](front-door-backend-pool.md) that the request should be sent to.
 
@@ -124,9 +130,7 @@ The route specifies the [backend pool](front-door-backend-pool.md) that the requ
 
 ## Evaluate rule sets
 
-If you have defined [rule sets](TODO) for the route, they're executed in the order they're configured. [Rule sets can override the origin group](front-door-rules-engine-actions.md#route-configuration-overrides) specified in a route. Rule sets can also trigger a redirection response to the request instead of forwarding it to an origin.
-
-<!-- TODO add zone pivots to link -->
+If you have defined [rule sets](standard-premium/concept-rule-set.md) for the route, they're executed in the order they're configured. [Rule sets can override the origin group](standard-premium/concept-rule-set-actions.md#OriginGroupOverride) specified in a route. Rule sets can also trigger a redirection response to the request instead of forwarding it to an origin.
 
 ::: zone-end
 
@@ -135,8 +139,6 @@ If you have defined [rule sets](TODO) for the route, they're executed in the ord
 ## Evaluate rules engines
 
 If you have defined [rules engines](front-door-rules-engine.md) for the route, they're executed in the order they're configured. [Rules engines can override the origin group](front-door-rules-engine-actions.md#route-configuration-overrides) specified in a route. Rules engines can also trigger a redirection response to the request instead of forwarding it to an origin.
-
-<!-- TODO add zone pivots to link -->
 
 ::: zone-end
 
@@ -186,13 +188,13 @@ Finally, the request is forwarded to the backend.
 
 ::: zone-end
 
-<!-- TODO check links -->
+<!-- TODO check links for each pivot -->
 
 ## Next steps
 
 ::: zone pivot="front-door-standard-premium"
 
-- TODO
+- Learn how to [create a Front Door profile](standard-premium/create-front-door-portal.md).
 
 ::: zone-end
 
