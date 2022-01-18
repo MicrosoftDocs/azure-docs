@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT for device builders
 description: Learn about the latest updates for Defender for IoT device builders.
 ms.topic: conceptual
-ms.date: 12/28/2021
+ms.date: 01/10/2022
 ---
 
 # What's new  
@@ -13,11 +13,25 @@ This article lists new features and feature enhancements in Microsoft Defender f
 
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-If you would like to be added to the Microsoft Defender for IoT device builders email distribution list, to get updates on new features, and release notes, send an email to: [defender_micro_agent@microsoft.com](mailto:defender_micro_agent@microsoft.com)
-
 ## Versioning and support
 
 Listed below are the support, breaking change policies for Defender for IoT, and the versions of Defender for IoT that are currently available.
+
+## November 2021
+
+**Version 3.13.1**:
+
+- DNS network activity on managed devices is now supported. Microsoft threat intelligence security graph can now detect suspicious activity based on DNS traffic.
+
+- [Leaf device proxying](../../iot-edge/how-to-connect-downstream-iot-edge-device.md#integrate-microsoft-defender-for-iot-with-iot-edge-gateway): There is now an enhanced integration with IoT Edge. This integration enhances the connectivity between the agent, and the cloud using leaf device proxying.
+
+## October 2021
+
+**Version 3.12.2**:
+
+- More CIS benchmark checks are now supported for Debian 9: These extra checks allow you to make sure your network is compliant with the CIS best practices used to protect against pervasive cyber threats.
+
+- **[Twin configuration](concept-micro-agent-configuration.md)**: The micro agent’s behavior is configured by a set of module twin properties. You can configure the micro agent to best suit your needs.
 
 ## September 2021
 

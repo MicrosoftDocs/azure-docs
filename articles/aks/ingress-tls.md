@@ -26,7 +26,7 @@ You can also:
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 This article also assumes you have [a custom domain][custom-domain] with a [DNS Zone][dns-zone] in the same resource group as your AKS cluster.
 
@@ -47,6 +47,7 @@ In addition, this article assumes you have an existing AKS cluster with an integ
 This article also requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
 
 ---
+
 ## Import the images used by the Helm chart into your ACR
 
 This article uses the [NGINX ingress controller Helm chart][ingress-nginx-helm-chart], which relies on three container images. 
@@ -79,6 +80,8 @@ az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGE
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
+
+Use `Import-AzContainerRegistryImage` to import those images into your ACR.
 
 ```azurepowershell
 $RegistryName = "<REGISTRY_NAME>"
@@ -165,11 +168,7 @@ kubectl create namespace ingress-basic
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
 # Set variable for ACR location to use for pulling images
-$AcrUrl = "$RegistryName.azurecr.io"
-
-# Get the SHA256 digest of the controller and patch images
-$ControllerDigest = (Get-AzContainerRegistryTag -RegistryName $RegistryName -RepositoryName $ControllerImage -Name $ControllerTag).Attributes.digest
-$PatchDigest = (Get-AzContainerRegistryTag -RegistryName $RegistryName -RepositoryName $PatchImage -Name $PatchTag).Attributes.digest
+$AcrUrl = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $RegistryName).LoginServer
 
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress ingress-nginx/ingress-nginx `
@@ -179,16 +178,17 @@ helm install nginx-ingress ingress-nginx/ingress-nginx `
     --set controller.image.registry=$AcrUrl `
     --set controller.image.image=$ControllerImage `
     --set controller.image.tag=$ControllerTag `
-    --set controller.image.digest=$ControllerDigest `
+    --set controller.image.digest="" `
     --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux `
     --set controller.admissionWebhooks.patch.image.registry=$AcrUrl `
     --set controller.admissionWebhooks.patch.image.image=$PatchImage `
     --set controller.admissionWebhooks.patch.image.tag=$PatchTag `
-    --set controller.admissionWebhooks.patch.image.digest=$PatchDigest `
+    --set controller.admissionWebhooks.patch.image.digest="" `
     --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux `
     --set defaultBackend.image.registry=$AcrUrl `
     --set defaultBackend.image.image=$DefaultBackendImage `
-    --set defaultBackend.image.tag=$DefaultBackendTag
+    --set defaultBackend.image.tag=$DefaultBackendTag `
+    --set defaultBackend.image.digest=""
 ```
 
 ---
@@ -231,7 +231,7 @@ New-AzDnsRecordSet -Name "*" `
     -RecordType A `
     -ResourceGroupName <Name of Resource Group for the DNS Zone> `
     -ZoneName <Custom Domain Name> `
-    -TTL 3600
+    -TTL 3600 `
     -DnsRecords $Records
 ```
 

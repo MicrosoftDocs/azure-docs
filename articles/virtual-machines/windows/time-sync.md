@@ -20,7 +20,7 @@ Azure is now backed by infrastructure running Windows Server 2016. Windows Serve
 
 
 >[!NOTE]
->For a quick overview of Windows Time service, take a look at this [high-level overview video](https://aka.ms/WS2016TimeVideo).
+>For a quick overview of Windows Time service, take a look at this [high-level overview video](/shows/).
 >
 > For more information, see [Accurate time for Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time). 
 
