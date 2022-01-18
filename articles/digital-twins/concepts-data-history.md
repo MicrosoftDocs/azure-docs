@@ -26,7 +26,7 @@ Once twin property values are historized to Azure Data Explorer, you can run joi
 Data history requires the following resources:
 * Azure Digital Twins instance
 * [Event Hubs](../event-hubs/event-hubs-about.md) namespace containing an Event Hub
-* Azure Data Explorer cluster containing a database 
+* [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster containing a database 
 
 These resources are connected into the following flow:
 
@@ -40,31 +40,11 @@ Data moves through these resources in this order:
 
 ## Creating a data history connection
 
-Once all the [required resources](#required-resources-and-data-flow) are set up, you can use the [Azure CLI](/cli/azure/what-is-azure-cli) to create the data history connection between them. The CLI command is part of the [az iot](/cli/azure/iot?view=azure-cli-latest&preserve-view=true) extension.
+Once all the [required resources](#required-resources-and-data-flow) are set up, you can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or the [Azure Digital Twins SDK](concepts-apis-sdks.md) to create the data history connection between them. The CLI command is part of the [az iot](/cli/azure/iot?view=azure-cli-latest&preserve-view=true) extension.
 
-The command to create a data history connection is shown below. You'll need to fill in placeholders to identify your resources. On the event hub, it uses the $Default consumer group.
-
-```azurecli-interactive
-az dt data-history create adx -n <Azure-Digital-Twins-instance-name>
---cn <time-series-database-connection-name>
---adx-cluster-name <Azure-Data-Explorer-cluster-name>
---adx-database-name <Azure-Data-Explorer-database-name> 
---eventhub <event-hub>
---eventhub-namespace <event-hub-namespace>
-```
-
->[!NOTE]
->By default, this command assumes that all resources are in the same resource group as the Azure Digital Twins instance. You can optionally select resources that are in different resource groups by using additional command line parameters. For more information about additional parameters, run:
->
->```azurecli-interactive
->`az dt data-history create adx -h`
->```
->
->For help on other data history CLI commands, run:
->
->```azurecli-interactive
->az dt data-history -h
->```
+For instructions on how to set up a data history connection, see the following articles:
+* [Use Azure Digital Twins data history (portal)](how-to-use-data-history-portal.md)
+* [Use Azure Digital Twins data history (CLI)](how-to-use-data-history-cli.md)
 
 ## Data schema
 
@@ -73,7 +53,7 @@ Time series data for twin property updates is stored in Azure Data Explorer with
 | Attribute | Type | Description |
 | --- | --- | --- |
 | `TimeStamp` | DateTime | The date/time the property update message was processed by Azure Digital Twins. This field is set by the system and isn't writable by users. |
-| `SourceTime` | DateTime |  An optional, writable property representing the timestamp when the property update was observed in the real world. This property can only be written using the latest version of the [Azure Digital Twins APIs/SDKs](concepts-apis-sdks.md). For more information about how to update this property, see [Update a digital twin](how-to-manage-twin.md#update-a-digital-twin). |
+| `SourceTime` | DateTime |  An optional, writable property representing the timestamp when the property update was observed in the real world. This property can only be written using the latest version of the [Azure Digital Twins APIs/SDKs](concepts-apis-sdks.md). For more information about how to update this property, see [Update a property's sourceTime](how-to-manage-twin.md#update-a-propertys-sourcetime). |
 | `ServiceId` | String | The service instance ID of the Azure IoT service logging the record |
 | `Id` | String | The twin ID |
 | `ModelId` | String | The DTDL model ID (DTMI) |
@@ -125,7 +105,7 @@ Ensure that `<table_name>` is replaced with the name of the table that was set u
 ### Streaming ingestion 
 
 Enabling **streaming ingestion** is a 2-step process: 
-1. Enable streaming ingestion for your cluster. This only has to be done once. (Warning: This will have an effect on the amount of storage available for hot cache, and may introduce extra limitations). 
+1. Enable streaming ingestion for your cluster. This only has to be done once. (Warning: This will have an effect on the amount of storage available for hot cache, and may introduce extra limitations).  For instructions, see [Configure streaming ingestion on your Azure Data Explorer cluster](/azure/data-explorer/ingest-data-streaming?tabs=azure-portal%2Ccsharp).
 2. Add a streaming ingestion policy for the desired table. You can read more about enabling streaming ingestion for your cluster in the Azure Data Explorer documentation: [Kusto IngestionBatching policy management command](/azure/data-explorer/kusto/management/batching-policy). 
 
 To enable streaming ingestion for your Azure Digital Twins data history table, the following command must be issued in the Azure Data Explorer query pane: 

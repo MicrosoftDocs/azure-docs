@@ -86,11 +86,11 @@ You can also opt to [ingest IoT data directly into your Azure Data Explorer clus
 
 #### Mapping data across ADX and Azure Digital Twins
 
-If you're ingesting time series data directly into Azure Data Explorer, you'll likely need to convert this raw time series data into a schema suitable for joint Azure Digital Twins/Azure Data Explorer queries.
+If you're ingesting time series data directly into Azure Data Explorer, you may need to convert this raw time series data into a schema suitable for joint Azure Digital Twins/Azure Data Explorer queries.
 
 An [update policy](/azure/data-explorer/kusto/management/updatepolicy) in Azure Data Explorer allows you to automatically transform and append data to a target table whenever new data is inserted into a source table. 
 
-You can use an update policy to enrich your raw time series data with the corresponding **twin ID** from Azure Digital Twins, and persist it to a target table. Using the twin ID, the target table can then be joined against the digital twins selected by the Azure Digital Twins plugin. 
+If the sensor ID in your telemetry data differs from the corresponding twin ID in Azure Digital Twins, you can use an update policy to enrich your raw time series data with the **twin ID** and persist it to a target table. Using the twin ID, the target table can then be joined against the digital twins selected by the Azure Digital Twins plugin. 
 
 For example, say you created the following table to hold the raw time series data flowing into your Azure Data Explorer instance. 
 

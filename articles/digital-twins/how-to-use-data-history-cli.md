@@ -32,7 +32,7 @@ It also contains a sample twin graph and telemetry scenario that you can use to 
 
 This article requires an active **Azure Digital Twins instance**. For instructions on how to set up an instance, see [Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md).
 
-This article also uses the **Azure CLI**. You can either [install the CLI locally](/cli/azure/install-azure-cli), or use the [Azure Cloud Shell](https://shell.azure.com) in a browser. Follow the steps in the next section to get your CLI session set up to work with Azure Digital Twins.
+This article also uses the **Azure CLI** and the latest version of the [Microsoft Azure IoT Extension for Azure CLI](/cli/azure/service-page/azure%20iot?view=azure-cli-latest&preserve-view=true). You can either [install the CLI locally](/cli/azure/install-azure-cli), or use the [Azure Cloud Shell](https://shell.azure.com) in a browser. Follow the steps in the next section to get your CLI session set up to work with Azure Digital Twins and data history.
 
 ### Set up CLI session
 

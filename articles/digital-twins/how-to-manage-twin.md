@@ -228,6 +228,29 @@ The patch for this situation needs to update both the model and the twin's tempe
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch-model-2.json":::
 
+### Update a property's sourceTime
+
+You may optionally decide to use the `sourceTime` field on twin properties to record timestamps for when property updates are observed in the real world. Azure Digital Twins natively supports `sourceTime` in the metadata for each twin property. For more information about this field and other fields on digital twins, see [Digital twin JSON format](concepts-twins-graph.md#digital-twin-json-format).
+
+This property can only be written using the latest version of the [Azure Digital Twins APIs/SDKs](concepts-apis-sdks.md).
+
+Here's an example of a JSON Patch document that updates both the value and the `sourceTime` field of a `Temperature` property:
+
+```json
+[
+  {
+    "op": "replace",
+    "path": "/Temperature",
+    "value": "22.3"
+  },
+{
+    "op": "replace",
+    "path": "/$metadata/Temperature/sourceTime",
+    "value": "2021-11-30T18:47:53.7648958Z"
+  }
+]
+```
+
 ### Handle conflicting update calls
 
 Azure Digital Twins ensures that all incoming requests are processed one after the other. This means that even if multiple functions try to update the same property on a twin at the same time, there's **no need** for you to write explicit locking code to handle the conflict.
