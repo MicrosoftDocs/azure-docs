@@ -36,7 +36,7 @@ Use the **device type** match condition to identify requests that have been made
 
 | Property | Supported values |
 |-------|------------------|
-| Operator | <ul><li>In the Azure portal: `Equal`, `Not Equal`</li><li>In ARM templates: `Equal`; use the `negateCondition` property to specify _Not Equal_ |
+| Operator | <ul><li>In the Azure portal: `Equal`, `Not Equal`</li><li>In ARM templates: `Equal`; use the `negateCondition` property to specify _Not Equal_</li></ul> |
 | Value | `Mobile`, `Desktop` |
 
 ### Example
@@ -92,7 +92,7 @@ Use the **HTTP version** match condition to identify requests that have been mad
 
 | Property | Supported values |
 |-------|------------------|
-| Operator | <ul><li>In the Azure portal: `Equal`, `Not Equal`</li><li>In ARM templates: `Equal`; use the `negateCondition` property to specify _Not Equal_ |
+| Operator | <ul><li>In the Azure portal: `Equal`, `Not Equal`</li><li>In ARM templates: `Equal`; use the `negateCondition` property to specify _Not Equal_</li></ul> |
 | Value | `2.0`, `1.1`, `1.0`, `0.9` |
 
 ### Example
@@ -151,7 +151,7 @@ Use the **request cookies** match condition to identify requests that have inclu
 | Cookie name | A string value representing the name of the cookie. |
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request header to match. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any case transform from the [standard case transforms list](#case-transform-list). |
 
 ### Example
 
@@ -212,7 +212,7 @@ Use the **post args** match condition to identify requests based on the argument
 | Post args | A string value representing the name of the POST argument. |
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the POST argument to match. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any case transform from the [standard case transforms list](#case-transform-list). |
 
 ### Example
 
@@ -278,7 +278,7 @@ Use the **query string** match condition to identify requests that contain a spe
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Query string | One or more string or integer values representing the value of the query string to match. Don't include the `?` at the start of the query string. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any case transform from the [standard case transforms list](#case-transform-list). |
 
 ### Example
 
@@ -332,7 +332,7 @@ The **remote address** match condition identifies requests based on the requeste
 * When you specify multiple IP addresses and IP address blocks, 'OR' logic is applied.
     * **IPv4 example**: if you add two IP addresses `1.2.3.4` and `10.20.30.40`, the condition is matched for any requests that arrive from either address 1.2.3.4 or 10.20.30.40.
     * **IPv6 example**: if you add two IP addresses `1:2:3:4:5:6:7:8` and `10:20:30:40:50:60:70:80`, the condition is matched for any requests that arrive from either address 1:2:3:4:5:6:7:8 or 10:20:30:40:50:60:70:80.
-* Remote Address represents the original client IP that is either from the network connection or typically the X-Forwarded-For request header if the user is behind a proxy.
+* The remote address represents the original client IP that is either from the network connection or typically the X-Forwarded-For request header if the user is behind a proxy. Use the [socket address](#socket-address) match condition if you need to match based on the TCP request's IP address.
 
 ### Properties
 
@@ -396,7 +396,7 @@ The **request body** match condition identifies requests based on specific text 
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request body text to match. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any case transform from the [standard case transforms list](#case-transform-list). |
 
 ### Example
 
@@ -456,7 +456,7 @@ The **request file name** match condition identifies requests that include the s
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request file name to match. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any case transform from the [standard case transforms list](#case-transform-list). |
 
 ### Example
 
@@ -519,7 +519,7 @@ The **request file extension** match condition identifies requests that include 
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request file extension to match. Don't include a leading period. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any case transform from the [standard case transforms list](#case-transform-list). |
 
 ### Example
 
@@ -581,7 +581,7 @@ The **request header** match condition identifies requests that include a specif
 | Header name | A string value representing the name of the POST argument. |
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request header to match. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any case transform from the [standard case transforms list](#case-transform-list). |
 
 ### Example
 
@@ -629,7 +629,7 @@ The **request method** match condition identifies requests that use the specifie
 
 | Property | Supported values |
 |-|-|
-| Operator | <ul><li>In the Azure portal: `Equal`, `Not Equal`</li><li>In ARM templates: `Equal`; use the `negateCondition` property to specify _Not Equal_ |
+| Operator | <ul><li>In the Azure portal: `Equal`, `Not Equal`</li><li>In ARM templates: `Equal`; use the `negateCondition` property to specify _Not Equal_</li></ul> |
 | Request method | One or more HTTP methods from: `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `TRACE`. If multiple values are specified, they're evaluated using OR logic. |
 
 ### Example
@@ -687,7 +687,7 @@ The **request path** match condition identifies requests that include the specif
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request path to match. Don't include the leading slash. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any case transform from the [standard case transforms list](#case-transform-list). |
 
 ### Example
 
@@ -748,7 +748,7 @@ The **request protocol** match condition identifies requests that use the specif
 
 | Property | Supported values |
 |-|-|
-| Operator | <ul><li>In the Azure portal: `Equal`, `Not Equal`</li><li>In ARM templates: `Equal`; use the `negateCondition` property to specify _Not Equal_ |
+| Operator | <ul><li>In the Azure portal: `Equal`, `Not Equal`</li><li>In ARM templates: `Equal`; use the `negateCondition` property to specify _Not Equal_</li></ul> |
 | Request method | `HTTP`, `HTTPS` |
 
 ### Example
@@ -806,7 +806,7 @@ Identifies requests that match the specified URL. The entire URL is evaluated, i
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request URL to match. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any case transform from the [standard case transforms list](#case-transform-list). |
 
 ### Example
 
@@ -850,6 +850,193 @@ In this example, we match all requests where the request URL begins with `https:
       'Lowercase'
     ]
     '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestUriConditionParameters'
+  }
+}
+```
+
+---
+
+## Socket address
+
+The **socket address** match condition identifies requests based on the requester's location or IP address. You can specify multiple values to match, which will be combined using OR logic.
+
+* Use CIDR notation when specifying IP address blocks. This means that the syntax for an IP address block is the base IP address followed by a forward slash and the prefix size. For example:
+    * **IPv4 example**: `5.5.5.64/26` matches any requests that arrive from addresses 5.5.5.64 through 5.5.5.127.
+    * **IPv6 example**: `1:2:3:/48` matches any requests that arrive from addresses 1:2:3:0:0:0:0:0 through 1:2:3: ffff:ffff:ffff:ffff:ffff.
+* When you specify multiple IP addresses and IP address blocks, 'OR' logic is applied.
+    * **IPv4 example**: if you add two IP addresses `1.2.3.4` and `10.20.30.40`, the condition is matched for any requests that arrive from either address 1.2.3.4 or 10.20.30.40.
+    * **IPv6 example**: if you add two IP addresses `1:2:3:4:5:6:7:8` and `10:20:30:40:50:60:70:80`, the condition is matched for any requests that arrive from either address 1:2:3:4:5:6:7:8 or 10:20:30:40:50:60:70:80.
+* The socket address represents the client IP address from the network connection. If the user is behind a proxy, the socket address will be the proxy server's IP address. Use the [remote address](#remote-address) match condition if you need to match based on the client's original IP address.
+
+> [!NOTE]
+> The **socket address** match condition is only available on Azure Front Door Standard/Premium.
+
+### Properties
+
+| Property | Supported values |
+|-------|------------------|
+| Operator | <ul><li>In the Azure portal: `IP Match`, `Not IP Match`</li><li>In ARM templates: `IPMatch`; use the `negateCondition` property to specify _Not IP Match_</li></ul> |
+| Value | Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using OR logic. |
+
+### Example
+
+In this example, we match all requests from IP addresses in the range 5.5.5.64/26.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="./media/rules-match-conditions/socket-address.png" alt-text="Portal screenshot showing socket address match condition.":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "SocketAddr",
+  "parameters": {
+    "operator": "IPMatch",
+    "negateCondition": false,
+    "matchValues": [
+      "5.5.5.64/26"
+    ],
+    "typeName": "DeliveryRuleSocketAddrConditionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'SocketAddr'
+  parameters: {
+    operator: 'IPMatch'
+    negateCondition: false
+    matchValues: [
+      '5.5.5.64/26'
+    ]
+    typeName: 'DeliveryRuleSocketAddrConditionParameters'
+  }
+}
+```
+
+---
+
+## Client port
+
+TODO
+
+## Server port
+
+TODO
+
+## Host name
+
+The **host name** match condition identifies requests based on their `Host` header value.
+
+> [!NOTE]
+> The **host name** match condition is only available on Azure Front Door Standard/Premium.
+
+### Properties
+
+| Property | Supported values |
+|-------|------------------|
+| Operator | Any operator from the [standard operator list](#operator-list). |
+| Value | One or more string values representing the value of the `Host` header to match. If multiple values are specified, they're evaluated using OR logic. |
+| Case transform | Any case transform from the [standard case transforms list](#case-transform-list) |
+
+### Example
+
+In this example, we match all requests with a `Host` header that ends with `contoso.com`.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="./media/rules-match-conditions/host-name.png" alt-text="Portal screenshot showing host name match condition.":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "HostName",
+  "parameters": {
+    "operator": "EndsWith",
+    "negateCondition": false,
+    "matchValues": [
+      "contoso.com"
+    ],
+    "transforms": [],
+    "typeName": "DeliveryRuleHostNameConditionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'HostName'
+  parameters: {
+    operator: 'EndsWith'
+    negateCondition: false
+    matchValues: [
+      'contoso.com'
+    ]
+    transforms: []
+    typeName: 'DeliveryRuleHostNameConditionParameters'
+  }
+}
+```
+
+---
+
+## SSL protocol
+
+The **SSL protocol** match condition identifies requests based on the version of the TLS protocol they use.
+
+> [!NOTE]
+> The **SSL protocol** match condition is only available on Azure Front Door Standard/Premium.
+
+### Properties
+
+| Property | Supported values |
+|-------|------------------|
+| Operator | <ul><li>In the Azure portal: `Equal`, `Not Equal`</li><li>In ARM templates: `Equal`; use the `negateCondition` property to specify _Not Equal_</li></ul> |
+| SSL protocol | <ul><li>In the Azure portal: `1.0`, `1.1`, `1.2`</li><li>In ARM templates: `TLSv1`, `TLSv1.1`, `TLSv1.2`</li></ul> |
+
+### Example
+
+In this example, we match all requests that use the TLS 1.2 protocol.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="./media/rules-match-conditions/ssl-protocol.png" alt-text="Portal screenshot showing SSL protocol match condition.":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "SslProtocol",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "TLSv1.2"
+    ],
+    "typeName": "DeliveryRuleSslProtocolConditionParameters"
+  }
+},
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'SslProtocol'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      'TLSv1.2'
+    ]
+    typeName: 'DeliveryRuleSslProtocolConditionParameters'
   }
 }
 ```
@@ -900,6 +1087,19 @@ Regular expressions don't support the following operations:
 * The `\K` start of match reset directive.
 * Callouts and embedded code.
 * Atomic grouping and possessive quantifiers.
+
+## Case transform list
+
+<!-- TODO I think in AFD classic, only To Lowercase/To Uppercase will work -->
+
+| Transform | Description | ARM template support |
+|-|-|-|
+| To lowercase | Converts the string to the lowercase representation. | TODO |
+| To uppercase | Converts the string to the uppercase representation. | TODO |
+| Trim | Trims leading and trailing whitespace from the string. | TODO |
+| Remove nulls | TODO | TODO |
+| URL encode | TODO | TODO |
+| URL decode | TODO | TODO |
 
 ## Next steps
 
