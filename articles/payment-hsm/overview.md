@@ -15,11 +15,11 @@ ms.author: mbaldwin
 ---
 # What is Azure Payment HSM?
 
-Momentum is building as financial institutions move some or all of their payment applications to the cloud. This entails a migration from the legacy on-premises (on-prem) applications and HSMs to a cloud-based infrastructure that is not generally under their direct control. Often it means a subscription service rather than perpetual ownership of physical equipment and software. Corporate initiatives for efficiency and a scaled-down physical presence are the drivers for this. Conversely, with cloud-native organizations, the adoption of cloud-first without any on-prem presence is their fundamental business model. Whatever the reason, end users of a cloud-based payment infrastructure expect reduced IT complexity, streamlined security compliance and flexibility to scale their solution seamlessly as their business grows.
-
-The Microsoft Azure Payment HSM Service is a "Bare Metal" service delivered using Thales payShield 10K payment HSMs to provide cryptographic key operations for real-time, critical payment transactions in the Azure cloud. Azure Payment HSM is designed specifically to help a service provider and an individual financial institution accelerate their payment system’s digital transformation strategy and adopt the public cloud. It meets the most stringent security, audit compliance, low latency and high-performance requirements by the Payment Card Industry (PCI). Users of the service utilize Thales payShield Manager for secure remote access to the HSMs as part of their OPEX-based subscription. Multiple subscription options are available to satisfy a broad range of performance and multiple application requirements that can be upgraded quickly in line with end user business growth.
+Azure Payment HSM Service is a "Bare Metal" service delivered using Thales payShield 10K payment HSMs to provide cryptographic key operations for real-time, critical payment transactions in the Azure cloud. Azure Payment HSM is designed specifically to help a service provider and an individual financial institution accelerate their payment system’s digital transformation strategy and adopt the public cloud. It meets the most stringent security, audit compliance, low latency and high-performance requirements by the Payment Card Industry (PCI). Users of the service utilize Thales payShield Manager for secure remote access to the HSMs as part of their OPEX-based subscription. Multiple subscription options are available to satisfy a broad range of performance and multiple application requirements that can be upgraded quickly in line with end user business growth.
 
 ## Why use Azure Payment HSM?
+
+Momentum is building as financial institutions move some or all of their payment applications to the cloud. This entails a migration from the legacy on-premises (on-prem) applications and HSMs to a cloud-based infrastructure that is not generally under their direct control. Often it means a subscription service rather than perpetual ownership of physical equipment and software. Corporate initiatives for efficiency and a scaled-down physical presence are the drivers for this. Conversely, with cloud-native organizations, the adoption of cloud-first without any on-prem presence is their fundamental business model. Whatever the reason, end users of a cloud-based payment infrastructure expect reduced IT complexity, streamlined security compliance and flexibility to scale their solution seamlessly as their business grows.
 
 Cloud ultimately offers significant benefits, but challenges when migrating a legacy on-prem payment application (involving payment HSMs) to the cloud must be addressed. Some of these are:
 - Shared responsibility and trust – what potential loss of control in some areas is acceptable?
@@ -49,7 +49,7 @@ Payment processing
 - Card & mobile payment authorization
 - PIN & EMV cryptogram validation
 - 3D-Secure authentication
-- 
+
 Payment credential issuing
 - Cards
 - Mobile secure elements

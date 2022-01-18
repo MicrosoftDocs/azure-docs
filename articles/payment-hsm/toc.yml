@@ -1,21 +1,15 @@
-- name: Dedicated HSM Documentation
+- name: Payment HSM Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: Dedicated HSM overview
+  - name: Payment HSM overview
     href: overview.md
-- name: Tutorials
-  items:
-  - name: Deploying HSMs into an existing virtual network using CLI
-    href: tutorial-deploy-hsm-cli.md
-  - name: Deploying HSMs into an existing virtual network using PowerShell
-    href: tutorial-deploy-hsm-powershell.md
 - name: Quickstarts
   items:
-  - name: Create an Azure Dedicated HSM with Azure PowerShell
-    href: quickstart-create-hsm-powershell.md
-  - name: Create an Azure Dedicated HSM with the Azure CLI
-    href: quickstart-hsm-azure-cli.md
+  - name: Create an Azure Payment HSM with Azure PowerShell
+    href: quickstart-powershell.md
+  - name: Create an Azure Payment HSM with the Azure CLI
+    href: quickstart-cli.md
 - name: Concepts
   items:
   - name: High availability
@@ -28,12 +22,6 @@
     href: physical-security.md
   - name: Supportability
     href: supportability.md
-- name: How-to guides
-  items:
-  - name: Deciding on deployment architecture
-    href: deployment-architecture.md
-  - name: Troubleshooting
-    href: troubleshoot.md
 - name: Reference
   items:
   - name: Azure CLI
