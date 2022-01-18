@@ -263,14 +263,6 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 Starting in container version 3.0.0, select customers can run speech-to-text containers in an environment without Internet accessibility. See [Run Cognitive Services containers in disconnected environments](../containers/disconnected-containers.md) for more information.
 
-> [!NOTE]
-> OnPrem Speech-to-text container provides two default directories, `license` and `output`, by default for writing the license file/billing log at runtime. When you're mounting these directories in your environment to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container. 
-> 
-> Below is a sample command to set file/directory ownership
-> ```bash
-> sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
-> ```
-
 
 # [Speech-to-text](#tab/stt)
 
