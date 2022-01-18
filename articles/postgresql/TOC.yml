@@ -778,20 +778,22 @@
         href: hyperscale/reference-metadata.md
 - name: Samples
   items:
-  - name: Azure CLI
-    href: sample-scripts-azure-cli.md
-  - name: Create a server and firewall rule
-    href: ./scripts/sample-create-server-and-firewall-rule.md
-  - name: Create server with vNet rule
-    href: ./scripts/sample-create-server-with-vnet-rule.md
-  - name: Scale a server
-    href: ./scripts/sample-scale-server-up-or-down.md
-  - name: Change server configurations
-    href: ./scripts/sample-change-server-configuration.md
-  - name: Restore a server
-    href: ./scripts/sample-point-in-time-restore.md
-  - name: Manipulate with server logs
-    href: ./scripts/sample-server-logs.md
+  - name: Azure CLI samples
+    items:
+      - name: Samples overview 
+        href: sample-scripts-azure-cli.md
+      - name: Create a server and firewall rule
+        href: ./scripts/sample-create-server-and-firewall-rule.md
+      - name: Create server with vNet rule
+        href: ./scripts/sample-create-server-with-vnet-rule.md
+      - name: Scale a server
+        href: ./scripts/sample-scale-server-up-or-down.md
+      - name: Change server configurations
+        href: ./scripts/sample-change-server-configuration.md
+      - name: Restore a server
+        href: ./scripts/sample-point-in-time-restore.md
+      - name: Manipulate with server logs
+        href: ./scripts/sample-server-logs.md
 - name: Reference
   items:
    - name: Azure CLI
