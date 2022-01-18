@@ -44,11 +44,12 @@ You can also pin the current view to an Azure portal dashboard. This only includ
 
 If you need to generate a link to a view programmatically, use one of the following formats:
 
-View configuration – `https://<portal-domain>/@<directory-domain>/#blade/Microsoft_Azure_CostManagement/Menu/open/costanalysis/scope/<scope-id>/view/<view-config>`
-Saved view – `https://<portal-domain>/@<directory-domain>/#blade/Microsoft_Azure_CostManagement/Menu/open/costanalysis/scope/<scope-id>/viewId/<view-id>`
+- View configuration – `https://<portal-domain>/@<directory-domain>/#blade/Microsoft_Azure_CostManagement/Menu/open/costanalysis/scope/<scope-id>/view/<view-config>`
+- Saved view – `https://<portal-domain>/@<directory-domain>/#blade/Microsoft_Azure_CostManagement/Menu/open/costanalysis/scope/<scope-id>/viewId/<view-id>`
 
 
 Use the following table for each property in the URL.
+
 | URL property | Description|
 | --- | --- |
 | **portal-domain** | Primary domain for the Azure portal. For example, `portal.azure.com` or `portal.azure.us`). |
