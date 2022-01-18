@@ -44,7 +44,7 @@ The following diagram illustrates the routing architecture:
 
 ::: zone-end
 
-The remainder of this article describes these steps in detail.
+The rest of this article describes these steps in detail.
 
 ## <a name = "anycast"></a>Select the Front Door environment for the request (Anycast)
 
@@ -62,7 +62,7 @@ Front Door's architecture ensures that requests from your end users always reach
 
 ::: zone pivot="front-door-standard-premium"
 
-Split TCP enables the client's TCP connection to terminates inside a Front Door environment close to the user. A separate TCP connection is established to the origin, and this separate connection might have a large round-trip time (RTT).
+Split TCP enables the client's TCP connection to terminate inside a Front Door environment close to the user. A separate TCP connection is established to the origin, and this separate connection might have a large round-trip time (RTT).
 
 The diagram below illustrates how three users, in different geographical locations, connect to a Front Door environment close to their location. Front Door then maintains the longer-lived connection to the origin in Europe:
 
@@ -77,7 +77,7 @@ Establishing a TCP connection requires three roundtrips from the client to the s
 
 ::: zone pivot="front-door-classic"
 
-Split TCP enables the client's TCP connection to terminates inside a Front Door environment close to the user. A separate TCP connection is established to the backend, and this separate connection might have a large round-trip time (RTT).
+Split TCP enables the client's TCP connection to terminate inside a Front Door environment close to the user. A separate TCP connection is established to the backend, and this separate connection might have a large round-trip time (RTT).
 
 The diagram below illustrates how three users, in different geographical locations, connect to a Front Door environment close to their location. Front Door then maintains the longer-lived connection to the backend in Europe:
 
@@ -150,13 +150,13 @@ If you have defined [rules engines](front-door-rules-engine.md) for the route, t
 
 ::: zone pivot="front-door-standard-premium"
 
-If the Front Door routing rule has enabled [caching](standard-premium/concept-caching.md) enabled, and the Front Door environment's cache includes a valid response for the request, then Front Door returns the cached response. If caching is disabled or no response is available, the request is forwarded to the origin.
+If the Front Door routing rule has [caching](standard-premium/concept-caching.md) enabled, and the Front Door environment's cache includes a valid response for the request, then Front Door returns the cached response. If caching is disabled or no response is available, the request is forwarded to the origin.
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
 
-If the Front Door routing rule has enabled [caching](front-door-caching.md) enabled, and the Front Door environment's cache includes a valid response for the request, then Front Door returns the cached response. If caching is disabled or no response is available, the request is forwarded to the backend.
+If the Front Door routing rule has [caching](front-door-caching.md) enabled, and the Front Door environment's cache includes a valid response for the request, then Front Door returns the cached response. If caching is disabled or no response is available, the request is forwarded to the backend.
 
 ::: zone-end
 
@@ -180,7 +180,7 @@ Finally, the request is forwarded to the origin.
 
 ## Select backend
 
-Front Door selects an backend to use within the origin group. Backend selection is based on several factors, including:
+Front Door selects a backend to use within the backend pool. Backend selection is based on several factors, including:
 
 - The health of each backend, which Front Door monitors by using [health probes](front-door-health-probes.md).
 - The [routing method](front-door-routing-methods.md) for your backend pool.
