@@ -184,7 +184,7 @@ This error message indicates that the worker limit for Azure SQL Database has be
 
 #### Connect with the Dedicated Admin Connection (DAC) if needed
 
-If a live incident is ongoing where the worker limit has been reached, you may receive Error 10928 when you connect using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) or [Azure Data Studio](/sql/azure-data-studio/what-is). One session can connect using the [Diagnostic Connection for Database Administrators (DAC)](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators#connecting-with-dac) even when the maximum worker threshold has been reached.
+If a live incident is ongoing where the worker limit has been approached or reached, you may receive Error 10928 when you connect using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) or [Azure Data Studio](/sql/azure-data-studio/what-is). One session can connect using the [Diagnostic Connection for Database Administrators (DAC)](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators#connecting-with-dac) even when the maximum worker threshold has been reached.
 
 To establish a connection with the DAC from SSMS:
 
