@@ -16,6 +16,14 @@ ms.date: 10/12/2021
 [Azure Database for MySQL - Flexible Server](./overview.md) is a deployment mode that's designed to provide more granular control and flexibility over database management functions and configuration settings than does the Single Server deployment mode. The service currently supports community version of MySQL 5.7 and 8.0.
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
+## January 2022
+- **Bug fixes**
+ 
+    Restart workflow struck issue with servers with HA and Geo-redundant backup option enabled is fixed. 
+
+- **Known issues**
+    
+    When you are using ARM templates for provisioning or configuration changes for HA enabled servers, if a single deployment is made to enable/disable HA and along with other server properties like backup redundancy, storage etc. then deployment would fail. You can mitigate it by submit the deployment request separately for to enable\disable and configuration changes. You would not have issue with Portal or Azure cli as these are request already separated. 
 
 ## November 2021
 - **General Availability of Azure Database for MySQL - Flexible Server**
@@ -41,7 +49,7 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 - **Known issues**
 
-On servers where we have HA and  Geo-redundant backup option enabled, we found an rare issue encountered by a race condition which blocks the restart of the standby server to finish. As a result of this issue, when you failover the  HA enabled Azure database for MySQL - Flexible server MySQL Instance may get stuck in restarting state for a long time. The fix will be deployed to the production in the next deployment cycle.
+    On servers where we have HA and  Geo-redundant backup option enabled, we found an rare issue encountered by a race condition which blocks the restart of the standby server to finish. As a result of this issue, when you failover the  HA enabled Azure database for MySQL - Flexible server MySQL Instance may get stuck in restarting state for a long time. The fix will be deployed to the production in the next deployment cycle.
 
 ## October 2021
 
