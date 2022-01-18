@@ -71,7 +71,7 @@ Use the following list to find the appropriate Speech SDK reference docs:
 
 ### REST API references
 
-For Speech-to-text REST APIs, see the following resources:
+For speech-to-text REST APIs, see the following resources:
 
 - [REST API: Speech-to-text](rest-speech-to-text.md)
 - [REST API: Pronunciation assessment](rest-speech-to-text.md#pronunciation-assessment-parameters)
