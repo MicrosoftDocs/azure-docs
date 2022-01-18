@@ -197,7 +197,7 @@ While it was possible to use the v2 SDK in the browser, it was not an ideal expe
 Not always the most visible changes, but they help our team ship better code, faster.
 
 * Use rollup for production builds (#104)
-* Update to Typescript 3.5 (#327)
+* Update to TypeScript 3.5 (#327)
 * Convert to TS project references. Extract test folder (#270)
 * Enable noUnusedLocals and noUnusedParameters (#275)
 * Azure Pipelines YAML for CI builds (#298)
