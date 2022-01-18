@@ -330,6 +330,8 @@ items:
           displayName: 'ACI,azure container instances,container instances,containers'
           maintainContext: true
           href: ../containers/azure-container-instance-recipe.md
+        - name: Use containers in disconnected environments
+          href: ../containers/disconnected-containers.md
         - name: Containers FAQ
           href: speech-container-faq.yml
         - name: Cognitive Services containers documentation
