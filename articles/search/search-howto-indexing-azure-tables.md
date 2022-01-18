@@ -26,7 +26,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 ## Define the data source
 
-A primary difference between a table indexer and other indexers is the data source assignment. The data source definition specifies "type": `"azuretable"`, a content path, and how to connect.
+The data source definition specifies the data source type, content path, and how to connect.
 
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
@@ -95,7 +95,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
 1. Create additional fields that correspond to entity fields. For example, if an entity looks like the following example, your search index should have fields for HotelName, Description, and Category.
 
-   :::image type="content" source="media/search-howto-indexing-tables\tables.png" alt-text="Screenshot of table content in Storage browser." "border"=true:::
+   :::image type="content" source="media/search-howto-indexing-tables\tables.png" alt-text="Screenshot of table content in Storage browser." border="true":::
 
    Using the same names and compatible [data types](/rest/api/searchservice/supported-data-types) minimizes the need for [field mappings](search-indexer-field-mappings.md).
 

@@ -35,7 +35,7 @@ The Azure Files indexer can extract text from the following document formats:
 
 ## Define the data source
 
-A primary difference between a file share indexer and other indexers is the data source assignment. The data source definition specifies "type": `"azurefile"`, a content path, and how to connect.
+The data source definition specifies the data source type, content path, and how to connect.
 
 1. [Create or update a data source](/rest/api/searchservice/preview-api/create-or-update-data-source) to set its definition, using a preview API version 2020-06-30-Preview or 2021-04-30-Preview for "type": `"azurefile"`.
 

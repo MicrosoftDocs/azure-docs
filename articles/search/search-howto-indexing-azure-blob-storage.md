@@ -57,17 +57,11 @@ The data source definition specifies the data source type, content path, and how
 
 1. Set "type" to `"azureblob"` (required).
 
-<<<<<<< HEAD
-1. Set `"credentials"` to an Azure Storage connection string. The next section describes the supported formats.
-
-1. Set `"container"` to the blob container, and use "query" to specify any subfolders.
-=======
 1. Set "credentials" to an Azure Storage connection string. The next section describes the supported formats.
 
 1. Set "container" to the blob container, and use "query" to specify any subfolders.
 
-A data source definition can also include additional properties for [soft deletion policies](search-howto-index-changed-deleted-blobs.md) and [field mappings](search-indexer-field-mappings.md) if field names and types are not the same.
->>>>>>> fac4962830421d9c6420f2df8cf087978a30ec6c
+A data source definition can also include properties for [soft deletion policies](search-howto-index-changed-deleted-blobs.md) and [field mappings](search-indexer-field-mappings.md) if field names and types are not the same or need to be forked.
 
 <a name="credentials"></a>
 
