@@ -198,7 +198,7 @@ The portal collects the following input:
 
 - **Data Collection**: Determines if the extension will collect telemetry. For more information, see [Azure DSC extension data collection](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/).
 
-- **Version**: Specifies the version of the DSC extension to install. For information about versions, see [DSC extension version history](/azure/automation/automation-dsc-extension-history).
+- **Version**: Specifies the version of the DSC extension to install. For information about versions, see [DSC extension version history](../../automation/automation-dsc-extension-history.md).
 
 - **Auto Upgrade Minor Version**: This field maps to the **AutoUpdate** switch in the cmdlets and enables the extension to automatically update to the latest version during installation. **Yes** will instruct the extension handler to use the latest available version and **No** will force the **Version** specified to be installed. Selecting neither **Yes** nor **No** is the same as selecting **No**.
 

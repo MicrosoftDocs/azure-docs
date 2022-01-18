@@ -96,7 +96,7 @@ sections:
       - question: |
           Does Azure Purview scan and classify emails, PDFs etc. in my SharePoint and OneDrive?
         answer: |
-          Currently, Purview doesn't support scanning SharePoint and OneDrive. Scanning for on-premises SharePoint sites and libraries is provided through the Azure Information Protection scanner. The scanner is available for use  through a customer's Microsoft 365 subscription with the following SKUs: AIP P1, EMS E3, and Microsoft 365 E3. If you have any one of these SKUs, you should have the right entitlements to start using the Azure Information Protection scanner.
+          Currently, Azure Purview doesn't support scanning SharePoint and OneDrive. Scanning for on-premises SharePoint sites and libraries is provided through the Azure Information Protection scanner. The scanner is available for use  through a customer's Microsoft 365 subscription with the following SKUs: AIP P1, EMS E3, and Microsoft 365 E3. If you have any one of these SKUs, you should have the right entitlements to start using the Azure Information Protection scanner.
           
       - question: |
           What is the compute used for the scan?
@@ -133,7 +133,7 @@ sections:
       - question: |
           Does Azure Purview support Soft-Delete?
         answer: |
-          Yes, Azure Purview supports Soft Delete for Azure subscription status management perspective. Purview can read subscription states (disabled/warned etc.) and put the account in soft-delete state until the account is restored/deleted. All the data plane API calls will be blocked when the account is in soft delete state and only GET/DELETE control plane API calls will be allowed. You can find additional information in Azure subscription states page [Azure Subscription Status](../cost-management-billing/manage/subscription-states.md)
+          Yes, Azure Purview supports Soft Delete for Azure subscription status management perspective. Azure Purview can read subscription states (disabled/warned etc.) and put the account in soft-delete state until the account is restored/deleted. All the data plane API calls will be blocked when the account is in soft delete state and only GET/DELETE control plane API calls will be allowed. You can find additional information in Azure subscription states page [Azure Subscription Status](../cost-management-billing/manage/subscription-states.md)
           
       - question: |
           Does Azure Purview currently support Data Loss Prevention capabilities?

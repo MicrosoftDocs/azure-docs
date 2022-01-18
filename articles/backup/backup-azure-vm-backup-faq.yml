@@ -265,7 +265,7 @@ sections:
           
       - question: How to modify retention period for Stopped backups?
         answer: |
-          Retention of stopped backups cannot be modified since they do not have any policy attached to it. However, you can [resume protection](/azure/backup/backup-azure-manage-vms#resume-protection-of-a-vm) and assign a policy.
+          Retention of stopped backups cannot be modified since they do not have any policy attached to it. However, you can [resume protection](./backup-azure-manage-vms.md#resume-protection-of-a-vm) and assign a policy.
           
       - question: How long are the stopped backups retained?
         answer: |
@@ -292,4 +292,3 @@ sections:
 
 
       
-        

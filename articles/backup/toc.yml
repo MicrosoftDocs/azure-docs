@@ -559,7 +559,7 @@
     - name: Delete protection for Azure file shares
       href: soft-delete-azure-file-share.md
     - name: Ransomware protection
-      href: /azure/security/fundamentals/backup-plan-to-protect-against-ransomware
+      href: ../security/fundamentals/backup-plan-to-protect-against-ransomware.md
     - name: Security for hybrid backups
       href: backup-azure-security-feature.md
     - name: Private Endpoints
