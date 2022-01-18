@@ -88,11 +88,11 @@ For a discussion of considerations for choosing a region for the Azure Stack Edg
 
 ## Billing model
 
-Microsoft Azure charges a monthly, recurring subscription fee for an Azure Stack Edge device. In addition, there are onetime fees for shipping and customs, and there are separate charges for things like replacement of a lost or damaged device. There is no on-premises software license for the device.
+Microsoft Azure charges a monthly, recurring subscription fee for an Azure Stack Edge device. There also are onetime fees for shipping and customs. There is no on-premises software license for the device.
 
 Currency conversion and discounts are handled centrally by the Azure Commerce billing platform, and you get one unified, itemized bill at the end of each month.
 
-Billing starts 10 days after a device is marked as **Shipped** and ends when return of the device is initiated at the Azure datacenter.
+Billing starts 10 days after a device is marked as **Shipped** and ends when you initiate return of the device.
 
 The billing happens against the order resource. If you activate the device against a different resource, the order and billing details move to the new resource.
 
