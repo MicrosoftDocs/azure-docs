@@ -36,7 +36,7 @@ Customer managed keys (CMKs) feature supports, shown below by key type and key s
 
 Before you begin to enable customer-managed key (CMK) functionality, ensure the requirements listed below are met:
 
-1. You'll need an Azure key vault to use CMK functionality. If you don't have an Azure key vault, you can create one using the [Quickstart: Create a key vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) guide.
+1. You'll need an Azure key vault to use CMK functionality. If you don't have an Azure key vault, you can create one using [Quickstart: Create a key vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal).
 1. If you enabled restricted access to key vault, you'll need to allow Microsoft Trusted Services to bypass the Azure Key Vault firewall. Go to [Configure Azure Key Vault networking settings](https://docs.microsoft.com/azure/key-vault/general/how-to-azure-key-vault-network-security?tabs=azure-portal) to learn more.
 1. Enable system assigned Identity on your Azure VMware Solution private cloud if you didn't enable it during software-defined data center (SDDC) provisioning.
 
@@ -150,18 +150,21 @@ System-assigned identity is restricted to one per resource and is tied to the li
 Navigate to your **Azure Key vault** and provide access to the SDDC on Azure Key vault using the Principal ID captured in the **Enable MSI** tab. Provide permissions
 
 1. From your Azure VMware Solution private cloud, under **Manage**, select **Encryption** and then **Customer-managed keys (CMK)**.
+1. CMK provides two options for key selection form Azure Key Vault.
+    
+    **Option 1**
 
-1. Select the encryption type and then the **Select key vault and key** option.
+    1. Under the encryption key, choose the **select from key vault** radio button.
+    1. Select the encryption type and then the **Select key vault and key** option.
+    1. Select the Key Vault and key from the drop down, click **Select**.
+    
+    **Option 2**
 
-1. Select the key vault and key from the dropdowns and then select **Select**.   
+      1. Under encryption key, choose the **Enter key from URI** radio button.
+      1. Enter a specific Key URI in the **Key URI** box.
 
-1. Select **Manage resource identity**.
-
-1. Select the **System assigned** tab under Identity.  
-
-1. Toggle the Status to **On** and then select **Save**. 
-
-1. When prompted, select **Enable**.
+    > [!IMPORTANT]
+    > If you'd like to select a specific key version instead of the auto selected latest verion, you'll need to specify key URI with key version. This will affect the CMK key version life cycle,
 
 1. Select **Save** to grant access to the resource. 
 
