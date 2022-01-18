@@ -85,11 +85,10 @@ Now that you've downloaded your container, you will need to run the container wi
 
 > [!IMPORTANT]
 > * You can only use a license file with the appropriate container that you've been approved for. For example, you cannot use a license file for a speech-to-text container with a form recognizer container. 
-> * If you're using the [Translator container](../translator/containers/translator-how-to-install-container.md), you will need to add parameters for the downloaded translation models. For example:
->     ```bash
->     -e MODELS= /path/to/model1/, /path/to/model2/
->     -e TRANSLATORSYSTEMCONFIG=/path/to/model/config/translatorsystemconfig.json
->     ```
+> * If you're using the [Translator container](../translator/containers/translator-how-to-install-container.md), it will generate a docker `run` template that you can use to run the container, containing two additional parameters you will need. Make sure you save these values    :
+>    * `MODELS= /path/to/model1/, /path/to/model2/`
+>    * `TRANSLATORSYSTEMCONFIG=/path/to/model/config/`
+
 
 The following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values.
 
@@ -114,12 +113,8 @@ After you have configured the container, use the next section to run the contain
 
 ## Run the container in a disconnected environment
 
-> [!NOTE]
-> If you're using the [Translator container](../translator/containers/translator-how-to-install-container.md), you will need to add the following parameters to your `docker run` command, to mount the downloaded translation models. For example:
-> ```bash
-> -e MODELS= /path/to/model1/, /path/to/model2/
-> -e TRANSLATORSYSTEMCONFIG=/path/to/model/config/translatorsystemconfig.json
-> ```
+> [!IMPORTANT]
+> If you're using the Translator or Speech-to-text containers, read the **Additional parameters** section below for information on commands or additional parameters you will need to use.
 
 Once the license file has been downloaded, you can run the container in a disconnected environment. The following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values. 
 
@@ -142,6 +137,27 @@ Mounts:License={LICENSE_MOUNT}
 Mounts:Output={OUTPUT_PATH}
 ```
 
+### Additional parameters
+
+See the following sections for additional parameters and commands you may need to run the container.
+
+#### Translator container 
+
+If you're using the [Translator container](../translator/containers/translator-how-to-install-container.md), you will need to add parameters for the downloaded translation models and container configuration. These values are generated and displayed in the container output when you [configure the container](#configure-the-container-to-be-run-in-a-disconnected-environment) as described above. For example:
+```bash
+-e MODELS= /path/to/model1/, /path/to/model2/
+-e TRANSLATORSYSTEMCONFIG=/path/to/model/config/translatorsystemconfig.json
+```
+
+#### Speech-to-text container
+
+The [speech-to-text container](../speech-service/speech-container-howto.md?tabs=stt) provides two default directories, `license` and `output`, by default for writing the license file and billing log at runtime. When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container. 
+ 
+Below is a sample command to set file/directory ownership.
+
+```bash
+sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
+```
 
 ## Usage records
 
