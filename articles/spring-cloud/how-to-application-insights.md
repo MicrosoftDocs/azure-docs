@@ -154,6 +154,7 @@ az spring-cloud create \
     --sampling-rate <sampling-rate>
 ```
 ::: zone-end
+
 ::: zone pivot="sc-enterprise-tier"
 
 ```azurecli
@@ -169,6 +170,7 @@ az spring-cloud create \
 You can also use an Application Insights connection string (preferred) or instrumentation key, as shown in the following example.
 
 ::: zone pivot="sc-standard-tier"
+
 ```azurecli
 az spring-cloud create \
     --resource-group <resource-group-name> \
@@ -177,7 +179,9 @@ az spring-cloud create \
     --sampling-rate <sampling-rate>
 ```
 ::: zone-end
+
 ::: zone pivot="sc-enterprise-tier"
+
 ```azurecli
 az spring-cloud create \
     --resource-group <resource-group-name> \
@@ -200,6 +204,7 @@ az spring-cloud create \
     --disable-app-insights
 ```
 ::: zone-end
+
 ::: zone pivot="sc-enterprise-tier"
 ```azurecli
 az spring-cloud create \
@@ -209,6 +214,7 @@ az spring-cloud create \
     --sku Enterprise
 ```
 ::: zone-end
+
 ### Check Application Insights settings
 To check the Application Insights settings of an existing Azure Spring Cloud instance, use the following command:
 
@@ -408,6 +414,7 @@ Automation in Enterprise tier is pending support. Documentation will be added as
 ## Java agent update/upgrade
 
 ::: zone pivot="sc-standard-tier"
+
 The Java agent will be updated/upgraded regularly with the JDK, which may affect the following scenarios.
 
 > [!Note]
@@ -416,12 +423,17 @@ The Java agent will be updated/upgraded regularly with the JDK, which may affect
 * Existing applications that use the Java agent before updating/upgrading will not be affected.
 * Applications created after updating/upgrading will leverage the new version of the Java agent.
 * Existing applications that did not previously use the Java agent will require restart or redeployment to leverage the new version of the Java agent.
+
 ::: zone-end
+
 ::: zone pivot="sc-enterprise-tier"
+
 The Java agent will be updated/upgraded when the buildpack is updated.
+
 ::: zone-end
 
 ::: zone pivot="sc-standard-tier"
+
 ## Java agent configuration hot-loading
 
 Azure Spring Cloud has enabled a hot-loading mechanism to adjust the settings of agent configuration without restart of applications.
@@ -432,7 +444,8 @@ Azure Spring Cloud has enabled a hot-loading mechanism to adjust the settings of
 * When the Java agent has been previously enabled, changes to the Application Insights instance and/or SamplingRate do NOT require applications to be restarted.
 * If you enable the Java agent, then you must restart applications.
 * When you disable the Java agent, applications will stop to send all monitoring data after a delay in minutes. You can restart applications to remove the agent from the Java runtime environment.
-::: zone end
+
+::: zone-end
 
 ## Concept matching between Azure Spring Cloud and Application Insights
 
