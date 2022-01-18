@@ -190,7 +190,7 @@ The model algorithm is required and is passed in via `model_name` parameter. You
 
 ### Supported model algorithms
 
-The following table summarizes the supported models for each computer vision task. See the reference documentation for model specific hyperparameters. 
+The following table summarizes the supported models for each computer vision task.
 
 Task |  Model algorithms | String literal syntax<br> ***`default_model`\**** denoted with \*
 ---|----------|----------
