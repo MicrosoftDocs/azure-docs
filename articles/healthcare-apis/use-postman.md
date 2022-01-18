@@ -41,7 +41,7 @@ You can also import and export Postman collections. For more information, see [t
 
 ## Create or update environment variables
 
-While you can use the full url in the request, it is recommended that you store the url and other data in variables and use them.
+While you can use the full URL in the request, it is recommended that you store the URL and other data in variables and use them.
 
 To access the FHIR service, we'll need to create or update the following variables.
 
