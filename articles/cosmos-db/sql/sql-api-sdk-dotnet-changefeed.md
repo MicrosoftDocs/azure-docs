@@ -1,13 +1,13 @@
 ---
 title: Azure Cosmos DB .NET change feed Processor API, SDK release notes 
 description: Learn all about the Change Feed Processor API and SDK including release dates, retirement dates, and changes made between each version of the .NET Change Feed Processor SDK.
-author: anfeldma-ms
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: csharp
 ms.topic: reference
 ms.date: 04/06/2021
-ms.author: anfeldma
+ms.author: jroth
 ---
 
 # .NET Change Feed Processor SDK: Download and release notes (Legacy)
