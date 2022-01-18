@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 01/06/2022
+ms.date: 01/11/2022
 ms.author: bemabonsu
 recommendations: false
 #Customer intent: As a form-processing software developer, I want to learn how to use the Form Recognizer service with Logic Apps.
@@ -21,7 +21,7 @@ Azure Logic Apps is a cloud-based platform that can be used to automate workflow
 * Integrate workflows with software as a service (SaaS) and enterprise applications.
 * Automate enterprise application integration (EAI), business-to-business(B2B), and electronic data interchange (EDI) tasks.
 
-For more information, *see* [Logic Apps Overview](/azure/logic-apps/logic-apps-overview).
+For more information, *see* [Logic Apps Overview](../../logic-apps/logic-apps-overview.md).
 
  In this tutorial, you'll learn how to build a Logic App connector flow to automate the following tasks:
 
@@ -74,7 +74,7 @@ Before we jump into creating the Logic App, we have to set up a OneDrive folder.
 
 :::image border="true" type="content" source="media/logic-apps-tutorial/onedrive-setup.gif" alt-text="GIF showing steps to create a folder in OneDrive.":::
 
-### Create a Logic App resource
+## Create a Logic App resource
 
 At this point, you should have a Form Recognizer resource and a OneDrive folder all set. Now, it's time to create a Logic App resource.
 
@@ -90,7 +90,7 @@ At this point, you should have a Form Recognizer resource and a OneDrive folder 
 
    * **Subscription**. Select your current subscription.
    * **Resource group**. The [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that will contain your resource. Choose the same resource group you have for your Form Recognizer resource.
-   * **Type**. Select **Consumption**. The Consumption resource type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](/azure/logic-apps/logic-apps-pricing#consumption-pricing).
+   * **Type**. Select **Consumption**. The Consumption resource type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](../../logic-apps/logic-apps-pricing.md#consumption-pricing).
    * **Logic App name**. Enter a name for your resource. We recommend using a descriptive name, for example *YourNameLogicApp*.
    * **Region**. Select your local region.
    * **Enable log analytics**. For this project, select **No**.
@@ -113,7 +113,7 @@ At this point, you should have a Form Recognizer resource and a OneDrive folder 
 
     :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-nine.png" alt-text="Image of the Logic App Designer.":::
 
-### Create automation flow
+## Create automation flow
 
 Now that you have the Logic App connector resource set up and configured, the only thing left to do is to create the automation flow and test it out!
 
@@ -189,7 +189,7 @@ Now that you have the Logic App connector resource set up and configured, the on
 > * The Logic App designer will automatically add a "for each loop" around the send email action. This is normal due to output format that may return more than one invoice from PDFs in the future.
 > * The current version only returns a single invoice per PDF.
 
-### Test automation flow
+## Test automation flow
 
 Let's quickly review what we've done before we test our flow:
 
@@ -211,7 +211,7 @@ Now that we've created the flow, the last thing to do is to test it and make sur
 
 1. Check your email and you should see a new email with the information we pre-specified.
 
-1. Be sure to [disable or delete](/azure/logic-apps/manage-logic-apps-with-azure-portal#disable-or-enable-a-single-logic-app) your logic App after you're done so usage stops.
+1. Be sure to [disable or delete](../../logic-apps/manage-logic-apps-with-azure-portal.md#disable-or-enable-a-single-logic-app) your logic App after you're done so usage stops.
 
 Congratulations! You've officially completed this tutorial.
 

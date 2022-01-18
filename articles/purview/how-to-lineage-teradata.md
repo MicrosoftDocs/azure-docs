@@ -10,7 +10,7 @@ ms.date: 08/12/2021
 ---
 # How to get lineage from Teradata into Azure Purview
 
-This article elaborates on the data lineage aspects of Teradata source in Azure Purview. The prerequisite to see data lineage in Purview for Teradata is to [scan your Teradata.](../purview/register-scan-teradata-source.md) 
+This article elaborates on the data lineage aspects of Teradata source in Azure Purview. The prerequisite to see data lineage in Azure Purview for Teradata is to [scan your Teradata.](../purview/register-scan-teradata-source.md) 
 
 ## Lineage of Teradata artifacts in Azure Purview
 

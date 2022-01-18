@@ -2,7 +2,7 @@
 title: Create & deploy template specs
 description: Describes how to create template specs and share them with other users in your organization.
 ms.topic: conceptual
-ms.date: 01/07/2022
+ms.date: 01/12/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -168,6 +168,12 @@ You can also create template specs by using ARM templates. The following templat
     }
   ]
 }
+```
+
+The size of a template spec is limited to approximated 2 MB. If a template spec size exceeds the limit, you will get the **TemplateSpecTooLarge** error code. The error message says:
+
+```error
+The size of the template spec content exceeds the maximum limit. For large template specs with many artifacts, the recommended course of action is to split it into multiple template specs and reference them modularly via TemplateLinks.
 ```
 
 You can view all template specs in your subscription by using:

@@ -4,7 +4,7 @@ description: Learn how to create a template to use with Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
-ms.date: 05/24/2021
+ms.date: 01/10/2022
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -21,7 +21,7 @@ This is the basic template format:
 ```json
   { 
     "type": "Microsoft.VirtualMachineImages/imageTemplates", 
-    "apiVersion": "2020-02-14", 
+    "apiVersion": "2021-10-01", 
     "location": "<region>", 
     "tags": {
       "<name>": "<value>",
@@ -49,11 +49,11 @@ This is the basic template format:
 
 ## Type and API version
 
-The `type` is the resource type, which must be `"Microsoft.VirtualMachineImages/imageTemplates"`. The `apiVersion` will change over time as the API changes, but should be `"2020-02-14"` for now.
+The `type` is the resource type, which must be `"Microsoft.VirtualMachineImages/imageTemplates"`. The `apiVersion` will change over time as the API changes, but should be `"2021-10-01"` for now.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
-    "apiVersion": "2020-02-14",
+    "apiVersion": "2021-10-01",
 ```
 
 ## Location
@@ -528,7 +528,7 @@ runOutputName=<runOutputName>
 
 az resource show \
         --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName"  \
-        --api-version=2020-02-14
+        --api-version=2021-10-01
 ```
 
 Output:
@@ -667,7 +667,7 @@ az resource show \
 To start a build, you need to invoke 'Run' on the Image Template resource, examples of `run` commands:
 
 ```PowerShell
-Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14" -Action Run -Force
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2021-10-01" -Action Run -Force
 ```
 
 
@@ -682,13 +682,13 @@ az resource invoke-action \
 ### Cancelling an Image Build
 If you are running an image build that you believe is incorrect, waiting for user input, or you feel will never complete successfully, then you can cancel the build.
 
-The build can be cancelled any time. If the distribution phase has started you can still cancel, but you will need to clean up any images that may not be completed. The cancel command does not wait for cancel to complete, please monitor `lastrunstatus.runstate` for cancelling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
+The build can be canceled any time. If the distribution phase has started you can still cancel, but you will need to clean up any images that may not be completed. The cancel command does not wait for cancel to complete, please monitor `lastrunstatus.runstate` for canceling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
 
 
 Examples of `cancel` commands:
 
 ```powerShell
-Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14" -Action Cancel -Force
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2021-10-01" -Action Cancel -Force
 ```
 
 ```bash

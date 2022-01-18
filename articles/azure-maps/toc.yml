@@ -432,7 +432,7 @@ items:
     - name: IoT Hub Device Provisioning Service
       href: ../iot-dps/index.yml
     - name: IoT Central
-      href: /azure/iot-central/
+      href: ../iot-central/index.yml
     - name: IoT Edge
       href: ../iot-edge/index.yml
     - name: IoT Plug and Play
@@ -454,7 +454,7 @@ items:
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Azure Maps videos
-    href: https://aka.ms/AzureMapsVideos
+    href: /shows/
   - name: Open source projects
     href: open-source-projects.md
   - name: Azure Maps case studies

@@ -76,6 +76,7 @@
         href: openid-connect.md
       - name: Authorization Code grant flow
         href: authorization-code-flow.md
+        displayName: pkce, Proof Key for Code Exchange
       - name: Implicit flow
         href: implicit-flow-single-page-application.md
       - name: Tokens
