@@ -32,7 +32,7 @@ This article covers the steps to **set up a new Azure Digital Twins instance**, 
 
 ## Create the Azure Digital Twins instance
 
-In this section, you'll **create a new instance of Azure Digital Twins** using the Cloud Shell command. You'll need to provide:
+In this section, you'll **create a new instance of Azure Digital Twins** using the CLI command. You'll need to provide:
 * A resource group where the instance will be deployed. If you don't already have an existing resource group in mind, you can create one now with this command:
     ```azurecli-interactive
     az group create --location <region> --name <name-for-your-resource-group>
@@ -49,9 +49,9 @@ az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> --resource-g
 
 ### Verify success and collect important values
 
-If the instance was created successfully, the result in Cloud Shell looks something like this, outputting information about the resource you've created:
+If the instance was created successfully, the result in the CLI looks something like this, outputting information about the resource you've created:
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="Screenshot of the Cloud Shell window with successful creation of a resource group and Azure Digital Twins instance in the Azure portal.":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="Screenshot of the CLI window with successful creation of a resource group and Azure Digital Twins instance in the Azure portal.":::
 
 Note the Azure Digital Twins instance's **hostName**, **name**, and **resourceGroup** from the output. These values are all important and you may need to use them as you continue working with your Azure Digital Twins instance, to set up authentication and related Azure resources. If other users will be programming against the instance, you should share these values with them.
 
