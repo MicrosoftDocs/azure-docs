@@ -119,7 +119,7 @@ dotnet new mvc --no-https --output TestAppConfig
         using Microsoft.Extensions.Configuration;
         ```
 
-    1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
+    1. Update the `CreateHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
     
         ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -179,7 +179,7 @@ dotnet new mvc --no-https --output TestAppConfig
         ```  
 ---
 
-This code will connect to your App Configuration Store using a connection string and load all keys that have the *TestApp* prefix from a previous step. For more information on connecting to the configuration provider, reference the [configuration provider for App Configuration docs](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration). 
+This code will connect to your App Configuration store using a connection string and load all keys that have the *TestApp* prefix from a previous step. For more information on the configuration provider APIs, reference the [configuration provider for App Configuration docs](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration). 
 
 ## Read from the App Configuration store
 
