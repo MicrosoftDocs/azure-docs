@@ -64,24 +64,23 @@ from azure.data.tables import TableServiceClient
 from azure.data.tables import TableEntity
 ```
 
-## Connect to Azure Data Tables service
+## Creating the client from a shared key
 
-To connect to Azure Storage Table service, create a `TableServiceClient` object, and pass in your Storage account name and account key. Replace `myaccount` and `mykey` with your account name and key.
+Create a `TableServiceClient` object, and pass in your Cosmos DB account name and account key. Replace `myaccount` and `mykey` with your account name and key.
 
 ```python
 from azure.core.credentials import AzureNamedKeyCredential
 
 credential = AzureNamedKeyCredential("myaccount", "mykey")
-table_service = TableServiceClient(endpoint="https://<myaccount>.table.core.windows.net", credential=credential)
+table_service = TableServiceClient(endpoint="https://<myaccount>.table.cosmos.azure.com:443/", credential=credential)
 ```
 
-## Connect to Azure Cosmos DB
+## Creating the client from a connection string
 
-To connect to Azure Cosmos DB, copy your primary connection string from the Azure portal, and create a `TableService` object using your copied connection string:
+Copy your Cosmos DB primary connection string from the Azure portal, and create a `TableServiceClient` object using your copied connection string:
 
 ```python
-from azure.cosmosdb.table import TableService
-table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=myendpoint;')
+table_service = TableServiceClient.from_connection_string(conn_str='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=myendpoint;')
 ```
 
 ## Create a table
