@@ -1,0 +1,52 @@
+### YamlMime:Landing
+
+title: Azure Payment HSM documentation
+summary: Learn how to use Azure Payment HSM to xxx
+metadata:
+  title: Azure Payment HSM documentation
+  description: Learn how to use Azure Payment HSM to xxx
+  services: dedicated-hsm
+  ms.service: dedicated-hsm
+  ms.topic: landing-page # Required
+  author: msmbaldwin
+  ms.author: mbaldwin
+  manager: rkarlin
+  ms.date: 09/19/2019 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Payment HSM
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Payment HSM?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: XXX
+            url: xxx.md
+          - text: XXX
+            url: xxx.md
+
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Powershell quickstart
+            url: quickstart-powershell.md
+          - text: CLI quickstart
+            url: quickstart-cli.md
+
+  # Card
+  - title: References
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Frequently asked questions
+            url: faq.md  
