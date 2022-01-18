@@ -142,7 +142,7 @@ Elastic query is included in the cost of Azure SQL Database. Note that topologie
 * Columns of nvarchar(max) data type in result set disable advanced batching technics used in Elastic Query implementation and may affect performance of query for an order of magnitude, or even two orders of magnitude in non-canonical use cases where large amount of non-aggregated data is being transferred as a result of query.
 * Column statistics over external tables are currently not supported. Table statistics are supported, but need to be created manually.
 * Elastic query works with Azure SQL Database only. You cannot use it for querying a SQL Server instance.
-* Elastic queries are not currently supported when connecting to an Azure SQL Database with a managed identity.
+* Elastic queries are only supported when connecting with SQL Server Authentication.
 
 ## Share your Feedback
 
