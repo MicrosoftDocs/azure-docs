@@ -3,7 +3,7 @@ title: Create a lab in Azure Education Hub through REST APIs
 description: Learn how to set up a lab in education hub
 author: vinnieangel
 ms.author: vangellotti
-ms.service: Education Hub
+ms.service: azure-education
 ms.topic: how-to 
 ms.date: 12/21/2021
 ms.custom: template-how-to
