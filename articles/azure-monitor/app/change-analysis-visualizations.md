@@ -18,7 +18,7 @@ In the Azure portal, search for Change Analysis to launch the experience.
 
 :::image type="content" source="./media/change-analysis/search-change-analysis.png" alt-text="Screenshot of searching Change Analysis in Azure portal":::
 
-Select a subscription to view:
+Select one or more subscriptions to view:
 - All of its resources' changes from the past 24 hours. 
 - Old and new values to provide insights at one glance.
 
