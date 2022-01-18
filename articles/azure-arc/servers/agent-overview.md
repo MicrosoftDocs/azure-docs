@@ -40,7 +40,6 @@ Metadata information about the connected machine is collected after the Connecte
 * Computer manufacturer and model
 * Computer fully qualified domain name (FQDN)
 * Domain name (if joined to an Active Directory domain)
-* Connected Machine agent version
 * Active Directory and DNS fully qualified domain name (FQDN)
 * UUID (BIOS ID)
 * Connected Machine agent heartbeat
@@ -131,6 +130,7 @@ Azure Arc-enabled servers depend on the following Azure resource providers in yo
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
+* **Microsoft.HybridConnectivity**
 
 If they are not registered, you can register them using the following commands:
 
@@ -141,6 +141,7 @@ Login-AzAccount
 Set-AzContext -SubscriptionId [subscription you want to onboard]
 Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
 Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
+Register-AzResourceProvider -ProviderNamespace Microsoft.HybridConnectivity
 ```
 
 Azure CLI:
@@ -149,6 +150,7 @@ Azure CLI:
 az account set --subscription "{Your Subscription Name}"
 az provider register --namespace 'Microsoft.HybridCompute'
 az provider register --namespace 'Microsoft.GuestConfiguration'
+az provider register --namespace 'Microsoft.HybridConnectivity'
 ```
 
 You can also register the resource providers in the Azure portal by following the steps under [Azure portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).

@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 1/5/2022
+ms.date: 1/14/2022
 ms.custom:
 ---
 
@@ -23,7 +23,7 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 >[!IMPORTANT]
 > The access policy feature is only available on **new** Azure Purview and Azure Storage accounts.
 - Create a new or use an existing isolated test subscription. You can [follow this guide to create one](../cost-management-billing/manage/create-subscription.md).
-- Create a new Azure Purview account. You can [follow our quick-start guide to create one](create-catalog-portal.md).
+- Create a new or use an existing Azure Purview account. You can [follow our quick-start guide to create one](create-catalog-portal.md).
 - Create a new Azure Storage account in one of the regions listed below. You can [follow this guide to create one](../storage/common/storage-account-create.md). Only Storage account versions >= 81.x.x support policy enforcement.
 
 [!INCLUDE [supported regions](./includes/storage-access-policy-regions.md)]
@@ -150,7 +150,7 @@ Steps to create a new policy in Azure Purview are as follows.
 
 1. Log in to Azure Purview portal.
 
-1. Navigate to Azure Purview policy app using the left side panel.
+1. Navigate to Azure Purview Policy management app using the left side panel.
 
     ![Image shows how a data owner can access the Policy functionality in Azure Purview when it wants to update a policy.](./media/how-to-access-policies-storage/policy-onboard-guide-2.png)
 
@@ -168,7 +168,7 @@ The steps to publish a policy are as follows
 
 1. Log in to Azure Purview portal.
 
-1. Navigate to the Azure Purview Policy app using the left side panel.
+1. Navigate to the Azure Purview Policy management app using the left side panel.
 
     ![Image shows how a data owner can access the Policy functionality in Azure Purview when it wants to publish a policy.](./media/how-to-access-policies-storage/policy-onboard-guide-2.png)
 
