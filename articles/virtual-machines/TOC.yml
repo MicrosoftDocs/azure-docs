@@ -1373,17 +1373,21 @@
     - name: CLI
       items:
       - name: Create managed disk from a VHD
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd
+        href: ./scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd
       - name: Create a managed disk from a snapshot
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd
+        href: ./scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot
       - name: Copy a managed disk to the same or different subscription
-        href: https://github.com/Azure-Samples/azure-cli-samples/blob/master/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.sh
-      - name: Copy a snapshot to the same or different subscription
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription
+        href: ./scripts/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.md
       - name: Export a snapshot as a VHD to a storage account
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account
+        href: ./scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account
       - name: Export a managed disk as a VHD to a storage account
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account
+        href: ./scripts/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account
+      - name: Copy a snapshot to the same or different subscription
+        href: ./scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription
+      - name: Create virtual machine from snapshot
+        href: ./scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot
+      - name: Create virtual machine from existing managed OS disk
+        href: virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks  
     - name: PowerShell
       items:
       - name: Create managed disk from a VHD
