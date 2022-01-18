@@ -152,6 +152,8 @@ items:
     href: get-healthcare-apis-access-token-cli.md
   - name: Troubleshoot failures in Azure IoT Connector for FHIR (preview)
     href: iot-troubleshoot-guide.md
+  - name: Move FHIR service
+    href: move-fhir-service.md
 - name: Concepts
   expanded: true
   items:
