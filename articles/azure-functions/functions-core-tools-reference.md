@@ -253,7 +253,7 @@ func azure storage fetch-connection-string <STORAGE_ACCOUNT_NAME>
 
 ## func deploy
 
-The `func deploy` command is deprecated. Please instead use `func kubernetes deploy`.
+The `func deploy` command is deprecated. Please instead use [`func kubernetes deploy`](#func-kubernetes-deploy).
 
 ## func durable delete-task-hub
 
