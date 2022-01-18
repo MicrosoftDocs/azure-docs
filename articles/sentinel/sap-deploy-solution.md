@@ -84,8 +84,8 @@ This procedure describes how to ensure that your SAP system has the correct prer
 
 1. Download and install one of the following SAP change requests from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR):
 
-    - **SAP version 750 or later**: Install the SAP change request *NPLK900170*
-    - **SAP version 740**: Install the SAP change request *NPLK900169*
+    - **SAP version 750 or later**: Install the SAP change request *NPLK900180*
+    - **SAP version 740**: Install the SAP change request *NPLK900179*
 
     When you're performing this step, be sure to use binary mode to transfer the files to the SAP system, and use the **STMS_IMPORT** SAP transaction code.
 

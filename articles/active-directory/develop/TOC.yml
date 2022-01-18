@@ -25,34 +25,13 @@
   - name: Web app
     href: web-app-quickstart.md
   - name: Web API
-    items:
-    - name: ASP.NET
-      href: quickstart-v2-dotnet-native-aspnet.md
-    - name: ASP.NET Core
-      href: quickstart-v2-aspnet-core-web-api.md
-  - name: Mobile and desktop
-    items:
-    - name: Android
-      href: quickstart-v2-android.md
-    - name: iOS and macOS
-      href: quickstart-v2-ios.md
-    - name: Universal Windows Platform
-      displayName: UWP
-      href: quickstart-v2-uwp.md
-    - name: Windows Desktop .NET
-      href: quickstart-v2-windows-desktop.md
-    - name: Node.js Electron
-      href: quickstart-v2-nodejs-desktop.md
+    href: web-api-quickstart.md
+  - name: Mobile app
+    href: mobile-app-quickstart.md
+  - name: Desktop app
+    href: desktop-app-quickstart.md
   - name: Daemon or back-end service
-    items:
-    - name: .NET Core console (daemon)
-      href: quickstart-v2-netcore-daemon.md
-    - name: Python console daemon
-      href: quickstart-v2-python-daemon.md
-    - name: Node.js console daemon
-      href: quickstart-v2-nodejs-console.md
-    - name: Java console daemon
-      href: quickstart-v2-java-daemon.md
+    href: console-app-quickstart.md
 - name: Tutorials
   items:
   - name: Single-page app (SPA)
