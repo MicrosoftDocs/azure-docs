@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/17/2022
+ms.date: 01/18/2022
 ms.author: v-ydequadros
 ---
 
@@ -58,7 +58,7 @@ The data provided by the CloudKnox dashboard shows metrics related to avoidable 
 
 The CloudKnox dashboard contains two main components:
 
-- The vilege Creep Index heat map, which identifies: 
+- The Privilege Creep Index heat map, which identifies: 
     - How many users who have been granted high-risk privileges aren't using them. 
     - How many users contribute to the privilege creep index and where they're on the scale.
 
