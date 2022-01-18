@@ -259,21 +259,17 @@ Once the container is on the [host computer](#host-computer-requirements-and-rec
 
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gathering required parameters](#gathering-required-parameters) for details on how to get the `{Endpoint_URI}` and `{API_Key}` values. Additional [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are also available.
 
-## Run the container in Disconnected Mode
+## Run the container in disconnected environments
 
-From Speech-to-text v3.0.0, OnPrem Speech-to-text containers support **Disconnected Mode**. Disconnected Mode is a mode which can run a container in an environment without Internet accessibility. 
-
-As an alternative to providing `{API_KEY}` and `{Endpoint_URI}` to the container, user is required to provide a license file instead. For the details of how to retrieve and use Disconnected Mode, please refer **Cognitive Service Disconnected Mode instructions**.
+Starting in container version 3.0.0, select customers can run speech-to-text containers in an environment without Internet accessibility. See [Run Cognitive Services containers in disconnected environments](../containers/disconnected-containers.md) for more information.
 
 > [!NOTE]
-> OnPrem Speech-to-text container provides two default directories `license` and `output` under the default entry point path. They can be used as the destinations of writing license file/billing log at the runtime.
-> 
-> `docker run -v` command can mount local machine directory to container internal directory. If doing so to above `liences` and/or `output` directory, please make sure the local machine directory is set ownership to user:group `nonroot:nonroot` before running the container. 
+> OnPrem Speech-to-text container provides two default directories, `license` and `output`, by default for writing the license file/billing log at runtime. When you're mounting these directories in your environment to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container. 
 > 
 > Below is a sample command to set file/directory ownership
-```bash
-sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
-```
+> ```bash
+> sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
+> ```
 
 
 # [Speech-to-text](#tab/stt)
