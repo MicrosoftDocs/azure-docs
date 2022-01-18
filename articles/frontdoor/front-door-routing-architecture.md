@@ -18,24 +18,11 @@ Front Door traffic routing takes place over multiple stages. First, traffic is r
 
 ## Routing process
 
-The routing process includes the following steps:
-
-- A Front Door environment is selected for the request.
-- The client opens the connection to the selected Front Door environment.
-- Front Door matches the traffic to a Front Door profile based on the request's Host header.
-- A TLS connection is established.
-- Web application firewall (WAF) rules are evaluated.
-- A route is selected for the request based on the Front Door profile's configuration, and an origin group is selected for the request.
-- A rule set can optionally override the origin group.
-- If caching is enabled and a response is available in the cache, the cached response is returned.
-- An origin within the origin group is selected for the request.
-- The request is forwarded to the origin.
-
-Each step is described in detail below.
-
-This diagram illustrates the routing architecture:
+The following diagram illustrates the routing architecture:
 
 ![Flowchart illustrating the Front Door routing architecture, including each step and decision point.](media/front-door-routing-architecture/flowchart.png)
+
+The remainder of this article describes these steps in detail.
 
 ## <a name = "anycast"></a>Select the Front Door environment for the request (Anycast)
 
