@@ -179,7 +179,7 @@ To enable the certificate-based authentication and configure user bindings in th
 
 ### Using Graph API
 
-To enable the certificate-based authentication and configure user bindings using Graph API, complete the following steps:
+To enable the certificate-based authentication and configure username bindings using Graph API, complete the following steps:
 
 1. Go to [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 1. Click **Sign into Graph Explorer** and log in to your tenant.
