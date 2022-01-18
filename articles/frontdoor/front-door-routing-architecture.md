@@ -41,17 +41,25 @@ This diagram illustrates the routing architecture:
 
 Front Door has over 150 environments globally, located in many countries and regions. Every Front Door environment can serve traffic for any request.
 
-Traffic routed to the Azure Front Door environments uses [Anycast](https://en.wikipedia.org/wiki/Anycast) for both DNS (Domain Name System) and HTTP (Hypertext Transfer Protocol) traffic, which allows for user requests to reach the closest environment in the fewest network hops. This architecture offers better round-trip times for end users by maximizing the benefits of Split TCP. Front Door organizes its environments into primary and fallback "rings". The outer ring has environments that are closer to users, offering lower latencies.  The inner ring has environments that can handle the failover for the outer ring environment in case any issues happen. The outer ring is the preferred target for all traffic and the inner ring is to handle traffic overflow from the outer ring. Each frontend host or domain served by Front Door gets assigned a primary VIP (Virtual Internet Protocol addresses), which gets announced by environments in both the inner and outer ring. A fallback VIP is only announced by environments in the inner ring. 
+Traffic routed to the Azure Front Door environments uses [Anycast](https://en.wikipedia.org/wiki/Anycast) for both DNS (Domain Name System) and HTTP (Hypertext Transfer Protocol) traffic. Anycast allows for user requests to reach the closest environment in the fewest network hops. This architecture offers better round-trip times for end users by maximizing the benefits of [Split TCP](#splittcp).
 
-This architecture ensures that requests from your end users always reach the closest Front Door environment. Even if the preferred Front Door environment is unhealthy all traffic automatically moves to the next closest environment.
+Front Door organizes its environments into primary and fallback "rings". The outer ring has environments that are closer to users, offering lower latencies.  The inner ring has environments that can handle the failover for the outer ring environment in case any issues happen. The outer ring is the preferred target for all traffic and the inner ring is to handle traffic overflow from the outer ring. Each frontend host or domain served by Front Door gets assigned a primary VIP (Virtual Internet Protocol addresses), which gets announced by environments in both the inner and outer ring. A fallback VIP is only announced by environments in the inner ring. 
+
+Front Door's architecture ensures that requests from your end users always reach the closest Front Door environment. If the preferred Front Door environment is unhealthy, all traffic automatically moves to the next closest environment.
 
 ## <a name = "splittcp"></a>Connect to Front Door environment (Split TCP)
 
-[Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) is a technique to reduce latencies and TCP problems by breaking a connection that would incur a high round-trip time into smaller pieces. With Front Door environments closer to end users, TCP connections terminates inside the Front Door environment. A TCP connection that has a large round-trip time (RTT) to the application backend gets split into two separate connections. The "short connection" between the end user and the Front Door environment means the connection gets established over three short roundtrips instead of three long round trips, which results in saving latency. The "long connection" between the Front Door environment and the backend can be pre-established and then reused across other end users requests save connectivity time. The effect of Split TCP is multiplied when establishing a SSL/TLS (Transport Layer Security) connection as there are more round trips to secure a connection.
+[Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) is a technique to reduce latencies and TCP problems by breaking a connection that would incur a high round-trip time into smaller pieces.
+
+Split TCP enables the client's TCP connection to terminates inside a Front Door environment close to the user. A separate TCP connection is established to the origin, and this separate connection might have a large round-trip time (RTT). The diagram below illustrates how three users, in different geographical locations, will connect to a Front Door environment close to their location. Front Door then maintains the longer-lived connection to the origin in Europe:
+
+![Diagram illustrating how Front Door uses a short TCP connection to the closest Front Door environment to the user, and a longer TCP connection to the origin.](media/front-door-routing-architecture/split-tcp.png)
+
+Establishing a TCP connection requires three roundtrips from the client to the server. Front Door's architecture improves the performance of establishing the connection. The "short connection" between the end user and the Front Door environment means the connection gets established over three short roundtrips instead of three long round trips, which results in saving latency. The "long connection" between the Front Door environment and the origin can be pre-established and then reused across other end users requests save connectivity time. The effect of Split TCP is multiplied when establishing a SSL/TLS (Transport Layer Security) connection as there are more round trips to secure a connection.
 
 ## Match request to a Front Door profile
 
-The request's `Host` header is used to match the request to the Front Door profile. If the request is using a [custom domain name](front-door-custom-domain.md), the domain name must be registered with Front Door to enable requests to be matched to your profile.
+When Front Door receives an HTTP request, it uses the request's `Host` header to match the request to the correct customer's Front Door profile. If the request is using a [custom domain name](front-door-custom-domain.md), the domain name must be registered with Front Door to enable requests to be matched to your profile.
 
 The client and server perform a TLS handshake using the TLS certificate you've configured for your custom domain name, or by using the Front Door-provided wildcard certificate when the `Host` header ends with `*.azurefd.net`.
 
@@ -59,15 +67,15 @@ The client and server perform a TLS handshake using the TLS certificate you've c
 
 If your domain has enabled the Web Application Firewall, the WAF rules are evaluated. If a rule has been violated, Front Door returns an error to the client and the request processing stops.
 
-## Match a routing rule
+## Match a route
 
 Front Door matches the request to a route. Learn more about the [route matching process](front-door-route-matching.md).
 
 The route specifies the [origin group](standard-premium/concept-origin.md) that the request should be sent to.
 
-## Process rule sets
+## Evaluate rule sets
 
-Azure Front Door evaluates whether or not you have any [rule sets](front-door-rules-engine.md) defined for the route. If there are rule sets defined, they are executed in the order they're configured. [Rule sets can override the origin group](front-door-rules-engine-actions.md#route-configuration-overrides) specified in a route.
+If you have defined [rule sets](front-door-rules-engine.md) for the route, they're executed in the order they're configured. [Rule sets can override the origin group](front-door-rules-engine-actions.md#route-configuration-overrides) specified in a route. Rule sets can also trigger a redirection response to the request instead of forwarding it to an origin.
 
 ## Return cached response
 
