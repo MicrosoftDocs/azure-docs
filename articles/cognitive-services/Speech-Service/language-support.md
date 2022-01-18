@@ -15,9 +15,9 @@ ms.custom: references_regions, ignite-fall-2021
 
 # Language and voice support for the Speech service
 
-Language support varies by Speech service functionality. The following tables summarize language support for [Speech to Text](#speech-to-text), [Text to Speech](#text-to-speech), [Speech Translation](#speech-translation), and [Speaker Recognition](#speaker-recognition) service offerings.
+Language support varies by Speech service functionality. The following tables summarize language support for [speech-to-text](#speech-to-text), [text-to-speech](#text-to-speech), [Speech Translation](#speech-translation), and [Speaker Recognition](#speaker-recognition) service offerings.
 
-## Speech to Text
+## Speech-to-text
 
 Both the Microsoft Speech SDK and the REST API support the languages (locales) in the following table.
 
@@ -132,7 +132,7 @@ To improve accuracy, customization is available for some languages and baseline 
 | Turkish (Turkey)                  | `tr-TR`         | Plain Text                                                            |
 | Vietnamese (Vietnam)              | `vi-VN`         | Plain Text                                                            |
 
-## Text to Speech
+## Text-to-speech
 
 Both the Microsoft Speech SDK and REST APIs support these neural voices, each of which supports a specific language and dialect, identified by locale. You can also get a full list of languages and voices supported for each specific region or endpoint through the [voices list API](rest-text-to-speech.md#get-a-list-of-voices).
 
@@ -587,7 +587,7 @@ The [Pronunciation Assessment](how-to-pronunciation-assessment.md) feature curre
 
 ## Speech Translation
 
-The Speech Translation API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech-to-Text language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into any of the [supported languages](https://www.microsoft.com/translator/business/languages/). A subset of languages is available for [speech synthesis](language-support.md#text-languages).
+The Speech Translation API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the speech-to-text language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into any of the [supported languages](https://www.microsoft.com/translator/business/languages/). A subset of languages is available for [speech synthesis](language-support.md#text-languages).
 
 ### Text languages
 
