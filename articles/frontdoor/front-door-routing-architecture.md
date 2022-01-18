@@ -142,7 +142,7 @@ If you have defined [rule sets](standard-premium/concept-rule-set.md) for the ro
 
 ## Evaluate rules engines
 
-If you have defined [rules engines](front-door-rules-engine.md) for the route, they're executed in the order they're configured. [Rules engines can override the origin group](front-door-rules-engine-actions.md#route-configuration-overrides) specified in a route. Rules engines can also trigger a redirection response to the request instead of forwarding it to an origin.
+If you have defined [rules engines](front-door-rules-engine.md) for the route, they're executed in the order they're configured. [Rules engines can override the backend pool](front-door-rules-engine-actions.md#route-configuration-overrides) specified in a routing rule. Rules engines can also trigger a redirection response to the request instead of forwarding it to a backend.
 
 ::: zone-end
 
