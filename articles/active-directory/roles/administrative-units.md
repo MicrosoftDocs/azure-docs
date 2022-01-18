@@ -38,10 +38,11 @@ Using administrative units requires an Azure AD Premium P1 license for each admi
 
 ## Manage administrative units
 
-You can manage administrative units by using the Azure portal, PowerShell cmdlets and scripts, or Microsoft Graph. For more information, see:
+You can manage administrative units by using the Azure portal, PowerShell cmdlets and scripts, or Microsoft Graph API. For more information, see:
 
 - [Create or delete administrative units](admin-units-manage.md)
 - [Add users or groups to an administrative unit](admin-units-members-add.md)
+- [Manage users or devices for an administrative unit with dynamic membership rules (Preview)](admin-units-members-dynamic.md)
 - [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
 - [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units): Covers how to work with administrative units by using PowerShell.
 - [Administrative unit Graph support](/graph/api/resources/administrativeunit): Provides detailed documentation on Microsoft Graph for administrative units.
@@ -64,6 +65,7 @@ As a Global Administrator or a Privileged Role Administrator, you can use the Az
 
 - Create administrative units
 - Add users and groups members of administrative units
+- Manage users or devices for an administrative unit with dynamic membership rules (Preview)
 - Assign IT staff to administrative unit-scoped administrator roles.
 
 Administrative unit-scoped admins can use the Microsoft 365 admin center for basic management of users in their administrative units. A group administrator with administrative unit scope can manage groups by using PowerShell, Microsoft Graph, and the Microsoft 365 admin centers.
@@ -81,6 +83,7 @@ The following sections describe current support for administrative unit scenario
 | Adding and removing administrative unit members individually    |   Supported    |   Supported   |    Not supported |
 | Adding and removing administrative unit members in bulk by using CSV files   |    Not supported     |  Supported   |    No plan to support |
 | Assigning administrative unit-scoped administrators  |     Supported    |   Supported    |   Not supported |
+| Add or remove administrative unit users and devices dynamically based on rules (Preview) | Supported | Supported | Not supported
 | Adding and removing administrative unit members dynamically based on attributes | Not supported | Not supported | Not supported
 
 ### User management
