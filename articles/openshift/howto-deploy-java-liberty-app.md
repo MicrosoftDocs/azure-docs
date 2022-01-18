@@ -11,7 +11,7 @@ keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro
 ---
 
-# Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift 4 cluster
+# Deploy a Java application with Open Liberty/WebSphere Liberty on an ARO cluster
 
 This guide demonstrates how to run your Java, Java EE, [Jakarta EE](https://jakarta.ee/), or [MicroProfile](https://microprofile.io/) application on the Open Liberty/WebSphere Liberty runtime and then deploy the containerized application to an Azure Red Hat OpenShift (ARO) 4 cluster using the Open Liberty Operator. This article will walk you through preparing a Liberty application, building the application Docker image and running the containerized application on an ARO 4 cluster. For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/).For more information on WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
@@ -43,7 +43,7 @@ Complete the following prerequisites to successfully walk through this guide.
 
 1. Connect to the cluster by following the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](./tutorial-connect-cluster.md).
    * Be sure to follow the steps in "Install the OpenShift CLI" because we'll use the `oc` command later in this article.
-   * Write down the cluster console URL that looks like `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`.
+   * Write down the cluster console URL. It will look like `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`.
    * Take note of the `kubeadmin` credentials.
 
 1. Verify you can sign in to the OpenShift CLI with the token for user `kubeadmin`.
