@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/12/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - View a system report
+# View a system report
 
 This topic describes how to view a system report in Microsoft CloudKnox Permissions Management (CloudKnox).
 

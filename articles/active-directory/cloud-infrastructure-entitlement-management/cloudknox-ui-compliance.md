@@ -1,6 +1,6 @@
 ---
 title: Microsoft CloudKnox Permissions Management - The Compliance dashboard
-description: How to view national, regional, and industry-specific requirements that govern the collection and use of data in the Microsoft CloudKnox Permissions Management Compliance dashboard.
+description: How to use the Microsoft CloudKnox Permissions Management Compliance dashboard.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/14/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management Compliance dashboard
+# The Compliance dashboard
 
-The Microsoft CloudKnox Permissions Management (CloudKnox) **Compliance** dashboard provides an overview of how you can follow the national, regional, and industry-specific requirements that govern the collection and use of data.
+The **Compliance** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox)  provides an overview of how you can follow the national, regional, and industry-specific requirements that govern the collection and use of data.
 
 This topic provides an overview of the components of the **Compliance** dashboard.
 

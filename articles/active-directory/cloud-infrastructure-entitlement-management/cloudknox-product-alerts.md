@@ -1,5 +1,5 @@
 ---
-title: Microsoft CloudKnox Permissions Management product alerts
+title: Microsoft CloudKnox Permissions Management - Create and save product alerts
 description: How to set up alerts through the Microsoft CloudKnox Permissions Management application.
 services: active-directory
 author: Yvonne-deQ
@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management product alerts
+# Create and save product alerts
 
-You can set up alerts through Microsoft CloudKnox Permissions Management. CloudKnox will notify you about specific activities being performed or that occur on various authorization systems and associated accounts.
+You can set up alerts through Microsoft CloudKnox Permissions Management (CloudKnox). CloudKnox will notify you about specific activities being performed or that occur on various authorization systems and associated accounts.
 
 The **Alerts** page provides settings you can use to create and save alerts so you're notified about key data points.
 
-## How to access the Alerts page
+## Access the Alerts page
 
 - Select **Alert**.
 
-## How to use the Alerts Activity tab
+## Filter alerts in the Alerts Activity tab
 
 1. To filter alerts, select the appropriate alert name or, from **Alert Name**, select **All**.
 2. You can view the following data in the **Alerts** section:
@@ -45,7 +45,7 @@ The **Alerts** page provides settings you can use to create and save alerts so y
      - The **Activity** section displays details about the **Identity Name**, **Resource Name**, **Task Name**, **Date**, and **IP Address**.
      - The **View Trigger** section displays the current trigger settings and applicable authorization system details.
 
-### How to create a new activity trigger  
+### Create a new activity trigger  
 
 1. From the **Alerts** section in the **Activity** tab, select **Create Activity Trigger**.
 2. In the **Alert Name** box, enter a name for the alert.
@@ -61,7 +61,7 @@ The **Alerts** page provides settings you can use to create and save alerts so y
 6. To specify multiple values for an criteria, select **Add**.
 7. To add criteria for the alerts, select **Add**.
 
-### How to read the Operator options
+### View Operator options
 
 The **Operator** menu contains the following options:
 
@@ -69,7 +69,7 @@ The **Operator** menu contains the following options:
 - **Contains**/**Not Contains** - Enter any text that the query parameter should or shouldn't contain, for example *CloudKnox*.
 - **In**/**Not In** - Select in the value field to view list of all available values. Select the required multiple values.
 
-### How to add alerts for the access key ID
+###  Add alerts for an access key ID
 
 1. In the **Create Alert Trigger** section, select **Add**.
 2. Select **Access Key ID**.
@@ -81,7 +81,7 @@ The **Operator** menu contains the following options:
 6. To remove a row of criteria, select the minus (**-**) sign.
 7. Select **Save**.
 
-### How to add alerts for the identity tag key (AWS only)
+### Add alerts for an identity tag key (AWS only)
 
 1. In the **Create Alert Trigger** section, select **Add**.
 2. Select **Identity**, and then select **Tag Key**.
@@ -93,7 +93,7 @@ The **Operator** menu contains the following options:
 6. To remove a row of criteria, select the minus (**-**) sign.
 7. Select **Save**.
 
-### How to add alerts for the identity tag key value (AWS only)
+### Add alerts for an identity tag key value (AWS only)
 
 1. In the **Create Alert Trigger** section, select **Add**.
 2. Select **Identity** **Tag Key Value**.
@@ -105,7 +105,7 @@ The **Operator** menu contains the following options:
 6. To remove a row of criteria, select the minus (**-**) sign.
 7. Select **Save**.
 
-### How to add alerts for the resource name
+### Add alerts for a resource name
 
 1. In the **Create Alert Trigger** section, select **Add**.
 2. Select **Resource Name**.
@@ -118,7 +118,7 @@ The **Operator** menu contains the following options:
 6. To remove a row of criteria, select the minus (**-**) sign.
 7. Select **Save**.
 
-### How to add alerts for the resource tag key
+### Add alerts for a resource tag key
 
 1. In the **Create Alert Trigger** section, select **Add**.
 2. Select **Resource Tag Key**.
@@ -130,7 +130,7 @@ The **Operator** menu contains the following options:
 6. To remove a row of criteria, select the minus (**-**) sign.
 7. Select **Save**.
 
-### How to add alerts for the resource tag key value
+### Add alerts for a resource tag key value
 
 1. In the **Create Alert Trigger** section, select **Add**.
 2. Select **Resource** **Tag Key Value**.
@@ -142,7 +142,7 @@ The **Operator** menu contains the following options:
 6. To remove a row of criteria, select the minus (**-**) sign.
 7. Select **Save**.
 
-### How to add alerts for the resource type
+### Add alerts for a resource type
 
 1. In the **Create Alert Trigger** section, select **Add**.
 2. Select **Resource Type**.
@@ -155,7 +155,7 @@ The **Operator** menu contains the following options:
 6. To remove a row of criteria, select the minus (**-**) sign.
 7. Select **Save**.
 
-### How to add alerts for the role name (AWS only)
+### Add alerts for a role name (AWS only)
 
 1. In the **Create Alert Trigger** section, select **Add**.
 2. Select **Role Name**.
@@ -167,7 +167,7 @@ The **Operator** menu contains the following options:
     To remove a row of criteria, select the minus (**-**) sign.
 6. Select **Save**.
 
-### How to add alerts for the role session name (AWS only)
+### Add alerts for a role session name (AWS only)
 
 1. In the **Create Alert Trigger** section, select **Add**.
 2. Select **Role Session Name**.
@@ -179,7 +179,7 @@ The **Operator** menu contains the following options:
 6. To remove a row of criteria, select the minus (**-**) sign.
 7. Select **Save**.
 
-### How to add alerts for the task name
+### Add alerts for a task name
 
 1. In the **Create Alert Trigger** section, select **Add**.
 2. Select **Task Name**.
@@ -191,7 +191,7 @@ The **Operator** menu contains the following options:
 6. To remove a row of criteria, select the minus (**-**) sign.
 7. Select **Save**.
 
-### How to add alerts for the username
+### Add alerts for a username
 
 1. In the **Create Alert Trigger** section, select **Add**.
 2. Select **Username**.
@@ -203,7 +203,7 @@ The **Operator** menu contains the following options:
 6. To remove a row of criteria, select the minus (**-**) sign.
 7. Select **Save**.
 
-### How to read the Triggers table in the Alert Triggers tab
+### View the Triggers table in the Alert Triggers tab
 
 1. On the **Activity** tab in **Alert Triggers**, you can view the following data:
 
@@ -224,7 +224,7 @@ The **Operator** menu contains the following options:
     Check the appropriate option and select **Apply** to filter.
 3. To make changes to the query, select the ellipses (**...**), and then select from the following options:
     - **Edit** - Allows you to make changes to the alert and returns the user to the **Create Alert Trigger** screen. 
-      <!---For more information, see How to create a new alert.--->
+      <!---For more information, see Create a new alert.--->
        > [!NOTE]
          > Only the user who created the alert can perform the following actions: edit the trigger screen, rename an alert, deactivate an alert, and delete an alert. Changes made by other users aren't saved.
 
@@ -234,7 +234,7 @@ The **Operator** menu contains the following options:
     - **Deactivate** - The alert will still be listed, but will no longer send emails to subscribed users.
     - **Delete** - Delete the alert.
 
-## How to use the Rule-Based Anomaly tab
+## View rule-based anomalies in the Rule-Based Anomaly tab
 
 Rule-based anomalies identify recent activity that is determined to be unusual based on explicit rules defined in the activity trigger. The goal of rule-based anomaly is high precision detection.
 
@@ -243,7 +243,7 @@ Rule-based anomalies identify recent activity that is determined to be unusual b
       - **Alert Name** - Lists the name of the alert.
          To view the specific identity, resource, and task names that occurred during the alert collection period, select the **Alert Name**.
       - **Anomaly Alert Rule** - Displays the name of the rule select when creating the alert.
-        <!---For more information, see How to create a new anomaly trigger.--->
+        <!---For more information, see Create a new anomaly trigger.--->
       - **# of Occurrences** - How many times the alert trigger has occurred.
       - **Task** - How many tasks are affected by the alert.
       - **Resources** - How many resources are affected by the alert.
@@ -258,7 +258,7 @@ Rule-based anomalies identify recent activity that is determined to be unusual b
     From the **Date** dropdown menu, select **Last 24 Hours**, **Last 2 Days**, **Last Week**, or **Custom Range**, and select **Apply**.
 3. To view details that match the alert criteria, select the ellipses (**...**). For example, **Authorization System Type**, **Authorization Systems**, **Resources**, **Tasks**, and **Identities**.
 
-### How to create a new anomaly trigger
+### Create a new anomaly trigger
 
 1. From the **Alerts** section of the **Rule-Based Anomaly** tab, select the **Create Anomaly Trigger** button.
 2. In the **Alert Name** box, enter a name for the alert.
@@ -275,14 +275,14 @@ Rule-based anomalies identify recent activity that is determined to be unusual b
 7. On the **Configuration** tab, to update the **Time Interval**, select the menu and select **90 Days**, **60 Days**, or **30 Days**.
 8. Select **Save**.
 
-### How to read the Triggers table in the Rule-Based Anomaly Alert Triggers tab
+### View the Triggers table in the Rule-Based Anomaly Alert Triggers tab
 
 1. You can view the following data in the **Alert Triggers** tab:
 
       - **Alert** - Displays the name of the alert.
       - **Anomaly Alert Rule** - Displays the name of the selected rule when creating the alert.
 
-         <!---For more information, see How to create a new anomaly trigger.--->
+         <!---For more information, see Create a new anomaly trigger.--->
       - **# of Users Subscribed** - Displays the number of users subscribed to the alert.
       - **Created By** - Displays the email address of the user who created the alert.
       - **Last Modified By** - Displays the email address of the user who last modified the alert.
@@ -298,7 +298,7 @@ Rule-based anomalies identify recent activity that is determined to be unusual b
 3. To filter by **Activated** or **Deactivated**, in the **Status** section, select **Activated & Deactivated**.
 4. Select the appropriate option, and then select **Apply** to filter the data.
 
-## How to use the Statistical Anomaly tab
+## Detect identities behavior outliers in the Statistical Anomaly tab
 
 Statistical anomalies detect outliers in an identities behavior, and recent activity is determined to be unusual based on models defined in an activity trigger. The goal of this anomaly trigger is a high recall rate.
 
@@ -307,7 +307,7 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
       - **Alert Name** - Lists the name of the alert 
       - **Anomaly Alert Rule** - Displays the name of the rule select when creating the alert. 
 
-           <!---For more information, see How to create a new anomaly trigger.--->
+           <!---For more information, see Create a new anomaly trigger.--->
       - **# of Occurrences** - Displays how many times the alert trigger has occurred.
       - **Task** - Displays how many tasks are affected by the alert.
       - **Resources** - Displays how many resources are affected by the alert.
@@ -326,7 +326,7 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
 6. To view the name, ID, role, domain, authorization system, statistical condition, anomaly date, and observance period, select the **Alert Name**. 
 7. To expand the top information found with a graph of when the anomaly occurred, select **Details**.
 
-### How to create a new statistical anomaly trigger
+### Create a new statistical anomaly trigger
 
 1. From the **Alerts** section of the **Statistical Anomaly** tab, select **Create Statistical Anomaly Trigger**.
 2. Enter a name for the alert in the **Alert Name** box.
@@ -358,14 +358,14 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
 7. On the **Configuration** tab, you can update the **Time Interval** by selecting **90 Days**, **60 Days**, or **30 Days** from the menu list.
 8. Select **Save**.
 
-### How to read the Triggers table in the Statistical Anomaly Alert Triggers tab
+### View the Triggers table in the Statistical Anomaly Alert Triggers tab
 
 1. You can view the following data on the **Alert Triggers** tab:
 
       - **Alert** - Displays the name of the alert.
       - **Anomaly Alert Rule** - Displays the name of the rule select when creating the alert. 
 
-          <!---For more information, see How to create a new anomaly trigger.--->
+          <!---For more information, see Create a new anomaly trigger.--->
       - **# of Users Subscribed** - Displays the number of users subscribed to the alert.
       - **Created By** - Displays the email address of the user who created the alert.
       - **Last Modified By** - Displays the email address of the user who last modified the alert.
@@ -379,7 +379,7 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
       - The **Activity** section displays details about the **Identity Name**, **Resource Name**, **Task Name**, **Date**, and **IP Address**.
       - **View Trigger** - Displays the current trigger settings and applicable authorization system details.
 
-## How to use the Permission Analytics tab
+## View alerts in the Permission Analytics tab
 
 1. You can view the following data in the **Alerts** section:
 
@@ -388,7 +388,7 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
            - To expand the top information found with a graph of when the anomaly occurred, select **Details**. 
       - **Anomaly Alert Rule** - Displays the name of the rule select when creating the alert.
 
-         <!---For more information, see How to create a new anomaly trigger.--->
+         <!---For more information, see Create a new anomaly trigger.--->
       - **# of Occurrences** - Displays how many times the alert trigger has occurred.
       - **Task** - Displays how many tasks are affected by the alert
       - **Resources** - Displays how many resources are affected by the alert
@@ -407,7 +407,7 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
 
    The **Activity** section displays details about the **Identity Name**, **Resource Name**, **Task Name**, **Date**, and **IP Address**.
 
-### How to create a new permission analytics trigger
+### Create a new permission analytics trigger
 
 1. From the **Alerts** section of the **Statistical Anomaly** tab, select **Create Permission Analytics Trigger**.
 2. In the **Alert Name** box,  enter a name for the alert.
@@ -422,14 +422,14 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
 7. On the **Configuration** tab, you can update the **Time Interval** using the list to select  **90 Days**, **60 Days**, or **30 Days**.
 8. Select **Save**.
 
-### How to read the Triggers table in the Permission Analytics Alert Triggers tab
+### View the Triggers table in the Permission Analytics Alert Triggers tab
 
 1. You can view the following data in the **Alert Triggers** tab:
 
       - **Alert** - Lists the name of the alert.
       - **Anomaly Alert Rule** - Displays the name of the rule select when creating the alert.
 
-          <!---For more information, see How to create a new anomaly trigger.--->
+          <!---For more information, see Create a new anomaly trigger.--->
       - **# of Users Subscribed** - Displays the number of users subscribed to the alert.
       - **Created By** - Displays the email address of the user who created the alert.
       - **Last Modified By** - Displays the email address of the user who last modified the alert.

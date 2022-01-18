@@ -12,7 +12,7 @@ ms.date: 01/13/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - Onboard the Google Cloud Platform (GCP) authorization system
+# Onboard the Google Cloud Platform (GCP) authorization system
 
 This topic describes how to onboard the Google Cloud Platform (GCP) authorization system on Microsoft CloudKnox Permissions Management (CloudKnox).
 
@@ -29,7 +29,7 @@ This topic describes how to onboard the Google Cloud Platform (GCP) authorizatio
 9. To launch a Secure Shell (SSH), select **Launch SSH**. 
 10. To copy all your scripts from the GitHub repository into your current directory, in the **Open in Cloud Shell** dialog, select **Trust repo** and then select **Confirm**.
 
-    The **Welcome to CloudKnox GCP Onboarding** screen appears, display four steps you have to take to onboard a GCP project.
+    The **Welcome to CloudKnox GCP Onboarding** screen appears, displaying four steps to onboard a GCP project.
 
     1. **Paste the environment vars from the CloudKnox portal.**
 
@@ -52,8 +52,8 @@ This topic describes how to onboard the Google Cloud Platform (GCP) authorizatio
         1. In the Authorize Cloud Shell dialog, to authorize all API calls that require your credentials, select **Authorize**.
     
          The workload-identity-pool.sh creates all the required entities to facilitate the connection between OIDC and GCP.
-20. When you run the script, you're asked to confirm that you want to enable the controller. Enter: **Y** for read and write permissions or **N** for read-only permissions into the project.
-21. In the **CloudKnox Onboarding – Summary** dialog, review the information you’ve added, and then select **View Now & Save**.
+11. When you run the script, you're asked to confirm that you want to enable the controller. Enter: **Y** for read and write permissions or **N** for read-only permissions into the project.
+12. In the **CloudKnox Onboarding – Summary** dialog, review the information you’ve added, and then select **View Now & Save**.
 
     The following message appears: **Successfully created configuration.**
 

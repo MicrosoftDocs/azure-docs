@@ -1,59 +1,39 @@
 ---
 title: Microsoft CloudKnox Permissions Management - The CloudKnox dashboard
-description: How to view summaries and key statistic updates about your authorization system in Microsoft CloudKnox Permissions Management.
+description: How to use the Microsoft CloudKnox Permissions Management dashboard.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
-ms.topic: how-to
-ms.date: 01/14/2022
+ms.topic: overview
+ms.date: 01/18/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - The CloudKnox dashboard
+# The CloudKnox dashboard
 
-The Microsoft CloudKnox Permissions Management (CloudKnox) dashboard provides a visual, operational dashboard that, on an hourly basis, summarizes and updates key statistics and data about your authorization system. This dashboard is available for Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).
-
-## Display the CloudKnox dashboard
-
-1. From the dropdown menu on the far left, select **AWS**, **Azure**, or **GCP**. 
-2. From the **Authorization System** dropdown, select the accounts and folders whose metrics you want to view. Then select **Apply**. 
-
-   The Privilege Creep Index (PCI) chart is updated according to the selected authorization system. It displays the date and time it was last updated in the upper right corner.
-3. (Optional) To redirect the user to the **Usage Analytics** tab, under the **Privilege Creep Index** chart, select the number next to **Users that contributed to your index**. 
-
-    For more information, see The Usage Analytics dashboard.
-    <!---Add link.--->
-4. To view the metrics in the PCI chart, select **Graph** (the graph icon) on the upper right of the chart.
-
-    Or, select the **List** icon for a column view of number of identities in the Low, Medium, and High PCI categories. 
-5. The far right column displays **Highest PCI Change** for the last seven days and shows the Authorization system name with the PCI number and the change number, if applicable. 
-6. To view all authorization system changes, select **View All** at the bottom of the box.
-
-## Overview of the CloudKnox dashboard
-
-The Microsoft CloudKnox Permissions Management dashboard provides an overview of the authorization system and account activity being monitored. 
+The Microsoft CloudKnox Permissions Management (CloudKnox) dashboard provides an overview of the authorization system and account activity being monitored. 
 
 - **Authorization system types** - A drop-down list of authorization system types you can access. May include Amazon Web Services (AWS), Microsoft Azure (Azure), Google Cloud Platform (GCP), and so on.
  
 - **Authorization systems** - Displays a **List** of accounts and **Folders** in the selected authorization system you can access.
 
-- **Privilege Creep Index (PCI)** - A graph displaying the **# of Identities contributing to PCI** and the related PCI.
+- **Privilege Creep Index (PCI)** - A graph displaying the **# of Identities contributing to PCI** and the related PRIVILEGE CREEP INDEX.
 
-    The PCI graph displays a bubble in the upper right corner. The bubble displays the number of identities that are considered high risk. *High risk* refers to the number of users who have permissions that exceed their normal or required usage.
+    The Privilege creep index graph displays a bubble in the upper right corner. The bubble displays the number of identities that are considered high risk. *High risk* refers to the number of users who have permissions that exceed their normal or required usage.
     - To display a list of the number of identities contributing to the **Low PCI**, **Medium PCI**, and **High PCI**, select the list icon in the upper right of the graph.
-    - To display the PCI graph again, select the graph icon in the upper right of the list box. 
+    - To display the privilege creep index graph again, select the graph icon in the upper right of the list box. 
 
-- **Highest PCI change** - A list of your accounts, the PCI, and the change in the PCI over the past 7 days.
+- **Highest PCI change** - A list of your accounts, the privilege creep index, and the change in the index over the past 7 days.
     - To download the list, select the down arrow in the upper right of the list box.
 
         The following message displays: **We'll email you a link to download the file.** 
         - Check your email for the message from the CloudKnox Customer Success Team. The email contains a link to the **PCI History** report in Microsoft Excel format.
         <!---Ad Link reports@cloudknox.io---> 
         - The email also includes a link to the **Reports** dashboard, where you can configure how and when you want to receive reports automatically.
-    - To view all the PCI changes, select **View All**.
+    - To view all the changes in the privilege creep index, select **View All**.
 
 - **Identity** - A summary of the **Findings** that includes the number of identities that are:
     - **Inactive Roles** - A list of roles that haven"t been accessed in over 90 days.
@@ -72,22 +52,22 @@ The Microsoft CloudKnox Permissions Management dashboard provides an overview of
     - **S3 Bucket Accessible Externally** 
 
 
-## The CloudKnox dashboard components
+## View metrics related to avoidable risk
 
 The data provided by the CloudKnox dashboard shows metrics related to avoidable risk. These metrics allow the CloudKnox administrator to quickly and easily identify areas where they can reduce risks related to the principle of least privilege.
 
 The CloudKnox dashboard contains two main components:
 
-- Privilege Creep Index (PCI) chart - The PCI chart identifies: 
-    - How many users who have been granted high-risk privileges but aren't using them. 
-    - How many users are contributing to the PCI and where they're on the scale.
+- The Privilege Creep Index heat map, which identifies: 
+    - How many users who have been granted high-risk privileges aren't using them. 
+    - How many users contribute to the privilege creep index and where they're on the scale.
 
-- Usage analytics summary – Provides a snapshot of permission metrics within the last 90 days.
+- The Usage analytics summary, which provides a snapshot of permission metrics within the last 90 days.
 
 
-### The Privilege Creep Index
+### The Privilege Creep Index heat map
 
-The PCI heat map shows the incurred risk of users with access to high-risk privileges, and is a function of:
+The privilege creep index heat map shows the incurred risk of users with access to high-risk privileges, and is a function of:
 
 - Users who were given access to high-risk privileges but aren't actively using them. High-risk privileges include the ability to modify or delete contents within the authorization system.
 
@@ -101,13 +81,13 @@ The PCI heat map shows the incurred risk of users with access to high-risk privi
 
 - The number displayed on the graph shows how many users contribute to a particular score. 
 
-    The distribution graph displays all the users who contribute to the PC. It displays how many users contribute to a particular score. For example, if the score from the PCI chart is 14, the graph shows how many users have a score of 14.
+    The distribution graph displays all the users who contribute to the privilege creep. It displays how many users contribute to a particular score. For example, if the score from the privilege creep index chart is 14, the graph shows how many users have a score of 14.
 
     - To view detailed data about a user, hover over the number.
 
-- The PCI Trend graph shows you the historical trend of the PCI score over the last 90 days. 
+- The Privilege Creep Index Trend graph shows you the historical trend of the privilege creep index score over the last 90 days. 
 
-    - To download the PCI History Report, select the **Download** icon.
+    - To download the Privilege Creep Index History Report, select the **Download** icon.
 
 ### The Usage Analytics Summary
 
@@ -125,14 +105,14 @@ The **Usage Analytics Summary** section provides a snapshot of the following hig
 
 - **Resources that Permit Delete Tasks** - Displays the total number of resources that permit delete tasks (**Total**), how many resources with delete tasks aren't used (**Inactive**), and how many resources with delete tasks are used (**Active**).
 
-## View information about users, roles, resources, and the PCI Trend
+## View information on the heat map
 
 To view detailed information about the following, select the number displayed on the heat map:
 
 - **Users** - Displays the total number of users and how many fall into the high, medium, and low categories.
 - **Roles** - Displays the total number of roles and how many fall into the high, medium, and low categories.
 - **Resources** - Displays the total number of resources and how many fall into the high, medium, and low categories.
-- **PCI Trend** - Displays a line graph of the PCI trend over the last several weeks.
+- **PCI Trend** - Displays a line graph of the privilege creep index trend over the last several weeks.
 
 - The **Identity** section below the heat map on the left side of the page shows all the relevant findings about identities, including roles that can access secret information, roles that are inactive, over provisioned active roles, and so on. 
 

@@ -31,19 +31,19 @@ landingContent:
           - text: Enable M-CIEM on the Azure Active Directory tenant 
             url: cloudknox-onboard-enable-tenant.md
   # Card
-  - title: Install Microsoft CloudKnox Permissions Management 
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Install Microsoft CloudKnox Permissions Management
-            url: cloudknox-installation-overview.md
+  # - title: Install Microsoft CloudKnox Permissions Management 
+    # linkLists:
+      # - linkListType: overview
+        # links:
+          # - text: Install Microsoft CloudKnox Permissions Management
+            # url: cloudknox-installation-overview.md
   # Card
-  - title: Integrate Microsoft CloudKnox Permissions Management with other systems
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Integrate Microsoft CloudKnox Permissions Management with other systems
-            url: cloudknox-integration-api.md
+  # - title: Integrate Microsoft CloudKnox Permissions Management with other systems
+    # linkLists:
+      # - linkListType: overview
+        # links:
+          # - text: Integrate Microsoft CloudKnox Permissions Management with other systems
+            # url: cloudknox-integration-api.md
   # Card
   # - title: Use Microsoft CloudKnox Permissions Management tasks
     # linkLists:
@@ -73,12 +73,26 @@ landingContent:
           - text: View detailed usage analytic information
             url: cloudknox-usage-analytics-home.md
   # Card
+  - title: Manage users with Microsoft CloudKnox Permissions Management
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Manage permissions with the JEP Controller
+            url: cloudknox-product-jep-controller.md
+  # Card
   - title: Generate reports with Microsoft CloudKnox Permissions Management
     linkLists:
       - linkListType: overview
         links:
           - text: Overview of CloudKnox system report types
             url: cloudknox-product-reports.md
+  # Card
+  - title: Standards compliance with Microsoft CloudKnox Permissions Management
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Product compliance guidelines
+            url: cloudknox-product-compliance.md
   # Card
   # - title: Learn with Microsoft CloudKnox Permissions Management training materials
     # linkLists:

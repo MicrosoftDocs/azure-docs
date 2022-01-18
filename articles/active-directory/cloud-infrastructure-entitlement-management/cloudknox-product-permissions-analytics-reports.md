@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - The Permissions Analytics report
-description: How to use the Permissions Analytics report in Microsoft CloudKnox Permissions Management.
+title: Microsoft CloudKnox Permissions Management - View the Permissions Analytics report
+description: How to view the Permissions Analytics report in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -12,9 +12,9 @@ ms.date: 01/12/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - The Permissions Analytics report
+# View the Permissions Analytics report
 
-This topic describes how to use the **Permissions Analytics report** in Microsoft CloudKnox Permissions Management (CloudKnox).
+This topic describes how to view the **Permissions Analytics report** in Microsoft CloudKnox Permissions Management (CloudKnox).
 
 > [!NOTE]
 > This topic applies only to Amazon Web Services (AWS) users.

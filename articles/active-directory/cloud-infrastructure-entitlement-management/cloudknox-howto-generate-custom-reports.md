@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/28/2021
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - Generate custom reports in the Audit Trail dashboard
+# Generate custom reports in the Audit Trail dashboard
 
-This topic describes how you can use the Audit Trail dashboard to generate custom reports that you can:
+This topic describes how you can use the Audit Trail dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) to generate custom reports that you can:
 
 - Run on demand.
 - Schedule and run as often as you want.

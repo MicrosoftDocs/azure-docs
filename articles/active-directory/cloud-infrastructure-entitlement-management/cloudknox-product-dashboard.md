@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management dashboard - How to read information on the CloudKnox dashboard
-description: How to read information on the Microsoft CloudKnox Permissions Management dashboard.
+title: Microsoft CloudKnox Permissions Management dashboard - View permission metrics on the CloudKnox dashboard
+description: How to view permission metrics on the CloudKnox dashboard in the Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/03/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - How to read information on the CloudKnox dashboard
+# View permission metrics on the CloudKnox dashboard
 
-Microsoft CloudKnox Permissions Management provides a visual, operational dashboard that summarizes and updates key statistics and data about an authorization system on an hourly basis. This dashboard is available for Amazon Web Services (AWS), Google Cloud Platform (GCP), Microsoft Azure, and vCenter Server virtual machine.
+Microsoft CloudKnox Permissions Management (CloudKnox) provides a visual, operational dashboard that summarizes and updates key statistics and data about an authorization system on an hourly basis. This dashboard is available for Amazon Web Services (AWS), Google Cloud Platform (GCP), Microsoft Azure, and vCenter Server virtual machine.
 
 This data shows metrics related to avoidable risk. It allows the CloudKnox administrator to quickly and easily identify areas to reduce risks related to the principle of least privilege.
 
