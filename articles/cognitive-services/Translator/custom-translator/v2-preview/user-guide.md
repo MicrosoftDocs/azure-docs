@@ -6,26 +6,24 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 01/12/2022
+ms.date: 01/18/2022
 ms.author: moelghaz
 ms.topic: overview
 #Customer intent: As a new custom translator user, I want to understand the E2E MT customization process, so that I can build and publish custom translation engines.
 ---
 # Custom Translator user guide | preview
 
-[Custom Translator](https://portal.customtranslator.azure.ai) is a feature of the Microsoft Translator service that enables you to customize the general text translation to build translation systems that understand the terminology used in your own business and industry. The customized translation systems seamlessly integrate into existing applications, workflows, and websites.
-
-Translation systems built and published with [Custom Translator](https://portal.customtranslator.azure.ai) are available through the same cloud-based Microsoft text translator [Text API V3](../../reference/v3-0-translate.md?tabs=curl) service that powers billions of translations every day.
+ [Custom Translator](../overview.md) enables you to a build translation system that reflects your business, industry, and domain-specific terminology and style. Training and deploying a custom system is easy and does not require any programming skills. The customized translation system seamlessly integrates into your existing applications, workflows, and websites and is available on Azure through the same cloud-based Microsoft Text Translator [Text API V3](../../reference/v3-0-translate.md?tabs=curl) service that powers billions of translations every day.
 
 ## Is custom translation systems the right choice for me?
 
-With a custom-trained translation systems, you can achieve much higher adherence to the domain-specific terminology and style by training a custom translation system on previously translated, in-domain documents. These previously translated documents allow Custom Translator to learn the preferred translations in context. Translator can then apply these terms and phrases in context calls to produce a fluent translation in the target language, respecting the context-dependent grammar of the target language.
+A custom-trained translation systems, achieves a much higher adherence to domain-specific terminology and style by training a custom translation system on previously translated, in-domain documents. These previously translated documents allow Custom Translator to learn the preferred translations in context. Translator can then apply these terms and phrases in context calls to produce a fluent translation in the target language, respecting the context-dependent grammar of the target language.
 
 ![Custom vs. general](media/how-to/for-beginners.png)
 
 ## What does training custom translation systems involve?
 
-In order to build custom translation system, you start with the use-case, the availability of in-domain translated data (human translated is better), the data coverage to generalize, expected outcome, target users location, regional data residency requirement, and keeping human in the loop.
+In order to build custom translation system, you start with a use-case, in-domain translated data (human-translated is better), data coverage to generalize, expected outcome, target users location, regional data residency requirement, and human oversight.
 
 ## Evaluate your use-case
 
