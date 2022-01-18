@@ -1574,8 +1574,8 @@ groups:
   - id: container-apps-public-registry
     title: Public container registry
 # Owner: duau
-- id: front-door-skus
-  title: Front Door SKUs
+- id: front-door-tiers
+  title: Front Door tiers
   prompt: Select the Azure Front Door tier
   pivots:
   - id: front-door-classic
