@@ -536,7 +536,7 @@ Your App Service app now can pull the container image securely from your private
 1. To test if your webhook is configured properly, ping the webhook and see if you get a 200 OK response.
 
     ```azurecli-interactive
-    eventId=$(az acr webhook ping --name appserviceCD --registry <registry-name> --query id --output tsv)
+    $eventId=$(az acr webhook ping --name appserviceCD --registry <registry-name> --query id --output tsv)
     az acr webhook list-events --name appserviceCD --registry <registry-name> --query "[?id=='$eventId'].eventResponseMessage"
     ```
 
