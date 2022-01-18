@@ -468,13 +468,13 @@ Regenerates a missing extensions.csproj file. No action is taken when an extensi
 
 ## func kubernetes deploy
 
-Deploys a Functions project as a custom docker container to a Kubernetes cluster using KEDA.
+Deploys a Functions project as a custom docker container to a Kubernetes cluster.
 
 ```command
 func kubernetes deploy 
 ```
 
-This command builds your project as a custom container and publishes it to a Kubernetes cluster using KEDA for dynamic scale. To publish to a cluster using a default scaler or using KNative, instead use the [`func deploy` command](#func-deploy). Custom containers must have a Dockerfile. To create an app with a Dockerfile, use the `--dockerfile` option with the [`func init` command](#func-init). 
+This command builds your project as a custom container and publishes it to a Kubernetes cluster. Custom containers must have a Dockerfile. To create an app with a Dockerfile, use the `--dockerfile` option with the [`func init` command](#func-init). 
 
 The following Kubernetes deployment options are available:
 
