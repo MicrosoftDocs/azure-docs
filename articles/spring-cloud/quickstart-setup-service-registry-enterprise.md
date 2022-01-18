@@ -1,6 +1,6 @@
 ---
-title: "Quickstart - Provision an Azure Spring Cloud service instance using the Enterprise tier"
-description: Describes the creation of an Azure Spring Cloud service instance for app deployment using the Enterprise tier.
+title: "Quickstart - Set up Service Registry"
+description: Describes how to set up Service Registry for Azure Spring Cloud Enterprise tier.
 author: karlerickson
 ms.author: caiqing
 ms.service: spring-cloud

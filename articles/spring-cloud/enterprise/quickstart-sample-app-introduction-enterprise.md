@@ -10,7 +10,7 @@ ms.custom: devx-track-java, mode-other
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
-# Introduction to the sample app
+# Introduction to the sample app for Enterprise tier
 
 ::: zone pivot="programming-language-csharp"
 This series of quickstarts uses a sample app composed of two microservices to show how to deploy a .NET Core Steeltoe app to the Azure Spring Cloud service. You'll use Azure Spring Cloud capabilities such as service discovery, config server, logs, metrics, and distributed tracing.
@@ -58,8 +58,6 @@ The instructions in the following quickstarts refer to the source code as needed
 In this quickstart, we use the microservices version of the well-known sample app [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices) that will show you how to deploy apps to the Azure Spring Cloud service. The **Pet Clinic** sample demonstrates the microservice architecture pattern and highlights the services breakdown. You will see how services are deployed to Azure with Azure Spring Cloud capabilities, including service discovery, config server, logs, metrics, distributed tracing, and developer-friendly tooling support.
 
 To follow the Azure Spring Cloud deployment examples, you only need the location of the source code, which is provided as needed.
-
-![Architecture of PetClinic](media/build-and-deploy/microservices-architecture-diagram.jpg)
 
 ## Functional services to be deployed
 
