@@ -19,7 +19,7 @@ ms.custom: has-adal-ref
 
 # Cloud-native certificate-based authentication technical deep dive
 
-This article is an overview of how cloud-native certificate-based authentication (CBA) against Azure AD (Azure Active Directory) works.
+This article is an overview of how cloud-native certificate-based authentication (CBA) against Azure Active Directory (Azure AD  works.
 
 ## How does Azure Active Directory certificate-based authentication work?
 
