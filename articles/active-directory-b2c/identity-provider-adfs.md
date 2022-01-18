@@ -63,7 +63,7 @@ In this step, configure the claims AD FS application returns to Azure AD B2C.
     | Given-Name | given_name |
     | Display-Name | name |
 
-    Note some of the names will not display in the outgoing claim type dropdown. You need to manually type them in. (The dropdown is editable).
+    Note some of the names will not display in the outgoing claim type dropdown. You need to manually type them in (the dropdown is editable).
 
 1. Select **Finish**, then select **Close**.
 
@@ -86,7 +86,7 @@ In this step, configure the claims AD FS application returns to Azure AD B2C.
 
 1. For **Client ID**, enter the application ID that you previously recorded.
 1. For the **Scope**, enter the `openid`.
-1. For **Response type**, select **id_token**.
+1. For **Response type**, select **id_token**, which makes **Client secret** optional.
 1. (Optional) For the **Domain hint**, enter `contoso.com`. For more information, see [Set up direct sign-in using Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
 1. Under **Identity provider claims mapping**, select the following claims:
 
