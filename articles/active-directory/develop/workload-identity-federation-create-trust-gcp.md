@@ -213,9 +213,7 @@ public class ClientAssertionCredential:TokenCredential
     {
         this.clientID = clientID;
         this.tenantID = tenantID;
-        this.aadAuthority = aadAuthority;  // https://login.microsoftonline.com/
-        this._logger = _logger;
-        
+        this.aadAuthority = aadAuthority;  // https://login.microsoftonline.com/                
     }
 
     public override AccessToken GetToken(TokenRequestContext requestContext, CancellationToken cancellationToken = default) {
@@ -292,8 +290,7 @@ string storageUrl = "https://<storageaccount>.blob.core.windows.net";
 
 var credential = new ClientAssertionCredential(clientID,
                             tenantID,
-                            authority,
-                            _logger);
+                            authority);
 
 BlobServiceClient blobServiceClient = new BlobServiceClient(new Uri(storageUrl), credential);
 
