@@ -1,6 +1,6 @@
 ---
 title:  Microsoft CloudKnox Permissions Management - Onboard the Amazon Web Services (AWS) authorization system
-description: How to onboard the Amazon Web Services (AWS) authorization system on CloudKnox.
+description: How to onboard the Amazon Web Services (AWS) authorization system on Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,18 +8,32 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/13/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - Onboard the Amazon Web Services (AWS) authorization system
+# Onboard the Amazon Web Services (AWS) authorization system
 
 This topic describes how to onboard the Amazon Web Services (AWS) authorization system on Microsoft CloudKnox Permissions Management (CloudKnox).
 
+> [!NOTE] 
+> To complete this task you must have Global Administrator permissions.
+
+> [!NOTE] 
+> Before beginning this task, make sure you have completed the steps provided in Enable CloudKnox on your Azure Active Directory tenant.
+
+<!---[Enable CloudKnox on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.html).--->
+
 **To onboard the AWS authorization system on CloudKnox:**
 
-1. On the CloudKnox homepage, select **Settings**.
+1. If the **Data Collectors** tab isn't displayed: 
+
+    - In the CloudKnox homepage, select **Settings** (the gear icon), and then select the **Data Collectors** tab.
+
 2. On the **Data Collectors** tab, select **AWS**, and then select **Create Configuration**.
+
+
+
 3. In the **CloudKnox Onboarding – Azure OIDC App Creation** dialog, enter the **OIDC Azure App Name**.
 4. To create the app registration, copy the script in the dialog and run it in your CLI.
 5. To confirm that the app was created, open **App Registrations** in Azure and, on the **All applications** tab, locate your app.
@@ -65,7 +79,6 @@ This topic describes how to onboard the Amazon Web Services (AWS) authorization 
 
 <!---## Next steps--->
 
-<!---For an overview of the CloudKnox installation process, see[CloudKnox Installation overview cloud](cloudknox-installation.html).--->
-<!---For information on how to enable CloudKnox on your Azure AD tenant, see [Enable Microsoft CloudKnox Permissions Management on your Azure AD tenant](cloudknox-onboard-enable-tenant.html).--->
-<!---For information on how to install AWS on CloudKnox, see [Install CloudKnox Sentry on AWS](cloudknox-sentry-install-aws.md)--->
+<!---For information on how to onboard Microsoft Azure, see [Onboard the Azure authorization system](cloudknox-onboard-azure.html).--->
+<!---For information on how to onboard Google Cloud Platform (GCP), see [Onboard the GCP authorization system](cloudknox-onboard-gcp.html).--->
 
