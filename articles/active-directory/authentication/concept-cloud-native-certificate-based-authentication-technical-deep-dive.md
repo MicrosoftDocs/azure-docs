@@ -59,7 +59,7 @@ The following diagram illustrates all the components and the steps involved.
 
 The authentication binding policy helps determine the strength of authentication as either single-factor or multifactor. An administrator can change the default value from single factor to multifactor or set up custom policy configurations either by issuer subject or policy OID fields in the certificate.
 
-Since multiple authentication binding policies can be created with different certificate fields, there are some rules that determine the authentication protection level. They are as follows:
+Since multiple authentication binding rules can be created with different certificate fields, there are some rules that determine the authentication protection level. They are as follows:
 
 1. Exact match is used for strong authentication via policy OID. If you have a certificate A with policy OID **1.2.3.4.5** and a derived credential B based on that certificate has a policy OID **1.2.3.4.5.6** and the custom rule is defined as **Policy OID** with value **1.2.3.4.5** with MFA, only certificate A will satisfy MFA and credential B will satisfy only single-factor authentication. If the user used derived credential during sign-in and was configured to have MFA, the user will be asked for a second factor for successful authentication.
 1. Policy OID rules will take precedence over certificate issuer rules. If a certificate has both policy OID and Issuer, the policy OID is always checked first and if no policy rule is found then the issuer subject bindings are checked. Policy OID has a higher strong authentication binding priority than the issuer.
