@@ -19,7 +19,7 @@ To transition to Container Insights, we recommend the following approach.
 
 2. To use Container Insights, you will need to migrate your workload to Kubernetes. You can find more information on the compatible Kubernetes platforms from [Azure Kubernetes Services (AKS)](../../aks/intro-kubernetes.md) or [Azure Arc enabled Kubernetes](../../azure-arc/kubernetes/overview.md). If using AKS, you can choose to [deploy Container Insights](./container-insights-enable-new-cluster.md) as a part of the process.
 
-3. Disable the existing monitoring of the Container Monitoring Solution using one of the following options: [Azure Portal](../insights/solutions.md?tabs=portal#remove-a-monitoring-solution), [PowerShell](https://docs.microsoft.com/powershell/module/az.monitoringsolutions/remove-azmonitorloganalyticssolution?view=azps-7.1.0), or [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics/solution?view=azure-cli-latest#az-monitor-log-analytics-solution-delete)
+3. Disable the existing monitoring of the Container Monitoring Solution using one of the following options: [Azure Portal](../insights/solutions.md?tabs=portal#remove-a-monitoring-solution), [PowerShell](https://docs.microsoft.com/powershell/module/az.monitoringsolutions/remove-azmonitorloganalyticssolution), or [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-delete)
 4. If you elected to not onboard to Container Insights earlier, you can then deploy Container Insights using Azure CLI, ARM, or Portal following the instructions for [AKS](./container-insights-enable-existing-clusters.md) or [Arc enabled Kubernetes](./container-insights-enable-arc-enabled-clusters.md)
 5. Validate that the installation was successful for either your [AKS](./container-insights-enable-existing-clusters.md#verify-agent-and-solution-deployment) or [Arc](./container-insights-enable-arc-enabled-clusters.md#verify-extension-installation-status) cluster.
 
@@ -39,7 +39,7 @@ The following table highlights the key differences between monitoring using the 
 
 ## Next steps
 
-- [Disable Container Monitoring Solution](./containers.md#Removing-solution-from-your-workspace)
+- [Disable Container Monitoring Solution](./containers.md#removing-solution-from-your-workspace)
 - [Deploy an Azure Kubernetes Service](./container-insights-enable-new-cluster.md)
 - [Connect your cluster](../../azure-arc/kubernetes/quickstart-connect-cluster.md) to the Azure Arc enabled Kubernetes platform
 - Configure Container Insights for [Azure Kubernetes Service](./container-insights-enable-existing-clusters.md) or [Arc enabled Kubernetes](./container-insights-enable-arc-enabled-clusters.md) 
