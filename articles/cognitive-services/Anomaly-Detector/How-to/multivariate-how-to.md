@@ -17,7 +17,7 @@ ms.author: mbullwin
 The Multivariate Anomaly Detector (MVAD) provides two primary methods to detect anomalies compared with Univariate Anomaly Detector (UVAD), **training** and **inference**. During the inference process, you can choose to use an asynchronous API or a synchronous API to trigger inference one time. Both of these APIs support batch or streaming scenarios.
 
 The following are the basic steps needed to use MVAD:
-  1. Create an Anomaly Detector resource in the Azure Portal.
+  1. Create an Anomaly Detector resource in the Azure portal.
   1. Prepare data for training and inference.
   1. Train an MVAD model.
   1. Get model status.
@@ -41,7 +41,7 @@ Generally, multivariate anomaly detector includes a set of APIs, covering the wh
 | `/multivariate/models/{modelId}/export`| Export model as a Zip file. |
 
 
-## Create an Anomaly Detector resource in Azure Portal
+## Create an Anomaly Detector resource in Azure portal
 
 * Create an Azure subscription if you don't have one - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * Once you have your Azure subscription, [create an Anomaly Detector resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) in the Azure portal to get your API key and API endpoint.
@@ -237,7 +237,7 @@ Failures are usually caused by model issues or data issues. You cannot perform i
 
 ### Get inference results (asynchronous only)
 
-You need the `resultId` to get results. `resultId` is obtained from the response header when you submit the inference request. Consult [this page for instructions to query the inference results.] (https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/GetDetectionResult) 
+You need the `resultId` to get results. `resultId` is obtained from the response header when you submit the inference request. Consult [this page for instructions to query the inference results](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/GetDetectionResult).
 
 A sample response looks like this:
 
@@ -367,7 +367,7 @@ The response contains the result status, variable information, inference paramet
 ## (NEW) Inference with synchronous API 
 
 > [!NOTE]
-> In v1.1-preview.1, we support synchronous API and add more fields in inference result for both asynchronous API and synchronous API, you could upgrade the API version to access to these features. Once you upgrade, you'll no longer use previous model trained in old version, you should retrain a model to fit for new fields.
+> In v1.1-preview.1, we support synchronous API and add more fields in inference result for both asynchronous API and synchronous API, you could upgrade the API version to access to these features. Once you upgrade, you'll no longer use previous model trained in old version, you should retrain a model to fit for new fields. [Learn more about v1.1-preview.1](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview-1/operations/DetectAnomaly).
 
 With the synchronous API, you can get inference results point by point in real time, and no need for compressing and uploading task like training and asynchronous inference. Here are some requirements for the synchronous API:
 * Need to put data in **JSON format** into the API request body.
