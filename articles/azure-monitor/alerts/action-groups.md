@@ -5,6 +5,7 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 01/15/2022
 ms.author: dukek
+ms.custom: references_regions
 ---
 # Create and manage action groups in the Azure portal
 An action group is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor, Service Health and Azure Advisor alerts use action groups to notify users that an alert has been triggered. Various alerts may use the same action group or different action groups depending on the user's requirements. 
@@ -119,7 +120,7 @@ All the details and links in Test email notifications for the alerts fired are a
 
 > [!NOTE]
 > You may have a limited number of actions in a test Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
-
+>
 > You can opt in or opt out to the common alert schema through Action Groups, on the portal. You can [find common schema samples for test action groups for all the sample types](./alerts-common-schema-test-action-definitions.md).
 
 ## Manage your action groups
@@ -180,11 +181,11 @@ While setting up *Email ARM Role* you need to make sure below 3 conditions are m
 > [!NOTE]
 > It can take upto **24 hours** for customer to start receiving notifications after they add new ARM Role to their subscription.
 
-### Event Hub (Preview)
+### Event hub (preview)
 > [!NOTE]
-> The Event Hub action type is currently in *Preview*. During the preview there may be bugs and disruptions in availability of the functionality.
+> The event hub action type is currently in *Preview*. During the preview there may be bugs and disruptions in availability of the functionality.
 
-An Event Hub action publishes notifications to an [Azure Event Hub](~/articles/event-hubs/event-hubs-about.md). You may then subscribe to the alert notification stream from your event receiver.
+An event hub action publishes notifications to [Azure Event Hubs](~/articles/event-hubs/event-hubs-about.md). You may then subscribe to the alert notification stream from your event receiver.
 
 ### Function
 Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-get-started.md). To handle a request, your endpoint must handle the HTTP POST verb.
