@@ -37,7 +37,7 @@ This topic describes how to onboard the Google Cloud Platform (GCP) authorizatio
     <!---1. In the **OIDC Workload Identity Pool Id** box, enter your ID.--->
     <!---1. In the **OIDC Service Account Name** box, enter your account name.--->
 
-1. To create an application that will establish the OIDC connection with GCP, copy the Azure CLI script and run it in your command-line app.
+1. To create an application that establishes the OIDC connection with GCP, copy the Azure CLI script. Then run the script in your command-line app.
 
     <!---Add info on how to do this manually.--->
 
@@ -55,11 +55,12 @@ This topic describes how to onboard the Google Cloud Platform (GCP) authorizatio
 
 1. To launch Google Cloud, select **Launch SSH**.
 
-1. To copy all your scripts from the GitHub repository into your current directory, in **Open in Cloud Shell**, select **Trust repo** and then select **Confirm**.
+1. To copy all your scripts from the GitHub repository into your current directory, in **Open in Cloud Shell**, select **Trust repo**, and then select **Confirm**.
 
     The Cloud Shell provisions the Cloud Shell machine and makes a connection to your Cloud Shell instance.
 
-    The **Welcome to CloudKnox GCP Onboarding** screen appears. The pane on the right displays four steps you must complete to onboard your GCP project:
+    The **Welcome to CloudKnox GCP Onboarding** screen appears. 
+1. The pane on the right displays four steps you must complete to onboard your GCP project:
 
     1. **Paste the environment vars from the CloudKnox portal.**
 
@@ -71,6 +72,7 @@ This topic describes how to onboard the Google Cloud Platform (GCP) authorizatio
     1. **Execute the following command.**
 
         When the **Google Sign In** box appears: 
+
         1. Go to CloudKnox and copy the script in the box. 
         1. Return to Google and paste the script into the **GCP Onboarding screen**. 
         1. Run the script to confirm that you're the owner of the account and are logging in.
@@ -79,12 +81,12 @@ This topic describes how to onboard the Google Cloud Platform (GCP) authorizatio
 
         - To create the provider, copy and paste the script into the **GCP Onboarding screen**.
 
-    1. **Execute the script to onboard the projects.**
+1. **Execute the script to onboard the projects.**
 
-        1. To set the PROJECT_ID, copy and paste the script into the **GCP Onboarding screen**.
-        1. To authorize all API calls that require your credentials, in **Authorize Cloud Shell**, select **Authorize**.
+    1. To set the PROJECT_ID, copy and paste the script into the **GCP Onboarding screen**.
+    1. To authorize all API calls that require your credentials, in **Authorize Cloud Shell**, select **Authorize**.
 
-         The workload-identity-pool.sh creates all the required entities to facilitate the connection between OIDC and GCP.
+     The workload-identity-pool.sh creates all the entities that are required to enable the connection between OIDC and GCP.
 
 1. When you run the script, you're asked to confirm that you want to enable the controller. 
 
@@ -96,7 +98,7 @@ This topic describes how to onboard the Google Cloud Platform (GCP) authorizatio
 
     On the **Data Collectors** tab, the **Recently Uploaded On** column displays **Collecting** and the **Recently Transformed On** column displays **Processing.** 
 
-    This confirms that CloudKnox has started collecting and processing your GCP data.
+    This step confirms that CloudKnox has started collecting and processing your GCP data.
 
 1. To view your data, select the **Authorization Systems** tab. 
 

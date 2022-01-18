@@ -67,7 +67,7 @@ This topic describes how to onboard the Microsoft Azure authorization system on 
 
     On the **Data Collectors** tab, the **Recently Uploaded On** column displays **Collecting** and the **Recently Transformed On** column displays **Processing.** 
 
-    This confirms that CloudKnox has started collecting and processing your Azure data.
+    This step confirms that CloudKnox has started collecting and processing your Azure data.
 
 1. To view your data, select the **Authorization Systems** tab.
 

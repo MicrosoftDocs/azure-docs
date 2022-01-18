@@ -79,7 +79,7 @@ This topic describes how to onboard the Amazon Web Services (AWS) authorization 
 
     AWS creates the resources required to create an OIDC connection and lists them in the AWS **Resources** tab. 
 
-    This completes the sequence of required connections from Azure AD STS to the OIDC connection account and the AWS member account.
+    This step completes the sequence of required connections from Azure AD STS to the OIDC connection account and the AWS member account.
 
 1. Return to the **CloudKnox Data Collectors** tab and select **Next**.
 
@@ -101,7 +101,7 @@ This topic describes how to onboard the Amazon Web Services (AWS) authorization 
 
     On the **Data Collectors** tab, the **Recently Uploaded On** column displays **Collecting** and the **Recently Transformed On** column displays **Processing.** 
 
-    This confirms that CloudKnox has started collecting and processing your AWS data.
+    This step confirms that CloudKnox has started collecting and processing your AWS data.
 
 1. To view your data, select the **Authorization Systems** tab. 
 
