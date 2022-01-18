@@ -481,6 +481,9 @@ Configurable storage redundancy for SQL Databases can be configured at the time 
 For SQL Managed Instance, backup storage redundancy is set on the instance level, and it is applied for all belonging managed databases. It can be configured at the time of an instance creation or updated for existing instances; the backup storage redundancy change would trigger then a new full backup per database and the change will apply for all future backups. The default storage redundancy type is geo-redundancy (RA-GRS).
 For HyperScale backup storage redundancy can only be specified during the create process. Once the resource is provisioned, you can't change the backup storage redundancy option. The default value is geo-redundant storage. For differences in pricing between locally redundant, zone-redundant and geo-redundant backup storage visit [managed instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
+> [!NOTE]
+> Backup storage redundancy change for Managed instance is currently available only for the Public cloud via Azure Portal. 
+
 ### Configure backup storage redundancy by using the Azure portal
 
 #### [SQL Database](#tab/single-database)
