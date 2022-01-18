@@ -201,15 +201,15 @@ Use this claims transformation to determine if first date plus the `timeSpanInSe
 
 ## IsTermsOfUseConsentRequired
 
-Determine whether a dateTime claim type is earlier, or greater than a specific date. The result is a new boolean claim with a value of `true` or `false`.
+Determine whether a `dateTime` claim type is earlier or greater than a specific date. The result is a new Boolean claim with a value of `true` or `false`.
 
-| Item | TransformationClaimType | Data Type | Notes |
+| Item | TransformationClaimType | Data type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | termsOfUseConsentDateTime | dateTime | The dateTime to check whether it is earlier or later than the `termsOfUseTextUpdateDateTime` input parameter. Undefined value returns `True` result. |
-| InputParameter | termsOfUseTextUpdateDateTime | dateTime | The dateTime to check whether it is earlier or later than the `termsOfUseConsentDateTime` input claim. Time part of the date is optional. |
-| OutputClaim | result | boolean | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
+| InputClaim | termsOfUseConsentDateTime | dateTime | The `dateTime` claim type to check whether it is earlier or later than the `termsOfUseTextUpdateDateTime` input parameter. Undefined value returns `true` result. |
+| InputParameter | termsOfUseTextUpdateDateTime | dateTime | The `dateTime` claim type to check whether it is earlier or later than the `termsOfUseConsentDateTime` input claim. The time part of the date is optional. |
+| OutputClaim | result | boolean | The claim type that's produced after this claims transformation has been invoked. |
 
-Use this claims transformation to determine whether a dateTime claim type is earlier or greater than a specific date. For example, check if a user has consented to the latest version of your terms of use (TOU) or terms of service (TOS). To check last time a user consented, store the last time the user accepted the TOU into an [extension attribute](user-profile-attributes.md#extension-attributes). When your TOU wording changes, update the `termsOfUseTextUpdateDateTime` input parameter with the time of the change. Then, call this claims transformation to compare the dates. If the claims transformation returns `True`, the `termsOfUseConsentDateTime` is earlier than the `termsOfUseTextUpdateDateTime`, ask the user to accept the updated TOU.
+Use this claims transformation to determine whether a `dateTime` claim type is earlier or greater than a specific date. For example, check whether a user has consented to the latest version of your terms of use (TOU) or terms of service. To check the last time a user consented, store the last time the user accepted the TOU in an [extension attribute](user-profile-attributes.md#extension-attributes). When your TOU wording changes, update the `termsOfUseTextUpdateDateTime` input parameter with the time of the change. Then, call this claims transformation to compare the dates. If the claims transformation returns `true`, the `termsOfUseConsentDateTime` value is earlier than the `termsOfUseTextUpdateDateTime` value, and you can ask the user to accept the updated TOU.
 
 ```xml
 <ClaimsTransformation Id="IsTermsOfUseConsentRequired" TransformationMethod="IsTermsOfUseConsentRequired">
