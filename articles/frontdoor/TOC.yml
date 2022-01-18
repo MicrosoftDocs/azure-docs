@@ -40,10 +40,10 @@
       href: front-door-routing-architecture.md?pivots=front-door-classic
     - name: Route matching
       href: front-door-route-matching.md
+    - name: Backend selection
+      href: front-door-routing-methods.md
   - name: Backends and backend pools
     href: front-door-backend-pool.md
-  - name: Load balancing method
-    href: front-door-routing-methods.md
   - name: Health probes
     href: front-door-health-probes.md
   - name: Wildcard domain

@@ -14,7 +14,7 @@ ms.author: duau
 
 # Front Door routing methods
 
-Azure Front Door supports different kinds of traffic-routing methods to determine how to route your HTTP/HTTPS traffic to different service endpoints. When your client requests reaching Front Door, the configured routing method gets applied to ensure the requests are forwarded to the best backend instance. 
+Azure Front Door supports different kinds of traffic-routing methods to determine how to route your HTTP/HTTPS traffic to different backends. When your client requests reaching Front Door, the configured routing method gets applied to ensure the requests are forwarded to the best backend.
 
 There are four traffic routing methods available in Front Door:
 
