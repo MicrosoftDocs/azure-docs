@@ -4,7 +4,7 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/06/2022
+ms.date: 01/13/2022
 ms.author: rohogue
 ---
 
@@ -106,7 +106,7 @@ Check these permission-related prerequisites before starting to create your cach
   Follow the instructions in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to add the roles.
 
 ## Storage infrastructure
-<!-- heading is linked in create storage target GUI as aka.ms/hpc-cache-prereq#storage-infrastructure - make sure to fix that if you change the wording of this heading -->
+<!-- heading is linked in create storage target GUI as aka.ms/hpc-cache-prereq#storage-infrastructure - fix that if you change the wording of this heading -->
 
 The cache supports Azure Blob containers, NFS hardware storage exports, and NFS-mounted ADLS blob containers. Add storage targets after you create the cache.
 
@@ -221,24 +221,22 @@ This is a general overview of the steps. These steps might change, so always ref
 Learn more about using ADLS-NFS storage targets with Azure HPC Cache in [Use NFS-mounted blob storage with Azure HPC Cache](nfs-blob-considerations.md).
 
 ### Work with private endpoints
-<!-- [Work with private endpoints](#work-with-private-endpoints) -->
+<!-- linked from other articles, update links if you change this header  -->
 
 Azure Storage supports private endpoints to allow secure data access. You can use private endpoints with Azure Blob or NFS-mounted blob storage targets.
 
 [Learn more about private endpoints](../storage/common/storage-private-endpoints.md)
 
-Keep these tips in mind if you use storage targets with private endpoints:
+A private endpoint provides a specific IP address that the HPC Cache uses to communicate with your back-end storage system. If that IP address changes, the cache can't automatically re-establish a connection with the storage.
 
-* If you need to change a private endpoint's configuration, first suspend any storage targets that use the endpoint. Follow this procedure to avoid communication problems between the storage and the HPC Cache:
+If you need to change a private endpoint's configuration, follow this procedure to avoid communication problems between the storage and the HPC Cache:
 
-  1. Suspend the storage target (or all of the storage targets that use this private endpoint)
-  1. Make changes to the private endpoint, and save those changes
-  1. Put the storage target back into service with the "resume" command
-  1. Refresh the storage target's DNS setting
+  1. Suspend the storage target (or all of the storage targets that use this private endpoint).
+  1. Make changes to the private endpoint, and save those changes.
+  1. Put the storage target back into service with the "resume" command.
+  1. Refresh the storage target's DNS setting.
 
   Read [View and manage storage targets](manage-storage-targets.md) to learn how to suspend, resume, and refresh DNS for storage targets.
-
-* For NFS-mounted blob storage, you can't delete the storage endpoint that was created with the storage subnet. You might assume that the subnet's storage endpoint is not needed after you set up a private endpoint, but some Azure processes still expect it to exist. <!--the storage endpoint that is associated with the subnet ***[??? is this the storage's subnet? And you think you should be able to delete it because you're using NFS or something? ???]*** -->
 
 ## Set up Azure CLI access (optional)
 
