@@ -11,17 +11,18 @@ ms.date: 02/28/2018
 ---
 
 # Enable and download server slow query logs of an Azure Database for PostgreSQL server using Azure CLI
+
 This sample CLI script enables and downloads the slow query logs of a single Azure Database for PostgreSQL server.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
+## Sample script
+
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-### Sample script
-
-:::code language="azurecli" source="~/azure_cli_scripts/postgresql/scale-postgresql-server/server-logs.sh" range="4-51":::
+:::code language="azurecli" source="~/azure_cli_scripts/postgresql/server-logs/server-logs.sh" range="4-51":::
 
 ## Clean up deployment
 
@@ -46,6 +47,7 @@ This script uses the commands outlined in the following table:
 | [az group delete](/cli/azure/group) | Deletes a resource group including all nested resources. |
 
 ## Next steps
+
 - Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure).
 - Try additional scripts: [Azure CLI samples for Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)
 - [Configure and access server logs in the Azure portal](../howto-configure-server-logs-in-portal.md)

@@ -18,9 +18,11 @@ This sample CLI script creates an Azure Database for PostgreSQL server and confi
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
+## Sample script
+
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-### Sample script
+:::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" range="4-31":::
 
 ## Clean up deployment
 
@@ -32,7 +34,7 @@ az group delete --name $resourceGroup
 
 In this sample script, edit the highlighted lines to update the admin username and password to your own.
 
-:::code language="azurecli" source="~/azure_cli_scripts/postgresql/scale-postgresql-server/create-postgresql-server-and-firewall-rule.sh" range="4-31":::
+:::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" range="4-31":::
 
 ## Script explanation
 
@@ -46,5 +48,6 @@ This script uses the commands outlined in the following table:
 | [az group delete](/cli/azure/group) | Deletes a resource group including all nested resources. |
 
 ## Next steps
+
 - Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure)
 - Try additional scripts: [Azure CLI samples for Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)

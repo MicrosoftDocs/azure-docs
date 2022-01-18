@@ -10,20 +10,22 @@ ms.topic: sample
 ms.date: 08/07/2019
 ---
 # Monitor and scale a single PostgreSQL server using Azure CLI
-This sample CLI script scales compute and storage for a single Azure Database for PostgreSQL server after querying the metrics. Compute can scale up or down. Storage can only scale up. 
 
-> [!IMPORTANT] 
+This sample CLI script scales compute and storage for a single Azure Database for PostgreSQL server after querying the metrics. Compute can scale up or down. Storage can only scale up. \
+
+> [!IMPORTANT] \
 > Storage can only be scaled up, not down.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
+## Sample script
+
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-### Sample script
-
-Update the script with your subscription ID.
+> [!IMPORTANT]
+> Update the script with your subscription ID.
 
 :::code language="azurecli" source="~/azure_cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh" range="4-39":::
 
@@ -48,6 +50,7 @@ This script uses the commands outlined in the following table:
 | [az group delete](/cli/azure/group) | Deletes a resource group including all nested resources. |
 
 ## Next steps
+
 - Learn more about [Azure Database for PostgreSQL compute and storage](../concepts-pricing-tiers.md)
 - Try additional scripts: [Azure CLI samples for Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)
 - Learn more about the [Azure CLI](/cli/azure)

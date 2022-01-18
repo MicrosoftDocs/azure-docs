@@ -18,11 +18,11 @@ This sample CLI script restores a single Azure Database for PostgreSQL server to
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-### Sample script
+## Sample script
 
 [!INCLUDE [cli-run-local-sign-in.md](../../../includes/cli-run-local-sign-in.md)]
 
-:::code language="azurecli" source="~/azure_cli_scripts/postgresql/scale-postgresql-server/backup-restore.sh" range="4-40":::
+:::code language="azurecli" source="~/azure_cli_scripts/postgresql/backkup-restore/backup-restore.sh" range="4-40":::
 
 ## Clean up deployment
 
@@ -44,6 +44,7 @@ This script uses the commands outlined in the following table:
 | [az group delete](/cli/azure/group) | Deletes a resource group including all nested resources. |
 
 ## Next steps
+
 - Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure).
 - Try additional scripts: [Azure CLI samples for Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)
 - [How to backup and restore a server in Azure Database for PostgreSQL using the Azure portal](../howto-restore-server-portal.md)
