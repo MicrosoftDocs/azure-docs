@@ -33,7 +33,7 @@ The Application Insights agents and/or SDKs for .NET, .NET Core, Java, Node.js, 
 * [.NET](asp-net.md)
 * [.NET Core](asp-net-core.md)
 * [Java](./java-in-process-agent.md)
-* [Node.js](../app/nodejs-quick-start.md)
+* [Node.js](../app/nodejs.md)
 * [JavaScript](./javascript.md)
 * [Python](opencensus-python.md)
 

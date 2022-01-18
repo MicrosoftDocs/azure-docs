@@ -33,6 +33,11 @@ The event is generated within the first look-back period, but isn't ingested in 
 
 ## How to handle delay
 
+> [!NOTE]
+>
+> You can either solve the issue using the process described below, or implement Microsoft Sentinel's near-real-time detection (NRT) rules. For more information, see [Detect threats quickly with near-real-time (NRT) analytics rules in Microsoft Sentinel](near-real-time-rules.md).
+> 
+
 To solve the issue, you need to know the delay for your data type. For this example, you already know the delay is two minutes. 
 
 For your own data, you can understand delay using the Kusto `ingestion_time()` function, and calculating the difference between **TimeGenerated** and the ingestion time. For more information, see [Calculate ingestion delay](#calculate-ingestion-delay).
