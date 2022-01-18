@@ -580,12 +580,15 @@ MSSQLSERVER/m... Restore              InProgress           3/17/2019 10:02:45 AM
 
 ### On-demand backup
 
-Once backup has been enabled for a DB, you can also trigger an on-demand backup for the DB using [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) PowerShell cmdlet. The following example triggers a full backup on a SQL DB with compression enabled and the full backup should be retained for 60 days.
+Once backup has been enabled for a DB, you can also trigger an on-demand backup for the DB using [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) PowerShell cmdlet. The following example triggers a copy-only-full backup on a SQL DB with compression enabled and the copy-only-full backup should be retained for 60 days.
+
+> [!Note]
+> Copy-only-full backups are ideal for long term retention since they don't have any dependencies on other backup types such as logs. A 'Full' backup is treated as a parent of subsequent log backups and hence it's retention is tied to log retention in policy. Therefore, the customer provided expiry time is honored for copy-only-full backups and not for 'full' backups. A full backup retention time is set automatically for 45 days from the current time. It is also documented [here](manage-monitor-sql-database-backup.md#run-an-on-demand-backup).
 
 ```powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType MSSQL -Name "<backup item name>" -VaultId $testVault.ID
 $endDate = (Get-Date).AddDays(45).ToUniversalTime()
-Backup-AzRecoveryServicesBackupItem -Item $bkpItem -BackupType Full -EnableCompression -VaultId $testVault.ID -ExpiryDateTimeUTC $endDate
+Backup-AzRecoveryServicesBackupItem -Item $bkpItem -BackupType CopyOnlyFull -EnableCompression -VaultId $testVault.ID -ExpiryDateTimeUTC $endDate
 ```
 
 The on-demand backup command returns a job to be tracked.
