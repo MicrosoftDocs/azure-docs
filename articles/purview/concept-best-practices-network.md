@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 09/29/2021
+ms.date: 01/13/2022
 ---
 
 # Azure Purview network architecture and best practices
@@ -135,7 +135,7 @@ You must use private endpoints for your Azure Purview account if you have any of
 
 ### Integration runtime options 
 
-- If your data sources are in Azure, you need to set up and use a self-hosted integration runtime on a Windows virtual machine that's deployed inside the same virtual network where Azure Purview ingestion private endpoints are deployed. The Azure integration runtime won't work with ingestion private endpoints. 
+- If your data sources are in Azure, you need to set up and use a self-hosted integration runtime on a Windows virtual machine that's deployed inside the same or a peered virtual network where Azure Purview ingestion private endpoints are deployed. The Azure integration runtime won't work with ingestion private endpoints. 
 
 - To scan on-premises data sources, you can also install a self-hosted integration runtime either on an on-premises Windows machine or on a VM inside an Azure virtual network. 
 
@@ -184,19 +184,17 @@ In hub-and-spoke network architectures, your organization's data governance team
 
 In a hub-and-spoke architecture, you can deploy Azure Purview and one or more self-hosted integration runtime VMs in the hub subscription and virtual network. You can register and scan data sources from other virtual networks from multiple subscriptions in the same region. 
 
-The self-hosted integration runtime VMs must be in the same virtual network as the ingestion private endpoint, but they can be in a separate subnet.
+The self-hosted integration runtime VMs can be deployed inside the same Azure virtual network or a peered virtual network where the account and ingestion private endpoints are deployed.
 
 :::image type="content" source="media/concept-best-practices/network-pe-multi-vnet.png" alt-text="Screenshot that shows Azure Purview with private endpoints in a scenario of multiple virtual networks."lightbox="media/concept-best-practices/network-pe-multi-vnet.png":::
 
-You can optionally deploy an additional self-hosted integration runtime in the spoke virtual networks. In that case, you must deploy an additional account and ingestion private endpoint in the spoke virtual networks. 
+You can optionally deploy an additional self-hosted integration runtime in the spoke virtual networks. 
 
 #### Multiple regions, multiple virtual networks
 
 If your data sources are distributed across multiple Azure regions in one or more Azure subscriptions, you can use this scenario.
 
-For performance and cost optimization, we highly recommended deploying one or more self-hosted integration runtime VMs in each region where data sources are located. In that case, you need to deploy an additional account and ingestion private endpoint for the Azure Purview account in the region and virtual network where self-hosted integration runtime VMs are located.  
-
-If you need to register and scan any Azure Data Lake Storage (Gen2) resources from other regions, you need to have a local self-hosted integration runtime VM in the region where the data source is located. 
+For performance and cost optimization, we highly recommended deploying one or more self-hosted integration runtime VMs in each region where data sources are located.   
 
 :::image type="content" source="media/concept-best-practices/network-pe-multi-region.png" alt-text="Screenshot that shows Azure Purview with private endpoints in a scenario of multiple virtual networks and multiple regions."lightbox="media/concept-best-practices/network-pe-multi-region.png":::
 
@@ -214,7 +212,7 @@ If you need to scan some data sources by using an ingestion private endpoint and
 
 ### Integration runtime options 
 
-- To scan an Azure data source that's configured with a private endpoint, you need to set up and use a self-hosted integration runtime on a Windows virtual machine that's deployed inside the same virtual network where Azure Purview ingestion private endpoints are deployed. 
+- To scan an Azure data source that's configured with a private endpoint, you need to set up and use a self-hosted integration runtime on a Windows virtual machine that's deployed inside the same or a peered virtual network where Azure Purview account and ingestion private endpoints are deployed. 
 
   When you're using a private endpoint with Azure Purview, you need to allow network connectivity from data sources to a self-hosted integration VM on the Azure virtual network where Azure Purview private endpoints are deployed.  
 

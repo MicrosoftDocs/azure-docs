@@ -13,7 +13,7 @@ ms.author: eur
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Linux" src="https://docs.microsoft.com/media/logos/logo_linux.svg" width="60px">
+            <img alt="Linux" src="/media/logos/logo_linux.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
