@@ -61,6 +61,8 @@ items:
         href: containers/translator-how-to-install-container.md
       - name: Configure containers
         href: containers/translator-container-configuration.md
+      - name: Use containers in disconnected environments
+        href: ../containers/disconnected-containers.md
       - name: "Container: Translate"
         href: containers/translator-container-supported-parameters.md
   - name: Tutorials

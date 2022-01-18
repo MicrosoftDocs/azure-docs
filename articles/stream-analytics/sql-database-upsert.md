@@ -11,7 +11,7 @@ ms.date: 12/03/2021
 
 # Update or merge records in Azure SQL Database with Azure Functions
 
-Currently, [Azure Stream Analytics](/azure/stream-analytics/) (ASA) only supports inserting (appending) rows to SQL outputs ([Azure SQL Databases](/azure/stream-analytics/sql-database-output), and [Azure Synapse Analytics](/azure/stream-analytics/azure-synapse-analytics-output)). This article discusses workarounds to enable UPDATE, UPSERT, or MERGE on SQL databases, with Azure Functions as the intermediary layer.
+Currently, [Azure Stream Analytics](./index.yml) (ASA) only supports inserting (appending) rows to SQL outputs ([Azure SQL Databases](./sql-database-output.md), and [Azure Synapse Analytics](./azure-synapse-analytics-output.md)). This article discusses workarounds to enable UPDATE, UPSERT, or MERGE on SQL databases, with Azure Functions as the intermediary layer.
 
 Alternative options to Azure Functions are presented at the end.
 
@@ -97,9 +97,9 @@ This article shows how to use Azure Functions to implement Replace and Accumulat
 
 ## Azure Functions Output
 
-In our job, we'll replace the ASA SQL output by the [ASA Azure Functions output](/azure/stream-analytics/azure-functions-output). The UPDATE, UPSERT, or MERGE capabilities will be implemented in the function.
+In our job, we'll replace the ASA SQL output by the [ASA Azure Functions output](./azure-functions-output.md). The UPDATE, UPSERT, or MERGE capabilities will be implemented in the function.
 
-There are currently two options to access a SQL Database in a function. First is the [Azure SQL output binding](/azure/azure-functions/functions-bindings-azure-sql). It's currently limited to C#, and only offers replace mode. Second is to compose a SQL query to be submitted via the appropriate [SQL driver](/sql/connect/sql-connection-libraries) ([Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) for .NET).
+There are currently two options to access a SQL Database in a function. First is the [Azure SQL output binding](../azure-functions/functions-bindings-azure-sql.md). It's currently limited to C#, and only offers replace mode. Second is to compose a SQL query to be submitted via the appropriate [SQL driver](/sql/connect/sql-connection-libraries) ([Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) for .NET).
 
 For both samples below, we'll assume the following table schema. The binding option requires **a primary key** to be set on the target table. It's not necessary, but recommended, when using a SQL driver.
 
@@ -115,7 +115,7 @@ CONSTRAINT [PK_device_updated] PRIMARY KEY CLUSTERED
 );
 ```
 
-A function has to meet the following expectations to be used as an [output from ASA](/azure/stream-analytics/azure-functions-output):
+A function has to meet the following expectations to be used as an [output from ASA](./azure-functions-output.md):
 
 - Azure Stream Analytics expects HTTP status 200 from the Functions app for batches that were processed successfully
 - When Azure Stream Analytics receives a 413 ("http Request Entity Too Large") exception from an Azure function, it reduces the size of the batches that it sends to Azure Function
@@ -123,17 +123,17 @@ A function has to meet the following expectations to be used as an [output from 
 
 ## Option 1: Update by key with the Azure Function SQL Binding
 
-This option uses the [Azure Function SQL Output Binding](/azure/azure-functions/functions-bindings-azure-sql). This extension can replace an object in a table, without having to write a SQL statement. At this time, it doesn't support compound assignment operators (accumulations).
+This option uses the [Azure Function SQL Output Binding](../azure-functions/functions-bindings-azure-sql.md). This extension can replace an object in a table, without having to write a SQL statement. At this time, it doesn't support compound assignment operators (accumulations).
 
 This sample was built on:
 
-- Azure Functions runtime [version 4](/azure/azure-functions/functions-versions?tabs=in-process%2Cv4&pivots=programming-language-csharp)
+- Azure Functions runtime [version 4](../azure-functions/functions-versions.md?pivots=programming-language-csharp&tabs=in-process%2cv4)
 - [.NET 6.0](/dotnet/core/whats-new/dotnet-6)
 - Microsoft.Azure.WebJobs.Extensions.Sql [0.1.131-preview](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql/0.1.131-preview)
 
 To better understand the binding approach, it's recommended to follow [this tutorial](https://github.com/Azure/azure-functions-sql-extension#quick-start).
 
-First, create a default HttpTrigger function app by following this [tutorial](/azure/azure-functions/create-first-function-vs-code-csharp?tabs=in-process). The following information will be used:
+First, create a default HttpTrigger function app by following this [tutorial](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process). The following information will be used:
 
 - Language: `C#`
 - Runtime: `.NET 6` (under function/runtime v4)
@@ -242,7 +242,7 @@ You can now test the wiring between the local function and the database by debug
 [{"DeviceId":3,"Value":13.4,"Timestamp":"2021-11-30T03:22:12.991Z"},{"DeviceId":4,"Value":41.4,"Timestamp":"2021-11-30T03:22:12.991Z"}]
 ```
 
-The function can now be [published](/azure/azure-functions/create-first-function-vs-code-csharp#publish-the-project-to-azure) to Azure. An [application setting](/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal#settings) should be set for `SqlConnectionString`. The Azure SQL **Server** firewall should [allow Azure services](/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it.
+The function can now be [published](../azure-functions/create-first-function-vs-code-csharp.md#publish-the-project-to-azure) to Azure. An [application setting](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) should be set for `SqlConnectionString`. The Azure SQL **Server** firewall should [allow Azure services](../azure-sql/database/network-access-controls-overview.md) in for the live function to reach it.
 
 The function can then be defined as an output in the ASA job, and used to replace records instead of inserting them.
 
@@ -255,11 +255,11 @@ This option uses [Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient)
 
 This sample was built on:
 
-- Azure Functions runtime [version 4](/azure/azure-functions/functions-versions?tabs=in-process%2Cv4&pivots=programming-language-csharp)
+- Azure Functions runtime [version 4](../azure-functions/functions-versions.md?pivots=programming-language-csharp&tabs=in-process%2cv4)
 - [.NET 6.0](/dotnet/core/whats-new/dotnet-6)
 - Microsoft.Data.SqlClient [4.0.0](https://www.nuget.org/packages/Microsoft.Data.SqlClient/)
 
-First, create a default HttpTrigger function app by following this [tutorial](/azure/azure-functions/create-first-function-vs-code-csharp?tabs=in-process). The following information will be used:
+First, create a default HttpTrigger function app by following this [tutorial](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process). The following information will be used:
 
 - Language: `C#`
 - Runtime: `.NET 6` (under function/runtime v4)
@@ -368,7 +368,7 @@ You can now test the wiring between the local function and the database by debug
 [{"DeviceId":3,"Value":13.4,"Timestamp":"2021-11-30T03:22:12.991Z"},{"DeviceId":4,"Value":41.4,"Timestamp":"2021-11-30T03:22:12.991Z"}]
 ```
 
-The function can now be [published](/azure/azure-functions/create-first-function-vs-code-csharp#publish-the-project-to-azure) to Azure. An [application setting](/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal#settings) should be set for `SqlConnectionString`. The Azure SQL **Server** firewall should [allow Azure services](/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it.
+The function can now be [published](../azure-functions/create-first-function-vs-code-csharp.md#publish-the-project-to-azure) to Azure. An [application setting](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) should be set for `SqlConnectionString`. The Azure SQL **Server** firewall should [allow Azure services](../azure-sql/database/network-access-controls-overview.md) in for the live function to reach it.
 
 The function can then be defined as an output in the ASA job, and used to replace records instead of inserting them.
 
@@ -382,15 +382,15 @@ A background task will operate once the data is inserted in the database via the
 
 For Azure SQL, `INSTEAD OF` [DML triggers](/sql/relational-databases/triggers/dml-triggers?view=azuresqldb-current&preserve-view=true) can be used to intercept the INSERT commands issued by ASA and replace them with UPDATEs.
 
-For Synapse SQL, ASA can insert into a [staging table](/azure/synapse-analytics/sql/data-loading-best-practices#load-to-a-staging-table). A recurring task can then transform the data as needed into an intermediary table. Finally the [data is moved](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition#partition-switching) to the production table.
+For Synapse SQL, ASA can insert into a [staging table](../synapse-analytics/sql/data-loading-best-practices.md#load-to-a-staging-table). A recurring task can then transform the data as needed into an intermediary table. Finally the [data is moved](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition.md#partition-switching) to the production table.
 
 ### Pre-processing in Azure Cosmos DB
 
-Azure Cosmos DB [supports UPSERT natively](/azure/stream-analytics/stream-analytics-documentdb-output#upserts-from-stream-analytics). Here only append/replace is possible. Accumulations must be managed client-side in Cosmos DB.
+Azure Cosmos DB [supports UPSERT natively](./stream-analytics-documentdb-output.md#upserts-from-stream-analytics). Here only append/replace is possible. Accumulations must be managed client-side in Cosmos DB.
 
 If the requirements match, an option is to replace the target SQL database by an Azure Cosmos DB instance. Doing so requires an important change in the overall solution architecture.
 
-For Synapse SQL, Cosmos DB can be used as an intermediary layer via [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link). Synapse Link can be used to create an [analytical store](/azure/cosmos-db/analytical-store-introduction). This data store can then be queried directly in Synapse SQL.
+For Synapse SQL, Cosmos DB can be used as an intermediary layer via [Azure Synapse Link for Azure Cosmos DB](../cosmos-db/synapse-link.md). Synapse Link can be used to create an [analytical store](../cosmos-db/analytical-store-introduction.md). This data store can then be queried directly in Synapse SQL.
 
 ### Comparison of the alternatives
 
