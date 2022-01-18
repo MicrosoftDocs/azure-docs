@@ -30,7 +30,7 @@ To publish your application in the gallery, you need to complete the following t
 - Every application in the gallery must implement one of the supported single sign-on (SSO) options. To learn more about the supported options, see [Plan a single sign-on deployment](plan-sso-deployment.md). To learn more about authentication, see [Authentication vs. authorization](../develop/authentication-vs-authorization.md) and [Azure active Directory code samples](../develop/sample-v2-code.md). For password SSO, make sure that your application supports form authentication so that password vaulting can be used. For a quick introduction about single sign-on configuration in the portal, see [Enable single sign-on for an enterprise application](add-application-portal-setup-sso.md).
 - For federated applications (OpenID and SAML/WS-Fed), the application must support the [software-as-a-service (SaaS) model](https://azure.microsoft.com/overview/what-is-saas/) to be listed in the gallery. The enterprise gallery applications must support multiple user configurations and not any specific user.
 - For Open ID Connect, the application must be multitenanted and the [Azure AD consent framework](../develop/consent-framework.md) must be properly implemented for the application. The user can send the sign-in request to a common endpoint so that any user can provide consent to the application. You can control user access based on the tenant ID and the user's UPN received in the token.
-- Supporting provisioning is optional, but highly recommended. Provisioning must be done using the System for Cross-domain Identity Management (SCIM) protocol which is easy to implement. Using SCIM allows users to automatically create and update accounts in your application without relying on manual processes such as uploading CSV files. To learn more about the Azure AD SCIM implementation, see [build a SCIM endpoint and configure user provisioning with Azure AD](../app-provisioning/use-scim-to-provision-users-and-groups.md).
+- Supporting provisioning is optional, but highly recommended. Provisioning must be done using the System for Cross-domain Identity Management (SCIM) protocol, which is easy to implement. Using SCIM allows users to automatically create and update accounts in your application without relying on manual processes such as uploading CSV files. To learn more about the Azure AD SCIM implementation, see [build a SCIM endpoint and configure user provisioning with Azure AD](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 You can get a free test account with all the premium Azure AD features - 90 days free and can get extended as long as you do dev work with it: [Join the Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
 
@@ -70,7 +70,7 @@ After you've tested that your application integration works with Azure AD, submi
 
 After the account is added, you can sign in to the Microsoft Application Network portal and submit the request by selecting the **Submit Request (ISV)** tile on the home page. If you see the **Your sign-in was blocked** error while logging in, see [Troubleshoot sign-in to the Microsoft Application Network portal](troubleshoot-app-publishing.md).
 
-### Implementation specific options
+### Implementation-specific options
 
 On the Application Registration Form, select the feature that you want to enable. Select **OpenID Connect & OAuth 2.0**, **SAML 2.0/WS-Fed**, or **Password SSO(UserName & Password)** depending on the feature that your application supports.
 
@@ -94,7 +94,7 @@ Not all applications can be onboarded. Per the terms and conditions, the choice 
 
 Here's the flow of customer-requested applications.
 
-:::image type="content" source="/media/howto-app-gallery-listing/customer-request-2.png" alt-text="Screenshot that shows the the customer-requested apps flow.":::
+:::image type="content" source="/media/howto-app-gallery-listing/customer-request-2.png" alt-text="Screenshot that shows the customer-requested apps flow.":::
 
 For any escalations, send email to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com), and a response is sent as soon as possible.
 
