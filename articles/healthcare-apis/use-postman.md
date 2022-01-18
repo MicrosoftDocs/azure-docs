@@ -65,7 +65,7 @@ Open Postman, select the **workspace**, **collection**, and **environment** you 
 
 ## Get capability statement
 
-Enter `{{fhirurl}}/metadata` in the `GET`request, and hit `Send`. You should see the capability statement of the FHIR service.
+Enter `{{fhirurl}}/metadata` in the `GET`request, and select `Send`. You should see the capability statement of the FHIR service.
 
 [ ![Screenshot of capability statement parameters.](media/postman/postman-capability-statement.png) ](media/postman/postman-capability-statement.png#lightbox)
 
