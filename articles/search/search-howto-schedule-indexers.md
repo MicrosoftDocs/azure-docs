@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 12/17/2021
+ms.date: 01/11/2022
 ---
 
 # Schedule indexers in Azure Cognitive Search
@@ -45,7 +45,9 @@ Visually, a schedule might look like the following: starting on January 1 and ru
 
 ## Scheduling behavior
 
-Only one execution of an indexer can run at a time. If an indexer is already running when its next execution is scheduled, that execution is postponed until the next scheduled time.
+The scheduler will only kick off one indexer at a time. If you have multiple indexers that are all scheduled to start at 6:00 a.m. every morning, the scheduler will kick off the jobs sequentially. You can only obtain multiple concurrent jobs if you [run indexers on demand](search-howto-run-reset-indexers.md).
+
+Only one instance of a given indexer can run at a time. If it's still running when the next scheduled execution is set to start, indexer execution is postponed until the next scheduled occurrence.
 
 Let’s consider an example to make this more concrete. Suppose we configure an indexer schedule with an **Interval** of hourly and a **Start Time** of June 1, 2021 at 8:00:00 AM UTC. Here’s what could happen when an indexer run takes longer than an hour:
 

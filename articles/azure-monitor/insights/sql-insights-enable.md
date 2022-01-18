@@ -14,7 +14,7 @@ This article describes how to enable [SQL insights](sql-insights-overview.md) to
 > To enable SQL insights by creating the monitoring profile and virtual machine using a resource manager template, see [Resource Manager template samples for SQL insights](resource-manager-sql-insights.md).
 
 To learn how to enable SQL Insights, you can also refer to this Data Exposed episode.
-> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/How-to-Set-up-Azure-Monitor-for-SQL-Insights/player?format=ny]
+> [!VIDEO https://docs.microsoft.com/Shows/Data-Exposed/How-to-Set-up-Azure-Monitor-for-SQL-Insights/player?format=ny]
 
 ## Create Log Analytics workspace
 SQL insights stores its data in one or more [Log Analytics workspaces](../logs/data-platform-logs.md#log-analytics-and-workspaces). Before you can enable SQL Insights, you need to either [create a workspace](../logs/quick-create-workspace.md) or select an existing one. A single workspace can be used with multiple monitoring profiles, but the workspace and profiles must be located in the same Azure region. To enable and access the features in SQL insights, you must have the [Log Analytics contributor role](../logs/manage-access.md) in the workspace. 
@@ -154,7 +154,7 @@ When settings up your profile for SQL monitoring, you will need one of the follo
 If you have these permissions, a new Key Vault access policy will be automatically created as part of creating your SQL Monitoring profile that uses the Key Vault you specified. 
 
 > [!IMPORTANT]
-> You need to ensure that network and security configuration allows the monitoring VM to access Key Vault. For more information, see [Access Azure Key Vault behind a firewall](/azure/key-vault/general/access-behind-firewall) and [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
+> You need to ensure that network and security configuration allows the monitoring VM to access Key Vault. For more information, see [Access Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md) and [Configure Azure Key Vault networking settings](../../key-vault/general/how-to-azure-key-vault-network-security.md).
 
 ## Create SQL monitoring profile
 Open SQL insights by selecting **SQL (preview)** from the **Insights** section of the **Azure Monitor** menu in the Azure portal. Click **Create new profile**. 

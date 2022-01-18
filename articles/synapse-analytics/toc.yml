@@ -238,10 +238,6 @@ items:
       href: database-designer/create-lake-database-from-lake-database-templates.md
     - name: Modify a lake database
       href: database-designer/modify-lake-database.md
-- name: Migration guides
-  items:
-  - name: Migrate to a dedicated SQL pool
-    href: migration-guides/migrate-to-synapse-analytics-guide.md
 - name: Synapse SQL
   items:
   - name: Overview
@@ -1472,6 +1468,26 @@ items:
     href: plan-manage-costs.md
   - name: Browse an ADLS Gen2 folder with ACLs
     href: how-to-access-container-with-access-control-lists.md
+- name: Guidance
+  items:
+  - name: Migration guides
+    items:
+    - name: Migrate to a dedicated SQL pool
+      href: migration-guides/migrate-to-synapse-analytics-guide.md
+  - name: Security white paper
+    items:
+    - name: Introduction
+      href: ./guidance/security-white-paper-introduction.md
+    - name: Data protection
+      href: ./guidance/security-white-paper-data-protection.md
+    - name: Access control
+      href: ./guidance/security-white-paper-access-control.md
+    - name: Authentication
+      href: ./guidance/security-white-paper-authentication.md
+    - name: Network security
+      href: ./guidance/security-white-paper-network-security.md
+    - name: Threat protection
+      href: ./guidance/security-white-paper-threat-protection.md
 - name: Reference
   items:
   - name: Azure CLI

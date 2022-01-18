@@ -62,7 +62,7 @@ For more information, see [Archive Tier support in Azure Backup](archive-tier-su
 
 Azure Backup now supports multi-user authorization (MUA) that allows you to add an additional layer of protection to critical operations on your Recovery Services vaults. For MUA, Azure Backup uses the Azure resource, Resource Guard, to ensure critical operations are performed only with applicable authorization.
 
-For more information, see [how to protect Recovery Services vault and manage critical operations with MUA](/azure/backup/multi-user-authorization).
+For more information, see [how to protect Recovery Services vault and manage critical operations with MUA](./multi-user-authorization.md).
 
 ## Multiple backups per day for Azure Files (in preview)
 
