@@ -135,7 +135,7 @@ The [Custom Speech-to-text][sp-cstt] container image can be found on the `mcr.mi
 Release note for `3.0.0-amd64`:
 
 **Features**
-* Support Disconnected Mode (runing container without Internet connection but with a local license).
+* Support for using containers in [disconnected environments](disconnected-containers.md).
 
 Note that due to the phrase lists feature, the size of this container image has increased.
 
