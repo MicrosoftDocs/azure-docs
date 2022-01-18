@@ -527,9 +527,16 @@ Input is a preprocessed image.
     
 ### Output format
 
-The output is a tuple of boxes, labels, and scores.
+The output is a tuple of output_names and predictions. Here, output_names and predictions are lists with length 3*batch_size each. 
   
 | Output name       | Output shape  | Output type | Description |
+| -------- |----------|-----|------|
+| output_names | `(3*batch_size)` | list of keys | For a batch size of 2, output_names will be `['boxes_0', 'labels_0', 'scores_0', 'boxes_1', 'labels_1', 'scores_1']` |
+| predictions | `(3*batch_size)` | list ndarray(float) | For a batch size of 2, predictions will take the shape of `[(n1_boxes, 4), (n1_boxes), (n1_boxes), (n2_boxes, 4), (n2_boxes), (n2_boxes)]`. Here, values at each index correspond to same index in output_names. |
+
+Following table describes boxes, labels and scores returned for each sample in the batch of images.
+
+| Name       | Shape  | Type | Description |
 | -------- |----------|-----|------|
 | Boxes | `(n_boxes, 4)`, where each box has `x_min, y_min, x_max, y_max` | ndarray(float) | Model returns *n* boxes with their top-left and bottom-right coordinates. |
 | Labels | `(n_boxes)`| ndarray(float) | Label or class ID of an object in each box. |  
@@ -546,14 +553,17 @@ The input is a preprocessed image, with the shape `(1, 3, 640, 640)` for a batch
 
 | Input name       | Input shape  | Input type | Description |
 | -------- |----------|-----|--------|
-| Input | `(batch_size, num_channels, height, width)` | ndarray(float) | Input is a preprocessed image, with the shape `(1, 3, 600, 800)` for a batch size of 1, and a height of 600 and width of 800.|
+| Input | `(batch_size, num_channels, height, width)` | ndarray(float) | Input is a preprocessed image, with the shape `(1, 3, 640, 640)` for a batch size of 1, and a height of 640 and width of 640.|
         
 ### Output format
-The output is a list of boxes, labels, and scores. For YOLO, you need the first output to extract boxes, labels, and scores.
-    
+ONNX model prediction contains multiple outputs and we need the first output to perform non-max suppression to get detections. For better understanding, we display the output format after the NMS postprocessing step. The output after NMS is a list of boxes, labels, and scores for each sample in the batch. 
+
+
 | Output name       | Output shape  | Output type | Description |
 | -------- |----------|-----|------|
-| Output | `(n_boxes, 6)`, where each box has `x_min, y_min, x_max, y_max, confidence_score, class_id` | ndarray(float) | Model returns *n* boxes with their top-left and bottom-right coordinates, along with object confidence scores, class IDs, or label IDs. |
+| Output | `(batch_size)`| List of ndarray(float) | Model returns box detections for each sample in the batch |
+
+Each cell in the list indicates box detections of a sample with shape `(n_boxes, 6)`, where each box has `x_min, y_min, x_max, y_max, confidence_score, class_id`.
 
 # [Instance segmentation](#tab/instance-segmentation)
 
@@ -573,14 +583,19 @@ The input is a preprocessed image. The ONNX model for Mask R-CNN has been export
     
 ### Output format
 
-The output is a tuple of boxes (instances), labels, and scores
-    
+The output is a tuple of output_names and predictions. Here, output_names and predictions are lists with length 4*batch_size each. 
+  
 | Output name       | Output shape  | Output type | Description |
+| -------- |----------|-----|------|
+| output_names | `(4*batch_size)` | list of keys | For a batch size of 2, output_names will be `['boxes_0', 'labels_0', 'scores_0', 'masks_0', 'boxes_1', 'labels_1', 'scores_1', 'masks_1']` |
+| predictions | `(4*batch_size)` | list ndarray(float) | For a batch size of 2, predictions will take the shape of `[(n1_boxes, 4), (n1_boxes), (n1_boxes), (n1_boxes, 1, height_onnx, width_onnx), (n2_boxes, 4), (n2_boxes), (n2_boxes), (n2_boxes, 1, height_onnx, width_onnx)]`. Here, values at each index correspond to same index in output_names. |
+
+| Name       | Shape  | Type | Description |
 | -------- |----------|-----|------|
 | Boxes | `(n_boxes, 4)`, where each box has `x_min, y_min, x_max, y_max` | ndarray(float) | Model returns *n* boxes with their top-left and bottom-right coordinates. |
 | Labels | `(n_boxes)`| ndarray(float) | Label or class ID of an object in each box. |  
 | Scores | `(n_boxes)` | ndarray(float) | Confidence score of an object in each box. |    
-| Masks | `(n_boxes, 1, height, width)` | ndarray(float) | Masks (polygons) of detected objects with the shape height and width of an input image. |    
+| Masks | `(n_boxes, 1, height_onnx, width_onnx)` | ndarray(float) | Masks (polygons) of detected objects with the shape height and width of an input image. |    
 
 ---
 
@@ -1338,7 +1353,7 @@ print(json.dumps(bounding_boxes_batch, indent=1))
 
 # [Instance segmentation](#tab/instance-segmentation)
 
-- Either use the steps mentioned for Faster R-CNN (in case of Mask R-CNN, each sample has four elements boxes, labels, scores, masks) or refer to visualization section for instance segmentation.
+- Either use the steps mentioned for Faster R-CNN (in case of Mask R-CNN, each sample has four elements boxes, labels, scores, masks) or refer to visualization section for *instance segmentation*.
 
 ---
 
