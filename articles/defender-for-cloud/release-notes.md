@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 01/17/2022
+ms.date: 01/18/2022
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -146,15 +146,13 @@ For consistency with other recommendation names, we've renamed the following two
 
 ### Deprecate Kubernetes cluster containers should only listen on allowed ports policy
 
-We have deprecated the **Kubernetes cluster containers should only listen on allowed ports** policy
+We have deprecated the **Kubernetes cluster containers should only listen on allowed ports** recommendation.
 
 | Policy name | Description | Effect(s) | Version |
 |--|--|--|--|
 | [Kubernetes cluster containers should only listen on allowed ports](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F440b515e-a580-421e-abeb-b159a61ddcbc) | Restrict containers to listen only on allowed ports to secure access to the Kubernetes cluster. This policy is generally available for Kubernetes Service (AKS), and preview for AKS Engine and Azure Arc enabled Kubernetes. For more information, see [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc). | audit, deny, disabled | [6.1.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerAllowedPorts.json) |
 
-Limiting the ports a container listens on, provides no value in regards to security since those ports are not exposed externally.
-
-The **[Services should listen on allowed ports only](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/add45209-73f6-4fa5-a5a5-74a451b07fbe)** recommendation sshould be used instead, as that reccomendation controls the ports that an application would be exposed.
+The **[Services should listen on allowed ports only](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/add45209-73f6-4fa5-a5a5-74a451b07fbe)** recommendation should be used to limit ports that an application exposes to the internet.
 
 ## December 2021
 
