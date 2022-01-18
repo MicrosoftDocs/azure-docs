@@ -287,7 +287,7 @@ The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    <api name="API name" id="API id" calls="number" renewal-period="seconds" />
+    <api name="API name" id="API id" calls="number" renewal-period="seconds">
         <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />
     </api>
 </quota>

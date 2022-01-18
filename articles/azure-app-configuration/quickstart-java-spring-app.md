@@ -6,6 +6,7 @@ documentationcenter: ''
 author: AlexandraKemperMS
 editor: ''
 ms.service: azure-app-configuration
+ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/18/2020
 ms.custom: devx-track-java, mode-api

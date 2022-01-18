@@ -40,7 +40,6 @@ Metadata information about the connected machine is collected after the Connecte
 * Computer manufacturer and model
 * Computer fully qualified domain name (FQDN)
 * Domain name (if joined to an Active Directory domain)
-* Connected Machine agent version
 * Active Directory and DNS fully qualified domain name (FQDN)
 * UUID (BIOS ID)
 * Connected Machine agent heartbeat
@@ -131,6 +130,7 @@ Azure Arc-enabled servers depend on the following Azure resource providers in yo
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
+* **Microsoft.HybridConnectivity**
 
 If they are not registered, you can register them using the following commands:
 
@@ -141,6 +141,7 @@ Login-AzAccount
 Set-AzContext -SubscriptionId [subscription you want to onboard]
 Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
 Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
+Register-AzResourceProvider -ProviderNamespace Microsoft.HybridConnectivity
 ```
 
 Azure CLI:
@@ -149,6 +150,7 @@ Azure CLI:
 az account set --subscription "{Your Subscription Name}"
 az provider register --namespace 'Microsoft.HybridCompute'
 az provider register --namespace 'Microsoft.GuestConfiguration'
+az provider register --namespace 'Microsoft.HybridConnectivity'
 ```
 
 You can also register the resource providers in the Azure portal by following the steps under [Azure portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
@@ -194,6 +196,7 @@ URLs:
 |`*.his.arc.azure.com`|Metadata and hybrid identity services|
 |`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|
 |`dc.services.visualstudio.com`|Agent telemetry|
+|`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`|Notification service|
 
 For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. This information in the JSON file is the current point-in-time list of the IP ranges that correspond to each service tag. The IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
 

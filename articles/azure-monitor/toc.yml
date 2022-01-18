@@ -308,16 +308,46 @@ items:
           href: logs/azure-data-explorer-monitor-cross-service-query.md
         - name: Query Azure Data Explorer from Azure Monitor
           href: logs/azure-monitor-data-explorer-proxy.md
-    - name: Data export
-      items:
-      - name: Workspace data export
-        href: logs/logs-data-export.md
-      - name: Export with Logic Apps
-        href: logs/logs-export-logic-app.md
-      - name: Query data with Azure Data Explorer
-        href: logs/azure-data-explorer-query-storage.md
-      - name: Send to Excel
-        href: logs/log-excel.md
+      - name: API
+        items:
+        - name: Overview
+          href: logs/api/overview.md
+        - name: Using the API
+          items:
+          - name: Set up authentication and authorization
+            href: logs/api/authentication-authorization.md
+          - name: Access the API
+            href: logs/api/access-api.md
+          - name: Request format
+            href: logs/api/request-format.md
+          - name: Response format
+            href: logs/api/response-format.md
+          - name: API options
+            items:
+            - name: Batch queries
+              href: logs/api/batch-queries.md
+            - name: Cross-resource queries
+              href: logs/api/cross-workspace-queries.md
+            - name: Azure resource queries
+              href: logs/api/azure-resource-queries.md
+            - name: Response caching
+              href: logs/api/cache.md
+            - name: Server timeouts
+              href: logs/api/timeouts.md
+            - name: Prefer headers
+              href: logs/api/prefer-options.md
+          - name: Errors
+            href: logs/api/errors.md
+      - name: Data export
+        items:
+        - name: Workspace data export
+          href: logs/logs-data-export.md
+        - name: Export with Logic Apps
+          href: logs/logs-export-logic-app.md
+        - name: Query data with Azure Data Explorer
+          href: logs/azure-data-explorer-query-storage.md
+        - name: Send to Excel
+          href: logs/log-excel.md
   - name: Platform logs
     items:
     - name: Overview
@@ -521,6 +551,8 @@ items:
       items:  
       - name: Manage log alerts
         href: alerts/alerts-log.md
+      - name: Edit log alerts created in previous versions
+        href: alerts/alerts-manage-alerts-previous-version.md
       - name: Optimizing alert queries
         href: alerts/alerts-log-query.md
       - name: Using Resource Manager template
@@ -973,7 +1005,7 @@ items:
         displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
         href: app/sampling.md
       - name: TelemetryChannels
-        dispayname: in memory, server telemetry channel, channel, inmemory, servertelemetry 
+        displayName: in memory, server telemetry channel, channel, inmemory, servertelemetry 
         href: app/telemetry-channels.md
       - name: TelemetryProcessors
         displayName: processors, filtering, telemetry filtering, telemetry processor

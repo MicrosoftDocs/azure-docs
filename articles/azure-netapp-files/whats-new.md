@@ -11,17 +11,34 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.date: 12/09/2021
-ms.author: b-hchen
+ms.date: 01/14/2022
+ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+## January 2022
+
+* [LDAP search scope](configure-ldap-extended-groups.md#ldap-search-scope)
+
+    You might be using the Unix security style with a dual-protocol volume or LDAP with extended groups features in combination with large LDAP topologies. In this case, you might encounter "access denied" errors on Linux clients when interacting with such Azure NetApp Files volumes. You can now use the  **LDAP Search Scope** option to specify the LDAP search scope to avoid "access denied" errors. 
+
+* [Active Directory Domain Services (ADDS) LDAP user-mapping with NFS extended groups](configure-ldap-extended-groups.md) now generally available (GA)
+
+    The ADDS LDAP user-mapping with NFS extended groups feature is now generally available. You no longer need to register the feature before using it.
+
 ## December 2021
+
+* [NFS protocol version conversion](convert-nfsv3-nfsv41.md) (Preview) 
+
+    In some cases, you might need to transition from one NFS protocol version to another. For instance, when you want an existing NFS NFSv3 volume to take advantage of NFSv4.1 features, you might want to convert the protocol version from NFSv3 to NFSv4.1. Likewise, you might want to convert an existing NFSv4.1 volume to NFSv3 for performance or simplicity reasons. Azure NetApp Files now provides an option that enables you to convert an NFS volume between NFSv3 and NFSv4.1, without requiring creation of new volumes and performing data copies. The conversion operations preserve the data and update the volume export policies as part of the operation.    
+
+* [Single-file snapshot restore](snapshots-restore-file-single.md) (Preview)
+
+    Azure NetApp Files provides ways to quickly restore data from snapshots (mainly at the volume level). See [How Azure NetApp Files snapshots work](snapshots-introduction.md). Options for user file self-restore are available via client-side data copy from the `~snapshot` (Windows) or `.snapshot` (Linux) folders. These operations require data (files and directories) to traverse the network twice (upon read and write). As such, the operations are not time and resource efficient, especially with large data sets. If you do not want to restore the entire snapshot to a new volume, revert a volume, or copy large files across the network, you now have the option to use the single-file snapshot restore feature to restore individual files directly on the service from a volume snapshot without requiring data copy using an external client. This approach will drastically reduce RTO and network resource usage when restoring large files.
 
 * Features that are now generally available (GA)  
 

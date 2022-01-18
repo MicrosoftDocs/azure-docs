@@ -8,7 +8,7 @@ ms.date: 8/5/2021
 ms.author: madsd
 ms.custom: seodec18
 ---
-# Use an App Service Environment
+# Manage an App Service Environment
 > [!NOTE]
 > This article is about the App Service Environment v2 which is used with Isolated App Service plans
 > 

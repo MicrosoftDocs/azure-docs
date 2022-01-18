@@ -4,12 +4,12 @@ description: Information on how to configure group claims for use with Azure AD.
 services: active-directory
 documentationcenter: ''
 ms.reviewer: paulgarn
-manager: daveba
+manager: karenhoran
 ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 01/05/2022
 ms.author: billmath
 author: billmath
 ---
@@ -25,7 +25,7 @@ Azure Active Directory can provide a users group membership information in token
 > There are a number of caveats to note for this functionality:
 >
 > - Support for use of sAMAccountName and security identifier (SID) attributes synced from on-premises is designed to enable moving existing applications from AD FS and other identity providers. Groups managed in Azure AD do not contain the attributes necessary to emit these claims.
-> - In larger organizations the number of groups a user is a member of may exceed the limit that Azure Active Directory will add to a token. 150 groups for a SAML token, and 200 for a JWT. This can lead to unpredictable results. If your users have large numbers of group memberships, we recommend using the option to restrict the groups emitted in claims to the relevant groups for the application.
+> - In larger organizations the number of groups a user is a member of may exceed the limit that Azure Active Directory will add to a token. 150 groups for a SAML token, and 200 for a JWT. This can lead to unpredictable results. If your users have large numbers of group memberships, we recommend using the option to restrict the groups emitted in claims to the relevant groups for the application. If for any reason assigning groups to your applications is not possible, we also provide the option of configuring a [group filter](#group-filtering) which can also reduce the number of groups emitted in the claim. 
 > - Group claims have a 5-group limit if the token is issued through the implicit flow. Tokens requested via the implicit flow will only have a "hasgroups":true claim if the user is in more than 5 groups.
 > - For new application development, or in cases where the application can be configured for it, and where nested group support isn't required, we recommend that in-app authorization is based on application roles rather than groups.  This limits the amount of information that needs to go into the token, is more secure, and separates user assignment from app configuration.
 
@@ -109,6 +109,7 @@ See the document [Assign a user or group to an enterprise app](../../active-dire
 
 ### Advanced options
 
+#### Customize group claim name
 The way group claims are emitted can be modified by the settings under Advanced options
 
 Customize the name of the group claim:  If selected, a different claim type can be specified for group claims.   Enter the claim type in the Name field and the optional namespace for the claim in the namespace field.
@@ -121,6 +122,31 @@ Some applications require the group membership information to appear in the 'rol
 
 > [!NOTE]
 > If the option to emit group data as roles is used, only groups will appear in the role claim.  Any Application Roles the user is assigned will not appear in the role claim.
+
+#### Group filtering
+Group filtering allows for fine grain control of the list of groups that is included as part of the group claim. When a filter is configured, only groups that match the filter will be included in the groups claim sent to that application. The filter will be applied against all groups regardless of the group hierarchy. 
+Filters can be configured to be applied to the group’s display name or SAMAccountName and the following filtering operations are supported: 
+
+ - Prefix: Matches the start of the attribute selected. 
+ - Suffix: Matches the end of the attribute selected. 
+ - Contains: Matches any location in the attribute selected. 
+
+ ![Screenshot of filtering](media/how-to-connect-fed-group-claims/group-filter-1.png)
+
+#### Group transformation
+Some applications might require the groups in a different format to how they are represented in Azure AD. To support this, you can apply a transformation to each group that will be emitted in the group claim. This is achieved by allowing the configuration of a regex and a replacement value on custom group claims. 
+
+ ![Screenshot of group transformation](media/how-to-connect-fed-group-claims/group-transform-1.png)\
+
+ - **Regex Pattern**:  Use a regular expression (regex) to parse text strings according to the pattern you will set in this field. If the pattern you outline in a regex pattern evaluates to true, then we will run the regex replacement pattern you will outline below.  
+ - **Regex replacement pattern**:  Here, outline in regular expressions (regex) notation how you would like to replace your string if your regex pattern outlined above evaluates to true. Use capture groups to match subexpressions in this replace regular expression. 
+
+For more information about regex replace and capture groups, see [The Regular Expression Engine - The Captured Group](/dotnet/standard/base-types/the-regular-expression-object-model?WT.mc_id=Portal-fx#the-captured-group).
+
+>[!NOTE]
+> As per the Azure AD documentation a restricted claim cannot be modified using policy. The data source cannot be changed, and no transformation is applied when generating these claims. The "Groups" claim is still a restricted claim, hence you need to customize the groups by changing the name, if you select a restricted name for the name of your custom group claim then the claim will be ignored at runtime. 
+>
+>The regex transform feature can also be used as a filter since any groups that don’t match the regex pattern will not be emitted in the resulting claim. 
 
 ### Edit the group claims configuration
 

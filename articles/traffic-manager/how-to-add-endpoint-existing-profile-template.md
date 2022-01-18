@@ -34,7 +34,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 One Azure resource is defined in the template:
 
-* [**Microsoft.Network/trafficManagerProfiles/ExternalEndpoints**](/azure/templates/microsoft.network/trafficmanagerprofiles/externalendpoints)
+* [**Microsoft.Network/trafficManagerProfiles/ExternalEndpoints**](/azure/templates/microsoft.network/trafficmanagerprofiles)
 
 To find more templates that are related to Azure Traffic Manager, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
@@ -62,7 +62,7 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
 
     The template deployment adds another endpoint based on your inputs to an existing profile. 
 
-    The resource group name is the project name with **rg** appended.
+    The resource group name is the existing resource group that contains the existing profile.
 
     > [!NOTE]
     > **existingTMProfileName** must match your existing profile name in order for the template to deploy successfully. If deployment fails, start over with Step 1.

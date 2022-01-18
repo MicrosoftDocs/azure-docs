@@ -24,9 +24,9 @@ This article outlines the process to register an Azure Data Lake Storage Gen2 da
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Purview resource](create-catalog-portal.md).
+* An active [Azure Purview resource](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
@@ -36,13 +36,13 @@ This section will enable you to register the ADLS Gen2 data source and set up an
 
 It is important to register the data source in Azure Purview prior to setting up a scan for the data source.
 
-1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Purview accounts** page and select your _Purview account_
+1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Azure Purview accounts** page and select your _Purview account_
 
-    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-purview-acct.png" alt-text="Screenshot that shows the Purview account used to register the data source":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-purview-acct.png" alt-text="Screenshot that shows the Azure Purview account used to register the data source":::
 
-1. **Open Purview Studio** and navigate to the **Data Map --> Sources**
+1. **Open Azure Purview Studio** and navigate to the **Data Map --> Sources**
 
-    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-open-purview-studio.png" alt-text="Screenshot that shows the link to open Purview Studio":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-open-purview-studio.png" alt-text="Screenshot that shows the link to open Azure Purview Studio":::
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sources.png" alt-text="Screenshot that navigates to the Sources link in the Data Map":::
 
@@ -91,7 +91,7 @@ The following options are supported:
 
 #### Using a system or user assigned managed identity for scanning
 
-It is important to give your Purview account or user-assigned managed identity (UAMI) the permission to scan the ADLS Gen2 data source. You can add your Purview account's system-assigned managed identity (which has the same name as your Purview account) or UAMI at the Subscription, Resource Group, or Resource level, depending on what level scan permissions are needed.
+It is important to give your Azure Purview account or user-assigned managed identity (UAMI) the permission to scan the ADLS Gen2 data source. You can add your Azure Purview account's system-assigned managed identity (which has the same name as your Azure Purview account) or UAMI at the Subscription, Resource Group, or Resource level, depending on what level scan permissions are needed.
 
 > [!Note]
 > You need to be an owner of the subscription to be able to add a managed identity on an Azure resource.
@@ -104,9 +104,9 @@ It is important to give your Purview account or user-assigned managed identity (
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-access-control.png" alt-text="Screenshot that shows the access control for the storage account":::
 
-1. Set the **Role** to **Storage Blob Data Reader** and enter your _Azure Purview account name_ or _[user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity)_ under the **Select** input box. Then, select **Save** to give this role assignment to your Purview account.
+1. Set the **Role** to **Storage Blob Data Reader** and enter your _Azure Purview account name_ or _[user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity)_ under the **Select** input box. Then, select **Save** to give this role assignment to your Azure Purview account.
 
-    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-assign-permissions.png" alt-text="Screenshot that shows the details to assign permissions for the Purview account":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-assign-permissions.png" alt-text="Screenshot that shows the details to assign permissions for the Azure Purview account":::
 
 > [!Note]
 > For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
@@ -155,7 +155,7 @@ When authentication method selected is **Account Key**, you need to get your acc
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-secret.png" alt-text="Screenshot that shows the key vault option to create a secret":::
 
-1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. If your key vault is not connected to Azure Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to set up your scan
 
 #### Using Service Principal for scanning
@@ -185,13 +185,13 @@ It is important to give your service principal the permission to scan the ADLS G
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-access-control.png" alt-text="Screenshot that shows the access control for the storage account":::
 
-1. Set the **Role** to **Storage Blob Data Reader** and enter your _service principal_ under **Select** input box. Then, select **Save** to give this role assignment to your Purview account.
+1. Set the **Role** to **Storage Blob Data Reader** and enter your _service principal_ under **Select** input box. Then, select **Save** to give this role assignment to your Azure Purview account.
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sp-permission.png" alt-text="Screenshot that shows the details to provide storage account permissions to the service principal":::
 
 ### Create the scan
 
-1. Open your **Purview account** and select the **Open Purview Studio**
+1. Open your **Azure Purview account** and select the **Open Azure Purview Studio**
 1. Navigate to the **Data map** --> **Sources** to view the collection hierarchy
 1. Select the **New Scan** icon under the **ADLS Gen2 data source** registered earlier
 
@@ -259,7 +259,7 @@ Follow this configuration guide to [enable access policies on an Azure Storage a
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)
