@@ -11,7 +11,7 @@ ms.topic: reference
 author: vladai78
 ms.author: vladiv
 ms.reviewer: mathoma, vladiv, sachinp, wiassaf
-ms.date: 10/18/2021
+ms.date: 01/18/2022
 ---
 # Overview of Azure SQL Managed Instance resource limits
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -108,7 +108,7 @@ SQL Managed Instance has two service tiers: [General Purpose](../database/servic
 | Storage IO latency (approximate) | 5-10 ms | 1-2 ms |
 | In-memory OLTP | Not supported | Available, [size depends on number of vCore](#in-memory-oltp-available-space) |
 | Max sessions | 30000 | 30000 |
-| Max concurrent workers (requests) | 105 * number of vCores + 800 | 105 * vCore count + 800 |
+| Max concurrent workers | 105 * number of vCores + 800 | 105 * vCore count + 800 |
 | [Read-only replicas](../database/read-scale-out.md) | 0 | 1 (included in price) |
 | Compute isolation | Not supported as General Purpose instances may share physical hardware with other instances| **Standard-series (Gen5)**:<br/> Supported for 40, 64, 80 vCores<BR> **Premium-series**: Supported for 64, 80 vCores <BR> **Memory optimized premium-series**: Supported for 64 vCores |
 
@@ -241,7 +241,7 @@ The amount of In-memory OLTP space in [Business Critical](../database/service-ti
 | Storage IO latency (approximate) | Gen4: 5-10 ms | Gen4: 1-2 ms |
 | In-memory OLTP | Gen4: Not supported | Gen4: Available, [size depends on number of vCore](#in-memory-oltp-available-space) |
 | Max sessions | Gen4: 30000 | Gen4: 30000 |
-| Max concurrent workers (requests) | Gen4: 210 * number of vCores + 800 | Gen4: 210 * vCore count + 800 |
+| Max concurrent workers | Gen4: 210 * number of vCores + 800 | Gen4: 210 * vCore count + 800 |
 | [Read-only replicas](../database/read-scale-out.md) | Gen4: 0 | Gen4: 1 (included in price) |
 | Compute isolation | Gen4: not supported | Gen4: not supported |
 
