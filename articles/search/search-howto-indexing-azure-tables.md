@@ -22,11 +22,11 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + [Azure Table Storage](../storage/tables/table-storage-overview.md)
 
-+ Tables with entities containing non-binary data for text-based indexing
++ Tables with entities containing non-binary textual content for text-based indexing. This indexer also supports [AI enrichment](cognitive-search-concept-intro.md) if you have binary files.
 
 ## Define the data source
 
-A primary difference between a table indexer and other indexers is the data source assignment. The data source definition specifies the type ("type": `"azuretable"`) and how to connect.
+A primary difference between a table indexer and other indexers is the data source assignment. The data source definition specifies "type": `"azuretable"`, a content path, and how to connect.
 
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
@@ -41,29 +41,27 @@ A primary difference between a table indexer and other indexers is the data sour
 
 1. Set "type" to `"azuretable"` (required).
 
-1. Set "credentials" to the connection string. The following examples show commonly used connection strings for connections using shared access keys or a [system-managed identity](search-howto-managed-identities-storage.md). Additional examples are in the next section.
-
-   + `"connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;"`
-
-   + `"connectionString" : "ResourceId=/subscriptions/[your subscription ID]/[your resource ID]/providers/Microsoft.Storage/storageAccounts/[your storage account];"`
+1. Set "credentials" to an Azure Storage connection string. The next section describes the supported formats.
 
 1. Set "container" to the name of the table.
 
 1. Optionally, set "query" to a filter on PartitionKey. This is a best practice that improves performance. If "query" is specified any other way, the indexer will execute a full table scan, resulting in poor performance if the tables are large.
 
-> [!TIP]
-> The Import data wizard will build a data source for you, including a valid connection string for system-assigned and shared key credentials. If you have trouble setting up the connection programmatically, [use the wizard](search-get-started-portal.md) as a syntax check. 
+A data source definition can also include additional properties for [soft deletion policies](#soft-delete-using-custom-metadata) and [field mappings](search-indexer-field-mappings.md) if field names and types are not the same.
 
 <a name="Credentials"></a>
 
-### Credentials for Table Storage
+### Supported credentials and connection strings
 
-You can provide the credentials for the connection in one of these ways: 
+Indexers can connect to a table using the following connections.
+
+**Full access storage account connection string**:
+`{ "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }`
+
+You can get the connection string from the Storage account page in Azure portal by selecting **Access keys** in the left navigation pane. Make sure to select a full connection string and not just a key.
 
 + **Managed identity connection string**: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;` 
 This connection string does not require an account key, but you must follow the instructions for [Setting up a connection to an Azure Storage account using a managed identity](search-howto-managed-identities-storage.md).
-
-+ **Full access storage account connection string**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` You can get the connection string from the Azure portal by going to the **Storage account blade** > **Settings** > **Keys** (for classic storage accounts) or **Settings** > **Access keys** (for Azure Resource Manager storage accounts).
 
 + **Storage account shared access signature connection string**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` The shared access signature should have the list and read permissions on containers (tables in this case) and objects (table rows).
 
@@ -74,54 +72,54 @@ For more information on storage shared access signatures, see [Using shared acce
 > [!NOTE]
 > If you use shared access signature credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration or the indexer will fail with a "Credentials provided in the connection string are invalid or have expired" message.
 
-## Define fields in a search index
+## Add search fields to an index
+
+In a [search index](search-what-is-an-index.md), add fields to accept the content and metadata of your table entities.
 
 1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store content from entities:
 
     ```http
-    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
-    
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30 
     {
-            "name" : "my-target-index",
-            "fields": [
-            { "name": "key", "type": "Edm.String", "key": true, "searchable": false },
+        "name" : "my-search-index",
+        "fields": [
+            { "name": "ID", "type": "Edm.String", "key": true, "searchable": false },
             { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
-            ]
+        ]
     }
     ```
-
-1. Check for field correspondence between entity fields and search fields. If names and types don't match, [add field mappings](search-indexer-field-mappings.md) to the indexer definition to ensure the source-to-destination path is clear.
 
 1. Create a key field, but do not define field mappings to alternative unique strings in the table. 
 
    A table indexer will populate the key field with concatenated partition and row keys from the table. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then the `Key` field's value is `PK1RK1`. If the partition key is null, just the row key is used.
 
-## Set properties on the indexer
+1. Create additional fields that correspond to entity fields. Using the same names and compatible [data types](/rest/api/searchservice/supported-data-types) minimizes the need for [field mappings](search-indexer-field-mappings.md).
 
-[Create Indexer](/rest/api/searchservice/create-indexer) connects a data source with a target search index and provides a schedule to automate the data refresh. 
+## Configure the table indexer
 
-An indexer definition for Table Storage uses the global properties for data source, index, [schedule](search-howto-schedule-indexers.md), mapping functions for base-64 encoding, and any field mappings.
+1. [Create or update an indexer](/rest/api/searchservice/create-indexer) to use the predefined data source and search index.
 
-```http
-POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
-Content-Type: application/json
-api-key: [admin key]
+    ```http
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+    {
+        "name" : "table-indexer",
+        "dataSourceName" : "my-table-datasource",
+        "targetIndexName" : "my-search-index",
+        "schedule" : { "interval" : "PT2H" }
+    }
+    ```
 
-{
-    "name" : "table-indexer",
-    "dataSourceName" : "table-datasource",
-    "targetIndexName" : "my-target-index",
-    "schedule" : { "interval" : "PT2H" }
-}
-```
+1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
 
 ## Change and deletion detection
 
-When you set up a table indexer to run on a schedule, it reindexes only new or updated rows, as determined by a row's `Timestamp` value. When indexing out of Azure Table Storage, you don’t have to specify a change detection policy. Incremental indexing is enabled for you automatically.
+After an initial search index is created, you might want subsequent indexer jobs to pick up only new and changed documents. Fortunately, content in Azure Storage is timestamped, which gives indexers sufficient information for determining what's new and changed automatically. For search content that originates from Azure Table Storage, the indexer keeps track of the entity's `Timestamp` timestamp and reindexes only new and changed content.
 
-To indicate that certain documents must be removed from the index, you can use a soft delete strategy. Instead of deleting a row, add a property to indicate that it's deleted, and set up a soft deletion detection policy on the data source. For example, the following policy considers that a row is deleted if the row has a property `IsDeleted` with the value `"true"`:
+Although change detection is a given, deletion detection is not. If you want to detect deleted entities, make sure to use a "soft delete" approach. If you delete the files outright in a table, corresponding search documents will not be removed from the search index.
+
+## Soft delete using custom metadata
+
+To indicate that certain documents must be removed from the search index, you can use a soft delete strategy. Instead of deleting an entity, add a property to indicate that it's deleted, and set up a soft deletion detection policy on the data source. For example, the following policy considers that an entity is deleted if it has an `IsDeleted` property set to `"true"`:
 
 ```http
 PUT https://[service name].search.windows.net/datasources?api-version=2020-06-30

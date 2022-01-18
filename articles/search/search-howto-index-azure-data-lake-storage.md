@@ -1,5 +1,5 @@
 ---
-title: Index data from Azure Data Lake Storage Gen2
+title: Azure Data Lake Storage Gen2 indexer
 titleSuffix: Azure Cognitive Search
 description: Set up an Azure Data Lake Storage Gen2 indexer to automate indexing of content and metadata for full text search in Azure Cognitive Search.
 
@@ -8,49 +8,43 @@ ms.author: gimondra
 manager: nitinme
 
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 10/01/2021
+ms.topic: how-to
+ms.date: 01/17/2022
 ---
 
 # Index data from Azure Data Lake Storage Gen2
 
-This article shows you how to configure an Azure Data Lake Storage Gen2 indexer to extract content and make it searchable in Azure Cognitive Search. This workflow creates a search index on Azure Cognitive Search and loads it with existing content extracted from Azure Data Lake Storage Gen2.
+This article shows you how to configure an Azure Data Lake Storage (ADLS) Gen2 indexer to extract content and make it searchable in Azure Cognitive Search. This workflow creates a search index on Azure Cognitive Search and loads it with existing content extracted from ADLS Gen2.
 
-Azure Data Lake Storage Gen2 is available through Azure Storage. When setting up an Azure storage account, you have the option to enable [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md). This allows the collection of content in an account to be organized into a hierarchy of directories and nested subdirectories. By enabling hierarchical namespace, you enable [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
+ADLS Gen2 is available through Azure Storage. When setting up an Azure Storage account, you have the option of enabling [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md) that organizes files into a hierarchy of directories and nested subdirectories. By enabling hierarchical namespace, you enable ADLS Gen2.
 
 Examples in this article use the portal and REST APIs. For examples in C#, see [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) on GitHub.
 
-## Supported access tiers
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing from Blob Storage.
 
-Data Lake Storage Gen2 [access tiers](../storage/blobs/access-tiers-overview.md) include hot, cool, and archive. Only hot and cool can be accessed by indexers.
+## Prerequisites
+
++ [ADLS Gen2](../storage/blobs/data-lake-storage-introduction.md) with [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md) enabled.
+
++ [Access tiers](../storage/blobs/access-tiers-overview.md) for ADLS Gen2 include hot, cool, and archive. Only hot and cool can be accessed by search indexers.
+
++ Blob content cannot exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
 
 ## Access control
 
-Data Lake Storage Gen2 implements an [access control model](../storage/blobs/data-lake-storage-access-control.md) that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). Access control lists are partially supported in Azure Cognitive Search scenarios:
+ADLS Gen2 implements an [access control model](../storage/blobs/data-lake-storage-access-control.md) that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). 
 
-+ Support for access control is enabled on indexer access to content in Data Lake Storage Gen2. For a search service that has a system or user-assigned managed identity, you can define role assignments that determine indexer access to specific files and folders in Azure Storage.
-
-+ Support for document-level permissions on an index is not available. If your access controls vary the level of access on a per user basis, those permissions cannot be carried forward into a search index on your search service. All users have the same level of access to all searchable and retrievable content in the index.
-
-If maintaining access control on each document in the index is important, it is up to the application developer to implement [security trimming](./search-security-trimming-for-azure-search.md).
+Azure Cognitive Search supports [Azure RBAC for indexer access](search-howto-managed-identities-storage.md) to your content in storage, but it does not support document-level permissions. In Azure Cognitive Search, all users have the same level of access to all searchable and retrievable content in the index. If document-level permissions are an application requirement, consider [security trimming](search-security-trimming-for-azure-search.md) as a workaround.
 
 <a name="SupportedFormats"></a>
 
 ## Supported document formats
 
-The Azure Cognitive Search blob indexer can extract text from the following document formats:
+The ADLS Gen2 indexer can extract text from the following document formats:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-## Indexing through the Azure portal
-
-The Azure portal supports importing data from Azure Data Lake Storage Gen2. To import data from Data Lake Storage Gen2, navigate to your Azure Cognitive Search service page in the Azure portal, select **Import data**, select **Azure Data Lake Storage Gen2**, then continue to follow the Import data flow to create your data source, skillset, index, and indexer.
-
-## Indexing with the REST API
-
-The Data Lake Storage Gen2 indexer is supported by the REST API. Follow the instructions below to set up a data source, index, and indexer.
-
-### Step 1 - Create the data source
+## Define the data source
 
 The data source definition specifies the data source type, as well as other properties for authentication and connection to the content to be indexed.
 
@@ -72,7 +66,7 @@ The `"credentials"` property can be a connection string, as shown in the above e
 
 <a name="Credentials"></a>
 
-#### Credentials
+### Supported credentials and connection strings
 
 You can provide the credentials for the container in one of these ways:
 
@@ -309,7 +303,7 @@ If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters 
 
 ### Add "skip" metadata the blob
 
-The indexer configuration parameters apply to all blobs in the container or folder. Sometimes, you want to control how *individual blobs* are indexed. You can do this by adding the following metadata properties and values to blobs in Blob storage. When the indexer encounters this properties, it will skip the blob or its content in the indexing run.
+The indexer configuration parameters apply to all blobs in the container or folder. Sometimes, you want to control how *individual blobs* are indexed. You can do this by adding the following metadata properties and values to blobs in Blob storage. When the indexer encounters this property, it will skip the blob or its content in the indexing run.
 
 | Property name | Property value | Explanation |
 | ------------- | -------------- | ----------- |
