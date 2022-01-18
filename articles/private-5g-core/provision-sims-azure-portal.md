@@ -17,7 +17,7 @@ Each SIM resource represents a physical SIM or eSIM that will be served by the p
 
 - Ensure you can sign in to the Azure Portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
 - Identify the name of the Mobile Network resource corresponding to your private mobile network.
-- For each SIM you want to provision, decide whether you want to assign a SIM policy to it. If you do, you must have already created the relevant SIM policies using the instructions in [Configure a SIM policy - Azure portal](configure-a-sim-policy-azure-portal). Note that SIMs will not be able to access your private mobile network unless they have an assigned SIM policy.
+- For each SIM you want to provision, decide whether you want to assign a SIM policy to it. If you do, you must have already created the relevant SIM policies using the instructions in [Configure a SIM policy - Azure portal](configure-sim-policy-azure-portal). Note that SIMs will not be able to access your private mobile network unless they have an assigned SIM policy.
 - Decide on the method you'll use to provision SIMs. You can choose from the following.
   - Manually entering each provisioning value into fields in the Azure portal. This option is best if you're provisioning a small number of SIMs.
   - Importing a JSON file containing values for one or more SIM resources. This option is best if you're provisioning a large number of SIMs. You'll need a good JSON editor if you want to use this option.
@@ -37,7 +37,7 @@ To begin, collect the values in the following table for each SIM you want to pro
 
 ## If applicable, create the JSON file
 
-You'll only need to carry out this step if you decided in [Prerequisites](#prerequisites) that you wanted to use a JSON file to provision your SIMs. Otherwise, you can skip to [Provision the SIMs](#provision-the-sims).
+You'll only need to carry out this step if you decided in [Prerequisites](#prerequisites) that you wanted to use a JSON file to provision your SIMs. Otherwise, you can skip to [Begin provisioning the SIMs in the Azure portal](#begin-provisioning-the-sims-in-the-azure-portal).
 
 Prepare the JSON file using the information you collected for your SIMs in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims). The following is an example of the file format, containing the parameters to provision two SIMs (`SIM1` and `SIM2`).
 
@@ -89,7 +89,7 @@ In this step, you'll enter provisioning values for your SIMs directly into the A
 
 1. You will now see details of your new SIM resource.
 
-    :::image type="content" source="media/provision-sims-azure-portal/new-sim-resource.png" alt-text="Screenshot of the Azure portal showing a completed deployment of a SIM resource and the Go to resource button.":::
+    :::image type="content" source="media/provision-sims-azure-portal/new-sim-resource.png" alt-text="Screenshot of the Azure portal showing the configuration a new SIM resource.":::
 
 1. Repeat this entire step for any other SIMs that you want to provision.
 1. If you decided in [Prerequisites](#prerequisites) that you wanted to assign a SIM policy to any of your provisioned SIMs, move to [Optionally, assign a SIM policy](#optionally-assign-a-sim-policy). Otherwise, you've finished your provisioning.

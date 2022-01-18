@@ -107,18 +107,18 @@ When you first come to design the policy control configuration for your own priv
 
 1. Provision your SIMs as described in [Provision SIMs - Azure portal](provision-sims-azure-portal.md). You don't need to assign a SIM policy to these SIMs at this point.
 1. Identify the SDFs your private mobile network will need to handle.
-1. Familiarize yourself with the each of the customizable options for a service using the information in [Collect the required information for a service](collect-required-information-for-a-service.md). Compare these with the requirements of the SDFs to decide on the services you'll need.
-1. Collect the appropriate QoS and traffic control configuration values you will need for each service, using the information in [Collect the required information for a service](collect-required-information-for-a-service.md).
-1. Configure each of your services as described in [Configure a service - Azure portal](configure-a-service-azure-portal).
+1. Familiarize yourself with the each of the customizable options for a service using the information in [Collect the required information for a service](collect-required-information-for-service.md). Compare these with the requirements of the SDFs to decide on the services you'll need.
+1. Collect the appropriate QoS and traffic control configuration values you will need for each service, using the information in [Collect the required information for a service](collect-required-information-for-service.md).
+1. Configure each of your services as described in [Configure a service - Azure portal](configure-service-azure-portal).
 1. Group your SIMs according to the services they will require. For each group, configure a SIM policy and assign it to the correct SIMs by carrying out the following procedures.
 
-    - [Collect the required information for a SIM policy](collect-required-information-for-a-sim-policy.md)
-    - [Configure a SIM policy - Azure portal](configure-a-sim-policy-azure-portal)
+    - [Collect the required information for a SIM policy](collect-required-information-for-sim-policy.md)
+    - [Configure a SIM policy - Azure portal](configure-sim-policy-azure-portal)
 
 1. Optionally, activate the SIMs to allow them to use the private mobile network.
 
 ## Next steps
 
 - [Learn how to create an example set of policy control configuration](tutorial-create-an-example-set-of-policy-control-configuration.md)
-- [Familiarize yourself with each of the configurable settings for a service](collect-required-information-for-a-service.md)
-- [Familiarize yourself with each of the configurable settings for a SIM policy](collect-required-information-for-a-sim-policy.md)
+- [Familiarize yourself with each of the configurable settings for a service](collect-required-information-for-service.md)
+- [Familiarize yourself with each of the configurable settings for a SIM policy](collect-required-information-for-sim-policy.md)
