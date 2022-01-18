@@ -21,7 +21,7 @@ Speech Synthesis Markup Language (SSML) is an XML-based markup language that let
 The Speech service implementation of SSML is based on World Wide Web Consortium's [Speech Synthesis Markup Language Version 1.0](https://www.w3.org/TR/2004/REC-speech-synthesis-20040907/).
 
 > [!IMPORTANT]
-> Chinese, Japanese, and Korean characters count as two characters for billing. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Each Chinese characters are counted as two characters for billing, including Kanji used in Japanese, Hanja used in Korean, or Hanzi used in other languages. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ## Prebuilt neural voice and custom neural voice
 
@@ -712,8 +712,6 @@ Pitch changes can be applied at the sentence level.
 | `interpret-as` | Indicates the content type of element's text. For a list of types, see the table below. | Required |
 | `format` | Provides additional information about the precise formatting of the element's text for content types that might have ambiguous formats. SSML defines formats for content types that use them (see table below). | Optional |
 | `detail` | Indicates the level of detail to be spoken. For example, this attribute might request that the speech synthesis engine pronounce punctuation marks. There are no standard values defined for `detail`. | Optional |
-
-<!-- I don't understand the last sentence. Don't we know which one Cortana uses? -->
 
 The following are the supported content types for the `interpret-as` and `format` attributes. Include the `format` attribute only if `interpret-as` is set to date and time.
 
