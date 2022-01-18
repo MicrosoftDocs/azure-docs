@@ -7,7 +7,7 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 01/16/2022
 ms.author: yuajia
-zone_pivot_groups: front-door-skus
+zone_pivot_groups: front-door-tiers
 ---
 
 # Azure Front Door rules match conditions
