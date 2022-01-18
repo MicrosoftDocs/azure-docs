@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: kendralittle, mathoma, vanto
-ms.date: 01/5/2022
+ms.date: 01/18/2022
 ---
 
 # Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance

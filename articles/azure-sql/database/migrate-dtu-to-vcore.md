@@ -9,7 +9,7 @@ ms.custom: sqldbrb=1
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma, moslake
-ms.date: 07/26/2021
+ms.date: 01/18/2022
 ---
 # Migrate Azure SQL Database from the DTU-based model to the vCore-based model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
