@@ -22,7 +22,7 @@ workspace to a different subscription. Applicable scenarios include:
  * Move workspace to a subscription with more available quota
  * Move workspace to a subscription with different cost center
  
-Workspace move enables you to migrate your workspace and its contents in a single automated step.
+Workspace move enables you to migrate your workspace and its contents in a single automated step. The moved workspace contents include datasets, experiment runs, environments, models and other assets in the workspace, but not computes or endpoints.
 
 > [!IMPORTANT]	
 > Workspace move is currently in public preview. This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 	
