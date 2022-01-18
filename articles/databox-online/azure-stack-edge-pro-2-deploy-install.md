@@ -212,27 +212,25 @@ Take the following steps to cable your device for power and network.
 
 1. Identify the various ports on the back plane of your device. You may have received one of the following devices from the factory depending on the number of GPUs in your device.
 
-    - Device with two Peripheral Component Interconnect (PCI) slots and one GPU
+    ![Back plane of a cabled device](./media/azure-stack-edge-pro-2-deploy-install/ase-two-pci-slots.png)
 
-        ![Back plane of a cabled device](./media/azure-stack-edge-pro-2-deploy-install/ase-two-pci-slots.png)
-
-    2. Locate the disk slots and the power button on the front of the device.
+2. Locate the disk slots and the power button on the front of the device.
 
     ![Front plane of a device](./media/azure-stack-edge-pro-2-deploy-install/ase-gpu-device-front-plane-labeled.png)
 
-3. Connect the power cords to each of the PSUs in the enclosure. To ensure high availability, install and connect both PSUs to different power sources.
-4. Attach the power cords to the rack power distribution units (PDUs). Make sure that the two PSUs use separate power sources.
+3. Connect the power cord to the PSU in the enclosure. 
+4. Attach the power cord to the rack power distribution unit (PDU). 
 5. Press the power button to turn on the device.
-6. Connect the 1-GbE network interface PORT 1 to the computer that's used to configure the physical device. PORT 1 serves as the management interface.
+6. Connect the 10/1-GbE network interface PORT 1 to the computer that's used to configure the physical device. PORT 1 serves as the management interface for the initial configuration of the device.
     
     > [!NOTE]
     > If connecting the computer directly to your device (without going through a switch), use a crossover cable or a USB Ethernet adapter.
 
-7. Connect one or more of PORT 2, PORT 3, PORT 4, PORT 5, or PORT 6 to the datacenter network/Internet.
+7. Connect one or more of PORT 2, PORT 3, PORT 4 to the datacenter network/internet.
 
     - If connecting PORT 2, use the 1-GbE RJ-45 network cable.
-    - For the 10/25-GbE network interfaces, use the SFP+ copper cables or fiber. If using fiber, use an optical to SFP adapter.
-    - For Network Function Manager deployments, make sure that PORT 5 and PORT 6 are connected. For more information, see [Tutorial: Deploy network functions on Azure Stack Edge (Preview)](../network-function-manager/deploy-functions.md).
+    - For the 100-GbE network interfaces, use the QSFP28 passive direct attached cable (tested in-house).
+    <!-- How should we change this ASE Pro2 -- For Network Function Manager deployments, make sure that PORT 5 and PORT 6 are connected. For more information, see [Tutorial: Deploy network functions on Azure Stack Edge (Preview)](../network-function-manager/deploy-functions.md).-->
 
 ## Next steps
 
