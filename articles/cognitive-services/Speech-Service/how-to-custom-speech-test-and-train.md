@@ -160,9 +160,7 @@ The transcriptions for all WAV files are contained in a single plain-text file. 
 
 For example:
 
-<!-- The following example contains tabs. Don't accidentally convert these into spaces. -->
-
-```input
+```tsv
 speech01.wav	speech recognition is awesome
 speech02.wav	the quick brown fox jumped all over the place
 speech03.wav	the lazy dog was not amused

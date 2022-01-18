@@ -24,7 +24,7 @@ landingContent:
             url: core/overview-iot-central-tour.md
       - linkListType: quickstart
         links:
-          - text: Create a new application
+          - text: Connect your first device
             url: core/quick-deploy-iot-central.md
       - linkListType: architecture
         links:

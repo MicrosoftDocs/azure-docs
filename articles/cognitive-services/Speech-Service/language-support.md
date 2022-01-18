@@ -23,13 +23,6 @@ Both the Microsoft Speech SDK and the REST API support the following languages (
 
 To improve accuracy, customization is available for some languages and baseline model versions by uploading **Audio + Human-labeled Transcripts**, **Plain Text**, **Structured Text**, and **Pronunciation**. By default, Plain Text customization is supported for all available baseline models. To learn more about customization, see [Get started with Custom Speech](./custom-speech-overview.md).
 
-<!--
-To get the AM and ML bits:
-https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetSupportedLocalesForModels
-
-To get pronunciation bits:
-https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
--->
 
 | Language                          | Locale (BCP-47) | Customizations                                                  |
 |-----------------------------------|-----------------|-----------------------------------------------------------------|
@@ -168,8 +161,8 @@ Below table lists out the prebuilt neural voices supported in each language. You
 | Arabic (Egypt) | `ar-EG` | Male | `ar-EG-ShakirNeural` | General |
 | Arabic (Iraq) | `ar-IQ` | Female | `ar-IQ-RanaNeural` <sup>New</sup>  | General |
 | Arabic (Iraq) | `ar-IQ` | Male | `ar-IQ-BasselNeural` <sup>New</sup>  | General |
-| Arabic (Jordan) | `ar-JO` | Female | `ar-JO-Sana Neural` <sup>New</sup>  | General |
-| Arabic (Jordan) | `ar-JO` | Male | `ar-JO-Taim Neural` <sup>New</sup>  | General |
+| Arabic (Jordan) | `ar-JO` | Female | `ar-JO-SanaNeural` <sup>New</sup>  | General |
+| Arabic (Jordan) | `ar-JO` | Male | `ar-JO-TaimNeural` <sup>New</sup>  | General |
 | Arabic (Kuwait) | `ar-KW` | Female | `ar-KW-NouraNeural` <sup>New</sup>  | General |
 | Arabic (Kuwait) | `ar-KW` | Male | `ar-KW-FahedNeural` <sup>New</sup>  | General |
 | Arabic (Libya) | `ar-LY` | Female | `ar-LY-ImanNeural` <sup>New</sup>  | General |
