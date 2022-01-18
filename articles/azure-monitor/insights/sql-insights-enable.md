@@ -4,7 +4,7 @@ description: Enable SQL insights in Azure Monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/5/2021
+ms.date: 1/18/2022
 ---
 
 # Enable SQL insights (preview)
@@ -226,6 +226,8 @@ Get the details from the **Connection strings** menu item for the managed instan
 To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string. SQL Insights supports monitoring of a single secondary. Collected data will be tagged to reflect Primary or Secondary. 
 
 #### SQL Server 
+The TCP/IP protocol must be enabled for the SQL Server instance you want to monitor. TCP connections from the monitoring machine to the IP address and port used by the SQL Server instance must be allowed by any firewalls or [network security groups](../virtual-network/network-security-groups-overview.md) (NSGs) that may exist on the network path.
+
 Enter the connection string in the form:
 
 ```
@@ -234,9 +236,21 @@ Enter the connection string in the form:
 ] 
 ```
 
-If your monitoring virtual machine is in the same VNET, use the private IP address of the Server.  Otherwise, use the public IP address. If you're using Azure SQL virtual machine, you can see which port to use here on the **Security** page for the resource.
+If your monitoring virtual machine is in the same VNET, use the private IP address of the Server. Otherwise, use the public IP address. 
+
+If your SQL Server instance is configured to listen on a non-default port, replace 1433 with that port number in the connection string. If you're using Azure SQL virtual machine, you can see which port to use on the **Security** page for the resource.
 
 :::image type="content" source="media/sql-insights-enable/sql-vm-security.png" alt-text="SQL virtual machine security" lightbox="media/sql-insights-enable/sql-vm-security.png":::
+
+For any SQL Server instance, you can determine all IP addresses and ports it is listening on by connecting to the instance and executing the following T-SQL query, as long as there is at least one TCP connection to the instance:
+
+```sql
+SELECT DISTINCT local_net_address, local_tcp_port
+FROM sys.dm_exec_connections
+WHERE net_transport = 'TCP'
+      AND
+      protocol_type = 'TSQL';
+```
 
 ## Monitoring profile created 
 
