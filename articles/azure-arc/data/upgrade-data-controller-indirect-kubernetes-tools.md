@@ -28,7 +28,7 @@ In this article, you will apply a .yaml file to:
 > Some of the data services tiers and modes are generally available and some are in preview.
 > If you install GA and preview services on the same data controller, you can't upgrade in place.
 > To upgrade, delete all non-GA database instances. You can find the list of generally available 
-> and preview services in the [Release Notes](/azure/azure-arc/data/release-notes).
+> and preview services in the [Release Notes](./release-notes.md).
 
 ## Prerequisites
 

@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 In Azure Cognitive Search, AI enrichment refers to a pipeline process that adds machine learning to [indexer-based indexing](search-indexer-overview.md). Steps in the pipeline create new information where none previously existed: extracting information from images, detecting sentiment or key phrases from chunks of text, and recognizing entities, to name a few. All of these processes result in making previously unsearchable content available to full text search and knowledge mining scenarios.
 
-Azure Blob Storage is the most commonly used input, but any indexer-supported data source can provide the initial content. A [**skillset**](cognitive-search-working-with-skillsets.md), attached to an indexer, adds the AI processing. The indexer extracts content and sets up the pipeline, while the skillset identifies, analyzes, and creates new information out of blobs, images, and raw text. Output is a [**search index**](search-what-is-an-index.md) or optional [**knowledge store**](knowledge-store-concept-intro.md).
+[**Azure Blob Storage**](../storage/blobs/storage-blobs-overview.md)) is the most commonly used input, but any indexer-supported data source can provide the initial content. A [**skillset**](cognitive-search-working-with-skillsets.md), attached to an indexer, adds the AI processing. The indexer extracts content and sets up the pipeline, while AI processing identifies, analyzes, and creates new information out of blobs, images, and raw text. Output is a [**search index**](search-what-is-an-index.md) or optional [**knowledge store**](knowledge-store-concept-intro.md).
 
 ![Enrichment pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "enrichment pipeline overview")
 
@@ -27,7 +27,7 @@ Built-in skills fall into these categories:
 
 + **Image processing** skills include [Optical Character Recognition (OCR)](cognitive-search-skill-ocr.md) and identification of [visual features](cognitive-search-skill-image-analysis.md), such as facial detection, image interpretation, image recognition (famous people and landmarks), or attributes like image orientation. These skills create text representations of image content for full text search in Azure Cognitive Search.
 
-+ **Natural language processing** skills include [entity recognition](cognitive-search-skill-entity-recognition-v3.md), [language detection](cognitive-search-skill-language-detection.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), text manipulation, [sentiment detection (including opinion mining)](cognitive-search-skill-sentiment-v3.md), and [personal identifiable information (PII) detection](cognitive-search-skill-pii-detection.md). With these skills, unstructured text is mapped as searchable and filterable fields in an index.
++ **Natural language processing** skills include [entity recognition](cognitive-search-skill-entity-recognition-v3.md), [language detection](cognitive-search-skill-language-detection.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), text manipulation, [sentiment detection (including opinion mining)](cognitive-search-skill-sentiment-v3.md), and [personal identifiable information detection](cognitive-search-skill-pii-detection.md). With these skills, unstructured text is mapped as searchable and filterable fields in an index.
 
 Built-in skills are based on pre-trained machine learning models in Cognitive Services APIs: [Computer Vision](../cognitive-services/computer-vision/index.yml) and [Language Service](../cognitive-services/language-service/overview.md). You should [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md) if you want these resources for larger workloads.
 
@@ -51,7 +51,7 @@ Additionally, you might consider adding a custom skill if you have open-source, 
 
 ### Use-cases for built-in skills
 
-A [skillset](cognitive-search-defining-skillset.md) that's assembled using built-in skills is well-suited for the following application scenarios:
+A [skillset](cognitive-search-defining-skillset.md) that's assembled using built-in skills is well suited for the following application scenarios:
 
 + [Optical Character Recognition (OCR)](cognitive-search-skill-ocr.md) that recognizes typeface and handwritten text in scanned documents (JPEG) is perhaps the most commonly used skill. Attaching the OCR skill will identify, extract, and ingest text from JPEG files.
 
