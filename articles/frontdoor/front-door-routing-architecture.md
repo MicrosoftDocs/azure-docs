@@ -10,17 +10,39 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2022
 ms.author: duau
+zone_pivot_groups: front-door-skus
 ---
 
 # Routing architecture overview
 
+::: zone pivot="front-door-standard-premium"
+
 Front Door traffic routing takes place over multiple stages. First, traffic is routed from the client to Front Door. Then, Front Door uses the configuration of your profile to determine the origin to send the traffic to. The Front Door web application firewall, rule set, and caching configuration all affect the routing process.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+Front Door traffic routing takes place over multiple stages. First, traffic is routed from the client to Front Door. Then, Front Door uses your configuration to determine the backend to send the traffic to. The Front Door web application firewall, rules engine, and caching configuration all affect the routing process.
+
+::: zone-end
 
 ## Routing process
 
 The following diagram illustrates the routing architecture:
 
+::: zone pivot="front-door-standard-premium"
+
 ![Flowchart illustrating the Front Door routing architecture, including each step and decision point.](media/front-door-routing-architecture/flowchart.png)
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+> [!IMPORTANT]
+> Note to reviewers: I will create a version of the diagram with the AFD Classic terminology (e.g. backend instead of origin). Please review the AFDX version and after that's reviewed I'll work on the alternate.
+
+::: zone-end
 
 The remainder of this article describes these steps in detail.
 
@@ -38,15 +60,43 @@ Front Door's architecture ensures that requests from your end users always reach
 
 [Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) is a technique to reduce latencies and TCP problems by breaking a connection that would incur a high round-trip time into smaller pieces.
 
+::: zone pivot="front-door-standard-premium"
+
 Split TCP enables the client's TCP connection to terminates inside a Front Door environment close to the user. A separate TCP connection is established to the origin, and this separate connection might have a large round-trip time (RTT). The diagram below illustrates how three users, in different geographical locations, will connect to a Front Door environment close to their location. Front Door then maintains the longer-lived connection to the origin in Europe:
 
 ![Diagram illustrating how Front Door uses a short TCP connection to the closest Front Door environment to the user, and a longer TCP connection to the origin.](media/front-door-routing-architecture/split-tcp.png)
 
-Establishing a TCP connection requires three roundtrips from the client to the server. Front Door's architecture improves the performance of establishing the connection. The "short connection" between the end user and the Front Door environment means the connection gets established over three short roundtrips instead of three long round trips, which results in saving latency. The "long connection" between the Front Door environment and the origin can be pre-established and then reused across other end users requests save connectivity time. The effect of Split TCP is multiplied when establishing a SSL/TLS (Transport Layer Security) connection as there are more round trips to secure a connection.
+> [!IMPORTANT]
+> Note to reviewers: This diagram will be redrawn by a designer. Please review the content/layout but not the style.
+
+Establishing a TCP connection requires three roundtrips from the client to the server. Front Door's architecture improves the performance of establishing the connection. The "short connection" between the end user and the Front Door environment means the connection gets established over three short roundtrips instead of three long round trips, which results in saving latency. The "long connection" between the Front Door environment and the origin can be pre-established and then reused across other end users requests save connectivity time. The effect of Split TCP is multiplied when establishing a SSL/TLS (Transport Layer Security) connection, because there are more round trips to secure a connection.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+Split TCP enables the client's TCP connection to terminates inside a Front Door environment close to the user. A separate TCP connection is established to the backend, and this separate connection might have a large round-trip time (RTT). The diagram below illustrates how three users, in different geographical locations, will connect to a Front Door environment close to their location. Front Door then maintains the longer-lived connection to the backend in Europe:
+
+> [!IMPORTANT]
+> Note to reviewers: I'll ask the designer to create an AFD Classic version of the diagram too. Please review the AFDX version.
+
+Establishing a TCP connection requires three roundtrips from the client to the server. Front Door's architecture improves the performance of establishing the connection. The "short connection" between the end user and the Front Door environment means the connection gets established over three short roundtrips instead of three long round trips, which results in saving latency. The "long connection" between the Front Door environment and the backend can be pre-established and then reused across other end users requests save connectivity time. The effect of Split TCP is multiplied when establishing a SSL/TLS (Transport Layer Security) connection, because there are more round trips to secure a connection.
+
+::: zone-end
 
 ## Match request to a Front Door profile
 
+::: zone pivot="front-door-standard-premium"
+
 When Front Door receives an HTTP request, it uses the request's `Host` header to match the request to the correct customer's Front Door profile. If the request is using a [custom domain name](front-door-custom-domain.md), the domain name must be registered with Front Door to enable requests to be matched to your profile.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+When Front Door receives an HTTP request, it uses the request's `Host` header to match the request to the correct customer's Front Door. If the request is using a [custom domain name](front-door-custom-domain.md), the domain name must be registered with Front Door to enable requests to be matched to your profile.
+
+::: zone-end
 
 The client and server perform a TLS handshake using the TLS certificate you've configured for your custom domain name, or by using the Front Door-provided wildcard certificate when the `Host` header ends with `*.azurefd.net`.
 
@@ -58,15 +108,53 @@ If your domain has enabled the Web Application Firewall, the WAF rules are evalu
 
 Front Door matches the request to a route. Learn more about the [route matching process](front-door-route-matching.md).
 
+::: zone pivot="front-door-standard-premium"
+
 The route specifies the [origin group](standard-premium/concept-origin.md) that the request should be sent to.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+The route specifies the [backend pool](front-door-backend-pool.md) that the request should be sent to.
+
+::: zone-end
+
+::: zone pivot="front-door-standard-premium"
 
 ## Evaluate rule sets
 
-If you have defined [rule sets](front-door-rules-engine.md) for the route, they're executed in the order they're configured. [Rule sets can override the origin group](front-door-rules-engine-actions.md#route-configuration-overrides) specified in a route. Rule sets can also trigger a redirection response to the request instead of forwarding it to an origin.
+If you have defined [rule sets](TODO) for the route, they're executed in the order they're configured. [Rule sets can override the origin group](front-door-rules-engine-actions.md#route-configuration-overrides) specified in a route. Rule sets can also trigger a redirection response to the request instead of forwarding it to an origin.
+
+<!-- TODO add zone pivots to link -->
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+## Evaluate rules engines
+
+If you have defined [rules engines](front-door-rules-engine.md) for the route, they're executed in the order they're configured. [Rules engines can override the origin group](front-door-rules-engine-actions.md#route-configuration-overrides) specified in a route. Rules engines can also trigger a redirection response to the request instead of forwarding it to an origin.
+
+<!-- TODO add zone pivots to link -->
+
+::: zone-end
 
 ## Return cached response
 
-If the Front Door route has enabled [caching](standard-premium/concept-caching.md) enabled, and the Front Door environment's cache includes a valid response for the request, then Front Door returns the cached response. If caching is disabled or no response is available, the request is forwarded to the origin.
+::: zone pivot="front-door-standard-premium"
+
+If the Front Door routing rule has enabled [caching](standard-premium/concept-caching.md) enabled, and the Front Door environment's cache includes a valid response for the request, then Front Door returns the cached response. If caching is disabled or no response is available, the request is forwarded to the origin.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+If the Front Door routing rule has enabled [caching](front-door-caching.md) enabled, and the Front Door environment's cache includes a valid response for the request, then Front Door returns the cached response. If caching is disabled or no response is available, the request is forwarded to the backend.
+
+::: zone-end
+
+::: zone pivot="front-door-standard-premium"
 
 ## Select origin
 
@@ -80,6 +168,36 @@ Front Door selects an origin to use within the origin group. Origin selection is
 
 Finally, the request is forwarded to the origin.
 
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+## Select backend
+
+Front Door selects an backend to use within the origin group. Backend selection is based on several factors, including:
+
+- The health of each backend, which Front Door monitors by using [health probes](front-door-health-probes.md).
+- The [routing method](front-door-routing-methods.md) for your backend pool.
+- Whether you have enabled [session affinity](front-door-routing-methods.md#affinity).
+
+## Forward request to backend
+
+Finally, the request is forwarded to the backend.
+
+::: zone-end
+
+<!-- TODO check links -->
+
 ## Next steps
 
+::: zone pivot="front-door-standard-premium"
+
+- TODO
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
 - Learn how to [create a Front Door](quickstart-create-front-door.md).
+
+::: zone-end
