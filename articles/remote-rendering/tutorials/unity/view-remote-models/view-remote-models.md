@@ -53,7 +53,7 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
 
 1. Select the **Main Camera** node.
 
-1. Open the context menu by right clicking on the *Transform* component and select the **Reset** option:
+1. Open the context menu by right-clicking on the *Transform* component and select the **Reset** option:
 
     ![reset camera transform](./media/camera-reset-transform.png)
 
@@ -98,7 +98,7 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
 1. Select **OpenXR** from the left list menu
     1. Set **Depth Submission Mode** to *Depth 16 Bit*
     1. Add the **Microsoft Hand Interaction Profile** to **Interaction Profiles**.
-    1. Enable these OpenXR feaures:
+    1. Enable these OpenXR features:
         * **Hand Tracking**
         * **Mixed Reality Features**
         * **Motion Controller Model**
