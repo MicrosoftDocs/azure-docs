@@ -22,9 +22,9 @@ ms.collection: M365-identity-device-management
 > Dynamic membership rules for administrative units are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Previously, you had to add users and devices to an administrative unit manually. With this preview, you can add or remove users or devices for administrative units dynamically using rules. This article describes how to create administrative units with dynamic membership rules using the Azure portal, PowerShell, or Microsoft Graph API.
+You can add or remove users or devices for administrative units manually. With this preview, you can add or remove users or devices for administrative units dynamically using rules. This article describes how to create administrative units with dynamic membership rules using the Azure portal, PowerShell, or Microsoft Graph API.
 
-Although administrative units with manually assigned members support multiple object types, such as user, group, and devices, it is currently not possible to create an administrative unit with dynamic membership rules that includes more than one object type. You can create administrative units with dynamic membership rules for users or devices, but not both. Administrative units with dynamic membership rules for groups are currently not supported.
+Although administrative units with members assigned manually support multiple object types, such as user, group, and devices, it is currently not possible to create an administrative unit with dynamic membership rules that includes more than one object type. For example, you can create administrative units with dynamic membership rules for users or devices, but not both. Administrative units with dynamic membership rules for groups are currently not supported.
 
 ## Prerequisites
 
@@ -76,10 +76,10 @@ Follow these steps to create administrative units with dynamic membership rules 
     Connect-AzureAD
     ```
   
-1. Use the [New-AzureADMSAdministrativeUnit](/powershell/module/azuread/new-azureadmsadministrativeunit) command with the following parameters:
+1. Use the [New-AzureADMSAdministrativeUnit](/powershell/module/azuread/new-azureadmsadministrativeunit) command to create a new administrative unit with a dynamic membership rule using the following parameters:
 
     - `MembershipType`: `Dynamic` or `Assigned`
-    - `MembershipRule`: The dynamic membership rule you created in a previous step
+    - `MembershipRule`: Dynamic membership rule you created in a previous step
     - `MembershipRuleProcessingState`: `On` or `Paused`
     
     ```powershell
@@ -91,7 +91,7 @@ Follow these steps to create administrative units with dynamic membership rules 
 
 1. Create a dynamic membership rule using the rule builder and then copy the syntax. For more information, see [Rule builder in the Azure portal](../enterprise-users/groups-dynamic-membership.md#rule-builder-in-the-azure-portal).
 
-1. Use the [Create administrativeUnit](/graph/api/administrativeunit-post-administrativeunits?view=graph-rest-beta&preserve-view=true) API to create a new administrative unit.
+1. Use the [Create administrativeUnit](/graph/api/administrativeunit-post-administrativeunits?view=graph-rest-beta&preserve-view=true) API to create a new administrative unit with a dynamic membership rule.
 
     The following shows an example of a dynamic membership rule that applies to all users.
 
