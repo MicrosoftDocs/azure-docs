@@ -1,6 +1,6 @@
 ---
-title: Create a Hyperscale server group from the Azure portal
-description: You can create an Azure Database for PostgreSQL Hyperscale server group from the Azure portal. You can enable this server group on Azure Arc.
+title: Create an Azure Arc-enabled PostgreSQL Hyperscale server group from the Azure portal
+description: You can create an Azure Arc-enabled PostgreSQL Hyperscale server group from the Azure portal.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,9 +11,9 @@ ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Create a Hyperscale server group from the Azure portal
+# Create an Azure Arc-enabled PostgreSQL Hyperscale server group from the Azure portal
 
-You can create an Azure Database for PostgreSQL Hyperscale server group from the Azure portal. You can enable this server group on Azure Arc. To do so, follow the steps in this article.
+You can create an Azure Arc-enabled PostgreSQL Hyperscale server group from the Azure portal. To do so, follow the steps in this article.
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
@@ -32,16 +32,16 @@ If you prefer to try things out without provisioning a full environment yourself
 
 ## Deploy an Azure Arc data controller
 
-Before you deploy a Hyperscale server group that you operate from the Azure portal, you must first deploy an Azure Arc data controller. You must configure the data controller to use the *direct* connectivity mode.
+Before you deploy an Azure Arc-enabled PostgreSQL Hyperscale server group that you operate from the Azure portal, you must first deploy an Azure Arc data controller. You must configure the data controller to use the *directly connected* mode.
 
 To deploy an Azure Arc data controller, complete the instructions in these articles:
 
-1. [Deploy data controller - direct connect mode (prerequisites)](create-data-controller-direct-prerequisites.md)
-1. [Deploy Azure Arc data controller in direct connect mode from Azure portal](create-data-controller-direct-azure-portal.md)
+1. [Deploy data controller - directly connected mode (prerequisites)](create-data-controller-direct-prerequisites.md)
+1. [Deploy Azure Arc data controller in directly connected mode from Azure portal](create-data-controller-direct-azure-portal.md)
 
 ## Temporary step for OpenShift users only
 
-If you're using Red Hat OpenShift, you must implement this step before moving to the next one. To deploy an Azure Database for PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, run the following command against your cluster. This command updates the security constraints and grants the necessary privileges to the service accounts that will run your Hyperscale server group. The security context constraint (SCC) called `arc-data-scc` is the one you added when you deployed the Azure Arc data controller.
+If you're using Red Hat OpenShift, you must implement this step before moving to the next one. To deploy an Azure Arc-enabled PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, run the following command against your cluster. This command updates the security constraints and grants the necessary privileges to the service accounts that will run your Hyperscale server group. The security context constraint (SCC) called `arc-data-scc` is the one you added when you deployed the Azure Arc data controller.
 
 ```Console
 oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace name>
@@ -51,11 +51,11 @@ oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace 
 
 For more details on SCCs in OpenShift, refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html). 
 
-## Deploy a Hyperscale server group from the Azure portal
+## Deploy an Azure Arc-enabled PostgreSQL Hyperscale server group from the Azure portal
 
-You have now deployed an Azure Arc data controller that uses the direct connectivity mode, as described earlier in the article. You can't operate a Hyperscale server group from the Azure portal if you deployed it to an Azure Arc data controller configured to use the *indirect* connectivity mode. 
+You have now deployed an Azure Arc data controller that uses the directly connected mode, as described earlier in the article. You can't operate an Azure Arc-enabled PostgreSQL Hyperscale server group from the Azure portal if you deployed it to an Azure Arc data controller configured to use the *indirectly connected* mode. 
 
-Next, you choose one the following options to deploy a Hyperscale server group that's enabled on Azure Arc.
+Next, you choose one the options in the following sections.
 
 ### Deploy from Azure Marketplace
 
@@ -85,17 +85,17 @@ Be aware of the following considerations when you're deploying:
 
   |You need   |Shape of the server group you will deploy   |Number of worker nodes to indicate   |Note   |
   |---|---|---|---|
-  |A scaled out form of Azure Database for PostgreSQL to satisfy the scalability needs of your applications.   |Three or more instances of Azure Database for PostgreSQL. One is the coordinator, and *n* are workers, with *n >=2*.   |*n*, with *n>=2*.   |The Citus extension that provides the Hyperscale capability is loaded.   |
-  |A basic form of Azure Database for PostgreSQL Hyperscale. You want to do functional validation of your application, at minimum cost. You don't need performance and scalability validation.   |One instance of Azure Database for PostgreSQL. The instance serves as both coordinator and worker.   |*0*, and add Citus to the list of extensions to load.   |The Citus extension that provides the Hyperscale capability is loaded.   |
-  |A simple instance of Azure Database for PostgreSQL that is ready to scale out when you need it.   |One instance of Azure Database for PostgreSQL. It isn't yet aware of the semantic for coordinator and worker. To scale it out after deployment, edit the configuration, increase the number of worker nodes, and distribute the data.   |*0*.   |The Citus extension that provides the Hyperscale capability is present on your deployment, but isn't yet loaded.   |
+  |A scaled out form of Azure Arc-enabled PostgreSQL Hyperscale to satisfy the scalability needs of your applications.   |Three or more instances of Azure Arc-enabled PostgreSQL Hyperscale. One is the coordinator, and *n* are workers, with *n >=2*.   |*n*, with *n>=2*.   |The Citus extension that provides the Hyperscale capability is loaded.   |
+  |A basic form of Azure Arc-enabled PostgreSQL Hyperscale. You want to do functional validation of your application, at minimum cost. You don't need performance and scalability validation.   |One instance of Azure Arc-enabled PostgreSQL Hyperscale. The instance serves as both coordinator and worker.   |*0*, and add Citus to the list of extensions to load.   |The Citus extension that provides the Hyperscale capability is loaded.   |
+  |A simple instance of Azure Arc-enabled PostgreSQL Hyperscale that is ready to scale out when you need it.   |One instance of Azure Arc-enabled PostgreSQL Hyperscale. It isn't yet aware of the semantic for coordinator and worker. To scale it out after deployment, edit the configuration, increase the number of worker nodes, and distribute the data.   |*0*.   |The Citus extension that provides the Hyperscale capability is present on your deployment, but isn't yet loaded.   |
   |   |   |   |   |
 
-  Although you can indicate *1* worker, it's not a good idea to do so. This deployment doesn't provide you with much value. With it, you get two instances of Azure Database for PostgreSQL: one coordinator and one worker. You don't scale out the data because you deploy a single worker. As such, you don't see an increased level of performance and scalability.
+  Although you can indicate *1* worker, it's not a good idea to do so. This deployment doesn't provide you with much value. With it, you get two instances of Azure Arc-enabled PostgreSQL Hyperscale: one coordinator and one worker. You don't scale out the data because you deploy a single worker. As such, you don't see an increased level of performance and scalability.
 
 - **The storage classes you want your server group to use.** It's important to set the storage class right at the time you deploy a server group. You can't change this setting after you deploy. If you don't indicate storage classes, you get the storage classes of the data controller by default.    
     - To set the storage class for the data, indicate the parameter `--storage-class-data` or `-scd`, followed by the name of the storage class.
     - To set the storage class for the logs, indicate the parameter `--storage-class-logs` or `-scl`, followed by the name of the storage class.
-    - To set the storage class for the backups, you either indicate a storage class or a volume claim mount. A *volume claim mount* is a pair of an existing persistent volume claim (in the same namespace) and a volume type (and optional metadata depending on the volume type), separated by colon. The persistent volume is mounted in each pod for the Azure Database for PostgreSQL server group.
+    - To set the storage class for the backups, you either indicate a storage class or a volume claim mount. A *volume claim mount* is a pair of an existing persistent volume claim (in the same namespace) and a volume type (and optional metadata depending on the volume type), separated by colon. The persistent volume is mounted in each pod for the Azure Arc-enabled PostgreSQL Hyperscale server group.
         - If you want to do only full database restores, set the parameter `--storage-class-backups` or `-scb`, followed by the name of the storage class.
         - If you want to do both full database restores and point-in-time restores, set the parameter `--volume-claim-mounts`, followed by the name of a volume claim and a volume type.
 
