@@ -81,6 +81,7 @@ Create a new datastore in a few steps with the Azure Machine Learning studio. Le
 The following example demonstrates what the form looks like when you create an **Azure blob datastore**:
 
 ![Form for a new datastore](media/how-to-connect-data-ui/new-id-based-datastore-form.png)
+
 ---
 
 ## Create datasets
