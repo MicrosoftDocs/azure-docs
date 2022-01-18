@@ -70,6 +70,9 @@ Certain machine learning scenarios involve training models with private data. In
 
 ## Storage access permissions
 
+> [!WARNING]
+>  Cross tenant access to storage accounts is not supported. If cross tenant access is needed for your scenario, please reach out to the [AzureML Data team]() for assistance with a custom code solution.
+
 To help ensure that you securely connect to your storage service on Azure, Azure Machine Learning requires that you have permission to access the corresponding data storage.
 
 Identity-based data access supports connections to only the following storage services:
