@@ -113,26 +113,28 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
     }
     ```
 
-1. Designate one string field as the document key that uniquely identifies each document. For blob content, the best candidates for a document key are metadata properties on the blob:
+1. Create a document key field ("key": true). For blob content, the best candidates are metadata properties on the blob:
 
-   + **`metadata_storage_path`** (default). Using the full path ensures uniqueness, but the path contains `/` characters that are [invalid in a document key](/rest/api/searchservice/naming-rules). Use the [base64Encode function](search-indexer-field-mappings.md#base64EncodeFunction) to encode characters (see the example in the next section). If using the portal to define the indexer, the encoding step is built in.
+   + **`metadata_storage_path`** (default). Using the full path ensures uniqueness, but the path contains `/` characters that are [invalid in a document key](/rest/api/searchservice/naming-rules), which requires encoding.
 
-   + **`metadata_storage_name`** is a candidate, but only if names are unique across all containers and folders you are indexing. When considering this option, watch for characters that are invalid for document keys, such as dashes. You can handle invalid characters by using the [base64Encode function](search-indexer-field-mappings.md#base64EncodeFunction) (see the example in the next section). If you do this, remember to also encode document keys when passing them in API calls such as [Lookup Document (REST)](/rest/api/searchservice/lookup-document). In .NET, you can use the [UrlTokenEncode method](/dotnet/api/system.web.httpserverutility.urltokenencode) to encode characters.
+   + **`metadata_storage_name`** is a candidate, but only if names are unique across all containers and folders you are indexing. When considering this option, watch for characters that are invalid for document keys, such as dashes. 
 
    + A custom metadata property that you add to blobs. This option requires that your blob upload process adds that metadata property to all blobs. Since the key is a required property, any blobs that are missing a value will fail to be indexed. If you use a custom metadata property as a key, avoid making changes to that property. Indexers will add duplicate documents for the same blob if the key property changes.
+
+1. If using metadata as the document key, handle unsupported characters by adding the [base64Encode function](search-indexer-field-mappings.md#base64EncodeFunction) in the data source definition.
+
+   Remember to also encode document keys when passing them in API calls such as [Lookup Document (REST)](/rest/api/searchservice/lookup-document). In .NET, you can use the [UrlTokenEncode method](/dotnet/api/system.web.httpserverutility.urltokenencode) to encode characters.
 
      > [!NOTE]
      > If there is no explicit mapping for the key field in the index, Azure Cognitive Search automatically uses "metadata_storage_path" as the key and base-64 encodes key values.
 
-1. Add a "content" field if you want to import the content, or text, extracted from blobs. You aren't required to name the field "content", but doing lets you take advantage of implicit field mappings. The blob indexer can send blob contents to a "content" field of type `Edm.String` in the index, with no field mappings required.
+1. Add a "content" field if you want to import the content, or text, extracted from blobs. You aren't required to name the field "content", but doing so lets you take advantage of implicit field mappings. The blob indexer can send blob contents to a "content" field of type `Edm.String` in the index, with no field mappings required.
 
 1. Add more fields for any blob metadata that you want in the index. The indexer can read custom metadata properties, [standard metadata](#indexing-blob-metadata) properties, and [content-specific metadata](search-blob-metadata-properties.md) properties.
 
 ## Configure the blob indexer
 
-Indexer configuration specifies the inputs, parameters, and properties that inform run time behaviors.
-
-Under "configuration", you can control which blobs are indexed, and which are skipped, by the blob's file type or by setting properties on the blob themselves, causing the indexer to skip over them.
+Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors. Under "configuration", you can specify which blobs are indexed by file type or by properties on the blob themselves.
 
 1. [Create or update an indexer](/rest/api/searchservice/create-indexer) to use the predefined data source and search index.
 
@@ -180,7 +182,6 @@ POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
   "name" : "my-blob-indexer",
   "dataSourceName" : "my-blob-datasource ",
   "targetIndexName" : "my-search-index",
-  "schedule" : { "interval" : "PT2H" },
   "fieldMappings" : [
     { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
     { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }

@@ -126,23 +126,47 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
 1. Add fields for standard metadata properties. The indexer can read custom metadata properties, [standard metadata](#indexing-blob-metadata) properties, and [content-specific metadata](search-blob-metadata-properties.md) properties.
 
-## Configure the indexer
+## Configure the ADLS Gen2 indexer
 
-Once the index and data source have been created, you're ready to [create the indexer](/rest/api/searchservice/create-indexer):
+Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors. Under "configuration", you can specify which blobs are indexed by file type or by properties on the blob themselves.
 
-```http
+1. [Create or update an indexer](/rest/api/searchservice/create-indexer) to use the predefined data source and search index.
+
+    ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
-
     {
-      "name" : "adlsgen2-indexer",
-      "dataSourceName" : "adlsgen2-datasource",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { 
-        "interval" : "PT2H"
-      }
+      "name" : "my-adlsgen2-indexer,
+      "dataSourceName" : "my-adlsgen2-datasource",
+      "targetIndexName" : "my-search-index",
+      "parameters": {
+        "batchSize": null,
+        "maxFailedItems": null,
+        "maxFailedItemsPerBatch": null,
+        "configuration:" {
+            "indexedFileNameExtensions" : ".pdf,.docx",
+            "excludedFileNameExtensions" : ".png,.jpeg" 
+        }
+      },
+      "schedule" : { },
+      "fieldMappings" : [ ]
     }
+    ```
+
+1. In the optional "configuration" section, provide any inclusion or exclusion criteria. If left unspecified, all blobs in the container are retrieved.
+1. 
+```http
+POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
+
+{
+  "name" : "adlsgen2-indexer",
+  "dataSourceName" : "adlsgen2-datasource",
+  "targetIndexName" : "my-target-index",
+  "schedule" : { 
+    "interval" : "PT2H"
+  }
+}
 ```
 
 This indexer runs immediately, and then [on a schedule](search-howto-schedule-indexers.md) every two hours (schedule interval is set to "PT2H"). To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is 5 minutes. The schedule is optional - if omitted, an indexer runs only once when it's created. However, you can run an indexer on-demand at any time.

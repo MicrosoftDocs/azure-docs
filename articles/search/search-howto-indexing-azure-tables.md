@@ -87,15 +87,15 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
     ```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30 
     {
-        "name" : "my-search-index",
-        "fields": [
-            { "name": "ID", "type": "Edm.String", "key": true, "searchable": false },
-            { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
-        ]
+      "name" : "my-search-index",
+      "fields": [
+        { "name": "ID", "type": "Edm.String", "key": true, "searchable": false },
+        { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
+      ]
     }
     ```
 
-1. Create a document key field, but allow the indexer to populate it automatically. Do not define a field mapping to alternative unique string field in your table. 
+1. Create a document key field ("key": true), but allow the indexer to populate it automatically. Do not define a field mapping to alternative unique string field in your table. 
 
    A table indexer populates the key field with concatenated partition and row keys from the table. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then the key value is `PK1RK1`. If the partition key is null, just the row key is used.
 
@@ -115,7 +115,14 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
         "name" : "table-indexer",
         "dataSourceName" : "my-table-datasource",
         "targetIndexName" : "my-search-index",
-        "schedule" : { "interval" : "PT2H" }
+        "parameters": {
+            "batchSize": null,
+            "maxFailedItems": null,
+            "maxFailedItemsPerBatch": null,
+            "configuration:" { }
+          },
+        "schedule" : { },
+        "fieldMappings" : [ ]
     }
     ```
 

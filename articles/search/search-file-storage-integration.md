@@ -1,5 +1,5 @@
 ---
-title: Azure Files indexing (preview)
+title: Azure Files indexer (preview)
 titleSuffix: Azure Cognitive Search
 description: Set up an Azure Files indexer to automate indexing of file shares in Azure Cognitive Search.
 manager: nitinme
@@ -89,9 +89,9 @@ Indexers can connect to a file share using the following connections.
 
 In the [search index](search-what-is-an-index.md), add fields to accept the content and metadata of your Azure files. 
 
-1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store file content, metadata, and system properties:
+1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store file content and metadata:
 
-    ```json
+    ```http
     POST /indexes?api-version=2020-06-30
     {
       "name" : "my-search-index",
@@ -106,7 +106,7 @@ In the [search index](search-what-is-an-index.md), add fields to accept the cont
     }
     ```
 
-1. Create a key field ("key": true) to uniquely identify each search document based on unique identifiers in the files. For this data source type, the indexer will automatically identify and encode a value for this field. No field mappings are necessary.
+1. Create a document key field ("key": true), but allow the indexer to populate it automatically. Do not define a field mapping to alternative unique string field. 
 
 1. Add a "content" field to store extracted text from each file. 
 
@@ -121,6 +121,8 @@ In the [search index](search-what-is-an-index.md), add fields to accept the cont
     + **metadata_storage_sas_token** (`Edm.String`) - A temporary SAS token that can be used by [custom skills](cognitive-search-custom-skill-interface.md) to get access to the file. This token shouldn't be stored for later use as it might expire.
 
 ## Configure the file indexer
+
+Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors. Under "configuration", you can specify which files are indexed by file type or by properties on the files themselves.
 
 1. [Create or update an indexer](/rest/api/searchservice/create-indexer) to use the predefined data source and search index.
 
