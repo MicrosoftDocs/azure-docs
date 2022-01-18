@@ -39,7 +39,7 @@ You need an identity in Google Cloud that can be associated with your Azure AD a
 
 Each service account has a unique ID. When you visit the **IAM & Admin** page in the Google Cloud console, click on **Service Accounts**. Select the service account you plan to use, and copy its **Unique ID**.
 
-:::image type="content" source="media/workload-identity-federation-create-trust-gcp/service-account-details.png" alt-text="Shows a screen shot of the Service Accounts page" border="false":::
+:::image type="content" source="media/workload-identity-federation-create-trust-gcp/service-account-details.png" alt-text="Shows a screen shot of the Service Accounts page" border="true":::
 
 Tokens issued by Google to the service account will have this **Unique ID** as the *subject* claim.
 
