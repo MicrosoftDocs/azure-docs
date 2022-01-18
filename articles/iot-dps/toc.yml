@@ -114,12 +114,30 @@
       href: dps-faq.yml
 - name: Reference
   items:
-  - name: REST API
-    href: /rest/api/iot-dps
   - name: Azure CLI
     href: /cli/azure/azure-cli-reference-for-IoT
   - name: Azure PowerShell
     href: /powershell/module/az.deviceprovisioningservices
+  - name: .NET (Device)
+    href: /dotnet/api/microsoft.azure.devices.provisioning.client
+  - name: .NET (Service)
+    href: /dotnet/api/microsoft.azure.devices.provisioning.service
+  - name: Java (Device)
+    href: java/api/com.microsoft.azure.sdk.iot.provisioning.device
+  - name: Java (Service)
+    href: java/api/com.microsoft.azure.sdk.iot.provisioning.service
+  - name: Node.js (Device/Services/Management)
+    href: /javascript/api/overview/azure/iothubdeviceprovisioning
+  - name: Python (Device)
+    href: /python/api/azure-iot-device/azure.iot.device.aio.provisioningdeviceclient
+  - name: Python (Service)
+    href: /python/api/azure-iothub-provisioningserviceclient/provisioningserviceclient
+  - name: Python (Management)
+    href: python/api/azure-mgmt-iothubprovisioningservices/azure.mgmt.iothubprovisioningservice
+  - name: Azure IoT SDK for C API documentation
+    href: /azure/iot-hub/iot-c-sdk-ref
+  - name: REST API
+    href: /rest/api/iot-dps
   - name: Resource Manager template
     href: /azure/templates/microsoft.devices/deviceprovisioning-allversions
   - name: Azure IoT SDK for C
