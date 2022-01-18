@@ -30,8 +30,8 @@ In this tutorial, you will...
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-### Set up Cloud Shell session
-[!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
+### Set up ClI session
+[!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
 
 [!INCLUDE [Azure Digital Twins tutorial: configure the sample project](../../includes/digital-twins-tutorial-sample-configure.md)]
 

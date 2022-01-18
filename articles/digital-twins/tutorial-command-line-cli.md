@@ -46,8 +46,8 @@ To get the files on your machine, use the navigation links above and copy the fi
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-### Set up Cloud Shell session
-[!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
+### Set up CLI session
+[!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
 
 ### Prepare an Azure Digital Twins instance
 
