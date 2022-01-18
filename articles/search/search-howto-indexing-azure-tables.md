@@ -55,22 +55,28 @@ A data source definition can also include additional properties for [soft deleti
 
 Indexers can connect to a table using the following connections.
 
-**Full access storage account connection string**:
-`{ "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }`
+| Managed identity connection string |
+|------------------------------------|
+|`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;" }`|
+|This connection string does not require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-storage.md).|
 
-You can get the connection string from the Storage account page in Azure portal by selecting **Access keys** in the left navigation pane. Make sure to select a full connection string and not just a key.
+| Full access storage account connection string |
+|-----------------------------------------------|
+|`{ "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }` |
+| You can get the connection string from the Storage account page in Azure portal by selecting **Access keys** in the left navigation pane. Make sure to select a full connection string and not just a key. |
 
-+ **Managed identity connection string**: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;` 
-This connection string does not require an account key, but you must follow the instructions for [Setting up a connection to an Azure Storage account using a managed identity](search-howto-managed-identities-storage.md).
+| Storage account shared access signature** (SAS) connection string |
+|-------------------------------------------------------------------|
+| `{ "connectionString" : "BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl;" }` |
+| The SAS should have the list and read permissions on tables and entities. |
 
-+ **Storage account shared access signature connection string**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` The shared access signature should have the list and read permissions on containers (tables in this case) and objects (table rows).
-
-+ **Table shared access signature**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` The shared access signature should have query (read) permissions on the table.
-
-For more information on storage shared access signatures, see [Using shared access signatures](../storage/common/storage-sas-overview.md).
+| Container shared access signature |
+|-----------------------------------|
+| `{ "connectionString" : "ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl;" }` |
+| The SAS should have the list and read permissions on the container. For more information, see [Using Shared Access Signatures](../storage/common/storage-sas-overview.md). |
 
 > [!NOTE]
-> If you use shared access signature credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration or the indexer will fail with a "Credentials provided in the connection string are invalid or have expired" message.
+> If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to "Credentials provided in the connection string are invalid or have expired".  
 
 ## Add search fields to an index
 
@@ -89,13 +95,13 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
     }
     ```
 
-1. Create a key field, but do not define field mappings to alternative unique strings in the table. 
+1. Create a document key field, but allow the indexer to populate it automatically. Do not define a field mapping to alternative unique string field in your table. 
 
-   A table indexer will populate the key field with concatenated partition and row keys from the table. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then the `Key` field's value is `PK1RK1`. If the partition key is null, just the row key is used.
+   A table indexer populates the key field with concatenated partition and row keys from the table. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then the key value is `PK1RK1`. If the partition key is null, just the row key is used.
 
 1. Create additional fields that correspond to entity fields. For example, if an entity looks like the following example, your search index should have fields for HotelName, Description, and Category.
 
-   :::image type="content" source="media/search-howto-indexing-tables\tables.png" alt-text="Screenshot of table content in Storage browser." border="true":::
+   :::image type="content" source="media/search-howto-indexing-tables/table.png" alt-text="Screenshot of table content in Storage browser." border="true":::
 
    Using the same names and compatible [data types](/rest/api/searchservice/supported-data-types) minimizes the need for [field mappings](search-indexer-field-mappings.md).
 
