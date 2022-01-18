@@ -6,8 +6,8 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: metadata
 ms.date: 10/05/2021
-author: ma77b
-ms.author: maburd
+author: jasonhowell
+ms.author: jasonh
 ms.reviewer: wiassaf
 ---
 
