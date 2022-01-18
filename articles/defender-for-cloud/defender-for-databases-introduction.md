@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for open-source relational databases - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for open-source relational databases such as PostgreSQL, MySQL, and MariaDB
-ms.date: 11/09/2021
+ms.date: 01/17/2022
 ms.topic: overview
 ---
 
@@ -19,15 +19,14 @@ Defender for Cloud detects anomalous activities indicating unusual and potential
 
 ## Availability
 
-| Aspect                             | Details                                                                                                                                    |
-|------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                     | General availability (GA)                                                     |
-| Pricing:                           | **Microsoft Defender for open-source relational databases** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)   |
-| Protected versions of PostgreSQL:  | Single Server - General Purpose and Memory Optimized. Learn more in [PostgreSQL pricing tiers](../postgresql/concepts-pricing-tiers.md).   |
-| Protected versions of MySQL:       | Single Server - General Purpose and Memory Optimized. Learn more in [MySQL pricing tiers](../mysql/concepts-pricing-tiers.md).                        |
-| Protected versions of MariaDB:     | General Purpose and Memory Optimized. Learn more in [MariaDB pricing tiers](../mariadb/concepts-pricing-tiers.md).                      |
-| Clouds:                            | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
-|                                    |                                                                                                                                            |
+| Aspect | Details |
+|--|:-|
+| Release state: | General availability (GA) |
+| Pricing: | **Microsoft Defender for open-source relational databases** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) |
+| Protected versions of PostgreSQL: | Single Server - General Purpose and Memory Optimized. Learn more in [PostgreSQL pricing tiers](../postgresql/concepts-pricing-tiers.md). |
+| Protected versions of MySQL: | Single Server - General Purpose and Memory Optimized. Learn more in [MySQL pricing tiers](../mysql/concepts-pricing-tiers.md). |
+| Protected versions of MariaDB: | General Purpose and Memory Optimized. Learn more in [MariaDB pricing tiers](../mariadb/concepts-pricing-tiers.md). |
+| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br> :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet |
 
 ## What are the benefits of Microsoft Defender for open-source relational databases?
 
