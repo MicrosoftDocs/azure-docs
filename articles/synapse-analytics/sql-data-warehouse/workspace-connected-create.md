@@ -51,7 +51,7 @@ Follow these steps to create a Synapse workspace for your existing data warehous
 The following steps must be completed to ensure that your existing dedicated SQL pool (formerly SQL DW) instances can be accessed via the Synapse Studio.
 1. In the Synapse workspace overview page, select **Connected server**. The **Connected server** takes you to the connected SQL Logical server that hosts your data warehouses. In the essential menu, select **Connected server**.
 2. Open **Firewalls and virtual networks** and ensure that your client IP or a predetermined IP range has access to the logical server.
-3. Open **Active Directory admin** and ensure that an AAD admin has been set on the logical server.
+3. Open **Active Directory admin** and ensure that an Azure AD admin has been set on the logical server.
 4. Select one of the dedicated SQL pool (formerly SQL DW) instances hosted on the logical server. In the overview page, select **Launch Synapse Studio** or Go to the [Sign in to the Synapse Studio](https://web.azuresynapse.net) and sign in to your workspace.
 
 5. Open the **Data hub** and expand the dedicated SQL pool in the Object explorer to ensure that you've access and can query your data warehouse.
