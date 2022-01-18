@@ -9,7 +9,7 @@ editor:
 
 ms.assetid:
 ms.service: media-services
-ms.devlang: multiple
+ms.devlang: csharp
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na

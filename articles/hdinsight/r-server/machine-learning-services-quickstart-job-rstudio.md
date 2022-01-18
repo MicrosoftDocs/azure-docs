@@ -5,8 +5,8 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/19/2019
 ROBOTS: NOINDEX
-#Customer intent: I want to learn how to execute an R script using ML Services in Azure HDInsight for RStudio Server.
 ms.custom: mode-other
+#Customer intent: I want to learn how to execute an R script using ML Services in Azure HDInsight for RStudio Server.
 ---
 
 # Quickstart: Execute an R script on an ML Services cluster in Azure HDInsight using RStudio Server

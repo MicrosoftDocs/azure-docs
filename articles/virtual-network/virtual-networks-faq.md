@@ -241,7 +241,7 @@ Yes. You can use REST APIs for VNets in the [Azure Resource Manager](/rest/api/v
 Yes. Learn more about using:
 - The Azure portal to deploy VNets through the [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) and [classic](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) deployment models.
 - PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/az.network) and [classic](/powershell/module/servicemanagement/azure.service/) deployment models.
-- The Azure command-line interface (CLI) to deploy and manage VNets deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](/previous-versions/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources) deployment models.  
+- The Azure CLI or Azure classic CLI to deploy and manage VNets deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](/previous-versions/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources) deployment models.
 
 ## VNet peering
 
@@ -417,7 +417,7 @@ There is no limit on the total number of VNet service endpoints in a virtual net
 
 |Azure service|    Limits on VNet rules|
 |---|---|
-|Azure Storage|    100|
+|Azure Storage|    200|
 |Azure SQL|    128|
 |Azure Synapse Analytics|    128|
 |Azure KeyVault|    200 |

@@ -5,6 +5,7 @@ author: davidmrdavid
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: azfuncdf
+ms.devlang: python
 ---
 
 # Monitor scenario in Durable Functions - GitHub Issue monitoring sample

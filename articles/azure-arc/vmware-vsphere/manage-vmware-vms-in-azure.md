@@ -26,6 +26,9 @@ In this article, you'll learn how to perform various operations on the Azure Arc
 
 To perform guest OS operations on Arc-enabled VMware VMs, you will  need to enable guest management on those VMs. When you enable guest management, the Arc Connected Machine Agent is installed on the VM.
 
+> [!IMPORTANT]
+> In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
+
 ## Supported extensions and management services
 
 ### Windows extensions

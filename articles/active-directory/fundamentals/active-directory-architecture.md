@@ -3,7 +3,7 @@ title: Architecture overview - Azure Active Directory | Microsoft Docs
 description: Learn what an Azure Active Directory tenant is and how to manage Azure using Azure Active Directory.
 services: active-directory
 author: ajburnle
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: fundamentals

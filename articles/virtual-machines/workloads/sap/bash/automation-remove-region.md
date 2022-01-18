@@ -4,7 +4,7 @@ schema: 2.0.0
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/21/2021
+ms.date: 12/10/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: Remove_region.sh
@@ -15,12 +15,13 @@ description: Removes the SAP Control Plane (Deployer, Library) using a shell scr
 
 ## Synopsis
 
-Removes the control plane, including the deployer VM and the SAP library.
+Removes the control plane, including the deployer VM and the SAP library. It is important to remove the terraform deployed artifacts using Terraform to ensure that the removals are done correctly.
+
 ## Syntax
 
 ```bash
 
-Remove_region.sh  [-d or --deployer_parameter_file ] <String> [-l or --library_parameter_file ] <String>
+remove_region.sh  [-d or --deployer_parameter_file ] <String> [-l or --library_parameter_file ] <String>
 ```
 
 ## Description
@@ -30,9 +31,18 @@ Removes the SAP control plane, including the deployer VM and the SAP library.
 
 ### Example 1
 ```bash
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                         \
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/remove_region.sh                                                         \
         --deployer_parameter_file DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE/MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  \
         --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      
+```
+
+### Example 2
+```bash
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/remove_region.sh                                                          \
+        --deployer_parameter_file DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE/MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  \
+        --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      \
+        --subscription xxxxxxxxxxx
+        --storage_account mgmtweeutfstate###
 ```
 
 ## Parameters
@@ -56,6 +66,25 @@ Aliases: `-l`
 
 Required: True
 ```
+
+### `--subscription`
+Sets the subscription that contains the SAP library. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library).
+
+```yaml
+Type: String
+Aliases: `-l`
+Required: True
+```
+
+### `--storage_account`
+Sets the storage account name of the `tfstate` storage account in SAP library. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library).
+
+```yaml
+Type: String
+Aliases: `-l`
+Required: True
+```
+
 ### `--help`
 Shows help for the script.
 

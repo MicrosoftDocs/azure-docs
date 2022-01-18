@@ -171,6 +171,8 @@
     href: request-limits-and-throttling.md
   - name: Track asynchronous operations
     href: async-operations.md
+  - name: Control plane metrics in Azure Monitor 
+    href: control-plane-metrics.md
 - name: Reference
   items:
   - name: REST

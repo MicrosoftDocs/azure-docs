@@ -23,6 +23,7 @@ These backup files cannot be exported. The backups can only be used for restore 
 ## Backup frequency
 
 Backups on flexible servers are snapshot-based. The first snapshot backup is scheduled immediately after a server is created. Snapshot backups are taken daily once. Transaction log backups occur every five minutes.
+If a scheduled backup fails, our backup service tries every 20 minutes to take a backup until a successful backup is taken. These backup failures may occur due to heavy transactional production loads on the server instance.
 
 ## Backup redundancy options
 

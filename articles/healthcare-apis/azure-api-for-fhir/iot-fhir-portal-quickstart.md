@@ -8,7 +8,7 @@ ms.subservice: iomt
 ms.topic: quickstart
 ms.date: 09/10/2021
 ms.author: rabhaiya
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
 # Quickstart: Deploy Azure IoT Connector for FHIR (preview) using Azure portal

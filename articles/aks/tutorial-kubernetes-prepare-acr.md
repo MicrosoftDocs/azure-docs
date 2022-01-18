@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial - Create a container registry
 description: In this Azure Kubernetes Service (AKS) tutorial, you create an Azure Container Registry instance and upload a sample application container image.
 services: container-service
 ms.topic: tutorial
-ms.date: 05/20/2021
+ms.date: 12/20/2021
 
 ms.custom: mvc, devx-track-azurecli, devx-track-azurepowershell
 
@@ -245,12 +245,11 @@ Advance to the next tutorial to learn how to deploy a Kubernetes cluster in Azur
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 
 <!-- LINKS - internal -->
-[az-acr-create]: /cli/azure/acr
-[az-acr-list]: /cli/azure/acr
-[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-acr-create]: /cli/azure/acr#az_acr_create
 [az-acr-list]: /cli/azure/acr#az_acr_list
-[az-acr-repository-list]: /cli/azure/acr/repository
-[az-acr-repository-show-tags]: /cli/azure/acr/repository
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-acr-repository-list]: /cli/azure/acr/repository#az_acr_repository_list
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#az_acr_repository_show_tags
 [az-group-create]: /cli/azure/group#az_group_create
 [azure-cli-install]: /cli/azure/install-azure-cli
 [aks-tutorial-deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md

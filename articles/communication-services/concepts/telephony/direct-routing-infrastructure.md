@@ -191,4 +191,4 @@ On the leg between the Cloud Media Processor and Communication Services Calling 
 
 ### Quickstarts
 
-- [Call to Phone](../../quickstarts/voice-video-calling/pstn-call.md)
+- [Call to Phone](../../quickstarts/telephony/pstn-call.md)

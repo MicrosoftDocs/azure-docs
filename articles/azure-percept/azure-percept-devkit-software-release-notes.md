@@ -1,7 +1,8 @@
 ---
 title: Azure Percept DK software release notes
 description: Information about changes made to the Azure Percept DK software.
-author: EthanChangAED
+author: nkhuyent
+ms.author: hschang
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021

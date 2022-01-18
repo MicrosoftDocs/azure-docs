@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 11/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
+ms.devlang: csharp, javascript
 ms.custom: azureday1, devx-track-azurepowershell
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph by using managed identities.
 ---
@@ -181,6 +182,7 @@ public async Task OnGetAsync()
             return Task.CompletedTask;
         }));
 
+    // MSGraphUser is a DTO class being used to hold User information from the graph service client call
     List<MSGraphUser> msGraphUsers = new List<MSGraphUser>();
     try
     {

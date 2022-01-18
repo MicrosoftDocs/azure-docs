@@ -15,9 +15,13 @@ After you've connected your VMware vCenter to Azure, you can browse your vCenter
 
 You can visit the VMware vCenter blade in Azure Arc center to view all the connected vCenters. From here, you'll browse your virtual machines (VMs), resource pools, templates, and networks. From the inventory of your vCenter resources, you can select and enable one or more resources in Azure. When you enable a vCenter resource in Azure, it creates an Azure resource that represents your vCenter resource. You can use this Azure resource to assign permissions or conduct management operations.
 
+> [!IMPORTANT]
+> In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
+
+
 ## Enable resource pools, clusters, hosts, datastores, networks and VM templates in Azure
 
-In this section, you'll enable resource pools, networks, and VM templates in Azure.
+In this section, you'll enable resource pools, networks, and other non-VM resources in Azure.
 
 >[!NOTE]
 >Enabling Azure Arc on a VMware vSphere resource is a read-only operation on vCenter. That is, it doesn't make changes to your resource in vCenter.

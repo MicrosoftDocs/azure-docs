@@ -16,6 +16,8 @@ The deployment scope is determined by the template schema. For more information,
 - [management groups](deploy-to-management-group.md)
 - [tenants](deploy-to-tenant.md)
 
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
+
 ## Use common image
 
 To add the button to your web page or repository, use the following image:

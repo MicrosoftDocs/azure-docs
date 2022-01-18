@@ -1,11 +1,8 @@
 ---
 title: Create Elastic application - Azure partner solutions
 description: This article describes how to use the Azure portal to create an instance of Elastic.
-ms.service: partner-services
 ms.topic: quickstart
 ms.date: 09/02/2021
-author: tfitzmac
-ms.author: tomfitz
 ms.custom: mode-other
 ---
 

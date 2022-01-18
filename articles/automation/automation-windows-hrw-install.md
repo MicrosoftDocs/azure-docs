@@ -16,6 +16,10 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 
 After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
+> [!NOTE]
+> A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install Extension based (V2)on a hybrid worker already running Agent based (V1), then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform Extension based (V2) and the other Agent based (V1). [**Learn more**](./extension-based-hybrid-runbook-worker-install.md#install-extension-based-v2-on-existing-agent-based-v1-hybrid-worker).
+
+
 ## Prerequisites
 
 Before you start, make sure that you have the following.
@@ -76,6 +80,7 @@ To install and configure a Windows user Hybrid Runbook Worker, you can use one o
 
 * Use a provided PowerShell script to completely [automate](#automated-deployment) the process of configuring one or more Windows machines. This is the recommended method for machines in your datacenter or another cloud environment.
 * Manually import the Automation solution, install the Log Analytics agent for Windows, and configure the worker role on the machine.
+* Agent-based hybrid worker uses MMA proxy setting. You have to pass the proxy setting while installing the log analytics extension(MMA) and this setting will be stored under MMA configuration(registry) on VM.
 
 ## Automated deployment
 

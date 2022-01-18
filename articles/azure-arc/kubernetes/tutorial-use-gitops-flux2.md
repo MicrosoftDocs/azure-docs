@@ -4,7 +4,7 @@ description: "This tutorial shows how to use GitOps with Flux v2 to manage confi
 keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
 services: azure-arc, aks
 ms.service: azure-arc
-ms.date: 12/01/2021
+ms.date: 12/15/2021
 ms.topic: tutorial
 author: csand-msft
 ms.author: csand
@@ -18,9 +18,6 @@ GitOps with Flux v2 can be enabled in Azure Arc-enabled Kubernetes connected clu
 This tutorial describes how to use GitOps in a Kubernetes cluster. Before you dive in, take a moment to [learn how GitOps with Flux works conceptually](./conceptual-gitops-flux2.md).
 
 General availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both Azure Arc-enabled Kubernetes and AKS. Flux v2 is the way forward, and Flux v1 will eventually be deprecated.
-
-> [!NOTE]
-> We're currently in the process of making GitOps with Flux v2 experiences available to all users in the Azure portal, so you might not be able to complete all of these steps in Azure portal at this time. We'll remove this note after the functionality is available to all users.
 
 ## Prerequisites
 

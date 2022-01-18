@@ -3,11 +3,11 @@ title: Create multiple resource instances in Bicep
 description: Use different methods to create multiple resource instances in Bicep
 ms.date: 12/06/2021
 ms.topic: quickstart
-
+ms.custom: mode-api
 #Customer intent: As a developer new to Azure deployment, I want to learn how to create multiple resources in Bicep.
 ---
 
-# Quickstart: Create multiple instances
+# Quickstart: Create multiple resource instances in Bicep
 
 Learn how to use different `for` syntaxes to create multiple resource instances in Bicep. Even though this article only shows creating multiple resource instances, the same methods can be used to define copies of module, variable, property, or output. To learn more, see [Bicep loops](./loops.md).
 

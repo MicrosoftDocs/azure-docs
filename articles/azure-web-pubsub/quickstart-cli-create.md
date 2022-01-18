@@ -11,7 +11,7 @@ ms.custom: mode-api
 
 # Quickstart: Create a Web PubSub instance with the Azure CLI
 
-The [Azure command-line interface (Azure CLI)](/cli/azure) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. This quickstart shows you the options to create Azure Web PubSub instance with the Azure CLI.
+The [Azure CLI](/cli/azure) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. This quickstart shows you the options to create Azure Web PubSub instance with the Azure CLI.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

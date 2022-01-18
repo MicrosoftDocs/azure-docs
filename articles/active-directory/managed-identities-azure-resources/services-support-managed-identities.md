@@ -8,7 +8,7 @@ ms.date: 11/09/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
-manager: karenh444
+manager: karenhoran
 ms.collection: M365-identity-device-management
 ROBOTS: NOINDEX
 ---
@@ -17,8 +17,12 @@ ROBOTS: NOINDEX
 
 Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. Using a managed identity, you can authenticate to any service that supports Azure AD authentication without having credentials in your code. We are in the process of integrating managed identities for Azure resources and Azure AD authentication across Azure. Check back often for updates.
 
+> [!IMPORTANT]
+> In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
+
 > [!NOTE]
 > Managed identities for Azure resources is the new name for the service formerly known as Managed Service Identity (MSI).
+
 
 ## Azure services that support managed identities for Azure resources
 
@@ -277,6 +281,16 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 For more information, see [Use managed identities with Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md).
 
+### Azure Maps
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | Preview | Preview | Not available | Not available |
+| User assigned | Preview | Preview | Not available | Not available |
+
+For more information, see [Authentication on Azure Maps](../../azure-maps/azure-maps-authentication.md).
+
+
 ### Azure Media Services
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -477,14 +491,14 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany |  `https://servicebus.azure.net`  | ![Available][check] |
 | Azure China 21Vianet | `https://servicebus.azure.net`  | ![Available][check] |
 
-### Azure Storage blobs and queues
+### Azure Storage blobs, queues, and tables
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
-| Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | ![Available][check] |
-| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | ![Available][check] |
-| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | ![Available][check] |
-| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | ![Available][check] |
+| Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` <br /><br />`https://<account>.table.core.windows.net`| ![Available][check] |
+| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` <br /><br />`https://<account>.table.core.usgovcloudapi.net`| ![Available][check] |
+| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` <br /><br />`https://<account>.table.core.cloudapi.de`| ![Available][check] |
+| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` <br /><br />`https://<account>.table.core.chinacloudapi.cn`| ![Available][check] |
 
 ### Azure Analysis Services
 

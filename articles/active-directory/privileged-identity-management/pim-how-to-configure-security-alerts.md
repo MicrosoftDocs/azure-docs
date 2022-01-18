@@ -4,7 +4,7 @@ description: Configure security alerts for Azure AD roles Privileged Identity Ma
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory

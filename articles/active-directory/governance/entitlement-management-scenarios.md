@@ -4,12 +4,11 @@ description: Learn the high-level steps you should follow for common scenarios i
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 06/18/2020
