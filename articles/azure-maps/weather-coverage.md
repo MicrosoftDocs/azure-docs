@@ -182,8 +182,8 @@ The following table provides information about what kind of weather information 
 | Hungary                 |            ✓             |               ✓              |            ✓         |   ✓   |
 | Iceland                 |            ✓             |                              |           ✓           |   ✓   |
 | Ireland                 |            ✓             |               ✓              |            ✓         |   ✓   |
-| Italy                   |            ✓             |                              |           ✓           |   ✓   |
 | Isle of Man             |            ✓             |                              |                       |   ✓   |
+| Italy                   |            ✓             |                              |           ✓           |   ✓   |
 | Jan Mayen               |            ✓             |                              |                       |   ✓   |
 | Jersey                  |            ✓             |                              |                       |   ✓   |
 | Kosovo                  |            ✓             |                              |           ✓           |   ✓   |
@@ -227,8 +227,8 @@ The following table provides information about what kind of weather information 
 | Bouvet Island                          |            ✓             |                              |                       |   ✓   |
 | Burkina Faso                           |            ✓             |                              |                       |   ✓   |
 | Burundi                                |            ✓             |                              |                       |   ✓   |
-| Cameroon                               |            ✓             |                              |                       |   ✓   |
 | Cabo Verde                             |            ✓             |                              |                       |   ✓   |
+| Cameroon                               |            ✓             |                              |                       |   ✓   |
 | Central African Republic               |            ✓             |                              |                       |   ✓   |
 | Chad                                   |            ✓             |                              |                       |   ✓   |
 | Comoros                                |            ✓             |                              |                       |   ✓   |
@@ -272,7 +272,7 @@ The following table provides information about what kind of weather information 
 | Qatar                                  |            ✓             |                              |                       |   ✓   |
 | Réunion                                |            ✓             |                              |                       |   ✓   |
 | Rwanda                                 |            ✓             |                              |                       |   ✓   |
-| St Helena, Ascension, Tristan da Cunha |            ✓             |                              |                       |   ✓   |
+| Saint Helena, Ascension, Tristan da Cunha |         ✓             |                              |                       |   ✓   |
 | São Tomé & Príncipe                    |            ✓             |                              |                       |   ✓   |
 | Saudi Arabia                           |            ✓             |                              |                       |   ✓   |
 | Senegal                                |            ✓             |                              |                       |   ✓   |
