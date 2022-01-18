@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure virtual machine scale sets FAQs
+  title: FAQ for Azure virtual machine scale sets
   description: Get answers to the most frequently asked questions about virtual machine scale sets in Azure.
   author: mimckitt
   ms.author: mimckitt
@@ -11,7 +11,7 @@ metadata:
   ms.custom: mimckitt
 
 
-title: Azure virtual machine scale sets FAQs
+title: FAQ for Azure virtual machine scale sets
 summary: Get answers to frequently asked questions about virtual machine scale sets in Azure.
 
 
@@ -306,12 +306,12 @@ sections:
           ```
 
       - question: |
-          What happens to certificates if you reimage a VM?
+          What happens to certificates if I reimage a VM?
         answer: |
           If you reimage a VM, certificates are deleted. Reimaging deletes the entire operating system disk.
 
       - question: |
-          What happens if you delete a certificate from the key vault?
+          What happens if I delete a certificate from the key vault?
         answer: |
           If the secret is deleted from the key vault, and then you run `stop deallocate` for all your VMs and then start them again, you encounter a failure. The failure occurs because the CRP needs to retrieve the secrets from the key vault, but it can't. In this scenario, you can delete the certificates from the virtual machine scale set model.
 
@@ -420,7 +420,7 @@ sections:
       - question: |
           How do I join a virtual machine scale set to an Active Directory domain?
         answer: |
-          To join a virtual machine scale set to an Active Directory (AD) domain, you can define an extension.
+          To join a virtual machine scale set to an Active Directory domain, you can define an extension.
 
           To define an extension, use the `JsonADDomainExtension` property:
 
@@ -452,7 +452,7 @@ sections:
       - question: |
           My virtual machine scale set extension is trying to install something that requires a reboot. What should I do?
         answer: |
-          You can use the Azure Automation Desired State Configuration (Automation DSC) extension. If the operating system is Windows Server 2012 R2, Azure pulls in the Windows Management Framework (WMF) 5.0 setup, reboots, and then continues with the configuration.
+          You can use the Azure Automation Desired State Configuration extension. If the operating system is Windows Server 2012 R2, Azure pulls in the Windows Management Framework (WMF) 5.0 setup, reboots, and then continues with the configuration.
 
       - question: |
           How do I run a custom script that's hosted in a private storage account?
