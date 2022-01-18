@@ -497,7 +497,6 @@ Find the option to select backup storage redundancy on the **Compute + storage**
 ![Configure backup storage redundancy](./media/automated-backups-overview/select-backup-storage-redundancy-managedinstance.png)
 
 To change the Backup storage redundancy option for an existing instance, go to the **Compute + storage** pane, select the new option and press **Apply**. For now, this change will be applied only for PITR backups, while LTR backups will stay on the old storage redundancy type. Please notice that this is a size of data operation due to immediate operation of taking full backups for all the instance belonging databases. The change of the backup storage redundancy operation can be combined with the UpdateSLO operation and information on the operation status can be seen on the Notification pane.
-![Notification on backup storage redundancy](./media/automated-backups-overview/change-backup-storage-redundancy-managedinstance-notification.png)
 
 ---
 
