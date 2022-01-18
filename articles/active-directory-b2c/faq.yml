@@ -235,7 +235,7 @@ sections:
           Follow the following steps to check if the refresh token is valid or revoked:
           1. Retrieve the `RefreshToken` and the `AccessToken` by redeeming `authorization_code`.
           1. Wait for 7 minutes.
-          1. Use PowerShell cmdlet [Revoke-AzureADUserAllRefreshToken](https://docs.microsoft.com/en-us/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) or Microsoft Graph API [invalidateAllRefreshTokens](https://docs.microsoft.com/en-us/graph/api/user-invalidateallrefreshtokens?view=graph-rest-beta&tabs=http) to run the `RevokeAllRefreshToken` command.
+          1. Use PowerShell cmdlet [Revoke-AzureADUserAllRefreshToken](https://docs.microsoft.com/en-us/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) or Microsoft Graph API [invalidateAllRefreshTokens](https://docs.microsoft.com/graph/api/user-invalidateallrefreshtokens?view=graph-rest-beta&tabs=http) to run the `RevokeAllRefreshToken` command.
           1. Wait for 10 minutes.
           
           1. Retrieve the `RefreshToken` again.
