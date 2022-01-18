@@ -88,7 +88,7 @@ In this step, configure the claims AD FS application returns to Azure AD B2C.
 
 1. For **Client ID**, enter the application ID that you previously recorded.
 1. For the **Scope**, enter the `openid`.
-1. For **Response type**, select **id_token**, which makes the **Client secret** optional.
+1. For **Response type**, select **id_token**, which makes the **Client secret** optional. Learn more about use of [Client ID and secret](identity-provider-generic-openid-connect.md#client-id-and-secret) when adding a generic OpenID Connect identity provider.
 1. (Optional) For the **Domain hint**, enter `contoso.com`. For more information, see [Set up direct sign-in using Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
 1. Under **Identity provider claims mapping**, select the following claims:
 
