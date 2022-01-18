@@ -12,11 +12,13 @@ ms.topic: how-to
 ms.date: 01/17/2022
 ---
 
-# Configure a Blob indexer to import data from Azure Blob Storage
+# Index data from Azure Blob Storage
 
-In Azure Cognitive Search, blob [indexers](search-indexer-overview.md) are frequently used for both [AI enrichment](cognitive-search-concept-intro.md) and text-based processing. 
+Configure a [search indexer](search-indexer-overview.md) to extract content and metadata from Azure Blob Storage and make it searchable in Azure Cognitive Search. 
 
-This article focuses on how to configure a blob indexer for text-based indexing, where just the textual content and metadata are loaded into a search index for full text search scenarios. Inputs are your blobs, in a single container. Output is a search index with searchable content and metadata stored in individual fields.
+Blob [indexers are frequently used for both [AI enrichment](cognitive-search-concept-intro.md) and text-based processing. This article focuses on indexers for text-based indexing, where just the textual content and metadata are ingested for full text search scenarios. 
+
+Inputs to the indexer are your blobs, in a single container. Output is a search index with searchable content and metadata stored in individual fields.
 
 This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing from Blob Storage.
 
@@ -26,19 +28,21 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + [Access tiers](../storage/blobs/access-tiers-overview.md) for Blob storage include hot, cool, and archive. Only hot and cool can be accessed by search indexers.
 
-+ Blob content cannot exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
++ Blobs containing text. 
+
+Blob indexers also support [AI enrichment](cognitive-search-concept-intro.md) if you have binary files and add a skillset. Note that blob content cannot exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
 
 <a name="SupportedFormats"></a>
 
 ## Supported document formats
 
-The Azure Cognitive Search blob indexer can extract text from the following document formats:
+The blob indexer can extract text from the following document formats:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
 ## Define the data source
 
-A primary difference between a blob indexer and other indexers is the data source assignment. The data source definition specifies the type ("type": `"azureblob"`) and how to connect.
+The data source definition specifies the data source type, content path, and how to connect.
 
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
@@ -53,20 +57,20 @@ A primary difference between a blob indexer and other indexers is the data sourc
 
 1. Set "type" to `"azureblob"` (required).
 
-1. Set "credentials" to the connection string, as shown in the above example, or one of the alternative approaches described in the next section. 
+1. Set `"credentials"` to an Azure Storage connection string. The next section describes the supported formats.
 
-1. Set "container" to the blob container within Azure Storage. If the container uses folders to organize content, set "query" to specify a subfolder.
+1. Set `"container"` to the blob container, and use "query" to specify any subfolders.
 
 <a name="credentials"></a>
 
 ### Supported credentials and connection strings
 
-You can provide the credentials for the blob container in one of these ways:
+Indexers can connect to a blob container using the following connections.
 
 | Managed identity connection string |
 |------------------------------------|
 |`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;" }`|
-|This connection string does not require an account key, but you must follow the instructions for [Setting up a connection to an Azure Storage account using a managed identity](search-howto-managed-identities-storage.md).|
+|This connection string does not require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-storage.md).|
 
 | Full access storage account connection string |
 |-----------------------------------------------|

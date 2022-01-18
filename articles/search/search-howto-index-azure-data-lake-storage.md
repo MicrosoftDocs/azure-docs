@@ -1,7 +1,7 @@
 ---
 title: Azure Data Lake Storage Gen2 indexer
 titleSuffix: Azure Cognitive Search
-description: Set up an Azure Data Lake Storage Gen2 indexer to automate indexing of content and metadata for full text search in Azure Cognitive Search.
+description: Set up an Azure Data Lake Storage (ADLS) Gen2 indexer to automate indexing of content and metadata for full text search in Azure Cognitive Search.
 
 author: gmndrg
 ms.author: gimondra
@@ -14,13 +14,13 @@ ms.date: 01/17/2022
 
 # Index data from Azure Data Lake Storage Gen2
 
-This article shows you how to configure an Azure Data Lake Storage (ADLS) Gen2 indexer to extract content and make it searchable in Azure Cognitive Search. This workflow creates a search index on Azure Cognitive Search and loads it with existing content extracted from ADLS Gen2.
+Configure a [search indexer](search-indexer-overview.md) to extract content and metadata from Azure Data Lake Storage (ADLS) Gen2 and make it searchable in Azure Cognitive Search. 
 
-ADLS Gen2 is available through Azure Storage. When setting up an Azure Storage account, you have the option of enabling [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md) that organizes files into a hierarchy of directories and nested subdirectories. By enabling hierarchical namespace, you enable ADLS Gen2.
+ADLS Gen2 is available through Azure Storage. When setting up a storage account, you have the option of enabling [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md), organizing files into a hierarchy of directories and nested subdirectories. By enabling a hierarchical namespace, you enable ADLS Gen2.
 
-Examples in this article use the portal and REST APIs. For examples in C#, see [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) on GitHub.
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing from ADLS Gen2.
 
-This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing from Blob Storage.
+For a code sample in C#, see [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) on GitHub.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 ADLS Gen2 implements an [access control model](../storage/blobs/data-lake-storage-access-control.md) that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). 
 
-Azure Cognitive Search supports [Azure RBAC for indexer access](search-howto-managed-identities-storage.md) to your content in storage, but it does not support document-level permissions. In Azure Cognitive Search, all users have the same level of access to all searchable and retrievable content in the index. If document-level permissions are an application requirement, consider [security trimming](search-security-trimming-for-azure-search.md) as a workaround.
+Azure Cognitive Search supports [Azure RBAC for indexer access](search-howto-managed-identities-storage.md) to your content in storage, but it does not support document-level permissions. In Azure Cognitive Search, all users have the same level of access to all searchable and retrievable content in the index. If document-level permissions are an application requirement, consider [security trimming](search-security-trimming-for-azure-search.md) as a potential solution.
 
 <a name="SupportedFormats"></a>
 
