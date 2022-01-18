@@ -32,10 +32,35 @@ It also contains a sample twin graph and telemetry scenario that you can use to 
 
 This article requires an active **Azure Digital Twins instance**. For instructions on how to set up an instance, see [Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md).
 
-This article also uses the **Azure CLI**. You can either [install the CLI locally](/cli/azure/install-azure-cli), or use the [Azure Cloud Shell](https://shell.azure.com) in a browser. If you'll be using the Cloud Shell, continue through the next section to get your Cloud Shell session set up for the how-to.
+This article also uses the **Azure CLI**. You can either [install the CLI locally](/cli/azure/install-azure-cli), or use the [Azure Cloud Shell](https://shell.azure.com) in a browser. Follow the steps in the next section to get your CLI session set up to work with Azure Digital Twins.
 
-### Set up Cloud Shell session
-[!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
+### Set up CLI session
+
+To start working with Azure Digital Twins in the CLI, the first thing to do is log in and set the CLI context to your subscription for this session. Run these commands in your CLI window:
+
+```azurecli-interactive
+az login
+az account set --subscription "<your-Azure-subscription-ID>"
+```
+
+> [!TIP]
+> You can also use your subscription name instead of the ID in the command above. 
+
+If this is the first time you've used this subscription with Azure Digital Twins, run this command to register with the Azure Digital Twins namespace. (If you're not sure, it's ok to run it again even if you've done it sometime in the past.)
+
+```azurecli-interactive
+az provider register --namespace 'Microsoft.DigitalTwins'
+```
+
+Next you'll add the [Microsoft Azure IoT Extension for Azure CLI](/cli/azure/service-page/azure%20iot?view=azure-cli-latest&preserve-view=true), to enable commands for interacting with Azure Digital Twins and other IoT services. Run this command to make sure you have the latest version of the extension:
+
+```azurecli-interactive
+az extension add --upgrade --name azure-iot
+```
+
+Now you are ready to work with Azure Digital Twins in the Azure CLI.
+
+You can verify this by running `az dt --help` at any time to see a list of the top-level Azure Digital Twins commands that are available.
 
 ## Create an Event Hubs namespace and Event Hub
 
