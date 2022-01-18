@@ -922,11 +922,115 @@ In this example, we match all requests from IP addresses in the range 5.5.5.64/2
 
 ## Client port
 
-TODO
+The **client port** match condition identifies requests based on the port used by the client side of the TCP connection.
+
+> [!NOTE]
+> The **client port** match condition is only available on Azure Front Door Standard/Premium.
+
+### Properties
+
+| Property | Supported values |
+|-------|------------------|
+| Operator | Any operator from the [standard operator list](#operator-list). |
+| Value | One or more port numbers, expressed as integers. If multiple values are specified, they're evaluated using OR logic. |
+
+### Example
+
+In this example, we match all requests with a client port of 1234.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="./media/rules-match-conditions/client-port.png" alt-text="Portal screenshot showing client port match condition.":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "ClientPort",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "1111"
+    ],
+    "typeName": "DeliveryRuleClientPortConditionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'ClientPort'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      '1111'
+    ]
+    typeName: 'DeliveryRuleClientPortConditionParameters'
+  }
+}
+```
+
+---
 
 ## Server port
 
-TODO
+The **server port** match condition identifies requests based on the port used by the server (Front Door) side of the TCP connection. <!-- TODO check explanation -->
+
+> [!NOTE]
+> The **server port** match condition is only available on Azure Front Door Standard/Premium.
+
+### Properties
+
+| Property | Supported values |
+|-------|------------------|
+| Operator | Any operator from the [standard operator list](#operator-list). |
+| Value | One or more port numbers, expressed as integers. If multiple values are specified, they're evaluated using OR logic. |
+
+### Example
+
+In this example, we match all requests with a server port of 443.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="./media/rules-match-conditions/server-port.png" alt-text="Portal screenshot showing server port match condition.":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "ServerPort",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "443"
+    ],
+    "typeName": "DeliveryRuleServerPortConditionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'ServerPort'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      '443'
+    ]
+    typeName: 'DeliveryRuleServerPortConditionParameters'
+  }
+}
+```
+
+---
 
 ## Host name
 
@@ -1089,8 +1193,6 @@ Regular expressions don't support the following operations:
 * Atomic grouping and possessive quantifiers.
 
 ## Case transform list
-
-<!-- TODO I think in AFD classic, only To Lowercase/To Uppercase will work -->
 
 | Transform | Description | ARM template support |
 |-|-|-|
