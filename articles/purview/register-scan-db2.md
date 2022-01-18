@@ -1,6 +1,6 @@
 ---
 title: Connect to and manage DB2
-description: This guide describes how to connect to DB2 in Azure Purview, and use Purview's features to scan and manage your DB2 source.
+description: This guide describes how to connect to DB2 in Azure Purview, and use Azure Purview's features to scan and manage your DB2 source.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
@@ -25,7 +25,7 @@ This article outlines how to register DB2, and how to authenticate and interact 
 
 The supported IBM DB2 versions are DB2 for LUW 9.7 to 11.x. DB2 for z/OS (mainframe) and iSeries (AS/400) are not supported now. 
 
-When scanning IBM DB2 source, Purview supports:
+When scanning IBM DB2 source, Azure Purview supports:
 
 - Extracting technical metadata including:
 
@@ -42,9 +42,9 @@ When scanning IBM DB2 source, Purview supports:
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Purview resource](create-catalog-portal.md).
+* An active [Azure Purview resource](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.12.7984.1.
 
@@ -61,13 +61,13 @@ When scanning IBM DB2 source, Purview supports:
 
 ## Register
 
-This section describes how to register DB2 in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
+This section describes how to register DB2 in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
 
 ### Steps to register
 
 To register a new DB2 source in your data catalog, do the following:
 
-1. Navigate to your Purview account in the [Purview Studio](https://web.purview.azure.com/resource/).
+1. Navigate to your Azure Purview account in the [Azure Purview Studio](https://web.purview.azure.com/resource/).
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On Register sources, select **DB2**. Select **Continue**.
@@ -158,7 +158,7 @@ To create and run a new scan, do the following:
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

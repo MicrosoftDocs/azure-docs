@@ -79,7 +79,7 @@ resource. For more information about making existing resources compliant, see
 ### Video overview
 
 The following overview of Azure Policy is from Build 2018. For slides or video download, visit
-[Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030)
+[Govern your Azure environment through Azure Policy](/events/Build/2018/THR2030)
 on Channel 9.
 
 > [!VIDEO https://www.youtube.com/embed/dxMaYF2GB7o]
