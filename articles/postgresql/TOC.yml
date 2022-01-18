@@ -785,7 +785,7 @@
   - name: Create server with vNet rule
     href: ./scripts/sample-create-server-with-vnet-rule.md
   - name: Scale a server
-    href: ./scripts/sample-scale-server.md
+    href: ./scripts/sample-scale-server-up-or-down.md
   - name: Change server configurations
     href: ./scripts/sample-change-server-configuration.md
   - name: Restore a server
