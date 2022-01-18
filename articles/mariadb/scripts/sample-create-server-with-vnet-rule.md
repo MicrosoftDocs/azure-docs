@@ -34,7 +34,7 @@ This sample CLI script creates an Azure Database for MariaDB server and configur
 az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the commands outlined in the following table:
 

@@ -34,7 +34,7 @@ This sample CLI script enables and downloads the slow query logs of a single Azu
 az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the commands outlined in the following table:
 

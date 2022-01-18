@@ -34,7 +34,7 @@ This sample CLI script lists all available configuration parameters as well as t
 az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the commands outlined in the following table:
 

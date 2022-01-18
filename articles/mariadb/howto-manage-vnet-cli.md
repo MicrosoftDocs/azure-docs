@@ -24,13 +24,7 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
 
 ## Configure VNet service endpoints
 
-The [az network vnet](/cli/azure/network/vnet) commands are used to configure Virtual Networks.
-
-If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account#az_account_set) command. Substitute the **id** property from the **az login** output for your subscription into the subscription id placeholder.
-
-- The account must have the necessary permissions to create a virtual network and service endpoint.
-
-Service endpoints can be configured on virtual networks independently, by a user with write access to the virtual network.
+The [az network vnet](/cli/azure/network/vnet) commands are used to configure Virtual Networks. Service endpoints can be configured on virtual networks independently, by a user with write access to the virtual network.
 
 To secure Azure service resources to a VNet, the user must have permission to "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/" for the subnets being added. This permission is included in the built-in service administrator roles, by default and can be modified by creating custom roles.
 
@@ -41,11 +35,9 @@ VNets and Azure service resources can be in the same or different subscriptions.
 > [!IMPORTANT]
 > It is highly recommended to read this article about service endpoint configurations and considerations before configuring service endpoints. **Virtual Network service endpoint:** A [Virtual Network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) is a subnet whose property values include one or more formal Azure service type names. VNet services endpoints use the service type name **Microsoft.Sql**, which refers to the Azure service named SQL Database. This service tag also applies to the Azure SQL Database, Azure Database for MariaDB, PostgreSQL, and MySQL services. It is important to note when applying the **Microsoft.Sql** service tag to a VNet service endpoint it configures service endpoint traffic for all Azure Database services, including Azure SQL Database, Azure Database for PostgreSQL, Azure Database for MariaDB, and Azure Database for MySQL servers on the subnet.
 
+## Sample script
+
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../includes/cli-launch-cloud-shell-sign-in.md)]
-
-### Sample script
-
-This sample script is used to create an Azure Database for MariaDB server, create a VNet, VNet service endpoint and secure the server to the subnet with a VNet rule.
 
 :::code language="azurecli" source="~/azure_cli_scripts/mariadb/create-mariadb-server-vnet/create-mariadb-server.sh" range="4-50":::
 
