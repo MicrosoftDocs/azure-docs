@@ -10,12 +10,12 @@
   items:
     - name: Launch your first app
       href: quickstart.md
-    - name: Build and run apps
+    - name: Build and run apps in Basic/Standard tier
       expanded: true
       items:
       - name: Introduction to the sample app
         href: quickstart-sample-app-introduction.md
-      - name: Provision an Azure Spring Cloud service
+      - name: Provision an Azure Spring Cloud instance
         href: quickstart-provision-service-instance.md
       - name: Set up configuration server
         href: quickstart-setup-config-server.md
@@ -24,6 +24,25 @@
       - name: Set up Log Analytics
         href: quickstart-setup-log-analytics.md
       - name: Use logs, metrics, and tracing
+        href: quickstart-logs-metrics-tracing.md
+      - name: Integrate with Azure Database for MySQL
+        href: quickstart-integrate-azure-database-mysql.md
+    - name: Build and run apps in Enterprise tier
+      expanded: true
+      items:
+      - name: Introduction to the sample app
+        href: enterprise/quickstart-sample-app-introduction-enterprise.md?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
+      - name: Provision an Azure Spring Cloud instance
+        href: quickstart-provision-service-instance-enterprise.md
+      - name: Set up Application Configuration Service
+        href: quickstart-setup-application-configuration-service-enterprise.md
+      - name: Build and deploy applications
+        href: quickstart-deploy-apps-enterprise.md
+      - name: Set up Service Registry
+        href: quickstart-setup-service-registry-enterprise.md
+      - name: Set up Log Analytics
+        href: quickstart-setup-log-analytics.md
+      - name: Use logs, metrics and tracing
         href: quickstart-logs-metrics-tracing.md
       - name: Integrate with Azure Database for MySQL
         href: quickstart-integrate-azure-database-mysql.md
@@ -38,8 +57,6 @@
         href: quickstart-deploy-infrastructure-vnet-terraform.md
       - name: Provision using Bicep
         href: quickstart-deploy-infrastructure-vnet-bicep.md
-    - name: Get started with Enterprise Tier
-      href: get-started-enterprise.md
 - name: Tutorials
   items:
     - name: Alerts and action groups
@@ -71,7 +88,7 @@
     - name: Security controls
       href: concept-security-controls.md
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/spring-cloud-security-baseline?toc=/azure/spring-cloud/toc.json
+      href: /security/benchmark/azure/baselines/spring-cloud-security-baseline?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
     - name: Azure Policy Security controls
       href: ./security-controls-policy.md
     - name: Plan for disaster recovery
@@ -223,11 +240,11 @@
     - name: Migrate
       items:
         - name: Spring Cloud
-          href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud
+          href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
         - name: Spring Boot
-          href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
+          href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
         - name: Tomcat
-          href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
+          href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
 - name: Architecture
   items:
     - name: Reference architecture
@@ -247,17 +264,17 @@
 - name: Reference
   items:
   - name: Azure CLI plugin
-    href: /cli/azure/spring-cloud
+    href: /cli/azure/spring-cloud?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
   - name: Azure PowerShell
-    href: /powershell/module/az.springcloud
+    href: /powershell/module/az.springcloud?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
   - name: Azure Pipelines task
-    href: /azure/devops/pipelines/tasks/deploy/azure-spring-cloud
+    href: /azure/devops/pipelines/tasks/deploy/azure-spring-cloud?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
   - name: Resources
     href: resources.md
   - name: Frequently asked questions
     href: faq.md
   - name: REST API reference
-    href: /rest/api/azurespringcloud/
+    href: /rest/api/azurespringcloud/?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

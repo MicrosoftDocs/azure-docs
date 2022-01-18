@@ -1,0 +1,64 @@
+- name: Azure Spring Cloud Enterprise tier documentation
+  href: index.yml
+  displayName: Azure Spring Cloud
+- name: Overview
+  items:
+    - name: What is Azure Spring Cloud?
+      href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Introduction to the sample app
+      href: quickstart-sample-app-introduction-enterprise.md
+    - name: Provision an Azure Spring Cloud instance
+      href: ../quickstart-provision-service-instance-enterprise.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Set up Application Configuration Service
+      href: ../quickstart-setup-application-configuration-service-enterprise.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Build and deploy applications
+      href: ../quickstart-deploy-apps-enterprise.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Set up Service Registry
+      href: ../quickstart-setup-service-registry-enterprise.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Set up Log Analytics
+      href: ../quickstart-setup-log-analytics.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Use logs, metrics and tracing
+      href: ../quickstart-logs-metrics-tracing.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Integrate with Azure Database for MySQL
+      href: ../quickstart-integrate-azure-database-mysql.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+- name: How-to guides
+  items:
+    - name: Develop
+      items:
+        - name: Use Application Configuration Service
+          href: ../how-to-enterprise-application-configuration-service.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Use Build Service
+          href: ../how-to-enterprise-build-service.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Use Service Registry
+          href: ../how-to-enterprise-service-registry.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Use API portal
+          href: ../how-to-use-enterprise-api-portal.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+        - name: Use Spring Cloud Gateway
+          href: ../how-to-use-enterprise-spring-cloud-gateway.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Deploy
+      items:
+        - name: Deploy non-Java enterprise applications
+          href: ../how-to-enterprise-deploy-non-java-apps.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Manage
+      items:
+        - name: View Enterprise Tier offering
+          href: ../how-to-enterprise-marketplace-offer.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Monitor
+      items:
+        - name: Application Insights using Java In-Process Agent
+          href: ../how-to-application-insights.md?pivots=sc-enterprise-tier&toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Secure
+      items:
+        - name: Enable system-assigned managed identity
+          href: ../how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise-tier&toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Troubleshoot
+      items:
+        - name: Troubleshooting guide
+          href: ../troubleshoot.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
+    - name: Migrate
+      items:
+        - name: Spring Cloud
+          href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
