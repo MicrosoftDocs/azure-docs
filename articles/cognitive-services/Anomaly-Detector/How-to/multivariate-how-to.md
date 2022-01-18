@@ -366,6 +366,9 @@ The response contains the result status, variable information, inference paramet
 
 ## (NEW) Inference with synchronous API 
 
+> [!NOTE]
+> In v1.1-preview.1, we support synchronous API and add more fields in inference result for both asynchronous API and synchronous API, you could upgrade the API version to access to these features. Once you upgrade, you'll no longer use previous model trained in old version, you should retrain a model to fit for new fields.
+
 With the synchronous API, you can get inference results point by point in real time, and no need for compressing and uploading task like training and asynchronous inference. Here are some requirements for the synchronous API:
 * Need to put data in **JSON format** into the API request body.
 * The inference results are limited to up to 10 data points, which means you could detect **1 to 10 timestamps** with one synchronous API call.
