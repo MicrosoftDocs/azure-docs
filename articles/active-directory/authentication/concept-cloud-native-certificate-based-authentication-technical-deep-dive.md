@@ -29,12 +29,12 @@ When a user tries to sign into an application secured by Azure AD, and if Certif
 1. If the user is not already signed in, the user is redirected to the Azure AD **User Sign-in** page at [https://login.microsoftonline.com/](https://login.microsoftonline.com/).
 1. The user enters their username into the Azure AD sign in page, and then clicks **Next**.
 1. If Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled for the tenant, the user sees a link to **Sign in with a certificate** on the password page. If you do not see the sign in link, make sure CBA is enabled on the tenant. For more information, see [Frequently asked questions about Cloud native certificate authentication](cloud-native-certificate-based-authentication-faq.yml).
-1. The user clicks on the link which will bring up client certificate picker UI. 
+1. The user clicks the link and the client certificate picker UI appears. 
    
    >[!NOTE]
    > If CBA is enabled, all users see the link to **Sign in with a certificate** on the password page. CBA cannot be enabled for specific users. 
 
-1. The user clicks on the link, the client is redirected to [http://certauth.login.microsoftonline.com](http://certauth.login.microsoftonline.com). The endpoint performs mutual authentication and requests the client certificate as part of the TLS handshake. You will see an entry for this request in the sign in logs. There is a known issue where User ID is displayed instead of Username.
+1. After the user clicks the link, the client is redirected to [http://certauth.login.microsoftonline.com](http://certauth.login.microsoftonline.com). The endpoint performs mutual authentication and requests the client certificate as part of the TLS handshake. You will see an entry for this request in the sign in logs. There is a known issue where User ID is displayed instead of Username.
 
    :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-log.png" alt-text="Screenshot of the Sign-in log in Azure AD.":::
    
@@ -42,7 +42,12 @@ When a user tries to sign into an application secured by Azure AD, and if Certif
 
    :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entry.png" alt-text="Screenshot of the entry for X.509 certificate.":::
 
-1. Azure AD identifies the user in the tenant by using the username binding configured <link to Getting started username binding section) on the tenant by mapping the certificate field value to user attribute value.
+1. Azure AD will request a client certificate and the user picks the client certificate and clicks **Ok**.
+
+   >[!NOTE] 
+   >CA hints are not supported so the list of certificates can't be further scoped.
+
+1. Azure AD does the certificate revocation to make sure the certificate is valid. Azure AD identifies the user in the tenant by using the username binding configured <link to Getting started username binding section) on the tenant by mapping the certificate field value to user attribute value.
 1. If a unique user is found and the user has a conditional access policy and needs Multi-Factor Authentication (MFA) and the certificate authentication binding rule <Link to Getting started Authentication binding section> satisfies MFA, then Azure AD signs the user in immediately. If the certificate satisfies only a single factor, then it requests the user for a second factor to complete Azure AD Multi-Factor Authentication.
 1. Azure AD completes the sign-in process by sending a primary refresh token back to indicate successful sign-in.
 1. If the user sign-in is successful, the user can access the application.
