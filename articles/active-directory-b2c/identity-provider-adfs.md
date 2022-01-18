@@ -40,8 +40,8 @@ To create an Application Group, follow theses steps:
     1. Select **Next**.
 1. On the Application Group Wizard **Native Application** screen:
     1. Copy the **Client Identifier** value. The client identifier is your AD FS **Application ID**. You will need the application ID later in this article.
-    1. In **Redirect URI**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant, and `your-domain-name` with your custom domain.
-    1. Select **Next**, and then **Next** to complete the app registration wizard. 
+    1. In **Redirect URI**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`, and then **Add**. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant, and `your-domain-name` with your custom domain.
+    1. Select **Next**, and then **Next**, and then **Next** again to complete the app registration wizard. 
     1. Select **Close**.
 
 
@@ -53,8 +53,8 @@ In this step, configure the claims AD FS application returns to Azure AD B2C.
 1. In the application properties window, under the **Applications**, select the **Web Application**. Then select **Edit**.
     :::image type="content" source="./media/identity-provider-adfs/ad-fs-edit-app.png" alt-text="Screenshot that shows how to edit a web application.":::
 1. Select the **Issuance Transformation Rules** tab. Then select **Add Rule**.
-1. In **Claim rule template**, select **Send LDAP attributes as claims**.
-1. Provide a **Claim rule name**. For the **Attribute store**, select **Select Active Directory**, add the following claims.
+1. In **Claim rule template**, select **Send LDAP attributes as claims**, and then **Next**.
+1. Provide a **Claim rule name**. For the **Attribute store**, select **Active Directory**, add the following claims.
 
     | LDAP attribute | Outgoing claim type |
     | -------------- | ------------------- |
@@ -65,7 +65,9 @@ In this step, configure the claims AD FS application returns to Azure AD B2C.
 
     Note some of the names will not display in the outgoing claim type dropdown. You need to manually type them in (the dropdown is editable).
 
-1. Select **Finish**, then select **Close**.
+1. Select **Finish**.
+1. Select **Apply**, and then **OK**.
+1. Select **OK** again to finish.
 
 
 ::: zone pivot="b2c-user-flow"
