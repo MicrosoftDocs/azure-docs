@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql-dw 
-ms.date: 01/22/2021
+ms.date: 01/18/2022
 ms.author: wiassaf
 ms.reviewer: 
 ---
