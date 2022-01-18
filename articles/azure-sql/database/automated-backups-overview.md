@@ -489,15 +489,18 @@ For HyperScale backup storage redundancy can only be specified during the create
 #### [SQL Database](#tab/single-database)
 
 In Azure portal, you can configure the backup storage redundancy on the **Create SQL Database** pane. The option is available under the Backup Storage Redundancy section. 
+
 ![Open Create SQL Database pane](./media/automated-backups-overview/sql-database-backup-storage-redundancy.png)
 
 #### [SQL Managed Instance](#tab/managed-instance)
 
 In the Azure portal, during an instance creation, the default option for the backup storage redundancy is Geo-redundancy. The option to change it is located on the **Compute + storage** pane accessible from the **Configure Managed Instance** option on the **Basics** tab.
-![Open Compute+Storage configuration-pane](./media/automated-backups-overview/open-configuration-blade-managedinstance.png)
+
+![Open Compute+Storage configuration-pane](./media/automated-backups-overview/open-configuration-blade-managed-instance.png)
 
 Find the option to select backup storage redundancy on the **Compute + storage** pane.
-![Configure backup storage redundancy](./media/automated-backups-overview/select-backup-storage-redundancy-managedinstance.png)
+
+![Configure backup storage redundancy](./media/automated-backups-overview/select-backup-storage-redundancy-managed-instance.png)
 
 To change the Backup storage redundancy option for an existing instance, go to the **Compute + storage** pane, choose the new backup option and select **Apply**. For now, this change will be applied only for PITR backups, while LTR backups will retain the old storage redundancy type. The time to perform the backup redundancy change depends on the size of the all the databases within a single managed instance. Changing the backup redundancy will take more time for instances that have large databases. It's possible to combine the backup storage redundancy change operation with the UpdateSLO operation. Use the **Notification** pane of the Azure portal to view the status of the change operation. 
 
