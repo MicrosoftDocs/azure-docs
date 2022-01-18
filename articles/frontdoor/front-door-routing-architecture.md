@@ -40,7 +40,7 @@ The following diagram illustrates the routing architecture:
 ::: zone pivot="front-door-classic"
 
 > [!IMPORTANT]
-> Note to reviewers: I will create a version of the diagram with the AFD Classic terminology (e.g. backend instead of origin). Please review the AFDX version and after that's reviewed I'll work on the alternate.
+> Note to reviewers: I will create a version of the diagram with the AFD Classic terminology (e.g. backend instead of origin). Please review the AFDX version and after that's reviewed I'll work on the alternate. <!-- TODO -->
 
 ::: zone-end
 
@@ -62,7 +62,9 @@ Front Door's architecture ensures that requests from your end users always reach
 
 ::: zone pivot="front-door-standard-premium"
 
-Split TCP enables the client's TCP connection to terminates inside a Front Door environment close to the user. A separate TCP connection is established to the origin, and this separate connection might have a large round-trip time (RTT). The diagram below illustrates how three users, in different geographical locations, will connect to a Front Door environment close to their location. Front Door then maintains the longer-lived connection to the origin in Europe:
+Split TCP enables the client's TCP connection to terminates inside a Front Door environment close to the user. A separate TCP connection is established to the origin, and this separate connection might have a large round-trip time (RTT).
+
+The diagram below illustrates how three users, in different geographical locations, connect to a Front Door environment close to their location. Front Door then maintains the longer-lived connection to the origin in Europe:
 
 ![Diagram illustrating how Front Door uses a short TCP connection to the closest Front Door environment to the user, and a longer TCP connection to the origin.](media/front-door-routing-architecture/split-tcp.png)
 
@@ -75,10 +77,12 @@ Establishing a TCP connection requires three roundtrips from the client to the s
 
 ::: zone pivot="front-door-classic"
 
-Split TCP enables the client's TCP connection to terminates inside a Front Door environment close to the user. A separate TCP connection is established to the backend, and this separate connection might have a large round-trip time (RTT). The diagram below illustrates how three users, in different geographical locations, will connect to a Front Door environment close to their location. Front Door then maintains the longer-lived connection to the backend in Europe:
+Split TCP enables the client's TCP connection to terminates inside a Front Door environment close to the user. A separate TCP connection is established to the backend, and this separate connection might have a large round-trip time (RTT).
+
+The diagram below illustrates how three users, in different geographical locations, connect to a Front Door environment close to their location. Front Door then maintains the longer-lived connection to the backend in Europe:
 
 > [!IMPORTANT]
-> Note to reviewers: I'll ask the designer to create an AFD Classic version of the diagram too. Please review the AFDX version.
+> Note to reviewers: I'll ask the designer to create an AFD Classic version of the diagram too. Please review the AFDX version. <!-- TODO -->
 
 Establishing a TCP connection requires three roundtrips from the client to the server. Front Door's architecture improves the performance of establishing the connection. The "short connection" between the end user and the Front Door environment means the connection gets established over three short roundtrips instead of three long round trips, which results in saving latency. The "long connection" between the Front Door environment and the backend can be pre-established and then reused across other end users requests save connectivity time. The effect of Split TCP is multiplied when establishing a SSL/TLS (Transport Layer Security) connection, because there are more round trips to secure a connection.
 
@@ -88,7 +92,7 @@ Establishing a TCP connection requires three roundtrips from the client to the s
 
 ## Match request to a Front Door profile
 
-When Front Door receives an HTTP request, it uses the request's `Host` header to match the request to the correct customer's Front Door profile. If the request is using a [custom domain name](front-door-custom-domain.md), the domain name must be registered with Front Door to enable requests to be matched to your profile.
+When Front Door receives an HTTP request, it uses the request's `Host` header to match the request to the correct customer's Front Door profile. If the request is using a [custom domain name](standard-premium/how-to-add-custom-domain.md), the domain name must be registered with Front Door to enable requests to be matched to your profile.
 
 ::: zone-end
 
@@ -187,8 +191,6 @@ Front Door selects an backend to use within the origin group. Backend selection 
 Finally, the request is forwarded to the backend.
 
 ::: zone-end
-
-<!-- TODO check links for each pivot -->
 
 ## Next steps
 

@@ -37,7 +37,7 @@
   - name: Routing
     items:
     - name: Routing architecture
-      href: front-door-routing-architecture.md
+      href: front-door-routing-architecture.md?pivots=front-door-classic
     - name: Route matching
       href: front-door-route-matching.md
   - name: Backends and backend pools
