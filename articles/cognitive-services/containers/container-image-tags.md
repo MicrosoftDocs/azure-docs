@@ -324,7 +324,7 @@ Since Speech-to-text v2.5.0, images are supported in the *US Government Virginia
 Release note for `3.0.0-amd64-<locale>`:
 
 **Features**
-* Support Disconnected Mode (runing container without Internet connection but with a local license).
+* Support for using containers in [disconnected environments](disconnected-containers.md).
 
 Note that due to the phrase lists feature, the size of this container image has increased. 
 
