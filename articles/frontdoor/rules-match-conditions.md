@@ -167,7 +167,7 @@ Use the **request cookies** match condition to identify requests that have inclu
 | Cookie name | A string value representing the name of the cookie. |
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request header to match. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ### Example
 
@@ -229,7 +229,7 @@ Use the **post args** match condition to identify requests based on the argument
 | Post args | A string value representing the name of the POST argument. |
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the POST argument to match. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ### Example
 
@@ -295,7 +295,7 @@ Use the **query string** match condition to identify requests that contain a spe
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Query string | One or more string or integer values representing the value of the query string to match. Don't include the `?` at the start of the query string. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ### Example
 
@@ -413,7 +413,7 @@ The **request body** match condition identifies requests based on specific text 
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request body text to match. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ### Example
 
@@ -473,7 +473,7 @@ The **request file name** match condition identifies requests that include the s
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request file name to match. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ### Example
 
@@ -536,7 +536,7 @@ The **request file extension** match condition identifies requests that include 
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request file extension to match. Don't include a leading period. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ### Example
 
@@ -598,7 +598,7 @@ The **request header** match condition identifies requests that include a specif
 | Header name | A string value representing the name of the POST argument. |
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request header to match. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ### Example
 
@@ -704,7 +704,7 @@ The **request path** match condition identifies requests that include the specif
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request path to match. Don't include the leading slash. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ### Example
 
@@ -823,7 +823,7 @@ Identifies requests that match the specified URL. The entire URL is evaluated, i
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | One or more string or integer values representing the value of the request URL to match. If multiple values are specified, they're evaluated using OR logic. |
-| Case transform | `Lowercase`, `Uppercase` |
+| Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ### Example
 
@@ -917,6 +917,19 @@ Regular expressions don't support the following operations:
 * The `\K` start of match reset directive.
 * Callouts and embedded code.
 * Atomic grouping and possessive quantifiers.
+
+## String transform list
+
+For rules that can transform strings, the following transforms are valid:
+
+| Transform | Description | ARM template support |
+|-|-|-|
+| To lowercase | Converts the string to the lowercase representation. | `Lowercase` |
+| To uppercase | Converts the string to the uppercase representation. | `Uppercase` |
+| Trim | Trims leading and trailing whitespace from the string. | `Trim` |
+| Remove nulls | Removes null values from the string. | `RemoveNulls` |
+| URL encode | URL-encodes the string. | `UrlEncode` |
+| URL decode | URL-decodes the string. | `UrlDecode` |
 
 ## Next steps
 
