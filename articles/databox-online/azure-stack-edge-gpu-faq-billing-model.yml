@@ -8,7 +8,7 @@ metadata:
   ms.service: databox
   ms.subservice: edge
   ms.topic: article
-  ms.date: 01/14/2022
+  ms.date: 01/18/2022
   ms.author: alkohli
 
 title: "Frequently asked questions about billings for Azure Stack Edge Pro with GPU"
@@ -31,7 +31,7 @@ sections:
         No traditional on-premises software license is required for an Azure Stack Edge device.
 
     - question: |
-        When does billing start, and when does it stop?
+        When does billing start and stop for my Azure Stack Edge device?
       answer: |
         Billing starts 14 days after a device is marked as **Shipped**. The billings continue even if you're not using the device.
 
@@ -40,11 +40,11 @@ sections:
         The billing happens against the order resource. If you activate the device against a different resource, the order and billing details move to the new resource.
 
     - question: |
-        Why doesn't the price on my invoice match the price on the Pricing page?
+        Why doesn't the price on my invoice match the price on the Pricing page for Azure Stack Edge?
       answer: |
         Subscription prices on the [Azure Stack Edge Pricing](/pricing/details/azure-stack/edge/) page might not match the price on your invoice exactly. The Pricing page shows list prices. Your invoice shows the price you're charged after any requisite discounts are applied.
 
     - question: |
-        I'm replacing my device, and I can't delete the original resource. Will billings continue for the original resource?
+        I'm replacing my Azure Stack Edge device, and I can't delete the original resource. Will billings continue for the original resource?
       answer: |
         You can't delete a resource while it's subject to billings. To delete a resource with active billing, you must first activate the device against a new resource. After the order and billing details move to the new resource, you can delete the resource.
