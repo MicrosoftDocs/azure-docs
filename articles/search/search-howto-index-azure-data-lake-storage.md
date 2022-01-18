@@ -46,29 +46,30 @@ The ADLS Gen2 indexer can extract text from the following document formats:
 
 ## Define the data source
 
-The data source definition specifies the data source type, as well as other properties for authentication and connection to the content to be indexed.
+The data source definition specifies the data source type, content path, and how to connect.
 
-A Data Lake Storage Gen2 data source definition looks similar to the example below:
+1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
-```http
-    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [Search service admin key]
+    ```json
     {
-        "name" : "adlsgen2-datasource",
+        "name" : "my-adlsgen2-datasource",
         "type" : "adlsgen2",
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
     }
-```
+    ```
 
-The `"credentials"` property can be a connection string, as shown in the above example, or one of the alternative approaches described in the next section. The `"container"` property provides the location of content within Azure Storage, and `"query"` is used to specify a subfolder in the container. For more information about data source definitions, see [Create Data Source (REST)](/rest/api/searchservice/create-data-source).
+1. Set "type" to `"adlsgen2"` (required).
+
+1. Set `"credentials"` to an Azure Storage connection string. The next section describes the supported formats.
+
+1. Set `"container"` to the blob container, and use "query" to specify any subfolders.
 
 <a name="Credentials"></a>
 
 ### Supported credentials and connection strings
 
-You can provide the credentials for the container in one of these ways:
+Indexers can connect to a blob container using the following connections.
 
 **Managed identity connection string**:
 `{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;" }`
@@ -93,31 +94,35 @@ The SAS should have the list and read permissions on the container. For more inf
 > [!NOTE]
 > If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to "Credentials provided in the connection string are invalid or have expired".  
 
-### Step 2 - Create an index
+## Add search fields to an index
 
-The index specifies the fields in a document, attributes, and other constructs that shape the search experience. All indexers require that you specify a search index definition as the destination. The following example uses the [Create Index (REST API)](/rest/api/searchservice/create-index). 
+In a [search index](search-what-is-an-index.md), add fields to accept the content and metadata of your Azure blobs.
 
-```http
+1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store blob content and metadata:
+
+    ```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
-    
     {
-        "name" : "my-target-index",
+        "name" : "my-search-index",
         "fields": [
-          { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
-          { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
+            { "name": "metadata_storage_path", "type": "Edm.String", "key": true, "searchable": false },
+            { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false },
+            { "name": "metadata_storage_name", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true  },
+            { "name": "metadata_storage_size", "type": "Edm.Int64", "searchable": false, "filterable": true, "sortable": true  },
+            { "name": "metadata_storage_content_type", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true },        
         ]
+      }
     }
-```
+    ```
 
-Index definitions require one field in the `"fields"` collection to act as the document key. Index definitions should also include fields for content and metadata.
+1. Designate one string field as the document key that uniquely identifies each document. For blob content, the best candidates for a document key are metadata properties on the blob.
 
-A **`content`** field is common to blob content. It contains the text extracted from blobs. Your definition of this field might look similar to the one above. You aren't required to use this name, but doing lets you take advantage of implicit field mappings. The blob indexer can send blob contents to a content Edm.String field in the index, with no field mappings required.
+1. Add a "content" field to store extracted text from each file.
+<!-- 1. A **`content`** field is common to blob content. It contains the text extracted from blobs. Your definition of this field might look similar to the one above. You aren't required to use this name, but doing lets you take advantage of implicit field mappings. The blob indexer can send blob contents to a content Edm.String field in the index, with no field mappings required. -->
 
-You could also add fields for any blob metadata that you want in the index. The indexer can read custom metadata properties, [standard metadata](#indexing-blob-metadata) properties, and [content-specific metadata](search-blob-metadata-properties.md) properties. For more information about indexes, see [Create an index](search-what-is-an-index.md).
+1. Add fields for standard metadata properties. The indexer can read custom metadata properties, [standard metadata](#indexing-blob-metadata) properties, and [content-specific metadata](search-blob-metadata-properties.md) properties.
 
-### Step 3 - Configure and run the indexer
+## Configure the indexer
 
 Once the index and data source have been created, you're ready to [create the indexer](/rest/api/searchservice/create-indexer):
 
@@ -263,43 +268,22 @@ It's important to point out that you don't need to define fields for all of the 
 
 ## How to control which blobs are indexed
 
-You can control which blobs are indexed, and which are skipped, by setting role assignments, the blob's file type, or by setting properties on the blob themselves, causing the indexer to skip over them.
+You can control which blobs are indexed, and which are skipped, by the blob's file type or by setting properties on the blob themselves, causing the indexer to skip over them.
 
-### Use access controls and role assignments
-
-Indexers that run under a system or user-assigned managed identity can have membership in either a Reader or Storage Blob Data Reader role that grants read permissions on specific files and folders.
-
-### Include specific file extensions
-
-Use `indexedFileNameExtensions` to provide a comma-separated list of file extensions to index (with a leading dot). For example, to index only the .PDF and .DOCX blobs, do this:
+Include specific file extensions by setting `"indexedFileNameExtensions"` to a comma-separated list of file extensions (with a leading dot). Exclude specific file extensions by setting `"excludedFileNameExtensions"` to the extensions that should be skipped. If the same extension is in both lists, it will be excluded from indexing.
 
 ```http
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
-Content-Type: application/json
-api-key: [admin key]
-
+PUT /indexers/[indexer name]?api-version=2020-06-30
 {
-  ... other parts of indexer definition
-  "parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }
+    "parameters" : { 
+        "configuration" : { 
+            "indexedFileNameExtensions" : ".pdf, .docx" 
+            "indexedFileNameExtensions" : ".pdf, .docx",
+            "excludedFileNameExtensions" : ".png, .jpeg" 
+        } 
+    }
 }
 ```
-
-### Exclude specific file extensions
-
-Use `excludedFileNameExtensions` to provide a comma-separated list of file extensions to skip (again, with a leading dot). For example, to index all blobs except those with the .PNG and .JPEG extensions, do this:
-
-```http
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
-Content-Type: application/json
-api-key: [admin key]
-
-{
-  ... other parts of indexer definition
-  "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
-}
-```
-
-If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, the indexer first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. If the same file extension is in both lists, it will be excluded from indexing.
 
 ### Add "skip" metadata the blob
 
