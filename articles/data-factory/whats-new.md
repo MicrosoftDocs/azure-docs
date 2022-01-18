@@ -27,7 +27,7 @@ This page is updated monthly, so revisit it regularly.
 <tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 
 
-<tr><td rowspan=8><b>Data Flow</b></td><td>Dynamics connector as native source and sink for mapping data flows</td><td>The Dynamics connector is now supported as both a source and sink for mapping data flows.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/mapping-data-flow-gets-new-native-connectors/ba-p/2866754">Learn more</a></td></tr>
+<tr><td rowspan=9><b>Data Flow</b></td><td>Dynamics connector as native source and sink for mapping data flows</td><td>The Dynamics connector is now supported as both a source and sink for mapping data flows.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/mapping-data-flow-gets-new-native-connectors/ba-p/2866754">Learn more</a></td></tr>
 <tr><td>Native change data capture (CDC) now natively supported</td><td>CDC is now natively supported in Azure Data Factory for CosmosDB, Blob Store, Azure Data Lake Storage Gen1 and Gen2, and CRM.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/cosmosdb-change-feed-is-supported-in-adf-now/ba-p/3037011">Learn more</a></td></tr>
 <tr><td>Flowlets public preview</td><td>The flowlets public preview allows data flow developers to build reusable components to easily build composable data transformation logic.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-the-flowlets-preview-for-adf-and-synapse/ba-p/3030699">Learn more</a></td></tr>
   
@@ -40,6 +40,8 @@ This page is updated monthly, so revisit it regularly.
 <tr><td>Enable quick re-use by Synapse Mapping Data Flows with TTL support</td><td>Synapse Mapping Data Flows now support quick re-use by setting a TTL in the Azure Integration Runtime.  This will enable your subsequent data flow activities to execute in under 5 seconds.<br><a href="control-flow-execute-data-flow-activity.md#data-flow-integration-runtime">Learn more</a></td></tr>
   
 <tr><td>Assert transformation</td><td>Easily add data quality, data domain validation, and metadata checks to your Azure Data Factory pipelines by using the Assert transformation in Mapping Data Flows.<br><a href="data-flow-assert.md">Learn more</a></td></tr>
+  
+<tr><td>IntelliSense support in expression builder for more productive pipeline authoring experiences</td><td>We have introduced IntelliSense support in expression builder / dynamic content authoring to make Azure Data Factory / Synapse pipeline developers more productive while writing complex expressions in their data pipelines.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/intellisense-support-in-expression-builder-for-more-productive/ba-p/3041459">Learn more</a></td></tr>
 
 </table>
 
