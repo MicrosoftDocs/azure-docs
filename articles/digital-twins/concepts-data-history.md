@@ -42,9 +42,7 @@ Data moves through these resources in this order:
 
 Once all the [required resources](#required-resources-and-data-flow) are set up, you can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or the [Azure Digital Twins SDK](concepts-apis-sdks.md) to create the data history connection between them. The CLI command is part of the [az iot](/cli/azure/iot?view=azure-cli-latest&preserve-view=true) extension.
 
-For instructions on how to set up a data history connection, see the following articles:
-* [Use Azure Digital Twins data history (portal)](how-to-use-data-history-portal.md)
-* [Use Azure Digital Twins data history (CLI)](how-to-use-data-history-cli.md)
+For instructions on how to set up a data history connection, see [Use data history with Azure Data Explorer](how-to-use-data-history.md).
 
 ## Data schema
 
@@ -120,4 +118,4 @@ Ensure that `<table_name>` is replaced with the name of the table that was set u
 
 Once twin data has been historized to Azure Data Explorer, you can use the Azure Digital Twins query plugin for Azure Data Explorer to run queries across the data. Read more about the plugin here: [Querying historized data](concepts-data-explorer-plugin.md).
 
-Or, dive deeper into data history with an example scenario in this how-to: [Use data history feature](how-to-use-data-history-portal.md).
+Or, dive deeper into data history with an example scenario in this how-to: [Use data history with Azure Data Explorer](how-to-use-data-history.md).
