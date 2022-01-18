@@ -1,5 +1,5 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Configure integration with the CloudKnox API
+title: Microsoft CloudKnox Permissions Management - Set and view configuration settings
 description: How to view the Microsoft CloudKnox Permissions Management API integration settings and create service accounts and roles.
 services: active-directory
 author: Yvonne-deQ
@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/10/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - Configure integration with the CloudKnox API
+# Set and view configuration settings
 
-This topic describes how to view configuration settings, create and delete a service account, and create a role.
+This topic describes how to view configuration settings, create and delete a service account, and create a role in Microsoft CloudKnox Permissions Management (CloudKnox).
 
 ## View configuration settings
 

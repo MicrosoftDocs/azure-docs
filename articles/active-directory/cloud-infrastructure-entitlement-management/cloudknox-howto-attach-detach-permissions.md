@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/28/2021
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - Attach and detach permissions for users, roles, and resources in the Just Enough Permissions (JEP) Controller
+# Attach and detach permissions in the JEP Controller
 
-This topic describes how you can attach and detach permissions for users, roles, and resources manually or allow CloudKnox to do it for you using the Just Enough Permissions (JEP) Controller.
+This topic describes how you can attach and detach permissions for users, roles, and resources manually or allow Microsoft CloudKnox Permissions Management (CloudKnox) to do it for you using the Just Enough Permissions (JEP) Controller.
 
 > [!NOTE]
 > You must have **Controller** access to the JEP Controller to perform these tasks. If you don’t have Controller access, contact your system administrator.

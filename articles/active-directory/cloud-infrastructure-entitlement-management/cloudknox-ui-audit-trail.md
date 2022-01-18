@@ -1,6 +1,6 @@
 ---
 title: Microsoft CloudKnox Permissions Management - The Audit Trail dashboard
-description: How to use the Microsoft CloudKnox Audit Trail Permissions Management dashboard.
+description: How to use the The Audit Trail dashboard in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/13/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - The Audit Trail dashboard
+# The Audit Trail dashboard
 
-The Microsoft CloudKnox Permissions Management **Audit Trail** dashboard provides an overview of queries a CloudKnox user has created to review how users access their authorization systems and accounts. 
+The **Audit Trail** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) provides an overview of queries a CloudKnox user has created to review how users access their authorization systems and accounts. 
 
 This topic provides an overview of the components of the **Audit Trail** dashboard.
 

@@ -1,5 +1,5 @@
 ---
-title: Microsoft CloudKnox Permissions Management reports - Quick list of system reports
+title: Microsoft CloudKnox Permissions Management reports - Summary of system reports
 description: A quick list and description of all Microsoft CloudKnox Permissions Management reports.
 services: active-directory
 author: Yvonne-deQ
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/11/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management reports - Quick list of system reports
+# Summary of system reports
 
 Microsoft CloudKnox Permissions Management (CloudKnox) has various types of system reports that capture specific sets of data. These reports allow management, auditors, and administrators to:
 

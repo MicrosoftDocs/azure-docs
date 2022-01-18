@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/14/2022
+ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management - Create a new rule 
+# Create a new rule 
  
 This topic describes how to create a new rule in the Microsoft CloudKnox Permissions Management (CloudKnox) **Autopilot** dashboard.
 
