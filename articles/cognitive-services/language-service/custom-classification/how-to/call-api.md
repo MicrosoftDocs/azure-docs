@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 01/07/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
@@ -33,7 +33,7 @@ See the [application development lifecycle](../overview.md#project-development-l
 
 2. Select **Deploy model** from the left side menu.
 
-3. Select the model you want to deploy, then select **Deploy model**.
+3. Select the model you want to deploy, then select **Deploy model**. If you deploy your model through the Language Studio, your `deployment-name` is `prod`.
 
 > [!TIP]
 > You can test your model in Language Studio by sending samples of text for it to classify. 
@@ -135,7 +135,7 @@ First you will need to get your resource key and endpoint
 
 [!INCLUDE [JSON result for classification](../includes/classification-result-json.md)]
 
-# [Using the client libraries](#tab/client)
+# [Using the client libraries (Azure SDK)](#tab/client)
 
 ## Use the client libraries
 

@@ -32,7 +32,7 @@
     - name: Database for PostgreSQL - Single Server
       href: understand-reservation-charges-postgresql.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Database for PostgreSQL - Hyperscale (Citus)
-      href: ../../postgresql/concepts-hyperscale-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../postgresql/hyperscale/concepts-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Databricks
       href: reservation-discount-databricks.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Data Explorer

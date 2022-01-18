@@ -31,7 +31,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * ***Basic***  
     Selecting this setting enables selective connectivity patterns and limited IP scale as mentioned in the [Considerations](#considerations) section. All the [constraints](#constraints) apply in this setting. 
 
-## Supported regions 
+### Supported regions 
 
 Azure NetApp Files standard network features are supported for the following regions:
 
