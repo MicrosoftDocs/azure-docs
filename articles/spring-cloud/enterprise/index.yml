@@ -19,6 +19,10 @@ metadata:
 landingContent:
   - title: Get started
     linkLists:
+    - linkListType: get-started
+      links:
+      - text: Basic/Standard tier documentation
+        url: ../index.yml
     - linkListType: quickstart
       links:
       - text: Introduction to the sample app

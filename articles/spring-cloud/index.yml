@@ -28,6 +28,8 @@ landingContent:
             url: overview.md
           - text: Understanding Azure Spring Cloud quotas and limits
             url: quotas.md
+          - text: Enterprise tier documentation
+            url: enterprise/index.yml
 
   # Card (optional)
   - title: Get started
