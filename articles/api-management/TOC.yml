@@ -334,6 +334,10 @@
               href: api-management-howto-migrate.md
             - name: Use managed identities for Azure resources
               href: api-management-howto-use-managed-service-identity.md
+            - name: Self-hosted gateway
+              items:
+              - name: Guidance for running on Kubernetes
+                href: how-to-self-hosted-gateway-on-kubernetes-in-production.md
             - name: Integrate with Service Fabric
               items:
                   - name: Service Fabric integration overview

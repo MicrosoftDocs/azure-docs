@@ -17,9 +17,6 @@ The solution enables the speed of creating virtual machines from custom images w
 
 <br/>
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Custom-Image-Factory-with-Azure-DevTest-Labs/player]
-
-
 ## High-level view of the solution
 The solution enables the speed of creating virtual machines from custom images while eliminating extra ongoing maintenance costs. With this solution, you can automatically create custom images and distribute them to other DevTest Labs. You use Azure DevOps (formerly Visual Studio Team Services) as the orchestration engine for automating the all the operations in the DevTest Labs.
 
