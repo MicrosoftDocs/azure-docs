@@ -17,8 +17,6 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- You need an [Azure Database for PostgreSQL server and database](quickstart-create-server-database-azure-cli.md).
-
 > [!NOTE]
 > Support for VNet service endpoints is only for General Purpose and Memory Optimized servers. In case of VNet peering, if traffic is flowing through a common VNet Gateway with service endpoints and is supposed to flow to the peer, please create an ACL/VNet rule to allow Azure Virtual Machines in the Gateway VNet to access the Azure Database for PostgreSQL server.
 
