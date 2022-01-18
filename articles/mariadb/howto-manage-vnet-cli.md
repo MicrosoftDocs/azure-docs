@@ -39,6 +39,8 @@ VNets and Azure service resources can be in the same or different subscriptions.
 
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../includes/cli-launch-cloud-shell-sign-in.md)]
 
+### Run the script
+
 :::code language="azurecli" source="~/azure_cli_scripts/mariadb/create-mariadb-server-vnet/create-mariadb-server.sh" range="4-50":::
 
 ## Clean up deployment
