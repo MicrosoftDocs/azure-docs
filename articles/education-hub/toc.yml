@@ -18,6 +18,8 @@
     href: hub-overview-page.md
   - name: Create an assignment and allocate credit
     href: create-assignment-allocate-credit.md
+  - name: Create a lab in Education Hub through REST APIs
+    href: create-lab-education-hub.md
 - name: Support
   items:
   - name: Service desk
