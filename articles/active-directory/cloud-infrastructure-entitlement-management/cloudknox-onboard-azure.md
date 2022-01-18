@@ -42,13 +42,15 @@ This topic describes how to onboard the Microsoft Azure authorization system on 
 
     1. To locate the Azure Subscription ID, open the **Enterprise applications** page in Azure.
 
-    1. To locate your CloudKnox subscription, on the **Overview** page, search for *CloudKnox* .
+    1. Return to CloudKnox and paste the subscription ID in the **Azure Subscription IDs** box.
+
+    1. Next, locate your CloudKnox subscription. On the **Overview** page, search for *CloudKnox*.
 
         The **Subscriptions** page opens. The **Subscription name** section of the page displays a list of CloudKnox subscriptions available to you. 
 
     1. From the **Subscription Id** column, copy the subscription ID you want.
 
-    1. Return to CloudKnox and paste the subscription ID in the **Azure Subscription IDs** box.
+    1. Return to CloudKnox and paste the subscription ID in the **Subscription IDs** box.
 
 1. Select **Next**.
 
