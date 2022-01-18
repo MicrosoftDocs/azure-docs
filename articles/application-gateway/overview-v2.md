@@ -7,6 +7,7 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 01/18/2022
 ms.author: victorh
+ms.custom: references_regions
 ---
 
 # What is Azure Application Gateway v2?
