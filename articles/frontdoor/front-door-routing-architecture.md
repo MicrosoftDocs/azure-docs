@@ -98,9 +98,9 @@ When Front Door receives an HTTP request, it uses the request's `Host` header to
 
 ::: zone pivot="front-door-classic"
 
-## Match request to a Front Door
+## Match request to a front door
 
-When Front Door receives an HTTP request, it uses the request's `Host` header to match the request to the correct customer's Front Door. If the request is using a [custom domain name](front-door-custom-domain.md), the domain name must be registered with Front Door to enable requests to be matched to your profile.
+When Front Door receives an HTTP request, it uses the request's `Host` header to match the request to the correct customer's Front Door instance. If the request is using a [custom domain name](front-door-custom-domain.md), the domain name must be registered with Front Door to enable requests to be matched to your profile.
 
 ::: zone-end
 
