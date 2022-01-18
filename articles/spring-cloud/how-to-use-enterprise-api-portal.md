@@ -44,7 +44,7 @@ Also configure the external authorization server to allow redirects back to the 
 
 ### Configure the instance count
 
-Configuration of the instance count for the API portal is supported, unless you are suing SSO. If you are using the SSO feature, only one instance count is supported.
+Configuration of the instance count for the API portal is supported, unless you are using SSO. If you are using the SSO feature, only one instance count is supported.
 
 ## Assign a public endpoint for the API portal
 
