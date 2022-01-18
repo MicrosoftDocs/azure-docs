@@ -190,6 +190,8 @@
       items:
       - name: Overview
         href: concept-cloud-native-certificate-based-authentication.md
+      - name: How it works
+        href: concept-cloud-native-certificate-based-authentication-technical-deep-dive.md
       - name: Limitations
         href: concept-cloud-native-certificate-based-authentication-limitations.md
       - name: Get started

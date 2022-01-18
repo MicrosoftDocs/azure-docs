@@ -22,9 +22,10 @@ This topic covers how to troubleshoot cloud native certificate-based authenticat
 
 ## Next steps 
 
-[Overview of cloud native certificate-based authentication](concept-cloud-native-certificate-based-authentication.md)
-[Limitations with cloud native certificate-based authentication](concept-cloud-native-certificate-based-authentication-limitations.md)
-[Get started with cloud native certificate-based authentication](how-to-certificate-based-authentication.md)
-[FAQ](cloud-native-certificate-based-authentication-faq.yml)
+- [Overview of cloud native certificate-based authentication](concept-cloud-native-certificate-based-authentication.md)
+- [Technical deep dive for cloud-native certificate-based authentication](concept-cloud-native-certificate-based-authentication-technical-deep-dive.md)   
+- [Limitations with cloud native certificate-based authentication](concept-cloud-native-certificate-based-authentication-limitations.md)
+- [Get started with cloud native certificate-based authentication](how-to-certificate-based-authentication.md)
+- [FAQ](cloud-native-certificate-based-authentication-faq.yml)
 
 

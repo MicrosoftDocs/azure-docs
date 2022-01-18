@@ -45,9 +45,9 @@ The following scenarios are not supported:
 
 ## Next steps
 
-[Overview of cloud native certificate-based authentication](concept-cloud-native-certificate-based-authentication.md)
-[Get started with cloud native certificate-based authentication](how-to-certificate-based-authentication.md)
-[FAQ](cloud-native-certificate-based-authentication-faq.yml)
-[Troubleshoot cloud native certificate-based authentication](troubleshoot-cloud-native-certificate-based-authentication.md)
-
+- [Overview of cloud native certificate-based authentication](concept-cloud-native-certificate-based-authentication.md)
+- [Technical deep dive for cloud-native certificate-based authentication](concept-cloud-native-certificate-based-authentication-technical-deep-dive.md)   
+- [Get started with cloud native certificate-based authentication](how-to-certificate-based-authentication.md)
+- [FAQ](cloud-native-certificate-based-authentication-faq.yml)
+- [Troubleshoot cloud native certificate-based authentication](troubleshoot-cloud-native-certificate-based-authentication.md)
 
