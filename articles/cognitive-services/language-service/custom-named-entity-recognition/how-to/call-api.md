@@ -34,7 +34,7 @@ See the [application development lifecycle](../overview.md#application-developme
 
 2. Select **Deploy model** from the left side menu.
 
-3. Select the model you want to deploy, then select **Deploy model**.
+3. Select the model you want to deploy, then select **Deploy model**. If you deploy your model through the Language Studio, your `deployment-name` is `prod`.
 
 > [!TIP]
 > You can test your model in Language Studio by sending samples of text for it to classify. 
