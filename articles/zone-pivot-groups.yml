@@ -1573,3 +1573,12 @@ groups:
     title: Private container registry
   - id: container-apps-public-registry
     title: Public container registry
+# Owner: duau
+- id: front-door-skus
+  title: Front Door SKUs
+  prompt: Select the SKU of Azure Front Door
+  pivots:
+  - id: front-door-standard-premium
+    title: Standard/Premium
+  - id: front-door-classic
+    title: Front Door
