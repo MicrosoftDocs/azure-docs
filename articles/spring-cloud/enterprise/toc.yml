@@ -43,5 +43,5 @@
       href: ../how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise-tier&toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
     - name: Troubleshooting guide
       href: ../troubleshoot.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
-    - name: Spring Cloud
+    - name: Migrate Spring Cloud to Azure Spring Cloud
       href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json
