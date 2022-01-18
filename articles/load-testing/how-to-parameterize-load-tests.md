@@ -151,7 +151,7 @@ If you're using Azure Load Testing in your CI/CD workflow, you can also use the 
         [
             {
             "name": "appToken",
-            "value": "${{ secrets.MY_SECRET }}",
+            "value": "${{ secrets.MY_SECRET }}"
             }
         ]
     ```
@@ -169,7 +169,7 @@ If you're using Azure Load Testing in your CI/CD workflow, you can also use the 
           [
               {
               "name": "appToken",
-              "value": "$(mySecret)",
+              "value": "$(mySecret)"
               }
           ]
     ```
@@ -255,7 +255,7 @@ The following YAML snippet shows a GitHub Actions example:
     [
         {
         "name": "webapp",
-        "value": "myapplication.contoso.com",
+        "value": "myapplication.contoso.com"
         }
     ]
 ```
@@ -273,7 +273,7 @@ The following YAML snippet shows an Azure Pipelines example:
       [
           {
           "name": "webapp",
-          "value": "myapplication.contoso.com",
+          "value": "myapplication.contoso.com"
           }
       ]
 ```

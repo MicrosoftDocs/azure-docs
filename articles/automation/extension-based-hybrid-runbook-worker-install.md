@@ -100,7 +100,6 @@ If you use a firewall to restrict access to the Internet, you must configure the
 |Port | 443 for outbound internet access|
 |Global URL |*.azure-automation.net|
 |Global URL of US Gov Virginia |*.azure-automation.us|
-|Agent service |`https://<workspaceId>.agentsvc.azure-automation.net`|
 
 ## Create hybrid worker group 
 
