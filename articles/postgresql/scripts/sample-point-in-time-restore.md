@@ -34,7 +34,7 @@ This sample CLI script restores a single Azure Database for PostgreSQL server to
 az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the commands outlined in the following table:
 

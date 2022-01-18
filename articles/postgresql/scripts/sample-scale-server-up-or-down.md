@@ -39,7 +39,7 @@ This sample CLI script scales compute and storage for a single Azure Database fo
 az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the commands outlined in the following table:
 

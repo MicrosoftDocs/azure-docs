@@ -34,11 +34,7 @@ This sample CLI script creates an Azure Database for PostgreSQL server and confi
 az group delete --name $resourceGroup
 ```
 
-In this sample script, edit the highlighted lines to update the admin username and password to your own.
-
-:::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" range="4-31":::
-
-## Script explanation
+## Sample reference
 
 This script uses the commands outlined in the following table:
 
