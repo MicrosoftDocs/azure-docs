@@ -7,7 +7,7 @@ ms.topic: how-to
 author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
-ms.date: 01/14/2022
+ms.date: 01/20/2022
 ---
 
 # Switch accounts in Partner Center

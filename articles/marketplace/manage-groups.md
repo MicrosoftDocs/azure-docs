@@ -7,7 +7,7 @@ ms.topic: how-to
 author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
-ms.date: 04/07/2021
+ms.date: 01/20/2022
 ---
 
 # Manage groups for the commercial marketplace
