@@ -55,8 +55,6 @@ items:
       displayName: import, export
   - name: Publish
     href: how-to/publish.md
-  - name: Get intent using the REST API
-    href: luis-get-started-get-intent-from-rest.md
   - name: Update model using the REST API
     href: get-started-get-model-rest-apis.md
   - name: Query prediction endpoint
