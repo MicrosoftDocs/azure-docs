@@ -70,7 +70,7 @@ To operate properly, each self-hosted gateway needs outbound connectivity on por
 
 > [!IMPORTANT]
 > * DNS hostnames must be resolvable to IP addresses and the corresponding IP addresses must be reachable.
-> * The associated storage account nameds are listed in the service's **Network connectivity status** page in the Azure portal.
+> * The associated storage account names are listed in the service's **Network connectivity status** page in the Azure portal.
 > * Public IP addresses underlying the associated storage accounts are dynamic and can change without notice.
 
 If integrated with your API Management instance, also enable outbound connectivity to the associated public IP addresses, ports, and hostnames for:
