@@ -18,10 +18,15 @@
     - name: Create container registry - PowerShell
       href: container-registry-get-started-powershell.md
     - name: Create container registry - ARM template
-      displayName: Resource Manager
+      displayName: Resource Manager,ARM
       href: container-registry-get-started-geo-replication-template.md
+    - name: Create container registry - Bicep
+      displayName: Resource Manager,ARM
+      href: container-registry-get-started-bicep.md
     - name: Send events to Event Grid - CLI
       href: container-registry-event-grid-quickstart.md
+    - name: Manage content with client libraries
+      href: quickstart-client-libraries.md
     - name: Build and push Java images - CLI
       href: container-registry-java-quickstart.md
   - name: Tutorials
@@ -35,6 +40,10 @@
         href: container-registry-tutorial-deploy-app.md
       - name: 3 - Update web application
         href: container-registry-tutorial-deploy-update.md
+  - name: Samples
+    items:
+    - name: Azure Resource Graph queries
+      href: ./resource-graph-samples.md
   - name: Concepts
     expanded: false
     items:
@@ -78,14 +87,28 @@
         href: container-registry-oci-artifacts.md
       - name: Push and pull a Helm chart
         href: container-registry-helm-repos.md
+      - name: Push and pull supply chain artifacts (preview)
+        href: container-registry-oras-artifacts.md
       - name: View repositories
         href: container-registry-repositories.md
       - name: Import container images
         href: container-registry-import-images.md
       - name: Transfer artifacts (preview)
-        href: container-registry-transfer-images.md
-      - name: Lock container images
-        href: container-registry-image-lock.md
+        items:
+        - name: Overview and prerequisites
+          href: container-registry-transfer-prerequisites.md
+        - name: ACR Transfer with Az CLI
+          href: container-registry-transfer-cli.md
+        - name: ACR Transfer with ARM templates
+          href: container-registry-transfer-images.md
+        - name: Troubleshooting
+          href: container-registry-transfer-troubleshooting.md
+      - name: Protect registry data
+        items:
+        - name: Lock container images
+          href: container-registry-image-lock.md
+        - name: Disable export
+          href: data-loss-prevention.md
       - name: Delete container images
         items:
         - name: Delete image data - CLI
@@ -96,6 +119,8 @@
           href: container-registry-auto-purge.md
       - name: Use ACR webhooks
         href: container-registry-webhook.md
+      - name: Move registry to different region
+        href: manual-regional-move.md
     - name: Security and authentication
       items:
       - name: Restrict access using private endpoint
@@ -122,19 +147,23 @@
           href: container-registry-repository-scoped-permissions.md
         - name: Authenticate from Azure Container Instances
           href: container-registry-auth-aci.md
-        - name: Authenticate from Kubernetes with pull secret
-          href: container-registry-auth-kubernetes.md
-        - name: Authenticate from Azure Kubernetes Service (AKS)
-          href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
-        - name: Authenticate with repository-scoped token (preview)
-          href: container-registry-repository-scoped-permissions.md
+        - name: Authenticate from Kubernetes
+          items:
+          - name: Kubernetes scenarios
+            href: authenticate-kubernetes-options.md
+          - name: Attach registry to Azure Kubernetes Service (AKS)
+            href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
+          - name: Cross-tenant authentication from AKS
+            href: authenticate-aks-cross-tenant.md
+          - name: Authenticate using Kubernetes pull secret
+            href: container-registry-auth-kubernetes.md
+        - name: Enable unauthenticated pull access
+          href: anonymous-pull-access.md
       - name: Azure role-based access control
         href: container-registry-roles.md
         displayName: permissions, authorization
       - name: Content trust
         href: container-registry-content-trust.md
-      - name: Image scanning with Security Center
-        href: ../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json
     - name: Registries and other Azure services
       expanded: false
       items:
@@ -147,10 +176,17 @@
     - name: Monitor
       expanded: false
       items:
-        - name: Diagnostic and audit logs
-          href: container-registry-diagnostics-audit-logs.md  
+        - name: Monitor Container Registry
+          href: monitor-service.md
         - name: Audit compliance using Azure Policy
-          href: container-registry-azure-policy.md 
+          href: container-registry-azure-policy.md
+        - name: Scan container images
+          expanded: false
+          items:
+          - name: Scan with Microsoft Defender for Cloud
+            href: scan-images-defender.md
+          - name: Scan with GitHub actions
+            href: github-action-scan.md
     - name: Troubleshoot
       expanded: false
       items:
@@ -164,7 +200,7 @@
           href: container-registry-check-health.md
           displayName: check, health
         - name: FAQ
-          href: container-registry-faq.md
+          href: container-registry-faq.yml
 - name: Tasks
   expanded: true
   items:
@@ -217,7 +253,7 @@
           href: container-registry-tasks-cross-registry-authentication.md
         - name: External authentication using key vault
           href: container-registry-tasks-authentication-key-vault.md
-      - name: Quick task run with Resource Manager template 
+      - name: Quick task run with Resource Manager template
         href: container-registry-task-run-template.md
       - name: Run task on dedicated agent pool (preview)
         href: tasks-agent-pools.md
@@ -227,6 +263,37 @@
         href: container-registry-tasks-pack-build.md
       - name: View task logs
         href: container-registry-tasks-logs.md
+- name: Connected registry
+  expanded: true
+  items:
+  - name: Overview
+    expanded: false
+    items:
+    - name: About connected registry
+      href: intro-connected-registry.md
+    - name: Use with IoT Edge
+      href: overview-connected-registry-and-iot-edge.md
+  - name: Quickstarts
+    expanded: true
+    items:
+    - name: Create connected registry - CLI
+      href: quickstart-connected-registry-cli.md
+    - name: Create connected registry - Portal
+      href: quickstart-connected-registry-portal.md
+    - name: Deploy connected registry to IoT Edge
+      href: quickstart-deploy-connected-registry-iot-edge-cli.md
+  - name: Tutorials
+    items:
+    - name: Deploy connected registry to nested IoT Edge
+      href: tutorial-deploy-connected-registry-nested-iot-edge-cli.md
+  - name: Concepts
+    items:
+    - name: Access to connected registry
+      href: overview-connected-registry-access.md
+  - name: How-to guides
+    items:
+    - name: Pull image from connected registry
+      href: pull-images-from-connected-registry.md
 - name: Reference
   expanded: false
   items:
@@ -257,6 +324,8 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
+  - name: Monitoring data
+    href: monitor-service-reference.md
 - name: Resources
   expanded: false
   items:
@@ -267,7 +336,7 @@
   - name: Roadmap
     href: https://aka.ms/acr/roadmap
   - name: Provide product feedback
-    href: https://feedback.azure.com/forums/903958-azure-container-registry
+    href: https://feedback.azure.com/d365community/forum/180a533d-0d25-ec11-b6e6-000d3a4f0858
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-container-registry
   - name: Videos

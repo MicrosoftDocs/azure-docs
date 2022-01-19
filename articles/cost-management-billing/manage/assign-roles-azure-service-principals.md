@@ -2,18 +2,19 @@
 title: Assign roles to Azure Enterprise Agreement service principal names
 description: This article helps you assign roles to service principal names by using PowerShell and REST APIs.
 author: bandersmsft
-ms.reviewer: ruturajd
+ms.reviewer: sapnakeshari
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 10/22/2021
 ms.author: banders
 ---
 
 # Assign roles to Azure Enterprise Agreement service principal names
 
-You can manage your Enterprise Agreement (EA) enrollment in the [Azure Enterprise portal](https://ea.azure.com/). You can create different roles to manage your organization, view costs, and create subscriptions. This article helps you automate some of those tasks by using Azure PowerShell and REST APIs with Azure service principal names (SPNs).
+You can manage your Enterprise Agreement (EA) enrollment in the [Azure Enterprise portal](https://ea.azure.com/). Direct Enterprise customer can now manage Enterprise Agreement(EA) enrollment in [Azure portal](https://portal.azure.com/).
+You can create different roles to manage your organization, view costs, and create subscriptions. This article helps you automate some of those tasks by using Azure PowerShell and REST APIs with Azure service principal names (SPNs).
 
 Before you begin, ensure that you're familiar with the following articles:
 
@@ -72,7 +73,7 @@ Later in this article, you'll give permission to the Azure AD app to act by usin
 
 ## Assign enrollment account role permission to the SPN
 
-1. Read the [Role Assignments - Put](/rest/api/billing/2019-10-01-preview/roleassignments/put) REST API article. While you read the article, select **Try it** to get started by using the SPN.
+1. Read the [Role Assignments - Put](/rest/api/billing/2019-10-01-preview/role-assignments/put) REST API article. While you read the article, select **Try it** to get started by using the SPN.
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/put-try-it.png" alt-text="Screenshot showing the Try It option in the Put article." lightbox="./media/assign-roles-azure-service-principals/put-try-it.png" :::
 
@@ -86,13 +87,13 @@ Later in this article, you'll give permission to the Azure AD app to act by usin
 
    - `billingRoleAssignmentName`: This parameter is a unique GUID that you need to provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
 
-   - `api-version`: Use the **2019-10-01-preview** version. Use the sample request body at [Role Assignments - Put - Examples](/rest/api/billing/2019-10-01-preview/roleassignments/put#examples).
+   - `api-version`: Use the **2019-10-01-preview** version. Use the sample request body at [Role Assignments - Put - Examples](/rest/api/billing/2019-10-01-preview/role-assignments/put#examples).
 
       The request body has JSON code with three parameters that you need to use.
 
       | Parameter | Where to find it |
       | --- | --- |
-      | `properties.principalId` | See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
+      | `properties.principalId` | It is the value of Object ID. See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
       | `properties.principalTenantId` | See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
       | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountName}/billingRoleDefinitions/24f8edb6-1668-4659-b5e2-40bb5f3a7d7e` |
 
@@ -116,7 +117,7 @@ For the EA purchaser role, use the same steps for the enrollment reader. Specify
 
 ## Assign the department reader role to the SPN
 
-1. Read the [Enrollment Department Role Assignments - Put](/rest/api/billing/2019-10-01-preview/enrollmentdepartmentroleassignments/put) REST API article. While you read the article, select **Try it**.
+1. Read the [Enrollment Department Role Assignments - Put](/rest/api/billing/2019-10-01-preview/enrollment-department-role-assignments/put) REST API article. While you read the article, select **Try it**.
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" alt-text="Screenshot showing the Try It option in the Enrollment Department Role Assignments Put article." lightbox="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" :::
 
@@ -136,13 +137,13 @@ For the EA purchaser role, use the same steps for the enrollment reader. Specify
 
       :::image type="content" source="./media/assign-roles-azure-service-principals/department-id.png" alt-text="Screenshot showing an example department ID." lightbox="./media/assign-roles-azure-service-principals/department-id.png" :::
 
-   - `api-version`: Use the **2019-10-01-preview** version. Use the sample at [Enrollment Department Role Assignments - Put](/billing/2019-10-01-preview/enrollmentdepartmentroleassignments/put).
+   - `api-version`: Use the **2019-10-01-preview** version. Use the sample at [Enrollment Department Role Assignments - Put](/rest/api/billing/2019-10-01-preview/enrollment-department-role-assignments/put).
 
       The request body has JSON code with three parameters that you need to use.
 
       | Parameter | Where to find it |
       | --- | --- |
-      | `properties.principalId` | See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
+      | `properties.principalId` | It is the value of Object ID. See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
       | `properties.principalTenantId` | See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
       | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountName}/billingRoleDefinitions/db609904-a47f-4794-9be8-9bd86fbffd8a` |
 
@@ -160,13 +161,13 @@ Now you can use the SPN to automatically access EA APIs. The SPN has the Departm
 
 ## Assign the subscription creator role to the SPN
 
-1. Read the [Enrollment Account Role Assignments - Put](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put) article. While you read it, select **Try It** to assign the subscription creator role to the SPN.
+1. Read the [Enrollment Account Role Assignments - Put](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put) article. While you read it, select **Try It** to assign the subscription creator role to the SPN.
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" alt-text="Screenshot showing the Try It option in the Enrollment Account Role Assignments Put article." lightbox="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" :::
 
 1. Use your account credentials to sign in to the tenant with the enrollment access that you want to assign.
 
-1. Provide the following parameters as part of the API request. Read the article at [Enrollment Account Role Assignments - Put - URI Parameters](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put#uri-parameters).
+1. Provide the following parameters as part of the API request. Read the article at [Enrollment Account Role Assignments - Put - URI Parameters](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put#uri-parameters).
 
    - `billingAccountName`: This parameter is the **Billing account ID**. You can find it in the Azure portal on the **Cost Management + Billing overview** page.
 
@@ -180,13 +181,13 @@ Now you can use the SPN to automatically access EA APIs. The SPN has the Departm
 
       :::image type="content" source="./media/assign-roles-azure-service-principals/account-id.png" alt-text="Screenshot showing the account ID." lightbox="./media/assign-roles-azure-service-principals/account-id.png" :::
 
-   - `api-version`: Use the **2019-10-01-preview** version. Use the sample at [Enrollment Department Role Assignments - Put - Examples](/rest/api/billing/2019-10-01-preview/enrollmentdepartmentroleassignments/put#putenrollmentdepartmentadministratorroleassignment).
+   - `api-version`: Use the **2019-10-01-preview** version. Use the sample at [Enrollment Department Role Assignments - Put - Examples](/rest/api/billing/2019-10-01-preview/enrollment-department-role-assignments/put#examples).
 
       The request body has JSON code with three parameters that you need to use.
 
       | Parameter | Where to find it |
       | --- | --- |
-      | `properties.principalId` | See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
+      | `properties.principalId` | It is the value of Object ID. See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
       | `properties.principalTenantId` | See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
       | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountID}/enrollmentAccounts/196987/billingRoleDefinitions/a0bcee42-bf30-4d1b-926a-48d21664ef71` |
 
@@ -201,6 +202,10 @@ Now you can use the SPN to automatically access EA APIs. The SPN has the Departm
    A `200 OK` response shows that the SPN has been successfully added.
 
 Now you can use the SPN to automatically access EA APIs. The SPN has the SubscriptionCreator role.
+
+## Troubleshoot
+
+You must identify and use the Enterprise application object ID where you granted the EA role. If you use the Object ID from some other application, API calls will fail. Verify that you’re using the correct Enterprise application object ID.
 
 ## Next steps
 

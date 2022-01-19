@@ -3,16 +3,17 @@ title: DTU resource limits single databases
 description: This page describes some common DTU resource limits for single databases in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: service-overview
 ms.custom: references_regions, seo-lt-2019, sqldbrb=1
 ms.devlang:
 ms.topic: reference
-author: stevestein
-ms.author: sstein
-ms.reviewer:
-ms.date: 04/09/2021
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: kendralittle, mathoma
+ms.date: 01/18/2022
 ---
 # Resource limits for single databases using the DTU purchasing model - Azure SQL Database
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article provides the detailed resource limits for Azure SQL Database single databases using the DTU purchasing model.
@@ -32,7 +33,7 @@ The following tables show the resources available for a single database at each 
 * [Transact-SQL](single-database-manage.md#transact-sql-t-sql) via [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
 * [Azure portal](single-database-manage.md#the-azure-portal)
 * [PowerShell](single-database-manage.md#powershell)
-* [Azure CLI](single-database-manage.md#the-azure-cli)
+* [Azure CLI](single-database-manage.md#azure-cli)
 * [REST API](single-database-manage.md#rest-api)
 
 > [!IMPORTANT]
@@ -46,7 +47,7 @@ The following tables show the resources available for a single database at each 
 | Included storage (GB) | 2 |
 | Max storage (GB) | 2 |
 | Max in-memory OLTP storage (GB) |N/A |
-| Max concurrent workers (requests) | 30 |
+| Max concurrent workers | 30 |
 | Max concurrent sessions | 300 |
 |||
 
@@ -64,7 +65,7 @@ The following tables show the resources available for a single database at each 
 | Included storage (GB) <sup>1</sup> | 250 | 250 | 250 | 250 |
 | Max storage (GB) | 250 | 250 | 250 | 1024 |
 | Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |
-| Max concurrent workers (requests)| 60 | 90 | 120 | 200 |
+| Max concurrent workers | 60 | 90 | 120 | 200 |
 | Max concurrent sessions |600 | 900 | 1200 | 2400 |
 ||||||
 
@@ -84,7 +85,7 @@ The following tables show the resources available for a single database at each 
 | Included storage (GB) <sup>1</sup> | 250 | 250 | 250 | 250 | 250 |
 | Max storage (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 | Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |N/A |
-| Max concurrent workers (requests)| 400 | 800 | 1600 | 3200 |6000 |
+| Max concurrent workers | 400 | 800 | 1600 | 3200 |6000 |
 | Max concurrent sessions |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
@@ -98,7 +99,7 @@ The following tables show the resources available for a single database at each 
 | Included storage (GB) <sup>1</sup> | 500 | 500 | 500 | 500 | 4096 <sup>2</sup> | 4096 <sup>2</sup> |
 | Max storage (GB) | 1024 | 1024 | 1024 | 1024 | 4096 <sup>2</sup> | 4096 <sup>2</sup> |
 | Max in-memory OLTP storage (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
-| Max concurrent workers (requests)| 200 | 400 | 800 | 1600 | 2800 | 6400 |
+| Max concurrent workers | 200 | 400 | 800 | 1600 | 2800 | 6400 |
 | Max concurrent sessions | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
@@ -108,8 +109,11 @@ The following tables show the resources available for a single database at each 
 
 > [!IMPORTANT]
 > More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, and Germany Northeast. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see [P11-P15 current limitations](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
+
 > [!NOTE]
 > For `tempdb` limits, see [tempdb limits](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
+> 
+> For additional information on storage limits in the Premium service tier, see [Storage space governance](resource-limits-logical-server.md#storage-space-governance).
 
 ## Next steps
 

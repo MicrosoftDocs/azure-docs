@@ -2,12 +2,14 @@
 title: Submit jobs from R Tools for Visual Studio - Azure HDInsight 
 description: Submit R jobs from your local Visual Studio machine to an HDInsight cluster.
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
+ROBOTS: NOINDEX
 ---
 
 # Submit jobs from R Tools for Visual Studio
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 [R Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS) is a free, open-source extension for the Community (free), Professional, and Enterprise editions of both [Visual Studio 2017](https://www.visualstudio.com/downloads/), and [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) or higher. RTVS is not available for [Visual Studio 2019](/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?preserve-view=true&view=vs-2019).
 

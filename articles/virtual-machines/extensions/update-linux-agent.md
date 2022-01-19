@@ -395,7 +395,7 @@ cd WALinuxAgent-2.2.14
 ### 2. Install the Azure Linux Agent
 
 For version 2.2.x, use:
-You may need to install the package `setuptools` first--see [here](https://pypi.python.org/pypi/setuptools). Then run:
+You may need to install the package `setuptools` first--see [setuptools](https://pypi.python.org/pypi/setuptools). Then run:
 
 ```bash
 sudo python setup.py install

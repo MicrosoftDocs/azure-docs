@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure Foodee for automatic user provisioning by using Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Foodee.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/30/2019
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Foodee for automatic user provisioning

@@ -1,10 +1,11 @@
-﻿---
+---
 title: Use condition in templates
 description: Learn how to deploy Azure resources based on conditions. Shows how to either deploy a new resource or use an existing resource.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Use condition in ARM templates
@@ -39,23 +40,25 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To complete this article, you need:
 
 * Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
-* To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
+* To increase security, use a generated password for the virtual machine administrator account. You can use [Azure Cloud Shell](../../cloud-shell/overview.md) to run the following command in PowerShell or Bash:
 
-    ```console
+    ```shell
     openssl rand -base64 32
     ```
+
+    To learn more, run `man openssl rand` to open the manual page.
 
     Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in ARM template deployment](./template-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
 
 ## Open a Quickstart template
 
-Azure Quickstart Templates is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Azure Quickstart Templates is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/vm-simple-windows/).
 
 1. From Visual Studio Code, select **File** > **Open File**.
 1. In **File name**, paste the following URL:
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json
     ```
 
 1. Select **Open** to open the file.
@@ -131,7 +134,7 @@ Here is the procedure to make the changes:
 
 ## Deploy the template
 
-1. Sign in to the [Azure Cloud Shell](https://shell.azure.com)
+1. Sign in to [Cloud Shell](https://shell.azure.com).
 
 1. Choose your preferred environment by selecting either **PowerShell** or **Bash** (for CLI) on the upper left corner. Restarting the shell is required when you switch.
 

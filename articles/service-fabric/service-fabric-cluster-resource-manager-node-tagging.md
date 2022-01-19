@@ -50,7 +50,7 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
     "name": "PlacementAndLoadBalancing",
     "parameters": [
       {
-          "name": " NodeTaggingEnabled ",
+          "name": "NodeTaggingEnabled",
           "value": "true"
       }
     ]

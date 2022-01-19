@@ -9,7 +9,7 @@ ms.date: 04/22/2020
 
 # Connect Excel to Apache Hadoop in Azure HDInsight with the Microsoft Hive ODBC driver
 
-[!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
+[!INCLUDE [ODBC-JDBC-selector](../includes/hdinsight-selector-odbc-jdbc.md)]
 
 Microsoft's Big Data solution integrates Microsoft Business Intelligence (BI) components with Apache Hadoop clusters  deployed in  HDInsight. An example is the ability to connect Excel to the Hive data warehouse of a Hadoop cluster. Connect using the Microsoft Hive Open Database Connectivity (ODBC) Driver.
 

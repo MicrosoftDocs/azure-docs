@@ -13,7 +13,7 @@ ms.devlang: tsql
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: 
+ms.reviewer: kendralittle, mathoma
 ---
 # Configure the max degree of parallelism (MAXDOP) in Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -134,7 +134,7 @@ $params = @{
     'username' = $serveradminLogin
     'password' = $serveradminPassword
     'outputSqlErrors' = $true
-    'query' = 'ALTER DATABASE SCOPED CONFIGURATION SET MAXDOP = ' + $desiredMAXDOP + ';
+    'query' = 'ALTER DATABASE SCOPED CONFIGURATION SET MAXDOP = ' + $desiredMAXDOP_primary + ';
     ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET MAXDOP = ' + $desiredMAXDOP_secondary_readonly + ';
     SELECT [value], value_for_secondary FROM sys.database_scoped_configurations WHERE [name] = ''MAXDOP'';'
   }

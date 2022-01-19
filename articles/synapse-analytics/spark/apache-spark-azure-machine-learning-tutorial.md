@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
-ms.reviewer: jrasnick
+ms.reviewer: sngun
  
 ---
 # Tutorial: Train a model in Python with automated machine learning
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 ## Before you begin
 
 - Create a serverless Apache Spark pool by following the [Create a serverless Apache Spark pool](../quickstart-create-apache-spark-pool-studio.md) quickstart.
-- Complete the [Azure Machine Learning workspace setup](../../machine-learning/tutorial-1st-experiment-sdk-setup.md) tutorial if you don't have an existing Azure Machine Learning workspace. 
+- Complete the [Azure Machine Learning workspace setup](../../machine-learning/quickstart-create-resources.md) tutorial if you don't have an existing Azure Machine Learning workspace. 
 
 ## Understand regression models
 

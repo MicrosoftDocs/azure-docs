@@ -5,10 +5,9 @@ description: Provides you with information that will appear in the Azure Active 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: identity

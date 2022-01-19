@@ -53,7 +53,7 @@ To use this option, you must not have the Azure Az modules installed on your com
   
 Run the script with the following command:
 
-`Install-Script -Name AzurePublicLBUpgrade`
+`Install-Script -Name AzureLBUpgrade`
 
 This command also installs the required Az modules.  
 
@@ -79,18 +79,18 @@ To run the script:
     **Example**
 
    ```azurepowershell
-   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
+   AzureLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
    ```
 
 ### Add VMs to backend pools of Standard Load Balancer
 
-First, double check that the script successfully created a new Standard Public Load Balancer with the exact configuration migrated over from your Basic Public Load Balancer. You can verify this from the Azure portal.
+First, double check that the script successfully created a new Standard Public Load Balancer with the exact configuration migrated over from your Basic Internal Load Balancer. You can verify this from the Azure portal.
 
 Be sure to send a small amount of traffic through the Standard Load Balancer as a manual test.
   
 Here are a few scenarios of how you add VMs to backend pools of the newly created Standard Public Load Balancer may be configured, and our recommendations for each one:
 
-* **Moving existing VMs from backend pools of old Basic Public Load Balancer to backend pools of newly created Standard Public Load Balancer**.
+* **Moving existing VMs from backend pools of old Basic Internal Load Balancer to backend pools of newly created Standard Public Load Balancer**.
     1. To do the tasks in this quickstart, sign in to the [Azure portal](https://portal.azure.com).
  
     1. Select **All resources** on the left menu, and then select the **newly created Standard Load Balancer** from the resource list.

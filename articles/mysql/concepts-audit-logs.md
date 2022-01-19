@@ -10,12 +10,14 @@ ms.date: 6/24/2020
 
 # Audit Logs in Azure Database for MySQL
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 In Azure Database for MySQL, the audit log is available to users. The audit log can be used to track database-level activity and is commonly used for compliance.
 
 ## Configure audit logging
 
 >[!IMPORTANT]
-> It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted.
+> It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted and minimum amount of data is collected. 
 
 By default the audit log is disabled. To enable it, set `audit_log_enabled` to ON.
 

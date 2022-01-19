@@ -17,7 +17,7 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 * [Twilio on GitHub][twilio_on_github]
 * [Talk to Twilio Support][twilio_support]
 
-[twilio_api_documentation]: http://www.twilio.com/api
+[twilio_api_documentation]: https://www.twilio.com/docs/api
 [twilio_security_guidelines]: http://www.twilio.com/docs/security
 [twilio_howtos]: https://www.twilio.com/docs/all
 [twilio_on_github]: https://github.com/twilio

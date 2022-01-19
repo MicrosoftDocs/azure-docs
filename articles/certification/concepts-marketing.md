@@ -5,7 +5,7 @@ author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: conceptual 
-ms.date: 03/15/2021
+ms.date: 06/22/2021
 ms.custom: template-concept
 ---
 # Marketing properties
@@ -44,13 +44,16 @@ The top of the product description page highlights key characteristics, some of 
 | Target industries  | Top 3 industries that your device is optimized for  | Marketing details |
 | Product description  | Free text field for you to write your marketing description of your product. This can capture details not listed in the portal, or add additional context for the benefits of using your device. | Marketing details|
 
-The remainder of the page is focused on displaying the technical specifications of your device in table format that will help your customer better understand your product. For convenience, the information displayed at the top of the page is also listed here. The rest of the table is sectioned by the components specified in the portal.
+The remainder of the page is focused on displaying the technical specifications of your device in table format that will help your customer better understand your product. For convenience, the information displayed at the top of the page is also listed here, along with some additional device information. The rest of the table is sectioned by the components specified in the portal.
 
 ![PDP bottom page](./media/concepts-marketing/pdp-bottom.png)
 
 | Field | Description                  | Where to add in the portal                |
 |---------------|-------------------------|----------------------------------|
-| Component type | Classification of the form factor and primary purpose of your device ([Learn more](./resources-glossary.md))       | Product details of Device details|
+| Environmental certifications | Official certifications received for performance in different environments     | Hardware of Device details  |
+| Operating conditions | Ingress Protection value or temperature ranges the device is qualified for     | Software of device details  |
+| Azure software set-up | Classification of the set-up process to connect the device to Azure ([Learn more](./how-to-software-levels.md))     | Software of Device details  |
+| Component type | Classification of the form factor and primary purpose of your device ([Learn more](./resources-glossary.md))       | Hardware of Device details|
 | Component name| Name of the component you are describing | Product details of Device details |
 | Additional component information | Additional hardware specifications such as included sensors, connectivity, accelerators, etc.  | Additional component information of Device details ([Learn more](./how-to-using-the-components-feature.md))  |
 | Device dependency text | Partner-provided text describing the different dependencies the product requires to connect to Azure ([Learn more](./how-to-indirectly-connected-devices.md))   | Customer-facing comments section of Dependencies tab of Device details |
@@ -67,6 +70,7 @@ Available both on the product tile and product description page is a Shop button
 | Get Device| Link to external website for customer to purchase the device (or request a quote from the distributor). This may be the same as the Manufacturer's page if the distributor is the same as the device manufacturer. If a purchase page is not available, this will redirect to the distributor's page for customer to contact them directly.  | Distributor product page URL in marketing details. If no purchase page is available, link will default to Distributor URL in Marketing detail. |
 
 ## External links
+
 Also included within the Product Description page are links that navigate to partner-provided sites or files that help the customer better understand the product. They appear towards the top of the page, beneath the product description text. The links displayed will differ for different device types and certification programs.
 
 | Link | Description                  | Where to add in the portal                |

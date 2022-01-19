@@ -1,17 +1,17 @@
 ---
 title: "Quickstart: Send a search request to the REST API using C# - Bing Entity Search"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to send a request to the Bing Entity Search REST API using C#, and receive a JSON response.
+description: "Use this quickstart to send a request to the Bing Entity Search REST API using C#, and receive a JSON response."
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: aahi
-ms.custom: devx-track-csharp
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-api
 ---
 
 # Quickstart: Send a search request to the Bing Entity Search REST API using C#
@@ -58,8 +58,8 @@ Although this application is written in C#, the API is a RESTful Web service com
     {
         class Program
         {
-            static string host = "https://api.cognitive.microsoft.com";
-            static string path = "/bing/v7.0/entities";
+            static string host = "https://api.bing.microsoft.com";
+            static string path = "/v7.0/search";
     
             static string market = "en-US";
     

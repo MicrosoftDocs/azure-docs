@@ -4,12 +4,11 @@ description: Learn how to share link to request an access package in Azure Activ
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 06/18/2020
@@ -29,7 +28,7 @@ As long as the catalog for the access package is [enabled for external users](en
 
 ## Share link to request an access package
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 

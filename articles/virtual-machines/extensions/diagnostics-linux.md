@@ -7,7 +7,8 @@ ms.subservice: extensions
 author: amjads1
 ms.author: amjads
 ms.collection: linux
-ms.date: 02/05/2021
+ms.date: 02/05/2021 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Use the Linux diagnostic extension 4.0 to monitor metrics and logs
@@ -39,7 +40,7 @@ You can enable this extension for your VM and virtual machine scale set by using
 >[!NOTE]
 >Some components of the Linux Diagnostic VM extension are also shipped in the [Log Analytics VM extension](./oms-linux.md). Because of this architecture, conflicts can arise if both extensions are instantiated in the same ARM template.
 >
->To avoid install-time conflicts, use the [`dependsOn` directive](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) to install the extensions sequentially. The extensions can be installed in either order.
+>To avoid install-time conflicts, use the [`dependsOn` directive](../../azure-resource-manager/templates/resource-dependency.md#dependson) to install the extensions sequentially. The extensions can be installed in either order.
 
 Use the installation instructions and a [downloadable sample configuration](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) to configure LAD 4.0 to:
 
@@ -76,6 +77,10 @@ Supported distributions and versions:
 * **Python 2**.
 
 ### Python requirement
+
+>[!NOTE]
+>We are currently planning to converge all versions of the Linux Diagnostic Extensions (LAD) with the new Azure Monitoring Agent - which already supports Python 3. We expect to ship this early to mid 2022; after which the LAD will be scheduled for deprecation pending announcement and approval.
+>
 
 The Linux diagnostic extension requires Python 2. If your virtual machine uses a distribution that doesn't include Python 2 by default, install it.
 
@@ -866,7 +871,7 @@ Data sent to `JsonBlob` sinks is stored in blobs in the storage account named in
 You also can use these UI tools to access the data in Azure Storage:
 
 * Visual Studio Server Explorer
-* [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
+* [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 
 The following screenshot of an Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 4.0 extension on a test VM. The image doesn't exactly match the [sample LAD 4.0 configuration](#example-lad-40-configuration).
 

@@ -9,7 +9,7 @@ ms.date: 01/12/2021
 
 # Manage HDInsight clusters by using the Apache Ambari Web UI
 
-[!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
+[!INCLUDE [ambari-selector](includes/hdinsight-ambari-selector.md)]
 
 Apache Ambari simplifies the management and monitoring of an Apache Hadoop cluster. This simplification is done by providing an easy to use web UI and REST API. Ambari is included on HDInsight clusters, and is used to monitor the cluster and make configuration changes.
 
@@ -80,7 +80,7 @@ You manage alerting methods, and create alert notifications from the **Actions**
 
 Finally, selecting __Manage Alert Settings__ from the __Actions__ menu allows you to set the number of times an alert must occur before a notification is sent. This setting can be used to prevent notifications for transient errors.
 
-For a tutorial of an alert notification using a free [SendGrid account](../sendgrid-dotnet-how-to-send-email.md), see [Configure Apache Ambari email notifications in Azure HDInsight](./apache-ambari-email.md).
+For a tutorial of an alert notification using a free [SendGrid account](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account), see [Configure Apache Ambari email notifications in Azure HDInsight](./apache-ambari-email.md).
 
 ### Cluster
 

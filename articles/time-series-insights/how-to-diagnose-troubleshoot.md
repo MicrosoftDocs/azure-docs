@@ -1,9 +1,10 @@
 ---
 title: 'Diagnose and troubleshoot a Gen2 environment - Azure Time Series Insights | Microsoft Docs'
 description: Learn how to diagnose and troubleshoot an Azure Time Series Insights Gen2 environment.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
@@ -45,7 +46,7 @@ There are several common reasons why your data might not appear in the [Azure Ti
     - Both the policies **iothubowner** and **service** work because they have **service connect** permission.
 
   - For an event hub, you need to provide the key that has **Listen** permission.
-  
+
     [![Review event hub permissions.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
     - Both the **Read** and **Manage** policies work because they have **Listen** permission.

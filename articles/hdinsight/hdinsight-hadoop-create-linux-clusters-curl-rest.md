@@ -9,7 +9,7 @@ ms.date: 12/10/2019
 
 # Create Apache Hadoop clusters using the Azure REST API
 
-[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-create-linux-cluster-selector.md)]
 
 Learn how to create an HDInsight cluster using an Azure Resource Manager template and the Azure REST API.
 

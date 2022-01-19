@@ -2,12 +2,12 @@
 title: Deploy Azure API Management services to multiple Azure regions
 titleSuffix: Azure API Management
 description: Learn how to deploy an Azure API Management service instance to multiple Azure regions.
-author: mikebudzynski
+author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
 ms.date: 04/13/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # How to deploy an Azure API Management service instance to multiple Azure regions
@@ -17,7 +17,7 @@ Azure API Management supports multi-region deployment, which enables API publish
 A new Azure API Management service initially contains only one [unit][unit] in a single Azure region, the Primary region. Additional units can be added to the Primary or Secondary regions. An API Management gateway component is deployed to every selected Primary and Secondary region. Incoming API requests are automatically directed to the closest region. If a region goes offline, the API requests will be automatically routed around the failed region to the next closest gateway.
 
 > [!NOTE]
-> Only the gateway component of API Management is deployed to all regions. The service management component and developer portal are hosted in the Primary region only. Therefore, in case of the Primary region outage, access to the developer portal and ability to change configuration (e.g. adding APIs, applying policies) will be impaired until the Primary region comes back online. While the Primary region is offline, available Secondary regions will continue to serve the API traffic using the latest configuration available to them. Optionally enable [zone redundacy](zone-redundancy.md) to improve the availability and resiliency of the Primary or Secondary regions.
+> Only the gateway component of API Management is deployed to all regions. The service management component and developer portal are hosted in the Primary region only. Therefore, in case of the Primary region outage, access to the developer portal and ability to change configuration (e.g. adding APIs, applying policies) will be impaired until the Primary region comes back online. While the Primary region is offline, available Secondary regions will continue to serve the API traffic using the latest configuration available to them. Optionally enable [zone redundancy](zone-redundancy.md) to improve the availability and resiliency of the Primary or Secondary regions.
 
 >[!IMPORTANT]
 > The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo.

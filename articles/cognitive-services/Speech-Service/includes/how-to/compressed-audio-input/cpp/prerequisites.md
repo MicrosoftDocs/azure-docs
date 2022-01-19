@@ -1,15 +1,12 @@
 ---
-author: trevorbye
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
-ms.author: trbye
+ms.author: eur
 ---
 
 Handling compressed audio is implemented using [GStreamer](https://gstreamer.freedesktop.org). For licensing reasons GStreamer binaries are not compiled and linked with the Speech SDK. Developers need to install several dependencies and plugins.
-
-> [!NOTE]
-> See the list of [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
 # [Ubuntu/Debian](#tab/debian)
 
@@ -32,9 +29,7 @@ gstreamer1-plugins-ugly-free
 ```
 
 > [!NOTE]
-> - On RHEL/CentOS 7 and RHEL/CentOS 8, in case of using "ANY" compressed format, more gstreamer plugins needs to be installed if stream media format plugin is not in the above installed plugins. 
-> - On RHEL/CentOS 7, follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
-> - On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - On RHEL/CentOS 7 and RHEL/CentOS 8, in case of using "ANY" compressed format, more GStreamer plugins needs to be installed if stream media format plugin is not in the above installed plugins. 
 
 
 ---

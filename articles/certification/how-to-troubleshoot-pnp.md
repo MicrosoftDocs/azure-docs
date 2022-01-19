@@ -37,7 +37,7 @@ While running the tests, if you receive a result of `Passed with warnings`, this
 
 ## When you need help with the model repository
 
-For IoT Plug and Play issues related to the model repository, refer to [our Docs guidance about the device model repository](../iot-pnp/concepts-model-repository.md).
+For IoT Plug and Play issues related to the model repository, refer to [our Docs guidance about the device model repository](../iot-develop/concepts-model-repository.md).
 
 ## Next steps
 

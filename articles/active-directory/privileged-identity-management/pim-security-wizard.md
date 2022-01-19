@@ -4,15 +4,16 @@ description: Discovery and insights (formerly Security Wizard) help you convert 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/01/2020
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ---
@@ -64,4 +65,3 @@ Also, keep role assignments permanent if a user has a Microsoft account (in othe
 ## Next steps
 
 - [Assign Azure AD roles in Privileged Identity Management](pim-how-to-add-role-to-user.md)
-- [Grant access to other administrators to manage Privileged Identity Management](pim-how-to-give-access-to-pim.md)

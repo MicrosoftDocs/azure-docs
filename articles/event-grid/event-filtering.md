@@ -38,7 +38,7 @@ The JSON syntax for filtering by subject is:
 
 ```json
 "filter": {
-  "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
+  "subjectBeginsWith": "/blobServices/default/containers/mycontainer/blobs/log",
   "subjectEndsWith": ".jpg"
 }
 
@@ -58,12 +58,12 @@ Key is the field in the event data that you're using for filtering. It can be on
 - Number
 - Boolean
 - String
-- Array. You need to set the `enableAdvancedFilteringOnArrays` property to true to use this feature. Currently, the Azure portal doesn't support enabling this feature. 
+- Array. You need to set the `enableAdvancedFilteringOnArrays` property to true to use this feature. 
 
     ```json
     "filter":
     {
-        "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
+        "subjectBeginsWith": "/blobServices/default/containers/mycontainer/blobs/log",
         "subjectEndsWith": ".jpg",
         "enableAdvancedFilteringOnArrays": true
     }

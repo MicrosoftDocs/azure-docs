@@ -42,7 +42,7 @@ Create an Azure Key Vault using [Azure portal](../general/quick-create-portal.md
 
 ## Create a certificate in Key Vault
 
-Create a certificate or import a certificate into the key vault (see [Steps to create a certificate in Key Vault](../secrets/quick-create-portal.md)). In this case, you'll work on a certificate called **ExampleCertificate**.
+Create a certificate or import a certificate into the key vault (see [Steps to create a certificate in Key Vault](../certificates/quick-create-portal.md). In this case, you'll work on a certificate called **ExampleCertificate**.
 
 ## Update certificate lifecycle attributes
 

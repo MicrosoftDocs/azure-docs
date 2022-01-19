@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Proware for automatic user provisioning with Azure A
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Proware.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 8887932e-e27e-419b-aa85-a0cda428d525
@@ -12,10 +12,9 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/30/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Proware for automatic user provisioning

@@ -7,14 +7,14 @@ ms.manager: nitinme
 ms.author: aahi
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 05/28/2021
 
 ---
 
 
 # Prediction endpoint changes for V3
 
-The query prediction endpoint V3 APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs.
+The query prediction endpoint V3 APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs. There is currently no date by which migration needs to be completed.
 
 **Generally available status** - this V3 API include significant JSON request and response changes from V2 API.
 

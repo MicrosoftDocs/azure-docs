@@ -1,7 +1,7 @@
 ---
 title: "Face recognition concepts"
 titleSuffix: Azure Cognitive Services
-description: This article explains the concepts of the Verify, Find Similar, Group, and Identify face recognition operations and the underlying data structures.
+description: Learn the concept of Face recognition, its related operations, and the underlying data structures.
 services: cognitive-services
 author: PatrickFarley
 manager: nitime
@@ -9,17 +9,19 @@ manager: nitime
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 10/27/2021
 ms.author: pafarley
 ---
 
 # Face recognition concepts
 
-This article explains the concepts of the Verify, Find Similar, Group, and Identify face recognition operations and the underlying data structures. Broadly, recognition describes the work of comparing two different faces to determine if they're similar or belong to the same person.
+This article explains the concept of Face recognition, its related operations, and the underlying data structures. Broadly, Face recognition refers to the method of verifying or identifying an individual by their face. 
 
-## Recognition-related data structures
+Verification is one-to-one matching that takes two faces and returns whether they are the same face, and identification is one-to-many matching that takes a single face as input and returns a set of matching candidates. Face recognition is important in implementing the identity verification scenario, which enterprises and apps can use to verify that a (remote) user is who they claim to be.
 
-The recognition operations use mainly the following data structures. These objects are stored in the cloud and can be referenced by their ID strings. ID strings are always unique within a subscription. Name fields can be duplicated.
+## Related data structures
+
+The recognition operations use mainly the following data structures. These objects are stored in the cloud and can be referenced by their ID strings. ID strings are always unique within a subscription, but name fields may be duplicated.
 
 |Name|Description|
 |:--|:--|
@@ -28,26 +30,25 @@ The recognition operations use mainly the following data structures. These objec
 |[FaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) or [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc)| This data structure is an assorted list of PersistedFace objects. A FaceList has a unique ID, a name string, and optionally a user data string.|
 |[Person](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)| This data structure is a list of PersistedFace objects that belong to the same person. It has a unique ID, a name string, and optionally a user data string.|
 |[PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) or [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)| This data structure is an assorted list of Person objects. It has a unique ID, a name string, and optionally a user data string. A PersonGroup must be [trained](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) before it can be used in recognition operations.|
+|PersonDirectory | This data structure is like **LargePersonGroup** but offers additional storage capacity and other added features. For more information, see [Use the PersonDirectory structure](../Face-API-How-to-Topics/use-persondirectory.md).
 
 ## Recognition operations
 
-This section details how the four recognition operations use the data structures previously described. For a broad description of each recognition operation, see [Overview](../Overview.md).
+This section details how the underlying operations use the above data structures to identify and verify a face.
 
-### Verify
+### PersonGroup creation and training
 
-The [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) operation takes a face ID from DetectedFace or PersistedFace and either another face ID or a Person object and determines whether they belong to the same person. If you pass in a Person object, you can optionally pass in a PersonGroup to which that Person belongs to improve performance.
+You need to create a [PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) or [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) to store the set of people to match against. PersonGroups hold [Person](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) objects, which each represent an individual person and hold a set of face data belonging to that person.
 
-### Find Similar
+The [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) operation prepares the data set to be used in face data comparisons.
 
-The [Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) operation takes a face ID from DetectedFace or PersistedFace and either a FaceList or an array of other face IDs. With a FaceList, it returns a smaller FaceList of faces that are similar to the given face. With an array of face IDs, it similarly returns a smaller array.
+### Identification
 
-### Group
+The [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) operation takes one or several source face IDs (from a DetectedFace or PersistedFace object) and a PersonGroup or LargePersonGroup. It returns a list of the Person objects that each source face might belong to. Returned Person objects are wrapped as Candidate objects, which have a prediction confidence value.
 
-The [Group](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) operation takes an array of assorted face IDs from DetectedFace or PersistedFace and returns the same IDs grouped into several smaller arrays. Each "groups" array contains face IDs that appear similar. A single "messyGroup" array contains face IDs for which no similarities were found.
+### Verification
 
-### Identify
-
-The [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) operation takes one or several face IDs from DetectedFace or PersistedFace and a PersonGroup and returns a list of Person objects that each face might belong to. Returned Person objects are wrapped as Candidate objects, which have a prediction confidence value.
+The [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) operation takes a single face ID (from a DetectedFace or PersistedFace object) and a Person object. It determines whether the face belongs to that same person. Verification is one-to-one matching and can be used as a final check on the results from the Identify API call. However, you can optionally pass in the PersonGroup to which the candidate Person belongs to improve the API performance.
 
 ## Input data
 
@@ -62,6 +63,7 @@ Use the following tips to ensure that your input images give the most accurate r
   * Differences in hair type or facial hair.
   * Changes in facial appearance because of age.
   * Extreme facial expressions.
+* You can utilize the qualityForRecognition attribute in the [face detection](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md) operation when using applicable detection models as a general guideline of whether the image is likely of sufficient quality to attempt face recognition on. Only "high" quality images are recommended for person enrollment and quality at or above "medium" is recommended for identification scenarios.
 
 ## Next steps
 

@@ -7,9 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/27/2021
+ms.date: 05/12/2021
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device by using APIs, so that I can efficiently manage my VMs.
+#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device by using APIs, so that I can efficiently manage my VMs. 
 ---
 
 # VM sizes and types for Azure Stack Edge Pro 

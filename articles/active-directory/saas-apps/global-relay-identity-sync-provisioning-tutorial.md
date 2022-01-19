@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Global Relay Identity Sync for automatic user provis
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Global Relay Identity Sync.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 0c4a3bf0-d0a6-4eab-909b-6cf9f9234e4c
@@ -12,10 +12,9 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/22/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Global Relay Identity Sync for automatic user provisioning
@@ -48,7 +47,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Global Relay Identity Sync to support provisioning with Azure AD
 
-Contact your Global Relay Identity Sync representative to receive the Tenant url. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Global Relay Identity Sync application in the Azure portal.
+Contact your Global Relay Identity Sync representative to receive the Tenant URL. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Global Relay Identity Sync application in the Azure portal.
 
 ## Step 3. Add Global Relay Identity Sync from the Azure AD application gallery
 

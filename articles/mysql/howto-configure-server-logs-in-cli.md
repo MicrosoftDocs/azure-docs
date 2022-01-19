@@ -10,6 +10,8 @@ ms.date: 4/13/2020
 ms.custom: devx-track-azurecli
 ---
 # Configure and access slow query logs by using Azure CLI
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 You can download the Azure Database for MySQL slow query logs by using Azure CLI, the Azure command-line utility.
 
 ## Prerequisites

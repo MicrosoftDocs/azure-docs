@@ -5,10 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.date: 02/26/2020
 ms.topic: quickstart
-ms.custom:
-  - devx-track-java
-  - devx-track-azurecli
-  - mode-api
+ms.custom: devx-track-java, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Build and push Java container images to Azure Container Registry
@@ -18,8 +15,8 @@ This quickstart shows you how to build a containerized Java app and push it to A
 ## Prerequisites
 
 * An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial).
-* The [Azure Command-Line Interface (CLI)](/cli/azure/overview).
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see <https://aka.ms/azure-jdks>.
+* The [Azure CLI](/cli/azure/overview).
+* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 * Apache's [Maven](http://maven.apache.org) build tool (Version 3 or above).
 * A [Git](https://git-scm.com) client.
 * A [Docker](https://www.docker.com) client.
@@ -99,11 +96,11 @@ Finally, you'll update your project configuration and use the command prompt to 
 1. Log in to your Azure Container Registry from the Azure CLI using the following command. Be sure to replace the placeholder with your own registry name.
 
    ```azurecli
-   az configure --defaults acr=<your registry name>
+   az config set defaults.acr=<your registry name>
    az acr login
    ```
 
-   The `az configure` command sets the default registry name to use with `az acr` commands.
+   The `az config` command sets the default registry name to use with `az acr` commands.
 
 1. Navigate to the completed project directory for your Spring Boot application (for example, "*C:\SpringBoot\gs-spring-boot-docker\complete*" or "*/users/robert/SpringBoot/gs-spring-boot-docker/complete*"), and open the *pom.xml* file with a text editor.
 

@@ -10,7 +10,6 @@ ms.service: security
 services: azure
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ---
@@ -162,4 +161,4 @@ This article lists all YAML configuration options available in each of the build
 
 ## Next steps
 
-If you have further questions about the Security Code Analysis extension and the tools offered, check out [our FAQ page](security-code-analysis-faq.md).
+If you have further questions about the Security Code Analysis extension and the tools offered, check out [our FAQ page](security-code-analysis-faq.yml).

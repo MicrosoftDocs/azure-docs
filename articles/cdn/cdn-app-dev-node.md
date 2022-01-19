@@ -11,7 +11,6 @@ ms.assetid: c4bb6a61-de3d-4f0c-9dca-202554c43dfa
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: mazha
@@ -346,6 +345,6 @@ Finally, let's delete our profile.
 
 To see the reference for the Azure CDN SDK for JavaScript, view the [reference](/javascript/api/@azure/arm-cdn).
 
-To find additional documentation on the Azure SDK for JavaScript, view the [full reference](/javascript/api/?view=azure-node-latest).
+To find additional documentation on the Azure SDK for JavaScript, view the [full reference](/javascript/api/).
 
 Manage your CDN resources with [PowerShell](cdn-manage-powershell.md).

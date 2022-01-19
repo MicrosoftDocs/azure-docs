@@ -8,7 +8,7 @@ ms.author: sidram
 ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, mode-api
 ms.date: 07/01/2020
 ---
 
@@ -36,7 +36,7 @@ Before you define the Stream Analytics job, prepare the data that's used for the
 
 The following Azure CLI code blocks are commands that prepare the input data required by the job. Review the sections to understand the code.
 
-1. Create an IoT Hub using the [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub) command. This example creates an IoT Hub called **MyASAIoTHub**. Because IoT Hub names are unique, you need to come up with your own IoT Hub name. Set the SKU to F1 to use the free tier if it is available with your subscription. If not, choose the next lowest tier.
+1. Create an IoT Hub using the [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command. This example creates an IoT Hub called **MyASAIoTHub**. Because IoT Hub names are unique, you need to come up with your own IoT Hub name. Set the SKU to F1 to use the free tier if it is available with your subscription. If not, choose the next lowest tier.
 
     ```azurecli
     az iot hub create --name "MyASAIoTHub" --resource-group streamanalyticsrg --sku S1
@@ -48,7 +48,7 @@ The following Azure CLI code blocks are commands that prepare the input data req
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
     ```
 
-2. Add a device to IoT Hub using the [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device) command. This example creates a device called **MyASAIoTDevice**.
+2. Add a device to IoT Hub using the [az iothub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) command. This example creates a device called **MyASAIoTDevice**.
 
     ```azurecli
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
@@ -206,7 +206,7 @@ az stream-analytics transformation create \
     --job-name streamanalyticsjob \
     --name Transformation \
     --streaming-units "6" \
-    --transformation-query "SELECT * INTO asabloboutput FROM asaiotinput HAVING Temperature > 27"
+    --transformation-query "SELECT * INTO asabloboutput FROM asaiotinput WHERE Temperature > 27"
 ```
 ## Run the IoT simulator
 

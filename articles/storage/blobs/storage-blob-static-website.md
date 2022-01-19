@@ -6,7 +6,7 @@ ms.service: storage
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 09/04/2020
+ms.date: 11/04/2021
 ms.subservice: blobs
 ms.custom: devx-track-js
 
@@ -14,13 +14,11 @@ ms.custom: devx-track-js
 
 # Static website hosting in Azure Storage
 
-You can serve static content (HTML, CSS, JavaScript, and image files) directly from a storage container named *$web*. Hosting your content in Azure Storage enables you to use serverless architectures that include [Azure Functions](../../azure-functions/functions-overview.md) and other Platform as a service (PaaS) services. Azure Storage static website hosting is a great option in cases where you don't require a web server to render content.
+You can serve static content (HTML, CSS, JavaScript, and image files) directly from a storage container named *$web*. Hosting your content in Azure Storage enables you to use serverless architectures that include [Azure Functions](../../azure-functions/functions-overview.md) and other Platform as a service (PaaS) services. Azure Storage static website hosting is a great option in cases where you don't require a web server to render content. 
 
-[App Service Static Web Apps](https://azure.microsoft.com/services/app-service/static/) is a great alternative to Azure Storage static website hosting and is also appropriate in cases where you don't require a web server to render content. App Service Static Web Apps provide you with a fully managed continuous integration and continuous delivery (CI/CD) workflow from GitHub source to global deployment.
+[!INCLUDE [static websites vs static web apps](../../../includes/storage-blob-static-website-vs-static-web-app.md)]
 
 If you need a web server to render content, you can use [Azure App Service](https://azure.microsoft.com/services/app-service/).
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## Setting up a static website
 
@@ -39,29 +37,23 @@ Files in the **$web** container are case-sensitive, served through anonymous acc
 You can use any of these tools to upload content to the **$web** container:
 
 > [!div class="checklist"]
-> * [Azure CLI](storage-blob-static-website-how-to.md?tabs=azure-cli)
-> * [Azure PowerShell module](storage-blob-static-website-how-to.md?tabs=azure-powershell)
-> * [AzCopy](../common/storage-use-azcopy-v10.md)
-> * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
-> * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Visual Studio Code extension](/azure/developer/javascript/tutorial-vscode-static-website-node-01)
+> - [Azure CLI](storage-blob-static-website-how-to.md?tabs=azure-cli)
+> - [Azure PowerShell module](storage-blob-static-website-how-to.md?tabs=azure-powershell)
+> - [AzCopy](../common/storage-use-azcopy-v10.md)
+> - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+> - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
+> - [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) and [Channel 9 video demonstration](/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player)
 
 ## Viewing content
 
 Users can view site content from a browser by using the public URL of the website. You can find the URL by using the Azure portal, Azure CLI, or PowerShell. See [Find the website URL](storage-blob-static-website-how-to.md#portal-find-url).
 
+The index document that you specify when you enable static website hosting appears when users open the site and don't specify a specific file (For example: `https://contosoblobaccount.z22.web.core.windows.net`).
+
 If the server returns a 404 error, and you have not specified an error document when you enabled the website, then a default 404 page is returned to the user.
 
 > [!NOTE]
 > [Cross-Origin Resource Sharing (CORS) support for Azure Storage](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) is not supported with static website.
-
-### Regional codes
-
-The URL of your site contains a regional code. For example the URL `https://contosoblobaccount.z22.web.core.windows.net/` contains regional code `z22`.
-
-While that code must remain in the URL, it is only for internal use, and you won't have to use that code in any other way.
-
-The index document that you specify when you enable static website hosting, appears when users open the site and don't specify a specific file (For example: `https://contosoblobaccount.z22.web.core.windows.net`).
 
 ### Secondary endpoints
 
@@ -104,6 +96,9 @@ If you want to use headers to control caching, see [Control Azure CDN caching be
 
 If you plan to host a website in multiple geographies, we recommend that you use a [Content Delivery Network](../../cdn/index.yml) for regional caching. Use [Azure Front Door](../../frontdoor/index.yml) if you want to serve different content in each region. It also provides failover capabilities. [Azure Traffic Manager](../../traffic-manager/index.yml) is not recommended if you plan to use a custom domain. Issues can arise because of how Azure Storage verifies custom domain names.
 
+## Permissions
+
+The permission to be able to enable static website is Microsoft.Storage/storageAccounts/blobServices/write or shared key.  Built in roles that provide this access include Storage Account Contributor.
 
 ## Pricing
 
@@ -115,11 +110,52 @@ You can enable metrics on static website pages. Once you've enabled metrics, tra
 
 To enable metrics on your static website pages, see [Enable metrics on static website pages](storage-blob-static-website-how-to.md#metrics).
 
+## Feature support
+
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
+
+| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png)|![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+
+## FAQ
+
+##### Does the Azure Storage firewall work with a static website?
+
+Yes. Storage account [network security rules](../common/storage-network-security.md), including IP-based and VNET firewalls, are supported for the static website endpoint, and may be used to protect your website.
+
+##### Do static websites support Azure Active Directory (Azure AD)?
+
+No. A static website only supports anonymous public read access for files in the **$web** container.
+
+##### How do I use a custom domain with a static website?
+
+You can configure a [custom domain](./static-website-content-delivery-network.md) with a static website by using [Azure Content Delivery Network (Azure CDN)](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled). Azure CDN provides consistent low latencies to your website from anywhere in the world.
+
+##### How do I use a custom SSL certificate with a static website?
+
+You can configure a [custom SSL](./static-website-content-delivery-network.md) certificate with a static website by using [Azure CDN](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled). Azure CDN provides consistent low latencies to your website from anywhere in the world.
+
+##### How do I add custom headers and rules with a static website?
+
+You can configure the host header for a static website by using [Azure CDN - Verizon Premium](../../cdn/cdn-verizon-premium-rules-engine.md). We'd be interested to hear your feedback [here](https://feedback.azure.com/d365community/idea/694b08ef-3525-ec11-b6e6-000d3a4f0f84).
+
+##### Why am I getting an HTTP 404 error from a static website?
+
+This can happen if you refer to a file name by using an incorrect case. For example: `Index.html` instead of `index.html`. File names and extensions in the url of a static website are case-sensitive even though they're served over HTTP. This can also happen if your Azure CDN endpoint is not yet provisioned. Wait up to 90 minutes after you provision a new Azure CDN for the propagation to complete.
+
+##### Why isn't the root directory of the website not redirecting to the default index page?
+
+In the Azure portal, open the static website configuration page of your account and locate the name and extension that is set in the **Index document name** field. Ensure that this name is exactly the same as the name of the file located in the **$web** container of the storage account. File names and extensions in the url of a static website are case-sensitive even though they're served over HTTP.
+
 ## Next steps
 
-* [Host a static website in Azure Storage](storage-blob-static-website-how-to.md)
-* [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md)
-* [Azure Functions](../../azure-functions/functions-overview.md)
-* [Azure App Service](../../app-service/overview.md)
-* [Build your first serverless web app](/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Tutorial: Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)
+- [Host a static website in Azure Storage](storage-blob-static-website-how-to.md)
+- [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md)
+- [Azure Functions](../../azure-functions/functions-overview.md)
+- [Azure App Service](../../app-service/overview.md)
+- [Build your first serverless web app](/azure/functions/tutorial-static-website-serverless-api-with-database)
+- [Tutorial: Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

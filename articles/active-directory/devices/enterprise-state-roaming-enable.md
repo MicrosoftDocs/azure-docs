@@ -10,7 +10,7 @@ ms.date: 02/12/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 Enterprise State Roaming is available to any organization with an Azure AD Premium or Enterprise Mobility + Security
 (EMS) license. For more information on how to get an Azure AD subscription, see the [Azure AD product page](https://azure.microsoft.com/services/active-directory).
 
-When you enable Enterprise State Roaming, your organization is automatically granted a free, limited-use license for Azure Rights Management protection from Azure Information Protection. This free subscription is limited to encrypting and decrypting enterprise settings and application data synced by Enterprise State Roaming. You must have [a paid subscription](https://azure.microsoft.com/pricing/details/information-protection/) to use the full capabilities of the Azure Rights Management service.
+When you enable Enterprise State Roaming, your organization is automatically granted a free, limited-use license for Azure Rights Management protection from Azure Information Protection. This free subscription is limited to encrypting and decrypting enterprise settings and application data synced by Enterprise State Roaming. You must have [a paid subscription](https://azure.microsoft.com/services/information-protection/) to use the full capabilities of the Azure Rights Management service.
 
 > [!NOTE]
 > This article applies to the Microsoft Edge Legacy HTML-based browser launched with Windows 10 in July 2015. The article does not apply to the new Microsoft Edge Chromium-based browser released on January 15, 2020. For more information on the Sync behavior for the new Microsoft Edge, see the article [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
@@ -55,13 +55,8 @@ Follow these steps to view a per-user device sync status report.
 1. Sign in to [Azure AD admin center](https://aad.portal.azure.com/).
 1. Select **Azure Active Directory** > **Users** > **All users**.
 1. Select the user, and then select **Devices**.
-1. Under **Show**, select **Devices syncing settings and app data** to show sync status.
-  
-   ![image of device sync data setting](./media/enterprise-state-roaming-enable/sync-status.png)
-  
-1. If there are devices syncing for this user, you see the devices as shown here.
-  
-   ![image of device sync columnar data](./media/enterprise-state-roaming-enable/device-status-row.png)
+1. Select **View devices syncing settings and app data** to show sync status.
+1. Devices syncing for the user are shown and can be downloaded.
 
 ## Data retention
 

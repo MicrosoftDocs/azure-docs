@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 02/22/2021
+ms.date: 06/01/2021
 ms.author: alkohli
 ---
 
@@ -60,4 +60,5 @@ The following table shows common certificate errors and detailed information abo
 
 ## Next steps
 
-[Certificate requirements](azure-stack-edge-gpu-certificate-requirements.md)
+- Review [Certificate requirements](azure-stack-edge-gpu-certificate-requirements.md).
+- [Troubleshoot using device logs, diagnostic tests](azure-stack-edge-gpu-troubleshoot.md).

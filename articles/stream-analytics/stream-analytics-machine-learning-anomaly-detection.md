@@ -2,8 +2,6 @@
 title: Anomaly detection in Azure Stream Analytics
 description: This article describes how to use Azure Stream Analytics and Azure Machine Learning together to detect anomalies.
 ms.service: stream-analytics
-author: jseb225
-ms.author: jeanb
 ms.topic: how-to
 ms.date: 06/21/2019
 ---
@@ -20,7 +18,7 @@ The machine learning operations do not support seasonality trends or multi-varia
 
 The following video demonstrates how to detect an anomaly in real time using machine learning functions in Azure Stream Analytics. 
 
-> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Real-Time-ML-Based-Anomaly-Detection-In-Azure-Stream-Analytics/player]
+> [!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Real-Time-ML-Based-Anomaly-Detection-In-Azure-Stream-Analytics/player]
 
 ## Model behavior
 

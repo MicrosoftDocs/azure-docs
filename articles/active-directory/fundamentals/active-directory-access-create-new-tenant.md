@@ -1,17 +1,16 @@
 ---
 title: Quickstart - Access & create new tenant - Azure AD
-description: Instructions about how to find Azure Active Directory and how to create a new tenant for your organization. 
+description: Instructions about how to find Azure Active Directory and how to create a new tenant for your organization.
 services: active-directory
 author: ajburnle
-manager: daveba
-
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 12/22/2021
 ms.author: ajburnle
-ms.custom: "it-pro, seodec18, fasttrack-edit"
+ms.custom: it-pro, seodec18, fasttrack-edit, mode-other
 ms.collection: M365-identity-device-management
 ---
 # Quickstart: Create a new tenant in Azure Active Directory
@@ -30,17 +29,19 @@ After you sign in to the Azure portal, you can create a new tenant for your orga
 
 1. Sign in to your organization's [Azure portal](https://portal.azure.com/).
 
-1. From the Azure portal menu, select **Azure Active Directory**.  
+1. From the Azure portal menu, select **Azure Active Directory**.
 
-    <kbd>![Azure Active Directory - Overview page - Create a tenant](media/active-directory-access-create-new-tenant/azure-ad-portal.png)</kbd>  
+1.  On the overview page, select **Manage tenants**
+ 
+1. Select **Create**.
 
-1. Select **Create a tenant**.
+    ![Azure Active Directory - Overview page - Create a tenant](media/active-directory-access-create-new-tenant/azure-ad-portal.png) 
 
 1. On the Basics tab, select the type of tenant you want to create, either **Azure Active Directory** or **Azure Active Directory (B2C)**.
 
 1. Select **Next: Configuration** to move on to the Configuration tab.
 
-    <kbd>![Azure Active Directory - Create a tenant page - configuration tab ](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)</kbd>
+    ![Azure Active Directory - Create a tenant page - configuration tab ](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
 
 1.  On the Configuration tab, enter the following information:
     
@@ -52,15 +53,13 @@ After you sign in to the Azure portal, you can create a new tenant for your orga
 
 1. Select **Next: Review + Create**. Review the information you entered and if the information is correct, select **create**.
 
-    <kbd>![Azure Active Directory - Review and create tenant page](media/active-directory-access-create-new-tenant/azure-ad-review.png)</kbd>
-
 Your new tenant is created with the domain contoso.onmicrosoft.com.
 
 ## Your user account in the new tenant
 
 When you create a new Azure AD tenant, you become the first user of that tenant. As the first user, you're automatically assigned the [Global Admin](../roles/permissions-reference.md#global-administrator) role. Check out your user account by navigating to the [**Users**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers) page.
 
-By default, you're also listed as the [technical contact](/microsoft-365/admin/manage/change-address-contact-and-more?view=o365-worldwide#what-do-these-fields-mean) for the tenant. Technical contact information is something you can change in [**Properties**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
+By default, you're also listed as the [technical contact](/microsoft-365/admin/manage/change-address-contact-and-more#what-do-these-fields-mean) for the tenant. Technical contact information is something you can change in [**Properties**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
 > [!WARNING]
 > Ensure your directory has at least two accounts with global administrator privileges assigned to them. This will help in the case that one global administrator is locked out. For more detail see the article, [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
@@ -74,7 +73,7 @@ If you're not going to continue to use this application, you can delete the tena
 
     The tenant and its associated information is deleted.
 
-    <kbd>![Overview page, with highlighted Delete directory button](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)</kbd>
+    ![Overview page, with highlighted Delete directory button](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## Next steps
 

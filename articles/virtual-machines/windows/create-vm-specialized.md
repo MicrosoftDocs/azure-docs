@@ -8,10 +8,13 @@ ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Create a Windows VM from a specialized disk by using PowerShell
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 Create a new VM by attaching a specialized managed disk as the OS disk. A specialized disk is a copy of a virtual hard disk (VHD) from an existing VM that contains the user accounts, applications, and other state data from your original VM. 
 
@@ -172,15 +175,15 @@ Create the [virtual network](../../virtual-network/virtual-networks-overview.md)
     
 
 ### Create the network security group and an RDP rule
-To be able to sign in to your VM with remote desktop protocol (RDP), you'll need to have a security rule that allows RDP access on port 3389. In our example, the VHD for the new VM was created from an existing specialized VM, so you can use an account that existed on the source virtual machine for RDP.
+To be able to sign in to your VM with remote desktop protocol (RDP), you'll need to have a security rule that allows RDP access on port 3389. In our example, the VHD for the new VM was created from an existing specialized VM, so you can use an account that existed on the source virtual machine for RDP. This example denies RDP traffic, to be more secure. You can change `-Access` to `Allow` if you want to allow RDP access.
 
 This example sets the network security group (NSG) name to *myNsg* and the RDP rule name to *myRdpRule*.
 
 ```powershell
 $nsgName = "myNsg"
 
-$rdpRule = New-AzNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
-    -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
+$rdpRule = New-AzNetworkSecurityRuleConfig -Name myRdpRule -Description "Deny RDP" `
+    -Access Deny -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
 $nsg = New-AzNetworkSecurityGroup `
@@ -193,7 +196,7 @@ $nsg = New-AzNetworkSecurityGroup `
 For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure by using PowerShell](nsg-quickstart-powershell.md).
 
 ### Create a public IP address and NIC
-To enable communication with the virtual machine in the virtual network, you'll need a [public IP address](../../virtual-network/public-ip-addresses.md) and a network interface.
+To enable communication with the virtual machine in the virtual network, you'll need a [public IP address](../../virtual-network/ip-services/public-ip-addresses.md) and a network interface.
 
 1. Create the public IP. In this example, the public IP address name is set to *myIP*.
    

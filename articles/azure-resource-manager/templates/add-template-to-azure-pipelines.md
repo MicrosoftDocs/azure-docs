@@ -107,7 +107,7 @@ You can select the currently running pipeline to see details about the tasks. Wh
 
 ## Copy and deploy tasks
 
-This section shows how to configure continuous deployment by using a two tasks. The first task stages the artifacts to a storage account and the second task deploy the template.
+This section shows how to configure continuous deployment by using two tasks. The first task stages the artifacts to a storage account and the second task deploys the template.
 
 To copy files to a storage account, the service principal for the service connection must be assigned the Storage Blob Data Contributor or Storage Blob Data Owner role. For more information, see [Get started with AzCopy](../../storage/common/storage-use-azcopy-v10.md).
 

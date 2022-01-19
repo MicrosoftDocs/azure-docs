@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 This article helps you connect virtual networks by using the VNet-to-VNet connection type. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When connecting VNets from different subscriptions, the subscriptions do not need to be associated with the same Active Directory tenant.
 
-The steps in this article apply to the Resource Manager deployment model and use PowerShell. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+The steps in this article apply to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and use PowerShell. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -76,7 +76,7 @@ For this exercise, you can combine configurations, or just choose the one that y
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Because it takes up to 45 minutes to create a gateway, Azure Cloud Shell will timeout periodically during this exercise. You can restart Cloud Shell by clicking in the upper left of the terminal. Be sure to redeclare any variables when you restart the terminal.
+* Because it takes 45 minutes or more to create a gateway, Azure Cloud Shell will timeout periodically during this exercise. You can restart Cloud Shell by clicking in the upper left of the terminal. Be sure to redeclare any variables when you restart the terminal.
 
 * If you would rather install latest version of the Azure PowerShell module locally, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
@@ -200,7 +200,7 @@ We use the following values in the examples:
    -VpnType RouteBased -GatewaySku VpnGw1
    ```
 
-After you finish the commands, it will take up to 45 minutes to create this gateway. If you are using Azure Cloud Shell, you can restart your Cloud Shell session by clicking in the upper left of the Cloud Shell terminal, then configure TestVNet4. You don't need to wait until the TestVNet1 gateway completes.
+After you finish the commands, it will take 45 minutes or more to create this gateway. If you are using Azure Cloud Shell, you can restart your Cloud Shell session by clicking in the upper left of the Cloud Shell terminal, then configure TestVNet4. You don't need to wait until the TestVNet1 gateway completes.
 
 ### Step 3 - Create and configure TestVNet4
 

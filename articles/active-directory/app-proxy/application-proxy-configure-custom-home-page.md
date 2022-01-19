@@ -3,7 +3,7 @@ title: Custom home page for published apps - Azure Active Directory Application 
 description: Covers the basics about Azure Active Directory Application Proxy connectors
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -26,7 +26,7 @@ Here's one scenario that explains why your company would set a custom home page:
 - You want to set `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` as the home page URL instead, so an external user sees the sign-in page first.
 
 > [!NOTE]
-> When you give users access to published apps, the apps are displayed in [My Apps](../user-help/my-apps-portal-end-user-access.md) and the [Office 365 app launcher](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
+> When you give users access to published apps, the apps are displayed in [My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) and the [Office 365 app launcher](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
 
 ## Before you start
 
@@ -169,5 +169,5 @@ Create the home page URL, and update your app with that value. Continue using th
 
 ## Next steps
 
-- [Enable remote access to SharePoint with Azure AD Application Proxy](../manage-apps/application-proxy-integrate-with-sharepoint-server.md)
+- [Enable remote access to SharePoint with Azure AD Application Proxy](./application-proxy-integrate-with-sharepoint-server.md)
 - [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md)

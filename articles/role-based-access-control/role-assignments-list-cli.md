@@ -4,10 +4,9 @@ description: Learn how to determine what resources users, groups, service princi
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
@@ -20,7 +19,7 @@ ms.reviewer: bagovind
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] This article describes how to list role assignments using Azure CLI.
 
 > [!NOTE]
-> If your organization has outsourced management functions to a service provider who uses [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md), role assignments authorized by that service provider won't be shown here.
+> If your organization has outsourced management functions to a service provider who uses [Azure Lighthouse](../lighthouse/overview.md), role assignments authorized by that service provider won't be shown here.
 
 ## Prerequisites
 

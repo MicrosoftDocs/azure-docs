@@ -50,7 +50,7 @@
       - name: Azure network latency
         href: azure-network-latency.md
       - name: Internet routing preference in Azure
-        href: ../virtual-network/routing-preference-overview.md
+        href: ../virtual-network/ip-services/routing-preference-overview.md
     - name: Security
       items:
       - name: Security controls by Azure Policy
@@ -146,7 +146,7 @@
 - name: Resources
   items:
   - name: Author templates
-    href: ../azure-resource-manager/templates/template-syntax.md?toc=%2fazure%2fnetworking%2ftoc.json
+    href: ../azure-resource-manager/templates/syntax.md?toc=%2fazure%2fnetworking%2ftoc.json
   - name: Providers
     href: networking-partners-msp.md
   - name: Azure Roadmap

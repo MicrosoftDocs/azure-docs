@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.subservice: security 
 ms.date: 12/01/2020 
 ms.author: nanditav
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 # Data exfiltration protection for Azure Synapse Analytics workspaces
 This article will explain data exfiltration protection in Azure Synapse Analytics
@@ -29,9 +29,7 @@ Let us use an example to illustrate data exfiltration protection for Synapse wor
 
 >[!IMPORTANT]
 >
-> - Resources in tenants other than the workspace's tenant must not have blocking firewall rules in place for the SQL pools to connect to them. Resources within the workspace’s managed virtual network, such as Spark clusters, can connect over managed private links to firewall-protected resources.
->
-> - Metastore is disabled in Synapse workspaces that have Managed Virtual Network with data exfiltration protection enabled. You can't use Spark SQL in these workspaces.
+> Resources in tenants other than the workspace's tenant must not have blocking firewall rules in place for the SQL pools to connect to them. Resources within the workspace’s managed virtual network, such as Spark clusters, can connect over managed private links to firewall-protected resources.
 > >
 
 ## Next Steps

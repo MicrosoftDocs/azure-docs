@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 10/06/2019
  ms.author: mbaldwin
- ms.custom: include file, devx-track-azurecli
+ ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
 ---
 ## Create a resource group
 
@@ -31,12 +31,12 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
 *If you already have a key vault, you can skip to [Set key vault advanced access policies](#set-key-vault-advanced-access-policies).*
 
-Create a key vault using the [az keyvault create](/cli/azure/keyvault#az_keyvault_create) Azure CLI command, the [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) Azure PowerShell command, the [Azure portal](https://portal.azure.com), or a [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
+Create a key vault using the [az keyvault create](/cli/azure/keyvault#az_keyvault_create) Azure CLI command, the [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) Azure PowerShell command, the [Azure portal](https://portal.azure.com), or a [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.keyvault/key-vault-create).
 
 >[!WARNING]
 > Your key vault and VMs must be in the same subscription. Also, to ensure that encryption secrets don't cross regional boundaries, Azure Disk Encryption requires the Key Vault and the VMs to be co-located in the same region. Create and use a Key Vault that is in the same subscription and region as the VMs to be encrypted. 
 
-Each Key Vault must have a unique name. Replace <your-unique-keyvault-name> with the name of your key vault in the following examples.
+Each Key Vault must have a unique name. Replace \<your-unique-keyvault-name\> with the name of your key vault in the following examples.
 
 ### Azure CLI
 
@@ -55,7 +55,7 @@ New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourc
 ```
 ### Resource Manager template
 
-You can also create a key vault by using the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
+You can also create a key vault by using the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.keyvault/key-vault-create).
 
 1. On the Azure quickstart template, click **Deploy to Azure**.
 2. Select the subscription, resource group, resource group location, Key Vault name, Object ID, legal terms, and agreement, and then click **Purchase**. 
@@ -145,7 +145,7 @@ Azure Disk Encryption doesn't support specifying port numbers as part of key vau
 Use the Azure CLI [az keyvault key create](/cli/azure/keyvault/key#az_keyvault_key_create) command to generate a new KEK and store it in your key vault.
 
 ```azurecli-interactive
-az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA
+az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA --size 4096
 ```
 
 You may instead import a private key using the Azure CLI [az keyvault key import](/cli/azure/keyvault/key#az_keyvault_key_import) command:
@@ -161,7 +161,7 @@ az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-key
 Use the Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet to generate a new KEK and store it in your key vault.
 
  ```powershell-interactive
-Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destination "HSM"
+Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destination "HSM" -Size 4096
 ```
 
 You may instead import a private key using the Azure PowerShell [az keyvault key import](/cli/azure/keyvault/key#az_keyvault_key_import) command.

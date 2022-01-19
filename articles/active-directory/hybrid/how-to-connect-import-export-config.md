@@ -3,7 +3,7 @@ title: How to import and export Azure AD Connect configuration settings
 description: This article describes frequently asked questions for cloud provisioning.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -41,6 +41,9 @@ To import previously exported settings:
 
 > [!NOTE]
 > Override settings on this page like the use of SQL Server instead of LocalDB or the use of an existing service account instead of a default VSA. These settings aren't imported from the configuration settings file. They are there for information and comparison purposes.
+
+>[!NOTE]
+>It is not supported to modify the exported JSON file to change the configuration
 
 ### Import installation experience 
 

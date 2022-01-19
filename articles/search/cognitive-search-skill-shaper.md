@@ -3,12 +3,11 @@ title: Shaper cognitive skill
 titleSuffix: Azure Cognitive Search
 description: Extract metadata and structured information from unstructured data and shape it as a complex type in an AI enrichment pipeline in Azure Cognitive Search.
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 11/04/2019
+ms.topic: reference
+ms.date: 08/12/2021
 ---
 
 # Shaper cognitive skill
@@ -20,7 +19,7 @@ Additionally, the **Shaper** skill illustrated in [scenario 3](#nested-complex-t
 The output name is always "output". Internally, the pipeline can map a different name, such as "analyzedText" as shown in the examples below, but the **Shaper** skill itself returns "output" in the response. This might be important if you are debugging enriched documents and notice the naming discrepancy, or if you build a custom skill and are structuring the response yourself.
 
 > [!NOTE]
-> The **Shaper** skill is not bound to a Cognitive Services API and you are not charged for using it. You should still [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md), however, to override the **Free** resource option that limits you to a small number of daily enrichments per day.
+> This skill isn't bound to Cognitive Services. It is non-billable and has no Cognitive Services key requirement.
 
 ## @odata.type  
 Microsoft.Skills.Util.ShaperSkill
@@ -32,7 +31,6 @@ Consider a scenario where you want to create a structure called *analyzedText* t
 However, another approach for creating complex types is through the **Shaper** skill. By including this skill in a skillset, the in-memory operations during skillset processing can output data shapes with nested structures, which can then be mapped to a complex type in your index. 
 
 The following example skill definition provides the member names as the input. 
-
 
 ```json
 {
@@ -62,26 +60,26 @@ The following example skill definition provides the member names as the input.
 A skillset is invoked by an indexer, and an indexer requires an index. A complex field representation in your index might look like the following example. 
 
 ```json
-
-	"name": "my-index",
-	"fields": [
-		{	"name": "myId", "type": "Edm.String", "key": true, "filterable": true 	},
-		{	"name": "analyzedText", "type": "Edm.ComplexType",
-			"fields": [{
-					"name": "text",
-					"type": "Edm.String",
-					"filterable": false,
-					"sortable": false,
-					"facetable": false,
-					"searchable": true 	},
-          {
-					"name": "sentiment",
-					"type": "Edm.Double",
-					"searchable": true,
-					"filterable": true,
-					"sortable": true,
-					"facetable": true
-				},
+"name":"my-index",
+"fields":[
+   { "name":"myId", "type":"Edm.String", "key":true, "filterable":true  },
+   { "name":"analyzedText", "type":"Edm.ComplexType",
+      "fields":[
+         {
+            "name":"text",
+            "type":"Edm.String",
+            "facetable":false,
+            "filterable":false,
+            "searchable":true,
+            "sortable":false  },
+         {
+            "name":"sentiment",
+            "type":"Edm.Double",
+            "facetable":true,
+            "filterable":true,
+            "searchable":true,
+            "sortable":true }
+      }
 ```
 
 ###	Skill input

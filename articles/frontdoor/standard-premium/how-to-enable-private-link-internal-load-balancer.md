@@ -7,7 +7,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: how-to
 ms.date: 03/16/2021
-ms.author: tyao
+ms.author: duau
 ---
 
 # Connect Azure Front Door Premium to an internal load balancer origin with Private Link
@@ -46,7 +46,7 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
 1. Then select **Add** and then **Update** to save your configuration.
 
-## Approve private endpoint connection from the storage account
+## Approve Azure Front Door Premium private endpoint connection from Private link service
 
 1. Go to the Private Link Center and select **Private link services**. Then select your Private link name.
 

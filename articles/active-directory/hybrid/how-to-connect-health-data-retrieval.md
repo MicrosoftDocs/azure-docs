@@ -4,12 +4,11 @@ description: This page describes how to retrieve data from Azure AD Connect Heal
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: billmath
@@ -53,5 +52,5 @@ To retrieve accounts that were flagged with AD FS Bad Password attempts, use the
 * [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Azure AD Connect Health Agent Installation](how-to-connect-health-agent-install.md)
 * [Azure AD Connect Health Operations](how-to-connect-health-operations.md)
-* [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
+* [Azure AD Connect Health FAQ](reference-connect-health-faq.yml)
 * [Azure AD Connect Health Version History](reference-connect-health-version-history.md)

@@ -2,7 +2,7 @@
 title: Azure IoT Hub as Event Grid source
 description: This article provides the properties and schema for Azure IoT Hub events. It lists the available event types, an example event, and event properties.  
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 09/15/2021
 ---
 
 # Azure IoT Hub as an Event Grid source

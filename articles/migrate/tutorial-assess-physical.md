@@ -52,7 +52,7 @@ Run an assessment as follows:
 
 1. On the **Overview** page > **Windows, Linux and SQL Server**, click **Assess and migrate servers**.
 
-   ![Location of Assess and migrate servers button](./media/tutorial-assess-vmware-azure-vm/assess.png)
+   ![Location of Assess and migrate servers button.](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
 2. In **Azure Migrate: Discovery and assessment**, click **Assess**.
 

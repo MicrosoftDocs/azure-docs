@@ -7,7 +7,7 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 10/04/2021
 ---
 
 # Tips for better performance in Azure Cognitive Search
@@ -20,7 +20,7 @@ This article is a collection of tips and best practices that are often recommend
 
 ## Index size and schema
 
-Queries run faster on smaller indexes. This is partly a function of having fewer fields to scan, but it's also due to how the system caches content for future queries. After the first query, some content remains in memory where it's searched more efficiently. Because index size tends to grow over time, one best practice is to periodically revisit index composition, both schema and documents, to look for content reduction opportunities. However, if the index is right-sized, the only other calibration you can make is to increase capacity: either by [adding replicas](search-capacity-planning.md#adjust-capacity) or upgrading the service tier. The section ["Tip: Upgrade to a Standard S2 tier"]](#tip-upgrade-to-a-standard-s2-tier) shows you how to evaluate the scale up versus scale out decision.
+Queries run faster on smaller indexes. This is partly a function of having fewer fields to scan, but it's also due to how the system caches content for future queries. After the first query, some content remains in memory where it's searched more efficiently. Because index size tends to grow over time, one best practice is to periodically revisit index composition, both schema and documents, to look for content reduction opportunities. However, if the index is right-sized, the only other calibration you can make is to increase capacity: either by [adding replicas](search-capacity-planning.md#adjust-capacity) or upgrading the service tier. The section ["Tip: Upgrade to a Standard S2 tier"](#tip-upgrade-to-a-standard-s2-tier) shows you how to evaluate the scale up versus scale out decision.
 
 Schema complexity can also adversely effect indexing and query performance. Excessive field attribution builds in limitations and processing requirements. [Complex types](search-howto-complex-data-types.md) take longer to index and query. The next few sections explore each condition.
 
@@ -63,7 +63,9 @@ The types of queries you send are one of the most important factors for performa
 
 + **Use of partial term searches.** [Partial term searches](search-query-partial-matching.md), such as prefix search, fuzzy search, and regular expression search, are more computationally expensive than typical keyword searches, as they require full index scans to produce results.
 
-+ **Number of facets.** Adding facets to queries requires aggregations for each query. In general, only add the facets that you plan to render in your app.
++ **Number of facets.** Adding facets to queries requires aggregations for each query. Requesting a higher "count" for a facet also requires extra work by the service. In general, only add the facets that you plan to render in your app and avoid requesting a high count for facets unless necessary.
+
++ **High skip values.** Setting the $skip parameter to a high value (for example, in the thousands) increases search latency because the engine is retrieving and ranking a larger volume of documents for each request. For performance reasons, it's best to avoid high $skip values and use other techniques instead, such as filtering, to retrieve large numbers of documents.
 
 + **Limit high cardinality fields.**  A *high cardinality field* refers to a facetable or filterable field that has a significant number of unique values, and as a result, consumes significant resources when computing results. For example, setting a Product ID or Description field as facetable and filterable would count as high cardinality because most of the values from document to document are unique.
 
@@ -134,3 +136,4 @@ Review these additional articles related to service performance.
 + [Analyze performance](search-performance-analysis.md)
 + [Choose a service tier](search-sku-tier.md)
 + [Add capacity (replicas and partitions)](search-capacity-planning.md#adjust-capacity)
++ [Case Study: Use Cognitive Search to Support Complex AI Scenarios](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078)

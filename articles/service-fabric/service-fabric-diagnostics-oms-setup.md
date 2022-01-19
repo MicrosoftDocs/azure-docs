@@ -2,7 +2,8 @@
 title: Set up monitoring with Azure Monitor logs 
 description: Learn how to set up Azure Monitor logs for visualizing and analyzing events to monitor your Azure Service Fabric clusters.
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 02/20/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Set up Azure Monitor logs for a cluster

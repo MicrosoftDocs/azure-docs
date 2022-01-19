@@ -4,8 +4,7 @@ description: In this tutorial, you'll learn how to analyze data located in a sto
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
-manager: julieMSFT
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
@@ -30,7 +29,7 @@ Run the following code in a notebook in a new code cell. It creates a CSV file a
 ```py
 %%pyspark
 df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
-df = df.repartition(1) # This ensure we'll get a single file during write()
+df = df.repartition(1) # This ensures we'll get a single file during write()
 df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats_csvformat")
 df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 ```

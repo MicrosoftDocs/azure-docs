@@ -1,20 +1,21 @@
 ---
-title: Scale session hosts Azure Automation Windows Virtual Desktop (classic) - Azure
-description: How to automatically scale Windows Virtual Desktop (classic) session hosts with Azure Automation.
+title: Scale session hosts Azure Automation Azure Virtual Desktop (classic) - Azure
+description: How to automatically scale Azure Virtual Desktop (classic) session hosts with Azure Automation.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
-ms.author: helohr
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
 manager: femila
 ---
-# Scale Windows Virtual Desktop (classic) session hosts using Azure Automation
+# Scale Azure Virtual Desktop (classic) session hosts using Azure Automation
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects.
 
-You can reduce your total Windows Virtual Desktop deployment cost by scaling your virtual machines (VMs). This means shutting down and deallocating session host VMs during off-peak usage hours, then turning them back on and reallocating them during peak hours.
+You can reduce your total Azure Virtual Desktop deployment cost by scaling your virtual machines (VMs). This means shutting down and deallocating session host VMs during off-peak usage hours, then turning them back on and reallocating them during peak hours.
 
-In this article, you'll learn about the scaling tool built with the Azure Automation account and Azure Logic App that automatically scales session host VMs in your Windows Virtual Desktop environment. To learn how to use the scaling tool, skip ahead to [Prerequisites](#prerequisites).
+In this article, you'll learn about the scaling tool built with the Azure Automation account and Azure Logic App that automatically scales session host VMs in your Azure Virtual Desktop environment. To learn how to use the scaling tool, skip ahead to [Prerequisites](#prerequisites).
 
 ## How the scaling tool works
 
@@ -42,7 +43,7 @@ If you set the *LimitSecondsToForceLogOffUser* parameter to zero, the job allows
 
 During any time, the job also takes host pool's *MaxSessionLimit* into account to determine if the current number of sessions is more than 90% of the maximum capacity. If it is, the job will start additional session host VMs.
 
-The job runs periodically based on a set recurrence interval. You can change this interval based on the size of your Windows Virtual Desktop environment, but remember that starting and shutting down VMs can take some time, so remember to account for the delay. We recommend setting the recurrence interval to every 15 minutes.
+The job runs periodically based on a set recurrence interval. You can change this interval based on the size of your Azure Virtual Desktop environment, but remember that starting and shutting down VMs can take some time, so remember to account for the delay. We recommend setting the recurrence interval to every 15 minutes.
 
 However, the tool also has the following limitations:
 
@@ -57,8 +58,8 @@ However, the tool also has the following limitations:
 
 Before you start setting up the scaling tool, make sure you have the following things ready:
 
-- A [Windows Virtual Desktop tenant and host pool](create-host-pools-arm-template.md)
-- Session host pool VMs configured and registered with the Windows Virtual Desktop service
+- A [Azure Virtual Desktop tenant and host pool](create-host-pools-arm-template.md)
+- Session host pool VMs configured and registered with the Azure Virtual Desktop service
 - A user with [Contributor access](../../role-based-access-control/role-assignments-portal.md) on Azure subscription
 
 The machine you use to deploy the tool must have:
@@ -144,11 +145,11 @@ To create a Run As account in your Azure Automation account:
 
 6. When the process finishes, it will create an asset named **AzureRunAsConnection** in the specified Azure Automation account. Select **Azure Run As account**. The connection asset holds the application ID, tenant ID, subscription ID, and certificate thumbprint. Remember the application ID, because you'll use it later. You can also find the same information on the **Connections** page. To go to this page, in the pane on the left side of the window, select **Connections** under the **Shared Resources** section and click on the connection asset named **AzureRunAsConnection**.
 
-### Create a role assignment in Windows Virtual Desktop
+### Create a role assignment in Azure Virtual Desktop
 
-Next, you need to create a role assignment so that **AzureRunAsConnection** can interact with Windows Virtual Desktop. Make sure to use PowerShell to sign in with an account that has permissions to create role assignments.
+Next, you need to create a role assignment so that **AzureRunAsConnection** can interact with Azure Virtual Desktop. Make sure to use PowerShell to sign in with an account that has permissions to create role assignments.
 
-First, download and import the [Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already. Run the following PowerShell cmdlets to connect to Windows Virtual Desktop and display your tenants.
+First, download and import the [Azure Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already. Run the following PowerShell cmdlets to connect to Azure Virtual Desktop and display your tenants.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -159,7 +160,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Get-RdsTenant
 ```
 
-When you find the tenant with the host pools you want to scale, follow the instructions in [Create an Azure Automation Run As account](#create-an-azure-automation-run-as-account) to gather the **AzureRunAsConnection** Application ID and use the Windows Virtual Desktop tenant name you got from the previous cmdlet in the following cmdlet to create the role assignment:
+When you find the tenant with the host pools you want to scale, follow the instructions in [Create an Azure Automation Run As account](#create-an-azure-automation-run-as-account) to gather the **AzureRunAsConnection** Application ID and use the Azure Virtual Desktop tenant name you got from the previous cmdlet in the following cmdlet to create the role assignment:
 
 ```powershell
 New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId "<applicationid>" -TenantName "<tenantname>"
@@ -187,7 +188,7 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
     Invoke-WebRequest -Uri $Uri -OutFile ".\CreateOrUpdateAzLogicApp.ps1"
     ```
 
-4. Run the following cmdlet to sign into Windows Virtual Desktop with an account that has RDS Owner or RDS Contributor permissions.
+4. Run the following cmdlet to sign into Azure Virtual Desktop with an account that has RDS Owner or RDS Contributor permissions.
 
     ```powershell
     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"

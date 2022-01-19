@@ -3,13 +3,13 @@ title: Spatial Analysis zone and line placement
 titleSuffix: Azure Cognitive Services
 description: Learn how to set up zones and lines with Spatial Analysis
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.author: aahi
+ms.date: 06/08/2021
+ms.author: pafarley
 ---
 
 

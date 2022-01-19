@@ -1,22 +1,26 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 03/31/2021
 ---
+
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples)
 
 ## Prerequisites
 
 To complete the steps in this article, you need the following resources:
 
-* An Azure IoT Central application created using the **Custom application** template. For more information, see the [create an application quickstart](../articles/iot-central/core/quick-deploy-iot-central.md). The application must have been created on or after 14 July 2020.
-* A development machine with [Node.js](https://nodejs.org/) version 6 or later installed. You can run `node --version` in the command line to check your version. The instructions in this tutorial assume you're running the **node** command at the Windows command prompt. However, you can use Node.js on many other operating systems.
-* A local copy of the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure/azure-iot-sdk-node/archive/master.zip). Then unzip the file to a suitable location on your local machine.
+[!INCLUDE [iot-central-prerequisites-basic](iot-central-prerequisites-basic.md)]
+
+- A development machine with [Node.js](https://nodejs.org/) version 6 or later installed. You can run `node --version` in the command line to check your version. The instructions in this tutorial assume you're running the **node** command at the Windows command prompt. However, you can use Node.js on many other operating systems.
+
+- A local copy of the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure/azure-iot-sdk-node/archive/main.zip). Then unzip the file to a suitable location on your local machine.
 
 ## Review the code
 
-In the copy of the Microsoft Azure IoT SDK for Node.js you downloaded previously, open the *azure-iot-sdk-node/device/samples/pnp/pnpTemperatureController.js* file in a text editor.
+In the copy of the Microsoft Azure IoT SDK for Node.js you downloaded previously, open the *azure-iot-sdk-node/device/samples/javascript/pnp_temperature_controller.js* file in a text editor.
 
 When you run the sample to connect to IoT Central, it uses the Device Provisioning Service (DPS) to register the device and generate a connection string. The sample retrieves the DPS connection information it needs from the command-line environment.
 
@@ -256,7 +260,7 @@ const sendCommandResponse = async (request, response, status, payload) => {
 
 ## Run the code
 
-To run the sample application, open a command-line environment and navigate to the folder *azure-iot-sdk-node/device/samples/pnp* folder that contains the *pnpTemperatureController.js* sample file.
+To run the sample application, open a command-line environment and navigate to the folder *azure-iot-sdk-node/device/samples/javascript* folder that contains the *pnp_temperature_controller.js* sample file.
 
 [!INCLUDE [iot-central-connection-environment](iot-central-connection-environment.md)]
 
@@ -269,7 +273,7 @@ npm install
 Run the sample:
 
 ```cmd/sh
-node pnpTemperatureController.js
+node pnp_temperature_controller.js
 ```
 
 The following output shows the device registering and connecting to IoT Central. The sample then sends the `maxTempSinceLastReboot` property from the two thermostat components before it starts sending telemetry:

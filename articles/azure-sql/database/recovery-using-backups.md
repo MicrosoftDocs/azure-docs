@@ -4,14 +4,14 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Learn about point-in-time restore, which enables you to roll back a database in Azure SQL Database or an instance in Azure SQL Managed Instance up to 35 days.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: backup-restore
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, sstein, danil
-ms.date: 11/13/2020
+author: SQLSourabh
+ms.author: sourabha
+ms.reviewer: kendralittle, mathoma, danil
+ms.date: 01/10/2022
 ---
 # Recover using automated database backups - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -21,7 +21,7 @@ The following options are available for database recovery by using [automated da
 - Create a new database on the same server, recovered to a specified point in time within the retention period.
 - Create a database on the same server, recovered to the deletion time for a deleted database.
 - Create a new database on any server in the same region, recovered to the point of the most recent backups.
-- Create a new database on any server in any other region, recovered to the point of the most recent replicated backups.
+- Create a new database on any server in any other region, recovered to the point of the most recent replicated backups. Cross-region and cross-subscription restore for SQL Managed Instance isn't currently supported
 
 If you configured [backup long-term retention](long-term-retention-overview.md), you can also create a new database from any long-term retention backup on any server.
 
@@ -45,6 +45,9 @@ For a large or very active database, the restore might take several hours. If th
 
 For a single subscription, there are limitations on the number of concurrent restore requests. These limitations apply to any combination of point-in-time restores, geo-restores, and restores from long-term retention backup.
 
+> [!NOTE]
+> Very large restores on Managed Instance lasting for more than 36 hours will be prolonged in case of pending critical system update. In such case current restore operation will be paused, critical system update will be applied, and restore resumed after the update has completed.
+
 | **Deployment option** | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
 | :--- | --: | --: |
 |**Single database (per subscription)**|30|100|
@@ -63,6 +66,9 @@ You can restore a standalone, pooled, or instance database to an earlier point i
 When complete, the restore creates a new database on the same server as the original database. The restored database is charged at normal rates, based on its service tier and compute size. You don't incur charges until the database restore is complete.
 
 You generally restore a database to an earlier point for recovery purposes. You can treat the restored database as a replacement for the original database or use it as a data source to update the original database.
+
+> [!IMPORTANT]
+> You can only run restore on the same server, cross-server restoration is not supported by Point-in-time restore.
 
 - **Database replacement**
 
@@ -135,7 +141,8 @@ For a sample PowerShell script showing how to restore a deleted instance databas
 ## Geo-restore
 
 > [!IMPORTANT]
-> Geo-restore is available only for SQL databases or managed instances configured with geo-redundant [backup storage](automated-backups-overview.md#backup-storage-redundancy).
+> - Geo-restore is available only for SQL databases or managed instances configured with geo-redundant [backup storage](automated-backups-overview.md#backup-storage-redundancy).
+> - Geo-restore can be performed on SQL databases or managed instances residing in the same subscription only.
 
 You can restore a database on any SQL Database server or an instance database on any managed instance in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. You can request geo-restore even if the database or datacenter is inaccessible due to an outage.
 
@@ -185,7 +192,7 @@ For a PowerShell script that shows how to perform geo-restore for a managed inst
 
 ### Geo-restore considerations
 
-You can't perform a point-in-time restore on a geo-secondary database. You can do so only on a primary database. For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](../../key-vault/general/disaster-recovery-guidance.md).
+You can't perform a point-in-time restore on a geo-secondary database. You can do so only on a primary database. For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](disaster-recovery-guidance.md#recover-using-geo-restore).
 
 > [!IMPORTANT]
 > Geo-restore is the most basic disaster-recovery solution available in SQL Database and SQL Managed Instance. It relies on automatically created geo-replicated backups with a recovery point objective (RPO) up to 1 hour and an estimated recovery time of up to 12 hours. It doesn't guarantee that the target region will have the capacity to restore your databases after a regional outage, because a sharp increase of demand is likely. If your application uses relatively small databases and is not critical to the business, geo-restore is an appropriate disaster-recovery solution. 
@@ -203,6 +210,9 @@ You can also use Azure PowerShell or the REST API for recovery. The following ta
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by SQL Database and SQL Managed Instance, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Arguments for the commands in the Az module and in Azure Resource Manager modules are to a great extent identical.
+
+> [!NOTE]
+> Restore points represent a period between the earliest restore point and the latest log backup point. Information on latest restore point is currently unavailable on Azure PowerShell.
 
 #### SQL Database
 

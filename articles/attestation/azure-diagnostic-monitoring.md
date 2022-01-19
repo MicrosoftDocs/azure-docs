@@ -22,17 +22,17 @@ The Trusted Platform Module (TPM) endpoint service is enabled in the diagnostic 
 
  Connect-AzAccount 
 
- Set-AzContext -Subscription <Subscription id> 
+ Set-AzContext -Subscription "<Subscription id>"
 
- $attestationProviderName=<Name of the attestation provider> 
+ $attestationProviderName="<Name of the attestation provider>"
 
- $attestationResourceGroup=<Name of the resource Group> 
+ $attestationResourceGroup="<Name of the resource Group>"
 
  $attestationProvider=Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroup 
 
- $storageAccount=New-AzStorageAccount -ResourceGroupName $attestationProvider.ResourceGroupName -Name <Storage Account Name> -SkuName Standard_LRS -Location <Location> 
+ $storageAccount=New-AzStorageAccount -ResourceGroupName $attestationProvider.ResourceGroupName -Name "<Storage Account Name>" -SkuName Standard_LRS -Location "<Location>"
 
- Set-AzDiagnosticSetting -ResourceId $ attestationProvider.Id -StorageAccountId $ storageAccount.Id -Enabled $true 
+ Set-AzDiagnosticSetting -ResourceId $attestationProvider.Id -StorageAccountId $storageAccount.Id -Enabled $true 
 
 ```
 

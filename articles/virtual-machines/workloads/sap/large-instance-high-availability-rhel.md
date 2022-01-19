@@ -11,9 +11,9 @@ ms.date: 04/19/2021
 # Azure Large Instances high availability for SAP on RHEL
 
 > [!NOTE]
-> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When this term is removed from the software, we’ll remove it from this article.
+> This article contains references to the terms *blacklist* and  *slave*, terms that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
-In this article, you learn how to configure the Pacemaker cluster in RHEL 7.6 to automate an SAP HANA database failover. You need to have a good understanding of Linux, SAP HANA, and Pacemaker to complete the steps in this guide.
+In this article, you learn how to configure the Pacemaker cluster in RHEL 7 to automate an SAP HANA database failover. You need to have a good understanding of Linux, SAP HANA, and Pacemaker to complete the steps in this guide.
 
 The following table includes the host names that are used throughout this article. The code blocks in the article show the commands that need to be run, as well as the output of those commands. Pay close attention to which node is referenced in each command.
 
@@ -131,7 +131,8 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 
 6. Update the System
     1. First, install the latest updates on the system before you start to install the SBD device.
-    1. If you don’t want a complete update of the system, even if is recommended, update the following packages at a minimum.
+	1. Customers must make sure that they have at least version 4.1.1-12.el7_6.26 of the resource-agents-sap-hana package installed, as documented in [Support Policies for RHEL High Availability Clusters - Management of SAP HANA in a Cluster](https://access.redhat.com/articles/3397471)
+    1. If you don’t want a complete update of the system, even if it is recommended, update the following packages at a minimum.
         1. `resource-agents-sap-hana`
         1. `selinux-policy`
         1. `iscsi-initiator-utils`
@@ -153,7 +154,7 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	```
 	  
 
-8. Install the Pacemaker, SBD, OpenIPMI, ipmitool and fencing_sbd tools on all nodes.
+8. Install the Pacemaker, SBD, OpenIPMI, ipmitool, and fencing_sbd tools on all nodes.
 
 	```	
 	yum install pcs sbd fence-agent-sbd.x86_64 OpenIPMI
@@ -183,7 +184,7 @@ In this section, you learn how to configure Watchdog. This section uses the same
 
 	```
 
-2. The default Linux watchdog, which will be installed during the installation, is the iTCO watchdog which is not supported by UCS and HPE SDFlex systems. Therefore, this watchdog must be disabled.
+2. The default Linux watchdog, that will be installed during the installation, is the iTCO watchdog which is not supported by UCS and HPE SDFlex systems. Therefore, this watchdog must be disabled.
     1. The wrong watchdog is installed and loaded on the system:
 	   ```
 	   sollabdsm35:~ # lsmod |grep iTCO
@@ -303,7 +304,7 @@ In this section, you learn how to configure Watchdog. This section uses the same
 ## SBD configuration
 In this section, you learn how to configure SBD. This section uses the same two hosts, `sollabdsm35` and `sollabdsm36`, referenced at the beginning of this article.
 
-1.  Make sure the iSCSI or FC disk is visible on both nodes. This example uses an FC-based SBD device. For more information about SBD fencing, see [Design Guidance for RHEL High Availability Clusters - SBD Considerations](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Faccess.redhat.com%2Farticles%2F2941601&data=04%7C01%7Cralf.klahr%40microsoft.com%7Cd49d7a3e3871449cdecc08d8c77341f1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637478645171139432%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=c%2BUAC5gmgpFNWZCQFfiqcik8CH%2BmhH2ly5DsOV1%2FE5M%3D&reserved=0).
+1.  Make sure the iSCSI or FC disk is visible on both nodes. This example uses an FC-based SBD device. For more information about SBD fencing, see [Design Guidance for RHEL High Availability Clusters - SBD Considerations](https://access.redhat.com/articles/2941601) and [Support Policies for RHEL High Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691)
 2.  The LUN-ID must be identically on all nodes.
   
 3.  Check multipath status for the sbd device.
@@ -320,7 +321,7 @@ In this section, you learn how to configure SBD. This section uses the same two 
 	`- 10:0:3:2 sdl 8:176 active ready running
 	```
 
-4.  Creating the SBD discs and set up the cluster primitive fencing. This step must be executed on first node.
+4.  Creating the SBD discs and setup the cluster primitive fencing. This step must be executed on first node.
 	```
 	sbd -d /dev/mapper/3600a098038304179392b4d6c6e2f4b62 -4 20 -1 10 create 
 
@@ -636,7 +637,7 @@ In this section, you initialize the cluster. This section uses the same two host
 
 In this section, you integrate HANA into the cluster. This section uses the same two hosts, `sollabdsm35` and `sollabdsm36`, referenced at the beginning of this article.
 
-There are two options for integrating HANA. The first option is a cost optimized solution where you can use the secondary system to run the QAS system. We don't recommend this method because it leaves no system to test updates on the cluster software, operating system, or HANA, and configuration updates can lead to unplanned downtime of the PRD system. Additionally, if the PRD system needs to be activated on the secondary system, the QAS must be shut down on the secondary node. The second option is to install the QAS system on one cluster and use a second cluster for the PRD. This option also allows you to test all components before they are put into production. This article shows you how to configure the second option.
+The default and supported way is to create a performance optimized scenario where the database can be switched over directly. Only this scenario is described here in this document. In this case we recommend installing one cluster for the QAS system and a separate cluster for the PRD system. Only in this case it is possible to test all components before it goes into production.
 
 
 * This process is build of the RHEL description on page:
@@ -644,6 +645,12 @@ There are two options for integrating HANA. The first option is a cost optimized
   * https://access.redhat.com/articles/3004101
 
  ### Steps to follow to configure HSR
+
+ | **Log Replication Mode**            | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Synchronous in-memory (default)** | Synchronous in memory (mode=syncmem) means the log write is considered as successful, when the log entry has been written to the log volume of the primary and sending the log has been acknowledged by the secondary instance after copying to memory. When the connection to the secondary system is lost, the primary system continues transaction processing and writes the changes only to the local disk. Data loss can occur when primary and secondary fail at the same time as long as the secondary system is connected or when a takeover is executed, while the secondary system is disconnected. This option provides better performance because it is not necessary to wait for disk I/O on the secondary instance, but is more vulnerable to data loss.                                                                                                                                                                                                                                                                                                                     |
+| **Synchronous**                     | Synchronous (mode=sync) means the log write is considered as successful when the log entry has been written to the log volume of the primary and the secondary instance. When the connection to the secondary system is lost, the primary system continues transaction processing and writes the changes only to the local disk. No data loss occurs in this scenario as long as the secondary system is connected. Data loss can occur, when a takeover is executed while the secondary system is disconnected. Additionally, this replication mode can run with a full sync option. This means that log write is successful when the log buffer has been written to the log file of the primary and the secondary instance. In addition, when the secondary system is disconnected (for example, because of network failure) the primary systems suspends transaction processing until the connection to the secondary system is reestablished. No data loss occurs in this scenario. You can set the full sync option for system replication only with the parameter \[system\_replication\]/enable\_full\_sync). For more information on how to enable the full sync option, see Enable Full Sync Option for System Replication.                                                                                                                                                                                                                                                                                                              |
+| **Asynchronous**                    | Asynchronous (mode=async) means the primary system sends redo log buffers to the secondary system asynchronously. The primary system commits a transaction when it has been written to the log file of the primary system and sent to the secondary system through the network. It does not wait for confirmation from the secondary system. This option provides better performance because it is not necessary to wait for log I/O on the secondary system. Database consistency across all services on the secondary system is guaranteed. However, it is more vulnerable to data loss. Data changes may be lost on takeover.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 1.  These are the actions to execute on node1 (primary).
     1. Make sure that the database log mode is set to normal.
@@ -1049,38 +1056,31 @@ Ensure you have met the following prerequisites:
 	HANA System Replication on each node. SAPHanaTopology requires
 	following attributes to be configured.
 	   ```
-	   pcs resource create SAPHanaTopology_HR2_00 SAPHanaTopology SID=HR2 InstanceNumber=00 --clone clone-max=2 clone-node-max=1    interleave=true
+	   pcs resource create SAPHanaTopology_HR2_00 SAPHanaTopology SID=HR2 op start timeout=600 \
+       op stop timeout=300 \
+       op monitor interval=10 timeout=600 \
+       clone clone-max=2 clone-node-max=1 interleave=true
+
 	   ```
 
 	| Attribute Name | Description  |
 	|---|---|
     | SID | SAP System Identifier (SID) of SAP HANA installation. Must be the same for all nodes. |
-	| InstanceNumber | 2-digit SAP Instance Idntifier.|
+	| InstanceNumber | 2-digit SAP Instance Identifier.|
 
 	* Resource status
 	   ```
 	   pcs resource show SAPHanaTopology_HR2_00
    
-	   InstanceNumber 2-digit SAP Instance identifier.
-	   pcs resource show SAPHanaTopology_HR2_00-clone
-   
-	   Clone: SAPHanaTopology_HR2_00-clone
-   
-	   	Meta Attrs: clone-max=2 clone-node-max=1 interleave=true
-   
-	   	Resource: SAPHanaTopology_HR2_00 (class=ocf provider=heartbeat
-	   type=SAPHanaTopology)
-   
-	   	Attributes: InstanceNumber=00 SID=HR2
-   
-	   	Operations: monitor interval=60 timeout=60
-	   (SAPHanaTopology_HR2_00-monitor-interval-60)
-   
-	   	start interval=0s timeout=180
-	   (SAPHanaTopology_HR2_00-start-interval-0s)
-   
-	   	stop interval=0s timeout=60 (SAPHanaTopology_HR2_00-stop-interval-0s)
-   
+       Clone: SAPHanaTopology_HR2_00-clone
+        Meta Attrs: clone-max=2 clone-node-max=1 interleave=true
+        Resource: SAPHanaTopology_HR2_00 (class=ocf provider=heartbeat type=SAPHanaTopology)
+         Attributes: InstanceNumber=00 SID=HR2
+         Operations: monitor interval=60 timeout=60 (SAPHanaTopology_HR2_00-monitor-interval-60)
+                     start interval=0s timeout=180 (SAPHanaTopology_HR2_00-start-interval-0s)
+                     stop interval=0s timeout=60 (SAPHanaTopology_HR2_00-stop-interval-0s)
+       
+         
 	   ```
 
 4.  Create Primary/Secondary SAPHana resource.
@@ -1097,39 +1097,32 @@ Ensure you have met the following prerequisites:
 
 5.  Create the HANA resource.
 	```
-	pcs resource create SAPHana_HR2_00 SAPHana SID=HR2 InstanceNumber=00 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 	AUTOMATED_REGISTER=true primary notify=true clone-max=2 clone-node-max=1 interleave=true
+	pcs resource create SAPHana_HR2_00 SAPHana SID=HR2 InstanceNumber=00 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=true op start timeout=3600 \
+    op stop timeout=3600 \
+    op monitor interval=61 role="Slave" timeout=700 \
+    op monitor interval=59 role="Master" timeout=700 \
+    op promote timeout=3600 \
+    op demote timeout=3600 \
+    master meta notify=true clone-max=2 clone-node-max=1 interleave=true
+
 
 	pcs resource show SAPHana_HR2_00-primary
 
 
-	Primary: SAPHana_HR2_00-primary
-
-		Meta Attrs: clone-max=2 clone-node-max=1 interleave=true notify=true
-
-		Resource: SAPHana_HR2_00 (class=ocf provider=heartbeat type=SAPHana)
-
-		Attributes: AUTOMATED_REGISTER=false DUPLICATE_PRIMARY_TIMEOUT=7200
-	InstanceNumber=00 PREFER_SITE_TAKEOVER=true SID=HR2
-
-		Operations: demote interval=0s timeout=320
-	(SAPHana_HR2_00-demote-interval-0s)
-
-		monitor interval=120 timeout=60 (SAPHana_HR2_00-monitor-interval-120)
-
-		monitor interval=121 role=Secondary timeout=60
-	(SAPHana_HR2_00-monitor-
-
-		interval-121)
-
-		monitor interval=119 role=Primary timeout=60 (SAPHana_HR2_00-monitor-
-
-		interval-119)
-
-		promote interval=0s timeout=320 (SAPHana_HR2_00-promote-interval-0s)
-
-		start interval=0s timeout=180 (SAPHana_HR2_00-start-interval-0s)
-
-		stop interval=0s timeout=240 (SAPHana_HR2_00-stop-interval-0s)
+    Primary: SAPHana_HR2_00-primary
+     Meta Attrs: clone-max=2 clone-node-max=1 interleave=true notify=true
+     Resource: SAPHana_HR2_00 (class=ocf provider=heartbeat type=SAPHana)
+      Attributes: AUTOMATED_REGISTER=false DUPLICATE_PRIMARY_TIMEOUT=7200 InstanceNumber=00 PREFER_SITE_TAKEOVER=true SID=HR2
+      Operations: demote interval=0s timeout=320 (SAPHana_HR2_00-demote-interval-0s)
+                  monitor interval=120 timeout=60 (SAPHana_HR2_00-monitor-interval-120)
+                  monitor interval=121 role=Secondary timeout=60 (SAPHana_HR2_00-monitor-
+                  interval-121)
+                  monitor interval=119 role=Primary timeout=60 (SAPHana_HR2_00-monitor-
+                  interval-119)
+                  promote interval=0s timeout=320 (SAPHana_HR2_00-promote-interval-0s)
+                  start interval=0s timeout=180 (SAPHana_HR2_00-start-interval-0s)
+                  stop interval=0s timeout=240 (SAPHana_HR2_00-stop-interval-0s)
+   
 
 	
 	
@@ -1227,37 +1220,39 @@ Ensure you have met the following prerequisites:
 
 
 To test out the move of the SAPHana resource from one node to another, use the command below. Note that the option `--primary` should not	be used when running the following command because of how the SAPHana resource works internally.
-```pcs resource move SAPHana_HR2_00-primary```
+
+`pcs resource move SAPHana_HR2_00-primary`
 
 After each pcs resource move command invocation, the cluster creates location constraints to achieve the move of the resource. These constraints must be removed to allow automatic failover in the future.
 To remove them you can use the command following command.
+
 ```
 pcs resource clear SAPHana_HR2_00-primary
 crm_mon -A1
 Node Attributes:
-	* Node node1.localdomain:
-	+ hana_hr2_clone_state : DEMOTED
-	+ hana_hr2_remoteHost : node2
-	+ hana_hr2_roles : 2:P:primary1::worker:
-	+ hana_hr2_site : DC1
-	+ hana_hr2_srmode : syncmem
-	+ hana_hr2_sync_state : PRIM
-	+ hana_hr2_version : 2.00.033.00.1535711040
-	+ hana_hr2_vhost : node1
-	+ lpa_hr2_lpt : 1540867236
-	+ primary-SAPHana_HR2_00 : 150
-	* Node node2.localdomain:
-	+ hana_hr2_clone_state : PROMOTED
-	+ hana_hr2_op_mode : logreplay
-	+ hana_hr2_remoteHost : node1
-	+ hana_hr2_roles : 4:S:primary1:primary:worker:primary
-	+ hana_hr2_site : DC2
-	+ hana_hr2_srmode : syncmem
-	+ hana_hr2_sync_state : SOK
-	+ hana_hr2_version : 2.00.033.00.1535711040
-	+ hana_hr2_vhost : node2
-	+ lpa_hr2_lpt : 1540867311
-	+ primary-SAPHana_HR2_00 : 100
+    * Node node1.localdomain:
+    + hana_hr2_clone_state : DEMOTED
+    + hana_hr2_remoteHost : node2
+    + hana_hr2_roles : 2:P:primary1::worker:
+    + hana_hr2_site : DC1
+    + hana_hr2_srmode : syncmem
+    + hana_hr2_sync_state : PRIM
+    + hana_hr2_version : 2.00.033.00.1535711040
+    + hana_hr2_vhost : node1
+    + lpa_hr2_lpt : 1540867236
+    + primary-SAPHana_HR2_00 : 150
+    * Node node2.localdomain:
+    + hana_hr2_clone_state : PROMOTED
+    + hana_hr2_op_mode : logreplay
+    + hana_hr2_remoteHost : node1
+    + hana_hr2_roles : 4:S:primary1:primary:worker:primary
+    + hana_hr2_site : DC2
+    + hana_hr2_srmode : syncmem
+    + hana_hr2_sync_state : SOK
+    + hana_hr2_version : 2.00.033.00.1535711040
+    + hana_hr2_vhost : node2
+    + lpa_hr2_lpt : 1540867311
+    + primary-SAPHana_HR2_00 : 100
 ```
   
 
@@ -1315,3 +1310,10 @@ pcs cluster node clear node1
 ```
 
 Whether you prefer automatic registering depends on the customer scenario. Automatically reregistering the node after a takeover will be easier for the operation team. However, you may want to register the node manually in order to first run additional tests to make sure everything works as you expect.
+
+##  References
+
+1. [Automated SAP HANA System Replication in Scale-Up in pacemaker cluster](https://access.redhat.com/articles/3397471)
+2. [Support Policies for RHEL High Availability Clusters - Management of SAP HANA in a Cluster](https://access.redhat.com/articles/3397471)
+3. [Setting up Pacemaker on RHEL in Azure - Azure Virtual Machines](high-availability-guide-rhel-pacemaker.md)
+4. [Azure HANA Large Instances control through Azure portal - Azure Virtual Machines](hana-li-portal.md)

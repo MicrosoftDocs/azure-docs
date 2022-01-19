@@ -6,7 +6,7 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 10/07/2021
 ms.author: banders
 ---
 
@@ -110,7 +110,7 @@ In the new experience, your invoice will be generated around the ninth day of ea
 
 **Invoices in the first month after migration**
 
-The day your account is updated, your existing unbilled charges are finalized and you'll receive the invoices for these charges on the day when you typically receive your invoices. For example, John has two Azure subscriptions - Azure sub 01 with billing cycle from the fifth day of the month to the fourth day of the next month and Azure sub 02 with billing cycle from the tenth day of a month to the ninth day of next month. John gets invoices for both Azure subscriptions typically on fifth of the month. Now if John's account is updated on April 4th, the charges for Azure sub 01 from March 5th to April 4th and charges for Azure sub 02 from March 10th to April 4th will be finalized. John will receive two invoices, one for each sub on April 5th. After the account is updated, John's billing cycle will be based on calendar month and will cover all charges incurred from the beginning of a calendar month to the end of that calendar month.  Invoice for the previous calendar month’s charges are available on the 9th of each month. So in the example above, John will receive another invoice on May 5th for the billing period of April 5th to April 30th. 
+The day your account is updated, your existing unbilled charges are finalized and you'll receive the invoices for these charges on the day when you typically receive your invoices. For example, John has two Azure subscriptions - Azure sub 01 with billing cycle from the fifth day of the month to the fourth day of the next month and Azure sub 02 with billing cycle from the tenth day of a month to the ninth day of next month. John gets invoices for both Azure subscriptions typically on fifth of the month. Now if John's account is updated on April 4th, the charges for Azure sub 01 from March 5th to April 4th and charges for Azure sub 02 from March 10th to April 4th will be finalized. John will receive two invoices, one for each sub on April 5th. After the account is updated, John's billing cycle will be based on calendar month and will cover all charges incurred from the beginning of a calendar month to the end of that calendar month. The invoice for the previous calendar month’s charges are available in the first few days of each month. So in the example above, John will receive another invoice in the beginning of May for the billing period of April 5th to April 30th.
 
 
 **New billing and cost management APIs**
@@ -135,7 +135,7 @@ The following new capabilities are available with your Azure billing account.
 
 As part of your updated account, you have new scopes in Cost Management + Billing. Besides aiding with hierarchical organization and invoicing, they are also a way to view combined charges from multiple underlying subscriptions. For more information about billing scopes, see [Microsoft Customer Agreement scopes](../costs/understand-work-scopes.md#microsoft-customer-agreement-scopes).
 
-You can also access Cost Management APIs to get combined cost views at higher scopes. All Cost Management APIs that use the subscription scope are still available with some minor changes in the schema. For more information about the APIs, see [Azure Cost Management APIs](/rest/api/cost-management/) and [Azure Consumption APIs](/rest/api/consumption/).
+You can also access Cost Management APIs to get combined cost views at higher scopes. All Cost Management APIs that use the subscription scope are still available with some minor changes in the schema. For more information about the APIs, see [Cost Management APIs](/rest/api/cost-management/) and [Azure Consumption APIs](/rest/api/consumption/).
 
 #### Cost allocation
 
@@ -143,7 +143,7 @@ With your updated account, you can use cost allocation capabilities to distribut
 
 #### Power BI
 
-The Azure Cost Management connector for Power BI Desktop helps you build custom visualizations and reports of your Azure usage and spending. You access your cost and usage data after you connect to your updated account. For more information about the Azure Cost Management connector for Power BI Desktop, see [Create visuals and reports with the Azure Cost Management connector in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
+The Cost Management connector for Power BI Desktop helps you build custom visualizations and reports of your Azure usage and spending. You access your cost and usage data after you connect to your updated account. For more information about the Cost Management connector for Power BI Desktop, see [Create visuals and reports with the Cost Management connector in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
 
 ### Updated capabilities
 
@@ -189,6 +189,34 @@ Invoices generated before your account was updated are still available in the Az
 
 **Invoices for account updated in the middle of the month**
 If your account is updated in the middle of the month, you'll get one invoice for charges accumulated until the day your account is updated. You'll get another invoice for the rest of the month. For example, your account has one subscription and it's updated on 15 September. You'll get one invoice for charges accumulated until 15 September. You'll get another invoice for the period between 15 September through 30 September. After September, you'll get one invoice per month.
+
+## Troubleshooting
+
+### You get an email to accept the terms of the Microsoft Customer Agreement but the link in the email doesn't work
+
+After your Azure billing account is updated, you'll get an email from Microsoft to accept the terms of the Microsoft Customer Agreement. The link in the email might not work due to the following reasons:
+
+- You have access to perform billing administration through one of your other emails. 
+
+    This typically happens when you get an email asking you to accept the terms of the Microsoft Customer Agreement. You click on the link and you see an error message - `You don't have permission to accept the agreement. This typically happens when you sign in with an email, which doesn’t have permission to accept the agreement. Check you’ve signed in with the correct email address. If you are still seeing the error, see Why I can't accept an agreement`. Verify that you're signed in with the email address that has permission to perform billing administration.
+
+- You have access to the invoice through a different identity. 
+
+    Some customers have two identities with the same email address - a work account and a Microsoft account. Typically, only one of their identities has permissions to perform billing administration. If they sign in with the identity that doesn't have permission, they would not be able to accept the terms. Verify that you're using the correct identity to sign in.
+
+- You have signed in to the incorrect Azure Active Directory (Azure AD) tenant. 
+
+    Your billing account is associated with an Azure AD tenant. If you're signed in to an incorrect tenant, you won't be able to accept the terms. Verify that you're signed in to the correct Azure AD tenant. If you aren't signed in to the correct tenant, use the following to switch the tenant in the Azure portal:
+
+    1. Select your email from the top right of the page.
+
+    2. Select **Switch directory**.
+
+        ![Screenshot that shows selecting switch directory in the portal](./media/mosp-new-customer-experience/select-switch-directory.png)
+
+    3. Select **Switch** for a directory from the **All directories** section.
+
+        ![Screenshot that shows selecting a directory in the portal](./media/mosp-new-customer-experience/select-directory.png)
 
 ## Need help? Contact support.
 

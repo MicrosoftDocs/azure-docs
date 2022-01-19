@@ -11,7 +11,8 @@ ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: ralphe
 zone_pivot_groups: programming-languages-set-nine
-ms.custom: devx-track-csharp
+ms.devlang: cpp, csharp
+ms.custom: devx-track-csharp, mode-other
 ---
 
 # Quickstart: Multi-device Conversation

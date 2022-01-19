@@ -1,7 +1,7 @@
 ---
 title: Configure built-in container registry for Azure Red Hat OpenShift 4
 description: Configure built-in container registry for Azure Red Hat OpenShift 4
-author: jiangma
+author: majguo
 ms.author: jiangma
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.date: 10/15/2020
 ---
 # Configure built-in container registry for Azure Red Hat OpenShift 4
 
-Azure Red Hat OpenShift provides an integrated container image registry called [OpenShift Container Registry (OCR)](https://docs.openshift.com/container-platform/4.6/registry/architecture-component-imageregistry.html) that adds the ability to automatically provision new image repositories on demand. This provides users with a built-in location for their application builds to push the resulting images.
+Azure Red Hat OpenShift provides an integrated container image registry called [OpenShift Container Registry (OCR)](https://docs.openshift.com/container-platform/4.5/registry/architecture-component-imageregistry.html) that adds the ability to automatically provision new image repositories on demand. This provides users with a built-in location for their application builds to push the resulting images.
 
 In this article, you'll configure the built-in container image registry for an Azure Red Hat OpenShift (ARO) 4 cluster. You'll learn how to:
 

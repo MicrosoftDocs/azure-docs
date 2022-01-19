@@ -1,6 +1,6 @@
 ---
-title: Monitoring Azure Static Web Apps Preview
-description: Monitor requests, failures, and tracing information in Azure Static Web Apps Preview
+title: Monitoring Azure Static Web Apps
+description: Monitor requests, failures, and tracing information in Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
@@ -12,6 +12,9 @@ ms.author: cshoe
 # Monitor Azure Static Web Apps
 
 Enable [Application Insights](../azure-monitor/app/app-insights-overview.md) to monitor API  requests, failures, and tracing information.
+
+> [!IMPORTANT]
+> Application Insights has an [independent pricing model](https://azure.microsoft.com/pricing/details/monitor) from Azure Static Web Apps.
 
 > [!NOTE]
 > Using Application Insights with Azure Static Web Apps requires an application with an [API](./add-api.md).
@@ -66,6 +69,27 @@ Using the following steps to view traces in your application.
 1. Select the **Run** button.
 
 :::image type="content" source="media/monitoring/azure-static-web-apps-application-insights-traces.png" alt-text="View Application Insights traces":::
+
+## Limit logging
+
+In some cases you may want to limit logging while still capturing details on errors and warnings by making the following changes to your _host.json_ file of the Azure Functions app.
+
+```json
+{
+    "version": "2.0",
+    "logging": {
+        "applicationInsights": {
+            "samplingSettings": {
+              "isEnabled": true
+            },
+            "enableDependencyTracking": false
+        },
+        "logLevels": {
+            "default": "Warning"
+        }
+    }
+}
+```
 
 ## Next steps
 

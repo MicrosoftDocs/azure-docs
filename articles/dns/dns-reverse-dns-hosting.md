@@ -6,7 +6,8 @@ ms.service: dns
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/29/2021
-ms.author: rohink
+ms.author: rohink 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Host reverse DNS lookup zones in Azure DNS

@@ -7,5 +7,5 @@ ms.topic: include
 ---
 
 > [!NOTE]
-> Some features and settings are in the process of rolling out to the Azure portal.
+> Features and settings are in the process of rolling out across regions to the Azure portal.
 >

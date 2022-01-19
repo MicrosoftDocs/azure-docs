@@ -3,14 +3,14 @@ title: Network topology considerations for Azure Active Directory Application Pr
 description: Covers network topology considerations when using Azure Active Directory Application Proxy.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Optimize traffic flow with Azure Active Directory Application Proxy
@@ -22,7 +22,7 @@ This article explains how to optimize traffic flow and network topology consider
 When an application is published through Azure AD Application Proxy, traffic from the users to the applications flows through three connections:
 
 1. The user connects to the Azure AD Application Proxy service public endpoint on Azure
-1. The Application Proxy service connects to the Application Proxy connector
+1. The Application Proxy connector connects to the Application Proxy service (outbound)
 1. The Application Proxy connector connects to the target application
 
 :::image type="content" source="./media/application-proxy-network-topology/application-proxy-three-hops.png" alt-text="Diagram showing traffic flow from user to target application." lightbox="./media/application-proxy-network-topology/application-proxy-three-hops.png":::
@@ -194,5 +194,5 @@ You can also consider using one other variant in this situation. If most users i
 
 - [Enable Application Proxy](application-proxy-add-on-premises-application.md)
 - [Enable single-sign on](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Enable Conditional Access](../manage-apps/application-proxy-integrate-with-sharepoint-server.md)
+- [Enable Conditional Access](./application-proxy-integrate-with-sharepoint-server.md)
 - [Troubleshoot issues you're having with Application Proxy](application-proxy-troubleshoot.md)

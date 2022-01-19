@@ -1,7 +1,7 @@
 ---
 title: Support matrix for the MARS agent
 description: This article summarizes Azure Backup support when you back up machines that are running the Microsoft Azure Recovery Services (MARS) agent.
-ms.date: 04/09/2021
+ms.date: 06/04/2021
 ms.topic: conceptual
 ---
 
@@ -41,81 +41,11 @@ When you use the MARS agent to back up data, the agent takes a snapshot of the d
 Size |  Free space in the cache folder should be at least 5 to 10 percent of the overall size of your backup data.
 Location | The cache folder must be locally stored on the machine that's being backed up, and it must be online. The cache folder shouldn't be on a network share, on removable media, or on an offline volume.
 Folder | The cache folder shouldn't be encrypted on a deduplicated volume or in a folder that's compressed, that's sparse, or that has a reparse point.
-Location changes | You can change the cache location by stopping the backup engine (`net stop bengine`) and copying the cache folder to a new drive. (Ensure the new drive has sufficient space.) Then update two registry entries under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** and **Config/CloudBackupProvider/ScratchLocation**) to the new location and restart the engine.
+Location changes | You can change the cache location by stopping the backup engine (`net stop obengine`) and copying the cache folder to a new drive. (Ensure the new drive has sufficient space.) Then update two registry entries under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** and **Config/CloudBackupProvider/ScratchLocation**) to the new location and restart the engine.
 
 ## Networking and access support
 
-### URL and IP access
-
-The MARS agent needs access to these URLs:
-
-- `http://www.msftncsi.com/ncsi.txt`
-- *.Microsoft.com
-- *.WindowsAzure.com
-- *.MicrosoftOnline.com
-- *.Windows.net
-- `www.msftconnecttest.com`
-
-And to these IP addresses:
-
-- 20.190.128.0/18
-- 40.126.0.0/18
-
-Access to all of the URLs and IP addresses listed above uses the HTTPS protocol on port 443.
-
-When backing up files and folders from Azure VMs using the MARS Agent, the Azure virtual network also needs to be configured to allow access. If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/network-security-groups-overview.md#service-tags) for Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*). The following steps describe the process to create a rule for the Azure Backup tag:
-
-1. In **All Services**, go to **Network security groups** and select the network security group.
-2. Select **Outbound security rules** under **Settings**.
-3. Select **Add**. Enter all the required details for creating a new rule as described in [security rule settings](../virtual-network/manage-network-security-group.md#security-rule-settings). Ensure the option **Destination** is set to *Service Tag* and **Destination service tag** is set to *AzureBackup*.
-4. Select **Add** to save the newly created outbound security rule.
-
-You can similarly create NSG outbound security rules for Azure Storage and Azure AD. For more information on service tags, see [this article](../virtual-network/service-tags-overview.md).
-
-### Azure ExpressRoute support
-
-You can back up your data over Azure ExpressRoute with public peering (available for old circuits) and Microsoft peering. Backup over private peering isn't supported.
-
-With public peering: Ensure access to the following domains/addresses:
-
-* URLs
-  * `www.msftncsi.com`
-  * `*.Microsoft.com`
-  * `*.WindowsAzure.com`
-  * `*.microsoftonline.com`
-  * `*.windows.net`
-  * `www.msftconnecttest.com`
-* IP addresses
-  * 20.190.128.0/18
-  * 40.126.0.0/18
-
-With Microsoft peering, select the following services/regions and relevant community values:
-
-- Azure Backup (according to the location of your Recovery Services vault)
-- Azure Active Directory (12076:5060)
-- Azure Storage (according to the location of your Recovery Services vault)
-
-For more information, see the [ExpressRoute routing requirements](../expressroute/expressroute-routing.md#bgp).
-
->[!NOTE]
->Public Peering is deprecated for new circuits.
-
-### Private Endpoint support
-
-You can now use Private Endpoints to back up your data securely from servers to your Recovery Services vault. Since Azure Active Directory doesn't currently support private endpoints, IPs and FQDNs required for Azure Active Directory will need to be allowed outbound access separately.
-
-When you use the MARS Agent to back up your on-premises resources, make sure your on-premises network (containing your resources to be backed up) is peered with the Azure VNet that contains a private endpoint for the vault. You can then continue to install the MARS agent and configure backup. However, you must ensure all communication for backup happens through the peered network only.
-
-If you remove private endpoints for the vault after a MARS agent has been registered to it, you'll need to re-register the container with the vault. You don't need to stop protection for them.
-
-Read more about [private endpoints for Azure Backup](private-endpoints.md).
-
-### Throttling support
-
-**Feature** | **Details**
---- | ---
-Bandwidth control | Supported. In the MARS agent, use **Change Properties** to adjust bandwidth.
-Network throttling | Not available for backed-up machines that run Windows Server 2008 R2, Windows Server 2008 SP2, or Windows 7.
+[!INCLUDE [Configuring network connectivity](../../includes/backup-network-connectivity.md)]
 
 ## Supported operating systems
 

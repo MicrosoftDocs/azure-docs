@@ -4,16 +4,15 @@ description: A tutorial that shows you how to use a Linux VM system-assigned man
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: daveba
-
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -48,7 +47,7 @@ If you don't already have one, you will now create a storage account.  You can a
 1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
 2. Click **Storage**, then **Storage Account**, and a new "Create storage account" panel will display.
 3. Enter a **Name** for the storage account, which you will use later.  
-4. **Deployment model** and **Account kind** should be set to "Resource manager" and "General purpose", respectively. 
+4. **Deployment model** and **Account kind** should be set to "Resource Manager" and "General purpose", respectively. 
 5. Ensure the **Subscription** and **Resource Group** match the ones you specified when you created your VM in the previous step.
 6. Click **Create**.
 
@@ -67,17 +66,13 @@ Later we will upload and download a file to the new storage account. Because fil
 
 ## Grant your VM's system-assigned managed identity access to use a storage SAS
 
-Azure Storage does not natively support Azure AD authentication.  However, you can use your VM's system-assigned managed identity to retrieve a storage SAS from the Resource Manager, then use the SAS to access storage.  In this step, you grant your VM's system-assigned managed identity access to your storage account SAS.   
+Azure Storage natively supports Azure AD authentication, so you can use your VM's system-assigned managed identity to retrieve a storage SAS from Resource Manager, then use the SAS to access storage.  In this step, you grant your VM's system-assigned managed identity access to your storage account SAS. Grant access by assigning the [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role to the managed-identity at the scope of the resource group that contains your storage account.
+ 
+For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-1. Navigate back to your newly created storage account.
-2. Click the **Access control (IAM)** link in the left panel.  
-3. Click **+ Add role assignment** on top of the page to add a new role assignment for your VM
-4. Set **Role** to "Storage Account Contributor", on the right side of the page. 
-5. In the next dropdown, set **Assign access to** the resource "Virtual Machine".  
-6. Next, ensure the proper subscription is listed in **Subscription** dropdown, then set **Resource Group** to "All resource groups".  
-7. Finally, under **Select** choose your Linux Virtual Machine in the dropdown, then click **Save**.  
+>[!NOTE]
+> For more information on the various roles that you can use to grant permissions to storage review [Authorize access to blobs and queues using Azure Active Directory.](../../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights)
 
-    ![Alt image text](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
 ## Get an access token using the VM's identity and use it to call Azure Resource Manager
 
@@ -143,7 +138,7 @@ The CURL response returns the SAS credential:
 {"serviceSasToken":"sv=2015-04-05&sr=c&spr=https&st=2017-09-22T00%3A10%3A00Z&se=2017-09-22T02%3A00%3A00Z&sp=rcw&sig=QcVwljccgWcNMbe9roAJbD8J5oEkYoq%2F0cUPlgriBn0%3D"} 
 ```
 
-Create a sample blob file to upload to your blob storage container. On a Linux VM you can do this with the following command. 
+Create a sample blob file to upload to your blob storage container. On a Linux VM, you can do this with the following command. 
 
 ```bash
 echo "This is a test file." > test.txt

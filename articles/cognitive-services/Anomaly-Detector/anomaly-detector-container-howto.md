@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/14/2021
 ms.author: mbullwin
 ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container, streaming, algorithms
@@ -119,7 +119,7 @@ If you intend to run multiple containers with exposed ports, make sure to run ea
 
 Replace the `<container-registry>` and `<container-name>` with the values of the containers you use. These do not have to be the same container. You can have the Anomaly Detector container and the LUIS container running on the HOST together or you can have multiple Anomaly Detector containers running.
 
-Run the first container on port 5000.
+Run the first container on host port 5000.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -129,11 +129,11 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Run the second container on port 5001.
+Run the second container on host port 5001.
 
 
 ```bash
-docker run --rm -it -p 5000:5001 --memory 4g --cpus 1 \
+docker run --rm -it -p 5001:5000 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -150,7 +150,7 @@ Use the host, http://localhost:5000, for container APIs.
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Stop the container
 
@@ -161,6 +161,9 @@ Use the host, http://localhost:5000, for container APIs.
 If you run the container with an output [mount](anomaly-detector-container-configuration.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
+
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
+
 
 ## Billing
 

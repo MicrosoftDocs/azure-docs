@@ -3,13 +3,13 @@ title: Add analytics to the Bing Web Search API
 titleSuffix: Azure Cognitive Services
 description: Bing Statistics provides analytics to the Bing Image Search API. Analytics include call volume, top query strings, geographic distribution, and more. 
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.author: scottwhi
+
 ms.custom: seodec2018
 ---
 

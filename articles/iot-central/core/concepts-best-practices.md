@@ -3,7 +3,7 @@ title: Device development best practices in Azure IoT Central | Microsoft Docs
 description: This article outlines best practices for device connectivity in Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/03/2021
+ms.date: 12/22/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -52,6 +52,39 @@ If the device gets any of the following errors when it connects, it should use a
 - Internal error 500 from the service.
 
 To learn more about device error codes, see [Troubleshooting device connections](troubleshoot-connection.md).
+
+## Test failover capabilities
+
+The Azure CLI lets you test the failover capabilities of your device client code. The CLI command works by temporarily switching a device registration to a different internal IoT hub. You can verify that the device failover worked by checking that the device is still sending telemetry and responding to commands in your IoT Central application.
+
+To run the failover test for your device, run the following command:
+
+```azurecli
+az iot central device manual-failover \
+    --app-id {Application ID of your IoT Central application} \
+    --device-id {Device ID of the device you're testing} \
+    --ttl-minutes {How to wait before moving the device back to it's original IoT hub}
+```
+
+> [!TIP]
+> To find the **Application ID**, navigate to **Administration > Your application** in your IoT Central application.
+
+If the command succeeds, you see output that looks like the following:
+
+```output
+Command group 'iot central device' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+{
+  "hubIdentifier": "6bd4...bafa",
+  "message": "Success! This device is now being failed over. You can check your device'’'s status using 'iot central device registration-info' command. The device will revert to its original hub at Tue, 18 May 2021 11:03:45 GMT. You can choose to failback earlier using device-manual-failback command. Learn more: https://aka.ms/iotc-device-test"
+}
+```
+
+To learn more about the CLI command, see [az iot central device manual-failover](/cli/azure/iot/central/device#az_iot_central_device_manual_failover).
+
+You can now check to see that telemetry from the device is still reaching your IoT Central application.
+
+> [!TIP]
+> To see sample device code that handles failovers in various programing languages, see [IoT Central high availability clients](/samples/azure-samples/iot-central-high-availability-clients/iotc-high-availability-clients/).
 
 ## Next steps
 

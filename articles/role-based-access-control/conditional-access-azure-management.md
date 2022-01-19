@@ -8,7 +8,6 @@ manager: mtillman
 editor: skwan
 ms.assetid: 0adc8b11-884e-476c-8c43-84f9bf12a34b
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
@@ -39,7 +38,9 @@ The policy you create applies to all Azure management endpoints, including the f
 - Visual Studio subscriptions administrator portal
 - Azure DevOps
 - Azure Data Factory portal
-- [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/conditional-access-configure)
+- Azure Event Hubs
+- Azure Service Bus
+- [Azure SQL Database](../azure-sql/database/conditional-access-configure.md)
 - SQL Managed Instance
 - Azure Synapse
 

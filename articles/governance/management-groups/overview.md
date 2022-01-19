@@ -1,9 +1,8 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them.
-ms.date: 04/28/2021
+ms.date: 08/17/2021
 ms.topic: overview
-ms.custom: contperf-fy21q1
 ---
 # What are Azure management groups?
 
@@ -39,10 +38,10 @@ owner allowing for improved governance.
 
 Another scenario where you would use management groups is to provide user access to multiple
 subscriptions. By moving multiple subscriptions under that management group, you can create one
-[Azure role assignment](../../role-based-access-control/overview.md) on the
-management group, which will inherit that access to all the subscriptions. One assignment on the
-management group can enable users to have access to everything they need instead of scripting Azure RBAC
-over different subscriptions.
+[Azure role assignment](../../role-based-access-control/overview.md) on the management group, which
+will inherit that access to all the subscriptions. One assignment on the management group can enable
+users to have access to everything they need instead of scripting Azure RBAC over different
+subscriptions.
 
 ### Important facts about management groups
 
@@ -58,8 +57,8 @@ over different subscriptions.
 
 Each directory is given a single top-level management group called the "Root" management group. This
 root management group is built into the hierarchy to have all management groups and subscriptions
-fold up to it. This root management group allows for global policies and Azure role assignments to be
-applied at the directory level. The [Azure AD Global Administrator needs to elevate
+fold up to it. This root management group allows for global policies and Azure role assignments to
+be applied at the directory level. The [Azure AD Global Administrator needs to elevate
 themselves](../../role-based-access-control/elevate-access-global-admin.md) to the User Access
 Administrator role of this root group initially. After elevating access, the administrator can
 assign any Azure role to other directory users or groups to manage the hierarchy. As administrator,
@@ -291,6 +290,10 @@ the Owner role. You can't move it to a management group where you're a contribut
 lose ownership of the subscription. If you're directly assigned to the Owner role for the
 subscription (not inherited from the management group), you can move it to any management group
 where you're a contributor.
+
+> [!IMPORTANT]
+> Azure Resource Manager caches management group hierarchy details for up to 30 minutes.
+> As a result, moving a management group may not immediately be reflected in the Azure portal. 
 
 ## Audit management groups using activity logs
 

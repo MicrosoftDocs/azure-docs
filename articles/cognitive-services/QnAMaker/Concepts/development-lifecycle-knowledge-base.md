@@ -83,4 +83,4 @@ The *published knowledge base* is the version that's used in your chat bot or ap
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Active learning suggestions](./active-learning-suggestions.md)
+> [Active learning suggestions](../index.yml)

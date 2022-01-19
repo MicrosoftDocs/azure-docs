@@ -1,11 +1,11 @@
 ---
 title: Monitoring Azure Cosmos DB data reference | Microsoft Docs
 description: Important reference material needed when you monitor logs and metrics in Azure Cosmos DB.
-author: SnehaGunda
+ms.author: esarroyo
+author: StefArroyo 
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/07/2020
-ms.author: sngun
 ms.custom: subject-monitoring 
 ---
 
@@ -99,7 +99,7 @@ For a list of all Azure Monitor log categories and links to associated schemas, 
 
 ## Azure Monitor Logs tables
 
-Azure Cosmos DB uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of Kusto bales uses, see the [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-cosmos-db) article.
+Azure Cosmos DB uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of Kusto tables Cosmos DB uses, see the [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-cosmos-db) article.
 
 ## See Also
 

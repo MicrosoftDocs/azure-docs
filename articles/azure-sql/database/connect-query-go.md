@@ -4,13 +4,13 @@ description: Use Go to create a program that connects to a database in Azure SQL
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
-ms.custom: sqldbrb=2 
-ms.devlang: go
+ms.subservice: connect
+ms.custom: sqldbrb=2, mode-api
+ms.devlang: golang
 ms.topic: quickstart
-author: David-Engel
-ms.author: sstein
-ms.reviewer: MightyPen
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: kendralittle, mathoma
 ms.date: 04/14/2021
 ---
 # Quickstart: Use Golang to query a database in Azure SQL Database or Azure SQL Managed Instance
@@ -331,4 +331,3 @@ Get the connection information you need to connect to the database. You'll need 
 - [Design your first database in Azure SQL Database](design-first-database-tutorial.md)
 - [Golang driver for SQL Server](https://github.com/denisenkom/go-mssqldb)
 - [Report issues or ask questions](https://github.com/denisenkom/go-mssqldb/issues)
-

@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli
 
 # Manage storage account keys with Key Vault and the Azure CLI
 > [!IMPORTANT]
-> We recommend using Azure Storage integration with Azure Active Directory (Azure AD), Microsoft's cloud-based identity and access management service. Azure AD integration is available for [Azure blobs and queues](../../storage/common/storage-auth-aad.md), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault). 
+> We recommend using Azure Storage integration with Azure Active Directory (Azure AD), Microsoft's cloud-based identity and access management service. Azure AD integration is available for [Azure blobs and queues](../../storage/blobs/authorize-access-azure-active-directory.md), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault). 
 > Azure AD allows you to authenticate your client application by using an application or user identity, instead of storage account credentials. You can use an [Azure AD managed identity](../../active-directory/managed-identities-azure-resources/index.yml) when you run on Azure. Managed identities remove the need for client authentication and storing credentials in or with your application. Use below solution only when Azure AD authentication is not possible.
 
 An Azure storage account uses credentials comprising an account name and a key. The key is auto-generated and serves as a password, rather than an as a cryptographic key. Key Vault manages storage account keys by periodically regenerating them in storage account and provides shared access signature tokens for delegated access to resources in your storage account.
@@ -27,6 +27,9 @@ When you use the managed storage account key feature, consider the following poi
 - Only Key Vault should manage your storage account keys. Don't manage the keys yourself and avoid interfering with Key Vault processes.
 - Only a single Key Vault object should manage storage account keys. Don't allow key management from multiple objects.
 - Regenerate keys by using Key Vault only. Don't manually regenerate your storage account keys.
+
+> [!IMPORTANT]
+> Regenerating key directly in storage account breaks managed storage account setup and can invalidate SAS tokens in use and cause an outage.
 
 ## Service principal application ID
 
@@ -63,11 +66,11 @@ az login
 Use the Azure CLI [az role assignment create](/cli/azure/role/assignment) command to give Key Vault access your storage account. Provide the command the following parameter values:
 
 - `--role`: Pass the "Storage Account Key Operator Service Role" Azure role. This role limits the access scope to your storage account. For a classic storage account, pass "Classic Storage Account Key Operator Service Role" instead.
-- `--assignee`: Pass the value "https://vault.azure.net", which is the url for Key Vault in the Azure public cloud. (For Azure Goverment cloud use '--asingee-object-id' instead, see [Service principal application ID](#service-principal-application-id).)
+- `--assignee`: Pass the value "https://vault.azure.net", which is the url for Key Vault in the Azure public cloud. (For Azure Goverment cloud use '--assignee-object-id' instead, see [Service principal application ID](#service-principal-application-id).)
 - `--scope`: Pass your storage account resource ID, which is in the form `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. To find your subscription ID, use the Azure CLI [az account list](/cli/azure/account?#az_account_list) command; to find your storage account name and storage account resource group, use the Azure CLI [az storage account list](/cli/azure/storage/account?#az_storage_account_list) command.
 
 ```azurecli-interactive
-az role assignment create --role "Storage Account Key Operator Service Role" --assignee 'https://vault.azure.net' --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
+az role assignment create --role "Storage Account Key Operator Service Role" --assignee "https://vault.azure.net" --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
  ```
 ### Give your user account permission to managed storage accounts
 

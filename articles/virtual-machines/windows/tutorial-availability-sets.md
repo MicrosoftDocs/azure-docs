@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 3/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 
 ---
 
 # Create and deploy virtual machines in an availability set using Azure PowerShell
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 In this tutorial, you learn how to increase the availability and reliability of your Virtual Machines (VMs) using Availability Sets. Availability Sets make sure the VMs you deploy on Azure are distributed across multiple, isolated hardware nodes, in a cluster. 
 

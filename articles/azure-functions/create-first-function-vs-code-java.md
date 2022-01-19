@@ -1,31 +1,28 @@
 ---
 title: Create a Java function using Visual Studio Code - Azure Functions
-description: Learn how to create a Java function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.  
+description: Learn how to create a Java function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/03/2020
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-java-uiex
+ms.devlang: java
+ms.custom: mode-api
 ---
 
 # Quickstart: Create a Java function in Azure using Visual Studio Code
 
-> [!div class="op_single_selector" title1="Select your function language: "]
-> - [Java](create-first-function-vs-code-java.md)
-> - [Python](create-first-function-vs-code-python.md)
-> - [C#](create-first-function-vs-code-csharp.md)
-> - [JavaScript](create-first-function-vs-code-node.md)
-> - [PowerShell](create-first-function-vs-code-powershell.md)
-> - [TypeScript](create-first-function-vs-code-typescript.md)
-> - [Other (Go/Rust)](create-first-function-vs-code-other.md)
+[!INCLUDE [functions-language-selector-quickstart-vs-code](../../includes/functions-language-selector-quickstart-vs-code.md)]
 
 In this article, you use Visual Studio Code to create a Java function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+If Visual Studio Code isn't your preferred development tool, check out our similar tutorials for Java developers:
++ [Gradle](./functions-create-first-java-gradle.md)
++ [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions)
++ [Maven](create-first-function-cli-java.md)
 
-> [!NOTE]
-> If Visual Studio Code isn't your preferred development tool, check out our similar tutorials for Java developers using [Maven](create-first-function-cli-java.md), [Gradle](./functions-create-first-java-gradle.md) and [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
+Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 ## Configure your environment
 
@@ -33,7 +30,7 @@ Before you get started, make sure you have the following requirements in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 or 11.
++ The [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 11 or 8.
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
@@ -60,7 +57,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     + **Select a language for your function project**: Choose `Java`.
 
-    + **Select a version of Java**: Choose `Java 8` or `Java 11`, the Java version on which your functions run in Azure. Choose a Java version that you've verified locally.
+    + **Select a version of Java**: Choose `Java 11` or `Java 8`, the Java version on which your functions run in Azure. Choose a Java version that you've verified locally.
 
     + **Provide a group ID**: Choose `com.function`.
 

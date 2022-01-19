@@ -11,6 +11,7 @@ ms.date: 08/02/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -42,7 +43,7 @@ public static void CreateAnonymousBlobClient()
     // Get a reference to a container that's available for anonymous access.
     CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
 
-    // Read the container's properties. 
+    // Read the container's properties.
     // Note this is only possible when the container supports full public read access.
     container.FetchAttributes();
     Console.WriteLine(container.Properties.LastModified);
@@ -105,4 +106,4 @@ public static void DownloadBlobAnonymously()
 
 - [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md)
 - [Prevent anonymous public read access to containers and blobs](anonymous-read-access-prevent.md)
-- [Authorizing access to Azure Storage](../common/storage-auth.md)
+- [Authorizing access to Azure Storage](../common/authorize-data-access.md)

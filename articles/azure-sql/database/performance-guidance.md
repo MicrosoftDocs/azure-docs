@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
-ms.date: 03/10/2020
+ms.reviewer: kendralittle, mathoma
+ms.date: 07/26/2021
 ---
 # Tune applications and databases for performance in Azure SQL Database and Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -259,9 +259,17 @@ Some applications are write-intensive. Sometimes you can reduce the total IO loa
 
 Some database applications have read-heavy workloads. Caching layers might reduce the load on the database and might potentially reduce the compute size required to support a database by using Azure SQL Database and Azure SQL Managed Instance. With [Azure Cache for Redis](https://azure.microsoft.com/services/cache/), if you have a read-heavy workload, you can read the data once (or perhaps once per application-tier machine, depending on how it is configured), and then store that data outside of your database. This is a way to reduce database load (CPU and read IO), but there is an effect on transactional consistency because the data being read from the cache might be out of sync with the data in the database. Although in many applications some level of inconsistency is acceptable, that's not true for all workloads. You should fully understand any application requirements before you implement an application-tier caching strategy.
 
+## Get configuration and design tips
+
+If you use Azure SQL Database, you can execute an open-source T-SQL [script](https://aka.ms/sqldbtips) to analyze your database on demand and provide tips to improve database performance and health. Some tips suggest configuration and operational changes based on best practices, while other tips recommend design changes suitable for your workload, such as enabling advanced database engine features.
+
+To learn more about the script and get started, visit the [wiki](https://aka.ms/sqldbtipswiki) page.
+
 ## Next steps
 
-- For more information about DTU-based service tiers, see [DTU-based purchasing model](service-tiers-dtu.md).
-- For more information about vCore-based service tiers, see [vCore-based purchasing model](service-tiers-vcore.md).
-- For more information about elastic pools, see [What is an Azure elastic pool?](elastic-pool-overview.md)
-- For information about performance and elastic pools, see [When to consider an elastic pool](elastic-pool-overview.md)
+- Learn about the [DTU-based purchasing model](service-tiers-dtu.md).
+- Learn more about the [vCore-based purchasing model](service-tiers-vcore.md).
+- Read [What is an Azure elastic pool?](elastic-pool-overview.md)
+- Discover [When to consider an elastic pool](elastic-pool-overview.md)
+- Read about [Monitoring Microsoft Azure SQL Database and Azure SQL Managed Instance performance using dynamic management views](monitoring-with-dmvs.md)
+- Learn to [Diagnose and troubleshoot high CPU on Azure SQL Database](high-cpu-diagnose-troubleshoot.md)

@@ -2,10 +2,10 @@
 title: Security hardening in AKS virtual machine hosts 
 description: Learn about the security hardening in AKS VM host OS
 services: container-service
-author: mlearned
+author: georgewallace
 ms.topic: article
 ms.date: 03/29/2021
-ms.author: mlearned
+ms.author: gwallace
 ms.custom: mvc
 ---
 
@@ -16,7 +16,7 @@ As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI 
 > [!Note]
 > This document is scoped to Linux agents in AKS only.
 
-AKS clusters are deployed on host VMs, which run a security-optimized OS used for containers running on AKS. This host OS is based on an **Ubuntu 16.04.LTS** image with more [security hardening](#security-hardening-features) and optimizations applied.
+AKS clusters are deployed on host VMs, which run a security-optimized OS used for containers running on AKS. This host OS is based on an **Ubuntu 18.04.5 LTS** image with more [security hardening](#security-hardening-features) and optimizations applied.
 
 The goal of the security hardened host OS is to reduce the surface area of attack and optimize for the deployment of containers in a secure manner.
 

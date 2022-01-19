@@ -10,7 +10,6 @@ ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 03/15/2018
 ms.author: billmath
@@ -105,4 +104,4 @@ Azure AD Connect Health alerts get resolved on a success condition. Azure AD Con
 
 
 ## Next steps
-* [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
+* [Azure AD Connect Health FAQ](reference-connect-health-faq.yml)

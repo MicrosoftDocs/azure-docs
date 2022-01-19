@@ -3,13 +3,12 @@ title: Use Container Storage Interface (CSI) drivers for Azure Disks on Azure Ku
 description: Learn how to use the Container Storage Interface (CSI) drivers for Azure disks in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 10/15/2021
 author: palma21
 
 ---
 
-# Use the Azure disk Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AKS) (preview)
-
+# Use the Azure disk Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AKS)
 The Azure disk Container Storage Interface (CSI) driver is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure disks.
 
 The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, AKS can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes without having to touch the core Kubernetes code and wait for its release cycles.
@@ -19,11 +18,18 @@ To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Az
 > [!NOTE]
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
 
+## Azure Disk CSI driver new features
+Besides original in-tree driver features, Azure Disk CSI driver already provides following new features:
+- performance improvement when attach or detach disks in parallel
+  - in-tree driver attaches or detaches disks in serial while CSI driver would attach or detach disks in batch, there would be significant improvement when there are multiple disks attaching to one node.
+- ZRS disk support
+  - `Premium_ZRS`, `StandardSSD_ZRS` disk types are supported, check more details about [Zone-redundant storage for managed disks](../virtual-machines/disks-redundancy.md)
+- [Snapshot](#volume-snapshots)
+- [Volume clone](#clone-volumes)
+
 ## Use CSI persistent volumes with Azure disks
 
 A [persistent volume](concepts-storage.md#persistent-volumes) (PV) represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. This article shows you how to dynamically create PVs with Azure disks for use by a single pod in an AKS cluster. For static provisioning, see [Manually create and use a volume with Azure disks](azure-disk-volume.md).
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
@@ -129,7 +135,7 @@ $ kubectl describe volumesnapshot azuredisk-volume-snapshot
 Name:         azuredisk-volume-snapshot
 Namespace:    default
 Labels:       <none>
-Annotations:  API Version:  snapshot.storage.k8s.io/v1beta1
+Annotations:  API Version:  snapshot.storage.k8s.io/v1
 Kind:         VolumeSnapshot
 Metadata:
   Creation Timestamp:  2020-08-27T05:27:58Z
@@ -138,7 +144,7 @@ Metadata:
     snapshot.storage.kubernetes.io/volumesnapshot-bound-protection
   Generation:        1
   Resource Version:  714582
-  Self Link:         /apis/snapshot.storage.k8s.io/v1beta1/namespaces/default/volumesnapshots/azuredisk-volume-snapshot
+  Self Link:         /apis/snapshot.storage.k8s.io/v1/namespaces/default/volumesnapshots/azuredisk-volume-snapshot
   UID:               dd953ab5-6c24-42d4-ad4a-f33180e0ef87
 Spec:
   Source:
@@ -286,7 +292,7 @@ metadata:
   name: managed-csi-shared
 provisioner: disk.csi.azure.com
 parameters:
-  skuname: Premium_LRS  # Currently shared disk is only available with premium SSD
+  skuname: Premium_LRS
   maxShares: "2"
   cachingMode: None  # ReadOnly cache is not available for premium SSD with maxShares>1
 reclaimPolicy: Delete

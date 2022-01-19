@@ -4,7 +4,7 @@ description: Learn how to quickly get started with Azure API Management and rout
 
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 # Integrate API Management with Service Fabric in Azure
 

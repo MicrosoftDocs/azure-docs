@@ -12,6 +12,8 @@ ms.author: kegorman
 ---
 # Oracle VM images and their deployment on Microsoft Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 This article covers information about Oracle solutions based on virtual machine images published by Oracle in the Azure Marketplace. If you are interested in cross-cloud application solutions with Oracle Cloud Infrastructure, see [Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure](oracle-oci-overview.md).
 
 To get a list of currently available images, run the following command:
@@ -101,7 +103,7 @@ These capabilities are possible because Azure NetApp Files is based on NetApp® 
 
 ## Licensing Oracle Database & software on Azure
 
-Microsoft Azure is an authorized cloud environment for running Oracle Database. The Oracle Core Factor table is not applicable when licensing Oracle databases in the cloud. Instead, when using VMs with Hyper-Threading Technology enabled for Enterprise Edition databases, count two vCPUs as equivalent to one Oracle Processor license if hyperthreading is enabled (as stated in the policy document). The policy details can be found [here](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
+Microsoft Azure is an authorized cloud environment for running Oracle Database. The Oracle Core Factor table is not applicable when licensing Oracle databases in the cloud. Instead, when using VMs with Hyper-Threading Technology enabled for Enterprise Edition databases, count two vCPUs as equivalent to one Oracle Processor license if hyperthreading is enabled (as stated in the policy document). The policy details can be found at [Licensing Oracle Software in the Cloud Computing Environment](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
 Oracle databases generally require higher memory and IO. For this reason, [Memory Optimized VMs](../../sizes-memory.md) are recommended for these workloads. To optimize your workloads further, [Constrained Core vCPUs](../../constrained-vcpu.md) are recommended for Oracle Database workloads that require high memory, storage, and I/O bandwidth, but not a high core count.
 
 When migrating Oracle software and workloads from on-premises to Microsoft Azure, Oracle provides license mobility as stated in the [Oracle on Azure FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)

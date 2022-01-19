@@ -5,7 +5,8 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 07/08/2020
+ms.subservice: iot-edge
+ms.date: 05/10/2021
 ms.topic: article
 ---
 
@@ -15,7 +16,7 @@ If you experience issues using Azure Event Grid on IoT Edge in your environment,
 
 ## View Event Grid module logs
 
-To troubleshoot, you might need to access Event Grid module logs. To do this, on the VM where the module is deployed run the following command:
+To troubleshoot, you might need to access Event Grid module logs. On the VM where the module is deployed run the following command:
 
 On Windows,
 
@@ -33,9 +34,9 @@ sudo docker logs eventgridmodule
 
 * First make sure Event Grid module has **inbound:serverAuth:tlsPolicy** set to **strict** or **enabled**.
 
-* If its module-to-module communications, make sure that you are making the call on port **4438** and the name of the module matches what is deployed. 
+* In case of module-to-module communication, make sure that you are making the call on port **4438** and the name of the module matches what is deployed. 
 
-  For e.g., if Event Grid module was deployed with name **eventgridmodule** then your URL should be **https://eventgridmodule:4438**. Make sure casing and port number are correct.
+  For example, if Event Grid module was deployed with name **eventgridmodule** then your URL should be **https://eventgridmodule:4438**. Make sure casing and port number are correct.
     
 * If it's from non-IoT module, make sure Event Grid port is mapped on to the Host machine during deployment for example,
 
@@ -55,9 +56,9 @@ sudo docker logs eventgridmodule
 
 * First make sure Event Grid module has **inbound:serverAuth:tlsPolicy** set to **enabled** or **disabled**.
 
-* If its module-to-module communications, make sure that you are making the call on port **5888** and the name of the module matches what is deployed. 
+* In case of module-to-module communications, make sure that you are making the call on port **5888** and the name of the module matches what is deployed. 
 
-  For e.g., if Event Grid module was deployed with name **eventgridmodule** then your URL should be **http://eventgridmodule:5888**. Make sure casing and port number are correct.
+  For example, if Event Grid module was deployed with name **eventgridmodule** then your URL should be **http://eventgridmodule:5888**. Make sure casing and port number are correct.
     
 * If it's from non-IoT module, make sure Event Grid port is mapped on to the Host machine during deployment for example,
 
@@ -79,13 +80,13 @@ By default, Event Grid module is configured to authenticate clients with certifi
 
 **IoTSecurity** class in [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) shows how to retrieve certificates from IoT Edge Security daemon and use that to configure outgoing calls.
 
-If it is non-production environment, you have the option to turn off client authentication. Refer to [Security and Authentication](security-authentication.md) for details on how to do this.
+If it's a non-production environment, you have the option to turn off client authentication. For more information, see [Security and Authentication](security-authentication.md).
 
 ## Debug Events not received by subscriber
 
 Typical reasons for this are:
 
-* The event was never successfully posted. An HTTP StatusCode of 200(OK) should been received on posting an event to Event Grid module.
+* The event was never successfully posted. The client should have received an HTTP StatusCode of 200(OK) on posting an event to Event Grid module.
 
 * Check the event subscription to verify:
     * Endpoint URL is valid

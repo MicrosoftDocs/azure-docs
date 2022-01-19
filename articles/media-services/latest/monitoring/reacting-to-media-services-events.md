@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 07/08/2021
 ms.author: inhenkel
 ---
  
@@ -27,6 +27,15 @@ Availability for Media Services events is tied to Event Grid [availability](../.
 Event grid uses [event subscriptions](../../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Media Services events contain all the information you need to respond to changes in your data. You can identify a  Media Services event because the eventType property starts with "Microsoft.Media.".
 
 For more information, see [Media Services event schemas](../media-services-event-schemas.md).
+
+## Samples and How-to
+
+The Media Services [samples repository for .NET](https://github.com/Azure-Samples/media-services-v3-dotnet) demonstrates how to use the latest Event Grid and Event Hubs client libraries to receive events in your own custom applications.
+
+In addition, the following how-to articles demonstrate the use of Event Grid through the CLI and Azure portal.
+
+* [Monitor events - portal](../monitor-events-portal-how-to.md)
+* [Monitor events - CLI](../job-state-events-cli-how-to.md)
 
 ## Practices for consuming events
 

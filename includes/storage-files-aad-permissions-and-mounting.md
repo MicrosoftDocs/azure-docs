@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 08/26/2020
  ms.author: rogara
- ms.custom: include file, devx-track-azurecli
+ ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 ## Assign access permissions to an identity
@@ -103,7 +103,7 @@ else
 
 ```
 
-If you experience issues in connecting to Azure Files, please refer to [the troubleshooting tool we published for Azure Files mounting errors on Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). We also provide [guidance](../articles/storage/files/storage-files-faq.md#on-premises-access) to work around scenarios when port 445 is blocked. 
+If you experience issues in connecting to Azure Files, please refer to [the troubleshooting tool we published for Azure Files mounting errors on Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/).
 
 
 ### Configure NTFS permissions with Windows File Explorer

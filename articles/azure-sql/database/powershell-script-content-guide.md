@@ -7,9 +7,9 @@ ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: PowerShell
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: LitKnd
+ms.author: kendralittle
+ms.reviewer: mathoma
 ms.date: 03/25/2019
 ---
 

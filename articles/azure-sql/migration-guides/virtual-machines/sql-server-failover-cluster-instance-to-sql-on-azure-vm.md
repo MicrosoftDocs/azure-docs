@@ -1,6 +1,7 @@
 ---
-title: Migrate failover cluster instance 
-description: Learn how to lift and shift your Always On failover cluster instance high availability solution to SQL Server on Azure VMs using Azure Migrate. 
+title: Migrate failover cluster instance
+titleSuffix: SQL Server on Azure VMs
+description: Learn how to lift and shift your Always On failover cluster instance high availability solution to SQL Server on Azure VMs using Azure Migrate.
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide
 author: rahugup
@@ -8,6 +9,7 @@ manager: bsiva
 ms.topic: how-to
 ms.date: 4/25/2021
 ms.author: rahugup
+ms.reviewer: mathoma
 ---
 # Migrate failover cluster instance to SQL Server on Azure VMs
 
@@ -40,8 +42,8 @@ Prepare Azure for migration with Server Migration.
 
 **Task** | **Details**
 --- | ---
-**Create an Azure Migrate project** | Your Azure account needs Contributor or Owner permissions to [create a new project](https://docs.microsoft.com/azure/migrate/create-manage-projects).
-**Verify permissions for your Azure account** | Your Azure account needs Contributor or Owner permissions on the Azure subscription, permissions to register Azure Active Directory (AAD) apps, and User Access Administrator permissions on the Azure subscription to create a Key Vault, to create a VM, and to write to an Azure managed disk.
+**Create an Azure Migrate project** | Your Azure account needs Contributor or Owner permissions to [create a new project](../../../migrate/create-manage-projects.md).
+**Verify permissions for your Azure account** | Your Azure account needs Contributor or Owner permissions on the Azure subscription, permissions to register Azure Active Directory (Azure AD) apps, and User Access Administrator permissions on the Azure subscription to create a Key Vault, to create a VM, and to write to an Azure managed disk.
 **Set up an Azure virtual network** | [Setup](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network) an Azure virtual network (VNet). When you replicate to Azure, Azure VMs are created and joined to the Azure VNet that you specify when you set up migration.
 
 
@@ -128,7 +130,7 @@ To install the Mobility service, follow these steps:
 
 1. Sign in to the replication appliance.
 2. Navigate to **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**.
-3. Find the installer for the machine operating system and version. Review [supported operating systems](/site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines). 
+3. Find the installer for the machine operating system and version. Review [supported operating systems](../../../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines). 
 4. Copy the installer file to the machine you want to migrate.
 5. Make sure that you have the passphrase that was generated when you deployed the appliance.
     - Store the file in a temporary text file on the machine.
@@ -241,7 +243,7 @@ Now, select machines for migration. You can replicate up to 10 machines together
     - Double encryption with platform-managed and customer-managed keys
 
     > [!NOTE]
-    > To replicate VMs with CMK, you'll need to [create a disk encryption set](https://go.microsoft.com/fwlink/?linkid=2151800) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
+    > To replicate VMs with CMK, you'll need to [create a disk encryption set](../../../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
   
 1. In **Azure Hybrid Benefit**:
 
@@ -319,7 +321,7 @@ After your VMs have migrated, reconfigure the cluster. Follow these steps:
    NumberofNodes | Optional | Specify the number of nodes in your failover cluster instance. This parameter is used to identify the right SKU for the shared disks to be    created. By default, the script assumes the number of nodes in the cluster to be 2.   
    DiskNamePrefix | Optional | Specify the prefix that you'd want to add to the names of your shared disks. 
    
-   ```powershell 
+   ```powershell
    ./Create-SharedDisks.ps1 -ResourceGroupName $resoucegroupname -NumberofNodes $nodesincluster -DiskNamePrefix $disknameprefix 
    ```
 
@@ -330,7 +332,7 @@ After your VMs have migrated, reconfigure the cluster. Follow these steps:
    ResourceGroupName | Mandatory | Specify the name of the resource group containing the migrated servers.
    StartingLunNumber | Optional |Specify the starting LUN number that is available for the shared disks to be attached to. By default, the script tries to attach shared    disks to LUN starting 0.  
    
-   ```powershell 
+   ```powershell
    ./Attach-ShareDisks.ps1 -ResourceGroupName $resoucegroupname 
    ```
 
@@ -350,7 +352,7 @@ Your SQL Server failover cluster instance  is ready.
     - Stops replication for the on-premises machine.
     - Removes the machine from the **Replicating servers** count in Azure Migrate: Server Migration.
     - Cleans up replication state information for the machine.
-1. Install the Azure VM [Windows](/virtual-machines/extensions/agent-windows.md) agent on the migrated machines.
+1. Install the Azure VM [Windows](../../../virtual-machines/extensions/agent-windows.md) agent on the migrated machines.
 1. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
 1. Perform final application and migration acceptance testing on the migrated application now running in Azure.
 1. Cut over traffic to the migrated Azure VM instance.
@@ -368,12 +370,12 @@ Your SQL Server failover cluster instance  is ready.
     - Keep data secure by backing up Azure VMs using the [Azure Backup service](../../../backup/quick-backup-vm-portal.md). 
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with [Site Recovery](../../../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
-    - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](../../../security-center/security-center-just-in-time.md).
+    - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../../../security-center/security-center-just-in-time.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../../../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
-    - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
+    - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
-    - Consider deploying [Azure Cost Management](../../../cost-management-billing/cloudyn/overview.md) to monitor resource usage and spending.
+    - Consider deploying [Azure Cost Management](../../../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.
 
 
 ## Next steps

@@ -11,7 +11,9 @@ ms.author: kegorman
 
 ---
 
-# Set up Oracle ASM on an Azure Linux virtual machine  
+# Set up Oracle ASM on an Azure Linux virtual machine
+
+**Applies to:** :heavy_check_mark: Linux VMs 
 
 Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine deployment combined with the installation and configuration of Oracle Automated Storage Management (ASM).  You learn how to:
 

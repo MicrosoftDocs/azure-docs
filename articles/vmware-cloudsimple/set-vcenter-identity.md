@@ -1,8 +1,8 @@
---- 
+---
 title: Azure VMware Solution by CloudSimple - Set up vCenter identity sources on Private Cloud
 description: Describes how to set up your Private Cloud vCenter to authenticate with Active Directory for  VMware administrators to access vCenter
-author: shortpatti 
-ms.author: v-patsho
+author: suzizuber 
+ms.author: v-szuber
 ms.date: 08/15/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -28,7 +28,7 @@ This guide explains the tasks to set up Active Directory domain and domain contr
 Before [adding an identity source](#add-an-identity-source-on-vcenter), temporarily [escalate your vCenter privileges](escalate-private-cloud-privileges.md).
 
 > [!CAUTION]
-> New users must be added only to *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* or, *Cloud-Global-VM-Admin-Group*.  Users added to *Administrators* group will be removed automatically.  Only service accounts must be added to *Administrators* group and service accounts must not be used to sign in to vSphere web UI.	
+> New users must be added only to *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* or, *Cloud-Global-VM-Admin-Group*.  Users added to *Administrators* group will be removed automatically.  Only service accounts must be added to *Administrators* group and service accounts must not be used to sign in to vSphere web UI.
 
 
 ## Identity source options

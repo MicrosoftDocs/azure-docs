@@ -7,10 +7,13 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
+ms.subservice: cloud-init
 ---
 
 
 # Troubleshooting VM provisioning with cloud-init
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 If you have been creating generalized custom images, using cloud-init to do provisioning, but have found that VM did not create correctly, you will need to troubleshoot your custom images.
 

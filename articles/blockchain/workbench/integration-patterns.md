@@ -161,8 +161,6 @@ change occurs following the previous process where -
     smart contract, enabling other functions to now be executed as
     appropriate.
 
-### 
-
 ### Delivery of a message in a format unknown to Azure Blockchain Workbench
 
 ![Unknown message format](./media/integration-patterns/unknown-message-format.png)

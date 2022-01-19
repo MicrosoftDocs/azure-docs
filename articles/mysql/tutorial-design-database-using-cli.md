@@ -12,6 +12,8 @@ ms.custom: mvc, devx-track-azurecli
 
 # Tutorial: Design an Azure Database for MySQL using Azure CLI
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Azure Database for MySQL is a relational database service in the Microsoft cloud based on MySQL Community Edition database engine. In this tutorial, you use Azure CLI (command-line interface) and other utilities to learn how to:
 
 > [!div class="checklist"]

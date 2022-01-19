@@ -7,7 +7,8 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 12/09/2020
 ms.author: victorh
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure per-site WAF policies using Azure PowerShell
@@ -262,7 +263,9 @@ $wafPolicyURI = New-AzApplicationGatewayFirewallPolicy `
   -PolicySetting $PolicySettingURI `
   -CustomRule $rule4, $rule5
 
-$Gateway = Get-AzApplicationGateway -Name "myAppGateway"
+$appgw = Get-AzApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
 
 $PathRuleConfig = New-AzApplicationGatewayPathRuleConfig -Name "base" `
   -Paths "/base" `
@@ -280,7 +283,7 @@ $URLPathMap = New-AzApplicationGatewayUrlPathMapConfig -Name "PathMap" `
   -DefaultBackendAddressPoolId $defaultPool.Id `
   -DefaultBackendHttpSettingsId $poolSettings.Id
 
-Add-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $AppGw `
+Add-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $appgw `
   -Name "RequestRoutingRule" `
   -RuleType PathBasedRouting `
   -HttpListener $siteListener `

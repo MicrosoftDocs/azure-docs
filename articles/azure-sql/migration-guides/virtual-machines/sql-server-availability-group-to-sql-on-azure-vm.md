@@ -1,6 +1,7 @@
 ---
 title: Migrate availability group
-description: Learn how to lift and shift your Always On availability group high availability solution to SQL Server on Azure VMs using Azure Migrate. 
+titleSuffix: SQL Server on Azure VMs
+description: Learn how to lift and shift your Always On availability group high availability solution to SQL Server on Azure VMs using Azure Migrate.
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide
 author: rahugup
@@ -8,6 +9,7 @@ manager: bsiva
 ms.topic: how-to
 ms.date: 4/25/2021
 ms.author: rahugup
+ms.reviewer: mathoma
 ---
 # Migrate availability group to SQL Server on Azure VM
 
@@ -42,8 +44,8 @@ Prepare Azure for migration with the [Server Migration tool](../../../migrate/mi
 |**Task** | **Details**|
 |--- | ---
 |**Create an Azure Migrate project** | Your Azure account needs Contributor or Owner permissions to [create a new project](../../../migrate/create-manage-projects.md).|
-|**Verify permissions for your Azure account** | Your Azure account needs Contributor or Owner permissions on the Azure subscription, permissions to register Azure Active Directory (AAD) apps, and User Access Administrator permissions on the Azure subscription to create a Key Vault, to create a VM, and to write to an Azure managed disk. |
-|**Set up an Azure virtual network** | [Setup](/virtual-network/manage-virtual-network.md#create-a-virtual-network) an Azure virtual network (VNet). When you replicate to Azure, Azure VMs are created and joined to the Azure VNet that you specify when you set up migration.|
+|**Verify permissions for your Azure account** | Your Azure account needs Contributor or Owner permissions on the Azure subscription, permissions to register Azure Active Directory (Azure AD) apps, and User Access Administrator permissions on the Azure subscription to create a Key Vault, to create a VM, and to write to an Azure managed disk. |
+|**Set up an Azure virtual network** | [Setup](../../../virtual-network/virtual-networks-overview.md) an Azure virtual network (VNet). When you replicate to Azure, Azure VMs are created and joined to the Azure VNet that you specify when you set up migration.|
 
 
 To check you have proper permissions, follow these steps: 
@@ -132,7 +134,7 @@ To install the Mobility service, follow these steps:
 
 1. Sign in to the replication appliance.
 1. Navigate to **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**.
-1. Find the installer for the machine operating system and version. Review [supported operating systems](/site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines). 
+1. Find the installer for the machine operating system and version. Review [supported operating systems](../../../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines). 
 1. Copy the installer file to the machine you want to migrate.
 1. Make sure that you have the passphrase that was generated when you deployed the appliance.
     - Store the file in a temporary text file on the machine.
@@ -142,7 +144,7 @@ To install the Mobility service, follow these steps:
 
 1. Connect to the machine and extract the contents of the installer file to a local folder (such as c:\temp). Run this in an admin command prompt: 
 
-    ```
+    ```cmd
     ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
     MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
     cd C:\Temp\Extracted
@@ -150,13 +152,13 @@ To install the Mobility service, follow these steps:
 
 2. Run the Mobility Service Installer:
 
-    ```
-   UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent
+    ```cmd
+    UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent
     ```
 
 3. Register the agent with the replication appliance:
 
-    ```
+    ```cmd
     cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
     UnifiedAgentConfigurator.exe  /CSEndPoint <replication appliance IP address> /PassphraseFilePath <Passphrase File Path>
     ```
@@ -240,7 +242,7 @@ To replicate machines, follow these steps:
     - Double encryption with platform-managed and customer-managed keys
 
     > [!NOTE]
-    > To replicate VMs with CMK, you'll need to [create a disk encryption set](https://go.microsoft.com/fwlink/?linkid=2151800) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
+    > To replicate VMs with CMK, you'll need to [create a disk encryption set](../../../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
   
 1. In **Azure Hybrid Benefit**:
 
@@ -291,7 +293,7 @@ After machines are replicated, they are ready for migration. To migrate your ser
 
     ![Replicating servers](../../../migrate/media/tutorial-migrate-physical-virtual-machines/replicate-servers.png)
 
-2. To ensure the migrated server is synchronized with the source server, stop the SQL Server service on every replica in the availability group, starting with secondary replicas (in **SQL Server Configuration Manager** > **Services) while ensuring the disks hosting SQL data are online.   
+2. To ensure the migrated server is synchronized with the source server, stop the SQL Server service on every replica in the availability group, starting with secondary replicas (in **SQL Server Configuration Manager** > **Services**) while ensuring the disks hosting SQL data are online.   
 3. In **Replicating machines** > select server name > **Overview**, ensure that the last synchronized timestamp is after you have stopped the SQL Server service on the servers to be migrated before you move onto the next step. This should only take a few minutes. 
 2. In **Replicating machines**, right-click the VM > **Migrate**.
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **No** > **OK**.
@@ -322,7 +324,7 @@ Your Always On availability group is ready.
     - Stops replication for the on-premises machine.
     - Removes the machine from the **Replicating servers** count in Azure Migrate: Server Migration.
     - Cleans up replication state information for the machine.
-2. Install the Azure VM [Windows](/virtual-machines/extensions/agent-windows.md) agent on the migrated machines.
+2. Install the Azure VM [Windows](../../../virtual-machines/extensions/agent-windows.md) agent on the migrated machines.
 3. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
 4. Perform final application and migration acceptance testing on the migrated application now running in Azure.
 5. Cut over traffic to the migrated Azure VM instance.
@@ -340,12 +342,12 @@ Your Always On availability group is ready.
     - Keep data secure by backing up Azure VMs using the [Azure Backup service](../../../backup/quick-backup-vm-portal.md). 
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with [Site Recovery](../../../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
-    - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](../../../security-center/security-center-just-in-time.md).
+    - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../../../security-center/security-center-just-in-time.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../../../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
-    - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
+    - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
-    - Consider deploying [Azure Cost Management](../../../cost-management-billing/cloudyn/overview.md) to monitor resource usage and spending.
+    - Consider deploying [Azure Cost Management](../../../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.
 
 
 ## Next steps

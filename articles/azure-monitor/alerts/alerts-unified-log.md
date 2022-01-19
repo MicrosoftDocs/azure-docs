@@ -16,12 +16,9 @@ Log alerts are one of the alert types that are supported in [Azure Alerts](./ale
 > [!NOTE]
 > Log data from a [Log Analytics workspace](../logs/log-analytics-tutorial.md) can be sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
 
-> [!NOTE]
-> There are currently no additional charges for the API version `2020-05-01-preview` and resource centric log alerts.  Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using new API version and resource centric log alerts after the notice period, you will be billed at the applicable rate.
-
 ## Prerequisites
 
-Log alerts run queries on Log Analytics data. First you should start [collecting log data](../essentials/resource-logs.md) and query the log data for issues. You can use the [alert query examples article](../logs/example-queries.md) in Log Analytics to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md).
+Log alerts run queries on Log Analytics data. First you should start [collecting log data](../essentials/resource-logs.md) and query the log data for issues. You can use the [alert query examples article](../logs/queries.md) in Log Analytics to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md).
 
 [Azure Monitoring Contributor](../roles-permissions-security.md) is a common role that is needed for creating, modifying, and updating log alerts. Access & query execution rights for the resource logs are also needed. Partial access to resource logs can fail queries or return partial results. [Learn more about configuring log alerts in Azure](./alerts-log.md).
 
@@ -148,7 +145,7 @@ For example, you want to monitor errors for multiple virtual machines running yo
 This rule monitors if any virtual machine had error events in the last 15 minutes. Each virtual machine is monitored separately and will trigger actions individually.
 
 > [!NOTE]
-> Split by alert dimensions is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource centric alerting at scale is only supported in the API version `2020-05-01-preview` and above.
+> Split by alert dimensions is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource centric alerting at scale is only supported in the API version `2020-08-01` and above.
 
 ## Alert logic definition
 
@@ -179,7 +176,7 @@ Log alerts can either be stateless or stateful (currently in preview).
 
 Stateless alerts fire each time the condition is met, even if fired previously. You can [mark the alert as closed](../alerts/alerts-managing-alert-states.md) once the alert instance is resolved. You can also mute actions to prevent them from triggering for a period after an alert rule fired. In Log Analytics Workspaces and Application Insights, it's called **Suppress Alerts**. In all other resource types, it's called **Mute Actions**. 
 
-See this alert evaluation example:
+See this alert stateless evaluation example:
 
 | Time    | Log condition evaluation | Result 
 | ------- | ----------| ----------| ------- 
@@ -188,7 +185,9 @@ See this alert evaluation example:
 | 00:15 | TRUE  | Alert fires and action groups called. New alert state ACTIVE.
 | 00:20 | FALSE | Alert doesn't fire. No actions called. Pervious alerts state remains ACTIVE.
 
-Stateful alerts fire once per incident and resolve. You can set this using **Automatically resolve alerts** in the alert details section.
+Stateful alerts fire once per incident and resolve. The alert rule resolves when the alert condition isn't met for 30 minutes for a specific evaluation period (to account for log ingestion delay), and for three consecutive evaluations to reduce noise if there is flapping conditions. For example, with a frequency of 5 minutes, the alert resolve after 40 minutes or with a frequency of 1 minute, the alert resolve after 32 minutes. The resolved notification is sent out via web-hooks or email, the status of the alert instance (called monitor state) in Azure portal is also set to resolved.
+
+Stateful alerts feature is currently in preview in the Azure public cloud. You can set this using **Automatically resolve alerts** in the alert details section.
 
 ## Location selection in log alerts
 
@@ -201,7 +200,7 @@ Location affects which region the alert rule is evaluated in. Queries are execut
 Pricing information is located in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). Log Alerts are listed under resource provider `microsoft.insights/scheduledqueryrules` with:
 
 - Log Alerts on Application Insights shown with exact resource name along with resource group and alert properties.
-- Log Alerts on Log Analytics shown with exact resource name along with resource group and alert properties; when created using [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules).
+- Log Alerts on Log Analytics shown with exact resource name along with resource group and alert properties; when created using [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-02-01-preview/scheduled-query-rules).
 - Log alerts created from [legacy Log Analytics API](./api-alerts.md) aren't tracked [Azure Resources](../../azure-resource-manager/management/overview.md) and don't have enforced unique resource names. These alerts are still created on `microsoft.insights/scheduledqueryrules` as hidden resources, which have this resource naming structure `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Log Alerts on legacy API are shown with above hidden resource name along with resource group and alert properties.
 
 > [!NOTE]

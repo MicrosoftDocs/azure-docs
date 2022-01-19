@@ -7,10 +7,10 @@ manager: femila
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2021
-ms.author: inhenkel
+ms.author: inhenkel 
+ms.custom: devx-track-azurepowershell
 ---
 # Update Media Services v3 after rolling storage access keys
 

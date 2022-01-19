@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Segment for automatic user provisioning with Azure A
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Segment.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 20939a92-5f48-4ef7-ab95-042e70ec1e0e
@@ -12,10 +12,9 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/24/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Segment for automatic user provisioning
@@ -48,7 +47,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Segment to support provisioning with Azure AD
 
-1. The Tenant URL is `http://scim.segmentapis.com/scim/v2`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Segment application in the Azure portal.
+1. The Tenant URL is `https://scim.segmentapis.com/scim/v2`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Segment application in the Azure portal.
 
 2. Login to [Segment](https://www.segment.com/) app.
 

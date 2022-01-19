@@ -43,7 +43,7 @@ When you host your Apache Ambari DB in an external database, remember the follow
 
 ## Deploy clusters with a custom Ambari DB
 
-To create an HDInsight cluster that uses your own external Ambari database, use the [custom Ambari DB Quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-custom-ambari-db).
+To create an HDInsight cluster that uses your own external Ambari database, use the [custom Ambari DB Quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-custom-ambari-db).
 
 Edit the parameters in the `azuredeploy.parameters.json` to specify information about your new cluster and the database that will hold Ambari.
 
@@ -56,19 +56,25 @@ az deployment group create --name HDInsightAmbariDBDeployment \
     --parameters azuredeploy.parameters.json
 ```
 
-## Database sizing
+
+> [!WARNING]
+> Please use the following recommended SQL DB and Headnode VM for your HDInsight cluster. Please don't use default Ambari DB (S0) for any production environment. 
+>
+
+
+## Database and Headnode sizing
 
 The following table provides guidelines on which Azure SQL DB tier to select based on the size of your HDInsight cluster.
 
-| Number of worker nodes | Required DB tier |
-|---|---|
-| <=4 | S0 |
-| >4 && <=8 | S1 |
-| >8 && <=16 | S2 |
-| >16 && <=32 | S3 |
-| >32 && <=64 | S4 |
-| >64 && <=128 | P2 |
-| >128 | Contact Support |
+| Number of worker nodes | Required DB tier | Required Headnode VM |
+|---|---|---|
+| <=4 | S0 | 4 core/28 GB RAM or higher |
+| >4 && <=8 | S1 | 4 core/28 GB RAM or higher |
+| >8 && <=16 | S2 | 4 core/28 GB RAM or higher |
+| >16 && <=32 | S3 | 8 core/56 GB RAM or higher |
+| >32 && <=64 | S4 | 8 core/56 GB RAM or higher |
+| >64 && <=128 | P2 | 16 core/112 GB RAM or higher |
+| >128 | Contact Support | Contact Support |
 
 ## Next steps
 

@@ -2,6 +2,7 @@
 title: Azure Application Insights - Dependency Auto-Collection | Microsoft Docs
 description: Application Insights automatically collect and visualize dependencies
 ms.topic: reference
+ms.devlang: csharp, java, javascript
 ms.custom: devx-track-dotnet
 ms.date: 05/06/2020
 
@@ -57,7 +58,7 @@ Below is the currently supported list of dependency calls that are automatically
 
 > [!NOTE]
 > *Except reactive programing support.
-> <br>†Requires installation of [JVM Agent](./java-agent.md#install-the-application-insights-agent-for-java).
+> <br>†Requires installation of [JVM Agent](java-2x-agent.md#install-the-application-insights-agent-for-java).
 
 ## Node.js
 
@@ -84,7 +85,7 @@ Below is the currently supported list of dependency calls that are automatically
 ## Next steps
 
 - Set up custom dependency tracking for [.NET](./asp-net-dependencies.md).
-- Set up custom dependency tracking for [Java](./java-agent.md).
+- Set up custom dependency tracking for [Java](java-2x-agent.md).
 - Set up custom dependency tracking for [OpenCensus Python](./opencensus-python-dependency.md).
 - [Write custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
 - See [data model](./data-model.md) for Application Insights types and data model.

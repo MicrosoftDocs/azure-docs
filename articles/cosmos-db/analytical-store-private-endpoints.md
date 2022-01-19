@@ -14,6 +14,9 @@ ms.author: anithaa
 
 In this article, you will learn how to set up managed private endpoints for Azure Cosmos DB analytical store. If you are using the transactional store, see [Private endpoints for the transactional store](how-to-configure-private-endpoints.md) article. Using [managed private endpoints](../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md), you can restrict network access of your Azure Cosmos DB analytical store, to a Managed Virtual Network associated with your Azure Synapse workspace. Managed private endpoints establish a private link to your analytical store.
 
+> [!NOTE]
+> If you are using Private DNS Zones for Cosmos DB and wish to create a Synapse managed private endpoint to the analytical store sub-resource, you must first create a DNS zone for the analytical store (`privatelink.analytics.cosmos.azure.com`) linked to your Cosmos DB's virtual network.
+
 ## Enable a private endpoint for the analytical store
 
 ### Set up Azure Synapse Analytics workspace with a managed virtual network
@@ -125,5 +128,6 @@ To configure network isolation for this account from a Synapse workspace:
 
 ## Next steps
 
-* Get started with [querying analytical store with Azure Synapse Spark](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
+* Get started with [querying analytical store with Azure Synapse Spark 3](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
+* Get started with [querying analytical store with Azure Synapse Spark 2](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
 * Get started with [querying analytical store with Azure Synapse serverless SQL pools](../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)

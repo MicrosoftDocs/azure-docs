@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 This article contains several topics explaining how data is protected and secured in an Azure Automation environment.
 
-## TLS 1.2 enforcement for Azure Automation
+## TLS 1.2 for Azure Automation
 
 To insure the security of data in transit to Azure Automation, we strongly encourage you to configure the use of Transport Layer Security (TLS) 1.2. The following are a list of methods or clients that communicate over HTTPS to the Automation service:
 
@@ -78,7 +78,7 @@ You can export your DSC configurations to script files using either the Azure po
 
 ## Geo-replication in Azure Automation
 
-Geo-replication is standard in Azure Automation accounts. You choose a primary region when setting up your account. The internal Automation geo-replication service assigns a secondary region to the account automatically. The service then continuously backs up account data from the primary region to the secondary region. The full list of primary and secondary regions can be found at [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
+Geo-replication is standard in Azure Automation accounts. You choose a primary region when setting up your account. The internal Automation geo-replication service assigns a secondary region to the account automatically. The service then continuously backs up account data from the primary region to the secondary region. The full list of primary and secondary regions can be found at [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
 
 The backup created by the Automation geo-replication service is a complete copy of Automation assets, configurations, and the like. This backup can be used if the primary region goes down and loses data. In the unlikely event that data for a primary region is lost, Microsoft attempts to recover it.
 

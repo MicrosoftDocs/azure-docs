@@ -27,6 +27,14 @@ Developers can leverage the power of Azure Stream Analytics to process data in P
 
 Developers creating Stream Analytics modules in the cloud or on IoT Edge can write or reuse custom C# functions and invoke them directly in the query through [user-defined functions](stream-analytics-edge-csharp-udf-methods.md).
 
+## Debug queries locally using job diagram in Visual Studio Code
+
+You can use the job diagram while testing your query locally to examine the intermediate result set and metrics for each step.
+
+## Explore jobs in Visual Studio Code
+
+Stream Analytics Explorer in Visual Studio Code Extension gives developers a lightweight experience for managing their Stream Analytics jobs. In the Stream Analytics Explorer, you can easily manage your jobs, view job diagram, and debug in Job Monitor.
+
 ## Debug query steps in Visual Studio
 
 You can easily preview the intermediate row set on a data diagram when doing local testing in Azure Stream Analytics tools for Visual Studio. 
@@ -36,11 +44,4 @@ You can easily preview the intermediate row set on a data diagram when doing loc
 
 Visual Studio tools for Azure Stream Analytics enhance the local testing feature that allows you to test you queries against live event streams from cloud sources such as Event Hub or IoT hub. Learn how to [Test live data locally using Azure Stream Analytics tools for Visual Studio](stream-analytics-live-data-local-testing.md).
 
-## Visual Studio Code for Azure Stream Analytics
-
-Azure Stream Analytics jobs can be authored in Visual Studio Code. See our [VS Code getting started tutorial](./quick-create-visual-studio-code.md).
-
-## Local testing with live data in Visual Studio Code
-
-You can test your queries against live data on your local machine before submitting the job to Azure. Each testing iteration takes less than two to three seconds on average, resulting in a very efficient development process.
 

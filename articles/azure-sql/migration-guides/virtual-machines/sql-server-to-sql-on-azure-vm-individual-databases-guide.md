@@ -1,5 +1,6 @@
 ---
 title: "SQL Server to SQL Server on Azure Virtual Machines: Migration guide"
+titleSuffix: SQL Server on Azure VMs
 description: In this guide, you learn how to migrate your individual SQL Server databases to SQL Server on Azure Virtual Machines.  
 ms.custom: ""
 ms.service: virtual-machines-sql
@@ -8,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
-ms.reviewer: mathoma
+ms.reviewer: chadam, mathoma
 ms.date: 03/19/2021
 ---
 
@@ -114,7 +115,7 @@ To perform a standard migration by using backup and restore:
 1. Pause or stop any applications that are using databases intended for migration.
 1. Ensure user databases are inactive by using [single user mode](/sql/relational-databases/databases/set-a-database-to-single-user-mode).
 1. Perform a full database backup to an on-premises location.
-1. Copy your on-premises backup files to your VM by using a remote desktop, [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), or the [AZCopy command-line utility](../../../storage/common/storage-use-azcopy-v10.md). (Greater than 2-TB backups are recommended.)
+1. Copy your on-premises backup files to your VM by using a remote desktop, [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), or the [AzCopy command-line utility](../../../storage/common/storage-use-azcopy-v10.md). (Greater than 2-TB backups are recommended.)
 1. Restore full database backups to the SQL Server on Azure Virtual Machines.
 
 ### Log shipping (minimize downtime)
@@ -124,7 +125,7 @@ To perform a minimal downtime migration by using backup and restore and log ship
 1. Set up connectivity to the SQL Server on Azure Virtual Machines based on your requirements. For more information, see [Connect to a SQL Server virtual machine on Azure (Resource Manager)](../../virtual-machines/windows/ways-to-connect-to-sql.md).
 1. Ensure on-premises user databases to be migrated are in full or bulk-logged recovery model.
 1. Perform a full database backup to an on-premises location, and modify any existing full database backups jobs to use the [COPY_ONLY](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) keyword to preserve the log chain.
-1. Copy your on-premises backup files to your VM by using a remote desktop, [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), or the [AZCopy command-line utility](../../../storage/common/storage-use-azcopy-v10.md). (Greater than 1-TB backups are recommended.)
+1. Copy your on-premises backup files to your VM by using a remote desktop, [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), or the [AzCopy command-line utility](../../../storage/common/storage-use-azcopy-v10.md). (Greater than 1-TB backups are recommended.)
 1. Restore full database backups on SQL Server on Azure Virtual Machines.
 1. Set up [log shipping](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) between the on-premises database and SQL Server on Azure Virtual Machines. Be sure not to reinitialize the databases because this task was already completed in the previous steps.
 1. Cut over to the target server.

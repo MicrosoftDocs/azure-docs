@@ -1,6 +1,6 @@
 ---
-title: Connect to and manage Microsoft Azure Stack Edge Pro device via the Windows PowerShell interface | Microsoft Docs
-description: Describes how to connect to and then manage Azure Stack Edge Pro via the Windows PowerShell interface.
+title: Connect to and manage Microsoft Azure Stack Edge Pro FPGA device via the Windows PowerShell interface
+description: Describes Azure Stack Edge Pro FPGA connection and management via Windows PowerShell interface.
 services: databox
 author: alkohli
 
@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Manage an Azure Stack Edge Pro FPGA device via Windows PowerShell
 
-Azure Stack Edge Pro solution lets you process data and send it over the network to Azure. This article describes some of the configuration and management tasks for your Azure Stack Edge Pro device. You can use the Azure portal, local web UI, or the Windows PowerShell interface to manage your device.
+Azure Stack Edge Pro FPGA solution lets you process data and send it over the network to Azure. This article describes some of the configuration and management tasks for your Azure Stack Edge Pro FPGA device. You can use the Azure portal, local web UI, or the Windows PowerShell interface to manage your device.
 
 This article focuses on the tasks you do using the PowerShell interface. 
 
@@ -89,4 +89,4 @@ To exit the remote PowerShell session, close the PowerShell window.
 
 ## Next steps
 
-- Deploy [Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md) in Azure portal.
+- Deploy [Azure Stack Edge Pro FPGA](azure-stack-edge-deploy-prep.md) in Azure portal.

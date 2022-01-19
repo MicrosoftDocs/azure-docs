@@ -7,7 +7,7 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Retrieve information about your Azure Cloud Service (extended support) deployments

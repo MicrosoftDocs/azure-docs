@@ -1,8 +1,8 @@
 ---
 title: Device Update for IoT Hub network requirements | Microsoft Docs
 description: Device Update for IoT Hub uses a variety of network ports for different purposes.
-author: philmea
-ms.author: philmea
+author: vimeht
+ms.author: vimeht
 ms.date: 1/11/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update

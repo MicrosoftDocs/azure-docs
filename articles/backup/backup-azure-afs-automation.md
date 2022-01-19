@@ -2,7 +2,8 @@
 title: Back up an Azure file share by using PowerShell
 description: In this article, learn how to back up an Azure Files file share by using the Azure Backup service and PowerShell. 
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 08/20/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Back up an Azure file share by using PowerShell
@@ -29,6 +30,9 @@ This article explains how to:
 ## Set up PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+> [!NOTE]
+> Azure Powershell currently doesn't support backup policies with hourly schedule. Please use Azure Portal to leverage this feature. [Learn more](manage-afs-backup.md#create-a-new-policy)
 
 Set up PowerShell as follows:
 

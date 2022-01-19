@@ -2,13 +2,13 @@
 title: Managed HSM local RBAC built-in roles - Azure Key Vault | Microsoft Docs
 description: An overview of Managed HSM built-in roles that can be assigned to users, service principals, groups, and managed identities
 services: key-vault
-author: amitbapat
+author: mbaldwin
 
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 09/15/2020
-ms.author: ambapat
+ms.date: 06/01/2021
+ms.author: mbaldwin
 
 ---
 # Managed HSM local RBAC built-in roles
@@ -24,7 +24,7 @@ Managed HSM local RBAC has several built-in roles. You can assign these roles to
 |Managed HSM Crypto User|Grants permissions to perform all key management operations except purge or recover deleted keys, and export keys.|21dbd100-6940-42c2-9190-5d6cb909625b|
 |Managed HSM Policy Administrator| Grants permission to create and delete role assignments|4bd23610-cdcf-4971-bdee-bdc562cc28e4|
 |Managed HSM Crypto Auditor|Grants read permission to read (but not use) key attributes.|2c18b078-7c48-4d3a-af88-5a3a1b3f82b3|
-|Managed HSM Crypto Service Encryption| Grants permission to use a key for service encryption. |33413926-3206-4cdd-b39a-83574fe37a17|
+|Managed HSM Crypto Service Encryption User| Grants permission to use a key for service encryption. |33413926-3206-4cdd-b39a-83574fe37a17|
 |Managed HSM Backup| Grants permission to perform single key or whole HSM backup.|7b127d3c-77bd-4e3e-bbe0-dbb8971fa7f8|
 
 ## Permitted operations

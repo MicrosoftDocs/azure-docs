@@ -4,11 +4,11 @@ description: In this quickstart, you learn how to build a HoloLens Unity app usi
 author: craigktreasure
 manager: virivera
 services: azure-object-anchors
-
 ms.author: crtreasu
-ms.date: 03/02/2021
+ms.date: 09/08/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
+ms.custom: mode-other
 ---
 # Quickstart: Create a HoloLens app with Azure Object Anchors, in Unity with MRTK
 
@@ -26,7 +26,13 @@ You'll learn how to:
 
 [!INCLUDE [Unity quickstart prerequisites](../../../includes/object-anchors-quickstart-unity-prerequisites.md)]
 
+## Create an Object Anchors account
+
+[!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
+
 [!INCLUDE [Unity device setup](../../../includes/object-anchors-quickstart-unity-device-setup.md)]
+
+[!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
 
 ## Open the sample project
 
@@ -38,6 +44,8 @@ In Unity, open the `quickstarts/apps/unity/mrtk` project.
 
 [!INCLUDE [Import Unity Package](../../../includes/object-anchors-quickstart-unity-import-package.md)]
 
+[!INCLUDE [Configure Account](../../../includes/object-anchors-get-started-configure-account.md)]
+
 [!INCLUDE [Unity build sample scene 1](../../../includes/object-anchors-quickstart-unity-build-sample-scene-1.md)]
 
 When a "TMP Importer" dialog prompts you to import TextMesh Pro resources, select "Import TMP Essentials" to do so.
@@ -47,15 +55,13 @@ When a "TMP Importer" dialog prompts you to import TextMesh Pro resources, selec
 
 [!INCLUDE [Unity build and deploy](../../../includes/object-anchors-quickstart-unity-build-deploy.md)]
 
-### Run the sample app
+ After the Unity splash screen, you should see a white bounding box. You can use your hand to move, scale, or rotate the bounding box. Place the box to cover the object you want to detect.
 
-Turn on the device, select **All Apps**, then locate and start the app. After the Unity splash screen, you should see a white bounding box. You can use your hand to move, scale, or rotate the bounding box. Place the box to cover the object you want to detect.
-
-Open the <a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">hand menu</a> and select **Lock SearchArea** to prevent further movement of the bounding box. Select **Start Search** to start object detection. When the object is detected, a mesh will be rendered on the object. Details of a detected instance will show on the screen, such as updated timestamp and surface coverage ratio. Select **Stop Search** to stop tracking and all detected instances will be removed.
+Open the <a href="/windows/mixed-reality/mrtk-unity/features/ux-building-blocks/hand-menu" target="_blank">hand menu</a> and select **Lock SearchArea** to prevent further movement of the bounding box. Select **Start Search** to start object detection. When the object is detected, a mesh will be rendered on the object. Details of a detected instance will show on the screen, such as updated timestamp and surface coverage ratio. Select **Stop Search** to stop tracking and all detected instances will be removed.
 
 #### The app menus
 
-You can also do other actions using the <a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">hand menu</a>.
+You can also do other actions using the <a href="/windows/mixed-reality/mrtk-unity/features/ux-building-blocks/hand-menu" target="_blank">hand menu</a>.
 
 ##### Primary menu
 
@@ -64,7 +70,7 @@ You can also do other actions using the <a href="https://microsoft.github.io/Mix
 * **Tracker Settings** – Toggles activation of the tracker settings menu.
 * **Search Area Settings** – Toggles activation of the search area settings menu.
 * **Start Tracing** – Capture diagnostics data and save it to the device. See more detail in section **Debug Detection Issues and Capture Diagnostics**.
-* **Upload Tracing** – Upload diagnostics data to the Object Anchors service. A user must provide their subscription account in `subscription.json` and upload it to the `LocalState` folder. A sample `subscription.json` file can be found below.
+* **Upload Tracing** – Upload diagnostics data to the Object Anchors service.
 
     :::image type="content" source="./media/mrtk-hand-menu-primary.png" alt-text="Unity primary hand menu":::
 
@@ -85,26 +91,21 @@ You can also do other actions using the <a href="https://microsoft.github.io/Mix
 
     :::image type="content" source="./media/mrtk-hand-menu-search-area.png" alt-text="Unity search area hand menu":::
 
-Example `subscription.json`:
-
-```json
-{
-  "AccountId": "<your account id>",
-  "AccountKey": "<your account key>",
-  "AccountDomain": "<your account domain>"
-}
-```
-
-[!INCLUDE [Unity setup Windows Device Portal](../../../includes/object-anchors-quickstart-unity-setup-device-portal.md)]
-
-[!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
-
 [!INCLUDE [Unity troubleshooting](../../../includes/object-anchors-quickstart-unity-troubleshooting.md)]
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Quickstart: In-depth MRTK walkthrough](in-depth-mrtk-walkthrough.md)
 
 > [!div class="nextstepaction"]
 > [Concepts: SDK overview](../concepts/sdk-overview.md)
 
 > [!div class="nextstepaction"]
 > [FAQ](../faq.md)
+
+> [!div class="nextstepaction"]
+> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+
+> [!div class="nextstepaction"]
+> [Troubleshooting object detection](../troubleshoot/object-detection.md)

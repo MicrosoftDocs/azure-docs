@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with Terraform"
 description: In this quickstart, you use Terraform and HCL syntax to create a policy assignment to identify non-compliant resources.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources using Terraform
@@ -94,7 +94,7 @@ Next, initialize Terraform to download the necessary providers and then create a
 1. Authenticate with [Azure CLI](/cli/azure/) for Terraform. For more information, see
    [Azure Provider: Authenticating using the Azure CLI](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html).
 
-   ```bash
+   ```azurecli
    az login
    ```
 

@@ -1,19 +1,20 @@
 ---
 title: Getting started content reference
-titleSuffix: Azure SQL Managed Instance 
+titleSuffix: Azure SQL Managed Instance
 description: "A reference for content that helps you get started with Azure SQL Managed Instance. "
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
-ms.custom: sqldbrb=1
+ms.subservice: deployment-configuration
+ms.custom: sqldbrb=1, mode-other
 ms.devlang: 
 ms.topic: quickstart
 author: davidtrigano
 ms.author: datrigan
-ms.reviewer: vanto
+ms.reviewer: vanto, mathoma
 ms.date: 07/11/2019
 ---
 # Getting started with Azure SQL Managed Instance
+
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) creates a database with near 100% compatibility with the latest SQL Server (Enterprise Edition) database engine, providing a native [virtual network (VNet)](../../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for existing SQL Server customers.
@@ -68,7 +69,7 @@ However, in order to migrate your production database or even dev/test databases
 - Performance testing - You should measure baseline performance metrics on your source SQL Server instance and compare them with the performance metrics on the destination SQL Managed Instance where you have migrated the database. Learn more about the [best practices for performance comparison](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
 - Online migration - With the native `RESTORE` described in this article, you have to wait for the databases to be restored (and copied to Azure Blob storage if not already stored there). This causes some downtime of your application especially for larger databases. To move your production database, use the [Data Migration service (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%2fazure%2fsql-database%2ftoc.json) to migrate your database with the minimal downtime. DMS accomplishes this by incrementally pushing the changes made in your source database to the SQL Managed Instance database being restored. This way, you can quickly switch your application from source to target database with minimal downtime.
 
-Learn more about the [recommended migration process](migrate-to-instance-from-sql-server.md).
+Learn more about the [recommended migration process](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
 
 ## Next steps
 

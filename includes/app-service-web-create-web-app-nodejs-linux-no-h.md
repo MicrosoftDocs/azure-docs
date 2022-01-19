@@ -12,13 +12,10 @@ ms.custom: "include file, devx-track-azurecli"
 
 Create a [web app](../articles/app-service/overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan. 
 
-In the Cloud Shell, you can use the [`az webapp create`](/cli/azure/webapp) command. In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `NODE|6.9`. To see all supported runtimes, run [`az webapp list-runtimes --linux`](/cli/azure/webapp). 
+In the Cloud Shell, you can use the [`az webapp create`](/cli/azure/webapp) command. In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `NODE|14-lts`. To see all supported runtimes, run [`az webapp list-runtimes --linux`](/cli/azure/webapp). 
 
 ```azurecli-interactive
-# Bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "NODE|6.9" --deployment-local-git
-# PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "NODE|6.9" --deployment-local-git
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime 'NODE|14-lts' --deployment-local-git
 ```
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
@@ -29,8 +26,11 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.s
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
   "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
+  "clientCertMode": "Required",
   "cloningInfo": null,
   "containerSize": 0,
+  "customDomainVerificationId": "54184270DF7B3B4BF30221B6303E789C324E4783C8DF1FBAA3D111FC72328CE9",
   "dailyMemoryTimeQuota": 0,
   "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
   "deploymentLocalGitUrl": "https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git",
@@ -39,7 +39,7 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.s
 }
 </pre>
 
-Youâ€™ve created an empty web app, with git deployment enabled.
+You've created an empty web app, with git deployment enabled.
 
 > [!NOTE]
 > The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Save this URL as you need it later.

@@ -17,7 +17,7 @@ This article shows you how to create an ISE by using the Logic Apps REST API in 
 For more information about other ways to create an ISE, see these articles:
 
 * [Create an ISE by using the Azure portal](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
-* [Create an ISE by using the sample Azure Resource Manager quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment)
+* [Create an ISE by using the sample Azure Resource Manager quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/integration-service-environment)
 * [Create an ISE that supports using customer-managed keys for encrypting data at rest](customer-managed-keys-integration-service-environment.md)
 
 ## Prerequisites
@@ -192,6 +192,8 @@ You often use an ISE to connect to custom services on your virtual network or on
 Before you update your ISE with a custom trusted root certificate, review these considerations:
 
 * Make sure that you upload the root certificate *and* all the intermediate certificates. The maximum number of certificates is 20.
+
+* The subject name on the certificate must match the host name for the target endpoint that you want to call from Azure Logic Apps. 
 
 * Uploading root certificates is a replacement operation where the latest upload overwrites previous uploads. For example, if you send a request that uploads one certificate, and then send another request to upload another certificate, your ISE uses only the second certificate. If you need to use both certificates, add them together in the same request.  
 

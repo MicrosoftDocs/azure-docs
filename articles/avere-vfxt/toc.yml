@@ -37,7 +37,7 @@
   - name: Demonstration projects
     href: avere-vfxt-demo-links.md
   - name: Avere vFXT for Azure FAQ
-    href: avere-vfxt-faq.md
+    href: avere-vfxt-faq.yml
   - name: Disaster recovery guidance
     href: disaster-recovery.md
   - name: Additional documentation

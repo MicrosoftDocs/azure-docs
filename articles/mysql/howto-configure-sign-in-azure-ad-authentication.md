@@ -1,14 +1,17 @@
 ---
 title: Use Azure Active Directory - Azure Database for MySQL
 description: Learn about how to set up Azure Active Directory (Azure AD) for authentication with Azure Database for MySQL
-author: sunilagarwal
-ms.author: sunila
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 07/23/2020
+ms.date: 07/23/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use Azure Active Directory for authentication with MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 This article will walk you through the steps how to configure Azure Active Directory access with Azure Database for MySQL, and how to connect using an Azure AD token.
 
@@ -168,9 +171,9 @@ Example:
 ```sql
 CREATE AADUSER 'userWithLongName@yourtenant.onmicrosoft.com' as 'userDefinedShortName'; 
 ```
-
 > [!NOTE]
-> Authenticating a user through Azure AD does not give the user any permissions to access objects within the Azure Database for MySQL database. You must grant the user the required permissions manually.
+> 1. MySQL ignores leading and trailing spaces so user name should not have any leading or trailing spaces. 
+> 2. Authenticating a user through Azure AD does not give the user any permissions to access objects within the Azure Database for MySQL database. You must grant the user the required permissions manually.
 
 ## Creating Azure AD groups in Azure Database for MySQL
 

@@ -19,9 +19,13 @@ The Azure Storage platform is Microsoft's cloud storage solution for modern data
 - **Secure.** All data written to an Azure storage account is encrypted by the service. Azure Storage provides you with fine-grained control over who has access to your data.
 - **Scalable.** Azure Storage is designed to be massively scalable to meet the data storage and performance needs of today's applications.
 - **Managed.** Azure handles hardware maintenance, updates, and critical issues for you.
-- **Accessible.** Data in Azure Storage is accessible from anywhere in the world over HTTP or HTTPS. Microsoft provides client libraries for Azure Storage in a variety of languages, including .NET, Java, Node.js, Python, PHP, Ruby, Go, and others, as well as a mature REST API. Azure Storage supports scripting in Azure PowerShell or Azure CLI. And the Azure portal and Azure Storage Explorer offer easy visual solutions for working with your data.  
+- **Accessible.** Data in Azure Storage is accessible from anywhere in the world over HTTP or HTTPS. Microsoft provides client libraries for Azure Storage in a variety of languages, including .NET, Java, Node.js, Python, PHP, Ruby, Go, and others, as well as a mature REST API. Azure Storage supports scripting in Azure PowerShell or Azure CLI. And the Azure portal and Azure Storage Explorer offer easy visual solutions for working with your data.
 
-## Core storage services
+## Review options for storage in Azure
+
+Azure provides a variety of storage tools and services, including Azure Storage. To determine which Azure technology is best suited for your scenario, see [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options) in the Azure Cloud Adoption Framework.
+
+## About the core Azure Storage services
 
 The Azure Storage platform includes the following data services:
 
@@ -107,7 +111,7 @@ Azure Storage offers several types of storage accounts. Each type supports diffe
 
 Every request to Azure Storage must be authorized. Azure Storage supports the following authorization methods:
 
-- **Azure Active Directory (Azure AD) integration for blob and queue data.** Azure Storage supports authentication and authorization with Azure AD for the Blob and Queue services via Azure role-based access control (Azure RBAC). Authorizing requests with Azure AD is recommended for superior security and ease of use. For more information, see [Authorize access to Azure blobs and queues using Azure Active Directory](storage-auth-aad.md).
+- **Azure Active Directory (Azure AD) integration for blob, queue, and table data.** Azure Storage supports authentication and authorization with Azure AD for the Blob and Queue services via Azure role-based access control (Azure RBAC). Authorization with Azure AD is also supported for the Table service in preview. Authorizing requests with Azure AD is recommended for superior security and ease of use. For more information, see [Authorize access to data in Azure Storage](authorize-data-access.md).
 - **Azure AD authorization over SMB for Azure Files.** Azure Files supports identity-based authorization over SMB (Server Message Block) through either Azure Active Directory Domain Services (Azure AD DS) or on-premises Active Directory Domain Services (preview). Your domain-joined Windows VMs can access Azure file shares using Azure AD credentials. For more information, see [Overview of Azure Files identity-based authentication support for SMB access](../files/storage-files-active-directory-overview.md) and [Planning for an Azure Files deployment](../files/storage-files-planning.md#identity).
 - **Authorization with Shared Key.** The Azure Storage Blob, Files, Queue, and Table services support authorization with Shared Key. A client using Shared Key authorization passes a header with every request that is signed using the storage account access key. For more information, see [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key).
 - **Authorization using shared access signatures (SAS).** A shared access signature (SAS) is a string containing a security token that can be appended to the URI for a storage resource. The security token encapsulates constraints such as permissions and the interval of access. For more information, see [Using Shared Access Signatures (SAS)](storage-sas-overview.md).
@@ -147,7 +151,7 @@ You can access resources in a storage account by any language that can make HTTP
 - [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage)
 - [Azure Storage client library for Java/Android](/java/api/overview/azure/storage)
 - [Azure Storage client library for Node.js](/javascript/api/overview/azure/storage-overview)
-- [Azure Storage client library for Python](https://github.com/Azure/azure-storage-python)
+- [Azure Storage client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob)
 - [Azure Storage client library for PHP](https://github.com/Azure/azure-storage-php)
 - [Azure Storage client library for Ruby](https://github.com/Azure/azure-storage-ruby)
 - [Azure Storage client library for C++](https://github.com/Azure/azure-storage-cpp)

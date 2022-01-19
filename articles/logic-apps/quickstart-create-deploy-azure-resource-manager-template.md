@@ -5,11 +5,9 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs
+ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 04/01/2021
-
-# Customer intent: As a developer, I want to automate creating and deploying a logic app workflow to whichever environment that I want by using Azure Resource Manager templates.
-
+#Customer intent: As a developer, I want to automate creating and deploying a logic app workflow to whichever environment that I want by using Azure Resource Manager templates.
 ---
 
 # Quickstart: Create and deploy a logic app workflow by using an ARM template
@@ -28,7 +26,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Review the template
 
-This quickstart uses the [**Create a logic app**](https://azure.microsoft.com/resources/templates/101-logic-app-create/) template, which you can find in the [Azure Quickstart Templates Gallery](https://azure.microsoft.com/resources/templates) but is too long to show here. Instead, you can review the quickstart template's ["azuredeploy.json file"](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json) in the templates gallery.
+This quickstart uses the [**Create a logic app**](https://azure.microsoft.com/resources/templates/logic-app-create/) template, which you can find in the [Azure Quickstart Templates Gallery](https://azure.microsoft.com/resources/templates) but is too long to show here. Instead, you can review the quickstart template's ["azuredeploy.json file"](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json) in the templates gallery.
 
 The quickstart template creates a logic app workflow that uses the Recurrence trigger, which is set to run every hour, and an HTTP [*built-in* action](../connectors/built-in.md), which calls a URL that returns the status for Azure. A built-in action is native to the Azure Logic Apps platform.
 
@@ -47,7 +45,7 @@ Follow the option that you want to use for deploying the quickstart template:
 | Option | Description |
 |--------|-------------|
 | [Azure portal](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-portal#deploy-template) | If your Azure environment meets the prerequisites, and you're familiar with using ARM templates, these steps help you sign in directly to Azure and open the quickstart template in the Azure portal. For more information, see [Deploy resources with ARM templates and Azure portal](../azure-resource-manager/templates/deploy-portal.md). |
-| [Azure CLI](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-cli#deploy-template) | The Azure command-line interface (Azure CLI) is a set of commands for creating and managing Azure resources. To run these commands, you need Azure CLI version 2.6 or later. To check your CLI version, type `az --version`. For more information, see these topics: <p><p>- [What is Azure CLI](/cli/azure/what-is-azure-cli) <br>- [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli) |
+| [Azure CLI](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-cli#deploy-template) | The Azure CLI provides a command-line experience for creating and managing Azure resources. To run these commands, you need Azure CLI version 2.6 or later. To check your CLI version, type `az --version`. For more information, see these topics: <p><p>- [What is Azure CLI](/cli/azure/what-is-azure-cli) <br>- [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli) |
 | [Azure PowerShell](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-powershell#deploy-template) | Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager model for managing your Azure resources. For more information, see these topics: <p><p>- [Azure PowerShell Overview](/powershell/azure/azurerm/overview) <br>- [Introducing the Azure PowerShell Az module](/powershell/azure/new-azureps-module-az) <br>- [Get started with Azure PowerShell](/powershell/azure/get-started-azureps) |
 | [Azure Resource Management REST API](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=rest-api#deploy-template) | Azure provides Representational State Transfer (REST) APIs, which are service endpoints that support HTTP operations (methods) that you use to create, retrieve, update, or delete access to service resources. For more information, see [Get started with Azure REST API](/rest/api/azure/). |
 |||
@@ -165,7 +163,7 @@ For more information, see these topics:
 
    For more information, see [Resource Management REST API: Deployments - Create Or Update](/rest/api/resources/deployments/createorupdate).
 
-1. To provide the values to use for the deployment, such as the Azure region and links to the quickstart template and [parameter file](../azure-resource-manager/templates/template-parameters.md), which contains the values for the quickstart template to use at deployment, follow this syntax for the request body that you send to the Resource Management REST API:
+1. To provide the values to use for the deployment, such as the Azure region and links to the quickstart template and [parameter file](../azure-resource-manager/templates/parameters.md), which contains the values for the quickstart template to use at deployment, follow this syntax for the request body that you send to the Resource Management REST API:
 
    ```json
    {

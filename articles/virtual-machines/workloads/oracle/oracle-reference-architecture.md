@@ -12,6 +12,8 @@ ms.author: kegorman
 ---
 # Reference architectures for Oracle Database Enterprise Edition on Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 This guide details information on deploying a highly available Oracle database on Azure. In addition, this guide dives into disaster recovery considerations. These architectures have been created based on customer deployments. This guide only applies to Oracle Database Enterprise Edition.
 
 If you're interested in learning more about maximizing the performance of your Oracle database, see [Architect an Oracle DB](oracle-design.md).
@@ -42,7 +44,7 @@ When running Oracle Databases across multiple [availability zones](../../../avai
 
 When hosting your mission-critical applications in the cloud, it's important to design for high availability and disaster recovery.
 
-For Oracle Database Enterprise Edition, Oracle Data Guard is a useful feature for disaster recovery. You can set up a standby database instance in a [paired Azure region](../../../best-practices-availability-paired-regions.md) and set up Data Guard failover for disaster recovery. For zero data loss, it's recommended that you deploy an Oracle Data Guard Far Sync instance in addition to Active Data Guard. 
+For Oracle Database Enterprise Edition, Oracle Data Guard is a useful feature for disaster recovery. You can set up a standby database instance in a [paired Azure region](../../../availability-zones/cross-region-replication-azure.md) and set up Data Guard failover for disaster recovery. For zero data loss, it's recommended that you deploy an Oracle Data Guard Far Sync instance in addition to Active Data Guard. 
 
 Consider setting up the Data Guard Far Sync instance in a different availability zone than your Oracle primary database if your application permits the latency (thorough testing is required). Use a **Maximum Availability** mode to set up synchronous transport of your redo files to the Far Sync instance. These files are then transferred asynchronously to the standby database. 
 
@@ -86,7 +88,7 @@ In regions where availability zones aren't supported, you may use availability s
 
 #### Oracle Data Guard Far Sync
 
-Oracle Data Guard Far Sync provides zero data loss protection capability for Oracle Databases. This capability allows you to protect against data loss in if your database machine fails. Oracle Data Guard Far Sync needs to be installed on a separate VM. Far Sync is a lightweight Oracle instance that only has a control file, password file, spfile, and standby logs. There are no data files or rego log files. 
+Oracle Data Guard Far Sync provides zero data loss protection capability for Oracle Databases. This capability allows you to protect against data loss in if your database machine fails. Oracle Data Guard Far Sync needs to be installed on a separate VM. Far Sync is a lightweight Oracle instance that only has a control file, password file, spfile, and standby logs. There are no data files or redo log files. 
 
 For zero data loss protection, there must be synchronous communication between your primary database and the Far Sync instance. The Far Sync instance receives redo from the primary in a synchronous manner and forwards it immediately to all the standby databases in an asynchronous manner. This setup also reduces the overhead on the primary database, because it only has to send the redo to the Far Sync instance rather than all the standby databases. If a Far Sync instance fails, Data Guard automatically uses asynchronous transport to the secondary database from the primary database to maintain near-zero data loss protection. For added resiliency, customers may deploy multiple Far Sync instances per each database instance (primary and secondaries).
 
@@ -202,12 +204,12 @@ During the initial request, the application server connects to the shard directo
 
 When deploying your Oracle workloads to Azure, Microsoft takes care of all host OS-level patching. Any planned OS-level maintenance is communicated to customers in advance to allow the customer for this planned maintenance. Two servers from two different Availability Zones are never patched simultaneously. See [Manage the availability of virtual machines](../../availability.md) for more details on VM maintenance and patching. 
 
-Patching your virtual machine operating system can be automated using [Azure Automation Update Management](../../../automation/update-management/overview.md). Patching and maintaining your Oracle database can be automated and scheduled using [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [Azure Automation Update Management](../../../automation/update-management/overview.md) to minimize downtime. See [Continuous Delivery and Blue/Green Deployments](/azure/devops/learn/what-is-continuous-delivery) to understand how it can be used in the context of your Oracle databases.
+Patching your virtual machine operating system can be automated using [Azure Automation Update Management](../../../automation/update-management/overview.md). Patching and maintaining your Oracle database can be automated and scheduled using [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [Azure Automation Update Management](../../../automation/update-management/overview.md) to minimize downtime. See [Continuous Delivery and Blue/Green Deployments](/devops/deliver/what-is-continuous-delivery) to understand how it can be used in the context of your Oracle databases.
 
 ## Architecture and design considerations
 
 - Consider using hyperthreaded [memory optimized virtual machine](../../sizes-memory.md) with [constrained core vCPUs](../../../virtual-machines/constrained-vcpu.md) for your Oracle Database VM to save on licensing costs and maximize performance. Use multiple premium or ultra disks (managed disks) for performance and availability.
-- When using managed disks, the disk/device name may change on reboots. It's recommended that you use the device UUID instead of the name to ensure your mounts persist across reboots. More information can be found [here](/previous-versions/azure/virtual-machines/linux/configure-raid#add-the-new-file-system-to-etcfstab).
+- When using managed disks, the disk/device name may change on reboots. It's recommended that you use the device UUID instead of the name to ensure your mounts persist across reboots. For more information, see [Configure software RAID on a Linux VM](/previous-versions/azure/virtual-machines/linux/configure-raid#add-the-new-file-system-to-etcfstab).
 - Use availability zones to achieve high availability in-region.
 - Consider using ultra disks (when available) or premium disks for your Oracle database.
 - Consider setting up a standby Oracle database in another Azure region using Oracle Data Guard.

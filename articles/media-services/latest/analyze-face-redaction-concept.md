@@ -1,6 +1,6 @@
 ---
 title: Find and redact faces in Azure Media Services v3 API | Microsoft Docs
-description: Azure Media Services v3 provides a face detection and redaction (blur) preset that enables you to submit a video file, detect faces, and optionally apply redaction (blurring) to them in a single combined pass, or through a two stage operation allowing for editing. This article demonstrates how to find and redact faces with the Face Detector preset in the v3 API.
+description: Azure Media Services v3 provides a face detection and redaction (blur) preset that enables you to submit a video file, detect faces, and optionally apply redaction (blurring) to them in a single combined pass, or through a two-stage operation allowing for editing. This article demonstrates how to find and redact faces with the Face Detector preset in the v3 API.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -9,7 +9,7 @@ editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: article
 ms.date: 03/25/2021
 ms.author: johndeu
@@ -23,11 +23,9 @@ Azure Media Services v3 API includes a Face Detector preset that offers scalable
 
 This article gives details about **Face Detector Preset** and shows how to use it with Azure Media Services SDK for .NET.
 
-[!INCLUDE [regulation](../video-indexer/includes/regulation.md)]
-
 ## Compliance, privacy, and security
- 
-As an important reminder, you must comply with all applicable laws in your use of analytics in Azure Media Services. You must not use Azure Media Services or any other Azure service in a manner that violates the rights of others. Before uploading any videos, including any biometric data, to the Azure Media Services service for processing and storage, you must have all the proper rights, including all appropriate consents, from the individuals in the video. To learn about compliance, privacy and security in Azure Media Services, the Azure [Cognitive Services Terms](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). For Microsoft’s privacy obligations and handling of your data, review Microsoft’s [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (OST) and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (“DPA”). More privacy information, including on data retention, deletion/destruction, is available in the OST and [here](../video-indexer/faq.md). By using Azure Media Services, you agree to be bound by the Cognitive Services Terms, the OST, DPA, and the Privacy Statement
+
+As an important reminder, you must comply with all applicable laws in your use of analytics in Azure Media Services. You must not use Azure Media Services or any other Azure service in a manner that violates the rights of others. Before uploading any videos, including any biometric data, to the Azure Media Services service for processing and storage, you must have all the proper rights, including all appropriate consents, from the individuals in the video. To learn about compliance, privacy and security in Azure Media Services, the Azure [Cognitive Services Terms](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). For Microsoft’s privacy obligations and handling of your data, review Microsoft’s [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (OST) and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (“DPA”). More privacy information, including on data retention, deletion/destruction, is available in the OST and [here](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.yml). By using Azure Media Services, you agree to be bound by the Cognitive Services Terms, the OST, DPA, and the Privacy Statement
 
 ## Face redaction modes
 
@@ -49,13 +47,14 @@ This produces a redacted MP4 video file in a single pass without any manual edit
 
 ### Analyze mode
 
-The **Analyze** pass of the two-pass workflow takes a video input and produces a JSON file with a list of the face locations, Face ID's and jpg images of each detected face. 
+The **Analyze** pass of the two-pass workflow takes a video input and produces a JSON file with a list of the face locations, Face ID's and jpg images of each detected face.
+Be advised that the face id's are not guaranteed to be identical on subsequent runs of the analysis pass.
 
 | Stage | File Name | Notes |
 | --- | --- | --- |
 | Input asset |"ignite-sample.mp4" |Video in WMV, MPV, or MP4 format |
 | Preset config |Face Detector configuration |**mode**: FaceRedactorMode.Analyze, **resolution**: AnalysisResolution.SourceResolution|
-| Output asset |ignite-sample_annotations.json |Annotation data of face locations in JSON format. This can be edited by the user to modify the blurring bounding boxes. See sample below. |
+| Output asset |ignite-sample_annotations.json |Annotation data of face locations in JSON format. Face id's are not guaranteed to be identical on subsequent runs of the analysis pass. This can be edited by the user to modify the blurring bounding boxes. See sample below. |
 | Output asset |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |A cropped jpg of each detected face, where the number indicates the labelId of the face |
 
 #### Output example
@@ -120,7 +119,7 @@ The output from the Analyze pass does not include the original video. The video 
 | Stage | File Name | Notes |
 | --- | --- | --- |
 | Input asset |"ignite-sample.mp4" |Video in WMV, MPV, or MP4 format. Same video as in step 1. |
-| Input asset |"ignite-sample_annotations.json" |annotations metadata file from phase one, with optional modifications if you wish to change the faces blurred. This must be edited in an external application, code, or text editor. |
+| Input asset |"ignite-sample_annotations.json" |Annotations metadata file from phase one, with optional modifications if you wish to change the faces blurred. This must be edited in an external application, code, or text editor. |
 | Input asset | "ignite-sample_IDList.txt" (Optional) | Optional new line separated list of face IDs to redact. If left blank, all faces in the source will have blur applied. You can use the list to selectively choose not to blur specific faces. |
 | Face Detector preset  |Preset configuration  | **mode**: FaceRedactorMode.Redact, **blurType**: BlurType.Med |
 | Output asset |"ignite-sample-redacted.mp4" |Video with blurring applied based on annotations |
@@ -128,6 +127,7 @@ The output from the Analyze pass does not include the original video. The video 
 #### Example output
 
 This is the output from an IDList with one ID selected.
+The face id's are not guaranteed to be identical on subsequent runs of the analysis pass.
 
 Example foo_IDList.txt
 
@@ -142,7 +142,6 @@ Example foo_IDList.txt
 In the **Combined** or **Redact** mode, there are five different blur modes you can choose from via the JSON input configuration: **Low**, **Med**, **High**, **Box**, and **Black**. By default **Med** is used.
 
 You can find samples of the blur types below.
-
 
 #### Low
 
@@ -175,7 +174,7 @@ The Redaction MP provides high precision face location detection and tracking th
 The following program shows how to use the **Combined** single-pass redaction mode:
 
 - Create an asset and upload a media file into the asset.
-- Configure the the Face Detector preset that uses the mode and blurType settings.
+- Configure the Face Detector preset that uses the mode and blurType settings.
 - Create a new Transform using the Face Detector preset
 - Download the output redacted video file.
 
@@ -189,11 +188,11 @@ Clone a GitHub repository that contains the .NET sample to your machine using th
 
 The sample is located in the [FaceRedactor](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoAnalytics/FaceRedactor) folder. Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/VideoAnalytics/FaceRedactor/appsettings.json) in your downloaded project. Replace the values with the credentials you got from [accessing APIs](./access-api-howto.md).
 
-**Optionally** you can copy the **[sample.env](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/sample.env)** file at the root of the repository and fill out the details in there, and rename that file to **.env** (Note the dot on the front!) so that it can be used across all sample projects in the repository.  This eliminates the need to have a populated appsettings.json file in each sample, and also protects you from checking any settings into your own Git hub cloned repositories.
+**Optionally** you can copy the **[sample.env](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/sample.env)** file at the root of the repository and fill out the details in there, and rename that file to **.env** (Note the dot on the front!) so that it can be used across all sample projects in the repository.  This eliminates the need to have a populated appsettings.json file in each sample, and also protects you from checking any settings into your own GitHub cloned repositories.
 
 #### Examples
 
-This code shows how to setup the **FaceDetectorPreset** for a **Combined** mode blur.
+This code shows how to set up the **FaceDetectorPreset** for a **Combined** mode blur.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/VideoAnalytics/FaceRedactor/Program.cs#FaceDetectorPreset)]
 
@@ -208,4 +207,3 @@ This code sample shows how the preset is passed into a Transform object during c
 ## Provide feedback
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

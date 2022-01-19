@@ -3,15 +3,16 @@ title: Management API reference for Azure SQL Managed Instance
 description: Learn about creating and configuring managed instances of Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: development
 ms.devlang: 
 ms.topic: reference
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: urosmil
+ms.author: urmilano
+ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
 # Managed API reference for Azure SQL Managed Instance
+
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 You can create and configure managed instances of Azure SQL Managed Instance using the Azure portal, PowerShell, Azure CLI, REST API, and Transact-SQL. In this article, you can find an overview of the functions and the API that you can use to create and configure managed instances.
@@ -46,7 +47,7 @@ To create and manage managed instances with Azure PowerShell, use the following 
 
 ## Azure CLI: Create and configure managed instances
 
-To create and configure managed instances with [Azure CLI](/cli/azure), use the following [Azure CLI commands for SQL Managed Instance](/cli/azure/sql/mi). Use [Azure Cloud Shell](../../cloud-shell/overview.md) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows.
+To create and configure managed instances with [Azure CLI](/cli/azure), use the following [Azure CLI commands for SQL Managed Instance](/cli/azure/sql/mi). Use [Azure Cloud Shell](../../cloud-shell/overview.md) to run Azure CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows.
 
 > [!TIP]
 > For an Azure CLI quickstart, see [Working with SQL Managed Instance using Azure CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).

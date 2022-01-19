@@ -5,10 +5,10 @@ description: Learn how to export data labels from your Azure Machine Learning la
 author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.custom: data4ml
-ms.date: 05/14/2020
+ms.date: 10/21/2021
 
 # Customer intent: As an experienced Python developer, I need to export my data labels and use them for machine learning tasks.
 ---
@@ -19,15 +19,15 @@ In this article, you'll learn how to export the data labels from an Azure Machin
 
 ## What are datasets with labels 
 
-We refer to Azure Machine Learning datasets with labels as labeled datasets. These specific dataset types of labeled datasets are only created as an output of Azure Machine Learning data labeling projects. Create a data labeling project with [these steps](how-to-create-labeling-projects.md). Machine Learning supports data labeling projects for image classification, either multi-label or multi-class, and object identification together with bounded boxes.
+We refer to Azure Machine Learning datasets with labels as labeled datasets. These specific dataset types of labeled datasets are only created as an output of Azure Machine Learning data labeling projects. Create a data labeling project [for image labeling](how-to-create-image-labeling-projects.md) or [text labeling](how-to-create-text-labeling-projects.md). Machine Learning supports data labeling projects for image classification, either multi-label or multi-class, and object identification together with bounded boxes.
 
 ## Prerequisites
 
-* An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
+* An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), or access to [Azure Machine Learning studio](https://ml.azure.com/).
     * Install the [azure-contrib-dataset](/python/api/azureml-contrib-dataset/) package
 * A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
-* Access to an Azure Machine Learning data labeling project. If you don't have a labeling project, create one with [these steps](how-to-create-labeling-projects.md).
+* Access to an Azure Machine Learning data labeling project. If you don't have a labeling project, first create one for [image labeling](how-to-create-image-labeling-projects.md) or [text labeling](how-to-create-text-labeling-projects.md).
 
 ## Export data labels 
 
@@ -45,6 +45,8 @@ When you complete a data labeling project, you can export the label data from a 
 You can access the exported Azure Machine Learning dataset in the **Datasets** section of your Azure Machine Learning studio. The dataset **Details** page also provides sample code to access your labels from Python.
 
 ![Exported dataset](./media/how-to-create-labeling-projects/exported-dataset.png)
+
+Once you have exported your labeled data to an Azure Machine Learning dataset, you can use AutoML to build computer vision models trained on your labeled data. Learn more at [Set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models.md)
 
 ## Explore labeled datasets
 

@@ -67,7 +67,7 @@ using (X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUs
                               certThumbprint,
                               validOnly);
   // Get the first cert with the thumbprint
-  X509Certificate2 cert = certCollection.OfType<X509Certificate>().FirstOrDefault();
+  X509Certificate2 cert = certCollection.OfType<X509Certificate2>().FirstOrDefault();
 
   if (cert is null)
       throw new Exception($"Certificate with thumbprint {certThumbprint} was not found");
@@ -131,7 +131,7 @@ To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Ja
 
 ## Load certificate in Linux/Windows containers
 
-The `WEBSITE_LOAD_CERTIFICATES` app settings makes the specified certificates accessible to your Windows or Linux container apps (including built-in Linux containers) as files. The files are found under the following directories:
+The `WEBSITE_LOAD_CERTIFICATES` app settings makes the specified certificates accessible to your Windows or Linux custom containers (including built-in Linux containers) as files. The files are found under the following directories:
 
 | Container platform | Public certificates | Private certificates |
 | - | - | - |
@@ -180,4 +180,5 @@ To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, Ja
 * [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
 * [Enforce HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Enforce TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [FAQ : App Service Certificates](./faq-configuration-and-management.md)
+* [FAQ : App Service Certificates](./faq-configuration-and-management.yml)
+* [Environment variables and app settings reference](reference-app-settings.md)

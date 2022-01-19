@@ -11,8 +11,8 @@ ms.date: 9/21/2020
 
 # Troubleshoot connection issues to Azure Database for MySQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 
 Connection problems may be caused by a variety of things, including:
 

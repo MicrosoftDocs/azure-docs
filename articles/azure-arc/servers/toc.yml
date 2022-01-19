@@ -1,23 +1,31 @@
-- name: Azure Arc enabled servers Documentation
+- name: Azure Arc-enabled servers Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure Arc enabled servers
+  - name: About Azure Arc-enabled servers
     href: overview.md
-  - name: What's new with Connected Machine agent
+  - name: What's new with Connected Machine agent?
     href: agent-release-notes.md
+  - name: Archive for Connected Machine agent release notes
+    href: agent-release-notes-archive.md
 - name: Quickstarts
   items:
-  - name: Enable Arc enabled servers agent
+  - name: Enable Arc-enabled servers agent
     href: ./learn/quick-enable-hybrid-vm.md
 - name: Tutorials
   items:
-    - name: Assign policy to assess compliance
-      href: ./learn/tutorial-assign-policy-portal.md
-    - name: Monitor machine
-      href: ./learn/tutorial-enable-vm-insights.md
+  - name: Assign policy to assess compliance
+    href: ./learn/tutorial-assign-policy-portal.md
+  - name: Monitor machine
+    href: ./learn/tutorial-enable-vm-insights.md
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: Concepts
   items:
+  - name: Log Analytics agent deployment options
+    href: concept-log-analytics-extension-deployment.md
   - name: Security
     items:
     - name: Security controls by Azure Policy
@@ -25,6 +33,8 @@
       href: security-controls-policy.md
     - name: Security overview
       href: security-overview.md
+    - name: Private Link networking
+      href: private-link-security.md
 - name: How-to guides
   items:
   - name: Deploy
@@ -33,30 +43,38 @@
       href: agent-overview.md
     - name: Plan for deployment
       href: plan-at-scale-deployment.md
-    - name: Connect machines to Azure Arc from the Azure portal
+    - name: Connect machines using a deployment script
       href: onboard-portal.md
     - name: Connect machines at scale using a service principal
       href: onboard-service-principal.md
+    - name: Connect machines from Automation Update Management
+      href: onboard-update-management-machines.md
     - name: Connect machines to Azure Arc with PowerShell DSC
       href: onboard-dsc.md
     - name: Connect machines from Windows Admin Center
       href: onboard-windows-admin-center.md
     - name: Connect machines to Azure Arc with PowerShell
       href: onboard-powershell.md
+  - name: Migrate
+    items:
+    - name: Migrate machine to Azure
+      href: scenario-migrate-to-azure.md
   - name: Manage
     items:
     - name: VM extensions
       items:
-        - name: Overview
-          href: manage-vm-extensions.md
-        - name: Manage extensions from portal
-          href: manage-vm-extensions-portal.md
-        - name: Manage extensions with CLI
-          href: manage-vm-extensions-cli.md
-        - name: Manage extensions with PowerShell
-          href: manage-vm-extensions-powershell.md
-        - name: Deploy extensions using ARM template
-          href: manage-vm-extensions-template.md
+      - name: Overview
+        href: manage-vm-extensions.md
+      - name: Manage extensions from portal
+        href: manage-vm-extensions-portal.md
+      - name: Manage extensions with CLI
+        href: manage-vm-extensions-cli.md
+      - name: Manage extensions with PowerShell
+        href: manage-vm-extensions-powershell.md
+      - name: Deploy extensions using ARM template
+        href: manage-vm-extensions-template.md
+      - name: Automatic extension upgrade
+        href: manage-automatic-vm-extension-upgrade.md
     - name: Use managed identities on server
       href: managed-identity-authentication.md
     - name: Manage agent
@@ -65,10 +83,12 @@
       href: manage-howto-migrate.md
   - name: Scenarios
     items:
-    - name: Onboard to Azure Sentinel
+    - name: Test Arc-enabled servers using an Azure VM
+      href: plan-evaluate-on-azure-virtual-machine.md
+    - name: Onboard to Microsoft Sentinel
       href: scenario-onboard-azure-sentinel.md
-    - name: Onboard to Azure Security Center
-      href: ../../security-center/quickstart-onboard-machines.md
+    - name: Onboard to Microsoft Defender for Cloud
+      href: ../../defender-for-cloud/quickstart-onboard-machines.md
   - name: Troubleshooting
     items:
     - name: Agent connection issues
@@ -77,30 +97,30 @@
       href: troubleshoot-vm-extensions.md
 - name: Reference
   items:
-    - name: Data residency
-      href: data-residency.md
-    - name: Azure CLI
-      href: /cli/azure/connectedmachine
-    - name: Azure PowerShell
-      href: /powershell/module/az.connectedmachine
-    - name: .NET
-      href: /dotnet/api/overview/azure/hybridcompute/management
-    - name: Azure Stack HCI REST
-      href: /rest/api/stackhci
-    - name: REST
-      href: /rest/api/hybridcompute
-    - name: Go
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/hybridcompute/mgmt/2020-08-02/hybridcompute
-    - name: Java
-      href: /java/api/overview/azure/compute/resourcemanagement
-    - name: JavaScript
-      href: /javascript/api/%40azure/arm-hybridcompute
-    - name: Python
-      href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-hybridcompute/2.0.0/index.html
-    - name: Azure Policy built-ins 
-      displayName: samples, policies, definitions
-      href: policy-reference.md
+  - name: Data residency
+    href: data-residency.md
+  - name: Azure CLI
+    href: /cli/azure/connectedmachine
+  - name: Azure PowerShell
+    href: /powershell/module/az.connectedmachine/
+  - name: .NET
+    href: /dotnet/api/overview/azure/hybridcompute/management
+  - name: Azure Stack HCI REST
+    href: /rest/api/stackhci/
+  - name: REST
+    href: /rest/api/hybridcompute/
+  - name: Go
+    href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/hybridcompute/mgmt/2020-08-02/hybridcompute
+  - name: Java
+    href: /java/api/overview/azure/compute/resourcemanagement
+  - name: JavaScript
+    href: /javascript/api/%40azure/arm-hybridcompute
+  - name: Python
+    href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-hybridcompute/2.0.0/index.html
+  - name: Azure Policy built-ins 
+    displayName: samples, policies, definitions
+    href: policy-reference.md
 - name: Resources
   items:
-    - name: Azure Arc jumpstart
-      href: https://azurearcjumpstart.io
+  - name: Azure Arc jumpstart
+    href: https://azurearcjumpstart.io
