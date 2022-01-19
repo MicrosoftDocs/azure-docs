@@ -16,7 +16,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | --- | --- | --- |
-| Added a [Revenue Dashboard](revenue-dashboard.md) to Partner Center, including a revenue report, [sample queries](analytics-sample-queries.md#revenue-report-queries), and [FAQs](/analytics-faq#revenue) page. | 2021-12-08 |
+| Offers | Added a [Revenue Dashboard](revenue-dashboard.md) to Partner Center, including a revenue report, [sample queries](analytics-sample-queries.md#revenue-report-queries), and [FAQs](/analytics-faq#revenue) page. | 2021-12-08 |
 | Offers | Container and container apps offers can now use the Microsoft [Standard Contract](standard-contract.md). | 2021-11-02 |
 | Offers | Private plans for [SaaS offers](plan-saas-offer.md) are now available on AppSource. | 2021-10-06 |
 | Offers | In [Set up an Azure Marketplace subscription for hosted test drives](test-drive-azure-subscription-setup.md), for **Set up for Dynamics 365 apps on Dataverse and Power Apps**, we added a new method to remove users from your Azure tenant. | 2021-10-01 |
