@@ -41,18 +41,18 @@ The following images below show how cloud-native CBA simplifies the customer env
 
 | Benefits | Description |
 |---------|---------|
-| Great user experience |- Users who need certificate-based authentication can now directly authenticate against Azure AD and not have to invest in federated AD FS.<br>- Portal UI enables users to easily configure how to map certificate fields to a user object attribute to look up the user in the tenant (certificate username bindings)<br>- Portal UI to configure authentication policies to help determine which certificates are single factor vs multi factor. |
+| Great user experience |- Users who need certificate-based authentication can now directly authenticate against Azure AD and not have to invest in federated AD FS.<br>- Portal UI enables users to easily configure how to map certificate fields to a user object attribute to look up the user in the tenant (certificate username bindings)<br>- Portal UI to configure authentication policies to help determine which certificates are single-factor versus multifactor. |
 | Easy to deploy and administer |- No need for complex on-premises deployments or network configuration.<br>- Directly authenticate against Azure AD. <br>- No management overhead or cost. |
-| Secure |- On-premises passwords need not be stored in the cloud in any form.<br>- Protects your user accounts by working seamlessly with Azure AD Conditional Access policies, including Multi-Factor Authentication (MFA), blocking legacy authentication.<br>- Strong authentication support where users can define authentication policies through the certificate fields like issuer or policy OID (object identifiers) to determine which certificates qualify as single factor vs multi factor. |
+| Secure |- On-premises passwords need not be stored in the cloud in any form.<br>- Protects your user accounts by working seamlessly with Azure AD Conditional Access policies, including multifactor authentication (MFA) and blocking legacy authentication.<br>- Strong authentication support where users can define authentication policies through the certificate fields like issuer or policy OID (object identifiers) to determine which certificates qualify as single-factor versus multifactor. |
 
 ### Feature highlights
 
-- Facilitates onboarding to Azure quickly without being delayed by additional on-premises infrastructure to support certificate-based authentication in public and US (UNITED STATES) Gov clouds 
-- Provides support for unphishable multi factor authentication
+- Facilitates onboarding to Azure quickly without being delayed by additional on-premises infrastructure to support certificate-based authentication in public and United States Government clouds. 
+- Provides support for unphishable multifactor authentication.
 - Supports user sign-in against cloud Azure AD using X.509 certificates into all web browser-based applications and into Microsoft Office client applications that use modern authentication.
-- The feature works seamlessly with Conditional Access features such as Multi-Factor Authentication (MFA) to help secure your users.
+- The feature works seamlessly with Conditional Access features such as MFA to help secure your users.
 - It is a free feature, and you do not need any paid editions of Azure AD to use it.
-- Eliminates the need for federated AD FS and reduces the cost and on-premises footprint for the customers.
+- Eliminates the need for federated AD FS and reduces the cost and on-premises footprint.
 
 ## Next steps
 
