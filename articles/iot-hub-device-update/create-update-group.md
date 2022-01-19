@@ -11,6 +11,10 @@ ms.service: iot-hub-device-update
 # Create device groups in Device Update for IoT Hub
 Device Update for IoT Hub allows deploying an update to a group of IoT devices.
 
+  > [!NOTE] 
+  > If you would like to deploy to a default group instead of a user-created group, you can directly move to [How to Deploy an Update](deploy-update.md)
+
+
 ## Prerequisites
 
 * [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md). It is recommended that you use a S1 (Standard) tier or above for your IoT Hub. 
