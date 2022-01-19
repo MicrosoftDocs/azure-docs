@@ -44,6 +44,8 @@ items:
         href: concept-best-practices-accounts.md
       - name: Accounts - Default Purview account 
         href: concept-default-purview-account.md
+      - name: Asset lifecycle best practices
+        href: concept-best-practices-assetlifecycle.md
       - name: Automation best practices 
         href: concept-best-practices-automation.md
       - name: Backup, recovery and migration best practices
