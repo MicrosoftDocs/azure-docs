@@ -352,9 +352,9 @@ Application Insights Java 3.x is already listening for telemetry that's sent to 
    `customDimensions` column. You can also view the metrics in the
    [Metrics explorer](../essentials/metrics-getting-started.md) under the "Log-based metrics" metric namespace.
 
-> [!NOTE]
-> Application Insights Java replaces all non-alphanumeric characters (except dashes) in the Micrometer metric name
-> with underscores, so the `test.counter` metric above will show up as `test_counter`.
+    > [!NOTE]
+    > Application Insights Java replaces all non-alphanumeric characters (except dashes) in the Micrometer metric name
+    > with underscores, so the `test.counter` metric above will show up as `test_counter`.
 
 ### Send custom traces and exceptions by using your favorite logging framework
 
