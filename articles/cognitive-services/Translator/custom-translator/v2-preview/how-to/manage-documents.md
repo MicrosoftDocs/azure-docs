@@ -47,12 +47,12 @@ Document types are associated with the language pair selected when you create a 
 1. Select on the desired project `Name`. By default, **Manage documents** blade is selected and a list of all relevant documents are displayed.
 1. Select **Add document set** and Choose the document type:
 
-    - Training set.
-    - Testing set.
-    - Tuning set.
+    - Training set
+    - Testing set
+    - Tuning set
     - Dictionary set:
-        - Phrase Dictionary.
-        - Sentence Dictionary.
+        - Phrase Dictionary
+        - Sentence Dictionary
 
 1. Select **Next**
 

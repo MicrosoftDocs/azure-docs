@@ -11,17 +11,17 @@ ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to translate with custom models, so that I can improve the translation quality.
 ---
-# Translate text with a custom model | preview
+# Translate text with a custom model | Preview
 
 > [!IMPORTANT]
 > Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
 
-After you publish your custom model to any of our regions; North America, Europe, and Asia Pacific, your model is ready to process translation requests.
+After you publish your custom model to any of our regions (North America, Europe, or Asia Pacific) your model is ready to process translation requests.
 
 ## How to translate
 
-1. Developers should use the category ID when making a translation request via Microsoft Translator [Text API V3](../../../reference/v3-0-translate.md?tabs=curl). More information about the Translator Text API can be found on the [API Reference](../../../reference/v3-0-reference.md) webpage.
-2. Business users may want to download and install our free [DocumentTranslator app for Windows](https://github.com/MicrosoftTranslator/DocumentTranslator/releases/tag/V2.9.4).
+1. Developers should use the `Category ID` when making a translation request via Microsoft Translator [Text API V3](../../../reference/v3-0-translate.md?tabs=curl). More information about the Translator Text API can be found on the [API Reference](../../../reference/v3-0-reference.md) webpage.
+2. You may also want to download and install our free [DocumentTranslator app for Windows](https://github.com/MicrosoftTranslator/DocumentTranslator/releases/tag/V2.9.4).
 
 ## Next steps
 

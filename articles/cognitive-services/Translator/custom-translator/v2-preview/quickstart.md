@@ -42,7 +42,7 @@ You can read an overview of translation and custom translation, learn some tips,
 
 1. [**Create a workspace**](#create-a-workspace). A workspace is a work area for composing and building your custom translation system. A workspace can contain multiple projects, models, and documents. All the work you do in Custom Translator is done inside a specific workspace.
 
-1. [**Create a project**](#create-a-project) . A project is a wrapper for models, documents, and tests. Each project automatically includes all documents that are uploaded into that workspace with the correct language pair. For example, if you have both an English-to-Spanish project and a Spanish-to-English project, the same documents will be included in both projects.
+1. [**Create a project**](#create-a-project) . A project is a wrapper for models, documents, and tests. Each project includes all documents that are uploaded into that workspace with the correct language pair. For example, if you have both an English-to-Spanish project and a Spanish-to-English project, the same documents will be included in both projects.
 
 1. *[*Upload parallel documents**](#upload-documents). Parallel documents are pairs of documents where one (target) is the translation of the other (source). One document in the pair contains sentences in the source language and the other document contains sentences translated into the target language. It doesn't matter which language is marked as "source" and which language is marked as "target"—a parallel document can be used to train a translation system in either direction.
 
@@ -56,7 +56,7 @@ You can read an overview of translation and custom translation, learn some tips,
 
 ## Create a workspace
 
-1. After you sign-in, you will be asked for permission to read your profile from the Microsoft identity platform to request your user access token and refresh token. Both tokens are needed for authentication and to ensure that you aren't signed out during your live session or while training your models. </br>Select **Yes**.
+1. After you sign-in to Custom Translator, you will be asked for permission to read your profile from the Microsoft identity platform to request your user access token and refresh token. Both tokens are needed for authentication and to ensure that you aren't signed out during your live session or while training your models. </br>Select **Yes**.
 
     ![Create workspace](media/quickstart/first-time-user.png)
 
@@ -77,10 +77,9 @@ You can read an overview of translation and custom translation, learn some tips,
    >[!Note]
    > Region must match the region that was selected during the resource creation. You can use **KEY 1** or **KEY 2.**
 
-   :::image type="content" source="media/quickstart/resource-key.png" alt-text="Screenshot depicting the resource key.":::
+   :::image type="content" source="media/quickstart/resource-key.png" alt-text="Screenshot showing the resource key.":::
 
-   :::image type="content" source="media/quickstart/create-workspace-1.png" alt-text="Screenshot depicting workspace creation.":::
-
+   :::image type="content" source="media/quickstart/create-workspace-1.png" alt-text="Screenshot showing workspace creation.":::
 
 ## Create a project
 

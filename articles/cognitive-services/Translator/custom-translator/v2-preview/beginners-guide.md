@@ -1,5 +1,5 @@
 ---
-title: Custom Translator for beginners | preview
+title: Custom Translator for beginners 
 titleSuffix: Azure Cognitive Services
 description: A user guide for understanding the E2E machine translation customization process to publish custom translation engines.
 author: laujan
@@ -11,7 +11,7 @@ ms.author: moelghaz
 ms.topic: overview
 #Customer intent: As a new custom translator user, I want to understand the E2E MT customization process, so that I can build and publish custom translation engines.
 ---
-# Custom Translator for beginners | preview
+# Custom Translator for beginners | Preview
 
  [Custom Translator](../overview.md) enables you to a build translation system that reflects your business, industry, and domain-specific terminology and style. Training and deploying a custom system is easy and does not require any programming skills. The customized translation system seamlessly integrates into your existing applications, workflows, and websites and is available on Azure through the same cloud-based Microsoft Text Translator [Text API V3](../../reference/v3-0-translate.md?tabs=curl) service that powers billions of translations every day.
 
@@ -27,7 +27,7 @@ In order to build custom translation system, you'll need a use-case, in-domain t
 
 ## How do I evaluate a use-case?
 
-Having clarity on your use-case and what success looks like is the first step to sourcing proficient training data. Here are a few considerations:
+Having clarity on your use-case and what success looks like is the first step towards sourcing proficient training data. Here are a few considerations:
 
 - What is your desired outcome and how will you measure it?
 - What is your business domain?

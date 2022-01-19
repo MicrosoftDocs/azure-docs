@@ -11,7 +11,7 @@ ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand the test results, so that I can publish the custom model or use standard.
 ---
-# Test custom model BLEU score and model translation | preview
+# Test custom model BLEU score and model translation | Preview
 
 > [!IMPORTANT]
 > Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.

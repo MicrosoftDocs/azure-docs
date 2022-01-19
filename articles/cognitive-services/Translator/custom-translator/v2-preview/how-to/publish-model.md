@@ -11,7 +11,7 @@ ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to publish models, so that I translate with my custom systems.
 ---
-# Publish a custom model | preview
+# Publish a custom model | Preview
 
 > [!IMPORTANT]
 > Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
