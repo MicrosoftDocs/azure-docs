@@ -82,7 +82,7 @@ To use the Azure portal to configure Scheduled Agent Updates:
 
 ## Configure the Scheduled Agent Updates feature using PowerShell
 
-To configure this feature with PowerShell, you need to make sure you have the name of the resource group and host pool you want to configure. You'll also need to install [the Azure PowerShell module (version 3.1.0 or later)](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/3.1.0).
+To configure this feature with PowerShell, you need to make sure you have the name of the resource group and host pool you want to configure. You'll also need to install [the Azure PowerShell module (version 3.3.5 or later)](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/3.1.0).
 
 To configure Scheduled Agent Updates using PowerShell:
 
@@ -91,19 +91,19 @@ To configure Scheduled Agent Updates using PowerShell:
 2. Run the following cmdlet to enable and configure Scheduled Agent Updates:
 
     ```powershell
-    Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -AgentUpdateType "Scheduled" -AgentUpdateUseSessionHostLocalTime <Boolean> -AgentUpdateTimeZone <timeZoneName> -AgentUpdateMaintenanceWindows [{<hour>, <dayOfWeek>}, {<hour>, <dayOfWeek>}] 
+    Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -AgentUpdateType "Scheduled" -AgentUpdateUseSessionHostLocalTime -AgentUpdateTimeZone <timeZoneName> -AgentUpdateMaintenanceWindow @(@{Hour=Hour; DayOfWeek="Day"}, @{Hour=Hour; DayOfWeek="Day"})
     ```
 
     For example, if you want to update agent components on Saturdays and Sundays between 9:00 PM and 11:00 PM in the local time zone for each session host, run the following PowerShell cmdlet:
 
     ```powershell
-    Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -AgentUpdateType "Scheduled" -AgentUpdateUseSessionHostLocalTime $true -AgentUpdateMaintenanceWindows [{21, Saturday}, {21, Sunday}]        
+    Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -AgentUpdateType "Scheduled" -AgentUpdateUseSessionHostLocalTime -AgentUpdateMaintenanceWindow @(@{Hour=21; DayOfWeek="Saturday"}, @{Hour=21; DayOfWeek="Sunday"})        
     ```
 
     To configure Scheduled Agent Updates to update agent components on Saturdays between 9:00 AM and 11:00 AM Pacific Standard Time, run the following PowerShell cmdlet:
         
     ```powershell
-    Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -AgentUpdateType "Scheduled" -AgentUpdateUseSessionHostLocalTime $false -AgentUpdateMaintenanceWindows [{9, Saturday}]
+    Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -AgentUpdateType "Scheduled" -AgentUpdateMaintenanceWindow @{Hour=; DayOfWeek="Saturday"}
     ```
 
 >[!NOTE]
