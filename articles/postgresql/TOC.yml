@@ -630,8 +630,6 @@
       href: hyperscale/quickstart-run-queries.md
   - name: Tutorials
     items:
-      - name: Create a server group
-        href: hyperscale/tutorial-server-group.md
       - name: Model and load data
         items:
         - name: Shard data on worker nodes
