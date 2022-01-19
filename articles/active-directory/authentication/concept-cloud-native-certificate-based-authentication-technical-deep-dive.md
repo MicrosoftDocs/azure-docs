@@ -120,7 +120,7 @@ An admin can configure the CRL distribution point during the setup process of th
 1. Azure AD will cache and re-use the CRL for any subsequent usage. It will honor the **Next update date** and if available **Next CRL Publish date** (used by Windows Server CAs) in the CRL document.
 1. The user certificate-based authentication will fail if:
    1. A CRL has been configured for the trusted issuer and Azure AD cannot download the CRL, due to availability, size or latency constraints.
-   1. The users certificate is listed as revoked on the CRL.
+   1. The user's certificate is listed as revoked on the CRL.
    
       :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/user-cert.png" alt-text="Screenshot of the revoked user certificate in the CRL." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/user-cert.png":::  
 
