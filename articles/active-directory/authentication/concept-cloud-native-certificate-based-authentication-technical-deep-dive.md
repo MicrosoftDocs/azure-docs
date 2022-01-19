@@ -134,7 +134,7 @@ The user certificate should be configured like this screenshot:
 
 :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/user-certificate.png" alt-text="Screenshot of the user certificate.":::  
 
-### Test Scenario 1
+### Test single-factor authentication 
 
 For the first test scenario, configure the authentication policy where the Issuer subject rule satisfies single-factor authentication.
 
@@ -171,6 +171,7 @@ These additional entries show that the authentication is complete and a primary 
 
 :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/refresh-token.png" alt-text="Screenshot of refresh token details in the sign-in logs.":::  
 
+### Test multifactor authentication
 
 ## Next steps
 
