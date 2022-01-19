@@ -175,10 +175,10 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 > [!NOTE]
 > To reduce the number of requests to App Configuration when using push refresh, it is important to call `SetCacheExpiration(TimeSpan cacheExpiration)` with an appropriate value of `cacheExpiration` parameter. This controls the cache expiration time for pull refresh and can be used as a safety net in case there is an issue with the Event subscription or the Service Bus subscription. The recommended value is `TimeSpan.FromDays(30)`.
 
-## Optional: Incorporate Synchronization tokens for real-time consistency
+## Optional: Incorporate synchronization tokens for real-time consistency
 
 > [!NOTE]
-> Support for using synchronization-tokens in push refresh workflow is available in .NET configuration provider version 5.0.0-preview (or later). 
+> Support for using synchronization tokens in push refresh workflow is available in .NET configuration provider version 5.0.0-preview (or later). 
 
 Due to the nature of distributed systems, real-time consistency between requests is difficult to enforce implicitly. We use synchronization tokens to address this issue. The Event Grid event contains the sync-token that can be utilized to guarantee real-time consistency between different client instances and requests.
 
@@ -215,6 +215,7 @@ using Azure.Messaging.EventGrid;
         }
 ```
 
+The `TryCreatePushNotification` method extracts the synchronization tokens and other relevant information from an `EventGridEvent` object and creates a `PushNotification` object. The `ProcessPushNotification` method then prepares the client to use these synchronization tokens in the next request to App Configuration service, thereby guaranteeing real-time consistency for any subsequent request.
 Notice that you do not need to invoke the `SetDirty` method anymore. This is because `SetDirty` is always invoked internally through the `ProcessPushNotification` method. The cached value will be marked as dirty after a random delay of up to 30 seconds. This max delay can be overridden by passing an optional `Timespan` parameter to the `ProcessPushNotification` method.
 
 
