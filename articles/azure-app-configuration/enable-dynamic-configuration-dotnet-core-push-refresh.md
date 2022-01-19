@@ -178,7 +178,7 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 ## Optional: Incorporate Synchronization tokens for real-time consistency
 
 > [!NOTE]
-> The API's used in this example are only available in the provider library version 5.x and later.
+> Support for using synchronization-tokens in push refresh workflow is available in .NET configuration provider version 5.0.0-preview (or later). 
 
 Due to the nature of distributed systems, real-time consistency between requests is difficult to enforce implicitly. We use synchronization tokens to address this issue. The Event Grid event contains the sync-token that can be utilized to guarantee real-time consistency between different client instances and requests.
 
