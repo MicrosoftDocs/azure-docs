@@ -130,11 +130,8 @@ DPS also supports [Availability Zones](../availability-zones/az-overview.md). An
 * Central US
 * East US
 * East US 2
-* East US EUAP
 * Japan East
 * North Europe
-* South Central US
-* Southeast Asia
 * UK South
 * West Europe
 * West US 2
