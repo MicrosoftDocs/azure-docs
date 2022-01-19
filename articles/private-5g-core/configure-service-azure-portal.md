@@ -11,7 +11,9 @@ ms.custom: template-how-to
 
 # Configure a service for Azure Private 5G Core Preview - Azure portal
 
-Services are representations of a particular set of QoS information that you want to offer to UEs. For more information, see [Policy control](policy-control.md). The following task describes how to configure a service using the Azure portal.
+Services are representations of a particular set of QoS information that you want to offer to UEs. For more information, see [Policy control](policy-control.md).
+
+In this how-to guide, we'll configure a service using the Azure portal.
 
 ## Prerequisites
 
@@ -25,14 +27,14 @@ In this step, you'll configure basic settings for your new service using the Azu
 
 1. Sign in to the Azure portal at [https://aka.ms/PMNSPortal](https://aka.ms/PMNSPortal).<!-- Is this the correct link? -->
 1. Search for and select the Mobile Network resource representing the private mobile network for which you want to configure a service.
-:::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
+:::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 1. In the resource menu, select **Services**.
 
-    :::image type="content" source="media\configure-service-azure-portal\services-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the Services option in the resource menu of a Mobile Network resource.":::
+    :::image type="content" source="media\configure-service-azure-portal\services-resource-menu-option.png" alt-text="Screenshot of the Azure portal. It shows the Services option in the resource menu of a Mobile Network resource.":::
 
 1. In the command bar, select **Create**.
 
-    :::image type="content" source="media\configure-service-azure-portal\create-command-bar-option.png" alt-text="Screenshot of the Azure portal showing the Create option in the command bar.":::
+    :::image type="content" source="media\configure-service-azure-portal\create-command-bar-option.png" alt-text="Screenshot of the Azure portal. It shows the Create option in the command bar.":::
 
 1. On the **Basics** configuration tab, use the information you collected in [Collect top-level setting values](collect-required-information-for-service.md#collect-top-level-setting-values) to fill out each of the fields.
 
@@ -40,11 +42,11 @@ In this step, you'll configure basic settings for your new service using the Azu
 
 ## Configure data flow policy rules and data flow templates
 
-In this step, we'll configure the data flow policy rules you want to use for this service. For each rule, do the following.
+Now we'll configure the data flow policy rules you want to use for this service. For each rule, do the following.
 
 1. On the **Basics** configuration tab, select **Add policy rule**.
 
-   :::image type="content" source="media\configure-service-azure-portal\add-policy-rule-button.png" alt-text="Screenshot of the Azure portal showing the Add policy rule button on the Basics configuration tab for a service.":::
+   :::image type="content" source="media\configure-service-azure-portal\add-policy-rule-button.png" alt-text="Screenshot of the Azure portal. It shows the Add policy rule button on the Basics configuration tab for a service.":::
 
 1. In **Add policy rule** on the right, use the information you collected in [Data flow policy rule(s)](collect-required-information-for-service.md#data-flow-policy-rules) to fill out the **Rule name**, **Policy rule precedence**, and **Traffic control** fields.
 
@@ -52,7 +54,7 @@ In this step, we'll configure the data flow policy rules you want to use for thi
 
 1. Do the following for one of the service data flow templates you want to apply to this data flow policy rule.
     - Select **Add service data flow template**.
-    - Use the information you collected in [Collect service data flow template values](collect-required-information-for-service.md#collect-service-data-flow-template-values) for your chosen template to fill out the fields in the pop-up that appears.
+    - Use the information you collected in [Collect service data flow template values](collect-required-information-for-service.md#collect-service-data-flow-template-values) for your chosen template to fill out the fields in the pop-up.
     
         :::image type="content" source="media\configure-service-azure-portal\add-service-data-flow-template.png" alt-text="Screenshot of the Azure portal showing the Add service data flow template pop-up.":::
 
@@ -64,16 +66,16 @@ In this step, we'll configure the data flow policy rules you want to use for thi
 
 1. On the **Basics** configuration tab, confirm that your new rule appears under the **Traffic rules** section.
 
-    :::image type="content" source="media\configure-service-azure-portal\service-with-rules.png" alt-text="Screenshot of the Azure portal showing a service with a data flow policy rule configured under the Traffic rules section.":::
+    :::image type="content" source="media\configure-service-azure-portal\service-with-rules.png" alt-text="Screenshot of the Azure portal. It shows a service with a data flow policy rule configured under the Traffic rules section.":::
 
 1. Repeat this entire step for any other data flow policy rules you want to configure for this service.
 
-## Finalize the service
+## Create the service
 
-We'll now finalize the service so that it can be added to your policy control configuration.
+We'll now create the service so it can be added to your policy control configuration.
 
 1. On the **Basics** configuration tab, select **Review + create**.
-1. You will now see the **Review + Create** tab. Azure will attempt to validate the configuration values you have entered. If the configuration values are not valid, the **Create** button at the bottom of the **Review + Create** tab will be grayed out. You will need to return to the Basics tab and correct any invalid configuration.
+1. You'll now see the **Review + Create** tab. Azure will attempt to validate the configuration values you've entered. If the configuration values are invalid, the **Create** button at the bottom of the **Review + Create** tab will be grayed out. You'll need to return to the Basics tab and correct any invalid configuration.
 1. When the configuration is valid, the **Create** button will be blue. Select **Create** to create the service.
 
     :::image type="content" source="media\configure-service-azure-portal\service-review-and-create-tab.png" alt-text="Screenshot of the Azure portal showing the Create button on the Review + create tab for a service.":::

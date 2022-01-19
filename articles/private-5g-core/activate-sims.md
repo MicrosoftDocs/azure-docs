@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Activate SIMs
 
-In this how-to guide, you'll learn how to activate the SIMs you have provisioned. You must activate a SIM before it can access your private mobile network.
+Activating a SIM allows it to access your private mobile network. In this how-to guide, you'll learn how to activate the SIMs you've provisioned. 
 
 ## Prerequisites
 
@@ -24,12 +24,12 @@ In this how-to guide, you'll learn how to activate the SIMs you have provisioned
 1. Sign in to the Azure portal at [https://aka.ms/PMNSPortal](https://aka.ms/PMNSPortal). <!-- need to confirm link -->
 1. Search for and select the Mobile Network resource representing the private mobile network for which you want to activate SIMs.
 
-    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
+    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
 1. In the resource menu, select **SIMs**.
-1. You are shown a list of provisioned SIMs in the private mobile network. Tick the checkbox next to the name of each SIM you want to activate.
-1. Click **Activate**.
-1. In the pop-up that appears, click **Activate** to confirm that you want to activate your chosen SIMs.
+1. You're shown a list of provisioned SIMs in the private mobile network. Tick the checkbox next to the name of each SIM you want to activate.
+1. Select **Activate**.
+1. In the pop-up that appears, select **Activate** to confirm that you want to activate your chosen SIMs.
 1. The activation process can take a few minutes. During this time, the value in the **Activation** status column for each SIM will display as **Activating**. Keep refreshing the SIM resources using the Refresh button until the **Activation** status field for all of the relevant SIMs changes to **Activated**.
 
 ## Next steps
