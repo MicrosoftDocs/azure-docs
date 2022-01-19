@@ -131,7 +131,7 @@ Now that you've obtained the SPA sample, update the code with your Azure AD B2C 
 |---------|---------|---------|
 |authConfig.js|clientId| The SPA ID from [step 2.3](#step-23-register-the-spa).|
 |policies.js| names| The user flows, or custom policy you created in [step 1](#step-1-configure-your-user-flow).|
-|policies.js|authorities|Your Azure AD B2C user flow authorities such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`. Replace `your-sign-in-sign-up-policy` with user flow or custom policy you created in [step 1](#sign-in-flow)|
+|policies.js|authorities|Your Azure AD B2C user flows or custom policies authorities such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`. Replace `your-sign-in-sign-up-policy` with user flow or custom policy you created in [step 1](#sign-in-flow)|
 |policies.js|authorityDomain|Your Azure AD B2C authority domain such as `<your-tenant-name>.b2clogin.com`.|
 |apiConfig.js|b2cScopes|The web API scopes you created in [step 2.2](#step-22-configure-scopes) (for example, `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/tasks-api/tasks.read"]`).|
 |apiConfig.js|webApi|The URL of the web API, `http://localhost:5000/hello`.|
