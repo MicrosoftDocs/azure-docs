@@ -852,7 +852,7 @@ Functions lets your Python worker use shared memory between the Functions Host p
 
 An example of when it could be helpful to use the shared memory feature is if the appliation is transferring large payloads as input/output bindings via Blobs (that are larger than 1 MB).
 
-This functionality is available only for function apps running in Premium and Dedicated (App Service) plans. To learn more, you can reference this [wiki](https://github.com/Azure/azure-functions-python-worker/wiki/Shared-Memory). 
+This functionality is available only for function apps running in Premium and Dedicated (App Service) plans. To learn more, see [Shared memory](https://github.com/Azure/azure-functions-python-worker/wiki/Shared-Memory). 
 
 ## Known issues and FAQ
 
