@@ -62,12 +62,12 @@ Time series data for twin property updates is stored in Azure Data Explorer with
 
 Below is an example table of twin property updates stored to Azure Data Explorer.
 
-| `TimeStamp` | `Id` | `ModelId` | `Key` | `Value` | `RelationshipTarget` | `RelationshipID` |
-| --- | --- | --- | --- | --- | --- | --- |
-| 2021-06-30T20:23:29.8697482Z | solar_plant_3 | `dtmi:example:grid:plants:solarPlant;1` | Output | 130 |  |  |
-| 2021-06-30T20:23:39.3235925Z| solar_plant_3 | `dtmi:example:grid:plants:solarPlant;1` | Output | 140 |  |  |
-| 2021-06-30T20:23:47.078367Z | solar_plant_3 | `dtmi:example:grid:plants:solarPlant;1` | Output | 130 |  |  |
-| 2021-06-30T20:23:57.3794198Z | solar_plant_3 | `dtmi:example:grid:plants:solarPlant;1` | Output | 123 |  |  |
+| `TimeStamp` | `SourceTime` | `ServiceId` | `Id` | `ModelId` | `Key` | `Value` | `RelationshipTarget` | `RelationshipID` |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2021-06-30T20:23:29.8697482Z | 2021-06-30T20:22:14.3854859Z | myInstance.api.neu.digitaltwins.azure.net | solar_plant_3 | `dtmi:example:grid:plants:solarPlant;1` | Output | 130 |  |  |
+| 2021-06-30T20:23:39.3235925Z| 2021-06-30T20:22:26.5837559Z | myInstance.api.neu.digitaltwins.azure.net | solar_plant_3 | `dtmi:example:grid:plants:solarPlant;1` | Output | 140 |  |  |
+| 2021-06-30T20:23:47.078367Z | 2021-06-30T20:22:34.9375957Z | myInstance.api.neu.digitaltwins.azure.net | solar_plant_3 | `dtmi:example:grid:plants:solarPlant;1` | Output | 130 |  |  |
+| 2021-06-30T20:23:57.3794198Z | 2021-06-30T20:22:50.1028562Z | myInstance.api.neu.digitaltwins.azure.net | solar_plant_3 | `dtmi:example:grid:plants:solarPlant;1` | Output | 123 |  |  |
 
 ### Representing properties with multiple fields 
 
