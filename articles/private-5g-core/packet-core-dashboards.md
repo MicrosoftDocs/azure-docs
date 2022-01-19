@@ -33,7 +33,7 @@ You can access the following packet core dashboards.
 
 - The **alerts dashboard** provides descriptions and information on the severity and impact of each currently firing alert. The **alarm severity** selector in the top-left hand corner of the Alerts Dashboard allows you to filter out alerts of certain severity levels.
 
-    :::image type="content" source="media/packet-core-dashboards/packet-core-alerts-dashboard.png" alt-text="Screenshot of the packet core alerts dashboard. Panels related to currently active alerts are shown. lightbox="media/packet-core-dashboards/packet-core-alerts-dashboard.png":::
+    :::image type="content" source="media/packet-core-dashboards/packet-core-alerts-dashboard.png" alt-text="Screenshot of the packet core alerts dashboard. Panels related to currently active alerts are shown." lightbox="media/packet-core-dashboards/packet-core-alerts-dashboard.png":::
 
 - The **device and session statistics dashboard** provides information about the device and session procedures being processed by the packet core instance.
 
