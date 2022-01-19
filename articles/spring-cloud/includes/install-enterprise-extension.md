@@ -13,11 +13,10 @@ Use the following line at the end of the Prerequisites section, where relevant. 
 
 -->
 
-The preview version (3.0.0 or later) of the Azure Spring Cloud extension for Enterprise tier. Use the following command to install:
+The Azure Spring Cloud Enterprise tier extension (3.0.0 or later). Use the following command to remove previous versions and install the latest Enterprise tier extension:
 
    ```azurecli
    az extension remove --name spring-cloud
    az extension add \
-       --source https://ascprivatecli.blob.core.windows.net/enterprise/spring_cloud-3.0.0-py3-none-any.whl \
-       --yes
+       --name spring-cloud
    ```
