@@ -1,7 +1,17 @@
+---
+title: Search for machine learning assets across workspaces
+titleSuffix: Azure Machine Learning
+description: Learn about global search in Azure Machine Learning.
+services: machine-learning
+author: saachigopal
+ms.author: sagopal
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: how-to
+ms.date: 1/19/22
+---
 
-
-
-# Search for Azure Machine Learning assets across multiple workspaces (Private Preview)
+# Search for Azure Machine Learning assets across multiple workspaces (Public Preview)
 
 ## Overview 
 
