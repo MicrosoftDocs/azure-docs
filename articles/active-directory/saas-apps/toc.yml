@@ -1710,6 +1710,8 @@
         href: real-links-tutorial.md
       - name: Recognize
         href: recognize-tutorial.md
+      - name: Recurly
+        href: recurly-tutorial.md  
       - name: RedBrick Health
         href: ./redbrick-health-tutorial.md
       - name: RedVector
