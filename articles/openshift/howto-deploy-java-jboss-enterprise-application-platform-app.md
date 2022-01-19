@@ -92,10 +92,10 @@ jboss-on-aro-jakartaee (bootable-jar) $
 
 Let's do a quick review about what we have changed:
 
-1. We have added the `wildfly-jar-maven` plugin to provision the server and the application in a single executable JAR file. The OpenShift deployment unit will be now our server with our application.
-1. On the maven plugin, we have specified a set of Galleon layers. This configuration allows us to trim the server capabilities to only what we need. For complete documentation on Gallean, see [the WildFly documentation](https://docs.wildfly.org/galleon/).
-1. Our application uses Jakarta Faces with Ajax requests, which means there will be information stored in the HTTP Session. We don't want to lose such information if a pod is removed. We could save this information on the client and send it back on each request. However, there are cases where you may decide not to distribute certain information to the clients. For this demo, we have chosen to replicate the session across all pod replicas. To do it, we have added `<distributable />` to the `web.xml` that together with the server clustering capabilities will make the HTTP Session distributable across all pods.
-1. We have added two MicroProfile Health Checks that allow identifying when the application is live and ready to receive requests.
+- We have added the `wildfly-jar-maven` plugin to provision the server and the application in a single executable JAR file. The OpenShift deployment unit will be now our server with our application.
+- On the maven plugin, we have specified a set of Galleon layers. This configuration allows us to trim the server capabilities to only what we need. For complete documentation on Gallean, see [the WildFly documentation](https://docs.wildfly.org/galleon/).
+- Our application uses Jakarta Faces with Ajax requests, which means there will be information stored in the HTTP Session. We don't want to lose such information if a pod is removed. We could save this information on the client and send it back on each request. However, there are cases where you may decide not to distribute certain information to the clients. For this demo, we have chosen to replicate the session across all pod replicas. To do it, we have added `<distributable />` to the `web.xml` that together with the server clustering capabilities will make the HTTP Session distributable across all pods.
+- We have added two MicroProfile Health Checks that allow identifying when the application is live and ready to receive requests.
 
 ## Run the application locally
 
@@ -224,8 +224,8 @@ jboss-on-aro-jakartaee (bootable-jar-openshift) $
 
 Let's do a quick review about what we have changed:
 
-1. We have added a new maven profile named `bootable-jar-openshift` that prepares the Bootable JAR with a specific configuration for running the server on the cloud, for example, it enables the JGroups subsystem to use TCP requests to discover other pods by using the KUBE_PING protocol.
-1. We have added a set of configuration files in the _jboss-on-aro-jakartaee/deployment_ directory. In this directory, you will find the configuration files to deploy the database server and the application.
+- We have added a new maven profile named `bootable-jar-openshift` that prepares the Bootable JAR with a specific configuration for running the server on the cloud, for example, it enables the JGroups subsystem to use TCP requests to discover other pods by using the KUBE_PING protocol.
+- We have added a set of configuration files in the _jboss-on-aro-jakartaee/deployment_ directory. In this directory, you will find the configuration files to deploy the database server and the application.
 
 ### Deploy the database server on OpenShift
 
