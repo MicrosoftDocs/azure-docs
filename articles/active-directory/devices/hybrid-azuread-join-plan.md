@@ -44,7 +44,7 @@ To plan your hybrid Azure AD implementation, you should familiarize yourself wit
 > [!div class="checklist"]
 > - Review supported devices
 > - Review things you should know
-> - Review controlled validation of hybrid Azure AD join
+> - Review targeted deployment of hybrid Azure AD join
 > - Select your scenario based on your identity infrastructure
 > - Review on-premises AD UPN support for hybrid Azure AD join
 
@@ -103,7 +103,7 @@ If your Windows 10 domain joined devices are [Azure AD registered](concept-azure
 
 ### Hybrid Azure AD join for single forest, multiple Azure AD tenants
 
-To register devices as hybrid Azure AD join to respective tenants, organizations need to ensure that the SCP configuration is done on the devices and not in AD. More details on how to accomplish this task can be found in the article [controlled validation of hybrid Azure AD join](hybrid-azuread-join-control.md). It's important for organizations to understand that certain Azure AD capabilities won't work in a single forest, multiple Azure AD tenants configurations.
+To register devices as hybrid Azure AD join to respective tenants, organizations need to ensure that the SCP configuration is done on the devices and not in AD. More details on how to accomplish this task can be found in the article [Hybrid Azure AD join targeted deployment](hybrid-azuread-join-control.md). It's important for organizations to understand that certain Azure AD capabilities won't work in a single forest, multiple Azure AD tenants configurations.
 
 - [Device writeback](../hybrid/how-to-connect-device-writeback.md) won't work. This configuration affects [Device based Conditional Access for on-premise apps that are federated using ADFS](/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises). This configuration also affects [Windows Hello for Business deployment when using the Hybrid Cert Trust model](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust).
 - [Groups writeback](../hybrid/how-to-connect-group-writeback.md) won't work. This configuration affects writeback of Office 365 Groups to a forest with Exchange installed.
