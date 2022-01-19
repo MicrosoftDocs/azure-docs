@@ -1,7 +1,7 @@
 ---
-title: Retrieve load balancer information by using the Azure Instance Metadata Service
+title: Retrieve load balancer information by using Azure Instance Metadata Service
 titleSuffix: Azure Load Balancer
-description: Get started learning about using the Azure Instance Metadata Service to retrieve load balancer information.
+description: Get started learning about using Azure Instance Metadata Service to retrieve load balancer information.
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
@@ -10,11 +10,11 @@ ms.date: 02/12/2021
 ms.author: allensu
 
 ---
-# Retrieve load balancer information by using the Azure Instance Metadata Service
+# Retrieve load balancer information by using Azure Instance Metadata Service
 
 IMDS (Azure Instance Metadata Service) provides information about currently running virtual machine instances. The service is a REST API that's available at a well-known, non-routable IP address (169.254.169.254). 
 
-When you place virtual machine or virtual machine set instances behind an Azure Standard Load Balancer, use the IMDS to retrieve metadata related to the load balancer and the instances.
+When you place virtual machine or virtual machine set instances behind an Azure Standard Load Balancer, you can use IMDS to retrieve metadata related to the load balancer and the instances.
 
 The metadata includes the following information for the virtual machines or virtual machine scale sets:
 
@@ -22,9 +22,9 @@ The metadata includes the following information for the virtual machines or virt
 * Inbound rule configurations of the load balancer of each private IP of the network interface.
 * Outbound rule configurations of the load balancer of each private IP of the network interface.
 
-## Access the load balancer metadata using the IMDS
+## Access the load balancer metadata using IMDS
 
-For more information on how to access the load balancer metadata, see [Use the Azure Instance Metadata Service to access load balancer information](howto-load-balancer-imds.md).
+For more information on how to access the load balancer metadata, see [Use Azure Instance Metadata Service to access load balancer information](howto-load-balancer-imds.md).
 
 ## Troubleshoot common error codes
 
