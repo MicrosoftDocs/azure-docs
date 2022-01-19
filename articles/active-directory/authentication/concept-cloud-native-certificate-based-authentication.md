@@ -1,12 +1,12 @@
 ---
-title: Overview of cloud native certificate-based authentication without federation - Azure Active Directory
-description: Learn about cloud native certificate-based authentication in Azure Active Directory
+title: Overview of cloud-native certificate-based authentication without federation - Azure Active Directory
+description: Learn about cloud-native certificate-based authentication in Azure Active Directory
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/18/2022
+ms.date: 01/19/2022
 
 ms.author: justinha
 author: justinha
@@ -17,28 +17,27 @@ ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
 
-# Overview cloud native certificate-based authentication in Azure Active Directory
+# Overview cloud-native certificate-based authentication in Azure Active Directory
 
-Cloud native certificate-based authentication (CBA) enables customers to allow or require users to authenticate with X.509 certificates against their Azure Active Directory (Azure AD) for applications and browser sign-in. 
+Cloud-native certificate-based authentication (CBA) enables customers to allow or require users to authenticate with X.509 certificates against their Azure Active Directory (Azure AD) for applications and browser sign-in. 
 This feature enables customers to adopt a modern passwordless strategy and authenticate with an X.509 certificate against their Enterprise Public Key Infrastructure (PKI).
 
+## What is cloud-native certificate-based authentication?
 
-## What is Cloud native Certificate-based Authentication?
+Previously, certificate-based authentication required customers to have federated Active Directory Federation Services (AD FS) to be able to authenticate using X.509 certificates against Azure AD. With cloud-native certificate-based authentication, customers will be able to authenticate directly against Azure AD and eliminate the need for federated AD FS thereby helping simplify their environments and reduce costs.
 
-Today, certificate-based authentication requires customers to have federated Active Directory Federation Services (AD FS) to be able to authenticate using X.509 certificates against Azure AD. With this new feature, customers will be able to authenticate directly against Azure AD and eliminate the need for federated AD FS thereby helping simplify their environments and reduce costs.
-
-The following images below show how cloud native CBA simplifies the customer environment by eliminating federated AD FS. 
+The following images below show how cloud-native CBA simplifies the customer environment by eliminating federated AD FS. 
 
 **Certificate-based authentication with federated AD FS**
 
 :::image type="content" border="false" source="./media/concept-cloud-native-certificate-based-authentication/cert-with-federation.png" alt-text="Diagram of certificate-based authentication with federation.":::
 
-**Cloud native certificate-based authentication**
+**Cloud-native certificate-based authentication**
 
-:::image type="content" border="false" source="./media/concept-cloud-native-certificate-based-authentication/cloud-native-cert.png" alt-text="Diagram of cloud native certificate-based authentication.":::
+:::image type="content" border="false" source="./media/concept-cloud-native-certificate-based-authentication/cloud-native-cert.png" alt-text="Diagram of cloud-native certificate-based authentication.":::
 
 
-### Key benefits of using cloud native certificate-based authentication
+### Key benefits of using cloud-native certificate-based authentication
 
 | Benefits | Description |
 |---------|---------|
