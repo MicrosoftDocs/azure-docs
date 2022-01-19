@@ -6,9 +6,9 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 07/31/2020
+ms.date: 01/14/2022
 ms.author: cynthn
-ms.custom: mvc, devx-track-azurepowershell, mode-api
+ms.custom: mvc, devx-track-azurepowershell,
 ---
 
 # Quickstart: Create a Linux virtual machine in Azure with PowerShell
@@ -25,20 +25,6 @@ The Azure Cloud Shell is a free interactive shell that you can use to run the st
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
 
-## Create SSH key pair
-
-Use [ssh-keygen](https://www.ssh.com/ssh/keygen/) to create an SSH key pair. If you already have an SSH key pair, you can skip this step.
-
-
-```azurepowershell-interactive
-ssh-keygen -t rsa -b 4096
-```
-
-You will be prompted to provide a filename for the key pair or you can hit **Enter** to use the default location of `/home/<username>/.ssh/id_rsa`. You will also be able to create a password for the keys, if you like.
-
-For more detailed information on how to create SSH key pairs, see [How to use SSH keys with Windows](ssh-from-windows.md).
-
-If you create your SSH key pair using the Cloud Shell, it will be stored in a [storage account that is automatically created by Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Don't delete the storage account, or the files share in it, until after you have retrieved your keys or you will lose access to the VM. 
 
 ## Create a resource group
 
@@ -48,130 +34,47 @@ Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.
 New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
-## Create virtual network resources
-
-Create a virtual network, subnet, and a public IP address. These resources are used to provide network connectivity to the VM and connect it to the internet:
-
-```azurepowershell-interactive
-# Create a subnet configuration
-$subnetConfig = New-AzVirtualNetworkSubnetConfig `
-  -Name "mySubnet" `
-  -AddressPrefix 192.168.1.0/24
-
-# Create a virtual network
-$vnet = New-AzVirtualNetwork `
-  -ResourceGroupName "myResourceGroup" `
-  -Location "EastUS" `
-  -Name "myVNET" `
-  -AddressPrefix 192.168.0.0/16 `
-  -Subnet $subnetConfig
-
-# Create a public IP address and specify a DNS name
-$pip = New-AzPublicIpAddress `
-  -ResourceGroupName "myResourceGroup" `
-  -Location "EastUS" `
-  -AllocationMethod Static `
-  -IdleTimeoutInMinutes 4 `
-  -Name "mypublicdns$(Get-Random)"
-```
-
-Create an Azure Network Security Group and traffic rule. The Network Security Group secures the VM with inbound and outbound rules. In the following example, an inbound rule is created for TCP port 22 that allows SSH connections. To allow incoming web traffic, an inbound rule for TCP port 80 is also created.
-
-```azurepowershell-interactive
-# Create an inbound network security group rule for port 22
-$nsgRuleSSH = New-AzNetworkSecurityRuleConfig `
-  -Name "myNetworkSecurityGroupRuleSSH"  `
-  -Protocol "Tcp" `
-  -Direction "Inbound" `
-  -Priority 1000 `
-  -SourceAddressPrefix * `
-  -SourcePortRange * `
-  -DestinationAddressPrefix * `
-  -DestinationPortRange 22 `
-  -Access "Allow"
-
-# Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzNetworkSecurityRuleConfig `
-  -Name "myNetworkSecurityGroupRuleWWW"  `
-  -Protocol "Tcp" `
-  -Direction "Inbound" `
-  -Priority 1001 `
-  -SourceAddressPrefix * `
-  -SourcePortRange * `
-  -DestinationAddressPrefix * `
-  -DestinationPortRange 80 `
-  -Access "Allow"
-
-# Create a network security group
-$nsg = New-AzNetworkSecurityGroup `
-  -ResourceGroupName "myResourceGroup" `
-  -Location "EastUS" `
-  -Name "myNetworkSecurityGroup" `
-  -SecurityRules $nsgRuleSSH,$nsgRuleWeb
-```
-
-Create a virtual network interface card (NIC) with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). The virtual NIC connects the VM to a subnet, Network Security Group, and public IP address.
-
-```azurepowershell-interactive
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzNetworkInterface `
-  -Name "myNic" `
-  -ResourceGroupName "myResourceGroup" `
-  -Location "EastUS" `
-  -SubnetId $vnet.Subnets[0].Id `
-  -PublicIpAddressId $pip.Id `
-  -NetworkSecurityGroupId $nsg.Id
-```
 
 ## Create a virtual machine
 
-To create a VM in PowerShell, you create a configuration that has settings like the image to use, size, and authentication options. Then the configuration is used to build the VM.
+We will be automatically generating an SSH key pair to use for connecting to the VM. The public key that is created using `-GenerateSshKey` will be stored in Azure as a resource, using the name you provide as `SshKeyName`. The SSH key resource can be reused for creating additional VMs. Both the public and private keys will also downloaded for you. When you create your SSH key pair using the Cloud Shell, the keys are stored in a [storage account that is automatically created by Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Don't delete the storage account, or the file share in it, until after you have retrieved your keys or you will lose access to the VM.
 
-Define the SSH credentials, OS information, and VM size. In this example, the SSH key is stored in `~/.ssh/id_rsa.pub`. 
+You will be prompted for a user name that will be used when you connect to the VM. You will also be asked for a password, which you can leave blank. Password login for the VM is disabled when using an SSH key.
 
-```azurepowershell-interactive
-# Define a credential object
-$securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
-
-# Create a virtual machine configuration
-$vmConfig = New-AzVMConfig `
-  -VMName "myVM" `
-  -VMSize "Standard_D1_v2" | `
-Set-AzVMOperatingSystem `
-  -Linux `
-  -ComputerName "myVM" `
-  -Credential $cred `
-  -DisablePasswordAuthentication | `
-Set-AzVMSourceImage `
-  -PublisherName "Canonical" `
-  -Offer "UbuntuServer" `
-  -Skus "18.04-LTS" `
-  -Version "latest" | `
-Add-AzVMNetworkInterface `
-  -Id $nic.Id
-
-# Configure the SSH key
-$sshPublicKey = cat ~/.ssh/id_rsa.pub
-Add-AzVMSshPublicKey `
-  -VM $vmconfig `
-  -KeyData $sshPublicKey `
-  -Path "/home/azureuser/.ssh/authorized_keys"
-```
-
-Now, combine the previous configuration definitions to create with [New-AzVM](/powershell/module/az.compute/new-azvm):
+In this example, you create a VM named *myVM*, in *East US*, using the *Standard_B2s* VM size.
 
 ```azurepowershell-interactive
-New-AzVM `
-  -ResourceGroupName "myResourceGroup" `
-  -Location eastus -VM $vmConfig
+New-AzVm `
+    -ResourceGroupName "myResourceGroup" `
+    -Name "myVM" `
+    -Location "East US" `
+    -Image UbuntuLTS `
+    -size Standard_B2s `
+    -PublicIpAddressName myPubIP `
+    -OpenPorts 80,22 `
+    -GenerateSshKey `
+    -SshKeyName mySSHKey
 ```
+
+The output will give you the location of the local copy of the SSH key. For example:
+
+```output
+Private key is saved to /home/user/.ssh/1234567891
+Public key is saved to /home/user/.ssh/1234567891.pub
+```
+
+Make a note of the path to your private key to use later.
 
 It will take a few minutes for your VM to be deployed. When the deployment is finished, move on to the next section.
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Connect to the VM
+
+You need to change the permission on the SSH key using `chmod`. Replace *~/.ssh/1234567891* in the following example with the private key name and path from the earlier output.
+
+```azurepowershell-interactive
+chmod 600 ~/.ssh/1234567891
+```
 
 Create an SSH connection with the VM using the public IP address. To see the public IP address of the VM, use the [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) cmdlet:
 
@@ -179,14 +82,11 @@ Create an SSH connection with the VM using the public IP address. To see the pub
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ```
 
-Using the same shell you used to create your SSH key pair, paste the the following command into the shell to create an SSH session. Replace *10.111.12.123* with the IP address of your VM.
+Using the same shell you used to create your SSH key pair, paste the the following command into the shell to create an SSH session. Replace *~/.ssh/1234567891* in the following example with the private key name and path from the earlier output. Replace *10.111.12.123* with the IP address of your VM and *azureuser* with the name you provided when you created the VM.
 
 ```bash
-ssh azureuser@10.111.12.123
+ssh -i ~/.ssh/1234567891 azureuser@10.111.12.123
 ```
-
-When prompted, the login user name is *azureuser*. If a passphrase is used with your SSH keys, you need to enter that when prompted.
-
 
 ## Install NGINX
 
