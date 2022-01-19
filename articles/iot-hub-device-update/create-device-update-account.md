@@ -41,26 +41,26 @@ To get started with Device Update you'll need to create a Device Update account,
 
 6. Optionally, you can check the box to assign the Device Update administrator role to yourself. You can also use the steps listed in the "Configure access control roles" section to provide a combination of roles to users and applications for the right level of access.
 
-8. Click **Next: Instance**
+7. Click **Next: Instance**
 
-An instance of Device Update is associated with a single IoT hub. Select the IoT hub that will be used with Device Update. We will create a new Shared Access policy during this step to ensure Device Update uses only the required permissions to work with IoT Hub (registry write and service connect). This policy ensures that access is only limited to Device Update.
+    An instance of Device Update is associated with a single IoT hub. Select the IoT hub that will be used with Device Update. We will create a new Shared Access policy during this step to ensure Device Update uses only the required permissions to work with IoT Hub (registry write and service connect). This policy ensures that access is only limited to Device Update.
 
-9. Specify an instance name and select your IoT Hub
+8. Specify an instance name and select your IoT Hub
 
    :::image type="content" source="media/create-device-update-account/instance-details.png" alt-text="Screenshot of instance details." lightbox="media/create-device-update-account/instance-details.png":::
 
    > [!NOTE] 
    > The IoT Hub you link to your Device Update resource, doesn't need to be in the same region as your Device Update Account. However, for better performance it is recommended that your IoT Hub be in a region same as or close to the region of your Device Update account. 
 
-10. Click **Next: Review + Create**. After validation, click on **Create**.
+9. Click **Next: Review + Create**. After validation, click on **Create**.
 
    :::image type="content" source="media/create-device-update-account/account-review.png" alt-text="Screenshot of account review." lightbox="media/create-device-update-account/account-review.png":::
 
-11. Review the details and then select **Create**. You will see your deployment is in progress. 
+10. Review the details and then select **Create**. You will see your deployment is in progress. 
 
    :::image type="content" source="media/create-device-update-account/account-deployment-inprogress.png" alt-text="Screenshot of account deployment in progress." lightbox="media/create-device-update-account/account-deployment-inprogress.png":::
 
-12. You will see the deployment status change to "complete" in a few minutes. Click **Go to resource**
+11. You will see the deployment status change to "complete" in a few minutes. Click **Go to resource**
 
    :::image type="content" source="media/create-device-update-account/account-complete.png" alt-text="Screenshot of account deployment complete." lightbox="media/create-device-update-account/account-complete.png":::
 
