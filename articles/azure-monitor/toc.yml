@@ -280,7 +280,7 @@ items:
       - name: Configure basic logs
         href: logs/basic-logs-configure.md
       - name: Archive a table
-        hred: logs/archived-logs-configure.md
+        href: logs/archived-logs-configure.md
       - name: Restore a table
         href: logs/restore.md
       - name: Create a search job

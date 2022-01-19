@@ -93,15 +93,6 @@ For a detailed comparison of the schema for workspace-based and classic applicat
 
 [![Diagram that shows the Azure Monitor Logs structure for Application Insights.](media/data-platform-logs/logs-structure-ai.png)](media/data-platform-logs/logs-structure-ai.png#lightbox)
 
-## Types of log data
-There are multiple 
-
-| Type | Description |
-|:---|:---|
-| Standard  | Standard log data collected in a workspace. Available for all features of Azure Monitor. |
-| [Basic](basic-logs.md) | Reduced ingestion cost. Intended for high-value verbose logs that don’t require analytics and alerts. |
-| [Archived](archive-logs.md) |  |
-
 ## Relationship to Azure Data Explorer
 Azure Monitor Logs is based on Azure Data Explorer. A Log Analytics workspace is roughly the equivalent of a database in Azure Data Explorer. Tables are structured the same, and both use KQL. 
 

@@ -1,11 +1,10 @@
 ---
-title: Data Collection Rules in Azure Monitor
-description: Overview of data collection rules (DCRs) in Azure Monitor including their contents and structure and how you can create and work with them.
+title: Data collection rule transformations
+description: Use transformations in a data collection rule in Azure Monitor to filter and modify incoming data.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
-ms.custom: references_region
 
 ---
 
@@ -119,16 +118,16 @@ The only supported data sources for the KQL statement are as follows:
 
 –	**source**, which represents the source data. For example:
 
-    ```kql     
-    source
-    | where ActivityId == "383112e4-a7a8-4b94-a701-4266dfc18e41"
-    | project PreciseTimeStamp, Message
-    ```
+```kql     
+source
+| where ActivityId == "383112e4-a7a8-4b94-a701-4266dfc18e41"
+| project PreciseTimeStamp, Message
+```
 
 –	print](/azure/data-explorer/kusto/query/printoperator) operator, which always produces a single row. For example:
  	
-     ```kusto
-     print x = 2 + 2, y = 5 | extend z = exp2(x) + exp2(y)
+```kusto
+print x = 2 + 2, y = 5 | extend z = exp2(x) + exp2(y)
 ```
 
 
