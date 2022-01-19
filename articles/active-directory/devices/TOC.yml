@@ -29,15 +29,22 @@
   items:
   - name: Plan your Azure AD device deployment
     href: plan-device-deployment.md
+  - name: Azure AD join
+    expanded: false
+    items:
+    - name: Plan your Azure AD join implementation
+      href: azureadjoin-plan.md
+    - name: Assign local admins to Azure AD joined devices
+      href: assign-local-admin.md
   - name: Hybrid Azure AD join
     expanded: false
     items:
     - name: Plan your hybrid Azure AD join implementation
       href: hybrid-azuread-join-plan.md
-    - name: Configure hybrid Azure AD join
-      href: howto-hybrid-azure-ad-join.md
     - name: Targeted hybrid Azure AD join deployment
       href: hybrid-azuread-join-control.md 
+    - name: Configure hybrid Azure AD join
+      href: howto-hybrid-azure-ad-join.md
     - name: Verifying hybrid Azure AD join
       href: howto-hybrid-join-verify.md
     - name: Troubleshoot hybrid Azure AD join
@@ -51,10 +58,6 @@
         href: troubleshoot-device-dsregcmd.md
       - name: Troubleshoot hybrid Azure AD joined down level Windows devices
         href: troubleshoot-hybrid-join-windows-legacy.md
-  - name: Plan your Azure AD join implementation
-    href: azureadjoin-plan.md
-  - name: Assign local admins to Azure AD joined devices
-    href: assign-local-admin.md
   - name: Manage device identities
     href: device-management-azure-portal.md
   - name: Manage stale devices
