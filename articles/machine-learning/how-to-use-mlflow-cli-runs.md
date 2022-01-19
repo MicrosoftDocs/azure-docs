@@ -235,7 +235,7 @@ runs.head(10)
 ## Automatic logging
 With Azure Machine Learning and MLFlow, users are able to automatically log metrics, model parameters and mode artifacts automatically when train models using a [variety of popular machine learning libraries](https://mlflow.org/docs/latest/tracking.html#automatic-logging). 
 
-To enable [Automatic Logging](https://mlflow.org/docs/latest/tracking.html#automatic-logging) insert the following code before your training code:
+To enable [automatic logging](https://mlflow.org/docs/latest/tracking.html#automatic-logging) insert the following code before your training code:
 
 ```Python
 mlflow.autolog()
