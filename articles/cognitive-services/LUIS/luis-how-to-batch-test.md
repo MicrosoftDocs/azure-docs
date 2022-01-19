@@ -3,13 +3,14 @@ title: How to perform a batch test - LUIS
 titleSuffix: Azure Cognitive Services
 description: Use Language Understanding (LUIS) batch testing sets to find utterances with incorrect intents and entities.
 services: cognitive-services
-
+author: aahill
+ms.author: aahi
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 01/07/2022
+ms.date: 01/19/2022
 
 ---
 
@@ -40,6 +41,8 @@ If there are errors in the batch testing, you can either add more utterances to 
 
 
 <a name="batch-testing"></a>
+
+# [LUIS portal](#tab/portal)
 
 ## Batch testing using the LUIS portal 
 
@@ -173,6 +176,8 @@ The two sections of the chart in red indicate utterances that did not match the 
 
 The two sections of the chart in green did match the expected prediction.
 
+# [REST API](#tab/rest)
+
 ## Batch testing using the REST API 
 
 LUIS lets you batch test using the LUIS portal and REST API. The endpoints for the REST API are listed below. For information on batch testing using the LUIS portal, see [Tutorial: batch test data sets](). Use the complete URLs below, replacing the placeholder values with your own LUIS Prediction key and endpoint. 
@@ -267,6 +272,8 @@ There are several objects returned by the API:
   * Using the `verbose` flag, you can get more information about the entity, such as `entityTextFScore` and `entityTypeFScore`.
 * Provided utterances with the predicted and labeled intent names
 * A list of false positive entities, and a list of false negative entities.
+
+---
 
 ## Next steps
 
