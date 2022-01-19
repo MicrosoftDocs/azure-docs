@@ -42,7 +42,7 @@ When regional virtual network integration is enabled, your app makes outbound ca
 
 When all traffic routing is enabled, all outbound traffic is sent into your virtual network. If all traffic routing isn't enabled, only private traffic (RFC1918) and service endpoints configured on the integration subnet will be sent into the virtual network and outbound traffic to the internet will go through the same channels as normal.
 
-The feature supports only one virtual interface per worker. One virtual interface per worker means one regional virtual network integration per App Service plan. All the apps in the same App Service plan can use the same virtual network integration. If you need an app to connect to another virtual network, you need to create another App Service plan. The virtual interface used isn't a resource that customers have direct access to.
+The feature supports only one virtual interface per worker. One virtual interface per worker means one regional virtual network integration per App Service plan. All the apps in the same App Service plan can only use the same virtual network integration to a specific subnet. If you need an app to connect to another virtual network or another subnet in the same virtual network, you need to create another App Service plan. The virtual interface used isn't a resource that customers have direct access to.
 
 Because of the nature of how this technology operates, the traffic that's used with virtual network integration doesn't show up in Azure Network Watcher or NSG flow logs.
 
@@ -60,7 +60,7 @@ When you scale up or down in size, the required address space is doubled for a s
 
 <sup>*</sup>Assumes that you'll need to scale up or down in either size or SKU at some point.
 
-Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity, use a `/26` with 64 addresses.
+Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity, use a `/26` with 64 addresses. When creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /27 is required.
 
 When you want your apps in your plan to reach a virtual network that's already connected to by apps in another plan, select a different subnet than the one being used by the preexisting virtual network integration.
 

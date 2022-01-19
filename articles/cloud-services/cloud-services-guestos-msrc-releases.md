@@ -11,7 +11,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/11/2022
+ms.date: 1/18/2022
 ms.author: gunnarc
 ---
 
@@ -52,19 +52,19 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4578955]: https://support.microsoft.com/kb/4578955
 [4578953]: https://support.microsoft.com/kb/4578953
 [4578956]: https://support.microsoft.com/kb/4578956
-[4578950]: https://support.microsoft.com/kb/4578950  
-[4578954]: https://support.microsoft.com/kb/4578954 
-[5004335]: https://support.microsoft.com/kb/5004335 
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[5004335]: https://support.microsoft.com/kb/5004335
 [5008244]: https://support.microsoft.com/kb/5008244
 [5008277]: https://support.microsoft.com/kb/5008277
 [5008263]: https://support.microsoft.com/kb/5008263
-[5001401]: https://support.microsoft.com/kb/5001401 
-[5001403]: https://support.microsoft.com/kb/5001403 
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
 [4578013]: https://support.microsoft.com/kb/4578013
 [5005698]: https://support.microsoft.com/kb/5005698
 [5006749]: https://support.microsoft.com/kb/5006749
-[5008287]: https://support.microsoft.com/kb/5008287 
-[4494175 ]: https://support.microsoft.com/kb/4494175 
+[5008287]: https://support.microsoft.com/kb/5008287
+[4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
 [2.117]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 [3.104]: ./cloud-services-guestos-update-matrix.md#family-3-releases

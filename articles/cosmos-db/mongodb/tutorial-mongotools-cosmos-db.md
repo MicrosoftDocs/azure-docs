@@ -1,8 +1,8 @@
 ---
 title: Migrate MongoDB offline to Azure Cosmos DB API for MongoDB, using MongoDB native tools
 description: Learn how MongoDB native tools can be used to migrate small datasets from MongoDB instances to Azure Cosmos DB
-author: anfeldma-ms
-ms.author: anfeldma
+author: rothja
+ms.author: jroth
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
