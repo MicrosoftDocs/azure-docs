@@ -213,6 +213,8 @@ items:
               href: delete-managed-instance.md
         - name: Upgrade
           items:
+            - name: Automatic upgrade
+              href: upgrade-sql-managed-instance-auto.md
             - name: Direct connectivity mode
               items:
                 - name: SQL Managed Instance direct - CLI
