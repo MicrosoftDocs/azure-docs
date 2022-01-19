@@ -127,10 +127,17 @@ DPS also supports [Availability Zones](../availability-zones/az-overview.md). An
 * Australia East
 * Brazil South
 * Canada Central
+* Central US
+* East US
+* East US 2
+* East US EUAP
 * Japan East
 * North Europe
-* West Europe
+* South Central US
+* Southeast Asia
 * UK South
+* West Europe
+* West US 2
 
 ## Quotas and Limits
 
