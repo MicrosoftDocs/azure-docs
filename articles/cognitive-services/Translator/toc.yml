@@ -132,7 +132,7 @@ items:
         href: document-translation/reference/cancel-translation.md
     - name: FAQ
       href: document-translation/faq.md
-- name: Custom Translator Portal
+- name: Custom Translator
   expanded: true
   items:
   - name: What is the Custom Translator?
