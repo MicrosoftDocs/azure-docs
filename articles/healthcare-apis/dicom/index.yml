@@ -32,7 +32,7 @@ landingContent:
 
   - title: Using your DICOM service
     linkLists:
-      - linkListType: tutorial
+      - linkListType: tutorial 
         links:
           - text: Using DICOMweb Standard APIs with C#
             url: dicomweb-standard-apis-c-sharp.md
