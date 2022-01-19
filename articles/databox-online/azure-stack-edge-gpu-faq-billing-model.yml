@@ -26,9 +26,9 @@ sections:
     - question: |
         Are there other fees associated with my Azure Stack Edge device?
       answer: |
-        Yes. In addition to the monthly subscription fee, there are onetime fees for shipping and customs. Other onetime fees may be charged to replace a device that was lost or damaged while in your possession. There's also a fee if you use the Return with Secure Data Destruction option. For information about onetime fees, see **Frequently asked questions** on the [Azure Stack Edge Pricing](https://azure.microsoft.com/en-us/pricing/details/azure-stack/edge/) page.
+        Yes. In addition to the monthly subscription fee, there are onetime fees for shipping and customs. Other onetime fees are charged for things like a damaged or lost device. For a list of fees, see **Frequently asked questions** on the [Azure Stack Edge Pricing](https://azure.microsoft.com/en-us/pricing/details/azure-stack/edge/) page.
 
-        No traditional on-premises software license is required for an Azure Stack Edge device.
+        No traditional on-premises software license is required for an Azure Stack Edge device, although guest virtual machines (VMs) may require their own licenses under Bring Your Own License (BYOL).
 
     - question: |
         When does billing start and stop for my Azure Stack Edge device?
