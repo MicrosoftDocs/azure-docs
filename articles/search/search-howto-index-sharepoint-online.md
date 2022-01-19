@@ -28,12 +28,12 @@ An indexer in Azure Cognitive Search is a crawler that extracts searchable data 
 
 + Index content and metadata from one or more document libraries.
 + Incremental indexing, where the indexer identifies which files have changed and indexes only the updated content. For example, if five PDFs are originally indexed and one is updated, only the updated PDF is indexed.
-+ Deletion detection is built-in. If a document is deleted from a document library, the indexer will detect the delete on the next indexer run and remove the document from the index.
++ Deletion detection is built in. If a document is deleted from a document library, the indexer will detect the delete on the next indexer run and remove the document from the index.
 + Text and normalized images will be extracted by default from the documents that are indexed. Optionally a [skillset](cognitive-search-working-with-skillsets.md) can be added to the pipeline for [AI enrichment](cognitive-search-concept-intro.md). 
 
 ## Prerequisites
 
-+ [SharePoint for Microsoft 365](../../sharepoint/introduction) cloud service
++ [SharePoint for Microsoft 365](/sharepoint/introduction) cloud service
 
 + Files in a [document library](https://support.microsoft.com/office/what-is-a-document-library-3b5976dd-65cf-4c9e-bf5a-713c10ca2872)
 
@@ -73,7 +73,7 @@ The SharePoint indexer supports both [delegated and application](/graph/auth/aut
 
 ### Step 3: Create an Azure AD application
 
-The SharePoint indexer will use this Azure AD application for authentication.
+The SharePoint indexer will use this Azure Active Directory (Azure AD) application for authentication.
 
 1. [Sign in to Azure portal](https://portal.azure.com/).
 
@@ -146,7 +146,7 @@ A data source specifies which data to index, credentials needed to access the da
 For SharePoint indexing, the data source must have the following required properties:
 
 + **name** is the unique name of the data source within your search service.
-+ **type** must be "sharepoint". This is case sensitive.
++ **type** must be "sharepoint". This value is case-sensitive.
 + **credentials** provide the SharePoint endpoint and the Azure AD application (client) ID. An example SharePoint endpoint is `https://microsoft.sharepoint.com/teams/MySharePointSite`. You can get the endpoint by navigating to the home page of your SharePoint site and copying the URL from the browser.
 + **container** specifies which document library to index. More information on creating the container can be found in the [Controlling which documents are indexed](#controlling-which-documents-are-indexed) section of this document.
 
@@ -213,7 +213,7 @@ api-key: [admin key]
 
 An indexer connects a data source with a target search index and provides a schedule to automate the data refresh. Once the index and data source have been created, you're ready to create the indexer.
 
-During this section you’ll be asked to login with your organization credentials that have access to the SharePoint site. If possible, we recommend creating a new organizational user account and giving that new user the exact permissions that you want the indexer to have.
+During this section you’ll be asked to sign in with your organization credentials that have access to the SharePoint site. If possible, we recommend creating a new organizational user account and giving that new user the exact permissions that you want the indexer to have.
 
 There are a few steps to creating the indexer:
 
@@ -224,21 +224,31 @@ There are a few steps to creating the indexer:
     Content-Type: application/json
     api-key: [admin key]
     
-        {
-          "name" : "sharepoint-indexer",
-          "dataSourceName" : "sharepoint-datasource",
-          "targetIndexName" : "sharepoint-index",
-          "fieldMappings" : [
+    {
+        "name" : "sharepoint-indexer",
+        "dataSourceName" : "sharepoint-datasource",
+        "targetIndexName" : "sharepoint-index",
+        "parameters": {
+        "batchSize": null,
+        "maxFailedItems": null,
+        "maxFailedItemsPerBatch": null,
+        "base64EncodeKeys": null,
+        "configuration:" {
+            "indexedFileNameExtensions" : null,
+            "excludedFileNameExtensions" : null,
+            "dataToExtract": "contentAndMetadata"
+          }
+        },
+        "schedule" : { },
+        "fieldMappings" : [
             { 
               "sourceFieldName" : "metadata_spo_site_library_item_id", 
               "targetFieldName" : "id", 
               "mappingFunction" : { 
                 "name" : "base64Encode" 
               } 
-            }
-          ]
-        }
-    
+          }
+    }
     ```
 
 1. When creating the indexer for the first time it will fail and you’ll see the following error. Go to the link in the error message. If you don’t go to the link within 10 minutes the code will expire and you’ll need to recreate the [data source](#create-data-source).
@@ -281,16 +291,20 @@ There are a few steps to creating the indexer:
         "maxFailedItemsPerBatch": null,
         "base64EncodeKeys": null,
         "configuration:" {
-            "indexedFileNameExtensions" : ".pdf,.docx",
-            "excludedFileNameExtensions" : ".png,.jpeg",
-            "dataToExtract": "contentAndMetadata",
-            "parsingMode": "default",
-            "imageAction": "none"
+            "indexedFileNameExtensions" : null,
+            "excludedFileNameExtensions" : null,
+            "dataToExtract": "contentAndMetadata"
           }
         },
         "schedule" : { },
-        "fieldMappings" : [ ]
-      }
+        "fieldMappings" : [
+            { 
+              "sourceFieldName" : "metadata_spo_site_library_item_id", 
+              "targetFieldName" : "id", 
+              "mappingFunction" : { 
+                "name" : "base64Encode" 
+              } 
+          }
     }
     ```
 
@@ -310,7 +324,7 @@ api-key: [admin key]
 
 ## Updating the data source
 
-If there are no updates to the data source object, the indexer can run on a schedule without any user interaction. However, every time the Azure Cognitive Search data source object is updated, you will need to login again in order for the indexer to run. For example, if you change the data source query, you will need to login again using the `https://microsoft.com/devicelogin` and a new code.
+If there are no updates to the data source object, the indexer can run on a schedule without any user interaction. However, every time the Azure Cognitive Search data source object is updated, you will need to sign in again in order for the indexer to run. For example, if you change the data source query, sign in again using the `https://microsoft.com/devicelogin` and a new code.
 
 Once the data source has been updated, follow the below steps:
 
@@ -359,12 +373,31 @@ The SharePoint indexer also supports metadata specific to each document type. Mo
 > [!NOTE]
 > To index custom metadata, "additionalColumns" must be specified in the [query parameter of the data source](#query).
 
+## Include or exclude by file type
+
+You can control which files are indexed by setting inclusion and exclusion criteria in the "parameters" section of the indexer definition.
+
+Include specific file extensions by setting `"indexedFileNameExtensions"` to a comma-separated list of file extensions (with a leading dot). Exclude specific file extensions by setting `"excludedFileNameExtensions"` to the extensions that should be skipped. If the same extension is in both lists, it will be excluded from indexing.
+
+```http
+PUT /indexers/[indexer name]?api-version=2020-06-30
+{
+    "parameters" : { 
+        "configuration" : { 
+            "indexedFileNameExtensions" : ".pdf, .docx",
+            "excludedFileNameExtensions" : ".png, .jpeg" 
+        } 
+    }
+}
+```
+
 <a name="controlling-which-documents-are-indexed"></a>
 
 ## Controlling which documents are indexed
 
-A single SharePoint indexer can index content from one or more document libraries. Use the "container*"parameter when creating your data source to indicate the document libraries that you want to index. 
-The data source "container" has two properties: "name" and "query". 
+A single SharePoint indexer can index content from one or more document libraries. Use the "container" parameter on the data source definition to indicate which sites and document libraries to index from.
+T
+The [data source "container" section](#create-data-source) has two properties for this task: "name" and "query".
 
 ### Name
 
@@ -392,24 +425,6 @@ The "query" parameter of the data source is made up of keyword/value pairs. The 
 | includeLibrary | Index all content from this library. The value is the fully-qualified path to the library, which can be copied from your browser: <br><br>Example 1 (fully-qualified path): <br><br>```"container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/mysite/MyDocumentLibrary" }``` <br><br>Example 2 (URI copied from your browser): <br><br>```"container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/teams/mysite/MyDocumentLibrary/Forms/AllItems.aspx" }``` |
 | excludeLibrary | Do not index content from this library. The value is the fully-qualified path to the library, which can be copied from your browser: <br><br> Example 1 (fully-qualified path): <br><br>```"container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mysite.sharepoint.com/subsite1; excludeLibrary=https://mysite.sharepoint.com/subsite1/MyDocumentLibrary" }``` <br><br> Example 2 (URI copied from your browser): <br><br>```"container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mycompany.sharepoint.com/teams/mysite; excludeLibrary=https://mycompany.sharepoint.com/teams/mysite/MyDocumentLibrary/Forms/AllItems.aspx" }``` |
 | additionalColumns | Index columns from the document library. The value is a comma-separated list of column names you want to index. Use a double backslash to escape semicolons and commas in column names: <br><br> Example 1 (additionalColumns=MyCustomColumn,MyCustomColumn2):  <br><br>```"container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/mysite/MyDocumentLibrary;additionalColumns=MyCustomColumn,MyCustomColumn2" }``` <br><br> Example 2 (escape characters using double backslash): <br><br> ```"container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/teams/mysite/MyDocumentLibrary/Forms/AllItems.aspx;additionalColumns=MyCustomColumnWith\\,,MyCustomColumnWith\\;" }``` |
-
-## How to index by file type
-
-You can control which files are indexed by setting inclusion and exclusion criteria.
-
-Include specific file extensions by setting `"indexedFileNameExtensions"` to a comma-separated list of file extensions (with a leading dot). Exclude specific file extensions by setting `"excludedFileNameExtensions"` to the extensions that should be skipped. If the same extension is in both lists, it will be excluded from indexing.
-
-```http
-PUT /indexers/[indexer name]?api-version=2020-06-30
-{
-    "parameters" : { 
-        "configuration" : { 
-            "indexedFileNameExtensions" : ".pdf, .docx",
-            "excludedFileNameExtensions" : ".png, .jpeg" 
-        } 
-    }
-}
-```
 
 ## Handling errors
 
