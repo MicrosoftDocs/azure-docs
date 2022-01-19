@@ -23,7 +23,7 @@ This tutorial provides the steps to connect and route device data from IoT Hub t
 
 - An active Azure subscription - [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - FHIR service resource with at least one IoT connector - [Deploy IoT connector using Azure portal](deploy-iot-connector-in-azure.md)
-- Azure IoT Hub resource connected with real or simulated device(s) - [Create an IoT Hub using the Azure portal](/azure/iot-hub/iot-hub-create-through-portal)
+- Azure IoT Hub resource connected with real or simulated device(s) - [Create an IoT Hub using the Azure portal](../../iot-hub/iot-hub-create-through-portal.md)
 
 > [!TIP]
 > If you are using an Azure IoT Hub simulated device application, feel free to pick the application of your choice amongst different supported languages and systems.
@@ -34,17 +34,17 @@ Below is a diagram of the IoT device message flow from IoT Hub into IoT connecto
 
 ##  Create a managed identity for IoT Hub
 
-For this tutorial, we'll be using an IoT Hub with a [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview).
+For this tutorial, we'll be using an IoT Hub with a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
 
-The user-assigned managed identity will be used to provide access to your IoT connector device message event hub using [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview). 
+The user-assigned managed identity will be used to provide access to your IoT connector device message event hub using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). 
 
-Follow these directions to create a user-assigned managed identity with your IoT Hub: [IoT Hub support for managed identities](/azure/iot-hub/iot-hub-managed-identity#user-assigned-managed-identity). 
+Follow these directions to create a user-assigned managed identity with your IoT Hub: [IoT Hub support for managed identities](../../iot-hub/iot-hub-managed-identity.md#user-assigned-managed-identity). 
 
 ## Connect IoT Hub with IoT connector
 
 Azure IoT Hub supports a feature called [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md). Message routing provides the capability to send device data to various Azure services (for example: Event Hubs, Storage Accounts, and Service Buses). IoT connector uses this feature to allow an IoT Hub to connect and send device messages to the IoT connector device message event hub endpoint.
 
-Follow these directions to grant access to the IoT Hub user-assigned managed identity to your IoT connector device message event hub and set up message routing: [Configure message routing with managed identities](/azure/iot-hub/iot-hub-managed-identity#egress-connectivity-from-iot-hub-to-other-azure-resources). 
+Follow these directions to grant access to the IoT Hub user-assigned managed identity to your IoT connector device message event hub and set up message routing: [Configure message routing with managed identities](../../iot-hub/iot-hub-managed-identity.md#egress-connectivity-from-iot-hub-to-other-azure-resources). 
 
 ## Send device message to IoT Hub
 

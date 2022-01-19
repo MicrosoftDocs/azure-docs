@@ -10,7 +10,7 @@ ms.date: 08/11/2021
 ---
 # How to get lineage from Erwin into Azure Purview
 
-This article elaborates on the data lineage aspects of Erwin source in Azure Purview. The prerequisite to see data lineage in Purview for Erwin is to [scan your Erwin.](../purview/register-scan-erwin-source.md) 
+This article elaborates on the data lineage aspects of Erwin source in Azure Purview. The prerequisite to see data lineage in Azure Purview for Erwin is to [scan your Erwin.](../purview/register-scan-erwin-source.md) 
 
 ## Lineage of Erwin artifacts in Azure Purview
 

@@ -15,13 +15,13 @@ Use Azure Static Web Apps enterprise-grade edge (Preview) to enable faster page 
 
 Key features of Azure Static Web Apps enterprise-grade edge include:
 
-* Global presence in 118+ [edge locations](/azure/frontdoor/edge-locations-by-region) across 100 metro cities.
+* Global presence in 118+ [edge locations](../frontdoor/edge-locations-by-region.md) across 100 metro cities.
 
-* Caching assets at the [edge](/azure/frontdoor/front-door-caching).
+* Caching assets at the [edge](../frontdoor/front-door-caching.md).
 
-* Proactive protection against [Distributed Denial of Service (DDoS) attacks](/azure/frontdoor/front-door-ddos).
+* Proactive protection against [Distributed Denial of Service (DDoS) attacks](../frontdoor/front-door-ddos.md).
 
-* Native support of end-to-end IPv6 connectivity and [HTTP/2 protocol](/azure/frontdoor/front-door-http2.md).
+* Native support of end-to-end IPv6 connectivity and [HTTP/2 protocol](../frontdoor/front-door-http2.md).
 
 * Optimized file compression.
 
@@ -62,8 +62,17 @@ A manual setup gives you full control over the CDN configuration including the c
 
 * [Custom domain](./custom-domain.md) configured for your static web app with a time to live (TTL) set to less than 48 hrs.
 * An application deployed with [Azure Static Web Apps](./get-started-portal.md) that uses the Standard hosting plan.
+* The subscription has been re-registered for Microsoft.CDN Resource Provider.
 
 # [Azure portal](#tab/azure-portal)
+
+1. Navigate to your subscription in the Azure portal.
+
+1. Select **Resource providers** in the left menu.
+
+1. Click on **Microsoft.CDN** out of the list of resource providers.
+
+1. Click **Register** or **Reregister**.
 
 1. Navigate to your static web app in the Azure portal.
 
@@ -80,6 +89,8 @@ A manual setup gives you full control over the CDN configuration including the c
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
+az provider register --namespace 'Microsoft.CDN' --wait
+
 az extension add -n enterprise-edge
 
 az staticwebapp enterprise-edge enable -n my-static-webapp -g my-resource-group
