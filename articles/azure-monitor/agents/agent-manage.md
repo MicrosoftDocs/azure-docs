@@ -174,6 +174,9 @@ To configure the agent to communicate to the service through a proxy server or [
 
 4. Click **Use a proxy server** and provide the URL and port number of the proxy server or gateway. If your proxy server or Log Analytics gateway requires authentication, type the username and password to authenticate and then click **OK**.
 
+>[!NOTE]
+> Agent-based hybrid worker uses MMA proxy setting. You've to pass the proxy setting while installing the log analytics extension(MMA). This setting will be stored under MMA configuration(registry) on VM. Extension-based hybrid worker has to pass the proxy setting while installing the extension using PowerShell, Azure CLI, or REST API.
+
 #### Update settings using PowerShell
 
 Copy the following sample PowerShell code, update it with information specific to your environment, and save it with a PS1 file name extension. Run the script on each computer that connects directly to the Log Analytics workspace in Azure Monitor.
