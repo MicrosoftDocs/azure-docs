@@ -80,27 +80,23 @@ Indexers can connect to a table using the following connections.
 
 <a name="Performance"></a>
 
-### Index partitions for improved performance
+### Partition for improved performance
 
 By default, Azure Cognitive Search uses the following internal query filter to keep track of which source entities have been updated since the last run: `Timestamp >= HighWaterMarkValue`. Because Azure tables don’t have a secondary index on the `Timestamp` field, this type of query requires a full table scan and is therefore slow for large tables.
 
-To avoid a full scan, you can use table partitions and choose from either of the following approaches.
+To avoid a full scan, you can use table partitions to narrow the scope of each indexer job.
 
 + If your data can naturally be partitioned into several partition ranges, create a data source and a corresponding indexer for each partition range. Each indexer now has to process only a specific partition range, resulting in better query performance. If the data that needs to be indexed has a small number of fixed partitions, even better: each indexer only does a partition scan. 
 
-   For example, to create a data source for processing a partition range with keys from `000` to `100`, use a query like this: 
-
-	```json
-	"container" : { "name" : "my-table", "query" : "PartitionKey ge '000' and PartitionKey lt '100' " }
-	```
+   For example, to create a data source for processing a partition range with keys from `000` to `100`, use a query like this: `"container" : { "name" : "my-table", "query" : "PartitionKey ge '000' and PartitionKey lt '100' " }`
 
 + If your data is partitioned by time (for example, if you create a new partition every day or week), consider the following approach: 
 
-  + In the data source defintion, specify a query similar to the following example: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
+  + In the data source definition, specify a query similar to the following example: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
 
   + Monitor indexer progress by using [Get Indexer Status API](/rest/api/searchservice/get-indexer-status), and periodically update the `<TimeStamp>` condition of the query based on the latest successful high-water-mark value. 
 
-  + With this approach, if you need to trigger a complete reindexing, you need to reset the datasource query in addition to resetting the indexer. 
+  + With this approach, if you need to trigger a complete reindexing, you need to reset the data source query in addition to resetting the indexer. 
 
 ## Add search fields to an index
 
@@ -155,7 +151,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
 ## Next steps
 
-You can now [run the indexer](search-howto-run-reset-indexers.md), [monitor status](search-howto-monitor-indexers.md), or [schedule indexer execution](search-howto-schedule-indexers). The following articles apply to indexers that pull content from Azure Storage:
+You can now [run the indexer](search-howto-run-reset-indexers.md), [monitor status](search-howto-monitor-indexers.md), or [schedule indexer execution](search-howto-schedule-indexers.md). The following articles apply to indexers that pull content from Azure Storage:
 
 + [Change detection and deletion detection](search-howto-index-changed-deleted-blobs.md)
 + [Index large data sets](search-howto-large-index.md)

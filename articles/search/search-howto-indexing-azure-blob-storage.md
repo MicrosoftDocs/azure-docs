@@ -125,9 +125,11 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
 1. Add more fields for any blob metadata that you want in the index. The indexer can read custom metadata properties, [standard metadata](#indexing-blob-metadata) properties, and [content-specific metadata](search-blob-metadata-properties.md) properties.
 
+<a name="PartsOfBlobToIndex"></a> 
+
 ## Configure the blob indexer
 
-Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors. Under "configuration", you can specify which blobs are indexed by file type or by properties on the blob themselves.
+Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors. The "configuration" section determines what content gets indexed.
 
 1. [Create or update an indexer](/rest/api/searchservice/create-indexer) to use the predefined data source and search index.
 
@@ -144,7 +146,10 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
         "base64EncodeKeys": null,
         "configuration:" {
             "indexedFileNameExtensions" : ".pdf,.docx",
-            "excludedFileNameExtensions" : ".png,.jpeg" 
+            "excludedFileNameExtensions" : ".png,.jpeg",
+            "dataToExtract": "contentAndMetadata",
+            "parsingMode": "default",
+            "imageAction": "none"
         }
       },
       "schedule" : { },
@@ -152,38 +157,11 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
     }
     ```
 
-1. In the optional "configuration" section, provide any inclusion or exclusion criteria. If left unspecified, all blobs in the container are retrieved.
+1. Set "batchSize` if the default (10 documents) is either under utilizing or overwhelming available resources. Default batch sizes are data source specific. Blob indexing sets batch size at 10 documents in recognition of the larger average document size. 
+
+1. Under "configuration", provide any inclusion or exclusion criteria. If left unspecified, all blobs in the container are retrieved.
 
    If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, Azure Cognitive Search first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. If the same file extension is present in both lists, it will be excluded from indexing.
-
-1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
-
-   In blob indexing, you can often omit field mappings because the indexer has built-in support for mapping the "content" property and [blob metadata properties](#indexing-blob-metadata) to fields in an index, assuming the search field name matches the blob property name, and is of the expected data type. The indexer will automatically adjust for differences in field names, replacing hyphens `-` with underscores in the index.
-
-1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
-
-<a name="PartsOfBlobToIndex"></a>
-
-### Set parameters
-
-Blob indexers include parameters that optimize indexing for specific use cases, such as content types (JSON, CSV, PDF), or to specify which parts of the blob to index.
-
-This section describes several of the more frequently used parameters. For the full list, see [Blob configuration parameters reference](/rest/api/searchservice/create-indexer#blob-configuration-parameters).
-
-1. [Create or update an indexer](/rest/api/searchservice/create-indexer) to set its parameters:
-
-   ```json
-   "parameters": {
-        "batchSize": null,
-        "maxFailedItems": 0,
-        "maxFailedItemsPerBatch": 0,
-        "configuration": {
-           "dataToExtract": "contentAndMetadata",
-           "parsingMode": "default",
-           "imageAction": "none"
-        }
-   }
-   ```
 
 1. Set "dataToExtract" to control which parts of the blobs are indexed:
 
@@ -195,19 +173,39 @@ This section describes several of the more frequently used parameters. For the f
 
 1. Set "parsingMode" if blobs should be mapped to [multiple search documents](search-howto-index-one-to-many-blobs.md), or if they consist of [plain text](search-howto-index-plaintext-blobs.md), [JSON documents](search-howto-index-json-blobs.md), or [CSV files](search-howto-index-csv-blobs.md).
 
-1. Set "batchSize` if the default (10 documents) is either under utilizing or overwhelming available resources. Default batch sizes are data source specific. Blob indexing sets batch size at 10 documents in recognition of the larger average document size. 
+1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
 
-1. See [Handling errors](#handling-errors) for guidance on setting "maxFailedItems" or "maxFailedItemsPerBatch".
+   In blob indexing, you can often omit field mappings because the indexer has built-in support for mapping the "content" and metadata properties to to similarly named and typed fields in an index. For metadata properties, the indexer will automatically replace hyphens `-` with underscores in the search index.
+
+1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
+
+For the full list of parameter descriptions, see [Blob configuration parameters](/rest/api/searchservice/create-indexer#blob-configuration-parameters) in the REST API.
+
+## How blobs are indexed
+
+By default, most blobs are indexed as a single search document in the index, including blobs with structured content, such as JSON or CSV, which are indexed as a single chunk of text. However, for JSON or CSV documents that have an internal structure (delimiters), you can assign parsing modes to generate individual search documents for each line or element:
+
++ [Indexing JSON blobs](search-howto-index-json-blobs.md)
++ [Indexing CSV blobs](search-howto-index-csv-blobs.md)
+
+A compound or embedded document (such as a ZIP archive, a Word document with embedded Outlook email containing attachments, or a .MSG file with attachments) is also indexed as a single document. For example, all images extracted from the attachments of an .MSG file will be returned in the normalized_images field. If you have images, consider adding [AI enrichment](cognitive-search-concept-intro.md) to get more search utility from that content.
+
+Textual content of a document is extracted into a string field named "content".
+
+  > [!NOTE]
+  > Azure Cognitive Search imposes [indexer limits](search-limits-quotas-capacity.md#indexer-limits) on how much text it extracts depending on the pricing tier. A warning will appear in the indexer status response if documents are truncated.  
 
 <a name="indexing-blob-metadata"></a>
 
 ## Indexing blob metadata
 
-Blob metadata can be helpful in search solutions, providing information about blob origin and content types that could be useful for filtering and queries. 
+Blob metadata can also be indexed, and that's helpful if you think any of the standard or custom metadata properties will be useful in filters and queries.
 
-First, any user-specified metadata properties can be extracted verbatim. To receive the values, you must define field in the search index of type `Edm.String`, with same name as the metadata key of the blob. For example, if a blob has a metadata key of `Sensitivity` with value `High`, you should define a field named `Sensitivity` in your search index and it will be populated with the value `High`.
+User-specified metadata properties are extracted verbatim. To receive the values, you must define field in the search index of type `Edm.String`, with same name as the metadata key of the blob. For example, if a blob has a metadata key of `Sensitivity` with value `High`, you should define a field named `Sensitivity` in your search index and it will be populated with the value `High`.
 
-Second, standard blob metadata properties can be extracted into the fields listed below. The blob indexer automatically creates internal field mappings for these blob metadata properties. You still have to add the fields to the index definition, but you can omit creating field mappings in the indexer.
+Standard blob metadata properties can be extracted into similarly named and typed fields, as listed below. The blob indexer automatically creates internal field mappings for these blob metadata properties, converting the original hyphenated name ("metadata-storage-name") to an underscored equivalent name ("metadata_storage_name").
+
+You still have to add the underscored fields to the index definition, but you can omit creating field mappings in the indexer because the indexer will recognize the counterpart automatically.
 
 + **metadata_storage_name** (`Edm.String`) - the file name of the blob. For example, if you have a blob /my-container/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
 
@@ -245,98 +243,62 @@ PUT /indexers/[indexer name]?api-version=2020-06-30
 }
 ```
 
-## How blobs are indexed
-
-By default, most blobs are indexed as a single search document in the index, including blobs with structured content, such as JSON or CSV, which are indexed as a single chunk of text. However, for JSON or CSV documents that have an internal structure (delimiters), you can assign parsing modes to generate individual search documents for each line or element:
-
-+ [Indexing JSON blobs](search-howto-index-json-blobs.md)
-+ [Indexing CSV blobs](search-howto-index-csv-blobs.md).
-
-A compound or embedded document (such as a ZIP archive, a Word document with embedded Outlook email containing attachments, or a .MSG file with attachments) is also indexed as a single document. For example, all images extracted from the attachments of an .MSG file will be returned in the normalized_images field within the same search document.
-
 ### Add "skip" metadata the blob
 
-The indexer configuration parameters apply to all blobs in the container or folder. Sometimes, you want to control how *individual blobs* are indexed. You can do this by adding the following metadata properties and values to blobs in Blob storage. When the indexer encounters this property, it will skip the blob or its content in the indexing run.
+The indexer configuration parameters apply to all blobs in the container or folder. Sometimes, you want to control how *individual blobs* are indexed. You can do this by adding the following metadata properties and values to blobs in Blob Storage. When the indexer encounters this property, it will skip the blob or its content in the indexing run.
 
 | Property name | Property value | Explanation |
 | ------------- | -------------- | ----------- |
 | "AzureSearch_Skip" |`"true"` |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
 | "AzureSearch_SkipContent" |`"true"` |This is equivalent of "dataToExtract" : "allMetadata" setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. |
 
-## How to index large datasets
+## Index large datasets
 
-Indexing blobs can be a time-consuming process. In cases where you have millions of blobs to index, you can speed up indexing by partitioning your data and using multiple indexers to [process the data in parallel](search-howto-large-index.md#parallel-indexing). Here's how you can set this up:
+Indexing blobs can be a time-consuming process. In cases where you have millions of blobs to index, you can speed up indexing by partitioning your data and using multiple indexers to [process the data in parallel](search-howto-large-index.md#parallel-indexing). 
 
-+ Partition your data into multiple blob containers or virtual folders
+1. Partition your data into multiple blob containers or virtual folders.
 
-+ Set up several data sources, one per container or folder. To point to a blob folder, use the `query` parameter:
+1. Set up several data sources, one per container or folder. Use the `query` parameter to specify the partition: `"container" : { "name" : "my-container", "query" : "my-folder" }`.
 
-    ```json
-    {
-        "name" : "blob-datasource",
-        "type" : "azureblob",
-        "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "my-container", "query" : "my-folder" }
-    }
-    ```
+1. Create one indexer for each data source. Point them to the same target index.  
 
-+ Create a corresponding indexer for each data source. All of the indexers should point to the same target search index.  
-
-+ One search unit in your service can run one indexer at any given time. Creating multiple indexers as described above is only useful if they actually run in parallel.
-
-  To run multiple indexers in parallel, scale out your search service by creating an appropriate number of partitions and replicas. For example, if your search service has 6 search units (for example, 2 partitions x 3 replicas), then 6 indexers can run simultaneously, resulting in a six-fold increase in the indexing throughput. To learn more about scaling and capacity planning, see [Adjust the capacity of an Azure Cognitive Search service](search-capacity-planning.md).
+Make sure you have sufficient capacity. One search unit in your service can run one indexer at any given time. Partitioning data and creating multiple indexers is only useful if they can run in parallel.
 
 <a name="DealingWithErrors"></a>
 
-## Handling errors
+## Configure the response to errors
 
 Errors that commonly occur during indexing include unsupported content types, missing content, or oversized blobs.
 
-By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You could use the "excludedFileNameExtensions" parameter to skip certain content types. However, you might want to indexing to proceed even if errors occur, and then debug individual documents later. For more information about indexer errors, see [Indexer troubleshooting guidance](search-indexer-troubleshooting.md) and [Indexer errors and warnings](cognitive-search-common-errors-warnings.md).
+By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an audio file). You could use the "excludedFileNameExtensions" parameter to skip certain content types. However, you might want to indexing to proceed even if errors occur, and then debug individual documents later. For more information about indexer errors, see [Indexer troubleshooting guidance](search-indexer-troubleshooting.md) and [Indexer errors and warnings](cognitive-search-common-errors-warnings.md).
 
-### Respond to errors
-
-There are four indexer properties that control the indexer's response when errors occur. The following examples show how to set these properties in the indexer definition. If an indexer already exists, you can add these properties by editing the definition in the portal.
-
-#### `"maxFailedItems"` and `"maxFailedItemsPerBatch"`
-
-Continue indexing if errors happen at any point of processing, either while parsing blobs or while adding documents to an index. Set these properties to the number of acceptable failures. A value of `-1` allows processing no matter how many errors occur. Otherwise, the value is a positive integer.
+There are five indexer properties that control the indexer's response when errors occur. 
 
 ```http
 PUT /indexers/[indexer name]?api-version=2020-06-30
 {
   "parameters" : { 
     "maxFailedItems" : 10, 
-    "maxFailedItemsPerBatch" : 10
-  }
-}
-```
-
-#### `"failOnUnsupportedContentType"` and `"failOnUnprocessableDocument"` 
-
-For some blobs, Azure Cognitive Search is unable to determine the content type, or unable to process a document of an otherwise supported content type. To ignore these failure conditions, set configuration parameters to `false`:
-
-```http
-PUT /indexers/[indexer name]?api-version=2020-06-30
-{
-  "parameters" : { 
+    "maxFailedItemsPerBatch" : 10,
     "configuration" : { 
         "failOnUnsupportedContentType" : false, 
-        "failOnUnprocessableDocument" : false
-    } 
+        "failOnUnprocessableDocument" : false,
+        "indexStorageMetadataOnlyForOversizedDocuments": false
   }
 }
 ```
 
-### Relax indexer constraints
-
-You can also set [blob configuration parameters](/rest/api/searchservice/create-indexer#blob-configuration-parameters) that effectively determine whether an error condition exists. The following property can relax constraints, suppressing errors that would otherwise occur.
-
-+ "indexStorageMetadataOnlyForOversizedDocuments" to index storage metadata for blob content that is too large to process. Oversized blobs are treated as errors by default. For limits on blob size, see [service Limits](search-limits-quotas-capacity.md).
+| Parameter | Valid values | Description |
+|-----------|--------------|-------------|
+| "maxFailedItems" | -1, null or 0, positive integer | Continue indexing if errors happen at any point of processing, either while parsing blobs or while adding documents to an index. Set these properties to the number of acceptable failures. A value of `-1` allows processing no matter how many errors occur. Otherwise, the value is a positive integer. |
+| "maxFailedItemsPerBatch" | -1, null or 0, positive integer | Same as above, but used for batch indexing. |
+| "failOnUnsupportedContentType" | true or false |  If the indexer is unable to determine the content type, specify whether to continue or fail the job. |
+|"failOnUnprocessableDocument" |  true or false | If the indexer is unable to process a document of an otherwise supported content type, specify whether to continue or fail the job. |
+| "indexStorageMetadataOnlyForOversizedDocuments"  | true or false |  Oversized blobs are treated as errors by default. If you set this parameter to true, the indexer will try to index its metadata even if the content cannot be indexed. For limits on blob size, see [service Limits](search-limits-quotas-capacity.md). |
 
 ## Next steps
 
-You can now [run the indexer](search-howto-run-reset-indexers.md), [monitor status](search-howto-monitor-indexers.md), or [schedule indexer execution](search-howto-schedule-indexers). The following articles apply to indexers that pull content from Azure Storage:
+You can now [run the indexer](search-howto-run-reset-indexers.md), [monitor status](search-howto-monitor-indexers.md), or [schedule indexer execution](search-howto-schedule-indexers.md). The following articles apply to indexers that pull content from Azure Storage:
 
 + [Change detection and deletion detection](search-howto-index-changed-deleted-blobs.md)
 + [Index large data sets](search-howto-large-index.md)
