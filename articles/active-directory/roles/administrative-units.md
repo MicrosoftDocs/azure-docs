@@ -81,12 +81,12 @@ The following sections describe current support for administrative unit scenario
 
 | Permissions |   Graph/PowerShell   | Azure portal | Microsoft 365 admin center |
 | --- | --- | --- | --- |
-| Creating and deleting administrative units   |    Supported    |   Supported   |    Not supported |
-| Adding and removing administrative unit members individually    |   Supported    |   Supported   |    Not supported |
-| Adding and removing administrative unit members in bulk by using CSV files   |    Not supported     |  Supported   |    No plan to support |
-| Assigning administrative unit-scoped administrators  |     Supported    |   Supported    |   Not supported |
-| Add or remove administrative unit users and devices dynamically based on rules (Preview) | Supported | Supported | Not supported
-| Adding and removing administrative unit members dynamically based on attributes | Not supported | Not supported | Not supported
+| Create or delete administrative units   |    Supported    |   Supported   |    Not supported |
+| Add or remove members individually    |   Supported    |   Supported   |    Not supported |
+| Add or remove members in bulk by using CSV files   |    Not supported     |  Supported   |    No plan to support |
+| Assign administrative unit-scoped administrators  |     Supported    |   Supported    |   Not supported |
+| Add or remove users or devices dynamically based on rules (Preview) | Supported | Supported | Not supported |
+| Add or remove groups dynamically based on rules | Not supported | Not supported | Not supported |
 
 ### User management
 
