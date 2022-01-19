@@ -123,9 +123,9 @@ To register devices as hybrid Azure AD join to respective tenants, organizations
 
 ## Review targeted hybrid Azure AD join
 
-When all of the pre-requisites are in place, Windows devices will automatically register as devices in your Azure AD tenant. The state of these device identities in Azure AD is referred as hybrid Azure AD join. More information about the concepts covered in this article can be found in the article [Introduction to device identity management in Azure Active Directory](overview.md).
+Organizations may want to do a targeted rollout of hybrid Azure AD join before enabling it for their entire organization. Review the article [Hybrid Azure AD join targeted deployment](hybrid-azuread-join-control.md) to understand how to accomplish it.
 
-Organizations may want to do a targeted rollout of hybrid Azure AD join instead of enabling it across their entire organization. Review the article [controlled validation of hybrid Azure AD join](hybrid-azuread-join-control.md) to understand how to accomplish it.
+When all of the pre-requisites are in place, Windows devices will automatically register as devices in your Azure AD tenant. The state of these device identities in Azure AD is referred as hybrid Azure AD join. More information about the concepts covered in this article can be found in the article [Introduction to device identity management in Azure Active Directory](overview.md).
 
 ## Select your scenario based on your identity infrastructure
 

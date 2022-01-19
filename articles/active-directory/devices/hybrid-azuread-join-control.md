@@ -21,7 +21,7 @@ You can validate your [planning and prerequisites](hybrid-azuread-join-plan.md) 
 
 ## Targeted deployment of hybrid Azure AD join on Windows current devices
 
-For devices running Windows 10, the minimum supported version is Windows 10 (version 1607) to do hybrid join. As a best practice, upgrade to the latest version of Windows 10 or 11. If you need to support previous operating systems, see the section [supporting down-level devices](#targeted-deployment-of-hybrid-azure-ad-join-on-windows-down-level-devices)
+For devices running Windows 10, the minimum supported version is Windows 10 (version 1607) to do hybrid join. As a best practice, upgrade to the latest version of Windows 10 or 11. If you need to support previous operating systems, see the section [Supporting down-level devices](#supporting-down-level-devices)
 
 To do a targeted deployment of hybrid Azure AD join on Windows current devices, you need to:
 

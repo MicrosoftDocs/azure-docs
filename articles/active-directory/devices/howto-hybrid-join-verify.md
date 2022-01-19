@@ -1,6 +1,6 @@
 ---
 title: Verify hybrid Azure Active Directory join
-description: 
+description: Verify configurations for hybris Azure AD joined devices
 
 services: active-directory
 ms.service: active-directory

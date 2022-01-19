@@ -1,6 +1,6 @@
 ---
-title: Enable downlevel devices to hybrid Azure AD join
-description: 
+title: Enable downlevel devices to hybrid Azure Azure Active Directory join
+description: Configure older operating systems to hybrid Azure AD join
 
 services: active-directory
 ms.service: active-directory
