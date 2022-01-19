@@ -36,7 +36,6 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 - All tables will be supported in export, but support is currently limited to those specified in the [supported tables](#supported-tables) section below. 
 - The current custom log tables won’t be supported in export. A new version of custom log preview available February 2022, will be supported in export.
 - You can define up to 10 enabled rules in your workspace. More rules are allowed when disabled. 
-- Storage account must be unique across all export rules in your workspace.
 - Destinations must be in the same region as the Log Analytics workspace.
 - Tables names can be no longer than 60 characters when exporting to storage account and 47 characters to event hub. Tables with longer names will not be exported.
 - Data export isn't supported in these regions currently: 
@@ -116,7 +115,7 @@ If you have configured your storage account to allow access from selected networ
 ### Destinations monitoring
 
 > [!IMPORTANT]
-> Export destinations have limits and should be monitored to minimize throttling, failures, and latency. See [storage accounts scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) and [event hub namespace quota](../../event-hubs/event-hubs-quotas.md).
+> Export destinations have limits and should be monitored to minimize throttling, failures, and latency. See [storage accounts scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) and [event hub namespace quota](../../event-hubs/event-hubs-quotas.md). 
 
 **Monitoring storage account**
 
@@ -150,7 +149,7 @@ If you have configured your storage account to allow access from selected networ
    - Use 'Premium' or 'Dedicated' tiers for higher throughput
 
 ### Create or update data export rule
-Data export rule defines the destination and tables for which data is exported. You can create 10 rules in 'enable' state in your workspace, more rules are allowed in 'disable' state. Storage account destination must be unique across all export rules in workspace, but multiple rules can export to the same event hub namespace in separate event hubs.
+Data export rule defines the destination and tables for which data is exported. You can create 10 rules in 'enable' state in your workspace, more rules are allowed in 'disable' state. You can use the same storage account and event hub namespace in multiple rules in the same workspace. When event hub names are provided in rules, they must be unique in workspace.
 
 > [!NOTE]
 > - You can include tables that aren't yet supported in export, and no data will be exported for these until the tables are supported.
