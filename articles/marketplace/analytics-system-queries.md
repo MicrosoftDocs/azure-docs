@@ -97,6 +97,16 @@ The following sections provide report queries for various reports.
 
 `SELECT AssetId,SalesChannel,BillingAccountId,CustomerCity,CustomerCompanyName,CustomerCountry,CustomerEmail,CustomerId,CustomerName,CustomerState,EarningAmountCC,EarningAmountPC,EarningAmountUSD,EarningCurrencyCode,EarningExchangeRatePC,EstimatedPayoutMonth,Revenue,EstimatedRevenuePC,EstimatedRevenueUSD,ExchangeRateDate,ExchangeRatePC,ExchangeRateUSD,PayoutStatus,IncentiveRate,TrialDeployment,LineItemId,MonthStartDate,OfferName,OfferType,PaymentInstrumentType,PaymentSentDate,PurchaseRecordId,Quantity,SKU,TermEndDate,TermStartDate,TransactionAmountCC,TransactionAmountPC,TransactionAmountUSD,BillingModel,Units FROM ISVRevenue TIMESPAN LAST_6_MONTHS`
 
+## Quality of service report query
+
+**Report description**: Quality of service report for the last 3M
+
+**QueryID**: `q9df4939-073f-5795-b0cb-v2c81d11e58d`
+
+**Report query**:
+
+`SELECT OfferId,Sku,DeploymentStatus,DeploymentCorrelationId,SubscriptionId,CustomerTenantId,CustomerName,TemplateType,StartTime,EndTime,DeploymentDurationInMilliSeconds,DeploymentRegion,ResourceProvider,ResourceUri,ResourceGroup,ResourceType,ResourceName,ErrorCode,ErrorName,ErrorMessage,DeepErrorCode,DeepErrorMessage FROM ISVQualityOfService TIMESPAN LAST_3_MONTHS`
+
 ## Next steps
 
 - [APIs for accessing commercial marketplace analytics data](analytics-available-apis.md)
