@@ -22,9 +22,9 @@ The metadata includes the following information for the virtual machines or virt
 * Inbound rule configurations of the load balancer of each private IP of the network interface.
 * Outbound rule configurations of the load balancer of each private IP of the network interface.
 
-## Access the load balancer metadata using the IMDS
+## Access the load balancer metadata using IMDS
 
-For more information on how to access the load balancer metadata, see [Use the Azure Instance Metadata Service to access load balancer information](howto-load-balancer-imds.md).
+For more information on how to access the load balancer metadata, see [Use Azure Instance Metadata Service to access load balancer information](howto-load-balancer-imds.md).
 
 ## Troubleshoot common error codes
 
