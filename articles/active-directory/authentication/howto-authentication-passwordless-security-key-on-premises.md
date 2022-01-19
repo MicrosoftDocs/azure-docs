@@ -52,7 +52,10 @@ You must also meet the following system requirements:
 - Your Windows Server domain controllers must have patches installed for the following servers:
     - [Windows Server 2016](https://support.microsoft.com/help/4534307/windows-10-update-kb4534307)
     - [Windows Server 2019](https://support.microsoft.com/help/4534321/windows-10-update-kb4534321)
-
+- Credentials required to complete this :
+    - Active Directory User who is a member of the "Domain Admins" group for a domain and a member "Enterprise Admins" group for a forest. Referred to as $domainCred.
+    - Azure Active Directory User who is a member of the Global Administrators role. Referred to as $cloudCred.
+ 
 ### Supported scenarios
 
 The scenario in this article supports SSO in both of the following instances:
@@ -108,10 +111,10 @@ Run the following steps in each domain and forest in your organization that cont
    $domain = "contoso.corp.com"
 
    # Enter an Azure Active Directory global administrator username and password.
-   $cloudCred = Get-Credential
+   $cloudCred = Get-Credential -Message 'Active Directory User who is a member of the "Domain Admins" group for a domain and a member "Enterprise Admins" group for a forest.'
 
    # Enter a domain administrator username and password.
-   $domainCred = Get-Credential
+   $domainCred = Get-Credential -Message 'Active Directory User who is a member of the "Domain Admins" group.'
 
    # Create the new Azure AD Kerberos Server object in Active Directory
    # and then publish it to Azure Active Directory.
