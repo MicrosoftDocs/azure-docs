@@ -48,7 +48,6 @@ To use managed identity, you must have a premium-tier cache.
 1. Sign into the [Azure portal](https://portal.azure.com/)
 
 1. Create a new Azure Cache for Redis resource with a **Cache type** of any of the premium tiers. Complete **Basics** tab with all the required  information.
-
    > [!NOTE]
    > Managed identity functionality is only available in the Premium tier.
    >
@@ -60,11 +59,11 @@ To use managed identity, you must have a premium-tier cache.
 
 1. Complete the creation process. Once the cache has been created and deployed, open it, and select the **(PREVIEW) Identity** tab under the **Settings** section on the left.
 
-  :::image type="content" source="media/cache-managed-identity/identity-resource.png" alt-text="(Preview) Identity in the Resource menu":::
+   :::image type="content" source="media/cache-managed-identity/identity-resource.png" alt-text="(Preview) Identity in the Resource menu":::
   
 1. You see that a system-assigned **object ID** has been assigned to the cache **Identity**.
   
-  :::image type="content" source="media/cache-managed-identity/user-assigned.png" alt-text="System assigned resource settings for identity":::
+   :::image type="content" source="media/cache-managed-identity/user-assigned.png" alt-text="System assigned resource settings for identity":::
 
 ## Add system assigned identity to an existing cache
 
@@ -95,12 +94,10 @@ To use managed identity, you must have a premium-tier cache.
    :::image type="content" source="media/cache-managed-identity/identity-add.png" alt-text="User assigned identity status is on":::
 
 1. A sidebar pops up to allow you to select any available user-assigned identity to your subscription. Choose an identity and select **Add**. For more information on user assigned managed identities, see [manage user-assigned identity](/azure/active-directory/managed-identities-azure-resources/manage-user-assigned-managed-identities.md).
-
-   :::image type="content" source="media/cache-managed-identity/choose-identity.png"  alt-text="new Object principal ID shown for user assigned identity":::
-
-   >[!Note]
+      >[!Note]
    >You need to [create a user assigned identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) in advance of this step.
    >
+   :::image type="content" source="media/cache-managed-identity/choose-identity.png"  alt-text="new Object principal ID shown for user assigned identity":::
 
 1. You see the user-assigned identity listed in the **User assigned (preview)** pane.
 
