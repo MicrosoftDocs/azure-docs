@@ -168,12 +168,3 @@ In this case, the server side case be considered as Application Insights ingesti
 #### How to add the missing cipher suites:
 
 If using Java version > 1.9 please check if the JVM has `jdk.crypto.cryptoki` module included in the jmods folder. Also if you are building  a custom java runtime using `jlink` please make sure to include the same module.
-
-### Java client using TLSv1.0/1.1
-
-There might be some instances where the connection to ingestion endpoint is successful, but connection to Live metrics endpoint may fail due to the above exceptions. This is due to Live Metrics end point now require TLSv1.2 but most Application insights global ingestion endpoints support TLSv1.0/1.1/1.2. In this case please make sure to use TLS 1.2 for making the ssl connections.
-If you are using Java 1.7.0_95 or later, you can add the jdk.tls.client.protocols property as a java command-line argument to support TLSv1.2:
-
-```
-java -Djdk.tls.client.protocols=TLSv1.2 <Main class or the Jar file to run>
-```
