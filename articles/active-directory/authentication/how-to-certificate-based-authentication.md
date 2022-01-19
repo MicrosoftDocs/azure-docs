@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 01/19/2022
 
 ms.author: justinha
 author: justinha
@@ -284,10 +284,12 @@ However, to disable CRL checking if there are issues with CRL for a particular C
 ```powershell
 $c=Get-AzureADTrustedCertificateAuthority    	$c[0]. crlDistributionPoint =””   	 Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
 ```
+
 ## Next steps 
 
-[Overview of cloud native certificate-based authentication](concept-cloud-native-certificate-based-authentication.md)
-[Limitations with cloud native certificate-based authentication](concept-cloud-native-certificate-based-authentication-limitations.md)
-[FAQ](cloud-native-certificate-based-authentication-faq.yml)
-[Troubleshoot cloud native certificate-based authentication](troubleshoot-cloud-native-certificate-based-authentication.md)
+- [Overview of cloud-native certificate-based authentication](concept-cloud-native-certificate-based-authentication.md)
+- [Technical deep dive for cloud-native certificate-based authentication](concept-cloud-native-certificate-based-authentication-technical-deep-dive.md)   
+- [Limitations with cloud-native certificate-based authentication](concept-cloud-native-certificate-based-authentication-limitations.md)
+- [FAQ](cloud-native-certificate-based-authentication-faq.yml)
+- [Troubleshoot cloud-native certificate-based authentication](troubleshoot-cloud-native-certificate-based-authentication.md)
 
