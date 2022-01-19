@@ -84,7 +84,7 @@ The available protocols depend on the Load Balancer SKU used:
 
 TCP probes initiate a connection by performing a three-way open TCP handshake with the defined port.  TCP probes terminate a connection with a four-way close TCP handshake.
 
-The minimum probe interval is 5 seconds and the minimum number of unhealthy responses is 2.  The total duration of all intervals cannot exceed 120 seconds.
+The minimum probe interval is 5 seconds and the total duration of all intervals cannot exceed 120 seconds.
 
 A TCP probe fails when:
 * The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of timed-out probe requests, which were configured to go unanswered before marking down the probe.
