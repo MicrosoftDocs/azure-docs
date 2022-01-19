@@ -983,6 +983,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 
 ---
 
+>[!NOTE]
+> * If you are looking to retrieve IMDS information for **Standard** SKU Public IP address, review [Load Balancer Metadata API](https://docs.microsoft.com/azure/load-balancer/howto-load-balancer-imds?tabs=windows) for more infomration.
+
 ## Attested data
 
 ### Get Attested data
