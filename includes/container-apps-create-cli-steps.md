@@ -30,6 +30,21 @@ Connect-AzAccount
 
 ---
 
+Ensure that your azure CLI is up-to-date:
+
+# [Bash](#tab/bash)
+
+```azurecli
+az upgrade
+```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az upgrade
+```
+
+
 Next, install the Azure Container Apps extension to the CLI.
 
 # [Bash](#tab/bash)
