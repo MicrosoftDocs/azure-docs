@@ -217,7 +217,7 @@ By default, each policy is created in report-only mode, we recommended organizat
 
 [Enable the policy in report-only mode](howto-conditional-access-insights-reporting.md). Once you save the policy in report-only mode, you can see the impact on real-time sign-ins in the sign-in logs. From the sign-in logs, select an event and navigate to the Report-only tab to see the result of each report-only policy.
 
-You can view the aggregate impact of your Conditional Access policies in the Insights and Reporting workbook. To access the workbook, you need an Azure Monitor subscription and you will need to [stream your sign-in logs to a log analytics workspace](howto-integrate-activity-logs-with-log-analytics.md)  .
+You can view the aggregate impact of your Conditional Access policies in the Insights and Reporting workbook. To access the workbook, you need an Azure Monitor subscription and you will need to [stream your sign-in logs to a log analytics workspace](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)  .
 
 #### Simulate sign-ins using the What If tool
 
