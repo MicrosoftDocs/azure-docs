@@ -44,6 +44,28 @@ A model is the system, which provides translation for a specific language pair. 
 
 ![Model details](../media/quickstart/model-details.png)
 
+## Duplicate model
+
+1. Select **Model details** blade.
+
+1. Hover over the model name and check the selection button.
+
+1. Select **Duplicate**.
+
+1. Fill in `New model name`.
+
+1. Keep **Train immediately** checked if no additional data would be selected or uploaded, otherwise, check **Save as draft**
+
+1. Select **Save**
+
+> [!Note]
+>
+> If you save the model as `Draft`, **Model details** is updated with the model name in `Draft` status.
+>
+> To add more documents, select on the model name and follow `Create model` section above.
+
+![Duplicate model](../media/how-to/duplicate-model.png)
+
 ## Next steps
 
 - Learn [how to test and evaluate model quality](test-model-details.md).

@@ -25,4 +25,5 @@ After you publish your custom model to any of our regions; North America, Europe
 
 ## Next steps
 
-- Read [Custom Translator for developers](../beginners-guide.md) to know, how to build and publish custom models with Custom Translator [APIs](https://custom-api.cognitive.microsofttranslator.com/swagger/#!/).
+> [!div class="nextstepaction"]
+> [Learn more about building and publishing custom models](../beginners-guide.md)
