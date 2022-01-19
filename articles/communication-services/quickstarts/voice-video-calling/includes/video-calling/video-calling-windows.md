@@ -100,6 +100,7 @@ namespace CallingQuickstart
         {
             this.InitializeComponent();
             this.InitCallAgentAndDeviceManager();
+            remoteParticipantDictionary = new Dictionary<string, RemoteParticipant>();
         }
         
         private async void InitCallAgentAndDeviceManager()
