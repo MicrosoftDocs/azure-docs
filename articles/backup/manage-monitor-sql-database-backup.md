@@ -2,7 +2,7 @@
 title: Manage and monitor SQL Server DBs on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 01/14/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -16,7 +16,7 @@ If you haven't yet configured backups for your SQL Server databases, see [Back u
 
 ## Monitor backup jobs in the portal
 
-Azure Backup shows all scheduled and on-demand operations under **Backup jobs** in **Backup center** in the Azure portal, except the scheduled log backups since they can be very frequent. The jobs you see in this portal include database discovery and registration, configure backup, and backup and restore operations.
+Azure Backup shows all scheduled and on-demand operations under **Backup jobs** in **Backup center** in the Azure portal, except the scheduled log backups since they can be very frequent. The jobs you see in this portal includes database discovery and registration, configure backup, and backup and restore operations.
 
 :::image type="content" source="./media/backup-azure-sql-database/backup-operations-in-backup-center-jobs-inline.png" alt-text="Screenshot showing the Backup jobs under Backup jobs." lightbox="./media/backup-azure-sql-database/backup-operations-in-backup-center-jobs-expanded.png":::
 
@@ -139,7 +139,12 @@ You can fix the policy version for all the impacted items in one click:
 
 ## Unregister a SQL Server instance
 
-Unregister a SQL Server instance after you disable protection but before you delete the vault:
+Before you unregister the server, [disable soft delete](./backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal), and then delete all backup items.
+
+>[!NOTE]
+>Deleting backup items with soft delete enabled will lead to 14 days retention, and you will need to wait before the items are completely removed. However, if you've deleted the backup items with soft delete enabled, you can undelete them, disable soft-delete, and then delete them again for immediate removal. [Learn more](./backup-azure-security-feature-cloud.md#permanently-deleting-soft-deleted-backup-items)
+
+Unregister a SQL Server instance after you disable protection but before you delete the vault.
 
 1. On the vault dashboard, under **Manage**, select **Backup Infrastructure**.  
 

@@ -111,7 +111,8 @@ When you are importing the certificate, you need to ensure that the key is inclu
 >Ensure that no other meta data is present in the certificate file and that the private key not showing as encrypted.
 
 ### Formats of Merge CSR we support
-AKV supports 2 PEM based formats. You can either merge a single PKCS#8 encoded certificate or a base64 encoded P7B (chain of certificates signed by CA) 
+AKV supports 2 PEM based formats. You can either merge a single PKCS#8 encoded certificate or a base64 encoded P7B (chain of certificates signed by CA).
+If you need to covert the P7B's format to the supported one, you can use [certutil -encode](https://docs.microsoft.com/windows-server/administration/windows-commands/certutil#-encode)
 
 -----BEGIN CERTIFICATE-----
 -----END CERTIFICATE-----

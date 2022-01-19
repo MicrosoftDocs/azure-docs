@@ -10,7 +10,8 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: devx-track-js, mode-other
+ms.devlang: javascript
+ms.custom: devx-track-js, mode-api
 ---
 
 # Quickstart: Call your Bing Custom Search endpoint using Node.js

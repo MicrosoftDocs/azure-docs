@@ -2,8 +2,10 @@
 title: Install the Microsoft Azure Recovery Services (MARS) agent
 description: Learn how to install the Microsoft Azure Recovery Services (MARS) agent to back up Windows machines.
 ms.topic: conceptual
-ms.date: 06/04/2021
-
+ms.date: 12/15/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Install the Azure Backup MARS agent
@@ -32,7 +34,7 @@ The data that's available for backup depends on where the agent is installed.
 * Review [what's supported and what you can back up](backup-support-matrix-mars-agent.md) by the MARS agent.
 * Make sure that you have an Azure account if you need to back up a server or client to Azure. If you don't have an account, you can create a [free one](https://azure.microsoft.com/free/) in just a few minutes.
 * Verify internet access on the machines that you want to back up.
-* Ensure the user performing the installation and configuration of the MARS agent has local administrator privileges on the server to be protected.
+* Ensure the user installing and configuring the MARS agent has local administrator privileges on the server to be protected.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -65,7 +67,7 @@ To modify the storage replication type:
 
 Download the MARS agent so that you can install it on the machines that you want to back up.
 
-If you've already installed the agent on any machines, make sure that you're running the latest version of the agent. Find the latest version in the portal, or go directly to the [download](https://aka.ms/azurebackup_agent).
+If you've already installed the agent on any machines, ensure you're running the latest agent version. Find the latest version in the portal, or [download from here](https://aka.ms/azurebackup_agent).
 
 1. In the vault, under **Getting Started**, select **Backup**.
 
@@ -110,12 +112,17 @@ If you've already installed the agent on any machines, make sure that you're run
 
     ![Add vault credentials by using the Register Server Wizard](./media/backup-configure-vault/register1.png)
 
-1. On the **Encryption Setting** page, specify a passphrase that will be used to encrypt and decrypt backups for the machine. [See here](backup-azure-file-folder-backup-faq.yml#what-characters-are-allowed-for-the-passphrase-) for more information on allowed passphrase characters.
+1. On the **Encryption Setting** page, specify a passphrase that will be used to encrypt and decrypt backups for the machine. [Learn more](backup-azure-file-folder-backup-faq.yml#what-characters-are-allowed-for-the-passphrase-) about the allowed passphrase characters.
 
     * Save the passphrase in a secure location. You need it to restore a backup.
     * If you lose or forget the passphrase, Microsoft can't help you recover the backup data.
 
+   :::image type="content" source="./media/backup-configure-vault/encryption-settings-passphrase-to-encrypt-decrypt-backups.png" alt-text="Screenshot showing to specify a passphrase to be used to encrypt and decrypt backups for machines.":::
+
 1. Select **Finish**. The agent is now installed, and your machine is registered to the vault. You're ready to configure and schedule your backup.
+
+   >[!Note]
+   >We strongly recommend you save your passphrase in an alternate secure location, such as the Azure key vault. Microsoft can't recover the data without the passphrase. [Learn](../key-vault/secrets/quick-create-portal.md) how to store a secret in a key vault.
 
 ## Next steps
 

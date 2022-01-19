@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 12/07/2021
+ms.date: 01/07/2022
 ms.author: aahi
+ms.devlang: csharp, python
 ms.custom: language-service-clu, ignite-fall-2021
 ---
 
@@ -49,7 +50,7 @@ You can get the full URL for your endpoint by going to the **Deploy model** page
 
 :::image type="content" source="../media/prediction-url.png" alt-text="Screenshot showing the prediction request and URL" lightbox="../media/prediction-url.png":::
 
-### Use the client libraries
+### Use the client libraries (Azure SDK)
 
 > [!NOTE]
 > The client library for conversational language understanding is only available for:

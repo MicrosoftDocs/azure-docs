@@ -5,7 +5,7 @@ ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 11/04/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.custom: ignite-fall-2021, mode-other, contperf-fy22qX
+ms.custom: ignite-fall-2021, mode-other, contperf-fy22q2 
 ---
 
 # Quickstart: Analyze a live video feed from a (simulated) IP camera using your own HTTP model

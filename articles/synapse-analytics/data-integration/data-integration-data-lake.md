@@ -8,7 +8,7 @@ ms.subservice: pipeline
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: daperlov
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Ingest data into Azure Data Lake Storage Gen2 

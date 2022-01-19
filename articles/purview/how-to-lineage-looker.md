@@ -10,7 +10,7 @@ ms.date: 08/12/2021
 ---
 # How to get lineage from Looker into Azure Purview
 
-This article elaborates on the data lineage aspects of Looker source in Azure Purview. The prerequisite to see data lineage in Purview for Looker is to [scan your Looker.](../purview/register-scan-looker-source.md) 
+This article elaborates on the data lineage aspects of Looker source in Azure Purview. The prerequisite to see data lineage in Azure Purview for Looker is to [scan your Looker.](../purview/register-scan-looker-source.md) 
 
 ## Lineage of Looker artifacts in Azure Purview
 

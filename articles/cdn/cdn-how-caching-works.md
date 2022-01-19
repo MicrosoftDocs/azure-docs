@@ -11,7 +11,6 @@ ms.assetid:
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2021
 ms.author: duau

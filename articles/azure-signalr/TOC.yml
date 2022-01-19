@@ -131,6 +131,8 @@
       href: signalr-howto-troubleshoot-method.md
     - name: Troubleshooting with live trace tool
       href: signalr-howto-troubleshoot-live-trace.md
+  - name: Move across regions
+    href: signalr-howto-move-across-regions.md
 
 - name: References
   items:

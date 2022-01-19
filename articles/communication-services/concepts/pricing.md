@@ -99,7 +99,7 @@ Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit
 
 **Cost calculations**
 
-- 1 Participant (Bob) connected to Teams lobby x 1 minute x $0.004 per participant per minute (lobby charged aat regular rate of meettings) = $0.004
+- 1 Participant (Bob) connected to Teams lobby x 1 minute x $0.004 per participant per minute (lobby charged at regular rate of meetings) = $0.004
 - 1 participant (Bob) x 29 minutes x $0.004 per participant per minute = $0.116 [both video and audio are charged at the same rate]
 - 1 participant (Alice) x 30 minutes x $0.000 per participant per minute = $0.0*.
 - 1 participant (Bob) x 3 chat messages x $0.0008 = $0.0024.
@@ -116,8 +116,9 @@ Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit
 Alice has ordered a product from Contoso and struggles to set it up. Alice calls from her phone (Android) 800-CONTOSO to ask for help with the received product. Bob is a customer support agent in Contoso and sees an incoming call from Alice on the customer support website (Windows, Chrome browser). Bob accepts the incoming call via Communication Services JavaScript SDK initialized with Teams identity. Teams calling plan enables Bob to receive PSTN calls. Bob sees on the website the product ordered by Alice. Bob decides to invite product expert Charlie to the call. Charlie sees an incoming group call from Bob in the Teams Desktop client and accepts the call.
 
 - The call lasts a total of 30 minutes.
-- Bob accepts the call from Alice and turns on his video. Video is not streamed to Alice as Alice is using PSTN.
-- After 5 minutes, Bob adds Charlie to the call. Charlie has his camera turned off for 10 minutes. Then turns his camera on for the rest of the call. - After another 10 minutes, Alice leaves the call. 
+- Bob accepts the call from Alice.
+- After 5 minutes, Bob adds Charlie to the call. Charlie has his camera turned off for 10 minutes. Then turns his camera on for the rest of the call. 
+- After another 10 minutes, Alice leaves the call. 
 - After another 5 minutes, both Bob and Charlie leave the call
 
 **Cost calculations**

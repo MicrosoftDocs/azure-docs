@@ -6,7 +6,7 @@ keywords: connect to sql database,query sql database, azure portal, portal, quer
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: sqldbrb=1, contperf-fy21q3-portal, mode-other
+ms.custom: sqldbrb=1, contperf-fy21q3-portal, mode-ui
 ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn

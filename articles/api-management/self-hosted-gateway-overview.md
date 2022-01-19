@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/09/2021
+ms.date: 01/19/2022
 ms.author: danlep
 ---
 
@@ -63,13 +63,14 @@ Self-hosted gateways require outbound TCP/IP connectivity to Azure on port 443. 
 To operate properly, each self-hosted gateway needs outbound connectivity on port 443 to the following endpoints associated with its cloud-based API Management instance:
 
 * The public IP address of the API Management instance in its primary location
-* The instance's management endpoint: `<apim-service-name>.management.azure-api.net`
-* The instance's associated blob storage account: `<blob-storage-account-name>.blob.core.windows.net`
-* The instance's associated table storage account: `<table-storage-account-name>.table.core.windows.net`
+* The hostname of the instance's management endpoint: `<apim-service-name>.management.azure-api.net`
+* The hostname of the instance's associated blob storage account: `<blob-storage-account-name>.blob.core.windows.net`
+* The hostname of the instance's associated table storage account: `<table-storage-account-name>.table.core.windows.net`
 * Public IP addresses from the Storage [service tag](../virtual-network/service-tags-overview.md) corresponding to the primary location of the API Management instance
 
 > [!IMPORTANT]
-> * The associated storage account FQDNs are listed in the service's **Network connectivity status** page in the Azure portal.
+> * DNS hostnames must be resolvable to IP addresses and the corresponding IP addresses must be reachable.
+> * The associated storage account nameds are listed in the service's **Network connectivity status** page in the Azure portal.
 > * Public IP addresses underlying the associated storage accounts are dynamic and can change without notice.
 
 If integrated with your API Management instance, also enable outbound connectivity to the associated public IP addresses, ports, and hostnames for:

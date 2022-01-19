@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 01/16/2022
 ms.author: eur
 ---
 
@@ -87,7 +87,7 @@ The Speech SDK is perfect for transcribing meeting scenarios, whether from a sin
 
   - C++/Windows & Linux
   - C# (Framework & .NET Core)/Windows & UWP & Linux
-  - Java/Windows & Linux & Android (Speech Devices SDK)
+  - Java/Windows & Linux & Android
 
 #### Multi-device Conversation
 

@@ -4,12 +4,11 @@ description: Identify the company’s business needs that will lead you to defin
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: de690978-84ef-41ad-9dfe-785722d343a1
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity

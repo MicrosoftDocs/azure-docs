@@ -46,7 +46,7 @@ Resources are evaluated at specific times during the resource lifecycle, the pol
 lifecycle, and for regular ongoing compliance evaluation. The following are the times or events that
 cause a resource to be evaluated:
 
-- A resource is created, updated, or deleted in a scope with a policy assignment.
+- A resource is created or updated in a scope with a policy assignment.
 - A policy or initiative is newly assigned to a scope.
 - A policy or initiative already assigned to a scope is updated.
 - During the standard compliance evaluation cycle, which occurs once every 24 hours.
@@ -79,7 +79,7 @@ resource. For more information about making existing resources compliant, see
 ### Video overview
 
 The following overview of Azure Policy is from Build 2018. For slides or video download, visit
-[Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030)
+[Govern your Azure environment through Azure Policy](/events/Build/2018/THR2030)
 on Channel 9.
 
 > [!VIDEO https://www.youtube.com/embed/dxMaYF2GB7o]

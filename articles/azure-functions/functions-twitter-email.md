@@ -6,6 +6,7 @@ ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.topic: tutorial
 ms.date: 04/10/2021
 ms.author: cshoe
+ms.devlang: csharp
 ms.custom: "devx-track-csharp, mvc, cc996988-fb4f-47"
 ---
 

@@ -92,9 +92,6 @@ In the application's `Main` method, add calls for the methods used in this quick
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_main_calls)]
 
-> [!div class="nextstepaction"]
-> [I set up the client](?success=set-up-client#object-model) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=set-up-client&product=computer-vision&page=csharp-sdk)
-
 ## Object model
 
 The following classes and interfaces handle some of the major features of the OCR .NET SDK.
@@ -116,9 +113,6 @@ These code snippets show you how to do the following tasks with the OCR client l
 In a new method in the **Program** class, instantiate a client with your endpoint and subscription key. Create a **[ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials)** object with your subscription key, and use it with your endpoint to create a **[ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient)** object.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
-
-> [!div class="nextstepaction"]
-> [I authenticated the client](?success=authenticate-client#read-printed-and-handwritten-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=authenticate-client&product=computer-vision&page=csharp-sdk)
 
 ## Read printed and handwritten text
 

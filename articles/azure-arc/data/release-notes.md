@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 11/03/2021
+ms.date: 12/16/2021
 ms.topic: conceptual
 ms.custom: references_regions
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
@@ -17,17 +17,36 @@ ms.custom: references_regions
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+## December 2021
+
+This release is published December 16, 2021.
+
+### Data controller
+
+- Secret rotation for metrics and logs dashboards using Azure CLI or Kubernetes .yaml file
+- Ability to provide custom SSL certificates for metrics and logs dashboards using Azure CLI or Kubernetes yaml file
+- Direct mode upgrade of data controller via Azure CLI
+
+### SQL Managed Instance
+
+- Active Directory authentication in preview for SQL Managed Instance
+- Direct mode upgrade of SQL Managed Instance via Azure CLI
+- Edit memory and CPU configuration in Azure portal in directly connected mode
+- Ability to specify a single replica for a business critical instance using Azure CLI or Kubernetes yaml file
+- Updated SQL binaries to latest Azure PaaS-compatible binary version
+- Resolved issue where the point in time restore did not respect the configured time zone
+
 ## November 2021
 
 This release is published November 3, 2021
 
-#### Tools
+### Tools
 
-##### Azure Data Studio
+#### Azure Data Studio
 
 Install or update to the latest version of [Arc extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-arc-extension).
 
-##### Azure (`az`) CLI
+#### Azure (`az`) CLI
 
 Install or update `arcdata` extension for `az` CLI to support directly connected deployment.
 
@@ -40,7 +59,7 @@ The following `sql` commands now support directly connected mode:
    az sql mi-arc delete
    ```
  
-#### Data controller
+### Data controller
 
 - Directly connected mode generally available
 - Directly connected Azure Arc Data controller extensions on Azure Arc enabled Kubernetes clusters now use system generated managed identities instead of service principal name. The managed identity is automatically created when a new Azure Arc data controller extension is created. You still need to grant appropriate permissions to upload usage and metrics.
@@ -63,7 +82,7 @@ The following `sql` commands now support directly connected mode:
 
 You can continue to use `AZDATA_USERNAME` and `AZDATA_PASSWORD` environment variables as before. If you only provide `AZDATA_USERNAME` and `AZDATA_PASSWORD` then the deployment uses them for both the logs and metrics dashboards.
 
-##### Region availability
+### Region availability
 
 This release introduces directly connected mode availability in the following Azure regions:
 
@@ -73,7 +92,7 @@ This release introduces directly connected mode availability in the following Az
 
 For complete list, see [Supported regions](overview.md#supported-regions).
 
-#### Azure Arc-enabled SQL Managed Instance
+### Azure Arc-enabled SQL Managed Instance
 
 - Upgrade instances of Azure Arc-enabled SQL Managed Instance general purpose in-place
 - The SQL binaries are updated to a new version
@@ -91,7 +110,7 @@ For complete list, see [Supported regions](overview.md#supported-regions).
 #### Data controller upgrade
 
 - At this time, upgrade of a directly connected data controller via CLI or the portal is not supported.
-- You can only upgrade of generally available services such as Azure Arc data controller and general purpose SQL Managed Instance at this time. If you also have business critical SQL Managed Instance and/or Azure Arc enabled PostgreSQL Hyperscale, remove them first, before proceeding to upgrade.
+- You can only upgrade generally available services such as Azure Arc data controller and general purpose SQL Managed Instance at this time. If you also have business critical SQL Managed Instance and/or Azure Arc enabled PostgreSQL Hyperscale, remove them first, before proceeding to upgrade.
 
 #### Commands
 

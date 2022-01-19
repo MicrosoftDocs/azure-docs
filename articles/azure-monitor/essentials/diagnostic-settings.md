@@ -14,7 +14,7 @@ This article provides details on creating and configuring diagnostic settings to
 
 [Platform metrics](./metrics-supported.md) are sent automatically to [Azure Monitor Metrics](./data-platform-metrics.md) by default and without configuration.
 
-[Platform logs](./platform-logs-overview.md), including the Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. The Activity Log exists on it own but can be routed to other locations.  Resource logs are not collected until they are routed to a destination.
+[Platform logs](./platform-logs-overview.md), including the Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. The Activity Log exists on its own but can be routed to other locations.  Resource logs are not collected until they are routed to a destination.
 
 Each Azure resource requires its own diagnostic setting, which defines the following criteria:
 
@@ -304,9 +304,9 @@ When you create the assignment by using the Azure portal, you have the option of
 
 ### Metric category is not supported
 
-When deploying a diagnostic setting, you receive an error message, similar to *Metric category 'xxxx' is not supported*. You may receive this error even though a previous your deployment succeeded. 
+When deploying a diagnostic setting, you receive an error message, similar to *Metric category 'xxxx' is not supported*. You may receive this error even though your previous deployment succeeded. 
 
-The problem occurs when using a Resource Manager template, the diagnostic settings REST API, Azure CLI, or Azure PowerShell. Diagnostic settings created via the Azure portal are not affected as only the supported category names are presented.
+The problem occurs when using a Resource Manager template, REST API, Azure CLI, or Azure PowerShell. Diagnostic settings created via the Azure portal are not affected as only the supported category names are presented.
 
 The problem is caused by a recent change in the underlying API. Metric categories other than 'AllMetrics' are not supported and never were except for a few specific Azure services. In the past, other category names were ignored when deploying a diagnostic setting. The Azure Monitor backend redirected these categories to 'AllMetrics'.  As of February 2021, the backend was updated to specifically confirm the metric category provided is accurate. This change has caused some deployments to fail.
 

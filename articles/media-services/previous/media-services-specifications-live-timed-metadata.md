@@ -11,7 +11,6 @@ ms.assetid: 265b94b1-0fb8-493a-90ec-a4244f51ce85
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu

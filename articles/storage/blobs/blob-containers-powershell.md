@@ -269,7 +269,7 @@ The following example illustrates the process of configuring a service SAS for a
 
 ## Delete containers
 
-Depending on your use case, you can retrieve a container or list of containers with the `Remove-AzStorageContainer` cmdlet. When deleting a list of containers, you can leverage conditional operations, loops, or the PowerShell pipeline as shown in the examples below.
+Depending on your use case, you can delete a container or list of containers with the `Remove-AzStorageContainer` cmdlet. When deleting a list of containers, you can leverage conditional operations, loops, or the PowerShell pipeline as shown in the examples below.
 
 ```azurepowershell
 # Create variables
@@ -331,5 +331,5 @@ loop-container4
 
 ## See also
 
-- [Run PowerShell commands with Azure AD credentials to access blob data](/azure/storage/blobs/authorize-data-operations-powershell)
-- [Create a storage account](/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)
+- [Run PowerShell commands with Azure AD credentials to access blob data](./authorize-data-operations-powershell.md)
+- [Create a storage account](../common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

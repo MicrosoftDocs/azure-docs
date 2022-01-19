@@ -6,6 +6,7 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
+ms.devlang: csharp, javascript
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
