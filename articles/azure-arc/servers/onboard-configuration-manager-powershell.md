@@ -28,9 +28,9 @@ The following prerequisites must be met to use PowerShell scripts in Configurati
 
 Before you can run the script to connect your machines, you'll need to do the following:
 
-1. Follow the steps to [create a service principal for onboarding at scale](/azure/azure-arc/servers/onboard-service-principal). Assign the **Azure Connected Machine Onboarding** role to your service principal, and limit the scope of the role to the target Azure landing zone. Make a note of the Service Principal ID and Service Principal Secret, as you'll need these values later.
+1. Follow the steps to [create a service principal for onboarding at scale](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale). Assign the **Azure Connected Machine Onboarding** role to your service principal, and limit the scope of the role to the target Azure landing zone. Make a note of the Service Principal Secret, as you'll need this value later.
 
-2. Follow the steps to [generate the installation script from the Azure portal](/azure/azure-arc/servers/onboard-service-principal). While you will use this installation script later, do not run the script in PowerShell.
+2. Follow the steps to [generate the installation script from the Azure portal](onboard-service-principal#generate-the-installation-script-from-the-azure-portal). While you will use this installation script later, do not run the script in PowerShell.
 
 ## Create the script in Configuration Manager
 
