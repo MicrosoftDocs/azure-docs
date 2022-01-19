@@ -1165,6 +1165,8 @@ items:
         href: containers/container-insights-update-metrics.md
       - name: Migration from Azure Red Hat OpenShift v4.x to Azure Arc enabled cluster
         href: containers/container-insights-transition-hybrid.md
+      - name: Migration from Container Monitoring Solution to Container Insights
+        href: containers/container-insights-transition-solution.md
     - name: Monitor
       items:
       - name: Monitor performance
