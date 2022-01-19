@@ -46,11 +46,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Navigate to **Settings > Company profile > General**.
 
-	![Generate Token Page](media/timeclock-365-saml-provisioning-tutorial/generate-token-page.png)
+	[![Generate Token Page](media/timeclock-365-saml-provisioning-tutorial/generate-token-page.png)](media/timeclock-365-saml-provisioning-tutorial/generate-token-page.png#lightbox)
 
 1. Scroll down to **Azure user synchronization**.Copy and save the **Azure AD token**. This value will be entered in the **Secret Token** * field in the Provisioning tab of your TimeClock 365 SAML application in the Azure portal. 
 
-	![Generate Token](media/timeclock-365-saml-provisioning-tutorial/generate-token.png)
+	[![Generate Token](media/timeclock-365-saml-provisioning-tutorial/generate-token.png)](media/timeclock-365-saml-provisioning-tutorial/generate-token.png#lightbox)
 
 1. `https://live.timeclock365.com/scim` will be entered in the **Tenant URL** field in the Provisioning tab of your TimeClock 365 SAML application in the Azure portal.
 

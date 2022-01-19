@@ -45,9 +45,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Login to [Autodesk management portal](https://manage.autodesk.com/).
 1. From the left navigation menu, navigate to **User Management > By Group**. Select the required team from the drop-down list and click the team settings gear icon.
 
-	![Navigation](media/autodesk-sso-provisioning-tutorial/step2-1-navigation.png)
-
-2.  Click the Set up directory sync button and select Azure AD SCIM as the directory environment. Click Next to access the Azure admin crendentials. If you set up Directory Sync before, click on the Access Credential instead.
+	[![Navigation](media/autodesk-sso-provisioning-tutorial/step2-1-navigation.png)](media/autodesk-sso-provisioning-tutorial/step2-1-navigation.png#lightbox)
+	
+2.  Click the Set up directory sync button and select Azure AD SCIM as the directory environment. Click Next to access the Azure admin credentials. If you set up Directory Sync before, click on the Access Credential instead.
 
 	![Set Up Directory Sync](media/autodesk-sso-provisioning-tutorial/step2-2-set-up-directory-sync.png)
 
