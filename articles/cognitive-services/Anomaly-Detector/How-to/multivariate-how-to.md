@@ -59,7 +59,7 @@ Next you need to prepare your training data (and inference data with asynchronou
 
 ## Train an MVAD model.
 
-In this process, you should upload your data to blob storage and generate a SAS url used for training dataset, you could refer to this [video](https://msit.microsoftstream.com/video/afa00840-98dc-ae72-fad1-f1ec0fe830c1?referrer=https:%2F%2Fnotebooks.githubusercontent.com%2F) for better instructions. 
+In this process, you should upload your data to blob storage and generate a SAS url used for training dataset.
 
 For training data size, the maximum number of timestamps is `1000000`, and a recommended minimum number is `15000` timestamps.
 
