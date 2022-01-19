@@ -34,12 +34,12 @@ This script copies a snapshot of a managed disk to same or different subscriptio
 
 ## Script explanation
 
-This script uses following commands to create a snapshot in the target subscription using the Id of the source snapshot. Each command in the table links to command specific documentation.
+This script uses following commands to create a snapshot in the target subscription using the `Id` of the source snapshot. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
-| [az snapshot show](/cli/azure/snapshot) | Gets all the properties of a snapshot using the name and resource group properties of the snapshot. Id property is used to copy the snapshot to different subscription.  |
-| [az snapshot create](/cli/azure/snapshot) | Copies a snapshot by creating a snapshot in different subscription using the Id and name of the parent snapshot.  |
+| [az snapshot show](/cli/azure/snapshot) | Gets all the properties of a snapshot using the name and resource group properties of the snapshot. The `Id` property is used to copy the snapshot to different subscription.  |
+| [az snapshot create](/cli/azure/snapshot) | Copies a snapshot by creating a snapshot in different subscription using the `Id` and name of the parent snapshot.  |
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: Copy managed disks to the a subscription - CLI Sample
+title: Copy managed disks to same or different subscription - CLI Sample
 description: Azure CLI Script Sample - Copy (or move) managed disks to the same or a different subscription
 documentationcenter: storage
 author: ramankumarlive
@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Copy managed disks to same or different subscription with CLI
 
-This script copies a managed disk to same or different subscription but in the same region. The copy works only when the subscriptions are part of same Azure AD tenant.
+This script copies a managed disk to same or different subscription but in the same region. The copy works only when the subscriptions are part of the same Azure AD tenant.
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -26,12 +26,12 @@ This script copies a managed disk to same or different subscription but in the s
 
 ## Script explanation
 
-This script uses following commands to create a new managed disk in the target subscription using the Id of the source managed disk. Each command in the table links to command specific documentation.
+This script uses following commands to create a new managed disk in the target subscription using the `Id` of the source managed disk. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
-| [az disk show](/cli/azure/disk) | Gets all the properties of a managed disk using the name and resource group properties of the managed disk. Id property is used to copy the managed disk to different subscription.  |
-| [az disk create](/cli/azure/disk) | Copies a managed disk by creating a new managed disk in different subscription using Id and name the parent managed disk.  |
+| [az disk show](/cli/azure/disk) | Gets all the properties of a managed disk using the name and resource group properties of the managed disk. The `Id` property is used to copy the managed disk to different subscription.  |
+| [az disk create](/cli/azure/disk) | Copies a managed disk by creating a new managed disk in different subscription using the `Id` and name the parent managed disk.  |
 
 ## Next steps
 
