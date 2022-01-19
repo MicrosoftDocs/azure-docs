@@ -100,6 +100,7 @@ namespace CallingQuickstart
         {
             this.InitializeComponent();
             this.InitCallAgentAndDeviceManager();
+            remoteParticipantDictionary = new Dictionary<string, RemoteParticipant>();
         }
         
         private async void InitCallAgentAndDeviceManager()
@@ -308,7 +309,7 @@ private async void Call_OnStateChanged(object sender, PropertyChangedEventArgs a
             await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
                 LocalVideo.Source = null;
-                RemoteVideo = null;
+                RemoteVideo.Source = null;
             });
             break;
         default:
