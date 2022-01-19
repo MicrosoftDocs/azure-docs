@@ -26,53 +26,49 @@ However, Maps doesn't have the same level of information and accuracy for all re
 
 ## Americas
 
-| Country/Region               | Coverage |
-|------------------------------|:--------:|
-| Algeria                      |    ✓     |
-| Angola                       |    ✓     |
-| Bahrain                      |    ✓     |
-| Benin                        |    ✓     |
-| Botswana                     |    ✓     |
-| Burkina Faso                 |    ✓     |
-| Burundi                      |    ✓     |
-| Cameroon                     |    ✓     |
-| Congo                        |    ✓     |
-| Democratic Republic of Congo |    ✓     |
-| Egypt                        |    ✓     |
-| Gabon                        |    ✓     |
-| Ghana                        |    ✓     |
-| Iraq                         |    ✓     |
-| Jordan                       |    ✓     |
-| Kenya                        |    ✓     |
-| Kuwait                       |    ✓     |
-| Lebanon                      |    ✓     |
-| Lesotho                      |    ✓     |
-| Malawi                       |    ✓     |
-| Mali                         |    ✓     |
-| Mauritania                   |    ✓     |
-| Mauritius                    |    ✓     |
-| Mayotte                      |    ✓     |
-| Morocco                      |    ✓     |
-| Mozambique                   |    ✓     |
-| Namibia                      |    ✓     |
-| Niger                        |    ✓     |
-| Nigeria                      |    ✓     |
-| Oman                         |    ✓     |
-| Qatar                        |    ✓     |
-| Reunion                      |    ✓     |
-| Rwanda                       |    ✓     |
-| Saudi Arabia                 |    ✓     |
-| Senegal                      |    ✓     |
-| South Africa                 |    ✓     |
-| Swaziland                    |    ✓     |
-| Tanzania                     |    ✓     |
-| Togo                         |    ✓     |
-| Tunisia                      |    ✓     |
-| Uganda                       |    ✓     |
-| United Arab Emirates         |    ✓     |
-| Yemen                        |    ✓     |
-| Zambia                       |    ✓     |
-| Zimbabwe                     |    ✓     |
+| Country/Region                   | Coverage |
+|----------------------------------|:--------:|
+| Anguilla                         |     ✓    |
+| Antigua & Barbuda                |     ✓    |
+| Argentina                        |     ✓    |
+| Aruba                            |     ✓    |
+| Bahamas                          |     ✓    |
+| Barbados                         |     ✓    |
+| Bermuda                          |     ✓    |
+| Bonaire, St Eustatius & Saba     |     ✓    |
+| Brazil                           |     ✓    |
+| British Virgin Islands           |     ✓    |
+| Canada                           |     ✓    |
+| Cayman Islands                   |     ✓    |
+| Chile                            |     ✓    |
+| Clipperton Island                |     ✓    |
+| Colombia                         |     ✓    |
+| Curaçao                          |     ✓    |
+| Dominica                         |     ✓    |
+| Falkland Islands                 |     ✓    |
+| Grenada                          |     ✓    |
+| Guadeloupe                       |     ✓    |
+| Haiti                            |     ✓    |
+| Jamaica                          |     ✓    |
+| Martinique                       |     ✓    |
+| Mexico                           |     ✓    |
+| Montserrat                       |     ✓    |
+| Peru                             |     ✓    |
+| Puerto Rico                      |     ✓    |
+| Saint Barthélemy                 |     ✓    |
+| Saint Kitts & Nevis              |     ✓    |
+| Saint Lucia                      |     ✓    |
+| Saint Martin                     |     ✓    |
+| Saint Pierre & Miquelon          |     ✓    |
+| Saint Vincent & Grenadines       |     ✓    |
+| Sint Maarten                     |     ✓    |
+| South Georgia & Sandwich Islands |     ✓    |
+| Trinidad & Tobago                |     ✓    |
+| Turks & Caicos Islands           |     ✓    |
+| U.S. Virgin Islands              |     ✓    |
+| United States                    |     ✓    |
+| Uruguay                          |     ✓    |
+| Venezuela                        |     ✓    |
 
 ## Asia Pacific
 
