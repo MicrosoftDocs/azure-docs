@@ -60,9 +60,9 @@ You can update your backbend API from the Azure portal by following these steps:
 > * Name
 > * Type
 > * Description
-> * Subscription Required
-> * API Version
-> * API Version Description
+> * Subscription required
+> * API version
+> * API version description
 > * Path
 > * Protocols
 >
