@@ -205,7 +205,7 @@ When new policies are ready, deploy your conditional access policies in phases.
 
 ### Build your Conditional Access policy
 
-Refer to common [Conditional Access policies](concept-conditional-access-policy-common.md) for a head start. A convenient way will be to use the [Conditional Access template](concept-conditional-access-policy-common#conditional-access-templates-preview) that comes with Microsoft recommendations. Make sure you exclude your emergency access accounts.
+Refer to common [Conditional Access policies](concept-conditional-access-policy-common.md) for a head start. A convenient way will be to use the Conditional Access template that comes with Microsoft recommendations. Make sure you exclude your emergency access accounts.
 
 ### Evaluate the policy impact
 
