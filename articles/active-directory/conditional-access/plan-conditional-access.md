@@ -33,7 +33,7 @@ Microsoft provides [security defaults](../fundamentals/concept-fundamentals-secu
 
 * An account with Conditional Access administrator privileges.
 
-* •	A test user (non-administrator) that allows you to verify policies work as expected before you impact real users. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+* A test user (non-administrator) that allows you to verify policies work as expected before you impact real users. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 
 * A group that the non-administrator user is a member of. If you need to create a group, see [Create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
@@ -248,11 +248,11 @@ In case you need to roll back your newly implemented policies, use one or more o
 
 * **Disable the policy.** Disabling a policy makes sure it does not apply when a user tries to sign in. You can always come back and enable the policy when you would like to use it.
 
-![enable policy image](media/plan-conditional-access/enable-policy.png)
+ ![enable policy image](media/plan-conditional-access/enable-policy.png)
 
 * **Exclude a user or group from a policy.** If a user is unable to access the app, you can choose to exclude the user from the policy.
 
-![exclude users and groups](media/plan-conditional-access/exclude-users-groups.png)
+ ![exclude users and groups](media/plan-conditional-access/exclude-users-groups.png)
 
 > [!NOTE]
 >  This option should be used sparingly, only in situations where the user is trusted. The user should be added back into the policy or group as soon as possible.
