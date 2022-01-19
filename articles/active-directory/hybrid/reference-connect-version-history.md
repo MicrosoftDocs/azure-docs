@@ -66,7 +66,8 @@ To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-t
 
 ### Bug fixes
 
-We fixed a bug in version 2.0.88.0 where, under certain conditions, linked mailboxes of disabled users and mailboxes of certain resource objects, were getting deleted.
+- We fixed a bug in version 2.0.88.0 where, under certain conditions, linked mailboxes of disabled users and mailboxes of certain resource objects, were getting deleted.
+- We fixed an issue which causes upgrade to Azure AD Connect version 2.x to fail, when using SQL localdb along with a VSA service account for ADSync.
 
 ## 2.0.88.0
 

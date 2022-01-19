@@ -41,9 +41,11 @@ sections:
           No, we don't support B2C in the Azure API for FHIR. If you need more granular access controls, we recommend looking at the [open-source FHIR proxy](https://github.com/microsoft/fhir-proxy). 
 
       - question: |
-          What is the Recovery Point Objective (RPO) for the Azure API for FHIR?
+          What is the backup and recovery policy for the Azure API for FHIR?
         answer: |
-          The RPO for Azure API for FHIR is < 240 minutes.
+          Data for the managed service is backed up automatically every 4 hours and two backups are maintained. So the retention duration is 8 hours. Data recovery is done by the support team and the recovery point objective (RPO) is less than 240 minutes.
+
+          Customers can make a request to restore the data, or change the default data backup policy, through a support ticket.
           
       - question: |
           What FHIR version do you support?
@@ -72,7 +74,7 @@ sections:
       - question: |
           Where can I see what is releasing in Azure API for FHIR?
         answer: |
-          The [release notes](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/release-notes) page provides an overview of everything that has shipped to the managed service in the previous month. 
+          The [release notes](./release-notes.md) page provides an overview of everything that has shipped to the managed service in the previous month. 
           
           For more information about what's releasing in Azure API for FHIR, see [releases](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. We have worked to tag items with Azure-API-for-FHIR if they will release to the managed service and are usually available two weeks after they are on the release page in open-source. We have also included instructions on [how to test the build](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you'd like to test in your own environment. 
           

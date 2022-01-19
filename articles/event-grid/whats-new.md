@@ -2,7 +2,7 @@
 title: What's new? Azure Event Grid
 description: Learn what is new with Azure Event Grid, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 ms.topic: overview
-ms.date: 04/27/2021
+ms.date: 01/13/2022
 ---
 
 # What's new in Azure Event Grid?
@@ -11,7 +11,18 @@ ms.date: 04/27/2021
 
 Azure Event Grid receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the features that are added or updated in a release. 
 
+
+## .NET 6.2.0-preview (2021-06)
+This release corresponds to api-version 2021-06-01-preview which includes the following new features:
+
+- [Azure Active Directory authentication for topics and domains, and partner namespaces](authenticate-with-active-directory.md)
+- Private link support for partner namespaces. Azure portal doesn't support it yet. 
+- IP Filtering for partner namespaces. Azure portal doesn't support it yet. 
+- System Identity for partner topics. Azure portal doesn't support it yet.
+- [User Identity for system topics, custom topics and domains](enable-identity-custom-topics-domains.md)
+
 ## 6.1.0-preview (2020-10)
+
 - [Managed identities for system topics](enable-identity-system-topics.md)
 - [Custom delivery properties](delivery-properties.md)
 - [Storage queue - message time-to-live (TTL)](delivery-properties.md#configure-time-to-live-on-outgoing-events-to-azure-storage-queues)

@@ -3,9 +3,8 @@ title: Network security concepts and requirements in Azure | Microsoft Docs
 description: This article provides basic explanations about core network security concepts and requirements, and information on what Azure offers in each of these areas.
 services: security
 documentationcenter: na
-author: TomShinder
-manager: barbkess
-editor: TomSh
+author: TerryLanfear
+manager: rkarlin
 
 ms.assetid: bedf411a-0781-47b9-9742-d524cf3dbfc1
 ms.service: security
@@ -13,7 +12,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 01/06/2022
 ms.author: terrylan
 #Customer intent: As an IT Pro or decision maker, I am looking for information on the network security controls available in Azure.
 
@@ -128,16 +127,13 @@ You can access these enhanced network security features by using an Azure partne
 
 ## Azure Firewall
 
-Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It is a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. Some features include:
+[Azure Firewall](../../firewall/overview.md) is a cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
 
-* High availability
-* Cloud scalability
-* Application FQDN filtering rules
-* Network traffic filtering rules
+Azure Firewall is offered in two SKUs: Standard and Premium. [Azure Firewall Standard](../../firewall/features.md) provides L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security. [Azure Firewall Premium](../../firewall/premium-features.md) provides advanced capabilities include signature-based IDPS to allow rapid detection of attacks by looking for specific patterns.
 
 Learn more:
 
-* [Azure Firewall overview](../../firewall/overview.md)
+* [What is Azure Firewall](../../firewall/overview.md)
 
 ## Secure remote access and cross-premises connectivity
 

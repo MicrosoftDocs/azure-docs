@@ -63,7 +63,7 @@ The [Azure Government video library](https://aka.ms/AzureGovVideos) contains man
 
 ## Compliance
 
-For more information on Azure Government Compliance, refer to the [compliance documentation](./documentation-government-plan-compliance.md) and watch this [video](https://channel9.msdn.com/blogs/Azure-Government/Compliance-on-Azure-Government). 
+For more information on Azure Government Compliance, refer to the [compliance documentation](./documentation-government-plan-compliance.md). 
 
 ### Azure Blueprints
 

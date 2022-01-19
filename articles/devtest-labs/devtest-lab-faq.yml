@@ -52,7 +52,7 @@ sections:
       - question: |
           Why should I use Azure DevTest Labs?
         answer: |
-          Azure DevTest Labs can save your team time and money. Developers can create their own environments by using several different bases. They also can use artifacts to quickly deploy and configure applications. By using custom images and formulas, you can save virtual machines (VMs) as templates, and easily reproduce them across the team. DevTest Labs also offers several configurable policies that lab administrators can use to reduce waste and manage a team's environments. These policies include auto-shutdown, cost threshold, maximum VMs per user, and maximum VM size. For a more in-depth explanation of DevTest Labs, see the [overview](devtest-lab-overview.md) or the [introductory video](https://channel9.msdn.com/Blogs/Azure/what-is-azure-devtest-labs).
+          Azure DevTest Labs can save your team time and money. Developers can create their own environments by using several different bases. They also can use artifacts to quickly deploy and configure applications. By using custom images and formulas, you can save virtual machines (VMs) as templates, and easily reproduce them across the team. DevTest Labs also offers several configurable policies that lab administrators can use to reduce waste and manage a team's environments. These policies include auto-shutdown, cost threshold, maximum VMs per user, and maximum VM size. For a more in-depth explanation of DevTest Labs, see the [overview](devtest-lab-overview.md).
           
       - question: |
           What does "worry-free self-service" mean?
