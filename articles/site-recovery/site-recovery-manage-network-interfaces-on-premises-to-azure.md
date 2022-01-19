@@ -1,12 +1,12 @@
 ---
 title: Manage network adapters for on-premises disaster recovery with Azure Site Recovery
 description: Describes how to manage network interfaces for on-premises disaster recovery to Azure with Azure Site Recovery
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
-ms.author: mayg
+ms.author: harshacs
 
 ---
 # Manage VM network interfaces for on-premises disaster recovery to Azure
@@ -21,7 +21,7 @@ By default, Azure Site Recovery creates as many network interfaces on an Azure v
 
 ## Select the target network
 
-For VMware and physical machines, and for Hyper-V (without System Center Virtual Machine Manager) virtual machines, you can specify the target virtual network for individual virtual machines. For Hyper-V virtual machines managed with Virtual Machine Manager, use [network mapping](site-recovery-network-mapping.md) to map VM networks on a source Virtual Machine Manager server and target Azure networks.
+For VMware and physical machines, and for Hyper-V (without System Center Virtual Machine Manager) virtual machines, you can specify the target virtual network for individual virtual machines. For Hyper-V virtual machines managed with Virtual Machine Manager, use [network mapping](./hyper-v-vmm-network-mapping.md) to map VM networks on a source Virtual Machine Manager server and target Azure networks.
 
 1. Under **Replicated items** in a Recovery Services vault, select any replicated item to access the settings for that replicated item.
 

@@ -9,7 +9,7 @@ ms.date: 11/08/2019
 
 Azure Backup provides a built-in policy (using Azure Policy) that can be assigned to **all Azure VMs in a specified location within a subscription or resource group**. When this policy is assigned to a given scope, all new VMs created in that scope are automatically configured for backup to an **existing vault in the same location and subscription**. The table below lists all the VM SKUs supported by this policy.
 
-### **Supported VMs**
+## Supported VMs*
 
 **Policy Name:** Configure backup on VMs of a location to an existing central vault in the same location
 
@@ -41,7 +41,7 @@ MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1709-with-Con
 MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1803-with-Containers-smalldisk
 MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | All Image SKUs
 MicrosoftSQLServer | SQL2016SP1-WS2016 | All Image SKUs
-MicrosoftSQLServer | SQL2016-WS2016	 | All Image SKUs
+MicrosoftSQLServer | SQL2016-WS2016 | All Image SKUs
 MicrosoftSQLServer | SQL2016SP1-WS2016-BYOL | All Image SKUs
 MicrosoftSQLServer | SQL2012SP3-WS2012R2 | All Image SKUs
 MicrosoftSQLServer | SQL2016-WS2012R2 | All Image SKUs
@@ -52,9 +52,9 @@ MicrosoftSQLServer | SQL2014SP2-WS2012R2-BYOL | All Image SKUs
 MicrosoftSQLServer | SQL2016-WS2012R2-BYOL | All Image SKUs
 MicrosoftRServer | MLServer-WS2016 | All Image SKUs
 MicrosoftVisualStudio | VisualStudio | All Image SKUs
-MicrosoftVisualStudio | Windows	| All Image SKUs
-MicrosoftDynamicsAX | Dynamics	| Pre-Req-AX7-Onebox-U8
-microsoft-ads | windows-data-science-vm	| All Image SKUs
+MicrosoftVisualStudio | Windows | All Image SKUs
+MicrosoftDynamicsAX | Dynamics | Pre-Req-AX7-Onebox-U8
+microsoft-ads | windows-data-science-vm | All Image SKUs
 MicrosoftWindowsDesktop | Windows-10 | All Image SKUs
 RedHat | RHEL | 6.7, 6.8, 6.9, 6.10, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7
 RedHat | RHEL-SAP-HANA | 6.7, 7.2, 7.3

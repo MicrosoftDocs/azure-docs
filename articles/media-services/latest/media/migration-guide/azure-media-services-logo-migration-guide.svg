@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="429.07" height="53.27" viewBox="0 0 429.07 53.27">
+  <defs>
+    <linearGradient id="linear-gradient" x1="-62.67" y1="-794.21" x2="-24.73" y2="-860.05" gradientTransform="translate(-652.66 470.39) rotate(60.11)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#015ca2"/>
+      <stop offset="0.37" stop-color="#04508e"/>
+      <stop offset="1" stop-color="#1e3565"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-2762.89" y1="749.48" x2="-2716.8" y2="668.65" gradientTransform="translate(-1936.29 -1985.76) rotate(-119.89)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#015ca2"/>
+      <stop offset="0.45" stop-color="#164884"/>
+      <stop offset="1" stop-color="#1e3565"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="45.04" y1="762.92" x2="48.16" y2="745.15" gradientTransform="translate(0 -720.13)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.26" stop-color="#75d0eb"/>
+      <stop offset="0.42" stop-color="#8ed6ed"/>
+      <stop offset="0.58" stop-color="#a5def1"/>
+      <stop offset="0.73" stop-color="#b6e4f5"/>
+      <stop offset="0.88" stop-color="#c2e8f6"/>
+      <stop offset="1" stop-color="#c6eaf7"/>
+    </linearGradient>
+  </defs>
+  <g id="Layer_4" data-name="Layer 4">
+    <rect width="429.07" height="53.27" style="fill: #fff"/>
+    <line x1="3.8" y1="9.07" x2="77.85" y2="45.37" style="fill: none"/>
+  </g>
+  <g id="Layer_2" data-name="Layer 2">
+    <g>
+      <polygon points="21.19 39.15 6.5 30.66 6.5 13.7 21.19 5.22 35.88 13.7 35.88 30.66 21.19 39.15" style="fill: #3f3f3f"/>
+      <path d="M21.19,39.15l14.69-8.49v-17S23.74,22.94,21.19,39.15" style="fill: #fff;opacity: 0.200000002980232;isolation: isolate"/>
+      <path d="M27.65,15.37a9.63,9.63,0,1,0,0,13.63,9.65,9.65,0,0,0,0-13.63" style="fill: #fff"/>
+      <path d="M26.33,16.69a7.77,7.77,0,1,0,0,11,7.77,7.77,0,0,0,0-11" style="fill: #5bb4da"/>
+      <polygon points="25.52 22.17 18.12 17.31 18.12 22.19 25.49 22.19 25.52 22.17" style="fill: #fff"/>
+      <polygon points="25.49 22.19 18.12 22.19 18.12 27.08 25.49 22.19" style="fill: #fff;opacity: 0.800000011920929;isolation: isolate"/>
+    </g>
+  </g>
+  <g id="Layer_1" data-name="Layer 1">
+    <path d="M52,20.12l9.42,5.43L68,21.75a18.93,18.93,0,0,0-30-4A21.53,21.53,0,0,1,52,20.12Z" style="fill: url(#linear-gradient)"/>
+    <path d="M61.31,25.54l-.14,13L68,40.38A18.95,18.95,0,0,0,56.71,12.81,22.51,22.51,0,0,1,61.31,25.54Z" style="fill: #2f76bc"/>
+    <path d="M61.31,36.76,51.5,42.42,51.65,50a19,19,0,0,0,18.9-19,18.57,18.57,0,0,0-.62-4.51A20.61,20.61,0,0,1,61.31,36.76Z" style="fill: #6a9dd3"/>
+    <path d="M51.5,42.42l-9.81-5.66-6.52,3.9a18.93,18.93,0,0,0,29.47,4.06A21.41,21.41,0,0,1,51.5,42.42Z" style="fill: url(#linear-gradient-2)"/>
+    <path d="M41.68,36.76l.15-13.45-6.72-1.77a18.72,18.72,0,0,0-2.57,9.51A19.05,19.05,0,0,0,46.62,49.37,22,22,0,0,1,41.68,36.76Z" style="fill: #2f76bc"/>
+    <path d="M42,25.23l9.48-5.48a22.74,22.74,0,0,0-12.81-2.68,18.86,18.86,0,0,0-6.15,14,19.19,19.19,0,0,0,.67,5A22.1,22.1,0,0,1,42,25.23Z" style="fill: #6a9dd3"/>
+    <polygon points="61.31 36.76 61.31 25.42 51.5 19.75 41.68 25.42 41.68 36.76 51.5 42.42 61.31 36.76" style="fill: #c6eaf7"/>
+    <polygon points="51.51 31.21 51.51 42.42 41.68 36.76 41.68 25.46 51.51 31.21" style="fill: url(#linear-gradient-3)"/>
+    <polygon points="51.5 31.21 51.5 42.42 61.33 36.76 61.33 25.46 51.5 31.21" style="fill: #75d0eb"/>
+    <text transform="translate(76.38 37.4)" style="font-size: 18px;fill: #2f76bc;font-family: SegoeUI-Bold, Segoe UI;font-weight: 700">Media Se<tspan x="77.7" y="0" style="letter-spacing: 0.040093315972222224em">r</tspan><tspan x="85.59" y="0">vices V2 </tspan><tspan x="159.05" y="0" style="letter-spacing: -0.003960503472222222em">t</tspan><tspan x="165.98" y="0">o V3 Migration Guide</tspan></text>
+  </g>
+</svg>

@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: multiple
- author: sharad4u
+ author: duongau
  ms.service: multiple
  ms.topic: include
- ms.date: 05/09/2019
- ms.author: sharadag
+ ms.date: 10/30/2020
+ ms.author: duau
  ms.custom: include file
 ---
 
@@ -18,6 +18,7 @@ The following CAs are allowed when you create your own certificate:
 - AME Infra CA 02
 - Ameroot
 - APCA-DM3P
+- Atos TrustedRoot 2011
 - Autopilot Root CA
 - Baltimore CyberTrust Root
 - Class 3 Public Primary Certification Authority
@@ -26,6 +27,7 @@ The following CAs are allowed when you create your own certificate:
 - D-TRUST Root Class 3 CA 2 2009
 - DigiCert Cloud Services CA-1
 - DigiCert Global Root CA
+- DigiCert Global Root G2
 - DigiCert High Assurance CA-3
 - DigiCert High Assurance EV Root CA
 - DigiCert SHA2 Extended Validation Server CA
@@ -47,8 +49,19 @@ The following CAs are allowed when you create your own certificate:
 - GlobalSign Root CA
 - Go Daddy Root Certificate Authority - G2
 - Go Daddy Secure Certificate Authority - G2
+- Hongkong Post Root CA 1
+- Let's Encrypt Authority X3
+- Microsec e-Szigno Root CA 2009
 - QuoVadis Root CA2 G3
 - RapidSSL RSA CA 2018
+- Security Communication RootCA1
+- Security Communication RootCA2
+- Security Communication RootCA3
+- SSL.com Root Certification Authority ECC
+- SSL.com Root Certification Authority RSA
+- SSL.com EV Root Certification Authority ECC
+- SSL.com EV Root Certification Authority RSA R2
+- Staat der Nederlanden EV Root CA
 - Symantec Class 3 EV SSL CA - G3
 - Symantec Class 3 Secure Server CA - G4
 - Symantec Enterprise Mobile Root for Microsoft

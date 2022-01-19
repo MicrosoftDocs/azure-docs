@@ -6,7 +6,7 @@ summary: Learn how to set up data modeling with Analysis Services in the cloud. 
 metadata: 
   title: Azure Analysis Services documentation | Microsoft Docs
   description: Azure Analysis Services is a fully managed platform as a service (PaaS) that provides enterprise-grade data models in the cloud. 
-  ms.service: analysis-services
+  ms.service: azure-analysis-services
   ms.topic: landing-page
   ms.collection: 
   author: minewiskan
@@ -69,7 +69,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: PowerShell
-            url: /azure/analysis-services/analysis-services-powershell
+            url: ./analysis-services-powershell.md
           - text: REST API
             url: /rest/api/analysisservices/
           - text: Tabular Model Scripting Language (TMSL)

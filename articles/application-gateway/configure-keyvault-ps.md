@@ -1,22 +1,23 @@
 ---
-title: Configure SSL termination with Key Vault certificates - PowerShell
+title: Configure TLS termination with Key Vault certificates - PowerShell
 titleSuffix: Azure Application Gateway
-description: Learn how you can integrate Azure Application Gateway with Key Vault for server certificates that are attached to HTTPS-enabled listeners.
+description: Learn how how to use an Azure PowerShell script to integrate your key vault with your application gateway for TLS/SSL termination certificates.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 02/27/2020
-ms.author: victorh
+ms.topic: how-to
+ms.date: 05/26/2020
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Configure SSL termination with Key Vault certificates by using Azure PowerShell
+# Configure TLS termination with Key Vault certificates using Azure PowerShell
 
-[Azure Key Vault](../key-vault/key-vault-overview.md) is a platform-managed secret store that you can use to safeguard secrets, keys, and SSL certificates. Azure Application Gateway supports integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners. This support is limited to the Application Gateway v2 SKU.
+[Azure Key Vault](../key-vault/general/overview.md) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Application Gateway supports integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners. This support is limited to the Application Gateway v2 SKU.
 
-For more information, see [SSL termination with Key Vault certificates](key-vault-certs.md).
+For more information, see [TLS termination with Key Vault certificates](key-vault-certs.md).
 
-This article shows you how to use an Azure PowerShell script to integrate your key vault with your application gateway for SSL termination certificates.
+This article shows you how to use an Azure PowerShell script to integrate your key vault with your application gateway for TLS/SSL termination certificates.
 
 This article requires Azure PowerShell module version 1.0.0 or later. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). To run the commands in this article, you also need to create a connection with Azure by running `Connect-AzAccount`.
 
@@ -39,9 +40,11 @@ Select-AzSubscription -Subscription <your subscription>
 ```azurepowershell
 $rgname = "KeyVaultTest"
 $location = "East US"
-$kv = "TestKeyVaultAppGw"
+$kv = "<your key vault name>"
 $appgwName = "AppGwKVIntegration"
 ```
+> [!IMPORTANT]
+> The key vault name must be universally unique.
 
 ### Create a resource group and a user-managed identity
 
@@ -54,7 +57,7 @@ $identity = New-AzUserAssignedIdentity -Name "appgwKeyVaultIdentity" `
 ### Create a key vault, policy, and certificate to be used by the application gateway
 
 ```azurepowershell
-$keyVault = New-AzKeyVault -Name $kv -ResourceGroupName $rgname -Location $location -EnableSoftDelete 
+$keyVault = New-AzKeyVault -Name $kv -ResourceGroupName $rgname -Location $location
 Set-AzKeyVaultAccessPolicy -VaultName $kv -PermissionsToSecrets get -ObjectId $identity.PrincipalId
 
 $policy = New-AzKeyVaultCertificatePolicy -ValidityInMonths 12 `
@@ -65,8 +68,6 @@ $certificate = Add-AzKeyVaultCertificate -VaultName $kv -Name "cert1" -Certifica
 $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
-> [!NOTE]
-> The -EnableSoftDelete flag must be used for SSL termination to function properly. If you're configuring [Key Vault soft-delete through the Portal](../key-vault/key-vault-ovw-soft-delete.md#soft-delete-behavior), the retention period must be kept at 90 days, the default value. Application Gateway doesn't support a different retention period yet. 
 
 ### Create a virtual network
 
@@ -97,7 +98,7 @@ $fp01 = New-AzApplicationGatewayFrontendPort -Name "port1" -Port 443
 $fp02 = New-AzApplicationGatewayFrontendPort -Name "port2" -Port 80
 ```
 
-### Point the SSL certificate to your key vault
+### Point the TLS/SSL certificate to your key vault
 
 ```azurepowershell
 $sslCert01 = New-AzApplicationGatewaySslCertificate -Name "SSLCert1" -KeyVaultSecretId $secretId
@@ -139,4 +140,4 @@ $appgw = New-AzApplicationGateway -Name $appgwName -Identity $appgwIdentity -Res
 
 ## Next steps
 
-[Learn more about SSL termination](ssl-overview.md)
+[Learn more about TLS termination](ssl-overview.md)

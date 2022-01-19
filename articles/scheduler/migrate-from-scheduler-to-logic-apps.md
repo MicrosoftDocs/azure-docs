@@ -95,7 +95,7 @@ You can run multiple one-time jobs by creating just a single logic app.
 
    For example, you can include an HTTP action that sends a request to a URL, or actions that work with Storage Queues, Service Bus queues, or Service Bus topics:
 
-   ![HTTP action](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
+   ![Screenshot shows a Delay until action followed by an H T T P action with a POST method.](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
 
 1. When you're done, save your logic app.
 
@@ -135,7 +135,7 @@ app appears under the **raw** box on the **Body** tab.
 
 ## Cancel a one-time job
 
-In Logic Apps, each one-time job executes as a single logic app run instance. To cancel a one-time job, you can use [Workflow Runs - Cancel](https://docs.microsoft.com/rest/api/logic/workflowruns/cancel) in the Logic Apps REST API. When you send a call to the trigger, provide the [workflow run ID](#workflow-run-id).
+In Logic Apps, each one-time job executes as a single logic app run instance. To cancel a one-time job, you can use [Workflow Runs - Cancel](/rest/api/logic/workflowruns/cancel) in the Logic Apps REST API. When you send a call to the trigger, provide the [workflow run ID](#workflow-run-id).
 
 ## Schedule recurring jobs
 
@@ -158,7 +158,7 @@ In Logic Apps, each one-time job executes as a single logic app run instance. To
 
    For example, you can include an HTTP action that sends a request to a URL, or actions that work with Storage Queues, Service Bus queues, or Service Bus topics:
 
-   ![HTTP action](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
+   ![Screenshot shows an H T T P action with a POST method.](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
 
 1. When you're done, save your logic app.
 
@@ -216,6 +216,10 @@ To learn more about exception handling, see [Handle errors and exceptions - RunA
 
 **Q**: Do I have to back up or perform any other tasks before migrating my Scheduler jobs to Logic Apps? <br>
 **A**: As a best practice, always back up your work. Check that the logic apps you created are running as expected before deleting or disabling your Scheduler jobs.
+   
+**Q**: What will happen to my scheduled Azure Web Jobs from Azure Scheduler? <br>
+**A**: Web Jobs using this way of [Scheduling Web Jobs](https://github.com/projectkudu/kudu/wiki/WebJobs#scheduling-a-triggered-webjob) are not using the Azure Scheduler internally. “For the schedule to work it requires the website to be configured as Always On and is not an Azure Scheduler but an internal implementation of a scheduler.”
+ The only type of Web Jobs that would be affected are those that are specifically using Azure Scheduler to run the Web Job by means of the Web Jobs API. You can trigger these WebJobs from a Logic App using the HTTP Action.
 
 **Q**: Is there a tool that can help me migrate my jobs from Scheduler to Logic Apps? <br>
 **A**: Each Scheduler job is unique, so a one-size-fits-all tool doesn't exist. However, based on your needs, you can [edit this script to migrate Azure Scheduler jobs to Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration).
@@ -242,7 +246,7 @@ If your Azure subscription has a paid support plan, you can create a technical s
 
 **Community**
 
-* [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)
+* [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
 
 ## Next steps

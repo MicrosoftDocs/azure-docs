@@ -10,10 +10,10 @@ ms.author: cephalin
 ms.custom: "include file"
 ---
 
-## Create a project ZIP file
+## Create a project ZIP package
 
 >[!NOTE]
-> If you downloaded the files in a ZIP file, extract the files first. For example, if you downloaded a ZIP file from GitHub, you cannot deploy that file as-is. GitHub adds additional nested directories, which do not work with App Service. 
+> If you downloaded the files in a ZIP package, extract the files first. For example, if you downloaded a ZIP package from GitHub, you cannot deploy that file as-is. GitHub adds additional nested directories, which do not work with App Service. 
 >
 
 In a local terminal window, navigate to the root directory of your app project. 
@@ -22,7 +22,7 @@ This directory should contain the entry file to your web app, such as _index.htm
 
 Unless you want App Service to run deployment automation for you, run all the build tasks (for example, `npm`, `bower`, `gulp`, `composer`, and `pip`) and make sure that you have all the files you need to run the app. This step is required if you want to [run your package directly](../articles/app-service/deploy-run-package.md).
 
-Create a ZIP archive of everything in your project. The following command uses the default tool in your terminal:
+Create a ZIP archive of everything in your project. For `dotnet` projects, this folder is the output folder of the `dotnet publish` command. The following command uses the default tool in your terminal:
 
 ```
 # Bash

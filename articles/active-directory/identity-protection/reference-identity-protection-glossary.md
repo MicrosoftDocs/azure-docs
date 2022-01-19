@@ -10,7 +10,7 @@ ms.date: 10/18/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
@@ -157,4 +157,4 @@ A configuration or condition in Azure Active Directory, which makes the director
 
 ## See also
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)

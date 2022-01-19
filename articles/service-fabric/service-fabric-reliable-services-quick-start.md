@@ -3,7 +3,8 @@ title: Create your first Service Fabric application in C#
 description: Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services.
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.custom: sfrev
+ms.custom: "sfrev, devx-track-csharp"
+
 ---
 # Get started with Reliable Services
 
@@ -24,7 +25,7 @@ To get started with Reliable Services, you only need to understand a few basic c
 
 ## Create a stateless service
 
-A stateless service is a type of service that is currently the norm in cloud applications. It is considered stateless because the service itself does not contain data that needs to be stored reliably or made highly available. If an instance of a stateless service shuts down, all of its internal state is lost. In this type of service, state must be persisted to an external store, such as Azure Tables or a SQL database, for it to be made highly available and reliable.
+A stateless service is a type of service that is currently the norm in cloud applications. It is considered stateless because the service itself does not contain data that needs to be stored reliably or made highly available. If an instance of a stateless service shuts down, all of its internal state is lost. In this type of service, state must be persisted to an external store, such as Azure Tables or SQL Database, for it to be made highly available and reliable.
 
 Launch Visual Studio 2017 or Visual Studio 2019 as an administrator, and create a new Service Fabric application project named *HelloWorld*:
 
@@ -163,11 +164,11 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-[IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx) is a dictionary implementation that you can use to reliably store state in the service. With Service Fabric and Reliable Collections, you can store data directly in your service without the need for an external persistent store. Reliable Collections make your data highly available. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you. It also provides an API that abstracts away the complexities of managing those replicas and their state transitions.
+[IReliableDictionary](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2#microsoft_servicefabric_data_collections_ireliabledictionary_2) is a dictionary implementation that you can use to reliably store state in the service. With Service Fabric and Reliable Collections, you can store data directly in your service without the need for an external persistent store. Reliable Collections make your data highly available. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you. It also provides an API that abstracts away the complexities of managing those replicas and their state transitions.
 
 Reliable Collections can store any .NET type, including your custom types, with a couple of caveats:
 
-* Service Fabric makes your state highly available by *replicating* state across nodes, and Reliable Collections store your data to local disk on each replica. This means that everything that is stored in Reliable Collections must be *serializable*. By default, Reliable Collections use [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) for serialization, so it's important to make sure that your types are [supported by the Data Contract Serializer](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) when you use the default serializer.
+* Service Fabric makes your state highly available by *replicating* state across nodes, and Reliable Collections store your data to local disk on each replica. This means that everything that is stored in Reliable Collections must be *serializable*. By default, Reliable Collections use [DataContract](/dotnet/api/system.runtime.serialization.datacontractattribute) for serialization, so it's important to make sure that your types are [supported by the Data Contract Serializer](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer) when you use the default serializer.
 * Objects are replicated for high availability when you commit transactions on Reliable Collections. Objects stored in Reliable Collections are kept in local memory in your service. This means that you have a local reference to the object.
   
    It is important that you do not mutate local instances of those objects without performing an update operation on the reliable collection in a transaction. This is because changes to local instances of objects will not be replicated automatically. You must re-insert the object back into the dictionary or use one of the *update* methods on the dictionary.
@@ -206,7 +207,7 @@ After the services start running, you can view the generated Event Tracing for W
 ## Next steps
 [Debug your Service Fabric application in Visual Studio](service-fabric-debugging-your-application.md)
 
-[Get started: Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md)
+[Get started: Service Fabric Web API services with OWIN self-hosting](./service-fabric-reliable-services-communication-aspnetcore.md)
 
 [Learn more about Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 
@@ -214,5 +215,4 @@ After the services start running, you can view the generated Event Tracing for W
 
 [Application upgrade](service-fabric-application-upgrade.md)
 
-[Developer reference for Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
+[Developer reference for Reliable Services](/previous-versions/azure/dn706529(v=azure.100))

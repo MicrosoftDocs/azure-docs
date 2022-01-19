@@ -1,13 +1,10 @@
 ---
 title: Disaster recovery of VMware VMs/physical servers to a secondary site with Azure Site Recovery 
 description: Learn how to set up disaster recovery of VMware VMs, or Windows and Linux physical servers, to a secondary site with Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
 ms.date: 11/05/2019
-ms.author: raynew
 
 ---
 # Set up disaster recovery of on-premises VMware virtual machines or physical servers to a secondary site
@@ -257,7 +254,7 @@ Scout Update 4 is a cumulative update. It includes all fixes from Update 1 to Up
 	* Red Hat Enterprise Linux (RHEL) 6.x
 	* Oracle Linux (OL) 6.x
 * For Linux, all folder access permissions in the unified agent installation directory are now restricted to the local user only.
-* On Windows, a fix for a timing out issue that occurred when issuing common distributed consistency bookmarks, on heavily loaded distributed applications such as SQL Server and Share Point clusters.
+* On Windows, a fix for a timing out issue that occurred when issuing common distributed consistency bookmarks, on heavily loaded distributed applications such as SQL Server and SharePoint clusters.
 * A log related fix in the configuration server base installer.
 * A download link to VMware vCLI 6.0  was added to the Windows master target base installer.
 * Additional checks and logs were added, for network configuration changes during failover and disaster recovery drills.

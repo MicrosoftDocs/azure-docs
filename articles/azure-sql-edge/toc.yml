@@ -1,0 +1,154 @@
+- name: SQL Edge Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is SQL Edge?
+    href: overview.md
+  - name: Supported editions and features
+    href: features.md
+  - name: Release notes
+    href: release-notes.md
+  - name: Usage and diagnostics data collection
+    href: usage-and-diagnostics-data-configuration.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Deploy SQL Edge
+    href: deploy-portal.md
+  - name: Deploy with Docker
+    href: disconnected-deployment.md
+  - name: Deploy ONNX Models on SQL Edge
+    href: deploy-onnx.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Deploy in Kubernetes
+    href: deploy-kubernetes.md
+  - name: Sync data with Azure Data Factory
+    href: tutorial-sync-data-factory.md
+  - name: Sync data with SQL Data Sync
+    href: tutorial-sync-data-sync.md
+- name: Concepts
+  items:
+  - name: Deploy  
+    items:
+    - name: Deploy using the Azure portal
+      href: deploy-portal.md
+    - name: Deploy with Docker
+      href: disconnected-deployment.md
+    - name: Deploy in Kubernetes
+      href: deploy-kubernetes.md
+    - name: Deploy with Azure Data Studio
+      href: /sql/azure-data-studio/deploy-azure-sql-edge?toc=/azure/azure-sql-edge/toc.json
+  - name: Machine learning 
+    items:
+    - name: Machine learning and AI with ONNX
+      href: onnx-overview.md
+    - name: Deploy ONNX models
+      href: deploy-onnx.md
+  - name: Performance
+    items:   
+    - name: Performance guidelines
+      href: performance-best-practices.md
+  - name: Configure business continuity 
+    items:
+    - name: Backup and restore
+      href: backup-restore.md
+    - name: High availability for containers
+      href: high-availability-sql-edge-containers.md
+  - name: Data Streaming
+    items:
+    - name: Stream data
+      href: stream-data.md
+    - name: Create and manage streaming jobs
+      href: create-stream-analytics-job.md
+    - name: Create External Stream (Transact-SQL)
+      href: create-external-stream-transact-sql.md
+    - name: Drop External Stream (Transact-SQL)
+      href: drop-external-stream-transact-sql.md
+    - name: Streaming views and DMVs
+      items:
+      - name: Streaming views and DMVs
+        href: streaming-catalog-views.md
+      - name: sys.external_job_streams (Transact-SQL)
+        href: sys-external-job-streams.md
+      - name: sys.external_streaming_jobs (Transact-SQL)
+        href: sys-external-streaming-jobs.md
+      - name: sys.external_streams (Transact-SQL)
+        href: sys-external-streams.md
+  - name: Processing time series data
+    items:
+    - name: Time gaps and missing values
+      href: imputing-missing-values.md
+    - name: DATE_BUCKET (Transact-SQL)
+      href: date-bucket-tsql.md
+    - name: FIRST_VALUE (Transact-SQL)
+      href: /sql/t-sql/functions/first-value-transact-sql?toc=/azure/azure-sql-edge/toc.json
+    - name: LAST_VALUE (Transact-SQL)
+      href: /sql/t-sql/functions/last-value-transact-sql?toc=/azure/azure-sql-edge/toc.json
+    - name: Data retention and cleanup
+      items:
+      - name: Data retention overview
+        href: data-retention-overview.md
+      - name: Enable or disable data retention
+        href: data-retention-enable-disable.md
+      - name: Data retention cleanup
+        href: data-retention-cleanup.md
+      - name: sys.sp_cleanup_data_retention (Transact-SQL)
+        href: sys-sp-cleanup-data-retention.md
+  - name: Security
+    items:
+    - name: Security overview
+      href: security-overview.md
+    - name: Security features
+      href: /sql/linux/sql-server-linux-security-get-started?toc=/azure/azure-sql-edge/toc.json
+    - name: Encrypting connections
+      href: /sql/linux/sql-server-linux-encrypted-connections?toc=/azure/azure-sql-edge/toc.json
+    - name: Microsoft Defender for IoT
+      href: ../defender-for-iot/overview.md?bc=/azure/azure-sql-edge/breadcrumb/toc.json&toc=/azure/azure-sql-edge/toc.json
+- name: How to
+  items:
+  - name: Configure SQL Edge
+    items:
+    - name: Configure using environment variables
+      href: configure.md#configure-by-using-environment-variables
+    - name: Configure using mssql.conf file
+      href: configure.md#configure-by-using-an-mssqlconf-file
+    - name: Run as non-root user
+      href: configure.md#run-azure-sql-edge-as-non-root-user
+    - name: Persist data
+      href: configure.md#persist-your-data
+    - name: Configure replication
+      href: configure-replication.md
+  - name: Connect to SQL Edge
+    href: connect.md
+  - name: Deploy DAC package
+    href: deploy-dacpac.md
+  - name: Track data changes
+    href: track-data-changes.md
+  - name: Manage T-SQL streaming jobs
+    href: create-stream-analytics-job.md
+  - name: Troubleshoot deployment issues
+    href: troubleshoot.md
+- name: Samples
+  items:
+  - name: Iron Ore Silica prediction
+    items: 
+    - name: Set up Azure resources
+      href: tutorial-deploy-azure-resources.md
+    - name: Set up IoT Edge Modules
+      href: tutorial-set-up-iot-edge-modules.md
+    - name: Deploy model to SQL Edge 
+      href: tutorial-run-ml-model-on-sql-edge.md
+  - name: Renewable energy - wind turbine analytics
+    href: tutorial-renewable-energy-demo.md
+- name: Reference
+  items:
+  - name: Transact-SQL (T-SQL) Reference
+    href: /sql/t-sql/language-reference
+- name: Resources
+  items:
+  - name: Partners
+    items:
+    - name: Security
+      href: resources-partners-security.md

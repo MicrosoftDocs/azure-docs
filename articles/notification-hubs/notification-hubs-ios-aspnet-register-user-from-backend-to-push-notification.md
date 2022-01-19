@@ -5,9 +5,7 @@ services: notification-hubs
 documentationcenter: ios
 author: sethmanheim
 manager: femila
-editor: jwargo
 
-ms.assetid: 4e3772cf-20db-4b9f-bb74-886adfaaa65d
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
@@ -42,11 +40,11 @@ This topic shows you how to request push notification registration with Azure No
 
      At this point, your storyboard looks like the following:
 
-     ![][0]
+     ![Screenshot of the MainStoryboard_iPhone.storyboard app with the components added.][0]
 
 2. In the assistant editor, create outlets for all the switched controls and call them, connect the text fields with the View Controller (delegate), and create an **Action** for the **login** button.
 
-    ![][1]
+    ![Screenshot of the assistant editor in the MainStoryboard_iPhone.storyboard app][1]
 
     Your BreakingNewsViewController.h file should now contain the following code:
 
@@ -120,7 +118,7 @@ This topic shows you how to request push notification registration with Azure No
     This sets the device token for the request.
 
    > [!NOTE]
-   > At this point, there should not be any other code in this method. If you already have a call to the `registerNativeWithDeviceToken` method that was added when you completed the [Get Started with Notification Hubs](notification-hubs-ios-apple-push-notification-apns-get-started.md) tutorial, you must comment-out or remove that call.
+   > At this point, there should not be any other code in this method. If you already have a call to the `registerNativeWithDeviceToken` method that was added when you completed the [Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md) tutorial, you must comment-out or remove that call.
 
 8. In the `PushToUserAppDelegate.m` file, add the following handler method:
 
@@ -254,4 +252,4 @@ Now that the client app has been updated, return to the [Notify users with Notif
 
 <!-- URLs. -->
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-[Get Started with Notification Hubs]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Get Started with Notification Hubs]: ios-sdk-get-started.md

@@ -34,9 +34,9 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Build a regression model with automated machine learning
-            url: /azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context
+            url: ../machine-learning/tutorial-auto-train-models.md?context=%2fazure%2fopen-datasets%2fcontext%2fopen-datasets-context
           - text: Enrich an image classification model in Azure Machine Learning
-            url: /azure/machine-learning/service/tutorial-train-models-with-aml?context=azure/open-datasets/context/open-datasets-context            
+            url: ../machine-learning/tutorial-train-models-with-aml.md?context=%2fazure%2fopen-datasets%2fcontext%2fopen-datasets-context
 
 # REFERENCE
   - title: Explore reference content
@@ -44,4 +44,4 @@ landingContent:
       - linkListType: reference
         links:
           - text: Python API
-            url: https://docs.microsoft.com/python/api/azureml-opendatasets/?view=azure-ml-py
+            url: /python/api/azureml-opendatasets/

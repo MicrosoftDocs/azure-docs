@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > * Enable replication for a VM.
 
 > [!NOTE]
-> Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the articles in the **How-to Guides** section of the [Site Recovery documentation](/azure/site-recovery/).
+> Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the articles in the **How-to Guides** section of the [Site Recovery documentation](./index.yml).
 
 ## Prerequisites
 
@@ -78,10 +78,38 @@ Install the agent on each Hyper-V host containing VMs that you want to replicate
 In the Microsoft Azure Recovery Services Agent Setup Wizard, configure these settings:
 
 1. **Prerequisites Check**. Select **Next**. Any missing prerequisites will be installed automatically.
-1. **Installation Settings**. Accept the installation location and the cache location. The cache drive needs at least 5 GB of storage. We recommend a drive with 600 GB or more of free space. Then, select **Install**.
+1. **Installation Settings**. Accept the installation location. Then, select **Install**.
+
+    >[!NOTE]
+    >For Azure Site Recovery, **Cache Location** is not required.
+
 1. **Installation**. When the installation finishes, select **Close** to finish the wizard.
 
    ![Install agent](./media/hyper-v-vmm-azure-tutorial/mars-install.png)
+
+### Install the Recovery Services agent on Windows core Hyper-V hosts
+
+Install the agent on each Windows core Hyper-V host containing VMs that you want to replicate.
+
+1. On the Windows Core Hyper-V host, create a directory by running the following command:
+
+   ```powershell
+   New-Item -Path C:\ASR -ItemType Directory
+   ```
+
+2. Download the installer for the Microsoft Azure Recovery Services agent:
+
+   ```powershell
+   Invoke-WebRequest -Uri <put the URI here> -OutFile .\ASR\MARSsoftware.exe
+   ```
+   
+3. Execute the installer by running the below command:
+
+   ```powershell
+   .\MARSsoftware.exe
+   ```
+
+4. Once the Microsoft Azure Recovery Services agent installation completes, you can close the Wizard console.
 
 ## Set up the target environment
 

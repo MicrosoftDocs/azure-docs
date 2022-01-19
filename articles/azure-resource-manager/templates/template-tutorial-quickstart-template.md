@@ -5,6 +5,7 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
+ms.custom:
 ---
 
 # Tutorial: Use Azure Quickstart templates
@@ -28,10 +29,10 @@ This template works for deploying storage accounts and app service plans, but yo
 ## Find template
 
 1. Open [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
-1. In **Search**, enter **deploy linux web app**.
-1. Select the one with the title **Deploy a basic Linux web app**. If you have trouble finding it, here's the [direct link](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
+1. In **Search**, enter _deploy linux web app_.
+1. Select the tile with the title **Deploy a basic Linux web app**. If you have trouble finding it, here's the [direct link](https://azure.microsoft.com/resources/templates/webapp-basic-linux/).
 1. Select **Browse on GitHub**.
-1. Select **azuredeploy.json**.
+1. Select _azuredeploy.json_.
 1. Review the template. In particular, look for the `Microsoft.Web/sites` resource.
 
     ![Resource Manager template quickstart web site](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
@@ -42,15 +43,15 @@ Merge the quickstart template with the existing template:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json" range="1-108" highlight="32-45,49,85-100":::
 
-The web app name needs to be unique across Azure. To prevent having duplicate names, the **webAppPortalName** variable has been updated from **"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"** to **"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"**.
+The web app name needs to be unique across Azure. To prevent having duplicate names, the `webAppPortalName` variable has been updated from `"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"` to `"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"`.
 
 Add a comma at the end of the `Microsoft.Web/serverfarms` definition to separate the resource definition from the `Microsoft.Web/sites` definition.
 
 There are a couple of important features to note in this new resource.
 
-You'll notice it has an element named **dependsOn** that is set to the app service plan. This setting is required because the app service plan must exist before the web app is created. The **dependsOn** element tells Resource Manager how to order the resources for deployment.
+You'll notice it has an element named `dependsOn` that's set to the app service plan. This setting is required because the app service plan must exist before the web app is created. The `dependsOn` element tells Resource Manager how to order the resources for deployment.
 
-The **serverFarmId** property uses the [resourceId](template-functions-resource.md#resourceid) function. This function gets the unique identifier for a resource. In this case, it gets the unique identifier for the app service plan. The web app is associated with one specific app service plan.
+The `serverFarmId` property uses the [resourceId](template-functions-resource.md#resourceid) function. This function gets the unique identifier for a resource. In this case, it gets the unique identifier for the app service plan. The web app is associated with one specific app service plan.
 
 ## Deploy template
 
@@ -85,7 +86,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> If the deployment failed, use the **debug** switch with the deployment command to show the debug logs.  You can also use the **verbose** switch to show the full debug logs.
+> If the deployment failed, use the `verbose` switch to get information about the resources being created. Use the `debug` switch to get more information for debugging.
 
 ## Clean up resources
 

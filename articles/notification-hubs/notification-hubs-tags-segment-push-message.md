@@ -11,12 +11,13 @@ ms.assetid: 0fffb3bb-8ed8-4e0f-89e8-0de24a47f644
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
+ms.custom: devx-track-csharp
 ---
 
 # Routing and tag expressions

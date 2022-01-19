@@ -1,14 +1,16 @@
 ---
 title: Connect to Azure App Service - Azure Database for MySQL
 description: Instructions for how to properly connect an existing Azure App Service to Azure Database for MySQL
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
 ---
 
 # Connect an existing Azure App Service to Azure Database for MySQL server
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 This topic explains how to connect an existing Azure App Service to your Azure Database for MySQL server.
 
 ## Before you begin
@@ -21,21 +23,21 @@ Azure Database for MySQL provides access security using a firewall to protect yo
 
 1. On the MySQL server blade, under the Settings heading, click **Connection Security** to open the Connection Security blade for Azure Database for MySQL.
 
-   ![Azure portal - click Connection Security](./media/howto-connect-webapp/1-connection-security.png)
+   :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Azure portal - click Connection Security":::
 
 2. Select **ON** in **Allow access to Azure services**, then **Save**.
-   ![Azure portal - Allow Azure access](./media/howto-connect-webapp/allow-azure.png)
+   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure portal - Allow Azure access":::
 
 ## Solution 2 - Create a firewall rule to explicitly allow outbound IPs
 You can explicitly add all the outbound IPs of your Azure App Service.
 
 1. On the App Service Properties blade, view your **OUTBOUND IP ADDRESS**.
 
-   ![Azure portal - View outbound IPs](./media/howto-connect-webapp/2_1-outbound-ip-address.png)
+   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Azure portal - View outbound IPs":::
 
 2. On the MySQL Connection security blade, add outbound IPs one by one.
 
-   ![Azure portal - Add explicit IPs](./media/howto-connect-webapp/2_2-add-explicit-ips.png)
+   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Azure portal - Add explicit IPs":::
 
 3. Remember to **Save** your firewall rules.
 

@@ -1,68 +1,66 @@
 ---
 title: Install Office on a master VHD image - Azure
-description: How to install and customize Office on a Windows Virtual Desktop master image to Azure.
-services: virtual-desktop
+description: How to install and customize Office on a Azure Virtual Desktop master image to Azure.
 author: Heidilohr
-
-ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Install Office on a master VHD image
 
-This article tells you how to install Office 365 ProPlus, OneDrive, and other common applications on a master virtual hard disk (VHD) image for upload to Azure. If your users need to access certain line of business (LOB) applications, we recommend you install them after completing the instructions in this article.
+This article tells you how to install Microsoft 365 Apps for enterprise, OneDrive, and other common applications on a master virtual hard disk (VHD) image for upload to Azure. If your users need to access certain line of business (LOB) applications, we recommend you install them after completing the instructions in this article.
 
 This article assumes you've already created a virtual machine (VM). If not, see [Prepare and customize a master VHD image](set-up-customize-master-image.md#create-a-vm)
 
 This article also assumes you have elevated access on the VM, whether it's provisioned in Azure or Hyper-V Manager. If not, see [Elevate access to manage all Azure subscription and management groups](../role-based-access-control/elevate-access-global-admin.md).
 
 >[!NOTE]
->These instructions are for a Windows Virtual Desktop-specific configuration that can be used with your organization's existing processes.
+>These instructions are for a Azure Virtual Desktop-specific configuration that can be used with your organization's existing processes.
 
 ## Install Office in shared computer activation mode
 
-Shared computer activation lets you to deploy Office 365 ProPlus to a computer in your organization that is accessed by multiple users. For more information about shared computer activation, see [Overview of shared computer activation for Office 365 ProPlus](/deployoffice/overview-of-shared-computer-activation-for-office-365-proplus/).
+Shared computer activation lets you to deploy Microsoft 365 Apps for enterprise to a computer in your organization that is accessed by multiple users. For more information about shared computer activation, see [Overview of shared computer activation for Microsoft 365 Apps](/deployoffice/overview-shared-computer-activation).
 
 Use the [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117) to install Office. Windows 10 Enterprise multi-session only supports the following versions of Office:
-- Office 365 ProPlus
-- Office 365 Business that comes with a Microsoft 365 Business subscription
+
+   - Microsoft 365 Apps for enterprise
+   - Microsoft 365 Apps for business that comes with a Microsoft 365 Business Premium subscription
 
 The Office Deployment Tool requires a configuration XML file. To customize the following sample, see the [Configuration Options for the Office Deployment Tool](/deployoffice/configuration-options-for-the-office-2016-deployment-tool/).
 
 This sample configuration XML we've provided will do the following things:
 
-- Install Office from the monthly channel and deliver updates from the monthly channel when they're executed.
-- Use the x64 architecture.
-- Disable automatic updates.
-- Remove any existing installations of Office and migrate their settings.
-- Enable shared computer activation.
+   - Install Office from the Monthly Enterprise Channel and deliver updates from the Monthly Enterprise Channel.
+   - Use the x64 architecture.
+   - Disable automatic updates.
+   - Remove any existing installations of Office and migrate their settings.
+   - Enable shared computer activation.
 
 >[!NOTE]
->Visio's stencil search feature may not work as expected in Windows Virtual Desktop.
+>Visio's stencil search feature may not work as expected in Azure Virtual Desktop.
 
 Here's what this sample configuration XML won't do:
 
-- Install Skype for Business
-- Install OneDrive in per-user mode. To learn more, see [Install OneDrive in per-machine mode](#install-onedrive-in-per-machine-mode).
+   - Install Skype for Business
+   - Install OneDrive in per-user mode. To learn more, see [Install OneDrive in per-machine mode](#install-onedrive-in-per-machine-mode).
 
 >[!NOTE]
 >Shared Computer Activation can be set up through Group Policy Objects (GPOs) or registry settings. The GPO is located at **Computer Configuration\\Policies\\Administrative Templates\\Microsoft Office 2016 (Machine)\\Licensing Settings**
 
 The Office Deployment Tool contains setup.exe. To install Office, run the following command in a command line:
 
-```batch
+```cmd
 Setup.exe /configure configuration.xml
 ```
 
 #### Sample configuration.xml
 
-The following XML sample will install the monthly release.
+The following XML sample will install the Monthly Enterprise Channel release.
 
 ```xml
 <Configuration>
-  <Add OfficeClientEdition="64" Channel="Monthly">
+  <Add OfficeClientEdition="64" Channel="MonthlyEnterprise">
     <Product ID="O365ProPlusRetail">
       <Language ID="en-US" />
       <Language ID="MatchOS" />
@@ -75,7 +73,7 @@ The following XML sample will install the monthly release.
   <RemoveMSI/>
   <Updates Enabled="FALSE"/>
   <Display Level="None" AcceptEULA="TRUE" />
-  <Logging Level=" Standard" Path="%temp%\WVDOfficeInstall" />
+  <Logging Level="Standard" Path="%temp%\WVDOfficeInstall" />
   <Property Name="FORCEAPPSHUTDOWN" Value="TRUE"/>
   <Property Name="SharedComputerLicensing" Value="1"/>
 </Configuration>
@@ -86,7 +84,7 @@ The following XML sample will install the monthly release.
 
 After installing Office, you can update the default Office behavior. Run the following commands individually or in a batch file to update the behavior.
 
-```batch
+```cmd
 rem Mount the default user registry hive
 reg load HKU\TempDefault C:\Users\Default\NTUSER.DAT
 rem Must be executed with default registry hive mounted.
@@ -116,44 +114,46 @@ Here's how to install OneDrive in per-machine mode:
 2. Download OneDriveSetup.exe to your staged location with this link: <https://aka.ms/OneDriveWVD-Installer>
 
 3. If you installed office with OneDrive by omitting **\<ExcludeApp ID="OneDrive" /\>**, uninstall any existing OneDrive per-user installations from an elevated command prompt by running the following command:
-    
-    ```batch
+
+    ```cmd
     "[staged location]\OneDriveSetup.exe" /uninstall
     ```
 
 4. Run this command from an elevated command prompt to set the **AllUsersInstall** registry value:
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
     ```
 
 5. Run this command to install OneDrive in per-machine mode:
 
-    ```batch
+    ```cmd
     Run "[staged location]\OneDriveSetup.exe" /allusers
     ```
 
 6. Run this command to configure OneDrive to start at sign in for all users:
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
     ```
 
 7. Enable **Silently configure user account** by running the following command.
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
     ```
 
 8. Redirect and move Windows known folders to OneDrive by running the following command.
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 
-## Teams and Skype
+## Microsoft Teams and Skype for Business
 
-Windows Virtual Desktop doesn't support Skype for Business and Teams.
+Azure Virtual Desktop doesn't support Skype for Business.
+
+For help with installing Microsoft Teams, see [Use Microsoft Teams on Azure Virtual desktop](./teams-on-avd.md). 
 
 ## Next steps
 

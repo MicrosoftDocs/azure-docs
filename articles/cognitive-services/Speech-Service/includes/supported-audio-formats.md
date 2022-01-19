@@ -1,15 +1,16 @@
 ---
-author: IEvangelist
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/16/2020
-ms.author: dapine
+ms.author: eur
 ---
 
-The default audio streaming format is WAV (16kHz or 8kHz, 16-bit, and mono PCM). Outside of WAV / PCM, the compressed input formats listed below are also supported. [Additional configuration](../how-to-use-codec-compressed-audio-input-streams.md) is needed to enable the formats listed below.
+The default audio streaming format is WAV (16 kHz or 8 kHz, 16-bit, and mono PCM). Outside WAV and PCM, the following compressed input formats are also supported through GStreamer:
 
 - MP3
 - OPUS/OGG
 - FLAC
-- ALAW in wav container
-- MULAW in wav container
+- ALAW in WAV container
+- MULAW in WAV container
+- ANY (for scenarios where the media format is not known)

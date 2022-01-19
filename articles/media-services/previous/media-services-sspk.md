@@ -1,23 +1,23 @@
 ---
-title: Licensing Microsoft® Smooth Streaming Client Porting Kit
-description: Learn about how to licensing the Microsoft® Smooth Streaming Client Porting Kit.
+title: Licensing Microsoft&reg; Smooth Streaming Client Porting Kit
+description: Learn about how to licensing the Microsoft&reg; Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
-author: xpouyat
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 3/10/2021
 ms.author: xpouyat
-
 ---
-# Licensing Microsoft® Smooth Streaming Client Porting Kit 
+# Licensing Microsoft&reg; Smooth Streaming Client Porting Kit
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+ 
 ## Overview
 Microsoft Smooth Streaming Client Porting Kit (**SSPK** for short) is a Smooth Streaming client implementation that is optimized to help embedded device manufacturers, cable and mobile operators, content service providers, handset manufacturers, independent software vendors (ISVs), and solution providers to create products and services for streaming adaptive content in Smooth Streaming format. SSPK is a device and platform-independent implementation of Smooth Streaming client that can be ported by the licensee to any device and platform. 
 
@@ -39,7 +39,7 @@ SSPK is licensed on terms that offer excellent business value. SSPK license prov
   * programming interfaces for interaction with hardware A/V decoders (decoding, rendering)
 * Digital Rights Management (DRM) Interface 
   * programming interfaces for handling DRM through the DRM Abstraction Layer (DAL)
-  * Microsoft PlayReady Porting Kit ships separately but integrates through this interface. For more details on Microsoft PlayReady Device licensing, click [here](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
+  * Microsoft PlayReady Porting Kit ships separately but integrates through this interface. [See more details on Microsoft PlayReady Device licensing](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
 * Implementation samples 
   * sample PAL implementation for Linux
   * sample HAL implementation for GStreamer
@@ -69,92 +69,15 @@ The Smooth Streaming Client Final Product is offered under a royalty model as un
 ## Licensing Procedure and SSPK access
 Email [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) for all licensing queries.
 
-The [SSPK Distribution portal](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) is accessible to registered Interim licensees.
+The SSPK Distribution portal is accessible to registered Interim licensees.
 
 Interim and Final SSPK licensees can submit technical questions to [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com).
 
 ## Microsoft Smooth Streaming Client Interim Product Agreement Licensees
-
-* Adroit Business Solutions, Inc
-* Advanced Digital Broadcast SA
-* AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
-* Albis Technologies Ltd.
-* Alticast Corporation
-* Amazon Digital Services, Inc.
-* Arion Technology, Inc.
-* AVC Multimedia Software Co., Ltd.
-* Cavium, Inc.
-* EchoStar Purchasing Corporation
-* Enseo, Inc.
-* Fluendo S.A.
-* Guangzhou Shikun Electronics., Ltd.
-* HANDAN BroadInfoCom Co., Ltd.
-* Infomir GMBH
-* Irdeto USA Inc.
-* Liberty Global Services BV
-* MediaTek Inc.
-* MStar Co, Ltd
-* Nintendo Co., Ltd.
-* OpenTV, Inc.
-* Saffron Digital Limited
-* Sichuan Changhong Electric Co., Ltd
-* SoftAtHome
-* Sony Corporation
-* Tatung Technology Inc.
-* Top Victory Investments, Ltd.
-* Vestel Elektronik Sanayi ve Ticaret A.S.
-* VisualOn, Inc.
-* ZTE Corporation
+View current licensee list here: https://go.microsoft.com/fwlink/?linkid=301271
 
 ## Microsoft Smooth Streaming Client Final Product Agreement Licensees
-* Advanced Digital Broadcast SA
-* AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
-* Albis Technologies Ltd.
-* Amazon Digital Services, Inc.
-* AmTRAN Technology Co., Ltd.
-* Arcadyan Technology Corporation
-* Arion Technology, Inc.
-* ATMACA ELEKTRONİK SAN. VE TİC. A.Ş
-* British Sky Broadcasting Limited
-* CastPal Technology Inc., Shenzhen
-* Compal Electronics, Inc.
-* Dongguan Digital AV Technology Corp., Ltd.
-* EchoStar Purchasing Corporation
-* Enseo, Inc.
-* FilmFlex Movies Limited
-* Fluendo S.A.
-* FUNAI ELECTRIC CO., LTD
-* Gibson Innovations Limited
-* Haier Information Applicantion S.R.L
-* HANDAN BroadInfoCom Co., Ltd.
-* Hisense International Co., Ltd. 
-* Homecast Co., Ltd
-* Hon Hai Precision Industry Co., Ltd.
-* Infomir GMBH
-* Kaonmedia Co., Ltd.
-* KDDI Corporation
-* Nintendo Co., Ltd.
-* Orange SA
-* Saffron Digital Limited
-* Sagemcom Broadband SAS
-* Shenzhen Chuangwei-RGB Electronics Co.,Ltd.
-* Shenzhen Coship Electronics CO., LTD
-* Shenzhen Jiuzhou Electric Co., Ltd
-* Shenzhen Skyworth Digital Technology Co., Ltd
-* Sichuan Changhong Electric Co., Ltd.
-* Skardin Industrial Corp.
-* Sky Deutschland Fernsehen GmbH & Co. KG
-* SmarDTV S.A.
-* SoftAtHome
-* Sony Corporation
-* Technicolor Delivery Technologies, SAS
-* Tongfang Global Ltd.
-* Top Victory Investments, Ltd.
-* Toshiba Lifestyle Products & Services Corporation
-* Universal Media Corporation /Slovakia/ s.r.o.
-* VIZIO, Inc.
-* Wistron Corporation
-* ZTE Corporation
+View current licensee list here: https://go.microsoft.com/fwlink/?linkid=301271
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

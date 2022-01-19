@@ -1,11 +1,8 @@
 ---
 title: Develop script actions to customize Azure HDInsight clusters
 description: Learn how to use Bash scripts to customize HDInsight clusters. Script actions allow you to run scripts during or after cluster creation to change cluster configuration settings or install additional software.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/28/2019
 ---
 
@@ -154,7 +151,7 @@ In this example, the `hdfs` command transparently uses the default cluster stora
 HDInsight logs script output that is written to STDOUT and STDERR. You can view this information using the Ambari web UI.
 
 > [!NOTE]  
-> Apache Ambari is only available if the cluster is successfully created. If you use a script action during cluster creation, and creation fails, see the troubleshooting section [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) for other ways of accessing logged information.
+> Apache Ambari is only available if the cluster is successfully created. If you use a script action during cluster creation, and creation fails, see [Troubleshoot script actions](./troubleshoot-script-action.md) for other ways of accessing logged information.
 
 Most utilities and installation packages already write information to STDOUT and STDERR, however you may want to add additional logging. To send text to STDOUT, use `echo`. For example:
 
@@ -170,7 +167,7 @@ By default, `echo` sends the string to STDOUT. To direct it to STDERR, add `>&2`
 
 This redirects information written to STDOUT to STDERR (2) instead. For more information on IO redirection, see [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html).
 
-For more information on viewing information logged by script actions, see [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
+For more information on viewing information logged by script actions, see [Troubleshoot script actions](./troubleshoot-script-action.md).
 
 ### <a name="bps8"></a> Save files as ASCII with LF line endings
 
@@ -234,7 +231,7 @@ The following helpers available for use in your script:
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Downloads a file from the source URI to the specified file path. By default, it doesn't overwrite an existing file. |
 | `untar_file TARFILE DESTDIR` |Extracts a tar file (using `-xf`) to the destination directory. |
-| `test_is_headnode` |If ran on a cluster head node, return 1; otherwise, 0. |
+| `test_is_headnode` |If the script ran on a cluster head node, return 1; otherwise, 0. |
 | `test_is_datanode` |If the current node is a data (worker) node, return a 1; otherwise, 0. |
 | `test_is_first_datanode` |If the current node is the first data (worker) node (named workernode0) return a 1; otherwise, 0. |
 | `get_headnodes` |Return the fully qualified domain name of the headnodes in the cluster. Names are comma delimited. An empty string is returned on error. |
@@ -259,11 +256,15 @@ Values passed to the script as parameters should be enclosed by single quotes ('
 
 Setting an environment variable is performed by the following statement:
 
-    VARIABLENAME=value
+```bash
+VARIABLENAME=value
+```
 
-Where VARIABLENAME is the name of the variable. To access the variable, use `$VARIABLENAME`. For example, to assign a value provided by a positional parameter as an environment variable named PASSWORD, you would use the following statement:
+In the preceding example, `VARIABLENAME` is the name of the variable. To access the variable, use `$VARIABLENAME`. For example, to assign a value provided by a positional parameter as an environment variable named PASSWORD, you would use the following statement:
 
-    PASSWORD=$1
+```bash
+PASSWORD=$1
+```
 
 Subsequent access to the information could then use `$PASSWORD`.
 
@@ -283,7 +284,7 @@ Scripts used to customize a cluster needs to be stored in one of the following l
 
 * A __publicly readable URI__. For example, a URL to data stored on OneDrive, Dropbox, or other file hosting service.
 
-* An __Azure Data Lake Storage account__ that is associated with the HDInsight cluster. For more information on using Azure Data Lake Storage with HDInsight, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* An __Azure Data Lake Storage account__ that is associated with the HDInsight cluster. For more information on using Azure Data Lake Storage with HDInsight, see [Quickstart: Set up clusters in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).
 
     > [!NOTE]  
     > The service principal HDInsight uses to access Data Lake Storage must have read access to the script.
@@ -347,12 +348,14 @@ This problem most often occurs when the script is authored on a Windows environm
 
 *Resolution*: Save the file either as ASCII, or as UTF-8 without a BOM. You may also use the following command on a Linux or Unix system to create a file without the BOM:
 
-    awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```bash
+awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```
 
 Replace `INFILE` with the file containing the BOM. `OUTFILE` should be a new file name, which contains the script without the BOM.
 
 ## <a name="seeAlso"></a>Next steps
 
 * Learn how to [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md)
-* Use the [HDInsight .NET SDK reference](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) to learn more about creating .NET applications that manage HDInsight
-* Use the [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) to learn how to use REST to perform management actions on HDInsight clusters.
+* Use the [HDInsight .NET SDK reference](/dotnet/api/overview/azure/hdinsight) to learn more about creating .NET applications that manage HDInsight
+* Use the [HDInsight REST API](/rest/api/hdinsight/) to learn how to use REST to perform management actions on HDInsight clusters.

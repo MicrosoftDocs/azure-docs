@@ -1,14 +1,14 @@
 ---
-author: IEvangelist
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
-ms.author: dapine
+ms.author: eur
 ---
 
 Handling compressed audio is implemented using [GStreamer](https://gstreamer.freedesktop.org). For licensing reasons GStreamer binaries are not compiled and linked with the Speech SDK. Developers need to install several dependencies and plugins.
 
-# [Ubuntu, 16.04, 18.04 or Debian 9](#tab/debian)
+# [Ubuntu/Debian](#tab/debian)
 
 ```sh
 sudo apt install libgstreamer1.0-0 \
@@ -18,7 +18,7 @@ gstreamer1.0-plugins-bad \
 gstreamer1.0-plugins-ugly
 ```
 
-# [REHL / CentOS](#tab/centos)
+# [RHEL/CentOS](#tab/centos)
 
 ```sh
 sudo yum install gstreamer1 \
@@ -29,6 +29,7 @@ gstreamer1-plugins-ugly-free
 ```
 
 > [!NOTE]
-> On RHEL / CentOS, follow the instructions on [how to configure OpenSSL for Linux](../../../../how-to-configure-openssl-linux.md).
+> - On RHEL/CentOS 7 and RHEL/CentOS 8, in case of using "ANY" compressed format, more GStreamer plugins needs to be installed if stream media format plugin is not in the above installed plugins. 
+
 
 ---

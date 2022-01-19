@@ -6,14 +6,17 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 zone_pivot_groups: programming-languages-set-ten
-
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 03/04/2020
+ms.date: 01/05/2022
 ms.author: aahi
+ms.devlang: csharp, java, javascript, python
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-api
 ---
 # Quickstart: Use the Bing Image Search client library
+
+[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
 
 ::: zone pivot="programming-language-csharp"
 

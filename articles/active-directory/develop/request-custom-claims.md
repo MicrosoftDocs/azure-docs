@@ -3,24 +3,19 @@ title: Request custom claims (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to request custom claims.
 services: active-directory
-documentationcenter: ''
 author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: marsma
-ms.reviewer: ''
 ms.custom: aaddev
 ---
 
-# How to: Request custom claims using MSAL for iOS and macOS
+# Request custom claims using MSAL for iOS and macOS
 
 OpenID Connect allows you to optionally request the return of individual claims from the UserInfo Endpoint and/or in the ID Token. A claims request is represented as a JSON object that contains a list of requested claims. See [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter) for more details.
 

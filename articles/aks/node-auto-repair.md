@@ -3,27 +3,24 @@ title: Automatically repairing Azure Kubernetes Service (AKS) nodes
 description: Learn about node auto-repair functionality, and how AKS fixes broken worker nodes.
 services: container-service
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 03/11/2021
 ---
 
 # Azure Kubernetes Service (AKS) node auto-repair
 
-AKS continuously checks the health state of worker nodes and performs automatic repair of the nodes if they become unhealthy. This documentation describes how Azure Kubernetes Service (AKS) monitors worker nodes, and repairs unhealthy worker nodes.  The documentation is to inform AKS operators on the behavior of node repair functionality. It is also important to note that Azure platform [performs maintenance on Virtual Machines][vm-updates] that experience issues. AKS and Azure work together to minimize service disruptions for your clusters.
+AKS continuously monitors the health state of worker nodes and performs automatic node repair if they become unhealthy. The Azure virtual machine (VM) platform [performs maintenance on VMs][vm-updates] experiencing issues. 
 
-> [!Important]
-> Node auto-repair functionality isn't currently supported for Windows Server node pools.
+AKS and Azure VMs work together to minimize service disruptions for clusters.
+
+In this document, you'll learn how automatic node repair functionality behaves for both Windows and Linux nodes. 
 
 ## How AKS checks for unhealthy nodes
 
-> [!Note]
-> AKS takes repair action on nodes with the user account **aks-remediator**.
+AKS uses the following rules to determine if a node is unhealthy and needs repair: 
+* The node reports **NotReady** status on consecutive checks within a 10-minute timeframe.
+* The node doesn't report any status within 10 minutes.
 
-AKS uses rules to determine if a node is an unhealthy state and needs repair. AKS uses the following rules to determine if automatic repair is needed.
-
-* The node reports status of **NotReady** on consecutive checks within a 10-minute timeframe
-* The node doesn't report a status within 10 minutes
-
-You can manually check the health state of your nodes with kubectl. 
+You can manually check the health state of your nodes with kubectl.
 
 ```
 kubectl get nodes
@@ -32,16 +29,21 @@ kubectl get nodes
 ## How automatic repair works
 
 > [!Note]
-> AKS takes repair action on nodes with the user account **aks-remediator**.
+> AKS initiates repair operations with the user account **aks-remediator**.
 
-This behavior is for **Virtual Machine Scale Sets**.  Auto-repair takes several steps to repair a broken node.  If a node is determined to be unhealthy, AKS attempts several remediation steps.  The steps are performed in this order:
+If AKS identifies an unhealthy node that remains unhealthy for 10 minutes, AKS takes the following actions:
 
-1. After the container runtime becomes unresponsive for 10 minutes, the failing runtime services are restarted on the node.
-2. If the node is not ready within 10 minutes, the node is rebooted.
-3. If the node is not ready within 30 minutes, the node is re-imaged.
+1. Reboot the node.
+1. If the reboot is unsuccessful, reimage the node.
 
-> [!Note]
-> If multiple nodes are unhealthy, they are repaired one by one
+Alternative remediations are investigated by AKS engineers if auto-repair is unsuccessful. 
+
+If AKS finds multiple unhealthy nodes during a health check, each node is repaired individually before another repair begins.
+
+
+## Limitations
+
+In many cases, AKS can determine if a node is unhealthy and attempt to repair the issue, but there are cases where AKS either can't repair the issue or can't detect that there is an issue. For example, AKS can't detect issues if a node status is not being reported due to error in network configuration.
 
 ## Next steps
 

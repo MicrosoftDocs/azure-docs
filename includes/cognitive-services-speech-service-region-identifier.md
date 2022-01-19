@@ -1,9 +1,9 @@
 ---
-author: wolfma61
+author: mahilleb-msft
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/12/2020
-ms.author: wolfma
+ms.date: 07/01/2021
+ms.author: mahilleb
 ---
 
 | Geography | Region | Region identifier |
@@ -28,4 +28,5 @@ ms.author: wolfma
 | Europe | North Europe | `northeurope` |
 | Europe | West Europe | `westeurope` |
 | Europe | France Central | `francecentral` |
+| Europe | Switzerland North | `switzerlandnorth` |
 | Europe | UK South | `uksouth` |

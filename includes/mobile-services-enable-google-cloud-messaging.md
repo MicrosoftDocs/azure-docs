@@ -38,7 +38,7 @@
     ![Create credentials button](./media/mobile-services-enable-google-cloud-messaging/create-credentials-button.png)
 11. On the **Add credentials to your project** page, select **API key** link. 
 
-    ![Create credentials button](./media/mobile-services-enable-google-cloud-messaging/api-key-button.png)    
+    ![Add credentials](./media/mobile-services-enable-google-cloud-messaging/api-key-button.png)    
 12. On **API key** page, select **Create/Save**. In the following example, the **IP addresses** option is selected, and **0.0.0.0/0** is entered for allowed IP addresses. You should restrict your API key appropriately. 
 
     ![API Key - Create button](./media/mobile-services-enable-google-cloud-messaging/api-key-create-button.png)

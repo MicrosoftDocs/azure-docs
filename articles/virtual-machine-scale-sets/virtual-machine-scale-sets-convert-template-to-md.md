@@ -2,18 +2,21 @@
 title: Convert a scale set template to use managed disk
 description: Convert an Azure Resource Manager virtual machine scale set template to a managed disk scale set template.
 keywords: virtual machine scale sets
-author: mayanknayar
-tags: azure-resource-manager
-ms.assetid: bc8c377a-8c3f-45b8-8b2d-acc2d6d0b1e8
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 5/18/2017
-ms.author: manayar
+ms.subservice: disks
+ms.date: 6/25/2020
+ms.reviewer: mimckitt
+ms.custom: mimckitt
 
 ---
 
 
 # Convert a scale set template to a managed disk scale set template
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 Customers with a Resource Manager template for creating a scale set not using managed disk may wish to modify it to use managed disk. This article shows how to use managed disks, using as an example a pull request from the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates), a community-driven repo for sample Resource Manager templates. The full pull request can be seen here: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), and the relevant parts of the diff are below, along with explanations:
 

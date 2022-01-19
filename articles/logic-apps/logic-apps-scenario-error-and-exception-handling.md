@@ -117,15 +117,15 @@ Logic App Designer.
 
    **Insert log entry**
 
-   ![Insert Log Entry](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![Screenshot from Logic App Designer showing the configuration settings for InsertLogEntry.](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
    **Insert error entry**
 
-   ![Insert Log Entry](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![Screenshot from Logic App Designer showing the configuration settings for CreateErrorRecord.](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
    **Check for create record failure**
 
-   ![Condition](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![Screenshot of the CreateErrorRecord screen in the Logic App Designer showing the fields for creating an error entry.](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## Logic app source code
 

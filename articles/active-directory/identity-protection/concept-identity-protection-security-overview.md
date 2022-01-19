@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 07/02/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
@@ -24,7 +24,7 @@ The ‘Security overview’ is broadly divided into two sections:
 - Trends, on the left, provide a timeline of risk in your organization.
 - Tiles, on the right, highlight the key ongoing issues in your organization and suggest how to quickly take action.
 
-![Security overview](./media/concept-identity-protection-security-overview/01.png)
+:::image type="content" source="./media/concept-identity-protection-security-overview/01.png" alt-text="Screenshot of the Azure portal Security overview. Bar charts show the count of risks over time. Tiles summarize information on users and sign-ins." border="false":::
   
 ## Trends
 
@@ -42,7 +42,7 @@ This chart shows the number of risky sign-ins detected over the chosen time peri
 
 The ‘High risk users’ tile shows the latest count of users with high probability of identity compromise. These should be a top priority for investigation. A click on the ‘High risk users’ tile will redirect to a filtered view of the ‘Risky users’ report showing only users with a risk level of high. Using this report, you can learn more and remediate these users with a password reset.
 
-![Security overview](./media/concept-identity-protection-security-overview/02.png)
+:::image type="content" source="./media/concept-identity-protection-security-overview/02.png" alt-text="Screenshot of the Azure portal Security overview, with tiles visible for high-risk and medium-risk users and other risk factors." border="false":::
 
 ###	Medium risk users
 The ‘Medium risk users’ tile shows the latest count of users with medium probability of identity compromise. A click on ‘Medium risk users’ tile will redirect to a filtered view of the ‘Risky users’ report showing only users with a risk level of medium. Using this report, you can further investigate and remediate these users.
@@ -53,7 +53,7 @@ The ‘Unprotected risky sign-ins' tile shows the last week’s count of success
 
 ### Legacy authentication
 
-The ‘Legacy authentication’ tile shows the last week’s count of legacy authentications in your organization. Legacy authentication protocols do not support modern security methods such as an MFA. To prevent legacy authentication, you can apply a Conditional Access policy. A click on ‘Legacy authentication’ tile will redirect you to the ‘Identity Secure Score’.
+The ‘Legacy authentication’ tile shows the last week’s count of legacy authentications with risk present in your organization. Legacy authentication protocols do not support modern security methods such as an MFA. To prevent legacy authentication, you can apply a Conditional Access policy. A click on ‘Legacy authentication’ tile will redirect you to the ‘Identity Secure Score’.
 
 ### Identity Secure Score
 

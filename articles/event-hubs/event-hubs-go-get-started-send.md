@@ -1,17 +1,10 @@
 ---
 title: 'Quickstart: Send and receive events using Go - Azure Event Hubs'
-description: 'Quickstart: This article provides a walkthrough for creating a Go application that sends events from Azure Event Hubs.' 
-services: event-hubs
-author: ShubhaVijayasarathy
-manager: kamalb
-
-ms.service: event-hubs
-ms.workload: core
+description: 'Quickstart: This article provides a walkthrough for creating a Go application that sends events from Azure Event Hubs.'
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 11/05/2019
-ms.author: shvija
-
+ms.date: 11/11/2021
+ms.devlang: golang
+ms.custom: mode-api
 ---
 
 # Quickstart: Send events to or receive events from Event Hubs using Go
@@ -84,7 +77,7 @@ The following code creates an Event Hubs client:
 
 ```go
 hub, err := eventhubs.NewHub("namespaceName", "hubName", tokenProvider)
-ctx := context.WithTimeout(context.Background(), 10 * time.Second)
+ctx, cancel := context.WithTimeout(context.Background(), 10 * time.Second)
 defer hub.Close(ctx)
 if err != nil {
 	log.Fatalf("failed to get hub %s\n", err)
@@ -130,7 +123,7 @@ Congratulations! You have now sent messages to an event hub.
 
 ### Create a Storage account and container
 
-State such as leases on partitions and checkpoints in the event stream are shared between receivers using an Azure Storage container. You can create a storage account and container with the Go SDK, but you can also create one by following the instructions in [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
+State such as leases on partitions and checkpoints in the event stream are shared between receivers using an Azure Storage container. You can create a storage account and container with the Go SDK, but you can also create one by following the instructions in [About Azure storage accounts](../storage/common/storage-account-create.md).
 
 Samples for creating Storage artifacts with the Go SDK are available in the [Go samples repo](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage) and in the sample corresponding to this tutorial.
 
@@ -283,7 +276,7 @@ Read the following articles:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Features and terminology in Azure Event Hubs](event-hubs-features.md)
-- [Event Hubs FAQ](event-hubs-faq.md)
+- [Event Hubs FAQ](event-hubs-faq.yml)
 
 
 <!-- Links -->

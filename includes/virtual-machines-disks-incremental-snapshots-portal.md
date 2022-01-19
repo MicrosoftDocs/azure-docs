@@ -5,25 +5,11 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 03/12/2020
+ ms.date: 04/02/2020
  ms.author: rogarana
  ms.custom: include file
 ---
-
-[!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
-
-## Regional availability
-[!INCLUDE [virtual-machines-disks-incremental-snapshots-regions](virtual-machines-disks-incremental-snapshots-regions.md)]
-
-### Restrictions
-
-[!INCLUDE [virtual-machines-disks-incremental-snapshots-restrictions](virtual-machines-disks-incremental-snapshots-restrictions.md)]
-
-## Portal
-
-To create and configure incremental snapshots in the global Azure portal, you must use the following link: [https://aka.ms/incrementalsnapshots](https://aka.ms/incrementalsnapshots). Incremental snapshot creation is not yet available in the global Azure portal.
-
-1. Sign into the [Azure portal](https://aka.ms/incrementalsnapshots) with the provided link and navigate to the disk you'd like to snapshot.
+1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to the disk you'd like to snapshot.
 1. On your disk, select **Create a Snapshot**
 
     :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-snapshot-button-incremental.png" alt-text="Screenshot. Your disk's blade, with **+Create snapshot** highlighted, as that is what you must select.":::
@@ -36,7 +22,3 @@ To create and configure incremental snapshots in the global Azure portal, you mu
 1. Select **Create**
 
     :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-incremental-snapshot-validation.png" alt-text="Screenshot. Validation page for your snapshot, confirm your selections then create the snapshot.":::
-
-## Next steps
-
-If you'd like to see sample code demonstrating the differential capability of incremental snapshots, using .NET, see [Copy Azure Managed Disks backups to another region with differential capability of incremental snapshots](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

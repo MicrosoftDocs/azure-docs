@@ -3,7 +3,7 @@ title: Set up Azure VM disaster recovery to a secondary region with Azure Site R
 description: Quickly set up disaster recovery to another Azure region for an Azure VM, using the Azure Site Recovery service.
 ms.topic: quickstart
 ms.date: 03/27/2020
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ---
 
 # Quickstart: Set up disaster recovery to a secondary Azure region for an Azure VM
@@ -17,7 +17,7 @@ This quickstart describes how to set up disaster recovery for an Azure VM by rep
 To complete this tutorial, you need an Azure subscription and a VM.
 
 - If you don't have an Azure account with an active subscription, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A VM with a minimum 1 GB of RAM is recommended. [Learn more](/azure/virtual-machines/windows/quick-create-portal) about how to create a VM.
+- A VM with a minimum 1 GB of RAM is recommended. [Learn more](../virtual-machines/windows/quick-create-portal.md) about how to create a VM.
 
 ## Sign in to Azure
 

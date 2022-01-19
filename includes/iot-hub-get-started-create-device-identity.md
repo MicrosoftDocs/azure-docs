@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 09/07/2018
  ms.author: dobett
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli
 ---
 
 In this section, you use the Azure CLI to create a device identity for this article. Device IDs are case sensitive.
@@ -24,7 +24,7 @@ In this section, you use the Azure CLI to create a device identity for this arti
 
     ```azurecli-interactive
     az iot hub device-identity create --device-id myDeviceId --hub-name {Your IoT Hub name}
-    az iot hub device-identity show-connection-string --device-id myDeviceId --hub-name {Your IoT Hub name} -o table
+    az iot hub device-identity connection-string show --device-id myDeviceId --hub-name {Your IoT Hub name} -o table
     ```
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]

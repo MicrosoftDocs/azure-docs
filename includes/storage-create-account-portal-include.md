@@ -5,7 +5,7 @@
  author: tamram
  ms.service: storage
  ms.topic: include
- ms.date: 05/06/2019
+ ms.date: 04/15/2021
  ms.author: tamram
  ms.custom: include file
 ---
@@ -13,26 +13,17 @@
 To create a general-purpose v2 storage account in the Azure portal, follow these steps:
 
 1. On the Azure portal menu, select **All services**. In the list of resources, type **Storage Accounts**. As you begin typing, the list filters based on your input. Select **Storage Accounts**.
-2. On the **Storage Accounts** window that appears, choose **Add**.
-3. Select the subscription in which to create the storage account.
-4. Under the **Resource group** field, select **Create new**. Enter a name for your new resource group, as shown in the following image.
+1. On the **Storage Accounts** window that appears, choose **+ New**.
+1. On the **Basics** blade, select the subscription in which to create the storage account.
+1. Under the **Resource group** field, select your desired resource group, or create a new resource group.  For more information on Azure resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/management/overview.md).
+1. Next, enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length, and may include only numbers and lowercase letters.
+1. Select a region for your storage account, or use the default region.
+1. Select a performance tier. The default tier is *Standard*.
+1. Specify how the storage account will be replicated. The default redundancy option is *Geo-redundant storage (GRS)*. For more information about available replication options, see [Azure Storage redundancy](../articles/storage/common/storage-redundancy.md).
+1. Additional options are available on the **Advanced**, **Networking**, **Data protection**, and **Tags** blades. To use Azure Data Lake Storage, choose the **Advanced** blade, and then set **Hierarchical namespace** to **Enabled**. For more information, see [Azure Data Lake Storage Gen2 Introduction](../articles/storage/blobs/data-lake-storage-introduction.md)
+1. Select **Review + Create** to review your storage account settings and create the account.
+1. Select **Create**.
 
-    ![Screenshot showing how to create a resource group in the portal](./media/storage-create-account-portal-include/create-resource-group-for-storage.png)
+The following image shows the settings on the **Basics** blade for a new storage account:
 
-5. Next, enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length, and can include numbers and lowercase letters only.
-6. Select a location for your storage account, or use the default location.
-7. Leave these fields set to their default values:
-
-   |Field  |Value  |
-   |---------|---------|
-   |Deployment model     |Resource Manager         |
-   |Performance     |Standard         |
-   |Account kind     |StorageV2 (general-purpose v2)         |
-   |Replication     |Read-access geo-redundant storage (RA-GRS)         |
-   |Access tier     |Hot         |
-
-8. If you plan to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), choose the **Advanced** tab, and then set **Hierarchical namespace** to **Enabled**.
-9. Select **Review + Create** to review your storage account settings and create the account.
-10. Select **Create**.
-
-For more information about types of storage accounts and other storage account settings, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview). For more information on resource groups, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). 
+:::image type="content" source="media/storage-create-account-portal-include/account-create-portal.png" alt-text="Screenshot showing how to create a storage account in the Azure portal." lightbox="media/storage-create-account-portal-include/account-create-portal.png":::

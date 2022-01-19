@@ -1,11 +1,8 @@
-﻿---
+---
 title: Visualizing your cluster using Azure Service Fabric Explorer 
 description: Service Fabric Explorer is an application for inspecting and managing cloud applications and nodes in a Microsoft Azure Service Fabric cluster.
-author: mikkelhegn
-
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.author: mikhegn
 ---
 # Visualize your cluster with Service Fabric Explorer
 
@@ -101,7 +98,7 @@ You can also use Service Fabric Explorer to create application instances for a g
 ## Event Store
 EventStore is a feature offered by the platform that provides Service Fabric platform events available in the Service Fabric Explorer and through REST API. You can see a snapshot view of what's going on in your cluster for each entity e.g. node, service, application and query based on the time of the event. You can also Read more about the EventStore at the [EventStore Overview](service-fabric-diagnostics-eventstore.md).   
 
-![EventStore][sfx-eventstore]
+![Screenshot shows the Nodes pane with EVENTS selected.][sfx-eventstore]
 
 >[!NOTE]
 >As of Service Fabric version 6.4. EventStore is not enabled by default and must be enabled in the resource manager template
@@ -112,7 +109,7 @@ EventStore is a feature offered by the platform that provides Service Fabric pla
 ## Image Store Viewer
 Image store viewer is a feature offered if using Native Image Store that allows for viewing the current contents of the Image store and get file and folder information, along with removing files/folders.
 
-![Service Fabric Explorer cluster map][sfx-imagestore]
+![Screenshot that shows the Image Store Viewer.][sfx-imagestore]
 
 ## Backup and Restore
 Service Fabric Explorer offers the ability to interface with [Backup and Restore](./service-fabric-reliable-services-backup-restore.md). In order to see Backup and Restore features in SFX, advanced mode must be enabled.
@@ -127,7 +124,7 @@ The following operations are possible:
 * Trigger and track Backup of a partition.
 * Trigger and track Restore for a partition.
 
-For more on the Backup and Restore service, see the [REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
+For more on the Backup and Restore service, see the [REST API reference](/rest/api/servicefabric/sfclient-index-backuprestore).
 ## Next steps
 * [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Service Fabric application deployment using PowerShell](service-fabric-deploy-remove-applications.md)

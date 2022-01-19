@@ -1,88 +1,52 @@
 ---
 title: Schedule your jobs
 description: Use job scheduling to manage your tasks.
-services: batch
-author: LauraBrenner
-manager: evansma
-editor: ''
-
-ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
-ms.service: batch
-ms.topic: article
-ms.workload: big-compute
-ms.date: 02/20/2020
-ms.author: labrenne
+ms.topic: how-to
+ms.date: 07/16/2021
 ms.custom: seodec18
-
 ---
 
 # Schedule jobs for efficiency
 
-Scheduling Batch jobs enables you to prioritize the jobs you want to run first while taking into account tasks that have dependencies on other tasks. By scheduling your jobs, you can make sure you use the least amount of resources. Nodes can be decommissioned when not needed, tasks that are dependent on other tasks are spun up just in time optimizing the workflows. Only one job at a time runs. A new one won't start until the previous one completes. You can set your job to autocomplete. 
+Scheduling Batch jobs enables you to prioritize the jobs you want to run first, while taking into account [tasks that have dependencies on other tasks](batch-task-dependencies.md). By scheduling your jobs, you can make sure you use the least amount of resources. Nodes can be decommissioned when not needed, and tasks that are dependent on other tasks are spun up just in time optimizing the workflows. You can also set jobs to autocomplete, since only one job at a time runs, and a new one won't start until the previous one completes.
 
-## Benefit of job scheduling
+The tasks you schedule using the job manager task are associated with a job. The job manager task will create tasks for the job. To do so, the job manager task needs to authenticate with the Batch account. Use the the AZ_BATCH_AUTHENTICATION_TOKEN access token. The token will allow access to the rest of the job.
 
-The benefit of scheduling jobs is that you can specify a schedule for job creation.The tasks you schedule using job manager task are associated with a job. The job manager task will create tasks for the job. To do so, the job manager task needs to authenticate with the Batch account. Use the the AZ_BATCH_AUTHENTICATION_TOKEN access token. The token will allow access to the rest of the job. 
+To manage a job using the Azure CLI, see [az batch job-schedule](/cli/azure/batch/job-schedule). You can also create job schedules in the Azure portal.
 
-## Use the portal to schedule a job
+## Schedule a job in the Azure portal
 
-   1. Sign in to [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Select the Batch account you want to schedule jobs in.
+1. In the left navigation pane, select **Job schedules**.
+1. Select **Add** to create a new job schedule.
+1. In the **Basic form**, enter the following information:
+   - **Job schedule ID**: A unique identifier for this job schedule.
+   - **Display name**: This name is optional and doesn't have to be unique. It has a maximum length of 1024 characters.
+   - **Do not run until**: Specifies the earliest time the job will run. If you don't set this, the schedule becomes ready to run jobs immediately.
+   - **Do not run after**: No jobs will run after the time you enter here. If you don't specify a time, then you are creating a recurring job schedule, which remains active until you explicitly terminate it.
+   - **Recurrence interval**: Select **Enabled** if you want to specify the amount of time between jobs. You can have only one job at a time scheduled, so if it is time to create a new job under a job schedule, but the previous job is still running, the Batch service won't create the new job until the previous job finishes.
+   - **Start window**: Select **Custom** if you'd like to specify the time interval within which a job must be created. If a job isn't created within this window, no new job will be created until the next recurrence of the schedule.
 
-   2. Select the Batch account you want to schedule jobs in.
+     :::image type="content" source="media/batch-job-schedule/add-job-schedule-02.png" alt-text="Screenshot of the Add job schedule options in the Azure portal.":::  
 
-   3. Select **Add** to create a new job schedule and complete the **Basic form**.
+1. At the bottom of the basic form, specify the pool on which you want the job to run. To choose from a list of pools in your Batch account, select **Update**.
+1. Along with the **Pool ID**, enter the following information:
+   - **Job configuration task**: Select **Update** to name and configure the job manager task, as well as the job preparation task and job release tasks, if you are using them.
+   - **Display name**: This name is optional and doesn't have to be unique. It has a maximum length of 1024 characters.
+   - **Priority**: Use the slider to set a priority for the job, or enter a value in the box.
+   - **Max wall clock time**: Select **Custom** if you want to set a maximum amount of time for the job to run. If you do so, Batch will terminate the job if it doesn't complete within that time frame.
+   - **Max task retry count**: Select **Custom** if you want to specify the number of times a task can be retried, or **Unlimited** if you want the task to be tried for as many times as is needed. This is not the same as the number of retries an API call might have.
+   - **When all tasks complete**: The default is NoAction, but you can select **TerminateJob** if you prefer to terminate the job when all tasks have been completed (or if there are no tasks in the job).
+   - **When a task fails**: A task fails if the retry count is exhausted or there was an error when starting the task. The default is NoAction, but you can select **PerformExitOptionsJobAction** if you prefer to take the action associated with the task's exit condition if it fails.
 
+     :::image type="content" source="media/batch-job-schedule/add-job-schedule-03.png" alt-text="Screenshot of the job specification options for a new job schedule in the Azure portal.":::
 
+1. Select **Save** to create your job schedule.
 
-![Schedule a job][1]
-
-**Job schedule ID**: The unique identifier for this job schedule.
-
-**Display name**: The display name for the job doesn't have to be unique but has a maximum length of 1024 characters.
-
-**Do not run until**: Specifies the earliest time the job will run. If you don't set this, the schedule becomes ready to run jobs immediately.
-
-**Do not run after**: No jobs run after the time you set here. If you don't specify a time, then you are creating a recurring job schedule which remains active until you explicitly terminate it.
-
-**Recurrence interval**: You can specify the amount of time between jobs. You can have only one job at a time scheduled, so if it is time to create a new job under a job schedule, but the previous job is still running, the Batch service will not create the new job until the previous job finishes.  
-
-**Start window**: Here you specify the time interval, starting from the time the schedule indicates a job should be created, until it should be completed. If the current job doesn't complete during its window, the next job won't start.
-
-At the bottom of the basic form, you will specify the pool on which you want the job to run. To find your pool ID information, select **Update**. 
-
-![Specify pool][2]
-
-
-**Pool ID**: Identify the pool you will run the job on.
-
-**Job configuration task**: Select **Update** to name the Job Manager task as well as the Job preparation and release tasks, if you are using them.
-
-**Priority**: Give the job a priority.
-
-**Max wall clock time**: Set the maximum amount of time the job can run for. If it doesn't complete within the time frame, Batch terminates the job. If you don't set this, then there is no time limit for the job.
-
-**Max task retry count**: Specify the number of times a task can be retried up to a maximum of four times. This is not the same as the number of retries an API call might have.
-
-**When all tasks complete**: The default is no action.
-
-**When a task fails**: The default is no action. A task fails if the retry count is exhausted or there was an error when starting the task. 
-
-After you select **Save**, if you go to **Job schedules** in the left navigation, you can track the execution of the job, by selecting **Execution info**.
-
-
-## For more information
-
-To manage a job using the Azure CLI, see [az batch job-schedule](https://docs.microsoft.com/cli/azure/batch/job-schedule?view=azure-cli-latest).
+To track the execution of the job, return to **Job schedules** and select the job schedule. Expand **Execution info** to see details. You can also terminate, delete, or disable the job schedule from this screen.
 
 ## Next steps
 
-[Create task dependencies to run tasks that depend on other tasks](batch-task-dependencies.md).
-
-
-
-
-
-[1]: ./media/batch-job-schedule/add_job_schedule-02.png
-[2]: ./media/batch-job-schedule/add_job_schedule-03.png
-
-
+- Learn more about [jobs and tasks](jobs-and-tasks.md).
+- [Create task dependencies](batch-task-dependencies.md) to run tasks that depend on other tasks.

@@ -2,14 +2,14 @@
 title: include file
 description: include file 
 services: cognitive-services
-author: diberry
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 08/16/2018
-ms.author: diberry
+ms.date: 12/29/2020
+ms.author: aahi
 ---
 The example utterances file, **utterances.json**, follows a specific format. 
 

@@ -1,25 +1,32 @@
 ---
-title: Improve knowledge base - QnA Maker
+title: Active Learning suggested questions - QnA Maker
 description: Improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 01/11/2022
+ms.author: mbullwin
+author: mrbullwinkle
+ms.devlang: csharp, javascript
+ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
 ---
 
 
 # Accept active learning suggested questions in the knowledge base
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 <a name="accept-an-active-learning-suggestion-in-the-knowledge-base"></a>
 
-Active Learning alters the Knowledge Base or Search Service after you approve the suggestion, then save and train. If you approve the suggestion it will be added as an alternate question.
+Active Learning alters the Knowledge Base or Search Service after you approve the suggestion, then save and train. If you approve the suggestion, it will be added as an alternate question.
 
 ## Turn on active learning
 
-In order to see suggested questions, you must [turn on active learning](use-active-learning.md) for your QnA Maker resource.
+In order to see suggested questions, you must [turn on active learning](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions) for your QnA Maker resource.
 
 ## View suggested questions
 
-1. In order to see the suggested questions, on the **Edit** knowledge base page, select **View Options**, then select **Show active learning suggestions**.
+1. In order to see the suggested questions, on the **Edit** knowledge base page, select **View Options**, then select **Show active learning suggestions**. This option will be disabled if there are no suggestions present for any of the question and answer pairs.  
 
     [![On the Edit section of the portal, select Show Suggestions in order to see the active learning's new question alternatives.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
@@ -29,7 +36,7 @@ In order to see suggested questions, you must [turn on active learning](use-acti
 
 1. Each QnA pair suggests the new question alternatives with a check mark, `✔` , to accept the question or an `x` to reject the suggestions. Select the check mark to add the question.
 
-    [![Select or reject active learning's suggested question alternatives by selecting the green check mark or red delete mark.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![Select or reject active learning's suggested question alternatives by selecting the green check mark or red delete mark.](../media/improve-knowledge-base/accept-active-learning-suggestions-small.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
     You can add or delete _all suggestions_ by selecting **Add all** or **Reject all** in the contextual toolbar.
 
@@ -42,16 +49,42 @@ In order to see suggested questions, you must [turn on active learning](use-acti
 
 <a name="#score-proximity-between-knowledge-base-questions"></a>
 
+## Active learning suggestions are saved in the exported knowledge base
+
+When your app has active learning enabled, and you export the app, the `SuggestedQuestions` column in the tsv file retains the active learning data.
+
+The `SuggestedQuestions` column is a JSON object of information of implicit, `autosuggested`, and explicit, `usersuggested` feedback. An example of this JSON object for a single user-submitted question of `help` is:
+
+```JSON
+[
+    {
+        "clusterHead": "help",
+        "totalAutoSuggestedCount": 1,
+        "totalUserSuggestedCount": 0,
+        "alternateQuestionList": [
+            {
+                "question": "help",
+                "autoSuggestedCount": 1,
+                "userSuggestedCount": 0
+            }
+        ]
+    }
+]
+```
+
+When you reimport this app, the active learning continues to collect information and recommend suggestions for your knowledge base.
+
+
 ### Architectural flow for using GenerateAnswer and Train APIs from a bot
 
 A bot or other client application should use the following architectural flow to use active learning:
 
-* Bot [gets the answer from the knowledge base](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) with the GenerateAnswer API, using the `top` property to get a number of answers.
-* Bot determines explicit feedback:
+1. Bot [gets the answer from the knowledge base](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) with the GenerateAnswer API, using the `top` property to get a number of answers.
+
+2. Bot determines explicit feedback:
     * Using your own [custom business logic](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user), filter out low scores.
     * In the bot or client-application, display list of possible answers to the user and get user's selected answer.
-* Bot [sends selected answer back to QnA Maker](#bot-framework-sample-code) with the [Train API](#train-api).
-
+3. Bot [sends selected answer back to QnA Maker](#bot-framework-sample-code) with the [Train API](#train-api).
 
 ### Use the top property in the GenerateAnswer request to get several matching answers
 
@@ -110,7 +143,7 @@ When the client application (such as a chat bot) receives the response, the top 
 
 Your client application displays the questions with an option for the user to select _the single question_ that most represents their intention.
 
-Once the user selects one of the existing questions, the client application sends the user's choice as feedback using QnA Maker's Train API. This feedback completes the active learning feedback loop.
+Once the user selects one of the existing questions, the client application sends the user's choice as feedback using the QnA Maker Train API. This feedback completes the active learning feedback loop.
 
 ## Train API
 
@@ -193,13 +226,13 @@ An example JSON body looks like:
 Your bot framework code needs to call the Train API, if the user's query should be used for active learning. There are two pieces of code to write:
 
 * Determine if query should be used for active learning
-* Send query back to QnA Maker's Train API for active learning
+* Send query back to the QnA Maker Train API for active learning
 
-In the [Azure Bot sample](https://aka.ms/activelearningsamplebot), both of these activities have been programmed.
+In the [Azure Bot sample](https://github.com/microsoft/BotBuilder-Samples), both of these activities have been programmed.
 
 ### Example C# code for Train API with Bot Framework 4.x
 
-The following code illustrates how to send information back to QnA Maker with the Train API. This [complete code sample](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-activelearning/csharp_dotnetcore) is available on GitHub.
+The following code illustrates how to send information back to QnA Maker with the Train API.
 
 ```csharp
 public class FeedbackRecords
@@ -262,7 +295,7 @@ public async static void CallTrain(string endpoint, FeedbackRecords feedbackReco
 
 ### Example Node.js code for Train API with Bot Framework 4.x
 
-The following code illustrates how to send information back to QnA Maker with the Train API. This [complete code sample](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs) is available on GitHub.
+The following code illustrates how to send information back to QnA Maker with the Train API.
 
 ```javascript
 async callTrain(stepContext){
@@ -302,38 +335,6 @@ async callTrain(stepContext){
     return await stepContext.next(stepContext.result);
 }
 ```
-
-## Active learning is saved in the exported knowledge base
-
-When your app has active learning enabled, and you export the app, the `SuggestedQuestions` column in the tsv file retains the active learning data.
-
-The `SuggestedQuestions` column is a JSON object of information of implicit, `autosuggested`, and explicit, `usersuggested` feedback. An example of this JSON object for a single user-submitted question of `help` is:
-
-```JSON
-[
-    {
-        "clusterHead": "help",
-        "totalAutoSuggestedCount": 1,
-        "totalUserSuggestedCount": 0,
-        "alternateQuestionList": [
-            {
-                "question": "help",
-                "autoSuggestedCount": 1,
-                "userSuggestedCount": 0
-            }
-        ]
-    }
-]
-```
-
-You can also use the download alterations API to review these alterations, using REST or any of the language-based SDKs:
-* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
-* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
-
-
-When you reimport this app, the active learning continues to collect information and recommend suggestions for your knowledge base.
-
-
 
 ## Best practices
 

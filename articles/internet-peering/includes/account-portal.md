@@ -11,16 +11,16 @@ ms.author: prmitiki
 ---
 
 
-From a browser, navigate to the [portal](https://portal.azure.com/) and sign in with your Azure account.
+From a browser, go to the Azure [portal](https://portal.azure.com/) and sign in with your Azure account.
 
 If you have multiple subscriptions and need to switch subscriptions:
 
-1. Click on the profile button and then choose **Switch Directory**.
+1. Select the profile button, and then select **Switch Directory**.
 
     > [!div class="mx-imgBorder"]
-    > ![Select switch directory](../media/choose-subscription-2.png)
+    > ![Select Switch directory](../media/choose-subscription-2.png)
 
-1. Choose a subscription you want to use for peering set up.
+1. Choose a subscription you want to use for peering setup.
 
     > [!div class="mx-imgBorder"]
     > ![Choose subscription](../media/choose-subscription-3.png)

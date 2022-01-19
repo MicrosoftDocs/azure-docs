@@ -4,9 +4,10 @@ description: 'Learn how to troubleshoot Application Gateway Server Error: 502 - 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/16/2019
-ms.author: amsriva
+ms.author: amsriva 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshooting bad gateway errors in Application Gateway
@@ -90,8 +91,8 @@ The following table lists the values associated with the default health probe:
 * If BackendHttpSetting specifies a port other than 80, the default site should be configured to listen at that port.
 * The call to `http://127.0.0.1:port` should return an HTTP result code of 200. This should be returned within the 30-second timeout period.
 * Ensure that the port configured is open and that there are no firewall rules or Azure Network Security Groups, which block incoming or outgoing traffic on the port configured.
-* If Azure classic VMs or Cloud Service is used with a FQDN or a public IP, ensure that the corresponding [endpoint](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) is opened.
-* If the VM is configured via Azure Resource Manager and is outside the VNet where the application gateway is deployed, a [Network Security Group](../virtual-network/security-overview.md) must be configured to allow access on the desired port.
+* If Azure classic VMs or Cloud Service is used with a FQDN or a public IP, ensure that the corresponding [endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%2fazure%2fapplication-gateway%2ftoc.json) is opened.
+* If the VM is configured via Azure Resource Manager and is outside the VNet where the application gateway is deployed, a [Network Security Group](../virtual-network/network-security-groups-overview.md) must be configured to allow access on the desired port.
 
 ## Problems with custom health probe
 
@@ -125,7 +126,7 @@ Validate that the Custom Health Probe is configured correctly as the preceding t
 
 ### Cause
 
-When a user request is received, the application gateway applies the configured rules to the request and routes it to a back-end pool instance. It waits for a configurable interval of time for a response from the back-end instance. By default, this interval is **20** seconds. If the application gateway does not receive a response from back-end application in this interval, the user request gets a 502 error.
+When a user request is received, the application gateway applies the configured rules to the request and routes it to a back-end pool instance. It waits for a configurable interval of time for a response from the back-end instance. By default, this interval is **20** seconds. In Application Gateway v1, if the application gateway does not receive a response from back-end application in this interval, the user request gets a 502 error.  In Application Gateway v2, if the application gateway does not receive a response from the back-end application in this interval, the request will be tried against a second back-end pool member.  If the second request fails the user request gets a 502 error.
 
 ### Solution
 
@@ -190,4 +191,3 @@ Ensure that the instances are healthy and the application is properly configured
 ## Next steps
 
 If the preceding steps don't resolve the issue, open a [support ticket](https://azure.microsoft.com/support/options/).
-

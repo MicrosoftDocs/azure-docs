@@ -1,0 +1,60 @@
+### YamlMime:Landing
+
+title: Azure File Sync documentation # < 60 chars
+summary: Azure File Sync enables centralizing your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of a Windows file server. # < 160 chars
+
+metadata:
+  title: Azure File Sync documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Mount file shares in the cloud or on-premises on Windows, Linux, and macOS. Cache Azure file shares on Windows Servers with Azure File Sync for local access.  # Required; article description that is displayed in search results. < 160 chars.
+  services: storage
+  ms.service: storage #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: files
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author: roygara #Required; your GitHub user alias, with correct capitalization.
+  ms.author: rogarana #Required; microsoft alias of author; optional team alias.
+  ms.date: 04/19/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Files Sync
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure File Sync planning guide
+            url: file-sync-planning.md
+          - text: What is Azure File Sync?
+            url: file-sync-introduction.md
+          - text: Cloud tiering overview
+            url: file-sync-cloud-tiering-overview.md
+
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Create/use file shares - Windows
+            url: ../files/storage-files-quick-create-use-windows.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+          - text: Manage your server with Azure File Sync
+            url: file-sync-server-registration.md
+      - linkListType: tutorial
+        links:
+          - text: Extend Windows file servers with Azure File Sync
+            url: file-sync-extend-servers.md 
+
+  # Card
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure Files Windows troubleshooting
+            url: ../files/storage-troubleshoot-windows-file-connection-problems.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+          - text: Azure Files performance troubleshooting
+            url: ../files/storage-troubleshooting-files-performance.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+          - text: Azure File Sync troubleshooting
+            url: file-sync-troubleshoot.md

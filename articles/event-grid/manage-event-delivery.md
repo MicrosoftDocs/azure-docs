@@ -1,20 +1,19 @@
 ---
 title: Dead letter and retry policies - Azure Event Grid
 description: Describes how to customize event delivery options for Event Grid. Set a dead-letter destination, and specify how long to retry delivery.
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.author: spelluru
+ms.date: 07/27/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Dead letter and retry policies
+# Set dead-letter location and retry policy
 
 When creating an event subscription, you can customize the settings for event delivery. This article shows you how to set up a dead letter location and customize the retry settings. For information about these features, see [Event Grid message delivery and retry](delivery-and-retry.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+> [!NOTE]
+> To learn about message delivery, retries, and dead-lettering, see the conceptual article: [Event Grid message delivery and retry](delivery-and-retry.md).
 
 ## Set dead-letter location
 
@@ -69,7 +68,7 @@ To turn off dead-lettering, rerun the command to create the event subscription b
 
 When creating an Event Grid subscription, you can set values for how long Event Grid should try to deliver the event. By default, Event Grid tries for 24 hours (1440 minutes), or 30 times. You can set either of these values for your event grid subscription. The value for event time-to-live must be an integer from 1 to 1440. The value for max retries must be an integer from 1 to 30.
 
-You can't configure the [retry schedule](delivery-and-retry.md#retry-schedule-and-duration).
+You can't configure the [retry schedule](delivery-and-retry.md#retry-schedule).
 
 ### Azure CLI
 
@@ -95,7 +94,8 @@ az eventgrid event-subscription create \
   --max-delivery-attempts 18
 ```
 
-If you set both `event-ttl` and `max-deliver-attempts`, Event Grid uses the first to expire to determine when to stop event delivery.
+> [!NOTE]
+> If you set both `event-ttl` and `max-deliver-attempts`, Event Grid uses the first to expire to determine when to stop event delivery. For example, if you set 30 minutes as time-to-live (TTL) and 10 max delivery attempts. When an event isn't delivered after 30 minutes (or) isn't delivered after 10 attempts, whichever happens first, the event is dead-lettered.  
 
 ### PowerShell
 
@@ -123,7 +123,8 @@ New-AzEventGridSubscription `
   -MaxDeliveryAttempt 18
 ```
 
-If you set both `EventTtl` and `MaxDeliveryAttempt`, Event Grid uses the first to expire to determine when to stop event delivery.
+> [!NOTE]
+> If you set both `event-ttl` and `max-deliver-attempts`, Event Grid uses the first to expire to determine when to stop event delivery. For example, if you set 30 minutes as time-to-live (TTL) and 10 max delivery attempts. When an event isn't delivered after 30 minutes (or) isn't delivered after 10 attempts, whichever happens first, the event is dead-lettered.  
 
 ## Next steps
 

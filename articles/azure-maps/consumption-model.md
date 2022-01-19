@@ -1,13 +1,12 @@
 ---
 title: Vehicle consumption models for routing | Microsoft Azure Maps
-description: In this article, you'll learn about vehicle consumption models for routing in Microsoft Azure Maps. 
+description: "Learn about the consumption models that Azure Maps supports: combustion and electric. See which parameters each model uses, and view parameter constraints." 
 author: subbarayudukamma
 ms.author: skamma
 ms.date: 05/08/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: 
 ---
 
 

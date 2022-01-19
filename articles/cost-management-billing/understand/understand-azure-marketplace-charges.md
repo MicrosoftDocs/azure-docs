@@ -1,12 +1,13 @@
 ---
-title: Understand your Azure external service charges | Microsoft Docs
+title: Understand your Azure external service charges
 description: Learn about billing of external services, formerly known as Marketplace, charges in Azure.
 author: bandersmsft
-ms.reviewer: judupont
+ms.reviewer: sapnakeshari
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 10/20/2021
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
@@ -43,6 +44,8 @@ You can view a list of the external services that are on each subscription withi
 ## External spending for EA customers
 
 EA customers can see external service spending and download reports in the EA portal. See [Azure Marketplace for EA Customers](https://ea.azure.com/helpdocs/azureMarketplace) to get started.
+
+Direct EA customers can see external service spending in the [Azure portal](https://portal.azure.com). Navigate to the Usage + charges menu to view and download Azure Marketplace charges.
 
 ## View and download invoices for external services
 

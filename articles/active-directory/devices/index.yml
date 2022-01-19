@@ -29,6 +29,8 @@ landingContent:
             url: overview.md
           - text: What is enterprise state roaming?
             url: enterprise-state-roaming-overview.md
+          - text: Plan your Azure AD device deployment
+            url: plan-device-deployment.md
       - linkListType: concept
         links:
           - text: Azure AD registered devices

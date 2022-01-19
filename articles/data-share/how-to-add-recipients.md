@@ -1,29 +1,27 @@
 ---
 title: Add recipients in Azure Data Share 
 description: Learn how to add recipients to an existing data share in Azure Data Share.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
-ms.topic: conceptual
-ms.date: 07/10/2019
+ms.topic: how-to
+ms.date: 12/17/2020
 ---
-# How to add a recipient to an existing data share in Azure Data Share
+# How to add a recipient to your share
 
-This article will show you how to add recipients to a pre-existing data share.
+You can add recipient when you create a new share or to an existing share. From Azure Data Share UI, you can add recipient using the Azure login email of the user.  From API, you can use a combination of user/service principal and tenant ID. When a tenant ID is specified, the invitation can only be accepted into this tenant. Also from API, you can create an invitation without sending an email to the recipient. 
 
-For information on how to add recipients as you create a share, see the [Share data](share-your-data.md) tutorial.
-
-## Navigate to a sent data share
+## Add recipient to an existing share
 
 In Azure Data Share, navigate to your sent share and select the **Invitations** tab. Listed here are all of the recipients of invitations to this data share. To add a new one, click **Add Recipient**.
 
-![Add Recipient](./media/how-to/how-to-add-recipients/add-recipient.png)
+![Screenshot shows Add Recipient selected.](./media/how-to/how-to-add-recipients/add-recipient.png)
 
-A panel will pop out on the right side of the page. Click **Add Recipient** and then fill in the email of your new recipient on the blank line. Add as many recipients as you would like.
+A panel will pop out on the right side of the page. Click **Add Recipient** and then fill in the email of your new recipient on the blank line. Make sure to use recipient's Azure login email (using their email alias won't work). 
 
-![Add Recipient](./media/how-to/how-to-add-recipients/add-recipient-side.png)
+![Screenshot shows the Add Recipient pane where you can Add and send invitation.](./media/how-to/how-to-add-recipients/add-recipient-side.png)
 
-Click **Add and send invitation**. The new recipient(s) will be sent invitation emails to this data share.
+Click **Add and send invitation**. The new recipient(s) will be sent invitation emails to this share.
 
 ## Next steps
 Learn more about how to [delete an invitation to a share](how-to-delete-invitation.md).

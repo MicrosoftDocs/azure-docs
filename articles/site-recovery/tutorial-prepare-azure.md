@@ -1,12 +1,9 @@
 ---
 title: Prepare Azure for on-premises disaster recovery with Azure Site Recovery 
 description: Learn how to prepare Azure for disaster recovery of on-premises machines using Azure Site Recovery.
-services: site-recovery
-author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 09/09/2019
-ms.author: raynew
 ms.custom: MVC
 
 ---
@@ -57,7 +54,7 @@ To complete these tasks your account should be assigned the Virtual Machine Cont
 6. In **Region**, select the region in which the vault should be located. We're using **West Europe**.
 7. Select **Review + create**.
 
-   ![Create a new vault](./media/tutorial-prepare-azure/new-vault-settings.png)
+   ![Screenshot of the Create Recovery Services vault page.](./media/tutorial-prepare-azure/new-vault-settings.png)
 
    The new vault will now be listed in **Dashboard** > **All resources**, and on the main **Recovery Services vaults** page.
 
@@ -76,7 +73,7 @@ On-premises machines are replicated to Azure managed disks. When failover occurs
 9. We're leaving the default options of basic DDoS protection, with no service endpoint, or firewall on the network.
 9. Select **Create**.
 
-   ![Create a virtual network](media/tutorial-prepare-azure/create-network.png)
+   ![Screenshot of the Create virtual network options.](media/tutorial-prepare-azure/create-network.png)
 
 The virtual network takes a few seconds to create. After it's created, you'll see it in the Azure portal dashboard.
 
@@ -85,8 +82,8 @@ The virtual network takes a few seconds to create. After it's created, you'll se
 
 ## Next steps
 
-- For VMware disaster recovery, [prepare the on-premises VMware infrastructure](tutorial-prepare-on-premises-vmware.md).
+- For VMware disaster recovery, [prepare the on-premises VMware infrastructure](./vmware-azure-tutorial-prepare-on-premises.md).
 - For Hyper-V disaster recovery, [prepare the on-premises Hyper-V servers](hyper-v-prepare-on-premises-tutorial.md).
 - For physical server disaster recovery, [set up the configuration server and source environment](physical-azure-disaster-recovery.md)
-- [Learn about](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) Azure networks.
-- [Learn about](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) managed disks.
+- [Learn about](../virtual-network/virtual-networks-overview.md) Azure networks.
+- [Learn about](../virtual-machines/managed-disks-overview.md) managed disks.

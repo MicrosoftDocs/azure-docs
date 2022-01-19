@@ -1,12 +1,12 @@
 ---
-title: Azure CLI Samples - Azure Functions 
-description: Azure CLI Samples - Azure Functions
-author: syntaxc4
+title: Azure CLI samples for Azure Functions | Microsoft Docs
+description: Find links to bash scripts for Azure Functions that use the Azure CLI. Learn how to create a function app that allows integration and deployment.
 
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.topic: sample
-ms.date: 01/09/2018
-ms.custom: mvc
+ms.date: 09/17/2021
+ms.custom: mvc, devx-track-azurecli, seo-azure-cli
+keywords: functions, azure cli samples, azure cli examples, azure cli code samples
 ---
 
 # Azure CLI Samples
@@ -17,9 +17,9 @@ The following table includes links to bash scripts for Azure Functions that use 
 
 | Create app | Description |
 |---|---|
-| [Create a function app for serverless execution](scripts/functions-cli-create-serverless.md) | Creates a function app in a Consumption plan.  |
-| [Create a serverless Python function app](scripts/functions-cli-create-serverless-python.md) | Create a function app in a dedicated App Service plan. |
-| [Create a function app in a scalable Premium plan](scripts/functions-cli-create-premium-plan.md) | Create a function app in a dedicated App Service plan. |
+| [Create a function app for serverless execution](scripts/functions-cli-create-serverless.md) | Create a function app in a Consumption plan.  |
+| [Create a serverless Python function app](scripts/functions-cli-create-serverless-python.md) | Create a Python function app in a Consumption plan. |
+| [Create a function app in a scalable Premium plan](scripts/functions-cli-create-premium-plan.md) | Create a function app in a Premium plan. |
 | [Create a function app in a dedicated (App Service) plan](scripts/functions-cli-create-app-service-plan.md) | Create a function app in a dedicated App Service plan. |
 
 | Integrate | Description|

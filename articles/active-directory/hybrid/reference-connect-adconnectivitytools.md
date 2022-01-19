@@ -2,14 +2,15 @@
 title: 'Azure AD Connect: ADConnectivityTools PowerShell Reference | Microsoft Docs'
 description: This document provides reference information for the ADConnectivityTools.psm1 PowerShell module.
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 # Azure AD Connect:  ADConnectivityTools PowerShell Reference
 

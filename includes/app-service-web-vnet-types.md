@@ -1,37 +1,33 @@
 ---
-author: ccompy
+author: madsd
 ms.service: app-service-web
 ms.topic: include
-ms.date: 02/27/2020
-ms.author: ccompy
+ms.date: 10/01/2020
+ms.author: madsd
 ---
 
-* The multi-tenant systems that support the full range of pricing plans except Isolated
-* The App Service Environment (ASE), which deploys into your VNet and supports Isolated pricing plan apps
+* The dedicated compute pricing tiers, which include the Basic, Standard, Premium, Premium v2, and Premium v3.
+* The App Service Environment, which deploys directly into your virtual network with dedicated supporting infrastructure and is using the Isolated and Isolated v2 pricing tiers.
 
-This document goes through the VNet Integration feature, which is for use in the multi-tenant apps. If your app is in [App Service Environment][ASEintro], then it's already in a VNet and doesn't require use of the VNet Integration feature to reach resources in the same VNet. For details on all of the networking features, read [App Service networking features][Networkingfeatures]
+The VNet integration feature is used in Azure App Service dedicated compute pricing tiers. If your app is in an [App Service Environment](../articles/app-service/environment/overview.md), it's already in a virtual network and doesn't require use of the VNet integration feature to reach resources in the same virtual network. For more information on all the networking features, see [App Service networking features](../articles/app-service/networking-features.md).
 
-VNet Integration gives your app access to resources in your virtual network but doesn't grant inbound private access to your app from the VNet. Private site access refers to making app only accessible from a private network such as from within an Azure virtual network. VNet Integration is only for making outbound calls from your app into your VNet. The VNet Integration feature behaves differently when used with VNets in the same region and with VNets in other regions. The VNet Integration feature has two variations.
+Virtual network integration gives your app access to resources in your virtual network, but it doesn't grant inbound private access to your app from the virtual network. Private site access refers to making an app accessible only from a private network, such as from within an Azure virtual network. Virtual network integration is used only to make outbound calls from your app into your virtual network. The VNet integration feature behaves differently when it's used with virtual networks in the same region and with virtual networks in other regions. The VNet integration feature has two variations:
 
-* Regional VNet Integration - When connecting to Resource Manager VNets in the same region, you must have a dedicated subnet in the VNet you are integrating with. 
-* Gateway required VNet Integration - When connecting to VNets in other regions or to a Classic VNet in the same region you need a Virtual Network gateway provisioned in the target VNet.
+* **Regional virtual network integration**: When you connect to virtual networks in the same region, you must have a dedicated subnet in the virtual network you're integrating with.
+* **Gateway-required virtual network integration**: When you connect directly to virtual networks in other regions or to a classic virtual network in the same region, you need an Azure Virtual Network gateway created in the target virtual network.
 
-The VNet Integration features:
+The VNet integration feature:
 
-* require a Standard, Premium, PremiumV2, or Elastic Premium pricing plan 
-* support TCP and UDP
-* work with App Service apps, and Function apps
+* Requires a Standard, Premium, Premium v2, Premium v3, or Elastic Premium App Service pricing tier.
+* Supports TCP and UDP.
+* Works with App Service apps and function apps.
 
-There are some things that VNet Integration doesn't support including:
+There are some things that virtual network integration doesn't support, like:
 
-* mounting a drive
-* AD integration 
-* NetBios
+* Mounting a drive.
+* Windows Server Active Directory integration.
+* NetBIOS.
 
-Gateway required VNet Integration only provides access to resources in the target VNet or in networks connected to the target VNet with peering or VPNs. Gateway required VNet Integration doesn't enable access to resources available across ExpressRoute connections or works with service endpoints. 
+Gateway-required virtual network integration provides access to resources only in the target virtual network or in networks connected to the target virtual network with peering or VPNs. Gateway-required virtual network integration doesn't enable access to resources available across Azure ExpressRoute connections or work with service endpoints.
 
-Regardless of the version used, VNet Integration gives your app access to resources in your virtual network but doesn't grant inbound private access to your app from the virtual network. Private site access refers to making your app only accessible from a private network such as from within an Azure virtual network. VNet Integration is only for making outbound calls from your app into your VNet. 
-
-<!--Links-->
-[ASEintro]: https://docs.microsoft.com/azure/app-service/environment/intro
-[Networkingfeatures]: https://docs.microsoft.com/azure/app-service/networking-features
+No matter which version is used, virtual network integration gives your app access to resources in your virtual network, but it doesn't grant inbound private access to your app from the virtual network. Private site access refers to making your app accessible only from a private network, such as from within an Azure virtual network. Virtual network integration is only for making outbound calls from your app into your virtual network.

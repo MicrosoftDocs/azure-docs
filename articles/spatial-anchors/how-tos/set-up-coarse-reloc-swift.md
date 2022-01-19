@@ -1,12 +1,12 @@
 ---
 title: Coarse relocalization in Swift
 description: In-depth explanation of how to create and locate anchors using coarse relocalization in Swift.
-author: bucurb
-manager: dacoghl
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: bobuc
-ms.date: 09/19/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---

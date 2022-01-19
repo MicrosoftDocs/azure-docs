@@ -3,16 +3,16 @@ title: Associate peer ASN to Azure subscription using the portal
 titleSuffix: Azure
 description: Associate peer ASN to Azure subscription using the portal
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
-ms.topic: article
-ms.date: 11/27/2019
-ms.author: prmitiki
+ms.topic: how-to
+ms.date: 5/18/2020
+ms.author: derekol
 ---
 
 # Associate peer ASN to Azure subscription using the portal
 
-Before you submit a peering request, you should first associate your ASN with Azure subscription using the steps below.
+As an Internet Service Provider or Internet Exchange Provider, before you submit a peering request, you should first associate your ASN with an Azure subscription using the steps below.
 
 If you prefer, you can complete this guide using the [PowerShell](howto-subscription-association-powershell.md).
 
@@ -50,22 +50,7 @@ Register for peering resource provider in your subscription by following the ste
     > ![Registration completed](./media/rp-register-completed.png)
 
 ### Create PeerAsn
-You can create a new PeerAsn resource for associating an Autonomous System Number (ASN) with Azure subscription. You can associate multiple ASNs to a subscription by creating a **PeerAsn** for each ASN you need to associate.
-
-1. Click **Create a resource** > **See all**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Search PeerAsn](./media/peerasn-seeall.png)
-
-1. Search for *PeerAsn* in the search box and hit *Enter* on your keyboard. From the results, click on **PeerAsn** resource.
-
-    > [!div class="mx-imgBorder"]
-    > ![Launch PeerAsn](./media/peerasn-launch.png)
-
-1. Once **PeerAsn** is launched click **Create**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Create PeerAsn](./media/peerasn-create.png)
+As an Internet Service Provider or Internet Exchange Provider, you can create a new PeerAsn resource for associating an Autonomous System Number (ASN) with Azure subscription on the [Associate a Peer ASN page](https://go.microsoft.com/fwlink/?linkid=2129592) . You can associate multiple ASNs to a subscription by creating a **PeerAsn** for each ASN you need to associate.
 
 1. On the **Associate a Peer ASN** page, under **Basics** tab, fill out the fields as shown below.
 
@@ -80,12 +65,12 @@ You can create a new PeerAsn resource for associating an Autonomous System Numbe
 1. Then, click on **Review + create** and observe that portal runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
 
     > [!div class="mx-imgBorder"]
-    > ![PeerAsn Review Tab](./media/peerasn-review-tab-validation.png)
+    > ![Screenshot shows the Associate a Peer A S N Basics tab.](./media/peerasn-review-tab-validation.png)
 
 1. Once the message in the ribbon turns to *Validation Passed*, verify your information and submit the request by clicking **Create**. If the validation doesn't pass, then click on **Previous** and repeat the steps above to modify your request and ensure the values you enter have no errors.
 
     > [!div class="mx-imgBorder"]
-    > ![PeerAsn Review Tab](./media/peerasn-review-tab.png)
+    > ![Screenshot shows the Associate a Peer A S N Basics tab with Validation passed.](./media/peerasn-review-tab.png)
 
 1. After you submit the request, wait for it to complete deployment. If deployment fails, contact [Microsoft peering](mailto:peering@microsoft.com). A successful deployment will appear as below.
 

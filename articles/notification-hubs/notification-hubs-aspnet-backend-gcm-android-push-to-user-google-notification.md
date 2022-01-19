@@ -1,22 +1,20 @@
 ---
 title: Send notifications to specific Android applications using Azure Notification Hubs
-description: Learn how to send push notifications to specific users by using Azure Notification Hubs.
+description: Learn how to send push notifications to specific Android users by using Azure Notification Hubs.
 documentationcenter: android
 services: notification-hubs
 author: sethmanheim
 manager: femila
-editor: jwargo
 
-ms.assetid: ae0e17a8-9d2b-496e-afd2-baa151370c25
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ms.date: 01/04/2019
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ---
 
@@ -150,7 +148,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
 
     Your `main_activity.xml` graphical layout should now look like the following image:
 
-    ![][A1]
+    ![Screenshot of an app with boxes for the username, password, recipient, and message, and with buttons for signing in and sending notifications.][A1]
 3. Create a new class named `RegisterClient` in the same package as your `MainActivity` class. Use the code below for the new class file.
 
     ```java
@@ -470,7 +468,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
 2. In the Android app, enter a username and password. They must both be the same string value and they must not contain spaces or special characters.
 3. In the Android app, click **Sign in**. Wait for a toast message that states **Logged in and registered**. It enables the **Send Notification** button.
 
-    ![][A2]
+    ![Screenshot of an app. A toast message confirming that the user is signed in and registered is visible, and the Send Notification button is turned on.][A2]
 4. Click the toggle buttons to enable all platforms where you ran the app and registered a user.
 5. Enter the user's name that receives the notification message. That user must be registered for notifications on the target devices.
 6. Enter a message for the user to receive as a push notification message.

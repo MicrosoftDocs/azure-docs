@@ -1,0 +1,135 @@
+{
+    "$schema": "https://whatsnewapi.azurewebsites.net/schema",
+    "docSetProductName": "Cognitive Services",
+    "rootDirectory": "articles/cognitive-services/",
+    "docLinkSettings": {
+        "linkFormat": "relative",
+        "relativeLinkPrefix": "/azure/cognitive-services/"
+    },
+    "inclusionCriteria": {
+        "excludePullRequestTitles": true,
+        "minAdditionsToFile" : 10,
+        "maxFilesChanged": 200,
+        "labels": [
+            "label:cognitive-services/svc"
+        ]
+    },
+    "areas": [
+        {
+            "name": ".",
+            "heading": "Miscellaneous"
+        },
+        {
+            "name": "Anomaly-Detector",
+            "heading": "Anomaly Detector"
+        },
+        {
+            "name": "Bing-Autosuggest",
+            "heading": "Bing Auto Suggest"
+        },
+        {
+            "name": "Bing-Custom-Search",
+            "heading": "Bing Custom Search"
+        },
+        {
+            "name": "Bing-Entities-Search",
+            "heading": "Bing Entities Search"
+        },
+        {
+            "name": "Bing-Image-Search",
+            "heading": "Bing Image Search"
+        },
+        {
+            "name": "Bing-News-Search",
+            "heading": "Bing News Search"
+        },
+        {
+            "name": "Bing-Spell-Check",
+            "heading": "Bing Spellcheck"
+        },
+        {
+            "name": "Bing-Video-Search",
+            "heading": "Bing Video Search"
+        },
+        {
+            "name": "Bing-Web-Search",
+            "heading": "Bing Web Search"
+        },
+        {
+            "name": "Computer-vision",
+            "heading": "Computer Vision"
+        },
+        {
+            "name": "Content-Moderator",
+            "heading": "Content Moderator"
+        },
+        {
+            "name": "Custom-Vision-Service",
+            "heading": "Custom Vision Service"
+        },
+        {
+            "name": "Encryption",
+            "heading": "Encryption"
+        },
+        {
+            "name": "Face",
+            "heading": "Face"
+        },
+        {
+            "name": "Ink-Recognizer",
+            "heading": "Ink Recognizer"
+        },
+        {
+            "name": "LUIS",
+            "heading": "LUIS"
+        },
+        {
+            "name": "metrics-advisor",
+            "heading": "Metrics Advisor"
+        },
+        {
+            "name": "QnAMaker",
+            "heading": "QnA Maker"
+        },
+        {
+            "name": "Speech-Service",
+            "heading": "Speech Service"
+        },
+        {
+            "name": "Translator",
+            "heading": "Translator"
+        },
+        {
+            "name": "bing-local-business-search",
+            "heading": "Bing Local Business Search"
+        },
+        {
+            "name": "bing-visual-search",
+            "heading": "Bing Visual Search"
+        },
+        {
+            "name": "containers",
+            "heading": "Containers"
+        },
+        {
+            "name": "form-recognizer",
+            "heading": "Form Recognizer"
+        },
+        {
+            "name": "immersive-reader",
+            "heading": "Immersive Reader"
+        },
+        {
+            "name": "personalizer",
+            "heading": "Personalizer"
+        },
+        {
+            "name": "text-analytics",
+            "heading": "Text Analytics"
+        },
+        {
+            "name": "video-indexer",
+            "heading": "Video Indexer"
+        }
+    ]
+}

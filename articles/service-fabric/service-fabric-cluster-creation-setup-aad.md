@@ -1,9 +1,9 @@
 ---
-title: Set up Azure Active Directory for client authentication 
+title: Set up Azure Active Directory for client authentication
 description: Learn how to set up Azure Active Directory (Azure AD) to authenticate clients for Service Fabric clusters.
-
 ms.topic: conceptual
 ms.date: 6/28/2019
+ms.custom: ignite-fall-2021
 ---
 
 # Set up Azure Active Directory for client authentication
@@ -121,7 +121,7 @@ To connect the Service Fabric cluster, use the following PowerShell command exam
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 
-To learn more, see [Connect-ServiceFabricCluster cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster).
+To learn more, see [Connect-ServiceFabricCluster cmdlet](/powershell/module/servicefabric/connect-servicefabriccluster).
 
 ### Can I reuse the same Azure AD tenant in multiple clusters?
 Yes. But remember to add the URL of Service Fabric Explorer to your cluster (web) application. Otherwise, Service Fabric Explorer doesn’t work.
@@ -132,9 +132,9 @@ FabricClient and FabricGateway perform a mutual authentication. During Azure AD 
 ## Next steps
 After setting up Azure Active Directory applications and setting roles for users, [configure and deploy a cluster](service-fabric-cluster-creation-via-arm.md).
 
-
 <!-- Links -->
-[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
+
+[azure-cli]: /cli/azure/get-started-with-azure-cli
 [azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md

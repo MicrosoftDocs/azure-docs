@@ -1,13 +1,13 @@
 ---
 title: Create backup policies using REST API
-description: In this article, you will learn how to create and manage backup policies (schedule and retention) using REST API.
+description: In this article, you'll learn how to create and manage backup policies (schedule and retention) using REST API.
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ---
 # Create Azure Recovery Services backup policies using REST API
 
-The steps to create a backup policy for an Azure Recovery Services vault are outlined in the [policy REST API document](/rest/api/backup/protectionpolicies/createorupdate). Let us use this document as a reference to create a policy for Azure VM backup.
+The steps to create a backup policy for an Azure Recovery Services vault are outlined in the [policy REST API document](/rest/api/backup/protection-policies/create-or-update). Let's use this document as a reference to create a policy for Azure VM backup.
 
 ## Create or update a policy
 
@@ -25,10 +25,10 @@ For example, to create a policy for Azure VM backup, following are the component
 
 |Name  |Required  |Type  |Description  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource properties        |
+|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protection-policies/create-or-update#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource properties        |
 |tags     |         | Object        |  Resource tags       |
 
-For the complete list of definitions in the request body, refer to the [backup policy REST API document](/rest/api/backup/protectionpolicies/createorupdate).
+For the complete list of definitions in the request body, refer to the [backup policy REST API document](/rest/api/backup/protection-policies/create-or-update).
 
 ### Example request body
 
@@ -123,17 +123,17 @@ The policy says:
 ```
 
 > [!IMPORTANT]
-> The time formats for schedule and retention support only DateTime. They do not support Time format alone.
+> The time formats for schedule and retention support only DateTime. They don't support Time format alone.
 
 ## Responses
 
-The backup policy creation/update is a [asynchronous operation](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). It means this operation creates another operation that needs to be tracked separately.
+The backup policy creation/update is a [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
 It returns two responses: 202 (Accepted) when another operation is created, and then 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |    [Protection PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
+|200 OK     |    [Protection PolicyResource](/rest/api/backup/protection-policies/create-or-update#protectionpolicyresource)     |  OK       |
 |202 Accepted     |         |     Accepted    |
 
 ### Example responses

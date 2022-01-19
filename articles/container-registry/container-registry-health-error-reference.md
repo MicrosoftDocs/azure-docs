@@ -1,12 +1,14 @@
 ---
-title: Error reference for health checks
+title: Error reference for registry health checks
 description: Error codes and possible solutions to problems found by running the az acr check-health diagnostic command in Azure Container Registry
 ms.topic: article
-ms.date: 07/02/2019
+ms.date: 01/25/2021
 ---
 # Health check error reference
 
 Following are details about error codes returned by the [az acr check-health][az-acr-check-health] command. For each error, possible solutions are listed.
+
+For information about running `az acr check-health`, see [Check the health of an Azure container registry](container-registry-check-health.md).
 
 ## DOCKER_COMMAND_ERROR
 
@@ -44,6 +46,12 @@ This error means that the CLI was unable to determine the Helm version installed
 
 *Potential solutions*: Update to the latest Azure CLI version or to the recommended Helm version; run the command manually and investigate the error message.
 
+## CMK_ERROR
+
+This error means that the registry can't access the user-assigned or sysem-assigned managed identity used to configure registry encryption with a customer-managed key. The managed identity might have been deleted.  
+
+*Potential solution*: To resolve the issue and rotate the key using a different managed identity, see steps to troubleshoot [the user-assigned identity](container-registry-customer-managed-keys.md#troubleshoot).
+
 ## CONNECTIVITY_DNS_ERROR
 
 This error means that the DNS for the given registry login server was pinged but did not respond, which means it is unavailable. This can indicate some connectivity issues. Alternatively, the registry might not exist, the user might not have the permissions on the registry (to retrieve its login server properly), or the target registry is in a different cloud than the one used in the Azure CLI.
@@ -52,7 +60,7 @@ This error means that the DNS for the given registry login server was pinged but
 
 ## CONNECTIVITY_FORBIDDEN_ERROR
 
-This error means that the challenge endpoint for the given registry responded with a 403 Forbidden HTTP status. This error means that users don't have access to the registry, most likely because of a virtual network configuration. To see the currently configured firewall rules, run `az acr show --query networkRuleSet --name <registry>`.
+This error means that the challenge endpoint for the given registry responded with a 403 Forbidden HTTP status. This error means that users don't have access to the registry, most likely because of a virtual network configuration or because access to the registry's public endpoint is not allowed. To see the currently configured firewall rules, run `az acr show --query networkRuleSet --name <registry>`.
 
 *Potential solutions*: Remove virtual network rules, or add the current client IP address to the allowed list.
 
@@ -84,7 +92,7 @@ This error means that the registry login server did not respond with an access t
 
 This error means that the client was unable to establish a secure connection to the container registry. This error generally occurs if you're running or using a proxy server.
 
-*Potential solutions*: More information on working behind a proxy can be [found here](https://github.com/Azure/azure-cli/blob/master/doc/use_cli_effectively.md#working-behind-a-proxy).
+*Potential solutions*: More information on working behind a proxy can be [found here](/cli/azure/use-cli-effectively).
 
 ## LOGIN_SERVER_ERROR
 
@@ -100,11 +108,11 @@ This error means that the CLI is not compatible with the currently installed ver
 
 For options to check the health of a registry, see [Check the health of an Azure container registry](container-registry-check-health.md).
 
-See the [FAQ](container-registry-faq.md) for frequently asked questions and other known issues about Azure Container Registry.
+See the [FAQ](container-registry-faq.yml) for frequently asked questions and other known issues about Azure Container Registry.
 
 
 
 
 
 <!-- LINKS - internal -->
-[az-acr-check-health]: /cli/azure/acr#az-acr-check-health
+[az-acr-check-health]: /cli/azure/acr#az_acr_check_health

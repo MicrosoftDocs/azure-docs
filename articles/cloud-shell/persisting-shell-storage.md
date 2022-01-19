@@ -11,14 +11,13 @@ ms.assetid:
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
 ---
 
 # Persist files in Azure Cloud Shell
-Cloud Shell utilizes Azure File storage to persist files across sessions. On initial start, Cloud Shell prompts you to associate a new or existing file share to persist files across sessions.
+Cloud Shell utilizes Azure Files to persist files across sessions. On initial start, Cloud Shell prompts you to associate a new or existing file share to persist files across sessions.
 
 > [!NOTE]
 > Bash and PowerShell share the same file share. Only one file share can be associated with automatic mounting in Cloud Shell.
@@ -46,16 +45,18 @@ By using the advanced option, you can associate existing resources. When selecti
 When the storage setup prompt appears, select **Show advanced settings** to view additional options. The populated storage options filter for locally redundant storage (LRS),  geo-redundant storage (GRS), and zone-redundant storage (ZRS) accounts. 
 
 > [!NOTE]
-> Using GRS or ZRS storage accounts are recommended for additional resiliency for your backing file share. Which type of redundancy depends on your goals and price preference. [Learn more about replication options for Azure Storage accounts](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
+> Using GRS or ZRS storage accounts are recommended for additional resiliency for your backing file share. Which type of redundancy depends on your goals and price preference. [Learn more about replication options for Azure Storage accounts](../storage/common/storage-redundancy.md).
 
 ![The Resource group setting](media/persisting-shell-storage/advanced-storage.png)
 
 ## Securing storage access
-For security, each user should provision their own storage account.  For role-based access control (RBAC), users must have contributor access or above at the storage account level.
+For security, each user should provision their own storage account.  For Azure role-based access control (Azure RBAC), users must have contributor access or above at the storage account level.
 
 Cloud Shell uses an Azure File Share in a storage account, inside a specified subscription. Due to inherited permissions, users with sufficient access rights to the subscription will be able to access all the storage accounts, and file shares contained in the subscription.
 
 Users should lock down access to their files by setting the permissions at the storage account or the subscription level.
+
+The Cloud Shell storage account will contain files created by the Cloud Shell user in their home directory, which may include sensitive information including access tokens or credentials.
 
 ## Supported storage regions
 To find your current region you may run `env` in Bash and locate the variable `ACC_LOCATION`, or from PowerShell run `$env:ACC_LOCATION`. File shares receive a 5-GB image created for you to persist your `$Home` directory.
@@ -79,7 +80,7 @@ If a secondary storage region is used, the associated Azure storage account resi
 A user can run `(Get-CloudDrive | Get-AzStorageAccount).Location` in PowerShell to see the location of their File Share.
 
 ## Restrict resource creation with an Azure resource policy
-Storage accounts that you create in Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`. If you want to disallow users from creating storage accounts in Cloud Shell, create an [Azure resource policy for tags](../azure-policy/json-samples.md) that are triggered by this specific tag.
+Storage accounts that you create in Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`. If you want to disallow users from creating storage accounts in Cloud Shell, create an [Azure resource policy for tags](../governance/policy/samples/index.md) that are triggered by this specific tag.
 
 ## How Cloud Shell storage works 
 Cloud Shell persists files through both of the following methods: 
@@ -166,5 +167,5 @@ For example: . .\MyFunctions.ps1
 
 ## Next steps
 [Cloud Shell Quickstart](quickstart.md) <br>
-[Learn about Microsoft Azure Files storage](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
-[Learn about storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
+[Learn about Microsoft Azure Files storage](../storage/files/storage-files-introduction.md) <br>
+[Learn about storage tags](../azure-resource-manager/management/tag-resources.md) <br>

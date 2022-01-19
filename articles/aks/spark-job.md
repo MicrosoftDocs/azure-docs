@@ -1,16 +1,14 @@
 ---
 title: Run an Apache Spark job with Azure Kubernetes Service (AKS)
-description: Use Azure Kubernetes Service (AKS) to run an Apache Spark job
-author: lenadroid
+description: Use Azure Kubernetes Service (AKS) to create and run an Apache Spark job for large-scale data processing.
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.author: alehall
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Running Apache Spark jobs on AKS
 
-[Apache Spark][apache-spark] is a fast engine for large-scale data processing. As of the [Spark 2.3.0 release][spark-latest-release], Apache Spark supports native integration with Kubernetes clusters. Azure Kubernetes Service (AKS) is a managed Kubernetes environment running in Azure. This document details preparing and running Apache Spark jobs on an Azure Kubernetes Service (AKS) cluster.
+[Apache Spark][apache-spark] is a fast engine for large-scale data processing. As of the [Spark 2.3.0 release][spark-kubernetes-earliest-version], Apache Spark supports native integration with Kubernetes clusters. Azure Kubernetes Service (AKS) is a managed Kubernetes environment running in Azure. This document details preparing and running Apache Spark jobs on an Azure Kubernetes Service (AKS) cluster.
 
 ## Prerequisites
 
@@ -20,6 +18,7 @@ In order to complete the steps within this article, you need the following.
 * [Docker Hub][docker-hub] account, or an [Azure Container Registry][acr-create].
 * Azure CLI [installed][azure-cli] on your development system.
 * [JDK 8][java-install] installed on your system.
+* [Apache Maven][maven-install] installed on your system.
 * SBT ([Scala Build Tool][sbt-install]) installed on your system.
 * Git command-line tools installed on your system.
 
@@ -38,7 +37,7 @@ az group create --name mySparkCluster --location eastus
 Create a Service Principal for the cluster. After it is created, you will need the Service Principal appId and password for the next command.
 
 ```azurecli
-az ad sp create-for-rbac --name SparkSP
+az ad sp create-for-rbac --name SparkSP --role Contributor
 ```
 
 Create the AKS cluster with nodes that are of size `Standard_D3_v2`, and values of appId and password passed as service-principal and client-secret parameters.
@@ -288,7 +287,7 @@ Pi is roughly 3.152155760778804
 
 In the above example, the Spark jar file was uploaded to Azure storage. Another option is to package the jar file into custom-built Docker images.
 
-To do so, find the `dockerfile` for the Spark image located at `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` directory. Add am `ADD` statement for the Spark job `jar` somewhere between `WORKDIR` and `ENTRYPOINT` declarations.
+To do so, find the `dockerfile` for the Spark image located at `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` directory. Add an `ADD` statement for the Spark job `jar` somewhere between `WORKDIR` and `ENTRYPOINT` declarations.
 
 Update the jar path to the location of the `SparkPi-assembly-0.1.0-SNAPSHOT.jar` file on your development system. You can also use your own custom jar file.
 
@@ -334,16 +333,17 @@ Check out Spark documentation for more details.
 <!-- LINKS - external -->
 [apache-spark]: https://spark.apache.org/
 [docker-hub]: https://docs.docker.com/docker-hub/
-[java-install]: https://aka.ms/azure-jdks
-[sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
+[java-install]: /azure/developer/java/fundamentals/java-support-on-azure
+[maven-install]: https://maven.apache.org/install.html
+[sbt-install]: https://www.scala-sbt.org/1.x/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
-[spark-latest-release]: https://spark.apache.org/releases/spark-release-2-3-0.html
+[spark-kubernetes-earliest-version]: https://spark.apache.org/releases/spark-release-2-3-0.html
 [spark-quickstart]: https://spark.apache.org/docs/latest/quick-start.html
 
 
 <!-- LINKS - internal -->
 [acr-aks]: cluster-container-registry-integration.md
-[acr-create]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
-[aks-quickstart]: https://docs.microsoft.com/azure/aks/
-[azure-cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest
-[storage-account]: https://docs.microsoft.com/azure/storage/common/storage-azure-cli
+[acr-create]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-quickstart]: ./index.yml
+[azure-cli]: /cli/azure/
+[storage-account]: ../storage/blobs/storage-quickstart-blobs-cli.md

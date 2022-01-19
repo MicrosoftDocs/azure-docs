@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Create a custom role for Azure resources with Azure CLI"
-description: Get started creating a custom role for Azure resources using Azure CLI in this tutorial.
+title: "Tutorial: Create an Azure custom role with Azure CLI - Azure RBAC"
+description: Get started creating an Azure custom role using Azure CLI and Azure role-based access control (Azure RBAC) in this tutorial.
 services: active-directory
 documentationCenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.service: role-based-access-control
@@ -13,14 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
-ms.author: rolyon
+ms.author: rolyon 
+ms.custom: devx-track-azurecli
 
 #Customer intent: As a dev or devops, I want step-by-step instructions for how to grant custom permissions because the current built-in roles do not meet my permission needs.
 
 ---
-# Tutorial: Create a custom role for Azure resources using Azure CLI
+# Tutorial: Create an Azure custom role using Azure CLI
 
-If the [built-in roles for Azure resources](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. For this tutorial, you create a custom role named Reader Support Tickets using Azure CLI. The custom role allows the user to view everything in the management plane of a subscription and also open support tickets.
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. For this tutorial, you create a custom role named Reader Support Tickets using Azure CLI. The custom role allows the user to view everything in the control plane of a subscription and also open support tickets.
 
 In this tutorial, you learn how to:
 
@@ -47,9 +48,9 @@ Sign in to [Azure CLI](/cli/azure/authenticate-azure-cli).
 
 The easiest way to create a custom role is to start with a JSON template, add your changes, and then create a new role.
 
-1. Review the list of operations for the [Microsoft.Support resource provider](resource-provider-operations.md#microsoftsupport). It's helpful to know the operations that are available to create your permissions.
+1. Review the list of actions for the [Microsoft.Support resource provider](resource-provider-operations.md#microsoftsupport). It's helpful to know the actions that are available to create your permissions.
 
-    | Operation | Description |
+    | Action | Description |
     | --- | --- |
     | Microsoft.Support/register/action | Registers to Support Resource Provider |
     | Microsoft.Support/supportTickets/read | Gets Support Ticket details (including status, severity, contact details and communications) or gets the list of Support Tickets across subscriptions. |
@@ -59,7 +60,7 @@ The easiest way to create a custom role is to start with a JSON template, add yo
 
 1. Open ReaderSupportRole.json in an editor and add the following JSON.
 
-    For information about the different properties, see [Custom roles for Azure resources](custom-roles.md).
+    For information about the different properties, see [Azure custom roles](custom-roles.md).
 
     ```json
     {
@@ -76,14 +77,14 @@ The easiest way to create a custom role is to start with a JSON template, add yo
     }
     ```
     
-1. Add the following operations to the `Actions` property. These actions allow the user to view everything in the subscription and create support tickets.
+1. Add the following actions to the `Actions` property. These actions allow the user to view everything in the subscription and create support tickets.
 
     ```
     "*/read",
     "Microsoft.Support/*"
     ```
 
-1. Get the ID of your subscription using the [az account list](/cli/azure/account#az-account-list) command.
+1. Get the ID of your subscription using the [az account list](/cli/azure/account#az_account_list) command.
 
     ```azurecli
     az account list --output table
@@ -115,7 +116,7 @@ The easiest way to create a custom role is to start with a JSON template, add yo
     }
     ```
     
-1. To create the new custom role, use the [az role definition create](/cli/azure/role/definition#az-role-definition-create) command and specify the JSON role definition file.
+1. To create the new custom role, use the [az role definition create](/cli/azure/role/definition#az_role_definition_create) command and specify the JSON role definition file.
 
     ```azurecli
     az role definition create --role-definition "~/CustomRoles/ReaderSupportRole.json"
@@ -152,7 +153,7 @@ The easiest way to create a custom role is to start with a JSON template, add yo
 
 ## List custom roles
 
-- To list all your custom roles, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command with the `--custom-role-only` parameter.
+- To list all your custom roles, use the [az role definition list](/cli/azure/role/definition#az_role_definition_list) command with the `--custom-role-only` parameter.
 
     ```azurecli
     az role definition list --custom-role-only true
@@ -199,7 +200,7 @@ To update the custom role, update the JSON file and then update the custom role.
 
 1. Open the ReaderSupportRole.json file.
 
-1. In `Actions`, add the operation to create and manage resource group deployments `"Microsoft.Resources/deployments/*"`. Be sure to include a comma after the previous operation.
+1. In `Actions`, add the action to create and manage resource group deployments `"Microsoft.Resources/deployments/*"`. Be sure to include a comma after the previous action.
 
     Your updated JSON file should look like the following:
 
@@ -222,7 +223,7 @@ To update the custom role, update the JSON file and then update the custom role.
     }
     ```
         
-1. To update the custom role, use the [az role definition update](/cli/azure/role/definition#az-role-definition-update) command and specify the updated JSON file.
+1. To update the custom role, use the [az role definition update](/cli/azure/role/definition#az_role_definition_update) command and specify the updated JSON file.
 
     ```azurecli
     az role definition update --role-definition "~/CustomRoles/ReaderSupportRole.json"
@@ -258,7 +259,7 @@ To update the custom role, update the JSON file and then update the custom role.
     
 ## Delete a custom role
 
-- Use the [az role definition delete](/cli/azure/role/definition#az-role-definition-delete) command and specify the role name or role ID to delete the custom role.
+- Use the [az role definition delete](/cli/azure/role/definition#az_role_definition_delete) command and specify the role name or role ID to delete the custom role.
 
     ```azurecli
     az role definition delete --name "Reader Support Tickets"
@@ -267,4 +268,4 @@ To update the custom role, update the JSON file and then update the custom role.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create custom roles for Azure resources using Azure CLI](custom-roles-cli.md)
+> [Create or update Azure custom roles using Azure CLI](custom-roles-cli.md)

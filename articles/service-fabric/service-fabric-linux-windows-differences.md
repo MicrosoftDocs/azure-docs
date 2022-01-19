@@ -3,7 +3,6 @@ title: Azure Service Fabric differences between Linux and Windows
 description: Differences between the Azure Service Fabric on Linux and Azure Service Fabric on Windows.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.custom: sfrev
 ---
 # Differences between Service Fabric on Linux and Windows
 

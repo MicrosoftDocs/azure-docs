@@ -3,18 +3,20 @@ title: Tutorial - Store data with SQL module using Azure IoT Edge
 description: This tutorial shows how to store data locally on your IoT Edge device with a SQL Server module
 services: iot-edge
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
-ms.date: 03/28/2019
+ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 #Customer intent: As an IoT developer, I want to use SQL Service to execute logic on edge devices to filter data and communications that is sent to the cloud.
 ---
 
 # Tutorial: Store data at the edge with SQL Server databases
 
-Deploy a SQL Server module to store data on a Linux device running Azure IoT Edge.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+Deploy a SQL Server module to store data on a device running Azure IoT Edge with Linux containers.
 
 Use Azure IoT Edge and SQL Server to store and query data at the edge. Azure IoT Edge has basic storage capabilities to cache messages if a device goes offline, and then forward them when the connection is reestablished. However, you may want more advanced storage capabilities, like being able to query data locally. Your IoT Edge devices can use local databases to perform more complex computing without having to maintain a connection to IoT Hub.
 
@@ -36,16 +38,16 @@ In this tutorial, you learn how to:
 Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules for Linux devices](tutorial-develop-for-linux.md). By completing that tutorial, you should have the following prerequisites in place:
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* An AMD64 [Linux device running Azure IoT Edge](quickstart-linux.md).
-  * ARM devices, like Raspberry Pis, cannot run SQL Server. If you want to use SQL on an ARM device, you can sign up to try [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/) in preview.
-* A container registry, like [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
+* An AMD64 device running Azure IoT Edge with Linux containers. You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
+  * ARM devices, like Raspberry Pis, cannot run SQL Server. If you want to use SQL on an ARM device, you can use [Azure SQL Edge](../azure-sql-edge/overview.md).
+* A container registry, like [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configured to run Linux containers.
 
 This tutorial uses an Azure Functions module to send data to the SQL Server. To develop an IoT Edge module with Azure Functions, install the following additional prerequisites on your development machine:
 
 * [C# for Visual Studio Code (powered by OmniSharp) extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
+* [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
 
 ## Create a function project
 
@@ -67,7 +69,7 @@ The following steps show you how to create an IoT Edge function using Visual Stu
    | Provide a solution name | Enter a descriptive name for your solution, like **SqlSolution**, or accept the default. |
    | Select module template | Choose **Azure Functions - C#**. |
    | Provide a module name | Name your module **sqlFunction**. |
-   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the last step. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. <br><br>The final string looks like \<registry name\>.azurecr.io/sqlfunction. |
+   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the last step. Replace **localhost:5000** with the **Login server** value from your Azure container registry. You can retrieve the Login server from the Overview page of your container registry in the Azure portal. <br><br>The final string looks like \<registry name\>.azurecr.io/sqlfunction. |
 
    The VS Code window loads your IoT Edge solution workspace.
 
@@ -75,13 +77,18 @@ The following steps show you how to create an IoT Edge function using Visual Stu
 
 The environment file stores the credentials for your container registry and shares them with the IoT Edge runtime. The runtime needs these credentials to pull your private images onto the IoT Edge device.
 
+The IoT Edge extension tries to pull your container registry credentials from Azure and populate them in the environment file. Check to see if your credentials are already included. If not, add them now:
+
 1. In the VS Code explorer, open the .env file.
 2. Update the fields with the **username** and **password** values that you copied from your Azure container registry.
 3. Save this file.
 
+>[!NOTE]
+>This tutorial uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
+
 ### Select your target architecture
 
-Currently, Visual Studio Code can develop C modules for Linux AMD64 and Linux ARM32v7 devices. You need to select which architecture you're targeting with each solution, because the container is built and run differently for each architecture type. The default is Linux AMD64.
+You need to select which architecture you're targeting with each solution, because the container is built and run differently for each architecture type. The default is Linux AMD64.
 
 1. Open the command palette and search for **Azure IoT Edge: Set Default Target Platform for Edge Solution**, or select the shortcut icon in the side bar at the bottom of the window.
 
@@ -89,9 +96,19 @@ Currently, Visual Studio Code can develop C modules for Linux AMD64 and Linux AR
 
 ### Update the module with custom code
 
-1. In the VS Code explorer, open **modules** > **sqlFunction** > **sqlFunction.cs**.
+1. In the VS Code explorer, open **modules** > **sqlFunction** > **sqlFunction.csproj**.
 
-2. Replace the entire contents of the file with the following code:
+2. Find the group of package references, and add a new one to include SqlClient.
+
+   ```csproj
+   <PackageReference Include="System.Data.SqlClient" Version="4.5.1"/>
+   ```
+
+3. Save the **sqlFunction.csproj** file.
+
+4. Open the **sqlFunction.cs** file.
+
+5. Replace the entire contents of the file with the following code:
 
    ```csharp
    using System;
@@ -180,23 +197,13 @@ Currently, Visual Studio Code can develop C modules for Linux AMD64 and Linux AR
    }
    ```
 
-3. In line 35, replace the string **\<sql connection string\>** with the following string. The **Data Source** property references the SQL Server container, which doesn't exist yet. You will create it with the name **SQL** in the next section.
+6. In line 35, replace the string **\<sql connection string\>** with the following string. The **Data Source** property references the SQL Server container, which doesn't exist yet. You will create it with the name **SQL** in the next section.
 
    ```csharp
    Data Source=tcp:sql,1433;Initial Catalog=MeasurementsDB;User Id=SA;Password=Strong!Passw0rd;TrustServerCertificate=False;Connection Timeout=30;
    ```
 
-4. Save the **sqlFunction.cs** file.
-
-5. Open the **sqlFunction.csproj** file.
-
-6. Find the group of package references, and add a new one to include SqlClient.
-
-   ```csproj
-   <PackageReference Include="System.Data.SqlClient" Version="4.5.1"/>
-   ```
-
-7. Save the **sqlFunction.csproj** file.
+7. Save the **sqlFunction.cs** file.
 
 ## Add the SQL Server container
 
@@ -208,7 +215,7 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
 
    | Field | Value |
    | ----- | ----- |
-   | Select deployment template file | The command palette highlights the deployment.template.json file in your current solution folder. Select that file.  |
+   | Select deployment template file | The command palette highlights the **deployment.template.json** file in your current solution folder. Select that file.  |
    | Select module template | Select **Module from Azure Marketplace**. |
 
 3. In the Azure IoT Edge module marketplace, search for and select **SQL Server Module**.
@@ -222,7 +229,7 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
 7. Find the **modules** section. You should see three modules. The module *SimulatedTemperatureSensor* is included by default in new solutions, and provides test data to use with your other modules. The module *sqlFunction* is the module that you initially created and updated with new code. Finally, the module *sql* was imported from the Azure Marketplace.
 
    >[!Tip]
-   >The SQL Server module comes with a default password set in the environment variables of the deployment manifest. Any time that you create a SQL Server container in a production environment, you should [change the default system administrator password](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker).
+   >The SQL Server module comes with a default password set in the environment variables of the deployment manifest. Any time that you create a SQL Server container in a production environment, you should [change the default system administrator password](/sql/linux/quickstart-install-connect-docker).
 
 8. Close the **deployment.template.json** file.
 
@@ -242,29 +249,31 @@ In the previous sections, you created a solution with one module, and then added
 
 1. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge solution**.
 
-When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a deployment.json file in a new folder named **config**. Then, it runs two commands in the integrated terminal: `docker build` and `docker push`. The build command builds your code and containerizes the module. Then, the push command pushes the code to the container registry that you specified when you initialized the solution.
+   The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, which is built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry.
 
-You can verify that the sqlFunction module was successfully pushed to your container registry. In the Azure portal, navigate to your container registry. Select **repositories** and search for **sqlFunction**. The other two modules, SimulatedTemperatureSensor and sql, won't be pushed to your container registry because their repositories are already in the Microsoft registries.
+   This process may take several minutes the first time, but is faster the next time that you run the commands.
+
+   You can verify that the sqlFunction module was successfully pushed to your container registry. In the Azure portal, navigate to your container registry. Select **repositories** and search for **sqlFunction**. The other two modules, SimulatedTemperatureSensor and sql, won't be pushed to your container registry because their repositories are already in the Microsoft registries.
 
 ## Deploy the solution to a device
 
 You can set modules on a device through the IoT Hub, but you can also access your IoT Hub and devices through Visual Studio Code. In this section, you set up access to your IoT Hub then use VS Code to deploy your solution to your IoT Edge device.
 
-1. In the VS Code explorer, expand the **Azure IoT Hub Devices** section.
+1. In the Visual Studio Code explorer, under the **Azure IoT Hub** section, expand **Devices** to see your list of IoT devices.
 
-2. Right-click on the device that you want to target with your deployment and select **Create deployment for single device**.
+2. Right-click on the device that you want to target with your deployment and select **Create Deployment for Single Device**.
 
-3. In the file explorer, navigate to the **config** folder inside your solution and choose **deployment.amd64**. Click **Select Edge deployment manifest**.
+3. Select the **deployment.amd64.json** file in the **config** folder and then click **Select Edge Deployment Manifest**. Do not use the deployment.template.json file.
 
-   Do not use the deployment.template.json file as a deployment manifest.
+4. Under your device, expand **Modules** to see a list of deployed and running modules. Click the refresh button. You should see the new **sql** and **sqlFunction** modules running along with the **SimulatedTemperatureSensor** module and the **$edgeAgent** and **$edgeHub**.
 
-If the deployment is successful, a confirmation message is printed in the VS Code output.
-
-Refresh the status of your device in the Azure IoT Hub Devices section of VS Code. The new modules are listed and will start to report as running over the next few minutes as the containers are installed and started. You can also check to see that all the modules are up and running on your device. On your IoT Edge device, run the following command to see the status of the modules.
+    You can also check to see that all the modules are up and running on your device. On your IoT Edge device, run the following command to see the status of the modules.
 
    ```cmd/sh
    iotedge list
    ```
+
+    It may take a few minutes for the modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module.
 
 ## Create the SQL database
 
@@ -323,9 +332,9 @@ Otherwise, you can delete the local configurations and the Azure resources that 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-## Next steps
+In this tutorial, you created an Azure Functions module that contains code to filter raw data generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about how to [Develop Azure Functions with Azure IoT Edge for Visual Studio Code](./how-to-vs-code-develop-module.md).
 
-In this tutorial, you created an Azure Functions module that contains code to filter raw data generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about how to [Develop Azure Functions with Azure IoT Edge for Visual Studio Code](how-to-develop-csharp-function.md).
+## Next steps
 
 If you want to try another storage method at the edge, read about how to use Azure Blob Storage on IoT Edge.
 

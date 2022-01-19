@@ -1,13 +1,13 @@
 ---
 title: Azure PowerShell Samples - Create a basic virtual machine scale set
-description: This script creates an Azure virtual machine scale set running Windows Server 2016, which you can access through RDP. 
-author: cynthn
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
+description: This script creates an Azure virtual machine scale set running Windows Server 2016, which you can access through RDP.
+author: mimckitt
+ms.author: mimckitt
 ms.topic: sample
-ms.date: 03/27/2018
-ms.author: cynthn
-ms.custom: mvc
+ms.service: virtual-machine-scale-sets
+ms.date: 12/02/2021
+ms.reviewer: jushiman
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 
@@ -21,12 +21,12 @@ This script creates a virtual machine scale set running Windows Server 2016. Aft
 ## Sample script
 
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/simple-scale-set/simple-scale-set.ps1 "Create a simple virtual machine scale set")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-machine-scale-sets/simple-scale-set/simple-scale-set.ps1 "Create a simple virtual machine scale set")]
 
 ## Clean up deployment
 Run the following command to remove the resource group, scale set, and all related resources.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 
@@ -39,6 +39,4 @@ This script uses the following commands to create the deployment. Each item in t
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
 
 ## Next steps
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
-
-Additional virtual machine scale set PowerShell script samples can be found in the [Azure virtual machine scale set documentation](../powershell-samples.md).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).

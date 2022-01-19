@@ -4,38 +4,46 @@ description: This article shows you how to upgrade Azure Internal Load Balancer 
 services: load-balancer
 author: irenehua
 ms.service: load-balancer
-ms.topic: article
-ms.date: 02/23/2020
+ms.topic: how-to
+ms.date: 08/07/2020
 ms.author: irenehua
 ---
 
 # Upgrade Azure Internal Load Balancer- No Outbound Connection Required
-[Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
+[Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](./skus.md#skus).
 
-There are two stages in an upgrade:
-
-1. Migrate the configuration
-2. Add VMs to backend pools of Standard Load Balancer
-
-This article covers configuration migration. Adding VMs to backend pools may vary depending on your specific environment. However, some high-level, general recommendations [are provided](#add-vms-to-backend-pools-of-standard-load-balancer).
+This article introduces a PowerShell script which creates a Standard Load Balancer with the same configuration as the Basic Load Balancer along with migrating traffic from Basic Load Balancer to Standard Load Balancer.
 
 ## Upgrade overview
 
 An Azure PowerShell script is available that does the following:
 
-* Creates a Standard Internal SKU Load Balancer in the location that you specify. Note that no [outbound connection](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) will not be provided by the Standard Internal Load Balancer.
-* Seamlessly copies the configurations of the Basic SKU Load Balancer to the newly create Standard Load Balancer.
+* Creates a Standard Internal SKU Load Balancer in the location that you specify. Note that no [outbound connection](./load-balancer-outbound-connections.md) will not be provided by the Standard Internal Load Balancer.
+* Seamlessly copies the configurations of the Basic SKU Load Balancer to the newly created Standard Load Balancer.
+* Seamlessly move the private IPs from Basic Load Balancer to the newly created Standard Load Balancer.
+* Seamlessly move the VMs from backend pool of the Basic Load Balancer to the backend pool of the Standard Load Balancer
 
 ### Caveats\Limitations
 
-* Script only supports Internal Load Balancer upgrade where no outbound connection is required. If you required [outbound connection](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) for some of your VMs, please refer to this [page](upgrade-InternalBasic-To-PublicStandard.md) for instructions. 
-* The Standard Load Balancer has new public addresses. It’s impossible to move the IP addresses associated with existing Basic Load Balancer seamlessly to Standard Load Balancer since they have different SKUs.
+* Script only supports Internal Load Balancer upgrade where no outbound connection is required. If you required [outbound connection](./load-balancer-outbound-connections.md) for some of your VMs, please refer to this [page](upgrade-InternalBasic-To-PublicStandard.md) for instructions. 
+* The Basic Load Balancer needs to be in the same resource group as the backend VMs and NICs.
 * If the Standard load balancer is created in a different region, you won’t be able to associate the VMs existing in the old region to the newly created Standard Load Balancer. To work around this limitation, make sure to create a new VM in the new region.
-* If your Load Balancer does not have any frontend IP configuration or backend pool, you are likely to hit an error running the script. Please make sure they are not empty.
+* If your Load Balancer does not have any frontend IP configuration or backend pool, you are likely to hit an error running the script. Make sure they are not empty.
+
+## Change IP allocation method to Static for frontend IP Configuration (Ignore this step if it's already static)
+
+1. Select **All services** in the left-hand menu, select **All resources**, and then select your Basic Load Balancer from the resources list.
+
+2. Under **Settings**, select **Frontend IP Configuration**, and select the first frontend IP configuration. 
+
+3. For **Assignment**, select **Static**
+
+4. Repeat the step 3 for all of the frontend IP configurations of the Basic Load Balancer.
+
 
 ## Download the script
 
-Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0).
+Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureILBUpgrade/5.0).
 ## Use the script
 
 There are two options for you depending on your local PowerShell environment setup and preferences:
@@ -79,30 +87,6 @@ To run the script:
    AzureILBUpgrade.ps1 -rgName "test_InternalUpgrade_rg" -oldLBName "LBForInternal" -newlocation "centralus" -newLbName "LBForUpgrade"
    ```
 
-### Add VMs to backend pools of Standard Load Balancer
-
-First, double check that the script successfully created a new Standard Internal Load Balancer with the exact configuration migrated over from your Basic Internal Load Balancer. You can verify this from the Azure portal.
-
-Be sure to send a small amount of traffic through the Standard Load Balancer as a manual test.
-  
-Here are a few scenarios of how you add VMs to backend pools of the newly created Standard Internal Load Balancer may be configured, and our recommendations for each one:
-
-* **Moving existing VMs from backend pools of old Basic Internal Load Balancer to backend pools of newly created Standard Internal Load Balancer**.
-    1. To do the tasks in this quickstart, sign in to the [Azure portal](https://portal.azure.com).
- 
-    1. Select **All resources** on the left menu, and then select the **newly created Standard Load Balancer** from the resource list.
-   
-    1. Under **Settings**, select **Backend pools**.
-   
-    1. Select the backend pool which matches the backend pool of the Basic Load Balancer, select the following value: 
-      - **Virtual Machine**: Drop down and select the VMs from the matching backend pool of the Basic Load Balancer.
-    1. Select **Save**.
-    >[!NOTE]
-    >For VMs which have Public IPs, you will need to create Standard IP addresses first where same IP address is not guaranteed. Disassociate VMs from Basic IPs and associate them with the newly created Standard IP addresses. Then, you will be able to follow instructions to add VMs into backend pool of Standard Load Balancer. 
-
-* **Creating new VMs to add to the backend pools of the newly created Standard Internal Load Balancer**.
-    * More instructions on how to create VM and associate it with Standard Load Balancer can be found [here](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
-
 ## Common questions
 
 ### Are there any limitations with the Azure PowerShell script to migrate the configuration from v1 to v2?
@@ -111,11 +95,7 @@ Yes. See [Caveats/Limitations](#caveatslimitations).
 
 ### Does the Azure PowerShell script also switch over the traffic from my Basic Load Balancer to the newly created Standard Load Balancer?
 
-No. The Azure PowerShell script only migrates the configuration. Actual traffic migration is your responsibility and in your control.
-
-### I ran into some issues with using this script. How can I get help?
-  
-You can send an email to slbupgradesupport@microsoft.com, open a support case with Azure Support, or do both.
+Yes it migrates traffic. If you would like to migrate traffic personally, use [this script](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0) which does not move VMs for you.
 
 ## Next steps
 

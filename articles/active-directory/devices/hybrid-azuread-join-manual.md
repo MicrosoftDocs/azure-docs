@@ -6,13 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 04/16/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
-
 
 #Customer intent: As an IT admin, I want to set up hybrid Azure AD joined devices so that I can automatically bring AD domain-joined devices under control.
 ms.collection: M365-identity-device-management
@@ -38,7 +37,7 @@ If you have an on-premises Active Directory environment and you want to join you
 
 This tutorial assumes that you're familiar with:
 
-* [Introduction to device management in Azure Active Directory](../device-management-introduction.md)
+* [Introduction to device management in Azure Active Directory](./overview.md)
 * [Plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
 * [Control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
 
@@ -54,14 +53,18 @@ Azure AD Connect:
 
 Make sure that the following URLs are accessible from computers inside your organization's network for registration of computers to Azure AD:
 
-* `https://enterpriseregistration.windows.net`
-* `https://login.microsoftonline.com`
-* `https://device.login.microsoftonline.com`
-* Your organization's STS (for federated domains), which should be included in the user's local intranet settings
+- `https://enterpriseregistration.windows.net`
+- `https://login.microsoftonline.com`
+- `https://device.login.microsoftonline.com`
+- Your organization's Security Token Service (STS) (For federated domains)
+- `https://autologon.microsoftazuread-sso.com` (If you use or plan to use seamless SSO)
 
-If your organization plans to use Seamless SSO, the following URL needs to be reachable from the computers inside your organization. It must also be added to the user's local intranet zone.
+> [!WARNING]
+> If your organization uses proxy servers that intercept SSL traffic for scenarios like data loss prevention or Azure AD tenant restrictions, ensure that traffic to these URLs are excluded from TLS break-and-inspect. Failure to exclude these URLs may cause interference with client certificate authentication, cause issues with device registration, and device-based Conditional Access.
 
-* `https://autologon.microsoftazuread-sso.com`
+If your organization plans to use Seamless SSO, the following URL must be added to the user's local intranet zone.
+
+- `https://autologon.microsoftazuread-sso.com`
 
 Also, the following setting should be enabled in the user's intranet zone: "Allow status bar updates via script."
 
@@ -71,7 +74,10 @@ For Windows 10 devices on version 1703 or earlier, if your organization requires
 
 Beginning with Windows 10 1803, even if a hybrid Azure AD join attempt by a device in a federated domain through AD FS fails, and if Azure AD Connect is configured to sync the computer/device objects to Azure AD, the device will try to complete the hybrid Azure AD join by using the synced computer/device.
 
-To verify if the device is able to access the above Microsoft resources under the system account, you can use [Test Device Registration Connectivity](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) script.
+> [!NOTE]
+> To get device registration sync join to succeed, as part of the device registration configuration, do not exclude the default device attributes from your Azure AD Connect sync configuration. To learn more about default device attributes synced to Azure AD, see [Attributes synchronized by Azure AD Connect](../hybrid/reference-connect-sync-attributes-synchronized.md#windows-10).
+
+To verify if the device is able to access the above Microsoft resources under the system account, you can use [Test Device Registration Connectivity](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/) script.
 
 ## Verify configuration steps
 
@@ -84,13 +90,13 @@ Use the following table to get an overview of the steps that are required for yo
 | Configure service connection point | ![Check][1] | ![Check][1] | ![Check][1] |
 | Set up issuance of claims |     | ![Check][1] | ![Check][1] |
 | Enable non-Windows 10 devices |       |        | ![Check][1] |
-| Verify joined devices | ![Check][1] | ![Check][1] | [Check][1] |
+| Verify joined devices | ![Check][1] | ![Check][1] | ![Check][1] |
 
 ## Configure a service connection point
 
 Your devices use a service connection point (SCP) object during the registration to discover Azure AD tenant information. In your on-premises Active Directory instance, the SCP object for the hybrid Azure AD joined devices must exist in the configuration naming context partition of the computer's forest. There is only one configuration naming context per forest. In a multi-forest Active Directory configuration, the service connection point must exist in all forests that contain domain-joined computers.
 
-You can use the [**Get-ADRootDSE**](https://technet.microsoft.com/library/ee617246.aspx) cmdlet to retrieve the configuration naming context of your forest.  
+You can use the [**Get-ADRootDSE**](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee617246(v=technet.10)) cmdlet to retrieve the configuration naming context of your forest.  
 
 For a forest with the Active Directory domain name *fabrikam.com*, the configuration naming context is:
 
@@ -138,8 +144,8 @@ The following script shows an example for using the cmdlet. In this script, `$aa
 
 The `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
 
-* Uses the Active Directory PowerShell module and Azure Active Directory Domain Services (Azure AD DS) tools. These tools rely on Active Directory Web Services running on a domain controller. Active Directory Web Services is supported on domain controllers running Windows Server 2008 R2 and later.
-* Is only supported by the MSOnline PowerShell module version 1.1.166.0. To download this module, use [this link](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).
+* Uses the Active Directory PowerShell module and Active Directory Domain Services (AD DS) tools. These tools rely on Active Directory Web Services running on a domain controller. Active Directory Web Services is supported on domain controllers running Windows Server 2008 R2 and later.
+* Is only supported by the MSOnline PowerShell module version 1.1.166.0. To download this module, use [this link](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0).
 * If the AD DS tools are not installed, `Initialize-ADSyncDomainJoinedComputerSync` will fail. You can install the AD DS tools through Server Manager under **Features** > **Remote Server Administration Tools** > **Role Administration Tools**.
 
 For domain controllers running Windows Server 2008 or earlier versions, use the following script to create the service connection point. In a multi-forest configuration, use the following script to create the service connection point in each forest where computers exist.
@@ -163,9 +169,9 @@ For domain controllers running Windows Server 2008 or earlier versions, use the 
 
 In the preceding script, `$verifiedDomain = "contoso.com"` is a placeholder. Replace it with one of your verified domain names in Azure AD. You have to own the domain before you can use it.
 
-For more information about verified domain names, see [Add a custom domain name to Azure Active Directory](../active-directory-domains-add-azure-portal.md).
+For more information about verified domain names, see [Add a custom domain name to Azure Active Directory](../fundamentals/add-custom-domain.md).
 
-To get a list of your verified company domains, you can use the [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0) cmdlet.
+To get a list of your verified company domains, you can use the [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain) cmdlet.
 
 ![List of company domains](./media/hybrid-azuread-join-manual/01.png)
 
@@ -173,7 +179,7 @@ To get a list of your verified company domains, you can use the [Get-AzureADDoma
 
 In a federated Azure AD configuration, devices rely on AD FS or an  on-premises federation service from a Microsoft partner to authenticate to Azure AD. Devices authenticate to get an access token to register against the Azure Active Directory Device Registration Service (Azure DRS).
 
-Windows current devices authenticate by using Integrated Windows Authentication to an active WS-Trust endpoint (either 1.3 or 2005 versions) hosted by the on-premises federation service.
+Windows current devices authenticate by using integrated Windows authentication to an active WS-Trust endpoint (either 1.3 or 2005 versions) hosted by the on-premises federation service.
 
 When you're using AD FS, you need to enable the following WS-Trust endpoints
 - `/adfs/services/trust/2005/windowstransport`
@@ -184,7 +190,7 @@ When you're using AD FS, you need to enable the following WS-Trust endpoints
 - `/adfs/services/trust/13/certificatemixed`
 
 > [!WARNING]
-> Both **adfs/services/trust/2005/windowstransport** or **adfs/services/trust/13/windowstransport** should be enabled as intranet facing endpoints only and must NOT be exposed as extranet facing endpoints through the Web Application Proxy. To learn more on how to disable WS-Trust Windows endpoints, see [Disable WS-Trust Windows endpoints on the proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). You can see what endpoints are enabled through the AD FS management console under **Service** > **Endpoints**.
+> Both **adfs/services/trust/2005/windowstransport** and **adfs/services/trust/13/windowstransport** should be enabled as intranet facing endpoints only and must NOT be exposed as extranet facing endpoints through the Web Application Proxy. To learn more on how to disable WS-Trust Windows endpoints, see [Disable WS-Trust Windows endpoints on the proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). You can see what endpoints are enabled through the AD FS management console under **Service** > **Endpoints**.
 
 > [!NOTE]
 >If you don’t have AD FS as your on-premises federation service, follow the instructions from your vendor to make sure they support WS-Trust 1.3 or 2005 endpoints and that these are published through the Metadata Exchange file (MEX).
@@ -199,7 +205,7 @@ If you have more than one verified domain name, you need to provide the followin
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`
 
-If you're already issuing an ImmutableID claim (for example, alternate login ID), you need to provide one corresponding claim for computers:
+If you're already issuing an ImmutableID claim (for example, using `mS-DS-ConsistencyGuid` or another attribute as the source value for the ImmutableID), you need to provide one corresponding claim for computers:
 
 * `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`
 
@@ -322,13 +328,13 @@ The `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid` claim mus
 
 In the preceding claim, `<verified-domain-name>` is a placeholder. Replace it with one of your verified domain names in Azure AD. For example, use `Value = "http://contoso.com/adfs/services/trust/"`.
 
-For more information about verified domain names, see [Add a custom domain name to Azure Active Directory](../active-directory-domains-add-azure-portal.md).  
+For more information about verified domain names, see [Add a custom domain name to Azure Active Directory](../fundamentals/add-custom-domain.md).  
 
-To get a list of your verified company domains, you can use the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet.
+To get a list of your verified company domains, you can use the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain) cmdlet.
 
 ![List of company domains](./media/hybrid-azuread-join-manual/01.png)
 
-### Issue ImmutableID for the computer when one for users exists (for example, an alternate login ID is set)
+### Issue ImmutableID for the computer when one for users exists (for example, using mS-DS-ConsistencyGuid as the source for ImmutableID)
 
 The `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID` claim must contain a valid value for computers. In AD FS, you can create an issuance transform rule as follows:
 
@@ -494,7 +500,7 @@ If you have already issued an **ImmutableID** claim  for user accounts, set the 
 If some of your domain-joined devices are Windows down-level devices, you need to:
 
 * Set a policy in Azure AD to enable users to register devices.
-* Configure your on-premises federation service to issue claims to support Integrated Windows Authentication (IWA) for device registration.
+* Configure your on-premises federation service to issue claims to support integrated Windows authentication (IWA) for device registration.
 * Add the Azure AD device authentication endpoint to the local intranet zones to avoid certificate prompts when authenticating the device.
 * Control Windows down-level devices.
 
@@ -516,7 +522,7 @@ Your on-premises federation service must support issuing the **authenticationmet
    which decoded is {"Properties":[{"Key":"acr","Value":"wiaormultiauthn"}]}
    ```
 
-When such a request comes, the on-premises federation service must authenticate the user by using Integrated Windows Authentication. When authentication is successful, the federation service must issue the following two claims:
+When such a request comes, the on-premises federation service must authenticate the user by using integrated Windows authentication. When authentication is successful, the federation service must issue the following two claims:
 
    `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows`
    `http://schemas.microsoft.com/claims/wiaormultiauthn`
@@ -549,16 +555,71 @@ To register Windows down-level devices, you need to download and install a Windo
 
 ## Verify joined devices
 
-You can check for successfully joined devices in your organization by using the [Get-MsolDevice](/powershell/msonline/v1/get-msoldevice) cmdlet in the [Azure Active Directory PowerShell module](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Here are 3 ways to locate and verify the device state:
 
-The output of this cmdlet shows devices that are registered and joined with Azure AD. To get all devices, use the **-All** parameter, and then filter them by using the **deviceTrustType** property. Domain-joined devices have a value of **Domain Joined**.
+### Locally on the device
+
+1. Open Windows PowerShell.
+2. Enter `dsregcmd /status`.
+3. Verify that both **AzureAdJoined** and **DomainJoined** are set to **YES**.
+4. You can use the **DeviceId** and compare the status on the service using either the Azure portal or PowerShell.
+
+### Using the Azure portal
+
+1. Go to the devices page using a [direct link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
+2. Information on how to locate a device can be found in [Manage device identities using the Azure portal](./device-management-azure-portal.md).
+3. If the **Registered** column says **Pending**, then Hybrid Azure AD Join has not completed. In federated environments, this can happen only if it failed to register and AAD connect is configured to sync the devices.
+4. If the **Registered** column contains a **date/time**, then Hybrid Azure AD Join has completed.
+
+### Using PowerShell
+
+Verify the device registration state in your Azure tenant by using **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. This cmdlet is in the [Azure Active Directory PowerShell module](/powershell/azure/active-directory/install-msonlinev1).
+
+When you use the **Get-MSolDevice** cmdlet to check the service details:
+
+- An object with the **device ID** that matches the ID on the Windows client must exist.
+- The value for **DeviceTrustType** is **Domain Joined**. This setting is equivalent to the **Hybrid Azure AD joined** state on the **Devices** page in the Azure AD portal.
+- For devices that are used in Conditional Access, the value for **Enabled** is **True** and **DeviceTrustLevel** is **Managed**.
+
+1. Open Windows PowerShell as an administrator.
+2. Enter `Connect-MsolService` to connect to your Azure tenant.
+
+#### Count all Hybrid Azure AD joined devices (excluding **Pending** state)
+
+```azurepowershell
+(Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}).count
+```
+
+#### Count all Hybrid Azure AD joined devices with **Pending** state
+
+```azurepowershell
+(Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (-not([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}).count
+```
+
+#### List all Hybrid Azure AD joined devices
+
+```azurepowershell
+Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}
+```
+
+#### List all Hybrid Azure AD joined devices with **Pending** state
+
+```azurepowershell
+Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (-not([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}
+```
+
+#### List details of a single device:
+
+1. Enter `get-msoldevice -deviceId <deviceId>` (This is the **DeviceId** obtained locally on the device).
+2. Verify that **Enabled** is set to **True**.
 
 ## Troubleshoot your implementation
 
-If you're experiencing issues with completing hybrid Azure AD join for domain-joined Windows devices, see:
+If you experience issues completing hybrid Azure AD join for domain-joined Windows devices, see:
 
-* [Troubleshooting Hybrid Azure AD join for Windows current devices](troubleshoot-hybrid-join-windows-current.md)
-* [Troubleshooting Hybrid Azure AD join for Windows down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
+- [Troubleshooting devices using dsregcmd command](./troubleshoot-device-dsregcmd.md)
+- [Troubleshooting hybrid Azure Active Directory joined devices](troubleshoot-hybrid-join-windows-current.md)
+- [Troubleshooting hybrid Azure Active Directory joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Next steps
 

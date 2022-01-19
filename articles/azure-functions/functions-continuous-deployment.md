@@ -32,49 +32,33 @@ For continuous deployment to succeed, your directory structure must be compatibl
 
 To configure continuous deployment for an existing function app, complete these steps. The steps demonstrate integration with a GitHub repository, but similar steps apply for Azure Repos or other source code repositories.
 
-1. In your function app in the [Azure portal](https://portal.azure.com), select **Platform features** > **Deployment Center**.
+1. In your function app in the [Azure portal](https://portal.azure.com), select **Deployment Center**, select **GitHub**, and then select **Authorize**. If you've already authorized GitHub, select **Continue** and skip the next step. 
 
-    ![Open Deployment Center](./media/functions-continuous-deployment/platform-features.png)
+    :::image type="content" source="./media/functions-continuous-deployment/github.png" alt-text="Azure App Service Deployment Center":::
 
-2. In **Deployment Center**, select **GitHub**, and then select **Authorize**. If you've already authorized GitHub, select **Continue**. 
+3. In GitHub, select **Authorize AzureAppService**.
 
-    ![Azure App Service Deployment Center](./media/functions-continuous-deployment/github.png)
+    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Authorize Azure App Service":::
 
-3. In GitHub, select the **Authorize AzureAppService** button. 
-
-    ![Authorize Azure App Service](./media/functions-continuous-deployment/authorize.png)
-    
-    In **Deployment Center** in the Azure portal, select **Continue**.
+    Enter your GitHub password and then select **Continue**.
 
 4. Select one of the following build providers:
 
     * **App Service build service**: Best when you don't need a build or if you need a generic build.
     * **Azure Pipelines (Preview)**: Best when you need more control over the build. This provider currently is in preview.
 
-    ![Select a build provider](./media/functions-continuous-deployment/build.png)
+    Select **Continue**.
 
 5. Configure information specific to the source control option you specified. For GitHub, you must enter or select values for **Organization**, **Repository**, and **Branch**. The values are based on the location of your code. Then, select **Continue**.
 
-    ![Configure GitHub](./media/functions-continuous-deployment/github-specifics.png)
+    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Configure GitHub":::
 
 6. Review all details, and then select **Finish** to complete your deployment configuration.
 
-    ![Summary](./media/functions-continuous-deployment/summary.png)
-
 When the process is finished, all code from the specified source is deployed to your app. At that point, changes in the deployment source trigger a deployment of those changes to your function app in Azure.
 
-## Deployment scenarios
-
-<a name="existing"></a>
-
-### Move existing functions to continuous deployment
-
-If you've already written functions in the [Azure portal](https://portal.azure.com) and you want to download the contents of your app before you switch to continuous deployment, go to the **Overview** tab of your function app. Select the **Download app content** button.
-
-![Download app content](./media/functions-continuous-deployment/download.png)
-
 > [!NOTE]
-> After you configure continuous integration, you can no longer edit your source files in the Functions portal.
+> After you configure continuous integration, you can no longer edit your source files in the Functions portal. If you originally published your code from your local computer, you may need to change the `WEBSITE_RUN_FROM_PACKAGE` setting in your function app to a value of `0`. 
 
 ## Next steps
 

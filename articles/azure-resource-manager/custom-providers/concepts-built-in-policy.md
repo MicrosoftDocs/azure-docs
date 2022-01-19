@@ -7,7 +7,7 @@ ms.date: 09/06/2019
 ms.author: hich
 ---
 
-# Deploy associations for a custom provider using Azure policy
+# Deploy associations for a custom provider using Azure Policy
 
 Azure policies can be used to deploy associations to associate resources to a custom provider. In this article, we describe a built-in policy that deploys associations and how you can use that policy.
 

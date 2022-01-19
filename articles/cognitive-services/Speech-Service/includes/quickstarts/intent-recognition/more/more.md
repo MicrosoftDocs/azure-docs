@@ -1,9 +1,9 @@
 ---
-author: IEvangelist
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/30/2020
-ms.author: dapine
+ms.author: eur
 ---
 
 ## Additional language and platform support

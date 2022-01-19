@@ -10,9 +10,9 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 09/27/2021
 ms.author: ryanwi
-
+ROBOTS: NOINDEX
 ---
 
 # How to recognize differences between delegated and application permissions
@@ -24,4 +24,4 @@ ms.author: ryanwi
 - For more depth, learn how resource applications expose [scopes](developer-glossary.md#scopes) and [application roles](developer-glossary.md#roles) to client applications, which manifest as delegated and application permissions respectively in the Azure portal. 
 
 ## Next steps
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)

@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: df8d40c7-f5ad-4f84-93eb-779fbd5f7243
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
@@ -121,5 +120,4 @@ The following table lists the switches supported by Mellanox. These have not bee
 | 7. |1GbE |6120G |HP ProCurve 6120G/XG 1GbE switch blade |HP |
 
 ## Next steps
-[Learn more about StorSimple hardware components and status](storsimple-monitor-hardware-status.md).
-
+[Learn more about StorSimple hardware components and status](./storsimple-8000-monitor-hardware-status.md).

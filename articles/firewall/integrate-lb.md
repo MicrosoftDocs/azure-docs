@@ -4,8 +4,8 @@ description: You can integrate an Azure Firewall into a virtual network with an 
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 02/28/2020
+ms.topic: how-to
+ms.date: 04/14/2021
 ms.author: victorh
 ---
 
@@ -60,6 +60,9 @@ There's no asymmetric routing issue with this scenario. The incoming packets arr
 
 So, you can deploy this scenario similar to the public load balancer scenario, but without the need for the firewall public IP address host route.
 
+The virtual machines in the backend pool can have outbound Internet connectivity through the Azure Firewall. Configure a user defined route on the virtual machine's subnet with the firewall as the next hop.
+
+
 ## Additional security
 
 To further enhance the security of your load-balanced scenario, you can use network security groups (NSGs).
@@ -68,7 +71,7 @@ For example, you can create an NSG on the backend subnet where the load-balanced
 
 ![Network security group](media/integrate-lb/nsg-01.png)
 
-For more information about NSGs, see [Security groups](../virtual-network/security-overview.md).
+For more information about NSGs, see [Security groups](../virtual-network/network-security-groups-overview.md).
 
 ## Next steps
 

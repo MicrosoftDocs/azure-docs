@@ -2,18 +2,16 @@
 title: include file
 description: include file
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: include
 ms.custom: include file
-ms.date: 01/15/2020
-ms.author: diberry
+ms.date: 08/25/2020
 ---
-## Change the model update frequency
+### Change the model update frequency
 
-In the Azure portal, in the Personalizer resource on the **Configuration** page, change the **Model update frequency** to 10 seconds. This short duration will train the service rapidly, allowing you to see how the top action changes for each iteration.
+In the Azure portal, in the Personalizer resource on the **Configuration** page, change the **Model update frequency** to 30 seconds. This short duration will train the service rapidly, allowing you to see how the top action changes for each iteration.
 
 ![Change model update frequency](../media/settings/configure-model-update-frequency-settings.png)
 

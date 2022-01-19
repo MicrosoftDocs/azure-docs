@@ -1,13 +1,13 @@
 ---
 title: Azure PowerShell Samples - Install apps
 description: This script creates a virtual machine scale set running Windows Server 2016 and uses the Custom Script Extension to install a basic web application.
-author: cynthn
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
+author: mimckitt
+ms.author: mimckitt
 ms.topic: sample
-ms.date: 03/27/2018
-ms.author: cynthn
-ms.custom: mvc
+ms.service: virtual-machine-scale-sets
+ms.date: 06/25/2020
+ms.reviewer: jushiman
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 
@@ -20,7 +20,54 @@ This script creates a virtual machine scale set running Windows Server 2016 and 
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/install-apps/install-apps.ps1 "Install apps into a scale set")]
+```powershell
+# Provide your own secure password for use with the VM instances
+$cred = Get-Credential
+
+# Create a virtual machine scale set and supporting resources
+# A resource group, virtual network, load balancer, and NAT rules are automatically
+# created if they do not already exist
+New-AzVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -VMScaleSetName "myScaleSet" `
+  -Location "EastUS" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicyMode "Automatic" `
+  -Credential $cred
+
+# Create a configuration object to store the Custom Script Extension definition
+$customConfig = @{
+"fileUris" = (,"https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate-iis.ps1");
+"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
+}
+
+# Get information about the scale set
+$vmss = Get-AzVmss `
+          -ResourceGroupName "myResourceGroup" `
+          -VMScaleSetName "myScaleSet"
+
+# Add the Custom Script Extension to install IIS and configure basic website
+$vmss = Add-AzVmssExtension `
+  -VirtualMachineScaleSet $vmss `
+  -Name "customScript" `
+  -Publisher "Microsoft.Compute" `
+  -Type "CustomScriptExtension" `
+  -TypeHandlerVersion 1.10 `
+  -Setting $customConfig
+
+# Update the scale set and apply the Custom Script Extension to the VM instances
+Update-AzVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Name "myScaleSet" `
+  -VirtualMachineScaleSet $vmss
+
+# Get the public IP address of your load balancer. To see your scale set in action, open this address in a web browser
+Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
+```
+
 
 ## Clean up deployment
 Run the following command to remove the resource group, scale set, and all related resources.
@@ -42,6 +89,4 @@ This script uses the following commands to create the deployment. Each item in t
 |  [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
 
 ## Next steps
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
-
-Additional virtual machine scale set PowerShell script samples can be found in the [Azure virtual machine scale set documentation](../powershell-samples.md).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).

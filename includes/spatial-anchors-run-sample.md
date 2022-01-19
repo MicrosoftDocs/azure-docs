@@ -1,14 +1,11 @@
 ---
-author: shreyasharma
+author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 10/23/2019
-ms.author: shreshar
+ms.date: 11/20/2020
+ms.author: parkerra
 ---
 
-Deploy the app to your device. Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
+With **Create & Share Anchor**, you can create an anchor and save it to your sharing service. In return, you will get back an identifier for it that you can use to retrieve it from the sharing service. You can then run the second scenario, **Locate Shared Anchor**, from either your device or a different one. 
 
-**Create & Share Anchor** lets you create an anchor and save it to your sharing service. In return, you will get back an identifier for it that you can use to retrieve it from the sharing service. After this, you can then run the second scenario, **Locate Shared Anchor**, from either your device or a different one. **Locate Shared Anchor** allows you
-to locate previously shared anchors by entering the identifier mentioned earlier. After you pick your scenario, the app will guide you with further
-instructions around what to do. For example, you'll be asked to move your device around to collect environment
-information. Later on, you'll place an anchor in the world, wait for it to save, start a new session, and then locate it.
+With **Locate Shared Anchor**, you can locate previously shared anchors by entering the identifier mentioned earlier. After you pick your scenario, the app will guide you with further instructions. For example, you'll be asked to move your device around to collect environment information. Later on, you'll place an anchor in the world, wait for it to save, start a new session, and then locate it.

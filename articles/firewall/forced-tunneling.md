@@ -5,33 +5,33 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/24/2020
+ms.date: 01/13/2022
 ms.author: victorh
 ---
 
-# Azure Firewall forced tunneling (preview)
+# Azure Firewall forced tunneling
 
-You can configure Azure Firewall to route all Internet-bound traffic to a designated next hop instead of going directly to the Internet. For example, you may have an on-premises edge firewall or other network virtual appliance (NVA) to process network traffic before it's passed to the Internet.
+When you configure a new Azure Firewall, you can route all Internet-bound traffic to a designated next hop instead of going directly to the Internet. For example, you may have a default route advertised via BGP or using User Defined Route (UDR) to force traffic to an on-premises edge firewall or other network virtual appliance (NVA) to process network traffic before it's passed to the Internet. To support this configuration, you must create Azure Firewall with Forced Tunnel configuration enabled. This is a mandatory requirement to avoid service disruption. If this is a pre-existing firewall, you must recreate the firewall in Forced Tunnel mode to support this configuration. For more information, see the [Azure Firewall FAQ](firewall-faq.yml#how-can-i-stop-and-start-azure-firewall) about stopping and restarting a firewall in Forced Tunnel mode.
 
-> [!IMPORTANT]
-> Azure Firewall forced tunneling is currently in public preview.
->
-> This public preview is provided without a service-level agreement and shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-By default, forced tunneling isn't allowed on Azure Firewall to ensure all its outbound Azure dependencies are met. User Defined Route (UDR) configurations on the *AzureFirewallSubnet* that 
-have a default route not going directly to the Internet are disabled.
+Azure Firewall provides automatic SNAT for all outbound traffic to public IP addresses. Azure Firewall doesn’t SNAT when the destination IP address is a private IP address range per IANA RFC 1918. This logic works perfectly when you egress directly to the Internet. However, with forced tunneling enabled, Internet-bound traffic is SNATed to one of the firewall private IP addresses in the AzureFirewallSubnet. This hides the source address from your on-premises firewall. You can configure Azure Firewall to not SNAT regardless of the destination IP address by adding *0.0.0.0/0* as your private IP address range. With this configuration, Azure Firewall can never egress directly to the Internet. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
 
 ## Forced tunneling configuration
 
-To support forced tunneling, service management traffic is separated from customer traffic. An additional dedicated subnet named *AzureFirewallManagementSubnet* (minimum subnet size /26) is required with its own associated public IP address. The only route allowed on this subnet is a default route to the Internet, and BGP route propagation must be disabled.
+You can configure Forced Tunneling during Firewall creation by enabling Forced Tunnel mode as shown below. To support forced tunneling, Service Management traffic is separated from customer traffic. An additional dedicated subnet named **AzureFirewallManagementSubnet** (minimum subnet size /26) is required with its own associated public IP address. This public IP address is for management traffic. It is used exclusively by the Azure platform and can't be used for any other purpose.
 
-If you have a default route advertised via BGP to force traffic to on-premises, you must create the *AzureFirewallSubnet* and *AzureFirewallManagementSubnet* before deploying your firewall and have a UDR with a default route to the Internet, and **Virtual network gateway route propagation** disabled.
+In Forced Tunneling mode, the Azure Firewall service incorporates the Management subnet (AzureFirewallManagementSubnet) for its *operational* purposes. By default, the service associates a system-provided route table to the Management subnet. The only route allowed on this subnet is a default route to the Internet and *Propagate gateway* routes must be disabled. Avoid associating customer route tables to the Management subnet when you create the firewall. 
 
-Within this configuration, the *AzureFirewallSubnet* can now include routes to any on-premise firewall or NVA to process traffic before it's passed to the Internet. You can also publish these routes via BGP to *AzureFirewallSubnet* if **Virtual network gateway route propagation** is enabled on this subnet.
+:::image type="content" source="media/forced-tunneling/forced-tunneling-configuration.png" alt-text="Configure forced tunneling":::
 
-For example, you can create a default route on the *AzureFirewallSubnet* with your VPN gateway as the next hop to get to your on-premise device. Or you can enable **Virtual network gateway route propagation** to get the appropriate routes to the on-premise network.
+Within this configuration, the *AzureFirewallSubnet* can now include routes to any on-premises firewall or NVA to process traffic before it's passed to the Internet. You can also publish these routes via BGP to *AzureFirewallSubnet* if **Propagate gateway routes** is enabled on this subnet.
 
-![Virtual network gateway route propagation](media/forced-tunneling/route-propagation.png)
+For example, you can create a default route on the *AzureFirewallSubnet* with your VPN gateway as the next hop to get to your on-premises device. Or you can enable **Propagate gateway routes** to get the appropriate routes to the on-premises network.
+
+:::image type="content" source="media/forced-tunneling/route-propagation.png" alt-text="Virtual network gateway route propagation":::
+
+If you enable forced tunneling, Internet-bound traffic is SNATed to one of the firewall private IP addresses in AzureFirewallSubnet, hiding the source from your on-premises firewall.
+
+If your organization uses a public IP address range for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. However, you can configure Azure Firewall to **not** SNAT your public IP address range. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
 
 Once you configure Azure Firewall to support forced tunneling, you can't undo the configuration. If you remove all other IP configurations on your firewall, the management IP configuration is removed as well and the firewall is deallocated. The public IP address assigned to the management IP configuration can't be removed, but you can assign a different public IP address.
 

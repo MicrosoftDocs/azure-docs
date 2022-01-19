@@ -4,13 +4,14 @@ description: Learn how to configure a virtual machine scale set with an existing
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
-ms.topic: article
-ms.date: 03/26/2020
+ms.topic: how-to
+ms.date: 03/26/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure a virtual machine scale set with an existing Azure Load Balancer using Azure PowerShell
 
-In this article, you'll learn how to configure a virtual machine scale set with an existing Azure Load Balancer. 
+In this article, you'll learn how to configure a virtual machine scale set with an existing Azure Load Balancer.
 
 ## Prerequisites
 
@@ -18,7 +19,7 @@ In this article, you'll learn how to configure a virtual machine scale set with 
 - An existing standard sku load balancer in the subscription where the virtual machine scale set will be deployed.
 - An Azure Virtual Network for the virtual machine scale set.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -59,7 +60,7 @@ The below example deploys a virtual machine scale set with:
 - Subnet named **mySubnet**
 - Resource group named **myResourceGroup**
 
-```azureppowershell-interactive
+```azurepowershell-interactive
 
 $rsg = "myResourceGroup"
 $loc = "East US 2"
@@ -82,4 +83,3 @@ In this article, you deployed a virtual machine scale set with an existing Azure
 
 - [What is Azure Load Balancer?](load-balancer-overview.md)
 - [What are virtual machine scale sets?](../virtual-machine-scale-sets/overview.md)
-                                

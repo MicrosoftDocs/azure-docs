@@ -1,15 +1,17 @@
 ---
 title: Query Performance Insight - Azure Database for MySQL
 description: This article describes the Query Performance Insight feature in Azure Database for MySQL
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 01/12/2022
 ---
 # Query Performance Insight in Azure Database for MySQL
 
-**Applies to:** Azure Database for MySQL 5.7
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
+**Applies to:** Azure Database for MySQL 5.7, 8.0
 
 Query Performance Insight helps you to quickly identify what your longest running queries are, how they change over time, and what waits are affecting them.
 
@@ -25,10 +27,6 @@ Query Performance Insight helps you to quickly identify what your longest runnin
 - Understanding wait nature for a query
 - Understanding trends for resource waits and where resource contention exists
 
-## Permissions
-
-**Owner** or **Contributor** permissions required to view the text of the queries in Query Performance Insight. **Reader** can view charts and tables but not query text.
-
 ## Prerequisites
 
 For Query Performance Insight to function, data must exist in the [Query Store](concepts-query-store.md).
@@ -41,11 +39,23 @@ In the portal page of your Azure Database for MySQL server, select **Query Perfo
 
 ### Long running queries
 
-The **Long running queries** tab shows the top 5 queries by average duration per execution, aggregated in 15-minute intervals. You can view more queries by selecting from  the **Number of Queries** drop down. The chart colors may change for a specific Query ID when you do this.
+The **Long running queries** tab shows the top 5 Query IDs by average duration per execution, aggregated in 15-minute intervals. You can view more Query IDs by selecting from the **Number of Queries** drop down. The chart colors may change for a specific Query ID when you do this.
+
+> [!Note]
+>  Displaying the Query Text is no longer supported and will show as empty. The query text is removed to avoid unauthorized access to the query text or underlying schema which can pose a security risk.
+
+The recommended steps to view the query text is shared below:
+ 1. Identify the query_id of the top queries from the Query Performance Insight blade in the Azure portal.
+1. Log in to your Azure Database for MySQL server from MySQL Workbench or mysql.exe client or your preferred query tool and execute the following queries.
+ 
+```sql
+    SELECT * FROM mysql.query_store where query_id = '<insert query id from Query performance insight blade in Azure portal';  // for queries in Query Store
+    SELECT * FROM mysql.query_store_wait_stats where query_id = '<insert query id from Query performance insight blade in Azure portal';  // for wait statistics
+```
 
 You can click and drag in the chart to narrow down to a specific time window. Alternatively, use the zoom in and out icons to view a smaller or larger time period respectively.
 
-![Query Performance Insight long running queries](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-landing-page.png" alt-text="Query Performance Insight long running queries"::: 
 
 ### Wait statistics
 
@@ -58,7 +68,19 @@ Select the **Wait Statistics** tab to view the corresponding visualizations on w
 
 Queries displayed in the wait statistics view are grouped by the queries that exhibit the largest waits during the specified time interval.
 
-![Query Performance Insight waits statistics](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+> [!Note]
+>  Displaying the Query Text is no longer supported and will show as empty. The query text is removed to avoid unauthorized access to the query text or underlying schema which can pose a security risk.
+
+The recommended steps to view the query text is shared below:
+ 1. Identify the query_id of the top queries from the Query Performance Insight blade in the Azure portal.
+1. Log in to your Azure Database for MySQL server from MySQL Workbench or mysql.exe client or your preferred query tool and execute the following queries.
+ 
+```sql
+    SELECT * FROM mysql.query_store where query_id = '<insert query id from Query performance insight blade in Azure portal';  // for queries in Query Store
+    SELECT * FROM mysql.query_store_wait_stats where query_id = '<insert query id from Query performance insight blade in Azure portal';  // for wait statistics
+```
+
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Query Performance Insight waits statistics":::
 
 ## Next steps
 

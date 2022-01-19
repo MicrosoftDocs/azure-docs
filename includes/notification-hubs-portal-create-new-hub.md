@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: notification-hubs
- author: jwargo
+ author: sethmanheim
  ms.service: notification-hubs
  ms.topic: include
- ms.date: 01/17/2019
- ms.author: jowargo
+ ms.date: 09/07/2021
+ ms.author: sethm
  ms.custom: include file
 ---
 
@@ -16,19 +16,19 @@
 
       ![Azure portal - select Notification Hubs](./media/notification-hubs-portal-create-new-hub/all-services-select-notification-hubs.png)
 
-1. On the **Notification Hubs** page, select **Add** on the toolbar.
+1. On the **Notification Hubs** page, select **Create** on the toolbar.
 
-      ![Notification Hubs - Add toolbar button](./media/notification-hubs-portal-create-new-hub/add-toolbar-button.png)
+      ![Notification Hubs - Add toolbar button](./media/notification-hubs-portal-create-new-hub/create-toolbar-button.png)
 
-1. On the **Notification Hub** page, do the following steps:
+1. In the **Basics** tab on the **Notification Hub** page, do the following steps:
 
-    1. Enter a name in **Notification Hub**.  
+    1. In **Subscription**, select the name of the Azure subscription you want to use, and then select an existing resource group, or create a new one.  
 
-    1. Enter a name in **Create a new namespace**. A namespace contains one or more hubs.
+    1. Enter a unique name for the new namespace in **Namespace Details**. 
+    
+    1. A namespace contains one or more notification hubs, so type a name for the hub in **Notification Hub Details**. Or, select an existing namespace from the drop-down.
 
     1. Select a value from the **Location** drop-down list box. This value specifies the location in which you want to create the hub.
-
-    1. Select an existing resource group in **Resource Group**, or create a name for a new resource group.
 
     1. Select **Create**.
 
@@ -36,7 +36,7 @@
 
 1. Select **Notifications** (the bell icon), and then select **Go to resource**. You can also refresh the list on the **Notification Hubs** page and select your hub.
 
-      ![Azure portal - notifications -> Go to resource](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
+      ![Azure portal - go to resource](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
 
 1. Select **Access Policies** from the list. Note that the two connection strings are available to you. You'll need them later to handle push notifications.
 

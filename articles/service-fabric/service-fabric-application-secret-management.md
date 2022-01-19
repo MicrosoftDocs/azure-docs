@@ -1,11 +1,10 @@
 ---
 title: Manage Azure Service Fabric application secrets
 description: Learn how to secure secret values in a Service Fabric application (platform-agnostic).
-author: vturecek
 
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.author: vturecek
+ms.custom: devx-track-csharp
 ---
 # Manage encrypted secrets in Service Fabric applications
 This guide walks you through the steps of managing secrets in a Service Fabric application. Secrets can be any sensitive information, such as storage connection strings, passwords, or other values that should not be handled in plain text.
@@ -52,6 +51,11 @@ The secrets should also be included in your Service Fabric application by specif
   </Certificates>
 </ApplicationManifest>
 ```
+> [!NOTE]
+> Upon activating an application which specifies a SecretsCertificate, Service Fabric will find the matching certificate, and grant the identity the application is running under full permissions to the certificate's private key. Service Fabric will also monitor the certificate for changes, and re-apply the permissions accordingly. To detect changes for certificates declared by common name, Service Fabric runs a periodic task which finds all matching certificates, and compares it with a cached list of thumbprints. When a new thumbprint is detected, it means that a certificate by that subject has been renewed. The task runs once per minute on each node of the cluster.
+>
+> While the SecretsCertificate does allow subject-based declarations, do note that the encrypted settings are tied to the key pair which was used to encrypt the setting on the client. You must ensure that the original encryption certificate (or an equivalent) matches the subject-based declaration, and that it is installed, including its corresponding private key, on every node of the cluster which could host the application. All time-valid certificates matching the subject-based declaration and built from the same the key pair as the original encryption certificate are considered equivalents.
+>
 
 ### Inject application secrets into application instances
 Ideally, deployment to different environments should be as automated as possible. This can be accomplished by performing secret encryption in a build environment and providing the encrypted secrets as parameters when creating application instances.
@@ -91,7 +95,7 @@ To override values in Settings.xml, declare an override parameter for the servic
 
 Now the value can be specified as an *application parameter* when creating an instance of the application. Creating an application instance can be scripted using PowerShell, or written in C#, for easy integration in a build process.
 
-Using PowerShell, the parameter is supplied to the `New-ServiceFabricApplication` command as a [hash table](https://technet.microsoft.com/library/ee692803.aspx):
+Using PowerShell, the parameter is supplied to the `New-ServiceFabricApplication` command as a [hash table](/previous-versions/windows/it-pro/windows-powershell-1.0/ee692803(v=technet.10)):
 
 ```powershell
 New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}

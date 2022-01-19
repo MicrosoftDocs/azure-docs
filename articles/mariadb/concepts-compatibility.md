@@ -1,8 +1,8 @@
 ---
 title: Drivers and tools compatibility - Azure Database for MariaDB
 description: This article describes the MariaDB drivers and management tools that are compatible with Azure Database for MariaDB. 
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
@@ -13,7 +13,7 @@ This article describes the drivers and management tools that are compatible with
 
 ## MariaDB Drivers
 
-Azure Database for MariaDB uses the community edition of MariaDB server. Therefore, it is compatible with a wide variety of programming languages and drivers. MariaDB's API and protocol are compatible with those used by MySQL. This means that connectors that work with MySQL should also work with MariaDB.
+Azure Database for MariaDB uses the community edition of MariaDB server. Therefore, it is compatible with a wide variety of programming languages and drivers. The MariaDB API and protocol are compatible with those used by MySQL. This means that connectors that work with MySQL should also work with MariaDB.
 
 The goal is to support the three most recent versions MariaDB drivers, and efforts with authors from the open source community to constantly improve the functionality and usability of MariaDB drivers continue. A list of drivers that have been tested and found to be compatible with Azure Database for MariaDB 10.2 is provided in the following table:
 
@@ -31,7 +31,7 @@ Java | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 and
 
 The compatibility advantage extends to database management tools as well. Your existing tools should continue to work with Azure Database for MariaDB, as long as the database manipulation operates within the confines of user permissions. Three common database management tools that have been tested and found to be compatible with Azure Database for MariaDB 10.2 are listed in the following table:
 
-| | **MySQL Workbench 6.x and up** | **Navicat 12** | **PHPMyAdmin 4.x and up**
+| Action | **MySQL Workbench 6.x and up** | **Navicat 12** | **PHPMyAdmin 4.x and up**
 ---|---|---|---
 Create, Update, Read, Write, Delete | X | X | X
 SSL Connection | X | X | X

@@ -1,10 +1,10 @@
 ---
-author: IEvangelist
+author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/27/2020
-ms.author: dapine
+ms.author: eur
 ---
 
-If you prefer to jump right in, view or download all <a href="https://aka.ms/speech/github-cpp">Speech SDK C++ Samples</a> on GitHub. Otherwise, let's get started.
+You can view or download all <a href="https://aka.ms/speech/github-cpp">Speech SDK C++ Samples</a> on GitHub. 

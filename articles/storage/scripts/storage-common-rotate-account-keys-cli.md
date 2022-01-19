@@ -6,10 +6,11 @@ author: tamram
 
 ms.service: storage
 ms.subservice: blobs
-ms.devlang: cli
+ms.devlang: azurecli
 ms.topic: sample
-ms.date: 06/22/2017
-ms.author: tamram
+ms.date: 10/20/2020
+ms.author: tamram 
+ms.custom: devx-track-azurecli
 ---
 
 # Create a storage account and rotate its account access keys

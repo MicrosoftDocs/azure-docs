@@ -4,8 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Learn how to create common user accounts that can be used across multiple Data Science Virtual Machines. You can use Azure Active Directory or an on-premises Active Directory to authenticate users to the Data Science Virtual Machine.
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics, team data science process
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
@@ -18,9 +17,9 @@ On a Microsoft Azure virtual machine (VM), including a Data Science Virtual Mach
 
 Active Directory is a popular identity provider and is supported on Azure both as a cloud service and as an on-premises directory. You can use Azure Active Directory (Azure AD) or on-premises Active Directory to authenticate users on a standalone DSVM or a cluster of DSVMs in an Azure virtual machine scale set. You do this by joining the DSVM instances to an Active Directory domain.
 
-If you already have Active Directory, you can use it as your common identity provider. If you don't have Active Directory, you can run a managed Active Directory instance on Azure through [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/) (Azure AD DS).
+If you already have Active Directory, you can use it as your common identity provider. If you don't have Active Directory, you can run a managed Active Directory instance on Azure through [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) (Azure AD DS).
 
-The documentation for [Azure AD](https://docs.microsoft.com/azure/active-directory/) provides detailed [management instructions](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution), including guidance about connecting Azure AD to your on-premises directory if you have one.
+The documentation for [Azure AD](../../active-directory/index.yml) provides detailed [management instructions](../../active-directory/hybrid/whatis-hybrid-identity.md), including guidance about connecting Azure AD to your on-premises directory if you have one.
 
 This article describes how to set up a fully managed Active Directory domain service on Azure by using Azure AD DS. You can then join your DSVMs to the managed Active Directory domain. This approach enables users to access a pool of DSVMs (and other Azure resources) through a common user account and credentials.
 
@@ -36,11 +35,11 @@ Azure AD DS makes it simple to manage your identities by providing a fully manag
     
    1. In **Users and groups**, select **All users**, and then select **New user**.
    
-           The **User** pane opens:
+        The **User** pane opens:
       
-      ![The "User" pane](./media/add-user.png)
+        ![The "User" pane](./media/add-user.png)
     
-   1. Enter details for the user, such as **Name** and **User name**. The domain name portion of the user name must be either the initial default domain name "[domain name].onmicrosoft.com" or a verified, non-federated [custom domain name](../../active-directory/add-custom-domain.md) such as "contoso.com."
+   1. Enter details for the user, such as **Name** and **User name**. The domain name portion of the user name must be either the initial default domain name "[domain name].onmicrosoft.com" or a verified, non-federated [custom domain name](../../active-directory/fundamentals/add-custom-domain.md) such as "contoso.com."
     
    1. Copy or otherwise note the generated user password so that you can provide it to the user after this process is complete.
     
@@ -50,11 +49,11 @@ Azure AD DS makes it simple to manage your identities by providing a fully manag
     
    1. Securely distribute the generated password to the new user so that they can sign in.
 
-1. Create an Azure AD DS instance. Follow the instructions in  [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (the "Create an instance and configure basic settings" section). It's important to update the existing user passwords in Active Directory so that the password in Azure AD DS is synced. It's also important to add DNS to Azure AD DS, as described under "Complete the fields in the Basics window of the Azure portal to create an Azure AD DS instance" in that section.
+1. Create an Azure AD DS instance. Follow the instructions in  [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/tutorial-create-instance.md) (the "Create an instance and configure basic settings" section). It's important to update the existing user passwords in Active Directory so that the password in Azure AD DS is synced. It's also important to add DNS to Azure AD DS, as described under "Complete the fields in the Basics window of the Azure portal to create an Azure AD DS instance" in that section.
 
 1. Create a separate DSVM subnet in the virtual network created in the "Create and configure the virtual network" section of the preceding step.
 1. Create one or more DSVM instances in the DSVM subnet.
-1. Follow the [instructions](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) to add the DSVM to Active Directory. 
+1. Follow the [instructions](../../active-directory-domain-services/join-ubuntu-linux-vm.md) to add the DSVM to Active Directory. 
 1. Mount an Azure Files share to host your home or notebook directory so that your workspace can be mounted on any machine. (If you need tight file-level permissions, you'll need Network File System [NFS] running on one or more VMs.)
 
    1. [Create an Azure Files share](../../storage/files/storage-how-to-create-file-share.md).
@@ -74,6 +73,3 @@ For autoscaling, you can use a virtual machine scale set to create a pool of VMs
 ## Next steps
 
 * [Securely store credentials to access cloud resources](dsvm-secure-access-keys.md)
-
-
-

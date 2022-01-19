@@ -1,14 +1,13 @@
 ---
-title: Understand deny assignments for Azure resources
-description: Learn about deny assignments in role-based access control (RBAC) for Azure resources.
+title: Understand Azure deny assignments - Azure RBAC
+description: Learn about Azure deny assignments in Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 
 ms.assetid: 
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
@@ -17,7 +16,7 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
 ---
-# Understand deny assignments for Azure resources
+# Understand Azure deny assignments
 
 Similar to a role assignment, a *deny assignment* attaches a set of deny actions to a user, group, or service principal at a particular scope for the purpose of denying access. Deny assignments block users from performing specific Azure resource actions even if a role assignment grants them access.
 
@@ -53,10 +52,10 @@ Deny assignments follow a similar pattern as role assignments, but also have som
 > | --- | --- | --- | --- |
 > | `DenyAssignmentName` | Yes | String | The display name of the deny assignment. Names must be unique for a given scope. |
 > | `Description` | No | String | The description of the deny assignment. |
-> | `Permissions.Actions` | At least one Actions or one DataActions | String[] | An array of strings that specify the management operations to which the deny assignment blocks access. |
-> | `Permissions.NotActions` | No | String[] | An array of strings that specify the management operations to exclude from the deny assignment. |
-> | `Permissions.DataActions` | At least one Actions or one DataActions | String[] | An array of strings that specify the data operations to which the deny assignment blocks access. |
-> | `Permissions.NotDataActions` | No | String[] | An array of strings that specify the data operations to exclude from the deny assignment. |
+> | `Permissions.Actions` | At least one Actions or one DataActions | String[] | An array of strings that specify the control plane actions to which the deny assignment blocks access. |
+> | `Permissions.NotActions` | No | String[] | An array of strings that specify the control plane action to exclude from the deny assignment. |
+> | `Permissions.DataActions` | At least one Actions or one DataActions | String[] | An array of strings that specify the data plane actions to which the deny assignment blocks access. |
+> | `Permissions.NotDataActions` | No | String[] | An array of strings that specify the data plane actions to exclude from the deny assignment. |
 > | `Scope` | No | String | A string that specifies the scope that the deny assignment applies to. |
 > | `DoNotApplyToChildScopes` | No | Boolean | Specifies whether the deny assignment applies to child scopes. Default value is false. |
 > | `Principals[i].Id` | Yes | String[] | An array of Azure AD principal object IDs (user, group, service principal, or managed identity) to which the deny assignment applies. Set to an empty GUID `00000000-0000-0000-0000-000000000000` to represent all principals. |
@@ -85,4 +84,4 @@ All Principals can be combined with `ExcludePrincipals` to deny all principals e
 ## Next steps
 
 * [Tutorial: Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md)
-* [List deny assignments for Azure resources using the Azure portal](deny-assignments-portal.md)
+* [List Azure deny assignments using the Azure portal](deny-assignments-portal.md)

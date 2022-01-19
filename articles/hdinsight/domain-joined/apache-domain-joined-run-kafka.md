@@ -1,12 +1,9 @@
 ---
 title: Tutorial - Apache Kafka & Enterprise Security - Azure HDInsight
 description: Tutorial - Learn how to configure Apache Ranger policies for Kafka in Azure HDInsight with Enterprise Security Package.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 05/19/2020
 ---
 
 # Tutorial: Configure Apache Kafka policies in HDInsight with Enterprise Security Package (Preview)
@@ -31,7 +28,7 @@ A [HDInsight Kafka cluster with Enterprise Security Package](./apache-domain-joi
 
 2. Sign in using your Azure Active Directory (AD) admin credentials. The Azure AD admin credentials aren't the same as HDInsight cluster credentials or Linux HDInsight node SSH credentials.
 
-   ![HDInsight Apache Ranger Admin UI](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png" alt-text="HDInsight Apache Ranger Admin UI" border="true":::
 
 ## Create domain users
 
@@ -59,7 +56,7 @@ Create a Ranger policy for **sales_user** and **marketing_user**.
    * ’*’ indicates zero or more occurrences of characters.
    * ’?‘ indicates single character.
 
-   ![Apache Ranger Admin UI Create Policy1](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png" alt-text="Apache Ranger Admin UI Create Policy1" border="true":::
 
    Wait a few moments for Ranger to sync with Azure AD if a domain user is not automatically populated for **Select User**.
 
@@ -74,7 +71,7 @@ Create a Ranger policy for **sales_user** and **marketing_user**.
    |Select User  |  marketing_user1 |
    |Permissions  | publish, consume, create |
 
-   ![Apache Ranger Admin UI Create Policy2](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png" alt-text="Apache Ranger Admin UI Create Policy2" border="true":::  
 
 6. Select **Add** to save the policy.
 
@@ -112,8 +109,8 @@ To create two topics, `salesevents` and `marketingspend`:
 1. Run the following commands:
 
    ```bash
-   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create salesevents $KAFKABROKERS
-   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create marketingspend $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar create salesevents $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar create marketingspend $KAFKABROKERS
    ```
 
 ## Test the Ranger policies
@@ -126,61 +123,88 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
    ssh sales_user1@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-2. Execute the following command:
-
-   ```bash
-   export KAFKA_OPTS="-Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf"
-   ```
-
-3. Use the broker names from the previous section to set the following environment variable:
+2. Use the broker names from the previous section to set the following environment variable:
 
    ```bash
    export KAFKABROKERS=<brokerlist>:9092
    ```
 
-   Example: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
+   Example: `export KAFKABROKERS=<brokername1>.contoso.com:9092,<brokername2>.contoso.com:9092`
 
-4. Follow Step 3 under **Build and deploy the example** in [Tutorial: Use the Apache Kafka Producer and Consumer APIs](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) to ensure that the `kafka-producer-consumer.jar` is also available to **sales_user**.
+3. Follow Step 3 under **Build and deploy the example** in [Tutorial: Use the Apache Kafka Producer and Consumer APIs](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) to ensure that the `kafka-producer-consumer.jar` is also available to **sales_user**.
 
-**Note:  For this tutorial, please use the kafka-producer-consumer.jar under "DomainJoined-Producer-Consumer" project (not the one under Producer-Consumer project, which is for non domain joined scenarios).**
+   > [!NOTE]  
+   > For this tutorial, please use the kafka-producer-consumer.jar under "DomainJoined-Producer-Consumer" project (not the one under Producer-Consumer project, which is for non domain joined scenarios).
 
-5. Verify that **sales_user1** can produce to topic `salesevents` by executing the following command:
+4. Verify that **sales_user1** can produce to topic `salesevents` by executing the following command:
 
    ```bash
-   java -jar kafka-producer-consumer.jar producer salesevents $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar producer salesevents $KAFKABROKERS
    ```
 
-6. Execute the following command to consume from topic `salesevents`:
+5. Execute the following command to consume from topic `salesevents`:
 
    ```bash
-   java -jar kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
    ```
 
    Verify that you're able to read the messages.
 
-7. Verify that the **sales_user1** can't produce to topic `marketingspend` by executing the following in the same ssh window:
+6. Verify that the **sales_user1** can't produce to topic `marketingspend` by executing the following in the same ssh window:
 
    ```bash
-   java -jar kafka-producer-consumer.jar producer marketingspend $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar producer marketingspend $KAFKABROKERS
    ```
 
    An authorization error occurs and can be ignored.
 
-8. Notice that **marketing_user1** can't consume from topic `salesevents`.
+7. Notice that **marketing_user1** can't consume from topic `salesevents`.
 
-   Repeat steps 1-4 above, but this time as **marketing_user1**.
+   Repeat steps 1-3 above, but this time as **marketing_user1**.
 
    Execute the following command to consume from topic `salesevents`:
 
    ```bash
-   java -jar kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
    ```
 
    Previous messages can't be seen.
 
-9. View the audit access events from the Ranger UI.
+8. View the audit access events from the Ranger UI.
 
-   ![Ranger UI policy audit access events ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png" alt-text="Ranger UI policy audit access events " border="true":::
+   
+## Produce and consume topics in ESP Kafka by using the console
+
+> [!NOTE]
+> You can't use console commands to create topics. Instead, you must use the Java code demonstrated in the preceding section. For more information, see [Create topics in a Kafka cluster with ESP](#create-topics-in-a-kafka-cluster-with-esp).
+
+To produce and consume topics in ESP Kafka by using the console:
+
+1. Use `kinit` with the user's username. Enter the password when prompted.
+
+   ```bash
+   kinit sales_user1
+   ```
+
+2. Set environment variables:
+
+   ```bash
+   export KAFKA_OPTS="-Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf"
+   export KAFKABROKERS=<brokerlist>:9092
+   ```
+
+3. Produce messages to topic `salesevents`:
+
+   ```bash
+   /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --topic salesevents --broker-list $KAFKABROKERS --security-protocol SASL_PLAINTEXT
+   ```
+
+4. Consume messages from topic `salesevents`:
+
+   ```bash
+   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --topic salesevents --from-beginning --bootstrap-server $KAFKABROKERS --security-protocol SASL_PLAINTEXT
+   ```
 
 ## Clean up resources
 

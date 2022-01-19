@@ -11,7 +11,7 @@ keywords: kinect, azure, retrieve, sensor, camera, sdk, depth, rgb, images, colo
 
 # Retrieve Azure Kinect image data
 
-This page provides details about how to retrieve images from the Azure Kinect. The article demonstrates how to capture and access images coordinated between the device's color and depth cameras.device. To access images, you must first open and configure the device, then you can capture images.
+This page provides details about how to retrieve images from the Azure Kinect. The article demonstrates how to capture and access images coordinated between the device's color and depth. To access images, you must first open and configure the device, then you can capture images.
 Before you configure and capture an image, you must [Find and open device](find-then-open-device.md).
 
 You can also refer to the [SDK Streaming Example](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples/streaming) that demonstrates how to use the functions in this article.

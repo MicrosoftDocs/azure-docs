@@ -9,6 +9,8 @@ ms.date: 08/01/2019
 ---
 # Azure Data Catalog terminology
 
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 This article provides an introduction to concepts and terms used in Azure Data Catalog documentation.
 
 ## Catalog
@@ -33,7 +35,7 @@ Structural metadata is the metadata extracted from a data source that describes 
 
 ## Descriptive metadata
 
-Descriptive metadata is metadata that describes the purpose or intent of a data asset. Typically descriptive metadata is added by catalog users using the Azure Data Catalog portal, but it can also be extracted from the data source during registration. For example, the Azure Data Catalog registration tool will extract descriptions from the Description property in SQL Server Analysis Services and SQL Server Reporting Services, and from the [ms_description extended property](https://technet.microsoft.com/library/ms190243.aspx) in SQL Server databases, if these properties have been populated with values.
+Descriptive metadata is metadata that describes the purpose or intent of a data asset. Typically descriptive metadata is added by catalog users using the Azure Data Catalog portal, but it can also be extracted from the data source during registration. For example, the Azure Data Catalog registration tool will extract descriptions from the Description property in SQL Server Analysis Services and SQL Server Reporting Services, and from the [ms_description extended property](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105)) in SQL Server databases, if these properties have been populated with values.
 
 ## Request access
 
@@ -80,4 +82,4 @@ Registration is the act of extracting data asset metadata from a data source and
 
 ## Next steps
 
-[Quickstart: Create an Azure Data Catalog](data-catalog-get-started.md) 
+[Quickstart: Create an Azure Data Catalog](data-catalog-get-started.md)

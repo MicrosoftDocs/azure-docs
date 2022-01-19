@@ -2,10 +2,10 @@
 title: SRE link collections and digests | Microsoft Docs
 description: Expand your knowledge of site reliability engineering with these resources
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 09/14/2020
 ms.author: dnb
 
 ---

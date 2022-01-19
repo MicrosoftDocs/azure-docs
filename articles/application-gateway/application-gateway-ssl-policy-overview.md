@@ -4,8 +4,8 @@ description: Learn how to configure TLS policy for Azure Application Gateway and
 services: application gateway
 author: amsriva
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/16/2019
+ms.topic: conceptual
+ms.date: 12/17/2020
 ms.author: amsriva
 ---
 
@@ -18,6 +18,18 @@ The TLS policy includes control of the TLS protocol version as well as the ciphe
 ## Predefined TLS policy
 
 Application Gateway has three predefined security policies. You can configure your gateway with any of these policies to get the appropriate level of security. The policy names are annotated by the year and month in which they were configured. Each policy offers different TLS protocol versions and cipher suites. We recommend that you use the newest TLS policies to ensure the best TLS security.
+
+## Known issue
+Application Gateway v2 does not support the following DHE ciphers and these won't be used for the TLS connections with clients even though they are mentioned in the predefined policies. Instead of DHE ciphers, secure and faster ECDHE ciphers are recommended.
+
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA
 
 ### AppGwSslPolicy20150501
 
@@ -49,6 +61,10 @@ Application Gateway has three predefined security policies. You can configure yo
 ## Custom TLS policy
 
 If a predefined TLS policy needs to be configured for your requirements, you must define your own custom TLS policy. With a custom TLS policy, you have complete control over the minimum TLS protocol version to support, as well as the supported cipher suites and their priority order.
+
+> [!IMPORTANT]
+> If you are using a custom SSL policy in Application Gateway v1 SKU (Standard or WAF), make sure that you add the mandatory cipher "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256" to the list. This cipher is required to enable metrics and logging in the Application Gateway v1 SKU.
+> This is not mandatory for Application Gateway v2 SKU (Standard_v2 or WAF_v2).
  
 ### TLS/SSL protocol versions
 
@@ -92,17 +108,6 @@ Application Gateway supports the following cipher suites from which you can choo
 
 > [!NOTE]
 > TLS cipher suites used for the connection are also based on the type of the certificate being used. In client to application gateway connections, the cipher suites used are based on the type of server certificates on the application gateway listener. In application gateway to backend pool connections, the cipher suites used are based on the type of server certificates on the backend pool servers.
-
-## Known issue
-Application Gateway v2 does not currently support the following ciphers:
-- DHE-RSA-AES128-GCM-SHA256
-- DHE-RSA-AES128-SHA
-- DHE-RSA-AES256-GCM-SHA384
-- DHE-RSA-AES256-SHA
-- DHE-DSS-AES128-SHA256
-- DHE-DSS-AES128-SHA
-- DHE-DSS-AES256-SHA256
-- DHE-DSS-AES256-SHA
 
 ## Next steps
 

@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 10/10/2019
+  ms.date: 06/30/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -27,6 +27,10 @@ landingContent:
             url: overview.md
           - text: Deployment overview
             url: deployment-overview.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Firewall Manager
+            url: /learn/modules/intro-to-azure-firewall-manager/
   # Card
   - title: Learn about secured virtual hubs
     linkLists:
@@ -35,18 +39,20 @@ landingContent:
           - text: What is a secured virtual hub?
             url: secured-virtual-hub.md
   # Card
-  - title: Trusted security partners
+  - title: Security partner providers
     linkLists:
     - linkListType: concept
       links:
-        - text: What are trusted security partners (preview)?
+        - text: What are security partner providers?
           url: trusted-security-partners.md
+        - text: Secure virtual hubs using Check Point Cloudguard Connect
+          url: check-point-overview.md
     - linkListType: how-to-guide
       links:
-       - text: Deploy a trusted security partner (preview)
+       - text: Deploy a security partner provider
          url: deploy-trusted-security-partner.md
   # Card
-  - title: Secure you Azure cloud network
+  - title: Secure your Azure cloud network
     linkLists:
       - linkListType: tutorial
         links:
