@@ -89,13 +89,24 @@ OSProfile                  :
     EnableAutomaticUpdates : True
 ```
 
-The following script can be used to return a concise list of VM names and the state of the VM Agent:
+The following script can be used to return a concise list of VM names (running Windows OS) and the state of the VM Agent:
 
 ```powershell
 $vms = Get-AzVM
 
 foreach ($vm in $vms) {
     $agent = $vm | Select -ExpandProperty OSProfile | Select -ExpandProperty Windowsconfiguration | Select ProvisionVMAgent
+    Write-Host $vm.Name $agent.ProvisionVMAgent
+}
+```
+
+The following script can be used to return a concise list of VM names (running Linux OS) and the state of the VM Agent:
+
+```powershell
+$vms = Get-AzVM
+
+foreach ($vm in $vms) {
+    $agent = $vm | Select -ExpandProperty OSProfile | Select -ExpandProperty Linuxconfiguration | Select ProvisionVMAgent
     Write-Host $vm.Name $agent.ProvisionVMAgent
 }
 ```
