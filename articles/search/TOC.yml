@@ -329,30 +329,28 @@
         href: search-data-sources-gallery.md
       - name: Azure Storage
         items:
-        - name: Blob Storage
-          items:      
-          - name: Search over blobs
-            href: search-blob-storage-integration.md
-          - name: Configure a blob indexer
-            href: search-howto-indexing-azure-blob-storage.md
-          - name: Index changed and deleted blobs
-            href: search-howto-index-changed-deleted-blobs.md
-          - name: Index one-to-many blobs
-            href: search-howto-index-one-to-many-blobs.md
-          - name: Index plain text blobs
-            href: search-howto-index-plaintext-blobs.md
-          - name: Index CSV blobs
-            href: search-howto-index-csv-blobs.md
-          - name: Index JSON blobs
-            href: search-howto-index-json-blobs.md
-          - name: Index encrypted blobs
-            href: search-howto-index-encrypted-blobs.md
-        - name: Data Lake Storage Gen2
+        - name: ADLS Gen2
           href: search-howto-index-azure-data-lake-storage.md
-        - name: File Storage
+        - name: Blobs
+          href: search-howto-indexing-azure-blob-storage.md
+        - name: Files
           href: search-file-storage-integration.md
-        - name: Table Storage
+        - name: Tables
           href: search-howto-indexing-azure-tables.md
+        - name: Index changed and deleted content
+          href: search-howto-index-changed-deleted-blobs.md
+        - name: Index one-to-many
+          href: search-howto-index-one-to-many-blobs.md
+        - name: Index plain text
+          href: search-howto-index-plaintext-blobs.md
+        - name: Index CSV
+          href: search-howto-index-csv-blobs.md
+        - name: Index JSON
+          href: search-howto-index-json-blobs.md
+        - name: Index encrypted blobs
+          href: search-howto-index-encrypted-blobs.md
+        - name: Search over blobs
+          href: search-blob-storage-integration.md
       - name: Azure Cosmos DB
         items:
         - name: SQL and MongoDB APIs
