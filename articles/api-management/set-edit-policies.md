@@ -10,8 +10,8 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: how-to
-ms.date: 01/06/2022
+ms.topic: article
+ms.date: 11/01/2018
 ms.author: danlep
 ---
 
@@ -56,21 +56,18 @@ To set or edit a policy, follow the following steps:
  
 ## Configure scope
 
-Policies can be configured globally (for all APIs) or at the scope of a product, API, or operation. To begin configuring a policy, you must first select the scope at which the policy should apply.
+Policies can be configured globally or at the scope of a Product, API, or Operation. To begin configuring a policy, you must first select the scope at which the policy should apply.
 
 Policy scopes are evaluated in the following order:
 
-1. Global scope (all APIs)
+1. Global scope
 2. Product scope
 3. API scope
 4. Operation scope
 
-The statements within policies are evaluated according to the position of the `<base>` element, if it is present in a section at a scope. The `<base>` element indicates the location in the current scope where the parent policy statements in that section are evaluated. Global policy has no parent policy and using the `<base>` element in it has no effect.
+The statements within policies are evaluated according to the placement of the `base` element, if it is present. Global policy has no parent policy and using the `<base>` element in it has no effect.
 
-To see the policies in the current scope in the policy editor, click **Recalculate effective policy for selected scope**. You can also see effective policies when you [debug polices](api-management-debug-policies.md) using the Azure API Management Extension for Visual Studio Code.
-
-> [!NOTE]
-> Product-scoped policies are not applied for clients using an API-scoped subscription or the built-in all-access subscription. Product-scoped policies are also not applied in certain cases when client requests don't include a subscription key. For more information, see [Subscriptions in API Management](api-management-subscriptions.md).
+To see the policies in the current scope in the policy editor, click **Recalculate effective policy for selected scope**.
 
 ### Global scope
 
