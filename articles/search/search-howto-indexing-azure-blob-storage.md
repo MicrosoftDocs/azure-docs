@@ -125,8 +125,6 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
 1. Add more fields for any blob metadata that you want in the index. The indexer can read custom metadata properties, [standard metadata](#indexing-blob-metadata) properties, and [content-specific metadata](search-blob-metadata-properties.md) properties.
 
-<a name="PartsOfBlobToIndex"></a> 
-
 ## Configure the blob indexer
 
 Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors. The "configuration" section determines what content gets indexed.
@@ -159,9 +157,7 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
 
 1. Set "batchSize` if the default (10 documents) is either under utilizing or overwhelming available resources. Default batch sizes are data source specific. Blob indexing sets batch size at 10 documents in recognition of the larger average document size. 
 
-1. Under "configuration", provide any inclusion or exclusion criteria. If left unspecified, all blobs in the container are retrieved.
-
-   If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, Azure Cognitive Search first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. If the same file extension is present in both lists, it will be excluded from indexing.
+1. Under "configuration", provide any [inclusion or exclusion criteria](#PartsOfBlobToIndex) based on file type or leave unspecified to retrieve all blobs.
 
 1. Set "dataToExtract" to control which parts of the blobs are indexed:
 
@@ -175,7 +171,7 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
 
 1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
 
-   In blob indexing, you can often omit field mappings because the indexer has built-in support for mapping the "content" and metadata properties to to similarly named and typed fields in an index. For metadata properties, the indexer will automatically replace hyphens `-` with underscores in the search index.
+   In blob indexing, you can often omit field mappings because the indexer has built-in support for mapping the "content" and metadata properties to similarly named and typed fields in an index. For metadata properties, the indexer will automatically replace hyphens `-` with underscores in the search index.
 
 1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
 
@@ -225,6 +221,8 @@ Lastly, any metadata properties specific to the document format of the blobs you
 
 It's important to point out that you don't need to define fields for all of the above properties in your search index - just capture the properties you need for your application.
 
+<a name="PartsOfBlobToIndex"></a> 
+
 ## How to control which blobs are indexed
 
 You can control which blobs are indexed, and which are skipped, by the blob's file type or by setting properties on the blob themselves, causing the indexer to skip over them.
@@ -245,7 +243,9 @@ PUT /indexers/[indexer name]?api-version=2020-06-30
 
 ### Add "skip" metadata the blob
 
-The indexer configuration parameters apply to all blobs in the container or folder. Sometimes, you want to control how *individual blobs* are indexed. You can do this by adding the following metadata properties and values to blobs in Blob Storage. When the indexer encounters this property, it will skip the blob or its content in the indexing run.
+The indexer configuration parameters apply to all blobs in the container or folder. Sometimes, you want to control how *individual blobs* are indexed.
+
+Add the following metadata properties and values to blobs in Blob Storage. When the indexer encounters this property, it will skip the blob or its content in the indexing run.
 
 | Property name | Property value | Explanation |
 | ------------- | -------------- | ----------- |
@@ -262,7 +262,7 @@ Indexing blobs can be a time-consuming process. In cases where you have millions
 
 1. Create one indexer for each data source. Point them to the same target index.  
 
-Make sure you have sufficient capacity. One search unit in your service can run one indexer at any given time. Partitioning data and creating multiple indexers is only useful if they can run in parallel.
+Make sure you have sufficient capacity. One search unit in your service can run one indexer at any given time. Creating multiple indexers is only useful if they can run in parallel.
 
 <a name="DealingWithErrors"></a>
 

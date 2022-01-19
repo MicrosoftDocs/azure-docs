@@ -75,6 +75,8 @@ If you restore a soft deleted blob in Blob storage, the indexer will not always 
 
 To make sure that an undeleted blob is reindexed, you will need to update the blob's `LastModified` timestamp. One way to do this is by resaving the metadata of that blob. You don't need to change the metadata, but resaving the metadata will update the blob's `LastModified` timestamp so that the indexer knows to pick it up.
 
+<a name="soft-delete-using-custom-metadata"></a>
+
 ## Custom metadata: Soft delete strategy
 
 This method uses custom metadata to indicate whether a search document should be removed from the index. It requires two separate actions: deleting the search document from the index, followed by file deletion in Azure Storage.

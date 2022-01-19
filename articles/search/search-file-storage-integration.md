@@ -159,7 +159,7 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
 
 1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
 
-   In file indexing, you can often omit field mappings because the indexer has built-in support for mapping the "content" and metadata properties to to similarly named and typed fields in an index. For metadata properties, the indexer will automatically replace hyphens `-` with underscores in the search index.
+   In file indexing, you can often omit field mappings because the indexer has built-in support for mapping the "content" and metadata properties to similarly named and typed fields in an index. For metadata properties, the indexer will automatically replace hyphens `-` with underscores in the search index.
 
 1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
 

@@ -133,7 +133,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
 ## Configure the ADLS Gen2 indexer
 
-Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors. Under "configuration", you can specify which blobs are indexed by file type or by properties on the blob themselves.
+Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors. The "configuration" section determines what content gets indexed.
 
 1. [Create or update an indexer](/rest/api/searchservice/create-indexer) to use the predefined data source and search index.
 
@@ -150,7 +150,10 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
         "base64EncodeKeys": null,
         "configuration:" {
             "indexedFileNameExtensions" : ".pdf,.docx",
-            "excludedFileNameExtensions" : ".png,.jpeg" 
+            "excludedFileNameExtensions" : ".png,.jpeg",
+            "dataToExtract": "contentAndMetadata",
+            "parsingMode": "default",
+            "imageAction": "none"
         }
       },
       "schedule" : { },
@@ -158,60 +161,27 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
     }
     ```
 
-1. In the optional "configuration" section, provide any inclusion or exclusion criteria. If left unspecified, all blobs in the container are retrieved.
+1. Set "batchSize` if the default (10 documents) is either under utilizing or overwhelming available resources. Default batch sizes are data source specific. Blob indexing sets batch size at 10 documents in recognition of the larger average document size. 
+
+1. Under "configuration", provide any [inclusion or exclusion criteria](#PartsOfBlobToIndex) based on file type or leave unspecified to retrieve all blobs.
+
+1. Set "dataToExtract" to control which parts of the blobs are indexed:
+
+   + "contentAndMetadata" specifies that all metadata and textual content extracted from the blob are indexed. This is the default value.
+
+   + "storageMetadata" specifies that only the [standard blob properties and user-specified metadata](../storage/blobs/storage-blob-container-properties-metadata.md) are indexed.
+
+   + "allMetadata" specifies that standard blob properties and any [metadata for found content types](search-blob-metadata-properties.md) are extracted from the blob content and indexed.
+
+1. Set "parsingMode" if blobs should be mapped to [multiple search documents](search-howto-index-one-to-many-blobs.md), or if they consist of [plain text](search-howto-index-plaintext-blobs.md), [JSON documents](search-howto-index-json-blobs.md), or [CSV files](search-howto-index-csv-blobs.md).
 
 1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
 
-   In blob indexing, you can often omit field mappings because the indexer has built-in support for mapping the "content" and metadata properties to to similarly named and typed fields in an index. For metadata properties, the indexer will automatically replace hyphens `-` with underscores in the search index.
+   In blob indexing, you can often omit field mappings because the indexer has built-in support for mapping the "content" and metadata properties to similarly named and typed fields in an index. For metadata properties, the indexer will automatically replace hyphens `-` with underscores in the search index.
 
 1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
 
 For the full list of parameter descriptions, see [Blob configuration parameters](/rest/api/searchservice/create-indexer#blob-configuration-parameters) in the REST API.
-
-### How to make an encoded field "searchable"
-
-There are times when you need to use an encoded version of a field like `metadata_storage_path` as the key, but also need that field to be searchable (without encoding) in the search index. To support both use cases, you can map `metadata_storage_path` to two fields; one for the key (encoded), and a second for a path field that we can assume is attributed as "searchable" in the index schema. The example below shows two field mappings for `metadata_storage_path`.
-
-```http
-    PUT https://[service name].search.windows.net/indexers/adlsgen2-indexer?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
-    
-    {
-      "dataSourceName" : " adlsgen2-datasource",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { "interval" : "PT2H" },
-      "fieldMappings" : [
-        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
-        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "path" }
-      ]
-    }
-```
-
-<a name="PartsOfBlobToIndex"></a>
-
-## Index content and metadata
-
-Data Lake Storage Gen2 blobs contain content and metadata. You can control which parts of the blobs are indexed using the `dataToExtract` configuration parameter. It can take the following values:
-
-+ `contentAndMetadata` - specifies that all metadata and textual content extracted from the blob are indexed. This is the default value.
-
-+ `storageMetadata` - specifies that only the [standard blob properties and user-specified metadata](../storage/blobs/storage-blob-container-properties-metadata.md) are indexed.
-
-+ `allMetadata` - specifies that standard blob properties and any [metadata for found content types](search-blob-metadata-properties.md) are extracted from the blob content and indexed.
-
-For example, to index only the storage metadata, use:
-
-```http
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
-Content-Type: application/json
-api-key: [admin key]
-
-{
-  ... other parts of indexer definition
-  "parameters" : { "configuration" : { "dataToExtract" : "storageMetadata" } }
-}
-```
 
 ## How blobs are indexed
 
@@ -257,6 +227,8 @@ Lastly, any metadata properties specific to the document format of the blobs you
 
 It's important to point out that you don't need to define fields for all of the above properties in your search index - just capture the properties you need for your application.
 
+<a name="PartsOfBlobToIndex"></a>
+
 ## How to control which blobs are indexed
 
 You can control which blobs are indexed, and which are skipped, by the blob's file type or by setting properties on the blob themselves, causing the indexer to skip over them.
@@ -277,7 +249,9 @@ PUT /indexers/[indexer name]?api-version=2020-06-30
 
 ### Add "skip" metadata the blob
 
-The indexer configuration parameters apply to all blobs in the container or folder. Sometimes, you want to control how *individual blobs* are indexed. You can do this by adding the following metadata properties and values to blobs in Blob storage. When the indexer encounters this property, it will skip the blob or its content in the indexing run.
+The indexer configuration parameters apply to all blobs in the container or folder. Sometimes, you want to control how *individual blobs* are indexed. 
+
+Add the following metadata properties and values to blobs in Blob Storage. When the indexer encounters this property, it will skip the blob or its content in the indexing run.
 
 | Property name | Property value | Explanation |
 | ------------- | -------------- | ----------- |
@@ -294,7 +268,7 @@ Indexing blobs can be a time-consuming process. In cases where you have millions
 
 1. Create one indexer for each data source. Point them to the same target index.  
 
-Make sure you have sufficient capacity. One search unit in your service can run one indexer at any given time. Partitioning data and creating multiple indexers is only useful if they can run in parallel.
+Make sure you have sufficient capacity. One search unit in your service can run one indexer at any given time. Creating multiple indexers is only useful if they can run in parallel.
 
 <a name="DealingWithErrors"></a>
 

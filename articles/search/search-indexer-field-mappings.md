@@ -148,7 +148,7 @@ PUT /indexers?api-version=2020-06-30
 
 A document key (both before and after conversion) can't be longer than 1,024 characters. When you retrieve the encoded key at search time, use the `base64Decode` function to get the original key value, and use that to retrieve the source document.
 
-#### Example: Make an base-encoded field "searchable"
+#### Example: Make a base-encoded field "searchable"
 
 There are times when you need to use an encoded version of a field like "metadata_storage_path" as the key, but also need an un-encoded version for full text search. To support both scenarios, you can map "metadata_storage_path" to two fields: one for the key (encoded), and a second for a path field that we can assume is attributed as "searchable" in the index schema.
 
@@ -321,7 +321,7 @@ When you retrieve the encoded key at search time, you can then use the `urlDecod
 
 ### Example - decode blob metadata
 
- Some Azure storage clients automatically url encode blob metadata if it contains non-ASCII characters. However, if you want to make such metadata searchable (as plain text), you can use the `urlDecode` function to turn the encoded data back into regular strings when populating your search index.
+ Some Azure storage clients automatically URL-encode blob metadata if it contains non-ASCII characters. However, if you want to make such metadata searchable (as plain text), you can use the `urlDecode` function to turn the encoded data back into regular strings when populating your search index.
 
  ```JSON
 "fieldMappings" : [
@@ -338,7 +338,7 @@ When you retrieve the encoded key at search time, you can then use the `urlDecod
  
 ### fixedLengthEncode function
  
- This function converts a string of any length to a fixed length string.
+ This function converts a string of any length to a fixed-length string.
  
 ### Example - map document keys that are too long
  
