@@ -53,7 +53,7 @@ When a user tries to sign into an application secured by Azure AD, and if Certif
 
 The following diagram illustrates all the components and the steps involved.
 
-:::image type="content" border="false" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/how-it-works.png" alt-text="Illustration with steps about how cloud-native certificate-based authentication works in Azure AD.":::
+:::image type="content" border="false" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/how-it-works.png" alt-text="Illustration with steps about how cloud-native certificate-based authentication works in Azure AD." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/how-it-works.png":::
 
 ## Understanding the authentication binding policy
 
@@ -203,7 +203,7 @@ The following table explains some details.
 
 - Sign in log shows the user id **fe3f7e7b-0044-4690-8ea5-1e9c6be5d026** instead of the username in one of the log entries.
 
-  :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/username.png" alt-text="Screenshot of username in the sign-in logs.":::
+  :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/username.png" alt-text="Screenshot of username in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/username.png":::
  
 - The **Additional Details** tab shows **User certificate subject name** as the attribute name but it is actually "User certificate binding identifier". It is the value of the certificate field that username binding is configured to use.
 
