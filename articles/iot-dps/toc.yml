@@ -123,9 +123,9 @@
   - name: .NET (Service)
     href: /dotnet/api/microsoft.azure.devices.provisioning.service
   - name: Java (Device)
-    href: java/api/com.microsoft.azure.sdk.iot.provisioning.device
+    href: /java/api/com.microsoft.azure.sdk.iot.provisioning.device
   - name: Java (Service)
-    href: java/api/com.microsoft.azure.sdk.iot.provisioning.service
+    href: /java/api/com.microsoft.azure.sdk.iot.provisioning.service
   - name: Node.js (Device/Services/Management)
     href: /javascript/api/overview/azure/iothubdeviceprovisioning
   - name: Python (Device)
@@ -133,7 +133,7 @@
   - name: Python (Service)
     href: /python/api/azure-iothub-provisioningserviceclient/provisioningserviceclient
   - name: Python (Management)
-    href: python/api/azure-mgmt-iothubprovisioningservices/azure.mgmt.iothubprovisioningservice
+    href: /python/api/azure-mgmt-iothubprovisioningservices/azure.mgmt.iothubprovisioningservice
   - name: Azure IoT SDK for C API documentation
     href: /azure/iot-hub/iot-c-sdk-ref
   - name: REST API
