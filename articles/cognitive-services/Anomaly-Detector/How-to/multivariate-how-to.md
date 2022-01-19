@@ -59,6 +59,10 @@ Next you need to prepare your training data (and inference data with asynchronou
 
 ## Train an MVAD model
 
+In this process, you should upload your data to blob storage and generate a SAS url used for training dataset.
+
+For training data size, the maximum number of timestamps is `1000000`, and a recommended minimum number is `15000` timestamps.
+
 Here is a sample request body and the sample code in Python to train an MVAD model.
 
 ```json
@@ -229,7 +233,7 @@ You could choose the asynchronous API, or the synchronous API for inference.
 | ------------- | ---------------- | 
 | More suitable for batch use cases when customers don’t need to get inference results immediately and want to detect anomalies and get results over a longer time period.| When customers want to get inference immediately and want to detect multivariate anomalies in real time, this API is recommended. Also suitable for customers having difficulties conducting the previous compressing and uploading process for inference. | 
 
-To perform asynchronous inference, provide the blob source path to the zip file containing the inference data, the start time, and end time.
+To perform asynchronous inference, provide the blob source path to the zip file containing the inference data, the start time, and end time. For inference data volume, at least `1 sliding window` length and at most `20000` timestamps.
 
 This inference is asynchronous, so the results are not returned immediately. Notice that you need to save in a variable the link of the results in the **response header** which contains the `resultId`, so that you may know where to get the results afterwards.
 
@@ -374,7 +378,7 @@ The response contains the result status, variable information, inference paramet
 With the synchronous API, you can get inference results point by point in real time, and no need for compressing and uploading task like training and asynchronous inference. Here are some requirements for the synchronous API:
 * Need to put data in **JSON format** into the API request body.
 * The inference results are limited to up to 10 data points, which means you could detect **1 to 10 timestamps** with one synchronous API call.
-* Due to payload limitation, the size of inference data in the request body is limited, which support at most `2880` timestamps * `300` variables.
+* Due to payload limitation, the size of inference data in the request body is limited, which support at most `2880` timestamps * `300` variables, and at least `1 sliding window length`.
 
 ### Request schema
 
