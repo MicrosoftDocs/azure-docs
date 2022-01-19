@@ -48,12 +48,12 @@ The following table shows the gateway types and the estimated performance scale 
 - Number of routes learned: 4,000
 ##### **High Performance/ERGw2Az** #####
 
-- Circuit bandwidth: 1Gbps
+- Circuit bandwidth: 2Gbps
 - Number of routes advertises by the Gateway: 500
 - Number of routes learned: 9,500
 ##### **Ultra Performance/ErGw3Az** #####
 
-- Circuit bandwidth: 1Gbps
+- Circuit bandwidth: 10Gbps
 - Number of routes advertises by the Gateway: 500
 - Number of routes learned: 9,500
 
