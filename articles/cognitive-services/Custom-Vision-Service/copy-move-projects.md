@@ -24,6 +24,10 @@ The **[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/se
 
 If your app or business depends on the use of a Custom Vision project, we recommend you copy your model to another Custom Vision account in another region. Then if a regional outage occurs, you can access your project in the region where it was copied.
 
+Backup and Disaster Recovery
+
+As a part of Azure, Custom Vision Service has components that are maintained across multiple regions. Zones and regions are used by all of the components in our services, in order to provide continued service to our customers. For more information on our zones and regions, see [Azure regions](https://docs.microsoft.com/azure/availability-zones/az-overview). If you need additional information or have any issues, please [contact support](https://docs.microsoft.com/answers/topics/azure-custom-vision.html).
+
 ##  Prerequisites
 
 - Two Azure Custom Vision resources. If you don't have them, go to the Azure portal and [create a new Custom Vision resource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true).
