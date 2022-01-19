@@ -25,7 +25,7 @@ You can access the following packet core dashboards.
 
 - The **overview dashboard** displays important Key Performance Indicators (KPIs), including the number of connected devices, throughput, and any alerts firing in the system.
 
-    :::image type="content" source="media/packet-core-dashboards/packet-core-overview-dashboard.png" alt-text="Screenshot of the packet core overview dashboard.":::
+    :::image type="content" source="media/packet-core-dashboards/packet-core-overview-dashboard.png" alt-text="Screenshot of the packet core overview dashboard." lightbox="media/packet-core-dashboards/packet-core-overview-dashboard.png":::
 
     Each panel on the overview dashboard links to another dashboard with more detailed statistics relating to the KPI shown. You can access the link by hovering your cursor over the top left corner of the panel and clicking the link in the pop-up.
     
@@ -103,4 +103,3 @@ The **time picker** in the top right hand corner of each packet core dashboard a
 ## Next steps
 
 - [Learn more about the distributed tracing web GUI](distributed-tracing.md)
-- [Links](links-how-to.md)
