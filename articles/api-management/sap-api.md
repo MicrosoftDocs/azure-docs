@@ -4,7 +4,7 @@ titleSuffix:
 description: Learn how to import OData metadata from SAP as an API to Azure API Management
 ms.service: api-management
 author: martinpankraz
-ms.author: martin.pankraz
+ms.author: mapankra
 ms.topic: how-to
 ms.date: 01/18/2022
 ms.custom: 
@@ -21,10 +21,10 @@ In this article, you'll:
 > * Complete API configuration
 > * Test the API in the Azure portal
 
-For advanced information:
+For advanced information, see:
 
-* See an [example end-to-end scenario](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/) to integrate API Management with an SAP gateway.
-* See an [SAP principal propagation policy](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) sample.
+* [Example end-to-end scenario](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/) to integrate API Management with an SAP gateway.
+* [SAP principal propagation policy](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) sample.
 
 ## Prerequisites
 
@@ -37,11 +37,11 @@ For advanced information:
 1. Convert the OData XML to OpenAPI JSON format using the OASIS [open-source tool](https://github.com/oasis-tcs/odata-openapi).
     
     * For test purposes with a single XML file, you can use a [web-based converter](https://convert.odata-openapi.net/) based on the open-source tool.
-    * With the tool or the web-based converted, make sure that you configure the IP address:port of your SAP server and the base path of your service.
+    * With the tool or the web-based converter, make sure that you configure the IP address:port of your SAP server and the base path of your service.
 
 1. Save the `openapi-spec.json` file locally for import to API Management
 
-[!INCLUDE api-management-navigate-to-instance.md]
+[!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
 
 ## Import and publish back-end API 
 
@@ -50,7 +50,7 @@ For advanced information:
 
     :::image type="content" source="./media/import-api-from-oas/oas-api.png" alt-text="OpenAPI specifiction":::
 
-1. Click **Select a file**, and select the `openapi-spec.json` file you saved locally in a previous step.
+1. Click **Select a file**, and select the `openapi-spec.json` file that you saved locally in a previous step.
 
 1. Enter API settings. You can set the values during creation or configure them later by going to the **Settings** tab. 
     * In **API URL suffix**, we recommend using the same URL path as in the original SAP service.
@@ -65,8 +65,7 @@ For advanced information:
 
 ## Complete API configuration
 
-Add the following three operations to the API that you imported.
-
+[Add](add-api-manually.md#add-and-test-an-operation) the following three operations to the API that you imported.
 
 |Operation  |Description  |Further configuration for operation  |
 |---------|---------|---------|
@@ -80,8 +79,8 @@ Add the following three operations to the API that you imported.
 1. Navigate to your API Management instance.
 1. From the side navigation menu, under the **APIs** section, select **APIs**.
 1. Under **All APIs**, select your imported API.
-1. Select the **Test** tab to access the Test console. 
-1. Select an operation, enter any required values, and select **Send**
+1. Select the **Test** tab to access the test console. 
+1. Select an operation, enter any required values, and select **Send**.
 1. View the response. To troubleshoot, [trace](api-management-howto-api-inspector.md) the call.
 1. When testing is complete, exit the test console.
 
