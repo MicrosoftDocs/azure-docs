@@ -36,10 +36,6 @@ You can create a custom image from a provisioned VM, and afterwards use that cus
 
     :::image type="content" source="./media/devtest-lab-create-template/custom-image-available-as-base.png" alt-text="custom image available in list of base images":::
 
-## Related blog posts
-
-- [Custom images or formulas?](./devtest-lab-faq.yml#blog-post)
-- [Copying Custom Images between Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## Next steps
 

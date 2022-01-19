@@ -31,6 +31,8 @@
   items:
     - name: Identify anomalies in your data (univariate)
       href: how-to/identify-anomalies.md
+    - name: Detect anomalies using Multivariate Anomaly Detector
+      href: how-to/multivariate-how-to.md
     - name: Deploy Anomaly Detector (univariate)
       items:
         - name: Deploy to IoT Edge
@@ -82,18 +84,16 @@
     href: /legal/cognitive-services/anomaly-detector/data-privacy-security?context=/azure/cognitive-services/anomaly-detector/context/context
 - name: Reference
   items:
-    - name: Anomaly Detector REST API (univariate)
-      href: https://aka.ms/anomaly-detector-rest-api-ref
-    - name: Anomaly Detector REST API preview (multivariate)
-      href: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/DetectAnomaly
+    - name: Anomaly Detector REST API preview 
+      href: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview-1/operations/DetectAnomaly
     - name: .NET 
-      href: https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.3
+      href: https://www.nuget.org/packages/Azure.AI.AnomalyDetector
     - name: Java
-      href: https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector/3.0.0-beta.2/
+      href: https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector/3.0.0-beta.3/
     - name: Python
-      href: https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/
+      href: https://pypi.org/project/azure-ai-anomalydetector/
     - name: Node.js
-      href: https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.3
+      href: https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.4
 - name: Resources
   items:
     - name: Enterprise readiness
