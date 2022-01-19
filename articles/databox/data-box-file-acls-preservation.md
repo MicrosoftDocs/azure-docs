@@ -53,17 +53,17 @@ Read-only attributes on directories aren't transferred.
 
 #### ACLs
 
-**SMB transfers** In Windows, all the ACLs for directories and files that you copy to your Data Box over SMB are copied and transferred. Transfers include both discretionary ACLs (DACLs) and system ACLs (SACLs). In Linux, only Windows NT ACLs are transferred.
+**SMB transfers.** In Windows, all the ACLs for directories and files that you copy to your Data Box over SMB are copied and transferred. Transfers include both discretionary ACLs (DACLs) and system ACLs (SACLs). In Linux, only Windows NT ACLs are transferred.
 
-**NFS transfers** ACLs aren't transferred during data copies over Network File System (NFS) and when you use the data copy service to transfer your data. The data copy service reads data directly from your shares and can't read ACLs.
+**NFS transfers.** ACLs aren't transferred during data copies over Network File System (NFS) and when you use the data copy service to transfer your data. The data copy service reads data directly from your shares and can't read ACLs.
  
-**Default ACLs** Even if your data copy tool does not copy ACLs, in Windows, the default ACLs on directories and files are transferred to Azure Files. The default ACLs aren't transferred in Linux.
+**Default ACLs.** Even if your data copy tool does not copy ACLs, in Windows, the default ACLs on directories and files are transferred to Azure Files. The default ACLs aren't transferred in Linux.
 
 The default ACLs have permissions for the built-in Administrator account, the SYSTEM account, and the SMB share user account that was used to mount and copy data in the Data Box.
 
 The ACLs contain security descriptors with the following properties: ACLs, Owner, Group, SACL.
 
-Transfer of ACLs is enabled by default. You might want to disable this setting in the local web UI on your Data Box. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md).
+**Disabling ACLs transfer.** Transfer of ACLs is enabled by default. You might want to disable this setting in the local web UI on your Data Box. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md).
 
 
 > [!NOTE]
