@@ -17,7 +17,7 @@ Learn how to deploy an update to an IoT device using Device Update for IoT Hub.
 * [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md). It is recommended that you use a S1 (Standard) tier or above for your IoT Hub. 
 * [At least one update has been successfully imported for the provisioned device.](import-update.md) 
 * An IoT device (or simulator) provisioned for Device Update within IoT Hub.
-* [A tag has been assigned to the IoT device you are trying to update. The device is part of at least one update group.](create-update-group.md)
+* [The device is part of at least one default group or user-created update group.](create-update-group.md)
 * Supported browsers:
   * [Microsoft Edge](https://www.microsoft.com/edge)
   * Google Chrome
