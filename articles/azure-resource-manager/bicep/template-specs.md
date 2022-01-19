@@ -2,12 +2,12 @@
 title: Create & deploy template specs in Bicep
 description: Describes how to create template specs in Bicep and share them with other users in your organization.
 ms.topic: conceptual
-ms.date: 01/12/2022
+ms.date: 01/19/2022
 ---
 
 # Azure Resource Manager template specs in Bicep
 
-A template spec is a resource type for storing an Azure Resource Manager template (ARM template) or a Bicep file in Azure for later deployment. Bicep files are transpiled into ARM JSON templates before they are stored. This resource type enables you to share ARM templates with other users in your organization. Just like any other Azure resource, you can use Azure role-based access control (Azure RBAC) to share the template spec.
+A template spec is a resource type for storing an Azure Resource Manager template (ARM template) for later deployment. This resource type enables you to share ARM templates with other users in your organization. Just like any other Azure resource, you can use Azure role-based access control (Azure RBAC) to share the template spec. You can use Azure CLI or Azure PowerShell to create template specs by providing Bicep files. The Bicep files are transpiled into ARM JSON templates before they are stored. Currently, you can't import a Bicep file from the Azure portal to create a template spec resource.
 
 [**Microsoft.Resources/templateSpecs**](/azure/templates/microsoft.resources/templatespecs) is the resource type for template specs. It consists of a main template and any number of linked templates. Azure securely stores template specs in resource groups. Both the main template and the linked templates must be in JSON. Template Specs support [versioning](#versioning).
 

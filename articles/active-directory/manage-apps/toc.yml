@@ -148,6 +148,8 @@
           href: migrate-okta-sync-provisioning-to-azure-active-directory.md
         - name: Migrate Okta federation to Azure AD managed authentication
           href: migrate-okta-federation-to-azure-active-directory.md
+    - name: Publish applications
+      href: v2-howto-app-gallery-listing.md
     - name: Secure legacy apps 
       items:
       - name: Secure hybrid access with Azure AD 
@@ -200,6 +202,8 @@
         href: troubleshoot-password-based-sso.md
       - name: Troubleshoot SAML-based single sign-on
         href: troubleshoot-saml-based-sso.md
+      - name: Troubleshoot Microsoft Application Network sign-in
+        href: troubleshoot-app-publishing.md
       - name: Debug SAML-based single sign-on
         href: debug-saml-sso-issues.md
       - name: Unexpected consent prompt
