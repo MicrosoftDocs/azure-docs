@@ -94,7 +94,7 @@ To review a list of application logs from Azure Spring Cloud, sorted by time wit
 azure.springcloudlogs.category : "ApplicationConsole"
 ```
 
-:::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-appconsole.png" alt-text="Elastic / Kibana screenshot showing Discover app with specific logs displayed." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-appconsole.png":::
+:::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-app-console.png" alt-text="Elastic / Kibana screenshot showing Discover app with specific logs displayed." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-app-console.png":::
 
 ### Show log entries containing errors or exceptions
 
