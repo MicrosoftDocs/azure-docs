@@ -15,7 +15,7 @@ ms.topic: quickstart
 > [!IMPORTANT]
 > Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
 
-Translator is a cloud-based neural machine translation service that is part of the Azure Cognitive Services family of REST APIs. Translator can be used with any operating system and powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this quickstart, you'll learn to build custom solutions for your applications across all [supported languages](../language-support.md).
+Translator is a cloud-based neural machine translation service that is part of the Azure Cognitive Services family of REST APIs. Translator can be used with any operating system and powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this quickstart, you'll learn to build custom solutions for your applications across all [supported languages](../../language-support.md).
 
 ## Prerequisites
 
@@ -74,11 +74,13 @@ You can read an overview of translation and custom translation, learn some tips,
 
 1. Select **Done**
 
-  >[!Note]
-  > Region must match the region that was selected during the resource creation. You can use **KEY 1** or **KEY 2.**
+   >[!Note]
+   > Region must match the region that was selected during the resource creation. You can use **KEY 1** or **KEY 2.**
 
-    ![Create workspace image 0](media/quickstart/resource-key.png)
-    ![Create workspace image 1](media/quickstart/create-workspace-1.png)
+   :::image type="content" source="media/quickstart/resource-key.png" alt-text="Screenshot depicting the resource key.":::
+
+   :::image type="content" source="media/quickstart/create-workspace-1.png" alt-text="Screenshot depicting workspace creation.":::
+
 
 ## Create a project
 

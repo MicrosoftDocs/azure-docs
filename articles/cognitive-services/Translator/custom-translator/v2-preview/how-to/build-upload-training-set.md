@@ -1,22 +1,24 @@
 ---
-title: Build and upload a custom document training set 
+title: Build and upload a custom document training set
 titleSuffix: Azure Cognitive Services
 description: How to build and upload parallel documents (two documents where one is the origin and the other is the translation) using the custom translator service.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 01/13/2022
+ms.date: 01/19/2022
 ms.author: lajanuar
 ms.topic: conceptual
-#Customer intent: As a Custom Translator user, I want to know how to create and upload documents, so that I can train custom model.
 ---
+
 # Build and upload a training set | preview
 
 > [!IMPORTANT]
 > Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
 
-[Custom Translator](https://portal.customtranslator.azure.ai) enables you to upload the parallel document types, listed in `Training material`, to train your translation systems. [Parallel documents](../../what-are-parallel-documents.md) are pairs of documents where one is a translation of the other. One document in the pair contains sentences in the source language and the other document contains these sentences translated into the target language.
+[Custom Translator](../overview.md) enables you to a build translation system that reflects your business, industry, and domain-specific terminology and style. Training and deploying a custom system is easy and does not require any programming skills. Custom Translator enables you to upload the parallel document types, listed in `Training material`, to train your translation systems.
+
+[Parallel documents](../../what-are-parallel-documents.md) are pairs of documents wherein one (target) is a translation of the other (source). One document in the pair contains sentences in the source language and the other document contains those sentences translated into the target language.
 
 Before uploading your documents, review the [document formats and naming convention guidance](../../document-formats-naming-convention.md) to make sure your file format is supported in Custom Translator.
 
