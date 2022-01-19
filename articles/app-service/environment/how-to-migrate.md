@@ -3,7 +3,7 @@ title: How to migrate App Service Environment v2 to App Service Environment v3
 description: Learn how to migrate your App Service Environment v2 to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 1/17/2022
+ms.date: 2/1/2022
 ms.author: jordanselig
 ---
 # How to migrate App Service Environment v2 to App Service Environment v3
@@ -32,19 +32,9 @@ ASE_RG=<Your-Resource-Group>
 ASE_ID=$(az appservice ase show --name $ASE_NAME --resource-group $ASE_RG --query id --output tsv)
 ```
 
-## 2. Delegate your App Service Environment subnet
+## 2. Validate migration is supported
 
-App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Previous versions didn't require this delegation. You'll need to confirm your subnet is delegated properly and update the delegation if needed before migrating. You can update the delegation either by running the following command or by navigating to the subnet in the [Azure portal](https://portal.azure.com).
-
-```azurecli
-az network vnet subnet update -g $ASE_RG -n <subnet-name> --vnet-name <vnet-name> --delegations Microsoft.Web/hostingEnvironments
-```
-
-![subnet delegation sample](./media/migration/subnet-delegation.jpg)
-
-## 3. Validate migration is supported
-
-The following command will check whether your App Service Environment is supported for migration. If you receive an error or if your App Service Environment is in an unhealthy or suspended state, you can't migrate at this time. For an estimate of when you can migrate, see the [timeline](migrate.md#preview-limitations). If your environment [won't be supported for migration](migrate.md#migration-feature-limitations) or you want to migrate to App Service Environment v3 without using the migration feature, see [migration alternatives](migration-alternatives.md).
+The following command will check whether your App Service Environment is supported for migration. If you receive an error or if your App Service Environment is in an unhealthy or suspended state, you can't migrate at this time. If your environment [won't be supported for migration](migrate.md#migration-feature-limitations) or you want to migrate to App Service Environment v3 without using the migration feature, see [migration alternatives](migration-alternatives.md).
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=validation"
@@ -52,7 +42,7 @@ az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=vali
 
 If there are no errors, your migration is supported and you can continue to the next step.
 
-## 4. Generate IP addresses for your new App Service Environment v3
+## 3. Generate IP addresses for your new App Service Environment v3
 
 Run the following command to create the new IPs. This step will take about 5 minutes to complete. Don't scale or make changes to your existing App Service Environment during this time.
 
@@ -72,13 +62,23 @@ If it's in progress, you'll get a status of "Migrating". Once you get a status o
 az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2018-11-01"
 ```
 
-## 5. Update dependent resources with new IPs
+## 4. Update dependent resources with new IPs
 
-Don't move on to full migration immediately after completing the previous step. Using the new IPs, update any resources and networking components to ensure your new environment functions as intended once migration is complete. It's your responsibility to make any necessary updates.
+Don't move on to migration immediately after completing the previous step. Using the new IPs, update any resources and networking components to ensure your new environment functions as intended once migration is complete. It's your responsibility to make any necessary updates.
 
-## 6. Full migration
+## 5. Delegate your App Service Environment subnet
 
-Only start this step once you've completed all pre-migration actions listed above and understand the [implications of full migration](migrate.md#full-migration) including what will happen during this time. There will be about one hour of downtime. Don't scale or make changes to your existing App Service Environment during this step.
+App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Previous versions didn't require this delegation. You'll need to confirm your subnet is delegated properly and update the delegation if needed before migrating. You can update the delegation either by running the following command or by navigating to the subnet in the [Azure portal](https://portal.azure.com).
+
+```azurecli
+az network vnet subnet update -g $ASE_RG -n <subnet-name> --vnet-name <vnet-name> --delegations Microsoft.Web/hostingEnvironments
+```
+
+![subnet delegation sample](./media/migration/subnet-delegation.jpg)
+
+## 6. Migration to App Service Environment v3
+
+Only start this step once you've completed all pre-migration actions listed above and understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what will happen during this time. There will be about one hour of downtime. Scaling and modifications to your existing App Service Environment will be blocked during this step.
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=fullmigration" --verbose

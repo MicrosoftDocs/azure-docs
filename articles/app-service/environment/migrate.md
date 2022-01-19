@@ -3,7 +3,7 @@ title: Migration to App Service Environment v3
 description: Overview of the migration process to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 1/17/2022
+ms.date: 2/1/2022
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -60,14 +60,6 @@ The App Service platform will review your App Service Environment to confirm mig
 
 Migration consists of a series of steps that must be followed in order. Key points are given below for a subset of the steps. It's important to understand what will happen during these steps and how your environment and apps will be impacted. After reviewing the following information and when you're ready to migrate, follow the [step-by-step guide](how-to-migrate.md).
 
-> [!NOTE]
-> For this version of the preview, migration must be carried out using Azure REST API calls.
->
-
-### Delegate your App Service Environment subnet
-
-App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. If the App Service Environment's subnet isn't delegated or it's delegated to a different resource, migration will fail.
-
 ### Generate IP addresses for your new App Service Environment v3
 
 The platform will create the [new inbound IP (if you're migrating an internet facing App Service Environment) and the new outbound IP](networking.md#addresses). While these IPs are getting created, activity with your existing App Service Environment won't be interrupted, however, you won't be able to scale or make changes to your existing environment. This process will take about 5 minutes to complete.
@@ -78,11 +70,15 @@ When completed, you'll be given the new IPs that will be used by your future App
 
 Once the new IPs are created, you'll have the new default outbound to the internet public addresses so you can adjust any external firewalls, DNS routing, network security groups, and so on, in preparation for the migration. For public internet facing App Service Environment, you'll also have the new inbound IP address that you can use to set up new endpoints with services like [Traffic Manager](../../traffic-manager/traffic-manager-overview.md) or [Azure Front Door](../../frontdoor/front-door-overview.md). **It's your responsibility to update any and all resources that will be impacted by the IP address change associated with the new App Service Environment v3. Don't move on to the next step until you've made all required updates.**
 
-### Full migration
+### Delegate your App Service Environment subnet
 
-After updating all dependent resources with your new IPs, you should continue with full migration as soon as possible. It's recommended that you move on within one week.
+App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. If the App Service Environment's subnet isn't delegated or it's delegated to a different resource, migration will fail.
 
-During full migration, the following events will occur:
+### Migrate to App Service Environment v3
+
+After updating all dependent resources with your new IPs and properly delegating your subnet, you should continue with migration as soon as possible. It's recommended that you move on within one week.
+
+During migration, the following events will occur:
 
 - The existing App Service Environment is shut down and replaced by the new App Service Environment v3
 - All App Service plans in the App Service Environment are converted from Isolated to Isolated v2
@@ -122,6 +118,9 @@ The migration feature doesn't plan on supporting App Service Environment v1 with
   If there's an unexpected issue, support teams will be on hand. It's recommended to migrate dev environments before touching any production environments.
 - **What happens to my old App Service Environment?**  
   If you decide to migrate an App Service Environment, the old environment gets shut down and deleted and all of your apps are migrated to a new environment. Your old environment will no longer be accessible.
+
+<!-- - **Can I migrate my App Service Environment during an App Service platform upgrade?**  
+  No... -->
 
 ## Next steps
 
