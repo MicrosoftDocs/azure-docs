@@ -61,7 +61,7 @@ Read-only attributes on directories aren't transferred.
 
 The default ACLs have permissions for the built-in Administrator account, the SYSTEM account, and the SMB share user account that was used to mount and copy data in the Data Box.
 
-These ACLs contain security descriptors with the following properties: ACLs, Owner, Group, SACL.
+The ACLs contain security descriptors with the following properties: ACLs, Owner, Group, SACL.
 
 Transfer of ACLs is enabled by default. You might want to disable this setting in the local web UI on your Data Box. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md).
 
