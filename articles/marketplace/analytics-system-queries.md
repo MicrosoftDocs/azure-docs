@@ -20,6 +20,8 @@ For more information on the column names, attributes, and description, see these
 - [Orders dashboard in commercial marketplace analytics](orders-dashboard.md#orders-details-table)
 - [Usage dashboard in commercial marketplace analytics](usage-dashboard.md#usage-details-table)
 - [Marketplace Insights dashboard in commercial marketplace analytics](insights-dashboard.md#marketplace-insights-details-table)
+- [Revenue details table](revenue-dashboard.md)
+- [Quality of service table](quality-of-service-dashboard.md)
 
 The following sections provide report queries for various reports.
 
