@@ -133,15 +133,15 @@ dotnet new mvc --no-https --output TestAppConfig
                     }).UseStartup<Startup>());
         ```
     #### [.NET Core 3.x](#tab/core3x)
+
+    > [!IMPORTANT]
+    > `CreateHostBuilder` in .NET 3.x replaces `CreateWebHostBuilder` in .NET Core 2.x. 
+
     1. In *Program.cs*, add a reference to the .NET Core Configuration API namespace:
     
         ```csharp
         using Microsoft.Extensions.Configuration;
         ```
-    
-    > [!IMPORTANT]
-    > `CreateHostBuilder` in .NET 3.x replaces `CreateWebHostBuilder` in .NET Core 2.x. 
-    
     1. Update the `CreateHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
     
         ```csharp
