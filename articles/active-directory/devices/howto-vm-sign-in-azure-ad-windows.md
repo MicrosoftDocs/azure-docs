@@ -272,7 +272,7 @@ The AADLoginForWindows extension must install successfully in order for the VM t
    - `curl https://pas.windows.net/ -D -`
 
    > [!NOTE]
-   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription.<br/> `enterpriseregistration.windows.net` and `pas.windows.net` should return 404 Not Found, which is expected behavior.
+   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription.<br/> `enterpriseregistration.windows.net` and `pas.windows.net` should return 404 Not Found, which is expected behavior. https://login.microsoftonline.com/<TenantID>/  is returning 400 error. So either this can be high lighted or removed from doc. Also -D- in the abpve commands is not correct. -D- has to be removed.
             
 1. The Device State can be viewed by running `dsregcmd /status`. The goal is for Device State to show as `AzureAdJoined : YES`.
 
@@ -364,6 +364,11 @@ Verify that the Windows 10 PC you are using to initiate the remote desktop conne
 Verify that the AADLoginForWindows extension was not uninstalled after the Azure AD join finished.
 
 Also, make sure that the security policy "Network security: Allow PKU2U authentication requests to this computer to use online identities" is enabled on both the server **and** the client.
+   
+#### Username and password is incorrect
+   
+Concurrent RDP connections from the same registered Windows client device for the same user fails.
+If the user clicks OK when they encounter the error, they will see the logonui screen on the remote VM where they can change the username by adding AzureAD\ in front of the UPN and then complete the sign-in.
 
 #### Password change required
 
