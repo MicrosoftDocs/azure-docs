@@ -486,7 +486,9 @@ The `principalId` property value is a unique identifier for the identity that's 
 
 ## Give identity access to resources
 
-Before you can use your logic app's managed identity for authentication, on the Azure resource where you want to use the identity, you have to set up access for your identity by using Azure role-based access control (Azure RBAC). The steps in this section cover how to assign the appropriate role to that identity on the Azure resource using the [Azure portal](#azure-portal-assign-access) and [Azure Resource Manager template (ARM template)](../role-based-access-control/role-assignments-template.md). For Azure PowerShell, Azure CLI, and Azure REST API, review the following documentation:
+Before you can use your logic app's managed identity for authentication, you have to set up access for the identity on the Azure resource where you want to use the identity. The way you set up access varies based on the resource that you want the identity to access.
+
+For example, to access an Azure Blob storage account with your managed identity, you have to set up access by using Azure role-based access control (Azure RBAC) and assign the appropriate role for that identity to the storage account. The steps in this section describe how to complete this task by using the [Azure portal](#azure-portal-assign-role) and [Azure Resource Manager template (ARM template)](../role-based-access-control/role-assignments-template.md). For Azure PowerShell, Azure CLI, and Azure REST API, review the following documentation:
 
 | Tool | Documentation |
 |------|---------------|
@@ -495,11 +497,27 @@ Before you can use your logic app's managed identity for authentication, on the 
 | Azure REST API | [Add role assignment](../role-based-access-control/role-assignments-rest.md) |
 |||
 
-<a name="azure-portal-assign-access"></a>
+However, to access an Azure key vault with your managed identity, you have to create an access policy for that identity on your key vault and assign the appropriate permissions for that identity on that key vault. The later steps in this section describe how to complete this task by using the [Azure portal](#azure-portal-access-policy). For Resource Manager templates, PowerShell, and Azure CLI, review the following documentation:
+
+| Tool | Documentation |
+|------|---------------|
+| Azure Resource Manager template (ARM template) | [Key Vault access policy resource definition](/templates/microsoft.keyvault/vaults/) |
+| Azure PowerShell | [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-powershell) |
+| Azure CLI | [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-cli) |
+accesspolicies?tabs=json) |
+|||
+
+<a name="azure-portal-access-policy"></a>
+
+### Create access policy in the Azure portal
+
+To use a managed identity for authentication, some Azure resources, such as Azure key vaults, require that you create an access policy that has the appropriate permissions on the target resource for that identity.
+
+<a name="azure-portal-assign-role"></a>
 
 ### Assign managed identity role-based access in the Azure portal
 
-On the Azure resource where you want to use the managed identity for authentication, you have to assign that identity to a role that can access that target resource. For more general information about this task, review [Assign a managed identity access to another resource using Azure RBAC](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
+To use a managed identity for authentication, some Azure resources, such as Azure storage accounts, require that you assign that identity to a role that has the appropriate permissions on the target resource. For more general information about this task, review [Assign a managed identity access to another resource using Azure RBAC](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
 
 > [!NOTE]
 > When a managed identity has access to an Azure resource in the same subscription, the identity can 
