@@ -39,6 +39,8 @@ Follow the steps below to upload a new CA certificate. If you have not created a
     :::image type="content" source="media/api-management-howto-ca-certificates/02.png" alt-text="Add CA certificate in the Azure portal"::: 
 1. Select **Save**. This operation may take a few minutes.
 
+[!NOTE] The process of assigning the certificate may take 15 minutes or more depending on size of deployment. Developer SKU has downtime, while Basic and higher SKUs do not.
+
 > [!NOTE]
 > You can also upload a CA certificate using the `New-AzApiManagementSystemCertificate` PowerShell command.
 
