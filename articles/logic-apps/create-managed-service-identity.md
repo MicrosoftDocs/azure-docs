@@ -488,6 +488,17 @@ The `principalId` property value is a unique identifier for the identity that's 
 
 Before you can use your logic app's managed identity for authentication, you have to set up access for the identity on the Azure resource where you want to use the identity. The way you set up access varies based on the resource that you want the identity to access.
 
+> [!NOTE]
+> When a managed identity has access to an Azure resource in the same subscription, the identity can 
+> access only that resource. However, in some triggers and actions that support managed identities, 
+> you have to first select the Azure resource group that contains the target resource. If the identity 
+> doesn't have access at the resource group level, no resources in that group are listed, despite having 
+> access to the target resource.
+>
+> To handle this behavior, you must also give the identity access to the resource group, not just 
+> the resource. Likewise, if you have to select your subscription before you can select the 
+> target resource, you must give the identity access to the subscription.
+
 For example, to access an Azure Blob storage account with your managed identity, you have to set up access by using Azure role-based access control (Azure RBAC) and assign the appropriate role for that identity to the storage account. The steps in this section describe how to complete this task by using the [Azure portal](#azure-portal-assign-role) and [Azure Resource Manager template (ARM template)](../role-based-access-control/role-assignments-template.md). For Azure PowerShell, Azure CLI, and Azure REST API, review the following documentation:
 
 | Tool | Documentation |
@@ -507,28 +518,11 @@ However, to access an Azure key vault with your managed identity, you have to cr
 accesspolicies?tabs=json) |
 |||
 
-<a name="azure-portal-access-policy"></a>
-
-### Create access policy in the Azure portal
-
-To use a managed identity for authentication, some Azure resources, such as Azure key vaults, require that you create an access policy that has the appropriate permissions on the target resource for that identity.
-
 <a name="azure-portal-assign-role"></a>
 
 ### Assign managed identity role-based access in the Azure portal
 
 To use a managed identity for authentication, some Azure resources, such as Azure storage accounts, require that you assign that identity to a role that has the appropriate permissions on the target resource. For more general information about this task, review [Assign a managed identity access to another resource using Azure RBAC](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
-
-> [!NOTE]
-> When a managed identity has access to an Azure resource in the same subscription, the identity can 
-> access only that resource. However, in some triggers and actions that support managed identities, 
-> you have to first select the Azure resource group that contains the target resource. If the identity 
-> doesn't have access at the resource group level, no resources in that group are listed, despite having 
-> access to the target resource.
->
-> To handle this behavior, you must also give the identity access to the resource group, not just 
-> the resource. Likewise, if you have to select your subscription before you can select the 
-> target resource, you must give the identity access to the subscription.
 
 1. In the [Azure portal](https://portal.azure.com), open the resource where you want to use the identity.
 
@@ -555,6 +549,34 @@ To use a managed identity for authentication, some Azure resources, such as Azur
    For more information about assigning roles, review the documentation, [Assign roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 1. After you finish setting up access for the identity, you can then use the identity to [authenticate access for triggers and actions that support managed identities](#authenticate-access-with-identity).
+
+<a name="azure-portal-access-policy"></a>
+
+### Create access policy in the Azure portal
+
+To use a managed identity for authentication, some Azure resources, such as Azure key vaults, require that you create an access policy that has the appropriate permissions on the target resource for that identity.
+
+1. In the [Azure portal](https://portal.azure.com), open the target resource where you want to use the identity. This example uses an Azure key vault as the target resource.
+
+1. On the resource's menu, select **Access policies** > **Create**, which opens the **Create an access policy** pane.
+
+   > [!NOTE]
+   > If the resource doesn't have the **Access policies** option, [try assigning a role assignment instead](#azure-portal-assign-role).
+
+1. On the **Permissions** tab, select the required permissions that the identity needs to access the target resource.
+
+   For example, to use the identity with the managed Azure Key Vault connector's **List secrets** operation, the identity needs **List** permissions. So, in the **Secret permissions** column, select **List**.
+
+1. When you're ready, **Next**. On the **Principal** tab, find and select the managed identity, which is a user-assigned identity in this example:
+
+1. Skip the optional **Application** step, select **Next**, and finish creating the access policy.
+
+   > [!NOTE]
+   > Before you can use the identity with the Azure Key Vault connector's **List operations**, 
+   > make sure that your key vault contains at least one secret, if none exist. For more information, 
+   > review [Add a secret to Key Vault](../key-vault/secrets/quick-create-portal.md).
+
+1. Now, you can use the managed identity to authenticate access to the key vault and use the **List secrets** operation.
 
 <a name="authenticate-access-with-identity"></a>
 
