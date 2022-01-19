@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/18/2022
+ms.date: 01/19/2022
 
 ms.author: justinha
 author: justinha
@@ -172,6 +172,31 @@ These additional entries show that the authentication is complete and a primary 
 :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/refresh-token.png" alt-text="Screenshot of refresh token details in the sign-in logs.":::  
 
 ### Test multifactor authentication
+
+For the next test scenario, configure the authentication policy where the Issuer subject rule satisfies multifactor authentication.
+
+:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/multifactor.png" alt-text="Screenshot of the Authentication policy configuration showing multifactor authentication required.":::  
+
+
+1. Sign in to the Azure portal using CBA. since the policy was set to satisfy multifactor authentication, the user sign-in is successful without a second factor.
+1. Click **Azure Active Directory** > **Sign in logs**.
+
+You will see several entries in the sign-in logs. 
+
+:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/test-mfa.png" alt-text="Screenshot of details in the sign-in logs.":::  
+
+The entry with **Interrupted** status provides diagnostic info in the **Additional Details** tab.
+
+:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/interrupted.png" alt-text="Screenshot of interrupted attempt details in the sign-in logs.":::  
+
+
+## Known issues
+
+- Sign in log shows the user id **fe3f7e7b-0044-4690-8ea5-1e9c6be5d026** instead of the username in one of the log entries.
+
+  :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/username.png" alt-text="Screenshot of username in the sign-in logs.":::
+ 
+- The **Additional Details** tab shows **User certificate subject name** as the attribute name but it is actually "User certificate binding identifier". It is the value of the certificate field that username binding is configured to use.
 
 ## Next steps
 
