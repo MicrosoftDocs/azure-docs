@@ -215,6 +215,7 @@ az spring-cloud create \
 ```
 ::: zone-end
 
+::: zone pivot="sc-standard-tier"
 ### Check Application Insights settings
 To check the Application Insights settings of an existing Azure Spring Cloud instance, use the following command:
 
@@ -255,6 +256,7 @@ az spring-cloud app-insights update \
     --name <service-instance-name> \
     --disable
 ```
+::: zone-end
 
 ::: zone pivot="sc-enterprise-tier"
 ### Manage Application Insights buildpack bindings
