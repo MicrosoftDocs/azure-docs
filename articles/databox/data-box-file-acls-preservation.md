@@ -55,7 +55,7 @@ Read-only attributes on directories aren't transferred.
 
 **SMB transfers** All the ACLs for directories and files that you copy to your Data Box over SMB are copied and transferred. Transfers include both discretionary ACLs (DACLs) and system ACLs (SACLs). For Linux, only Windows NT ACLs are transferred.
 
-**NTS transfers** ACLs aren't transferred during data copies over Network File System (NTS) and when you use the data copy service to transfer your data. The data copy service reads data directly from your shares and can't read ACLs.
+**NFS transfers** ACLs aren't transferred during data copies over Network File System (NFS) and when you use the data copy service to transfer your data. The data copy service reads data directly from your shares and can't read ACLs.
  
 **Default ACLS** Even if your data copy tool does not copy ACLs, in Windows, the default ACLs on directories and files are transferred to Azure Files. The default ACLs aren't transferred in Linux.
 
