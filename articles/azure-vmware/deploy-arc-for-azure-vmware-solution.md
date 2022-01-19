@@ -142,7 +142,7 @@ Use the steps below to guide you through the process to onboard in Arc for Azure
 
 When Arc appliance is successfully deployed on your private cloud, you can do the following actions.
 
-- View the status from within the private cloud under **Operations > Azure Arc**, located in the left sidebar. 
+- View the status from within the private cloud under **Operations > Azure Arc**, located in the left navigation. 
 - View the VMware infrastructure resources from the private cloud left sidebar under **Private cloud** then select **Azure Arc vCenter resources**.
 - Discover your VMware infrastructure resources and  Project them to Azure using the same browser experience, **Private cloud > Arc vCenter resources > Virtual Machines**.
 - Similar to VMs, customers can enable networks, templates, resource pools, and data-stores in Azure.
@@ -266,7 +266,7 @@ The guest management must be enabled on the VMware virtual machine (VM) before y
 
 1. Navigate to [Azure portal](https://ms.portal.azure.com/).
 1. Locate the VMware VM you want to check for guest management and install extensions on, select the name of the VM.
-1. Select **Configuration** from the left sidebar for a VMware VM.
+1. Select **Configuration** from the left navigation for a VMware VM.
 1. Verify **Enable guest management** has been checked.
 
 >[!NOTE]
@@ -290,7 +290,7 @@ If your VM template already has these changes incorporated, you won't need to do
 
 1. Go to Azure portal. 
 1. Find the Arc enabled Azure VMware Solution VM that you want to install an extension on and select the VM name. 
-1. Navigate to **Extensions** in the left side bar, select **Add**.
+1. Navigate to **Extensions** in the left navigation, select **Add**.
 1. Select the extension you want to install. 
     1. Based on the extension, you'll need to provide details. For example, `workspace Id` and `key` for LogAnalytics extension. 
 1. When you're done, select **Review + create**. 
@@ -309,7 +309,7 @@ Use the following steps to uninstall extensions from the portal.
 >**Steps 2-5** must be performed for all the VMs that have VM extensions installed.
 
 1. Log into your Azure VMware Solution private cloud. 
-1. Select **Virtual machines** in **Private cloud**, under “Arc enabled VMware resources”.
+1. Select **Virtual machines** in **Private cloud**, found in the left navigation under “Arc enabled VMware resources”.
 1. Search and select the virtual machine where you have **Guest management** enabled.
 1. Select **Extensions**.
 1. Select the extensions and click **Uninstall**.
@@ -343,7 +343,7 @@ At this point, all of your Arc-enabled VMware vSphere resources have been remove
 
 ## Delete Arc resources from vCenter
 
-For the final step, you'll need to delete the resource bridge VM and the VM template that were created during the onboarding process. This action should sever the connection between your VMware vCenter and Azure During that was established during onboarding.
+For the final step, you'll need to delete the resource bridge VM and the VM template that were created during the onboarding process. Once that step is done, Arc won't work on the Azure VMware Solution SDDC. When you delete Arc resources from vCenter, it won't impact the Azure VMware Solution private cloud for the customer. 
 
 ## Preview FAQ
 
@@ -353,7 +353,7 @@ Arc for Azure VMware Solution is currently available in East US and West EU.
 
 **How do you onboard a customer?**
  
-Fill in the [Customer Enrollment form](?id=v4j5cvGGr0GRqy180BHbR0SUP-7nYapHr1Tk0MFNflVUNEJQNzFONVhVOUlVTVk3V1hNTjJPVDM5WS4u) and we'll be in touch.
+Fill in the [Customer Enrollment form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0SUP-7nYapHr1Tk0MFNflVUNEJQNzFONVhVOUlVTVk3V1hNTjJPVDM5WS4u) and we'll be in touch.
 
 **How does support work?**
 
