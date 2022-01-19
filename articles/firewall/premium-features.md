@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 12/09/2021
+ms.date: 01/19/2022
 ms.author: victorh
 ms.custom: references_regions
 ---
@@ -130,55 +130,9 @@ Under the **Web Categories** tab in **Firewall Policy Settings**, you can reques
 
 :::image type="content" source="media/premium-features/firewall-category-change.png" alt-text="Firewall category report dialog":::
 
- ## Supported regions
+## Supported regions
 
-Azure Firewall Premium is supported in the following regions:
-
-- Australia Central (Public / Australia)
-- Australia Central 2 (Public / Australia)
-- Australia East (Public / Australia)
-- Australia Southeast (Public / Australia)
-- Brazil South (Public / Brazil)
-- Brazil Southeast (Public / Brazil)
-- Canada Central (Public / Canada)
-- Canada East (Public / Canada)
-- Central India (Public / India)
-- Central US (Public / United States)
-- Central US EUAP (Public / Canary (US))
-- China North 2 (Mooncake / China)
-- China East 2 (Mooncake / China)
-- East Asia (Public / Asia Pacific)
-- East US (Public / United States)
-- East US 2 (Public / United States)
-- France Central (Public / France)
-- France South (Public / France)
-- Germany West Central (Public / Germany)
-- Japan East (Public / Japan)
-- Japan West (Public / Japan)
-- Korea Central (Public / Korea)
-- Korea South (Public / Korea)
-- North Central US (Public / United States)
-- North Europe (Public / Europe)
-- Norway East (Public / Norway)
-- South Africa North (Public / South Africa)
-- South Central US (Public / United States)
-- South India (Public / India)
-- Southeast Asia (Public / Asia Pacific)
-- Switzerland North (Public / Switzerland)
-- UAE Central (Public / UAE)
-- UAE North (Public / UAE)
-- UK South (Public / United Kingdom)
-- UK West (Public / United Kingdom)
-- USGov Arizona (Fairfax / USGov)
-- USGov Texas (Fairfax / USGov)
-- USGov Virginia (Fairfax / USGov)
-- West Central US (Public / United States)
-- West Europe (Public / Europe)
-- West India (Public / India)
-- West US (Public / United States)
-- West US 2 (Public / United States)
-- West US 3 (Public / United States)
-
+For the supported regions for Azure Firewall, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-firewall).
 
 ## Known issues
 
