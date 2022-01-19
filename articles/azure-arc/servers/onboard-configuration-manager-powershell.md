@@ -43,7 +43,7 @@ Before you begin, check in **Configuration Manager Default Settings** that the P
    1. **Script Name** – Onboard Azure Arc
    1. **Script language** - PowerShell
    1. **Import** – Import the installation script that you generated in the Azure Portal.
-      **IMAGE GOES HERE**
+      :::image type="content" source="media/onboard-configuration-manager-powershell/configuration-manager-create-script.png" alt-text="Screenshot of the Create Script screen in Configuration Manager.":::
 1. In the Script Wizard, paste the script generated from Azure Portal. Edit this pasted script with the Service Principal Secret for the service principal you generated.
 1. Complete the wizard. The new script is displayed in the **Script** list with a status of **Waiting for approval**.
 
@@ -51,11 +51,11 @@ Before you begin, check in **Configuration Manager Default Settings** that the P
 
 With an account that has **Approve** permissions for **SMS Scripts**, do the following:
 
-1. In the Configuration Manager console, select Software Library.
-1. In the Software Library workspace, select Scripts.
-1. In the Script list, choose the script you want to approve or deny. Then, on the Home tab, in the Script group, select Approve/Deny.
-1. In the Approve or deny script dialog box, select Approve for the script.
-   **IMAGE GOES HERE**
+1. In the Configuration Manager console, select **Software Library**.
+1. In the **Software Library** workspace, select **Scripts**.
+1. In the **Script** list, choose the script you want to approve or deny. Then, on the Home tab, in the Script group, select **Approve/Deny**.
+1. In the **Approve or deny script** dialog box, select **Approve** for the script.
+   :::image type="content" source="media/onboard-configuration-manager-powershell/configuration-manager-approve-script.png" alt-text="Screenshot of the Approve or deny script screen in Configuration Manager.":::
 1. Complete the wizard, then confirm that the new script is shown as **Approved** in the **Script** list.
 
 ## Run the script in Configuration Manager
@@ -66,7 +66,7 @@ Select a collection of targets for your script by doing the following:
 1. In the **Assets and Compliance** workspace, select **Device Collections**.
 1. In the **Device Collections** list, select the collection of devices on which you want to run the script.
 1. Select a collection of your choice, and then select **Run Script**.
-   **IMAGE GOES HERE**
+   :::image type="content" source="media/onboard-configuration-manager-powershell/configuration-manager-run-script.png" alt-text="Screenshot of the Run Script option in Configuration Manager.":::
 1. On the **Script** page of the **Run Script** wizard, choose the script you authored and approved.
 1. Click **Next**, and then complete the wizard.
 
@@ -74,7 +74,7 @@ Select a collection of targets for your script by doing the following:
 
 The script status monitoring will indicate whether the script has successfully installed the Connected Machine Agent to the collection of devices. Successfully onboarded Azure Arc-enabled servers will also be visible in the [Azure portal](https://aka.ms/hybridmachineportal).
 
-**IMAGE GOES HERE**
+:::image type="content" source="media/onboard-configuration-manager-powershell/verify-onboarding-configuration-manager-powershell.png" alt-text="Screenshot of the Azure portal showing successful onboarding of Azure Arc-enabled servers.":::
 
 ## Next steps
 

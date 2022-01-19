@@ -30,7 +30,7 @@ Next, [create an application in Configuration Manager](/mem/configmgr/apps/get-s
 1. On the **General** page of the Create Application Wizard, select **Automatically detect information about this application from installation files**. This action pre-populates some of the information in the wizard with information that is extracted from the installation .msi file. Then, specify the following information:
    1. **Type**: Select **Windows Installer (*.msi file)**
    1. **Location**: Select **Browse** to choose the location where you saved the installation file **AzureConnectedMachineAgent.msi**
-      **IMAGE GOES HERE**
+      :::image type="content" source="media/onboard-configuration-manager-custom-task/configuration-manager-create-application.png" alt-text="Screenshot of the Create Application Wizard in Configuration Manager.":::
 1. Select **Next**, and on the **Import Information** page, select **Next** again.
 1. On the **General Information** page, you can supply further information about the application to help you sort and locate it in the Configuration Manager console. Once complete, select Next.
 1. On the **Installation program** page, select **Next**.
@@ -46,8 +46,7 @@ The next step is to define a custom task sequence that installs the Azure Connec
 1. On the **Home** tab of the ribbon, in the **Create** group, select **Create Task Sequence**. This will launch the Create Task Sequence Wizard.
 1. On the **Create a New Task Sequence** page, select **Create a new custom task sequence**.
 1. On the **Task Sequence Information** page, specify a name for the task sequence and optionally a description of the task sequence.
-
-**IMAGE GOES HERE**
+   :::image type="content" source="media/onboard-configuration-manager-custom-task/configuration-manager-create-task-sequence.png" alt-text="Screenshot of the Create Task Sequence Wizard in Configuration Manager.":::
 
 After you complete the Create Task Sequence Wizard, Configuration Manager adds the custom task sequence to the **Task Sequences** node. You can now edit this task sequence to add steps to it.
 
@@ -57,17 +56,18 @@ After you complete the Create Task Sequence Wizard, Configuration Manager adds t
    1. On the **Home** tab of the ribbon, in the**Task Sequence** group, select **Edit**. Then, select **Add**, select **Software**, and select **Install Application**.
    1. Set the name to `Install Connected Machine Agent`.
    1. Select the Azure Connected Machine Agent.
-   **IMAGE GOES HERE**
+      :::image type="content" source="media/onboard-configuration-manager-custom-task/configuration-manager-edit-task-sequence.png" alt-text="Screenshot showing a task sequence being edited in Configuration Manager.":::
 1. Define **Run PowerShell Script** as the second task in the task sequence.
    1. Select **Add**, select **General**, and select **Run PowerShell Script**.
    1. Set the name to `Connect to Azure Arc`.
    1. Select **Enter a PowerShell script**.
    1. Select **Add Script**, and then edit the script to connect to Arc as shown below. Note that this template script has placeholder values for the service principal, tenant, subscription, resource group, and location, which you should update to the appropriate values.
-   
+
    ```azurepowershell
    & "$env:ProgramW6432\AzureConnectedMachineAgent\azcmagent.exe" connect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>
    ```
-   **IMAGE GOES HERE**
+
+   :::image type="content" source="media/onboard-configuration-manager-custom-task/configuration-manager-connect-to-azure-arc.png" alt-text="Screenshot showing a task sequence being edited to run a PowerShell script.":::
 
 1. Select **OK** to save the changes to your custom task sequence.
 
@@ -81,6 +81,8 @@ Follow the steps outlined in Deploy a task sequence to deploy the task sequence 
 ## Verify successful connection to Azure Arc
 
 To verify that the machines have been successfully connected to Azure Arc, verify that they are visible in the [Azure portal](https://aka.ms/hybridmachineportal).
+
+:::image type="content" source="media/onboard-configuration-manager-custom-task/verify-onboarding-configuration-manager-custom-task-sequence.png" alt-text="Screenshot of the Azure portal showing successful onboarding of Azure Arc-enabled servers.":::
 
 ## Next steps
 
