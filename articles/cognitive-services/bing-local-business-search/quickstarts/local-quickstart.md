@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Send a query to the API in C# using Bing Local Business Search
+title: "Quickstart - Send a query to the API in C# using Bing Local Business Search"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to begin sending requests in C# to the Bing Local Business Search API, which is an Azure Cognitive Service.
+description: "Use this quickstart to begin sending requests in C# to the Bing Local Business Search API, which is an Azure Cognitive Service."
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,7 +10,8 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 10/22/2020
 ms.author: aahi
-ms.custom: devx-track-csharp
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-api
 ---
 
 # Quickstart: Send a query to the Bing Local Business Search API in C#
@@ -29,7 +30,7 @@ This example application gets local response data from the API for a search quer
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * Any edition of [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * If you're using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
 
 ## Create the request 
 

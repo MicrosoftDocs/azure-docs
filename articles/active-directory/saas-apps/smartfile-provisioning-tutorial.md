@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure SmartFile for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to SmartFile.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
-ms.author: zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure SmartFile for automatic user provisioning
@@ -29,6 +29,10 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * An Azure AD tenant.
 * [A SmartFile tenant](https://www.SmartFile.com/pricing/).
 * A user account in SmartFile with Admin permissions.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 
 ## Assigning users to SmartFile
 

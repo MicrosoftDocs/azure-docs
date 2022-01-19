@@ -26,7 +26,7 @@ If your organization uses Azure AD B2B collaboration capabilities to invite gues
 
 For apps that use SAML-based authentication, you can make these apps available to B2B users through the Azure portal, using Azure AD Application Proxy for authentication.
 
-For apps that use Integrated Windows Authentication (IWA) with Kerberos constrained delegation (KCD), you also use Azure AD Proxy for authentication. However, for authorization to work, a user object is required in the on-premises Windows Server Active Directory. There are two methods you can use to create local user objects that represent your B2B guest users.
+For apps that use integrated Windows authentication (IWA) with Kerberos constrained delegation (KCD), you also use Azure AD Proxy for authentication. However, for authorization to work, a user object is required in the on-premises Windows Server Active Directory. There are two methods you can use to create local user objects that represent your B2B guest users.
 
 - You can use Microsoft Identity Manager (MIM) 2016 SP1 and the MIM management agent for Microsoft Graph.
 - You can use a PowerShell script. (This solution does not require MIM.)

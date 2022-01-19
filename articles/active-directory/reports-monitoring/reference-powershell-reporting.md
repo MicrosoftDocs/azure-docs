@@ -4,12 +4,11 @@ description: Reference of the Azure AD PowerShell cmdlets for reporting.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
@@ -24,7 +23,7 @@ ms.custom: devx-track-azurepowershell
 # Azure AD PowerShell cmdlets for reporting
 
 > [!NOTE] 
-> These PowerShell cmdlets currently only work with the [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) Module. Please note that the preview module is not suggested for production use. 
+> These PowerShell cmdlets currently only work with the [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#directory_auditing) Module. Please note that the preview module is not suggested for production use. 
 
 To install the public preview release, use the following. 
 

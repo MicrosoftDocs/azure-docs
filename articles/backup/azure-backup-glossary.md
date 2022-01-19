@@ -57,7 +57,7 @@ Azure Backup offers three types of replication to keep your storage and data hig
 
 [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your backup data in [availability zones](../availability-zones/az-overview.md#availability-zones), guaranteeing backup data residency and resiliency in the same region. So your critical workloads that require [data residency](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) can be backed up in ZRS.
 
-## Azure Command-Line Interface (CLI)
+## Azure CLI
 
 Refer to [Azure CLI documentation](/cli/azure/what-is-azure-cli).
 
@@ -119,7 +119,7 @@ Crash-consistent snapshots typically occur if an Azure VM shuts down at the time
 
 ## Cross-Region Restore (CRR)
 
-As one of the [restore options](backup-azure-arm-restore-vms.md#restore-options), Cross Region Restore (CRR) allows you to restore backup items in a secondary region, which is an [Azure paired region](../best-practices-availability-paired-regions.md#what-are-paired-regions).
+As one of the [restore options](backup-azure-arm-restore-vms.md#restore-options), Cross Region Restore (CRR) allows you to restore backup items in a secondary region, which is an [Azure paired region](../availability-zones/cross-region-replication-azure.md).
 
 ## Data box
 
@@ -181,7 +181,7 @@ Restoring individual files or folders inside the machine from the recovery point
 
 ## Job
 
-A backup-related task that is created by a user or the Azure Backup service. Jobs can be either scheduled or on-demand (ad-hoc). There are different types of jobs - backup, restore, configure protection, and so on. [Learn more about jobs](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault).
+A backup-related task that is created by a user or the Azure Backup service. Jobs can be either scheduled or on-demand (ad-hoc). There are different types of jobs - backup, restore, configure protection, and so on. [Learn more about jobs](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-backup-center).
 
 ## MABS / Azure Backup Server
 
@@ -267,7 +267,7 @@ A backup job that is automatically triggered by the backup policy configured for
 
 ## Secondary region / Paired region
 
-A regional pair consists of two regions within the same geography. One is the primary region, and the other is the secondary region. Paired regions are used by some Azure services (including Azure Backup with GRS settings) to ensure business continuity and protect against data loss. [Learn more](../best-practices-availability-paired-regions.md).
+A regional pair consists of two regions within the same geography. One is the primary region, and the other is the secondary region. Paired regions are used by some Azure services (including Azure Backup with GRS settings) to ensure business continuity and protect against data loss. [Learn more](../availability-zones/cross-region-replication-azure.md).
 
 ## Soft delete
 
@@ -294,6 +294,18 @@ Backs up operating system files. This backup allows you to recover when a comput
 ## Tenant
 
 A tenant is a representation of an organization. It's a dedicated instance of Azure AD that an organization or app developer receives when the organization or app developer creates a relationship with Microsoft, like signing up for Azure, Microsoft Intune, or Microsoft 365.
+
+## Tier
+
+Currently, Azure Backup supports the following backup storage tiers:
+
+### Snapshot tier
+
+(Workload specific term) In the first phase of VM backup, the snapshot taken is stored along with the disk. This form of storage is referred to as snapshot tier. Snapshot tier restores are faster (than restoring from a vault) because they eliminate the wait time for snapshots to get copied to from the vault before triggering the restore operation.
+
+### Vault-Standard tier
+
+Backup data for all workloads supported by Azure Backup is stored in vaults which hold backup storage, an auto-scaling set of storage accounts managed by Azure Backup. The Vault-Standard tier is an online storage tier that enables you to store an isolated copy of backup data in a Microsoft managed tenant, thus creating an additional layer of protection. For workloads where snapshot tier is supported, there is a copy of the backup data in both the snapshot tier and the vault-standard tier. Vault-standard tier ensures that backup data is available even if the datasource being backed up is deleted or compromised.
 
 ## Unmanaged disk
 

@@ -2,7 +2,7 @@
 title: Configure virtual network service endpoints for Azure Service Bus
 description: This article provides information on how to add a Microsoft.ServiceBus service endpoint to a virtual network. 
 ms.topic: article
-ms.date: 02/12/2021
+ms.date: 01/04/2022
 ms.custom: fasttrack-edit
 ---
 
@@ -13,16 +13,14 @@ Once configured to be bound to at least one virtual network subnet service endpo
 
 The result is a private and isolated relationship between the workloads bound to the subnet and the respective Service Bus namespace, in spite of the observable network address of the messaging service endpoint being in a public IP range.
 
-Implementing Virtual Networks integration can prevent other Azure services from interacting with Service Bus. As an exception, you can allow access to Service Bus resources from certain trusted services even when network service endpoints are enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services).
+## Important points
+- Virtual Networks are supported only in [Premium tier](service-bus-premium-messaging.md) Service Bus namespaces. When using VNet service endpoints with Service Bus, you should not enable these endpoints in applications that mix standard and premium tier Service Bus namespaces. Because the standard tier does not support VNets. The endpoint is restricted to Premium tier namespaces only.
+- Implementing Virtual Networks integration can prevent other Azure services from interacting with Service Bus. As an exception, you can allow access to Service Bus resources from certain **trusted services** even when network service endpoints are enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services).
 
-The following Microsoft services are required to be on a virtual network
-- Azure App Service
-- Azure Functions
-
-Virtual Networks are supported only in [Premium tier](service-bus-premium-messaging.md) Service Bus namespaces. When using VNet service endpoints with Service Bus, you should not enable these endpoints in applications that mix standard and premium tier Service Bus namespaces. Because the standard tier does not support VNets. The endpoint is restricted to Premium tier namespaces only.
-
-> [!IMPORTANT]
-> Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network. If there are no IP and virtual network rules, the namespace can be accessed over the public internet (using the access key).  
+    The following Microsoft services are required to be on a virtual network
+    - Azure App Service
+    - Azure Functions
+- Specify **at least one IP rule or virtual network rule** for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network. If there are no IP and virtual network rules, the namespace can be accessed over the public internet (using the access key).  
 
 ## Advanced security scenarios enabled by VNet integration 
 
@@ -52,37 +50,43 @@ This section shows you how to use Azure portal to add a virtual network service 
 
     > [!NOTE]
     > You see the **Networking** tab only for **premium** namespaces.  
-    
-    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Networking page - default" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
-    
-    If you select the **All networks** option, your Service Bus namespace accepts connections from any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
+1. On the **Networking** page, for **Public network access**, you can set one of the three following options. Choose **Selected networks** option to allow access from only specified IP addresses. 
+    - **Disabled**. This option disables any public access to the namespace. The namespace will be accessible only through [private endpoints](private-link-service.md). 
+  
+        :::image type="content" source="./media/service-bus-ip-filtering/public-access-disabled.png" alt-text="Networking page - public access tab - public network access is disabled.":::
+    - **Selected networks**. This option enables public access to the namespace using an access key from selected networks. 
 
-    ![Firewall - All networks option selected](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+        > [!IMPORTANT]
+        > If you choose **Selected networks**, add at least one IP firewall rule or a virtual network that will have access to the namespace. Choose **Disabled** if you want to restrict all traffic to this namespace over [private endpoints](private-link-service.md) only.   
+    
+        :::image type="content" source="./media/service-bus-ip-filtering/selected-networks.png" alt-text="Networking page with the selected networks option selected." lightbox="./media/service-bus-ip-filtering/selected-networks.png":::    
+    - **All networks** (default). This option enables public access from all networks using an access key. If you select the **All networks** option, the event hub accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
+
+        :::image type="content" source="./media/service-bus-ip-filtering/firewall-all-networks-selected.png" alt-text="Screenshot of the Azure portal Networking page. The option to allow access from All networks is selected on the Firewalls and virtual networks tab.":::
 2. To restrict access to specific virtual networks, select the **Selected networks** option if it isn't already selected.
-1. In the **Virtual Network** section of the page, select **+Add existing virtual network**. 
+1. In the **Virtual Network** section of the page, select **+Add existing virtual network**. Select **+ Create new virtual network** if you want to create a new VNet.
 
-    ![add existing virtual network](./media/service-endpoints/add-vnet-menu.png)
+    :::image type="content" source="./media/service-endpoints/add-vnet-menu.png" lightbox="./media/service-endpoints/add-vnet-menu.png" alt-text="Image showing the selection of Add existing virtual network button on the toolbar.":::
 
     >[!WARNING]
     > If you select the **Selected networks** option and don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed over public internet (using the access key).
 3. Select the virtual network from the list of virtual networks, and then pick the **subnet**. You have to enable the service endpoint before adding the virtual network to the list. If the service endpoint isn't enabled, the portal will prompt you to enable it.
    
-   ![select subnet](./media/service-endpoints/select-subnet.png)
-
+    :::image type="content" source="./media/service-endpoints/select-subnet.png" alt-text="Image showing the selection of VNet and subnet.":::
 4. You should see the following successful message after the service endpoint for the subnet is enabled for **Microsoft.ServiceBus**. Select **Add** at the bottom of the page to add the network. 
 
-    ![select subnet and enable endpoint](./media/service-endpoints/subnet-service-endpoint-enabled.png)
+    :::image type="content" source="./media/service-endpoints/subnet-service-endpoint-enabled.png" alt-text="Image showing the success message of enabling the service endpoint.":::
 
     > [!NOTE]
     > If you are unable to enable the service endpoint, you may ignore the missing virtual network service endpoint using the Resource Manager template. This functionality is not available on the portal.
 6. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up in the portal notifications. The **Save** button should be disabled. 
 
-    ![Save network](./media/service-endpoints/save-vnet.png)
+    :::image type="content" source="./media/service-endpoints/save-vnet.png" lightbox="./media/service-endpoints/save-vnet.png" alt-text="Image showing the network service endpoint saved.":::
 
     > [!NOTE]
     > For instructions on allowing access from specific IP addresses or ranges, see [Allow access from specific IP addresses or ranges](service-bus-ip-filtering.md).
 
-[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
+[!INCLUDE [service-bus-trusted-services](./includes/service-bus-trusted-services.md)]
 
 ## Use Resource Manager template
 The following sample Resource Manager template adds a virtual network rule to an existing Service Bus namespace. For the network rule, it specifies the ID of a subnet in a virtual network. 

@@ -3,14 +3,15 @@ title: Enable Azure DS Domain Services using a template | Microsoft Docs
 description: Learn how to configure and enable Azure Active Directory Domain Services using an Azure Resource Manager template
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
-ms.author: justinha
+ms.author: justinha 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Create an Azure Active Directory Domain Services managed domain using an Azure Resource Manager template

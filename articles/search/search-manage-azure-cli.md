@@ -1,15 +1,14 @@
 ---
-title: Azure CLI scripts using az search module
+title: Azure CLI scripts using the az search module
 titleSuffix: Azure Cognitive Search
 description: Create and configure an Azure Cognitive Search service with the Azure CLI. You can scale a service up or down, manage admin and query api-keys, and query for system information.
 
-manager: luisca
 author: DerekLegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 08/03/2021
 ---
 
 # Manage your Azure Cognitive Search service with the Azure CLI
@@ -37,48 +36,7 @@ Occasionally, questions are asked about tasks *not* on the above list. Currently
 
 Within a service, content creation and management are through [Search Service REST API](/rest/api/searchservice/) or [.NET SDK](/dotnet/api/overview/azure/search.documents-readme). While there are no dedicated PowerShell commands for content, you can write scripts that call REST or .NET APIs to create and load indexes.
 
-<a name="check-versions-and-load"></a>
-
-## Check versions and upgrade
-
-The examples in this article are interactive and require elevated permissions. The Azure CLI must be installed. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-You can now run the Azure CLI with the `az` command from either Windows Command Prompt, PowerShell, or [Azure Cloud Shell](../cloud-shell/overview.md). PowerShell offers some tab completion features not available from Windows Command Prompt. 
-
-### Check the Azure CLI version
-
-If you aren't sure whether the Azure CLI is installed, run the following command as a verification step. 
-
-```azurecli-interactive
-az --version
-```
-If this command does not work, see [Install the Azure CLI](/cli/azure/install-azure-cli) to get the Azure CLI installed.
-
-If you have version 2.11.0 or newer, you can run the `az upgrade` command to update the CLI to the latest version.
-
-```azurecli-interactive
-az upgrade
-```
-
-### Connect to Azure with a browser sign-in token
-
-You can use your portal sign-in credentials to connect to a subscription in the Azure CLI. Alternatively you can [authenticate non-interactively with a service principal](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal).
-
-```azurecli-interactive
-az login
-```
-
-If you hold multiple Azure subscriptions, set your Azure subscription. To see a list of your current subscriptions, run this command.
-
-```azurecli-interactive
-az account list --output table
-```
-
-To specify the subscription, run the following command. In the following example, the subscription name is `ContosoSubscription`.
-
-```azurecli-interactive
-az account set --subscription "ContosoSubscription"
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 <a name="list-search-services"></a>
 
@@ -95,7 +53,7 @@ az resource list --resource-type Microsoft.Search/searchServices --output table
 From the list of services, return information about a specific resource.
 
 ```azurecli-interactive
-az resource list --name <service-name>
+az resource list --name <search-service-name>
 ```
 
 ## List all az search commands
@@ -140,20 +98,20 @@ az search service create --help
 
 ## Get search service information
 
-If you know the resource group containing your search service, run [**az search service show**](/cli/azure/search/service#az_search_service_show) to return the service definition, including name, region, tier, and replica and partition counts.
+If you know the resource group containing your search service, run [**az search service show**](/cli/azure/search/service#az_search_service_show) to return the service definition, including name, region, tier, and replica and partition counts. For this command, provide the resource group that contains the search service.
 
 ```azurecli-interactive
-az search service show --name <service-name> --resource-group <resource-group-name>
+az search service show --name <service-name> --resource-group <search-service-resource-group-name>
 ```
 
 ## Create or delete a service
 
-To [create a new search service](search-create-service-portal.md), use the [**az search service create**](/cli/azure/search/service#az_search_service_show) command.
+To [create a new search service](search-create-service-portal.md), use the [**az search service create**](/cli/azure/search/service#az_search_service_create) command.
 
 ```azurecli-interactive
 az search service create \
     --name <service-name> \
-    --resource-group <resource-group-name> \
+    --resource-group <search-service-resource-group-name> \
     --sku Standard \
     --partition-count 1 \
     --replica-count 1
@@ -195,8 +153,8 @@ Depending on your security requirements, you may want to create a search service
 
 ```azurecli-interactive
 az search service create \
-    --name <service-name> \
-    --resource-group <resource-group-name> \
+    --name <search-service-name> \
+    --resource-group <search-service-resource-group-name> \
     --sku Standard \
     --partition-count 1 \
     --replica-count 1 \
@@ -209,8 +167,8 @@ In some cases, such as when [using managed identity to connect to a data source]
 
 ```azurecli-interactive
 az search service create \
-    --name <service-name> \
-    --resource-group <resource-group-name> \
+    --name <search-service-name> \
+    --resource-group <search-service-resource-group-name> \
     --sku Standard \
     --partition-count 1 \
     --replica-count 1 \
@@ -219,7 +177,7 @@ az search service create \
 
 ## Create a service with a private endpoint
 
-[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For more details, please refer to the documentation on 
+[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/ip-services/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For more details, please refer to the documentation on 
 [creating a private endpoint for Azure Cognitive Search](service-create-private-endpoint.md)
 
 The following example shows how to create a search service with a private endpoint.
@@ -228,8 +186,8 @@ First, deploy a search service with `PublicNetworkAccess` set to `Disabled`.
 
 ```azurecli-interactive
 az search service create \
-    --name <service-name> \
-    --resource-group <resource-group-name> \
+    --name <search-service-name> \
+    --resource-group <search-service-resource-group-name> \
     --sku Standard \
     --partition-count 1 \
     --replica-count 1 \
@@ -241,7 +199,7 @@ Next, create a virtual network and the private endpoint.
 ```azurecli-interactive
 # Create the virtual network
 az network vnet create \
-    --resource-group <resource-group-name> \
+    --resource-group <vnet-resource-group-name> \
     --location "West US" \
     --name <virtual-network-name> \
     --address-prefixes 10.1.0.0/16 \
@@ -251,21 +209,21 @@ az network vnet create \
 # Update the subnet to disable private endpoint network policies
 az network vnet subnet update \
     --name <subnet-name> \
-    --resource-group <resource-group-name> \
+    --resource-group <vnet-resource-group-name> \
     --vnet-name <virtual-network-name> \
     --disable-private-endpoint-network-policies true
 
 # Get the id of the search service
 id=$(az search service show \
-    --resource-group <resource-group-name> \
-    --name <service-name> \
-    --query [id]' \
+    --resource-group <search-service-resource-group-name> \
+    --name <search-service-name> \
+    --query [id] \
     --output tsv)
 
 # Create the private endpoint
 az network private-endpoint create \
     --name <private-endpoint-name> \
-    --resource-group <resource-group-name> \
+    --resource-group <private-endpoint-resource-group-name> \
     --vnet-name <virtual-network-name> \
     --subnet <subnet-name> \
     --private-connection-resource-id $id \
@@ -278,12 +236,12 @@ Finally, create a private DNS Zone.
 ```azurecli-interactive
 ## Create private DNS zone
 az network private-dns zone create \
-    --resource-group <resource-group-name> \
+    --resource-group <private-dns-resource-group-name> \
     --name "privatelink.search.windows.net"
 
 ## Create DNS network link
 az network private-dns link vnet create \
-    --resource-group <resource-group-name> \
+    --resource-group <private-dns-resource-group-name> \
     --zone-name "privatelink.search.windows.net" \
     --name "myLink" \
     --virtual-network <virtual-network-name> \
@@ -291,14 +249,14 @@ az network private-dns link vnet create \
 
 ## Create DNS zone group
 az network private-endpoint dns-zone-group create \
-   --resource-group <resource-group-name>\
+   --resource-group <private-endpoint-resource-group-name>\
    --endpoint-name <private-endpoint-name> \
    --name "myZoneGroup" \
    --private-dns-zone "privatelink.search.windows.net" \
    --zone-name "searchServiceZone"
 ```
 
-For more information on creating private endpoints in PowerShell, see this [Private Link Quickstart](https://docs.microsoft.com/azure/private-link/create-private-endpoint-cli)
+For more information on creating private endpoints in PowerShell, see this [Private Link Quickstart](../private-link/create-private-endpoint-cli.md)
 
 ### Manage private endpoint connections
 
@@ -310,7 +268,7 @@ To retrieve a private endpoint connection and to see its status, use [**az searc
 az search private-endpoint-connection show \
     --name <pe-connection-name> \
     --service-name <search-service-name> \
-    --resource-group <resource-group-name> 
+    --resource-group <search-service-resource-group-name> 
 ```
 
 To update the connection, use [**az search private-endpoint-connection update**](/cli/azure/search/private-endpoint-connection#az_search_private_endpoint_connection_update). The following example sets a private endpoint connection to rejected:
@@ -319,7 +277,7 @@ To update the connection, use [**az search private-endpoint-connection update**]
 az search private-endpoint-connection show \
     --name <pe-connection-name> \
     --service-name <search-service-name> \
-    --resource-group <resource-group-name> 
+    --resource-group <search-service-resource-group-name> 
     --status Rejected \
     --description "Rejected" \
     --actions-required "Please fix XYZ"
@@ -331,7 +289,7 @@ To delete the private endpoint connection, use [**az search private-endpoint-con
 az search private-endpoint-connection delete \
     --name <pe-connection-name> \
     --service-name <search-service-name> \
-    --resource-group <resource-group-name> 
+    --resource-group <search-service-resource-group-name> 
 ```
 
 ## Regenerate admin keys
@@ -346,7 +304,7 @@ Values for the API keys are generated by the service. You cannot provide a custo
 
 ```azurecli-interactive
 az search admin-key renew \
-    --resource-group <resource-group-name> \
+    --resource-group <search-service-resource-group-name> \
     --service-name <search-service-name> \
     --key-kind primary
 ```
@@ -369,7 +327,7 @@ You cannot provide a key for Azure Cognitive Search to use. API keys are generat
 ```azurecli-interactive
 az search query-key create \
     --name myQueryKey \
-    --resource-group <resource-group-name> \
+    --resource-group <search-service-resource-group-name> \
     --service-name <search-service-name>
 ```
 
@@ -385,8 +343,8 @@ Once you submit the command, there is no way to terminate it midway through. You
 
 ```azurecli-interactive
 az search service update \
-    --name <service-name> \
-    --resource-group <resource-group-name> \
+    --name <search-service-name> \
+    --resource-group <search-service-resource-group-name> \
     --partition-count 6 \
     --replica-count 6
 ```
@@ -407,7 +365,7 @@ To create the shared private link resource, use [**az search shared-private-link
 az search shared-private-link-resource create \
     --name <spl-name> \
     --service-name <search-service-name> \
-    --resource-group <resource-group-name> \
+    --resource-group <search-service-resource-group-name> \
     --group-id blob \
     --resource-id "/subscriptions/<alphanumeric-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/myBlobStorage"  \
     --request-message "Please approve" 
@@ -419,7 +377,7 @@ To retrieve the shared private link resources and view their status, use [**az s
 ```azurecli-interactive
 az search shared-private-link-resource list \
     --service-name <search-service-name> \
-    --resource-group <resource-group-name> 
+    --resource-group <search-service-resource-group-name> 
 ```
 
 You'll need to approve the connection with the following command before it can be used. The ID of the private endpoint connection will need to be retrieved from the child resource. In this case, we get the connection ID from az storage.
@@ -436,7 +394,7 @@ To delete the shared private link resource, use [**az search shared-private-link
 az search shared-private-link-resource delete \
     --name <spl-name> \
     --service-name <search-service-name> \
-    --resource-group <resource-group-name> 
+    --resource-group <search-service-resource-group-name> 
 ```
 
 For full details on setting up shared private link resources, see the documentation on [making indexer connections through a private endpoint](search-indexer-howto-access-private.md).

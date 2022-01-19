@@ -7,10 +7,11 @@ manager: nimag
 services: azure-communication-services
 
 ms.author: dademath
-ms.date: 07/20/2020
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-zone_pivot_groups: acs-web-ios
+ms.subservice: calling
+zone_pivot_groups: acs-web-ios-android
 ---
 
 # Get started with the group calling hero sample
@@ -21,4 +22,8 @@ zone_pivot_groups: acs-web-ios
 
 ::: zone pivot="platform-ios"
 [!INCLUDE [iOS Calling Hero Sample](./includes/ios-calling-hero.md)]
+::: zone-end
+
+::: zone pivot="platform-android"
+[!INCLUDE [Android Calling Hero Sample](./includes/android-calling-hero.md)]
 ::: zone-end

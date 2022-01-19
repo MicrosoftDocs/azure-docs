@@ -3,19 +3,18 @@ title: Azure portal - Enable customer-managed keys with SSE - managed disks
 description: Enable customer-managed keys on your managed disks through the Azure portal.
 author: roygara
 
-ms.date: 08/24/2020
+ms.date: 09/27/2021
 ms.topic: how-to
 ms.author: rogarana
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ---
 
 # Use the Azure portal to enable server-side encryption with customer-managed keys for managed disks
 
-Azure Disk Storage allows you to manage your own keys when using server-side encryption (SSE) for managed disks, if you choose. For conceptual information on SSE with customer managed keys, as well as other managed disk encryption types, see the **Customer-managed keys** section of our disk encryption article:
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: 
 
-- For Linux: [Customer-managed keys](./disk-encryption.md#customer-managed-keys)
-- For Windows: [Customer-managed keys](./disk-encryption.md#customer-managed-keys)
+Azure Disk Storage allows you to manage your own keys when using server-side encryption (SSE) for managed disks, if you choose. For conceptual information on SSE with customer managed keys, as well as other managed disk encryption types, see the **Customer-managed keys** section of our disk encryption article: [Customer-managed keys](disk-encryption.md#customer-managed-keys)
 
 ## Restrictions
 
@@ -28,8 +27,6 @@ For now, customer-managed keys have the following restrictions:
 
     - For Windows: [Copy a managed disk](./windows/disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)
 
-- Only [software and HSM RSA keys](../key-vault/keys/about-keys.md) of sizes 2,048-bit, 3,072-bit and 4,096-bit are supported, no other keys or sizes.
-    - [HSM](../key-vault/keys/hsm-protected-keys.md) keys require the **premium** tier of Azure Key vaults.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
 The following sections cover how to enable and use customer-managed keys for managed disks:
@@ -77,6 +74,12 @@ The VM deployment process is similar to the standard deployment process, the onl
 
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with the managed disks is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
+
+### Enable automatic key rotation on an existing disk encryption set
+
+1. Navigate to the disk encryption set that you want to enable [automatic key rotation](disk-encryption.md#automatic-key-rotation-of-customer-managed-keys) on.
+1. Under **Settings**, select **Key**.
+1. Select **Auto key rotation** and select **Save**.
 
 ## Next steps
 

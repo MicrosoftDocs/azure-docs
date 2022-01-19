@@ -33,8 +33,8 @@ The journal file for a drive contains complete session information from the data
 
 ## Next steps
 
-* [Set up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)
+<!--* [Set up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)-->
 * [Prepare hard drives for an import job](storage-import-export-data-to-blobs.md#step-1-prepare-the-drives)
 * [Review job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)
-* [Repair an import job](storage-import-export-tool-repairing-an-import-job-v1.md)
-* [Repair an export job](storage-import-export-tool-repairing-an-export-job-v1.md)
+<!--* [Repair an import job](storage-import-export-tool-repairing-an-import-job-v1.md)-->
+<!--* [Repair an export job](storage-import-export-tool-repairing-an-export-job-v1.md)-->

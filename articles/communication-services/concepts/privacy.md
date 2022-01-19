@@ -6,20 +6,41 @@ manager: anvalent
 services: azure-communication-services
 
 ms.author: chpalm
-ms.date: 10/03/2020
-ms.topic: overview
+ms.date: 06/30/2021
+ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: references_regions
 ---
 
 # Region availability and data residency
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-Azure Communication Services is committed to helping our customers meet their privacy and personal data requirements. As a developer using Communication Services with a direct relationship with humans using the application, you are potentially a controller of their data. Since Azure Communication Services is storing this data on your behalf, we are most likely a processor of this data. This page summarizes how the service retains data and how you can identify, export, and delete this data.
+Azure Communication Services is committed to helping our customers meet their privacy and personal data requirements. As a developer using Communication Services with a direct relationship with humans using the application, you are potentially a controller of their data. Since Azure Communication Services is storing and encrypting this data at rest on your behalf, we are most likely a processor of this data. This page summarizes how the service retains data and how you can identify, export, and delete this data.
 
 ## Data residency
 
-When creating an Communication Services resource, you specify a **geography** (not an Azure data center). All data stored by Communication Services at rest will be retained in that geography, in a data center selected internally by Communication Services. Data may transit or be processed in other geographies. These global endpoints are necessary to provide a high-performance, low-latency experience to end-users no matter their location.
+When [creating](../quickstarts/create-communication-resource.md) an Azure Communication Services resource, you specify a **geography** (not an Azure data center). All chat messages, and resource data stored by Communication Services at rest will be retained in that geography, in a data center selected internally by Communication Services. Data may transit or be processed in other geographies. These global endpoints are necessary to provide a high-performance, low-latency experience to end-users no matter their location.
+
+The list of geographies you can choose from includes:
+- Africa
+- Asia Pacific
+- Australia
+- Brazil
+- Canada
+- Europe
+- France
+- Germany
+- India
+- Japan
+- Korea
+- United Kingdom
+- United States
+
+> [!NOTE]
+> For PSTN & SMS, call and message data records required for the operation and billing of the service, may be stored in the United States.
+
+## Data collection
+
+Azure Communication Services only collects diagnostic data required to deliver the service. 
 
 ## Data residency and events
 
@@ -37,7 +58,7 @@ There are two categories of Communication Service data:
 
 ### Identities
 
-Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communicationidentity/delete) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/access-tokens.md).
+Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communicationidentity/communication-identity/delete) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/access-tokens.md).
 
 - DeleteIdentity
 
@@ -47,29 +68,37 @@ Using the Azure portal or Azure Resource Manager APIs with Communication Service
 
 ### Telephone number management
 
-Azure Communication Services maintains a directory of phone numbers associated with a Communication Services resource. Use these APIs to retrieve phone numbers and delete them:
+Azure Communication Services maintains a directory of phone numbers associated with a Communication Services resource. Use [Phone Number Administration APIs](/rest/api/communication/phonenumbers) to retrieve phone numbers and delete them:
+
+- `Get All Phone Numbers`
 - `Release Phone Number`
 
 ### Chat
 
-Chat threads and messages are retained until explicitly deleted. A fully idle thread will be automatically deleted after 30 days. Use [Chat APIs](/rest/api/communication/chat/deletechatmessage/deletechatmessage) to get, list, update, and delete messages.
+Chat threads and messages are retained until explicitly deleted. Use [Chat APIs](/rest/api/communication/chat/chatthread) to get, list, update, and delete messages.
 
 - `Get Thread`
 - `Get Message`
+- `List Messages`
+- `Update Message`
 - `Delete Thread`
 - `Delete Message`
 
 ### SMS
 
-Sent and received SMS messages are ephemerally processed by the service and not retained. 
+Sent and received SMS messages are ephemerally processed by the service and not retained.
 
 ### PSTN voice calling
 
-Audio and video communication is ephemerally processed by the service and no data is retained in your resource other than Azure Monitor logs.
+Audio and video communication is ephemerally processed by the service and no call processing data is retained in your resource other than Azure Monitor logs.
 
 ### Internet voice and video calling
 
-Audio and video communication is ephemerally processed by the service and no data is retained in your resource other than Azure Monitor logs.
+Audio and video communication is ephemerally processed by the service and no call processing data is retained in your resource other than Azure Monitor logs.
+
+### Call Recording
+
+Call recordings are stored temporarily in the same geography that was selected for ```Data Location``` during resource creation for 48 hours. After this the recording is deleted and you are responsible for storing the recording in a secure and compliant location.
 
 ## Azure Monitor and Log Analytics
 
@@ -77,6 +106,6 @@ Azure Communication Services will feed into Azure Monitor logging data for under
 
 ## Additional resources
 
-- [Azure Data Subject Requests for the GDPR and CCPA](/microsoft-365/compliance/gdpr-dsr-azure?preserve-view=true&view=o365-worldwide)
+- [Azure Data Subject Requests for the GDPR and CCPA](/microsoft-365/compliance/gdpr-dsr-azure)
 - [Microsoft Trust Center](https://www.microsoft.com/trust-center/privacy/data-location)
 - [Azure Interactive Map - Where is my customer data?](https://azuredatacentermap.azurewebsites.net/)

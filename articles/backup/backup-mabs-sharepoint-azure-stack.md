@@ -77,7 +77,7 @@ To back up the SharePoint farm, configure protection for SharePoint by using Con
 
 1. In **Select Group Members**, expand the server that holds the WFE role. If there's more than one WFE server, select the one on which you installed ConfigureSharePoint.exe.
 
-    When you expand the SharePoint server  MABS queries VSS to see what data MABS can protect.  If the SharePoint database is remote, MABS connects to it. If SharePoint data sources don't appear, check that the VSS writer is running on the SharePoint server and any remote SQL Server, and ensure the MABS agent is installed on both the SharePoint server and remote SQL Server. Also, ensure that SharePoint databases aren't being protected elsewhere as SQL Server databases.
+   When you expand the computer running SharePoint, MABS queries VSS to see what data MABS can protect. If the SharePoint database is remote, MABS connects to it. If SharePoint data sources don't appear, check that the VSS writer is running on the computer that's running SharePoint and on any remote instance of SQL Server. Then, ensure that the MABS agent is installed both on the computer running SharePoint and on the remote instance of SQL Server. Also, ensure that SharePoint databases aren't being protected elsewhere as SQL Server databases.
 
 1. In **Select data protection method**,  specify how you want to handle short and long\-term backup. Short\-term back up is always to disk first, with the option of backing up from the disk to the Azure cloud with Azure Backup \(for short or long\-term\).
 

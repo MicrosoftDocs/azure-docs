@@ -1,13 +1,13 @@
 ---
 title: 'Tutorial: Deploy Node.js apps powered by Azure Cosmos DB with Azure DevOps Starter'
 description: Azure DevOps Starter makes it easy to get started on Azure. With DevOps Starter, you can deploy your Node.js app that's powered by Azure Cosmos DB to Windows Web App in a few quick steps.
-ms.author: mlearned
+ms.author: gwallace
 ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
-author: mlearned
+author: georgewallace
 ms.custom: devx-track-js
 ---
 
@@ -162,4 +162,4 @@ You can modify these build and release pipelines to meet the needs of your team.
 > * Commit changes to Git and automatically deploy them to Azure
 > * Clean up resources
 
-See [Define your multi-stage continuous deployment (CD) pipeline](/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) for more information and next steps.
+See [Define your multi-stage continuous deployment (CD) pipeline](/azure/devops/pipelines/release/define-multistage-release-process) for more information and next steps.

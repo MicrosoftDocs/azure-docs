@@ -3,11 +3,11 @@ title: Fail over across multiple endpoints with Traffic Manager
 titleSuffix: Azure Content Delivery Network
 description: Learn how to configure failover across multiple Azure Content Delivery Network endpoints by using Azure Traffic Manager.
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 10/08/2020
-ms.author: allensu
+ms.author: duau
 ms.custom: 
 
 ---
@@ -89,7 +89,10 @@ After you configure your CDN and Traffic Manager profiles, follow these steps to
     > [!NOTE]
     > If your domain is currently live and cannot be interrupted, do this step last. Verify that the CDN endpoints and traffic manager domains are live before you update your custom domain DNS to Traffic Manager.
     >
-
+   
+    > [!NOTE]
+    > For implementing this fail over scenario both endpoints need to be in different profiles, and the different profiles should be by different CDN providers to avoid domain name conflicts.
+    > 
 
 2.	From your Azure CDN profile, select the first CDN endpoint (Akamai). Select **Add custom domain** and input **cdndemo101.dustydogpetcare.online**. Verify that the checkmark to validate the custom domain is green. 
 

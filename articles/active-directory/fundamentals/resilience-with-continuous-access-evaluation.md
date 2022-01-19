@@ -3,7 +3,7 @@ title: Build resilience by using Continuous Access Evaluation in Azure Active Di
 description: A guide for architects and IT administrators on using CAE
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 
 ms.service: active-directory
 ms.workload: identity
@@ -43,6 +43,8 @@ To use CAE, both the service and the client must be CAE-capable. Microsoft 365 s
 Microsoft is working with the industry to build [standards](https://openid.net/wg/sse/) that will allow third party applications to use this capability. You can also develop applications that are CAE-capable. See How to build resilience in your application for more information.
 
 ## How do I implement CAE?
+
+* [Update your code to use CAE-enabled APIs](../develop/app-resilience-continuous-access-evaluation.md).
 
 * [Enable CAE](../conditional-access/concept-continuous-access-evaluation.md) in the Azure AD Security Configuration.
 

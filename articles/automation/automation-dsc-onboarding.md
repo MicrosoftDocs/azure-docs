@@ -4,15 +4,17 @@ description: This article tells how to set up machines for management with Azure
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
-manager: carmonm
+ms.custom: devx-track-azurepowershell
 ---
+
 # Enable Azure Automation State Configuration
 
 This topic describes how you can set up your machines for management with Azure Automation State Configuration. For details of this service, see [Azure Automation State Configuration overview](automation-dsc-overview.md).
+
+> [!NOTE]
+> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now available in preview, managed by a feature of Azure Policy named [guest configuration](../governance/policy/concepts/guest-configuration.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
 
 ## Enable Azure VMs
 
@@ -26,7 +28,7 @@ Azure Automation State Configuration lets you easily enable Azure VMs for config
 
 To enable an Azure VM to State Configuration through the [Azure portal](https://portal.azure.com/):
 
-1. Navigate to the Azure Automation account in which to enable VMs. 
+1. Navigate to the Azure Automation account in which to enable VMs.
 
 2. On the State Configuration page, select the **Nodes** tab, then click
 **Add**.
@@ -35,18 +37,18 @@ To enable an Azure VM to State Configuration through the [Azure portal](https://
 
 4. If the machine doesn't have the PowerShell desired state extension installed and the power state is running, click **Connect**.
 
-5. Under **Registration**, enter the [PowerShell DSC Local Configuration Manager values](/powershell/scripting/dsc/managing-nodes/metaConfig)
+5. Under **Registration**, enter the [PowerShell DSC Local Configuration Manager values](/powershell/dsc/managing-nodes/metaConfig)
 required for your use case. Optionally, you can enter a node configuration to assign to the VM.
 
 ![enabling VM](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
 ### Enable a VM using Azure Resource Manager templates
 
-You can install and enable a VM for State Configuration using Azure Resource Manager templates. See [Server managed by Desired State Configuration service](https://azure.microsoft.com/resources/templates/101-automation-configuration/) for an example template that enables an existing VM for State Configuration. If you are managing a virtual machine scale set, see the example template in [Virtual machine scale set configuration managed by Azure Automation](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
+You can install and enable a VM for State Configuration using Azure Resource Manager templates. See [Server managed by Desired State Configuration service](https://azure.microsoft.com/resources/templates/automation-configuration/) for an example template that enables an existing VM for State Configuration. If you are managing a virtual machine scale set, see the example template in [Virtual machine scale set configuration managed by Azure Automation](https://azure.microsoft.com/resources/templates/vmss-automation-dsc/).
 
 ### Enable machines using PowerShell
 
-You can use the [Register-AzAutomationDscNode](/powershell/module/az.automation/register-azautomationdscnode) cmdlet in PowerShell to enable VMs for State Configuration. 
+You can use the [Register-AzAutomationDscNode](/powershell/module/az.automation/register-azautomationdscnode) cmdlet in PowerShell to enable VMs for State Configuration.
 
 > [!NOTE]
 >The `Register-AzAutomationDscNode` cmdlet is implemented currently only for machines running Windows, as it triggers just the Windows extension.
@@ -62,8 +64,8 @@ To find the registration key and registration URL to use as parameters in the te
 You can enable Windows servers running on-premises or in other cloud environments (including AWS EC2 instances) to Azure Automation State Configuration. The servers must have [outbound access to Azure](automation-dsc-overview.md#network-planning).
 
 1. Make sure that the latest version of [WMF 5](https://aka.ms/wmf5latest) is installed on the machines to enable for State Configuration. In addition, WMF 5 must be installed on the computer that you are using for enabling the machines.
-1. Follow the directions in [Generate DSC metaconfigurations](#generate-dsc-metaconfigurations) to create a folder containing the required DSC metaconfigurations. 
-1. Use the following cmdlet to apply the PowerShell DSC metaconfigurations remotely to the machines to enable. 
+1. Follow the directions in [Generate DSC metaconfigurations](#generate-dsc-metaconfigurations) to create a folder containing the required DSC metaconfigurations.
+1. Use the following cmdlet to apply the PowerShell DSC metaconfigurations remotely to the machines to enable.
 
    ```powershell
    Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
@@ -77,7 +79,7 @@ You can enable Windows servers running on-premises or in other cloud environment
 You can enable Linux servers running on-premises or in other cloud environments for State Configuration. The servers must have [outbound access to Azure](automation-dsc-overview.md#network-planning).
 
 1. Make sure that the latest version of [PowerShell Desired State Configuration for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) is installed on the machines to enable for State Configuration.
-2. If the [PowerShell DSC Local Configuration Manager defaults](/powershell/scripting/dsc/managing-nodes/metaConfig4) match your use case, and you want to enable machines so that they both pull from and report to State Configuration:
+2. If the [PowerShell DSC Local Configuration Manager defaults](/powershell/dsc/managing-nodes/metaConfig4) match your use case, and you want to enable machines so that they both pull from and report to State Configuration:
 
    - On each Linux machine to enable, use `Register.py` to enable the machine with the PowerShell DSC Local Configuration Manager defaults.
 
@@ -114,12 +116,12 @@ You can enable Linux servers running on-premises or in other cloud environments 
 
 ## Generate DSC metaconfigurations
 
-To enable any machine for State Configuration, you can generate a [DSC metaconfiguration](/powershell/scripting/dsc/managing-nodes/metaConfig). This configuration tells the DSC agent to pull from and/or report to Azure Automation State Configuration. You can generate a DSC metaconfiguration for Azure Automation State Configuration using either a PowerShell DSC configuration or the Azure Automation PowerShell cmdlets.
+To enable any machine for State Configuration, you can generate a [DSC metaconfiguration](/powershell/dsc/managing-nodes/metaConfig). This configuration tells the DSC agent to pull from and/or report to Azure Automation State Configuration. You can generate a DSC metaconfiguration for Azure Automation State Configuration using either a PowerShell DSC configuration or the Azure Automation PowerShell cmdlets.
 
 > [!NOTE]
 > DSC metaconfigurations contain the secrets needed to enable a machine in an Automation account for management. Make sure to properly protect any DSC metaconfigurations you create, or delete them after use.
 
-Proxy support for metaconfigurations is controlled by the [Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig), which is the Windows PowerShell DSC engine. The LCM runs on all target nodes and is responsible for calling the configuration resources that are included in a DSC metaconfiguration script. You can include proxy support in a metaconfiguration by including definitions of `ProxyURL` and `ProxyCredential` properties as needed in the `ConfigurationRepositoryWeb`, `ResourceRepositoryWeb`, and `ReportServerWeb` blocks. An example of the URL setting is `ProxyURL = "http://172.16.3.6:3128";`. The `ProxyCredential` property is set to a `PSCredential` object, as described in [Manage credentials in Azure Automation](shared-resources/credentials.md). 
+Proxy support for metaconfigurations is controlled by the [Local Configuration Manager](/powershell/dsc/managing-nodes/metaconfig), which is the Windows PowerShell DSC engine. The LCM runs on all target nodes and is responsible for calling the configuration resources that are included in a DSC metaconfiguration script. You can include proxy support in a metaconfiguration by including definitions of `ProxyURL` and `ProxyCredential` properties as needed in the `ConfigurationRepositoryWeb`, `ResourceRepositoryWeb`, and `ReportServerWeb` blocks. An example of the URL setting is `ProxyURL = "http://172.16.3.6:3128";`. The `ProxyCredential` property is set to a `PSCredential` object, as described in [Manage credentials in Azure Automation](shared-resources/credentials.md).
 
 ### Generate DSC metaconfigurations using a DSC configuration
 
@@ -284,7 +286,7 @@ enable machines to both pull from and report to Azure Automation State Configura
 You can enable machines securely for an Azure Automation account through the WMF 5 DSC registration protocol. This protocol allows a DSC node to authenticate to a PowerShell DSC pull or report server, including Azure Automation State Configuration. The node registers with the server at the registration URL and authenticates using a registration key. During registration, the DSC node and DSC pull/report server negotiate a unique certificate for the node to use for authentication to the server post-registration. This process prevents enabled nodes from
 impersonating one another, for example, if a node is compromised and behaving maliciously. After registration, the registration key is not used for authentication again, and is deleted from the node.
 
-You can get the information required for the State Configuration registration protocol from **Keys** under **Account Settings** in the Azure portal. 
+You can get the information required for the State Configuration registration protocol from **Keys** under **Account Settings** in the Azure portal.
 
 ![Azure automation keys and URL](./media/automation-dsc-onboarding/DSC_Onboarding_4.png)
 
@@ -297,11 +299,11 @@ For added security, you can regenerate the primary and secondary access keys of 
 
 After registering a machine as a DSC node in Azure Automation State Configuration, there are several reasons why you might need to re-register that node in the future.
 
-- **Certificate renewal.** For versions of Windows Server before Windows Server 2019, each node automatically negotiates a unique certificate for authentication that expires after one year. If a certificate expires without renewal, the node is unable to communicate with Azure Automation and is marked `Unresponsive`. Currently, the PowerShell DSC registration protocol can't automatically renew certificates when they are nearing expiration, and you must re-register the nodes after a year's time. Before re-registering, ensure that each node is running WMF 5 RTM. 
+- **Certificate renewal.** For versions of Windows Server before Windows Server 2019, each node automatically negotiates a unique certificate for authentication that expires after one year. If a certificate expires without renewal, the node is unable to communicate with Azure Automation and is marked `Unresponsive`. Currently, the PowerShell DSC registration protocol can't automatically renew certificates when they are nearing expiration, and you must re-register the nodes after a year's time. Before re-registering, ensure that each node is running WMF 5 RTM.
 
     Re-registration performed 90 days or less from the certificate expiration time, or at any point after the certificate expiration time, results in a new certificate being generated and used. A resolution to this issue is included in Windows Server 2019 and later.
 
-- **Changes to DSC LCM values.** You might need to change [PowerShell DSC LCM values](/powershell/scripting/dsc/managing-nodes/metaConfig4) set during initial registration of the node, for example, `ConfigurationMode`. Currently, you can only change these DSC agent values through re-registration. The one exception is the Node Configuration value assigned to the node. You can change this in Azure Automation DSC directly.
+- **Changes to DSC LCM values.** You might need to change [PowerShell DSC LCM values](/powershell/dsc/managing-nodes/metaConfig4) set during initial registration of the node, for example, `ConfigurationMode`. Currently, you can only change these DSC agent values through re-registration. The one exception is the Node Configuration value assigned to the node. You can change this in Azure Automation DSC directly.
 
 You can re-register a node just as you registered the node initially, using any of the methods described in this document. You do not need to unregister a node from Azure Automation State Configuration before re-registering it.
 
@@ -315,8 +317,8 @@ State Configuration lets you easily enable Azure Windows VMs for configuration m
 To view the status of the Azure VM Desired State Configuration extension:
 
 1. In the Azure portal, navigate to the VM being enabled.
-2. Click **Extensions** under **Settings**. 
-3. Now select **DSC** or **DSCForLinux**, depending on your operating system. 
+2. Click **Extensions** under **Settings**.
+3. Now select **DSC** or **DSCForLinux**, depending on your operating system.
 4. For more details, you can click **View detailed status**.
 
 ## Next steps

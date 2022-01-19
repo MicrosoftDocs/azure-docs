@@ -1,17 +1,19 @@
 ---
-title: Deploy `PHP Guestbook` app on Arc enabled Kubernetes on Azure Stack Edge Pro GPU device| Microsoft Docs
-description: Describes how to deploy a PHP `Guestbook` stateless application with Redis using GitOps on an Arc enabled Kubernetes cluster of your Azure Stack Edge Pro device.
+title: Deploy PHP `Guestbook` app on Azure Arc-enabled Kubernetes on Azure Stack Edge Pro GPU device| Microsoft Docs
+description: Describes how to deploy a PHP `Guestbook` stateless application with Redis using GitOps on an Azure Arc-enabled Kubernetes cluster of your Azure Stack Edge Pro device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
-# Deploy a PHP `Guestbook` stateless application with Redis on Arc enabled Kubernetes cluster on Azure Stack Edge Pro GPU
+# Deploy a PHP `Guestbook` stateless application with Redis on Azure Arc-enabled Kubernetes cluster on Azure Stack Edge Pro GPU
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article shows you how to build and deploy a simple, multi-tier web application using Kubernetes and Azure Arc. This example consists of the following components:
 
@@ -19,19 +21,16 @@ This article shows you how to build and deploy a simple, multi-tier web applicat
 - Multiple replicated Redis instances to serve reads
 - Multiple web frontend instances
 
-The deployment is done using GitOps on the Arc enabled Kubernetes cluster on your Azure Stack Edge Pro device. 
+The deployment is done using GitOps on the Azure Arc-enabled Kubernetes cluster on your Azure Stack Edge Pro device. 
 
-This procedure is intended for people who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc enabled Kubernetes (Preview)](../azure-arc/kubernetes/overview.md).
+This procedure is intended for people who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc-enabled Kubernetes (Preview)](../azure-arc/kubernetes/overview.md).
 
 > [!NOTE]
-> This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 ## Prerequisites
 
 Before you can deploy the stateless application, make sure that you have completed the following prerequisites on your device and the client that you will use to access the device:
-
-> [!NOTE]
-> This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 ### For device
 
@@ -45,7 +44,7 @@ Before you can deploy the stateless application, make sure that you have complet
 
 1. You have a  Windows client system that will be used to access the Azure Stack Edge Pro device.
   
-    - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view = true).
+    - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](/powershell/scripting/install/installing-windows-powershell).
     
     - You can have any other client with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) as well. This article describes the procedure when using a Windows client. 
     
@@ -80,7 +79,7 @@ Follow these steps to configure the Azure Arc resource to deploy a GitOps config
 
 1. Go to **Configurations** and select **+ Add configuration**.
 
-    ![Screenshot shows the Azure Arc enabled Kubernetes cluster with Add configuration selected.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
+    ![Screenshot shows the Azure Arc-enabled Kubernetes cluster with Add configuration selected.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
 1. In **Add configuration**, enter the appropriate values for the fields, and then select **Apply**.
 
@@ -101,11 +100,11 @@ Follow these steps to configure the Azure Arc resource to deploy a GitOps config
 
 1. The configuration deployment starts and the **Operator state** shows as **Pending**. 
 
-    ![Screenshot shows the Azure Arc enabled Kubernetes cluster in a pending state as it refreshes.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
+    ![Screenshot shows the Azure Arc-enabled Kubernetes cluster in a pending state as it refreshes.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
 
 1. The deployment takes a couple minutes. When the deployment completes, the **Operator state** shows as **Installed**.
 
-    ![Screenshot shows the Azure Arc enabled Kubernetes cluster in an installed state.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
+    ![Screenshot shows the Azure Arc-enabled Kubernetes cluster in an installed state.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
 ## Verify deployment
 

@@ -37,7 +37,7 @@ The workflow that you create monitors a hashtag on Twitter.
 You can [build the entire solution in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) 
 and [deploy the solution with Azure Resource Manager template](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). 
 For a video walkthrough that shows how to create this solution, 
-[watch this Channel 9 video](https://aka.ms/logicappsdemo). 
+[watch this Channel 9 video](/shows/). 
 
 ## Trigger on customer data
 
@@ -179,7 +179,7 @@ with all dependencies as a single template. Learn
 how to [automate logic app deployment](logic-apps-azure-resource-manager-templates-overview.md).
 
 For an example deployment template with an Azure function, 
-check the [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
+check the [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json).
 
 ## Next steps
 

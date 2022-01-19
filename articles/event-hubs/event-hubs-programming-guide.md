@@ -2,7 +2,8 @@
 title: .NET Programming guide - Azure Event Hubs (legacy) | Microsoft Docs
 description: This article provides information on how to Write code for Azure Event Hubs using the Azure .NET SDK.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 09/20/2021
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -68,21 +69,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 > [!NOTE]
 > If you aren't familiar with partitions, see [this article](event-hubs-features.md#partitions). 
 
-When sending event data, you can specify a value that is hashed to produce a partition assignment. You specify the partition using the [Partition​Sender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid) property. However, the decision to use partitions implies a choice between availability and consistency. 
-
-### Availability considerations
-
-Using a partition key is optional, and you should consider carefully whether or not to use one. If you don't specify a partition key when publishing an event, Event Hubs balances the load among partitions. In many cases, using a partition key is a good choice if event ordering is important. When you use a partition key, these partitions require availability on a single node, and outages can occur over time; for example, when compute nodes reboot and patch. As such, if you set a partition ID and that partition becomes unavailable for some reason, an attempt to access the data in that partition will fail. If high availability is most important, don't specify a partition key. In that case, events are sent to partitions using an internal load-balancing algorithm. In this scenario, you are making an explicit choice between availability (no partition ID) and consistency (pinning events to a partition ID).
-
-Another consideration is handling delays in processing events. In some cases, it might be better to drop data and retry than to try to keep up with processing, which can potentially cause further downstream processing delays. For example, with a stock ticker it's better to wait for complete up-to-date data, but in a live chat or VOIP scenario you'd rather have the data quickly, even if it isn't complete.
-
-Given these availability considerations, in these scenarios you might choose one of the following error handling strategies:
-
-- Stop (stop reading from Event Hubs until things are fixed)
-- Drop (messages aren’t important, drop them)
-- Retry (retry the messages as you see fit)
-
-For more information and a discussion about the trade-offs between availability and consistency, see [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md). 
+When sending event data, you can specify a value that is hashed to produce a partition assignment. You specify the partition using the [Partition​Sender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid) property. However, the decision to use partitions implies a choice between availability and consistency. For more information, see [Availability and Consistency](event-hubs-availability-and-consistency.md).
 
 ## Batch event send operations
 
@@ -105,9 +92,6 @@ To use the [EventProcessorHost][] class, you can implement [IEventProcessor](/do
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
 To start event processing, instantiate [EventProcessorHost][], providing the appropriate parameters for your event hub. For example:
-
-> [!NOTE]
-> EventProcessorHost and its related classes are provided in the **Microsoft.Azure.EventHubs.Processor** package. Add the package to your Visual Studio project by following instructions in [this article](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) or by issuing the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) window:`Install-Package Microsoft.Azure.EventHubs.Processor`.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

@@ -4,7 +4,7 @@ description: The glossary explains terms that you might encounter as you work wi
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 05/08/2020
+ms.date: 10/28/2021
 ---
 
 # Language understanding glossary of common vocabulary and concepts
@@ -39,7 +39,7 @@ The [authoring key](luis-how-to-azure-subscription.md) is used to author the app
 
 ### Authoring Resource
 
-Your LUIS [authoring resource](luis-how-to-azure-subscription.md#azure-resources-for-luis) is a manageable item that is available through Azure. The resource is your access to the associated authoring, training, and publishing abilities of the Azure service. The resource includes authentication, authorization, and security information you need to access the associated Azure service.
+Your LUIS [authoring resource](luis-how-to-azure-subscription.md) is a manageable item that is available through Azure. The resource is your access to the associated authoring, training, and publishing abilities of the Azure service. The resource includes authentication, authorization, and security information you need to access the associated Azure service.
 
 The authoring resource has an Azure "kind" of `LUIS-Authoring`.
 
@@ -265,7 +265,7 @@ LUIS quota is the limitation of the Azure subscription tier. The LUIS quota can 
 Your schema includes your intents and entities along with the subentities. The schema is initially planned for then iterated over time. The schema doesn't include app settings, features, or example utterances.
 
 ## Sentiment Analysis
-Sentiment analysis provides positive or negative values of the utterances provided by [Text Analytics](../text-analytics/overview.md).
+Sentiment analysis provides positive or negative values of the utterances provided by the [Language service](../language-service/sentiment-opinion-mining/overview.md).
 
 ## Speech priming
 
@@ -290,7 +290,7 @@ The model will return the normalized value for the entity when any of synonyms a
 
 ## Test
 
-[Testing](luis-concept-test.md) a LUIS app means viewing model predictions.
+[Testing](./luis-interactive-test.md) a LUIS app means viewing model predictions.
 
 ## Timezone offset
 

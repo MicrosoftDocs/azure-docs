@@ -4,8 +4,9 @@ description: This PowerShell script creates a new data share within an existing 
 author: joannapea
 ms.service: data-share
 ms.topic: article
-ms.date: 07/07/2019
-ms.author: joanpo
+ms.date: 01/03/2022
+ms.author: joanpo 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use PowerShell to create a Data Share in Azure

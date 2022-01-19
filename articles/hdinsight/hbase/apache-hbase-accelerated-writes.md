@@ -8,7 +8,7 @@ ms.date: 01/24/2020
 
 # Azure HDInsight Accelerated Writes for Apache HBase
 
-This article provides background on the **Accelerated Writes** feature for Apache HBase in Azure HDInsight, and how it can be used effectively to improve write performance. **Accelerated Writes** uses [Azure premium SSD managed disks](../../virtual-machines/disks-types.md#premium-ssd) to improve performance of the Apache HBase Write Ahead Log (WAL). To learn more about Apache HBase, see [What is Apache HBase in HDInsight](apache-hbase-overview.md).
+This article provides background on the **Accelerated Writes** feature for Apache HBase in Azure HDInsight, and how it can be used effectively to improve write performance. **Accelerated Writes** uses [Azure premium SSD managed disks](../../virtual-machines/disks-types.md#premium-ssds) to improve performance of the Apache HBase Write Ahead Log (WAL). To learn more about Apache HBase, see [What is Apache HBase in HDInsight](apache-hbase-overview.md).
 
 ## Overview of HBase architecture
 
@@ -30,7 +30,7 @@ The Accelerated Writes feature solves the problem of higher write-latencies caus
 
 To create a new HBase cluster with the Accelerated Writes feature, follow the steps in [Set up clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). On the **Basics** tab select cluster type as HBase, specify a component version and then click on the checkbox next to **Enable HBase accelerated writes**. Then, continue with the remaining steps for cluster creation.
 
-![Enable accelerated writes option for HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-create-hbase-wals.png)
+:::image type="content" source="./media/apache-hbase-accelerated-writes/azure-portal-create-hbase-wals.png" alt-text="Enable accelerated writes option for HDInsight Apache HBase" border="true":::
 
 ## Other considerations
 

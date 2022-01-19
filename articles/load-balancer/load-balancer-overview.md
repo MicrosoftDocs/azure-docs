@@ -6,8 +6,7 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 ms.service: load-balancer
-Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for. 
-ms.devlang: na
+# Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for. 
 ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
@@ -38,8 +37,8 @@ For more information on the individual load balancer components, see [Azure Load
 >[!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios. 
 > * If you are looking to do DNS based global routing and do **not** have requirements for Transport Layer Security (TLS) protocol termination ("SSL offload"), per-HTTP/HTTPS request or application-layer processing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md). 
-> * If you want to load balance between your servers in a region at the application layer, review [Application Gateway](../application-gateway/overview.md)
-> * If you need to optimize global routing of your web traffic and optimize top-tier end-user performance and reliability through quick global failover, see [Front Door](../frontdoor/front-door-overview.md)
+> * If you want to load balance between your servers in a region at the application layer, review [Application Gateway](../application-gateway/overview.md).
+> * If you need to optimize global routing of your web traffic and optimize top-tier end-user performance and reliability through quick global failover, see [Front Door](../frontdoor/front-door-overview.md).
 > 
 > Your end-to-end scenarios may benefit from combining these solutions as needed.
 > For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
@@ -53,7 +52,7 @@ Key scenarios that you can accomplish using Azure Standard Load Balancer include
 
 - Load balance **[internal](./quickstart-load-balancer-standard-internal-portal.md)** and **[external](./quickstart-load-balancer-standard-public-portal.md)** traffic to Azure virtual machines.
 
-- Increase availability by distributing resources **[within](./tutorial-load-balancer-standard-public-zonal-portal.md)** and **[across](./tutorial-load-balancer-standard-public-zone-redundant-portal.md)** zones.
+- Increase availability by distributing resources **[within](./tutorial-load-balancer-standard-public-zonal-portal.md)** and **[across](./quickstart-load-balancer-standard-public-portal.md)** zones.
 
 - Configure **[outbound connectivity ](./load-balancer-outbound-connections.md)** for Azure virtual machines.
 
@@ -61,7 +60,7 @@ Key scenarios that you can accomplish using Azure Standard Load Balancer include
 
 - Employ **[port forwarding](./tutorial-load-balancer-port-forwarding-portal.md)** to access virtual machines in a virtual network by public IP address and port.
 
-- Enable support for **[load-balancing](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** of **[IPv6](../virtual-network/ipv6-overview.md)**.
+- Enable support for **[load-balancing](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** of **[IPv6](../virtual-network/ip-services/ipv6-overview.md)**.
 
 - Standard load balancer provides multi-dimensional metrics through [Azure Monitor](../azure-monitor/overview.md).  These metrics can be filtered, grouped, and broken out for a given dimension.  They provide current and historic insights into performance and health of your service. [Insights for Azure Load Balancer](./load-balancer-insights.md) offers a preconfigured dashboard with useful visualizations for these metrics.  Resource Health is also supported. Review **[Standard load balancer diagnostics](load-balancer-standard-diagnostics.md)** for more details.
 

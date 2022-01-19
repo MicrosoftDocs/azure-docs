@@ -24,7 +24,7 @@
 - name: Resources
   items:
   - name: Common questions
-    href: frequently-asked-questions-genomics.md
+    href: frequently-asked-questions-genomics.yml
   - name: Troubleshooting guide
     href: troubleshooting-guide-genomics.md    
   - name: File a support request

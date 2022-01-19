@@ -1,18 +1,16 @@
 ---
-title: "Deploy Azure IoT Edge workloads (Preview)"
+title: "Deploy Azure IoT Edge workloads"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 02/19/2021
+ms.date: 03/03/2021
 ms.topic: article
-author: mlearned
-ms.author: mlearned
 description: "Deploy Azure IoT Edge workloads"
 keywords: "Kubernetes, Arc, Azure, K8s, containers"
 ---
 
 
-# Deploy Azure IoT Edge workloads (Preview)
+# Deploy Azure IoT Edge workloads
 
 ## Overview
 
@@ -74,4 +72,4 @@ az k8s-configuration delete -g AzureArcTest --cluster-name AzureArcIotEdge --nam
 
 ## Next steps
 
-[Use Azure Policy to govern cluster configuration](./use-azure-policy.md)
+Learn how to [use Azure Policy to govern cluster configuration](./use-azure-policy.md).

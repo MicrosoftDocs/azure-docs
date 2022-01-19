@@ -1,13 +1,12 @@
 ---
 title: Display feature information in Android maps | Microsoft Azure Maps
 description: Learn how to display information when users interact with map features. Use the Azure Maps Android SDK to display toast messages and other types of messages.
-author: rbrundritt
-ms.author: richbrun
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 zone_pivot_groups: azure-maps-android
 ---
 
@@ -70,6 +69,9 @@ map.events.add((OnFeatureClick) (features) -> {
     String msg = features.get(0).getStringProperty("title");
 
     //Do something with the message.
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false;
 }, layer.getId());    //Limit this event to the symbol layer.
 ```
 
@@ -88,6 +90,9 @@ map.events.add(OnFeatureClick { features: List<Feature> ->
     val msg = features[0].getStringProperty("title")
 
     //Do something with the message.
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false
 }, layer.getId()) //Limit this event to the symbol layer.
 ```
 
@@ -107,6 +112,9 @@ map.events.add((OnFeatureClick) (features) -> {
 
     //Display a toast message with the title information.
     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false;
 }, layer.getId());    //Limit this event to the symbol layer.
 ```
 
@@ -122,6 +130,9 @@ map.events.add(OnFeatureClick { features: List<Feature> ->
 
     //Display a toast message with the title information.
     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false
 }, layer.getId()) //Limit this event to the symbol layer.
 ```
 
@@ -138,7 +149,7 @@ In addition to toast messages, There are many other ways to present the metadata
 
 ## Display a popup
 
-The Azure Maps Android SDK provides a `Popup` class that makes it easy to create UI annotation elements that are anchored to a position on the map. For popups you have to pass in a view with a relative layout into the `content` option of the popup. Here is a simple layout example that displays dark text on top of a while background.
+The Azure Maps Android SDK provides a `Popup` class that makes it easy to create UI annotation elements that are anchored to a position on the map. For popups, you have to pass in a view with a relative layout into the `content` option of the popup. Here is a simple layout example that displays dark text on top of a while background.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -184,9 +195,8 @@ map.events.add((OnFeatureClick)(feature) -> {
     TextView tv = customView.findViewById(R.id.message);
     tv.setText(props.get("title").getAsString());
 
-    //Get the coordinates from the clicked feature and create a position object.
-    List<Double> c = ((Point)(f.geometry())).coordinates();
-    Position pos = new Position(c.get(0), c.get(1));
+    //Get the position of the clicked feature.
+    Position pos = MapMath.getPosition((Point)cluster.geometry());
 
     //Set the options on the popup.
     popup.setOptions(
@@ -201,10 +211,16 @@ map.events.add((OnFeatureClick)(feature) -> {
 
         //Optionally, hide the close button of the popup.
         //, closeButton(false)
+            
+        //Optionally offset the popup by a specified number of pixels.
+        //pixelOffset(new Pixel(10, 10))
     );
 
     //Open the popup.
     popup.open();
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false;
 });
 ```
 
@@ -229,9 +245,8 @@ map.events.add(OnFeatureClick { feature: List<Feature> ->
     val tv: TextView = customView.findViewById(R.id.message)
     tv.text = props!!["title"].asString
 
-    //Get the coordinates from the clicked feature and create a position object.
-    val c: List<Double> = (f.geometry() as Point?).coordinates()
-    val pos = Position(c[0], c[1])
+    //Get the position of the clicked feature.
+    val pos = MapMath.getPosition(f.geometry() as Point?);
 
     //Set the options on the popup.
     popup.setOptions( 
@@ -246,10 +261,16 @@ map.events.add(OnFeatureClick { feature: List<Feature> ->
 
         //Optionally, hide the close button of the popup.
         //, closeButton(false)
+            
+        //Optionally offset the popup by a specified number of pixels.
+        //pixelOffset(Pixel(10, 10))
     )
 
     //Open the popup.
     popup.open()
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    false
 })
 ```
 

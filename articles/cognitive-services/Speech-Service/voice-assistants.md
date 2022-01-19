@@ -69,7 +69,7 @@ Voice assistants built using Azure Speech services can use the full range of cus
 
 * [Custom Speech](./custom-speech-overview.md)
 * [Custom Voice](how-to-custom-voice.md)
-* [Custom Keyword](custom-keyword-overview.md)
+* [Custom Keyword](keyword-recognition-overview.md)
 
 > [!NOTE]
 > Customization options vary by language/locale (see [Supported languages](language-support.md)).

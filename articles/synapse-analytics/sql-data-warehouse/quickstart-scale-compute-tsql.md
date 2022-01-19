@@ -2,15 +2,15 @@
 title: 'Quickstart: Scale compute in dedicated SQL pool (formerly SQL DW) - T-SQL'
 description: Scale compute in dedicated SQL pool (formerly SQL DW) using T-SQL and SQL Server Management Studio (SSMS). Scale out compute for better performance, or scale back compute to save costs.
 services: synapse-analytics
-author: Antvgski
+author: jasonwhowell
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: sql-dw 
+ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: anvang
+ms.author: jasonh
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse 
+ms.custom: seo-lt-2019, azure-synapse, mode-other
 ---
 
 # Quickstart: Scale compute for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics using T-SQL
@@ -94,12 +94,12 @@ To change data warehouse units:
 
 ## Monitor scale change request
 
-To see the progress of the previous change request, you can use the `WAITFORDELAY` T-SQL syntax to poll the sys.dm_operation_status dynamic management view (DMV).
+To see the progress of the previous change request, you can use the `WAITFORDELAY` T-SQL syntax to poll the [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?view=azure-sqldw-latest&preserve-view=true) dynamic management view (DMV).
 
 To poll for the service object change status:
 
 1. Right-click **master** and select **New Query**.
-2. Run the following query to poll the sys.dm_operation_status DMV.
+2. Run the following query to poll the [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?view=azure-sqldw-latest&preserve-view=true) DMV.
 
     ```sql
     WHILE

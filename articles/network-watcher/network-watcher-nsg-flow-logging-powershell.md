@@ -1,23 +1,17 @@
 ---
 title: Manage NSG Flow logs - Azure PowerShell
 titleSuffix: Azure Network Watcher
-description: This page explains how to manage Network Security Group Flow logs in Azure Network Watcher with PowerShell
-services: network-watcher
-documentationcenter: na
+description: This page explains how to manage Network Security Group Flow logs in Azure Network Watcher with Azure PowerShell
 author: damendo
-
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 01/07/2021
-ms.author: damendo
-
+ms.author: damendo 
+ms.custom: devx-track-azurepowershell
 ---
 
-
-# Configuring Network Security Group Flow logs with PowerShell
+# Configuring Network Security Group Flow logs with Azure PowerShell
 
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
@@ -26,6 +20,13 @@ ms.author: damendo
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
 Network Security Group flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through a Network Security Group. These flow logs are written in json format and show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
+
+The detailed specification of all NSG flow logs commands for various versions of AzPowerShell can be found [here](/powershell/module/az.network/#network-watcher)
+
+> [!NOTE]
+> - The commands [Get-AzNetworkWatcherFlowLogStatus](/powershell/module/az.network/get-aznetworkwatcherflowlogstatus) and [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) used in this doc, requires an additional "reader" permission in the resource group of the network watcher. Also, these commands are old and may soon be deprecated.
+> - It is recommended to use the new [Get-AzNetworkWatcherFlowLog](/powershell/module/az.network/get-aznetworkwatcherflowlog) and [Set-AzNetworkWatcherFlowLog](/powershell/module/az.network/set-aznetworkwatcherflowlog) commands instead.
+> - The new [Get-AzNetworkWatcherFlowLog](/powershell/module/az.network/get-aznetworkwatcherflowlog) command offers four variants for flexibility. In case you are using the "Location \<String\>" variant of this command, an additional "reader" permission in the resource group of the network watcher would be required. For other variants, no additional permissions are required. 
 
 ## Register Insights provider
 
@@ -70,7 +71,7 @@ The storage account you specify cannot have network rules configured for it that
 Use the following example to disable traffic analytics and flow logs:
 
 ```powershell
-#Disable Traffic Analaytics by removing -EnableTrafficAnalytics property
+#Disable Traffic Analytics by removing -EnableTrafficAnalytics property
 Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true -FormatType Json -FormatVersion 2 -WorkspaceResourceId $workspaceResourceId -WorkspaceGUID $workspaceGUID -WorkspaceLocation $workspaceLocation
 
 #Disable Flow Logging

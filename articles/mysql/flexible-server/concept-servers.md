@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ---
 
-# Server concepts in Azure Database for MySQL Flexible Server (Preview)
+# Server concepts in Azure Database for MySQL Flexible Server
 
-> [!IMPORTANT] 
-> Azure Database for MySQL - Flexible Server is currently in public preview.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This article provides considerations and guidelines for working with Azure Database for MySQL Flexible Servers.
 
@@ -44,13 +43,20 @@ Azure Database for MySQL Flexible Server gives you the ability to **Stop** the s
 When the server is in the **Stopped** state, the server's compute is not billed. However, storage continues to to be billed as the server's storage remains to ensure that data files are available when the server is started again.
 
 > [!IMPORTANT]
-> When you **Stop** the server it remains in that state for the next 7 days in a stretch. If you do not manually **Start** it during this time, the server will automatically be started at the end of 7 days. You can chose to **Stop** it again if you are not using the server.
+> When you **Stop** the server it remains in that state for the next 30 days in a stretch. If you do not manually **Start** it during this time, the server will automatically be started at the end of 30 days. You can chose to **Stop** it again if you are not using the server.
 
 During the time server is stopped, no management operations can be performed on the server. In order to change any configuration settings on the server, you will need to [start the server](how-to-stop-start-server-portal.md). Refer to the [stop/start limitations](./concepts-limitations.md#stopstart-operation).
 
 ## How do I manage a server?
 
-You can manage Azure Database for MySQL Flexible Server by using the [Azure portal](./quickstart-create-server-portal.md) or the [Azure CLI](./quickstart-create-server-cli.md).
+You can manage the creation, deletion, server parameter configuration (my.cnf), scaling, networking, security, high availability, backup & restore, monitoring of your Azure Database for MySQL Flexible Server by using the [Azure portal](./quickstart-create-server-portal.md) or the [Azure CLI](./quickstart-create-server-cli.md). In addition, following stored procedures are available in Azure Database for MySQL to perform certain database administration tasks required as SUPER user privilege is not supported on the server.
+
+|**Stored Procedure Name**|**Input Parameters**|**Output Parameters**|**Usage Note**|
+|-----|-----|-----|-----|
+|*mysql.az_kill*|processlist_id|N/A|Equivalent to [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) command. Will terminate the connection associated with the provided processlist_id after terminating any statement the connection is executing.|
+|*mysql.az_kill_query*|processlist_id|N/A|Equivalent to [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) command. Will terminate the statement the connection is currently executing. Leaves the connection itself alive.|
+|*mysql.az_load_timezone*|N/A|N/A|Loads [time zone tables](../howto-server-parameters.md#working-with-the-time-zone-parameter) to allow the `time_zone` parameter to be set to named values (ex. "US/Pacific").|
+
 
 ## Next steps
 

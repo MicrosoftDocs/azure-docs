@@ -26,7 +26,7 @@ The following steps demonstrate how to identify and troubleshoot latency issues 
 
 2. Use the following PowerShell script to convert the raw format logs into tabular format:
 
-   ```Powershell
+   ```powershell
    $Columns = 
         (   "version-number",
             "request-start-time",
@@ -60,7 +60,7 @@ The following steps demonstrate how to identify and troubleshoot latency issues 
             "client-request-id"
         )
 
-   $logs = Import-Csv “REPLACE THIS WITH FILE PATH” -Delimiter ";" -Header $Columns
+   $logs = Import-Csv "REPLACE THIS WITH FILE PATH" -Delimiter ";" -Header $Columns
 
    $logs | Out-GridView -Title "Storage Analytic Log Parser"
    ```
@@ -68,25 +68,25 @@ The following steps demonstrate how to identify and troubleshoot latency issues 
 3. The script will launch a GUI window where you can filter the information by columns, as shown below.
 
    ![Storage Analytic Log Parser Window](media/troubleshoot-latency-storage-analytics-logs/storage-analytic-log-parser-window.png)
- 
-4. Narrow down the log entries based on “operation-type”, and look for the log entry created during the issue's time frame.
+
+4. Narrow down the log entries based on "operation-type", and look for the log entry created during the issue's time frame.
 
    ![Operation-type log entries](media/troubleshoot-latency-storage-analytics-logs/operation-type.png)
 
 5. During the time when the issue occurred, the following values are important:
 
-   * Operation-type = GetBlob
-   * request-status = SASNetworkError
-   * End-to-End-Latency-In-Ms = 8453
-   * Server-Latency-In-Ms = 391
+   - Operation-type = GetBlob
+   - request-status = SASNetworkError
+   - End-to-End-Latency-In-Ms = 8453
+   - Server-Latency-In-Ms = 391
 
    End-to-End Latency is calculated using the following equation:
 
-   * End-to-End Latency = Server-Latency + Client Latency
+   - End-to-End Latency = Server-Latency + Client Latency
 
    Calculate the Client Latency using the log entry:
 
-   * Client Latency = End-to-End Latency – Server-Latency
+   - Client Latency = End-to-End Latency – Server-Latency
 
         Example: 8453 – 391 = 8062ms
 
@@ -105,58 +105,58 @@ The following steps demonstrate how to identify and troubleshoot latency issues 
 
 Check the following values as mentioned in step 5 of the "Recommended steps" section:
 
-* End-to-End Latency
-* Server-Latency
-* Client-Latency
+- End-to-End Latency
+- Server-Latency
+- Client-Latency
 
 In a **GetBlob Operation** with **RequestStatus = Success**, if **Max Time** is spent in **Client-Latency**, this indicates that Azure Storage is spending a large volume of time writing data to the client. This delay indicates a Client-Side Issue.
 
 **Recommendation:**
 
-* Investigate the code in your client.
-* Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
+- Investigate the code in your client.
+- Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client.
 
 ### GetBlob Operation: RequestStatus = (SAS)NetworkError
 
 Check the following values as mentioned in step 5 of the "Recommended steps" section:
 
-* End-to-End Latency
-* Server-Latency
-* Client-Latency
+- End-to-End Latency
+- Server-Latency
+- Client-Latency
 
 In a **GetBlob Operation** with **RequestStatus = (SAS)NetworkError**, if **Max Time** is spent in **Client-Latency**, the most common issue is that the client is disconnecting before a timeout expires in the storage service.
 
 **Recommendation:**
 
-* Investigate the code in your client to understand why and when the client disconnects from the storage service.
-* Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
+- Investigate the code in your client to understand why and when the client disconnects from the storage service.
+- Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client.
 
 ### Put Operation: RequestStatus = Success
 
 Check the following values as mentioned in step 5 of the "Recommended steps" section:
 
-* End-to-End Latency
-* Server-Latency
-* Client-Latency
+- End-to-End Latency
+- Server-Latency
+- Client-Latency
 
 In a **Put Operation** with **RequestStatus = Success**, if **Max Time** is spent in **Client-Latency**, this indicates that the Client is taking more time to send data to the Azure Storage. This delay indicates a Client-Side Issue.
 
 **Recommendation:**
 
-* Investigate the code in your client.
-* Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
+- Investigate the code in your client.
+- Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client.
 
 ### Put Operation: RequestStatus = (SAS)NetworkError
 
 Check the following values as mentioned in step 5 of the "Recommended steps" section:
 
-* End-to-End Latency
-* Server-Latency
-* Client-Latency
+- End-to-End Latency
+- Server-Latency
+- Client-Latency
 
 In a **PutBlob Operation** with **RequestStatus = (SAS)NetworkError**, if **Max Time** is spent in **Client-Latency**, the most common issue is that the client is disconnecting before a timeout expires in the storage service.
 
 **Recommendation:**
 
-* Investigate the code in your client to understand why and when the client disconnects from the storage service.
-* Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client.
+- Investigate the code in your client to understand why and when the client disconnects from the storage service.
+- Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client.

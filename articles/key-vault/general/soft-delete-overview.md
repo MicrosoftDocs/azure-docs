@@ -4,9 +4,9 @@ description: Soft-delete in Azure Key Vault allows you to recover deleted key va
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-author: ShaneBala-keyvault
-ms.author: sudbalas
-ms.date: 12/15/2020
+author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 03/31/2021
 ---
 
 # Azure Key Vault soft-delete overview
@@ -15,7 +15,7 @@ ms.date: 12/15/2020
 > You must enable soft-delete on your key vaults immediately. The ability to opt out of soft-delete will be deprecated soon. See full details [here](soft-delete-change.md)
 
 > [!IMPORTANT]
-> Soft-deleted vault triggers delete settings for integrated with Key Vault services i.e. Azure RBAC roles assignments, Event Grid subscriptions, Azure Monitor diagnostics settings. After recovery of soft-deleted Key Vault settings for integrated services will need to be manually recreated. 
+> When a Key Vault is soft-deleted, services that are integrated with the Key Vault will be deleted. For example: Azure RBAC roles assignments and Event Grid subscriptions. Recovering a soft-deleted Key Vault will not restore these services. They will need to be recreated.
 
 Key Vault's soft-delete feature allows recovery of the deleted vaults and deleted key vault objects (for example, keys, secrets, certificates), known as soft-delete. Specifically, we address the following scenarios:  This safeguard offer the following protections:
 
@@ -25,7 +25,7 @@ Key Vault's soft-delete feature allows recovery of the deleted vaults and delete
 
 ## Supporting interfaces
 
-The soft-delete feature is available through the [REST API](/rest/api/keyvault/), the [Azure CLI](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md), and [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet&preserve-view=true) interfaces, as well as [ARM templates](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+The soft-delete feature is available through the [REST API](/rest/api/keyvault/), the [Azure CLI](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md), and [.NET/C#](/dotnet/api/microsoft.azure.keyvault) interfaces, as well as [ARM templates](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## Scenarios
 
@@ -39,7 +39,7 @@ Azure Key Vaults are tracked resources, managed by Azure Resource Manager. Azure
 
 When soft-delete is enabled, resources marked as deleted resources are retained for a specified period (90 days by default). The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion.
 
-When creating a new key vault, soft-delete is on by default. You can create a key vault without soft-delete through the [Azure CLI](./key-vault-recovery.md) or [Azure PowerShell](./key-vault-recovery.md). Once soft-delete is enabled on a key vault it cannot be disabled
+When creating a new key vault, soft-delete is on by default. Once soft-delete is enabled on a key vault it cannot be disabled.
 
 The default retention period is 90 days but, during key vault creation, it is possible to set the retention policy interval to a value from 7 to 90 days through the Azure portal. The purge protection retention policy uses the same interval. Once set, the retention policy interval cannot be changed.
 

@@ -3,7 +3,7 @@ title: Compare Active Directory-based services in Azure | Microsoft Docs
 description: In this overview, you compare the different identity offerings for Active Directory Domain Services, Azure Active Directory, and Azure Active Directory Domain Services.
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: domain-services
@@ -76,7 +76,7 @@ The following table outlines some of the features you may need for your organiza
 | **Secure LDAP (LDAPS)**                           | **&#x2713;** | **&#x2713;** |
 | **LDAP read**                                     | **&#x2713;** | **&#x2713;** |
 | **LDAP write**                                    | **&#x2713;** (within the managed domain) | **&#x2713;** |
-| **Geo-distributed deployments**                   | **&#x2715;** | **&#x2713;** |
+| **Geo-distributed deployments**                   | **&#x2713;** | **&#x2713;** |
 
 ## Azure AD DS and Azure AD
 

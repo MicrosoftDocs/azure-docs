@@ -3,8 +3,8 @@ title: Azure AD Connect cloud sync troubleshooting
 description: This article describes how to troubleshoot problems that might arise with the cloud provisioning agent.
 author: billmath
 ms.author: billmath
-manager: daveba
-ms.date: 01/19/2021
+manager: karenhoran
+ms.date: 10/13/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
@@ -22,6 +22,7 @@ Cloud sync touches many different things and has many different dependencies. Th
 |[Agent problems](#agent-problems)|Verify that the agent was installed correctly and that it communicates with Azure Active Directory (Azure AD).|
 |[Object synchronization problems](#object-synchronization-problems)|Use provisioning logs to troubleshoot object synchronization problems.|
 |[Provisioning quarantined problems](#provisioning-quarantined-problems)|Understand provisioning quarantine problems and how to fix them.|
+|[Password writeback](#password-writeback)|Understand common password writeback issues and how to fix them.|
 
 
 ## Agent problems
@@ -48,13 +49,38 @@ To verify that the agent is seen by Azure and is healthy, follow these steps.
 
    ![On-premises provisioning agents screen](media/how-to-install/install-8.png)</br>
 
-### Verify the port
+### Verify the required open ports
 
-Verify that Azure is listening on port 443 and that your agent can communicate with it. 
+Verify that Azure AD Connect Provisioning agent is able to communicate successfully with Azure data centers. If there's a firewall in the path, make sure that the following ports to outbound traffic are open.
 
-This test verifies that your agents can communicate with Azure over port 443. Open a browser, and go to the previous URL from the server where the agent is installed.
+Open the following ports to **outbound** traffic.
 
-![Verification of port reachability](media/how-to-install/verify-2.png)
+| Port number | How it's used |
+| ----------- | ------------------------------------------------------------ |
+| 80          | Downloading certificate revocation lists (CRLs) while validating the TLS/SSL certificate |
+| 443         | All outbound communication with the Application Proxy service |
+
+If your firewall enforces traffic according to originating users, also open ports 80 and 443 for traffic from Windows services that run as a Network Service.
+
+### Allow access to URLs
+
+Allow access to the following URLs:
+
+| URL | Port | How it's used |
+| --- | --- | --- |
+| `*.msappproxy.net` <br> `*.servicebus.windows.net` | 443/HTTPS | Communication between the connector and the Application Proxy cloud service |
+| `crl3.digicert.com` <br> `crl4.digicert.com` <br> `ocsp.digicert.com` <br> `crl.microsoft.com` <br> `oneocsp.microsoft.com` <br> `ocsp.msocsp.com`<br> | 80/HTTP   | The connector uses these URLs to verify certificates.        |
+| `login.windows.net` <br> `secure.aadcdn.microsoftonline-p.com` <br> `*.microsoftonline.com` <br> `*.microsoftonline-p.com` <br> `*.msauth.net` <br> `*.msauthimages.net` <br> `*.msecnd.net` <br> `*.msftauth.net` <br> `*.msftauthimages.net` <br> `*.phonefactor.net` <br> `enterpriseregistration.windows.net` <br> `management.azure.com` <br> `policykeyservice.dc.ad.msft.net` <br> `ctldl.windowsupdate.com` <br> `www.microsoft.com/pkiops` | 443/HTTPS | The connector uses these URLs during the registration process. |
+| `ctldl.windowsupdate.com` | 80/HTTP | The connector uses this URL during the registration process. |
+
+You can allow connections to `*.msappproxy.net`, `*.servicebus.windows.net`, and other URLs above if your firewall or proxy lets you configure access rules based on domain suffixes. If not, you need to allow access to the [Azure IP ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). The IP ranges are updated each week.
+
+> [!IMPORTANT]
+> Avoid all forms of inline inspection and termination on outbound TLS communications between Azure AD Application Proxy connectors and Azure AD Application Proxy Cloud services.
+
+### DNS name resolution for Azure AD Application Proxy endpoints
+
+Public DNS records for Azure AD Application Proxy endpoints are chained CNAME records pointing to an A record. This ensures fault tolerance and flexibility. It’s guaranteed that the Azure AD Application Proxy Connector always accesses host names with the domain suffixes `*.msappproxy.net` or `*.servicebus.windows.net`. However, during the name resolution the CNAME records might contain DNS records with different host names and suffixes. Due to this, you must ensure that the device (depending on your setup - connector server, firewall, outbound proxy) can resolve all the records in the chain and allows connection to the resolved IP addresses. Since the DNS records in the chain might be changed from time to time, we cannot provide you with any list DNS records.
 
 ### On the local server
 
@@ -116,7 +142,7 @@ You might get an error message when you install the cloud provisioning agent.
 
 This problem is typically caused by the agent being unable to execute the PowerShell registration scripts due to local PowerShell execution policies.
 
-To resolve this problem, change the PowerShell execution policies on the server. You need to have Machine and User policies set as *Undefined* or *RemoteSigned*. If they're set as *Unrestricted*, you'll see this error. For more information, see [PowerShell execution policies](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
+To resolve this problem, change the PowerShell execution policies on the server. You need to have Machine and User policies set as *Undefined* or *RemoteSigned*. If they're set as *Unrestricted*, you'll see this error. For more information, see [PowerShell execution policies](/powershell/module/microsoft.powershell.core/about/about_execution_policies). 
 
 ### Log files
 
@@ -162,25 +188,26 @@ By selecting the status, you can see additional information about the quarantine
 
 ![Screenshot that shows additional information about the quarantine.](media/how-to-troubleshoot/quarantine-2.png)
 
-Right clicking on the status will bring up additional options:
-    
-   - view provisioning logs
-   - view agent
-   - clear quarantine
+Right-clicking on the status will bring up additional options:
+
+- view provisioning logs
+- view agent
+- clear quarantine
 
 ![Screenshot that shows the right-click menu options.](media/how-to-troubleshoot/quarantine-4.png)
 
-
 ### Resolve a quarantine
-There are two different ways to resolve a quarantine.  They are:
 
-  - clear quarantine - clears the watermark and runs a delta sync
-  - restart the provisioning job - clears the watermark and runs an initial sync
+There are two different ways to resolve a quarantine. They are:
+
+- clear quarantine - clears the watermark and runs a delta sync
+- restart the provisioning job - clears the watermark and runs an initial sync
 
 #### Clear quarantine
+
 To clear the watermark and run a delta sync on the provisioning job once you have verified it, simply right-click on the status and select **clear quarantine**.
 
-You should see an notice that the quarantine is clearing.
+You should see a notice that the quarantine is clearing.
 
 ![Screenshot that shows the notice that the quarantine is clearing.](media/how-to-troubleshoot/quarantine-5.png)
 
@@ -189,11 +216,13 @@ Then you should see the status on your agent as healthy.
 ![Quarantine status information](media/how-to-troubleshoot/quarantine-6.png)
 
 #### Restart the provisioning job
+
 Use the Azure portal to restart the provisioning job. On the agent configuration page, select **Restart provisioning**.
 
   ![Restart provisioning](media/how-to-troubleshoot/quarantine-3.png)
 
-- Use Microsoft Graph to [restart the provisioning job](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). You'll have full control over what you restart. You can choose to clear:
+- Use Microsoft Graph to [restart the provisioning job](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). You'll have full control over what you restart. You can choose to clear:
+
   - Escrows, to restart the escrow counter that accrues toward quarantine status.
   - Quarantine, to remove the application from quarantine.
   - Watermarks. 
@@ -203,20 +232,39 @@ Use the Azure portal to restart the provisioning job. On the agent configuration
   `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
 
 ## Repairing the the Cloud Sync service account
-If you need to repair the cloud sync service account you can use the `Repair-AADCloudSyncToolsAccount`.  
 
+If you need to repair the cloud sync service account you can use the `Repair-AADCloudSyncToolsAccount`.
 
-   1.  Use the installation steps outlined [here](reference-powershell.md#install-the-aadcloudsynctools-powershell-module) to begin and then continue with the remaining steps.
-   2.  From a Windows PowerShell session with administrative privileges, type or copy and paste the following: 
-	```
-	Connect-AADCloudSyncTools
-	```  
-   3. Enter your Azure AD global admin credentials
-   4. Type or copy and paste the following: 
-	```
-	Repair-AADCloudSyncToolsAccount
-	```  
+   1. Use the installation steps outlined [here](reference-powershell.md#install-the-aadcloudsynctools-powershell-module) to begin and then continue with the remaining steps.
+
+   2. From a PowerShell session with administrative privileges, type or copy and paste the following:
+
+      ```powershell
+      Connect-AADCloudSyncTools
+      ```
+
+   3. Enter your Azure AD global admin credentials.
+
+   4. Type or copy and paste the following:
+
+      ```powershell
+      Repair-AADCloudSyncToolsAccount
+      ```
+
    5. Once this completes it should say that the account was repaired successfully.
+
+## Password writeback
+The following information is important to keep in mind with regard to enabling and using password writeback with cloud sync.
+
+- If you need to update the [gMSA permissions](how-to-gmsa-cmdlets.md#using-set-aadcloudsyncpermissions), it may take up to an hour or more for these permissions to replicate to all the objects in your directory. If you don't assign these permissions, writeback may appear to be configured correctly, but users may encounter errors when they update their on-premises passwords from the cloud. Permissions must be applied to “This object and all descendant objects” for **Unexpire Password** to appear. 
+- If passwords for some user accounts aren't written back to the on-premises directory, make sure that inheritance isn't disabled for the account in the on-prem AD DS environment. Write permissions for passwords must be applied to descendant objects for the feature to work correctly. 
+- Password policies in the on-premises AD DS environment may prevent password resets from being correctly processed. If you are testing this feature and want to reset passwords for users more than once per day, the group policy for Minimum password age must be set to 0. This setting can be found under **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies** within **gpmc.msc**. 
+     - If you update the group policy, wait for the updated policy to replicate, or use the gpupdate /force command. 
+     - For passwords to be changed immediately, Minimum password age must be set to 0. However, if users adhere to the on-premises policies, and the Minimum password age is set to a value greater than zero, password writeback will not work after the on-premises policies are evaluated. 
+
+
+
+
 
 ## Next steps 
 

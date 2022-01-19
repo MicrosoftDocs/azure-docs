@@ -1,19 +1,15 @@
 ---
 title: Azure Kinect DK hardware specifications
 description: Understand the components, specifications, and capabilities of the Azure Kinect DK.
-author: tesych
-ms.author: tesych
-ms.reviewer: jarrettr
+author: qm13
+ms.author: quentinm
 ms.prod: kinect-dk
-ms.date: 02/14/2020
+ms.date: 03/18/2021
 ms.topic: article
 keywords: azure, kinect, specs, hardware, DK, capabilities, depth, color, RGB, IMU, microphone, array, depth
-ms.custom: 
-- CI 114092
-- CSSTroubleshooting
+ms.custom: CI 114092, CSSTroubleshooting
 audience: ITPro
 manager: dcscontentpm
-ms.localizationpriority: high
 ---
 
 # Azure Kinect DK hardware specifications
@@ -41,6 +37,8 @@ The Azure Kinect device consists of the following size and weight dimensions.
 - **Weight**: 440 g
 
 ![Azure Kinect DK dimensions](./media/resources/hardware-specs-media/dimensions.png)
+
+A STEP file for the Azure Kinect device is available [here](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/assets). 
 
 ## Operating environment
 
@@ -149,7 +147,7 @@ Vendor ID is 0x045E (Microsoft). Product ID table is shown below:
 
 |    USB Interface        |    PNP IP    |     Notes            |
 |-------------------------|--------------|----------------------|
-|    USB3.1 Gen1 Hub    |    0x097A    |    The   main hub    |
+|    USB3.1 Gen2 Hub    |    0x097A    |    The   main hub    |
 |    USB2.0 Hub         |    0x097B    |    HS   USB          |
 |    Depth camera       |    0x097C    |    USB3.0            |
 |    Color camera       |    0x097D    |    USB3.0            |

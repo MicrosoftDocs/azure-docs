@@ -3,8 +3,8 @@ title: 'Tutorial: Configure SAP Analytics Cloud for automatic user provisioning 
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to SAP Analytics Cloud.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 27d12989-efa8-4254-a4ad-8cb6bf09d839
@@ -12,10 +12,9 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/13/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure SAP Analytics Cloud for automatic user provisioning
@@ -40,6 +39,10 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A user account on SAP Identity Provisioning admin console with Admin permissions. Make sure you have access to the proxy systems in the Identity Provisioning admin console. If you don't see the **Proxy Systems** tile, create an incident for component **BC-IAM-IPS** to request access to this tile.
 * An OAuth client with authorization grant Client Credentials in SAP Analytics Cloud. To learn how, see: [Managing OAuth Clients and Trusted Identity Providers](https://help.sap.com/viewer/00f68c2e08b941f081002fd3691d86a7/release/en-US/4f43b54398fc4acaa5efa32badfe3df6.html)
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
+
 ## Step 1. Plan your provisioning deployment
 
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -50,7 +53,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Sign into [SAP Identity Provisioning admin console](https://ips-xlnk9v890j.dispatcher.us1.hana.ondemand.com/) with your administrator account and then select **Proxy Systems**.
 
-   ![SAP Proxy Systems](./media/sap-analytics-cloud-provisioning-tutorial/sap-proxy-systems.png.png)
+   ![SAP Proxy Systems](./media/sap-analytics-cloud-provisioning-tutorial/sap-proxy-systems.png)
 
 2. Select **Properties**.
 

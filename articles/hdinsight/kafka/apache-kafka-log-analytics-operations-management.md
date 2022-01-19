@@ -92,7 +92,7 @@ The steps to enable Azure Monitor logs for HDInsight are the same for all HDInsi
     | log\_kafkacontroller\_CL | Kafka broker controller.log |
     | metrics\_kafka\_CL | Kafka JMX metrics |
 
-    ![Apache kafka log analytics cpu usage](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
+    :::image type="content" source="./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png" alt-text="Apache kafka log analytics cpu usage" border="true":::
 
 ## Next steps
 

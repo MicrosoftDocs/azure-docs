@@ -1,8 +1,8 @@
 ---
 title: Connect with Managed Identity - Azure Database for PostgreSQL - Single Server
 description: Learn about how to connect and authenticate using Managed Identity for authentication with Azure Database for PostgreSQL
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
@@ -11,11 +11,11 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 
 # Connect with Managed Identity to Azure Database for PostgreSQL
 
-This article shows you how to use a user-assigned identity for an Azure Virtual Machine (VM) to access an Azure Database for PostgreSQL server. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. 
+You can use both system-assigned and user-assigned managed identities to authenticate to Azure Database for PostgreSQL. This article shows you how to use a system-assigned managed identity for an Azure Virtual Machine (VM) to access an Azure Database for PostgreSQL server. Managed Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code.
 
 You learn how to:
 - Grant your VM access to an Azure Database for PostgreSQL server
-- Create a user in the database that represents the VM's user-assigned identity
+- Create a user in the database that represents the VM's system-assigned identity
 - Get an access token using the VM identity and use it to query an Azure Database for PostgreSQL server
 - Implement the token retrieval in a C# example application
 
@@ -27,39 +27,24 @@ You learn how to:
 - You need an Azure Database for PostgreSQL database server that has [Azure AD authentication](howto-configure-sign-in-aad-authentication.md) configured
 - To follow the C# example, first complete the guide how to [Connect with C#](connect-csharp.md)
 
-## Creating a user-assigned managed identity for your VM
+## Creating a system-assigned managed identity for your VM
 
-Create an identity in your subscription using the [az identity create](/cli/azure/identity#az-identity-create) command. You can use the same resource group that your virtual machine runs in, or a different one.
+Use [az vm identity assign](/cli/azure/vm/identity/) with the `identity assign` command enable the system-assigned identity to an existing VM:
 
 ```azurecli-interactive
-az identity create --resource-group myResourceGroup --name myManagedIdentity
+az vm identity assign -g myResourceGroup -n myVm
 ```
 
-To configure the identity in the following steps, use the [az identity show](/cli/azure/identity#az-identity-show) command to store the identity's resource ID and client ID in variables.
+Retrieve the application ID for the system-assigned managed identity, which you'll need in the next few steps:
 
 ```azurecli
-# Get resource ID of the user-assigned identity
-resourceID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query id --output tsv)
-
-# Get client ID of the user-assigned identity
-clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
-```
-
-We can now assign the user-assigned identity to the VM with the [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) command:
-
-```azurecli
-az vm identity assign --resource-group myResourceGroup --name myVM --identities $resourceID
-```
-
-To finish setup, show the value of the Client ID, which you'll need in the next few steps:
-
-```bash
-echo $clientID
+# Get the client ID (application ID) of the system-assigned managed identity
+az ad sp list --display-name vm-name --query [*].appId --out tsv
 ```
 
 ## Creating a PostgreSQL user for your Managed Identity
 
-Now, connect as the Azure AD administrator user to your PostgreSQL database, and run the following SQL statements:
+Now, connect as the Azure AD administrator user to your PostgreSQL database, and run the following SQL statements, replacing `CLIENT_ID` with the client ID you retrieved for your system-assigned managed identity:
 
 ```sql
 SET aad_validate_oids_in_tenant = off;
@@ -96,7 +81,7 @@ You are now connected to the database you've configured earlier.
 
 This section shows how to get an access token using the VM's user-assigned managed identity and use it to call Azure Database for PostgreSQL. Azure Database for PostgreSQL natively supports Azure AD authentication, so it can directly accept access tokens obtained using managed identities for Azure resources. When creating a connection to PostgreSQL, you pass the access token in the password field.
 
-Here's a .NET code example of opening a connection to PostgreSQL using an access token. This code must run on the VM to access the VM's user-assigned managed identity's endpoint. .NET Framework 4.6 or higher or .NET Core 2.2 or higher is required to use the access token method. Replace the values of HOST, USER, DATABASE, and CLIENT_ID.
+Here's a .NET code example of opening a connection to PostgreSQL using an access token. This code must run on the VM to use the system-assigned managed identity to obtain an access token from Azure AD. Replace the values of HOST, USER, DATABASE, and CLIENT_ID.
 
 ```csharp
 using System;
@@ -107,41 +92,34 @@ using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Npgsql;
+using Azure.Identity;
 
 namespace Driver
 {
     class Script
     {
-        // Obtain connection string information from the portal
-        //
+        // Obtain connection string information from the portal for use in the following variables
         private static string Host = "HOST";
         private static string User = "USER";
         private static string Database = "DATABASE";
-        private static string ClientId = "CLIENT_ID";
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             //
             // Get an access token for PostgreSQL.
             //
-            Console.Out.WriteLine("Getting access token from Azure Instance Metadata service...");
+            Console.Out.WriteLine("Getting access token from Azure AD...");
 
             // Azure AD resource ID for Azure Database for PostgreSQL is https://ossrdbms-aad.database.windows.net/
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fossrdbms-aad.database.windows.net&client_id=" + ClientId);
-            request.Headers["Metadata"] = "true";
-            request.Method = "GET";
             string accessToken = null;
 
             try
             {
                 // Call managed identities for Azure resources endpoint.
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                var sqlServerTokenProvider = new DefaultAzureCredential();
+                accessToken = (await sqlServerTokenProvider.GetTokenAsync(
+                    new Azure.Core.TokenRequestContext(scopes: new string[] { "https://ossrdbms-aad.database.windows.net/.default" }) { })).Token;
 
-                // Pipe response Stream to a StreamReader and extract access token.
-                StreamReader streamResponse = new StreamReader(response.GetResponseStream());
-                string stringResponse = streamResponse.ReadToEnd();
-                var list = JsonSerializer.Deserialize<Dictionary<string, string>>(stringResponse);
-                accessToken = list["access_token"];
             }
             catch (Exception e)
             {
@@ -154,7 +132,7 @@ namespace Driver
             //
             string connString =
                 String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Prefer",
+                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4}; SSLMode=Prefer",
                     Host,
                     User,
                     Database,
@@ -184,12 +162,12 @@ namespace Driver
 When run, this command will give an output like this:
 
 ```
-Getting access token from Azure Instance Metadata service...
+Getting access token from Azure AD...
 Opening connection using access token...
 
 Connected!
 
-Postgres version: PostgreSQL 11.6, compiled by Visual C++ build 1800, 64-bit
+Postgres version: PostgreSQL 11.11, compiled by Visual C++ build 1800, 64-bit
 ```
 
 ## Next steps

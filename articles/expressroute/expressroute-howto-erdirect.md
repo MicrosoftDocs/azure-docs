@@ -17,7 +17,7 @@ ExpressRoute Direct gives you the ability to directly connect to Microsoft's glo
 
 ## Before you begin
 
-Before using ExpressRoute Direct, you must first enroll your subscription. Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, please do the following via Azure PowerShell:
+Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, please do the following via Azure PowerShell:
 1.  Sign in to Azure and select the subscription you wish to enroll.
 
     ```azurepowershell-interactive
@@ -302,7 +302,12 @@ Create a circuit on the ExpressRoute Direct resource.
   AllowClassicOperations           : False
   GatewayManagerEtag     
   ```
-
+## Delete the resource
+Prior to deleting the ExpressRoute Direct resource, you first need to delete any ExpressRoute circuits created on the ExpressRoute Direct port pair.
+You can delete the ExpressRoute Direct resource by running the following command:
+ ```powershell
+   Remove-azexpressrouteport -Name $Name -Resourcegroupname -$ResourceGroupName
+   ```
 ## Next steps
 
 For more information about ExpressRoute Direct, see the [Overview](expressroute-erdirect-about.md).

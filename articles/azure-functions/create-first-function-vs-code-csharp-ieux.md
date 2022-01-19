@@ -1,9 +1,10 @@
 ---
-title: Create a C# function using Visual Studio Code - Azure Functions
-description: Learn how to create a C# function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code. 
+title: "Create a C# function using Visual Studio Code - Azure Functions"
+description: "Learn how to create a C# function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code. "
 ms.topic: quickstart
 ms.date: 11/03/2020
-ms.custom: devx-track-csharp
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-ui
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
@@ -82,7 +83,7 @@ In this section, you create a function app and related resources in your Azure s
 
 1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app...** button.
 
-    ![Publish your project to Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
+    
 
 1. Provide the following information at the prompts:
 

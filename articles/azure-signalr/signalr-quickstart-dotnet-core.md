@@ -3,9 +3,9 @@ title: Quickstart to learn how to use Azure SignalR Service
 description: A quickstart for using Azure SignalR Service to create a chat room with ASP.NET Core MVC apps.
 author: sffamily
 ms.service: signalr
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 ms.date: 09/28/2020
 ms.author: zhshang
 ---
@@ -24,7 +24,7 @@ The code for this tutorial is available for download in the [AzureSignalR-sample
 
 ## Prerequisites
 
-* Install the [.NET Core SDK](https://www.microsoft.com/net/download/windows).
+* Install the [.NET Core SDK](https://dotnet.microsoft.com/download).
 * Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub repository. 
 
 Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnetcore).

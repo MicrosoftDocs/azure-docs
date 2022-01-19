@@ -2,8 +2,8 @@
 title: Authentication a managed identity with Azure Active Directory
 description: This article provides information about authenticating a managed identity with Azure Active Directory to access Azure Event Hubs resources
 ms.topic: conceptual
-ms.date: 01/25/2021
-ms.custom: devx-track-csharp
+ms.date: 06/14/2021
+ms.custom: subject-rbac-steps
 ---
 # Authenticate a managed identity with Azure Active Directory to access Event Hubs Resources
 Azure Event Hubs supports Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to Event Hubs resources using Azure AD credentials from applications running in Azure Virtual Machines (VMs), Function apps, Virtual Machine Scale Sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.
@@ -43,28 +43,10 @@ Once the application is created, follow these steps:
     Now, assign this service identity to a role in the required scope in your Event Hubs resources.
 
 ### To Assign Azure roles using the Azure portal
-To assign a role to Event Hubs resources, navigate to that resource in the Azure portal. Display the Access Control (IAM) settings for the resource, and follow these instructions to manage role assignments:
+Assign one of the [Event Hubs roles](authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) to the managed identity at the desired scope (Event Hubs namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 > [!NOTE]
-> The following steps assigns a service identity role to your Event Hubs namespaces. You can follow the same steps to assign a role scoped to any Event Hubs resource. 
-
-1. In the Azure portal, navigate to your Event Hubs namespace and display the **Overview** for the namespace. 
-1. Select **Access Control (IAM)** on the left menu to display access control settings for the event hub.
-1.  Select the **Role assignments** tab to see the list of role assignments.
-3.	Select **Add**, and then select **Add role assignment***.
-4.	On the **Add role assignment** page, follow these steps:
-    1. For **Role**, select the Event Hubs role that you want to assign. In this example, it's **Azure Event Hubs Data Owner**.
-    1. For the **Assign access to** field, select **App Service** under **System assigned managed identity**. 
-    1. Select the **subscription** in which the managed identity for the web app was created.
-    1. Select the **managed identity** for the web app you created. The default name for the identity is same as the name of the web app. 
-    1. Then, select **Save**. 
-    
-        ![Add role assignment page](./media/authenticate-managed-identity/add-role-assignment-page.png)
-
-    Once you've assigned the role, the web application will have access to the Event Hubs resources under the defined scope. 
-
-    > [!NOTE]
-    > For a list of services that support managed identities, see [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
+> For a list of services that support managed identities, see [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 ### Test the web application
 1. Create an Event Hubs namespace and an event hub. 

@@ -3,12 +3,13 @@ title: Classify your Azure SQL data using Azure Purview labels
 description: Import your classification from Azure Purview in your Azure SQL Database and Azure Synpase Analytics 
 services: sql-database
 ms.service: sql-database
+ms.subservice: security
 ms.custom: 
 ms.devlang: azurepowershell
 ms.topic: sample
 author: davidtrigano
 ms.author: datrigan
-ms.reviewer: vanto
+ms.reviewer: vanto, mathoma
 ms.date: 02/17/2021
 ---
 
@@ -37,17 +38,17 @@ This document describes how to add Azure Purview labels in your Azure SQL Databa
 
 ## Provide permissions to the application
 
-1. In your Azure portal, search for **Purview accounts**.
-2. Select the Purview account where your SQL databases and Synapse are classified.
+1. In your Azure portal, search for **Azure Purview accounts**.
+2. Select the Azure Purview account where your SQL databases and Synapse are classified.
 3. Open **Access control (IAM)**, select **Add**.
 
 4. Select **Add role assignment**.
-5. In the **Role** section, search for **Purview Data Reader** and select it.
+5. In the **Role** section, search for **Azure Purview Data Reader** and select it.
 6. In the **Select** section, search for the application you previously created, select it, and hit **Save**.
 
 ## Extract the classification from Azure Purview
 
-1. Open your Purview account, and in the Home page, search for your Azure SQL Database or Azure Synapse Analytics where you want to copy the labels.
+1. Open your Azure Purview account, and in the Home page, search for your Azure SQL Database or Azure Synapse Analytics where you want to copy the labels.
 2. Copy the qualifiedName under **Properties**, and keep it for future use.
 3. Open your PowerShell shell.
 

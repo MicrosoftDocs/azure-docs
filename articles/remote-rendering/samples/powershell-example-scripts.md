@@ -21,7 +21,7 @@ The [ARR samples repository](https://github.com/Azure/azure-remote-rendering) co
 > There is also a [UI-based tool called ARRT](azure-remote-rendering-asset-tool.md) to interact with the service, which is a convenient alternative to using scripts. ![ARRT](./media/azure-remote-rendering-asset-tool.png "ARRT screenshot")
 
 > [!CAUTION]
-> Calling REST API functions too frequently will cause the server to throttle and return failure eventually. The http failure code id in this case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
+> Calling REST API functions too frequently will cause the server to throttle and return failure eventually. The HTTP failure code id in this case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ To execute the sample scripts, you need a functional setup of [Azure PowerShell]
     1. Open a PowerShell window with admin rights.
     1. Run: `Install-Module -Name Az -AllowClobber`
 
-1. If you get errors about running scripts, ensure your [execution policy](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) is set appropriately:
+1. If you get errors about running scripts, ensure your [execution policy](/powershell/module/microsoft.powershell.core/about/about_execution_policies) is set appropriately:
     1. Open a PowerShell window with admin rights.
     1. Run: `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
 

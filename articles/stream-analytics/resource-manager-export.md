@@ -37,11 +37,11 @@ The next step is to compile the job script to an Azure Resource Manager template
 
 1. Notice that a **Deploy** folder appears in your Stream Analytics job workspace.
 
-1. Explore the *JobTemplate.json* file, which is the Azure Resource Management template used to deploy.
+1. Explore the *JobTemplate.json* file, which is the Azure Resource Manager template used to deploy.
 
 ## Complete the parameters file
 
-Next, complete the Azure Resource Management template parameters file.
+Next, complete the Azure Resource Manager template parameters file.
 
 1. Open the *JobTemplate.parameters.json* file located in the **Deploy** folder of your Stream Analytics job workspace in Visual Studio Code.
 

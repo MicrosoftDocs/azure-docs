@@ -1,7 +1,8 @@
 ---
 title: Mainframe rehosting on Azure virtual machines
 description: Rehost your mainframe workloads such as IBM Z-based systems using virtual machines (VMs) on Microsoft Azure.
-services: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 documentationcenter:
 author: njray
 manager: edprice
@@ -9,7 +10,6 @@ editor: edprice
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: multiple
 ---
 
 # Mainframe rehosting on Azure virtual machines
@@ -116,7 +116,7 @@ See also:
 
 - [White papers about mainframe topics](mainframe-white-papers.md)
 - [Mainframe migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Troubleshooting](../../troubleshooting/index.yml)
+- [Troubleshooting](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 - [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

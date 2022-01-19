@@ -1,20 +1,20 @@
 ---
-title: Windows Virtual Desktop (classic) host pool load-balancing - Azure
-description: Host pool load-balancing methods for a Windows Virtual Desktop environment.
+title: Azure Virtual Desktop (classic) host pool load-balancing - Azure
+description: Host pool load-balancing methods for a Azure Virtual Desktop environment.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Host pool load-balancing methods in Windows Virtual Desktop (classic)
+# Host pool load-balancing methods in Azure Virtual Desktop (classic)
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../host-pool-load-balancing.md).
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../host-pool-load-balancing.md).
 
-Windows Virtual Desktop supports two load-balancing methods. Each method determines which session host will host a user's session when they connect to a resource in a host pool.
+Azure Virtual Desktop supports two load-balancing methods. Each method determines which session host will host a user's session when they connect to a resource in a host pool.
 
-The following load-balancing methods are available in Windows Virtual Desktop:
+The following load-balancing methods are available in Azure Virtual Desktop:
 
 - Breadth-first load balancing allows you to evenly distribute user sessions across the session hosts in a host pool.
 - Depth-first load balancing allows you to saturate a session host with user sessions in a host pool. Once the first session reaches its session limit threshold, the load balancer directs any new user connections to the next session host in the host pool until it reaches its limit, and so on.

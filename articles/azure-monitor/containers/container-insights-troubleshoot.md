@@ -2,7 +2,7 @@
 title: How to Troubleshoot Container insights | Microsoft Docs
 description: This article describes how you can troubleshoot and resolve issues with Container insights.
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 03/25/2021
 
 ---
 
@@ -109,6 +109,79 @@ Container insights agent Pods uses the cAdvisor endpoint on the node agent to ga
 ## Non-Azure Kubernetes cluster are not showing in Container insights
 
 To view the non-Azure Kubernetes cluster in Container insights, Read access is required on the Log Analytics workspace supporting this Insight and on the Container Insights solution resource **ContainerInsights (*workspace*)**.
+
+## Metrics aren't being collected
+
+1. Verify that the cluster is in a [supported region for custom metrics](../essentials/metrics-custom-overview.md#supported-regions).
+
+2. Verify that the **Monitoring Metrics Publisher** role assignment exists using the following CLI command:
+
+    ``` azurecli
+    az role assignment list --assignee "SP/UserassignedMSI for omsagent" --scope "/subscriptions/<subid>/resourcegroups/<RG>/providers/Microsoft.ContainerService/managedClusters/<clustername>" --role "Monitoring Metrics Publisher"
+    ```
+    For clusters with MSI, the user assigned client id for omsagent changes every time monitoring is enabled and disabled, so the role assignment should exist on the current msi client id. 
+
+3. For clusters with Azure Active Directory pod identity enabled and using MSI:
+
+   - Verify the required label **kubernetes.azure.com/managedby: aks**  is present on the omsagent pods using the following command:
+
+        `kubectl get pods --show-labels -n kube-system | grep omsagent`
+
+    - Verify that exceptions are enabled when pod identity is enabled using one of the supported methods at https://github.com/Azure/aad-pod-identity#1-deploy-aad-pod-identity.
+
+        Run the following command to verify:
+
+        `kubectl get AzurePodIdentityException -A -o yaml`
+
+        You should receive output similar to the following:
+
+        ```
+        apiVersion: "aadpodidentity.k8s.io/v1"
+        kind: AzurePodIdentityException
+        metadata:
+        name: mic-exception
+        namespace: default
+        spec:
+        podLabels:
+        app: mic
+        component: mic
+        ---
+        apiVersion: "aadpodidentity.k8s.io/v1"
+        kind: AzurePodIdentityException
+        metadata:
+        name: aks-addon-exception
+        namespace: kube-system
+        spec:
+        podLabels:
+        kubernetes.azure.com/managedby: aks
+        ```
+
+## Installation of Azure Monitor Containers Extension fail with an error containing “manifests contain a resource that already exists” on Azure Arc Enabled Kubernetes cluster
+The error _manifests contain a resource that already exists_ indicates that resources of the Container Insights agent already exist on the Azure Arc Enabled Kubernetes cluster. This indicates that the container insights agent is already installed either through azuremonitor-containers HELM chart or Monitoring Addon if it is AKS Cluster which is connected Azure Arc. The solution to this issue, is to clean up the existing resources of container insights agent if it exists and then enable Azure Monitor Containers Extension.
+
+### For non-AKS clusters 
+1.	Against the K8s cluster which is connected to Azure Arc,  run below command to verify whether the azmon-containers-release-1  helm chart release exists or not:
+
+    `helm list  -A`
+
+2.	If the output of the above command indicates that azmon-containers-release-1  exists, delete the helm chart release:
+
+    `helm del azmon-containers-release-1`
+
+### For AKS clusters
+1.	Run below commands and look for omsagent addon profile to verify the AKS monitoring addon enabled or not:
+
+    ```
+    az  account set -s <clusterSubscriptionId>
+    az aks show -g <clusterResourceGroup> -n <clusterName>
+    ```
+
+2.	If there is omsagent addon profile config with log analytics workspace resource Id in the output of the above command indicates that, AKS Monitoring addon enabled and which needs to be disabled:
+
+    `az aks disable-addons -a monitoring -g <clusterResourceGroup> -n <clusterName>`
+
+If above steps didn’t resolve the installation of Azure Monitor Containers Extension issues, please create a ticket to Microsoft for further investigation.
+
 
 ## Next steps
 

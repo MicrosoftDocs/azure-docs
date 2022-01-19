@@ -1,13 +1,13 @@
 ---
-title: 'Quickstart: Create an Azure Synapse workspace Azure Resource Manager template'
+title: 'Quickstart: Create an Azure Synapse workspace Azure Resource Manager template (ARM template)'
 description: Learn how to create a Synapse workspace by using Azure Resource Manager template (ARM template).
 services: azure-resource-manager
-author: julieMSFT
-ms.service: azure-resource-manager
-
+author: WilliamDAssafMSFT
+ms.service: synapse-analytics
+ms.subservice: workspace
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.author: jrasnick
+ms.custom: subject-armqs, mode-arm
+ms.author: wiassaf
 ms.date: 08/07/2020
 ---
 

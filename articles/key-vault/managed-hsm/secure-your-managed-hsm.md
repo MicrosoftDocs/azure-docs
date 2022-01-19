@@ -2,14 +2,14 @@
 title: Secure access to a managed HSM - Azure Key Vault Managed HSM
 description: Learn how to secure access to Managed HSM using Azure RBAC and Managed HSM local RBAC
 services: key-vault
-author: amitbapat
+author: mbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.author: ambapat
+ms.author: mbaldwin
 # Customer intent: As a managed HSM administrator, I want to set access control and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for this Managed HSM.
 ---
 
@@ -24,7 +24,7 @@ This tutorial will walk you through a simple example that shows how to achieve s
 To complete the steps in this article, you must have the following items:
 
 * A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
-* The Azure CLI version 2.12.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+* The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 * A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -37,7 +37,7 @@ To sign in to Azure using the CLI you can type:
 az login
 ```
 
-For more information on login options via the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+For more information on login options via the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli)
 
 ## Example
 
@@ -117,12 +117,12 @@ az keyvault role assignment create  --hsm-name ContosoMHSM --assignee $(az ad gr
 # However it cannot permanently delete (purge) keys
 az keyvault role assignment create  --hsm-name ContosoMHSM --assignee $(az vm identity show --name "vmname" --resource-group "ContosoAppRG" --query objectId -o tsv) --scope / --role "Managed HSM Crypto Auditor"
 
-# Assign "Managed HSM Crypto Service Encryption" role to the Storage account ID
+# Assign "Managed HSM Crypto Service Encryption User" role to the Storage account ID
 storage_account_principal=$(az storage account show --id $storageresource --query identity.principalId -o tsv)
 # (if no identity exists), then assign a new one
 [ "$storage_account_principal" ] || storage_account_principal=$(az storage account update --assign-identity --id $storageresource)
 
-az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Service Encryption" --assignee $storage_account_principal
+az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Service Encryption User" --assignee $storage_account_principal
 ```
 
 This tutorial only shows actions relevant to the access control for most part. Other actions and operations related to deploying application in your VM, turning on encryption with customer managed key for a storage account, creating managed HSM are not shown here to keep the example focused on access control and role management.

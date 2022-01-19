@@ -14,8 +14,7 @@ ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with HighGear
 
-In this tutorial, you can learn how to integrate HighGear with Azure Active Directory (Azure AD).
-Integrating HighGear with Azure AD provides you with the following benefits:
+In this tutorial, you can learn how to integrate HighGear with Azure Active Directory (Azure AD). Integrating HighGear with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to HighGear.
 * You can enable your users to be automatically signed-in to HighGear (Single Sign-On) with their Azure AD accounts.
@@ -45,19 +44,19 @@ To configure the integration of HighGear into Azure AD, you need to add HighGear
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click the **Azure Active Directory** icon.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add a new application, click the **New application** button on the top of the dialog.
 
-	![The New application button](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
 4. In the search box, type **HighGear**, select **HighGear** from result panel, and then click the **Add** button to add the application.
 
-	 ![HighGear in the results list](common/search-new-app.png)
+     ![HighGear in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -89,49 +88,49 @@ To configure Azure AD single sign-on with your HighGear system, perform the foll
 
 3. On the **Set up Single Sign-On with SAML** page, click the **Edit** icon to open the **Basic SAML Configuration** dialog.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
     ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
-    a. In the **Identifier** text box, paste the value of the **Service Provider Entity ID** field that is on the Single Sign-On Settings page in your HighGear system.
+    1. In the **Identifier** text box, paste the value of the **Service Provider Entity ID** field that is on the Single Sign-On Settings page in your HighGear system.
 
-    ![The Service Provider Entity ID field](media/highgear-tutorial/service-provider-entity-id-field.png)
-    
-	> [!NOTE]
-    > You will need to log in to your HighGear system to access the Single Sign-On Settings page. Once you're logged in, move your mouse over the Administration tab in HighGear and click the Single Sign-On Settings menu item.
-    
-    ![The Single Sign-On Settings menu item](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
+       ![The Service Provider Entity ID field](media/highgear-tutorial/service-provider-entity-id-field.png)
 
-    b. In the **Reply URL** text box, paste the value of the **Assertion Consumer Service (ACS) URL** from the Single Sign-On Settings page in your HighGear system.
+       > [!NOTE]
+       > You will need to log in to your HighGear system to access the Single Sign-On Settings page. Once you're logged in, move your mouse over the Administration tab in HighGear and click the Single Sign-On Settings menu item.
 
-    ![The Assertion Consumer Service (ACS) URL field](media/highgear-tutorial/assertion-consumer-service-url-field.png)
+       ![The Single Sign-On Settings menu item](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
 
-    c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+    1. In the **Reply URL** text box, paste the value of the **Assertion Consumer Service (ACS) URL** from the Single Sign-On Settings page in your HighGear system.
 
-	 ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
+       ![The Assertion Consumer Service (ACS) URL field](media/highgear-tutorial/assertion-consumer-service-url-field.png)
 
-     In the **Sign-on URL** text box, paste the value of the **Service Provider Entity ID** field that is on the Single Sign-On Settings page in your HighGear system. (This Entity ID is also the base URL of the HighGear system that is to be used for SP-initiated sign-on.)
+    1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![The Service Provider Entity ID field](media/highgear-tutorial/service-provider-entity-id-field.png)
+       ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL from the **Single Sign-On Settings** page in your HighGear system. If you need help, please contact the [HighGear Support Team](mailto:support@highgear.com).
+       In the **Sign-on URL** text box, paste the value of the **Service Provider Entity ID** field that is on the Single Sign-On Settings page in your HighGear system. (This Entity ID is also the base URL of the HighGear system that is to be used for SP-initiated sign-on.)
+
+       ![The Service Provider Entity ID field](media/highgear-tutorial/service-provider-entity-id-field.png)
+
+       > [!NOTE]
+       > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL from the **Single Sign-On Settings** page in your HighGear system. If you need help, please contact the [HighGear Support Team](mailto:support@highgear.com).
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** and save it on your computer. You'll need it in a later step of the Single Sign-On configuration.
 
-	![The Certificate download link](common/certificatebase64.png)
+    ![The Certificate download link](common/certificatebase64.png)
 
 6. On the **Set up HighGear** section, note the location of the following URLs.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL. You will need this value in Step #2 under **Configure HighGear Single Sign-On** below.
+    1. Login URL. You will need this value in Step #2 under **Configure HighGear Single Sign-On** below.
 
-	b. Azure AD Identifier. You will need this value in Step #3 under **Configure HighGear Single Sign-On** below.
+    1. Azure AD Identifier. You will need this value in Step #3 under **Configure HighGear Single Sign-On** below.
 
-	c. Logout URL. You will need this value in Step #4 under **Configure HighGear Single Sign-On** below.
+    1. Logout URL. You will need this value in Step #4 under **Configure HighGear Single Sign-On** below.
 
 ### Configure HighGear Single Sign-On
 
@@ -169,14 +168,13 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The User dialog box](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    1. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    1. In the **User name** field type **brittasimon\@yourcompanydomain.extension** (for example, BrittaSimon@contoso.com).
 
-    c. Select the **Show password** check box, and then write down the value that's displayed in the Password box.
+    1. Select the **Show password** check box, and then write down the value that's displayed in the Password box.
 
-    d. Click **Create**.
+    1. Click **Create**.
 
 ### Assign the Azure AD test user
 
@@ -184,11 +182,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**, and then select **HighGear**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **HighGear**.
 
-	![The HighGear link in the Applications list](common/all-applications.png)
+    ![The HighGear link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
@@ -240,7 +238,7 @@ To create a HighGear test user to test your Single Sign-On configuration, please
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the HighGear tile in the Access Panel, you should be automatically signed in to the HighGear for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the HighGear tile in the Access Panel, you should be automatically signed in to the HighGear for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional Resources
 

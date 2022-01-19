@@ -31,7 +31,7 @@ The following resources were used in developing and testing this document:
 
 The following diagram illustrates the service architecture of this example:
 
-![Data flowing from Application Insights to blob storage, then Spark](./media/apache-spark-analyze-application-insight-logs/application-insights.png)
+:::image type="content" source="./media/apache-spark-analyze-application-insight-logs/application-insights.png" alt-text="Data flowing from Application Insights to blob storage, then Spark" border="false":::
 
 ### Azure Storage
 

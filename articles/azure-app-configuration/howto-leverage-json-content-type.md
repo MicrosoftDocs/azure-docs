@@ -168,17 +168,33 @@ az appconfig kv export -d file --format json --path "~/Export.json" --separator 
 ```
 
 > [!NOTE]
-> If your App Configuration store has some key-values without JSON content-type, they will also be exported to the same file in string format. If you want to export only the JSON key-values, assign a unique label or prefix to your JSON key-values and use label or prefix filtering during export.
+> If your App Configuration store has some key-values without JSON content-type, they will also be exported to the same file in string format.
 
 
 ## Consuming JSON key-values in applications
 
-The easiest way to consume JSON key-values in your application is through App Configuration provider libraries. With the provider libraries, you don't need to implement special handling of JSON key-values in your application. They're always deserialized for your application in the same way that other JSON configuration provider libraries do. 
+The easiest way to consume JSON key-values in your application is through App Configuration provider libraries. With the provider libraries, you don't need to implement special handling of JSON key-values in your application. They will be parsed and converted to match the native configuration of your application.
+
+For example, if you have the following key-value in App Configuration:
+
+| Key | Value | Content Type |
+|---|---|---|
+| Settings | {"FontSize":24,"UseDefaultRouting":false} | application/json |
+
+Your .NET application configuration will have the following key-values:
+
+| Key | Value |
+|---|---|
+| Settings:FontSize | 24 |
+| Settings:UseDefaultRouting | false |
+
+You may access the new keys directly or you may choose to [bind configuration values to instances of .NET objects](/aspnet/core/fundamentals/configuration/#bind-hierarchical-configuration-data-using-the-options-pattern).
+
 
 > [!Important]
 > Native support for JSON key-values is available in .NET configuration provider version 4.0.0 (or later). See [*Next steps*](#next-steps) section for more details.
 
-If you are using the SDK or REST API to read key-values from App Configuration, based on the content-type, your application is responsible for deserializing the value of a JSON key-value using any standard JSON deserializer.
+If you are using the SDK or REST API to read key-values from App Configuration, based on the content-type, your application is responsible for parsing the value of a JSON key-value.
 
 
 ## Clean up resources

@@ -1,11 +1,12 @@
 ---
 title: Create an additional Azure subscription
 description: Learn how to add a new Azure subscription in the Azure portal. See information about billing account forms and view additional available resources.
-author: amberbhargava
+author: bandersmsft
+ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/11/2021
 ms.author: banders
 ---
 
@@ -13,7 +14,7 @@ ms.author: banders
 
 You can create an additional subscription for your [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) or [Microsoft Partner Agreement](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement) billing account in the Azure portal. You may want an additional subscription to avoid hitting subscription limits, to create separate environments for security, or to isolate data for compliance reasons.
 
-If you have a Microsoft Online Service Program (MOSP) billing account, you can create additional subscriptions in the [Azure sign up portal](https://account.azure.com/signup?offer=ms-azr-0003p).
+If you have a Microsoft Online Service Program (MOSP) billing account, you can create additional subscriptions in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 To learn more about billing accounts and identify the type of your billing account, see [View billing accounts in Azure portal](view-all-accounts.md).
 
@@ -65,6 +66,21 @@ You need the following permissions to create subscriptions:
 |Customer    | The subscription is created for the customer that you select. If you have only one customer, the selection will be greyed out.  |
 |Reseller    | The reseller that will provide services to the customer. This is an optional field, which is only applicable to Indirect providers in the CSP two-tier model. |
 |Name     | The display name that helps you easily identify the subscription in the Azure portal.  |
+
+## Create a subscription as a partner for a customer
+
+Partners with a Microsoft Partner Agreement use the following steps to create a new Microsoft Azure Plan subscription for their customers. The subscription is created under the partner’s billing account and billing profile.
+
+1.	Sign in to the Azure portal using your Partner Center account.
+Make sure you are in your Partner Center directory (tenant), not a customer’s tenant.
+1.	Navigate to **Cost Management + Billing**.
+1.	Select the Billing scope for the billing account where the customer account resides.
+1.	In the left menu under **Billing**, select **Customers**.
+1.	On the Customers page, select the customer.
+1.	In the left menu, under **Products + services**, select **Azure Subscriptions**.
+1.	On the Azure subscription page, select **+ Add** to create a subscription.
+1.	Enter details about the subscription and when complete, select **Review + create**.
+
 
 ## Create an additional Azure subscription programmatically
 

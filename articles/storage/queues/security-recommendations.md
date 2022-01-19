@@ -16,23 +16,23 @@ ms.custom: security-recommendations
 
 This article contains security recommendations for Queue Storage. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model. For more information on what Microsoft does to fulfill service provider responsibilities, see [Shared responsibilities for cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf).
 
-Some of the recommendations included in this article can be automatically monitored by Azure Security Center. Azure Security Center is the first line of defense in protecting your resources in Azure. For information on Azure Security Center, see [What is Azure Security Center?](../../security-center/security-center-introduction.md).
+Some of the recommendations included in this article can be automatically monitored by Microsoft Defender for Cloud. Microsoft Defender for Cloud is the first line of defense in protecting your resources in Azure. For information on Microsoft Defender for Cloud, see [What is Microsoft Defender for Cloud?](../../security-center/security-center-introduction.md).
 
-Azure Security Center periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to address them. For more information on Azure Security Center recommendations, see [Security recommendations in Azure Security Center](../../security-center/security-center-recommendations.md).
+Microsoft Defender for Cloud periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to address them. For more information on Microsoft Defender for Cloud recommendations, see [Security recommendations in Microsoft Defender for Cloud](../../security-center/security-center-recommendations.md).
 
 ## Data protection
 
-| Recommendation | Comments | Security Center |
+| Recommendation | Comments | Defender for Cloud |
 |-|----|--|
 | Use the Azure Resource Manager deployment model | Create new storage accounts using the Azure Resource Manager deployment model for important security enhancements, including superior Azure role-based access control (Azure RBAC) and auditing, Resource Manager-based deployment and governance, access to managed identities, access to Azure Key Vault for secrets, and Azure AD-based authentication and authorization for access to Azure Storage data and resources. If possible, migrate existing storage accounts that use the classic deployment model to use Azure Resource Manager. For more information about Azure Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md). | - |
-| Enable advanced threat protection for all of your storage accounts | Advanced threat protection for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered in Azure Security Center when anomalies in activity occur and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats. For more information, see [Advanced threat protection for Azure Storage](../common/azure-defender-storage-configure.md). | [Yes](../../security-center/security-center-remediate-recommendations.md) |
+| Enable advanced threat protection for all of your storage accounts | [Microsoft Defender for Storage](../../security-center/defender-for-storage-introduction.md) provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered in Microsoft Defender for Cloud when anomalous activities occur and are also sent via email to subscription administrators, with details of suspicious activity and recommendations for how to investigate and remediate threats. For more information, see [Protect your Azure Storage accounts](../../security-center/defender-for-storage-introduction.md). | [Yes](../../security-center/security-center-remediate-recommendations.md) |
 | Limit shared access signature (SAS) tokens to HTTPS connections only | Requiring HTTPS when a client uses a SAS token to access queue data helps to minimize the risk of eavesdropping. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md). | - |
 
 ## Identity and access management
 
-| Recommendation | Comments | Security Center |
+| Recommendation | Comments | Defender for Cloud |
 |-|----|--|
-| Use Azure Active Directory (Azure AD) to authorize access to queue data | Azure AD provides superior security and ease of use over Shared Key authorization for authorizing requests to Queue Storage. For more information, see [Authorize access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md). | - |
+| Use Azure Active Directory (Azure AD) to authorize access to queue data | Azure AD provides superior security and ease of use over Shared Key authorization for authorizing requests to Queue Storage. For more information, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md). | - |
 | Keep in mind the principal of least privilege when assigning permissions to an Azure AD security principal via Azure RBAC | When assigning a role to a user, group, or application, grant that security principal only those permissions that are necessary for them to perform their tasks. Limiting access to resources helps prevent both unintentional and malicious misuse of your data. | - |
 | Secure your account access keys with Azure Key Vault | Microsoft recommends using Azure AD to authorize requests to Azure Storage. However, if you must use Shared Key authorization, then secure your account keys with Azure Key Vault. You can retrieve the keys from the key vault at runtime, instead of saving them with your application. | - |
 | Regenerate your account keys periodically | Rotating the account keys periodically reduces the risk of exposing your data to malicious actors. | - |
@@ -42,7 +42,7 @@ Azure Security Center periodically analyzes the security state of your Azure res
 
 ## Networking
 
-| Recommendation | Comments | Security Center |
+| Recommendation | Comments | Defender for Cloud |
 |-|----|--|
 | Configure the minimum required version of Transport Layer Security (TLS) for a storage account.  | Require that clients use a more secure version of TLS to make requests against an Azure Storage account by configuring the minimum version of TLS for that account. For more information, see [Configure minimum required version of Transport Layer Security (TLS) for a storage account](../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)| - |
 | Enable the **Secure transfer required** option on all of your storage accounts | When you enable the **Secure transfer required** option, all requests made against the storage account must take place over secure connections. Any requests made over HTTP will fail. For more information, see [Require secure transfer in Azure Storage](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). | [Yes](../../security-center/security-center-remediate-recommendations.md) |
@@ -54,7 +54,7 @@ Azure Security Center periodically analyzes the security state of your Azure res
 
 ## Logging and monitoring
 
-| Recommendation | Comments | Security Center |
+| Recommendation | Comments | Defender for Cloud |
 |-|----|--|
 | Track how requests are authorized | Enable Azure Storage logging to track how each request made against Azure Storage was authorized. The logs indicate whether a request was made anonymously, by using an OAuth 2.0 token, by using a shared key, or by using a shared access signature (SAS). For more information, see [Azure Storage analytics logging](../common/storage-analytics-logging.md). | - |
 

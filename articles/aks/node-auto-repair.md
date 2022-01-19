@@ -3,19 +3,22 @@ title: Automatically repairing Azure Kubernetes Service (AKS) nodes
 description: Learn about node auto-repair functionality, and how AKS fixes broken worker nodes.
 services: container-service
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 03/11/2021
 ---
 
 # Azure Kubernetes Service (AKS) node auto-repair
 
-AKS continuously checks the health state of worker nodes and performs automatic repair of the nodes if they become unhealthy. This document informs operators about how automatic node repair functionality behaves for both Windows and Linux nodes. In addition to AKS repairs, the Azure VM platform [performs maintenance on Virtual Machines][vm-updates] that experience issues as well. AKS and Azure VMs work together to minimize service disruptions for clusters.
+AKS continuously monitors the health state of worker nodes and performs automatic node repair if they become unhealthy. The Azure virtual machine (VM) platform [performs maintenance on VMs][vm-updates] experiencing issues. 
+
+AKS and Azure VMs work together to minimize service disruptions for clusters.
+
+In this document, you'll learn how automatic node repair functionality behaves for both Windows and Linux nodes. 
 
 ## How AKS checks for unhealthy nodes
 
-AKS uses rules to determine if a node is unhealthy and needs repair. AKS uses the following rules to determine if automatic repair is needed.
-
-* The node reports status of **NotReady** on consecutive checks within a 10-minute timeframe
-* The node doesn't report a status within 10 minutes
+AKS uses the following rules to determine if a node is unhealthy and needs repair: 
+* The node reports **NotReady** status on consecutive checks within a 10-minute timeframe.
+* The node doesn't report any status within 10 minutes.
 
 You can manually check the health state of your nodes with kubectl.
 
@@ -28,13 +31,19 @@ kubectl get nodes
 > [!Note]
 > AKS initiates repair operations with the user account **aks-remediator**.
 
-If a node is unhealthy based on the rules above and remains unhealthy for 10 consecutive minutes, the following actions are taken.
+If AKS identifies an unhealthy node that remains unhealthy for 10 minutes, AKS takes the following actions:
 
-1. Reboot the node
-1. If the reboot is unsuccessful, reimage the node
-1. If the reimage is unsuccessful, create and reimage a new node
+1. Reboot the node.
+1. If the reboot is unsuccessful, reimage the node.
 
-If none of the actions are successful, additional remediations are investigated by AKS engineers. If multiple nodes are unhealthy during a health check, each node is repaired individually before another repair begins.
+Alternative remediations are investigated by AKS engineers if auto-repair is unsuccessful. 
+
+If AKS finds multiple unhealthy nodes during a health check, each node is repaired individually before another repair begins.
+
+
+## Limitations
+
+In many cases, AKS can determine if a node is unhealthy and attempt to repair the issue, but there are cases where AKS either can't repair the issue or can't detect that there is an issue. For example, AKS can't detect issues if a node status is not being reported due to error in network configuration.
 
 ## Next steps
 

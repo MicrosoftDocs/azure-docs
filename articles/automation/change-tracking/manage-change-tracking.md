@@ -81,7 +81,7 @@ Use the following steps to configure file tracking on Linux computers:
     |Enter Path     | The path to check for the file, for example, **/etc/*.conf**.       |
     |Path Type     | The type of path. Possible values are File and Directory.        |
     |Recursion     | True if recursion is used when looking for the item to be tracked, and False otherwise.        |
-    |Use Sudo     | True to use sudo when checking for the item, and False otherwise.         |
+    |Use Sudo     | True to use sudo when checking for the item, and False otherwise.  <br>**Note:** The Use Sudo feature is currently available on the Azure portal and not yet implemented in the Change Tracking service. Therefore, when you edit the settings on the Azure portal, you will not find any change in the service.      |
     |Links     | Setting that determines how to deal with symbolic links when traversing directories. Possible values are:<br> Ignore - Ignores symbolic links and doesn't include the files/directories referenced.<br>Follow - Follows the symbolic links during recursion and also includes the files/directories referenced.<br>Manage - Follows the symbolic links and allows alteration of returned content.<br>**Note:** The Manage option isn't recommended, as it doesn't support file content retrieval.    |
     |Upload file content | True to upload file content on tracked changes, and False otherwise. |
 
@@ -156,7 +156,7 @@ You can do various searches against the Azure Monitor logs for change records. W
 
 |Query  |Description  |
 |---------|---------|
-|`ConfigurationData`<br>&#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Shows the most recent inventory records for Microsoft services that were set to Auto but were reported as being Stopped. Results are limited to the most recent record for the specified software name and computer.    |
+|`ConfigurationData`<br>&#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Shows the most recent inventory records for Windows services that were set to Auto but were reported as being Stopped. Results are limited to the most recent record for the specified software name and computer.    |
 |`ConfigurationChange`<br>&#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124; `order by TimeGenerated desc`|Shows change records for removed software.|
 
 ## Next steps

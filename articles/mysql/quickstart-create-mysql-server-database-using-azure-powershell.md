@@ -7,10 +7,12 @@ ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020
-ms.custom: mvc, devx-track-azurepowershell
+ms.custom: mvc, devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Create an Azure Database for MySQL server using PowerShell
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 This quickstart describes how to use PowerShell to create an Azure Database for MySQL server in an
 Azure resource group. You can use PowerShell to create and manage Azure resources interactively or

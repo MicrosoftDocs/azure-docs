@@ -14,6 +14,43 @@ If you enabled Application Insights Snapshot Debugger for your application, but 
 
 There can be many different reasons why snapshots aren't generated. You can start by running the snapshot health check to identify some of the possible common causes.
 
+## Make sure you're using the appropriate Snapshot Debugger Endpoint
+
+Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide).
+
+For App Service and applications using the Application Insights SDK, you have to update the connection string using the supported overrides for Snapshot Debugger as defined below:
+
+|Connection String Property    | US Government Cloud | China Cloud |   
+|---------------|---------------------|-------------|
+|SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+For more information about other connection overrides, see [Application Insights documentation](./sdk-connection-string.md?tabs=net#connection-string-with-explicit-endpoint-overrides).
+
+For Function App, you have to update the `host.json` using the supported overrides below:
+
+|Property    | US Government Cloud | China Cloud |   
+|---------------|---------------------|-------------|
+|AgentEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+Below is an example of the `host.json` updated with the US Government Cloud agent endpoint:
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingExcludedTypes": "Request",
+      "samplingSettings": {
+        "isEnabled": true
+      },
+      "snapshotConfiguration": {
+        "isEnabled": true,
+        "agentEndpoint": "https://snapshot.monitor.azure.us"
+      }
+    }
+  }
+}
+```
+
 ## Use the snapshot health check
 Several common problems result in the Open Debug Snapshot not showing up. Using an outdated Snapshot Collector, for example; reaching the daily upload limit; or perhaps the snapshot is just taking a long time to upload. Use the Snapshot Health Check to troubleshoot common problems.
 
@@ -52,7 +89,7 @@ To check the setting, open your web.config file and find the system.web section.
    ```
 
 > [!NOTE]
-> Modifying the httpRuntime targetFramework value changes the runtime quirks applied to your application and can cause other, subtle behavior changes. Be sure to test your application thoroughly after making this change. For a full list of compatibility changes, please see https://docs.microsoft.com/dotnet/framework/migration-guide/application-compatibility#retargeting-changes
+> Modifying the httpRuntime targetFramework value changes the runtime quirks applied to your application and can cause other, subtle behavior changes. Be sure to test your application thoroughly after making this change. For a full list of compatibility changes, see [Retargeting changes](/dotnet/framework/migration-guide/application-compatibility#retargeting-changes).
 
 > [!NOTE]
 > If the targetFramework is 4.7 or above then Windows determines the available protocols. In Azure App Service, TLS 1.2 is available. However, if you are using your own virtual machine, you may need to enable TLS 1.2 in the OS.

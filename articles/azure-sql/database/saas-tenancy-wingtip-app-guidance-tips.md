@@ -7,9 +7,9 @@ ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
+author: LitKnd
+ms.author: kendralittle
+ms.reviewer: mathoma
 ms.date: 12/18/2018
 ---
 # General guidance for working with Wingtip Tickets sample SaaS apps

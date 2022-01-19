@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 03/12/2020
+ ms.date: 05/26/2021
  ms.author: cherylmc
  ms.custom: include file
 
@@ -114,10 +114,17 @@ After you have configured the virtual network gateway and installed the client c
    ```
 1. Download **PsExec** from [Sysinternals](/sysinternals/downloads/psexec) and extract the files to **C:\PSTools**.
 1. From an Admin CMD prompt, launch PowerShell by running:
-
+   
+   For 32-bit Windows:
+   
    ```
-   PsExec.exe Powershell for 32-bit Windows
-   PsExec64.exe Powershell for 64-bit Windows
+   PsExec.exe -s -i powershell
+   ```
+   
+   For 64-bit Windows:
+   
+   ```
+   PsExec64.exe -s -i powershell
    ```
 
    ![Screenshot shows a command prompt window with a command to start the 64-bit version of PowerShell.](./media/vpn-gateway-vwan-always-on-device/powershell.png)

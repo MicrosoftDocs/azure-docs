@@ -6,7 +6,7 @@ ms.date: 10/16/2020
 author: gitralf
 ms.author: ralfwi 
 ms.service: germany
-ms.custom: bfmigrate
+ms.custom: bfmigrate, devx-track-azurepowershell
 ---
 
 # Migrate integration resources to global Azure

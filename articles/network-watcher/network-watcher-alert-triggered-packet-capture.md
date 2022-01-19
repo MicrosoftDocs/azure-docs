@@ -9,12 +9,12 @@ author: damendo
 
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: damendo
+ms.author: damendo 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Use packet capture for proactive network monitoring with alerts and Azure Functions

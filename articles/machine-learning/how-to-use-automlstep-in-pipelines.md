@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: The AutoMLStep allows you to use automated machine learning in your pipelines.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.author: laobri
 author: lobrien
 manager: cgronlun
-ms.date: 02/28/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, automl
+ms.date: 10/21/2021
+ms.topic: how-to
+ms.custom: devx-track-python, automl
 
 ---
 
@@ -21,7 +21,7 @@ Azure Machine Learning's automated ML capability helps you discover high-perform
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 * An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).  
 
@@ -33,7 +33,7 @@ Automated ML in a pipeline is represented by an `AutoMLStep` object. The `AutoML
 
 There are several subclasses of `PipelineStep`. In addition to the `AutoMLStep`, this article will show a `PythonScriptStep` for data preparation and another for registering the model.
 
-The preferred way to initially move data _into_ an ML pipeline is with `Dataset` objects. To move data _between_ steps and possible save data output from runs, the preferred way is with [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) and [`OutputTabularDatasetConfig`](/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?preserve-view=true&view=azure-ml-py) objects. To be used with `AutoMLStep`, the `PipelineData` object must be transformed into a `PipelineOutputTabularDataset` object. For more information, see [Input and output data from ML pipelines](how-to-move-data-in-out-of-pipelines.md).
+The preferred way to initially move data _into_ an ML pipeline is with `Dataset` objects. To move data _between_ steps and possible save data output from runs, the preferred way is with [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig) and [`OutputTabularDatasetConfig`](/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig) objects. To be used with `AutoMLStep`, the `PipelineData` object must be transformed into a `PipelineOutputTabularDataset` object. For more information, see [Input and output data from ML pipelines](how-to-move-data-in-out-of-pipelines.md).
 
 The `AutoMLStep` is configured via an `AutoMLConfig` object. `AutoMLConfig` is a flexible class, as discussed in [Configure automated ML experiments in Python](./how-to-configure-auto-train.md#configure-your-experiment-settings). 
 
@@ -104,14 +104,20 @@ The code blocks until the target is provisioned and then prints some details of 
 
 ### Configure the training run
 
-The AutoMLStep configures its dependencies automatically during job submission. The runtime context is set by creating and configuring a `RunConfiguration` object. Here we set the compute target.
+The runtime context is set by creating and configuring a `RunConfiguration` object. Here we set the compute target.
 
 ```python
 from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
 
 aml_run_config = RunConfiguration()
 # Use just-specified compute target ("cpu-cluster")
 aml_run_config.target = compute_target
+
+# Specify CondaDependencies obj, add necessary packages
+aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
+    conda_packages=['pandas','scikit-learn'], 
+    pip_packages=['azureml-sdk[automl]', 'pyarrow'])
 ```
 
 ## Prepare data for automated machine learning
@@ -244,7 +250,7 @@ Comparing the two techniques:
 |`OutputTabularDatasetConfig`| Higher performance | 
 || Natural route from `OutputFileDatasetConfig` | 
 || Data isn't persisted after pipeline run |
-|| [Notebook showing `OutputTabularDatasetConfig` technique](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |
+||  |
 | Registered `Dataset` | Lower performance |
 | | Can be generated in many ways | 
 | | Data persists and is visible throughout workspace |
@@ -256,7 +262,7 @@ Comparing the two techniques:
 The outputs of the `AutoMLStep` are the final metric scores of the higher-performing model and that model itself. To use these outputs in further pipeline steps, prepare `OutputFileDatasetConfig` objects to receive them.
 
 ```python
-from azureml.pipeline.core import TrainingOutput
+from azureml.pipeline.core import TrainingOutput, PipelineData
 
 metrics_data = PipelineData(name='metrics_data',
                             datastore=datastore,
@@ -446,7 +452,7 @@ with open(model_filename, "rb" ) as f:
 # ... inferencing code not shown ...
 ```
 
-For more information on loading and working with existing models, see [Use an existing model with Azure Machine Learning](how-to-deploy-existing-model.md).
+For more information on loading and working with existing models, see [Use an existing model with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ### Download the results of an automated ML run
 

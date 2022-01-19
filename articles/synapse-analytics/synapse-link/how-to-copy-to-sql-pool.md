@@ -1,14 +1,15 @@
 ---
 title: Copy Synapse Link for Azure Cosmos DB data into a dedicated SQL pool using Apache Spark
 description: Load the data into a Spark dataframe, curate the data, and load it into a dedicated SQL pool table
-services: synapse-analytics 
-author: ArnoMicrosoft
-ms.service: synapse-analytics 
+services: synapse-analytics
+author: Rodrigossz
+ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
 ms.date: 08/10/2020
-ms.author: acomet
-ms.reviewer: jrasnick
+ms.author: rosouz
+ms.reviewer: sngun
+ms.custom: cosmos-db, mode-other
 ---
 
 # Copy data from Azure Cosmos DB into a dedicated SQL pool using Apache Spark
@@ -96,4 +97,5 @@ Your query will present the following results in a chart mode:
 [![Spark to SQL Steps 2](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png)](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png#lightbox)
 
 ## Next steps
-* [Query Azure Cosmos DB Analytical Store with Apache Spark](./how-to-query-analytical-store-spark.md)
+* [Query Azure Cosmos DB Analytical Store with Apache Spark 3](./how-to-query-analytical-store-spark-3.md)
+* [Query Azure Cosmos DB Analytical Store with Apache Spark 2](./how-to-query-analytical-store-spark.md)

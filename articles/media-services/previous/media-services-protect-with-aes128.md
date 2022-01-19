@@ -3,33 +3,30 @@ title: Use AES-128 dynamic encryption and the key delivery service | Microsoft D
 description: This topic shows how to dynamically encrypt with AES-128 and use the key delivery service.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 4d2c10af-9ee0-408f-899b-33fa4c1d89b9
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: article
-ms.date: 04/01/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Use AES-128 dynamic encryption and the key delivery service
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET](media-services-protect-with-aes128.md)
+> * [.NET](media-services-playready-license-template-overview.md)
 > * [Java](https://github.com/rnrneverdies/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 >  
 
-> [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 You can use Media Services to deliver HTTP Live Streaming (HLS) and Smooth Streaming encrypted with the AES by using 128-bit encryption keys. Media Services also provides the key delivery service that delivers encryption keys to authorized users. If you want Media Services to encrypt an asset, you associate an encryption key with the asset and also configure authorization policies for the key. When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES encryption. To decrypt the stream, the player requests the key from the key delivery service. To determine whether the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
@@ -40,8 +37,6 @@ To take advantage of dynamic encryption, you need to have an asset that contains
 This article is useful to developers who work on applications that deliver protected media. The article shows you how to configure the key delivery service with authorization policies so that only authorized clients can receive encryption keys. It also shows how to use dynamic encryption.
 
 For information on how to encrypt content with the Advanced Encryption Standard (AES) for delivery to Safari on macOS, see [this blog post](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
-For an overview of how to protect your media content with AES encryption, see [this video](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption).
-
 
 ## AES-128 dynamic encryption and key delivery service workflow
 
@@ -51,7 +46,7 @@ Perform the following general steps when you encrypt your assets with AES by usi
 
 2. [Encode the asset that contains the file to the adaptive bitrate MP4 set](media-services-protect-with-aes128.md#encode_asset).
 
-3. [Create a content key, and associate it with the encoded asset](media-services-protect-with-aes128.md#create_contentkey). In Media Services, the content key contains the asset's encryption key.
+3. [Create a content key, and associate it with the encoded asset]media-services-protect-with-aes128.md#create_contentkey). In Media Services, the content key contains the asset's encryption key.
 
 4. [Configure the content key's authorization policy](media-services-protect-with-aes128.md#configure_key_auth_policy). You must configure the content key authorization policy. The client must meet the policy before the content key is delivered to the client.
 

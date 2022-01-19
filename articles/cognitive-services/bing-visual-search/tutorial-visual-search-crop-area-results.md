@@ -10,6 +10,7 @@ ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 03/31/2019
 ms.author: aahi
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

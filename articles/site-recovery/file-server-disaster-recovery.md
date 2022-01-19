@@ -93,7 +93,7 @@ The following steps briefly describe how to use File Sync:
 
 1. [Create a storage account in Azure](../storage/common/storage-account-create.md?toc=/azure/storage/files/toc.json). If you chose read-access geo-redundant storage for your storage accounts, you get read access to your data from the secondary region in case of a disaster. For more information, see [Disaster recovery and storage account failover](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Create a file share](../storage/files/storage-how-to-create-file-share.md).
-3. [Start File Sync](../storage/files/storage-sync-files-deployment-guide.md) on your Azure file server.
+3. [Start File Sync](../storage/file-sync/file-sync-deployment-guide.md) on your Azure file server.
 4. Create a sync group. Endpoints within a sync group are kept in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure file share. A sync group also must contain one server endpoint, which represents a path on a Windows server.
 5. Your files are now kept in sync across your Azure file share and your on-premises server.
 6. In the event of a disaster in your on-premises environment, perform a failover by using a [recovery plan](site-recovery-create-recovery-plans.md). Add the script to [mount the Azure file share](../storage/files/storage-how-to-use-files-windows.md) and access the share in your virtual machine.
@@ -142,7 +142,7 @@ Follow these steps to use File Sync:
 
 1. [Create a storage account in Azure](../storage/common/storage-account-create.md?toc=/azure/storage/files/toc.json). If you chose read-access geo-redundant storage (recommended) for your storage accounts, you have read access to your data from the secondary region in case of a disaster. For more information, see [Disaster recovery and storage account failover](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)..
 2. [Create a file share](../storage/files/storage-how-to-create-file-share.md).
-3. [Deploy File Sync](../storage/files/storage-sync-files-deployment-guide.md) in your on-premises file server.
+3. [Deploy File Sync](../storage/file-sync/file-sync-deployment-guide.md) in your on-premises file server.
 4. Create a sync group. Endpoints within a sync group are kept in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure file share. The sync group also must contain one server endpoint, which represents a path on the on-premises Windows server.
 5. Your files are now kept in sync across your Azure file share and your on-premises server.
 6. In the event of a disaster in your on-premises environment, perform a failover by using a [recovery plan](site-recovery-create-recovery-plans.md). Add the script to mount the Azure file share and access the share in your virtual machine.

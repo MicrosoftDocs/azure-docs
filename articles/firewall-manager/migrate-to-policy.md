@@ -6,7 +6,8 @@ ms.service: firewall-manager
 services: firewall-manager
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Migrate Azure Firewall configurations to Azure Firewall policy using Powershell
@@ -37,7 +38,7 @@ $ApplicationRuleGroupPriority = 300
 $NetworkRuleGroupPriority = 200
 $NatRuleGroupPriority = 100
 
-#Helper functions for tanslatating ApplicationProtocol and ApplicationRule
+#Helper functions for translating ApplicationProtocol and ApplicationRule
 Function GetApplicationProtocolsString
 {
 	Param([Object[]] $Protocols)
@@ -136,7 +137,7 @@ If ($azfw.NetworkRuleCollections.Count -gt 0) {
                 Write-Host "Created network rule " $firewallPolicyNetRule.Name
                 $firewallPolicyNetRules += $firewallPolicyNetRule
 			    }
-			$fwpNetRuleCollection = New-AzFirewallPolicyFilterRuleCollection -Name $rc.Name -Priority $rc.Pl.llriority -ActionType $rc.Action.Type -Rule $firewallPolicyNetRules
+			$fwpNetRuleCollection = New-AzFirewallPolicyFilterRuleCollection -Name $rc.Name -Priority $rc.Priority -ActionType $rc.Action.Type -Rule $firewallPolicyNetRules
 			Write-Host "Created NetworkRuleCollection "  $fwpNetRuleCollection.Name
 		}
 		$firewallPolicyNetRuleCollections += $fwpNetRuleCollection
@@ -146,8 +147,8 @@ If ($azfw.NetworkRuleCollections.Count -gt 0) {
 }
 
 #Translate NatRuleCollection
-# Hierarchy for NAT rule collection is different for AZFW and FirewallPOlicy. In AZFW you can have a NatRuleCollection with multiple NatRules
-# where each NatRule will have its own set of source , dest, tranlated IPs and ports. 
+# Hierarchy for NAT rule collection is different for AZFW and FirewallPolicy. In AZFW you can have a NatRuleCollection with multiple NatRules
+# where each NatRule will have its own set of source , dest, translated IPs and ports. 
 # In FirewallPolicy a NatRuleCollection has a a set of rules which has one condition (source and dest IPs and Ports) and the translated IP and ports 
 # as part of NatRuleCollection.
 # So when translating NAT rules we will have to create separate ruleCollection for each rule in AZFW and every ruleCollection will have only 1 rule.

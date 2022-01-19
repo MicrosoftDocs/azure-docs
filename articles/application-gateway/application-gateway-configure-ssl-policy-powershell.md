@@ -7,7 +7,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure TLS policy versions and cipher suites on Application Gateway
@@ -15,6 +16,9 @@ ms.author: victorh
 Learn how to configure TLS/SSL policy versions and cipher suites on Application Gateway. You can select from a list of predefined policies that contain different configurations of TLS policy versions and enabled cipher suites. You also have the ability to define a [custom TLS policy](#configure-a-custom-tls-policy) based on your requirements.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+> [!NOTE]
+> We recommend using TLS 1.2 as your minimum TLS protocol version for better security on your Application Gateway. 
 
 ## Get available TLS options
 
@@ -111,7 +115,7 @@ The following example sets a custom TLS policy on an application gateway. It set
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 
 > [!IMPORTANT]
-> TLS_RSA_WITH_AES_256_CBC_SHA256 must be selected when configuring a custom TLS policy. Application gateway uses this cipher suite for backend management. You can use this in combination with any other suites, but this one must be selected as well. 
+> TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 must be selected when configuring a custom TLS policy. Application gateway uses this cipher suite for backend management. You can use this in combination with any other suites, but this one must be selected as well. 
 
 ```powershell
 # get an application gateway resource
@@ -212,4 +216,6 @@ $SetGW = Set-AzApplicationGateway -ApplicationGateway $AppGW
 
 ## Next steps
 
-Visit [Application Gateway redirect overview](./redirect-overview.md) to learn how to redirect HTTP traffic to an HTTPS endpoint.
+Visit [Application Gateway redirect overview](./redirect-overview.md) to learn how to redirect HTTP traffic to an HTTPS endpoint. 
+
+Check out setting up listener specific SSL policies at [setting up SSL listener specific policy through Portal](./application-gateway-configure-listener-specific-ssl-policy.md)

@@ -13,7 +13,7 @@ HDInsight allows you to take control of your data and metadata with external dat
 
 The Apache Hive metastore in HDInsight is an essential part of the Apache Hadoop architecture. A metastore is the central schema repository. The metastore is used by other big data access tools such as Apache Spark, Interactive Query (LLAP), Presto, or Apache Pig. HDInsight uses an Azure SQL Database as the Hive metastore.
 
-![HDInsight Hive Metadata Store Architecture](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png" alt-text="HDInsight Hive Metadata Store Architecture" border="false":::
 
 There are two ways you can set up a metastore for your HDInsight clusters:
 
@@ -51,7 +51,7 @@ HDInsight also supports custom metastores, which are recommended for production 
 
 * The cluster and the external metastore must be hosted in the same region.
 
-![HDInsight Hive Metadata Store Use Case](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png" alt-text="HDInsight Hive Metadata Store Use Case" border="false":::
 
 ### Create and config Azure SQL Database for the custom metastore
 
@@ -61,15 +61,15 @@ While creating the cluster, HDInsight service needs to connect to the external m
 
 Private endpoints for SQL stores is only supported on the clusters created with `outbound` ResourceProviderConnection. To learn more, see this [documentationa](./hdinsight-private-link.md).
 
-![set server firewall button](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png" alt-text="set server firewall button":::
 
-![allow azure services access](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png" alt-text="allow azure services access":::
 
 ### Select a custom metastore during cluster creation
 
 You can point your cluster to a previously created Azure SQL Database at any time. For cluster creation through the portal, the option is specified from the **Storage > Metastore settings**.
 
-![HDInsight Hive Metadata Store Azure portal](./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png" alt-text="HDInsight Hive Metadata Store Azure portal":::
 
 ## Hive metastore guidelines
 
@@ -92,11 +92,33 @@ You can point your cluster to a previously created Azure SQL Database at any tim
 
 * In HDInsight 4.0 if you would like to Share the metastore between Hive and Spark, you can do so by changing the property metastore.catalog.default to hive in your Spark cluster. You can find this property in Ambari Advanced spark2-hive-site-override. It’s important to understand that sharing of metastore only works for external hive tables, this will not work if you have internal/managed hive tables or ACID tables.  
 
+### Updating the custom Hive metastore password
+When using a custom Hive metastore database, you have the ability to change the SQL DB password. If you change the password for the custom metastore, the Hive services will not work until you update the password in the HDInsight cluster. 
+
+To update the Hive metastore password:
+1. Open the Ambari UI.
+2. Click **Services --> Hive --> Configs --> Database**.
+3. Update the **Database Password** fields to the new SQL server database password.
+4. Click the **Test Connection** button to make sure the new password works.
+5. Click the **Save** button.
+6. Follow the Ambari prompts to save the config and Restart the required services.
+
 ## Apache Oozie metastore
 
 Apache Oozie is a workflow coordination system that manages Hadoop jobs. Oozie supports Hadoop jobs for Apache MapReduce, Pig, Hive, and others.  Oozie uses a metastore to store details about workflows. To increase performance when using Oozie, you can use Azure SQL Database as a custom metastore. The metastore provides access to Oozie job data after you delete your cluster.
 
 For instructions on creating an Oozie metastore with Azure SQL Database, see [Use Apache Oozie for workflows](hdinsight-use-oozie-linux-mac.md).
+
+### Updating the custom Oozie metastore password
+When using a custom Oozie metastore database, you have the ability to change the SQL DB password. If you change the password for the custom metastore, the Oozie services will not work until you update the password in the HDInsight cluster. 
+
+To update the Oozie metastore password:
+1. Open the Ambari UI.
+2. Click **Services --> Oozie --> Configs --> Database**.
+3. Update the **Database Password** fields to the new SQL server database password.
+4. Click the **Test Connection** button to make sure the new password works.
+5. Click the **Save** button.
+6. Follow the Ambari prompts to save the config and Restart the required services.
 
 ## Custom Ambari DB
 

@@ -6,10 +6,10 @@ author:  nmurav
 services: azure-communication-services
 
 ms.author: nmurav
-ms.date: 12/11/2020
-ms.topic: overview
+ms.date: 06/30/2021
+ms.topic: conceptual
 ms.service: azure-communication-services
-
+ms.subservice: calling
 ---
 
 # Call flow topologies
@@ -71,7 +71,7 @@ To learn more about the details on the media path that is chosen, refer to the [
 
 ### Communication Services (internet)
 
-This topology is used by customers that use Communication Services from the cloud without any on-premises deployment, such as SIP Interface. In this topology, traffic to and from Communication Services flows over the Internet.
+This topology is used by customers that use Communication Services from the cloud without any on-premises deployment, such as Azure direct routing. In this topology, traffic to and from Communication Services flows over the Internet.
 
 :::image type="content" source="./media/call-flows/detailed-flow-general.png" alt-text="Azure Communication Services Topology.":::
 
@@ -149,7 +149,7 @@ Signaling between the VPN to the customer network uses Flow 2*. Signaling betwee
 
 ### VPN user to internal user (direct media)
 
-:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="One to One Call Flow with a VPN with Direct Media":::
+:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="One to One Call Flow (internal user) with a VPN with Direct Media":::
 
 *Figure 6 - VPN user to internal user (direct media)*
 
@@ -159,7 +159,7 @@ This media transmission is bidirectional. The direction of Flow 2 to the remote 
 
 ### VPN user to external user (direct media)
 
-:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="One to One Call Flow with a VPN with Direct Media":::
+:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="One to One Call Flow (external user) with a VPN with Direct Media":::
 
 *Figure 7 - VPN user to external user (direct media)*
 
@@ -169,7 +169,7 @@ This media transmission is bidirectional. The direction of Flow 6 to the remote 
 
 ### Use Case: Communication Services client to PSTN through Communication Services Trunk
 
-Communication Services allows placing and receiving calls from the Public Switched Telephone Network (PSTN). If the PSTN trunk is connected using phone numbers provided by Communication Services, there are no special connectivity requirements for this use case. If you want to connect your own on-premises PSTN trunk to Azure Communication Services, you can use SIP Interface (available in CY2021).
+Communication Services allows placing and receiving calls from the Public Switched Telephone Network (PSTN). If the PSTN trunk is connected using phone numbers provided by Communication Services, there are no special connectivity requirements for this use case. If you want to connect your own on-premises PSTN trunk to Azure Communication Services, you can use Azure direct routing (available in CY2021).
 
 :::image type="content" source="./media/call-flows/acs-to-pstn.png" alt-text="One to One Call with a PSTN Participant":::
 

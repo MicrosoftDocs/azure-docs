@@ -1,22 +1,25 @@
 ---
 title: 'Create a Bastion host using Azure PowerShell | Microsoft Docs'
-description: In this article, learn how to create an Azure Bastion host
+description: Learn how to create an Azure Bastion host using PowerShell.
 services: bastion
 author: cherylmc
-
 ms.service: bastion
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 09/22/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create an Azure Bastion host.
-
+ms.custom: ignite-fall-2021
 ---
 
 # Create an Azure Bastion host using Azure PowerShell
 
 This article shows you how to create an Azure Bastion host using PowerShell. Once you provision the Azure Bastion service in your virtual network, the seamless RDP/SSH experience is available to all of the VMs in the same virtual network. Azure Bastion deployment is per virtual network, not per subscription/account or virtual machine.
 
-Optionally, you can create an Azure Bastion host by using the [Azure portal](./tutorial-create-host-portal.md).
+Optionally, you can create an Azure Bastion host by using the following methods:
+* [Azure portal](./tutorial-create-host-portal.md)
+* [Azure CLI](create-host-cli.md)
+
+[!INCLUDE [About SKUs](../../includes/bastion-sku-note.md)]
 
 ## Prerequisites
 
@@ -24,11 +27,17 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 [!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
+ > [!NOTE]
+ > The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
+ >
+
 ## <a name="createhost"></a>Create a bastion host
 
 This section helps you create a new Azure Bastion resource using Azure PowerShell.
 
-1. Create a virtual network and an Azure Bastion subnet. You must create the Azure Bastion subnet using the name value **AzureBastionSubnet**. This value lets Azure know which subnet to deploy the Bastion resources to. This is different than a Gateway subnet. You must use a subnet of at least /27 or larger subnet (/27, /26, and so on). Create the **AzureBastionSubnet** without any route tables or delegations. If you use Network Security Groups on the **AzureBastionSubnet**, refer to the [Work with NSGs](bastion-nsg.md) article.
+1. Create a virtual network and an Azure Bastion subnet. You must create the Azure Bastion subnet using the name value **AzureBastionSubnet**. This value lets Azure know which subnet to deploy the Bastion resources to. This is different than a VPN gateway subnet.
+
+   [!INCLUDE [Note about BastionSubnet size.](../../includes/bastion-subnet-size.md)]
 
    ```azurepowershell-interactive
    $subnetName = "AzureBastionSubnet"
@@ -47,6 +56,9 @@ This section helps you create a new Azure Bastion resource using Azure PowerShel
    ```azurepowershell-interactive
    $bastion = New-AzBastion -ResourceGroupName "myBastionRG" -Name "myBastion" -PublicIpAddress $publicip -VirtualNetwork $vnet
    ```
+## Disassociate the VM public IP address
+
+Azure Bastion does not use the public IP address to connect to the client VM. If you do not need the public IP address for your VM, you can disassociate the public IP address by using the steps in this article: [Dissociate a public IP address from an Azure VM](../virtual-network/ip-services/remove-public-ip-address-vm.md).
 
 ## Next steps
 

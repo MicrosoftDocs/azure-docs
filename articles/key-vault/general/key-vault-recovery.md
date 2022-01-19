@@ -6,7 +6,6 @@ ms.subservice: general
 ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
-manager: rkarlin
 ms.date: 09/30/2020
 ---
 
@@ -30,6 +29,8 @@ For more information about Key Vault, see
   |---|---|
   |Microsoft.KeyVault/locations/deletedVaults/read|View the properties of a soft deleted key vault|
   |Microsoft.KeyVault/locations/deletedVaults/purge/action|Purge a soft deleted key vault|
+  |Microsoft.KeyVault/locations/operationResults/read| To check purging state of vault|
+  |[Key Vault Contributor](../../role-based-access-control/built-in-roles.md#key-vault-contributor)|To recover soft-deleted vault|
 
 
 ## What are soft-delete and purge protection
@@ -394,6 +395,5 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 - [Key Vault Azure CLI commands](/cli/azure/keyvault)
 - [Azure Key Vault backup](backup.md)
 - [How to enable Key Vault logging](howto-logging.md)
-- [Secure access to a key vault](secure-your-key-vault.md)
+- [Azure Key Vault security features](security-features.md)
 - [Azure Key Vault developer's guide](developers-guide.md)
-- [Best practices to use a key vault](security-overview.md)

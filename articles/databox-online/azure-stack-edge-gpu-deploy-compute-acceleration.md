@@ -7,13 +7,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/26/2021
 ms.author: alkohli
 ---
 
 # Use compute acceleration on Azure Stack Edge Pro GPU for Kubernetes deployment
 
-This article describes how to use compute acceleration on Azure Stack Edge devices when using Kubernetes deployments. The article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices.
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+
+This article describes how to use compute acceleration on Azure Stack Edge devices when using Kubernetes deployments. 
 
 
 ## About compute acceleration 

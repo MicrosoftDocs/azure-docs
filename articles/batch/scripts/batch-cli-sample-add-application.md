@@ -1,10 +1,10 @@
 ---
-title: Azure CLI Script Example - Add an Application in Batch
-description: This sample script demonstrates how to add an application for use with an Azure Batch pool or a task.
+title: Azure CLI Script Example - Add an Application in Batch | Microsoft Docs
+description: Learn how to add an application for use with an Azure Batch pool or a task using the Azure CLI.
 ms.topic: sample
-ms.date: 01/29/2018 
-ms.custom: devx-track-azurecli
-
+ms.date: 09/17/2021
+ms.custom: devx-track-azurecli, seo-azure-cli
+keywords: batch, azure cli samples, azure cli code samples, azure cli script samples
 ---
 
 # CLI example: Add an application to an Azure Batch account
@@ -35,14 +35,14 @@ Each command in the table links to command-specific documentation.
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Creates a storage account. |
-| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Creates the Batch account. |
-| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Authenticates against the specified Batch account for further CLI interaction.  |
-| [az batch application create](/cli/azure/batch/application#az-batch-application-create) | Creates an application.  |
-| [az batch application package create](/cli/azure/batch/application/package#az-batch-application-package-create) | Adds an application package to the specified application.  |
-| [az batch application set](/cli/azure/batch/application#az-batch-application-set) | Updates properties of an application.  |
-| [az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Creates a storage account. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Creates the Batch account. |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Authenticates against the specified Batch account for further CLI interaction.  |
+| [az batch application create](/cli/azure/batch/application#az_batch-application-create) | Creates an application.  |
+| [az batch application package create](/cli/azure/batch/application/package#az_batch-application-package-create) | Adds an application package to the specified application.  |
+| [az batch application set](/cli/azure/batch/application#az_batch-application-set) | Updates properties of an application.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

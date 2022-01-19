@@ -1,9 +1,9 @@
 ---
-title: Troubleshoot cross-region-replication for Azure NetApp Files | Microsoft Docs
+title: Troubleshoot cross-region replication errors for Azure NetApp Files | Microsoft Docs
 description: Describes error messages and resolutions that can help you troubleshoot cross-region replication issues for Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,12 +11,11 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/18/2020
-ms.author: b-juche
+ms.date: 03/10/2021
+ms.author: anfdocs
 ---
-# Troubleshoot cross-region replication
+# Troubleshoot cross-region replication errors
 
 This article describes error messages and resolutions that can help you troubleshoot cross-region replication issues for Azure NetApp Files. 
 
@@ -66,6 +65,12 @@ This article describes error messages and resolutions that can help you troubles
 |     `Snapshot   cannot be deleted, parent volume is a Data Protection volume with a   replication object`    |     Validate that   you have broken the volume's replication if you want to delete this   snapshot.    |
 |     `Cannot delete   volume replication generated snapshot`    |     Deletion of   replication baseline snapshots is not allowed.    |
 
+## Errors resizing volumes
+
+|     Error Message    |     Resolution    |
+|-|-|
+|   Attempt to resize a source volume is failing with the error `"PoolSizeTooSmall","message":"Pool size too small for total volume size."`  |  Ensure that you have enough headroom in the capacity pools for both the source and the destination volumes of cross-region replication. When you resize the source volume, the destination volume is automatically resized. But if the capacity pool hosting the destination volume doesn’t have enough headroom, the resizing of both the source and the destination volumes will fail. See [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume) for details.   |
+
 ## Next steps  
 
 * [Cross-region replication](cross-region-replication-introduction.md)
@@ -73,4 +78,5 @@ This article describes error messages and resolutions that can help you troubles
 * [Create volume replication](cross-region-replication-create-peering.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
+* [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)

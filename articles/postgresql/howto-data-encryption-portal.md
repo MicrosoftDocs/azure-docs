@@ -6,7 +6,7 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/13/2020 
-ms.custom: devx-track-azurecli
+ 
 ---
 
 # Data encryption for Azure Database for PostgreSQL Single server by using the Azure portal
@@ -84,7 +84,7 @@ After Azure Database for PostgreSQL Single server is encrypted with a customer's
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png" alt-text="Screenshot of Azure Database for PostgreSQL, with revalidation step highlighted":::
 
-   You will have to give the key vault access to the new server.
+   You will have to give the key vault access to the new server. For more information, see [Enable Azure RBAC permissions on Key Vault](../key-vault/general/rbac-guide.md?tabs=azure-cli#enable-azure-rbac-permissions-on-key-vault).
 
 4. After registering the service principal, revalidate the key again, and the server resumes its normal functionality.
 

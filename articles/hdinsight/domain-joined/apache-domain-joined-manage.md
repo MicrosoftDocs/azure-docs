@@ -111,7 +111,7 @@ HDInsight Enterprise Security Package has the following roles:
 2. From the left menu, select **Roles**.
 3. Select the blue question mark to see the permissions:
 
-    ![ESP HDInsight roles permissions](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png" alt-text="ESP HDInsight roles permissions" border="true":::
 
 ## Open the Ambari Management UI
 
@@ -119,25 +119,25 @@ HDInsight Enterprise Security Package has the following roles:
 1. Sign in to Ambari using the cluster administrator domain user name and password.
 1. Select the **admin** dropdown menu from the upper right corner, and then select **Manage Ambari**.
 
-    ![ESP HDInsight manage Apache Ambari](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png" alt-text="ESP HDInsight manage Apache Ambari" border="true":::
 
     The UI looks like:
 
-    ![ESP HDInsight Apache Ambari management UI](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png" alt-text="ESP HDInsight Apache Ambari management UI" border="true":::
 
 ## List the domain users synchronized from your Active Directory
 
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, select **Users**. You shall see all the users synced from your Active Directory to the HDInsight cluster.
 
-    ![ESP HDInsight Ambari management UI list users](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png" alt-text="ESP HDInsight Ambari management UI list users" border="true":::
 
 ## List the domain groups synchronized from your Active Directory
 
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, select **Groups**. You shall see all the groups synced from your Active Directory to the HDInsight cluster.
 
-    ![ESP HDInsight Ambari management UI list groups](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png" alt-text="ESP HDInsight Ambari management UI list groups" border="true":::
 
 ## Configure Hive Views permissions
 
@@ -145,12 +145,12 @@ HDInsight Enterprise Security Package has the following roles:
 2. From the left menu, select **Views**.
 3. Select **HIVE** to show the details.
 
-    ![ESP HDInsight Ambari management UI Hive Views](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png" alt-text="ESP HDInsight Ambari management UI Hive Views" border="true":::
 
 4. Select the **Hive View** link to configure Hive Views.
 5. Scroll down to the **Permissions** section.
 
-    ![ESP HDInsight Ambari management UI Hive Views configure permissions](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png" alt-text="ESP HDInsight Ambari management UI Hive Views configure permissions" border="true":::
 
 6. Select **Add User** or **Add Group**, and then specify the users or groups that can use Hive Views.
 

@@ -125,7 +125,7 @@ In this article, you'll work with C# functions that have the following propertie
 - Azure Functions runtime version 3.x
 - Function triggered by timer every 10 minutes
 
-To make it easier for you to start backing up your data, we've [tested and published a function](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) that you can use without making any changes to the code. Download the project files and [publish them to your own Azure function app from Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+To make it easier for you to start backing up your data, we've [tested and published a function](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) that you can use without making any changes to the code. Download the project files and [publish them to your own function app from Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
 > [!IMPORTANT]
 > Don't make any changes to the environment variables in the code you've downloaded. You'll create the required app settings in the next section.
@@ -135,7 +135,7 @@ To make it easier for you to start backing up your data, we've [tested and publi
 
 If the sample code provided earlier doesn't meet your requirements, you can also create your own function. Your function must be able to perform the following tasks in order to complete the backup:
 - Periodically read contents of your queue to see if it contains any notifications from Event Grid. Refer to the [Storage Queue SDK](../storage/queues/storage-quickstart-queues-dotnet.md) for implementation details.
-- If your queue contains [event notifications from Event Grid](./concept-app-configuration-event.md?branch=pr-en-us-112982#event-schema), extract all the unique `<key, label>` information from event messages. The combination of key and label is the unique identifier for key-value changes in the primary store.
+- If your queue contains [event notifications from Event Grid](./concept-app-configuration-event.md#event-schema), extract all the unique `<key, label>` information from event messages. The combination of key and label is the unique identifier for key-value changes in the primary store.
 - Read all settings from the primary store. Update only those settings in the secondary store that have a corresponding event in the queue. Delete all settings from the secondary store that were present in the queue but not in the primary store. You can use the [App Configuration SDK](https://github.com/Azure/AppConfiguration#sdks) to access your configuration stores programmatically.
 - Delete messages from the queue if there were no exceptions during processing.
 - Implement error handling according to your needs. Refer to the preceding code sample to see some common exceptions that you might want to handle.
@@ -197,7 +197,7 @@ az role assignment create \
     --scope $secondaryAppConfigId
 ```
 
-Use the following command or the [Azure portal](../storage/common/storage-auth-aad-rbac-portal.md#assign-azure-roles-using-the-azure-portal) to grant the managed identity of your function app access to your queue. Assign the `Storage Queue Data Contributor` role in the queue.
+Use the following command or the [Azure portal](../storage/blobs/assign-azure-role-data-access.md#assign-an-azure-role) to grant the managed identity of your function app access to your queue. Assign the `Storage Queue Data Contributor` role in the queue.
 
 ```azurecli-interactive
 az role assignment create \

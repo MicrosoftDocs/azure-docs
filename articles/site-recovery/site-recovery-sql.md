@@ -29,9 +29,9 @@ Your choice of a BCDR technology to recover SQL Server instances should be based
 
 Deployment type | BCDR technology | Expected RTO for SQL Server | Expected RPO for SQL Server |
 --- | --- | --- | ---
-SQL Server on an Azure infrastructure as a service (IaaS) virtual machine (VM) or at on-premises.| [Always On availability group](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) | The time taken to make the secondary replica as primary. | Because replication to the secondary replica is asynchronous, there's some data loss.
-SQL Server on an Azure IaaS VM or at on-premises.| [Failover clustering (Always On FCI)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-2017) | The time taken to fail over between the nodes. | Because Always On FCI uses shared storage, the same view of the storage instance is available on failover.
-SQL Server on an Azure IaaS VM or at on-premises.| [Database mirroring (high-performance mode)](/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | The time taken to force the service, which uses the mirror server as a warm standby server. | Replication is asynchronous. The mirror database might lag somewhat behind the principal database. The lag is typically small. But it can become large if the principal or mirror server's system is under a heavy load.<br/><br/>Log shipping can be a supplement to database mirroring. It's a favorable alternative to asynchronous database mirroring.
+SQL Server on an Azure infrastructure as a service (IaaS) virtual machine (VM) or at on-premises.| [Always On availability group](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) | The time taken to make the secondary replica as primary. | Because replication to the secondary replica is asynchronous, there's some data loss.
+SQL Server on an Azure IaaS VM or at on-premises.| [Failover clustering (Always On FCI)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | The time taken to fail over between the nodes. | Because Always On FCI uses shared storage, the same view of the storage instance is available on failover.
+SQL Server on an Azure IaaS VM or at on-premises.| [Database mirroring (high-performance mode)](/sql/database-engine/database-mirroring/database-mirroring-sql-server) | The time taken to force the service, which uses the mirror server as a warm standby server. | Replication is asynchronous. The mirror database might lag somewhat behind the principal database. The lag is typically small. But it can become large if the principal or mirror server's system is under a heavy load.<br/><br/>Log shipping can be a supplement to database mirroring. It's a favorable alternative to asynchronous database mirroring.
 SQL as platform as a service (PaaS) on Azure.<br/><br/>This deployment type includes single databases and elastic pools. | Active geo-replication | 30 seconds after failover is triggered.<br/><br/>When failover is activated for one of the secondary databases, all other secondaries are automatically linked to the new primary. | RPO of five seconds.<br/><br/>Active geo-replication uses the Always On technology of SQL Server. It asynchronously replicates committed transactions on the primary database to a secondary database by using snapshot isolation.<br/><br/>The secondary data is guaranteed to never have partial transactions.
 SQL as PaaS configured with active geo-replication on Azure.<br/><br/>This deployment type includes a managed instances, elastic pools, and single databases. | Auto-failover groups | RTO of one hour. | RPO of five seconds.<br/><br/>Auto-failover groups provide the group semantics on top of active geo-replication. But the same asynchronous replication mechanism is used.
 SQL Server on an Azure IaaS VM or at on-premises.| Replication with Azure Site Recovery | RTO is typically less than 15 minutes. To learn more, read the [RTO SLA provided by Site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | One hour for application consistency and five minutes for crash consistency. If you are looking for lower RPO, use other BCDR technologies.
@@ -43,7 +43,7 @@ SQL Server on an Azure IaaS VM or at on-premises.| Replication with Azure Site R
 > * Ensure that the data change rate observed on the machine is within [Site Recovery limits](vmware-physical-azure-support-matrix.md#churn-limits). The change rate is measured in write bytes per second. For machines running Windows, you can view this change rate by selecting the **Performance** tab in Task Manager. Observe the write speed for each disk.
 > * Site Recovery supports replication of Failover Cluster Instances on Storage Spaces Direct. To learn more, see [how to enable Storage Spaces Direct replication](azure-to-azure-how-to-enable-replication-s2d-vms.md).
 > 
-> When you migrate your SQL Workload to Azure, it is recommended to apply the [Performance guidelines for SQL Server on Azure Virtual Machines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md).
+> When you migrate your SQL Workload to Azure, it is recommended to apply the [Performance guidelines for SQL Server on Azure Virtual Machines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md).
 
 ## Disaster recovery of an application
 
@@ -80,9 +80,9 @@ BCDR technologies Always On, active geo-replication, and auto-failover groups ha
 
 [Create a recovery plan](site-recovery-create-recovery-plans.md) with application and web tier virtual machines. The following steps show how to add failover of the database tier:
 
-1. Import the scripts to fail over SQL Availability Group in both a [Resource Manager virtual machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) and a [classic virtual machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1). Import the scripts into your Azure Automation account.
+1. Import the scripts to fail over SQL Availability Group in both a [Resource Manager virtual machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/demos/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) and a [classic virtual machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/demos/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1). Import the scripts into your Azure Automation account.
 
-	[![Image of a "Deploy to Azure" logo](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![Deploy to Azure logo](../media/template-deployments/deploy-to-azure.svg)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. Add the ASR-SQL-FailoverAG script as a pre-action of the first group of the recovery plan.
 
@@ -90,29 +90,29 @@ BCDR technologies Always On, active geo-replication, and auto-failover groups ha
 
 ### Step 4: Conduct a test failover
 
-Some BCDR technologies such as SQL Always On don’t natively support test failover. We recommend the following approach *only when using such technologies*.
+Some BCDR technologies such as SQL Always On don't natively support test failover. We recommend the following approach *only when using such technologies*.
 
 1. Set up [Azure Backup](../backup/backup-azure-vms-first-look-arm.md) on the VM that hosts the availability group replica in Azure.
 
 1. Before triggering test failover of the recovery plan, recover the VM from the backup taken in the previous step.
 
-	![Screenshot showing window for restoring a configuration from Azure Backup](./media/site-recovery-sql/restore-from-backup.png)
+    ![Screenshot showing window for restoring a configuration from Azure Backup](./media/site-recovery-sql/restore-from-backup.png)
 
 1. [Force a quorum](/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) in the VM that was restored from backup.
 
 1. Update the IP address of the listener to be an address available in the test failover network.
 
-	![Screenshot of rules window and IP address properties dialog](./media/site-recovery-sql/update-listener-ip.png)
+    ![Screenshot of rules window and IP address properties dialog](./media/site-recovery-sql/update-listener-ip.png)
 
 1. Bring the listener online.
 
-	![Screenshot of window labeled Content_AG showing server names and statuses](./media/site-recovery-sql/bring-listener-online.png)
+    ![Screenshot of window labeled Content_AG showing server names and statuses](./media/site-recovery-sql/bring-listener-online.png)
 
 1. Ensure that the load balancer in the failover network has one IP address, from the front-end IP address pool that corresponding to each availability group listener, and with the SQL Server VM in the back-end pool.
 
-	 ![Screenshot of window titled "SQL-AlwaysOn-LB - Frontend IP Pool](./media/site-recovery-sql/create-load-balancer1.png)
+     ![Screenshot of window titled "SQL-AlwaysOn-LB - Frontend IP Pool](./media/site-recovery-sql/create-load-balancer1.png)
 
-	![Screenshot of window titled "SQL-AlwaysOn-LB - Backend IP Pool](./media/site-recovery-sql/create-load-balancer2.png)
+    ![Screenshot of window titled "SQL-AlwaysOn-LB - Backend IP Pool](./media/site-recovery-sql/create-load-balancer2.png)
 
 1. In later recovery groups, add failover of your application tier followed by your web tier for this recovery plan.
 

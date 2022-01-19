@@ -18,6 +18,9 @@ This topic shows you how to create a managed identity for App Service and Azure 
 > [!Important] 
 > Managed identities for App Service and Azure Functions won't behave as expected if your app is migrated across subscriptions/tenants. The app needs to obtain a new identity, which is done by disabling and re-enabling the feature. See [Removing an identity](#remove) below. Downstream resources also need to have access policies updated to use the new identity.
 
+> [!NOTE]
+> Managed identities are not available for [apps deployed in Azure Arc](overview-arc-integration.md).
+
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
 ## Add a system-assigned identity
@@ -53,7 +56,7 @@ To set up a managed identity using the Azure CLI, you will need to use the `az w
 
 The following steps will walk you through creating a web app and assigning it an identity using the CLI:
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az-login). Use an account that's associated with the Azure subscription under which you would like to deploy the application:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az_login). Use an account that's associated with the Azure subscription under which you would like to deploy the application:
 
     ```azurecli-interactive
     az login
@@ -469,29 +472,34 @@ To learn more about configuring AzureServiceTokenProvider and the operations it 
 
 For Java applications and functions, the simplest way to work with a managed identity is through the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java). This section shows you how to get started with the library in your code.
 
-1. Add a reference to the [Azure SDK library](https://mvnrepository.com/artifact/com.microsoft.azure/azure). For Maven projects, you might add this snippet to the `dependencies` section of the project's POM file:
+1. Add a reference to the [Azure SDK library](https://mvnrepository.com/artifact/com.azure.resourcemanager/azure-resourcemanager). For Maven projects, you might add this snippet to the `dependencies` section of the project's POM file:
 
     ```xml
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure</artifactId>
-        <version>1.23.0</version>
+      <groupId>com.azure.resourcemanager</groupId>
+      <artifactId>azure-resourcemanager</artifactId>
+      <version>2.10.0</version>
     </dependency>
     ```
 
-2. Use the `AppServiceMSICredentials` object for authentication. This example shows how this mechanism may be used for working with Azure Key Vault:
+2. Use the `ManagedIdentityCredential` object for authentication. This example shows how this mechanism may be used for working with Azure Key Vault:
 
     ```java
-    import com.microsoft.azure.AzureEnvironment;
-    import com.microsoft.azure.management.Azure;
-    import com.microsoft.azure.management.keyvault.Vault
+    import com.azure.core.management.AzureEnvironment;
+    import com.azure.core.management.profile.AzureProfile;
+    import com.azure.identity.ManagedIdentityCredential;
+    import com.azure.identity.ManagedIdentityCredentialBuilder;
+    import com.azure.resourcemanager.AzureResourceManager;
+    import com.azure.resourcemanager.keyvault.models.Vault;
     //...
-    Azure azure = Azure.authenticate(new AppServiceMSICredentials(AzureEnvironment.AZURE))
-            .withSubscription(subscriptionId);
-    Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName);
+    AzureProfile azureProfile = new AzureProfile(AzureEnvironment.AZURE);
+    ManagedIdentityCredential managedIdentityCredential = new ManagedIdentityCredentialBuilder().build();
+    AzureResourceManager azure = AzureResourceManager.authenticate(managedIdentityCredential, azureProfile).withSubscription("subscription");
+
+    Vault vault = azure.vaults().getByResourceGroup("resourceGroup", "keyVaultName");
 
     ```
-
+For more information on how to use the Azure SDK for Java, please refer to this [quickstart guide](https://aka.ms/azsdk/java/mgmt). To learn more about Azure Identiy and authentication and Managed Identity in general, please visit [this guide](https://github.com/Azure/azure-sdk-for-java/wiki/Azure-Identity-Examples#authenticating-a-user-assigned-managed-identity-with-defaultazurecredential)
 
 ## <a name="remove"></a>Remove an identity
 
@@ -519,8 +527,9 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 
 ## Next steps
 
-- [Access SQL Database securely using a managed identity](app-service-web-tutorial-connect-msi.md)
+- [Access SQL Database securely using a managed identity](tutorial-connect-msi-sql-database.md)
 - [Access Azure Storage securely using a managed identity](scenario-secure-app-access-storage.md)
 - [Call Microsoft Graph securely using a managed identity](scenario-secure-app-access-microsoft-graph-as-app.md)
+- [Connect securely to services with Key Vault secrets](tutorial-connect-msi-key-vault.md)
 
 [Microsoft.Azure.Services.AppAuthentication reference]: /dotnet/api/overview/azure/service-to-service-authentication

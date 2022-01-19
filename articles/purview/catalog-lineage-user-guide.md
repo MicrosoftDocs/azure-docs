@@ -1,12 +1,11 @@
 ---
-title: Data Catalog lineage user guide (preview)
+title: Data Catalog lineage user guide
 description: This article provides an overview of the catalog lineage feature of Azure Purview.
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/29/2020
+ms.date: 09/27/2021
 ---
 # Azure Purview Data Catalog lineage user guide
 
@@ -17,19 +16,19 @@ This article provides an overview of the data lineage features in Azure Purview 
 One of the platform features of Azure Purview is the ability to show the lineage between datasets created by data processes. Systems like Data Factory, Data Share, and Power BI capture the lineage of data as it moves. Custom lineage reporting is also supported via Atlas hooks and REST API.
 
 ## Lineage collection 
- Metadata collected in Azure Purview from enterprise data systems are stitched across to show an end to end data lineage. Data systems that collect lineage into Purview are broadly categorized into following three types.
+ Metadata collected in Azure Purview from enterprise data systems are stitched across to show an end to end data lineage. Data systems that collect lineage into Azure Purview are broadly categorized into following three types.
 
 ### Data processing system
-Data integration and ETL tools can push lineage in to Azure Purview at execution time. Tools such as Data Factory, Data Share, Synapse, Azure Databricks, and so on, belong to this category of data systems. The data processing systems reference datasets as source from different databases and storage solutions to create target datasets. The list of data processing systems currently integrated with Purview for lineage are listed in below table.
-
+Data integration and ETL tools can push lineage in to Azure Purview at execution time. Tools such as Data Factory, Data Share, Synapse, Azure Databricks, and so on, belong to this category of data systems. The data processing systems reference datasets as source from different databases and storage solutions to create target datasets. The list of data processing systems currently integrated with Azure Purview for lineage are listed in below table.
 
 | Data processing system | Supported scope |
 | ---------------------- | ------------|
-| Azure Data Factory | [Copy activity](how-to-link-azure-data-factory.md#data-factory-copy-activity-support) <br> [Data flow activity](how-to-link-azure-data-factory.md#data-factory-data-flow-support) <br> [Execute SSIS package activity](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support) |
+| Azure Data Factory | [Copy activity](how-to-link-azure-data-factory.md#copy-activity-support) <br> [Data flow activity](how-to-link-azure-data-factory.md#data-flow-support) <br> [Execute SSIS package activity](how-to-link-azure-data-factory.md#execute-ssis-package-support) |
+| Azure Synapse Analytics | [Copy activity](how-to-lineage-azure-synapse-analytics.md#copy-activity-support) <br> [Data flow activity](how-to-lineage-azure-synapse-analytics.md#data-flow-support) |
 | Azure Data Share | [Share snapshot](how-to-link-azure-data-share.md) |
  
 ### Data storage systems
-Databases & storage solutions such as SQL Server, Teradata, and SAP have query engines to transform data using scripting language. Data lineage from stored procedures is collected in to Purview and stitched with lineage from other systems.
+Databases & storage solutions such as SQL Server, Teradata, and SAP have query engines to transform data using scripting language. Data lineage from stored procedures is collected in to Azure Purview and stitched with lineage from other systems.
 
 | Data storage system | Supported scope |
 | ---------------------- | ------------|
@@ -44,19 +43,21 @@ Data systems like Azure ML and Power BI report lineage into Azure Purview. These
 
 ## Get started with lineage
 
-Lineage in Purview includes datasets and processes. Datasets are also referred to as nodes while processes can be also called edges:
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWxTAK]
 
-* **Dataset (Node)**: A dataset (structured or unstructured) provided as an input to a process. For example, a SQL Table, Azure blob, and files (such as .csv and .xml), are all considered datasets. In the lineage section of Purview, datasets are represented by rectangular boxes.
+Lineage in Azure Purview includes datasets and processes. Datasets are also referred to as nodes while processes can be also called edges:
 
-* **Process (Edge)**: An activity or transformation performed on a dataset is called a process. For example, ADF Copy activity, Data Share snapshot and so on. In the lineage section of Purview, processes are represented by round-edged boxes.
+* **Dataset (Node)**: A dataset (structured or unstructured) provided as an input to a process. For example, a SQL Table, Azure blob, and files (such as .csv and .xml), are all considered datasets. In the lineage section of Azure Purview, datasets are represented by rectangular boxes.
 
-To access lineage information for an asset in Purview, follow the steps:
+* **Process (Edge)**: An activity or transformation performed on a dataset is called a process. For example, ADF Copy activity, Data Share snapshot and so on. In the lineage section of Azure Purview, processes are represented by round-edged boxes.
+
+To access lineage information for an asset in Azure Purview, follow the steps:
 
 1. In the Azure portal, go to the [Azure Purview accounts page](https://aka.ms/purviewportal).
 
-1. Select your Azure Purview account from the list, and then select **Launch purview account** from the **Overview** page.
+1. Select your Azure Purview account from the list, and then select **Open Azure Purview Studio** from the **Overview** page.
 
-1. On the Azure Purview **Home** page, search for a dataset name or the process name such as ADF Copy or Data Flow activity. And then press Enter.
+1. On the Azure Purview Studio **Home** page, search for a dataset name or the process name such as ADF Copy or Data Flow activity. And then press Enter.
 
 1. From the search results, select the asset and select its **Lineage** tab.
 
@@ -93,7 +94,7 @@ To see column-level lineage of a dataset, go to the **Lineage** tab of the curre
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-filter-nodes.png" alt-text="Screenshot showing how to use the toggle to filter the list of nodes on the lineage page." lightbox="./media/catalog-lineage-user-guide/use-toggle-to-filter-nodes.png":::
 
 ## Process column lineage
-Data process can take one or more input datasets to produce one or more outputs. In Purview, column level lineage is available for process nodes. 
+Data process can take one or more input datasets to produce one or more outputs. In Azure Purview, column level lineage is available for process nodes. 
 1. Switch between input and output datasets from a drop down in the columns panel.
 2. Select columns from one or more tables to see the lineage flowing from input dataset to corresponding output dataset.
 
@@ -104,7 +105,7 @@ Data process can take one or more input datasets to produce one or more outputs.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/select-switch-to-asset.png" alt-text="Screenshot how to select Switch to asset in a lineage data asset." lightbox="./media/catalog-lineage-user-guide/select-switch-to-asset.png":::
 
-2. The lineage canvas could become complex for popular datasets. To avoid clutter, the default view will only show five levels of lineage for the asset in focus. The rest of the lineage can be expanded by clicking the bubbles in the lineage canvas. Data consumers can also hide the assets in the canvas that are of no interest. To further reduce the clutter, turn off the toggle **More Lineage** at the top of lineage canvas. This action will hide all the bubbles in lineage canvas.
+2. The lineage canvas could become complex for popular datasets. To avoid clutter, the default view will only show five levels of lineage for the asset in focus. The rest of the lineage can be expanded by selecting the bubbles in the lineage canvas. Data consumers can also hide the assets in the canvas that are of no interest. To further reduce the clutter, turn off the toggle **More Lineage** at the top of lineage canvas. This action will hide all the bubbles in lineage canvas.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png" alt-text="Screenshot showing how to toggle More lineage." lightbox="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png":::
 

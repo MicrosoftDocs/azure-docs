@@ -3,7 +3,7 @@ title: Configure cloud metrics and logs for Azure API Management self-hosted gat
 description: Learn how to configure cloud metrics and logs for Azure API Management self-hosted gateway
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: gwallace
 editor: ''
 
@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
-ms.author: apimpm
+ms.author: danlep
 
 ---
 

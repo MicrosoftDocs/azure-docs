@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/29/2020
+ms.date: 05/18/2021
 
 ---
 
@@ -84,7 +84,19 @@ The example JSON includes one utterance with a labeled entity to illustrate what
 
 5. Name the dataset `pizza test` and select **Done**.
 
-6. Select the **Run** button. After the batch test runs, select **See results**. 
+6. Select the **Run** button. 
+
+7. After the batch test completes, you can see the following columns:
+
+    | Column | Description |
+    | -------- | ------------- |
+    | State | Status of the test. **See results** is only visible after the test is completed. |
+    | Name | The name you have given to the test. |
+    | Size | Number of tests in this batch test file. |
+    | Last Run | Date of last run of this batch test file. |
+    | Last result | Number of successful predictions in the test. |
+
+8. To view detailed results of the test, select **See results**. 
 
     > [!TIP]
     > * Selecting **Download** will download the same file that you uploaded.
@@ -172,10 +184,10 @@ Remember to add your LUIS key to `Ocp-Apim-Subscription-Key` in the header, and 
 Start a batch test using either an app version ID or a publishing slot. Send a **POST** request to one of the following endpoint formats. Include your batch file in the body of the request.
 
 Publishing slot
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-NAME>/evaluations`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-NAME>/evaluations`
 
 App version ID
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations`
 
 These endpoints will return an operation ID that you will use to check the status, and get results. 
 
@@ -185,27 +197,27 @@ These endpoints will return an operation ID that you will use to check the statu
 Use the operation ID from the batch test you started to get its status from the following endpoint formats: 
 
 Publishing slot
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/status`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/status`
 
 App version ID
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/status`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/status`
 
 ### Get the results from a batch test
 
 Use the operation ID from the batch test you started to get its results from the following endpoint formats: 
 
 Publishing slot
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/result`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/result`
 
 App version ID
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/result`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/result`
 
 
 ### Batch file of utterances
 
 Submit a batch file of utterances, known as a *data set*, for batch testing. The data set is a JSON-formatted file containing a maximum of 1,000 labeled utterances. You can test up to 10 data sets in an app. If you need to test more, delete a data set and then add a new one. All custom entities in the model appear in the batch test entities filter even if there are no corresponding entities in the batch file data.
 
-The batch file consists of utterances. Each utterance must have an expected intent prediction along with any [machine-learning entities](luis-concept-entity-types.md#types-of-entities) you expect to be detected.
+The batch file consists of utterances. Each utterance must have an expected intent prediction along with any [machine-learning entities](luis-concept-entity-types.md#machine-learned-ml-entity) you expect to be detected.
 
 ### Batch syntax template for intents with entities
 

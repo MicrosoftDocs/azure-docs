@@ -3,13 +3,13 @@ title: Create a resilient access control management strategy - Azure AD
 description: This document provides guidance on strategies an organization should adopt to provide resilience to reduce the risk of lockout during unforeseen disruptions
 services: active-directory
 author: martincoetzer
-manager: daveba
+manager: karenhoran
 tags: azuread
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/08/2020
+ms.date: 07/13/2021
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ---
@@ -66,7 +66,7 @@ Incorporate the following access controls in your existing Conditional Access po
 5. If you are protecting VPN access using Azure AD MFA NPS extension, consider federating your VPN solution as a [SAML app](../manage-apps/view-applications-portal.md) and determine the app category as recommended below. 
 
 >[!NOTE]
-> Risk-based policies require [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) licenses.
+> Risk-based policies require [Azure AD Premium P2](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) licenses.
 
 The following example describes policies you must create to provide a resilient access control for user to access their apps and resources. In this example, you will require a security group **AppUsers** with the target users you want to give access to, a group named **CoreAdmins** with the core administrators, and a group named **EmergencyAccess** with the emergency access accounts.
 This example policy set will grant selected users in **AppUsers**, access to selected apps if they are connecting from a trusted device OR provide strong authentication, for example MFA. It excludes emergency accounts and core administrators.
@@ -116,7 +116,7 @@ A contingency Conditional Access policy is a **backup policy** that omits Azure 
 * Deploy [Azure AD Self-Service Password Reset (SSPR)](./tutorial-enable-sspr.md) and [Azure AD Password Protection](./howto-password-ban-bad-on-premises-deploy.md) to make sure users don’t use common password and terms you choose to ban.
 * Use policies that restrict the access within the apps if a certain authentication level is not attained instead of simply falling back to full access. For example:
   * Configure a backup policy that sends the restricted session claim to Exchange and SharePoint.
-  * If your organization uses Microsoft Cloud App Security, consider falling back to a policy that engages MCAS and then MCAS Allows read-only access but not uploads.
+  * If your organization uses Microsoft Defender for Cloud Apps, consider falling back to a policy that engages Defender for Cloud Apps and then allow read-only access but not uploads.
 * Name your policies to make sure it is easy to find them during a disruption. Include the following elements in the policy name:
   * A *label number* for the policy.
   * Text to show, this policy is for emergencies only. For example: **ENABLE IN EMERGENCY**
@@ -267,8 +267,8 @@ Undo the changes you made as part of the activated contingency plan once the ser
  In case of an emergency and your organization did not previously implement a mitigation or contingency plan, then follow the recommendations in the [Contingencies for user lockout](#contingencies-for-user-lockout) section if they already use Conditional Access policies to enforce MFA.
  If your organization is using per-user MFA legacy policies, then you can consider the following alternative:
 
-1. If you have the corporate network outbound IP address, you can add them as trusted IPs to enable authentication only to the corporate network.
-   1. If you don’t have the inventory of outbound IP addresses, or you required to enable access inside and outside the corporate network, you can add the entire IPv4 address space as trusted IPs by specifying 0.0.0.0/1 and 128.0.0.0/1.
+- If you have the corporate network outbound IP address, you can add them as trusted IPs to enable authentication only to the corporate network.
+- If you don’t have the inventory of outbound IP addresses, or you required to enable access inside and outside the corporate network, you can add the entire IPv4 address space as trusted IPs by specifying 0.0.0.0/1 and 128.0.0.0/1.
 
 >[!IMPORTANT]
  > If you broaden the trusted IP addresses to unblock access, risk detections associated with IP addresses (for example, impossible travel or unfamiliar locations) will not be generated.
@@ -280,7 +280,7 @@ Undo the changes you made as part of the activated contingency plan once the ser
 
 * [Azure AD Authentication Documentation](./howto-mfaserver-iis.md)
 * [Manage emergency-access administrative accounts in Azure AD](../roles/security-emergency-access.md)
-* [Configure named locations in Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
+* [Configure named locations in Azure Active Directory](../conditional-access/location-condition.md)
   * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings)
 * [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-azuread-join-plan.md)
 * [Windows Hello for Business Deployment Guide](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)

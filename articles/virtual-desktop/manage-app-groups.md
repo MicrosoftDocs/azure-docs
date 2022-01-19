@@ -1,18 +1,21 @@
 ---
-title: Manage app groups for Windows Virtual Desktop portal - Azure
-description: How to manage Windows Virtual Desktop app groups with the Azure portal.
+title: Manage app groups for Azure Virtual Desktop portal - Azure
+description: How to manage Azure Virtual Desktop app groups with the Azure portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 10/09/2020
+ms.date: 07/20/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Tutorial: Manage app groups with the Azure portal
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
+>This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
 
-The default app group created for a new Windows Virtual Desktop host pool also publishes the full desktop. In addition, you can create one or more RemoteApp application groups for the host pool. Follow this tutorial to create a RemoteApp app group and publish individual Start menu apps.
+The default app group created for a new Azure Virtual Desktop host pool also publishes the full desktop. In addition, you can create one or more RemoteApp application groups for the host pool. Follow this tutorial to create a RemoteApp app group and publish individual Start menu apps.
+
+>[!NOTE]
+>You can dynamically attach MSIX apps to user sessions or add your app packages to a custom virtual machine (VM) image to publish your organization's apps. Learn more at [How to host custom apps with Azure Virtual Desktop](./remote-app-streaming/custom-apps.md).
 
 In this tutorial, learn how to:
 
@@ -22,16 +25,16 @@ In this tutorial, learn how to:
 
 ## Create a RemoteApp group
 
-If you've already created a host pool and session host VMs using the Azure
-portal or PowerShell, you can add application groups from the Azure portal with
-the following process:
+If you've already created a host pool and session host VMs using the Azure portal or PowerShell, you can add application groups from the Azure portal with the following process:
 
 1.  Sign in to the [Azure portal](https://portal.azure.com/).
    
     >[!NOTE]
     > If you're signing in to the US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us/) instead.
+    >
+    >If you're accessing the Azure China portal, go to [https://portal.azure.cn/](https://portal.azure.cn/).
 
-2.  Search for and select **Windows Virtual Desktop**.
+2.  Search for and select **Azure Virtual Desktop**.
 
 3. You can add an application group directly or you can add it from an existing host pool. Choose an option below:
 
@@ -120,7 +123,31 @@ The deployment process will do the following things for you:
 - Create a link to an Azure Resource Manager template based on your configuration that you can download and save for later.
 
 >[!IMPORTANT]
->You can only create 200 application groups for each Azure Active Directory tenant. We added this limit because of service limitations for retrieving feeds for our users. This limit doesn't apply to app groups created in Windows Virtual Desktop (classic).
+>You can only create 200 application groups for each Azure Active Directory tenant. We added this limit because of service limitations for retrieving feeds for our users. This limit doesn't apply to app groups created in Azure Virtual Desktop (classic).
+
+## Edit or remove an app
+
+To edit or remove an app from an app group:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+   
+   >[!NOTE]
+   >If you're signing in to the US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us) instead.
+
+2. Search for and select **Azure Virtual Desktop**.
+
+3. You can either add an application group directly or from an existing host pool by choosing one of the following options:
+
+    - To add a new application group directly, select **Application groups** in the menu on the left side of the page, then select the app group you want to edit.
+    - To edit an app group in an existing host pool, select **Host pools** in the menu on the left side of the screen, select the name of the host pool, then select **Application groups** in the menu that appears on the left side of the screen, and then select the app group you want to edit.
+
+4. Select **Applications** in the menu on the left side of the page.
+
+5. If you want to remove an application, select the check box next to the application, then select **Remove** from the menu on the top of the page.
+
+6. If you want to edit the details of an application, select the application name. This will open up the editing menu.
+
+7. When you're done making changes, select **Save**.
 
 ## Next steps
 

@@ -151,13 +151,22 @@ In this section, a user called Britta Simon is created in Box. Box supports just
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on **Test this application** in Azure portal. This will redirect to Box Sign-on URL where you can initiate the login flow.
+* Select **Test this application** in the Azure portal. You're redirected to the Box Sign-on URL, where you can initiate the login flow.
 
 * Go to Box Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Box tile in the My Apps, this will redirect to Box Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Box tile in the My Apps, this will redirect to Box Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
+### Push an Azure group to Box
+
+You can push an Azure group to Box and sync that group. Azure pushes groups to Box via an API-level integration.
+
+1. In **Users & Groups**, search for the group you want to assign to Box.
+1. In **Provisioning**, ensure that **Synchronize Azure Active Directory Groups to Box** is selected. This setting syncs the groups that you allocated in the preceding step. It might take some time for these groups to be pushed from Azure.
+
+> [!NOTE]
+> If you need to create a user manually, contact [Box support team](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire).
 
 ## Next steps
 
-Once you configure Box you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+Once you configure Box you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

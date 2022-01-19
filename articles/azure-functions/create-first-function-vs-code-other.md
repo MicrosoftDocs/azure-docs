@@ -1,8 +1,10 @@
 ---
 title: Create a function in Go or Rust using Visual Studio Code - Azure Functions
-description: Learn how to create a Go function as an Azure Functions custom handler, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.  
+description: Learn how to create a Go function as an Azure Functions custom handler, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
 ms.date: 12/4/2020
+ms.devlang: golang, rust
+ms.custom: mode-api
 ---
 
 # Quickstart: Create a Go or Rust function in Azure using Visual Studio Code
@@ -136,8 +138,8 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
 
     ```toml
     [dependencies]
-    warp = "0.2"
-    tokio = { version = "0.2", features = ["full"] }
+    warp = "0.3"
+    tokio = { version = "1", features = ["rt", "macros", "rt-multi-thread"] }
     ```
 
 1. In *src/main.rs*, add the following code and save the file. This is your Rust custom handler.

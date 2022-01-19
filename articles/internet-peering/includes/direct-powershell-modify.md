@@ -7,7 +7,8 @@ author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
-ms.author: prmitiki
+ms.author: prmitiki 
+ms.custom: devx-track-azurepowershell
 ---
 
 This section describes how to perform the following modification operations for Direct peering:

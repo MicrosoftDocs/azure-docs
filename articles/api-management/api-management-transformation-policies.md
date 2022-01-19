@@ -3,7 +3,7 @@ title: Azure API Management transformation policies | Microsoft Docs
 description: Learn about the transformation policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: erikre
 editor: ''
 
@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
-ms.author: apimpm
+ms.author: danlep
 ---
 # API Management transformation policies
 This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
@@ -361,7 +361,7 @@ The `set-body` policy can be configured to use the [Liquid](https://shopify.gith
 > [!IMPORTANT]
 > The implementation of Liquid used in the `set-body` policy is configured in 'C# mode'. This is particularly important when doing things such as filtering. As an example, using a date filter requires the use of Pascal casing and C# date formatting e.g.:
 >
-> {{body.foo.startDateTime| Date:"yyyyMMddTHH:mm:ddZ"}}
+> {{body.foo.startDateTime| Date:"yyyyMMddTHH:mm:ssZ"}}
 
 > [!IMPORTANT]
 > In order to correctly bind to an XML body using the Liquid template, use a `set-header` policy to set Content-Type to either application/xml, text/xml (or any type ending with +xml); for a JSON body, it must be application/json, text/json (or any type ending with +json).

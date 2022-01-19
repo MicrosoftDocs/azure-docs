@@ -8,7 +8,7 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 07/14/2021
 ms.author: egeaney
 #Customer intent: As a user of the Translator service, I want to learn how encryption at rest works.
 ---
@@ -32,9 +32,16 @@ By default, your data are stored in Microsoft's storage and your subscription us
 
 For more information about Managed Identity, see [What are managed identities](../../active-directory/managed-identities-azure-resources/overview.md).
 
+In the meantime, when you use Custom Command, you can manage your subscription with your own encryption keys. Customer-managed keys (CMK), also known as bring your own key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data. For more information about Custom Command and CMK, see [Custom Commands encryption of data at rest](custom-commands-encryption-of-data-at-rest.md).
+
 ## Bring your own storage (BYOS) for customization and logging
 
-To request access to bring your own storage, fill out and submit the [Speech service - bring your own storage (BYOS) request form](https://aka.ms/cogsvc-cmk). Once approved, you'll need to create your own storage account to store the data required for customization and logging. When adding a storage account, the Speech service resource will enable a system assigned managed identity. After the system assigned managed identity is enabled, this resource will be registered with Azure Active Directory (AAD). After being registered, the managed identity will be given access to the storage account. You can learn more about Managed Identities here. For more information about Managed Identity, see [What are managed identities](../../active-directory/managed-identities-azure-resources/overview.md).
+To request access to bring your own storage, fill out and submit the [Speech service - bring your own storage (BYOS) request form](https://aka.ms/cogsvc-cmk). Once approved, you'll need to create your own storage account to store the data required for customization and logging. When adding a storage account, the Speech service resource will enable a system assigned managed identity.
+
+> [!IMPORTANT]
+> The user account you use to create a Speech resource with BYOS functionality enabled should be assigned the [Owner role at the Azure subscription scope](../../cost-management-billing/manage/add-change-subscription-administrator.md#to-assign-a-user-as-an-administrator). Otherwise you will get an authorization error during the resource provisioning.
+
+After the system assigned managed identity is enabled, this resource will be registered with Azure Active Directory (AAD). After being registered, the managed identity will be given access to the storage account. For more about managed identities, see [What are managed identities](../../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
 > If you disable system assigned managed identities, access to the storage account will be removed. This will cause the parts of the Speech service that require access to the storage account to stop working.  

@@ -6,13 +6,13 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 03/30/2021
 ms.author: banders
 ---
 
 # Avoid charges with your Azure free account
 
-Eligible new users get $200 of Azure credit for the first 30 days and a limited quantity of free services for 12 months with your [Azure free account](https://azure.microsoft.com/free/). To learn about limits of free services, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/). As long as you have unexpired credit or you use only free services within the limits, you're not charged.
+Eligible new users get $200 Azure credit in your billing currency for the first 30 days and a limited quantity of free services for 12 months with your [Azure free account](https://azure.microsoft.com/free/). To learn about limits of free services, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/). As long as you have unexpired credit or you use only free services within the limits, you're not charged.
 
 Let's look at some of the reasons you can incur charges on your Azure free account.
 

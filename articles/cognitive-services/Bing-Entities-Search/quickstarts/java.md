@@ -5,12 +5,12 @@ description: Use this quickstart to send a request to the Bing Entity Search RES
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
-ms.custom: devx-track-java
+ms.devlang: java
+ms.custom: devx-track-java, mode-api
 ms.author: aahi
 ---
 # Quickstart: Send a search request to the Bing Entity Search REST API using Java
@@ -58,8 +58,8 @@ Although this application is written in Java, the API is a RESTful Web service c
 
       static String subscriptionKey = "ENTER KEY HERE";
     
-    	static String host = "https://api.cognitive.microsoft.com";
-    	static String path = "/bing/v7.0/entities";
+    	static String host = "https://api.bing.microsoft.com";
+    	static String path = "/v7.0/search";
     
     	static String mkt = "en-US";
     	static String query = "italian restaurant near me";

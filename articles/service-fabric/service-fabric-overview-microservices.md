@@ -132,9 +132,6 @@ Azure Service Fabric emerged when Microsoft transitioned from delivering boxed p
 
 ***The aim of Service Fabric is to solve the hard problems of building and running a service and to use infrastructure resources efficiently, so teams can solve business problems by using a microservices approach.***
 
-This short video introduces Service Fabric and microservices:
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
-
 Service Fabric helps you build applications that use a microservices approach by providing:
 
 * A platform that provides system services to deploy, upgrade, detect, and restart failed services, discover services, route messages, manage state, and monitor health.
@@ -188,7 +185,7 @@ The objective of Service Fabric is to reduce the complexities of building micros
 
 * [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 * [Azure Architecture Center: Building microservices on Azure](/azure/architecture/microservices/)
-* [Azure Service Fabric application and cluster best practices](service-fabric-best-practices-overview.md)
+* [Azure Service Fabric application and cluster best practices](./service-fabric-best-practices-security.md)
 * [Service Fabric terminology overview](service-fabric-technical-overview.md)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png

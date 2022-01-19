@@ -3,14 +3,14 @@ title: 'Quickstart - Create an Azure Private Endpoint using Azure PowerShell'
 description: Use this quickstart to learn how to create a Private Endpoint using Azure PowerShell.
 services: private-link
 author: asudbring
-# Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private endpoint
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/02/2020
 ms.author: allensu
-
+ms.custom: devx-track-azurepowershell, mode-api
+#Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private endpoint
 ---
-# Use PowerShell to create a Private Endpoint
+# Quickstart: Create an Azure Private Endpoint using Azure PowerShell
 
 Get started with Azure Private Link by using a Private Endpoint to connect securely to an Azure web app.
 
@@ -140,6 +140,8 @@ New-AzVMConfig @parameters2 | Set-AzVMOperatingSystem -Windows @parameters3 | Se
 ## Create the virtual machine ##
 New-AzVM -ResourceGroupName 'CreatePrivateEndpointQS-rg' -Location 'eastus' -VM $vmConfig
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Create private endpoint
 

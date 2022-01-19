@@ -62,7 +62,7 @@ Azure compliance offerings are based on various types of assurances, including f
 
 The following image summarizes the major system security areas and the security solutions that are available to you in each. It also highlights which security areas are your responsibility as a customer. And which areas are the responsibility of HDInsight as the service provider.
 
-![HDInsight shared responsibilities diagram](./media/hdinsight-security-overview/hdinsight-shared-responsibility.png)
+:::image type="content" source="./media/hdinsight-security-overview/hdinsight-shared-responsibility.png" alt-text="HDInsight shared responsibilities diagram" border="false":::
 
 The following table provides links to resources for each type of security solution.
 

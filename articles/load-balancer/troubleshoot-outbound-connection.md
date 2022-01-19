@@ -2,15 +2,21 @@
 title: Troubleshoot outbound connections in Azure Load Balancer
 description: Resolutions for common problems with outbound connectivity through the Azure Load Balancer. 
 services: load-balancer
-author: erichrt
+author: anavinahar
 ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
-ms.author: errobin
+ms.author: anavin
 ---
 # <a name="obconnecttsg"></a> Troubleshooting outbound connections failures
 
-This article is intended that provide resolutions for common problems can occur with outbound connections from an Azure Load Balancer. Most problems with outbound connectivity that customers experience are due to SNAT port exhaustion and connection timeouts leading to dropped packets. This article provides steps for mitigating each of these issues.
+This article is intended to provide resolutions for common problems that can occur with outbound connections from an Azure Load Balancer. Most problems with outbound connectivity that customers experience are due to source network address translation (SNAT) port exhaustion and connection timeouts leading to dropped packets. This article provides steps for mitigating each of these issues.
+
+## Avoid SNAT
+
+The best way to avoid SNAT port exhaustion is to eliminate the need for SNAT in the first place, if possible. In some cases this might not be possible. For example, when connecting to public endpoints. However, in some cases this is possible and can be achieved by connecting privately to resources. If connecting to Azure services like Storage, SQL, Cosmos DB, or any other of the [Azure services listed here](../private-link/availability.md), leveraging Azure Private Link eliminates the need for SNAT. As a result, you will not risk a potential connectivity issue due to SNAT port exhaustion.
+
+Private Link Service is also supported by Snowflake, MongoDB, Confluent, Elastic and other such services.
 
 ## <a name="snatexhaust"></a> Managing SNAT (PAT) port exhaustion
 [Ephemeral ports](load-balancer-outbound-connections.md) used for [PAT](load-balancer-outbound-connections.md) are an exhaustible resource, as described in [Standalone VM without a Public IP address](load-balancer-outbound-connections.md) and [Load-balanced VM without a Public IP address](load-balancer-outbound-connections.md). You can monitor your usage of ephemeral ports and compare with your current allocation to determine the risk of or to confirm SNAT exhaustion using [this](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) guide.
@@ -59,7 +65,7 @@ If you scale out to the next larger backend pool size tier, there is potential f
 ## <a name="idletimeout"></a>Use keepalives to reset the outbound idle timeout
 Outbound connections have a 4-minute idle timeout. This timeout is adjustable via [Outbound rules](outbound-rules.md). You can also use transport (for example, TCP keepalives) or application-layer keepalives to refresh an idle flow and reset this idle timeout if necessary.  
 
-When using TCP keepalives, it is sufficient to enable them on one side of the connection. For example, it is sufficient to enable them on the server side only to reset the idle timer of the flow and it is not necessary for both sides to initiated TCP keepalives.  Similar concepts exist for application layer, including database client-server configurations.  Check the server side for what options exist for application-specific keepalives.
+When using TCP keepalives, it is sufficient to enable them on one side of the connection. For example, it is sufficient to enable them on the server side only to reset the idle timer of the flow and it is not necessary for both sides to initiate TCP keepalives.  Similar concepts exist for application layer, including database client-server configurations.  Check the server side for what options exist for application-specific keepalives.
 
 ## Next Steps
 We are always looking to improve the experience of our customers. If you are experiencing issues with outbound connectivity that are not listed or resolved by this article, submit feedback through GitHub via the bottom of this page and we will address your feedback as soon as possible.

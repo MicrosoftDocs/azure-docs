@@ -2,8 +2,8 @@
 title: 'Tutorial: Configure 4me for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to 4me.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -29,6 +29,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * An Azure AD tenant
 * [A 4me tenant](https://www.4me.com/trial/)
 * A user account in 4me with Admin permissions.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Add 4me from the gallery
 

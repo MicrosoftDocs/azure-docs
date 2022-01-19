@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
+ms.devlang: csharp
 ---
 
 # Send Custom Commands activity to client application
@@ -158,4 +159,4 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to: set up web endpoints (Preview)](./how-to-custom-commands-setup-web-endpoints.md)
+> [How to: set up web endpoints](./how-to-custom-commands-setup-web-endpoints.md)

@@ -8,9 +8,9 @@ metadata:
   description: Use Azure FXT Edge Filer as a caching layer for read-intensive high-performance computing (HPC) tasks.
   ms.service: fxt-edge-filer
   ms.topic: landing-page
-  author: ronhogue
-  ms.author: rohogue
-  ms.date: 03/20/2020 
+  author: ekpgh
+  ms.author: v-erkel
+  ms.date: 05/26/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -21,7 +21,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure FXT Edge Filer?
-            url: fxt-overview.md
+            url: overview.md
 
   # Card
   - title: Get started
@@ -29,21 +29,21 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: 1 - Install hardware
-            url: fxt-install.md
+            url: install.md
           - text: 2 - Connect cables
-            url: fxt-network-power.md
+            url: network-power.md
           - text: 3 - Set hardware passwords
-            url: fxt-node-password.md
+            url: node-password.md
           - text: 4 - Create a cluster
-            url: fxt-cluster-create.md
+            url: cluster-create.md
           - text: 5 - Add cluster nodes
-            url: fxt-add-nodes.md
+            url: add-nodes.md
           - text: 6 - Add back-end storage and configure the virtual namespace
-            url: fxt-add-storage.md
+            url: add-storage.md
           - text: 7 - Configure the cluster's network settings
-            url: fxt-configure-network.md
+            url: configure-network.md
           - text: 8 - Mount clients on the cluster
-            url: fxt-mount-clients.md
+            url: mount-clients.md
 
   # Card
   - title: Manage
@@ -51,9 +51,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Monitor hardware status
-            url: fxt-monitor.md
+            url: monitor.md
           - text: Safely power off hardware
-            url: fxt-power-off.md                      
+            url: power-off.md                      
 
   # Card
   - title: Resources
@@ -61,6 +61,6 @@ landingContent:
       - linkListType: reference
         links:
           - text: Hardware specifications
-            url: fxt-specs.md
+            url: specs.md
           - text: Additional documentation
-            url: fxt-additional-doc.md
+            url: additional-doc.md

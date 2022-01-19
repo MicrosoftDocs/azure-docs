@@ -1,16 +1,19 @@
 ---
 title: How to use Azure Service Bus queues with PHP
-description: In this tutorial, you learn how to create PHP applications to send messages to and receive messages from a Service Bus queue. 
+description: In this article, you learn how to create PHP applications to send messages to and receive messages from a Service Bus queue. 
 services: service-bus-messaging
-ms.devlang: PHP
-ms.topic: quickstart
-ms.date: 06/23/2020
+ms.devlang: php
+ms.topic: how-to
+ms.date: 07/23/2021
 ---
 
-# Quickstart: How to use Service Bus queues with PHP
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+# How to use Service Bus queues with PHP
+[!INCLUDE [service-bus-selector-queues](./includes/service-bus-selector-queues.md)]
 
-In this tutorial, you learn how to create PHP applications to send messages to and receive messages from a Service Bus queue. 
+In this article, you learn how to create PHP applications to send messages to and receive messages from a Service Bus queue. 
+
+> [!IMPORTANT]
+> As of February 2021, the Azure SDK for PHP has entered a retirement phase and is no longer officially supported by Microsoft. For more information, see [this Announcement](https://github.com/Azure/azure-sdk-for-php#important-annoucement) on GitHub. This article will be retired soon. 
 
 ## Prerequisites
 1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
@@ -20,7 +23,7 @@ In this tutorial, you learn how to create PHP applications to send messages to a
     3. Get the **connection string**. 
 
         > [!NOTE]
-        > You will create a **queue** in the Service Bus namespace by using PHP in this tutorial. 
+        > You will create a **queue** in the Service Bus namespace by using PHP in this article. 
 3. [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php)
 
 ## Create a PHP application
@@ -152,7 +155,7 @@ catch(ServiceException $e){
 
 Messages sent to (and received from) Service Bus queues are instances of the [BrokeredMessage][BrokeredMessage] class. [BrokeredMessage][BrokeredMessage] objects have a set of standard methods and properties that are used to hold custom application-specific properties, and a body of arbitrary application data.
 
-Service Bus queues support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
+Service Bus queues support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 100 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
 a maximum size of 64 KB. There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This upper limit on queue size is 5 GB.
 
 ## Receive messages from a queue

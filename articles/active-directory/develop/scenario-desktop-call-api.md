@@ -26,26 +26,21 @@ Now that you have a token, you can call a protected web API.
 
 [!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
-<!--
-More includes will come later for Python and Java
--->
-# [Python](#tab/python)
-
-```Python
-endpoint = "url to the API"
-http_headers = {'Authorization': 'Bearer ' + result['access_token'],
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'}
-data = requests.get(endpoint, headers=http_headers, stream=False).json()
-```
-
 # [Java](#tab/java)
 
 ```Java
 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
+PublicClientApplication pca = PublicClientApplication.builder(clientId)
+        .authority(authority)
+        .build();
+
+// Acquire a token, acquireTokenHelper would call publicClientApplication's acquireTokenSilently then acquireToken
+// see https://github.com/Azure-Samples/ms-identity-java-desktop for a full example
+IAuthenticationResult authenticationResult = acquireTokenHelper(pca);
+
 // Set the appropriate header fields in the request header.
-conn.setRequestProperty("Authorization", "Bearer " + accessToken);
+conn.setRequestProperty("Authorization", "Bearer " + authenticationResult.accessToken);
 conn.setRequestProperty("Accept", "application/json");
 
 String response = HttpClientHelper.getResponseStringFromConn(conn);
@@ -123,6 +118,43 @@ catch(MsalUiRequiredException ex)
                   .ExecuteAsync();
 }
 ```
+
+# [Node.js](#tab/nodejs)
+
+Using an HTTP client like [Axios](https://www.npmjs.com/package/axios), call the API endpoint URI with an access token as *authorization bearer*.
+
+```javascript
+const axios = require('axios');
+
+async function callEndpointWithToken(endpoint, accessToken) {
+    const options = {
+        headers: {
+            Authorization: `Bearer ${accessToken}`
+        }
+    };
+
+    console.log('Request made at: ' + new Date().toString());
+
+    const response = await axios.default.get(endpoint, options);
+
+    return response.data;
+}
+
+```
+
+<!--
+More includes will come later for Python and Java
+-->
+# [Python](#tab/python)
+
+```Python
+endpoint = "url to the API"
+http_headers = {'Authorization': 'Bearer ' + result['access_token'],
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'}
+data = requests.get(endpoint, headers=http_headers, stream=False).json()
+```
+
 ---
 
 ## Next steps

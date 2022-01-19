@@ -3,15 +3,7 @@
 - name: Overview
   items:
   - name: About Peering Service
-    href: about.md
-- name: Tutorials
-  items:
-  - name: Register a Peering Service connection
-    href: azure-portal.md
-  - name: Create a Peering Service Connection
-    href: create-connection.md
-  - name: Measure Peering Service connection telemetry
-    href: measure-connection-telemetry.md
+    href: about.md  
 - name: Concepts
   items:
   - name: Locations and partners
@@ -20,22 +12,24 @@
     href: connection.md
   - name: Connection telemetry
     href: connection-telemetry.md
-  - name: Onboarding model
-    href: onboarding-model.md
 - name: How-to-guides
   items:
-  - name: Register Peering Service
+  - name: Create Peering Service
     items:
+      - name: Azure portal
+        href: azure-portal.md
       - name: Azure PowerShell
         href: powershell.md
       - name: Azure CLI
         href: cli.md
+  - name: Accessing Peering Service connection telemetry
+    href: measure-connection-telemetry.md
 - name: References
   items:
   - name: Azure PowerShell
     href: /powershell/module/az.peering
   - name: Azure CLI
-    href: /cli/azure/ext/peering/peering
+    href: /cli/azure/peering
 - name: Resources
   items:
   - name: Azure roadmap
@@ -45,10 +39,10 @@
   - name: Microsoft Q&A question page for Networking
     href: /answers/topics/azure-virtual-network.html
   - name: Networking feedback
-    href: https://feedback.azure.com/forums/217313-networking?category_id=77469
+    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-peering/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/?service=azure-peering
   - name: FAQs
-    href: faq.md
+    href: faq.yml

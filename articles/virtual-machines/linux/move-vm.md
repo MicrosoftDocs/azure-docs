@@ -10,6 +10,9 @@ ms.author: cynthn
 
 ---
 # Move a VM to another subscription or resource group
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article walks you through how to move a virtual machine (VM) between resource groups or subscriptions. Moving a VM between subscriptions can be handy if you created a VM in a personal subscription and now want to move it to your company's subscription.
 
 > [!IMPORTANT]
@@ -33,6 +36,7 @@ To successfully move a VM, you need to move the VM and all its supporting resour
 ```azurecli-interactive
 az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
 ```
+The `table` output isn't available if you use `--interactive`. Change the output to another option like `json`.
 
 To move a VM and its resources to another resource group, use [az resource move](/cli/azure/resource). The following example shows how to move a VM and the most common resources it requires. Use the **-ids** parameter and pass in a comma-separated list (without spaces) of IDs for the resources to move.
 
@@ -46,7 +50,7 @@ diag=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/
 storage=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccountname    
 
 az resource move \
-    --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag \
+    --ids $vm $nic $nsg $pip $vnet $storage $diag \
 	--destination-group "myDestinationResourceGroup"
 ```
 

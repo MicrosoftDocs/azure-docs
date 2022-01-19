@@ -3,7 +3,7 @@ title: Use a customer-managed key to encrypt Azure disks in Azure Kubernetes Ser
 description: Bring your own keys (BYOK) to encrypt AKS OS and Data disks.
 services: container-service
 ms.topic: article
-ms.date: 09/01/2020
+ms.date: 1/9/2022
 
 ---
 
@@ -13,7 +13,7 @@ Azure Storage encrypts all data in a storage account at rest. By default, data i
 
 ## Limitations
 * Data disk encryption support is limited to AKS clusters running Kubernetes version 1.17 and above.
-* Encryption of OS and data disk with customer-managed keys can only be enabled when creating an AKS cluster.
+* Encryption of OS disk with customer-managed keys can only be enabled when creating an AKS cluster.
 
 ## Prerequisites
 * You must enable soft delete and purge protection for *Azure Key Vault* when using Key Vault to encrypt managed disks.
@@ -89,7 +89,7 @@ When new node pools are added to the cluster created above, the customer-managed
 OS disk encryption key will be used to encrypt data disk if key is not provided for data disk from v1.17.2, and you can also encrypt AKS data disks with your other keys.
 
 > [!IMPORTANT]
-> Ensure you have the proper AKS credentials. The Service principal will need to have contributor access to the resource group where the diskencryptionset is deployed. Otherwise, you will get an error suggesting that the service principal does not have permissions.
+> Ensure you have the proper AKS credentials. The managed identity will need to have contributor access to the resource group where the diskencryptionset is deployed. Otherwise, you will get an error suggesting that the managed identity does not have permissions.
 
 ```azurecli-interactive
 # Retrieve your Azure Subscription Id from id property as shown below
@@ -121,10 +121,10 @@ Create a file called **byok-azure-disk.yaml** that contains the following inform
 kind: StorageClass
 apiVersion: storage.k8s.io/v1  
 metadata:
-  name: hdd
-provisioner: kubernetes.io/azure-disk
+  name: byok
+provisioner: disk.csi.azure.com # replace with "kubernetes.io/azure-disk" if aks version is less than 1.21
 parameters:
-  skuname: Standard_LRS
+  skuname: StandardSSD_LRS
   kind: managed
   diskEncryptionSetID: "/subscriptions/{myAzureSubscriptionId}/resourceGroups/{myResourceGroup}/providers/Microsoft.Compute/diskEncryptionSets/{myDiskEncryptionSetName}"
 ```
@@ -144,8 +144,8 @@ Review [best practices for AKS cluster security][best-practices-security]
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
 [byok-azure-portal]: ../storage/common/customer-managed-keys-configure-key-vault.md
 [customer-managed-keys-windows]: ../virtual-machines/disk-encryption.md#customer-managed-keys

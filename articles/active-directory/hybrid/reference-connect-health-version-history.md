@@ -4,7 +4,7 @@ description: This document describes the releases for Azure AD Connect Health an
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: daveba
+manager: karenhoran
 editor: curtand
 
 ms.assetid: 8dd4e998-747b-4c52-b8d3-3900fe77d88f
@@ -12,7 +12,6 @@ ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 08/10/2020
 ms.author: billmath
@@ -27,14 +26,40 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
 >
 
 Azure AD Connect Health for Sync is integrated with Azure AD Connect installation. Read more about [Azure AD Connect release history](./reference-connect-version-history.md)
-For feature feedback, vote at [Connect Health User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
+For feature feedback, vote at [Connect Health User Voice channel](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
+
+## September 2021
+**Agent Update**
+- Azure AD Connect Health agent for AD FS (version 3.1.113.0)
+  - Fix to extract device information such as device compliance and managed status, device OS, and device OS version from AD FS audits in certain device based authentication scenarios.
+  - Fix to populate OAuth Application info in failure cases and categorizing OAuth failures with more specific error codes
+  - Fix for alerts on broken WMI calls on the customer machine. Now such calls the result/status would be set to "notRun".
+
+## May 2021
+**Agent Update**
+- Azure AD Connect Health agent for AD FS (version 3.1.99.0)
+  - Fix for low unique user count value in AD FS application activity report
+  - Fix for sign-ins with empty or default GUID CorrelationId
+
+## March 2021
+**Agent Update**
+
+- Azure AD Connect Health agent for AD FS (version 3.1.95.0)
+
+  - Fix to resolve NT4 formatted username to a UPN during sign-in events.
+  - Fix to identify incorrect application identifier scenarios with a dedicated error code.
+  - Changes to add a new property for OAuth client identifier.
+  - Fix to display correct values in the **Protocol** and **Authentication Type** fields in Azure AD Sign-In Report for certain sign-in scenarios.
+  - Fix to display IP addresses in Azure AD Sign-In Report's IP chain field in order of the request.
+  - Changes to introduce a new field to differentiate if secondary authentication was requested during a sign-in.
+  - Fix for AD FS application identifier property to display in Azure AD Sign-In Report.
 
 ## April 2020
 **Agent Update**
 
 - Azure AD Connect Health agent for AD FS (version 3.1.77.0)
 
-   1.	Bug fix for “Invalid Service Principal Name (SPN) for AD FS service” alert, for which the alert was reporting incorrectly.
+   - Bug fix for “Invalid Service Principal Name (SPN) for AD FS service” alert, for which the alert was reporting incorrectly.
 
 
 ## July 2019

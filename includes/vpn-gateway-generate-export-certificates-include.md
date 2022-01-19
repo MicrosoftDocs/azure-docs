@@ -5,16 +5,16 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 10/29/2020
+ ms.date: 05/26/2021
  ms.author: cherylmc
  ms.custom: include file
 
-# this include is used for both Virtual WAN and VPN Gateway articles. Any changes you make must apply address both services.
+# This include is used for both Virtual WAN and VPN Gateway articles. Any changes you make must apply address both services.
 ---
 
 ## <a name="rootcert"></a>Create a self-signed root certificate
 
-Use the New-SelfSignedCertificate cmdlet to create a self-signed root certificate. For additional parameter information, see [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate).
+Use the New-SelfSignedCertificate cmdlet to create a self-signed root certificate. For additional parameter information, see [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate).
 
 1. From a computer running Windows 10 or Windows Server 2016, open a Windows PowerShell console with elevated privileges. These examples do not work in the Azure Cloud Shell "Try It". You must run these examples locally.
 1. Use the following example to create the self-signed root certificate. The following example creates a self-signed root certificate named 'P2SRootCert' that is automatically installed in 'Certificates-Current User\Personal\Certificates'. You can view the certificate by opening *certmgr.msc*, or *Manage User Certificates*.
@@ -28,7 +28,7 @@ Use the New-SelfSignedCertificate cmdlet to create a self-signed root certificat
    -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
    ```
 
-1. Leave the PowerShell console open and proceed with the next steps to generate a client certificates.
+1. Leave the PowerShell console open and proceed with the next steps to generate a client certificate.
 
 ## <a name="clientcert"></a>Generate a client certificate
 
@@ -36,7 +36,7 @@ Each client computer that connects to a VNet using Point-to-Site must have a cli
 
 The following steps walk you through generating a client certificate from a self-signed root certificate. You may generate multiple client certificates from the same root certificate. When you generate client certificates using the steps below, the client certificate is automatically installed on the computer that you used to generate the certificate. If you want to install a client certificate on another client computer, you can export the certificate.
 
-The examples use the New-SelfSignedCertificate cmdlet to generate a client certificate that expires in one year. For additional parameter information, such as setting a different expiration value for the client certificate, see [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate).
+The examples use the New-SelfSignedCertificate cmdlet to generate a client certificate that expires in one year. For additional parameter information, such as setting a different expiration value for the client certificate, see [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate).
 
 ### Example 1 - PowerShell console session still open
 
@@ -66,7 +66,7 @@ If you are creating additional client certificates, or are not using the same Po
 
    ```
    Thumbprint                                Subject
-  
+   ----------                                -------
    AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
    7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
    ```
@@ -74,7 +74,7 @@ If you are creating additional client certificates, or are not using the same Po
 1. Declare a variable for the root certificate using the thumbprint from the previous step. Replace THUMBPRINT with the thumbprint of the root certificate from which you want to generate a child certificate.
 
    ```powershell
-   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
+   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\<THUMBPRINT>"
    ```
 
    For example, using the thumbprint for P2SRootCert in the previous step, the variable looks like this:

@@ -2,7 +2,8 @@
 title: Disable or remove the provisioning agent
 description: Learn how to disable or remove the provisioning agent in Linux VMs and images.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
@@ -12,6 +13,8 @@ ms.reviewer: cynthn
 ---
 
 # Disable or remove the Linux Agent from VMs and images
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 Before removing the Linux Agent, you must understand of what VM will not be able to do after the Linux Agent is removed.
 
@@ -26,7 +29,7 @@ The Azure platform hosts many extensions that range from VM configuration, monit
 
 ## Disabling extension processing
 
-There are several ways to disable extension processing, depending on your needs, but before you continue, you **MUST** remove all extensions deployed to the VM, for example using the Azure CLI, you can [list](/cli/azure/vm/extension#az-vm-extension-list) and [delete](/cli/azure/vm/extension#az-vm-extension-delete):
+There are several ways to disable extension processing, depending on your needs, but before you continue, you **MUST** remove all extensions deployed to the VM, for example using the Azure CLI, you can [list](/cli/azure/vm/extension#az_vm_extension_list) and [delete](/cli/azure/vm/extension#az_vm_extension_delete):
 
 ```azurecli
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
@@ -133,7 +136,7 @@ az vm generalize -g <resource_group> -n <vm_name>
 az image create -g <resource_group> -n <image_name> --source <vm_name>
 ```
 
-**Create an image version in a Shared Image Gallery**
+**Create an image version in a Azure Compute Gallery**
 
 ```azurecli
 az sig image-version create \
@@ -150,7 +153,7 @@ When you create the VM from the image with no Linux Agent, you need to ensure th
 > 
 > If you do not do the above, the platform will try to send the extension configuration and timeout after 40min.
 
-To deploy the VM with extensions disabled, you can use the Azure CLI with [--enable-agent](/cli/azure/vm#az-vm-create).
+To deploy the VM with extensions disabled, you can use the Azure CLI with [--enable-agent](/cli/azure/vm#az_vm_create).
 
 ```azurecli
 az vm create \

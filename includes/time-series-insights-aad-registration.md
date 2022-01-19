@@ -12,7 +12,7 @@ ms.date: 10/02/2020
 ---
 
 
-* After selecting the appropriate platform in step 4 of [Configure platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#configure-platform-settings) settings, configure your **Redirect URIs** and **Access Tokens** in the side panel to the right of the user interface.
+* After selecting the appropriate platform in step 4 of [Configure platform](../articles/active-directory/develop/quickstart-register-app.md#configure-platform-settings) settings, configure your **Redirect URIs** and **Access Tokens** in the side panel to the right of the user interface.
 
     * **Redirect URIs** must match the address supplied by the authentication request:
 
@@ -37,4 +37,4 @@ ms.date: 10/02/2020
 
     [![Specify the kind of API permission your app requires](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png)](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png#lightbox)
 
-* [Add Credentials](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#add-credentials) if the application will be calling your environment's APIs as itself. Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.
+* [Add Credentials](../articles/active-directory/develop/quickstart-register-app.md#add-credentials) if the application will be calling your environment's APIs as itself. Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.

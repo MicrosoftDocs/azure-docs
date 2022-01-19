@@ -4,17 +4,16 @@ description: "Learn best practices for designing, building, and managing secure 
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 editor: techlake
 
 ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
+ms.date: 03/29/2021
 ms.author: terrylan
 
 ---
@@ -49,7 +48,7 @@ At the top of the stack, data governance and rights management, you take on one 
 
 The Azure platform also provides you strong DDoS protection by using various network-based technologies. However, all types of network-based DDoS protection methods have their limits on a per-link and per-datacenter basis. To help avoid the impact of large DDoS attacks, you can take advantage of Azure’s core cloud capability of enabling you to quickly and automatically scale out to defend against DDoS attacks. We'll go into more detail on how you can do this in the recommended practices articles.
 
-## Modernizing the defender’s mindset
+## Modernizing the Defender for Cloud’s mindset
 With PaaS deployments come a shift in your overall approach to security. You shift from needing to control everything yourself to sharing responsibility with Microsoft.
 
 Another significant difference between PaaS and traditional on-premises deployments, is a new view of what defines the primary security perimeter. Historically, the primary on-premises security perimeter was your network and most on-premises security designs use the network as its primary security pivot. For PaaS deployments, you are better served by considering identity to be the primary security perimeter.
@@ -118,15 +117,13 @@ Following are best practices for using App Service.
 **Detail**: Azure Key Vault helps safeguard cryptographic keys and secrets that cloud applications and services use. With Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs. See [Azure Key Vault](../../key-vault/general/overview.md) to learn more. You can also use Key Vault to manage your TLS certificates with auto-renewal.
 
 **Best practice**: Restrict incoming source IP addresses.   
-**Detail**: [App Service Environment](../../app-service/environment/intro.md) has a virtual network integration feature that helps you restrict incoming source IP addresses through network security groups. Virtual networks enable you to place Azure resources in a non-internet, routable network that you control access to. To learn more, see [Integrate your app with an Azure virtual network](../../app-service/web-sites-integrate-with-vnet.md).
+**Detail**: [App Service Environment](../../app-service/environment/intro.md) has a virtual network integration feature that helps you restrict incoming source IP addresses through network security groups. Virtual networks enable you to place Azure resources in a non-internet, routable network that you control access to. To learn more, see [Integrate your app with an Azure virtual network](../../app-service/overview-vnet-integration.md).
 
 **Best practice**: Monitor the security state of your App Service environments.   
-**Detail**: Use Azure Security Center to monitor your App Service environments. When Security Center identifies potential security vulnerabilities, it creates [recommendations](../../security-center/asset-inventory.md) that guide you through the process of configuring the needed controls.
+**Detail**: Use Microsoft Defender for Cloud to monitor your App Service environments. When Defender for Cloud identifies potential security vulnerabilities, it creates [recommendations](../../security-center/asset-inventory.md) that guide you through the process of configuring the needed controls.
 
-> [!NOTE]
-> Monitoring App Service is in preview and available only on the [Standard tier](../../security-center/security-center-pricing.md) of Security Center.
->
->
+## Azure Cloud Services
+[Azure Cloud Services](../../cloud-services/cloud-services-choose-me.md) is an example of a PaaS. Like Azure App Service, this technology is designed to support applications that are scalable, reliable, and inexpensive to operate. In the same way that App Service is hosted on virtual machines (VMs), so too is Azure Cloud Services. However, you have more control over the VMs. You can install your own software on VMs that use Azure Cloud Services, and you can access them remotely.
 
 ## Install a web application firewall
 Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, cross site scripting attacks to name a few. Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at many layers of the application topology. A centralized web application firewall helps make security management much simpler and gives better assurance to application administrators against threats or intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to a web application firewall enabled application gateway easily.
@@ -145,13 +142,13 @@ Validating security defenses is as important as testing any other functionality.
 
 Fuzz testing is a method for finding program failures (code errors) by supplying malformed input data to program interfaces (entry points) that parse and consume this data. [Microsoft Security Risk Detection](https://www.microsoft.com/en-us/security-risk-detection/) is a cloud-based tool that you can use to look for bugs and other security vulnerabilities in your software before you deploy it to Azure. The tool is designed to catch vulnerabilities before you deploy software so you don’t have to patch a bug, deal with crashes, or respond to an attack after the software is released.
 
-
 ## Next steps
-In this article, we focused on security advantages of an Azure PaaS deployment and security best practices for cloud applications. Next, learn recommended practices for securing your PaaS web and mobile solutions using specific Azure services. We’ll start with Azure App Service, Azure SQL Database and Azure Synapse Analytics, and Azure Storage. As articles on recommended practices for other Azure services become available, links will be provided in the following list:
+In this article, we focused on security advantages of an Azure PaaS deployment and security best practices for cloud applications. Next, learn recommended practices for securing your PaaS web and mobile solutions using specific Azure services. We’ll start with Azure App Service, Azure SQL Database and Azure Synapse Analytics, Azure Storage, and Azure Cloud Services. As articles on recommended practices for other Azure services become available, links will be provided in the following list:
 
 - [Azure App Service](paas-applications-using-app-services.md)
 - [Azure SQL Database and Azure Synapse Analytics](paas-applications-using-sql.md)
 - [Azure Storage](paas-applications-using-storage.md)
+- [Azure Cloud Services](../../cloud-services/security-baseline.md)
 - Azure Cache for Redis
 - Azure Service Bus
 - Web Application Firewalls
@@ -161,5 +158,6 @@ See [Developing secure applications on Azure](https://azure.microsoft.com/resour
 See [Azure security best practices and patterns](best-practices-and-patterns.md) for more security best practices to use when you’re designing, deploying, and managing your cloud solutions by using Azure.
 
 The following resources are available to provide more general information about Azure security and related Microsoft services:
-* [Azure Security Team Blog](/archive/blogs/azuresecurity/) - for up to date information on the latest in Azure Security
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - where Microsoft security vulnerabilities, including issues with Azure, can be reported or via email to secure@microsoft.com
+
+- [Azure Security Team Blog](/archive/blogs/azuresecurity/) - for up to date information on the latest in Azure Security
+- [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - where Microsoft security vulnerabilities, including issues with Azure, can be reported or via email to secure@microsoft.com

@@ -2,7 +2,8 @@
 title: Migrate an Azure Monitor Application Insights classic resource to a workspace-based resource | Microsoft Docs
 description: Learn about the steps required to upgrade your Azure Monitor Application Insights classic resource to the new workspace-based model. 
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 09/23/2020 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -21,7 +22,7 @@ Workspace-based Application Insights allows you to take advantage of all the lat
 * [Customer-Managed Keys (CMK)](../logs/customer-managed-keys.md) provides encryption at rest for your data with encryption keys that only you have access to.
 * [Azure Private Link](../logs/private-link-security.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints.
 * [Bring Your Own Storage (BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) gives you full control over the encryption-at-rest policy, the lifetime management policy, and network access for all data associated with Application Insights Profiler and Snapshot Debugger. 
-* [Capacity Reservation tiers](../logs/manage-cost-storage.md#pricing-model) enable you to save as much as 25% compared to the Pay-As-You-Go price. 
+* [Commitment Tiers](../logs/manage-cost-storage.md#pricing-model) enable you to save as much as 30% compared to the Pay-As-You-Go price. 
 * Faster data ingestion via Log Analytics streaming ingestion.
 
 ## Migration process
@@ -36,7 +37,7 @@ The migration process is **permanent, and cannot be reversed**. Once you migrate
 
 If you don't need to migrate an existing resource, and instead want to create a new workspace-based Application Insights resource use the [workspace-based resource creation guide](create-workspace-resource.md).
 
-## Pre-requisites 
+## Pre-requisites
 
 - A Log Analytics workspace with the access control mode set to the **`use resource or workspace permissions`** setting. 
 
@@ -44,8 +45,11 @@ If you don't need to migrate an existing resource, and instead want to create a 
 
     - If you don't already have an existing Log Analytics Workspace, [consult the Log Analytics workspace creation documentation](../logs/quick-create-workspace.md).
     
-- Continuous export is not supported for workspace-based resources and must be disabled.
+- **Continuous export is not supported for workspace-based resources** and must be disabled.
 Once the migration is complete, you can use [diagnostic settings](../essentials/diagnostic-settings.md) to configure data archiving to a storage account or streaming to Azure Event Hub.  
+
+    > [!CAUTION]
+    > Diagnostics settings uses a different export format/schema than continuous export, migrating will break any existing integrations with Stream Analytics.
 
 - Check your current retention settings under **General** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting will impact how long any new ingested data is stored once you migrate your Application Insights resource. If you currently store Application Insights data for longer than the default 90 days and want to retain this larger retention period, you may need to adjust your workspace retention settings.
 
@@ -71,6 +75,9 @@ Once your resource is migrated, you will see the corresponding workspace info in
 ![Workspace Name](./media/create-workspace-resource/workspace-name.png)
 
 Clicking the blue link text will take you to the associated Log Analytics workspace where you can take advantage of the new unified workspace query environment.
+
+> [!NOTE]
+> After migrating to a workspace-based Application Insights resource we recommend using the [workspace's daily cap](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume) to limit ingestion and costs instead of the cap in Application Insights.
 
 ## Understanding log queries
 
@@ -110,7 +117,7 @@ az monitor app-insights component update --app
 az monitor app-insights component update --app your-app-insights-resource-name -g your_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-For the full Azure CLI documentation for this command,  consult the [Azure CLI documentation](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-update).
+For the full Azure CLI documentation for this command,  consult the [Azure CLI documentation](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_update).
 
 ### Azure PowerShell
 

@@ -6,7 +6,6 @@ services: virtual-network
 documentationcenter: na
 author: steveesp
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -94,15 +93,19 @@ Use nttcp-for-linux. It is available from <https://github.com/Microsoft/ntttcp-f
 
 On the Linux VMs (both SENDER and RECEIVER), run these commands to prepare ntttcp-for-linux on your VMs:
 
-CentOS - Install Git:
+CentOS - Install gcc and git:
 ``` bash
   yum install gcc -y  
   yum install git -y
 ```
-Ubuntu - Install Git:
+Ubuntu - Install build-essential and git:
 ``` bash
  apt-get -y install build-essential  
  apt-get -y install git
+```
+SUSE - Install git-core, gcc, and make:
+``` bash
+  zypper in -y git-core gcc make
 ```
 Make and Install on both:
 ``` bash

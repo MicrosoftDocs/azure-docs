@@ -1,11 +1,9 @@
 ---
 title: Event Aggregation with Windows Azure Diagnostics
 description: Learn about aggregating and collecting events using WAD for monitoring and diagnostics of Azure Service Fabric clusters.
-author: srrengar
-
 ms.topic: conceptual
-ms.date: 04/03/2018
-ms.author: srrengar
+ms.date: 04/03/2018 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Event aggregation and collection using Windows Azure Diagnostics
@@ -177,15 +175,15 @@ After you modify the template.json file as described, republish the Resource Man
 
 > [!TIP]
 > If you are going to deploy containers to your cluster, enable WAD to pick up docker stats by adding this to your **WadCfg > DiagnosticMonitorConfiguration** section.
->
->```json
->"DockerSources": {
->    "Stats": {
->        "enabled": true,
->        "sampleRate": "PT1M"
->    }
->},
->```
+
+```json
+"DockerSources": {
+    "Stats": {
+        "enabled": true,
+        "sampleRate": "PT1M"
+    }
+},
+```
 
 ### Update storage quota
 

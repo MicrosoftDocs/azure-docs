@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Use serverless SQL pool to analyze Azure Open Datasets in Azure Synapse Studio'
-description: This tutorial shows you how to easily perform exploratory data analysis combining different Azure Open Datasets using serverless SQL pool and visualize the results in Azure Synapse Studio.
+title: 'Tutorial: Use serverless SQL pool to analyze Azure Open Datasets in Synapse Studio'
+description: This tutorial shows you how to easily perform exploratory data analysis combining different Azure Open Datasets using serverless SQL pool and visualize the results in Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 11/20/2020
 ms.author: stefanazaric
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ---
 
 # Tutorial: Explore and Analyze data lakes with serverless SQL pool
@@ -20,6 +20,13 @@ The OPENROWSET(BULK...) function allows you to access files in Azure Storage. [O
 ## Automatic schema inference
 
 Since data is stored in the Parquet file format, automatic schema inference is available. You can easily query the data without listing the data types of all columns in the files. You also can use the virtual column mechanism and the filepath function to filter out a certain subset of files.
+
+> [!NOTE]
+> If you are using database with non-default collation (this is default collation SQL_Latin1_General_CP1_CI_AS), you should take into account case sensitivity. 
+> 
+> If you create a database with case sensitive collation then when you specify columns make sure to use correct name of the column.
+> 
+> Example for a column name 'tpepPickupDateTime' would be correct while 'tpeppickupdatetime' wouldn't work in non-default collation.
 
 Let's first get familiar with the NYC Taxi data by running the following query:
 
@@ -128,41 +135,50 @@ From the plot chart, you can see there's a weekly pattern, with Saturdays as the
 Next, let's see if the drop in rides correlates with public holidays. We can see if there is a correlation by joining the NYC Taxi rides dataset with the Public Holidays dataset:
 
 ```sql
-WITH taxi_rides AS
-(
-    SELECT
-        CAST([tpepPickupDateTime] AS DATE) AS [current_day],
-        COUNT(*) as rides_per_day
-    FROM  
-        OPENROWSET(
-            BULK 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
-            FORMAT='PARQUET'
-        ) AS [nyc]
-    WHERE nyc.filepath(1) = '2016'
-    GROUP BY CAST([tpepPickupDateTime] AS DATE)
-),
-public_holidays AS
-(
-    SELECT
-        holidayname as holiday,
-        date
-    FROM
-        OPENROWSET(
-            BULK 'https://azureopendatastorage.blob.core.windows.net/holidaydatacontainer/Processed/*.parquet',
-            FORMAT='PARQUET'
-        ) AS [holidays]
-    WHERE countryorregion = 'United States' AND YEAR(date) = 2016
-)
+WITH taxi_rides AS (
 SELECT
-*
+    CAST([tpepPickupDateTime] AS DATE) AS [current_day],
+    COUNT(*) as rides_per_day
+FROM
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
+        FORMAT='PARQUET'
+    ) AS [nyc]
+WHERE nyc.filepath(1) = '2016'
+GROUP BY CAST([tpepPickupDateTime] AS DATE)
+),
+public_holidays AS (
+SELECT
+    holidayname as holiday,
+    date
+FROM
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/holidaydatacontainer/Processed/*.parquet',
+        FORMAT='PARQUET'
+    ) AS [holidays]
+WHERE countryorregion = 'United States' AND YEAR(date) = 2016
+),
+joined_data AS (
+SELECT
+    *
 FROM taxi_rides t
 LEFT OUTER JOIN public_holidays p on t.current_day = p.date
+)
+
+SELECT 
+    *,
+    holiday_rides = 
+    CASE   
+      WHEN holiday is null THEN 0   
+      WHEN holiday is not null THEN rides_per_day
+    END   
+FROM joined_data
 ORDER BY current_day ASC
 ```
 
 ![NYC Taxi rides and Public Holidays datasets result visualization](./media/tutorial-data-analyst/rides-public-holidays.png)
 
-This time, we want to highlight the number of taxi rides during public holidays. For that purpose, we choose **none** for the **Category** column and **rides_per_day** and **holiday** as the **Legend (series)** columns.
+This time, we want to highlight the number of taxi rides during public holidays. For that purpose, we choose **current_day** for the **Category** column and **rides_per_day** and **holiday_rides** as the **Legend (series)** columns.
 
 ![Number of taxi rides during public holidays plot chart](./media/tutorial-data-analyst/plot-chart-public-holidays.png)
 

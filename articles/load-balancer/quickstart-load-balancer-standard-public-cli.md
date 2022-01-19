@@ -7,15 +7,14 @@ documentationcenter: na
 author: asudbring
 manager: KumudD
 tags: azure-resource-manager
-Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: allensu
-ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
+#Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---
 # Quickstart: Create a public load balancer to load balance VMs using Azure CLI
 
@@ -31,7 +30,7 @@ Get started with Azure Load Balancer by using Azure CLI to create a public load 
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group#az-group-create):
+Create a resource group with [az group create](/cli/azure/group#az_group_create):
 
 * Named **CreatePubLBQS-rg**. 
 * In the **eastus** location.
@@ -56,7 +55,7 @@ Before you deploy VMs and test your load balancer, create the supporting virtual
 
 ### Create a virtual network
 
-Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-createt):
+Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az_network_vnet_createt):
 
 * Named **myVNet**.
 * Address prefix of **10.1.0.0/16**.
@@ -76,7 +75,7 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
 ```
 ### Create a public IP address
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public ip address for the bastion host:
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public ip address for the bastion host:
 
 * Create a standard zone redundant public IP address named **myBastionIP**.
 * In **CCreatePubLBQS-rg**.
@@ -89,7 +88,7 @@ az network public-ip create \
 ```
 ### Create a bastion subnet
 
-Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a bastion subnet:
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create a bastion subnet:
 
 * Named **AzureBastionSubnet**.
 * Address prefix of **10.1.1.0/24**.
@@ -106,7 +105,7 @@ az network vnet subnet create \
 
 ### Create bastion host
 
-Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create a bastion host:
+Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to create a bastion host:
 
 * Named **myBastionHost**.
 * In **CreatePubLBQS-rg**.
@@ -129,7 +128,7 @@ It can take a few minutes for the Azure Bastion host to deploy.
 
 For a standard load balancer, the VMs in the backend address for are required to have network interfaces that belong to a network security group. 
 
-Create a network security group using [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create):
+Create a network security group using [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create):
 
 * Named **myNSG**.
 * In resource group **CreatePubLBQS-rg**.
@@ -142,7 +141,7 @@ Create a network security group using [az network nsg create](/cli/azure/network
 
 ### Create a network security group rule
 
-Create a network security group rule using [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create):
+Create a network security group rule using [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create):
 
 * Named **myNSGRuleHTTP**.
 * In the network security group you created in the previous step, **myNSG**.
@@ -179,7 +178,7 @@ In this section, you create:
 
 ### Create network interfaces for the virtual machines
 
-Create three network interfaces with [az network nic create](/cli/azure/network/nic#az-network-nic-create):
+Create three network interfaces with [az network nic create](/cli/azure/network/nic#az_network_nic_create):
 
 * Named **myNicVM1**, **myNicVM2**, and **myNicVM3**.
 * In resource group **CreatePubLBQS-rg**.
@@ -202,7 +201,7 @@ Create three network interfaces with [az network nic create](/cli/azure/network/
 
 ### Create virtual machines
 
-Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create):
+Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create):
 
 ### VM1
 * Named **myVM1**.
@@ -258,11 +257,13 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create):
 ```
 It may take a few minutes for the VMs to deploy.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Create a public IP address - Standard
 
 To access your web app on the Internet, you need a public IP address for the load balancer. 
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to:
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to:
 
 * Create a standard zone redundant public IP address named **myPublicIP**.
 * In **CreatePubLBQS-rg**.
@@ -274,7 +275,7 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public
     --sku Standard
 ```
 
-To create a zonal redundant public IP address in Zone 1:
+To create a zonal public IP address in Zone 1:
 
 ```azurecli-interactive
   az network public-ip create \
@@ -295,7 +296,7 @@ This section details how you can create and configure the following components o
 
 ### Create the load balancer resource
 
-Create a public load balancer with [az network lb create](/cli/azure/network/lb#az-network-lb-create):
+Create a public load balancer with [az network lb create](/cli/azure/network/lb#az_network_lb_create):
 
 * Named **myLoadBalancer**.
 * A frontend pool named **myFrontEnd**.
@@ -318,7 +319,7 @@ A health probe checks all virtual machine instances to ensure they can send netw
 
 A virtual machine with a failed probe check is removed from the load balancer. The virtual machine is added back into the load balancer when the failure is resolved.
 
-Create a health probe with [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create):
+Create a health probe with [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create):
 
 * Monitors the health of the virtual machines.
 * Named **myHealthProbe**.
@@ -342,7 +343,7 @@ A load balancer rule defines:
 * The backend IP pool to receive the traffic.
 * The required source and destination port. 
 
-Create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create):
+Create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create):
 
 * Named **myHTTPRule**
 * Listening on **Port 80** in the frontend pool **myFrontEnd**.
@@ -371,7 +372,7 @@ Create a load balancer rule with [az network lb rule create](/cli/azure/network/
 ```
 ### Add virtual machines to load balancer backend pool
 
-Add the virtual machines to the backend pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az-network-nic-ip-config-address-pool-add):
+Add the virtual machines to the backend pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add):
 
 * In backend address pool **myBackEndPool**.
 * In resource group **CreatePubLBQS-rg**.
@@ -399,7 +400,7 @@ A public IP or prefix can be used for the outbound configuration.
 
 ### Public IP
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a single IP for the outbound connectivity.  
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a single IP for the outbound connectivity.  
 
 * Named **myPublicIPOutbound**.
 * In **CreatePubLBQS-rg**.
@@ -423,7 +424,7 @@ To create a zonal redundant public IP address in Zone 1:
 
 ### Public IP Prefix
 
-Use [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create) to create a public IP prefix for the outbound connectivity.
+Use [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_create) to create a public IP prefix for the outbound connectivity.
 
 * Named **myPublicIPPrefixOutbound**.
 * In **CreatePubLBQS-rg**.
@@ -450,7 +451,7 @@ For more information on scaling outbound NAT and outbound connectivity, see [Sca
 ### Create outbound frontend IP configuration
 
 Create a new frontend IP configuration with [az network lb frontend-ip create
-](/cli/azure/network/lb/frontend-ip#az-network-lb-frontend-ip-create):
+](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_create):
 
 Select the public IP or public IP prefix commands based on decision in previous step.
 
@@ -486,7 +487,7 @@ Select the public IP or public IP prefix commands based on decision in previous 
 
 ### Create outbound pool
 
-Create a new outbound pool with [az network lb address-pool create](/cli/azure/network/lb/address-pool#az-network-lb-address-pool-create):
+Create a new outbound pool with [az network lb address-pool create](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_create):
 
 * Named **myBackEndPoolOutbound**.
 * In resource group **CreatePubLBQS-rg**.
@@ -500,7 +501,7 @@ Create a new outbound pool with [az network lb address-pool create](/cli/azure/n
 ```
 ### Create outbound rule
 
-Create a new outbound rule for the outbound backend pool with [az network lb outbound-rule create](/cli/azure/network/lb/outbound-rule#az-network-lb-outbound-rule-create):
+Create a new outbound rule for the outbound backend pool with [az network lb outbound-rule create](/cli/azure/network/lb/outbound-rule#az_network_lb_outbound_rule_create):
 
 * Named **myOutboundRule**.
 * In resource group **CreatePubLBQS-rg**.
@@ -524,7 +525,7 @@ Create a new outbound rule for the outbound backend pool with [az network lb out
 ```
 ### Add virtual machines to outbound pool
 
-Add the virtual machines to the outbound pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az-network-nic-ip-config-address-pool-add):
+Add the virtual machines to the outbound pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add):
 
 
 * In backend address pool **myBackEndPoolOutbound**.
@@ -557,7 +558,7 @@ Before you deploy VMs and test your load balancer, create the supporting virtual
 
 ### Create a virtual network
 
-Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create):
+Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create):
 
 * Named **myVNet**.
 * Address prefix of **10.1.0.0/16**.
@@ -578,7 +579,7 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
 
 ### Create a public IP address
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public ip address for the bastion host:
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public ip address for the bastion host:
 
 * Create a standard zone redundant public IP address named **myBastionIP**.
 * In **CreatePubLBQS-rg**.
@@ -591,7 +592,7 @@ az network public-ip create \
 ```
 ### Create a bastion subnet
 
-Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a bastion subnet:
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create a bastion subnet:
 
 * Named **AzureBastionSubnet**.
 * Address prefix of **10.1.1.0/24**.
@@ -608,7 +609,7 @@ az network vnet subnet create \
 
 ### Create bastion host
 
-Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create a bastion host:
+Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to create a bastion host:
 
 * Named **myBastionHost**.
 * In **CreatePubLBQS-rg**.
@@ -631,7 +632,7 @@ It can take a few minutes for the Azure Bastion host to deploy.
 
 For a standard load balancer, the VMs in the backend address for are required to have network interfaces that belong to a network security group. 
 
-Create a network security group using [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create):
+Create a network security group using [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create):
 
 * Named **myNSG**.
 * In resource group **CreatePubLBQS-rg**.
@@ -644,7 +645,7 @@ Create a network security group using [az network nsg create](/cli/azure/network
 
 ### Create a network security group rule
 
-Create a network security group rule using [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create):
+Create a network security group rule using [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create):
 
 * Named **myNSGRuleHTTP**.
 * In the network security group you created in the previous step, **myNSG**.
@@ -683,7 +684,7 @@ In this section, you create:
 
 ### Create network interfaces for the virtual machines
 
-Create three network interfaces with [az network nic create](/cli/azure/network/nic#az-network-nic-create):
+Create three network interfaces with [az network nic create](/cli/azure/network/nic#az_network_nic_create):
 
 
 * Named **myNicVM1**, **myNicVM2**, and **myNicVM3**.
@@ -706,7 +707,7 @@ Create three network interfaces with [az network nic create](/cli/azure/network/
 ```
 ### Create availability set for virtual machines
 
-Create the availability set with [az vm availability-set create](/cli/azure/vm/availability-set#az-vm-availability-set-create):
+Create the availability set with [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create):
 
 * Named **myAvSet**.
 * In resource group **CreatePubLBQS-rg**.
@@ -722,7 +723,7 @@ Create the availability set with [az vm availability-set create](/cli/azure/vm/a
 
 ### Create virtual machines
 
-Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create):
+Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create):
 
 ### VM1
 * Named **myVM1**.
@@ -778,11 +779,13 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create):
 ```
 It may take a few minutes for the VMs to deploy.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Create a public IP address - Basic
 
 To access your web app on the Internet, you need a public IP address for the load balancer. 
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to:
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to:
 
 * Create a standard zone redundant public IP address named **myPublicIP**.
 * In **CreatePubLBQS-rg**.
@@ -805,7 +808,7 @@ This section details how you can create and configure the following components o
 
 ### Create the load balancer resource
 
-Create a public load balancer with [az network lb create](/cli/azure/network/lb#az-network-lb-create):
+Create a public load balancer with [az network lb create](/cli/azure/network/lb#az_network_lb_create):
 
 * Named **myLoadBalancer**.
 * A frontend pool named **myFrontEnd**.
@@ -828,7 +831,7 @@ A health probe checks all virtual machine instances to ensure they can send netw
 
 A virtual machine with a failed probe check is removed from the load balancer. The virtual machine is added back into the load balancer when the failure is resolved.
 
-Create a health probe with [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create):
+Create a health probe with [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create):
 
 * Monitors the health of the virtual machines.
 * Named **myHealthProbe**.
@@ -852,7 +855,7 @@ A load balancer rule defines:
 * The backend IP pool to receive the traffic.
 * The required source and destination port. 
 
-Create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create):
+Create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create):
 
 * Named **myHTTPRule**
 * Listening on **Port 80** in the frontend pool **myFrontEnd**.
@@ -877,7 +880,7 @@ Create a load balancer rule with [az network lb rule create](/cli/azure/network/
 
 ### Add virtual machines to load balancer backend pool
 
-Add the virtual machines to the backend pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az-network-nic-ip-config-address-pool-add):
+Add the virtual machines to the backend pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add):
 
 * In backend address pool **myBackEndPool**.
 * In resource group **CreatePubLBQS-rg**.
@@ -919,7 +922,7 @@ Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to instal
 
 ## Test the load balancer
 
-To get the public IP address of the load balancer, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). 
+To get the public IP address of the load balancer, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). 
 
 Copy the public IP address, and then paste it into the address bar of your browser.
 
@@ -934,7 +937,7 @@ Copy the public IP address, and then paste it into the address bar of your brows
 
 ## Clean up resources
 
-When no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, load balancer, and all related resources.
+When no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, load balancer, and all related resources.
 
 ```azurecli-interactive
   az group delete \
