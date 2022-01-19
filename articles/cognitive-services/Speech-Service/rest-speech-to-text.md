@@ -30,12 +30,12 @@ Use REST API v3.0 to:
 - Request the manifest of the models that you create, to set up on-premises containers.
 
 REST API v3.0 includes such features as:
-- **Notifications-Webhooks**: All running processes of the service now support webhook notifications. REST API v3.0 provides the calls to enable you to register your webhooks where notifications are sent.
+- **Webhook notifications**: All running processes of the service now support webhook notifications. REST API v3.0 provides the calls to enable you to register your webhooks where notifications are sent.
 - **Updating models behind endpoints** 
 - **Model adaptation with multiple datasets**: Adapt a model by using multiple dataset combinations of acoustic, language, and pronunciation data.
 - **Bring your own storage**: Use your own storage accounts for logs, transcription files, and other data.
 
-For examples on using REST API v3.0 with batch transcription, see [How to use batch transcription](batch-transcription.md).
+For examples of using REST API v3.0 with batch transcription, see [How to use batch transcription](batch-transcription.md).
 
 For information about migrating to the latest version of the speech-to-text REST API, see [Migrate code from v2.0 to v3.0 of the REST API](./migrate-v2-to-v3.md).
 
@@ -81,7 +81,7 @@ These parameters might be included in the query string of the REST request:
 |-----------|-------------|---------------------|
 | `language` | Identifies the spoken language that's being recognized. See [Supported languages](language-support.md#speech-to-text). | Required |
 | `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include four different representations of display text. The default setting is `simple`. | Optional |
-| `profanity` | Specifies how to handle profanity in recognition results. Accepted values are: <br><br>`masked`, which replaces profanity with asterisks. <br>`removed`, which removes all profanity from the result. <br>`raw`, which includes the profanity in the result. <br><br>The default setting is `masked`. | Optional |
+| `profanity` | Specifies how to handle profanity in recognition results. Accepted values are: <br><br>`masked`, which replaces profanity with asterisks. <br>`removed`, which removes all profanity from the result. <br>`raw`, which includes profanity in the result. <br><br>The default setting is `masked`. | Optional |
 | `cid` | When you're using the [Custom Speech portal](./custom-speech-overview.md) to create custom models, you can take advantage of the **Endpoint ID** value from the **Deployment** page. Use the **Endpoint ID** value as the argument to the `cid` query string parameter. | Optional |
 
 ### Request headers
@@ -118,8 +118,8 @@ This table lists required and optional parameters for pronunciation assessment:
 |-----------|-------------|---------------------|
 | `ReferenceText` | The text that the pronunciation will be evaluated against. | Required |
 | `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. | Optional |
-| `Granularity` | The evaluation granularity. Accepted values are:<br><br> `Phoneme`, which shows the score on the full text, word, and phoneme levels.<br>`Word`, which shows the score on the full text and word levels. <br>`FullText`, which shows the score on the full text level only.<br><br> The default setting is `Phoneme`. | Optional |
-| `Dimension` | Defines the output criteria. Accepted values are:<br><br> `Basic`, which shows the accuracy score only. <br>`Comprehensive`, which shows scores on more dimensions (for example, fluency score and completeness score on the full text level, and error type on the word level).<br><br> To see definitions of different score dimensions and word error types, see [Response parameters](#response-parameters). The default setting is `Basic`. | Optional |
+| `Granularity` | The evaluation granularity. Accepted values are:<br><br> `Phoneme`, which shows the score on the full-text, word, and phoneme levels.<br>`Word`, which shows the score on the full-text and word levels. <br>`FullText`, which shows the score on the full-text level only.<br><br> The default setting is `Phoneme`. | Optional |
+| `Dimension` | Defines the output criteria. Accepted values are:<br><br> `Basic`, which shows the accuracy score only. <br>`Comprehensive`, which shows scores on more dimensions (for example, fluency score and completeness score on the full-text level, and error type on the word level).<br><br> To see definitions of different score dimensions and word error types, see [Response parameters](#response-parameters). The default setting is `Basic`. | Optional |
 | `EnableMiscue` | Enables miscue calculation. With this parameter enabled, the pronounced words will be compared to the reference text. They'll be marked with omission or insertion based on the comparison. Accepted values are `False` and `True`. The default setting is `False`. | Optional |
 | `ScenarioId` | A GUID that indicates a customized point system. | Optional |
 
@@ -251,7 +251,7 @@ The object in the `NBest` list can include:
 | `ITN` | The inverse-text-normalized (ITN) or canonical form of the recognized text, with phone numbers, numbers, abbreviations ("doctor smith" to "dr smith"), and other transformations applied. |
 | `MaskedITN` | The ITN form with profanity masking applied, if requested. |
 | `Display` | The display form of the recognized text, with punctuation and capitalization added. This parameter is the same as what `DisplayText` provides when the format is set to `simple`. |
-| `AccuracyScore` | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. The accuracy score at the word and full text levels is aggregated from the accuracy score at the phoneme level. |
+| `AccuracyScore` | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. The accuracy score at the word and full-text levels is aggregated from the accuracy score at the phoneme level. |
 | `FluencyScore` | Fluency of the provided speech. Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words. |
 | `CompletenessScore` | Completeness of the speech, determined by calculating the ratio of pronounced words to reference text input. |
 | `PronScore` | Overall score that indicates the pronunciation quality of the provided speech. This score is aggregated from `AccuracyScore`, `FluencyScore`, and `CompletenessScore` with weight. |

@@ -241,7 +241,7 @@ ogg-48khz-16bit-mono-opus
 ```
 
 > [!NOTE]
-> If your selected voice and output format have different bit rates, the audio is resampled as necessary. You can decode the ogg-24khz-16bit-mono-opus format by using the [Opus codec](https://opus-codec.org/downloads/).
+> If your selected voice and output format have different bit rates, the audio is resampled as necessary. You can decode the `ogg-24khz-16bit-mono-opus` format by using the [Opus codec](https://opus-codec.org/downloads/).
 
 ### Request body
 
