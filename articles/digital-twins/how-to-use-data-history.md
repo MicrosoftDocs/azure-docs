@@ -28,7 +28,7 @@ It also contains a sample twin graph and telemetry scenario that you can use to 
 
 ## Prerequisites
 
-This article requires an active **Azure Digital Twins instance**. For instructions on how to set up an instance, see [Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md).
+This article requires an active **Azure Digital Twins instance**. For instructions on how to set up an instance, see [Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md). Once the instance has been created, enable a **managed identity** for the instance using the instructions in [Enable system-managed identity for the instance](how-to-route-with-managed-identity.md#enable-system-managed-identity-for-the-instance).
 
 This article also uses the **Azure CLI** and the latest version of the [Microsoft Azure IoT Extension for Azure CLI](/cli/azure/service-page/azure%20iot?view=azure-cli-latest&preserve-view=true). You can either [install the CLI locally](/cli/azure/install-azure-cli), or use the [Azure Cloud Shell](https://shell.azure.com) in a browser. Follow the steps in the next section to get your CLI session set up to work with Azure Digital Twins and data history.
 
@@ -62,7 +62,9 @@ You can verify this by running `az dt --help` at any time to see a list of the t
 
 ## Create an Event Hubs namespace and Event Hub
 
-The first step in setting up a data history connection is creating an Event Hubs namespace and an event hub. This hub will be used to receive digital twin property update notifications from Azure Digital Twins, and forward the messages along to the target Azure Data Explorer cluster. For more information about Event Hubs and their capabilities, see the [Event Hubs documentation](../event-hubs/event-hubs-about.md).
+The first step in setting up a data history connection is creating an Event Hubs namespace and an event hub. This hub will be used to receive digital twin property update notifications from Azure Digital Twins, and forward the messages along to the target Azure Data Explorer cluster. The Azure Digital Twins instance also needs to be granted the **Azure Event Hubs Data Owner** role on the event hub resource in order to set up the data history connection later.
+
+For more information about Event Hubs and their capabilities, see the [Event Hubs documentation](../event-hubs/event-hubs-about.md).
 
 # [CLI](#tab/cli) 
 
@@ -90,7 +92,7 @@ Remember the names you give to these resources so you can use them later.
 
 ## Create a Kusto (Azure Data Explorer) cluster and database
 
-Next, create a Kusto (Azure Data Explorer) cluster and database to receive the data from Azure Digital Twins.
+Next, create a Kusto (Azure Data Explorer) cluster and database to receive the data from Azure Digital Twins. The Azure Digital Twins instance also needs to be granted the **Contributor** role on the cluster or database, and the **Admin** role on the database, in order to set up the data history connection later.
 
 # [CLI](#tab/cli) 
 
@@ -177,8 +179,10 @@ When the connection is finished creating, you'll see the **Data history details*
 
 ---
 
-Once the connection is set up, the default settings on your Azure Data Explorer cluster will result in an ingestion latency of approximately 10 minutes or less. You can reduce this latency by enabling [streaming ingestion](/azure/data-explorer/ingest-data-streaming) (less than 10 seconds of latency) or an [ingestion batching policy](/azure/data-explorer/kusto/management/batchingpolicy). For more information about Azure Data Explorer ingestion latency, see [End-to-end ingestion latency](concepts-data-history.md#end-to-end-ingestion-latency).
+After setting up the data history connection, you can optionally remove the roles granted to your Azure Digital Twins instance for accessing the Event Hubs and Azure Data Explorer resources. In order to use data history, the only role the instance needs going forward is **Azure Event Hubs Data Sender** (or a higher role that includes these permissions, such as **Azure Event Hubs Data Owner**) on the Event Hubs resource.
 
+>[!NOTE]
+>Once the connection is set up, the default settings on your Azure Data Explorer cluster will result in an ingestion latency of approximately 10 minutes or less. You can reduce this latency by enabling [streaming ingestion](/azure/data-explorer/ingest-data-streaming) (less than 10 seconds of latency) or an [ingestion batching policy](/azure/data-explorer/kusto/management/batchingpolicy). For more information about Azure Data Explorer ingestion latency, see [End-to-end ingestion latency](concepts-data-history.md#end-to-end-ingestion-latency).
 
 ## Create a twin graph and send telemetry to it
 
