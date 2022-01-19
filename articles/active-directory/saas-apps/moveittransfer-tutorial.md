@@ -137,7 +137,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    b. Verify **AssertionConsumerService** Location URL matches **REPLY URL**  in the **Basic SAML Configuration** section.
 	
-     ![Configure Single Sign-On On App side.](./media/moveittransfer-tutorial/file.png)
+     :::image type="content" source="./media/moveittransfer-tutorial/file.png" alt-text="Screenshot of Configure Single Sign-On On App side." lightbox="./media/moveittransfer-tutorial/file.png":::
 
 5. Click **Add Identity Provider** button to add a new Federated Identity Provider.
 
