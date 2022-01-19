@@ -36,7 +36,7 @@ To avoid this conflict, create only a single AMPLS object per DNS.
 ### Hub-and-spoke networks
 Hub-and-spoke networks should use a single Private Link connection set on the hub (main) network, and not on each spoke VNet. 
 
-![Hub-and-spoke-single-PE](./media/private-link-security/hub-and-spoke-with-single-private-endpoint-with-datacollectionendpoint.png)
+![Hub-and-spoke-single-PE](./media/private-link-security/hub-and-spoke-with-single-private-endpoint-with-data-collection-endpoint.png)
 
 > [!NOTE]
 > You may intentionally prefer to create separate Private Links for your spoke VNets, for example to allow each VNet to access a limited set of monitoring resources. In such cases, you can create a dedicated Private Endpoint and AMPLS for each VNet, but **must also verify they don't share the same DNS zones in order to avoid DNS overrides**.
