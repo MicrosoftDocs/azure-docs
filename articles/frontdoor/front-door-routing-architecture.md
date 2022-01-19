@@ -21,16 +21,18 @@ The following diagram illustrates the routing architecture:
 
 ::: zone pivot="front-door-standard-premium"
 
-![Flowchart illustrating the Front Door routing architecture, including each step and decision point.](media/front-door-routing-architecture/flowchart.png)
+![Diagram that shows the Front Door routing architecture, including each step and decision point.](media/front-door-routing-architecture/routing-process-standard-premium.png)
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
 
-> [!IMPORTANT]
-> Note to reviewers: I will create a version of the diagram with the AFD Classic terminology (e.g. backend instead of origin). Please review the AFDX version and after that's reviewed I'll work on the alternate. <!-- TODO -->
+![Diagram that shows the Front Door routing architecture, including each step and decision point.](media/front-door-routing-architecture/routing-process-classic.png)
 
 ::: zone-end
+
+> [!IMPORTANT]
+> Note to reviewers: This diagram will be redrawn by a designer. Please review the content/layout but not the style.
 
 The rest of this article describes these steps in detail.
 
