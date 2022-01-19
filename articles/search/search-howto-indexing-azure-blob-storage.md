@@ -103,7 +103,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
     {
       "name" : "my-search-index",
       "fields": [
-          { "name": "metadata_storage_path", "type": "Edm.String", "key": true, "searchable": false },
+          { "name": "ID", "type": "Edm.String", "key": true, "searchable": false },
           { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false },
           { "name": "metadata_storage_name", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true  },
           { "name": "metadata_storage_path", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true },
@@ -113,22 +113,15 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
     }
     ```
 
-1. Create a document key field ("key": true). For blob content, the best candidates are metadata properties on the blob:
+1. Create a document key field ("key": true). For blob content, the best candidates are metadata properties. Metadata properties often include characters, such as `/` and `-`, that are invalid for document keys. Because the indexer has a "base64EncodeKeys" property (true by default), it automatically encodes the metadata property, with no configuration or field mapping required.
 
-   + **`metadata_storage_path`** (default). Using the full path ensures uniqueness, but the path contains `/` characters that are [invalid in a document key](/rest/api/searchservice/naming-rules), which requires encoding.
+   + **`metadata_storage_path`** (default) full path to the object or file
 
-   + **`metadata_storage_name`** is a candidate, but only if names are unique across all containers and folders you are indexing. When considering this option, watch for characters that are invalid for document keys, such as dashes. 
+   + **`metadata_storage_name`** usable only if names are unique
 
    + A custom metadata property that you add to blobs. This option requires that your blob upload process adds that metadata property to all blobs. Since the key is a required property, any blobs that are missing a value will fail to be indexed. If you use a custom metadata property as a key, avoid making changes to that property. Indexers will add duplicate documents for the same blob if the key property changes.
 
-1. If using metadata as the document key, handle unsupported characters by adding the [base64Encode function](search-indexer-field-mappings.md#base64EncodeFunction) in the data source definition.
-
-   Remember to also encode document keys when passing them in API calls such as [Lookup Document (REST)](/rest/api/searchservice/lookup-document). In .NET, you can use the [UrlTokenEncode method](/dotnet/api/system.web.httpserverutility.urltokenencode) to encode characters.
-
-     > [!NOTE]
-     > If there is no explicit mapping for the key field in the index, Azure Cognitive Search automatically uses "metadata_storage_path" as the key and base-64 encodes key values.
-
-1. Add a "content" field if you want to import the content, or text, extracted from blobs. You aren't required to name the field "content", but doing so lets you take advantage of implicit field mappings. The blob indexer can send blob contents to a "content" field of type `Edm.String` in the index, with no field mappings required.
+1. Add a "content" field to store extracted text from each file through the blob's "content" property. You aren't required to use this name, but doing lets you take advantage of implicit field mappings. 
 
 1. Add more fields for any blob metadata that you want in the index. The indexer can read custom metadata properties, [standard metadata](#indexing-blob-metadata) properties, and [content-specific metadata](search-blob-metadata-properties.md) properties.
 
@@ -148,6 +141,7 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
         "batchSize": null,
         "maxFailedItems": null,
         "maxFailedItemsPerBatch": null,
+        "base64EncodeKeys": null,
         "configuration:" {
             "indexedFileNameExtensions" : ".pdf,.docx",
             "excludedFileNameExtensions" : ".png,.jpeg" 
@@ -162,49 +156,11 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
 
    If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, Azure Cognitive Search first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. If the same file extension is present in both lists, it will be excluded from indexing.
 
+1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
+
+   In blob indexing, you can often omit field mappings because the indexer has built-in support for mapping the "content" property and [blob metadata properties](#indexing-blob-metadata) to fields in an index, assuming the search field name matches the blob property name, and is of the expected data type. The indexer will automatically adjust for differences in field names, replacing hyphens `-` with underscores in the index.
+
 1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
-
-### Set field mappings
-
-Field mappings are a section in the indexer definition that maps source fields to destination fields in the search index.
-
-In blob indexing, you can often omit field mappings because the indexer has built-in support for mapping the "content" property and [blob metadata properties](#indexing-blob-metadata) to fields in an index, assuming the search field name matches the blob property name, and is of the expected data type.
-
-Reasons for [creating an explicit field mapping](search-indexer-field-mappings.md) might be to handle naming or data type differences, or to add functions such as base64encoding, as illustrated in the following examples.
-
-### Example: Base-encoding metadata_storage_name
-
-The following example demonstrates "metadata_storage_name" as the document key. Assume the index has a key field named "key" and another field named "fileSize" for storing the document size. [Field mappings](search-indexer-field-mappings.md) in the indexer definition establish field associations, and "metadata_storage_name" has the [base64Encode field mapping function](search-indexer-field-mappings.md#base64EncodeFunction) to handle unsupported characters.
-
-```http
-POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
-{
-  "name" : "my-blob-indexer",
-  "dataSourceName" : "my-blob-datasource ",
-  "targetIndexName" : "my-search-index",
-  "fieldMappings" : [
-    { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
-    { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
-  ]
-}
-```
-
-### Example: How to make an encoded field "searchable"
-
-There are times when you need to use an encoded version of a field like "metadata_storage_path" as the key, but also need that field to be searchable (without encoding) in the search index. To support both use cases, you can map "metadata_storage_path" to two fields; one for the key (encoded), and a second for a path field that we can assume is attributed as "searchable" in the index schema. The example below shows two field mappings for "metadata_storage_path".
-
-```http
-PUT /indexers/blob-indexer?api-version=2020-06-30
-{
-    "dataSourceName" : " blob-datasource ",
-    "targetIndexName" : "my-target-index",
-    "schedule" : { "interval" : "PT2H" },
-    "fieldMappings" : [
-        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
-        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "path" }
-      ]
-}
-```
 
 <a name="PartsOfBlobToIndex"></a>
 
@@ -378,9 +334,9 @@ You can also set [blob configuration parameters](/rest/api/searchservice/create-
 
 + "indexStorageMetadataOnlyForOversizedDocuments" to index storage metadata for blob content that is too large to process. Oversized blobs are treated as errors by default. For limits on blob size, see [service Limits](search-limits-quotas-capacity.md).
 
-## See also
+## Next steps
 
-+ [Indexers in Azure Cognitive Search](search-indexer-overview.md)
-+ [Create an indexer](search-howto-create-indexers.md)
-+ [AI enrichment overview](cognitive-search-concept-intro.md)
-+ [Search over blobs overview](search-blob-storage-integration.md)
+You can now [run the indexer](search-howto-run-reset-indexers.md), [monitor status](search-howto-monitor-indexers.md), or [schedule indexer execution](search-howto-schedule-indexers). The following articles apply to indexers that pull content from Azure Storage:
+
++ [Change detection and deletion detection](search-howto-index-changed-deleted-blobs.md)
++ [Index large data sets](search-howto-large-index.md)

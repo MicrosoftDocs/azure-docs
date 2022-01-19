@@ -78,6 +78,30 @@ Indexers can connect to a table using the following connections.
 > [!NOTE]
 > If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to "Credentials provided in the connection string are invalid or have expired".  
 
+<a name="Performance"></a>
+
+### Index partitions for improved performance
+
+By default, Azure Cognitive Search uses the following internal query filter to keep track of which source entities have been updated since the last run: `Timestamp >= HighWaterMarkValue`. Because Azure tables don’t have a secondary index on the `Timestamp` field, this type of query requires a full table scan and is therefore slow for large tables.
+
+To avoid a full scan, you can use table partitions and choose from either of the following approaches.
+
++ If your data can naturally be partitioned into several partition ranges, create a data source and a corresponding indexer for each partition range. Each indexer now has to process only a specific partition range, resulting in better query performance. If the data that needs to be indexed has a small number of fixed partitions, even better: each indexer only does a partition scan. 
+
+   For example, to create a data source for processing a partition range with keys from `000` to `100`, use a query like this: 
+
+	```json
+	"container" : { "name" : "my-table", "query" : "PartitionKey ge '000' and PartitionKey lt '100' " }
+	```
+
++ If your data is partitioned by time (for example, if you create a new partition every day or week), consider the following approach: 
+
+  + In the data source defintion, specify a query similar to the following example: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
+
+  + Monitor indexer progress by using [Get Indexer Status API](/rest/api/searchservice/get-indexer-status), and periodically update the `<TimeStamp>` condition of the query based on the latest successful high-water-mark value. 
+
+  + With this approach, if you need to trigger a complete reindexing, you need to reset the datasource query in addition to resetting the indexer. 
+
 ## Add search fields to an index
 
 In a [search index](search-what-is-an-index.md), add fields to accept the content and metadata of your table entities.
@@ -119,6 +143,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
             "batchSize": null,
             "maxFailedItems": null,
             "maxFailedItemsPerBatch": null,
+            "base64EncodeKeys": null,
             "configuration:" { }
           },
         "schedule" : { },
@@ -128,55 +153,9 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
 1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
 
-## Change and deletion detection
+## Next steps
 
-After an initial search index is created, you might want subsequent indexer jobs to pick up only new and changed documents. Fortunately, content in Azure Storage is timestamped, which gives indexers sufficient information for determining what's new and changed automatically. For search content that originates from Azure Table Storage, the indexer keeps track of the entity's `Timestamp` timestamp and reindexes only new and changed content.
+You can now [run the indexer](search-howto-run-reset-indexers.md), [monitor status](search-howto-monitor-indexers.md), or [schedule indexer execution](search-howto-schedule-indexers). The following articles apply to indexers that pull content from Azure Storage:
 
-Although change detection is a given, deletion detection is not. If you want to detect deleted entities, make sure to use a "soft delete" approach. If you delete the files outright in a table, corresponding search documents will not be removed from the search index.
-
-## Soft delete using custom metadata
-
-To indicate that certain documents must be removed from the search index, you can use a soft delete strategy. Instead of deleting an entity, add a property to indicate that it's deleted, and set up a soft deletion detection policy on the data source. For example, the following policy considers that an entity is deleted if it has an `IsDeleted` property set to `"true"`:
-
-```http
-PUT https://[service name].search.windows.net/datasources?api-version=2020-06-30
-Content-Type: application/json
-api-key: [admin key]
-
-{
-    "name" : "my-table-datasource",
-    "type" : "azuretable",
-    "credentials" : { "connectionString" : "<your storage connection string>" },
-    "container" : { "name" : "table name", "query" : "<query>" },
-    "dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
-}   
-```
-
-<a name="Performance"></a>
-
-## Performance considerations
-
-By default, Azure Cognitive Search uses the following internal query filter to keep track of which source entities have been updated since the last run: `Timestamp >= HighWaterMarkValue`. 
-
-Because Azure tables don’t have a secondary index on the `Timestamp` field, this type of query requires a full table scan and is therefore slow for large tables.
-
-Here are two possible approaches for improving table indexing performance. Both rely on using table partitions: 
-
-+ If your data can naturally be partitioned into several partition ranges, create a data source and a corresponding indexer for each partition range. Each indexer now has to process only a specific partition range, resulting in better query performance. If the data that needs to be indexed has a small number of fixed partitions, even better: each indexer only does a partition scan. For example, to create a data source for processing a partition range with keys from `000` to `100`, use a query like this: 
-
-	```json
-	"container" : { "name" : "my-table", "query" : "PartitionKey ge '000' and PartitionKey lt '100' " }
-	```
-
-+ If your data is partitioned by time (for example, you create a new partition every day or week), consider the following approach: 
-
-  + Use a query of the form: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
-
-  + Monitor indexer progress by using [Get Indexer Status API](/rest/api/searchservice/get-indexer-status), and periodically update the `<TimeStamp>` condition of the query based on the latest successful high-water-mark value. 
-
-  + With this approach, if you need to trigger a complete reindexing, you need to reset the datasource query in addition to resetting the indexer. 
-
-## See also
-
-+ [Indexers in Azure Cognitive Search](search-indexer-overview.md)
-+ [Create an indexer](search-howto-create-indexers.md)
++ [Change detection and deletion detection](search-howto-index-changed-deleted-blobs.md)
++ [Index large data sets](search-howto-large-index.md)

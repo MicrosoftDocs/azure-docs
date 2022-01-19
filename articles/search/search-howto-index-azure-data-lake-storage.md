@@ -109,7 +109,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
     {
         "name" : "my-search-index",
         "fields": [
-            { "name": "metadata_storage_path", "type": "Edm.String", "key": true, "searchable": false },
+            { "name": "ID", "type": "Edm.String", "key": true, "searchable": false },
             { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false },
             { "name": "metadata_storage_name", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true  },
             { "name": "metadata_storage_size", "type": "Edm.Int64", "searchable": false, "filterable": true, "sortable": true  },
@@ -119,10 +119,15 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
     }
     ```
 
-1. Designate one string field as the document key that uniquely identifies each document. For blob content, the best candidates for a document key are metadata properties on the blob.
+1. Create a document key field ("key": true). For blob content, the best candidates are metadata properties. Metadata properties often include characters, such as `/` and `-`, that are invalid for document keys. Because the indexer has a "base64EncodeKeys" property (true by default), it automatically encodes the metadata property, with no configuration or field mapping required.
 
-1. Add a "content" field to store extracted text from each file.
-<!-- 1. A **`content`** field is common to blob content. It contains the text extracted from blobs. Your definition of this field might look similar to the one above. You aren't required to use this name, but doing lets you take advantage of implicit field mappings. The blob indexer can send blob contents to a content Edm.String field in the index, with no field mappings required. -->
+   + **`metadata_storage_path`** (default) full path to the object or file
+
+   + **`metadata_storage_name`** usable only if names are unique
+
+   + A custom metadata property that you add to blobs. This option requires that your blob upload process adds that metadata property to all blobs. Since the key is a required property, any blobs that are missing a value will fail to be indexed. If you use a custom metadata property as a key, avoid making changes to that property. Indexers will add duplicate documents for the same blob if the key property changes.
+
+1. Add a "content" field to store extracted text from each file through the blob's "content" property. You aren't required to use this name, but doing lets you take advantage of implicit field mappings. 
 
 1. Add fields for standard metadata properties. The indexer can read custom metadata properties, [standard metadata](#indexing-blob-metadata) properties, and [content-specific metadata](search-blob-metadata-properties.md) properties.
 
@@ -142,6 +147,7 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
         "batchSize": null,
         "maxFailedItems": null,
         "maxFailedItemsPerBatch": null,
+        "base64EncodeKeys": null,
         "configuration:" {
             "indexedFileNameExtensions" : ".pdf,.docx",
             "excludedFileNameExtensions" : ".png,.jpeg" 
@@ -153,62 +159,6 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
     ```
 
 1. In the optional "configuration" section, provide any inclusion or exclusion criteria. If left unspecified, all blobs in the container are retrieved.
-1. 
-```http
-POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
-Content-Type: application/json
-api-key: [admin key]
-
-{
-  "name" : "adlsgen2-indexer",
-  "dataSourceName" : "adlsgen2-datasource",
-  "targetIndexName" : "my-target-index",
-  "schedule" : { 
-    "interval" : "PT2H"
-  }
-}
-```
-
-This indexer runs immediately, and then [on a schedule](search-howto-schedule-indexers.md) every two hours (schedule interval is set to "PT2H"). To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is 5 minutes. The schedule is optional - if omitted, an indexer runs only once when it's created. However, you can run an indexer on-demand at any time.
-
-<a name="DocumentKeys"></a>
-
-## Defining document keys and field mappings
-
-In a search index, the document key uniquely identifies each document. The field you choose must be of type `Edm.String`. For blob content, the best candidates for a document key are metadata properties on the blob.
-
-+ **`metadata_storage_name`** - this property is a candidate, but only if names are unique across all containers and folders you are indexing. Regardless of blob location, the end result is that the document key (name) must be unique in the search index after all content has been indexed. 
-
-  Another potential issue about the storage name is that it might contain characters that are invalid for document keys, such as dashes. You can handle invalid characters by using the `base64Encode` [field mapping function](search-indexer-field-mappings.md#base64EncodeFunction). If you do this, remember to also encode document keys when passing them in API calls such as [Lookup Document (REST)](/rest/api/searchservice/lookup-document). In .NET, you can use the [UrlTokenEncode method](/dotnet/api/system.web.httpserverutility.urltokenencode) to encode characters.
-
-+ **`metadata_storage_path`** - using the full path ensures uniqueness, but the path definitely contains `/` characters that are [invalid in a document key](/rest/api/searchservice/naming-rules). As above, you can use the `base64Encode` [function](search-indexer-field-mappings.md#base64EncodeFunction) to encode characters.
-
-+ A third option is to add a custom metadata property to the blobs. This option requires that your blob upload process adds that metadata property to all blobs. Since the key is a required property, any blobs that are missing a value will fail to be indexed.
-
-> [!IMPORTANT]
-> If there is no explicit mapping for the key field in the index, Azure Cognitive Search automatically uses `metadata_storage_path` as the key and base-64 encodes key values (the second option above).
->
-> If you use a custom metadata property as a key, avoid making changes to that property. Indexers will add duplicate documents for the same blob if the key property changes.
-
-### Example
-
-The following example demonstrates `metadata_storage_name` as the document key. Assume the index has a key field named `key` and another field named `fileSize` for storing the document size. [Field mappings](search-indexer-field-mappings.md) in the indexer definition establish field associations, and `metadata_storage_name` has the [`base64Encode` field mapping function](search-indexer-field-mappings.md#base64EncodeFunction) to handle unsupported characters.
-
-```http
-    PUT https://[service name].search.windows.net/indexers/adlsgen2-indexer?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
-    
-    {
-      "dataSourceName" : "adlsgen2-datasource",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { "interval" : "PT2H" },
-      "fieldMappings" : [
-        { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
-        { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
-      ]
-    }
-```
 
 ### How to make an encoded field "searchable"
 
@@ -393,10 +343,10 @@ You can also set [blob configuration properties](/rest/api/searchservice/create-
 
 + `"indexStorageMetadataOnlyForOversizedDocuments"` to index storage metadata for blob content that is too large to process. Oversized blobs are treated as errors by default. For limits on blob size, see [service Limits](search-limits-quotas-capacity.md).
 
-## See also
+## Next steps
 
+You can now [run the indexer](search-howto-run-reset-indexers.md), [monitor status](search-howto-monitor-indexers.md), or [schedule indexer execution](search-howto-schedule-indexers). The following articles apply to indexers that pull content from Azure Storage:
+
++ [Change detection and deletion detection](search-howto-index-changed-deleted-blobs.md)
++ [Index large data sets](search-howto-large-index.md)
 + [C# Sample: Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md)
-+ [Indexers in Azure Cognitive Search](search-indexer-overview.md)
-+ [Create an indexer](search-howto-create-indexers.md)
-+ [AI enrichment overview](cognitive-search-concept-intro.md)
-+ [Search over blobs overview](search-blob-storage-integration.md)

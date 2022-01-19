@@ -106,9 +106,15 @@ In the [search index](search-what-is-an-index.md), add fields to accept the cont
     }
     ```
 
-1. Create a document key field ("key": true), but allow the indexer to populate it automatically. Do not define a field mapping to alternative unique string field. 
+1. Create a document key field ("key": true). For blob content, the best candidates are metadata properties. Metadata properties often include characters, such as `/` and `-`, that are invalid for document keys. Because the indexer has a "base64EncodeKeys" property (true by default), it automatically encodes the metadata property, with no configuration or field mapping required.
 
-1. Add a "content" field to store extracted text from each file. 
+   + **`metadata_storage_path`** (default) full path to the object or file
+
+   + **`metadata_storage_name`** usable only if names are unique
+
+   + A custom metadata property that you add to blobs. This option requires that your blob upload process adds that metadata property to all blobs. Since the key is a required property, any blobs that are missing a value will fail to be indexed. If you use a custom metadata property as a key, avoid making changes to that property. Indexers will add duplicate documents for the same blob if the key property changes.
+
+1. Add a "content" field to store extracted text from each file through the blob's "content" property. You aren't required to use this name, but doing lets you take advantage of implicit field mappings. 
 
 1. Add fields for standard metadata properties. In file indexing, the standard metadata properties are the same as blob metadata properties. The file indexer automatically creates internal field mappings for these properties that converts hyphenated property names to underscored property names. You still have to add the fields you want to use the index definition, but you can omit creating field mappings in the data source.
 
@@ -136,6 +142,7 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
         "batchSize": null,
         "maxFailedItems": null,
         "maxFailedItemsPerBatch": null,
+        "base64EncodeKeys": null,
         "configuration:" {
             "indexedFileNameExtensions" : ".pdf,.docx",
             "excludedFileNameExtensions" : ".png,.jpeg" 
@@ -152,49 +159,9 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
 
 1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
 
-## Change and deletion detection
+## Next steps
 
-After an initial search index is created, you might want subsequent indexer jobs to pick up only new and changed documents. Fortunately, content in Azure Storage is timestamped, which gives indexers sufficient information for determining what's new and changed automatically. For search content that originates from Azure File Storage, the indexer keeps track of the file's `LastModified` timestamp and reindexes only new and changed files.
+You can now [run the indexer](search-howto-run-reset-indexers.md), [monitor status](search-howto-monitor-indexers.md), or [schedule indexer execution](search-howto-schedule-indexers). The following articles apply to indexers that pull content from Azure Storage:
 
-Although change detection is a given, deletion detection is not. If you want to detect deleted files, make sure to use a "soft delete" approach. If you delete the files outright in a file share, corresponding search documents will not be removed from the search index.
-
-## Soft delete using custom metadata
-
-This method uses a file's metadata to determine whether a search document should be removed from the index. This method requires two separate actions, deleting the search document from the index, followed by file deletion in Azure Storage.
-
-There are steps to follow in both File storage and Cognitive Search, but there are no other feature dependencies. 
-
-1. Add a custom metadata key-value pair to the file in Azure storage to indicate to Azure Cognitive Search that it is logically deleted.
-
-1. Configure a soft deletion column detection policy on the data source. For example, the following policy considers a file to be deleted if it has a metadata property `IsDeleted` with the value `true`:
-
-    ```http
-    PUT https://[service name].search.windows.net/datasources/file-datasource?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-        "name" : "file-datasource",
-        "type" : "azurefile",
-        "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "my-share", "query" : null },
-        "dataDeletionDetectionPolicy" : {
-            "@odata.type" :"#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
-            "softDeleteColumnName" : "IsDeleted",
-            "softDeleteMarkerValue" : "true"
-        }
-    }
-    ```
-
-1. Once the indexer has processed the file and deleted the document from the search index, you can delete the file in Azure Storage.
-
-### Reindexing undeleted files (using custom metadata)
-
-After an indexer processes a deleted file and removes the corresponding search document from the index, it won't revisit that file if you restore it later if the file's `LastModified` timestamp is older than the last indexer run.
-
-If you would like to reindex that document, change the `"softDeleteMarkerValue" : "false"` for that file and rerun the indexer.
-
-## See also
-
-+ [Indexers in Azure Cognitive Search](search-indexer-overview.md)
-+ [What is Azure Files?](../storage/files/storage-files-introduction.md)
++ [Change detection and deletion detection](search-howto-index-changed-deleted-blobs.md)
++ [Index large data sets](search-howto-large-index.md)
