@@ -113,7 +113,7 @@ To publish an asset, you need to add a streaming locator to your asset and run t
 
 1. In **Add streaming locator** window, enter the details. Select a predefined **Streaming policy**. For more information, see [streaming policies](stream-streaming-policy-concept.md).
 
-1. If you want your stream to be encrypted, [Create a content key policy](drm-encrypt-content-how-to#create-a-content-key-policy) and select it in the **Add streaming locator** window.
+1. If you want your stream to be encrypted, [Create a content key policy](drm-encrypt-content-how-to.md#create-a-content-key-policy) and select it in the **Add streaming locator** window.
 
     ![Provide details in the Add streaming locator window.](./media/asset-create-asset-upload-portal-quickstart/add-streaming-locator-window.png)
 
