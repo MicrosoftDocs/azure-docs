@@ -70,7 +70,7 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/New-AzResourceGroup) | Creates a resource group in which all resources are stored. |
-| [Get-AzSqlInstanceDatabaseGeoBackup](/powershell/module/az.sql/Get-AzSqlInstanceDatabaseGeoBackup) | Creates a geo-redundant backup of a SQL Managed Instance database. |
+| [Get-AzSqlInstanceDatabaseGeoBackup](/powershell/module/az.sql/Get-AzSqlInstanceDatabaseGeoBackup) | Gets one or more geo-backups from a database within an Azure SQL Managed Instance. |
 | [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/Restore-AzSqlInstanceDatabase) | Creates a database on SQL Managed Instance from geo-backup. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group, including all nested resources. |
 
