@@ -126,30 +126,50 @@ Sign-in logs provide information about sign-ins and how your resources are used 
 Let's walk through two scenarios, one where the certificate satisfies single-factor authentication and another where the certificate satisfies MFA.
 
 **Test scenario configuration** 
-User: MFA User with a conditional access policy requiring MFA
-User Binding policy: SAN Principal Name > UserPrincipalName
-User Certificate:
+
+For the test scenarios, choose a user with a conditional access policy that requires MFA. 
+Configure the user binding policy by mapping SAN Principal Name to UserPrincipalName.
+
+The user certificate should be configured like this screenshot:
 
 :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/user-certificate.png" alt-text="Screenshot of the user certificate.":::  
 
 ### Test Scenario 1
 
-Authentication policy configuration: Issuer subject rule satisfies single factor authentication.
+For the first test scenario, configure the authentication policy where the Issuer subject rule satisfies single-factor authentication.
 
 :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/single-factor.png" alt-text="Screenshot of the Authentication policy configuration showing single-factor authentication required.":::  
 
-1. Sign in using CBA and since the policy was set to satisfy single factor and the user required MFA (via conditional access policy), a second factor was requested.
-1. Sign in was successful.
-1. Sign in to the Azure portal and click your tenant > **Sign in logs**.
+1. Sign in to the Azure portal as the test user by using CBA. The authentication policy is set where Issuer subject rule satisfies single-factor authentication, but the user has MFA required by the conditional access policy, so a second authentication factor is requested.
+1. After sign-in was succeeds, click **Azure Active Directory** > **Sign in logs**.
 
-You will see several entries in the sign in logs.
+Let's look closer at some of the entries you can find in the sign in logs.
 
 :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entries-single.png" alt-text="Screenshot of single-factor authentication entries in the sign-in logs.":::  
 
-Entry 1: This is an entry that requests the X.509 certificate from the user. The status success just means that Azure AD validated that CBA is enabled in the tenant and a certificate is requested for authentication.
+The first entry requests the X.509 certificate from the user. The status **Success** just means that Azure AD validated that CBA is enabled in the tenant and a certificate is requested for authentication.
 
 :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entry-one.png" alt-text="Screenshot of single-factor authentication entry in the sign-in logs.":::  
 
+You can also click **Authentication Details** to verify the success status.
+
+:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-details.png" alt-text="Screenshot of single-factor sign-in details in the sign-in logs.":::  
+
+The next entry provides more information about the authentication request and the certificate used. We can see that since the certificate satisfies only a single-factor and the user requires MFA, a second factor was requested.
+
+:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/second-factor.png" alt-text="Screenshot of second-factor sign-in details in the sign-in logs.":::  
+
+The **Authentication Details** also show the second factor request.
+
+:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-details-mfa.png" alt-text="Screenshot of multifactor sign-in details in the sign-in logs.":::  
+
+The **Additional Details** show the certificate information.
+
+:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/additional-details.png" alt-text="Screenshot of multifactor additional details in the sign-in logs.":::  
+
+These additional entries show that the authentication is complete and a primary refresh token is sent back to the browser and user is given access to the resource.
+
+:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/refresh-token.png" alt-text="Screenshot of refresh token details in the sign-in logs.":::  
 
 
 ## Next steps
