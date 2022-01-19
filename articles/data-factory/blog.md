@@ -11,4 +11,4 @@ ms.custom: mode-other
 
 # This page is a placeholder for redirection to external blog
 
-It should not be found externally but redirected when it is requested.
+It shouldn't be found externally but redirected when it is requested.
