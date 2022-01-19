@@ -24870,7 +24870,12 @@
     },
     {
       "source_path_from_root": "/articles/sentinel/connect-windows-security-events.md",
-      "redirect_url": "/azure/sentinel/data-connectors-reference#windows-security-events-preview",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#windows-security-events-via-ama",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/data-connectors-reference.md#windows-security-events-preview",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#windows-security-events-via-ama",
       "redirect_document_id": false
     },
     {
