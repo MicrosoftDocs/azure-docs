@@ -289,7 +289,7 @@ To resolve this issue:
 1. Restore the role memberships for the owner.
 
 >[!NOTE]
->You can assign the administrative role to the existing user object again after the soft match between the on-premises user object and the Azure AD user object has completed.
+>You can assign the administrative role to the existing user object again after the soft match between the on-premises user object and the Azure AD user object has finished.
 
 ## Related links
 
