@@ -33,7 +33,7 @@ An indexer in Azure Cognitive Search is a crawler that extracts searchable data 
 
 ## Prerequisites
 
-+ [SharePoint for Microsoft 365](https://docs.microsoft.com/sharepoint/introduction) cloud service
++ [SharePoint for Microsoft 365](../../sharepoint/introduction) cloud service
 
 + Files in a [document library](https://support.microsoft.com/office/what-is-a-document-library-3b5976dd-65cf-4c9e-bf5a-713c10ca2872)
 
@@ -264,7 +264,7 @@ There are a few steps to creating the indexer:
 
     :::image type="content" source="media/search-howto-index-sharepoint-online/aad-app-approve-api-permissions.png" alt-text="Approve API permissions":::
 
-1 	Resend the indexer create request. This time the request should succeed. 
+1. Resend the indexer create request. This time the request should succeed. 
 
     ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30-Preview
