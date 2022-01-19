@@ -69,7 +69,7 @@ CycleCloud 8.0.2 and up support custom images created from images with a pricing
  ImageName = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/galleries/MyGallery/images/MyImage/versions/1.0.0
  ImagePlan.Publisher = PUBLISHER
  ImagePlan.Product = PRODUCT (sometimes called OFFER)
- ImagePlan.Plan = PLAN (sometimes called SKU)
+ ImagePlan.Name = NAME (sometimes called SKU)
 ```
 
 If the Shared Image Gallery has the purchase-plan metadata on it, it is used automatically and you do not need to specify the plan details.
