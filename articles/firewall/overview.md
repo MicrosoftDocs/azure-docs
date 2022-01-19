@@ -54,7 +54,7 @@ For Azure Firewall SLA information, see [Azure Firewall SLA](https://azure.micro
 
 ## Supported regions
 
-For the supported regions for Azure Firewall, see [Azure products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-firewall).
+For the supported regions for Azure Firewall, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-firewall).
 
 ## What's new
 
