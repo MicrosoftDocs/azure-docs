@@ -257,7 +257,7 @@ Azure Storage supports three types of shared access signatures: user delegation,
 
 The following example illustrates the process of configuring a service SAS for a specific container using the `az storage container generate-sas` command. Because it is generating a service SAS, the example first retrieves the storage account key to pass as the `--account-key` value.
 
-The example will configure the SAS with start and expiry times and a protocol. It will also specify the **delete**, **read**, **write**, and **list** permissions in the SAS using the `-Permission` parameter. You can reference the full table of permissions in the [Create a service SAS](../rest/api/storageservices/create-service-sas#permissions-for-a-directory-container-or-blob.md) article.
+The example will configure the SAS with start and expiry times and a protocol. It will also specify the **delete**, **read**, **write**, and **list** permissions in the SAS using the `-Permission` parameter. You can reference the full table of permissions in the [Create a service SAS](/rest/api/storageservices/create-service-sas) article.
 
 ```azurecli-interactive
 #!/bin/bash
