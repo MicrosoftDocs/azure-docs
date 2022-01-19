@@ -66,13 +66,15 @@ az containerapp env create `
 
 ### Create an Azure Blob Storage account
 
-First setup a name for the storage account container and the storage account.  
-Replace the `<storage account name>` placeholder with your own value before you run this snippet. Storage account names must be unique within Azure, be between 3 and 24 characters in length, and may contain numbers or lowercase letters only. The storage account will be created in a following step.
+First setup a name for the storage account container.  Then, set the storage account name.  Replace the `<storage account name>` placeholder with your own value before you run this snippet. Storage account names must be unique within Azure, be between 3 and 24 characters in length, and may contain numbers or lowercase letters only. The storage account will be created in a following step.
 
 # [Bash](#tab/bash)
 
 ```azurecli
 STORAGE_ACCOUNT_CONTAINER="mycontainer"
+```
+
+```azurecli
 STORAGE_ACCOUNT="<storage account name>"
 ```
 
@@ -80,6 +82,9 @@ STORAGE_ACCOUNT="<storage account name>"
 
 ```powershell
 $STORAGE_ACCOUNT_CONTAINER="mycontainer"
+```
+
+```azurecli
 $STORAGE_ACCOUNT="<storage account name>"
 ```
 
@@ -287,7 +292,6 @@ az monitor log-analytics query \
 ```powershell
 $queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $LOG_ANALYTICS_WORKSPACE_CLIENT_ID -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5"
 $queryResults.Results
-  --out table
 ```
 
 ---
