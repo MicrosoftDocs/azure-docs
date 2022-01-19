@@ -30,7 +30,7 @@ Updates in January include:
 - ['Copy alert JSON' button added to security alert details pane](#copy-alert-json-button-added-to-security-alert-details-pane)
 - [Renamed two recommendations](#renamed-two-recommendations)
 - [Deprecate Kubernetes cluster containers should only listen on allowed ports policy](#deprecate-kubernetes-cluster-containers-should-only-listen-on-allowed-ports-policy)
-- Added 'Active Alerts' workbook
+- [Added 'Active Alerts' workbook](#added-active-alert-workbook)
 
 ### Microsoft Defender for Resource Manager updated with new alerts and greater emphasis on high-risk operations mapped to MITRE ATT&CK® Matrix
 
