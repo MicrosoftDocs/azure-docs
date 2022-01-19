@@ -118,7 +118,8 @@ Use the Azure CLI for creating a new cache with managed identity or updating an 
 
 For example, to update a cache to use system-managed identity use the following CLI command:
 
-```powershell-interactive
+```azurecli-interactive
+
 az redis identity assign \--mi-system-assigned \--name MyCacheName \--resource-group MyResource Group
 ```
 
@@ -128,7 +129,7 @@ Use Azure PowerShell for creating a new cache with managed identity or updating 
 
 For example, to update a cache to use system-managed identity, use the following PowerShell command:
 
-```azurecli-interactive
+```powershell-interactive
 Set-AzRedisCache -ResourceGroupName \"MyGroup\" -Name \"MyCache\" -IdentityType "SystemAssigned"
 ```
 
