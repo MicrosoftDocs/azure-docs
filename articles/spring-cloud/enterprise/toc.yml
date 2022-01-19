@@ -1,6 +1,10 @@
 - name: Azure Spring Cloud Enterprise tier documentation
   href: index.yml
   displayName: Azure Spring Cloud
+- name: Overview
+  items:
+    - name: What is Azure Spring Cloud?
+      href: overview.md
 - name: Quickstarts
   expanded: true
   items:
