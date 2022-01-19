@@ -57,7 +57,7 @@ When configuring Scheduled Agent Updates, consider the following:
 
 - The local time zone for VMs you create using the Azure portal is set to Coordinated Universal Time (UTC) by default. If you want to change the VM time zone, run the [Set-TimeZone PowerShell cmdlet](/powershell/module/microsoft.powershell.management/set-timezone?view=powershell-7.1&preserve-view=true) on the VM.
 
-- To get a list of available time zones for a VM, run the [Get-TimeZone PowerShell cmdlet]/powershell/module/microsoft.powershell.management/get-timezone?view=powershell-7.1&preserve-view=true) on the virtual machine.
+- To get a list of available time zones for a VM, run the [Get-TimeZone PowerShell cmdlet]/powershell/module/microsoft.powershell.management/get-timezone?view=powershell-7.1&preserve-view=true) on the VM.
 
 ## Configure the Scheduled Agent Updates feature using the Azure portal
 
