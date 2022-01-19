@@ -182,31 +182,6 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 
 Due to the nature of distributed systems, real-time consistency between requests is difficult to enforce implicitly. We use synchronization tokens to address this issue. The Event Grid event contains the sync-token that can be utilized to guarantee real-time consistency between different client instances and requests.
 
-The implementation of this PushModel introduces one new `PushNotification` class and two new API's:
-
-**PushNotification**
-```cs
-public class pushNotification() {
-    public Uri ResourceUri;
-    public string SyncToken;
-    public string EventType;
-}
-```
-This class stores the `ResourceUri` of the resource which triggered the `PushNotification`, the `Synchronization Token` to be added to the next request to the App Configuration Service, and the Type of Event which triggered the `PushNotification`.
-
-**TryCreatePushNotification**
-```cs
-EventGridEvent.TryCreatePushNotification(out PushNotification pushNotification)
-```
-This method uses the `Data`, `EventType`, and `Subject` stored in the Event Grid Event to try and create a `PushNotification`. If successful returns *true* and an out `PushNotification` parameter. Otherwise the parameter will be null and the method will return *false*.
-
-**ProcessPushNotification**
-```cs
-ProcessPushNotification(PushNotification pushNotification, TimeSpan? maxDelay)
-```
-This method is called by the refresher and provider to process the `PushNotification`. `ProcessPushNotification()` will invoke `UpdateSyncToken()` and then invoke `SetDirty()` to ensure the most recent configuration is provided to the user.
-
-**Implementation**
 To use a `sync-token` in your push refresh workflow, make the following changes to your **Program.cs** file:
 
 1. Add a dependency on Azure.messaging.EventGrid Package:
@@ -240,7 +215,7 @@ using Azure.Messaging.EventGrid;
         }
 ```
 
-The `SetDirty` method is called in the PushModel. `SetDirty()` is invoked internally in the `ProcessPushNotification` method to cache values for key-values registered for refresh as dirty. This ensures that the next call to `RefreshAsync` or `TryRefreshAsync` re-validates the cached values with App Configuration and updates them if needed.
+Notice that you do not need to invoke the `SetDirty` method anymore. This is because `SetDirty` is always invoked internally through the `ProcessPushNotification` method. The cached value will be marked as dirty after a random delay of up to 30 seconds. This max delay can be overridden by passing an optional `Timespan` parameter to the `ProcessPushNotification` method.
 
 
 ## Build and run the app locally
