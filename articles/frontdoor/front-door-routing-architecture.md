@@ -15,17 +15,7 @@ zone_pivot_groups: front-door-tiers
 
 # Routing architecture overview
 
-::: zone pivot="front-door-standard-premium"
-
-Front Door traffic routing takes place over multiple stages. First, traffic is routed from the client to Front Door. Then, Front Door uses the configuration of your profile to determine the origin to send the traffic to. The Front Door web application firewall, rule set, and caching configuration all affect the routing process.
-
-::: zone-end
-
-::: zone pivot="front-door-classic"
-
-Front Door traffic routing takes place over multiple stages. First, traffic is routed from the client to Front Door. Then, Front Door uses your configuration to determine the backend to send the traffic to. The Front Door web application firewall, rules engine, and caching configuration all affect the routing process.
-
-::: zone-end
+Front Door traffic routing takes place over multiple stages. First, traffic is routed from the client to Front Door. Then, Front Door uses your configuration to determine the origin to send the traffic to. The Front Door web application firewall, routing rules, rules engine, and caching configuration all affect the routing process.
 
 ## Routing process
 
@@ -48,7 +38,7 @@ The rest of this article describes these steps in detail.
 
 ## <a name = "anycast"></a>Select the Front Door edge location for the request (Anycast)
 
-Globally, Front Door has over 150 edge locations, or points of presence (PoPs), located in many countries and regions. Every Front Door PoP can serve traffic for any request.
+Globally, [Front Door has over 150 edge locations](edge-locations-by-region.md), or points of presence (PoPs), located in many countries and regions. Every Front Door PoP can serve traffic for any request.
 
 Traffic routed to the Azure Front Door edge locations uses [Anycast](https://en.wikipedia.org/wiki/Anycast) for both DNS (Domain Name System) and HTTP (Hypertext Transfer Protocol) traffic. Anycast allows for user requests to reach the closest edge location in the fewest network hops. This architecture offers better round-trip times for end users by maximizing the benefits of [Split TCP](#splittcp).
 
