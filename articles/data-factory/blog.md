@@ -1,6 +1,6 @@
 ---
-title: Placeholder page for redirection to external blog
-description: Placeholder page for redirection to external blog
+title: Azure Data Factory Blog
+description: Azure Data Factory Blog
 author: jonburchel
 ms.service: data-factory
 ms.topic: overview
@@ -9,6 +9,6 @@ ms.author: jburchel
 ms.custom: mode-other
 ---
 
-# This page is a placeholder for redirection to external blog
+# Azure Data Factory Blog
 
-It shouldn't be found externally but redirected when it is requested.
+Please refer to the [Azure Data Factory blog](https://techcommunity.microsoft.com/t5/Azure-Data-Factory/bg-p/AzureDataFactoryBlog).
