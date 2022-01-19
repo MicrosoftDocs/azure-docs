@@ -1,5 +1,5 @@
 ---
-title: Deploy a private mobile network through Azure Private 5G Core - Azure portal
+title: Deploy a private mobile network through Azure Private 5G Core Preview - Azure portal
 description: How-to guide showing how to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal 
 author: djrmetaswitch
 ms.author: drichards
@@ -9,7 +9,7 @@ ms.date: 01/03/2021
 ms.custom: template-how-to
 ---
 
-# Deploy a private mobile network through Azure Private 5G Core - Azure portal
+# Deploy a private mobile network through Azure Private 5G Core Preview - Azure portal
 
 Azure Private 5G Core Preview is an Azure cloud service for service providers and system integrators to securely deploy and manage private mobile networks for enterprises on Azure Arc-connected edge platforms such as an Azure Stack Edge device. In this how-to guide, you will use the Azure portal to deploy a private mobile network to match your enterprise's requirements.
 
@@ -63,7 +63,8 @@ In this step, you will create the Mobile Network resource representing your priv
 
     :::image type="content" source="media\how-to-guide-deploy-a-private-mobile-network-azure-portal\create-private-mobile-network-review-create-tab.png" alt-text="Screenshot of the Azure portal showing validated configuration for a private mobile network.":::
 
-If the validation fails, you will see an error message and the configuration tab(s) containing the invalid configuration will be flagged with red dots. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
+    If the validation fails, you will see an error message and the configuration tab(s) containing the invalid configuration will be flagged with red dots. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
+
 1. Once the configuration has been validated, click **Create** to create the private mobile network resource and any SIM resources.
 1. The Azure portal will now deploy the resources into your chosen resource group. You will see the following confirmation screen when your deployment is complete.
 
@@ -117,7 +118,7 @@ In this step, you will create the site resource representing the physical enterp
 
 ## Create the Kubernetes base VM
 
-In this step, you will create the Kubernetes base VM that will run on the Azure Stack Edge device in the site. This serves as the platform the Kubernetes cluster that will run the packet core instance.
+In this step, you will create the Kubernetes base VM that will run on the Azure Stack Edge device in the site. This serves as the platform for the Kubernetes cluster that will run the packet core instance.
 
 1. You should still be viewing the resource group containing the site you created in the previous step. Select the **Mobile network site** resource corresponding to the site. Note that you may need to tick the **Show hidden types** checkbox to display this resource.
 1. Click **Create a custom location**.

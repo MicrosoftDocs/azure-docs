@@ -1,5 +1,6 @@
 ---
-title: Prerequisites for deploying a private mobile network
+title: Complete the prerequisites tasks for deploying a private mobile network
+titlesuffix: Azure Private 5G Core Preview
 description: Information on the prerequisites for deploying a private mobile network with Azure Private 5G Core Preview. 
 author: djrmetaswitch
 ms.author: drichards
@@ -11,7 +12,7 @@ ms.custom: template-how-to
 
 # Complete the prerequisite tasks for deploying a private mobile network
 
-In this how-to guide, you'll carry out each of the tasks you need to complete before you can deploy a private mobile network using Azure Private 5G Core.
+In this how-to guide, you'll carry out each of the tasks you need to complete before you can deploy a private mobile network using Azure Private 5G Core Preview.
 
 ## Complete the prerequisite tasks
 
@@ -24,11 +25,11 @@ You must do the following before you can deploy a private mobile network. Detail
 | 3. | Order and prepare your Azure Stack Edge Pro device. | [Tutorial: Prepare to deploy Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-prep?tabs=azure-portal) |
 | 4. | <p>Rack and cable your Azure Stack Edge Pro device.</p><p>When carrying out this procedure, you must ensure that the device has its ports connected as follows.</p><ul><li>Port 5 - LAN</li><li>Port 6 - WAN</li></ul><p>Additionally, you must have a port connected to your management network. You can choose any port from 2 to 4.</p> | [Tutorial: Install Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-install) |
 | 5. | Connect to your Azure Stack Edge Pro device using the local web UI. | [Tutorial: Connect to Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-connect) |
-| 6. | Configure the network for your Azure Stack Edge Pro device. When carrying out the *Enable compute network* step of this procedure, you must ensure that you use the port that you have connected to your management network. | [Tutorial: Configure network for Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy) |
+| 6. | Configure the network for your Azure Stack Edge Pro device. When carrying out the *Enable compute network* step of this procedure, ensure you use the port you've connected to your management network. | [Tutorial: Configure network for Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy) |
 | 7. | Configure a name, DNS name, and (optionally) time settings. | [Tutorial: Configure the device settings for Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time) |
 | 8. | Configure certificates for your Azure Stack Edge Pro device. | [Tutorial: Configure certificates for your Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-configure-certificates) |
 | 9. | Activate your Azure Stack Edge Pro device. | [Tutorial: Activate Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-activate) |
-| 10. | <p>Run the diagnostics tests for the Azure Stack Edge Pro device in the local web UI, and verify that all of these tests pass.</p><p>Note that if you see a warning about a disconnected, unused port that *does not* relate to Port 5, Port 6, or the port you chose to connect to the management network in Step 4, this is expected.</p><p>If there are any errors, you must resolve them before continuing with the remaining steps. This includes any errors related to invalid gateways on unused ports. In this case, you must either delete the gateway IP address or set it to a valid gateway for the subnet. | [Run diagnostics, collect logs to troubleshoot Azure Stack Edge device issues](/azure/databox-online/azure-stack-edge-gpu-troubleshoot)</p> |
+| 10. | <p>Run the diagnostics tests for the Azure Stack Edge Pro device in the local web UI, and verify they all pass.</p><p>If you see a warning about a disconnected, unused port that *does not* relate to Port 5, Port 6, or the port you chose to connect to the management network in Step 4, this is expected.</p><p>If there are any errors, you must resolve them before continuing with the remaining steps. This includes any errors related to invalid gateways on unused ports. In this case, either delete the gateway IP address or set it to a valid gateway for the subnet. | [Run diagnostics, collect logs to troubleshoot Azure Stack Edge device issues](/azure/databox-online/azure-stack-edge-gpu-troubleshoot)</p> |
 | 11. | Create a Network Function Manager Device resource and register it with your Azure Stack Edge Pro device. | [Tutorial: Create a Network Function Manager Device resource (Preview)](/azure/network-function-manager/create-device) |
 
 ## Next steps
