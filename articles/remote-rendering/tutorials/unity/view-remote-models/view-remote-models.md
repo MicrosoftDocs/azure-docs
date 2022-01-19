@@ -614,7 +614,7 @@ In order to progress from **NotAuthorized** to **NoSession**, we'd typically pre
 
 1. Add a new event by pressing the '+' in the lower right.
 1. Drag the component on to its own event, to reference itself.
-![Screenshot of the Unity inspector of the Remote Rendering Coordinator Script. The title bar of the component is highlighted and an arrow connects it to the On Requesting Authorization event.](./media/bypass-authorization-add-event.png)\
+![Screenshot of the Unity inspector of the Remote Rendering Coordinator Script. The title bar of the component is highlighted and an arrow connects it to the On Requesting Authorization event.](./media/bypass-authorization-add-event.png)
 1. In the drop down select **RemoteRenderingCoordinator -> BypassAuthorization**.\
 ![Screenshot of the On Requesting Authorization event.](./media/bypass-authorization-event.png)
 
