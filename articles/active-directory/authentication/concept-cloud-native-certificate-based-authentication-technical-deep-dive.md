@@ -189,6 +189,15 @@ The entry with **Interrupted** status provides diagnostic info in the **Addition
 
 :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/interrupted.png" alt-text="Screenshot of interrupted attempt details in the sign-in logs.":::  
 
+The following table explains the fields in the **Additional Details**.
+
+| Field   | Description  |
+|---------|--------------|
+| User certificate subject name | Refers to the subject name field in the certificate. |
+| User certificate binding | Certificate: Principal Name; User Attribute: userPrincipalName; Rank: 1<br>This shows which SAN PrincipalName certificate field was mapped to userPrincipalName user attribute and was priority 1. |
+| User certificate authentication level | multiFactorAuthentication |
+| User certificate authentication level type | PolicyId<br>This shows policy OID was used to determine the authentication strength. |
+| User certificate authentication level identifier | 1.2.3.4<br>This shows the value of the identifier policy OID from the certificate. |
 
 ## Known issues
 
