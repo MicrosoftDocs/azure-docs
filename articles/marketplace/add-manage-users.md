@@ -7,7 +7,7 @@ ms.topic: how-to
 author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
-ms.date: 01/14/2022
+ms.date: 01/20/2022
 ---
 
 # Add and manage users for the commercial marketplace
@@ -74,7 +74,7 @@ Complete these steps to remove a user from your work account (Azure AD tenant).
 
 1. In the menu bar, select **Settings** (gear icon) > **Account settings**.
 1. In the left-menu, select **User management**.
-1. On the **Users** tab, for the user that you want to remove, select **Remove**. Then select **Delete**.
+1. On the **Users** tab, for the user that you want to remove, select **Delete**.
 1. In the panel that appears, select whether you want to delete the account from Partner Center, the organization, or both.
 1. Select **Delete**.
 
