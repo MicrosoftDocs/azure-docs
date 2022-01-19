@@ -115,7 +115,7 @@ app.get('/redirect', async (req, res) => {
     };
 
     pca.acquireTokenByCode(tokenRequest).then((response) => {
-        console.log("Response: ", response);
+        console.log("Response:", response);
         //TODO: the following code snippets go here
         res.sendStatus(200);
     }).catch((error) => {
@@ -147,7 +147,7 @@ Use the `getTokenForTeamsUser` method to issue an access token for the Teams use
 ```javascript
 let teamsToken = response.accessToken;
 let accessToken = await identityClient.getTokenForTeamsUser(teamsToken);
-console.log(`Token: ${accessToken}`);
+console.log("Token:", accessToken);
 ```
 
 ## Run the code
