@@ -141,9 +141,9 @@ If your instrumented Java application is not able to communicate with the Live M
 Cipher suites come into play before a client application and server exchange information over an SSL/TLS connection. The client application initiates what is known as an SSL handshake. Part of that process involves notifying the server which cipher suites it supports. The server receives that information and compares the cipher suites supported by the client application with the algorithms it supports. If and when it finds a match of supported methods, the server notifies the client application and a secure connection is established. If it does not find a match, the server refuses the connection.
 
 #### How to determine client side cipher suites:
-In this case, the client can be considered as the JVM on which your instrumented application is running. The instrumented Java application already lists the supported cipher suites in the application insights log file when encountered a IOException or SocketException (available in versions > 3.2.5). 
+In this case, the client can be considered as the JVM on which your instrumented application is running. Starting from 3.2.5-BETA, Application Insights Java will log the supported cipher suites in the application insights log file when it encounters an IOException or SocketException.
 
-If using earlier versions please feel free to compile and run the following Java program to get the list of supported cipher suites in JVM:
+If using earlier versions, compile and run the following Java program to get the list of supported cipher suites in JVM:
 
 ```
 import javax.net.ssl.SSLServerSocketFactory;
@@ -163,8 +163,9 @@ public class Ciphers {
 ```
 
 #### How to determine server side cipher suites:
-In this case, the server side case be considered as Application Insights ingestion endpoint or the Application Insights Live metrics endpoint. You can use the online tool like [SSLLABS](https://www.ssllabs.com/ssltest/analyze.html) to determine the expected cipher suites based on the endpoint url.
+In this case, the server side case be considered as Application Insights ingestion endpoint or the Application Insights Live metrics endpoint. You can use an online tool like [SSLLABS](https://www.ssllabs.com/ssltest/analyze.html) to determine the expected cipher suites based on the endpoint url.
 
 #### How to add the missing cipher suites:
 
-If using Java version > 1.9 please check if the JVM has `jdk.crypto.cryptoki` module included in the jmods folder. Also if you are building  a custom java runtime using `jlink` please make sure to include the same module.
+If using Java 9 or later, please check if the JVM has `jdk.crypto.cryptoki` module included in the jmods folder. Also if you are building a custom java runtime using `jlink` please make sure to include the same module.
+
