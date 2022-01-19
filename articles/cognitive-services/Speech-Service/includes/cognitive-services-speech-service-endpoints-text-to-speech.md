@@ -22,18 +22,18 @@ Use this table to determine **availability of neural voices** by region/endpoint
 | East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | East US 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` |
 | France Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Germany West Central | `https://germanywestcentral.voice.speech.microsoft.com/cognitiveservices/v1` |
+| Germany West Central | `https://germanywestcentral.tts.speech.microsoft.com/cognitiveservices/v1` |
 | India Central | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Japan East | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Japan West | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Jio India West | `https://jioindiawest.voice.speech.microsoft.com/cognitiveservices/v1` |
+| Jio India West | `https://jioindiawest.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Korea Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
 | North Central US | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | North Europe | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
 | South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Switzerland North | `https://switzerlandnorth.voice.speech.microsoft.com/cognitiveservices/v1`|
-| Switzerland West | `https://switzerlandwest.voice.speech.microsoft.com/cognitiveservices/v1`|
+| Switzerland North | `https://switzerlandnorth.tts.speech.microsoft.com/cognitiveservices/v1`|
+| Switzerland West | `https://switzerlandwest.tts.speech.microsoft.com/cognitiveservices/v1`|
 | US Gov Arizona | `https://usgovarizona.tts.speech.azure.us/cognitiveservices/v1`|
 | US Gov Virginia | `https://usgovvirginia.tts.speech.azure.us/cognitiveservices/v1`|
 | UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
@@ -55,7 +55,7 @@ If you've created a custom neural voice font, use the endpoint that you've creat
 | Brazil South | `https://brazilsouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Canada Central | `https://canadacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Central US | `https://centralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| China East 2 | `https://chinaeast2.tts.speech.azure.cn/cognitiveservices/v1?deploymentId={deploymentId}` |
+| China East 2 | `https://chinaeast2.voice.speech.azure.cn/cognitiveservices/v1?deploymentId={deploymentId}` |
 | East Asia | `https://eastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | East US | `https://eastus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | East US 2 | `https://eastus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
@@ -73,8 +73,8 @@ If you've created a custom neural voice font, use the endpoint that you've creat
 | Southeast Asia | `https://southeastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Switzerland North | `https://switzerlandnorth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Switzerland West | `https://switzerlandwest.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| US Gov Arizona | `https://usgovarizona.tts.speech.azure.us/cognitiveservices/v1?deploymentId={deploymentId}` |
-| US Gov Virginia | `https://usgovvirginia.tts.speech.azure.us/cognitiveservices/v1?deploymentId={deploymentId}` |
+| US Gov Arizona | `https://usgovarizona.voice.speech.azure.us/cognitiveservices/v1?deploymentId={deploymentId}` |
+| US Gov Virginia | `https://usgovvirginia.voice.speech.azure.us/cognitiveservices/v1?deploymentId={deploymentId}` |
 | UK South | `https://uksouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West Central US | `https://westcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West Europe | `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
