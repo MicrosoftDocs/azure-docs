@@ -586,6 +586,8 @@ items:
         href: alerts/alerts-common-schema.md
       - name: Common alert schema definition
         href: alerts/alerts-common-schema-definitions.md
+      - name: Common alert schema definition for Test action group
+        href: alerts/alerts-common-schema-test-action-definitions.md       
       - name: Integrate the common alert schema with Logic Apps
         href: alerts/alerts-common-schema-integrations.md
       - name: SMS alert behavior

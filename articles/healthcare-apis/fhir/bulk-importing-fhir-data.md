@@ -26,7 +26,7 @@ While tools such as [Postman](../use-postman.md), [cURL](../using-curl.md), and 
 The [FHIR Importer](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/FhirImporter) is an Azure Function or microservice, written in C#, that imports FHIR bundles in JSON or NDJSON formats as soon as they're uploaded to an Azure storage container.
 
 - Behind the scenes, the Azure Storage trigger starts the Azure Function when a new document is detected and the document is the input to the function.
-- It processes multiple documents in parallel and provides a basic retry logic using [HTTP call retries](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly) when the FHIR service is too busy to handle the requests.
+- It processes multiple documents in parallel and provides a basic retry logic using [HTTP call retries](/dotnet/architecture/microservices/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly) when the FHIR service is too busy to handle the requests.
 
 The FHIR Importer works for the FHIR service in Healthcare APIs and Azure API for FHIR.
 
