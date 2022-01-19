@@ -957,27 +957,24 @@ For example, here's the underlying connection resource definition for an Azure A
 
 ### [Standard](#tab/standard)
 
-For example, here's the underlying connection resource definition for an Azure Automation action in a Standard logic app resource that uses a managed identity where the definition includes the `parameterValueType` property, which includes the `name` property set to `managedIdentityAuth` and the `values` property set to an empty object.
+For example, here's the underlying connection resource definition for an Azure Automation action in a Standard logic app resource that uses a managed identity where the definition includes the `parameterValueType` property, which is set to `Alternative`.
 
 > [!NOTE]
-> For Standard, the `kind` property is set to `V2`, and the `apiVersion` property is set to `2018-07-01-preview`:
+> For Standard, the `kind` property is set to `V2`, and the `apiVersion` property is set to `2016-06-01`:
 
 ```json
 {
     "type": "Microsoft.Web/connections",
+    "apiVersion": "2016-06-01",
     "name": "[variables('automationAccountApiConnectionName')]",
-    "apiVersion": "2018-07-01-preview",
     "location": "[parameters('location')]",
     "kind": "V2",
     "properties": {
+        "displayName": "[variables('automationAccountApiConnectionName')]",
+        "parameterValueType": "Alternative",
         "api": {
             "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureautomation')]"
-        },
-        "customParameterValues": {},
-        "displayName": "[variables('automationAccountApiConnectionName')]",
-        "parameterValueSet":{
-            "name": "managedIdentityAuth",
-            "values": {}
+        }
     }
 },
 ```
