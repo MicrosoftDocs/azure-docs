@@ -31,12 +31,9 @@ Use the following settings for your app registration:
 | **Front-channel logout URL**   | `https://localhost:5001/signout-oidc`              | Required value for this sample. <br/> You can change that later in your own implementation.                 |
 | **Client secret**              | _Value shown in Azure portal_                      | :warning: Record this value immediately! <br/> It's shown only _once_ (when you create it).                 |
 
-> :information_source: **Bold text** in the table matches (or is similar to) a UI element in the Azure portal, while `code formatting` indicates a value you enter into a text box or select in the Azure portal.
-
-
 ## Configure a redirect URI
 
-:::code language="json" source="~/ms-identity-docs-code-dotnet/src/sign-in-webapp/appsettings.json":::
+:::code language="json" source="~/ms-identity-docs-code-dotnet/src/sign-in-webapp/appsettings.json" highlight="15":::
 
 ## Next steps
 
