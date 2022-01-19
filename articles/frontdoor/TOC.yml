@@ -34,6 +34,8 @@
     href: standard-premium/overview.md
   - name: Caching
     href: front-door-caching.md
+  - name: Traffic acceleration
+    href: front-door-traffic-acceleration.md?pivots=front-door-classic
   - name: Routing
     items:
     - name: Routing architecture
@@ -48,8 +50,6 @@
     href: front-door-health-probes.md
   - name: Wildcard domain
     href: front-door-wildcard-domain.md
-  - name: Traffic acceleration
-    href: front-door-traffic-acceleration.md?pivots=front-door-classic
   - name: Rules Engine
     items:  
     - name: Rules Engine architecture

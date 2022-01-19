@@ -46,7 +46,7 @@ Azure Front Door Standard/Premium provides a single unified platform which cater
 
 Key features included with Azure Front Door Standard/Premium (Preview):
 
-- Accelerated application performance by using **[split TCP-based](../front-door-routing-architecture.md#splittcp)** anycast protocol.
+- Accelerated application performance by using [anycast](../front-door-traffic-acceleration.md?pivots=front-door-standard-premium#anycast) and **[split TCP connections](../front-door-traffic-acceleration.md?pivots=front-door-standard-premium#splittcp)**.
 
 - Intelligent **[health probe](/azure/frontdoor/front-door-health-probes)** monitoring and load balancing among **[origins](concept-origin.md)**.
 

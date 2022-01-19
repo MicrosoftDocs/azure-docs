@@ -17,8 +17,6 @@ zone_pivot_groups: front-door-tiers
 
 Front Door traffic routing takes place over multiple stages. First, traffic is routed from the client to Front Door. Then, Front Door uses your configuration to determine the origin to send the traffic to. The Front Door web application firewall, routing rules, rules engine, and caching configuration all affect the routing process.
 
-## Routing process
-
 The following diagram illustrates the routing architecture:
 
 ::: zone pivot="front-door-standard-premium"
@@ -62,7 +60,19 @@ The client and server perform a TLS handshake using the TLS certificate you've c
 
 ## Evaluate WAF rules
 
-If your domain has enabled the Web Application Firewall, the WAF rules are evaluated. If a rule has been violated, Front Door returns an error to the client and the request processing stops.
+::: zone pivot="front-door-standard-premium"
+
+If your domain has enabled the Web Application Firewall, WAF rules are evaluated.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+If your frontend has enabled the Web Application Firewall, WAF rules are evaluated.
+
+::: zone-end
+
+If a rule has been violated, Front Door returns an error to the client and the request processing stops.
 
 ::: zone pivot="front-door-standard-premium"
 
@@ -104,13 +114,17 @@ If you have defined [rules engines](front-door-rules-engine.md) for the route, t
 
 ::: zone pivot="front-door-standard-premium"
 
-If the Front Door routing rule has [caching](standard-premium/concept-caching.md) enabled, and the Front Door edge location's cache includes a valid response for the request, then Front Door returns the cached response. If caching is disabled or no response is available, the request is forwarded to the origin.
+If the Front Door routing rule has [caching](standard-premium/concept-caching.md) enabled, and the Front Door edge location's cache includes a valid response for the request, then Front Door returns the cached response.
+
+If caching is disabled or no response is available, the request is forwarded to the origin.
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
 
-If the Front Door routing rule has [caching](front-door-caching.md) enabled, and the Front Door edge location's cache includes a valid response for the request, then Front Door returns the cached response. If caching is disabled or no response is available, the request is forwarded to the backend.
+If the Front Door routing rule has [caching](front-door-caching.md) enabled, and the Front Door edge location's cache includes a valid response for the request, then Front Door returns the cached response.
+
+If caching is disabled or no response is available, the request is forwarded to the backend.
 
 ::: zone-end
 
