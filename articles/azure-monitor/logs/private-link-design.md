@@ -36,7 +36,7 @@ To avoid this conflict, create only a single AMPLS object per DNS.
 ### Hub-and-spoke networks
 Hub-and-spoke networks should use a single Private Link connection set on the hub (main) network, and not on each spoke VNet. 
 
-![Hub-and-spoke-single-PE](./media/private-link-security/hub-and-spoke-with-single-private-endpoint-withdce.png)
+![Hub-and-spoke-single-PE](./media/private-link-security/hub-and-spoke-with-single-private-endpoint-with-datacollectionendpoint.png)
 
 > [!NOTE]
 > You may intentionally prefer to create separate Private Links for your spoke VNets, for example to allow each VNet to access a limited set of monitoring resources. In such cases, you can create a dedicated Private Endpoint and AMPLS for each VNet, but **must also verify they don't share the same DNS zones in order to avoid DNS overrides**.
@@ -150,7 +150,7 @@ Log Analytics agents need to access a global storage account to download solutio
 
 If your Private Link setup was created before April 19, 2021, it won't reach the solution packs storage over a private link. To handle that you can either:
 * Re-create your AMPLS and the Private Endpoint connected to it
-* Allow your agents to reach the storage account through its public endpoint, by adding the following rules to your firewall allow list:
+* Allow your agents to reach the storage account through its public endpoint, by adding the following rules to your firewall allowlist:
 
     | Cloud environment | Agent Resource | Ports | Direction |
     |:--|:--|:--|:--|

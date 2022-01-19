@@ -53,7 +53,7 @@ In the **Resources** tab, add the resources (virtual machines, virtual machine s
 ### Private link configuration using data collection endpoints (preview)
 If you need network isolation using private links for collecting data using agents from your resources, simply select existing endpoints (or create a new endpoint) from the same region for the respective resource(s) as shown below. See [how to create data collection endpoint](./data-collection-endpoint-overview.md).
 
-[![Data Collection Rule virtual machines](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-dce.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-dce.png#lightbox)
+[![Data Collection Rule virtual machines](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png#lightbox)
 
 On the **Collect and deliver** tab, click **Add data source** to add a data source and destination set. Select a **Data source type**, and the corresponding details to select will be displayed. For performance counters, you can select from a predefined set of objects and their sampling rate. For events, you can select from a set of logs or facilities and the severity level. 
 

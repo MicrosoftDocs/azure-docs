@@ -271,7 +271,7 @@ This zone also covers the resource specific endpoints for [Data Collection Endpo
 * `<unique-dce-identifier>.<regionname>.handler.control` - Private configuration endpoint, part of a Data Collection Endpoint (DCE) resource 
 * `<unique-dce-identifier>.<regionname>.ingest` - Private ingestion endpoint, part of a Data Collection Endpoint (DCE) resource
 
-[![Screenshot of Private DNS zone monitor-azure-com.](./media/private-link-security/dns-zone-privatelink-monitor-azure-com-dce.png)](./media/private-link-security/dns-zone-privatelink-monitor-azure-com-expanded-dce.png#lightbox)
+[![Screenshot of Private DNS zone monitor-azure-com.](./media/private-link-security/dns-zone-privatelink-monitor-azure-com-with-endpoint.png)](./media/private-link-security/dns-zone-privatelink-monitor-azure-com-expanded-with-endpoint.png#lightbox)
 
 
 #### Log Analytics endpoints
