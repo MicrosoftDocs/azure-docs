@@ -40,9 +40,11 @@ Having clarity on your use-case and what success looks like is the first step to
 
 Finding in-domain quality data is often a challenging task that varies based on user classification. There are three common user types:
 
-    1.  An enterprise user who tends to have data in translation memory accumulated over many years.
-    1.  A user with monolingual data that needs to be synthesized to a target language to form sentence-pairs (a source sentence and its target translation).
-    1.  A long-tail customer who needs to crawl online portals to collect source and synthesis-to-target sentences.
+  1. An enterprise user who tends to have data in translation memory accumulated over many years.
+
+  1. A user with monolingual data that needs to be synthesized to a target language to form sentence-pairs (a source sentence and its target translation).
+  
+  1. A long-tail customer who needs to crawl online portals to collect source and synthesis-to-target sentences.
 
 ## What should I use for training material?
 
