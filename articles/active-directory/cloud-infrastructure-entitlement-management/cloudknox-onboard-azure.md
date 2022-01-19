@@ -75,6 +75,7 @@ This topic describes how to onboard the Microsoft Azure authorization system on 
 
     The data collection process takes a few minutes, so you may have to refresh your screen a few times to see the data.
 
+
 <!---## Next steps--->
 
 <!---For information on how to onboard Amazon Web Services (AWS), see [Onboard the (AWS) authorization system](cloudknox-onboard-aws.html).--->

@@ -58,7 +58,6 @@ This topic describes how to enable Microsoft CloudKnox Permissions Management (C
     - Onboard the Google Cloud Platform (GCP) authorization system.
 
 
-
 <!---Next Steps-->
 <!---[Onboard the Amazon Web Services (AWS) authorization system](cloudknox-onboard-aws.html).--->
 <!---[Onboard the Microsoft Azure authorization system](cloudknox-onboard-azure.html).--->
