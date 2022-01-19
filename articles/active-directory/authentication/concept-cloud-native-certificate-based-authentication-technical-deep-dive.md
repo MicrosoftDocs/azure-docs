@@ -189,7 +189,7 @@ The entry with **Interrupted** status provides diagnostic info in the **Addition
 
 :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/interrupted.png" alt-text="Screenshot of interrupted attempt details in the sign-in logs.":::  
 
-The following table explains the fields in the **Additional Details**.
+The following table explains some details.
 
 | Field   | Description  |
 |---------|--------------|
