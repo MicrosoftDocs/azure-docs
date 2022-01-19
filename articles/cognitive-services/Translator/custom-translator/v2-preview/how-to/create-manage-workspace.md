@@ -21,7 +21,7 @@ The first step towards building a custom model is to start with the prerequisite
 
 ## Create workspace
 
-Review [how to create a workspace](../quickstart.md#create-workspace) to learn the steps.
+Review [how to create a workspace](../quickstart.md#create-a-workspace) to learn the steps.
 
 ## Manage workspace settings
 

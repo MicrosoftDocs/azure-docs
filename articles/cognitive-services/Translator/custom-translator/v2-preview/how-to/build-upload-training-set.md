@@ -16,7 +16,7 @@ ms.topic: conceptual
 > [!IMPORTANT]
 > Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
 
-[Custom Translator](../overview.md) enables you to a build translation system that reflects your business, industry, and domain-specific terminology and style. Training and deploying a custom system is easy and does not require any programming skills. Custom Translator enables you to upload the parallel document types, listed in `Training material`, to train your translation systems.
+[Custom Translator](../../overview.md) enables you to a build translation system that reflects your business, industry, and domain-specific terminology and style. Training and deploying a custom system is easy and does not require any programming skills. Custom Translator enables you to upload the parallel document types, listed in `Training material`, to train your translation systems.
 
 [Parallel documents](../../what-are-parallel-documents.md) are pairs of documents wherein one (target) is a translation of the other (source). One document in the pair contains sentences in the source language and the other document contains those sentences translated into the target language.
 
