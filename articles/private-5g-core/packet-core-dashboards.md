@@ -27,31 +27,31 @@ You can access the following packet core dashboards.
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-overview-dashboard.png" alt-text="Screenshot of the packet core overview dashboard." lightbox="media/packet-core-dashboards/packet-core-overview-dashboard.png":::
 
-    Each panel on the overview dashboard links to another dashboard with more detailed statistics relating to the KPI shown. You can access the link by hovering your cursor over the top left corner of the panel and clicking the link in the pop-up.
+    Each panel on the overview dashboard links to another dashboard with detailed statistics about the KPI shown. You can access the link by hovering your cursor over the top-left corner of the panel and clicking the link in the pop-up.
     
     :::image type="content" source="media/packet-core-dashboards/packet-core-dashboard-panel-link.png" alt-text="Screenshot of the packet core dashboard. The link to the device and session statistics dashboard is shown.":::
 
-- The **alerts dashboard** provides descriptions and information on the severity and impact of each currently firing alert. The **alarm severity** selector in the top left hand corner of the Alerts Dashboard allows you to filter out alerts of certain severity levels.
+- The **alerts dashboard** provides descriptions and information on the severity and impact of each currently firing alert. The **alarm severity** selector in the top-left hand corner of the Alerts Dashboard allows you to filter out alerts of certain severity levels.
 
-    :::image type="content" source="media/packet-core-dashboards/packet-core-alerts-dashboard.png" alt-text="Screenshot of the packet core alerts dashboard. Panels related to currently active alerts are shown.":::
+    :::image type="content" source="media/packet-core-dashboards/packet-core-alerts-dashboard.png" alt-text="Screenshot of the packet core alerts dashboard. Panels related to currently active alerts are shown. lightbox="media/packet-core-dashboards/packet-core-alerts-dashboard.png":::
 
 - The **device and session statistics dashboard** provides information about the device and session procedures being processed by the packet core instance.
 
-    :::image type="content" source="media/packet-core-dashboards/packet-core-device-session-stats-dashboard.png" alt-text="Screenshot of the packet core alerts dashboard. Panels related to device authentication, device registration events, device context, and PDU session procedures are shown.":::
+    :::image type="content" source="media/packet-core-dashboards/packet-core-device-session-stats-dashboard.png" alt-text="Screenshot of the packet core alerts dashboard. Panels related to device authentication, device registration events, device context, and PDU session procedures are shown." lightbox="media/packet-core-dashboards/packet-core-device-session-stats-dashboard.png":::
 
 - The **uplink and downlink statistics dashboard** provides detailed statistics on the user plane traffic being handled by the packet core instance. 
 
-    :::image type="content" source="media/packet-core-dashboards/packet-core-uplink-downlink-stats-dashboard.png" alt-text="Screenshot of the uplink and downlink statistics dashboard. Panels related to throughput, packet rates, and packet size are shown.":::
+    :::image type="content" source="media/packet-core-dashboards/packet-core-uplink-downlink-stats-dashboard.png" alt-text="Screenshot of the uplink and downlink statistics dashboard. Panels related to throughput, packet rates, and packet size are shown." lightbox="media/packet-core-dashboards/packet-core-device-session-stats-dashboard.png":::
 
-- You can see very detailed breakdowns of the request and response statistics for the packet core instance's interfaces in the **debug** dashboards.
+- You can see detailed breakdowns of the request and response statistics for the packet core instance's interfaces in the **debug** dashboards.
 
     - The **system statistics dashboard** contains low-level detail about pod restarts and 5G interface operations.
     
-    :::image type="content" source="media/packet-core-dashboards/packet-core-system-stats-dashboard.png" alt-text="Screenshot of the system statistics dashboard. Panels related to pod details and individual network function statistics are shown.":::
+    :::image type="content" source="media/packet-core-dashboards/packet-core-system-stats-dashboard.png" alt-text="Screenshot of the system statistics dashboard. Panels related to pod details and individual network function statistics are shown." lightbox="media/packet-core-dashboards/packet-core-system-stats-dashboard.png":::
 
     - The **HTTP stats dashboard** for each network function shows statistics for the HTTP requests and responses shown by that network function. You can use the **serving endpoint**, **client operation**, and **server operation** filters to control which operations are shown.
     
-    :::image type="content" source="media/packet-core-dashboards/packet-core-http-stats-dashboard.png" alt-text="Screenshot of the H T T P stats dashboard. Panels related to H T T P statistics for the Session Management Function are shown.":::  
+    :::image type="content" source="media/packet-core-dashboards/packet-core-http-stats-dashboard.png" alt-text="Screenshot of the H T T P stats dashboard. Panels related to H T T P statistics for the Session Management Function are shown." lightbox="media/packet-core-dashboards/packet-core-http-stats-dashboard.png":::  
 
 ## Panels and rows
 
@@ -63,13 +63,13 @@ Panels are organized into **rows**. Each dashboard has at least one row. You can
 
 ### Types of panel
 
-The packet core dashboards use the following types of panel. For all panels, you can click the **i** icon in the top left corner to display more information about the statistic(s) covered by the panel.
+The packet core dashboards use the following types of panel. For all panels, you can click the **i** icon in the top-left corner to display more information about the statistic(s) covered by the panel.
 
 - **Graph** panels are used to display multiple statistics and/or recent changes in a statistic. When you move the mouse over a graph panel, hover help shows the value of the statistic at that moment in time.
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-graph-panel.png" alt-text="Screenshot of a graph panel in the packet core dashboards. The panel displays information on total throughput statistics.":::
 
-- **Single stat** panels (called "Singlestat" panels in the Grafana documentation) display a single statistic. The statistic may be presented as a simple count or as a gauge. These panels indicate whether a single statistic has exceeded a threshold, changing color accordingly.
+- **Single stat** panels (called "Singlestat" panels in the Grafana documentation) display a single statistic. The statistic may be presented as a simple count or as a gauge. These panels indicate whether a single statistic has exceeded a threshold by their colour.
 
     - The value displayed on a gauge single stat panel is shown in green at normal operational levels, amber when approaching a threshold and red when the threshold has been breached. 
     - The entirety of a count single stat panel will turn red if a threshold is breached.
@@ -82,21 +82,21 @@ The packet core dashboards use the following types of panel. For all panels, you
 
 ## Switching between dashboards
 
-You can access the lists of available dashboards and switch between them using the drop down **dashboard links** on the top right of each dashboard. Dashboards are grouped by the level of information that they provide.
+You can access the lists of available dashboards and switch between them using the drop-down **dashboard links** on the top right of each dashboard. Dashboards are grouped by the level of information that they provide.
 
 :::image type="content" source="media/packet-core-dashboards/packet-core-dashboard-list.png" alt-text="Screenshot showing the dashboard links available on each packet core dashboard.":::
 
-You can also switch between dashboards by clicking the dashboard picker, which is located in the top left of the screen and displays the name of the dashboard that you currently have open.
+You can also switch between dashboards by clicking the dashboard picker, which is located in the top-left of the screen and displays the name of the dashboard that you currently have open.
 
 :::image type="content" source="media/packet-core-dashboards/packet-core-dashboard-picker.png" alt-text="Screenshot showing the dashboard picker used to switch between packet core dashboards.":::
 
 You can choose to use the search bar to find a dashboard by name or select from the list of recently viewed dashboards.
 
-:::image type="content" source="media/packet-core-dashboards/packet-core-dashboard-picker-drop-down.png" alt-text="Screenshot showing the drop down menu of the dashboard picker. A search bar is displayed, along with a list of available dashboards.":::
+:::image type="content" source="media/packet-core-dashboards/packet-core-dashboard-picker-drop-down.png" alt-text="Screenshot showing the drop-down menu of the dashboard picker. A search bar is displayed, along with a list of available dashboards.":::
 
 ## Adjusting the time range
 
-The **time picker** in the top right hand corner of each packet core dashboard allows you to adjust the time range for which the dashboard will display statistics. You can use this to retrieve diagnostics for historical problems. You can choose a relative time range, such as the last 15 minutes, or an absolute time range, such as statistics for a particular month. You can also use the Refresh Dashboard icon to configure how regularly the statistics displayed on the dashboard will be updated. For detailed information on using the time range controls, see [https://grafana.com/docs/grafana/latest/dashboards/time-range-controls/](https://grafana.com/docs/grafana/latest/dashboards/time-range-controls/).
+The **time picker** in the top right-hand corner of each packet core dashboard allows you to adjust the time range for which the dashboard will display statistics. You can use the time picker to retrieve diagnostics for historical problems. You can choose a relative time range, such as the last 15 minutes, or an absolute time range, such as statistics for a particular month. You can also use the Refresh Dashboard icon to configure how regularly the statistics displayed on the dashboard will be updated. For detailed information on using the time range controls, see [https://grafana.com/docs/grafana/latest/dashboards/time-range-controls/](https://grafana.com/docs/grafana/latest/dashboards/time-range-controls/).
 
 :::image type="content" source="media/packet-core-dashboards/packet-core-dashboard-time-picker.png" alt-text="Screenshot showing the time picker for the packet core dashboards. There are options for setting a custom time range or choosing one of several commonly used quick ranges.":::
 
