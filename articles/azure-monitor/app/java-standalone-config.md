@@ -230,7 +230,7 @@ Instrumentation key overrides allow you to override the [default instrumentation
 
 ## Autocollect InProc dependencies (preview)
 
-Starting from 3.2.0-BETA.3, if you want to automatically collect inproc dependencies, please use the following configuration:
+Starting from 3.2.0, if you want to capture controller "InProc" dependencies, please use the following configuration:
 
 ```json
 {
