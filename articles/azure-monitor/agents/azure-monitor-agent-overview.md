@@ -29,7 +29,6 @@ In addition to consolidating this functionality into a single agent, the Azure M
 When compared with the existing agents, this new agent doesn't yet have full parity.
 - **Comparison with Log Analytics agents (MMA/OMS):**
 	- Not all Log Analytics solutions are supported today. [View supported features and services](#supported-services-and-features).
-	- No support for Azure Private Links.
 	- No support for collecting file based logs or IIS logs.
 
 - **Comparison with Azure Diagnostics extensions (WAD/LAD):**
@@ -81,7 +80,7 @@ The following table shows the current support for the Azure Monitor agent with A
 | Azure Monitor feature | Current support | More information |
 |:---|:---|:---|
 | [VM insights](../vm/vminsights-overview.md) | Private preview  | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
-| [Connect using private links or AMPLS](../logs/private-link-security.md) | Private preview for AMA | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
+| [Connect using private links](data-collection-endpoint-overview.md#enable-network-isolation-for-the-azure-monitor-agent) | Public preview | No sign-up needed |
 | [VM insights guest health](../vm/vminsights-health-overview.md) | Public preview | Available only on the new agent |
 | [SQL insights](../insights/sql-insights-overview.md) | Public preview | Available only on the new agent |
 
