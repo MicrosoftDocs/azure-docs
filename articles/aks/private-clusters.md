@@ -192,7 +192,7 @@ As mentioned, virtual network peering is one way to access your private cluster.
 > [!NOTE]
 > If you are using [Bring Your Own Route Table with kubenet](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) and Bring Your Own DNS with Private Cluster, the cluster creation will fail. You will need to associate the [RouteTable](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) in the node resource group to the subnet after the cluster creation failed, in order to make the creation successful.
 
-## Using a private endpoint connection
+## Use a private endpoint connection
 
 A private endpoint can be set up so that an Azure Virtual Network doesn't need to be peered to communicate to the private cluster. To use a private endpoint, create a new private endpoint in your virtual network then create a link between your virtual network and a new private DNS zone.
 
