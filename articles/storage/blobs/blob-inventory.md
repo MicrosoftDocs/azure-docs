@@ -23,7 +23,7 @@ The following list describes features and capabilities that are available in the
 
 - **Inventory reports for blobs and containers**
 
-  You can generate inventory reports for blobs and containers. A report for blobs can contain base blobs, snapshots, blob versions and their associated properties such as creation time, last modified time. A report for containers describes containers and their associated properties such as immutability policy status, legal hold status.
+  You can generate inventory reports for blobs and containers. A report for blobs can contain base blobs, snapshots, content length, blob versions and their associated properties such as creation time, last modified time. A report for containers describes containers and their associated properties such as immutability policy status, legal hold status. Currently, the  report does not have an option to include Soft Deleted blobs or Soft Delete containers.
 
 - **Custom Schema**
 
@@ -162,7 +162,7 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 - Name (Required)
 - Creation-Time
 - Last-Modified
-- Content-Length
+- Content-Length (Available and required when you choose to include blob capacity in your report)
 - Content-MD5
 - BlobType
 - AccessTier
