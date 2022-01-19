@@ -1,13 +1,13 @@
 ---
 title: 'Azure Cosmos DB Apache Spark 3 OLTP Connector for SQL API (Preview) release notes and resources'
 description: Learn about the Azure Cosmos DB Apache Spark 3 OLTP Connector for SQL API, including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Java SDK.
-author: anfeldma-ms
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 ms.date: 11/12/2021
-ms.author: anfeldma
+ms.author: jroth
 ms.custom: devx-track-java
 ---
 

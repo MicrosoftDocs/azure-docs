@@ -13,9 +13,9 @@ You can use two different Azure services to set up lab environments in the cloud
 
   In DevTest Labs, a lab owner [creates a lab](devtest-lab-create-lab.md) and makes it available to lab users. The owner provisions the lab with Windows or Linux virtual machines (VMs) that have all necessary software and tools. Lab users connect to lab VMs for daily work and short-term projects. Lab administrators can analyze resource usage and costs across multiple labs, and set overarching policies to optimize organization or team costs.
 
-- [Azure Lab Services](../lab-services/lab-services-overview.m) provides managed classroom labs.
+- [Azure Lab Services](../lab-services/lab-services-overview.md) provides managed classroom labs.
 
-  Lab Services does all infrastructure management, from spinning up VMs and scaling infrastructure to handling errors. After an IT administrator creates a Lab Services lab account, instructors can [create classroom labs](/azure/lab-services/how-to-manage-classroom-labs#create-a-classroom-lab) in the account. An instructor specifies the number and type of VMs they need for the class, and adds users to the class. Once users register in the class, they can access the VMs to do class exercises and homework.
+  Lab Services does all infrastructure management, from spinning up VMs and scaling infrastructure to handling errors. After an IT administrator creates a Lab Services lab account, instructors can [create classroom labs](../lab-services/how-to-manage-classroom-labs.md#create-a-classroom-lab) in the account. An instructor specifies the number and type of VMs they need for the class, and adds users to the class. Once users register in the class, they can access the VMs to do class exercises and homework.
 
 ## Key capabilities
 
@@ -102,5 +102,4 @@ The following table compares the two types of Azure lab environments:
 | Subscription management | The service handles allocation of resources within Microsoft subscriptions that back the service. | You manage the subscription within your own Azure subscription.  |
 | Autoscaling. | Service automatically scales | No subscription autoscaling |
 | Azure Resource Manager deployment within the lab | Not available | Available |
-
 
