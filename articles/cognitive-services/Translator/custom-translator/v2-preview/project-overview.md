@@ -14,16 +14,13 @@ ms.topic: conceptual
 ---
 # What is a Custom Translator project?
 
-A project is a wrapper for a model, documents, and tests. Each project
-automatically includes all documents that are uploaded into that workspace that
-have the correct language pair. For example, if you have both an English to
-Spanish project and a Spanish to English project, the same documents will be
-included in both projects. Each project has a CategoryID associated with it
-that is used when querying the [V3 API](../../reference/v3-0-translate.md?tabs=curl) for translations. CategoryID is parameter used to get translations from a customized system built with Custom Translator.
+A project is a wrapper for models, documents, and tests. Each project
+automatically includes all documents that are uploaded to a workspace that
+has the correct language pair. For example, if you have both an English-to-Spanish project and a Spanish-to-English project, the same documents will be included in both projects. Each project has an associated `CategoryID` that is used when querying the [V3 API](../../reference/v3-0-translate.md?tabs=curl) for translations. The `CategoryID` is parameter used to get translations from a customized system built with Custom Translator.
 
-## Project categories
+## Project category
 
-The category identifies the domain – the area of terminology and style you want to use – for your project. Choose the category most relevant to the contents of your documents. 
+The project category identifies the domain – the area of terminology and style you want to use – for your project. Choose the category most relevant to the contents of your documents.
 
 In the same workspace, you may create projects for the same language pair in
 different categories. Custom Translator prevents creation of a duplicate project

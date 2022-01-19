@@ -143,7 +143,7 @@ items:
     - name: What is a Custom Translator project?
       href: custom-translator/v2-preview/project-overview.md
     - name: Custom Translator for beginners
-      href: custom-translator/v2-preview/user-guide.md
+      href: custom-translator/v2-preview/beginners-guide.md
     - name: Quickstart
       href: custom-translator/v2-preview/quickstart.md
     - name: How-to guides
