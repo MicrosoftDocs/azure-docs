@@ -163,7 +163,7 @@ az apim product api delete --resource-group apim-hello-word-resource-group \
 
 ## Access to product APIs
 
-After you publish a product, a developer can access the APIs. Depending on how the product is configured, they may need to subscribe to the product.
+After you publish a product, developers can access the APIs. Depending on how the product is configured, they may need to subscribe to the product for access.
 
 * **Protected product** - Developers must first subscribe to a protected product to get access to the product's APIs. When they subscribe, they get a subscription key that can access any API in that product. If you created the API Management instance, you are an administrator already, so you are subscribed to every product by default. For more information, see [Subscriptions in Azure API Management](api-management-subscriptions.md).
 
@@ -180,7 +180,7 @@ After you publish a product, a developer can access the APIs. Depending on how t
 
     * If the open product exists, it then processes the request in the context of that open product. Policies and access control rules configured for the open product can be applied. 
 
-For more information, see [How API Management handles requests with or without subscription heys](api-management-subscriptions.md#how-api-management-handles-requests-with-or-without-subscription-keys).
+For more information, see [How API Management handles requests with or without subscription keys](api-management-subscriptions.md#how-api-management-handles-requests-with-or-without-subscription-keys).
 
 ## Next steps
 
