@@ -1,7 +1,7 @@
 ---
 author: henrymbuguakiarie
 ms.author: henrymbugua
-ms.date: 12/16/2021
+ms.date: 01/14/2022
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
@@ -21,7 +21,13 @@ Follow the steps in this tutorial to:
 
 ## (Optional) Create a new app project
 
+```dotnetcli
+dotnet new webapp --auth SingleOrg --aad-instance "https://login.microsoftonline.com/" --client-id ${AZURE_AD_APP_CLIENT_ID_WEBAPP} --tenant-id $(az account show --query tenantId --output tsv) --domain ${AZURE_AD_APP_DOMAIN} --called-api-url "https://graph.microsoft.com/v1.0/me"
+```
+
 ## Install the auth library
+
+:::code language="aspx-csharp" source="~/ms-identity-docs-code-dotnet/src/sign-in-webapp/Program.cs" id="ms_docref_add_msal":::
 
 ## Next steps
 
@@ -29,5 +35,5 @@ In this tutorial, you <!-- $TASKS_COMPLETED_AND_LEARNINGS_HERE -->.
 
 In the next tutorial, you build on these learnings by <!-- $TASKS_AND_LEARNINGS_IN_NEXT_TUTORIAL_HERE -->.
 
-> [!div class="nextstepaction"]
-> [Tutorial: $TITLE](../../web-app-tutorial-02-prepare-azure-ad.md)
+> [!div class="nextstepaction"] 
+> [Register your application with Azure AD](../../web-app-tutorial-02-prepare-azure-ad.md)
