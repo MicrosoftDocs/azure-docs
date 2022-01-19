@@ -232,6 +232,17 @@ runs = mlflow.search_runs(experiment_ids=all_experiments, filter_string=query, r
 runs.head(10)
 ```
 
+## Automatic logging
+With Azure Machine Learning and MLFlow, users are able to automatically log metrics, model parameters and mode artifiacts automatically when train models using a [variety of popular machine learning libraries](https://mlflow.org/docs/latest/tracking.html#automatic-logging). 
+
+To enable [Automatic Logging](https://mlflow.org/docs/latest/tracking.html#automatic-logging) insert the following code before your training code:
+
+```Python
+mlflow.autolog()
+```
+
+[Learn more about Automatic logging with MLflow](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.autolog). 
+
 ## Manage models
 
 Register and track your models with the [Azure Machine Learning model registry](concept-model-management-and-deployment.md#register-package-and-deploy-models-from-anywhere), which supports the MLflow model registry. Azure Machine Learning models are aligned with the MLflow model schema making it easy to export and import these models across different workflows. The MLflow-related metadata, such as run ID, is also tracked with the registered model for traceability. Users can submit training runs, register, and deploy models produced from MLflow runs.
