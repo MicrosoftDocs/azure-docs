@@ -47,7 +47,7 @@ Split TCP enables the client's TCP connection to terminate inside a Front Door e
 
 The diagram below illustrates how three users, in different geographical locations, connect to a Front Door edge location close to their location. Front Door then maintains the longer-lived connection to the origin in Europe:
 
-![Diagram illustrating how Front Door uses a short TCP connection to the closest Front Door edge location to the user, and a longer TCP connection to the origin.](media/front-door-routing-architecture/split-tcp.png)
+![Diagram illustrating how Front Door uses a short TCP connection to the closest Front Door edge location to the user, and a longer TCP connection to the origin.](media/front-door-traffic-acceleration/split-tcp.png)
 
 > [!IMPORTANT]
 > Note to reviewers: This diagram will be redrawn by a designer. Please review the content/layout but not the style.
