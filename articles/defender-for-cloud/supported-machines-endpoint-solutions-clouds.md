@@ -78,7 +78,7 @@ The two **tabs** below show the features of Microsoft Defender for Cloud that ar
 | [Network map](protect-network-resources.md#network-map)                                                                           | -                                                                                                               |
 | [Adaptive network hardening](adaptive-network-hardening.md)                                                                       | -                                                                                                               |
 | [Regulatory compliance dashboard & reports](regulatory-compliance-dashboard.md)                                                   | ✔                                                                                                              |
-| [Docker host hardening](./harden-docker-hosts.md)                                                                                 | ✔                                                                                                              |
+| [Docker host hardening](harden-docker-hosts.md)                                                                                   | ✔                                                                                                              |
 | Missing OS patches assessment                                                                                                     | ✔                                                                                                              |
 | Security misconfigurations assessment                                                                                             | ✔                                                                                                              |
 | [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds.md#supported-endpoint-protection-solutions-)        | ✔                                                                                                              |
@@ -90,7 +90,7 @@ The two **tabs** below show the features of Microsoft Defender for Cloud that ar
 --- 
 
 > [!TIP]
->To experiment with features that are only available with enhanced security features enabled, you can enroll in a 30-day trial. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+>To experiment with features that are only available with enhanced security features enabled, you can enroll in a 30-day trial. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 
 ## Supported endpoint protection solutions <a name="endpoint-supported"></a>

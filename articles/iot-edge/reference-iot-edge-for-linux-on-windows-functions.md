@@ -116,7 +116,7 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | acceptOptionalTelemetry | **Yes** or **No** |  A shortcut to accept/deny optional telemetry and bypass the telemetry prompt. |
 | cpuCount | Integer value between 1 and the device's CPU cores |  Number of CPU cores for the VM.<br><br>**Default value**: 1 vCore. |
 | memoryInMB | Integer value between 1024 and the maximum amount of free memory of the device |Memory allocated for the VM.<br><br>**Default value**: 1024 MB. |
-| vmDiskSize | Between 8 GB and 256 GB | Maximum disk size of the dynamically expanding virtual hard disk.<br><br>**Default value**: 10 GB. |
+| vmDiskSize | Between 8 GB and 2 TB | Maximum disk size of the dynamically expanding virtual hard disk.<br><br>**Default value**: 16 GB. |
 | vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
 | vswitchType | **Internal** or **External** | Type of the virtual switch assigned to the EFLOW VM. |
 | ip4Address | IPv4 Address in the range of the DCHP Server Scope | Static Ipv4 address of the EFLOW VM. |
@@ -264,6 +264,7 @@ The **Provision-EflowVm** command adds the provisioning information for your IoT
 | registrationId | The registration ID of an existing IoT Edge device | Registration ID for provisioning an IoT Edge device (**DpsSymmetricKey**). |
 | identityCertPath | Directory path | Absolute destination path of the identity certificate on your Windows host machine (**ManualX509**, **DpsX509**). |
 | identityPrivKeyPath | Directory path | Absolute source path of the identity private key on your Windows host machine (**ManualX509**, **DpsX509**). |
+| globalEndpoint | Device Endpoint URL | URL for Global Endpoint to be used for DPS provisioning. |
 
 For more information, use the command `Get-Help Provision-EflowVm -full`.
 

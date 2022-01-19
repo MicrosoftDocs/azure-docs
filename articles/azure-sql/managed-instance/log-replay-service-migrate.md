@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma
-ms.date: 12/20/2021
+ms.date: 01/04/2022
 ---
 
 # Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service (Preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article explains how to manually configure database migration from SQL Server 2008-2019 to Azure SQL Managed Instance by using Log Replay Service (LRS), currently in public preview. LRS is a cloud service enabled for SQL Managed Instance based on SQL Server log-shipping technology.
+This article explains how to manually configure database migration from SQL Server 2008-2019 to Azure SQL Managed Instance by using Log Replay Service (LRS), currently in public preview. LRS is a free of charge cloud service enabled for SQL Managed Instance based on SQL Server log-shipping technology.
 
 [Azure Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md) and LRS use the same underlying migration technology and the same APIs. By releasing LRS, we're further enabling complex custom migrations and hybrid architectures between on-premises SQL Server and SQL Managed Instance.
 
@@ -86,22 +86,27 @@ After LRS is stopped, either automatically through autocomplete, or manually thr
 - Shared access signature (SAS) security token with read and list permissions generated for the Blob Storage container
 
 ### Azure RBAC permissions
+
 Running LRS through the provided clients requires one of the following Azure roles:
 - Subscription Owner role
 - [Managed Instance Contributor](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) role
 - Custom role with the following permission: `Microsoft.Sql/managedInstances/databases/*`
+
+## Requirements
+
+Please ensure the following requirements are met:
+- Use the full recovery model on SQL Server (mandatory).
+- Use `CHECKSUM` for backups on SQL Server (mandatory).
+- Place backup files for an individual database inside a separate folder in a flat-file structure (mandatory). Nested folders inside database folders are not supported.
+- Plan to complete the migration within 36 hours after you start LRS (mandatory). This is a grace period during which system-managed software patches are postponed.
 
 ## Best practices
 
 We recommend the following best practices:
 - Run [Data Migration Assistant](/sql/dma/dma-overview) to validate that your databases are ready to be migrated to SQL Managed Instance. 
 - Split full and differential backups into multiple files, instead of using a single file.
-- Use the full recovery model (mandatory).
-- Use `CHECKSUM` for backups (mandatory).
-- Enable backup compression.
-- Place backup files for an individual database inside a separate folder. Use flat-file structure as nested folders are not supported.
+- Enable backup compression to help the network transfer speeds.
 - Use Cloud Shell to run PowerShell or CLI scripts, because it will always be updated to the latest cmdlets released.
-- Plan to complete the migration within 36 hours after you start LRS. This is a grace period during which system-managed software patches are postponed.
 
 > [!IMPORTANT]
 > - You can't use databases being restored through LRS until the migration process completes. 
@@ -257,12 +262,12 @@ Copy the parameters as follows:
 
    :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-01.png" alt-text="Screenshot that shows copying the first part of the token.":::
 
-2. Copy the second part of the token, starting from the question mark (`?`) all the way until the end of the string. Use it as the `StorageContainerSasToken` parameter in PowerShell or the Azure CLI for starting LRS.
+2. Copy the second part of the token, starting after the question mark (`?`) all the way until the end of the string. Use it as the `StorageContainerSasToken` parameter in PowerShell or the Azure CLI for starting LRS.
 
    :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-02.png" alt-text="Screenshot that shows copying the second part of the token.":::
    
 > [!NOTE]
-> Don't include the question mark when you copy either part of the token.
+> Don't include the question mark (`?`) when you copy either part of the token.
 > 
 
 ### Log in to Azure and select a subscription

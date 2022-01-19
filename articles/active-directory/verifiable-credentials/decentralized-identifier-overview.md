@@ -3,7 +3,7 @@ title: Introduction to Azure Active Directory Verifiable Credentials (preview)
 description: An overview Azure Verifiable Credentials.
 services: active-directory
 author: barclayn
-manager: karenh444
+manager: karenhoran
 editor:
 ms.service: active-directory
 ms.subservice: verifiable-credentials

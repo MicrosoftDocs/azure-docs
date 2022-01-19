@@ -5,7 +5,7 @@ author: v-dalc
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/22/2021
+ms.date: 12/27/2021
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -44,7 +44,7 @@ Each data transfer for a disk generates a copy log. If you chose to save a verbo
 
 During an import, the Import/Export service generates a verbose log and a copy log for each disk.
 
-### Verbose logs
+### Verbose log
 
 The verbose log is an optional file that you can enable during ordering. It's a simple listing of all files that were successfully imported from the drive. The verbose log gives the following information for each file. The verbose log doesn’t provide summary information.
 
@@ -59,7 +59,7 @@ The verbose log is an optional file that you can enable during ordering. It's a 
 
 [!INCLUDE [data-box-disk-sample-verbose-log.md](../../includes/data-box-disk-sample-verbose-log.md)]
 
-### Copy logs
+### Copy log
 
 The copy log contains an error entry for each file that failed to import or export, with error detail. The copy log ends with a summary of validation and copy errors that occurred during the data transfer.
 
