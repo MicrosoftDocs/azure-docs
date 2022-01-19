@@ -638,7 +638,7 @@ Saving queries is a standard feature in Azure Monitor. By saving them, you'll ha
 After you create a query that you find useful, save it by clicking **Favorites** at the top of the Log Search page. Then you can easily access it later from the **My Dashboard** page.
 
 ## Removing solution from your workspace
-To remove the Container Monitoring Solution, follow the instructions for removing solutions using one of the following: [Azure Portal](../insights/solutions.md?tabs=portal#remove-a-monitoring-solution), [PowerShell](/powershell/module/az.monitoringsolutions/remove-azmonitorloganalyticssolution), or [Azure CLI](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-delete)
+To remove the Container Monitoring Solution, follow the instructions for removing solutions using one of the following: [Azure portal](../insights/solutions.md?tabs=portal#remove-a-monitoring-solution), [PowerShell](/powershell/module/az.monitoringsolutions/remove-azmonitorloganalyticssolution), or [Azure CLI](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-delete)
 
 ## Next steps
 
