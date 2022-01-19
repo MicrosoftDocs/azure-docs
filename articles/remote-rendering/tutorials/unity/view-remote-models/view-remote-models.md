@@ -61,7 +61,7 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
 
 1. Set **Background** to *Black* (#000000), with fully transparent (0) alpha (A)
 
-    ![Screen shot of the Unity Color wheel dialog. The color is set to 0 for all R G B A components.](./media/color-wheel-black.png)
+    ![Screenshot of the Unity Color wheel dialog. The color is set to 0 for all R G B A components.](./media/color-wheel-black.png)
 
 1. Set **Clipping Planes** to *Near = 0.3* and *Far = 20*. This means rendering will clip geometry that is closer than 30 cm or farther than 20 meters.
 
