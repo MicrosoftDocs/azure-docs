@@ -1,5 +1,5 @@
 ---
-title: Cloud-native certificate-based authentication technical deep dive - Azure Active Directory
+title: Cloud-native certificate-based authentication technical deep dive (Preview) - Azure Active Directory
 description: Learn how cloud-native certificate-based authentication works in Azure Active Directory
 
 services: active-directory
@@ -17,9 +17,13 @@ ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
 
-# Cloud-native certificate-based authentication technical deep dive
+# Cloud-native certificate-based authentication technical deep dive (Preview)
 
 This article explains how cloud-native certificate-based authentication (CBA) against Azure Active Directory (Azure AD) works, with background information and testing scenarios.
+
+>[!NOTE]
+>Cloud-native certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities.
+
 
 ## How does Azure Active Directory certificate-based authentication work?
 

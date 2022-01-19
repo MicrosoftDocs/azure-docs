@@ -1,5 +1,5 @@
 ---
-title: Overview of cloud-native certificate-based authentication without federation - Azure Active Directory
+title: Overview of cloud-native certificate-based authentication without federation (Preview) - Azure Active Directory 
 description: Learn about cloud-native certificate-based authentication in Azure Active Directory
 
 services: active-directory
@@ -17,10 +17,13 @@ ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
 
-# Overview cloud-native certificate-based authentication in Azure Active Directory
+# Overview cloud-native certificate-based authentication in Azure Active Directory (Preview)
 
 Cloud-native certificate-based authentication (CBA) enables customers to allow or require users to authenticate with X.509 certificates against their Azure Active Directory (Azure AD) for applications and browser sign-in. 
 This feature enables customers to adopt a modern passwordless strategy and authenticate with an X.509 certificate against their Enterprise Public Key Infrastructure (PKI).
+
+>[!NOTE]
+>Cloud-native certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities.
 
 ## What is cloud-native certificate-based authentication?
 

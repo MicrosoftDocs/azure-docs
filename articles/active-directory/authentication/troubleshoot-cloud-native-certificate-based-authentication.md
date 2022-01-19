@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot cloud native certificate-based authentication without federation - Azure Active Directory
+title: Troubleshoot cloud native certificate-based authentication without federation (Preview) - Azure Active Directory
 description: Learn how to troubleshoot cloud native certificate-based authentication in Azure Active Directory
 
 services: active-directory
@@ -16,9 +16,13 @@ ms.reviewer: tommma
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# Troubleshoot cloud native certificate-based authentication in Azure Active Directory
+# Troubleshoot cloud native certificate-based authentication in Azure Active Directory (Preview)
 
 This topic covers how to troubleshoot cloud native certificate-based authentication in Azure Active Directory.
+
+>[!NOTE]
+>Cloud-native certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities.
+
 
 ## Next steps 
 

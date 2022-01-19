@@ -186,7 +186,7 @@
     href: howto-password-smart-lockout.md
   - name: Certificate-based authentication
     items:
-    - name: Cloud native certificate auth
+    - name: Cloud-native certificate auth (Preview)
       items:
       - name: Overview
         href: concept-cloud-native-certificate-based-authentication.md

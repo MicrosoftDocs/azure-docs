@@ -1,6 +1,6 @@
 ---
-title: Get started with cloud native certificate-based authentication without federation - Azure Active Directory
-description: Learn how to configure cloud native certificate-based authentication in Azure Active Directory
+title: Tutorial to configure cloud-native certificate-based authentication without federation (Preview) - Azure Active Directory
+description: Tutorial that shows how to configure cloud-native certificate-based authentication in Azure Active Directory
 
 services: active-directory
 ms.service: active-directory
@@ -16,15 +16,19 @@ ms.reviewer: tommma
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# Get started with cloud native certificate-based authentication in Azure Active Directory
+# Tutorial: Configure cloud-native certificate-based authentication in Azure Active Directory (Preview)
 
-Cloud native certificate-based authentication (CBA) enables customers to configure their Azure AD tenants to allow or require users to authenticate with X.509 certificates verified against their Enterprise Public Key Infrastructure (PKI) for app and browser sign-in. This feature enables customers to adopt passwordless and authenticate with an x.509 certificate. 
+Cloud-native certificate-based authentication (CBA) enables customers to configure their Azure AD tenants to allow or require users to authenticate with X.509 certificates verified against their Enterprise Public Key Infrastructure (PKI) for app and browser sign-in. This feature enables customers to adopt passwordless and authenticate with an x.509 certificate. 
  
 During sign-in, users will see an option to authenticate with a certificate instead of entering a password. 
 If multiple matching certificates are present on the device, the user can pick which one to use. The certificate is validated, the binding to the user account is checked, and if successful, they are signed in.
 
 <!---Clarify plans that are covered --->
 This topic covers how to configure and use certificate-based authentication for tenants in Office 365 Enterprise, US Government plans. You should already have a [public key infrastructure (PKI)](https://aka.ms/securingpki) configured.
+
+>[!NOTE]
+>Cloud-native certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities.
+
  
 ## Requirements
 
@@ -39,7 +43,7 @@ To configure certificate-based authentication, the following requirements must b
 >[!IMPORTANT]
 >The maximum size of a CRL for Azure Active Directory to successfully download and cache is 40MB, and the time required to download the CRL must not exceed 10 seconds. If Azure Active Directory can't download a CRL, certificate-based authentication using certificates issued by the corresponding certificate authority (CA) will fail. As a best practice to ensure CRL files are within size constraints, keep certificate lifetimes to within reasonable limits and clean up expired certificates.
 
-- Cloud native certificate-based authentication is supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+- Cloud-native certificate-based authentication is supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Step 1: Configure the certificate authorities
 
