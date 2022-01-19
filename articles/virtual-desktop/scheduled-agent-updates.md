@@ -51,16 +51,13 @@ When configuring Scheduled Agent Updates, consider the following:
 
 - If you want to apply the same time zone and maintenance window settings to multiple host pools, run the [PowerShell cmdlet](#configure-the-scheduled-agent-updates-feature-using-powershell) in a loop.
 
-- The **Use session host local time** parameter is set to "false" by default. If you want the agent component update to be in the same time zone for all session hosts in your host pool, you'll need to specify a single time zone for your maintenance windows. Having a single time zone helps when all your session hosts or users are located in the same time zone. 
+- The **Use session host local time** parameter is not selected by default. If you want the agent component update to be in the same time zone for all session hosts in your host pool, you'll need to specify a single time zone for your maintenance windows. Having a single time zone helps when all your session hosts or users are located in the same time zone. 
 
-- If you set **Use session host local time** to "true," the agent component update will be in the local time zone of each session host in the host pool. Use this setting when all session hosts in your host pool or their assigned users are in different time zones. For example, let's say you have one host pool with session hosts in West US in the Pacific Standard Time zone and session hosts in East US in the Eastern Standard Time zone, and you've set the maintenance window to be Saturday at 9:00 PM. Enabling **Use session host local time** ensures that updates to all session hosts in the host pool will happen at 9:00 PM in their respective time zones. Disabling **Use session host local time** and setting the time zone to be Central Standard Time ensures that updates to the session hosts in the host pool will happen at 9:00 PM Central Standard Time, regardless of the session hosts' local time zones.
+- If you select **Use session host local time**, the agent component update will be in the local time zone of each session host in the host pool. Use this setting when all session hosts in your host pool or their assigned users are in different time zones. For example, let's say you have one host pool with session hosts in West US in the Pacific Standard Time zone and session hosts in East US in the Eastern Standard Time zone, and you've set the maintenance window to be Saturday at 9:00 PM. Enabling **Use session host local time** ensures that updates to all session hosts in the host pool will happen at 9:00 PM in their respective time zones. Disabling **Use session host local time** and setting the time zone to be Central Standard Time ensures that updates to the session hosts in the host pool will happen at 9:00 PM Central Standard Time, regardless of the session hosts' local time zones.
 
 - The local time zone for VMs you create using the Azure portal is set to Coordinated Universal Time (UTC) by default. If you want to change the VM time zone, run the [Set-TimeZone PowerShell cmdlet](/powershell/module/microsoft.powershell.management/set-timezone?view=powershell-7.1&preserve-view=true) on the VM.
 
-- To get a list of available time zones for a VM, run the following [PowerShell cmdlet]/powershell/module/microsoft.powershell.management/get-timezone?view=powershell-7.1&preserve-view=true) on the virtual machine:
-    ```powershell
-    Get-TimeZone -ListAvailable
-    ```
+- To get a list of available time zones for a VM, run the [Get-TimeZone PowerShell cmdlet]/powershell/module/microsoft.powershell.management/get-timezone?view=powershell-7.1&preserve-view=true) on the virtual machine.
 
 ## Configure the Scheduled Agent Updates feature using the Azure portal
 
