@@ -37,7 +37,7 @@ The following features are supported by the Translator service. Use the links in
 
 ## Try the Translator service for free
 
-First, you'll need a Microsoft account; if you do not one, you can sign up for free at the [**Microsoft account portal**](https://account.microsoft.com/account).  Select **Create a Microsoft account** and follow the steps to create and verify your new account.
+First, you'll need a Microsoft account; if you do not have one, you can sign up for free at the [**Microsoft account portal**](https://account.microsoft.com/account).  Select **Create a Microsoft account** and follow the steps to create and verify your new account.
 
 Next, you'll need to  have an Azure account—navigate to the [**Azure sign-up page**](https://azure.microsoft.com/free/ai/), select the **Start free** button, and create a new Azure account using your Microsoft account credentials.
 
