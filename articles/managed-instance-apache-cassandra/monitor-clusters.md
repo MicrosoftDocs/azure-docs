@@ -136,3 +136,8 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
 ## Next steps
 
 * For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) article.
+* Configure audit whitelists: By default audit logging will create a record for each and every login attempt and CQL query.
+The result can be rather overwhelming and increase overhead, but in Cassandra 3.11 with whitelists it is possible to configure
+what operations that will **_not_** yield an audit record. Role-based whitelist is enabled by default,
+please follow the [guidance](https://github.com/Ericsson/ecaudit/blob/release/c2.2/doc/role_whitelist_management.md) 
+to configure your audit whitelists.
