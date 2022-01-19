@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 01/19/2022
 ---
 
 # Index data from Azure Data Lake Storage Gen2
@@ -67,7 +67,7 @@ The data source definition specifies the data source type, content path, and how
 
 1. Set `"container"` to the blob container, and use "query" to specify any subfolders.
 
-A data source definition can also include properties for [soft deletion policies](search-howto-index-changed-deleted-blobs.md) and [field mappings](search-indexer-field-mappings.md) if field names and types are not the same or need to be forked.
+A data source definition can also include [soft deletion policies](search-howto-index-changed-deleted-blobs.md), if you want the indexer to delete a search document when the source document is flagged for deletion.
 
 <a name="Credentials"></a>
 
@@ -166,6 +166,8 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
 
 1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
 
+For the full list of parameter descriptions, see [Blob configuration parameters](/rest/api/searchservice/create-indexer#blob-configuration-parameters) in the REST API.
+
 ### How to make an encoded field "searchable"
 
 There are times when you need to use an encoded version of a field like `metadata_storage_path` as the key, but also need that field to be searchable (without encoding) in the search index. To support both use cases, you can map `metadata_storage_path` to two fields; one for the key (encoded), and a second for a path field that we can assume is attributed as "searchable" in the index schema. The example below shows two field mappings for `metadata_storage_path`.
@@ -235,7 +237,7 @@ User-specified metadata properties are extracted verbatim. To receive the values
 
 Standard blob metadata properties can be extracted into similarly named and typed fields, as listed below. The blob indexer automatically creates internal field mappings for these blob metadata properties, converting the original hyphenated name ("metadata-storage-name") to an underscored equivalent name ("metadata_storage_name").
 
-You still have to add the underscored fields to the index definition, but you can omit creating field mappings in the indexer because the indexer will recognize the counterpart automatically.
+You still have to add the underscored fields to the index definition, but you can omit field mappings because the indexer will make the association automatically.
 
 + **metadata_storage_name** (`Edm.String`) - the file name of the blob. For example, if you have a blob /my-container/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
 
@@ -282,13 +284,13 @@ The indexer configuration parameters apply to all blobs in the container or fold
 | `AzureSearch_Skip` |`"true"` |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
 | `AzureSearch_SkipContent` |`"true"` |This is equivalent of `"dataToExtract" : "allMetadata"` setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. |
 
-## Index large datasets
+## How to index large datasets
 
 Indexing blobs can be a time-consuming process. In cases where you have millions of blobs to index, you can speed up indexing by partitioning your data and using multiple indexers to [process the data in parallel](search-howto-large-index.md#parallel-indexing). 
 
 1. Partition your data into multiple blob containers or virtual folders.
 
-1. Set up several data sources, one per container or folder. Use the `query` parameter to specify the partition: `"container" : { "name" : "my-container", "query" : "my-folder" }`.
+1. Set up several data sources, one per container or folder. Use the "query" parameter to specify the partition: `"container" : { "name" : "my-container", "query" : "my-folder" }`.
 
 1. Create one indexer for each data source. Point them to the same target index.  
 
@@ -296,7 +298,7 @@ Make sure you have sufficient capacity. One search unit in your service can run 
 
 <a name="DealingWithErrors"></a>
 
-## Configure the response to errors
+## Handle errors
 
 Errors that commonly occur during indexing include unsupported content types, missing content, or oversized blobs.
 

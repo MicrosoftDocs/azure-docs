@@ -1,7 +1,7 @@
 ---
 title: Changed and deleted blobs
 titleSuffix: Azure Cognitive Search
-description: Indexers that index from Azure Storage can pick up new and changed content automaticaly. To automate deletion detection, follow the strategies described in this article.
+description: Indexers that index from Azure Storage can pick up new and changed content automatically. To automate deletion detection, follow the strategies described in this article.
 
 author: gmndrg
 ms.author: gimondra
@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/18/2022
+ms.date: 01/19/2022
 ---
 
 # Change and delete detection using indexers for Azure Storage in Azure Cognitive Search
@@ -108,7 +108,7 @@ You can reverse a soft-delete if the original source file still physically exist
 
 1. Change the `"softDeleteMarkerValue" : "false"` on the blob or file in Azure Storage.
 
-1. Check the blob or file's `LastModified` timestamp to make it is newer than the last indexer run. You can force an update to the current date and time by resaving the existing metadata.
+1. Check the blob or file's `LastModified` timestamp to make it is newer than the last indexer run. You can force an update to the current date and time by re-saving the existing metadata.
 
 1. Run the indexer.
 

@@ -7,7 +7,7 @@ author: mattmsft
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 01/19/2022
 ---
 
 # Index data from Azure Files
@@ -54,7 +54,7 @@ The data source definition specifies the data source type, content path, and how
 
 1. Set "container" to the root file share, and use "query" to specify any subfolders.
 
-A data source definition can also include additional properties for [soft deletion policies](#soft-delete-using-custom-metadata) and [field mappings](search-indexer-field-mappings.md) if field names and types are not the same.
+A data source definition can also include [soft deletion policies](search-howto-index-changed-deleted-blobs.md), if you want the indexer to delete a search document when the source document is flagged for deletion.
 
 <a name="Credentials"></a>
 

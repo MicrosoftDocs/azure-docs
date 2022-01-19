@@ -9,16 +9,16 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/19/2021
+ms.date: 01/19/2022
 ---
 
 # Field mappings and transformations using Azure Cognitive Search indexers
 
 ![Indexer Stages](./media/search-indexer-field-mappings/indexer-stages-field-mappings.png "indexer stages")
 
-When using Azure Cognitive Search indexers, the indexer will automatically map fields in a data source to fields in a target index, assuming field names and types are compatible. In some cases, input data doesn't quite match the schema of your target index. One solution is to use *field mappings* to specifically set the data path during the indexing process.
+When using Azure Cognitive Search indexers, the indexer will automatically map fields in a data source to fields in a target index, assuming field names and types are compatible. When input data doesn't quite match the schema of your target index, you can define *field mappings* to specifically set the data path.
 
-Field mappings can be used to address the following scenarios:
+Field mappings address the following scenarios:
 
 + Mismatched field names. Suppose your data source has a field named `_id`. Given that Azure Cognitive Search doesn't allow field names that start with an underscore, a field mapping lets you effectively rename a field.
 
@@ -122,23 +122,48 @@ A field mapping function transforms the contents of a field before it's stored i
 
 Performs *URL-safe* Base64 encoding of the input string. Assumes that the input is UTF-8 encoded.
 
-#### Example - document key lookup
+#### Example: Base-encoding a document key
 
-Only URL-safe characters can appear in an Azure Cognitive Search document key (so that you can address the document using the [Lookup API](/rest/api/searchservice/lookup-document)). If the source field for your key contains URL-unsafe characters, you can use the `base64Encode` function to convert it at indexing time. However, a document key (both before and after conversion) can't be longer than 1,024 characters.
+Only URL-safe characters can appear in an Azure Cognitive Search document key (so that you can address the document using the [Lookup API](/rest/api/searchservice/lookup-document)). If the source field for your key contains URL-unsafe characters, such as `-` and `\`, use the `base64Encode` function to convert it at indexing time. 
 
-When you retrieve the encoded key at search time, use the `base64Decode` function to get the original key value, and use that to retrieve the source document.
+The following example specifies the base64Encode function on "metadata_storage_name" to handle unsupported characters.
 
-```JSON
-"fieldMappings" : [
-  {
-    "sourceFieldName" : "SourceKey",
-    "targetFieldName" : "IndexKey",
-    "mappingFunction" : {
-      "name" : "base64Encode",
-      "parameters" : { "useHttpServerUtilityUrlTokenEncode" : false }
+```http
+PUT /indexers?api-version=2020-06-30
+{
+  "dataSourceName" : "my-blob-datasource ",
+  "targetIndexName" : "my-search-index",
+  "fieldMappings" : [
+    { 
+        "sourceFieldName" : "metadata_storage_name", 
+        "targetFieldName" : "key", 
+        "mappingFunction" : { 
+            "name" : "base64Encode",
+            "parameters" : { "useHttpServerUtilityUrlTokenEncode" : false }
+        } 
     }
-  }]
- ```
+  ]
+}
+```
+
+A document key (both before and after conversion) can't be longer than 1,024 characters. When you retrieve the encoded key at search time, use the `base64Decode` function to get the original key value, and use that to retrieve the source document.
+
+#### Example: Make an base-encoded field "searchable"
+
+There are times when you need to use an encoded version of a field like "metadata_storage_path" as the key, but also need an un-encoded version for full text search. To support both scenarios, you can map "metadata_storage_path" to two fields: one for the key (encoded), and a second for a path field that we can assume is attributed as "searchable" in the index schema.
+
+```http
+PUT /indexers/blob-indexer?api-version=2020-06-30
+{
+    "dataSourceName" : " blob-datasource ",
+    "targetIndexName" : "my-target-index",
+    "schedule" : { "interval" : "PT2H" },
+    "fieldMappings" : [
+        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
+        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "path" }
+      ]
+}
+```
 
 #### Example - preserve original values
 
@@ -330,59 +355,3 @@ When facing errors complaining about document key being longer than 1024 charact
     }
   }]
  ```
-
-<!-- 
-
-### Example: Base-encoding metadata_storage_name
-
-The following example demonstrates "metadata_storage_name" as the document key. Assume the index has a key field named "key" and another field named "fileSize" for storing the document size. [Field mappings](search-indexer-field-mappings.md) in the indexer definition establish field associations, and "metadata_storage_name" has the [base64Encode field mapping function](search-indexer-field-mappings.md#base64EncodeFunction) to handle unsupported characters.
-
-```http
-POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
-{
-  "name" : "my-blob-indexer",
-  "dataSourceName" : "my-blob-datasource ",
-  "targetIndexName" : "my-search-index",
-  "fieldMappings" : [
-    { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
-    { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
-  ]
-}
-```
-
-### Example: How to make an encoded field "searchable"
-
-There are times when you need to use an encoded version of a field like "metadata_storage_path" as the key, but also need that field to be searchable (without encoding) in the search index. To support both use cases, you can map "metadata_storage_path" to two fields; one for the key (encoded), and a second for a path field that we can assume is attributed as "searchable" in the index schema. The example below shows two field mappings for "metadata_storage_path".
-
-```http
-PUT /indexers/blob-indexer?api-version=2020-06-30
-{
-    "dataSourceName" : " blob-datasource ",
-    "targetIndexName" : "my-target-index",
-    "schedule" : { "interval" : "PT2H" },
-    "fieldMappings" : [
-        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
-        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "path" }
-      ]
-}
-``` -->
-
-<!-- ### Example
-
-The following example demonstrates `metadata_storage_name` as the document key. Assume the index has a key field named `key` and another field named `fileSize` for storing the document size. [Field mappings](search-indexer-field-mappings.md) in the indexer definition establish field associations, and `metadata_storage_name` has the [`base64Encode` field mapping function](search-indexer-field-mappings.md#base64EncodeFunction) to handle unsupported characters.
-
-```http
-    PUT https://[service name].search.windows.net/indexers/adlsgen2-indexer?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
-    
-    {
-      "dataSourceName" : "adlsgen2-datasource",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { "interval" : "PT2H" },
-      "fieldMappings" : [
-        { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
-        { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
-      ]
-    }
-``` -->
