@@ -1,12 +1,12 @@
 ---
 title: Configure and manage Time to Live in Azure Cosmos DB
 description: Learn how to configure and manage time to live on a container and an item in Azure Cosmos DB
-author: anfeldma-ms
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/09/2021
-ms.author: anfeldma
+ms.author: jroth
 ms.devlang: csharp
 ms.custom: devx-track-js, devx-track-csharp
 ---

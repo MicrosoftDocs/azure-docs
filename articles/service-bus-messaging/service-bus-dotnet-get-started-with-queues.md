@@ -302,7 +302,7 @@ In this section, you'll add code to retrieve messages from the queue.
         string body = args.Message.Body.ToString();
         Console.WriteLine($"Received: {body}");
 
-        // complete the message. messages is deleted from the queue. 
+        // complete the message. message is deleted from the queue. 
         await args.CompleteMessageAsync(args.Message);
     }
 
