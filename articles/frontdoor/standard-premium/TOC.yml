@@ -41,6 +41,8 @@
     href: ../front-door-health-probes.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
   - name: Wildcard domain
     href: ../front-door-wildcard-domain.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+  - name: Traffic acceleration
+    href: ../front-door-traffic-acceleration.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json&pivots=front-door-standard-premium
   - name: Rule Engine
     items:
     - name: Rules Engine architecture

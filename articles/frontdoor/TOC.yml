@@ -48,6 +48,8 @@
     href: front-door-health-probes.md
   - name: Wildcard domain
     href: front-door-wildcard-domain.md
+  - name: Traffic acceleration
+    href: front-door-traffic-acceleration.md?pivots=front-door-classic
   - name: Rules Engine
     items:  
     - name: Rules Engine architecture
