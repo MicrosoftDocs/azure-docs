@@ -342,7 +342,7 @@ After you create your cluster resource and it is fully provisioned, you can edit
 >Cluster update should not include both identity and key identifier details in the same operation. If you need to update both, the update should be in two consecutive operations.
 
 > [!NOTE]
-> The *billingType* property is not supported in PowerShell.
+> The *billingType* property is not supported in CLI.
 
 ## Get all clusters in resource group
 
