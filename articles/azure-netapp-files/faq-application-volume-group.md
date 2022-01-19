@@ -107,19 +107,19 @@ In the current implementation, the application volume group has a focus on the i
 
 ## What are the rules behind the proposed throughput for my HANA data and log volumes?
 
-SAP defines the Key Performance Indicators (KPIs) for the HANA data and log volume as 400 MiB/s for the data and 250 MiB/s for the log volume. This definition is independent of the size or the workload of the HANA database. Application volume group scales the throughput values in a way that even the smallest database meets the SAP HANA KPIs and larger database will benefit from a higher throughput level, scaling the proposal based on the entered HANA database size.
+SAP defines the Key Performance Indicators (KPIs) for the HANA data and log volume as 400 MiB/s for the data and 250 MiB/s for the log volume. This definition is independent of the size or the workload of the HANA database. Application volume group scales the throughput values in a way that even the smallest database meets the SAP HANA KPIs, and larger database will benefit from a higher throughput level, scaling the proposal based on the entered HANA database size.
 
-The following table  describes the memory range and proposed throughput for the HANA data volume.
+The following table  describes the memory range and proposed throughput ***for the HANA data volume***:
 
-<table><thead><tr><th colspan="2">Memory Range (in TB)</th><th rowspan="2">Proposed Throughput</th></tr><tr><th>Minimum</th><th>Maximum</th></tr></thead><tbody><tr><td>0</td><td>1</td><td>400</td></tr><tr><td>1</td><td>2</td><td>600</td></tr><tr><td>2</td><td>4</td><td>800</td></tr><tr><td>4</td><td>6</td><td>1000</td></tr><tr><td>6</td><td>8</td><td>1200</td></tr><tr><td>8</td><td>10</td><td>1400</td></tr><tr><td>10</td><td>unlimited</td><td>1500</td></tr></tbody></table>
+<table><thead><tr><th colspan="2">Memory range (in TB)</th><th rowspan="2">Proposed throughput</th></tr><tr><th>Minimum</th><th>Maximum</th></tr></thead><tbody><tr><td>0</td><td>1</td><td>400</td></tr><tr><td>1</td><td>2</td><td>600</td></tr><tr><td>2</td><td>4</td><td>800</td></tr><tr><td>4</td><td>6</td><td>1000</td></tr><tr><td>6</td><td>8</td><td>1200</td></tr><tr><td>8</td><td>10</td><td>1400</td></tr><tr><td>10</td><td>unlimited</td><td>1500</td></tr></tbody></table>
 
-The following table  describes the memory range and proposed throughput for the HANA log volume:
+The following table  describes the memory range and proposed throughput ***for the HANA log volume***:
 
-<table><thead><tr><th colspan="2">Memory Range (in TB)</th><th rowspan="2">Proposed Throughput</th></tr><tr><th>Minimum</th><th>Maximum</th></tr></thead><tbody><tr><td>0</td><td>4</td><td>250</td></tr><tr><td>4</td><td>unlimited</td><td>500</td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table>
+<table><thead><tr><th colspan="2">Memory range (in TB)</th><th rowspan="2">Proposed throughput</th></tr><tr><th>Minimum</th><th>Maximum</th></tr></thead><tbody><tr><td>0</td><td>4</td><td>250</td></tr><tr><td>4</td><td>unlimited</td><td>500</td></tr></tbody></table>
 
 Higher throughput for the database volume is most important for the database startup of larger databases when reading data into memory. At runtime, most of the I/O is write I/O, where even the KPIs show lower values. User experience shows that, for smaller databases, HANA KPI values may be higher than what’s required for most of the time. 
 
-Azure NetApp Files performance of each volume at runtime can be adjusted.  So at any time, you can adjust the performance of your database by adjusting the data and log volume throughput to their specific requirements. For instance, you can fine-tune performance and reducing costs by allowing higher throughput at startup while reducing to KPIs for normal operation.  
+Azure NetApp Files performance of each volume can be adjusted at runtime.  As such, at any time, you can adjust the performance of your database by adjusting the data and log volume throughput to your specific requirements. For instance, you can fine-tune performance and reduce costs by allowing higher throughput at startup while reducing to KPIs for normal operation.  
 
 ## Next steps  
 
