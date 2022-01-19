@@ -3,7 +3,7 @@ title: Security considerations | Microsoft Docs
 description: This topic provides general guidance for securing SQL Server running in an Azure virtual machine.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2021
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ---
 # Security considerations for SQL Server on Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,15 +27,15 @@ Azure complies with several industry regulations and standards that can enable y
 
 In addition to the practices described in this topic, we recommend that you review and implement the security best practices from both traditional on-premises security practices, as well as virtual machine security best practices. 
 
-## Azure Defender for SQL 
+## Microsoft Defender for SQL 
 
-[Azure Defender for SQL](../../../security-center/defender-for-sql-introduction.md) enables Azure Security Center security features such as vulnerability assessments and security alerts. See [enable Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) to learn more. 
+[Microsoft Defender for SQL](../../../security-center/defender-for-sql-introduction.md) enables Microsoft Defender for Cloud security features such as vulnerability assessments and security alerts. See [enable Microsoft Defender for SQL](../../../security-center/defender-for-sql-usage.md) to learn more. 
 
 ## Portal management
 
 After you've [registered your SQL Server VM with the SQL IaaS extension](sql-agent-extension-manually-register-single-vm.md), you can configure a number of security settings using the [SQL virtual machines resource](manage-sql-vm-portal.md) in the Azure portal, such as enabling Azure Key Vault integration, or SQL authentication. 
 
-Additionally, after you've enabled [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) you can view Security Center features directly within the [SQL virtual machines resource](manage-sql-vm-portal.md) in the Azure portal, such as vulnerability assessments and security alerts. 
+Additionally, after you've enabled [Microsoft Defender for SQL](../../../security-center/defender-for-sql-usage.md) you can view Defender for Cloud features directly within the [SQL virtual machines resource](manage-sql-vm-portal.md) in the Azure portal, such as vulnerability assessments and security alerts. 
 
 See [manage SQL Server VM in the portal](manage-sql-vm-portal.md) to learn more. 
 
@@ -129,5 +129,3 @@ To learn more, see the other articles in this series:
 - [Security](security-considerations-best-practices.md)
 - [HADR settings](hadr-cluster-best-practices.md)
 - [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
-
-

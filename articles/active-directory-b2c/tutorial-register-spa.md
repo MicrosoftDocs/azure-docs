@@ -3,15 +3,15 @@ title: "Tutorial: Register a single-page application"
 titleSuffix: Azure AD B2C
 description: Follow this tutorial to learn how to register a single-page application (SPA) in Azure Active Directory B2C using the Azure portal.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/19/2020
+ms.date: 09/20/2021
 ms.custom: project-no-code 
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -50,7 +50,8 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 ## Register the SPA application
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *spaapp1*.

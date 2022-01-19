@@ -1,23 +1,16 @@
 ---
-title: Map data fields to Azure Sentinel entities | Microsoft Docs
-description: Map data fields in tables to Azure Sentinel entities in analytics rules, for better incident information
-services: sentinel
-documentationcenter: na
+title: Map data fields to Microsoft Sentinel entities | Microsoft Docs
+description: Map data fields in tables to Microsoft Sentinel entities in analytics rules, for better incident information
 author: yelevin
-manager: rkarlin
-editor: ''
-
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/10/2021
+ms.date: 11/09/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
-# Map data fields to entities in Azure Sentinel 
+
+# Map data fields to entities in Microsoft Sentinel 
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
@@ -29,17 +22,17 @@ ms.author: yelevin
 
 ## Introduction
 
-Entity mapping is an integral part of the configuration of [scheduled query analytics rules](tutorial-detect-threats-custom.md). It enriches the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow.
+Entity mapping is an integral part of the configuration of [scheduled query analytics rules](detect-threats-custom.md). It enriches the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow.
 
 The procedure detailed below is part of the analytics rule creation wizard. It's treated here independently to address the scenario of adding or changing entity mappings in an existing analytics rule.
 
 ## How to map entities
 
-1. From the Azure Sentinel navigation menu, select **Analytics**.
+1. From the Microsoft Sentinel navigation menu, select **Analytics**.
 
-1. Select a scheduled query rule and click **Edit**. Or create a new rule by clicking **Create > Scheduled query rule** at the top of the screen.
+1. Select a scheduled query rule and select **Edit** from the details pane. Or create a new rule by clicking **Create > Scheduled query rule** at the top of the screen.
 
-1. Click the **Set rule logic** tab. 
+1. Select the **Set rule logic** tab. 
 
 1. In the **Alert enrichment (Preview)** section, expand **Entity mapping**.
 
@@ -61,6 +54,13 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 1. When you have finished mapping entities, click the **Review and create** tab. Once the rule validation is successful, click **Save**.
 
+> [!NOTE]
+> - **Each mapped entity can identify *up to ten entities***.  
+>   - If an alert contains more than ten items that correspond to a single entity mapping, only the first ten will be recognized as entities and be able to be analyzed as such.
+>   - This limitation applies to actual mappings, not to entity types. So if you have three different mapped entities for IP addresses (say, source, destination, and gateway), each of those mappings can accommodate ten entities.
+> - **The size limit for an entire alert is *64 KB***.
+>   - Alerts that grow larger than 64 KB will be truncated. As entities are identified, they are added to the alert one by one until the alert size reaches 64 KB, and any remaining entities are dropped from the alert.
+
 ## Notes on the new version
 
 - If you had previously defined entity mappings for this analytics rule using the old version, those mappings appear in the query code. Entity mappings defined under the new version **do not appear in the query code**. Analytics rules can only support one version of entity mappings at a time, and the new version takes precedence. Therefore, any single mapping you define here will cause **any and all** mappings defined in the query code to be **disregarded** when the query runs. 
@@ -76,6 +76,6 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 ## Next steps
 
-In this document, you learned how to map data fields to entities in Azure Sentinel analytics rules. To learn more about Azure Sentinel, see the following articles:
-- Get the complete picture on [scheduled query analytics rules](tutorial-detect-threats-custom.md).
-- Learn more about [entities in Azure Sentinel](entities-in-azure-sentinel.md).
+In this document, you learned how to map data fields to entities in Microsoft Sentinel analytics rules. To learn more about Microsoft Sentinel, see the following articles:
+- Get the complete picture on [scheduled query analytics rules](detect-threats-custom.md).
+- Learn more about [entities in Microsoft Sentinel](entities.md).

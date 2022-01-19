@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity 
-ms.date: 06/28/2021
+ms.date: 11/15/2021
 ms.custom: template-concept
 ms.author: cchiedo
 ms.reviewer: john.garland, maggie.marxen, ian.bennett, marsma
@@ -19,11 +19,7 @@ ms.reviewer: john.garland, maggie.marxen, ian.bennett, marsma
 
 # Role-based access control for application developers
 
-Role-based access control (RBAC) allows certain users or groups to have specific permissions regarding which resources they have access to, what they can do with those resources, and who manages which resources. This article explains application-specific role-based access control.
-
-> [!NOTE]
-> Application role-based access control differs from [Azure role-based access control](/azure/role-based-access-control/overview) and [Azure AD role-based access control](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Azure custom roles and built-in roles are both part of Azure RBAC, which helps you manage Azure resources. Azure AD RBAC allows you to manage Azure AD resources.
-
+Role-based access control (RBAC) allows certain users or groups to have specific permissions regarding which resources they have access to, what they can do with those resources, and who manages which resources. Application role-based access control differs from [Azure role-based access control](../../role-based-access-control/overview.md) and [Azure AD role-based access control](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Azure custom roles and built-in roles are both part of Azure RBAC, which helps you manage Azure resources. Azure AD RBAC allows you to manage Azure AD resources. This article explains application-specific role-based access control.
 
 
 ## What are roles?
@@ -62,8 +58,7 @@ App roles and groups both store information about user assignments in the Azure 
 
 Using custom storage allows developers extra customization and control over how to assign roles to users and how to represent them. However, the extra flexibility also introduces more responsibility. For example, there's no mechanism currently available to include this information in tokens returned from Azure AD. If developers maintain role information in a custom data store, they'll need to have the apps retrieve the roles. This is typically done using extensibility points defined in the middleware available to the platform that is being used to develop the application. Furthermore, developers are responsible for properly securing the custom data store.
 
-> [!NOTE]
-> Using [Azure AD B2C Custom policies](/azure/active-directory-b2c/custom-policy-overview) it is possible to interact with custom data stores and to include custom claims within a token.
+Using [Azure AD B2C Custom policies](../../active-directory-b2c/custom-policy-overview.md) it is possible to interact with custom data stores and to include custom claims within a token.
 
 ## Choosing an approach
 
@@ -79,15 +74,12 @@ Although either app roles or groups can be used for authorization, key differenc
 |**Role values are static between Azure AD tenants**|Yes  |No |Depends on the implementation.|
 |**Role values can be used in multiple applications**|No. Unless role configuration is duplicated in each app registration.|Yes |Yes |
 |**Information stored within directory**|Yes  |Yes |No |
-|**Information is delivered via tokens**|Yes (roles claim)  |Yes* (groups claim) |No. Retrieved at runtime via custom code. |
+|**Information is delivered via tokens**|Yes (roles claim)  |Yes (In the case of an overage, *groups claims* may need to be retrieved at runtime) |No. Retrieved at runtime via custom code. |
 |**Lifetime**|Lives in app registration in directory. Removed when the app registration is removed.|Lives in directory. Remain intact even if the app registration is removed. |Lives in custom data store. Not tied to app registration.|
 
-
-> [!NOTE]
-> Yes* - In the case of an overage, *groups claims* may need to be retrieved at runtime.
 
 ## Next steps
 
 - [How to add app roles to your application and receive them in the token](./howto-add-app-roles-in-azure-ad-apps.md).
 - [Register an application with the Microsoft identity platform](./quickstart-register-app.md).
-- [Azure Identity Management and access control security best practices](/azure/security/fundamentals/identity-management-best-practices).
+- [Azure Identity Management and access control security best practices](../../security/fundamentals/identity-management-best-practices.md).

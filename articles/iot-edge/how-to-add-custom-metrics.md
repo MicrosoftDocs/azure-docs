@@ -2,9 +2,9 @@
 title: How to add custom metrics - Azure IoT Edge
 description: Augment built-in metrics with scenario-specific metrics from custom modules
 author: veyalla
-manager: philmea
+
 ms.author: veyalla
-ms.date: 06/08/2021
+ms.date: 08/11/2021
 ms.topic: conceptual
 ms.reviewer: kgremban
 ms.service: iot-edge 
@@ -27,7 +27,7 @@ Consult the [best practices](https://prometheus.io/docs/practices/naming/) from 
 
 * Include the module name at the beginning of metric name to make clear which module has emitted the metric.
 
-* Include the IoT hub name, IoT Edge device ID, and module ID as labels (also called *tags*/*dimensions*) in every metric. This information is available as environment variables to every module started by the IoT Edge agent. The approach is [demonstrated](https://github.com/Azure-Samples/iotedge-module-prom-custom-metrics/blob/b6b8501adb484521b76e6f317fefee57128834a6/csharp/Program.cs#L49) by the example in samples repo. Without this context, it's impossible to associate a given metric value to a particular device.
+* Include the IoT hub name or IoT Central application name, IoT Edge device ID, and module ID as labels (also called *tags*/*dimensions*) in every metric. This information is available as environment variables to every module started by the IoT Edge agent. The approach is [demonstrated](https://github.com/Azure-Samples/iotedge-module-prom-custom-metrics/blob/b6b8501adb484521b76e6f317fefee57128834a6/csharp/Program.cs#L49) by the example in samples repo. Without this context, it's impossible to associate a given metric value to a particular device.
 
 * Include an instance ID in the labels. An instance ID can be any unique ID like a [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) that is generated during module startup. Instance ID information can help reconcile module restarts when processing a module's metrics in the backend.
 
@@ -52,7 +52,7 @@ sudo docker exec replace-with-metrics-collector-module-name curl http://replace-
 
 Once you're receiving custom metrics in Log Analytics, you can create custom visualizations and alerts. The monitoring workbooks can be augmented to add query-backed visualizations.
 
-Every metric is associated with the resource ID of the IoT hub. That's why you can check if your custom metrics ingested correctly from the **Logs** page of the associated IoT hub instead of the backing Log Analytics workspace. Use this basic KQL query to verify:
+Every metric is associated with the resource ID of the IoT hub or IoT Central application. That's why you can check if your custom metrics ingested correctly from the **Logs** page of the associated IoT hub or IoT Central application instead of the backing Log Analytics workspace. Use this basic KQL query to verify:
 
 ```KQL
 InsightsMetrics

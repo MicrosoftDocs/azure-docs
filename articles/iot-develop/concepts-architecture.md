@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-develop
 services: iot-develop
-manager: philmea
+
 ---
 
 # IoT Plug and Play architecture
 
-IoT Plug and Play enables solution builders to integrate smart devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device _model_ that describes a device's capabilities to an IoT Plug and Play-enabled application. This model is structured as a set of interfaces that define:
+IoT Plug and Play enables solution builders to integrate IoT devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device _model_ that describes a device's capabilities to an IoT Plug and Play-enabled application. This model is structured as a set of interfaces that define:
 
 - _Properties_ that represent the read-only or writable state of a device or other entity. For example, a device serial number may be a read-only property and a target temperature on a thermostat may be a writable property.
 - _Telemetry_ that's the data emitted by a device, whether the data is a regular stream of sensor readings, an occasional error, or an information message.
@@ -35,7 +35,7 @@ The model repository has built-in role-based access controls that let you limit 
 
 ## Devices
 
-A device builder implements the code to run on an IoT smart device using one of the [Azure IoT device SDKs](./libraries-sdks.md). The device SDKs help the device builder to:
+A device builder implements the code to run on an IoT device using one of the [Azure IoT device SDKs](./libraries-sdks.md). The device SDKs help the device builder to:
 
 - Connect securely to an IoT hub.
 - Register the device with your IoT hub and announce the model ID that identifies the collection of DTDL interfaces the device implements.

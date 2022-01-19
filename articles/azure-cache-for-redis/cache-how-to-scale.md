@@ -1,12 +1,13 @@
 ---
 title: Scale an Azure Cache for Redis instance
 description: Learn how to scale your Azure Cache for Redis instances using the Azure portal, and tools such as Azure PowerShell, and Azure CLI
-author: yegu-ms
+author: flang-msft
 
-ms.author: yegu
+ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/08/2021 
+ms.date: 02/08/2021
+ms.devlang: csharp
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Scale an Azure Cache for Redis instance
@@ -26,24 +27,28 @@ You can monitor the following metrics to help determine if you need to scale.
   - High memory usage indicates that your data size is too large for the current cache size. Consider scaling to a cache size with larger memory.
 - Client connections
   - Each cache size has a limit to the number of client connections it can support. If your client connections are close to the limit for the cache size, consider scaling up to a larger tier, or scaling out to enable clustering and increase shard count. Your choice depends on the Redis server load and memory usage.
-  - For more information on connection limits by cache size, see [Azure Cache for Redis planning FAQs](/azure/azure-cache-for-redis/cache-planning-faq).
+  - For more information on connection limits by cache size, see [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
 - Network Bandwidth
   - If the Redis server exceeds the available bandwidth, clients requests could time out because the server can't push data to the client fast enough. Check "Cache Read" and "Cache Write" metrics to see how much server-side bandwidth is being used. If you Redis server is exceeding available network bandwidth, you should consider scaling up to a larger cache size with higher network bandwidth.
-  - For more information on network available bandwidth by cache size, see [Azure Cache for Redis planning FAQs](/azure/azure-cache-for-redis/cache-planning-faq).
+  - For more information on network available bandwidth by cache size, see [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
 
 If you determine your cache is no longer meeting your application's requirements, you can scale to an appropriate cache pricing tier for your application. You can choose a larger or smaller cache to match your needs.
 
-For more information on determining the cache pricing tier to use, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier) and [Azure Cache for Redis planning FAQs](/azure/azure-cache-for-redis/cache-planning-faq).
+For more information on determining the cache pricing tier to use, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier) and [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
 
 ## Scale a cache
 
-To scale your cache, [browse to the cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com) and select **Scale** from the **Resource menu**.
+To scale your cache, [browse to the cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com) and select **Scale** on the left.
 
-![Scale](./media/cache-how-to-scale/redis-cache-scale-menu.png)
+:::image type="content" source="media/cache-how-to-scale/scale-a-cache.png" alt-text="scale on the resource menu":::
 
-On the left, select the pricing tier you want from **Select pricing tier** and **Select**.
+Choose a pricing tier on the right and then choose **Select**.
 
-:::image type="content" source="media/cache-how-to-scale/redis-cache-pricing-tier-blade.png" alt-text="redis cache pricing tier screenshot":::
+:::image type="content" source="media/cache-how-to-scale/select-a-tier.png" alt-text="Azure Cache for Redis tiers":::
+
+> [!NOTE]
+> Scaling is currently not avaialble with Enterprise Tier.
+>
 
 You can scale to a different pricing tier with the following restrictions:
 
@@ -54,9 +59,9 @@ You can scale to a different pricing tier with the following restrictions:
 - You can't scale from a **Basic** cache directly to a **Premium** cache. First, scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in the next scaling operation.
 - You can't scale from a larger size down to the **C0 (250 MB)** size. However, you can scale down to any other size within the same pricing tier. For example, you can scale down from C5 Standard to C1 Standard.
 
-While the cache is scaling to the new pricing tier, a **Scaling** status is displayed on the left in the **Azure Cache for Redis**.
+While the cache is scaling to the new tier, a **Scaling Redis Cache** notification is displayed.
 
-:::image type="content" source="media/cache-how-to-scale/redis-cache-scaling.png" alt-text="redis cache scaling":::
+:::image type="content" source="media/cache-how-to-scale/scaling-notification.png" alt-text="notification of scaling":::
 
 When scaling is complete, the status changes from **Scaling** to **Running**.
 
@@ -147,6 +152,7 @@ No, your cache name and keys are unchanged during a scaling operation.
 - When you scale a **Standard** cache to a different size or to a **Premium** cache, one of the replicas is shut down and reprovisioned to the new size and the data transferred over, and then the other replica does a failover before it's reprovisioned, similar to the process that occurs during a failure of one of the cache nodes.
 - When you scale out a clustered cache, new shards are provisioned and added to the Redis server cluster. Data is then resharded across all shards.
 - When you scale in a clustered cache, data is first resharded and then cluster size is reduced to required shards.
+- In some cases, such as scaling or migrating your cache to a different cluster, the underlying IP address of the cache can change. The DNS records for the cache changes and is transparent to most applications. However, if you use an IP address to configure the connection to your cache, or to configure NSGs, or firewalls allowing traffic to the cache, your application might have trouble connecting sometime after that the DNS record updates.
 
 ### Will I lose data from my cache during scaling?
 
@@ -199,9 +205,3 @@ Generally, when you scale a cache with no data, it takes approximately 20 minute
 ### How can I tell when scaling is complete?
 
 In the Azure portal, you can see the scaling operation in progress. When scaling is complete, the status of the cache changes to **Running**.
-
-<!-- IMAGES -->
-
-[redis-cache-pricing-tier-blade]: ./media/cache-how-to-scale/redis-cache-pricing-tier-blade.png
-
-[redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png

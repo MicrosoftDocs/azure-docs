@@ -26,7 +26,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 ## Preview limitations
 
 - Task agent pools currently support Linux nodes. Windows nodes aren't currently supported.
-- Task agent pools are available in preview in the following regions: West US 2, South Central US, East US 2, East US, Central US, West Europe, North Europe, Canada Central, USGov Arizona, USGov Texas, and USGov Virginia.
+- Task agent pools are available in preview in the following regions: West US 2, South Central US, East US 2, East US, Central US, West Europe, North Europe, Canada Central, East Asia, USGov Arizona, USGov Texas, and USGov Virginia.
 - For each registry, the default total vCPU (core) quota is 16 for all standard agent pools and is 0 for isolated agent pools. Open a [support request][open-support-ticket] for additional allocation.
 - You can't currently cancel a task run on an agent pool.
 
@@ -106,7 +106,7 @@ The following example creates an agent pool in the *mysubnet* subnet of network 
 ```azurecli
 # Get the subnet ID
 subnetId=$(az network vnet subnet show \
-        --resource-grop myresourcegroup \
+        --resource-group myresourcegroup \
         --vnet-name myvnet \
         --name mysubnetname \
         --query id --output tsv)

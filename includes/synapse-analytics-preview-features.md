@@ -1,12 +1,12 @@
 ---
 title: include file
 description: include file
-author: JulieMSFT
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.service: synapse-analytics
 services: synapse-analytics
 ms.topic: include
 ms.date: 01/21/2020
-ms.author: jrasnick
 ms.custom: include file
 ---
 

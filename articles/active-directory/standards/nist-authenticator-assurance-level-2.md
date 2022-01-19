@@ -8,7 +8,7 @@ ms.workload: identity
 ms.topic: how-to
 author: barbaraselden
 ms.author: baselden
-manager: mtillman
+manager: martinco
 ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
@@ -37,10 +37,12 @@ The following table provides details about the authenticator types permitted for
 | FIDO 2 security key<br>Microsoft Authenticator app for Android (Passwordless)<br>Windows Hello for Business with hardware TPM<br>Smartcard (Active Directory Federation Services) | Multifactor crypto hardware |
 | **Additional methods** |  |
 | Password + Phone (SMS) | Memorized Secret + Out-of-Band |
-| Password + Microsoft Authenticator App (OTP)<br>Password + SF OTP | Memorized Secret +  ‎Single-factor one-time password |
-| Password + Azure AD joined with software TPM <br>Password + Compliant mobile device<br>Password + Hybrid Azure AD Joined with software TPM <br>Password + Microsoft Authenticator App (Notification) | Memorized Secret + ‎Single-factor crypto SW |
-| Password + Azure AD joined with hardware TPM <br>Password + Hybrid Azure AD joined with hardware TPM | Memorized Secret + ‎Single-factor crypto hardware |
+| Password + Microsoft Authenticator App (OTP)<br>Password + SF OTP | Memorized Secret +  Single-factor one-time password |
+| Password + Azure AD joined with software TPM <br>Password + Compliant mobile device<br>Password + Hybrid Azure AD Joined with software TPM <br>Password + Microsoft Authenticator App (Notification) | Memorized Secret + Single-factor crypto SW |
+| Password + Azure AD joined with hardware TPM <br>Password + Hybrid Azure AD joined with hardware TPM | Memorized Secret + Single-factor crypto hardware |
 
+> [!NOTE]
+> In a conditional access policy, if you require a device to be either marked as compliant or hybrid Azure AD joined, Authenticator acts as verifier impersonation resistance.
 
 ### Our recommendations
 

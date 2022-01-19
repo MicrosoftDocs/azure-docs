@@ -4,8 +4,8 @@ description: Use Azure Data Studio to manage your PostgreSQL instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: TheJY
-ms.author: jeanyd
+author: grrlgeek
+ms.author: jeschult
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
@@ -27,7 +27,7 @@ This article describes how to:
 
    [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
-- Create the [Azure Arc Data Controller](create-data-controller-using-azdata.md)
+- Create the [Azure Arc Data Controller](./create-data-controller-indirect-cli.md)
 - Launch Azure Data Studio
 
 ## Connect to the Azure Arc Data Controller

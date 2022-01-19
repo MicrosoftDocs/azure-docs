@@ -7,9 +7,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 10/01/2021
 ms.author: tamram
-ms.reviewer: dineshm 
+ms.reviewer: fryu 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -118,7 +118,7 @@ To disallow Shared Key authorization for a storage account in the Azure portal, 
 
 1. Navigate to your storage account in the Azure portal.
 1. Locate the **Configuration** setting under **Settings**.
-1. Set **Allow shared key access** to **Disabled**.
+1. Set **Allow storage account key access** to **Disabled**.
 
     :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Screenshot showing how to disallow Shared Key access for account":::
 
@@ -243,6 +243,6 @@ Disallowing Shared Key access for a storage account does not affect SMB connecti
 
 ## Next steps
 
-- [Authorize access to data in Azure Storage](storage-auth.md)
+- [Authorize access to data in Azure Storage](./authorize-data-access.md)
 - [Authorize access to blobs and queues using Azure Active Directory](authorize-data-access.md)
 - [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key)

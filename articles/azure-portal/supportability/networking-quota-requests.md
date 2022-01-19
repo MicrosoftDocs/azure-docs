@@ -1,86 +1,62 @@
 ---
-title: Networking limit increase
-description: Networking limit increase
-author: anavinahar
-ms.author: anavin
-ms.date: 01/23/2020
+title: Increase networking quotas
+description: Learn how to request a networking quota increase in the Azure portal.
+ms.date: 12/02/2021
 ms.topic: how-to
-ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ---
 
-# Networking limit increase
+# Increase networking quotas
 
-Use the [Azure portal](https://portal.azure.com) to increase your networking quota.
+This article shows how to request increases for VM-family vCPU quotas in the [Azure portal](https://portal.azure.com).
 
-To view your current Networking usage and quota in Azure portal, open your subscription, then select **Usages + quotas**. You can also use the following options to view your network usage and limits.
+To view your current networking usage and quota in the Azure portal, open your subscription, then select **Usage + quotas**. You can also use the following options to view your network usage and limits.
 
-* [Usage CLI](/cli/azure/network#az_network_list_usages)
-* [PowerShell](/powershell/module/azurerm.network/get-azurermnetworkusage)
-* [The network usage API](/rest/api/virtualnetwork/virtualnetworks/listusage)
+- [Usage CLI](/cli/azure/network#az_network_list_usages)
+- [PowerShell](/powershell/module/azurerm.network/get-azurermnetworkusage)
+- [The network usage API](/rest/api/virtualnetwork/virtualnetworks/listusage)
 
-You can request an increase by using **Help + support** or in **Usages + quotas** in the portal.
+You can request an increase in the Azure portal by using **Help + support** or in **Usage + quotas** for your subscription.
 
 > [!Note]
 > To change the default size of **Public IP Prefixes**, select **Min Public IP InterNetwork Prefix Length** from the dropdown list.
 
-## Request Networking quota increase at subscription level using Help + support
+## Request networking quota increase by using Help + support
 
-Follow the instructions below to create a support request by using **Help + support** in the Azure portal.
+Follow the instructions below to create a networking quota increase request by using **Help + support** in the Azure portal.
 
-1. Sign in to [Azure portal](https://portal.azure.com), and then select **Help + support** from the Azure portal menu or search for and select **Help + support**.
-
-    ![Help + Support](./media/networking-quota-request/help-plus-support.png)
-
-1. Select **New support request**.
-
-    ![New support request](./media/networking-quota-request/new-support-request.png)
+1. Sign in to the [Azure portal](https://portal.azure.com), and [open a new support request](how-to-create-azure-support-request.md).
 
 1. For **Issue type**, choose **Service and subscription limits (quotas)**.
 
-    ![Select subscription limits from issue type dropdown](./media/networking-quota-request/select-quota-issue-type.png)
-
 1. Select the subscription that needs an increased quota.
 
-    ![Select subscription newSR](./media/networking-quota-request/select-subscription-support-request.png)
+1. Under **Quota type**, select **Networking**. Then select **Next**.
 
-1. Under **Quota type**, select **Networking**. Select **Next: Solutions**.
+   :::image type="content" source="media/networking-quota-request/new-networking-quota-request.png" alt-text="Screenshot of a new networking quota increase request in the Azure portal.":::
 
-    ![Select quota type](./media/networking-quota-request/select-quota-type-network.png)
+1. In the **Problem details** section, select **Enter details**. Follow the prompts to select a deployment model, location, the resources to include in your request, and the new limit you would like on the subscription for those resources. When you're finished, select **Save and continue** to continue creating your support request.
 
-1. In **PROBLEM DETAILS**, select **Provide details** and fill in additional information to help process your request.
+    :::image type="content" source="media/networking-quota-request/quota-details-network.png" alt-text="Screenshot of the Quota details screen for a networking quota increase request in the Azure portal.":::
 
-    ![Provide details](./media/networking-quota-request/provide-details-link.png)
+1. Complete the rest of the **Additional information** screen, and then select **Next**.
 
-1. In the **Quota details** panel, select a deployment model, a location, and the resources to include in your request.
+1. On the **Review + create** screen, review the details that you'll send to support, and then select **Create**.
 
-    ![Quota Details DM](./media/networking-quota-request/quota-details-network.png)
+## Request networking quota increase from Usage + quotas
 
-1. Enter the new limits you would like on the subscription. To remove a line, unselect the resource from the **Resources** menu or select the discard "x" icon. After entering the quota for each resource, select **Save and continue** to continue with the support request creation.
-
-    ![New Limits](./media/networking-quota-request/network-new-limits.png)
-
-## Request Networking quota increase at subscription level using Usages + quotas
-
-Follow these instructions to create a support request by using **Usage + quota** in the Azure portal.
+Follow these instructions to create a networking quota increase request from **Usage + quotas** in the Azure portal.
 
 1. From https://portal.azure.com, search for and select **Subscriptions**.
 
-    ![Subscriptions](./media/networking-quota-request/search-for-suscriptions.png)
-
 1. Select the subscription that needs an increased quota.
 
-    ![Select subscription](./media/networking-quota-request/select-subscription-change-quota.png)
-
-1. Select **Usage + quotas**
-
-    ![Select usage and quotas](./media/networking-quota-request/select-usage-plus-quotas.png)
+1. Select **Usage + quotas**.
 
 1. In the upper right corner, select **Request increase**.
 
-    ![Request increase](./media/networking-quota-request/request-increase-from-subscription.png)
+1. Follow the steps above (starting at step 4) to complete your request.
 
-1. Follow the steps starting with step 3 in [Request Networking quota increase at subscription level](#request-networking-quota-increase-at-subscription-level-using-help--support).
+## Next steps
 
-## About Networking limits
-
-To learn more about Networking limits, see the [Networking section](../../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) of the limits page or our Network Limits FAQ.
+- Review details on [networking limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+- Learn about [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).

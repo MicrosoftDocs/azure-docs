@@ -3,26 +3,26 @@ title: Single-page sign-in using implicit flow
 titleSuffix: Azure AD B2C
 description: Learn how to add single-page sign-in using the OAuth 2.0 implicit flow with Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
 # Single-page sign in using the OAuth 2.0 implicit flow in Azure Active Directory B2C
 
-Many modern applications have a single-page app front end that is written primarily in JavaScript. Often, the app is written by using a framework like React, Angular, or Vue.js. Single-page apps and other JavaScript apps that run primarily in a browser have some additional challenges for authentication:
+Many modern applications have a single-page app (SPA) front end that is written primarily in JavaScript. Often, the app is written by using a framework like React, Angular, or Vue.js. SPAs and other JavaScript apps that run primarily in a browser have some additional challenges for authentication:
 
 - The security characteristics of these apps are different from traditional server-based web applications.
 - Many authorization servers and identity providers do not support cross-origin resource sharing (CORS) requests.
 - Full-page browser redirects away from the app can be invasive to the user experience.
 
-The recommended way of supporting single-page applications is [OAuth 2.0 Authorization code flow (with PKCE)](./authorization-code-flow.md).
+The recommended way of supporting SPAs is [OAuth 2.0 Authorization code flow (with PKCE)](./authorization-code-flow.md).
 
 Some frameworks, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), only support the implicit grant flow. In these cases, Azure Active Directory B2C (Azure AD B2C) supports the OAuth 2.0 authorization implicit grant flow. The flow is described in [section 4.2 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). In implicit flow, the app receives tokens directly from the Azure Active Directory (Azure AD) authorize endpoint, without any server-to-server exchange. All authentication logic and session handling is done entirely in the JavaScript client with either a page redirect or a pop-up box.
 
@@ -64,7 +64,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 At this point, the user is asked to complete the policy's workflow. The user might have to enter their username and password, sign in with a social identity, sign up for the directory, or any other number of steps. User actions depend on how the user flow is defined.
 
-After the user completes the user flow, Azure AD returns a response to your app at the value you used for `redirect_uri`. It uses the method specified in the `response_mode` parameter. The response is exactly the same for each of the user action scenarios, independent of the user flow that was executed.
+After the user completes the user flow, Azure AD B2C returns a response to your app at the value you used for `redirect_uri`. It uses the method specified in the `response_mode` parameter. The response is exactly the same for each of the user action scenarios, independent of the user flow that was executed.
 
 ### Successful response
 A successful response that uses `response_mode=fragment` and `response_type=id_token+token` looks like the following, with line breaks for legibility:
@@ -122,7 +122,9 @@ One of the properties of this configuration document is the `jwks_uri`. The valu
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/discovery/v2.0/keys
 ```
 
-To determine which user flow was used to sign an ID token (and where to fetch the metadata from), you have two options. First, the user flow name is included in the `acr` claim in `id_token`. For information about how to parse the claims from an ID token, see the [Azure AD B2C token reference](tokens-overview.md). Your other option is to encode the user flow in the value of the `state` parameter when you issue the request. Then, decode the `state` parameter to determine which user flow was used. Either method is valid.
+To determine which user flow was used to sign an ID token (and where to fetch the metadata from), you have two options:
+-  The user flow name is included in the `acr` claim in `id_token`. For information about how to parse the claims from an ID token, see the [Azure AD B2C token reference](tokens-overview.md). 
+- Encode the user flow in the value of the `state` parameter when you issue the request. Then, decode the `state` parameter to determine which user flow was used. Either method is valid.
 
 After you've acquired the metadata document from the OpenID Connect metadata endpoint, you can use the RSA-256 public keys (located at this endpoint) to validate the signature of the ID token. There might be multiple keys listed at this endpoint at any given time, each identified by a `kid`. The header of `id_token` also contains a `kid` claim. It indicates which of these keys was used to sign the ID token. For more information, including learning about [validating tokens](tokens-overview.md), see the [Azure AD B2C token reference](tokens-overview.md).
 <!--TODO: Improve the information on this-->
@@ -146,7 +148,7 @@ After you have validated the ID token, you can begin a session with the user. In
 ## Get access tokens
 If the only thing your web apps needs to do is execute user flows, you can skip the next few sections. The information in the following sections is applicable only to web apps that need to make authenticated calls to a web API, and which are protected by Azure AD B2C.
 
-Now that you've signed the user into your single-page app, you can get access tokens for calling web APIs that are secured by Azure AD. Even if you have already received a token by using the `token` response type, you can use this method to acquire tokens for additional resources without redirecting the user to sign in again.
+Now that you've signed the user into your SPA, you can get access tokens for calling web APIs that are secured by Azure AD. Even if you have already received a token by using the `token` response type, you can use this method to acquire tokens for additional resources without redirecting the user to sign in again.
 
 In a typical web app flow, you would make a request to the `/token` endpoint. However, the endpoint does not support CORS requests, so making AJAX calls to get a refresh token is not an option. Instead, you can use the implicit flow in a hidden HTML iframe element to get new tokens for other web APIs. Here's an example, with line breaks for legibility:
 
@@ -216,7 +218,7 @@ error=user_authentication_required
 If you receive this error in the iframe request, the user must interactively sign in again to retrieve a new token.
 
 ## Refresh tokens
-ID tokens and access tokens both expire after a short period of time. Your app must be prepared to refresh these tokens periodically.  To refresh either type of token, perform the same hidden iframe request we used in an earlier example, by using the `prompt=none` parameter to control Azure AD steps.  To receive a new `id_token` value, be sure to use `response_type=id_token` and `scope=openid`, and a `nonce` parameter.
+ID tokens and access tokens both expire after a short period of time. Your app must be prepared to refresh these tokens periodically. Implicit flows do not allow you to obtain a refresh token due to security reasons. To refresh either type of token, use the implicit flow in a hidden HTML iframe element. In the authorization request include the  `prompt=none` parameter. To receive a new id_token value, be sure to use `response_type=id_token` and `scope=openid`, and a `nonce` parameter.
 
 ## Send a sign-out request
 When you want to sign the user out of the app, redirect the user to Azure AD to sign out. If you don't redirect the user, they might be able to reauthenticate to your app without entering their credentials again because they have a valid single sign-on session with Azure AD.
@@ -241,4 +243,4 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 ## Next steps
 
-See the code sample: [Sign-in with Azure AD B2C in a JavaScript single-page application](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-core-samples/VanillaJSTestApp/app/b2c).
+See the code sample: [Sign-in with Azure AD B2C in a JavaScript SPA](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-core-samples/VanillaJSTestApp/app/b2c).

@@ -50,9 +50,9 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
    
    * **Name** - The name by which you want to refer to your on-premises site.
    
-   * **Device vendor** - The name of the VPN device vendor (for example: Citrix, Cisco, Barracuda). It helps the Azure Team better understand your environment in order to add more optimization possibilities in the future, or to help you troubleshoot.
+   * **Device vendor** - The name of the VPN device vendor, for example, Citrix, Cisco, or Barracuda. It helps the Azure Team better understand your environment to add more optimization possibilities in the future or help you troubleshoot.
 
-   * **Private address space** - The CIDR IP address space that is located on your on-premises site. Traffic destined for this address space is routed to your local site. The CIDR block is only required if you [BGP](../vpn-gateway/bgp-howto.md) isn't enabled for the site.
+   * **Private address space** - The CIDR IP address space located on your on-premises site. Traffic destined for this address space is routed to your local site. The CIDR block is only required if you [BGP](../vpn-gateway/bgp-howto.md) isn't enabled for the site.
     
    >[!NOTE]
    >If you edit the address space after creating the site (for example, add an additional address space) it can take 8-10 minutes to update the effective routes while the components are recreated.
@@ -69,7 +69,7 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
 
 1. Select **Review + create**. 
 
-1. Navigate to the virtual hub that you want, and deselect **Hub association** to connect your VPN site to the hub.
+1. Navigate to the virtual hub you want, and deselect **Hub association** to connect your VPN site to the hub.
  
    :::image type="content" source="../../includes/media/virtual-wan-tutorial-site-include/connect.png" alt-text="Screenshot shows Connect to this hub." lightbox="../../includes/media/virtual-wan-tutorial-site-include/connect.png":::   
 
@@ -96,7 +96,7 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
 
    - Specify the details for **IKE Phase 1** and **IKE Phase 2(ipsec)**. 
 
-4. Change the IPsec setting from default to custom and customize the IPsec policy. Select **Save** to save your settings.
+4. Change the IPsec setting from default to custom and customize the IPsec policy. Then select **Save**.
 
    :::image type="content" source="../virtual-wan/media/virtual-wan-custom-ipsec-portal/edit.png" alt-text="Screenshot showing the existing VPN sites." lightbox="../virtual-wan/media/virtual-wan-custom-ipsec-portal/edit.png":::
 
@@ -127,14 +127,14 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
 
    :::image type="content" source="../../includes/media/virtual-wan-tutorial-connect-vpn-site-include/status.png" alt-text="Screenshot that shows a site-to-site connection and connectivity status." lightbox="../../includes/media/virtual-wan-tutorial-connect-vpn-site-include/status.png":::
 
-   **Connection Status:** Status of the Azure resource for the connection that connects the VPN site to the Azure hub’s VPN gateway. Once this control plane operation is successful, Azure VPN gateway and the on-premises VPN device will proceed to establish connectivity.
+   **Connection Status:** Status of the Azure resource for the connection that connects the VPN site to the Azure hub’s VPN gateway. Once this control plane operation is successful, the Azure VPN gateway and the on-premises VPN device establish connectivity.
 
    **Connectivity Status:** Actual connectivity (data path) status between Azure’s VPN gateway in the hub and VPN site. It can show any of the following states:
 
-    * **Unknown**: State is typically seen if the backend systems are working to transition to another status.
+    * **Unknown**: Typically seen if the backend systems are working to transition to another status.
     * **Connecting**: Azure VPN gateway is trying to reach out to the actual on-premises VPN site.
-    * **Connected**: Connectivity is established between Azure VPN gateway and on-premises VPN site.
-    * **Disconnected**: Status is seen if, for any reason (on-premises or in Azure), the connection was disconnected.
+    * **Connected**: Connectivity established between Azure VPN gateway and on-premises VPN site.
+    * **Disconnected**: Typically seen if disconnected for any reason (on-premises or in Azure)
 
 
 
@@ -142,11 +142,11 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
    
    1. On the VPN (Site to site) page, near the top, select **Download VPN Config**.  Azure creates a storage account in the resource group 'microsoft-network-\[location\]', where location is the location of the WAN. After you have applied the configuration to your VPN devices, you can delete this storage account.
 
-   1. Once the configuration file is created, select the link to download it. 
+   1. Once created, select the link to download it. 
 
    1. Apply the configuration to your on-premises VPN device.
 
-   For more information about the configuration file, see [About the VPN device configuration file](../virtual-wan/virtual-wan-site-to-site-portal.md#about-the-vpn-device-configuration-file).
+   For more information about the configuration file, see [About the VPN device configuration file](../virtual-wan/virtual-wan-site-to-site-portal.md#config-file).
 
 1. Patch the Azure VMware Solution ExpressRoute in the Virtual WAN hub. 
 

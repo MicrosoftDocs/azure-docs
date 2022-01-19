@@ -4,7 +4,7 @@ description: How to use Azure IoT Hub device twins to add tags and then use an I
 author: fsautomata
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: elioda
@@ -232,4 +232,4 @@ Use the following resources to learn how to:
 
 * configure devices using device twin's desired properties with the [Use desired properties to configure devices](tutorial-device-twins.md) tutorial,
 
-* control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods](/azure/iot-hub/quickstart-control-device?pivots=programming-language-nodejs) quickstart.
+* control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods](./quickstart-control-device.md?pivots=programming-language-nodejs) quickstart.

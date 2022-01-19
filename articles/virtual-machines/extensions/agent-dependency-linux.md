@@ -130,8 +130,8 @@ az vm extension set \
     --version 9.5
 ```
 
-## Automatic extension upgrade (preview)
-A new feature to [automatically upgrade minor versions](../automatic-extension-upgrade.md) of Dependency extension is now available in public preview.
+## Automatic extension upgrade
+A new feature to [automatically upgrade minor versions](../automatic-extension-upgrade.md) of Dependency extension is now available.
 
 To enable automatic extension upgrade for an extension, you must ensure the property `enableAutomaticUpgrade` is set to `true` and added to the extension template. This property must be enabled on every VM or VM scale set individually. Use one of the methods described in the [enablement](../automatic-extension-upgrade.md#enabling-automatic-extension-upgrade) section enable the feature for your VM or VM scale set.
 

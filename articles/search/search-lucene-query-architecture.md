@@ -1,14 +1,14 @@
 ---
 title: Full text query and indexing engine architecture (Lucene) 
 titleSuffix: Azure Cognitive Search
-description: Examines Lucene query processing and document retrieval concepts for full text search, as related to Azure Cognitive Search.
+description: Explore Lucene query processing and document retrieval concepts for full text search, as related to Azure Cognitive Search.
 
 manager: nitinme
 author: yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/28/2021
 ---
 
 # Full text search in Azure Cognitive Search
@@ -16,7 +16,7 @@ ms.date: 11/04/2019
 This article is for developers who need a deeper understanding of how Lucene full text search works in Azure Cognitive Search. For text queries, Azure Cognitive Search will seamlessly deliver expected results in most scenarios, but occasionally you might get a result that seems "off" somehow. In these situations, having a background in the four stages of Lucene query execution (query parsing, lexical analysis, document matching, scoring) can help you identify specific changes to query parameters or index configuration that will deliver the desired outcome. 
 
 > [!Note] 
-> Azure Cognitive Search uses Lucene for full text search, but Lucene integration is not exhaustive. We selectively expose and extend Lucene functionality to enable the scenarios important to Azure Cognitive Search. 
+> Azure Cognitive Search uses [Apache Lucene](https://lucene.apache.org/) for full text search, but Lucene integration is not exhaustive. We selectively expose and extend Lucene functionality to enable the scenarios important to Azure Cognitive Search. 
 
 ## Architecture overview and diagram
 

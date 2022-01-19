@@ -42,7 +42,7 @@ After you've deployed an instance of the DICOM service, retrieve the URL for you
 
 1. Sign into the [Azure portal](https://ms.portal.azure.com/).
 1. Search **Recent resources** and select your DICOM service instance.
-1. Copy the **Service URL** of your DICOM service.
+1. Copy the **Service URL** of your DICOM service. 
 2. If you haven't already obtained a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md). 
 
 For this code, we'll be accessing an Public Preview Azure service. It is important that you don't upload any private health information (PHI).
@@ -69,13 +69,13 @@ from azure.identity import DefaultAzureCredential
 
 ### Configure user-defined variables to be used throughout
 
-Replace all variable values wrapped in { } with your own values. Additionally, validate that any constructed variables are correct.  For instance, `base_url` is constructed using the default URL for Azure App service. If you're using a custom URL, you'll need to override that value with your own.
+Replace all variable values wrapped in { } with your own values. Additionally, validate that any constructed variables are correct.  For instance, `base_url` is constructed using the Service URL and then appended with the version of the REST API being used. The Service URL of your DICOM service will be: ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. You can use the Azure Portal to navigate to the DICOM service and obtain your Service URL. You can also visit the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md) for more information on versioning. If you're using a custom URL, you'll need to override that value with your own.
 
 ```python
 dicom_service_name = "{server-name}"
 path_to_dicoms_dir = "{path to the folder that includes green-square.dcm and other dcm files}"
 
-base_url = f"https://{dicom_service_name}.dicom.azurehealthcareapis.com"
+base_url = f"{Service URL}/v{version}"
 
 study_uid = "1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420"; #StudyInstanceUID for all 3 examples
 series_uid = "1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652"; #SeriesInstanceUID for green-square and red-triangle

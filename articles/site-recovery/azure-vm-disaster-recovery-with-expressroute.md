@@ -6,7 +6,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 07/25/2021
 ms.author: mayg
 
 ---
@@ -161,7 +161,7 @@ This configuration helps protect against failure of the primary ExpressRoute cir
 
 In this configuration there's only one Expressroute circuit. Although the circuit has a redundant connection in case one goes down, a single route circuit will not provide resilience if your peering region goes down. Note that:
 
-- You can replicate Azure VMs to any Azure region in the [same geographic location](azure-to-azure-support-matrix.md#region-support). If the target Azure region isn't in the same location as the source, you need to enable ExpressRoute Premium if you’re using a single ExpressRoute circuit. Learn about [ExpressRoute locations](../expressroute/expressroute-locations.md) and [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
+- If the target Azure region isn't in the same location as the source, you need to enable ExpressRoute Premium if you’re using a single ExpressRoute circuit. Learn about [ExpressRoute locations](../expressroute/expressroute-locations.md) and [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 - You can’t connect source and target vNets simultaneously to the circuit if the same IP address space is used on the target region. In this scenario:    
     -  Disconnect the source side connection, and then establish the target side connection. This connection change can be scripted as part of a Site Recovery recovery plan. Note that:
         - In a regional failure, if the primary region is inaccessible, the disconnect operation could fail. This could impact connection creation to the target region.

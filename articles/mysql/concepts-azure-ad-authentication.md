@@ -49,7 +49,7 @@ When using Azure AD authentication, there are two Administrator accounts for the
 
 ## Permissions
 
-To create new users that can authenticate with Azure AD, you must be the designed Azure AD administrator. This user is assigned by configuring the Azure AD Administrator account for a specific Azure Database for MySQL server.
+To create new users that can authenticate with Azure AD, you must be the designated Azure AD administrator. This user is assigned by configuring the Azure AD Administrator account for a specific Azure Database for MySQL server.
 
 To create a new Azure AD database user, you must connect as the Azure AD administrator. This is demonstrated in [Configure and Login with Azure AD for Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).
 

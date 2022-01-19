@@ -1,12 +1,12 @@
 ---
-title: Apply classifications on assets (preview)
+title: Apply classifications on assets
 description: This document describes how to apply classifications on assets.
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 09/27/2021
 ---
 # Apply classifications on assets in Azure Purview
 
@@ -14,7 +14,7 @@ This article discusses how to apply classifications on assets.
 
 ## Introduction
 
-Classifications can be system or custom types. System classifications are present in Purview by default. Custom classifications can be created based on a regular expression pattern. Classifications can be applied to assets either automatically or manually.
+Classifications can be system or custom types. System classifications are present in Azure Purview by default. Custom classifications can be created based on a regular expression pattern. Classifications can be applied to assets either automatically or manually.
 
 This document explains how to apply classifications to your data.
 

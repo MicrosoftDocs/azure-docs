@@ -4,25 +4,20 @@ description: Describes the functions to use in a Bicep file for working with obj
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/30/2021
 ---
 
 # Object functions for Bicep
 
-Resource Manager provides several functions for working with objects in your Bicep file:
-
-* [contains](#contains)
-* [empty](#empty)
-* [intersection](#intersection)
-* [json](#json)
-* [length](#length)
-* [union](#union)
+This article describes the Bicep functions for working with objects.
 
 ## contains
 
 `contains(container, itemToFind)`
 
 Checks whether an array contains a value, an object contains a key, or a string contains a substring. The string comparison is case-sensitive. However, when testing if an object contains a key, the comparison is case-insensitive.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -77,6 +72,8 @@ The output from the preceding example with the default values is:
 
 Determines if an array, object, or string is empty.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -114,6 +111,8 @@ The output from the preceding example with the default values is:
 `intersection(arg1, arg2, arg3, ...)`
 
 Returns a single array or object with the common elements from the parameters.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -171,6 +170,8 @@ The output from the preceding example with the default values is:
 
 Converts a valid JSON string into a JSON data type.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -225,6 +226,8 @@ The output from the preceding example with the default values is:
 
 Returns the number of elements in an array, characters in a string, or root-level properties in an object.
 
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -274,6 +277,8 @@ The output from the preceding example with the default values is:
 `union(arg1, arg2, arg3, ...)`
 
 Returns a single array or object with all elements from the parameters. Duplicate values or keys are only included once.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 

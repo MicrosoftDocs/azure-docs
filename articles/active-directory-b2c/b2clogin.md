@@ -3,14 +3,14 @@ title: Migrate applications and APIs to b2clogin.com
 titleSuffix: Azure AD B2C
 description: Learn about using b2clogin.com in your redirect URLs for Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/27/2020
-ms.author: mimart
+ms.date: 09/15/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -41,7 +41,7 @@ When you use *b2clogin.com* as your redirect URL:
 
 * Space consumed in the cookie header by Microsoft services is reduced.
 * Your redirect URLs no longer need to include a reference to Microsoft.
-* JavaScript client-side code is supported (currently in [preview](javascript-and-page-layout.md)) in customized pages. Due to security restrictions, JavaScript code and HTML form elements are removed from custom pages if you use *login.microsoftonline.com*.
+* [JavaScript client-side code](javascript-and-page-layout.md) is supported in customized pages. Due to security restrictions, JavaScript code and HTML form elements are removed from custom pages if you use *login.microsoftonline.com*.
 
 ## Overview of required changes
 

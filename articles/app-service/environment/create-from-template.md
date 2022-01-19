@@ -1,52 +1,66 @@
 ---
 title: Create an ASE with ARM
 description: Learn how to create an external or ILB App Service environment by using an Azure Resource Manager template.
-author: ccompy
+author: madsd
 
 ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
 ms.topic: article
-ms.date: 06/13/2017
-ms.author: ccompy
+ms.date: 10/11/2021
+ms.author: madsd
 ms.custom: seodec18, devx-track-azurepowershell
 ---
 # Create an ASE by using an Azure Resource Manager template
 
 ## Overview
 > [!NOTE]
-> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> This article is about the App Service Environment v2 and App Service Environment v3 which are used with Isolated App Service plans
 > 
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+Azure App Service environments (ASEs) can be created with an internet-accessible endpoint or an endpoint on an internal address in an Azure Virtual Network. When created with an internal endpoint, that endpoint is provided by an Azure component called an internal load balancer (ILB). The ASE on an internal IP address is called an ILB ASE. The ASE with a public endpoint is called an External ASE. 
 
-Azure App Service environments (ASEs) can be created with an internet-accessible endpoint or an endpoint on an internal address in an Azure virtual network (VNet). When created with an internal endpoint, that endpoint is provided by an Azure component called an internal load balancer (ILB). The ASE on an internal IP address is called an ILB ASE. The ASE with a public endpoint is called an External ASE. 
+An ASE can be created by using the Azure portal or an Azure Resource Manager template. This article walks through the steps and syntax you need to create an External ASE or ILB ASE with Resource Manager templates. To learn how to create an ASEv2 in the Azure portal, see [Make an External ASE][MakeExternalASE] or [Make an ILB ASE][MakeILBASE].
+To learn how to create an ASEv3 in Azure portal, see [Create ASEv3][Create ASEv3].
 
-An ASE can be created by using the Azure portal or an Azure Resource Manager template. This article walks through the steps and syntax you need to create an External ASE or ILB ASE with Resource Manager templates. To learn how to create an ASE in the Azure portal, see [Make an External ASE][MakeExternalASE] or [Make an ILB ASE][MakeILBASE].
+When you create an ASE in the Azure portal, you can create your virtual network at the same time or choose a preexisting virtual network to deploy into. 
 
-When you create an ASE in the Azure portal, you can create your VNet at the same time or choose a preexisting VNet to deploy into. When you create an ASE from a template, you must start with: 
+When you create an ASE from a template, you must start with: 
 
-* A Resource Manager VNet.
-* A subnet in that VNet. We recommend an ASE subnet size of `/24` with 256 addresses to accommodate future growth and scaling needs. After the ASE is created, you can't change the size.
-* The resource ID from your VNet. You can get this information from the Azure portal under your virtual network properties.
+* An Azure Virtual Network.
+* A subnet in that virtual network. We recommend an ASE subnet size of `/24` with 256 addresses to accommodate future growth and scaling needs. After the ASE is created, you can't change the size.
+* When you creating an ASE into preexisting virtual network and subnet, the existing resource group name, virtual network name and subnet name are required.
 * The subscription you want to deploy into.
 * The location you want to deploy into.
 
-To automate your ASE creation:
+To automate your ASE creation, follow they guidelines in the sections below. If you are creating an ILB ASEv2 with custom dnsSuffix (for example, `internal-contoso.com`), there are a few more things to do.
 
-1. Create the ASE from a template. If you create an External ASE, you're finished after this step. If you create an ILB ASE, there are a few more things to do.
+1. After your ILB ASE with custom dnsSuffix is created, an TLS/SSL certificate that matches your ILB ASE domain should be uploaded.
 
-2. After your ILB ASE is created, an TLS/SSL certificate that matches your ILB ASE domain is uploaded.
-
-3. The uploaded TLS/SSL certificate is assigned to the ILB ASE as its "default" TLS/SSL certificate.  This certificate is used for TLS/SSL traffic to apps on the ILB ASE when they use the common root domain that's assigned to the ASE (for example, `https://someapp.mycustomrootdomain.com`).
+2. The uploaded TLS/SSL certificate is assigned to the ILB ASE as its "default" TLS/SSL certificate.  This certificate is used for TLS/SSL traffic to apps on the ILB ASE when they use the common root domain that's assigned to the ASE (for example, `https://someapp.internal-contoso.com`).
 
 
 ## Create the ASE
-A Resource Manager template that creates an ASE and its associated parameters file is available [in an example][quickstartasev2create] on GitHub.
+A Resource Manager template that creates an ASE and its associated parameters file is available on GitHub for [ASEv3][asev3quickstarts] and [ASEv2][quickstartasev2create].
 
-If you want to make an ILB ASE, use these Resource Manager template [examples][quickstartilbasecreate]. They cater to that use case. Most of the parameters in the *azuredeploy.parameters.json* file are common to the creation of ILB ASEs and External ASEs. The following list calls out parameters of special note, or that are unique, when you create an ILB ASE:
-
-* *internalLoadBalancingMode*: In most cases, set this to 3, which means both HTTP/HTTPS traffic on ports 80/443, and the control/data channel ports listened to by the FTP service on the ASE, will be bound to an ILB-allocated virtual network internal address. If this property is set to 2, only the FTP service-related ports (both control and data channels) are bound to an ILB address. The HTTP/HTTPS traffic remains on the public VIP.
+If you want to make an ASE, use these Resource Manager template [ASEv3][asev3quickstarts] or [ASEv2][quickstartilbasecreate] example. They cater to that use case. Most of the parameters in the *azuredeploy.parameters.json* file are common to the creation of ILB ASEs and External ASEs. The following list calls out parameters of special note, or that are unique, when you create an ILB ASE with an existing subnet.
+### ASEv3 parameters
+* *aseName*: Required. This parameter defines an unique ASE name. 
+* *internalLoadBalancingMode*: Required. In most cases, set this to 3, which means both HTTP/HTTPS traffic on ports 80/443. If this property is set to 0, the HTTP/HTTPS traffic remains on the public VIP.
+* *zoneRedundant*: Required. In most cases, set this to false, which means the ASE will not be deployed into Availability Zones(AZ). Zonal ASEs can be deployed in some regions, you can refer to [this][AZ Support for ASEv3].
+* *dedicatedHostCount*: Required. In most cases, set this to 0, which means the ASE will be deployed as normal without dedicated hosts deployed.
+* *useExistingVnetandSubnet*: Required. Set to true if using an existing virtual network and subnet. 
+* *vNetResourceGroupName*: Required if using an existing virtual network and subnet. This parameter defines the resource group name of the existing virtual network and subnet where ASE will reside.
+* *virtualNetworkName*: Required if using an existing virtual network and subnet. This parameter defines the virtual network name of the existing virtual network and subnet where ASE will reside.
+* *subnetName*: Required if using an existing virtual network and subnet. This parameter defines the subnet name of the existing virtual network and subnet where ASE will reside.
+* *createPrivateDNS*: Set to true if you want to create a private DNS zone after ASEv3 created. For an ILB ASE, when set this parameter to true, it will create a private DNS zone as ASE name with *appserviceenvironment.net* DNS suffix. 
+### ASEv2 parameters
+* *aseName*: This parameter defines an unique ASE name.
+* *location*: This parameter defines the location of the App Service Environment.
+* *existingVirtualNetworkName*: This parameter defines the virtual network name of the existing virtual network and subnet where ASE will reside.
+* *existingVirtualNetworkResourceGroup*: his parameter defines the resource group name of the existing virtual network and subnet where ASE will reside.
+* *subnetName*: This parameter defines the subnet name of the existing virtual network and subnet where ASE will reside.
+* *internalLoadBalancingMode*: In most cases, set this to 3, which means both HTTP/HTTPS traffic on ports 80/443, and the control/data channel ports listened to by the FTP service on the ASE, will be bound to an ILB-allocated virtual network internal address. If this property is set to 2, only the FTP service-related ports (both control and data channels) are bound to an ILB address. If this property is set to 0, the HTTP/HTTPS traffic remains on the public VIP.
 * *dnsSuffix*: This parameter defines the default root domain that's assigned to the ASE. In the public variation of Azure App Service, the default root domain for all web apps is *azurewebsites.net*. Because an ILB ASE is internal to a customer's virtual network, it doesn't make sense to use the public service's default root domain. Instead, an ILB ASE should have a default root domain that makes sense for use within a company's internal virtual network. For example, Contoso Corporation might use a default root domain of *internal-contoso.com* for apps that are intended to be resolvable and accessible only within Contoso's virtual network. 
-* *ipSslAddressCount*: This parameter automatically defaults to a value of 0 in the *azuredeploy.json* file because ILB ASEs only have a single ILB address. There are no explicit IP-SSL addresses for an ILB ASE. Hence, the IP-SSL address pool for an ILB ASE must be set to zero. Otherwise, a provisioning error occurs. 
+* *ipSslAddressCount*: This parameter automatically defaults to a value of 0 in the *azuredeploy.json* file because ILB ASEs only have a single ILB address. There are no explicit IP-SSL addresses for an ILB ASE. Hence, the IP-SSL address pool for an ILB ASE must be set to zero. Otherwise, a provisioning error occurs.
 
 After the *azuredeploy.parameters.json* file is filled in, create the ASE by using the PowerShell code snippet. Change the file paths to match the Resource Manager template-file locations on your machine. Remember to supply your own values for the Resource Manager deployment name and the resource group name:
 
@@ -57,7 +71,7 @@ $parameterPath="PATH\azuredeploy.parameters.json"
 New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
-It takes about an hour for the ASE to be created. Then the ASE shows up in the portal in the list of ASEs for the subscription that triggered the deployment.
+It takes about two hours for the ASE to be created. Then the ASE shows up in the portal in the list of ASEs for the subscription that triggered the deployment.
 
 ## Upload and configure the "default" TLS/SSL certificate
 A TLS/SSL certificate must be associated with the ASE as the "default" TLS/SSL certificate that's used to establish TLS connections to apps. If the ASE's default DNS suffix is *internal-contoso.com*, a connection to `https://some-random-app.internal-contoso.com` requires an TLS/SSL certificate that's valid for **.internal-contoso.com*. 
@@ -149,16 +163,6 @@ After the template finishes, apps on the ILB ASE can be accessed over HTTPS. The
 
 However, just like apps that run on the public multitenant service, developers can configure custom host names for individual apps. They also can configure unique SNI TLS/SSL certificate bindings for individual apps.
 
-## App Service Environment v1 ##
-App Service Environment has two versions: ASEv1 and ASEv2. The preceding information was based on ASEv2. This section shows you the differences between ASEv1 and ASEv2.
-
-In ASEv1, you manage all of the resources manually. That includes the front ends, workers, and IP addresses used for IP-based TLS/SSL binding. Before you can scale out your App Service plan, you must scale out the worker pool that you want to host it.
-
-ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each vCPU allocated. That includes vCPUs that are used for front ends or workers that aren't hosting any workloads. In ASEv1, the default maximum-scale size of an ASE is 55 total hosts. That includes workers and front ends. One advantage to ASEv1 is that it can be deployed in a classic virtual network and a Resource Manager virtual network. To learn more about ASEv1, see [App Service Environment v1 introduction][ASEv1Intro].
-
-To create an ASEv1 by using a Resource Manager template, see [Create an ILB ASE v1 with a Resource Manager template][ILBASEv1Template].
-
-
 <!--Links-->
 [quickstartilbasecreate]: https://azure.microsoft.com/resources/templates/web-app-asev2-ilb-create
 [quickstartasev2create]: https://azure.microsoft.com/resources/templates/web-app-asev2-create
@@ -182,6 +186,9 @@ To create an ASEv1 by using a Resource Manager template, see [Create an ILB ASE 
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../../app-service/configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
-[ASEWAF]: app-service-app-service-environment-web-application-firewall.md
+[ASEWAF]: ./integrate-with-application-gateway.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [ILBASEv1Template]: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
+[Create ASEv3]: creation.md
+[asev3quickstarts]: https://azure.microsoft.com/resources/templates/web-app-asp-app-on-asev3-create
+[AZ Support for ASEv3]: zone-redundancy.md

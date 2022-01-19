@@ -6,11 +6,9 @@ documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: inhenkel
@@ -26,7 +24,7 @@ In Azure Media Services, a live event begins billing as soon as its state transi
 When **LiveEventEncodingType** on your [live event](/rest/api/media/liveevents) is set to Standard or Premium1080p, Media Services auto shuts off any live event that is still in the **Running** state 12 hours after the input feed is lost, and there are no **live output**s running. However, you will still be billed for the time the live event was in the **Running** state.
 
 > [!NOTE]
-> Pass-through live events are not automatically shut off and must be explicitly stopped through the API to avoid excessive billing.
+> Pass-through (basic or standard) live events are NOT automatically shut off and must be explicitly stopped through the API to avoid excessive billing.
 
 ## States
 

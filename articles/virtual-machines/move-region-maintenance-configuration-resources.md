@@ -1,16 +1,16 @@
 ---
 title: Move resources associated with a maintenance configuration to another region
 description: Learn how to move resources associated with a VM maintenance configuration to another Azure region
-author: shants123
 ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: shants
 #Customer intent: As an admin responsible for maintenance, I want move resources associated with a Maintenance Control configuration to another Azure region.
 ---
 
 
 # Move resources in a Maintenance Control configuration to another region
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Follow this article to move resources associated with a Maintenance Control configuration to a different Azure region. You might want to move a configuration for a number of reasons. For example, to take advantage of a new region, to deploy features or services available in a specific region, to meet internal policy and governance requirements, or in response to capacity planning.
 

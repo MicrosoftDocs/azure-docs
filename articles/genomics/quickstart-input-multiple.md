@@ -4,9 +4,9 @@ titleSuffix: Microsoft Genomics
 description: This article demonstrates how to submit a workflow to the Microsoft Genomics service if your input file is multiple FASTQ or BAM files from the same sample.
 services: genomics
 ms.service: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlund
-ms.author: grhuynh
+ms.author: vigunase
 ms.topic: conceptual
 ms.date: 02/05/2018
 

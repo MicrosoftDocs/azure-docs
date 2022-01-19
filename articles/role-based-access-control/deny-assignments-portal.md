@@ -4,11 +4,10 @@ description: Learn how to list the users, groups, service principals, and manage
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
@@ -88,14 +87,14 @@ Follow these steps to list additional details about a deny assignment.
 
     | Action type | Description |
     | --- | --- |
-    | **Actions**  | Denied management operations. |
-    | **NotActions** | Management operations excluded from denied management operation. |
-    | **DataActions**  | Denied data operations. |
-    | **NotDataActions** | Data operations excluded from denied data operation. |
+    | **Actions**  | Denied control plane actions. |
+    | **NotActions** | Control plane actions excluded from denied control plane actions. |
+    | **DataActions**  | Denied data plane actions. |
+    | **NotDataActions** | Data plane actions excluded from denied data plane actions. |
 
     For the example shown in the previous screenshot, the following are the effective permissions:
 
-    - All storage operations on the data plane are denied except for compute operations.
+    - All storage actions on the data plane are denied except for compute actions.
 
 1. To see the properties for a deny assignment, click **Properties**.
 

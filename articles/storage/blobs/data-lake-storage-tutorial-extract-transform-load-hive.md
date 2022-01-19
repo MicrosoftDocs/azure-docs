@@ -18,27 +18,27 @@ In this tutorial, you perform an ETL operation: extract, transform, and load dat
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Extract and upload the data to an HDInsight cluster.
-> * Transform the data by using Apache Hive.
-> * Load the data to Azure SQL Database by using Sqoop.
+> - Extract and upload the data to an HDInsight cluster.
+> - Transform the data by using Apache Hive.
+> - Load the data to Azure SQL Database by using Sqoop.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-* **An Azure Data Lake Storage Gen2 storage account that is configured for HDInsight**
+- **An Azure Data Lake Storage Gen2 storage account that is configured for HDInsight**
 
     See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
-* **A Linux-based Hadoop cluster on HDInsight**
+- **A Linux-based Hadoop cluster on HDInsight**
 
     See [Quickstart: Get started with Apache Hadoop and Apache Hive in Azure HDInsight using the Azure portal](../../hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md).
 
-* **Azure SQL Database**: You use Azure SQL Database as a destination data store. If you don't have a database in SQL Database, see [Create a database in Azure SQL Database in the Azure portal](../../azure-sql/database/single-database-create-quickstart.md).
+- **Azure SQL Database**: You use Azure SQL Database as a destination data store. If you don't have a database in SQL Database, see [Create a database in Azure SQL Database in the Azure portal](../../azure-sql/database/single-database-create-quickstart.md).
 
-* **Azure CLI**: If you haven't installed the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+- **Azure CLI**: If you haven't installed the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-* **A Secure Shell (SSH) client**: For more information, see [Connect to HDInsight (Hadoop) by using SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+- **A Secure Shell (SSH) client**: For more information, see [Connect to HDInsight (Hadoop) by using SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Download the flight data
 
@@ -51,7 +51,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
    | Filter Year |2013 |
    | Filter Period |January |
    | Fields |Year, FlightDate, Reporting_Airline, IATA_CODE_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
-   
+
    Clear all other fields.
 
 3. Select **Download**. You get a .zip file with the data fields you selected.
@@ -66,9 +66,9 @@ In this section, you'll upload data to your HDInsight cluster and then copy that
    scp <file-name>.zip <ssh-user-name>@<cluster-name>-ssh.azurehdinsight.net:<file-name.zip>
    ```
 
-   * Replace the `<file-name>` placeholder with the name of the .zip file.
-   * Replace the `<ssh-user-name>` placeholder with the SSH login for the HDInsight cluster.
-   * Replace the `<cluster-name>` placeholder with the name of the HDInsight cluster.
+   - Replace the `<file-name>` placeholder with the name of the .zip file.
+   - Replace the `<ssh-user-name>` placeholder with the SSH login for the HDInsight cluster.
+   - Replace the `<cluster-name>` placeholder with the name of the HDInsight cluster.
 
    If you use a password to authenticate your SSH login, you're prompted for the password.
 
@@ -190,13 +190,13 @@ As part of the Apache Hive job, you import the data from the .csv file into an A
 
 3. Save the file by using use CTRL+X and then type `Y` when prompted.
 
-4. To start Hive and run the **flightdelays.hql** file, use the following command:
+4. To start Hive and run the `flightdelays.hql` file, use the following command:
 
    ```bash
    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
    ```
 
-5. After the __flightdelays.hql__ script finishes running, use the following command to open an interactive Beeline session:
+5. After the `flightdelays.hql` script finishes running, use the following command to open an interactive Beeline session:
 
    ```bash
    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
@@ -245,11 +245,12 @@ You need the server name from SQL Database for this operation. Complete these st
    ```bash
    TDSVER=8.0 tsql -H '<server-name>.database.windows.net' -U '<admin-login>' -p 1433 -D '<database-name>'
     ```
-   * Replace the `<server-name>` placeholder with the logical SQL server name.
 
-   * Replace the `<admin-login>` placeholder with the admin login for SQL Database.
+   - Replace the `<server-name>` placeholder with the logical SQL server name.
 
-   * Replace the `<database-name>` placeholder with the database name
+   - Replace the `<admin-login>` placeholder with the admin login for SQL Database.
+
+   - Replace the `<database-name>` placeholder with the database name
 
    When you're prompted, enter the password for the SQL Database admin login.
 

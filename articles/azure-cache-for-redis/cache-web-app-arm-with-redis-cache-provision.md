@@ -2,12 +2,12 @@
 title: Provision Web App with Azure Cache for Redis
 description: Use Azure Resource Manager template to deploy web app with Azure Cache for Redis.
 services: app-service
-author: yegu-ms
+author: flang-msft
 
 ms.service: app-service
 ms.topic: conceptual
 ms.date: 01/06/2017
-ms.author: yegu 
+ms.author: franlanglois 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -15,23 +15,23 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-In this article, you learn how to create an Azure Resource Manager template that deploys an Azure Web App with Azure Cache for Redis. 
-You learn the following deployment details:
+In this article, you learn how to create an Azure Resource Manager template that deploys an Azure Web App with Azure Cache for Redis. You'll learn the following deployment details:
 
-- how to define which resources are deployed 
-- how to define parameters that are specified when the deployment is executed
+- How to define which resources are deployed
+- How to define parameters that are specified when the deployment is executed
 
 You can use this template for your own deployments, or customize it to meet your requirements.
 
-For more information about creating templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/templates/syntax.md). To learn about the JSON syntax and properties for cache resource types, see [Microsoft.Cache resource types](/azure/templates/microsoft.cache/allversions).
+For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md). To learn about the JSON syntax and properties for cache resource types, see [Microsoft.Cache resource types](/azure/templates/microsoft.cache/allversions).
 
 For the complete template, see [Web App with Azure Cache for Redis template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/web-app-with-redis-cache/azuredeploy.json).
 
 ## What you will deploy
+
 In this template, you deploy:
 
-* Azure Web App
-* Azure Cache for Redis
+- Azure Web App
+- Azure Cache for Redis
 
 To run the deployment automatically, select the following button:
 

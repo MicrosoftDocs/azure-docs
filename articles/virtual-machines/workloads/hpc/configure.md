@@ -13,7 +13,9 @@ ms.reviewer: cynthn
 
 # Configure and optimize VMs
 
-This article shares some guidance on configuring and optimizing the InfiniBand enabled [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs for HPC.
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
+This article shares some guidance on configuring and optimizing the InfiniBand-enabled [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs for HPC.
 
 ## VM images
 On InfiniBand (IB) enabled VMs, the appropriate drivers are required to enable RDMA.
@@ -21,7 +23,7 @@ On InfiniBand (IB) enabled VMs, the appropriate drivers are required to enable R
   - The CentOS-HPC version 7.9 VM image additionally comes pre-configured with the Nvidia GPU drivers. 
 - The [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) in the Marketplace come pre-configured with the appropriate IB drivers and GPU drivers.
 
-These VM images (VMI) are based on the base CentOS and Ubuntu marketplace VM images. Scripts used in the creation of these VM images from their base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
+These VM images are based on the base CentOS and Ubuntu marketplace VM images. Scripts used in the creation of these VM images from their base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
 
 On GPU enabled [N-series](../../sizes-gpu.md) VMs, the appropriate GPU drivers are additionally required. This can be available by the following methods:
 - Use the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and [CentOS-HPC VM image](#centos-hpc-vm-images) version 7.9 which come pre-configured with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
@@ -46,7 +48,7 @@ The VM size support matrix for the GPU drivers in supported HPC VM images is as 
 - [N-series](../../sizes-gpu.md): NDv2, NDv4 VM sizes are supported with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
 - The other 'NC' and 'ND' VM sizes in the [N-series](../../sizes-gpu.md) are supported with the Nvidia GPU drivers.
 
-Also note that all the above VM sizes support "Gen 2" VMs, though some older ones also support "Gen 1" VMs. "Gen 2" support is also indicated with a "01" at the end of the VMI URN or version.
+All of the VM sizes in the N-series support [Gen 2 VMs](../../generation-2.md), though some older ones also support Gen 1 VMs. Gen 2 support is also indicated with a "01" at the end of the image URN or version.
 
 ### CentOS-HPC VM images
 

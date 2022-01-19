@@ -1,11 +1,11 @@
 ---
 title: Getting started content reference
-titleSuffix: Azure SQL Managed Instance 
+titleSuffix: Azure SQL Managed Instance
 description: "A reference for content that helps you get started with Azure SQL Managed Instance. "
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, mode-other
 ms.devlang: 
 ms.topic: quickstart
 author: davidtrigano
@@ -14,6 +14,7 @@ ms.reviewer: vanto, mathoma
 ms.date: 07/11/2019
 ---
 # Getting started with Azure SQL Managed Instance
+
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) creates a database with near 100% compatibility with the latest SQL Server (Enterprise Edition) database engine, providing a native [virtual network (VNet)](../../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for existing SQL Server customers.

@@ -10,10 +10,10 @@ metadata:
    ms.subservice: app-provisioning
    ms.workload: identity
    ms.topic: landing-page
-   ms.date: 02/06/2020
-   author: msmimart
-   ms.author: mimart
-   manager: celested
+   ms.date: 08/12/2021
+   author: kenwith
+   ms.author: kenwith
+   manager: karenhoran
 
 landingContent:
   - title: Provision users and groups to a cloud app
@@ -22,6 +22,8 @@ landingContent:
         links:
           - text: What is application provisioning?
             url: user-provisioning.md
+          - text: What is HR-driven provisioning?
+            url: what-is-hr-driven-provisioning.md  
           - text: How provisioning works
             url: how-provisioning-works.md
       - linkListType: tutorial

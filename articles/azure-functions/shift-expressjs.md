@@ -5,6 +5,7 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: cshoe
+ms.devlang: javascript
 ---
 
 # Shifting from Express.js to Azure Functions

@@ -9,6 +9,7 @@ ms.date: 09/25/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -64,6 +65,7 @@ public static async Task SetBlobPropertiesAsync(CloudBlob blob)
     }
 }
 ```
+
 ---
 
 The following code example gets a blob's system properties and displays some of the values.
@@ -105,6 +107,7 @@ private static async Task GetBlobPropertiesAsync(CloudBlob blob)
     }
 }
 ```
+
 ---
 
 ## Set and retrieve metadata
@@ -158,6 +161,7 @@ public static async Task AddBlobMetadataAsync(CloudBlob blob)
     }
 }
 ```
+
 ---
 
 The following code example reads the metadata on a blob.
@@ -200,6 +204,7 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
     }
 }
 ```
+
 ---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]

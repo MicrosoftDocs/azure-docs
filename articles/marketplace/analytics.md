@@ -6,6 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: rajap
 ms.author: rajap
+ms.reviewer: sroy
 ms.date: 06/01/2021
 ---
 

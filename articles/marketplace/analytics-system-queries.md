@@ -4,9 +4,10 @@ description: Learn about system queries you can use to programmatically get anal
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
-ms.date: 3/08/2021
+ms.date: 12/03/2021
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ---
 
 # List of system queries
@@ -36,11 +37,19 @@ The following sections provide report queries for various reports.
 
 **Report description**: Orders report for the last 6M
 
-**QueryID**:  `fd0f299c-5a1c-4929-9f48-bfc6cc44355d`
+**QueryID**: `fd0f299c-5a1c-4929-9f48-bfc6cc44355d`
 
 **Report query**:
 
 `SELECT MarketplaceSubscriptionId,MonthStartDate,OfferType,AzureLicenseType,MarketplaceLicenseType,Sku,CustomerCountry,IsPreviewSKU,OrderId,OrderQuantity,CloudInstanceName,IsNewCustomer,OrderStatus,OrderCancelDate,CustomerCompanyName,CustomerName,OrderPurchaseDate,OfferName,TrialEndDate,CustomerId,BillingAccountId FROM ISVOrder TIMESPAN LAST_6_MONTHS`
+
+**Report description**: OrdersV2 report for the last 6M
+
+**QueryID**: `bd1b0cc1-ce45-4578-beba-6fe5a69fd421`
+
+**Report query**:
+
+`SELECT MarketplaceSubscriptionId,MonthStartDate,OfferType,AzureLicenseType,MarketplaceLicenseType,Sku,CustomerCountry,IsPreviewSKU,OrderId,OrderQuantity,CloudInstanceName,IsNewCustomer,OrderStatus,OrderCancelDate,CustomerCompanyName,CustomerName,OrderPurchaseDate,OfferName,TrialEndDate,CustomerId,BillingAccountId,TermStartDate,TermEndDate,PurchaseRecordId,PurchaseRecordLineItemId,HasTrial,IsTrialDeployment,estimatedcharges FROM ISVOrderV2 TIMESPAN LAST_6_MONTHS`
 
 ## Usage report queries
 
@@ -77,6 +86,16 @@ The following sections provide report queries for various reports.
 **Report query**:
 
 `Date,OfferName,ReferralDomain,CountryName,PageVisits,GetItNow,ContactMe,TestDrive,FreeTrial FROM ISVMarketplaceInsights TIMESPAN LAST_6_MONTHS`
+
+## Revenue report query
+
+**Report description**: Revenue report for the last 6M
+
+**QueryID**: `6fd7624b-aa9f-42df-a61d-67d42fd00e92`
+
+**Report query**:
+
+`SELECT AssetId,SalesChannel,BillingAccountId,CustomerCity,CustomerCompanyName,CustomerCountry,CustomerEmail,CustomerId,CustomerName,CustomerState,EarningAmountCC,EarningAmountPC,EarningAmountUSD,EarningCurrencyCode,EarningExchangeRatePC,EstimatedPayoutMonth,Revenue,EstimatedRevenuePC,EstimatedRevenueUSD,ExchangeRateDate,ExchangeRatePC,ExchangeRateUSD,PayoutStatus,IncentiveRate,TrialDeployment,LineItemId,MonthStartDate,OfferName,OfferType,PaymentInstrumentType,PaymentSentDate,PurchaseRecordId,Quantity,SKU,TermEndDate,TermStartDate,TransactionAmountCC,TransactionAmountPC,TransactionAmountUSD,BillingModel,Units FROM ISVRevenue TIMESPAN LAST_6_MONTHS`
 
 ## Next steps
 

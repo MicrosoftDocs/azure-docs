@@ -3,6 +3,7 @@ title: Copy data from Azure Blob Storage to Azure SQL Database
 description: 'This tutorial provides step-by-step instructions for copying  data from Azure Blob Storage to Azure SQL Database.'
 author: jianleishen
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 02/18/2021
 ms.author: jianleishen
@@ -38,7 +39,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ### Create a blob and a SQL table
 
-Now, prepare your Azure Blob and Azure SQL Database for the tutorial by creating a source blog and a sink SQL table.
+Now, prepare your Azure Blob and Azure SQL Database for the tutorial by creating a source blob and a sink SQL table.
 
 #### Create a source blob
 

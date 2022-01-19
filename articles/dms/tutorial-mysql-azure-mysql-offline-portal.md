@@ -21,8 +21,6 @@ You can use Azure Database Migration Service to perform a one-time full database
 > [!IMPORTANT]
 > For online migrations, you can use open-source tools such as [MyDumper/MyLoader](https://centminmod.com/mydumper.html) with [data-in replication](../mysql/concepts-data-in-replication.md). 
 
-[!INCLUDE [preview features callout](../../includes/dms-boilerplate-preview.md)]
-
 > [!NOTE]
 > For a PowerShell-based scriptable version of this migration experience, see [scriptable offline migration to Azure Database for MySQL](./migrate-mysql-to-azure-mysql-powershell.md).
 
@@ -71,6 +69,24 @@ To complete this tutorial, you need to:
 * Azure Database for MySQL supports only InnoDB tables. To convert MyISAM tables to InnoDB, see the article [Converting Tables from MyISAM to InnoDB](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html)
 * The user must have the privileges to read data on the source database.
 
+## Sizing the target Azure Database for MySQL instance
+
+To prepare the target Azure Database for MySQL server for faster data loads using the Azure Database Migration Service, the following server parameters and configuration changes are recommended. 
+
+* max_allowed_packet – set to 1073741824 (i.e. 1GB) to prevent any connection issues due to large rows. 
+* slow_query_log – set to OFF to turn off the slow query log. This will eliminate the overhead caused by slow query logging during data loads.
+* query_store_capture_mode – set to NONE to turn off the Query Store. This will eliminate the overhead caused by sampling activities by Query Store.
+* innodb_buffer_pool_size – Innodb_buffer_pool_size can only be increased by scaling up compute for Azure Database for MySQL server. Scale up the server to 64 vCore General Purpose SKU from the Pricing tier of the portal during migration to increase the innodb_buffer_pool_size. 
+* innodb_io_capacity & innodb_io_capacity_max - Change to 9000 from the Server parameters in Azure portal to improve the IO utilization to optimize for migration speed.
+* innodb_write_io_threads & innodb_write_io_threads - Change to 4 from the Server parameters in Azure portal to improve the speed of migration.
+* Scale up Storage tier – The IOPs for Azure Database for MySQL server increases progressively with the increase in storage tier. 
+	* In the Single Server deployment option, for faster loads, we recommend increasing the storage tier to increase the IOPs provisioned. 
+	* In the Flexible Server deployment option, we recommend you can scale (increase or decrease) IOPS irrespective of the storage size. 
+	* Note that storage size can only be scaled up, not down.
+
+Once the migration is complete, you can revert back the server parameters and configuration to values required by your workload. 
+
+
 ## Migrate database schema
 
 To transfer all the database objects like table schemas, indexes and stored procedures, we need to extract schema from the source database and apply to the target database. To extract schema, you can use mysqldump with the `--no-data` parameter. For this you need a machine which can connect to both the source MySQL database and the target Azure Database for MySQL.
@@ -99,33 +115,7 @@ For example:
 mysql.exe -h mysqlsstrgt.mysql.database.azure.com -u docadmin@mysqlsstrgt -p migtestdb < d:\migtestdb.sql
  ```
 
-If you have foreign keys in your schema, the parallel data load during migration will be handled by the migration task. There is no need to drop foreign keys during schema migration.
-
-If you have triggers in the database, it will enforce data integrity in the target ahead of full data migration from the source. The recommendation is to disable triggers on all the tables in the target during migration, and then enable the triggers after migration is done.
-
-Execute the following script in MySQL Workbench on the target database to extract the drop trigger script and add trigger script.
-
-```sql
-SELECT
-	SchemaName,
-    GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery,
-    Concat('DELIMITER $$ \n\n', GROUP_CONCAT(AddQuery SEPARATOR '$$\n'), '$$\n\nDELIMITER ;') as AddQuery
-FROM
-(
-SELECT 
-	TRIGGER_SCHEMA as SchemaName,
-	Concat('DROP TRIGGER `', TRIGGER_NAME, "`") as DropQuery,
-    Concat('CREATE TRIGGER `', TRIGGER_NAME, '` ', ACTION_TIMING, ' ', EVENT_MANIPULATION, 
-			'\nON `', EVENT_OBJECT_TABLE, '`\n' , 'FOR EACH ', ACTION_ORIENTATION, ' ',
-            ACTION_STATEMENT) as AddQuery
-FROM  
-	INFORMATION_SCHEMA.TRIGGERS
-ORDER BY EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, ACTION_TIMING, EVENT_MANIPULATION, ACTION_ORDER ASC
-) AS Queries
-GROUP BY SchemaName
-```
-
-Run the generated drop trigger query (DropQuery column) in the result to drop triggers in the target database. The add trigger query can be saved, to be used post data migration completion.
+If you have foreign keys or triggers in your schema, the parallel data load during migration will be handled by the migration task. There is no need to drop foreign keys or triggers during schema migration.
 
 [!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
@@ -171,7 +161,7 @@ After the service is created, locate it within the Azure portal, open it, and th
     
     ![Create a new migration project](media/tutorial-mysql-to-azure-mysql-offline-portal/08-02-dms-portal-new-project.png)
 
-3. On the **New migration project** screen, specify a name for the project, in the **Source server type** selection box, select **MySQL**, in the **Target server type** selection box, select **Azure Database For MySQL** and in the **Migration activity type** selection box, select **Data migration \[preview\]**. Select **Create and run activity**.
+3. On the **New migration project** screen, specify a name for the project, in the **Source server type** selection box, select **MySQL**, in the **Target server type** selection box, select **Azure Database For MySQL** and in the **Migration activity type** selection box, select **Data migration**. Select **Create and run activity**.
 
     ![Create Database Migration Service Project](media/tutorial-mysql-to-azure-mysql-offline-portal/09-dms-portal-project-mysql-create.png)
 

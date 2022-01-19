@@ -65,7 +65,7 @@ Notice that each record in the blob has a **client_id** column matching the fold
 
 4. When an input stream consists of records with a partition key cardinality under 8000, the records will be appended to existing blobs and only create new blobs when necessary. If the cardinality is over 8000 there is no guarantee existing blobs will be written to and new blobs won't be created for an arbitrary number of records with the same partition key.
 
-5. If the blob output is [configured as immutable](../storage/blobs/storage-blob-immutable-storage.md), Stream Analytics will create a new blob each time data is sent.
+5. If the blob output is [configured as immutable](../storage/blobs/immutable-storage-overview.md), Stream Analytics will create a new blob each time data is sent.
 
 ## Custom DateTime path patterns
 

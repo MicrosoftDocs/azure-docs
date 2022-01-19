@@ -21,11 +21,7 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 - Multi-model capabilities - [Graph processing](/sql/relational-databases/graphs/sql-graph-overview), [JSON data](/sql/relational-databases/json/json-data-sql-server), [OPENXML](/sql/t-sql/functions/openxml-transact-sql), [Spatial](/sql/relational-databases/spatial/spatial-data-sql-server), [OPENJSON](/sql/t-sql/functions/openjson-transact-sql), and [XML indexes](/sql/t-sql/statements/create-xml-index-transact-sql).
 
 
-
-
-## Features of Azure Arc-enabled SQL Managed Instance
-
-###  <a name="RDBMSHA"></a> RDBMS High Availability  
+## <a name="RDBMSHA"></a> RDBMS High Availability  
   
 |Feature|Azure Arc-enabled SQL Managed Instance|
 |-------------|----------------|
@@ -50,7 +46,7 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 
 <sup>1</sup> In the scenario where there is a pod failure, a new SQL Managed Instance will start up and re-attach to the persistent volume containing your data. [Learn more about Kubernetes persistent volumes here](https://kubernetes.io/docs/concepts/storage/persistent-volumes).
 
-###  <a name="RDBMSSP"></a> RDBMS Scalability and Performance  
+## <a name="RDBMSSP"></a> RDBMS Scalability and Performance  
 
 | Feature | Azure Arc-enabled SQL Managed Instance |
 |--|--|
@@ -72,7 +68,7 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 | Interleaved Execution for Multi-Statement Table Valued Functions | Yes |
 | Bulk insert improvements | Yes |
 
-###  <a name="RDBMSS"></a> RDBMS Security
+## <a name="RDBMSS"></a> RDBMS Security
 
 | Feature | Azure Arc-enabled SQL Managed Instance |
 |--|--|
@@ -86,8 +82,11 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 | User-defined roles | Yes |
 | Contained databases | Yes |
 | Encryption for backups | Yes |
+| SQL Server Authentication | Yes |
+| Azure Active Directory Authentication | No |
+| Windows Authentication | No |
 
-###  <a name="RDBMSM"></a> RDBMS Manageability  
+## <a name="RDBMSM"></a> RDBMS Manageability  
 
 | Feature | Azure Arc-enabled SQL Managed Instance |
 |--|--|

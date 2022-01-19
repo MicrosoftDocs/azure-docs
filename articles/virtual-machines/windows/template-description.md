@@ -12,6 +12,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Virtual machines in an Azure Resource Manager template
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 This article describes aspects of an Azure Resource Manager template that apply to virtual machines. This article doesn't describe a complete template for creating a virtual machine; for that you need resource definitions for storage accounts, network interfaces, public IP addresses, and virtual networks. For more information about how these resources can be defined together, see the [Resource Manager template walkthrough](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 

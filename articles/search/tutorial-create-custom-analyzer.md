@@ -2,7 +2,7 @@
 title: 'Tutorial: create a custom analyzer'
 titleSuffix: Azure Cognitive Search
 description: Learn how to build a custom analyzer to improve the quality of search results in Azure Cognitive Search.
-manager: luisca
+
 author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search

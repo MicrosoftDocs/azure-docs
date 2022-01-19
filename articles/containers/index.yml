@@ -6,6 +6,7 @@ metadata:
    title: Microsoft Azure container services documentation | Microsoft Docs
    description: Learn how to use Azure container services to manage and develop cloud-based container applications.
    ms.topic: hub-page
+   ms.service: azure
 
 highlightedContent:
   items:

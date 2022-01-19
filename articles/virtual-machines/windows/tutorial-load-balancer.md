@@ -14,6 +14,8 @@ ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Tutorial: Load balance Windows virtual machines in Azure to create a highly available application with Azure PowerShell
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+
 Load balancing provides a higher level of availability by spreading incoming requests across multiple virtual machines. In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. You learn how to:
 
 > [!div class="checklist"]

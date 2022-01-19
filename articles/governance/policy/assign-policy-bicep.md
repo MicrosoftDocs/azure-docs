@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with Bicep (Preview) file"
 description: In this quickstart, you use a Bicep (Preview) file to create a policy assignment to identify non-compliant resources.
-ms.date: 05/20/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom: subject-bicepqs
 ---
@@ -40,7 +40,7 @@ Create the following Bicep file as `assignment.bicep`:
 param policyAssignmentName string = 'audit-vm-manageddisks'
 param policyDefinitionID string = '/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d'
 
-resource assignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
+resource assignment 'Microsoft.Authorization/policyAssignments@2021-09-01' = {
     name: policyAssignmentName
     scope: subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)
     properties: {
@@ -83,7 +83,7 @@ az deployment group create \
 
 ---
 
-Some additional resources:
+Some other resources:
 
 - To find more samples templates, see
   [Azure Quickstart Template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).

@@ -71,19 +71,6 @@ If you need help with the language and tools used to develop and manage Azure Co
 | Ansible | https://github.com/Azure/Ansible/issues | 
 
 
-
-## Submit feature requests on Azure Feedback
-
-<div class='icon is-large'>
-    <img alt='UserVoice' src='./media/logos/azure-feedback-logo.png'>
-</div>
-
-To request new features, post them on Azure Feedback. Share your ideas for improving Azure Container Instances.
-
-| Service                       | Azure Feedback URL |
-|-------------------------------|---------------|
-| Azure Container Instances  | https://feedback.azure.com/forums/602224-azure-container-instances 
-
 ## Stay informed of updates and new releases
 
 <div class='icon is-large'>

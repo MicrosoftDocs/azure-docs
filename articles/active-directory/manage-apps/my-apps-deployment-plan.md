@@ -1,6 +1,7 @@
 ---
-title: Plan Azure Active Directory My Apps configuration
+title: Plan My Apps configuration
 description: Planning guide to effectively use My Apps in your organization.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -8,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/25/2021
+ms.date: 09/02/2021
 ms.author: davidmu
 ms.reviewer: lenalepa
 ---
@@ -18,7 +19,7 @@ ms.reviewer: lenalepa
 > [!NOTE]
 > This article is designed for IT professionals who need to plan the configuration of their organization’s My Apps portal.
 >
-> **For end user documentation, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md)**.
+> **For end user documentation, see [Sign in and start apps from the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)**.
 
 Azure Active Directory (Azure AD) My Apps is a web-based portal for launching and managing apps. The My Apps page gives users a single place to start their work and find all the applications to which they have access. Users access My Apps at [https://myapps.microsoft.com](https://myapps.microsoft.com/).
 
@@ -31,7 +32,6 @@ The My Apps portal is available to users by default and cannot be turned off. It
 Any application in the Azure Active Directory enterprise applications list appears when both of the following conditions are met:
 
 * The visibility property for the app is set to true.
-
 * The app is assigned to any user or group. It appears for assigned users.
 
 Configuring the portal ensures that the right people can easily find the right apps.
@@ -41,27 +41,18 @@ Configuring the portal ensures that the right people can easily find the right a
 Users access the My Apps portal to:
 
 * Discover and access all their organization’s Azure AD-connected applications to which they have access.
-
    * It’s best to ensure apps are configured for single sign-on (SSO) to provide users the best experience.
-
 * Request access to new apps that are configured for self-service.
-
 * Create personal collections of apps.
-
 * Manage access to apps for others when assigned the role of group owner or delegated control for the group used to grant access to the application(s).
 
 Administrators can configure:
 
 * [Consent experiences](../manage-apps/configure-user-consent.md)  including terms of service.
-
 * [Self-service application discovery and access requests](../manage-apps/access-panel-manage-self-service-access.md).
-
 * [Collections of applications](../manage-apps/access-panel-collections.md).
-
 * Assignment of icons to applications
-
 * User-friendly names for applications
-
 * Company branding shown on My Apps
 
 ## Plan consent configuration
@@ -97,7 +88,6 @@ It's best if SSO is enabled for all apps in the My Apps portal so that users hav
 Azure AD supports multiple SSO options.
 
 * To learn more, see [Single sign-on options in Azure AD](sso-options.md).
-
 * To learn more about using Azure AD as an identity provider for an app, see the [Quickstart Series on Application Management](../manage-apps/view-applications-portal.md).
 
 ### Use federated SSO if possible
@@ -115,12 +105,11 @@ To sign in to password-based SSO applications, or to applications that are acces
 
 ![Screenshot of](./media/my-apps-deployment-plan/ap-dp-install-myapps.png)
 
-For detailed information on the extension, see [Installing My Apps browser extension](../user-help/my-apps-portal-end-user-access.md).
+For detailed information on the extension, see [Installing My Apps browser extension](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-If you must integrate these applications, you should define a mechanism to deploy the extension at scale with [supported browsers](../user-help/my-apps-portal-end-user-access.md). Options include:
+If you must integrate these applications, you should define a mechanism to deploy the extension at scale with [supported browsers](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510). Options include:
 
 * [User-driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](../user-help/my-apps-portal-end-user-access.md)
-
 * [Configuration Manager for Internet Explorer](/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 
 The extension allows users to launch any app from its search bar, finding access to recently used applications, and having a link to the My Apps page.
@@ -146,7 +135,6 @@ Every Azure AD application to which a user has access will appear on My Apps in 
 End users can also customize their experience by
 
 * Creating their own app collections.
-
 * [Hiding and reordering app collections](access-panel-collections.md).
 
 ![Screenshot of self-service configuration](./media/my-apps-deployment-plan/collections.png)
@@ -169,9 +157,7 @@ See [Set up self-service group management in Azure Active Directory](../enterpri
 You can enable users to discover and request access to applications via the My Apps panel. To do so, you must first
 
 * enable self-service group management
-
 * enable app for SSO
-
 * create a group for application access
 
 ![Screen shot of My Apps self service configuration](./media/my-apps-deployment-plan/my-apps-self-service.png)
@@ -180,7 +166,7 @@ When users request access, they're requesting access to the underlying group, an
 
 ## Plan reporting and auditing
 
-Azure AD provides [reports that offer technical and business insights]../reports-monitoring/overview-reports.md). Work with your business and technical application owners to assume ownership of these reports and to consume them regularly. The following table provides some examples of typical reporting scenarios.
+Azure AD provides [reports that offer technical and business insights](../reports-monitoring/overview-reports.md). Work with your business and technical application owners to assume ownership of these reports and to consume them regularly. The following table provides some examples of typical reporting scenarios.
 
 | Example| Manage risk| Increase productivity| Governance and compliance |
 | - | - | - | -|

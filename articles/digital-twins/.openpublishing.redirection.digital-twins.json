@@ -108,6 +108,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "how-to-set-up-instance-scripted.md",
+      "redirect_url": "https://github.com/Azure-Samples/digital-twins-samples/tree/master/scripts",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "how-to-configure-postman.md",
       "redirect_url": "/azure/digital-twins/how-to-use-postman",
       "redirect_document_id": true
@@ -115,6 +120,11 @@
     {
       "source_path": "about-digital-twins.md",
       "redirect_url": "/azure/digital-twins/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "how-to-create-azure-function.md",
+      "redirect_url": "/azure/digital-twins/how-to-send-twin-to-twin-events",
       "redirect_document_id": true
     },
     {

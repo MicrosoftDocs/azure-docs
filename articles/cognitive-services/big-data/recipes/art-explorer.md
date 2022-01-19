@@ -6,10 +6,11 @@ services: cognitive-services
 author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: computer-vision
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 01/10/2022
 ms.author: marhamil
+ms.devlang: python
 ms.custom: devx-track-python
 ---
 

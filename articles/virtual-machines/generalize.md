@@ -14,7 +14,7 @@ ms.custom: portal
 
 # Remove machine specific information by generalizing a VM before creating an image
 
-Generalizing a VM is not necessary for creating an image in a [Shared Image Gallery](shared-image-galleries.md#generalized-and-specialized-images) unless you specifically want to create a generalized image. Generalizing is required when creating a managed image outside of a gallery.
+Generalizing a VM is not necessary for creating an image in an [Azure Compute Gallery](shared-image-galleries.md#generalized-and-specialized-images) unless you specifically want to create a generalized image. Generalizing is required when creating a managed image outside of a gallery.
 
 Generalizing removes machine specific information so the image can be used to create multiple VMs. Once the VM has been generalized, you need to let the platform know that the VM has been generalized so that the boot sequence can be set correctly. Once a VM is generalized, it should not be restarted.
 

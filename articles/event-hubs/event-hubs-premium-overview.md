@@ -1,21 +1,19 @@
 ---
-title: Overview of Event Hubs Premium (Preview)
-description: This article provides an overview of Azure Event Hubs Premium, which offers multi-tenant deployments of Event Hubs for high-end streaming needs.   
+title: Overview of Event Hubs Premium
+description: This article provides an overview of Azure Event Hubs Premium, which offers multi-tenant deployments of Event Hubs for high-end streaming needs.
 ms.topic: article
-ms.date: 5/25/2021
+ms.date: 10/20/2021
+ms.custom: ignite-fall-2021
 ---
 
-# Overview of Event Hubs Premium (Preview)
+# Overview of Event Hubs Premium
 
 The Event Hubs Premium tier is designed for high-end streaming scenarios that require elastic, superior performance with predictable latency. The performance is achieved by providing reserved compute, memory, and storage resources, which minimize cross-tenant interference in a managed multi-tenant PaaS environment. 
 
-Event Hubs Premium Preview introduces a new, two-tier, native-code log engine that provides far more predictable and much lower send and passthrough latencies than the prior generation, without any durability compromises. Event Hubs Premium replicates every event to three replicas, distributed across Azure availability zones where available, and all replicas are synchronously flushed to the underlying fast storage before the send operation is reported as completed. Events that are not read immediately or that need to be re-read later can be retained up to 90 days, transparently held in an availability-zone redundant storage tier. Events in both the fast storage and retention storage tiers are encrypted; in Event Hubs Premium, the encryption keys can be supplied by you. 
+Event Hubs Premium introduces a new, two-tier, native-code log engine that provides far more predictable and much lower send and passthrough latencies than the prior generation, without any durability compromises. Event Hubs Premium replicates every event to three replicas, distributed across Azure availability zones where available, and all replicas are synchronously flushed to the underlying fast storage before the send operation is reported as completed. Events that are not read immediately or that need to be re-read later can be retained up to 90 days, transparently held in an availability-zone redundant storage tier. Events in both the fast storage and retention storage tiers are encrypted; in Event Hubs Premium, the encryption keys can be supplied by you. 
 
 In addition to these storage-related features and all capabilities and protocol support of the Event Hubs Standard offering, the isolation model of Event Hubs Premium enables new features like dynamic partition scale-up and yet-to-be-added future capabilities. You also get far more generous quota allocations. Event Hubs Capture is included at no extra cost.
 
-> [!IMPORTANT]
-> Event Hubs Premium is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
- 
 The Premium offering is billed by [Processing Units (PUs)](event-hubs-scalability.md#processing-units) which correspond to a share of isolated resources (CPU, Memory, and Storage) in the underlying infrastructure. 
 
 In comparison to Dedicated offering, since Event Hubs Premium provides isolation inside a very large multi-tenant environment that can shift resources quickly, it can scale far more elastically and quicker and PUs can be dynamically adjusted. Therefore, Event Hubs Premium will often be a more cost effective option for mid-range (<120MB/sec) throughput requirements, especially with changing loads throughout the day or week, when compared to Event Hubs Dedicated. 
@@ -67,5 +65,4 @@ For more quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas
 
 ## Next steps
 
-You can start using Event Hubs Premium (Preview) via [Azure portal](https://portal.azure.com/#create/Microsoft.EventHub). Refer [Event Hubs Premium pricing](https://azure.microsoft.com/pricing/details/event-hubs/) for more details on pricing and  [Event Hubs FAQ](event-hubs-faq.yml) to find answers to some frequently asked questions about Event Hubs. 
-
+You can start using Event Hubs Premium via [Azure portal](https://portal.azure.com/#create/Microsoft.EventHub). Refer [Event Hubs Premium pricing](https://azure.microsoft.com/pricing/details/event-hubs/) for more details on pricing and  [Event Hubs FAQ](event-hubs-faq.yml) to find answers to some frequently asked questions about Event Hubs. 

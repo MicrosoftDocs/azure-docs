@@ -27,7 +27,7 @@ The Azure Database for PostgreSQL server is created with the 3 default roles def
 Your server admin user is a member of the azure_pg_admin role. However, the server admin account is not part of the azure_superuser role. Since this service is a managed PaaS service, only Microsoft is part of the super user role.
 
 The PostgreSQL engine uses privileges to control access to database objects, as discussed in the [PostgreSQL product documentation](https://www.postgresql.org/docs/current/static/sql-createrole.html). In Azure Database for PostgreSQL, the server admin user is granted these privileges:
-  LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, NOREPLICATION
+  LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, REPLICATION
 
 The server admin user account can be used to create additional users and grant those users into the azure_pg_admin role. Also, the server admin account can be used to create less privileged users and roles that have access to individual databases and schemas.
 
@@ -71,6 +71,14 @@ The server admin user account can be used to create additional users and grant t
    ```sql
    GRANT ALL PRIVILEGES ON DATABASE <newdb> TO <db_user>;
    ```
+
+   If a user creates a table "role," the table belongs to that user. If another user needs access to the table, you must grant privileges to the other user on the table level.
+
+   For example: 
+
+    ```sql
+    GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO <db_user>;
+    ```
 
 5. Log in to your server, specifying the designated database, using the new user name and password. This example shows the psql command line. With this command, you are prompted for the password for the user name. Replace your own server name, database name, and user name.
 

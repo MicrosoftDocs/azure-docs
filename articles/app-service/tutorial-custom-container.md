@@ -2,7 +2,7 @@
 title: 'Tutorial: Build and run a custom image in Azure App Service'
 description: A step-by-step guide to build a custom Linux or Windows image, push the image to Azure Container Registry, and then deploy that image to Azure App Service. Learn how to migrate custom software to App Service in a custom container.
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 08/04/2021
 ms.author: msangapu
 keywords: azure app service, web app, linux, windows, docker, container
 ms.custom: "devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli"
@@ -223,12 +223,12 @@ Completing this tutorial incurs a small charge in your Azure account for the con
 
 ## Set up your initial environment
 
+This tutorial requires version 2.0.80 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Install [Docker](https://docs.docker.com/get-started/#setup), which you use to build Docker images. Installing Docker may require a computer restart.
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-- This tutorial requires version 2.0.80 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+  - Install [Docker](https://docs.docker.com/get-started/#setup), which you use to build Docker images. Installing Docker may require a computer restart.
 
-After installing Docker or running Azure Cloud Shell, open a terminal window and verify that docker is installed:
+After installing Docker, open a terminal window and verify that docker is installed:
 
 ```bash
 docker --version
@@ -369,7 +369,7 @@ In this section, you push the image to Azure Container Registry from which App S
 1. Once the login succeeds, tag your local Docker image for the registry:
 
     ```bash
-   docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
+    docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
     ```    
 
 1. Use the `docker push` command to push the image to the registry:
@@ -465,7 +465,7 @@ To deploy a container to Azure App Service, you first create a web app on App Se
     >
     > ```azurecli-interactive
     > clientId=$(az identity show --resource-group <group-name> --name <identity-name> --query clientId --output tsv)
-    > az resource update --ids /subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<registry-name>/config/web --set properties.AcrUserManagedIdentityID=$clientId
+    > az resource update --ids /subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app-name>/config/web --set properties.AcrUserManagedIdentityID=$clientId
     > ```
 
 ## Deploy the image and test the app
@@ -525,7 +525,7 @@ Your App Service app now can pull the container image securely from your private
     az webapp deployment container config --enable-cd true --name <app-name> --resource-group myResourceGroup --query CI_CD_URL --output tsv
     ```
 
-    `CI_CD_URL` is a URL that App Service generates for you. Your registry should this URL to notify App Service that an image push occurred. It doesn't actually create the webhook for you.
+    `CI_CD_URL` is a URL that App Service generates for you. Your registry should use this URL to notify App Service that an image push occurred. It doesn't actually create the webhook for you.
 
 1. Create a webhook in your container registry using the CI_CD_URL you got from the last step.
 
@@ -571,7 +571,7 @@ In this section, you make a change to the web app code, rebuild the image, and t
     docker build --tag appsvc-tutorial-custom-image .
     ```
 
-1. Update the version number in the image's tag to v1.0.1:
+1. Update the image's tag to latest:
 
     ```bash
     docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
@@ -606,6 +606,7 @@ RUN apt-get update \
 
 > [!NOTE]
 > This configuration doesn't allow external connections to the container. SSH is available only through the Kudu/SCM Site. The Kudu/SCM site is authenticated with your Azure account.
+> root:Docker! should not be altered SSH. SCM/KUDU will use your Azure Portal credentials. Changing this value will result in an error when using SSH.
 
 The *Dockerfile* also copies the *sshd_config* file to the */etc/ssh/* folder and exposes port 2222 on the container:
 

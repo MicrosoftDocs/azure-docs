@@ -1,26 +1,26 @@
 ---
 title: Azure Stack Edge Pro GPU storage account management | Microsoft Docs 
-description: Describes how to use the Azure portal to manage storage account on your Azure Stack Edge Pro.
+description: Describes how to use the Azure portal to manage storage account on your Azure Stack Edge Pro GPU.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/12/2021
+ms.date: 08/13/2021
 ms.author: alkohli
 ---
-# Use the Azure portal to manage Edge storage accounts on your Azure Stack Edge Pro
+# Use the Azure portal to manage Edge storage accounts on your Azure Stack Edge Pro GPU
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to manage Edge storage accounts on your Azure Stack Edge Pro. You can manage the Azure Stack Edge Pro via the Azure portal or via the local web UI. Use the Azure portal to add or delete Edge storage accounts on your device.
+This article describes how to manage Edge storage accounts on your Azure Stack Edge Pro. You can manage the Azure Stack Edge Pro GPU via the Azure portal or via the local web UI. Use the Azure portal to add or delete Edge storage accounts on your device.
 
 ## About Edge storage accounts
 
-You can transfer data from your Azure Stack Edge Pro device via the SMB, NFS, or REST protocols. To transfer data to Blob storage using the REST APIs, you need to create Edge storage accounts on your Azure Stack Edge Pro. 
+You can transfer data from your Azure Stack Edge Pro GPU device via the SMB, NFS, or REST protocols. To transfer data to Blob storage using the REST APIs, you need to create Edge storage accounts on your device. 
 
-The Edge storage accounts that you add on the Azure Stack Edge Pro device are mapped to Azure Storage accounts. Any data written to the Edge storage accounts is automatically pushed to the cloud.
+The Edge storage accounts that you add on the Azure Stack Edge Pro GPU device are mapped to Azure Storage accounts. Any data written to the Edge storage accounts is automatically pushed to the cloud.
 
 A diagram detailing the two types of accounts and how the data flows from each of these accounts to Azure is shown below:
 
@@ -78,9 +78,13 @@ You can now select a container from this list and select **+ Delete container** 
 
 ## Sync storage keys
 
-You can synchronize the access keys for the Edge (local) storage accounts on your device. 
+Each Azure Storage account has two 512-bit storage access keys that are used for authentication when the storage account is accessed. One of these two keys must be supplied when your Azure Stack Edge device accesses your cloud storage service provider (in this case, Azure).
 
-To sync the storage account access key, take the following steps:
+An Azure administrator can regenerate or change the access key by directly accessing the storage account (via the Azure Storage service). The Azure Stack Edge service and the device do not see this change automatically.
+ 
+To inform Azure Stack Edge of the change, you will need to access the Azure Stack Edge service, access the storage account, and then synchronize the access key. The service then gets the latest key, encrypts the keys, and sends the encrypted key to the device. When the device gets the new key, it can continue to transfer data to the Azure Storage account. 
+ 
+To provide the new keys to the device, access the Azure portal and synchronize storage access keys. Take the following steps: 
 
 1. In your resource, select the storage account that you want to manage. From the top command bar, select **Sync storage key**.
 

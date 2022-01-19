@@ -10,7 +10,7 @@ ms.date: 07/26/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.collection: M365-identity-device-management
 
@@ -57,6 +57,9 @@ Depending on the size of the CSV file, it may take a few minutes to process. Sel
 Once any errors have been addressed, the administrator then can activate each key by selecting **Activate** for the token and entering the OTP displayed on the token. You can activate a maximum of 200 OATH tokens every 5 minutes. 
 
 Users may have a combination of up to five OATH hardware tokens or authenticator applications, such as the Microsoft Authenticator app, configured for use at any time. Hardware OATH tokens cannot be assigned to guest users in the resource tenant.
+
+>[!IMPORTANT]
+>The preview is not supported in Azure Government or sovereign clouds.
 
 ## Next steps
 

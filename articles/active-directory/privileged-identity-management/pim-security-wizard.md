@@ -4,15 +4,16 @@ description: Discovery and insights (formerly Security Wizard) help you convert 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/03/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ---

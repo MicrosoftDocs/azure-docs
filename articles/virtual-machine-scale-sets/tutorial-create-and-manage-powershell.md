@@ -12,6 +12,8 @@ ms.custom: mimckitt, devx-track-azurepowershell
 ---
 # Tutorial: Create and manage a virtual machine scale set with Azure PowerShell
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -140,7 +142,7 @@ Once logged in to the VM instance, you could perform some manual configuration c
 
 
 ## Understand VM instance images
-The Azure marketplace includes many images that can be used to create VM instances. To see a list of available publishers, use the [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) command.
+Azure marketplace includes many images that can be used to create VM instances. To see a list of available publishers, use the [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) command.
 
 ```azurepowershell-interactive
 Get-AzVMImagePublisher -Location "EastUS"

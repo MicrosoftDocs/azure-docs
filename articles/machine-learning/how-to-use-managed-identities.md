@@ -6,10 +6,10 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.topic: how-to
-ms.date: 10/13/2021
+ms.date: 10/21/2021
 ---
 
 # Use Managed identities with Azure Machine Learning
@@ -71,7 +71,7 @@ If you do not bring your own ACR, Azure Machine Learning service will create one
     az ml workspace show -n <my workspace> -g <my resource group>
     ```
 
-1. Perform an action that requires ACR. For example, the [tutorial on training a model](tutorial-train-models-with-aml.md).
+1. Perform an action that requires ACR. For example, the [tutorial on training a model](tutorial-train-deploy-notebook.md).
 
 1. Get the ACR name created by the cluster:
 
@@ -247,7 +247,7 @@ ws = Workspace.create(name="workspace name",
     primary_user_assigned_identity="managed identity ARM ID")
 ```
 
-You can also use [an ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced) to create a workspace with user-assigned managed identity.
+You can also use [an ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/) to create a workspace with user-assigned managed identity.
 
 > [!IMPORTANT]
 > If you bring your own associated resources, instead of having Azure Machine Learning service create them, you must grant the managed identity roles on those resources. Use the [role assignment ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) to make the assignments.

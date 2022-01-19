@@ -8,10 +8,12 @@ ms.collection: linux
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: kegorman
-
+ms.custom: mode-other
 ---
 
 # Create an Oracle Database in an Azure VM
+
+**Applies to:** :heavy_check_mark: Linux VMs 
 
 This guide details using the Azure CLI to deploy an Azure virtual machine from the [Oracle marketplace gallery image](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) in order to create an Oracle 19c database. Once the server is deployed, you will connect via SSH in order to configure the Oracle database. 
 

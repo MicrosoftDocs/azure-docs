@@ -1,0 +1,56 @@
+### YamlMime:Landing
+
+title: Service Connector documentation
+summary: Service Connector is an Azure-managed service that helps developers easily connect compute service to target backing services.
+
+metadata:
+  title: Service Connector documentation
+  description: Connect your Azure compute service to backing services easily with Service Connector.
+  ms.service: service-connector
+  ms.topic: landing-page
+  author: shizn
+  ms.author: xshi
+  ms.date: 10/29/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Service Connector
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Service Connector?
+            url: overview.md
+          - text: Key concepts in Service Connector
+            url: concept-service-connector-internals.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create new service connection in App Service
+            url: quickstart-portal-app-service-connection.md 
+          - text: Create new service connection in Spring Cloud
+            url: quickstart-portal-spring-cloud-connection.md
+  - title: Common tasks
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Python (Django) app with PostgreSQL
+            url: tutorial-django-webapp-postgres-cli.md
+          - text: Spring Cloud app with MySQL
+            url: tutorial-java-spring-mysql.md
+          - text: ASP.NET app with Blob Storage
+            url: tutorial-csharp-webapp-storage-cli.md
+          - text: Spring Cloud app with Kafka on Confluent Cloud
+            url: tutorial-java-spring-confluent-kafka.md
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshooting guide
+            url: how-to-troubleshoot-front-end-error.md
+          - text: Region support
+            url: concept-region-support.md

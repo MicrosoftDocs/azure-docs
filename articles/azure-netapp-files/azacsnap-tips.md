@@ -11,7 +11,6 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 08/04/2021
 ms.author: phjensen
@@ -189,10 +188,10 @@ In some cases, customers already have tools to protect SAP HANA and only want to
     > In this example, this host is part of a 3 node Scale-Out system and all 3 boot volumes can be seen from this host.  This means all 3 boot volumes can be snapshot from this host, and all 3 should be added to the configuration file in the next step.
 
 1. Create a new configuration file as follows. The boot volume details must be in the OtherVolume stanza:
-    ```output
+    ```bash
     azacsnap -c configure --configuration new --configfile BootVolume.json
     ```
-    ```bash
+    ```output
     Building new config file
     Add comment to config file (blank entry to exit adding comments): Boot only config file.
     Add comment to config file (blank entry to exit adding comments):

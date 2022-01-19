@@ -99,14 +99,21 @@ Kubernetes supports [horizontal pod autoscaling][kubernetes-hpa] to adjust the n
 > kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
 > ```
 
-To use the autoscaler, all containers in your pods and your pods must have CPU requests and limits defined. In the `azure-vote-front` deployment, the front-end container already requests 0.25 CPU, with a limit of 0.5 CPU. These resource requests and limits are defined as shown in the following example snippet:
+To use the autoscaler, all containers in your pods and your pods must have CPU requests and limits defined. In the `azure-vote-front` deployment, the front-end container already requests 0.25 CPU, with a limit of 0.5 CPU.
+
+These resource requests and limits are defined for each container as shown in the following example snippet:
 
 ```yaml
-resources:
-  requests:
-     cpu: 250m
-  limits:
-     cpu: 500m
+  containers:
+  - name: azure-vote-front
+    image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
+    ports:
+    - containerPort: 80
+    resources:
+      requests:
+        cpu: 250m
+      limits:
+        cpu: 500m
 ```
 
 The following example uses the [kubectl autoscale][kubectl-autoscale] command to autoscale the number of pods in the *azure-vote-front* deployment. If average CPU utilization across all pods exceeds 50% of their requested usage, the autoscaler increases the pods up to a maximum of *10* instances. A minimum of *3* instances is then defined for the deployment:

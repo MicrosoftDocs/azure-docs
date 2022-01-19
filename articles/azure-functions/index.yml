@@ -40,10 +40,8 @@ landingContent:
             url: functions-get-started.md
       - linkListType: quickstart
         links:
-          - text: C# (.NET Core 3.1)
+          - text: C#
             url: create-first-function-vs-code-csharp.md
-          - text: C# (.NET 5.0)
-            url: dotnet-isolated-process-developer-howtos.md
           - text: Java (Maven)
             url: create-first-function-cli-java.md
           - text: JavaScript
