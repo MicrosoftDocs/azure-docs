@@ -2,11 +2,11 @@
 title: Enable ingress-to-app Transport Layer Security
 titleSuffix: Azure Spring Cloud
 description: How to enable ingress-to-app Transport Layer Security for an application.
-author: karlerickson
-ms.author: karler
+author: WenhaoZhang-MS
+ms.author: wenhaozhang
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 01/19/2022
 ms.custom: devx-track-java
 ---
 # Overview
@@ -21,7 +21,7 @@ Here we would explain the secure communication model in Azure spring cloud in de
 
 1. Client request either from mobile or Browser or other clients to azure spring cloud apps would first come into the ingress controller. By default, the request could be either http or https and the tls certificate returned by ingress controller is issued by Microsoft Azure TLS issuing CA.
    
-   If the app has been mapped to a existing custom domain and is configured as https only, the request to the ingress controller could only be https and the tls certificate returned by ingress controller is the ssl binding certificate for that custom domain. The server side SSL/TLS verfication for custom domain is accomplished in ingress controller.
+   If the app has been mapped to an existing custom domain and is configured as https only, the request to the ingress controller could only be https and the tls certificate returned by ingress controller is the ssl binding certificate for that custom domain. The server side SSL/TLS verification for custom domain is accomplished in ingress controller.
 
 2.  The secure communication between ingress controller and azure spring cloud applications is controlled by ingress-to-app TLS. This could be controlled by customers through portal or cli, and we would explain the way to enable it in this article later. If ingress-to-app TLS is disabled, the communication between ingress controller and azure spring cloud apps is http and it would be https if the ingress-to-app TLS is enabled. This has no relation to the communication way from clients to ingress controller and the ingress controller would not verify the certificate returned from azure spring cloud apps because the ingress-to-app TLS is just meant to encrypt the communication as not to be visible to anyone including Microsoft.
 
