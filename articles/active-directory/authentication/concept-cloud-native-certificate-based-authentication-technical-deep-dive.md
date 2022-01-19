@@ -185,7 +185,7 @@ You will see several entries in the sign-in logs.
 
 :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/test-mfa.png" alt-text="Screenshot of details in the sign-in logs.":::  
 
-The entry with **Interrupted** status provides diagnostic info in the **Additional Details** tab.
+The entry with **Interrupted** status has diagnostic info in the **Additional Details** tab.
 
 :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/interrupted.png" alt-text="Screenshot of interrupted attempt details in the sign-in logs.":::  
 
