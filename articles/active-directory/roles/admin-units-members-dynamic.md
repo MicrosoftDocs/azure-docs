@@ -202,6 +202,8 @@ Follow these steps to change an administrative unit with dynamic membership rule
 
 1. In the **Membership type** list, select **Assigned**.
 
+    ![Screenshot of an administrative unit Properties page with Membership type list displayed and Assigned selected.](./media/admin-units-members-dynamic/admin-unit-properties.png)
+
 1. Select **Save** to save the membership type.
 
     The following message is displayed:
