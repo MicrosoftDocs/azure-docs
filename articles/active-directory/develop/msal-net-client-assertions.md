@@ -74,33 +74,40 @@ sub | {ClientID} | The "sub" (subject) claim identifies the subject of the JWT, 
 Here is an example of how to craft these claims:
 
 ```csharp
-private static IDictionary<string, string> GetClaims()
+using System.Collections.Generic;
+private static IDictionary<string, object> GetClaims(string tenantId, string clientId)
 {
-      //aud = https://login.microsoftonline.com/ + Tenant ID + /v2.0
-      string aud = $"https://login.microsoftonline.com/{tenantId}/v2.0";
+    //aud = https://login.microsoftonline.com/ + Tenant ID + /v2.0
+    string aud = $"https://login.microsoftonline.com/{tenantId}/v2.0";
 
-      string ConfidentialClientID = "00000000-0000-0000-0000-000000000000" //client id
-      const uint JwtToAadLifetimeInSeconds = 60 * 10; // Ten minutes
-      DateTime validFrom = DateTime.UtcNow;
-      var nbf = ConvertToTimeT(validFrom);
-      var exp = ConvertToTimeT(validFrom + TimeSpan.FromSeconds(JwtToAadLifetimeInSeconds));
+    string ConfidentialClientID = clientId; //client id 00000000-0000-0000-0000-000000000000
+    const uint JwtToAadLifetimeInSeconds = 60 * 10; // Ten minutes
+    DateTimeOffset now = DateTimeOffset.UtcNow;
+    DateTimeOffset validFrom = now.AddSeconds(-15); // Clock skew
+    DateTimeOffset validUntil = now.AddSeconds(JwtToAadLifetimeInSeconds);
 
-      return new Dictionary<string, string>()
-           {
-                { "aud", aud },
-                { "exp", exp.ToString() },
-                { "iss", ConfidentialClientID },
-                { "jti", Guid.NewGuid().ToString() },
-                { "nbf", nbf.ToString() },
-                { "sub", ConfidentialClientID }
-            };
+    return new Dictionary<string, object>()
+    {
+        { "aud", aud },
+        { "exp", validUntil.ToUnixTimeSeconds() },
+        { "iss", ConfidentialClientID },
+        { "jti", Guid.NewGuid().ToString() },
+        { "nbf", validFrom.ToUnixTimeSeconds() },
+        { "sub", ConfidentialClientID }
+    };
 }
 ```
 
 Here is how to craft a signed client assertion:
 
 ```csharp
-string Encode(byte[] arg)
+using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.Json;
+...
+static string Encode(byte[] arg)
 {
     char Base64PadCharacter = '=';
     char Base64Character62 = '+';
@@ -116,30 +123,30 @@ string Encode(byte[] arg)
     return s;
 }
 
-string GetSignedClientAssertion()
+static string GetSignedClientAssertion(string tenantId, string clientId)
 {
-    //Signing with SHA-256
-    string rsaSha256Signature = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256";
-     X509Certificate2 certificate = new X509Certificate2("Certificate.pfx", "Password", X509KeyStorageFlags.EphemeralKeySet);
+    // It's not recommended to hardcode a password or a file location. Get the X509Certificate2 from somewhere save.
+    X509Certificate2 certificate = new X509Certificate2("Certificate.pfx", "Password", X509KeyStorageFlags.EphemeralKeySet);
 
-    //Create RSACryptoServiceProvider
-    var x509Key = new X509AsymmetricSecurityKey(certificate);
-    var privateKeyXmlParams = certificate.PrivateKey.ToXmlString(true);
-    var rsa = new RSACryptoServiceProvider();
-    rsa.FromXmlString(privateKeyXmlParams);
+    // Get the RSA with the private key, used for signing.
+    var rsa = certificate.GetRSAPrivateKey();
 
     //alg represents the desired signing algorithm, which is SHA-256 in this case
     //kid represents the certificate thumbprint
     var header = new Dictionary<string, string>()
-         {
-              { "alg", "RS256"},
-              { "kid", Encode(certificate.GetCertHash()) }
-         };
+    {
+        { "alg", "RS256"},
+        { "kid", Encode(certificate.GetCertHash()) }
+    };
 
     //Please see the previous code snippet on how to craft claims for the GetClaims() method
-    string token = Encode(Encoding.UTF8.GetBytes(JObject.FromObject(header).ToString())) + "." + Encode(Encoding.UTF8.GetBytes(JObject.FromObject(GetClaims()).ToString()));
+    var claims = GetClaims(tenantId, clientId);
 
-    string signature = Encode(rsa.SignData(Encoding.UTF8.GetBytes(token), new SHA256Cng()));
+    var headerBytes = JsonSerializer.SerializeToUtf8Bytes(header);
+    var claimsBytes = JsonSerializer.SerializeToUtf8Bytes(claims);
+    string token = Encode(headerBytes) + "." + Encode(claimsBytes);
+
+    string signature = Encode(rsa.SignData(Encoding.UTF8.GetBytes(token), HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1));
     string signedClientAssertion = string.Concat(token, ".", signature);
     return signedClientAssertion;
 }
