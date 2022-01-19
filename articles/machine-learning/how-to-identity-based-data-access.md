@@ -8,24 +8,27 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 10/21/2021
+ms.date: 01/18/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
-# Customer intent: As an experienced Python developer, I need to make my data in Azure Storage available to my compute to train my machine learning models.
+# Customer intent: As an experienced Python developer, I need to make my data in Azure Storage available to my compute for training my machine learning models.
 ---
 
 # Connect to storage by using identity-based data access
 
 In this article, you learn how to connect to storage services on Azure by using identity-based data access and Azure Machine Learning datastores via the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).  
 
-Typically, datastores use credential-based data access to confirm you have permission to access the storage service. They keep connection information, like your subscription ID and token authorization, in the [key vault](https://azure.microsoft.com/services/key-vault/) that's associated with the workspace. When you create a datastore that uses identity-based data access, your Azure account ([Azure Active Directory token](../active-directory/fundamentals/active-directory-whatis.md)) is used to confirm you have permission to access the storage service. In this scenario, no authentication credentials are saved. Only the storage account information is stored in the datastore. 
+Typically, datastores use **credential-based authentication** to confirm you have permission to access the storage service. They keep connection information, like your subscription ID and token authorization, in the [key vault](https://azure.microsoft.com/services/key-vault/) that's associated with the workspace. When you create a datastore that uses **identity-based data access**, your Azure account ([Azure Active Directory token](../active-directory/fundamentals/active-directory-whatis.md)) is used to confirm you have permission to access the storage service. In the **identity-based data access** scenario, no authentication credentials are saved. Only the storage account information is stored in the datastore. 
+ 
+To create datastores with **identity-based** data access via the Azure Machine Learning studio UI, see [Connect to data with the Azure Machine Learning studio](how-to-connect-data-ui.md#create-datastores).
 
-To create datastores that use credential-based authentication, like access keys or service principals, see [Connect to storage services on Azure](how-to-access-data.md).
+To create datastores that use **credential-based** authentication, like access keys or service principals, see [Connect to storage services on Azure](how-to-access-data.md).
 
 ## Identity-based data access in Azure Machine Learning
 
 There are two scenarios in which you can apply identity-based data access in Azure Machine Learning. These scenarios are a good fit for identity-based access when you're working with confidential data and need more granular data access management:
-> [!IMPORTANT]
+
+> [!WARNING]
 > Identity-based data access is not supported for [automated ML experiments](how-to-configure-auto-train.md).
 
 - Accessing storage services
@@ -49,8 +52,7 @@ The same behavior applies when you:
 
 ### Model training on private data
 
-Certain machine learning scenarios involve training models with private data. In such cases, data scientists need to run training workflows without being exposed to the confidential input data. In this scenario, a managed identity of the training compute is used for data access authentication. This approach allows storage admins to grant Storage Blob Data Reader access to the managed identity that the training compute uses to run the training job. The individual data scientists don't need to be granted access. For more information, see [Set up managed identity on a compute cluster](how-to-create-attach-compute-cluster.md#managed-identity).
-
+Certain machine learning scenarios involve training models with private data. In such cases, data scientists need to run training workflows without being exposed to the confidential input data. In this scenario, a [managed identity](how-to-use-managed-identities.md) of the training compute is used for data access authentication. This approach allows storage admins to grant Storage Blob Data Reader access to the managed identity that the training compute uses to run the training job. The individual data scientists don't need to be granted access. For more information, see [Set up managed identity on a compute cluster](how-to-create-attach-compute-cluster.md#managed-identity).
 
 ## Prerequisites
 
@@ -72,7 +74,7 @@ Certain machine learning scenarios involve training models with private data. In
 
 To help ensure that you securely connect to your storage service on Azure, Azure Machine Learning requires that you have permission to access the corresponding data storage.
 
-Identity-based data access supports connections to only the following storage services:
+Identity-based data access supports connections to **only** the following storage services.
 
 * Azure Blob Storage
 * Azure Data Lake Storage Gen1
