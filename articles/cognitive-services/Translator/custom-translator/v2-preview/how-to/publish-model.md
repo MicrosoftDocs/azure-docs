@@ -15,7 +15,7 @@ ms.topic: conceptual
 > [!IMPORTANT]
 > Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
 
-Publishing your model makes it available for use with the Translator API. A project might have one or many successfully trained models. You can only publish one model per project; however, you can publish  a model to one or multiple regions depending on your needs. You will incur `$10 monthly hosting charge per region`. *See* [Translator pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator/#pricing).
+Publishing your model makes it available for use with the Translator API. A project might have one or many successfully trained models. You can only publish one model per project; however, you can publish  a model to one or multiple regions depending on your needs. For more information, see [Translator pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator/#pricing).
 
 ## Publish your trained model
 

@@ -175,7 +175,7 @@ Once your training has completed successfully, inspect the test set translated s
 
 ## Publish your model
 
-Publishing your model makes it available for use with the Translator API. A project might have one or many successfully trained models. You can only publish one model per project; however, you can publish a model to one or multiple regions depending on your needs. You will incur `$10 monthly hosting charge per region`. *See* [Translator pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator/#pricing).
+Publishing your model makes it available for use with the Translator API. A project might have one or many successfully trained models. You can only publish one model per project; however, you can publish a model to one or multiple regions depending on your needs. For more information, see [Translator pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator/#pricing).
 
 1. Select the **Publish model** blade.
 
