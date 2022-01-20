@@ -116,9 +116,9 @@ Do you want to enforce any of the following access controls on cloud apps?
 This doesn’t prevent the app to have separate authorization to block access. For example, consider a policy where: 
   *IF user is in finance team, THEN force MFA to access their payroll app.
 
-  *IF a user not in finance team attempts to access the payroll app, the user will be issued an access token. 
+  * IF a user not in finance team attempts to access the payroll app, the user will be issued an access token. 
 
-  *To ensure users outside of finance group cannot access the payroll app, a separate policy should be created to block all other users. If all users except for finance team and emergency access accounts group, accessing payroll app, then block access.
+  * To ensure users outside of finance group cannot access the payroll app, a separate policy should be created to block all other users. If all users except for finance team and emergency access accounts group, accessing payroll app, then block access.
 
 ## Follow best practices
 
@@ -193,7 +193,7 @@ In addition to your active policies, implement disabled policies that act as sec
 
 The following name indicates that this policy is the first of four policies to enable if there's an MFA disruption:
 
-*EM01 - ENABLE IN EMERGENCY: MFA Disruption [1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users.
+* EM01 - ENABLE IN EMERGENCY: MFA Disruption [1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users.
 
 ### Block countries from which you never expect a sign-in.
 
