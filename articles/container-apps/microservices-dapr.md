@@ -322,9 +322,9 @@ Using the properties you sourced from the steps above, create a config file name
   # should be securely stored. For more information, see
   # https://docs.dapr.io/operations/components/component-secrets
   - name: accountName
-    value: <YOUR_STORAGE_ACCOUNT_NAME>
+    secretRef: storageaccountnamesecret
   - name: accountKey
-    value: <YOUR_STORAGE_ACCOUNT_KEY>
+    secretRef: storageaccountkeysecret
   - name: containerName
     value: <YOUR_STORAGE_CONTAINER_NAME>
 ```
@@ -333,8 +333,6 @@ To use this file, make sure to replace the placeholder values between the `<>` b
 
 > [!NOTE]
 > Container Apps does not currently support the native [Dapr components schema](https://docs.dapr.io/operations/components/component-schema/). The above example uses the supported schema.
->
-> In a production-grade application, follow [secret management](https://docs.dapr.io/operations/components/component-secrets) instructions to securely manage your secrets.
 
 
 ## Deploy the service application (HTTP web server)
@@ -356,6 +354,7 @@ az containerapp create \
   --enable-dapr \
   --dapr-app-port 3000 \
   --dapr-app-id nodeapp \
+  --secrets 'storageaccountnamesecret="<YOUR_STORAGE_ACCOUNT_NAME>",storageaccountkeysecret="<YOUR_STORAGE_ACCOUNT_KEY>"' \
   --dapr-components ./components.yaml
 ```
 
@@ -374,6 +373,7 @@ az containerapp create `
   --enable-dapr `
   --dapr-app-port 3000 `
   --dapr-app-id nodeapp `
+  --secrets 'storageaccountnamesecret="<YOUR_STORAGE_ACCOUNT_NAME>",storageaccountkeysecret="<YOUR_STORAGE_ACCOUNT_KEY>"' \
   --dapr-components ./components.yaml
 ```
 
