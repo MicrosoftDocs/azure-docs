@@ -278,7 +278,7 @@ When you tap into an anchor, either created (green) or located (blue) a request 
 Here is how the complete `AzureSpatialAnchorsScript` class file should look like, after all the different elements have been put together. You can use it as a reference to compare against your own file, and spot if you may have any differences left.
 
 > [!NOTE]
-> You'll notice that we have included `[RequireComponent(typeof(SpatialAnchorManager))]` to the script, so Unity will make sure it has the SpatialAnchorManager script on the same GameObject.
+> You'll notice that we have included `[RequireComponent(typeof(SpatialAnchorManager))]` to the script. With this, Unity will make sure that the GameObject where we attach `AzureSpatialAnchorsScript` to, also has the `SpatialAnchorManager` attached to it.
 
 [!INCLUDE [AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md)]
 
