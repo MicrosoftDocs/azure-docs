@@ -10,7 +10,7 @@ ms.date: 01/13/2022
 ---
 
 # Configure Basic Logs in Azure Monitor (Preview)
-[Basic Logs](basic-logs.md) is a feature of Azure Monitor that reduces the cost for high-value verbose logs that don’t require analytics and alerts. This articles describes how to configure basic logs for a particular table in your Log Analytics workspace.
+[Basic Logs](basic-logs-overview.md) is a feature of Azure Monitor that reduces the cost for high-value verbose logs that don’t require analytics and alerts. This articles describes how to configure basic logs for a particular table in your Log Analytics workspace.
 
 > [!IMPORTANT]
 > Switching between plans is limited to once a week.

@@ -13,19 +13,22 @@ ms.date: 10/31/2021
 # Azure Monitor Basic Logs (Preview)
 Basic Logs is a feature of Azure Monitor that reduces the cost for high-value verbose logs that don’t require analytics and alerts. Tables in a Log Analytics workspace that are configured as Basic logs have a reduced cost for ingestion with limitations on log queries and other Azure Monitor features. 
 
+
+[Logs plans overview](media/basic-logs-overview/logs-plans-overview.png)
+
 ## Difference from standard logs
-Basic logs have the following differences from standard logs.
+Specific differences between Basic Logs table and Standard Logs tables are listed in the following table.
 
 | Category | Description |
 |:---|:---|
-| Ingestion | Basic logs have a reduced cost for ingestion. |
-| Log queries | Log queries with basic logs have a cost and support a subset of the query language. Log queries with standard logs have no cost and support the full query language. |
-| Retention |  Basic logs are retained for 8 days. Standard log retention can be configured. |
-| Alerts | Basic logs cannot be used with alert rules. |
+| Ingestion | Ingestion for data in Basic Logs tables has a reduced cost for ingestion. |
+| Log queries | Log queries using Basic Logs tables have a cost and support a subset of the query language. Log queries with Standard Logs tables have no cost and support the full query language. |
+| Retention |  Retention for Basic Logs is always 8 days. Retention for Standard Logs tables can be configured. |
+| Alerts | Log query alert rules cannot use Basic Logs tables. |
 
 
 ## Tables supporting basic logs
-You configure particular tables your Log Analytics workspace to use Basic Logs. This does not affect other tables in the workspace. Not all tables can be configured for basic logs since other Azure Monitor features may rely on these tables.
+You configure particular tables your Log Analytics workspace to use Basic Logs. This does not affect other tables in the workspace. Not all tables can be configured for Basic Logs since other Azure Monitor features may rely on these tables.
 
 The following tables can currently be configured as basic logs.
 

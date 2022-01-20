@@ -1,5 +1,5 @@
 ---
-title: Custom log ingestion in Azure Monitor
+title: Direct log ingestion API in Azure Monitor
 description: Sending log data to Azure Monitor using custom logs API.
 ms.topic: conceptual
 author: bwren

@@ -1,11 +1,11 @@
 ---
 title: Log Analytics workspace overview
-description: Learn the basics of Azure Monitor Logs, which is used for advanced analysis of monitoring data.
-documentationcenter: ''
+description: Overview of Log Analytics workspace which store data for Azure Monitor Logs.
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 10/22/2020
+author: bwren
 ms.author: bwren
+ms.date: 01/19/2022
 ---
 
 # Log Analytics workspace overview
@@ -29,15 +29,15 @@ To create a new workspace, see [Create a Log Analytics workspace in the Azure po
 ## Permissions
 
 
-## Types of log data
+## Log data plans
 By default, all data in a workspace is available to all features of Azure Monitor and any other services that use the workspace. You can configure certain data in the workspace as a different log type to optimize your cost in exchange for reduced features. The following table gives a brief summary of the different types. Follow the links for each for complete details.
 
 
 | Type | Description |
 |:---|:---|
 | Standard  | Standard log data collected in a workspace. Available for all features of Azure Monitor and other services. |
-| [Basic](basic-logs.md) | Configure one or more tables in the workspace as Basic Logs. All data ingested by that table has a reduced ingestion cost. Retention time is set at 8 days, and there is a cost for log queries. Intended for high-value verbose logs that don’t require analytics and alerts. |
-| [Archived](archive-logs.md) | Configure data in a any table to be archived after it reaches its retention time. Archived dfata is stored for an extended period at a reduced cost.  |
+| [Basic](basic-logs-overview.md) | Configure one or more tables in the workspace as Basic Logs. All data ingested by that table has a reduced ingestion cost. Retention time is set at 8 days, and there is a cost for log queries. Intended for high-value verbose logs that don’t require analytics and alerts. |
+| [Archived](archive-logs-overview.md) | Configure data in a any table to be archived after it reaches its retention time. Archived dfata is stored for an extended period at a reduced cost.  |
 
 
 ## Data retention

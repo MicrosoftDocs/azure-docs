@@ -1,6 +1,6 @@
 ---
-title: Custom log ingestion in Azure Monitor
-description: Sending log data to Azure Monitor using custom logs API.
+title: Create data collection rule in Azure Monitor
+description: Details on how to create a data collection rule in Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -8,7 +8,7 @@ ms.date: 01/06/2022
 
 ---
 
-# Custom log ingestion in Azure Monitor
+# Create data collection rule in Azure Monitor
 
 ## Components of a data collection rule
 Data collection rules include the following components.

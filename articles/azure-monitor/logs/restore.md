@@ -1,16 +1,14 @@
 ---
-title: Azure Monitor Basic Logs
-description: Use Azure Monitor Basic Logs to quickly, or periodically investigate issues, troubleshoot code or configuration problems or address support cases.
-author: MeirMen, adiBiran
-ms.author: meirm, adbiran
-ms.reviewer: osalzberg
-ms.subservice: logs
+title: Restore archived logs in Azure Monitor (preview) 
+description: Restore a specific time range of archived data in a Log Analytics workspace.
+author: bwren
+ms.author: bwren
 ms.topic: conceptual
-ms.date: 10/31/2021
+ms.date: 01/19/2022
 
 ---
 
-# Restore in Azure Monitor (preview)
+# Restore archived logs in Azure Monitor (preview)
 Restore makes a specific time range of an Archived orBasic Logs table available as analytics logs and allocates additional compute resources to handle their processing. This allows you to use 
 
 

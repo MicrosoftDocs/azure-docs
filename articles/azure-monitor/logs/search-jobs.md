@@ -1,17 +1,15 @@
 ---
-title: Azure Monitor Basic Logs
-description: Use Azure Monitor Basic Logs to quickly, or periodically investigate issues, troubleshoot code or configuration problems or address support cases.
-author: MeirMen, adiBiran
-ms.author: meirm, adbiran
-ms.reviewer: osalzberg
-ms.subservice: logs
+title: Search jobs in Azure Monitor (preview)
+description: Search jobs are asynchronous log queries in Azure Monitor that make results available as a table for further analytics.
+author: bwren
+ms.author: bwren
 ms.topic: conceptual
-ms.date: 10/31/2021
+ms.date: 01/19/2022
 
 ---
 
 # Search jobs in Azure Monitor (preview)
-Search jobs are asynchronous log queries in Azure Monitor that make results available as a table for further analytics. Use search jobs with [Archived Logs](archived-logs.md) and [Basic logs](basic-logs.md) when you need to query specific records.
+Search jobs are asynchronous log queries in Azure Monitor that make results available as a table for further analytics. Use search jobs with [Archived Logs](archived-logs-overview.md) and [Basic Logs](basic-logs-overview.md) when you need to query specific records.
 
 ## Basic operation
 Once a search job is executing, a custom log table is created in the same workspace to contain the results. It is a standard log table that is available for analytics or any other use. Search job results table is created with workspace default retention value. The admin can later set the table's retention values, or delete it, as any other table.
@@ -21,7 +19,10 @@ During the job execution, when results are found they are ingested into the resu
 Search job results table is created as analytics table with workspace default retention value. The admin can later set the table's retention values, as any other analytics table.
 
 ## Charges
-Search jobs charged by the amount of data they scan. For more details on billing, see **TODO:** add link to billing page.
+Search jobs charged by the amount of data they scan. 
+
+> [!NOTE]
+> There is no charge for search jobs during the public preview.
 
 ## Limits
 
