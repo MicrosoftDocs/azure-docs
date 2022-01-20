@@ -60,7 +60,7 @@ If the user is a federated user moving to Azure AD and if the user binding confi
 
 **AADSTS130501 - Users sign in fails with "Sign in was blocked due to User Credential Policy"**
 
-This error happens when the target user is not in scope for the Certificate-based authentication. Make sure the user is listed in the **target** attribute of Certificate-based authentication.
+This error happens when the target user is not in scope for the Certificate-based authentication. Make sure the user is listed in the **target** attribute of CBA.
 
 Link to Getting started configuring enable CBA (step 4)
 
