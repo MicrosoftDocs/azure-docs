@@ -22,7 +22,7 @@ This document covers most of the frequently asked questions about Infrastructure
   4. Platform Maintainence - Maintainence work scheduled on the virtual machines or set of virtual machines on a virtual machine scale set.
 
 ### How do I enable Infrastructure Service on my cluster? 
-Infrastructure Service is enabled by default in a Service Fabric Cluster if the nodetype is of Silver durability and above. To migrate existing Bronze node type to Silver durabilty, follow steps mentioned [here](service-fabric-cluster-capacity.md#changing-durability-levels)
+Infrastructure Service is enabled by default in a Service Fabric Cluster if the nodetype is of Silver durability and above. To migrate existing Bronze node type to Silver durability, follow steps mentioned [here](service-fabric-cluster-capacity.md#changing-durability-levels)
 
 ### What is the minimum requirement of instance count for Tenant/Platform updates to be safe? 
 Minimum of five instances of the virtual machine scale set is required for the Tenant/Platform updates to be performed safely. However, having five instances does not guarantee the operation would proceed, the hosted application/services may put more restriction thus increasing the minimum required count. For a virtual machine scale set spanning zones, at-least five instances are required in each zone for the operations to be safe.
@@ -37,7 +37,7 @@ Updates on the virtual machine scale sets can be stuck for longer duration becau
 If the Tenant update jobs are stuck in Preparing state for long, it could mean Service fabric is unable to replace existing replicas on the nodes to be updated and place them somewhere else. Mostly, it occurs if there is insufficient capacity, seed node removal etc. that can lead to repair task being blocked. Check the corresponding Repair Task associated with the Tenant Update to find out reasons regarding the stuck Tenant Update.
 
 ### The Platform/Tenant update is in executing state for quite a while, and thus blocking my updates. What do I do? 
-Platform/Tenant updates once acknowledged and by Service fabric are performed by the underlying compute. Service Fabric waits for acknowledgement from Compute platforms when updates have been succesfully applied. If the updates are in excuting state for long times, customers should reach out to Compute teams to figure out why Platform update is not making progress.
+Platform/Tenant updates once acknowledged and by Service fabric are performed by the underlying compute. Service Fabric waits for acknowledgment from Compute platforms when updates have been successfully applied. If the updates are in executing state for long times, customers should reach out to Compute teams to figure out why Platform update is not making progress.
 
 ### How do I ensure all updates in my cluster are safe? 
 All Tenant update operations in a Service fabric clusters are carried out if and only if the operations are deemed to be safe by Service Fabric. They are blocked in case Service Fabric cannot ensure if the operations are safe. Customer does not need to worry about if the operation is safe or not. However it is highly advised to perform operations only after understanding its impact, otherwise the updates would remain blocked and other operations on virtual machine scale set would be affected.
