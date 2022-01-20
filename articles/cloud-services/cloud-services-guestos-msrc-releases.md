@@ -11,12 +11,65 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/18/2022
+ms.date: 1/19/2022
 ms.author: gunnarc
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+>[!NOTE] 
+
+>The January Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the January Guest OS. This list is subject to change. 
+
+## January 2022 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 22-01 |  [5009557]  |  Latest Cumulative Update(LCU) | 6.39 | Jan 11, 2022 |
+|  Rel 22-01 |  [5006671]  |  IE Cumulative Updates | 2.118, 3.105, 4.98 | Oct 12, 2021 |
+|  Rel 22-01 |  [5009555]  |  Latest Cumulative Update(LCU) | 7.7 | Jan 11, 2022 |
+|  Rel 22-01 |  [5009546]  |  Latest Cumulative Update(LCU) | 5.63 | Jan 11, 2022 |
+|  Rel 22-01 |  [5008867]  |  .NET Framework 3.5 Security and Quality Rollup | 2.118 | Jan 11, 2022 |
+|  Rel 22-01 |  [5008860]  |  .NET Framework 4.5.2 Security and Quality Rollup | 2.118 | Jan 11, 2022 |
+|  Rel 22-01 |  [5008868]  |  .NET Framework 3.5 Security and Quality Rollup | 4.98 | Jan 11, 2022 |
+|  Rel 22-01 |  [5008870]  |  .NET Framework 4.5.2 Security and Quality Rollup | 4.98 | Jan 11, 2022 |
+|  Rel 22-01 |  [5008865]  |  .NET Framework 3.5 Security and Quality Rollup | 3.105 | Jan 11, 2022 |
+|  Rel 22-01 |  [5008869]  |  . NET Framework 4.5.2 Security and Quality Rollup | 3.105 | Jan 11, 2022 |
+|  Rel 22-01 |  [5008873]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update | 6.39 | Jan 11, 2022 |
+|  Rel 22-01 |  [5009610]  |  Monthly Rollup | 2.118 | Jan 11, 2022 |
+|  Rel 22-01 |  [5009586]  |  Monthly Rollup | 3.105 | Jan 11, 2022 |
+|  Rel 22-01 |  [5009624]  |  Monthly Rollup | 4.98 | Jan 11, 2022 |
+|  Rel 22-01 |  [5001401]  |  Servicing Stack update | 3.105 | Apr 13, 2021 |
+|  Rel 22-01 |  [5001403]  |  Servicing Stack update | 4.98 | Apr 13, 2021 |
+|  Rel 22-01OOB |  [4578013]  |  Standalone Security Update | 4.98 | Aug 19, 2020 |
+|  Rel 22-01 |  [5005698]  |  Servicing Stack update | 5.63 | Sep 14, 2021 |
+|  Rel 22-01 |  [5006749]  |  Servicing Stack update | 2.118 | July 13, 2021 |
+|  Rel 22-01 |  5008287  |  Servicing Stack update | 6.39 | Aug 10, 2021 |
+|  Rel 22-01 |  [4494175]  |  Microcode | 5.63 | Sep 1, 2020 |
+|  Rel 22-01 |  [4494174]  |  Microcode | 6.39 | Sep 1, 2020 |
+
+[5009557]: https://support.microsoft.com/kb/5009557
+[5006671]: https://support.microsoft.com/kb/5006671
+[5009555]: https://support.microsoft.com/kb/5009555
+[5009546]: https://support.microsoft.com/kb/5009546
+[5008867]: https://support.microsoft.com/kb/5008867
+[5008860]: https://support.microsoft.com/kb/5008860
+[5008868]: https://support.microsoft.com/kb/5008868
+[5008870]: https://support.microsoft.com/kb/5008870
+[5008865]: https://support.microsoft.com/kb/5008865
+[5008869]: https://support.microsoft.com/kb/5008869
+[5008873]: https://support.microsoft.com/kb/5008873
+[5009610]: https://support.microsoft.com/kb/5009610
+[5009586]: https://support.microsoft.com/kb/5009586
+[5009624]: https://support.microsoft.com/kb/5009624
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5005698]: https://support.microsoft.com/kb/5005698
+[5006749]: https://support.microsoft.com/kb/5006749
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
 
 ## December 2021 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
