@@ -570,7 +570,7 @@ To use a managed identity for authentication, some Azure resources, such as Azur
 
    ![Screenshot showing "Permissions" tab with "List" permissions selected.](./media/create-managed-service-identity/select-access-policy-permissions.png)
 
-1. When you're ready, select **Next**. On the **Principal** tab, find and select the managed identity, which is a user-assigned identity in this example:
+1. When you're ready, select **Next**. On the **Principal** tab, find and select the managed identity, which is a user-assigned identity in this example.
 
 1. Skip the optional **Application** step, select **Next**, and finish creating the access policy.
 
