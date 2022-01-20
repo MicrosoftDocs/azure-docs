@@ -20,6 +20,9 @@ Arc-enabled VMware vSphere allows you to:
 
 - Conduct governance and monitoring operations across Azure and VMware VMs by enabling guest management (installing the [Azure Arc-enabled servers Connected Machine agent](../servers/agent-overview.md)).
 
+> [!IMPORTANT]
+> In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
+
 ## How does it work?
 
 To deliver this experience, you need to deploy the [Azure Arc resource bridge](../resource-bridge/overview.md) (preview), which is a virtual appliance, in your vSphere environment. It connects your vCenter Server to Azure. Azure Arc resource bridge (preview) enables you to represent the VMware resources in Azure and do various operations on them.
