@@ -9,7 +9,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/12/2021
+ms.date: 01/19/2022
 ---
 
 # Create an index in Azure Cognitive Search
@@ -20,11 +20,11 @@ In this article, learn the steps for defining and publishing a search index. Onc
 
 ## Prerequisites
 
-+ Write permissions on the search service. Permission can be granted through an [admin API key](search-security-api-keys.md) on the request. Alternatively, if you're participating in the Azure Active Directory [role-based access control public preview](search-security-rbac.md), you can issue your request as a member of the Search Contributor role.
++ Write permissions on the search service. Permission can be granted through an [admin API key](search-security-api-keys.md) on the request. Alternatively, if you're participating in the [role-based access control public preview](search-security-rbac.md), you can issue your request as a member of the Search Contributor role.
 
-+ An external data source that provides the content to be indexed. You will refer to the data source to understand what kind of schema you will need for the search index. Index creation is largely a schema definition exercise. Before creating one, you should have:
++ An external data source that provides the content to be indexed. You should refer to the data source to understand the schema requirements of your search index. Index creation is largely a schema definition exercise. Before creating one, you should have:
 
-  + A clear idea of which fields you want to make searchable, retrievable, filterable, facetable, and sortable in the search index (more about this is discussed in [schema checklist](#schema-checklist)).
+  + A clear idea of which source fields you want to make searchable, retrievable, filterable, facetable, and sortable in the search index (more about this is discussed in [schema checklist](#schema-checklist)).
 
   + A unique identifier in source data that can be used as the [document key (or ID)](#document-keys) in the index.
 
@@ -37,25 +37,6 @@ In this article, learn the steps for defining and publishing a search index. Onc
 A search index has one required field: a document key. A document key is the unique identifier of a search document. In Azure Cognitive Search, it must be a string, and it must originate from unique values in the data source that's providing the content to be indexed. A search service does not generate key values, but in special cases (such as the [Azure Table indexer](search-howto-indexing-azure-tables.md)) it will synthesize existing values to create a unique key for the documents being indexed.
 
 During incremental indexing, where just new and updated content is indexed, incoming documents with new keys are added, while incoming documents with existing keys are either merged or overwritten, depending on whether index fields are null or populated.
-
-## Allowed updates
-
-[**Create Index**](/rest/api/searchservice/create-index) is an operation that creates the physical data structures (files and inverted indices) on your search service. Once the index is created, your ability to effect changes using [**Update Index**](/rest/api/searchservice/update-index) is contingent upon whether your modifications invalidate those physical structures. Most field attributes can't be changed once the field is created in your index.
-
-To minimize churn in the design process, the following table describes which elements are fixed and flexible in the schema. Changing a fixed element requires an index rebuild, whereas flexible elements can be changed at any time without impacting the physical implementation. 
-
-| Element | Can be updated? |
-|---------|-----------------|
-| Name | No |
-| Key | No |
-| Field names and types | No |
-| Field attributes (searchable, filterable, facetable, sortable) | No |
-| Field attribute (retrievable) | Yes |
-| [Analyzer](search-analyzers.md) | You can add and modify custom analyzers in the index. Regarding analyzer assignments on string fields, you can only modify "searchAnalyzer". All other assignments and modifications require a rebuild. |
-| [Scoring profiles](index-add-scoring-profiles.md) | Yes |
-| [Suggesters](index-add-suggesters.md) | No |
-| [cross-origin remote scripting (CORS)](#corsoptions) | Yes |
-| [Encryption](search-security-manage-encryption-keys.md) | Yes |
 
 ## Schema checklist
 
@@ -85,12 +66,16 @@ During development, plan on frequent rebuilds. Because physical structures are c
 
 ### [**Azure portal**](#tab/index-portal)
 
-Index design through the portal enforces requirements and schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. In the portal, there are two options for creating a search index: 
+Index design through the portal enforces requirements and schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. 
 
-+ **Add index**, an embedded editor for specifying an index schema
-+ [**Import data wizard**](search-import-data-portal.md)
+1. [Sign in to the Azure portal](https://portal.azure.com)
 
-The wizard is an end-to-end workflow that creates an indexer, a data source, and a finished index. It also loads the data. If this is more than what you want, use **Add index** instead.
+1. In the search service Overview page, choose either option for creating a search index: 
+
+   + **Add index**, an embedded editor for specifying an index schema
+   + [**Import data wizard**](search-import-data-portal.md)
+
+   The wizard is an end-to-end workflow that creates an indexer, a data source, and a finished index. It also loads the data. If this is more than what you want, use **Add index** instead.
 
 The following screenshot highlights where **Add index** and **Import data** appear on the command bar. After an index is created, you can find it again in the **Indexes** tab.
 
@@ -201,6 +186,25 @@ The following properties can be set for CORS:
   If you want to allow access to all origins, include `*` as a single item in the **allowedOrigins** array. *This is not a recommended practice for production search services* but it is often useful for development and debugging.
 
 + **maxAgeInSeconds** (optional): Browsers use this value to determine the duration (in seconds) to cache CORS preflight responses. This must be a non-negative integer. The larger this value is, the better performance will be, but the longer it will take for CORS policy changes to take effect. If it is not set, a default duration of 5 minutes will be used.
+
+## Allowed updates on existing indexes
+
+[**Create Index**](/rest/api/searchservice/create-index) creates the physical data structures (files and inverted indices) on your search service. Once the index is created, your ability to effect changes using [**Update Index**](/rest/api/searchservice/update-index) is contingent upon whether your modifications invalidate those physical structures. Most field attributes can't be changed once the field is created in your index.
+
+To minimize churn in the design process, the following table describes which elements are fixed and flexible in the schema. Changing a fixed element requires an index rebuild, whereas flexible elements can be changed at any time without impacting the physical implementation. 
+
+| Element | Can be updated? |
+|---------|-----------------|
+| Name | No |
+| Key | No |
+| Field names and types | No |
+| Field attributes (searchable, filterable, facetable, sortable) | No |
+| Field attribute (retrievable) | Yes |
+| [Analyzer](search-analyzers.md) | You can add and modify custom analyzers in the index. Regarding analyzer assignments on string fields, you can only modify "searchAnalyzer". All other assignments and modifications require a rebuild. |
+| [Scoring profiles](index-add-scoring-profiles.md) | Yes |
+| [Suggesters](index-add-suggesters.md) | No |
+| [cross-origin remote scripting (CORS)](#corsoptions) | Yes |
+| [Encryption](search-security-manage-encryption-keys.md) | Yes |
 
 ## Next steps
 
