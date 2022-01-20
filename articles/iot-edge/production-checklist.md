@@ -135,7 +135,7 @@ The default value of the timeToLiveSecs parameter is 7200 seconds, which is two 
 
 When moving from test scenarios to production scenarios, remember to remove debug configurations from deployment manifests. Check that none of the module images in the deployment manifests have the **\.debug** suffix. If you added create options to expose ports in the modules for debugging, remove those create options as well.
 
-#### Be mindful of twin size limits when using custom modules
+### Be mindful of twin size limits when using custom modules
 
 The deployment manifest containing custom modules is part of the EdgeAgent twin. The size limitation on properties of this twin are [described here](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins#device-twin-size).
 
