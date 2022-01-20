@@ -45,3 +45,10 @@ View the status and results of your search job by going to the **Saved Searches*
    :::image type="content" source="media/search-jobs/search-job-results.png" alt-text="Screenshot that shows the logs page with search job results.":::
 
 1. To refine the list of results returned from the search table, edit the KQL query.
+
+1. As you're reviewing your search job results, bookmark rows that contain information you find interesting so you can attach them to an incident or refer to them later.
+
+
+## Next steps
+
+- [Hunt with bookmarks](bookmarks.md)
