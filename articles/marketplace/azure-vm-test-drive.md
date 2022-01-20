@@ -39,7 +39,7 @@ Enter values between 0-99 in the boxes to indicate how many of Hot, Warm, or Col
 
 The ARM template for your test drive is a coded container of all the Azure resources that comprise your solution. To create the ARM deployment template you'll need for your test drive, see [Azure Resource Manager test drive](azure-resource-manager-test-drive.md#write-the-test-drive-template). Once your template is complete, return here to learn how to uploaded your ARM template and complete the configuration.
 
-To publish successfully, it is important to validate the formatting of the ARM template. Two ways to do this are by using an [online API tool](/rest/api/resources/deployments/validate) or with a [test deployment](/azure/azure-resource-manager/templates/deploy-portal). Once you are ready to upload your template, drag .zip file into the area indicated, or **Browse** for the file.
+To publish successfully, it is important to validate the formatting of the ARM template. Two ways to do this are by using an [online API tool](/rest/api/resources/deployments/validate) or with a [test deployment](../azure-resource-manager/templates/deploy-portal.md). Once you are ready to upload your template, drag .zip file into the area indicated, or **Browse** for the file.
 
 Enter a **Test drive duration**, in hours. This is the number of hours the test drive will stay active. The test drive terminates automatically after this time period ends.
 
@@ -47,12 +47,12 @@ Enter a **Test drive duration**, in hours. This is the number of hours the test 
 
 For Microsoft to deploy the test drive on your behalf, connect to your Azure Subscription and Azure Active Directory (AAD) by completing the steps below, then select **Save draft**.
 
-1. **Azure subscription ID** – This grants access to Azure services and the Azure portal. The subscription is where resource usage is reported and services are billed. Consider creating a [separate Azure subscription](/azure/cost-management-billing/manage/create-subscription) to use for test drives if you don't have one already. You can find your Azure subscription ID by signing into the Azure portal and searching *Subscriptions* in the search bar.
-2. **Azure AD tenant ID** – Enter your Azure Active Directory (AD) tenant ID by going to **Azure Active Directory** > **Properties** > **Directory ID** within the Azure portal. If you don't have a tenant ID, create a new one in Azure Active Directory. For help with setting up a tenant, see [Quickstart: Set up a tenant](/azure/active-directory/develop/quickstart-create-new-tenant).
+1. **Azure subscription ID** – This grants access to Azure services and the Azure portal. The subscription is where resource usage is reported and services are billed. Consider creating a [separate Azure subscription](../cost-management-billing/manage/create-subscription.md) to use for test drives if you don't have one already. You can find your Azure subscription ID by signing into the Azure portal and searching *Subscriptions* in the search bar.
+2. **Azure AD tenant ID** – Enter your Azure Active Directory (AD) tenant ID by going to **Azure Active Directory** > **Properties** > **Directory ID** within the Azure portal. If you don't have a tenant ID, create a new one in Azure Active Directory. For help with setting up a tenant, see [Quickstart: Set up a tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 3. Before proceeding with the other fields, provision the Microsoft Test-Drive application to your tenant. We will use this application to perform operations on your test drive resources.
     1. If you don't have it yet, install the [Azure Az PowerShell module](/powershell/azure/install-az-ps).
     2. Add the Service Principal for Microsoft Test-Drive application.
-        1. Run `Connect-AzAccount` and provide credentials to sign in to your Azure account, which requires the Azure active directory **Global Administrator** [built-in role](/azure/active-directory/roles/permissions-reference).
+        1. Run `Connect-AzAccount` and provide credentials to sign in to your Azure account, which requires the Azure active directory **Global Administrator** [built-in role](../active-directory/roles/permissions-reference.md).
         2. Create a new service principal: `New-AzADServicePrincipal -ApplicationId d7e39695-0b24-441c-a140-047800a05ede -DisplayName 'Microsoft TestDrive'`.
         3. Ensure the service principal has been created: `Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive'`.
             :::image type="content" source="media/test-drive/commands-to-verify-service-principal.png" alt-text="Shows how to ensure the principal has been created.":::

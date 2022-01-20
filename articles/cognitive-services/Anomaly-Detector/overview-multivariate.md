@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 01/16/2022
 ms.author: mbullwin
 ms.custom: references_regions
 keywords: anomaly detection, machine learning, algorithms
@@ -28,11 +28,22 @@ If your goal is to detect anomalies out of a normal pattern on each individual t
 
 If your goal is to detect system level anomalies from a group of time series data, use multivariate anomaly detection APIs. Particularly, when any individual time series won't tell you much, and you have to look at all signals (a group of time series) holistically to determine a system level issue. For example, you have an expensive physical asset like aircraft, equipment on an oil rig, or a satellite. Each of these assets has tens or hundreds of different types of sensors. You would have to look at all those time series signals from those sensors to decide whether there is system level issue.
 
-## Notebook
+## Sample Notebook
 
-To learn how to call the Anomaly Detector API (multivariate), try this [Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb). This Jupyter Notebook shows you how to send an API request and visualize the result.
-
-To run the Notebook, you should get a valid Anomaly Detector API **subscription key** and an **API endpoint**. In the notebook, add your valid Anomaly Detector API subscription key to the `subscription_key` variable, and change the `endpoint` variable to your endpoint.
+To learn how to call the Multivariate Anomaly Detector API, try this [Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb). To run the Notebook, you only need a valid Anomaly Detector API **subscription key** and an **API endpoint**. In the notebook, add your valid Anomaly Detector API subscription key to the `subscription_key` variable, and change the `endpoint` variable to your endpoint.
+ 
+Multivariate Anomaly Detector includes three main steps, **data preparation**, **training** and **inference**.
+ 
+### Data preparation
+For data preparation, you should prepare two parts of data, **training data** and **inference data**. As for training data, you should upload your data to Blob Storage and generate an SAS url which will be used in training API. As for inference data, you could either use the same data format as training data, or send the data into API header, which will be formatted as JSON. This depends on what API you choose to use in the inference process.
+ 
+### Training
+When training a model, you should call an asynchronous API on your training data, which means you won't get the model status immediately after calling this API, you should request another API to get the model status.
+ 
+### Inference
+In the inference process, you have two options to choose, an asynchronous API or a synchronous API. If you would like to do a batch validation, you are suggested to use the asynchronous API. If you want to do streaming in a short granularity and get the inference result immediately after each API request, you are suggested to use the synchronous API.
+* As for the asynchronous API, you won't get the inference result immediately like training process, which means you should use another API to request the result after some time. Data preparation is similar with the training process.
+* As for synchronized API, you could get the inference result immediately after you request, and you should send your data in a JSON format into the API body.
 
 ## Region support
 
