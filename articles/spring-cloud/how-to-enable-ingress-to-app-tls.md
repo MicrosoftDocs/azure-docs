@@ -19,13 +19,13 @@ This article describes what the secure communication of Azure Spring Cloud like 
 
 Here we would explain the secure communication model in Azure spring cloud in detail according to the overview picture.
 
-1. Client request either from mobile or Browser or other clients to azure spring cloud apps would first come into the ingress controller. By default, the request could be either http or https and the tls certificate returned by ingress controller is issued by Microsoft Azure TLS issuing CA.
+1. Client request either from mobile or Browser or other clients to azure spring cloud apps would first come into the ingress controller. By default, the request could be either HTTP or HTTPS and the TLS certificate returned by ingress controller is issued by Microsoft Azure TLS issuing CA.
    
-   If the app has been mapped to an existing custom domain and is configured as https only, the request to the ingress controller could only be https and the tls certificate returned by ingress controller is the ssl binding certificate for that custom domain. The server side SSL/TLS verification for custom domain is accomplished in ingress controller.
+   If the app has been mapped to an existing custom domain and is configured as HTTPS only, the request to the ingress controller could only be HTTPS and the TLS certificate returned by ingress controller is the SSL binding certificate for that custom domain. The server side SSL/TLS verification for custom domain is accomplished in ingress controller.
 
-2.  The secure communication between ingress controller and azure spring cloud applications is controlled by ingress-to-app TLS. This could be controlled by customers through portal or cli, and we would explain the way to enable it in this article later. If ingress-to-app TLS is disabled, the communication between ingress controller and azure spring cloud apps is http and it would be https if the ingress-to-app TLS is enabled. This has no relation to the communication way from clients to ingress controller and the ingress controller would not verify the certificate returned from azure spring cloud apps because the ingress-to-app TLS is just meant to encrypt the communication as not to be visible to anyone including Microsoft.
+2.  The secure communication between ingress controller and azure spring cloud applications is controlled by ingress-to-app TLS. This could be controlled by customers through portal or cli, and we would explain the way to enable it in this article later. If ingress-to-app TLS is disabled, the communication between ingress controller and azure spring cloud apps is HTTP and it would be HTTPS if the ingress-to-app TLS is enabled. This has no relation to the communication way from clients to ingress controller and the ingress controller would not verify the certificate returned from azure spring cloud apps because the ingress-to-app TLS is just meant to encrypt the communication as not to be visible to anyone including Microsoft.
 
-3. Communication between Azure Spring Cloud applications and Azure Spring Cloud service runtime like config server, service registry and eureka server is always https and it is fully took care of by Azure Spring Cloud. Customers do not need to concern about them. 
+3. Communication between Azure Spring Cloud applications and Azure Spring Cloud service runtime like config server, service registry and eureka server is always HTTPS and it is fully took care of by Azure Spring Cloud. Customers do not need to concern about them. 
 
 4. The communication between Azure Spring Cloud applications is fully managed by customers, and customers could also take the convenience of Azure Spring Cloud provided feature [Use TLS/SSL certificates in an application](./how-to-use-tls-certificate.md)  to load certificates into application's trust store.
 
@@ -67,7 +67,7 @@ To enable ingress-to-app TLS in the [Azure portal](https://portal.azure.com/), f
 3. Select **Ingress-to-app TLS**.
 4. Switch **Ingress-to-app TLS** to *Yes*.
 
-![Enable Ingress-to-app TLS in portal](./media/enable-ingress-to-app-tls/enable-tls.png)
+![Enable Ingress-to-app TLS in portal](./media/enable-end-to-end-tls/enable-i2a-tls.png)
 
 ## Verify ingress-to-app TLS status
 
@@ -80,4 +80,3 @@ az spring-cloud app show -n app_name -s service_name -g resource_group_name
 ## Next steps
 
 * [Access Config Server and Service Registry](how-to-access-data-plane-azure-ad-rbac.md)
-
