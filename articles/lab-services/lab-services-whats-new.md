@@ -37,8 +37,7 @@ In this release, there are a few known issues:
 
 - Az.LabServices cmdlets will be included in the February 2022 [monthly release](/powershell/azure/release-notes-azureps) for the [Azure PowerShell module](/powershell/azure/new-azureps-module-az).
 - When using virtual network injection, use caution in making changes to the virtual network and subnet.  Changes may can cause the lab VMs to stop working. For example, deleting your virtual network will cause all the lab VMs to stop working. We plan to improve this experience in the future, but for now make sure to delete labs before deleting networks.
-- Moving lab plan and lab resources from one Azure region to another isn't yet supported.
-- The data science virtual machine Azure Marketplace images are not yet supported in this update.
+- Moving lab plan and lab resources from one Azure region to another isn't supported.
 
 ### Lab plans replace lab accounts
 
