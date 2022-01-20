@@ -41,7 +41,7 @@ sections:
           For more information about features in each Azure AD edition, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
       - question: |
-          Does Cloud Native Certificate-based Authentication support *Alternate ID* as the username, instead of *userPrincipalName*?
+          Does Cloud Native Certificate-based Authentication support Alternate ID as the username, instead of userPrincipalName?
         answer: |
           No, sign-in using a non-UPN value, such as an alternate email, is not supported now.
           
@@ -67,6 +67,11 @@ sections:
           $c[0]. crlDistributionPoint =””
           Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
           ```
+
+      - question: |
+          What is the maximum size for downloading a CRL?
+        answer: |
+          The maximum size of a CRL for Azure Active Directory to successfully download and cache is 20MB, and the time required to download the CRL must not exceed 10 seconds. If Azure Active Directory can't download a CRL, certificate-based authentications using certificates issued by the corresponding CA will fail. Best practices to ensure CRL files are within size constraints are to keep certificate lifetimes to within reasonable limits and to clean up expired certificates.
 
       - question: |
           Will the changes to authentication policy change take effect immediately?
