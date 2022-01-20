@@ -437,7 +437,7 @@ $def = Get-AzPolicyDefinition -id '/providers/Microsoft.Authorization/policyDefi
 New-AzPolicyDefinition -name (new-guid).guid -DisplayName "$($def.DisplayName) (Copy)" -Description $def.Description -Metadata ($def.Metadata | convertto-json) -Parameter ($def.Parameters | convertto-json) -Policy ($def.PolicyRule | convertto-json -depth 15)
 ```
 
-### Scenario: Non-compliant Kubernetes resource gets created unexpectedly 
+### Scenario: Kubernetes resource gets created during connectivity failure despite deny policy being assigned
 
 #### Issue
 
@@ -449,9 +449,9 @@ The GK fail-open model is by design and based on community feedback. Gatekeeper 
 
 #### Resolution
 
-In the above event, the error case will be found in logs. And even if evaluation is bypassed at creation time and an object is created, it will still be reported on Azure Policy compliance as non-compliant as a flag to customers.
+In the above event, the error case can be monitored from the [admission webhook metrics](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#admission-webhook-metrics) provided by the kube-apiserver. And even if evaluation is bypassed at creation time and an object is created, it will still be reported on Azure Policy compliance as non-compliant as a flag to customers.
 
-IRegardless of the above, in such a scenario, Azure policy will still retain the last known policy on the cluster and keep the guardrails in place. See more about this behavior here: https://docs.microsoft.com/en-us/azure/governance/policy/how-to/determine-non-compliance#aks-resource-provider-mode-compliance-reasons.
+Regardless of the above, in such a scenario, Azure policy will still retain the last known policy on the cluster and keep the guardrails in place. 
 
 ## Next steps
 
