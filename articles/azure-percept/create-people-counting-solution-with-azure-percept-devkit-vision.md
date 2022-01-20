@@ -51,7 +51,7 @@ In this tutorial, you learn how to:
 - Install the IoT Hub Extension in VS Code
 - Install the Azure IoT Tools Extension in VS Code
 - Download and install [Docker Desktop]() (Will require a PC reboot)
-- (Only for Windows Users) Install WSL2 by running the following commands in Windows PowerShell or Terminal (on Mac OS) (Will require a PC restart)
+- (Only for Windows Users) Install WSL2 by running the following commands in Windows PowerShell or Terminal (on macOS) (Will require a PC restart)
 
     `wsl --install`
 
@@ -63,7 +63,7 @@ Setting up the Azure Percept DK is the first step in the tutorial. Below are the
 
 1. Follow [Quickstart: unbox and assemble your Azure Percept DK components](./quickstart-percept-dk-unboxing.md) and the next steps.
 2. Connect the camera module to the Azure Percept DK via the USB-C cable.
-3. Open Command Prompt (for Windows) or Terminal (on Mac OS) and execute the command-
+3. Open Command Prompt (for Windows) or Terminal (on macOS) and execute the command-
 
     `git clone https://github.com/microsoft/Azure-Percept-Reference-Solutions.git` 
 
