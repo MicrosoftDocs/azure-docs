@@ -13,7 +13,7 @@ Use search jobs when you start an investigation to find specific events in logs 
 
 Search in Microsoft Sentinel is built on top of search jobs. Search jobs are asynchronous queries that fetch records. The results are returned to a search table that's created in your workspace at the time of the search. The search job uses parallel processing to run the search job across long time spans in extremely large datasets.
 
-Run search jobs on any type of log. But search jobs are ideally adapted for searching logs in Log Data Archive and Basic Logs.
+Run search jobs on any type of log. But search jobs are ideally adapted for searching archived and basic logs.
 
 ## Start a search job
 
