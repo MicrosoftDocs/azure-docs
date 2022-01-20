@@ -812,6 +812,9 @@
     - name: Image data schemas for AutoML
       displayName: automl, schema, data
       href: reference-automl-images-schema.md
+    - name: Hyperparameters for AutoML computer vision tasks
+      displayName: automl, yolo-5
+      href: reference-automl-images-hyperparameters.md
     - name: Designer module reference
       displayName: module, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
