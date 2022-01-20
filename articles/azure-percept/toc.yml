@@ -33,7 +33,11 @@
           href: tutorial-nocode-vision.md         
         - name: Create a no-code voice assistant in Azure Percept Studio
           href: tutorial-no-code-speech.md         
-
+    - name: Advanced prototyping with Azure Percept
+      items:
+        - name: Create a people counting solution with Azure Percept DK and Azure Percept Vision
+          href: create-people-counting-solution-with-azure-percept-devkit-vision.md  
+          
 - name: Concepts
   items:
     - name: Azure Percept DK
