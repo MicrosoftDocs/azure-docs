@@ -133,7 +133,7 @@ Create the SAP configuration and software installation pipeline by choosing _New
 | ------- | -------------------------------------------------- |
 | Branch  | main                                               |
 | Path    | `deploy/pipelines/05-DB-and-SAP-installation.yaml` |
-| Name    | configuration and software installation            |
+| Name    | Configuration and SAP installation                 |
 
 Save the Pipeline, to see the Save option click the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'SAP configuration and software installation' by choosing 'Rename/Move' from the three-dot menu on the right.
 
@@ -175,6 +175,10 @@ Create the Repository updater pipeline by choosing _New Pipeline_ from the Pipel
 | Name    | Repository updater                              |
 
 Save the Pipeline, to see the Save option click the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Repository updater' by choosing 'Rename/Move' from the three-dot menu on the right.
+
+## Import Cleanup task from Visual Studio Marketplace
+
+The pipelines uses a custom task to perform cleanup activities post deployment. The custom task can be installed from [Post Build Cleanup](https://marketplace.visualstudio.com/items?itemName=mspremier.PostBuildCleanup). Install it to your Azure DevOps organization before running the _Configuration and SAP installation_ or _SAP software acquisition_  pipelines.
 
 ## Register the Deployer as an self-hosted agent for Azure DevOps
 

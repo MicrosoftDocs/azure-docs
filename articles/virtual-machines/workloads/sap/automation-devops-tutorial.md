@@ -114,7 +114,7 @@ You can track the progress in the Azure DevOps portal.
 
 ## Running the Configuration and SAP Installation pipeline
 
-Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _SAP software acquisition_ pipeline. Run the pipeline and when prompted enter the following values:
+Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _Configuration and SAP installation_ pipeline. Run the pipeline and when prompted enter the following values:
 
 SAP System configuration name: DEV-WEEU-SAP01-X00
 Bill of Materials name: S41909SPS03_v0009ms
