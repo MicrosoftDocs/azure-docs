@@ -22,7 +22,9 @@ Each SIM resource represents a physical SIM or eSIM that will be served by the p
 
 ## Sites
 
-Each site resource represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. During the deployment of your private mobile network, you will create a Kubernetes base VM on each Azure Stack Edge device. This serves as the platform for the Kubernetes cluster that will run the packet core instance.
+Each site resource represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. The packet core instance is a cloud native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC).
+
+During the deployment of your private mobile network, you will create a Kubernetes cluster on each Azure Stack Edge device. This serves as the platform for the packet core instance in the site. 
 
 ## Policy control
 
