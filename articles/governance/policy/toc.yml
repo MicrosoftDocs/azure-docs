@@ -365,7 +365,7 @@
   - name: Terraform resources
     items:
     - name: Assignment
-      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/policy_assignment
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_policy_assignment
     - name: Definition
       href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/policy_definition
     - name: Initiative (Set Definition)
