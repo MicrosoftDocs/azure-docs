@@ -75,9 +75,7 @@ Existing Service Fabric managed clusters which are not spanned across availabili
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/azresiliencystatus?api-version=2022-02-01-preview
 ```
-
-
-This should provide with response similar to:
+  This should provide with response similar to:
 ```json
 {
  "baseResourceStatus" :[
@@ -100,7 +98,7 @@ This should provide with response similar to:
  "isClusterZoneResilient": false
 }
 ```
-If the Public IP resource is not zone resilient, migration of the cluster will cause a brief loss of external connectivity. This is due to the migration setting up new Public IP and migrating the dns over to it. If the Public IP resource is zone resilient, migration will not modify the Public IP resource and there will be no external connectivity impact.
+  If the Public IP resource is not zone resilient, migration of the cluster will cause a brief loss of external connectivity. This is due to the migration setting up new Public IP and migrating the dns over to it. If the Public IP resource is zone resilient, migration will not modify the Public IP resource and there will be no external connectivity impact.
 
 2) Add a new primary node type which spans across availability zones
 
