@@ -1,7 +1,7 @@
 ---
 title: Connect machines at scale by running PowerShell scripts with Configuration Manager 
 description: You can use Configuration Manager to run a PowerShell script that automates at-scale onboarding to Azure Arc-enabled servers. 
-ms.date: 01/18/2022
+ms.date: 01/20/2022
 ms.topic: how-to
 ---
 
