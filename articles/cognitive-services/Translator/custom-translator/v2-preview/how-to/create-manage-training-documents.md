@@ -26,11 +26,11 @@ Before uploading your documents, review the [document formats and naming convent
 
 Finding in-domain quality data is often a challenging task that varies based on user classification. Here are some questions you can ask yourself as you evaluate what data may be available to you:
 
-  1. Enterprises often have a wealth of translation data that has accumulated over many years of using human translation. Does your company have previous translation data available that you can use?
+- Enterprises often have a wealth of translation data that has accumulated over many years of using human translation. Does your company have previous translation data available that you can use?
 
-  1. Do you have a vast amount of monolingual data? Monolingual data is data in only one language. If so, can you get translations for this data?
+- Do you have a vast amount of monolingual data? Monolingual data is data in only one language. If so, can you get translations for this data?
 
-  1. Can you crawl online portals to collect source sentences and synthesize target sentences?
+- Can you crawl online portals to collect source sentences and synthesize target sentences?
 
 ### Training material for each document types
 

@@ -52,11 +52,11 @@ Having clarity on your use-case and what success looks like is the first step to
 
 Finding in-domain quality data is often a challenging task that varies based on user classification. Here are some questions you can ask yourself as you evaluate what data may be available to you:
 
-  1. Enterprises often have a wealth of translation data that has accumulated over many years of using human translation. Does your company have previous translation data available that you can use?
+* Enterprises often have a wealth of translation data that has accumulated over many years of using human translation. Does your company have previous translation data available that you can use?
 
-  1. Do you have a vast amount of monolingual data? Monolingual data is data in only one language. If so, can you get translations for this data?
+* Do you have a vast amount of monolingual data? Monolingual data is data in only one language. If so, can you get translations for this data?
 
-  1. Can you crawl online portals to collect source sentences and synthesize target sentences?
+* Can you crawl online portals to collect source sentences and synthesize target sentences?
 
 ## What should I use for training material?
 
@@ -72,7 +72,7 @@ Finding in-domain quality data is often a challenging task that varies based on 
 
 BLEU (Bilingual Evaluation Understudy) is an algorithm for evaluating the precision or accuracy of text that has been machine translated from one language to another. Custom Translator uses the BLEU metric as one way of conveying translation accuracy.
 
-A BLEU score is a number between zero and one hundred. A score of zero indicates a very low quality translation where nothing in the translation matched the reference. A score of 100 indicates a perfect translation that is identical to the reference. It's not necessary to attain a score of 100 - a BLEU score between 40 and 60 indicates a high quality translation.
+A BLEU score is a number between zero and 100. A score of zero indicates a low quality translation where nothing in the translation matched the reference. A score of 100 indicates a perfect translation that is identical to the reference. It's not necessary to attain a score of 100 - a BLEU score between 40 and 60 indicates a high-quality translation.
 
 [Read more](/azure/cognitive-services/translator/custom-translator/what-is-bleu-score?WT.mc_id=aiml-43548-heboelma)
 
@@ -80,7 +80,7 @@ A BLEU score is a number between zero and one hundred. A score of zero indicates
 
 Tuning and test sentences are optimally representative of what you plan to translate in the future. If you don't submit any tuning or testing data, Custom Translator will automatically exclude sentences from your training documents to use as tuning and test data.
 
-| System-generated | Manually-selected |
+| System-generated | Manual-selection |
 |---|---|
 | Convenient. | Enables fine-tuning for your future needs.|
 | Good, if you know that your training data is representative of what you are planning to translate. | Provides more freedom to compose your training data.|
@@ -112,7 +112,7 @@ When you submit documents for training a custom translation system, the document
 
 * ### White space
 
-  * Replaces any sequence of white space characters including tabs and CR/LF sequences with a single space character.
+  * Replaces any sequence of white-space characters including tabs and CR/LF sequences with a single space character.
   * Removes leading or trailing space in the sentence.
 
 * ### Sentence end punctuation

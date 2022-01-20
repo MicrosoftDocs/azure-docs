@@ -42,9 +42,9 @@ You can read an overview of translation and custom translation, learn some tips,
 
 1. [**Create a workspace**](#create-a-workspace). A workspace is a work area for composing and building your custom translation system. A workspace can contain multiple projects, models, and documents. All the work you do in Custom Translator is done inside a specific workspace.
 
-1. [**Create a project**](#create-a-project) . A project is a wrapper for models, documents, and tests. Each project includes all documents that are uploaded into that workspace with the correct language pair. For example, if you have both an English-to-Spanish project and a Spanish-to-English project, the same documents will be included in both projects.
+1. [**Create a project**](#create-a-project). A project is a wrapper for models, documents, and tests. Each project includes all documents that are uploaded into that workspace with the correct language pair. For example, if you have both an English-to-Spanish project and a Spanish-to-English project, the same documents will be included in both projects.
 
-1. *[*Upload parallel documents**](#upload-documents). Parallel documents are pairs of documents where one (target) is the translation of the other (source). One document in the pair contains sentences in the source language and the other document contains sentences translated into the target language. It doesn't matter which language is marked as "source" and which language is marked as "target"—a parallel document can be used to train a translation system in either direction.
+1. [**Upload parallel documents**](#upload-documents). Parallel documents are pairs of documents where one (target) is the translation of the other (source). One document in the pair contains sentences in the source language and the other document contains sentences translated into the target language. It doesn't matter which language is marked as "source" and which language is marked as "target"—a parallel document can be used to train a translation system in either direction.
 
 1. [**Train your model**](#train-your-model). A model is the system that provides translation for a specific language pair. The outcome of a successful training is a model. When training a model, three mutually exclusive document types are required: training, tuning, and testing. If only training data is provided when queuing a training, Custom Translator will automatically assemble tuning and testing data. It will use a random subset of sentences from your training documents, and exclude these sentences from the training data itself. A 10,000 parallel sentence is the minimum requirement to train a model.
 
@@ -60,7 +60,7 @@ You can read an overview of translation and custom translation, learn some tips,
 
    :::image type="content" source="media/quickstart/first-time-user.png" alt-text="Screenshot illustrating how to create a workspace.":::
 
-  
+
 
 1. Select **My workspaces**
 
@@ -173,11 +173,9 @@ Once your training has completed successfully, inspect the test set translated s
 2. Select "en-de with sample data"
 3. Human evaluate translation from **New model** (custom model), and **Baseline model** (our pre-trained baseline used for customization) against **Reference** (target translation from the test set)
 
-   :::image type="content" source="media/quickstart/model-test-details.png" alt-text="Screenshot illustrating model test results.":::
-
 ## Publish your model
 
-Publishing your model makes it available for use with the Translator API. A project might have one or many successfully trained models. You can only publish one model per project; however, you can publish  a model to one or multiple regions (North America, Europe, or Asia Pacific) depending on your needs. You will incur `$10 monthly hosting charge per region`. *See* [Translator pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator/#pricing).
+Publishing your model makes it available for use with the Translator API. A project might have one or many successfully trained models. You can only publish one model per project; however, you can publish a model to one or multiple regions depending on your needs. You will incur `$10 monthly hosting charge per region`. *See* [Translator pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator/#pricing).
 
 1. Select the **Publish model** blade.
 

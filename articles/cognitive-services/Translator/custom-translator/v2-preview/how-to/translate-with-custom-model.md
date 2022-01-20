@@ -15,7 +15,7 @@ ms.topic: conceptual
 > [!IMPORTANT]
 > Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
 
-After you publish your custom model to any of our regions (North America, Europe, or Asia Pacific) you can access it with the Translator API by using the `Category ID` parameter. To retrieve, choose the copy icon:
+After you publish your custom model you can access it with the Translator API by using the `Category ID` parameter. To retrieve, choose the copy icon:
 
    :::image type="content" source="../media/how-to/publish-model.png" alt-text="{alt-text}":::
 
@@ -28,7 +28,7 @@ After you publish your custom model to any of our regions (North America, Europe
 
    ```
 
-More information about the Translator Text API can be found on the [Translator API Reference](../../../reference/v3-0-translate.md) page.
+   More information about the Translator Text API can be found on the [Translator API Reference](../../../reference/v3-0-translate.md) page.
 
 1. You may also want to download and install our free [DocumentTranslator app for Windows](https://github.com/MicrosoftTranslator/DocumentTranslator/releases/tag/V2.9.4).
 

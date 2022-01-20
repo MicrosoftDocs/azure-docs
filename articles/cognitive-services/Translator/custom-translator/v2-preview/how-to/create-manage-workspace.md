@@ -88,7 +88,7 @@ The person who created the workspace is the owner. Within **Workspace settings**
 
 :::image type="content" source="../media/quickstart/manage-workspace-settings-3.png" alt-text="Screenshot illustrating how to unshare a workspace.":::
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Learn how to manage projects](create-manage-project.md)

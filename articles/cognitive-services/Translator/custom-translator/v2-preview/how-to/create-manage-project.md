@@ -28,14 +28,14 @@ Creating a project is the first step in building and publishing a model.
 
 1. Enter the following details about your project in the creation dialog:
 
-    - **Project name (required):**. Give your project a unique, meaningful name. It's not necessary to mention the languages within the title.
+    - **Project name (required):** Give your project a unique, meaningful name. It's not necessary to mention the languages within the title.
 
-    - **Language pair (required):**. Select the source and target languages from the dropdown list
+    - **Language pair (required):** Select the source and target languages from the dropdown list
 
-    - **Domain (required):**. Select the domain from the dropdown list that's most appropriate for your project. The domain describes the terminology and style of the documents you intend to translate.
+    - **Domain (required):** Select the domain from the dropdown list that's most appropriate for your project. The domain describes the terminology and style of the documents you intend to translate.
 
-    >[!Note]
-    >Select **Show advanced options** to add project label, project description, and domain description
+      >[!Note]
+      >Select **Show advanced options** to add project label, project description, and domain description
 
     - **Project label:** The project label distinguishes between projects with the same language pair and domain. As a best practice, here are a few tips:
 
@@ -69,7 +69,7 @@ To modify the project name, project description, or domain description:
 
 1. Select **Edit** and fill in or modify existing text.
 
-    a. :::image type="content" source="../media/how-to/edit-project-dialog-2.png" alt-text="Screenshot illustrating detailed edit project fields.":::
+    :::image type="content" source="../media/how-to/edit-project-dialog-2.png" alt-text="Screenshot illustrating detailed edit project fields.":::
 
 1. Select **Edit project** to save.
 
@@ -82,7 +82,7 @@ To modify the project name, project description, or domain description:
    :::image type="content" source="../media/how-to/delete-project-1.png" alt-text="Screenshot illustrating delete project fields.":::
 
    >[!Note]
-   >f your project has a published model or a model that is currently in training, you will only be able to delete your project once your model is no longer published or training.
+   >If your project has a published model or a model that is currently in training, you will only be able to delete your project once your model is no longer published or training.
    >
    > :::image type="content" source="../media/how-to/delete-project-2.png" alt-text="Screenshot illustrating the unable to delete message.":::
 
