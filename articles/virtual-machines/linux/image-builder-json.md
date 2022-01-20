@@ -172,9 +172,6 @@ The Image Builder Build VM User Assigned Identity:
 * Supports cross subscription scenarios (identity created in one subscription while the image template is created in another subscription under the same tenant)
 * Does not support cross tenant scenarios (identity created in one tenant while the image template is created in another tenant)
 
-> [!IMPORTANT]
-> Image Builder's user assigned identity functionality is aligned with Azure standards. Today, Image Builder can impersonate a customer’s Template identity and it’s possible for the service to do anything in the customer subscription that the Template identity can do. In API verisons 2021-10-01 and newer, AIB will also be able to impersonate additional MSIs in certain scenarios – which is still aligned with how resource providers and Azure work. Image Builder has these privileges, but does not perform any actions in a customer's subscription, unless they are required for building the image. Azure Image Builder does not guarantee that it could never/under no circumstances gain access to customer’s resources (including secrets).
-
 To learn more, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) and [How to use managed identities for Azure resources on an Azure VM for sign-in](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).
 
 ## Properties: source
