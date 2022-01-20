@@ -1,6 +1,7 @@
 ---
-title: Key components of an Azure Private 5G Core private mobile network
-description: Information on the key components of a private mobile network deployed through Azure Private 5G Core Preview 
+title: Key components of a private mobile network
+titlesuffix: Azure Private 5G Core Preview.
+description: Learn about the key components of a private mobile network deployed through Azure Private 5G Core Preview.
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -11,7 +12,7 @@ ms.custom: template-concept
 
 # Key components of a private mobile network
 
-Azure Private 5G Core Preview is an Azure cloud service for service providers and system integrators to securely deploy and manage private mobile networks for enterprises on Azure Arc-connected edge platforms such as an Azure Stack Edge device. Each private mobile network comprises a number of key components.
+Learn about the key components of a private mobile network deployed through Azure Private 5G Core Preview.
 
 :::image type="content" source="media/key-components-of-a-private-mobile-network/private-mobile-network-components.png" alt-text="Diagram displaying the key components of a private mobile network, including SIMs, sites and policy control":::
 

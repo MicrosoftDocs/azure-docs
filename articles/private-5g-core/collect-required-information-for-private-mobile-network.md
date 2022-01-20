@@ -1,6 +1,7 @@
 ---
-title: Collect the required information to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal
-description: How-to guide which takes you through the process of collecting the information you'll need to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal. 
+title: Collect information for your private mobile network
+titlesuffix: Azure Private 5G Core Preview
+description: Learn about the information you'll need to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal.
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core

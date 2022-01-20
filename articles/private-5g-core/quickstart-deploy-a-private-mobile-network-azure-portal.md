@@ -1,6 +1,7 @@
 ---
-title: Quickstart - Deploy an example private mobile network - Azure portal
-description: Quickstart showing how to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal 
+title: Quickstart - Deploy an example private mobile network
+titlesuffix: Azure Private 5G Core Preview
+description: Learn how to use Azure Private 5G Core Preview to deploy an example private mobile network in minutes through Azure portal. 
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -11,7 +12,7 @@ ms.custom: template-quickstart
 
 # Quickstart: Deploy an example private mobile network - Azure portal
 
-Azure Private 5G Core Preview is an Azure cloud service for service providers and system integrators to securely deploy and manage private mobile networks for enterprises on Azure Arc-connected edge platforms such as an Azure Stack Edge device. In this quickstart, you will use the Azure portal to deploy a simple private mobile network.
+Azure Private 5G Core Preview allows you to deploy a private mobile network on an enterprise's premises from anywhere in the world in minutes. In this quickstart, you'll learn how to use the Azure portal to deploy a simple, example private mobile network.
 
 ## Prerequisites
 
