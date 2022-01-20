@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 01/20/2022
 ---
 
-# Move Azure Machine Learning Workspaces between subscriptions (preview)
+# Move Azure Machine Learning workspaces between subscriptions (preview)
 
 As the requirements of your machine learning application change, you may need to move your workspace to a different Azure subscription. For example, you may need to move the workspace in the following situations:
 
