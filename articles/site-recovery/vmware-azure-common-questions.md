@@ -349,12 +349,12 @@ For VMware to Azure, the oldest recovery point you can use is 15 days.
 ### How does the pruning of recovery points happen?
 
 Crash-consistent recovery points are generated in every five minutes. App-consistent snapshots are generated based on the input frequency entered by you. Beyond two hours, pruning of recovery points may happen based on the retention period that you input. Following are the scenarios:
-**Retention Period input** | **Pruning mechanism**
----|---
-0 day|No recovery point saved. You can failover only to the latest point
-1 day|One recovery point saved per hour beyond the last two hours
-2 - 7 days|One recovery point saved per two hours beyond the last two hours
-8 - 15 days|One recovery point saved per two hours beyond last two hours for 7 days. Post that, one recovery point saved per four hours.<p>App-consistent snapshots will also be pruned based on duration mentioned above even if you input lesser app-consistent snapshot frequency.
+|**Retention Period input**        | **Pruning mechanism**           |
+|----------------------------------|---------------------------------|
+|0 day|No recovery point saved. You can failover only to the latest point|
+|1 day|One recovery point saved per hour beyond the last two hours|
+|2 - 7 days|One recovery point saved per two hours beyond the last two hours|
+|8 - 15 days|One recovery point saved per two hours beyond last two hours for 7 days. Post that, one recovery point saved per four hours.<p>App-consistent snapshots will also be pruned based on duration mentioned above even if you input lesser app-consistent snapshot frequency.|
 
 ### Do increases in recovery point retention increase storage costs?
 
