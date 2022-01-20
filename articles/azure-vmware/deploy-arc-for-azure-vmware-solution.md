@@ -64,7 +64,7 @@ az feature show –-name AzureArcForAVS --namespace Microsoft.AVS
 
 Use the steps below to guide you through the process to onboard in Arc for Azure VMware Solution preview.
 
-1. Sign in to the jumpbox VM and extract the contents from the compressed file from the following [location path](). The extracted file contains the scripts to install the preview software.
+1. Sign into the jumpbox VM and extract the contents from the compressed file from the following [location path](). The extracted file contains the scripts to install the preview software.
 1. Open the 'config_avs.json' file and populate all the variables.
 
     **Config JSON**
@@ -275,11 +275,11 @@ The guest management must be enabled on the VMware virtual machine (VM) before y
 - Your machine must be running a [Supported operating system](/azure/azure-arc/servers/agent-overview)
 - The machine needs to connect through the firewall to communicate over the Internet. Make sure the [URLs](/azure/azure-arc/servers/agent-overview) listed aren't blocked.
 - The machine can't be behind a proxy, it's not supported yet.
-- If you're using Linux VM, the account must not prompt for sign in on pseudo commands.
+- If you're using Linux VM, the account must not prompt for sign-in on pseudo commands.
     
     Avoid pseudo commands by following these steps:
     
-    1. Sign in to Linux VM.
+    1. Sign into Linux VM.
     1. Open terminal and run the following command: `sudo visudo`.
     1. Add the line below at the end of the file. Replace `username` with the appropriate user-name.
         `username` `ALL=(ALL) NOPASSWD:ALL` 
@@ -296,6 +296,23 @@ If your VM template already has these changes incorporated, you won't need to do
 1. When you're done, select **Review + create**. 
 
 When the extension installation steps are completed, it will trigger deployment and install the selected extension on the virtual machine. 
+
+## Change Arc appliance credential
+
+Use the following guide to change your Arc appliance credential once you've changed your SDDC credentials.
+
+**Set Credential**
+
+This command will update the provider credentials for an Appliance resource.
+
+**Parameters**
+
+Required parameters.
+
+**Examples**
+
+The following invokes the set credential for the specified appliance resource.
+
 
 ## Off board from Azure Arc enabled Azure MVware Solution
 
@@ -319,7 +336,7 @@ To avoid problems onboarding the same VM to **Guest management**, we recommend y
 >[!NOTE]
 >**Steps 2-3** must be performed for **all VMs** that have **Guest management** enabled.
 
-1. Sign in to the virtual machine using administrator or root credentials and run the following command in the shell.
+1. Sign into the virtual machine using administrator or root credentials and run the following command in the shell.
     1. `azcmagent disconnect --force-local-only`.
 1. Uninstall the `ConnectedMachine agent` from the machine.
 1. Set the **identity** on the VM resource to **none**. 
