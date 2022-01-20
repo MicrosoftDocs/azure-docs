@@ -37,7 +37,7 @@ In this request, the client indicates the permissions that it needs to acquire f
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
-&redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
+&redirect_uri=https%3A%2F%2Fjwt.ms%2F
 &response_mode=fragment
 &scope=openid%20offline_access
 &state=arbitrary_data_you_can_receive_in_the_response
@@ -67,7 +67,7 @@ After the user completes the user flow, a response is returned to your applicati
 A successful response using `response_mode=fragment` would look like:
 
 ```http
-GET https://aadb2cplayground.azurewebsites.net/#
+GET https://jwt.ms/#
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &state=arbitrary_data_you_can_receive_in_the_response
@@ -82,7 +82,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 Error responses can also be sent to the `redirect_uri` parameter so that the application can handle them appropriately:
 
 ```http
-GET https://aadb2cplayground.azurewebsites.net/#
+GET https://jwt.ms/#
 error=access_denied
 &error_description=the+user+canceled+the+authentication
 &state=arbitrary_data_you_can_receive_in_the_response
