@@ -26,10 +26,29 @@ If multiple matching certificates are present on the device, the user can pick w
 <!---Clarify plans that are covered --->
 This topic covers how to configure and use certificate-based authentication for tenants in Office 365 Enterprise, US Government plans. You should already have a [public key infrastructure (PKI)](https://aka.ms/securingpki) configured.
 
+Follow these instructions to configure and use cloud-native certificate-based authentication for tenants in Azure Active Directory.
+
 >[!NOTE]
 >Cloud-native certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
- 
+## Prerequisites
+
+Make sure that the following prerequisites are in place.
+
+- Configure at least one certificate authority (CA) and any intermediate certificate authorities in Azure Active Directory.
+- The user must have access to a user certificate (issued from a trusted Public Key Infrastructure configured on the tenant) intended for client authentication to authenticate against Azure AD. 
+
+>[!IMPORTANT]
+>Each CA should have a certificate revocation list (CRL) that can be referenced from internet-facing URLs. If the trusted CA does not have a CRL configured, Azure AD will not perform any CRL checking, revocation of user certificates will not work, and authentication will not be blocked.
+
+## Steps to configure and test cloud-native CBA
+
+There are some configuration steps an admin needs to perform before enabling Cloud Native Certificate-based Authentication. First, Admin must configure the trusted CAs that issue user certificates. Optionally configure authentication bindings to map certificates to single factor or multi factor and user binding configuration to map certificate field to a user object attribute. Once all the configurations are complete, enable Certificate-based authentication on the tenant.
+
+As seen in the diagram below, we use role-based access control to make sure only admins with certain roles can make changes. Configuring the certificate authority is done only by privileged authentication admin role whereas configuring user related configuration can be done by authentication policy administrators.
+
+tutorial-enable-cloud-native-certificate-based-authentication
+
 ## Requirements
 
 To configure certificate-based authentication, the following requirements must be met:
