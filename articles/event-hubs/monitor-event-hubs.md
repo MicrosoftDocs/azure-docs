@@ -89,7 +89,16 @@ Following are sample queries that you can use to help you monitor your Azure Eve
     | where ResourceProvider =="MICROSOFT.EVENTHUB"
     | where Category == "OperationalLogs"
     | summarize count() by "EventName"
+
++ Get runtime audit logs during last hour. 
+
+    ```Kusto
+    AzureDiagnostics
+    | where TimeGenerated > ago(1h)
+    | where ResourceProvider =="MICROSOFT.EVENTHUB"
+    | where Category == "RuntimeAuditLogs"    
     ```
+
 
 + Get access attempts to a key vault that resulted in "key not found" error.
 
