@@ -64,11 +64,11 @@ When you're ready to create the index, use a search client that can send the req
 
 During development, plan on frequent rebuilds. Because physical structures are created in the service, [dropping and re-creating indexes](search-howto-reindex.md) is necessary for many modifications. You might consider working with a subset of your data to make rebuilds go faster.
 
-### [**Azure portal**](#tab/index-portal)
+### [**Azure portal**](#tab/portal)
 
 Index design through the portal enforces requirements and schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. 
 
-1. [Sign in to the Azure portal](https://portal.azure.com)
+1. [Sign in to Azure portal](https://portal.azure.com).
 
 1. In the search service Overview page, choose either option for creating a search index: 
 
