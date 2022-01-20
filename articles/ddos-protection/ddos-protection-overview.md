@@ -16,11 +16,7 @@ ms.author: yitoh
 
 Distributed denial of service (DDoS) attacks are some of the largest availability and security concerns facing customers that are moving their applications to the cloud. A DDoS attack attempts to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet.
 
-Every property in Azure is protected by Azure's infrastructure DDoS (Basic) Protection at no additional cost. The scale and capacity of the globally deployed Azure network provides defense against common network-layer attacks through always-on traffic monitoring and real-time mitigation. DDoS Protection Basic requires no user configuration or application changes. DDoS Protection Basic helps protect all Azure services, including PaaS services like Azure DNS.
-
-Azure DDoS Protection Standard, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It is automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. It has several advantages over the basic service, including logging, alerting, and telemetry. 
-
-![Azure DDoS Protection Service Comparison](./media/ddos-protection-overview/ddos-comparison.png)
+Azure DDoS Protection Standard, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It is automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. 
 
 Azure DDoS protection does not store customer data.
 
@@ -48,7 +44,7 @@ To learn about Azure DDoS Protection Standard pricing, see [Azure DDoS Protectio
 
 ## Reference architectures
 
-DDoS Protection Standard is designed for [services that are deployed in a virtual network](../virtual-network/virtual-network-for-azure-services.md). For other services, the default DDoS Protection Basic service applies. To learn more about supported architectures, see [DDoS Protection reference architectures](./ddos-protection-reference-architectures.md). 
+DDoS Protection Standard is designed for [services that are deployed in a virtual network](../virtual-network/virtual-network-for-azure-services.md). For other services, the default infrastructure-level DDoS protection applies, which defends against common network-layer attacks. To learn more about supported architectures, see [DDoS Protection reference architectures](./ddos-protection-reference-architectures.md). 
 
 ## Next steps
 
