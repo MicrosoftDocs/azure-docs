@@ -21,7 +21,7 @@ Workspaces are places to manage your documents, projects, and models. When you c
 
 ## Create workspace
 
-1. After you sign-in to Custom Translator, you will be asked for permission to read your profile from the Microsoft identity platform to request your user access token and refresh token. Both tokens are needed for authentication and to ensure that you aren't signed out during your live session or while training your models. </br>Select **Yes**.
+1. After you sign in to Custom Translator, you will be asked for permission to read your profile from the Microsoft identity platform to request your user access token and refresh token. Both tokens are needed for authentication and to ensure that you aren't signed out during your live session or while training your models. </br>Select **Yes**.
 
     :::image type="content" source="../media/quickstart/first-time-user.png" alt-text="Screenshot showing first-time sign-in.":::
 
@@ -60,7 +60,7 @@ Select a workspace and navigate to **Workspace settings**. You can manage the fo
 
 ### Share workspace for collaboration
 
-The person who created the workspace is the owner. Within **Workspace settings** an owner can designate three different roles for a collaborative workspace:
+The person who created the workspace is the owner. Within **Workspace settings**, an owner can designate three different roles for a collaborative workspace:
 
 * **Owner**. An owner has full permissions within the workspace.
 
@@ -70,7 +70,7 @@ The person who created the workspace is the owner. Within **Workspace settings**
 
 1. Select **Share workspace**.
 
-1. Complete the the **email address** field for collaborators.
+1. Complete the **email address** field for collaborators.
 
 1. Select **role** from the dropdown list.
 
