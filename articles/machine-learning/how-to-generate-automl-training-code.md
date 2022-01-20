@@ -8,7 +8,7 @@ ms.author: cesardl
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.date: 01/15/2022
+ms.date: 01/25/2022
 ---
 
 # Generate an AutoML model's training code (preview)
@@ -82,7 +82,7 @@ remote_run.download_file("outputs/generated_code/script.py", "script.py")
 remote_run.download_file("outputs/generated_code/script_run_notebook.ipynb", "script_run_notebook.ipynb")
 ```
 
-You also have the option to view the generated code through the Azure Machine Learning studio UI. To do so, you can select the **View generated code** button on the **Models** tab on the automated ML experiments parent run page. This button redirects to the Notebooks portal extension, where you can view and run the generated code.
+You also can view the generated code through the Azure Machine Learning studio UI. To do so, you can select the **View generated code** button on the **Models** tab on the automated ML experiments parent run page. This button redirects to the Notebooks portal extension, where you can view and run the generated code.
 
 ![parent run models tab view generate code button](./media/how-to-generate-automl-training-code/parent-run-view-generated-code.png)
 
@@ -138,11 +138,11 @@ def prepare_data(dataframe):
 
 At this point, the dataframe from the data loading step is passed in. The label column and sample weights, if originally specified, are extracted and rows containing `NaN` are dropped from the input data.
 
-If additional data preparation is desired, it can be done in this step.
+If you want to do more data preparation, it can be done in this step.
 
 ### Data featurization
 
-The function `generate_data_transformation_config()` specifies the featurization step in the final scikit-learn pipeline. The featurizers used in the original experiment are reproduced here, along with their parameters.
+The function `generate_data_transformation_config()` specifies the featurization step in the final scikit-learn pipeline. The featurizers from the original experiment are reproduced here, along with their parameters.
 
 For example, a possible data transformation that can happen in this function would be multiple columns could be transformed with an imputer like, `SimpleImputer()`, `StringCastTransformer()`, or `LabelEncoderTransformer()`. 
 
@@ -291,7 +291,7 @@ dependencies and has the side benefit of not needing a Docker image rebuild step
 
 If you make changes to `script.py` that require additional dependencies, or you would like to use your own environment, you will need to update the `Create environment` cell in `script_run_notebook.ipynb` accordingly.
 
-For additional documentation on AzureML environments, see [this page](/python/api/azureml-core/azureml.core.environment.environment).
+For more information about AzureML environments, see [the Environment class documentation](/python/api/azureml-core/azureml.core.environment.environment).
 
 ### Submitting the experiment
 
