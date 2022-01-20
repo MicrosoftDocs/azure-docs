@@ -175,7 +175,7 @@ Hugo's [Git Info feature](https://gohugo.io/variables/git/) gives you access to 
 
 When you generate a Static Web App, the default workflow file uses the [checkout GitHub Action](https://github.com/actions/checkout) to fetch a _shallow_ version of your Git repository, with a default depth of **1**. Hugo will see all of your content files as coming from a single commit, so they will share the same author and last modification date and time.
 
-To update your workflow flow to fetch your full Git history, add a new parameter to set the `fetch-depth` to `0` (no limit) under the `actions/checkout` step:
+To update your workflow file to fetch your full Git history, add a new parameter to set the `fetch-depth` to `0` (no limit) under the `actions/checkout` step:
 
 ```yaml
       - uses: actions/checkout@v2
