@@ -12,6 +12,7 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: kendralittle, mathoma, emlisa
 ms.date: 1/20/2022
+ms.custom: references_regions
 ---
 
 # High availability for Azure SQL Database and SQL Managed Instance
