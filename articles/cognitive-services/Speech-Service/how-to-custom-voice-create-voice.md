@@ -12,7 +12,7 @@ ms.date: 11/04/2019
 ms.author: eur
 ---
 
-# Create and use your voice model
+# Create and train your voice model
 
 In [Prepare training data](how-to-custom-voice-prepare-data.md), you learned about the different data types you can use to train a custom neural voice and the different format requirements. Once you've prepared your data and the voice talent verbal statement, you can start to upload them to the [Speech Studio](https://aka.ms/custom-voice-portal). In this article, you learn how to train a custom neural voice through the Speech Studio portal. See the [supported languages](language-support.md#custom-neural-voice) for Custom Neural Voice.
 
@@ -28,7 +28,7 @@ A voice talent is an individual or target speaker whose voices are recorded and 
 To train a neural voice, you must create a voice talent profile with an audio file recorded by the voice talent consenting to the usage of their speech data to train a custom voice model. When preparing your recording script, make sure you include the statement sentence. You can find the statement in multiple languages [here](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice/script/verbal-statement-all-locales.txt). The language of the verbal statement must be the same as your recording. You need to upload this audio file to the Speech Studio as shown below to create a voice talent profile, which is used to verify against your training data when you create a voice model. Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here.
 
  :::image type="content" source="media/custom-voice/upload-verbal-statement.png" alt-text="Upload voice talent statement":::
- 
+
 > [!NOTE]
 > Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext), and then [apply for access](https://aka.ms/customneural). 
 
@@ -195,35 +195,10 @@ The quality of the voice depends on many factors, including the size of the trai
 > [!NOTE]
 > Custom neural voice training is only available in the three regions: East US, Southeast Asia, and UK South. But you can easily copy a neural voice model from the three regions to other different regions. Check the regions supported for Custom Neural Voice: [regions for Custom Neural Voice](regions.md#text-to-speech).
 
-## Create and use a custom neural voice endpoint
-
-After you've successfully created and tested your voice model, you deploy it in a custom Text-to-Speech endpoint. You then use this endpoint in place of the usual endpoint when making Text-to-Speech requests through the REST API. Your custom endpoint can be called only by the subscription that you've used to deploy the model.
-
-You can do the following to create a custom neural voice endpoint.
-
-1. On the **Deploy model** tab, select **Deploy model**. 
-2. Next, enter a **Name** and **Description** for your custom endpoint.
-3. Then, select a voice model you would like to associate with this endpoint. 
-4. Finally, select **Deploy** to create your endpoint.
-
-After you've clicked the **Deploy** button, in the endpoint table, you'll see an entry for your new endpoint. It may take a few minutes to instantiate a new endpoint. When the status of the deployment is **Succeeded**, the endpoint is ready for use.
-
-You can **Suspend** and **Resume** your endpoint if you don't use it all the time. When an endpoint is reactivated after suspension, the endpoint URL will be kept the same so you don't need to change your code in your apps. 
-
-You can also update the endpoint to a new model. To change the model, make sure the new model is named the same as the one you want to update. 
-
-> [!NOTE]
->- Standard subscription (S0) users can create up to 50 endpoints, each with its own custom neural voice.
->- To use your custom neural voice, you must specify the voice model name, use the custom URI directly in an HTTP request, and use the same subscription to pass through the authentication of TTS service.
-
-After your endpoint is deployed, the endpoint name appears as a link. Click the link to display information specific to your endpoint, such as the endpoint key, endpoint URL, and sample code.
-
-The custom endpoint is functionally identical to the standard endpoint that's used for Text-to-Speech requests.  For more information, see [Speech SDK](./get-started-text-to-speech.md) or [REST API](rest-text-to-speech.md).
-
-We also provide an online tool, [Audio Content Creation](https://speech.microsoft.com/audiocontentcreation), that allows you to fine-tune their audio output using a friendly UI.
 
 ## Next steps
 
+- [How to deploy and use endpoint](how-to-deploy-and-use-endpoint.md)
 - [How to record voice samples](record-custom-voice-samples.md)
 - [Text-to-Speech API reference](rest-text-to-speech.md)
 - [Long Audio API](long-audio-api.md)
