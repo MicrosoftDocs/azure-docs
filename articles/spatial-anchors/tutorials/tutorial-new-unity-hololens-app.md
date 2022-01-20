@@ -124,13 +124,14 @@ Our app will support the following interactions:
 
 Gesture | Action
 ------|------- 
-Tap anywhere | Start/Continue Session + Create anchor at Hand Position
+[Tap](/dynamics365/mixed-reality/guides/operator-gestures-hl2#air-tap) anywhere | Start/Continue Session + Create anchor at Hand Position
 Tapping on an anchor | Delete `GameObject` + Delete Anchor in ASA Cloud Service
 Tap + Hold for 2 sec (+ session is running) | Stop the session and remove all `GameObjects`. Keep anchors in ASA Cloud Service
 Tap + Hold for 2 sec (+ session is not running)| Start the session and look for all anchors.
 
 
 ## Add Tap recognition
+Let's add some code to our script to be able to recognize a user's [tapping gesture](/dynamics365/mixed-reality/guides/operator-gestures-hl2#air-tap).
 1. Open `AzureSpatialAnchorsScript.cs` in Visual Studio by double-clicking on the script in your Unity **Project pane**.
 2. Add the following array to your class
 
