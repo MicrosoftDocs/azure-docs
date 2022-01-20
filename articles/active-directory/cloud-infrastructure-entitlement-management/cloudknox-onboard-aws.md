@@ -17,7 +17,8 @@ ms.author: v-ydequadros
 This topic describes how to onboard the Amazon Web Services (AWS) authorization system on Microsoft CloudKnox Permissions Management (CloudKnox).
 
 > [!NOTE] 
-> To complete this task, you must have Global Administrator permissions.</p>Before beginning this task, make sure you have completed the steps provided in [Enable CloudKnox on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.md).
+> To complete this task, you must have Global Administrator permissions.
+> Before beginning this task, make sure you have completed the steps provided in [Enable CloudKnox on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.md).
 
 ## Onboard AWS
 

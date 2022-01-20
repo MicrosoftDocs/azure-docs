@@ -41,7 +41,7 @@ This topic describes how to enable Microsoft CloudKnox Permissions Management (C
 
     1. Paste this script into your command-line app (CLI) and run it.
 
-        If you don't have an Azure CLI on your system, or an Azure subscription where you can run cloud shell, you won't be able to run this command. 
+        If you don't have an Azure CLI on your system, or an Azure subscription where you can run Cloud Shell, you won't be able to run this command. 
     
         For information on how to create a service principal through the Azure portal, see [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli). 
 
