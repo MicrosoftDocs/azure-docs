@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 author: mattmccleary
 ms.author: mmcc
+ms.devlang: javascript
 ---
 
 # Angular plugin for Application Insights JavaScript SDK

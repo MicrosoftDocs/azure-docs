@@ -30,6 +30,9 @@ Jobs are initiated by the solution back end and maintained by IoT Hub. You can i
 > [!NOTE]
 > When you initiate a job, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
 
+> [!NOTE]
+> The `jobId` field must be 64 characters or less and can only contain US-ASCII letters, numbers, and the dash (`-`) character.
+
 ## Jobs to execute direct methods
 
 The following snippet shows the HTTPS 1.1 request details for executing a [direct method](iot-hub-devguide-direct-methods.md) on a set of devices using a job:

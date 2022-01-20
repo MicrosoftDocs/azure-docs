@@ -4,7 +4,6 @@ description: Learn about Azure Peering Service locations and partners
 services: peering-service
 author: derekolo
 ms.service: peering-service
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services

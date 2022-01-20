@@ -3,6 +3,7 @@ title: 'Quickstart: Java web app analytics with Azure Application Insights'
 description: 'Application Performance Monitoring for Java web apps with Application Insights. '
 ms.topic: conceptual
 ms.date: 11/22/2020
+ms.devlang: java
 ms.custom: devx-track-java
 author: mattmccleary
 ms.author: mmcc

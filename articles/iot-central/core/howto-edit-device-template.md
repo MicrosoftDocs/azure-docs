@@ -3,7 +3,7 @@ title: Edit a device template in your Azure IoT Central application | Microsoft 
 description: Iterate over your device templates without impacting your live connected devices
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/26/2021
+ms.date: 12/22/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central

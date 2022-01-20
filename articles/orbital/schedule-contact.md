@@ -22,7 +22,7 @@ Schedule a contact with the selected satellite for data retrieval/delivery on Az
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
 ## Select an available contact
 
