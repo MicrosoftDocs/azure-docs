@@ -30,13 +30,8 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Added the scoring metrics in the metrics UI
   + **azureml-automl-runtime**
     + Bug fix for cases where the algorithm name for NimbusML models may show up as empty strings, either on the ML Studio, or on the console outputs.
-    + Saving data transformer in parent run outputs, which can be reused to produce same featurized dataset which was used during the experiment run
-  + **azureml-contrib-automl-pipeline-steps**
-    + Correct spelling of "environment".
-  + **azureml-contrib-reinforcementlearning**
-    + Correct spelling of "environment".
   + **azureml-core**
-    + Will expose parameter storageinit_enabled in azureml.core.webservice.aks.AksWebservice.deploy_configuration
+    + Added parameter blobfuse_enabled in azureml.core.webservice.aks.AksWebservice.deploy_configuration. When this parameter is true, models and scoring files will be downloaded with blobfuse instead of the blob storage API.
   + **azureml-interpret**
     + Updated azureml-interpret to interpret-community 0.24.0
     + In azureml-interpret update scoring explainer to support latest version of lightgbm with sparse TreeExplainer
