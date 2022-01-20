@@ -11,7 +11,7 @@ ms.author: bagol
 
 > [!IMPORTANT]
 >
-> The *Microsoft Sentinel data connector for Azure Purview* and the *Azure Purview* solution are in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The *Azure Purview* solution is in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 [Azure Purview](/azure/purview/) provides organizations with visibility into where on the network sensitive information is stored, helping top prioritize at-risk data for protection.
