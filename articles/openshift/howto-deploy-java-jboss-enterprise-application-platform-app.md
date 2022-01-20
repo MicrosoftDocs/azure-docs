@@ -320,7 +320,7 @@ At this point, we need to configure the chart to be able to build and deploy the
 1. We can configure the Helm Chart either using a **Form View** or a **YAML View**. Select **YAML View** in the **Configure via** box.
 1. Then, change the YAML content to configure the Helm Chart by copying the content of the Helm Chart file available at _deployment/application/todo-list-helm-chart.yaml_ instead of the existing content:
 
-   :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/console-eap-helm-charts-yaml-content-inline.png" alt-text="OpenShift console EAP Helm Chart YAML content" lightbox="media/article-folder-name/media/howto-deploy-java-enterprise-application-platform-app/console-eap-helm-charts-yaml-content-expanded.png":::
+   :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/console-eap-helm-charts-yaml-content-inline.png" alt-text="OpenShift console EAP Helm Chart YAML content" lightbox="media/howto-deploy-java-enterprise-application-platform-app/console-eap-helm-charts-yaml-content-expanded.png":::
 
 1. Finally, select **Install** to start the application deployment. This will open the **Topology** view with a graphical representation of the Helm release (named **eap-todo-list-demo**) and its associated resources.
 
@@ -344,7 +344,7 @@ At this point, we need to configure the chart to be able to build and deploy the
 
 If you only want to delete your application, you can open the OpenShift console and, at the developer view, navigate to the **Helm** menu option. On this menu, you will see all the Helm Chart releases installed on your cluster.
 
-   :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/console-uninstall-application-inline.png" alt-text="OpenShift uninstall application" lightbox="media/article-folder-name/media/howto-deploy-java-enterprise-application-platform-app/console-uninstall-application-expanded.png":::
+   :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/console-uninstall-application-inline.png" alt-text="OpenShift uninstall application" lightbox="media/howto-deploy-java-enterprise-application-platform-app/console-uninstall-application-expanded.png":::
 
 Locate the **eap-todo-list-demo** Helm Chart and at the end of the row, select the tree vertical dots to open the action contextual menu entry.
 
