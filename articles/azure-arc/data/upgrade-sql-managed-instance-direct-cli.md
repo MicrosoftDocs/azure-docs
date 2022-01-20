@@ -51,10 +51,7 @@ During a SQL Managed Instance General Purpose upgrade, the containers in the pod
 
 ### Business Critical 
 
-> [!NOTE]
->   The Business Critical tier is in public preview. 
-
-During a SQL Managed Instance Business Critical upgrade, the containers in the replica pod(s) will be upgraded and reprovisioned. When this is complete, the primary will fail over to a replica, then be upgraded. This will cause a short amount of downtime during the failover between replicas. You will need to build resiliency into your application, such as connection retry logic, to ensure minimal disruption. Read [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview) for more information on architecting resiliency.
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-business-critical-upgrade.md)]
 
 ### Upgrade
 
