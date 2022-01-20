@@ -136,8 +136,27 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
 ## Next steps
 
 * For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) article.
-* Configure audit whitelists: By default audit logging will create a record for each and every login attempt and CQL query.
-The result can be rather overwhelming and increase overhead, but in Cassandra 3.11 with whitelists it is possible to configure
-what operations that will **_not_** yield an audit record. Role-based whitelist is enabled by default,
+* Audit Whitelists: By default audit logging will create a record for each and every login attempt and CQL query.
+The result can be rather overwhelming and increase overhead. In Cassandra 3.11, with whitelists it is possible to configure
+what operations that will **_not_** yield an audit record. Audit whitelist is enabled by default,
 please follow the [guidance](https://github.com/Ericsson/ecaudit/blob/release/c2.2/doc/role_whitelist_management.md) 
-to configure your audit whitelists.
+to configure your whitelists. Examples:
+  * To filter out all **select and modification** operations for user **bob** from the audit log, 
+    execute the following statements:
+    ```
+    cassandra@cqlsh> ALTER ROLE bob WITH OPTIONS = { 'GRANT AUDIT WHITELIST FOR SELECT' : 'data' };
+    cassandra@cqlsh> ALTER ROLE bob WITH OPTIONS = { 'GRANT AUDIT WHITELIST FOR MODIFY' : 'data' };
+    ```
+  * To filter out all **select** operations on the **decisions** table in the **design** keyspace 
+    for user **jim** from the audit log, execute the following statement:
+    ```
+    cassandra@cqlsh> ALTER ROLE jim WITH OPTIONS = { 'GRANT AUDIT WHITELIST FOR SELECT' : 'data/design/decisions' };
+    ```
+  * To revoke the whitelist for user **bob** on all his **select** operations, execute the following statement:
+    ```
+    cassandra@cqlsh> ALTER ROLE bob WITH OPTIONS = { 'REVOKE AUDIT WHITELIST FOR SELECT' : 'data' };
+    ```
+  * To view current whitelists, execute the following statement:
+    ```
+    cassandra@cqlsh> LIST ROLES;
+    ```
