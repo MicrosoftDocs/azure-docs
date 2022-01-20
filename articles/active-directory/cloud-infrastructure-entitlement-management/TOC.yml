@@ -38,30 +38,30 @@
     items:
     - name: CloudKnox 
       expanded: true
-       items:
-       - name: The CloudKnox dashboard
-         href: cloudknox-ui-dashboard.md
-       - name: The Settings dashboard
-         href: cloudknox-ui-product-settings.md
-       - name: Set personal information and preferences
-         href: cloudknox-product-account-settings.md
-        - name: View permission metrics on the CloudKnox dashboard
-          href: cloudknox-product-dashboard.md
+      items:
+      - name: The CloudKnox dashboard
+        href: cloudknox-ui-dashboard.md
+      - name: The Settings dashboard
+        href: cloudknox-ui-product-settings.md
+      - name: Set personal information and preferences
+        href: cloudknox-product-account-settings.md
+      - name: View permission metrics on the CloudKnox dashboard
+        href: cloudknox-product-dashboard.md
     - name: Usage Analytics
-       expanded: true
-       items:
-       - name: The Usage Analytics dashboard
-         href: cloudknox-ui-usage-analytics.md
-       - name: The Usage Analytics explorers
-         href: cloudknox-usage-analytics-explorers.md
-       - name: View usage information with the Usage Analytics dashboard
-         href: cloudknox-usage-analytics-home.md
-       - name: Analyze usage for an identity, a task, or an authorization system
-         href: cloudknox-howto-analyze-usage.md
-       - name: View usage analytics information about users
-         href: cloudknox-usage-analytics-users.md
+      expanded: true
+      items:
+      - name: The Usage Analytics dashboard
+        href: cloudknox-ui-usage-analytics.md
+      - name: The Usage Analytics explorers
+        href: cloudknox-usage-analytics-explorers.md
+      - name: View usage information with the Usage Analytics dashboard
+        href: cloudknox-usage-analytics-home.md
+      - name: Analyze usage for an identity, a task, or an authorization system
+        href: cloudknox-howto-analyze-usage.md
+      - name: View usage analytics information about users
+        href: cloudknox-usage-analytics-users.md
       - name: View usage analytics information about groups
-         href: cloudknox-usage-analytics-groups.md
+        href: cloudknox-usage-analytics-groups.md
       - name: View usage analytics information about active resources
         href: cloudknox-usage-analytics-active-resources.md
       - name: View usage analytics information about active tasks
@@ -79,8 +79,8 @@
         href: cloudknox-howto-attach-detach-permissions.md
       - name: Create and view a role/policy
         href: cloudknox-howto-create-role-policy.md
-       - name: Create or approve a request for privileges 
-         href: cloudknox-howto-create-approve-privilege-request.md
+      - name: Create or approve a request for privileges 
+        href: cloudknox-howto-create-approve-privilege-request.md
     - name: Audit trail
       expanded: true
       items:
@@ -104,8 +104,8 @@
     - name: Data management
       expanded: true
       items:
-     - name: Collect authorization system data
-       href: cloudknox-product-data-sources.md
+      - name: Collect authorization system data
+        href: cloudknox-product-data-sources.md
     - name: User management
       expanded: true
       items:
