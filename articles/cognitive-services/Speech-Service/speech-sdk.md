@@ -24,7 +24,7 @@ The Speech SDK exposes many features from the Speech service, but not all of the
 
 ### Speech-to-text
 
-[Speech-to-text](speech-to-text.md) (also known as *speech recognition*) transcribes audio streams to text that your applications, tools, or devices can consume or display. Use speech-to-text with [Language Understanding (LUIS)](../luis/index.yml) to derive user intents from transcribed speech and act on voice commands. Use [speech translation](speech-translation.md) to translate speech input to a different language with a single call. For more information, see [Speech-to-text basics](./get-started-speech-to-text.md).
+[Speech-to-text](speech-to-text.md) transcribes audio streams to text that your applications, tools, or devices can consume or display. Speech-to-text is also known as *speech recognition*. Use speech-to-text with [Language Understanding (LUIS)](../luis/index.yml) to derive user intents from transcribed speech and act on voice commands. Use [speech translation](speech-translation.md) to translate speech input to a different language with a single call. For more information, see [Speech-to-text basics](./get-started-speech-to-text.md).
 
 **Speech recognition, phrase list, intent, translation, and on-premises containers** are available on the following platforms:
 
@@ -39,7 +39,7 @@ The Speech SDK exposes many features from the Speech service, but not all of the
 
 ### Text-to-speech
 
-[Text-to-speech](text-to-speech.md) (also known as *speech synthesis*) converts text into humanlike synthesized speech. The input text is either string literals or uses the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). For more information on standard or neural voices, see [Text-to-speech language and voice support](language-support.md#text-to-speech).
+[Text-to-speech](text-to-speech.md) converts text into humanlike synthesized speech. Text-to-speech is also known as *speech synthesis*. The input text is either string literals or uses the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). For more information on standard or neural voices, see [Text-to-speech language and voice support](language-support.md#text-to-speech).
 
 **Text-to-speech** is available on the following platforms:
 
@@ -81,7 +81,7 @@ The Speech SDK is perfect for transcribing meeting scenarios, whether from a sin
 
 #### Conversation transcription
 
-[Conversation transcription](conversation-transcription.md) enables real-time (and asynchronous) speech recognition, speaker identification, and sentence attribution to each speaker (also known as *diarization*). It's perfect for transcribing in-person meetings with the ability to distinguish speakers.
+[Conversation transcription](conversation-transcription.md) enables real-time, and asynchronous, speech recognition, speaker identification, and sentence attribution to each speaker. This process is also known as *diarization*. It's perfect for transcribing in-person meetings with the ability to distinguish speakers.
 
 **Conversation transcription** is available on the following platforms:
 
@@ -91,7 +91,7 @@ The Speech SDK is perfect for transcribing meeting scenarios, whether from a sin
 
 #### Multidevice conversation
 
-With [multidevice conversation](multi-device-conversation.md), connect multiple devices or clients in a conversation to send speech-based or text-based messages, with easy support for transcription and translation.
+With [multidevice conversation](multi-device-conversation.md), you can connect multiple devices or clients in a conversation to send speech-based or text-based messages, with easy support for transcription and translation.
 
 **Multidevice conversation** is available on the following platforms:
 

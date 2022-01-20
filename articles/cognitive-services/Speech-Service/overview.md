@@ -31,9 +31,9 @@ The following features are part of the Speech service. Use the links in this tab
 | | [Pronunciation assessment](./how-to-pronunciation-assessment.md) | Pronunciation assessment evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. With pronunciation assessment, language learners can practice, get instant feedback, and improve their pronunciation so that they can speak and present with confidence. | [Yes](./how-to-pronunciation-assessment.md) | [Yes](./rest-speech-to-text.md#pronunciation-assessment-parameters) |
 | [Text-to-speech](text-to-speech.md) | Prebuilt neural voices | Text-to-speech converts input text into humanlike synthesized speech by using the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). Use neural voices, which are humanlike voices powered by deep neural networks. See [Language support](language-support.md). | [Yes](./speech-sdk.md) | [Yes](#reference-docs) |
 | | [Custom neural voices](#customize-your-speech-experience) | Create custom neural voice fonts unique to your brand or product. | No | [Yes](#reference-docs) |
-| [Speech translation](speech-translation.md) | Speech translation | Speech translation enables real-time, multilanguage translation of speech to your applications, tools, and devices. Use this service for speech-to-speech and speech-to-text translation. | [Yes](./speech-sdk.md) | No |
-| [Voice assistants](voice-assistants.md) | Voice assistants | Voice assistants using the Speech service empower developers to create natural, humanlike conversational interfaces for their applications and experiences. The voice assistant service provides fast, reliable interaction between a device and an assistant implementation that uses the Bot Framework's Direct Line Speech channel or the integrated custom commands service for task completion. | [Yes](voice-assistants.md) | No |
-| [Speaker recognition](speaker-recognition-overview.md) | Speaker verification and identification | The speaker recognition service provides algorithms that verify and identify speakers by their unique voice characteristics. Speaker recognition is used to answer the question, "Who is speaking?". | Yes | [Yes](/rest/api/speakerrecognition/) |
+| [Speech translation](speech-translation.md) | Speech translation | Speech translation enables real-time, multilanguage translation of speech to your applications, tools, and devices. Use this feature for speech-to-speech and speech-to-text translation. | [Yes](./speech-sdk.md) | No |
+| [Voice assistants](voice-assistants.md) | Voice assistants | Voice assistants using the Speech service empower developers to create natural, humanlike conversational interfaces for their applications and experiences. The voice assistant feature provides fast, reliable interaction between a device and an assistant implementation that uses the Bot Framework's Direct Line Speech channel or the integrated custom commands service for task completion. | [Yes](voice-assistants.md) | No |
+| [Speaker recognition](speaker-recognition-overview.md) | Speaker verification and identification | Speaker recognition provides algorithms that verify and identify speakers by their unique voice characteristics. Speaker recognition is used to answer the question, "Who is speaking?". | Yes | [Yes](/rest/api/speakerrecognition/) |
 
 ## Try the Speech service for free
 
@@ -71,9 +71,9 @@ To add a Speech service resource to your Azure account by using the free or paid
 
 It takes a few moments to deploy your new Speech resource.
 
-### Find the keys and the location or region
+### Find keys and location/region
 
-To find the keys and the location or region of a completed deployment:
+To find the keys and location/region of a completed deployment:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) by using your Microsoft account.
 
