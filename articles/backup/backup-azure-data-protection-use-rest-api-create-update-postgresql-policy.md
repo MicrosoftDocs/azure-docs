@@ -7,7 +7,7 @@ ms.author: v-amallick
 ms.assetid: 759ee63f-148b-464c-bfc4-c9e640b7da6b
 ---
 
-# Create Azure Data Protection backup policies for Azure PostgreSQL databases using REST API
+# Create Azure Data Protection backup policies for Azure PostgreSQL databases using REST API (preview)
 
 A backup policy governs the retention and schedule of your backups. Azure PostgreSQL database Backup offers long-term retention and supports a backup per day.
 

@@ -2,7 +2,7 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 11/22/2021
+ms.date: 01/19/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -14,6 +14,9 @@ To simplify the management of resources, you can use an Azure Resource Manager t
 > You can deploy to 800 different resource groups in a subscription level deployment.
 
 To deploy templates at the subscription level, use Azure CLI, PowerShell, REST API, or the portal.
+
+> [!TIP]
+> For an improved authoring experience, you can use Bicep rather than JSON to develop templates. For more information about Bicep syntax, see [subscription deployments](../bicep/deploy-to-subscription.md).
 
 ## Supported resources
 
