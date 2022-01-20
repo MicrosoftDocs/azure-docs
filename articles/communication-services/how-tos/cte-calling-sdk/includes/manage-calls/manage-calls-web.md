@@ -14,7 +14,7 @@ To create and start a call, use one of the APIs on `callAgent` and provide a use
 Call creation and start are synchronous. The `call` instance allows you to subscribe to call events.
 
 > [!NOTE]
-> Place a call with custom Teams application requires chat `threadId` when calling `startCall` method on `callAgent`. Each call in Teams has an associated chat thread. When Teams user accepts the call, the property `threadId` defines, which chat is displayed as part of the call. Read more on [how to create chat thread Id](https://docs.microsoft.com/graph/api/chat-post?view=graph-rest-1.0&tabs=javascript#example-2-create-a-group-chat&preserve-view=true). The chat's roster is not managed by Calling SDK and must be managed by developers to be in sync with Calling roster. Learn how to [manage chat thread](#manage-chat-thread). 
+> Place a call with custom Teams application requires chat `threadId` when calling `startCall` method on `callAgent`. Each call in Teams has an associated chat thread. When Teams user accepts the call, the property `threadId` defines, which chat is displayed as part of the call. Read more on [how to create chat thread Id](/graph/api/chat-post?preserve-view=true&tabs=javascript&view=graph-rest-1.0#example-2-create-a-group-chat). The chat's roster is not managed by Calling SDK and must be managed by developers to be in sync with Calling roster. Learn how to [manage chat thread](#manage-chat-thread). 
 ### Place a 1:n call to a user or PSTN
 
 To call another Teams user, use the `startCall` method on `callAgent` and pass the recipient's `MicrosoftTeamsUserIdentifier` that you [created with the Communication Services administration library](../../../../quickstarts/manage-teams-identity.md).
@@ -134,7 +134,7 @@ call.remoteParticipants; // [remoteParticipant, remoteParticipant....]
 To add a participant (either a user or a phone number) to a call, you can use `addParticipant`. Provide one of the `Identifier` types. It synchronously returns the `remoteParticipant` instance. The `remoteParticipantsUpdated` event from Call is raised when a participant is successfully added to the call.
 
 > [!NOTE]
-> Chat `threadId` is required when adding a participant to a call. Learn more about [how to get chat thread id](https://docs.microsoft.com/graph/api/chat-post?view=graph-rest-1.0&tabs=javascript#example-2-create-a-group-chat&preserve-view=true). Applications will need to manage their chat thread participants separate from call participants. Learn how to [manage chat thread](#manage-chat-thread).
+> Chat `threadId` is required when adding a participant to a call. Learn more about [how to get chat thread id](/graph/api/chat-post?preserve-view=true&tabs=javascript&view=graph-rest-1.0#example-2-create-a-group-chat). Applications will need to manage their chat thread participants separate from call participants. Learn how to [manage chat thread](#manage-chat-thread).
 
 ```js
 const userIdentifier = { microsoftTeamsUserId: '<MICROSOFT_TEAMS_USER_ID>' };
@@ -302,9 +302,9 @@ Creating a chat thread is mandatory for making calls and adding participants to 
 
 1. Create a chat thread between Alice and Bob, record `threadId`
 1. Alice calls Bob using `startCall` method on `callAgent` and specifies the `threadId`
-1. Add Charlie to chat thread with `threadId` using [Chat Graph API to add member](https://docs.microsoft.com/graph/api/chat-post-members?view=graph-rest-1.0&tabs=http)
+1. Add Charlie to chat thread with `threadId` using [Chat Graph API to add member](/graph/api/chat-post-members?tabs=http&view=graph-rest-1.0)
 1. Alice adds Charlie to the call using `addParticipant` method on `call` and specifies the `threadId`
 1. Alice removes Charlie from the call using `removeParticipant` method on `call` and specifies the `threadId`
-1. Remove Charlie from chat thread with `threadId` using [Chat Graph API to remove member](https://docs.microsoft.com/graph/api/chat-delete-members?view=graph-rest-1.0&tabs=http)
+1. Remove Charlie from chat thread with `threadId` using [Chat Graph API to remove member](/graph/api/chat-delete-members?tabs=http&view=graph-rest-1.0)
 
 If Teams user stops call recording, the recording is placed into chat associated with the thread. Consider the experience of Teams users in Teams client, when you select the thread ID to be associated with the call.

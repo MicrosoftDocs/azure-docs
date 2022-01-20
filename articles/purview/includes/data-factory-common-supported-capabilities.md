@@ -18,7 +18,7 @@ ms.date: 11/01/2021
 | Azure Data Explorer \* | Yes | 
 | Azure Data Lake Storage Gen1 | Yes | 
 | Azure Data Lake Storage Gen2 | Yes | 
-| Azure Database for Maria DB \* | Yes | 
+| Azure Database for MariaDB \* | Yes | 
 | Azure Database for MySQL \* | Yes | 
 | Azure Database for PostgreSQL \* | Yes |
 | Azure Files | Yes | 
@@ -75,4 +75,4 @@ In additional to lineage, the data asset schema (shown in Asset -> Schema tab) i
 
 #### Limitations on data flow lineage
 
-Currently, data flow lineage doesn't integrate with Purview [resource set](../concept-resource-sets.md).
+Currently, data flow lineage doesn't integrate with Azure Purview [resource set](../concept-resource-sets.md).

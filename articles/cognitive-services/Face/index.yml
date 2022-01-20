@@ -92,8 +92,6 @@ landingContent:
             url: /java/api/overview/azure/cognitiveservices/client/faceapi
           - text: Node.js SDK
             url: /javascript/api/overview/azure/cognitive-services/face-readme
-          - text: Go SDK
-            url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
           - text: Azure PowerShell
             url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)

@@ -10,6 +10,7 @@ ms.workload: identity
 ms.date: 11/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
+ms.devlang: csharp, javascript
 ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
 #Customer intent: As an application developer, I want to learn how to access Azure Storage for an app by using managed identities.
 ---

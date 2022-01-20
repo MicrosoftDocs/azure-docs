@@ -3,7 +3,7 @@ title: Quickstart - Export data from Azure IoT Central
 description: Quickstart - Learn how to use the data export feature in IoT Central to integrate with other cloud services.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/10/2021
+ms.date: 12/28/2021
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
@@ -32,7 +32,7 @@ Before you can export data from your IoT Central application, you need an Azure 
 Run the following script in the Azure Cloud Shell. Replace the `clustername` value with a unique name for your cluster before you run the script. The cluster name can contain only lowercase letters and numbers:
 
 > [!IMPORTANT]
-> The script takes at least 10 minutes to run.
+> The script can take 20 to 30 minutes to run.
 
 ```azurecli
 # The cluster name can contain only lowercase letters and numbers.
@@ -56,7 +56,7 @@ az kusto cluster create --cluster-name $clustername \
     --enable-auto-stop=true \
     --resource-group $resourcegroup --location $location
 
-# Crete a database in the cluster
+# Create a database in the cluster
 az kusto database create --cluster-name $clustername \
     --database-name $databasename \
     --read-write-database location=$location soft-delete-period=P365D hot-cache-period=P31D \

@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 10/07/2020
 ms.author: maraheja
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: mode-other
 ---
 
