@@ -1,5 +1,5 @@
 ---
-title: Orchestrate Azure AD Identity Governance with Azure Automation
+title: Orchestrate Azure AD Identity Governance tasks with Azure Automation
 description: Learn how to write PowerShell scripts in Azure Automation to interact with Azure Active Directory entitlement management and other features.
 services: active-directory
 documentationCenter: ''
@@ -20,9 +20,9 @@ ms.custom: devx-track-azurepowershell
 
 
 ---
-# Automate Azure AD Identity Governance via Azure Automation and Microsoft Graph
+# Automate Azure AD Identity Governance tasks via Azure Automation and Microsoft Graph
 
-[Azure Automation](azure/automation/overview) is an Azure cloud service that allows you to automate common or repetitive systems management and processes.  Microsoft Graph is the Microsoft unified API endpoint for Azure AD features that manage users, groups, access packages, access reviews and other resources in the directory.  You can manage Azure AD at scale from the PowerShell command line, using the [Microsoft Graph PowerShell SDK](/graph/powershell/get-started).  You can also include the Microsoft Graph PowerShell cmdlets from a [PowerShell-based runbook in Azure Automation](/azure/automation/automation-intro), so that you can automate Azure AD tasks from a simple script. 
+[Azure Automation](/azure/automation/overview) is an Azure cloud service that allows you to automate common or repetitive systems management and processes.  Microsoft Graph is the Microsoft unified API endpoint for Azure AD features that manage users, groups, access packages, access reviews, and other resources in the directory.  You can manage Azure AD at scale from the PowerShell command line, using the [Microsoft Graph PowerShell SDK](/graph/powershell/get-started).  You can also include the Microsoft Graph PowerShell cmdlets from a [PowerShell-based runbook in Azure Automation](/azure/automation/automation-intro), so that you can automate Azure AD tasks from a simple script.
 
 Azure Automation and the PowerShell Graph SDK supports certificate-based authentication and application permissions, so you can have Azure Automation runbooks authenticate to Azure AD without needing a user context.
 
@@ -61,7 +61,7 @@ To generate a self-signed certificate,
 
 1. Record the thumbprint that was displayed, the password to protect the private key in the `.pfx` file, and the location of the `.pfx` and `.crt` files.
 
-1. After you have exported the files, you can remove the certificate and key pair from your local user certificate store.  In subsequent steps you will remove the `.pfx` and `.crt` files as well, once those have been uploaded to the Azure Automation and Azure AD services.
+1. After you have exported the files, you can remove the certificate and key pair from your local user certificate store.  In subsequent steps you will remove the `.pfx` and `.crt` files as well, once the certificate and private key have been uploaded to the Azure Automation and Azure AD services.
 
 ## Upload the key pair to Azure Automation
 
@@ -77,7 +77,7 @@ Your runbook in Azure Automation will retrieve the private key from the `.pfx` f
 
 ## Add modules for Microsoft Graph to your Azure Automation account
 
-By default, Azure Automation does not have any PowerShell modules preloaded for Microsoft Graph.  You will need to add **Microsoft.Graph.Authentication**, and then additional modules, from the gallery to your Automation account.
+By default, Azure Automation does not have any PowerShell modules preloaded for Microsoft Graph.  You will need to add **Microsoft.Graph.Authentication**, and then additional modules, from the gallery to your Automation account.  Note that you will need to choose whether to use the beta or v1.0 APIs through those modules, as you cannot mix both in a single runbook.
 
 1. In the Azure portal for the Azure Automation account, select **Modules** and then **Browse gallery**.
 
@@ -157,7 +157,7 @@ Connect-MgGraph -clientId $ClientId -tenantid $TenantId -certificatethumbprint $
 
 1. If the run of your runbook is successful, then the message **Welcome to Microsoft Graph!** will appear.
 
-Now that you have verified that your runbook can authenticate to Microsoft Graph, extend your runbook by adding cmdlets for interacting with Azure AD features.  
+Now that you have verified that your runbook can authenticate to Microsoft Graph, extend your runbook by adding cmdlets for interacting with Azure AD features.
 
 ## Extend the runbook to use Entitlement Management
 
@@ -183,9 +183,9 @@ $ap | Select-Object -Property Id,DisplayName | ConvertTo-Json
 
 ## Parse the output of an Azure Automation account in Logic Apps (optional)
 
-Once your runbook is published, your can create a schedule in Azure Automation, and link your runbook to that schedule to run automatically.  This is suitable for runbooks that do not need to interact with other Azure or Office 365 services.
+Once your runbook is published, your can create a schedule in Azure Automation, and link your runbook to that schedule to run automatically.  Scheduling runbooks from Azure Automation is suitable for runbooks that do not need to interact with other Azure or Office 365 services.
 
-If you wish to send the output of your runbook to another service, then you may wish to consider using [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) to start your Azure Automation runbook, as Logic Apps can also parse the results. 
+If you wish to send the output of your runbook to another service, then you may wish to consider using [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) to start your Azure Automation runbook, as Logic Apps can also parse the results.
 
 1. In Azure Logic Apps, create a Logic App in the Logic Apps Designer starting with **Recurrence**.
 

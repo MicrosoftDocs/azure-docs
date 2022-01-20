@@ -62,6 +62,8 @@
         href: entitlement-management-reports.md
       - name: Archive logs and reporting
         href: entitlement-management-logs-and-reporting.md
+      - name: Use with Azure Automation
+        href: identity-governance-automation.md
       - name: Troubleshoot
         href: entitlement-management-troubleshoot.md
     - name: Catalog owners
