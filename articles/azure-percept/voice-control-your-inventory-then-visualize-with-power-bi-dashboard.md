@@ -131,7 +131,7 @@ In this section, you will use Visual Studio Code to create a local Azure Functio
         ![Drag and drop-1](./media/voice-control-your-inventory-images/crud-file.png)
         ![Drag and drop-2](./media/voice-control-your-inventory-images/show-crud-file.png)
    3. Update the value of the <strong>sql server full address</strong>, <strong>database</strong>, <strong>username</strong>, <strong>password</strong> you created in section 1 in <strong>CRUD.py</strong>
-        ![Update the value-1](./media/voice-control-your-inventory-images/e2t3s3-1.png)
+        ![Update the value-1](./media/voice-control-your-inventory-images/server-name.png)
         ![Update the value-2](./media/voice-control-your-inventory-images/server-parameter.png)
    4. Replace the content of the <strong>requirements.txt</strong>  in here by copying the raw content of requirements.txt
         ![Replace the content-1](./media/voice-control-your-inventory-images/select-requirements-u.png)
@@ -140,7 +140,7 @@ In this section, you will use Visual Studio Code to create a local Azure Functio
    
 5. Sign in to Azure
    1. Before you can publish your app, you must sign into Azure. If you aren't already signed in, choose the Azure icon in the Activity bar, then in the Azure: Functions area, choose <strong>Sign in to Azure...</strong>.If you're already signed in, go to the next section.
-        ![sign into Azure](./media/voice-control-your-inventory-images/e2t4s1.png)
+        ![sign into Azure](./media/voice-control-your-inventory-images/sign-in-to-azure.png)
 
    2. When prompted in the browser, choose your Azure account and sign in using your Azure account credentials.
    3. After you've successfully signed in, you can close the new browser window. The subscriptions that belong to your Azure account are displayed in the Side bar.
