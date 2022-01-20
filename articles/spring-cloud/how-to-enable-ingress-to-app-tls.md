@@ -15,7 +15,7 @@ This article describes what the secure communication of Azure Spring Cloud like 
 
 ![Graph of communications secured by TLS.](media/enable-end-to-end-tls/secured-tls.png)
 
-# Secure communication model within Azure Spring Cloud
+## Secure communication model within Azure Spring Cloud
 
 Here we would explain the secure communication model in Azure spring cloud in detail according to the overview picture.
 
@@ -31,17 +31,17 @@ Here we would explain the secure communication model in Azure spring cloud in de
 
 5. The communication between azure spring cloud applications and external service is fully managed by customers, too. To reduce customer's developing effort, Azure Spring Cloud provides a convenient way to help customers manage their public certificates and load them into application's trust store. Follow this could [Use TLS/SSL certificates in an application](./how-to-use-tls-certificate.md) to use this feature.
 
-# Enable ingress-to-app TLS for an application
+## Enable ingress-to-app TLS for an application
 
 The following part of this article shows how to enable ingress-to-app SSL/TLS to secure traffic from an ingress controller to applications that support HTTPS.
 
-## Prerequisites
+### Prerequisites
 
 - A deployed Azure Spring Cloud instance. Follow our [quickstart on deploying via the Azure CLI](./quickstart.md) to get started.
 - If you're unfamiliar with ingress-to-app TLS, see the [end-to-end TLS sample](https://github.com/Azure-Samples/spring-boot-secure-communications-using-end-to-end-tls-ssl).
 - To securely load the required certificates into Spring Boot apps, you can use [keyvault spring boot starter](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-keyvault-certificates).
 
-## Enable ingress-to-app TLS on an existing app
+### Enable ingress-to-app TLS on an existing app
 
 Use the command `az spring-cloud app update --enable-ingress-to-app-tls` to enable or disable ingress-to-app TLS for an app.
 
@@ -50,7 +50,7 @@ az spring-cloud app update --enable-ingress-to-app-tls -n app_name -s service_na
 az spring-cloud app update --enable-ingress-to-app-tls false -n app_name -s service_name -g resource_group_name
 ```
 
-## Enable ingress-to-app TLS when you bind custom domain
+### Enable ingress-to-app TLS when you bind custom domain
 
 Use the command `az spring-cloud app custom-domain update --enable-ingress-to-app-tls` or `az spring-cloud app custom-domain bind --enable-ingress-to-app-tls` to enable or disable ingress-to-app TLS for an app.
 
@@ -59,7 +59,7 @@ az spring-cloud app custom-domain update --enable-ingress-to-app-tls -n app_name
 az spring-cloud app custom-domain bind --enable-ingress-to-app-tls -n app_name -s service_name -g resource_group_name
 ```
 
-## Enable ingress-to-app TLS using Azure portal
+### Enable ingress-to-app TLS using Azure portal
 To enable ingress-to-app TLS in the [Azure portal](https://portal.azure.com/), first create an app, and then enable the feature.
 
 1. Create an app in the portal as you normally would. Navigate to it in the portal.
@@ -69,7 +69,7 @@ To enable ingress-to-app TLS in the [Azure portal](https://portal.azure.com/), f
 
 ![Enable Ingress-to-app TLS in portal](./media/enable-end-to-end-tls/enable-i2a-tls.png)
 
-## Verify ingress-to-app TLS status
+### Verify ingress-to-app TLS status
 
 Use the command `az spring-cloud app show` to check the value of `enableEndToEndTls`.
 
