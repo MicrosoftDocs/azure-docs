@@ -37,7 +37,7 @@ By default, all data in a workspace is available to all features of Azure Monito
 |:---|:---|
 | Standard  | Standard log data collected in a workspace. Available for all features of Azure Monitor and other services. |
 | [Basic](basic-logs-overview.md) | Configure one or more tables in the workspace as Basic Logs. All data ingested by that table has a reduced ingestion cost. Retention time is set at 8 days, and there is a cost for log queries. Intended for high-value verbose logs that don’t require analytics and alerts. |
-| [Archived](../essentials/archive-logs-overview.md) | Configure data in a any table to be archived after it reaches its retention time. Archived dfata is stored for an extended period at a reduced cost.  |
+| [Archived](../essentials/archived-logs-overview.md) | Configure data in a any table to be archived after it reaches its retention time. Archived dfata is stored for an extended period at a reduced cost.  |
 
 
 ## Data retention

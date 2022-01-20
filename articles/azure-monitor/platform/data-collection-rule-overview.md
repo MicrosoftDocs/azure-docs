@@ -41,7 +41,7 @@ Used by [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) to coll
 ## Default data collection rule
 Each workspace can have one default DCR that performs filtering and data transformation for workflows that don't currently use data collection rules. This DCR is applied to all data sent to the workspaces except from workflows that already use a DCR. For example, data sent from Azure Monitor agent uses a data collection rule, so the default DCR is not applied to this data.
 
-:::image type="content" source="media/dcr-default.png" alt-text="Diagram of custom logs data collection rule" lightbox="media/dcr-default.png":::
+:::image type="content" source="media/dcr-default.png" alt-text="Diagram of default data collection rule" lightbox="media/dcr-default.png":::
 
 
 ## Limits

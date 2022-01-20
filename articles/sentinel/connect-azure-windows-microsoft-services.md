@@ -248,7 +248,7 @@ PUT https://management.azure.com/subscriptions/703362b3-f278-4e4b-9179-c76eaf41f
 }
 ```
 
-See this [complete description of data collection rules](../azure-monitor/agents/data-collection-rule-overview.md) from the Azure Monitor documentation.
+See this [complete description of data collection rules](../azure-monitor/platform/data-collection-rule-overview.md) from the Azure Monitor documentation.
 
 # [Log Analytics Agent (Legacy)](#tab/LAA)
 

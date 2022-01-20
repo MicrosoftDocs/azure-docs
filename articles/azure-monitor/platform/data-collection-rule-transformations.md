@@ -153,36 +153,36 @@ All [Datetime and Timespan arithmetic operators](/azure/data-explorer/kusto/quer
 #### String operators
 The following [String operators](/azure/data-explorer/kusto/query/datatypes-string-operators) are supported.
 
-    – ==
-    – !=
-    – =~
-    – !~
-    – contains
-    – !contains
-    – contains_cs
-    – !contains_cs
-    – startswith
-    – !startswith
-    – startswith_cs
-    – !startswith_cs
-    – endswith
-    – !endswith
-    – endswith_cs
-    – !endswith_cs
-    – matches regex
-    – in
-    – !in
+– ==
+– !=
+– =~
+– !~
+– contains
+– !contains
+– contains_cs
+– !contains_cs
+– startswith
+– !startswith
+– startswith_cs
+– !startswith_cs
+– endswith
+– !endswith
+– endswith_cs
+– !endswith_cs
+– matches regex
+– in
+– !in
 
 #### Bitwise operators
 
 The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators) are supported.
 
-    – binary_and()
-    – binary_or()
-    – binary_xor()
-    – binary_not()
-    – binary_shift_left()
-    – binary_shift_right()
+– binary_and()
+– binary_or()
+– binary_xor()
+– binary_not()
+– binary_shift_left()
+– binary_shift_right()
 
 ### Scalar functions
 
@@ -302,15 +302,15 @@ Use [Identifier quoting](/azure/data-explorer/kusto/query/schema-entities/entity
 
 For example, the following query is not supported:
 
-    ```kql
- 	print d=dynamic({"a":123, "b":"hello", "c":[1,2,3], "d":{}})
-     ```
+```kql
+print d=dynamic({"a":123, "b":"hello", "c":[1,2,3], "d":{}})
+    ```
 
 The following query is supported and provides the same functionality:
 
-    ```kql
- 	print d=parse_json('{"a":123, "b":"hello", "c":[1,2,3], "d":{}}')
-    ```
+```kql
+print d=parse_json('{"a":123, "b":"hello", "c":[1,2,3], "d":{}}')
+```
 
 
 ## Next steps

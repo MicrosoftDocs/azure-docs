@@ -116,7 +116,7 @@ A dedicated Defender for Cloud recommendation provides:
 
 ### Use Azure Resource Manager to deploy the Defender extension
 
-To use Azure Resource Manager to deploy the Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces).
+To use Azure Resource Manager to deploy the Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 
 You can use the **azure-defender-extension-arm-template.json** Resource Manager template from Defender for Cloud's [installation examples](https://aka.ms/kubernetes-extension-installation-examples).
 
@@ -127,7 +127,7 @@ You can use the **azure-defender-extension-arm-template.json** Resource Manager 
 
 ### Use REST API to deploy the Defender extension 
 
-To use the REST API to deploy the Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces).
+To use the REST API to deploy the Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 
 > [!TIP]
 > The simplest way to use the API to deploy the Defender extension is with the supplied **Postman Collection JSON** example from Defender for Cloud's [installation examples](https://aka.ms/kubernetes-extension-installation-examples).

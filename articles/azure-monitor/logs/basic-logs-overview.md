@@ -1,7 +1,7 @@
 ---
 title: Azure Monitor Basic Logs
 description: Use Azure Monitor Basic Logs to quickly, or periodically investigate issues, troubleshoot code or configuration problems or address support cases.
-author: MeirMen, adiBiran
+author: bwren
 ms.author: bwren
 ms.reviewer: osalzberg
 ms.topic: conceptual
