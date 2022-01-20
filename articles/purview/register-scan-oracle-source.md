@@ -18,7 +18,7 @@ This article outlines how to register Oracle, and how to authenticate and intera
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes**](#lineage.md)|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes**](#lineage)|
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
