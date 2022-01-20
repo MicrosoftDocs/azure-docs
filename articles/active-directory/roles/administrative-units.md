@@ -36,7 +36,7 @@ Administrative units apply scope only to management permissions. They don't prev
 
 ## License requirements
 
-Using administrative units requires an Azure AD Premium P1 license for each administrative unit administrator, and Azure AD Free licenses for administrative unit members. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+Using administrative units requires an Azure AD Premium P1 license for each administrative unit administrator, and an Azure AD Free license for each administrative unit member. If you are using dynamic membership rules for administrative units, each administrative unit member requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Manage administrative units
 
