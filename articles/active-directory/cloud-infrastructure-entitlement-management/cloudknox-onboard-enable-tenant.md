@@ -42,7 +42,7 @@ This topic describes how to enable Microsoft CloudKnox Permissions Management (C
     1. Paste this script into your command-line app (CLI) and run it.
 
     > [!NOTE]
-    > If you don't have an Azure CLI on your system, or an Azure subscription where you can run cloud shell, you won't be able to run this command. </p>For information on how to create a service principal through the Azure portal, see [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli). </p>For information on how to get an az command and login with the no subscriptions flag, see [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true).
+    > If you don't have an Azure CLI on your system, or an Azure subscription where you can run cloud shell, you won't be able to run this command. </p>For information on how to create a service principal through the Azure portal, see [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli). </p>For information on how to get an az command and login with the no subscriptions flag, see [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login).
 
     After the script runs successfully, the service application attributes for CloudKnox display. 
 
@@ -55,13 +55,13 @@ This topic describes how to enable Microsoft CloudKnox Permissions Management (C
 
     The tenant completes enabling CloudKnox on your tenant and launches the CloudKnox **Data Collectors** settings page.
 
-    <!---Add image data-collectors-tab.jpg--->
+    :::image type="content" source="/media/cloudknox-onboard-enable-tenant/data-collectors-tab.png" alt-text="Data Collectors settings page.":::
 
     You use the **Data Collectors** page to configure data collection settings for your authorization system. 
 
-6. In the CloudKnox **Data Collectors** settings page, select the authorization system you want.
+1. In the CloudKnox **Data Collectors** settings page, select the authorization system you want.
 
-7. For information on how to  onboard your authorization system, select one of the following topics and follow the instructions:
+1. For information on how to  onboard your authorization system, select one of the following topics and follow the instructions:
 
     - [Onboard the Amazon Web Services (AWS) authorization system](cloudknox-onboard-aws.md)
     - [Onboard the Microsoft Azure authorization system](cloudknox-onboard-azure.md)
