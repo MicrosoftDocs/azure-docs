@@ -1,13 +1,13 @@
 ---
 title: 'Configure VPN NAT rules for your gateway using PowerShell'
 titleSuffix: Azure Virtual WAN
-description: Learn how to configure NAT rules for your VWAN VPN gateway.
+description: Learn how to configure NAT rules for your VWAN VPN gateway using PowerShell
 services: virtual-wan
 author: reasuquo
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/05/2021
-ms.author: cherylmc
+ms.date: 01/20/2022
+ms.author: reasuquo
 
 ---
 
@@ -15,12 +15,7 @@ ms.author: cherylmc
 
 You can configure your Virtual WAN VPN gateway with static one-to-one NAT rules. A NAT rule provides a mechanism to set up one-to-one translation of IP addresses. NAT can be used to interconnect two IP networks that have incompatible or overlapping IP addresses. A typical scenario is branches with overlapping IPs that want to access Azure VNet resources.
 
-This configuration uses a flow table to route traffic from an external (host) IP Address to an internal IP address associated with an endpoint inside a virtual network (virtual machine, computer, container, etc.).
-
-   :::image type="content" source="./media/nat-rules-vpn-gateway/diagram.png" alt-text="Diagram showing architecture.":::
-   
-In order to use NAT, VPN devices need to use any-to-any (wildcard) traffic selectors. Policy Based (narrow) traffic selectors are not supported in conjunction with NAT configuration.
-
+This configuration uses a flow table to route traffic from an external (host) IP Address to an internal IP address associated with an endpoint inside a virtual network (virtual machine, computer, container, etc.). In order to use NAT, VPN devices need to use any-to-any (wildcard) traffic selectors. Policy Based (narrow) traffic selectors are not supported in conjunction with NAT configuration.
 
 ## Prerequisites
 
@@ -34,8 +29,6 @@ In order to use NAT, VPN devices need to use any-to-any (wildcard) traffic selec
 ## <a name="signin"></a>Sign in
 
 [!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
-
-
 
 ## <a name="rules"></a>Configure NAT rules
 
