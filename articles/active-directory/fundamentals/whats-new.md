@@ -63,8 +63,8 @@ To prevent accidental notification approvals, admins can now  require users to e
  
 We are no longer publishing sign-in logs with the following error codes because these events are pre-authentication events that occur before our service has authenticated a user. Because these events happen before authentication, our service is not always able to correctly identify the user. If a user continues on to authenticate, the user sign-in will show up in your tenant Sign-in logs. These logs are no longer visible in the Azure Portal UX, and querying these error codes in the Graph API will no longer return results.
 
-|---|---|
-|Error code| Failure reason|
+|Error code | Failure reason|
+| --- | --- |
 |50058|	Session information is not sufficient for single-sign-on.|
 |16000| Either multiple user identities are available for the current request or selected account is not supported for the scenario.|
 |500581| Rendering JavaScript. Fetching sessions for single-sign-on on V2 with prompt=none requires JavaScript to verify if any MSA accounts are signed in.|
