@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 
 # Language identification
 
-Language identification is used to recognize natural languages spoken in audio when compared against a list of [supported languages](language-support.md). 
+Language identification is used to identify natural languages spoken in audio when compared against a list of [supported languages](language-support.md). 
 
 Language identification use cases include:
 
@@ -23,40 +23,122 @@ Language identification use cases include:
 * [Speech-to-text language identification](#speech-to-text) when you need to detect the natural language in an audio source and then transcribe it to text. 
 * [Speech translation language identification](#speech-translation) when you need to detect the natural language in an audio source and then translate it to another language. 
 
-You provide candidate languages, at least one of which is expected be in the audio. You can include up to 4 languages for at-start recognition or up to 10 languages for continuous recognition. 
+## How it works
+
+Whether you use language identification [on its own](#standalone-language-identification), with [speech-to-text](#speech-to-text), or with [speech translation](#speech-translation), there are some common concepts and options. 
+
+- Define a list of [candidate languages](#candidate-languages) that you expect in the audio.
+- Decide whether to use [at-start or continuous](#at-start-and-continuous-language-identification) language identification.
+- Prioritize [low latency or high accuracy](#accuracy-and-latency-prioritization) of results.
+
+Code snippets are included with the concepts described next. Complete samples for each use case are provided further below.
+
+### Candidate languages
+
+You provide candidate languages, at least one of which is expected be in the audio. You can include up to 4 languages for [at-start LID](#at-start-and-continuous-language-identification) or up to 10 languages for [continuous LID](#at-start-and-continuous-language-identification).  
 
 > [!NOTE]
 > You must provide the full 4-letter locale, but the Speech service only uses the base language. For example, if you include both "en-US" and "en-GB", the Speech service only uses the Speech-to-text model for English. Do not include multiple locales for the same language. 
 
-The returned results for at-start and continuous recognition also depend upon your [Accuracy and Latency prioritization](#accuracy-and-latency-prioritization). 
 
-## At-start and Continuous recognition
+::: zone pivot="programming-language-csharp"
+```csharp
+var autoDetectSourceLanguageConfig =
+    AutoDetectSourceLanguageConfig.FromLanguages(
+        new string[] { "en-US", "de-DE" });
+```
+::: zone-end
+::: zone pivot="programming-language-cpp"
+```cpp
 
-Speech supports both at-start and continuous recognition for language identification. 
+```
+::: zone-end
+::: zone pivot="programming-language-python"
+```python
+
+```
+::: zone-end
+::: zone pivot="programming-language-java"
+```java
+
+```
+::: zone-end
+::: zone pivot="programming-language-javascript"
+```javascript
+
+```
+::: zone-end
+::: zone pivot="programming-language-objectivec"
+```objective-c
+
+```
+::: zone-end
+
+
+
+### At-start and Continuous language identification
+
+Speech supports both at-start and continuous language identification (LID). 
 
 > [!NOTE]
-> Continuous recognition is only supported with Speech SDKs in C#, C++, and Python.
+> Continuous language identification is only supported with Speech SDKs in C#, C++, and Python.
 
-At-start recognition identifies the language within the first few seconds of audio, and makes only one determination per audio. Use at-start recognition if the language in the audio won't change.
+At-start LID confirms the language within the first few seconds of audio, and makes only one determination per audio. Use at-start LID if the language in the audio won't change.
 
-Continuous recognition can identify multiple languages for the duration of the audio. Use continuous recognition if the language in the audio could change. However, continuous recognition accuracy is limited if multiple languages are used within the same utterance. 
+Continuous LID can confirm multiple languages for the duration of the audio. Use continuous LID if the language in the audio could change. However, the accuracy is limited if multiple languages are used within the same utterance. 
 
-## Accuracy and Latency prioritization
+::: zone pivot="programming-language-csharp"
+```csharp
 
-You can choose to prioritize accuracy or latency during speech recognition. 
+```
+::: zone-end
+::: zone pivot="programming-language-cpp"
+```cpp
+
+```
+::: zone-end
+::: zone pivot="programming-language-python"
+```python
+
+```
+::: zone-end
+
+
+The returned results for at-start and continuous LID also depend upon your [Accuracy and Latency prioritization](#accuracy-and-latency-prioritization). 
+
+### Accuracy and Latency prioritization
+
+You can choose to prioritize accuracy or latency with language identification. 
 
 > [!NOTE]
 > Low latency is prioritized by default with the Speech SDK. You can choose to prioritize accuracy or latency with the Speech SDKs for C#, C++, and Python.
 
-Prioritize `Latency` if you need a low-latency result such as during live streaming. Set the priority to `Accuracy` if the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning. Allowing the engine more time will improve recognition results.
+Prioritize `Latency` if you need a low-latency result such as during live streaming. Set the priority to `Accuracy` if the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning. Allowing the engine more time will improve language identification results.
 
-* **At-start:** With at-start recognition in `Latency` mode the result is returned in less than 5 seconds. With at-start recognition in `Accuracy` mode the result is returned in 30 seconds. 
+* **At-start:** With at-start LID in `Latency` mode the result is returned in less than 5 seconds. With at-start LID in `Accuracy` mode the result is returned in 30 seconds. 
 
-* **Continuous:** With continuous recognition in `Latency` mode the results are returned every 2 seconds for the duration of the audio. With continuous recognition in `Accuracy` mode the results are returned within no set time frame for the duration of the audio.
+* **Continuous:** With continuous LID in `Latency` mode the results are returned every 2 seconds for the duration of the audio. With continuous LID in `Accuracy` mode the results are returned within no set time frame for the duration of the audio.
 
-If none of the candidate languages are present in the audio or if the recognition confidence is low, the returned result can vary by mode. 
+
+::: zone pivot="programming-language-csharp"
+```csharp
+
+```
+::: zone-end
+::: zone pivot="programming-language-cpp"
+```cpp
+
+```
+::: zone-end
+::: zone pivot="programming-language-python"
+```python
+
+```
+::: zone-end
+
+If none of the candidate languages are present in the audio or if the language identification confidence is low, the returned result can vary by mode. 
 * In `Latency` priority mode the Speech service returns one of the candidate languages provided, even if those languages were not in the audio. For example, if `fr-FR` (French) and `en-US` (English) are provided as candidates, but German is spoken, either "French" or "English" would be returned. 
-* In `Accuracy` priority mode the Speech service returns "Unknown" if none of the candidate languages are detected or if the recognition confidence is low. 
+* In `Accuracy` priority mode the Speech service returns "Unknown" if none of the candidate languages are detected or if the language identification confidence is low. 
 
 ## Standalone language identification
 
@@ -67,7 +149,7 @@ You use standalone language identification when you only need to detect the natu
 
 ::: zone pivot="programming-language-csharp"
 
-### [At-start](#tab/at-start)
+### [Recognize once](#tab/once)
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -93,7 +175,7 @@ using (var recognizer = new SourceLanguageRecognizer(speechConfig, autoDetectSou
 ```
 
 
-### [Continuous](#tab/continuous)
+### [Continuous recognition](#tab/continuous)
 
 :::code language="csharp" source="~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/standalone_language_detection_samples.cs" id="languageDetectionContinuousWithFile":::
 
@@ -105,7 +187,7 @@ See more examples of standalone language identification on [GitHub](https://gith
 
 ::: zone pivot="programming-language-cpp"
 
-### [At-start](#tab/at-start)
+### [Recognize once](#tab/once)
 
 ```cpp
 using namespace std;
@@ -129,7 +211,7 @@ if (result->Reason == ResultReason::RecognizedSpeech)
 ```
 
 
-### [Continuous](#tab/continuous)
+### [Continuous recognition](#tab/continuous)
 
 :::code language="cpp" source="~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/standalone_language_detection_samples.cpp" id="StandaloneLanguageDetectionInContinuousModeWithFileInput":::
 
@@ -142,7 +224,7 @@ See more examples of standalone language identification on [GitHub](https://gith
 
 ::: zone pivot="programming-language-python"
 
-### [At-start](#tab/at-start)
+### [Recognize once](#tab/once)
 
 
 ```python
@@ -170,7 +252,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 ```
 
 
-### [Continuous](#tab/continuous)
+### [Continuous recognition](#tab/continuous)
 
 
 :::code language="python" source="~/samples-cognitive-services-speech-sdk/samples/python/console/speech_language_detection_sample.py" id="SpeechContinuousLanguageDetectionWithFile":::
@@ -188,11 +270,11 @@ See more examples of standalone language identification on [GitHub](https://gith
 You use Speech-to-text language identification when you need to detect the natural language in an audio source and then transcribe it to text. 
 
 > [!NOTE]
-> Speech-to-text at-start recognition is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Continuous recognition is only supported with Speech SDKs in C#, C++, and Python.
+> Speech-to-text recognition with at-start language identification is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Speech-to-text recognition with continuous language identification is only supported with Speech SDKs in C#, C++, and Python.
 
 ::: zone pivot="programming-language-csharp"
 
-### [At-start](#tab/at-start)
+### [Recognize once](#tab/once)
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -219,7 +301,7 @@ using (var recognizer = new SpeechRecognizer(
 }
 ```
 
-### [Continuous](#tab/continuous)
+### [Continuous recognition](#tab/continuous)
 
 
 ```csharp
@@ -313,7 +395,7 @@ See more examples of speech-to-text language identification on [GitHub](https://
 ::: zone pivot="programming-language-cpp"
 
 
-### [At-start](#tab/at-start)
+### [Recognize once](#tab/once)
 
 ```cpp
 using namespace std;
@@ -338,7 +420,7 @@ auto detectedLanguage = autoDetectSourceLanguageResult->Language;
 ```
 
 
-### [Continuous](#tab/continuous)
+### [Continuous recognition](#tab/continuous)
 
 
 ```cpp
@@ -447,7 +529,7 @@ See more examples of speech-to-text language identification on [GitHub](https://
 ::: zone pivot="programming-language-python"
 
 
-### [At-start](#tab/at-start)
+### [Recognize once](#tab/once)
 
 ```Python
 auto_detect_source_language_config = \
@@ -462,7 +544,7 @@ detected_language = auto_detect_source_language_result.language
 ```
 
 
-### [Continuous](#tab/continuous)
+### [Continuous recognition](#tab/continuous)
 
 
 ```python
@@ -631,13 +713,13 @@ var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromSourceLangua
 You use Speech translation language identification when you need to detect the natural language in an audio source and then translate it to another language. 
 
 > [!NOTE]
-> Translation recognition is only supported with Speech SDKs in C#, C++, and Python. 
+> Translation recognition with language identification is only supported with Speech SDKs in C#, C++, and Python. 
 
 
 ::: zone pivot="programming-language-csharp"
 
 
-### [At-start](#tab/at-start)
+### [Recognize once](#tab/once)
 
 
 ```csharp
@@ -685,7 +767,7 @@ public static async Task RecognizeOnceSpeechTranslationAsync()
 }
 ```
 
-### [Continuous](#tab/continuous)
+### [Continuous recognition](#tab/continuous)
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -799,11 +881,11 @@ See more examples of speech translation language identification on [GitHub](http
 ::: zone pivot="programming-language-cpp"
 
 
-### [At-start](#tab/at-start)
+### [Recognize once](#tab/once)
 
 :::code language="cpp" source="~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/translation_samples.cpp" id="TranslationAndLanguageIdWithMicrophone":::
 
-### [Continuous](#tab/continuous)
+### [Continuous recognition](#tab/continuous)
 
 ```cpp
 using namespace std;
@@ -904,11 +986,11 @@ See more examples of speech translation language identification on [GitHub](http
 ::: zone pivot="programming-language-python"
 
 
-### [At-start](#tab/at-start)
+### [Recognize once](#tab/once)
 
 :::code language="python" source="~/samples-cognitive-services-speech-sdk/samples/python/console/translation_sample.py" id="TranslationOnceWithFile":::
 
-### [Continuous](#tab/continuous)
+### [Continuous recognition](#tab/continuous)
 
 :::code language="python" source="~/samples-cognitive-services-speech-sdk/samples/python/console/translation_sample.py" id="TranslationContinuous":::
 
