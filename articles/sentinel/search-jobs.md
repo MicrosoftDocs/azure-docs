@@ -2,7 +2,7 @@
 title: Search across long time spans in large datasets - Microsoft Sentinel
 description: Learn how to use search jobs to search extremely large datasets.
 author: cwatson-cat
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/14/2022
 ms.author: cwatson
 ---
@@ -58,6 +58,6 @@ View the status and results of your search job by going to the **Saved Searches*
 To learn more, see the following topics.
 
 - [Hunt with bookmarks](bookmarks.md)
-- Log restore
+- [Restore archived logs](restore-archive-log.md)
 - Basic logs
 - Archived logs
