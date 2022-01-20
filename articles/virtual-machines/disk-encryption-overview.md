@@ -28,7 +28,7 @@ Here is a comparison of SSE, ADE, and encryption at host.
 |--|--|--|--|--|--|--|--|--|
 | **Encryption at rest with platform-managed key (SSE+PMK)** | &#x2705; | &#10060; | &#10060; | &#10060; | &#10060; | &#x2705; | &#x2705; | Unhealthy, not applicable if exempt |
 | **Encryption at rest with customer-managed key (SSE+CMK)** | &#x2705; | &#10060; | &#10060; | &#10060; | &#x2705; | &#x2705; | &#x2705; | Unhealthy, not applicable if exempt |
-| **Azure Disk Encryption** | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |&#10060; | &#10060; Does not work for custom linux images | Healthy |
+| **Azure Disk Encryption** | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |&#10060; | &#10060; Does not work for custom Linux images | Healthy |
 | **Encryption at Host**  | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | Unhealthy, not applicable if exempt |
 
 > [!Important]
