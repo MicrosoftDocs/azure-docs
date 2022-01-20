@@ -4,8 +4,8 @@ description: Learn about the requirements an offer in the Microsoft commercial m
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: vamahtan
-ms.author: vamahtan
+author: vikrambmsft
+ms.author: vikramb
 ms.reviewer: stmummer
 ms.date: 12/03/2021
 ---

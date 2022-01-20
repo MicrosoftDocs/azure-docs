@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.subservice: spark
 ms.date: 08/19/2021
 ms.author: wiassaf
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: mode-ui
 ---
 

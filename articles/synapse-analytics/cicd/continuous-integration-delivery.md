@@ -160,6 +160,14 @@ Use the [Synapse workspace deployment](https://marketplace.visualstudio.com/item
 
     :::image type="content" source="media/create-release-artifacts-deployment.png" lightbox="media/create-release-artifacts-deployment.png" alt-text="Screenshot that shows setting up the Synapse deployment task for the workspace.":::
 
+1. The deployment of managed private endpoint is only supported in version 2.x. please make sure you select the right version and check the **Deploy managed private endpoints in template**.
+
+    :::image type="content" source="media/deploy-private-endpoints.png" alt-text="Screenshot that shows selecting version 2.x to deploy private endpoints with synapse deployment task.":::
+
+1. To manage triggers, you can use trigger toggle to stop the triggers before deployment. And you can also add a task to restart the triggers after the deployment task. 
+
+    :::image type="content" source="media/toggle-trigger.png" alt-text="Screenshot that shows managing triggers before and after deployment.":::
+
 > [!IMPORTANT]
 > In CI/CD scenarios, the integration runtime type in different environments must be the same. For example, if you have a self-hosted integration runtime in the development environment, the same integration runtime must be self-hosted in other environments, such as in test and production. Similarly, if you're sharing integration runtimes across multiple stages, the integration runtimes must be linked and self-hosted in all environments, such as in development, test, and production.
 

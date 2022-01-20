@@ -2,7 +2,7 @@
 title: Azure Event Hubs Firewall Rules | Microsoft Docs
 description: Use Firewall Rules to allow connections from specific IP addresses to Azure Event Hubs. 
 ms.topic: article
-ms.date: 05/10/2021
+ms.date: 10/28/2021
 ---
 
 # Allow access to Azure Event Hubs namespaces from specific IP addresses or ranges
@@ -25,24 +25,27 @@ This section shows you how to use the Azure portal to create IP firewall rules f
 
 1. Navigate to your **Event Hubs namespace** in the [Azure portal](https://portal.azure.com).
 4. Select **Networking** under **Settings** on the left menu. 
+1. On the **Networking** page, for **Public network access**, you can set one of the three following options. Choose **Selected networks** option to allow access from only specified IP addresses. 
+    - **Disabled**. This option disables any public access to the namespace. The namespace will be accessible only through [private endpoints](private-link-service.md). 
+  
+        :::image type="content" source="./media/event-hubs-firewall/public-access-disabled.png" alt-text="Networking page - public access tab - public network access is disabled.":::
+    - **Selected networks**. This option enables public access to the namespace using an access key from selected networks. 
+
+        > [!IMPORTANT]
+        > If you choose **Selected networks**, add at least one IP firewall rule or a virtual network that will have access to the namespace. Choose **Disabled** if you want to restrict all traffic to this namespace over [private endpoints](private-link-service.md) only.   
     
-    > [!WARNING]
-    > If you select the **Selected networks** option and don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed via **public internet** (using the access key).  
+        :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Networking page with the selected networks option selected." lightbox="./media/event-hubs-firewall/selected-networks.png":::    
+    - **All networks** (default). This option enables public access from all networks using an access key. If you select the **All networks** option, the event hub accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
-    :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Networks tab - selected networks option" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
+        :::image type="content" source="./media/event-hubs-firewall/firewall-all-networks-selected.png" lightbox="./media/event-hubs-firewall/firewall-all-networks-selected.png" alt-text="Screenshot that shows the Public access page with the All networks option selected.":::
+1. To restrict access to **specific IP addresses**, follow these steps: 
+    1. In the **Firewall** section, select **Add your client IP address** option to give your current client IP the access to the namespace. 
+    3. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation.
+        
+        To restrict access to **specific virtual networks**, see [Allow access from specific networks](event-hubs-service-endpoints.md). 
+    1. Specify whether you want to **allow trusted Microsoft services to bypass this firewall**. See [Trusted Microsoft services](#trusted-microsoft-services) for details. 
 
-    If you select the **All networks** option, the event hub accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
-
-    ![Screenshot that shows the "Firewall and virtual networks" page with the "All networks" option selected.](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. To restrict access to specific IP addresses, confirm that the **Selected networks** option is selected. In the **Firewall** section, follow these steps:
-    1. Select **Add your client IP address** option to give your current client IP the access to the namespace. 
-    2. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation. 
-
-    >[!WARNING]
-    > If you select the **Selected networks** option and don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed over public internet (using the access key).
-1. Specify whether you want to **allow trusted Microsoft services to bypass this firewall**. See [Trusted Microsoft services](#trusted-microsoft-services) for details. 
-
-      ![Firewall - All networks option selected](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
+        :::image type="content" source="./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png" lightbox="./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png" alt-text="Firewall section highlighted in the Public access tab of the Networking page.":::
 3. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
 
     > [!NOTE]

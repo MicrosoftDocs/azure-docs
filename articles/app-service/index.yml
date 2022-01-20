@@ -20,9 +20,9 @@ landingContent:
             url: overview.md
           - text: Azure App Service plan overview
             url: overview-hosting-plans.md
-          - text: Introduction to App Service Environment v2
-            url: environment/intro.md
-          - text: Choose an Azure compute service for your application
+          - text: App Service Environment overview
+            url: environment/overview.md
+          - text: Compare Azure hosting options for web apps
             url: /azure/architecture/guide/technology-choices/compute-decision-tree
       - linkListType: whats-new
         links:

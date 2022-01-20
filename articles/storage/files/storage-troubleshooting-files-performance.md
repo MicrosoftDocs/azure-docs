@@ -280,6 +280,9 @@ To confirm, you can use Azure Metrics in the portal -
 
 To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
+## Slow performance when unzipping files in SMB file shares
+Depending on the exact compression method and unzip operation used, decompression operations may perform more slowly on an Azure file share than on your local disk. This is often because unzipping tools perform a number of metadata operations in the process of performing the decompression of a compressed archive. For the best performance, we recommend copying the compressed archive from the Azure file share to your local disk, unzipping there, and then using a copy tool such as Robocopy (or AzCopy) to copy back to the Azure file share. Using a copy tool like Robocopy can compensate for the decreased performance of metadata operations in Azure Files relative to your local disk by using multiple threads to copy data in parallel. 
+
 ## How to create alerts if a premium file share is trending toward being throttled
 
 1. In the Azure portal, go to your storage account.

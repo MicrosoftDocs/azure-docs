@@ -4,7 +4,7 @@ description: Least privileged roles to delegate for tasks in Azure Active Direct
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles

@@ -18,7 +18,7 @@ The Azure Function activity allows you to run [Azure Functions](../azure-functio
 
 For an eight-minute introduction and demonstration of this feature, watch the following video:
 
-> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Run-Azure-Functions-from-Azure-Data-Factory-pipelines/player]
+> [!VIDEO https://docs.microsoft.com/shows/azure-friday/Run-Azure-Functions-from-Azure-Data-Factory-pipelines/player]
 
 ## Create an Azure Function activity with UI
 
