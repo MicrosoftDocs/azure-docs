@@ -70,8 +70,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set-up single sign-on with SAML** page, perform the following steps:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://sso.connect.pingidentity.com/<CUSTOM_GUID>`
+    a. In the **Identifier** text box, enter the following (if this is already used by another application, contact [Pendo support team](mailto:support@pendo.io)):
+    `PingConnect`
 
     b. In the **Relay State** text box, type a URL using the following pattern:
     `https://pingone.com/1.0/<CUSTOM_GUID>`
