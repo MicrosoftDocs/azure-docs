@@ -2,7 +2,7 @@
 title: Workbooks gallery in Microsoft Defender for Cloud
 description: Learn how to create rich, interactive reports of your Microsoft Defender for Cloud data with the integrated Azure Monitor Workbooks gallery
 ms.topic: conceptual
-ms.date: 01/19/2022
+ms.date: 01/20/2022
 ---
 
 # Create rich, interactive reports of Defender for Cloud data
@@ -128,18 +128,18 @@ You can keep drilling down - right down to the recommendation level - to view th
 
 ### Use the 'Active Alerts' workbook
 
-This workbook displays the active alerts for subscriptions on one dashboard. Security Alerts are the notifications that Defender for Cloud generates when it detects threats on your resources. Defender for Cloud prioritizes, and lists the alerts, along with information needed for quick investigation and remediation.
+This workbook displays the active security alerts for your subscriptions on one dashboard. Security alerts are the notifications that Defender for Cloud generates when it detects threats on your resources. Defender for Cloud prioritizes, and lists the alerts, along with information needed for quick investigation and remediation.
 
 This workbook benefits you by letting you understand the active threats on your environment, and allows you to prioritize between the active alerts.
 
 > [!NOTE]
-> Most workbooks use Azure Resource Graph to query their data. For example, to display Map View, Log Analytics workspace is used to query the data. [Continuous export](continuous-export.md) should be enabled, and export the Security Alerts to the Log Analytics workspace.
+> Most workbooks use Azure Resource Graph (ARG) to query their data. For example, to display the Map View, Log Analytics workspace is used to query the data. [Continuous export](continuous-export.md) should be enabled, and export the security alerts to the Log Analytics workspace.
 
-You can view the active alerts by Severity, Resource Group, or Tag.
+You can view the active alerts by severity, resource group, or tag.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/active-alerts-pie-charts.png" alt-text="Screenshot showing a sample view of the alerts viewed by Severity, Resource Group, or Tag.":::
 
-You can also view your subscriptions top alerts by attacked resources, alert types, and new alerts.
+You can also view your subscription's top alerts by attacked resources, alert types, and new alerts.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/top-alerts.png" alt-text="Screenshot highlighting the top alerts for your subscriptions.":::
 
@@ -147,7 +147,7 @@ You can get more details on any of these alerts by selecting it.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/active-alerts-high.png" alt-text="Screenshot that shows all the active alerts with high severity from a specific resource.":::
 
-The MITRE ATT&CK tactics displays by the order of the kill-chain, and the number of alerts the subscription has on each stage of the kill chain. 
+The MITRE ATT&CK tactics displays by the order of the kill-chain, and the number of alerts the subscription has at each stage. 
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/mitre-attack-tactics.png" alt-text="Screenshot showing the order of the kill-chain, and the number of alerts":::
 

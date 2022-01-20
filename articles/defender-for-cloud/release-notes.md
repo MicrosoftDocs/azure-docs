@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 01/19/2022
+ms.date: 01/20/2022
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -157,7 +157,7 @@ The **[Services should listen on allowed ports only](https://portal.azure.com/#b
 
 ### Added 'Active Alert' workbook
 
-To assist our users in their understanding of the active threats to  their environments, and prioritize between active alerts during the remidiation process, we have added the Active Alerts workbook.
+To assist our users in their understanding of the active threats to their environments, and prioritize between active alerts during the remidiation process, we have added the Active Alerts workbook.
 
 :::image type="content" source="media/release-notes/active-alerts-workbook.png" alt-text="Screenshot showing the addition of the Active alerts workbook.":::
 
