@@ -2,6 +2,8 @@
 author: edburns
 ms.author: edburns
 ms.date: 01/11/2022
+ms.service: azure-redhat-openshift
+ms.topic: article
 ---
 
 > [!NOTE]
