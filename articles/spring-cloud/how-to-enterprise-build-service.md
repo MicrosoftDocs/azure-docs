@@ -64,7 +64,7 @@ All the builders configured in a Spring Cloud Service instance are listed in the
 
 Select **Add** to create a new builder. The image below shows the resources used to create the customized builder.
 
-:::image type="content" source="{source}" alt-text="Screenshot of 'Add Builder' pane.":::
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/builder-create.png" alt-text="Screenshot of 'Add Builder' pane.":::
 
 You can also edit a custom builder. You can update the buildpacks or the [OS Stack](https://docs.pivotal.io/tanzu-buildpacks/stacks.html), but the builder name is read only.
 
