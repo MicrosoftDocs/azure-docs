@@ -10,14 +10,14 @@ ms.date: 1/20/2021
 ms.author: jasteppe
 ---
 
-# Configure IoT connector Diagnostic settings for metrics export
+# Configure diagnostic setting for IoT connector metrics export
 
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this article, you'll learn how to configure the Diagnostics settings for IoT connector to export metrics to different destinations for audit, analysis, or backup.
+In this article, you'll learn how to configure the diagnostic setting for IoT connector to export metrics to different destinations for audit, analysis, or backup.
 
-## Create Diagnostic settings exporting your IoT connector metrics
+## Create diagnostic setting for IoT connector
 1. To enable diagnostics metrics export for IoT connector, select **IoT connectors** in your Workspace.
  
    :::image type="content" source="media/iot-metrics-export/iot-connector-logging-workspace.png" alt-text="Select IoT connector within Workspace" lightbox="media/iot-metrics-export/iot-connector-logging-workspace.png":::
@@ -30,13 +30,13 @@ In this article, you'll learn how to configure the Diagnostics settings for IoT 
 
    :::image type="content" source="media/iot-metrics-export/iot-connector-logging-select-diagnostic-settings.png" alt-text="Select the Diagnostic settings and select the + Add diagnostic setting buttons." lightbox="media/iot-metrics-export/iot-connector-logging-select-diagnostic-settings.png"::: 
 
-4. After the **Diagnostic setting** page opens, enter a name in the **Diagnostic setting name** dialog box.   
+4. After the **+ Add diagnostic setting** page opens, enter a name in the **Diagnostic setting name** dialog box.   
 
     :::image type="content" source="media/iot-metrics-export/iot-connector-logging-select-diagnostic-configuration.png" alt-text="Provide a name for your diagnostics export, where you want the metrics to be sent, ALLMetrics, and save" lightbox="media/iot-metrics-export/iot-connector-logging-select-diagnostic-configuration.png"::: 
 
 5. Under **Destination details**, select the destination you want to use to export your IoT connector diagnostics metrics to. In the above example, we've selected an Azure storage account.
 
-   Diagnostics metrics can be sent to the following destinations:
+   Diagnostics metrics can be exported to the following destinations:
 
    |Destination|Description|
    |-----------|-----------|
@@ -51,7 +51,7 @@ In this article, you'll learn how to configure the Diagnostics settings for IoT 
 6. Select **AllMetrics**.
 
 > [!Note]
-> To view a complete list of IoT connector metrics associated with **AllMetrics**, see [Microsoft.HealthcareApis/workspaces/iotconnectors](/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisworkspacesiotconnectors). 
+> To view a complete list of IoT connector diagnostics metrics associated with **AllMetrics**, see [Microsoft.HealthcareApis/workspaces/iotconnectors](/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisworkspacesiotconnectors). 
 
 7. Select **Save**.
 
