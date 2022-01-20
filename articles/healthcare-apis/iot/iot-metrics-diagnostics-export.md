@@ -30,9 +30,13 @@ In this article, you'll learn how to enable IoT connector metrics logging. The f
 
    :::image type="content" source="media/iot-metrics-export/iot-connector-logging-select-diagnostic-settings.png" alt-text="Select the Diagnostic settings and select the + Add diagnostic setting buttons." lightbox="media/iot-metrics-export/iot-connector-logging-select-diagnostic-settings.png"::: 
 
-4. Enter a name in the **Diagnostic setting name** dialog box.
+4. The **Diagnostics setting** page will open.  
 
-5. Under **Destination details**, select the method you want to use to access your metrics logs. In this example, we've selected an Azure storage account.
+    :::image type="content" source="media/iot-metrics-export/iot-connector-logging-select-diagnostic-configuration.png" alt-text="Provide a name for your logs, where you want the logs to be sent, ALLMetrics, and save" lightbox="media/iot-metrics-export/iot-connector-logging-select-diagnostic-configuration.png"::: 
+
+5. Enter a name in the **Diagnostic setting name** dialog box.
+
+6. Under **Destination details**, select the method you want to use to access your metrics logs. In this example, we've selected an Azure storage account.
 
    IoT connector logs and metrics can be sent to destinations in the following table:
 
@@ -46,7 +50,7 @@ In this article, you'll learn how to enable IoT connector metrics logging. The f
 > [!Important]
 > Each **Destination details** selection requires that certain resources (for example: an existing storage account) be created and available before the selection can be successfully configured. Click each selection to get a list of required resources.
 
-6. Select **AllMetrics**
+7. Select **AllMetrics**
 
 > [!Note]
 > **AllMetrics** contains the following IoT connector metrics:
@@ -58,9 +62,7 @@ In this article, you'll learn how to enable IoT connector metrics logging. The f
 > * DeviceEventProcessingLatencyMs (Ms = millisecond)
 > * MeasurementIngestionLatencyMs (Ms = millisecond)
 
-7. Select **Save**
-
-   :::image type="content" source="media/iot-metrics-export/iot-connector-logging-select-diagnostic-configuration.png" alt-text="Provide a name for your logs, where you want the logs to be sent, ALLMetrics, and save" lightbox="media/iot-metrics-export/iot-connector-logging-select-diagnostic-configuration.png":::
+8. Select **Save**
 
 > [!Note] 
 > It might take up to 15 minutes for the first metrics logs to display in the destination of your choice.  
