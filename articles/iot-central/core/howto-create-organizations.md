@@ -78,7 +78,7 @@ Instead, you can use the CSV import feature to bulk register devices with your a
 
 ### Gateways
 
-You assign gateway and leaf devices to organizations. You don't have to assign a gateway and its associated leaf devices to the same organization. If you assign them to different organizations, it's possible that a user can see the gateway but not the leaf devices, or the leaf devices but not the gateway.
+You assign gateway and downstream devices to organizations. You don't have to assign a gateway and its associated downstream devices to the same organization. If you assign them to different organizations, it's possible that a user can see the gateway but not the downstream devices, or the downstream devices but not the gateway.
 
 ## Roles
 
