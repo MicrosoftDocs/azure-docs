@@ -33,7 +33,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: Managed identity with Azure Cache for Redis
-            url: cache-managed-identity.md-
+            url: cache-managed-identity.md
           - text: Create an Enterprise tier cache
             url: quickstart-create-redis-enterprise.md
 #          - text: Frequently asked questions
