@@ -19,9 +19,9 @@ Once your model has successfully trained, you can use translations to evaluate t
 
 ## BLEU score
 
-BLEU (bilingual evaluation understudy) is an algorithm for evaluating evaluating the precision or accuracy of text that has been machine-translated from one natural language to another. Microsoft Translator relies on the BLEU metric to report accuracy to project owners.
+BLEU (bilingual evaluation understudy) is an algorithm for evaluating the precision or accuracy of text that has been machine-translated from one natural language to another. Microsoft Translator relies on the BLEU metric to report accuracy to project owners.
 
-A BLEU score is always a number between zero and one. A score of 0 indicates a low-quality translation. A score of 1.0 indicates a perfect translation that is identical to one of the reference translations. It's not necessary to attain a score of 1.0—a BLEU score between 0.40 and 0.60 indicates a high quality translation.
+A BLEU score is always a number between zero and one. A score of 0 indicates a low-quality translation. A score of 1.0 indicates a perfect translation that is identical to one of the reference translations. It's not necessary to attain a score of 1.0—a BLEU score between 0.40 and 0.60 indicates a high-quality translation.
 
 [Read more](/azure/cognitive-services/translator/custom-translator/what-is-bleu-score?WT.mc_id=aiml-43548-heboelma)
 
@@ -33,7 +33,7 @@ A BLEU score is always a number between zero and one. A score of 0 indicates a l
 
 1. Evaluate the model [BLEU](../beginners-guide.md#what-is-a-bleu-score) score. Using the test set, **BLEU score** is the custom model score and **Baseline BLEU** is the pre-trained baseline model used for customization. A higher **BLEU score** means there is high translation quality using the custom model.
 
-   :::image type="content" source="../media/quickstart/model-details.png" alt-text="Screenshot showing the model detaill."::: 
+   :::image type="content" source="../media/quickstart/model-details.png" alt-text="Screenshot showing the model detail."::: 
 
 ## Test quality of your model's translation
 

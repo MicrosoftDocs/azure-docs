@@ -19,7 +19,7 @@ initially includes all documents that are uploaded to a workspace with the corre
 
 ## Project category
 
-The project `Category ID`entifies the domain—the area of terminology and style you want to use for your project. Choose the category most relevant to the contents of your documents.
+The project `Category ID` identifies the domain—the area of terminology and style you want to use for your project. Choose the category most relevant to the contents of your documents.
 
 In the same workspace, you may create projects for the same language pair in
 different categories. Custom Translator prevents creation of a duplicate project
@@ -44,4 +44,4 @@ English-to-French and French-to-English, create two projects: one for English �
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to manage projects](how-to/manage-projects.md)
+> [Learn how to manage projects](how-to/create-manage-projects.md)
