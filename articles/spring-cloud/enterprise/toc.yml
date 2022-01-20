@@ -2,6 +2,7 @@
   href: index.yml
   displayName: Azure Spring Cloud
 - name: Overview
+  expanded: true
   items:
     - name: What is Azure Spring Cloud?
       href: ../overview.md?toc=/azure/spring-cloud/enterprise/toc.json&bc=/azure/bread/toc.json

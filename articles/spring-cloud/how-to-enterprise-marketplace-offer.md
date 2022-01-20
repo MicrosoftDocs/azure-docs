@@ -5,17 +5,19 @@ author: karlerickson
 ms.author: yuwzho
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 11/19/2021
+ms.date: 02/09/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # View Azure Spring Cloud Enterprise Tier offering in Azure Marketplace
 
+**This article applies to:** ✔️ Enterprise tier
+
 This article shows you how to view the Azure Spring Cloud Enterprise Tier with VMware Tanzu offering through Azure Marketplace and how to redirect to the Azure Spring Cloud Enterprise tier creation page from Azure Marketplace.
 
 Azure Spring Cloud Enterprise Tier is optimized for the needs of enterprise Spring developers through advanced configurability, flexibility, portability, and enterprise-ready VMware Spring Runtime 24x7 support. Developers also benefit from proprietary Tanzu components, such as Tanzu Build Service, Tanzu Application Configuration Service, and Tanzu Service Registry, and access to Spring experts.
 
-Customers obtain and pay for a license to Tanzu components through an [Azure Marketplace offering](https://aka.ms/ascmpoffer). Azure Spring Cloud manages the license acquisition so you won't have to do it yourself.
+You can obtain and pay for a license to Tanzu components through an [Azure Marketplace offering](https://aka.ms/ascmpoffer). Azure Spring Cloud manages the license acquisition so you won't have to do it yourself.
 
 ## Prerequisites
 
@@ -33,15 +35,15 @@ To see the offering and read a detailed description, see [Azure Spring Cloud Ent
 
 To see the supported plans in your market, select **Plans + Pricing**.
 
-![Enterprise Tier VMWare plan offering](./media/enterprise/how-to-enterprise-marketplace-offer/enterprise-plan.png)
+:::image type="content" source="media/enterprise/how-to-enterprise-marketplace-offer/enterprise-plan.png" alt-text="Azure Marketplace screenshot showing Azure Spring Cloud Enterprise Tier VMware Tanzu offering.":::
 
 > [!NOTE]
 > If you see "No plans are available for market '\<Location>'", that means none of your Azure subscriptions can purchase the SaaS offering. For more information, see [No plans are available for market '\<Location>'](./troubleshoot.md#no-plans-are-available-for-market-location) in [Troubleshooting](./troubleshoot.md).
 
 To see the Enterprise Tier creation page, select **Set up + subscribe**
 
-![Setup and Subscribe Button Location](./media/enterprise/how-to-enterprise-marketplace-offer/marketplace-view.png)
+:::image type="content" source="media/enterprise/how-to-enterprise-marketplace-offer/marketplace-view.png" alt-text="Azure Marketplace screenshot showing Azure Spring Cloud Enterprise Tier VMware Tanzu offering with 'Set up + subscribe' highlighted.":::
 
 ## Next steps
 
-* [Azure Spring Cloud](index.yml)
+- [Azure Spring Cloud](index.yml)

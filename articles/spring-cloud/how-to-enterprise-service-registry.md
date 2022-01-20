@@ -6,11 +6,13 @@ author: karlerickson
 ms.author: xiading
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 11/08/2021
+ms.date: 02/09/2022
 ms.custom: devx-track-java
 ---
 
 # Use Service Registry
+
+**This article applies to:** ✔️ Enterprise tier
 
 This article shows you how to use Service Registry with Azure Spring Cloud Enterprise Tier.
 
@@ -50,8 +52,8 @@ Use the following steps to bind an application to the Service Registry.
 
 1. Select **Bind app** and choose one app in the dropdown, then select **Apply** to bind.
 
-   ![sr-app-bind-dropdown](./media/enterprise/how-to-enterprise-service-registry/service-reg-app-bind-dropdown.png)
+   :::image type="content" source="media/enterprise/how-to-enterprise-service-registry/service-reg-app-bind-dropdown.png" alt-text="Screenshot of Azure portal showing Azure Spring Cloud Service Registry page and 'App binding' section with 'Bind app' dropdown showing.":::
 
 ## Next steps
 
-* [Create Roles and Permissions](./how-to-permissions.md)
+- [Create Roles and Permissions](./how-to-permissions.md)

@@ -6,11 +6,13 @@ author: karlerickson
 ms.author: fenzho
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 12/31/2021
+ms.date: 02/09/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Use Build Service
+
+**This article applies to:** ✔️ Enterprise tier
 
 This article describes the extra configuration and functionality included in Build Service with Azure Spring Cloud Enterprise Tier.
 
@@ -20,21 +22,21 @@ In Azure Spring Cloud, the existing Standard tier already supports compiling use
 
 Build Service in the Enterprise tier is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps. You can configure the number of resources given to the build agent pool during or after provisioning a new service instance of Azure Spring Cloud using the **VMware Tanzu settings**.
 
-![Where to allocate resources to Build Service](./media/enterprise/how-to-enterprise-build-service/agent-pool.png)
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/agent-pool.png" alt-text="Azure portal screenshot showing Azure Spring Cloud Create page with 'VMWare Tanzu settings' highlighted and 'Allocated Resources' dropdown showing.":::
 
 The Build Agent Pool scale set sizes available are:
 
-   | Scale Set | CPU/Gi        |
-   |-----------|---------------|
-   | S1        | 2 vCPU, 4 Gi  |
-   | S2        | 3 vCPU, 6 Gi  |
-   | S3        | 4 vCPU, 8 Gi  |
-   | S4        | 5 vCPU, 10 Gi |
-   | S5        | 6 vCPU, 12 Gi |
+| Scale Set | CPU/Gi        |
+|-----------|---------------|
+| S1        | 2 vCPU, 4 Gi  |
+| S2        | 3 vCPU, 6 Gi  |
+| S3        | 4 vCPU, 8 Gi  |
+| S4        | 5 vCPU, 10 Gi |
+| S5        | 6 vCPU, 12 Gi |
 
-The image below shows the resources given to the Build Service Agent Pool after the service instance is provisioned successfully.
+The following image shows the resources given to the Build Service Agent Pool after you've successfully provisioned the service instance.
 
-![Finding resources given to Build Service](./media/enterprise/how-to-enterprise-build-service/agent-pool-size.png)
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/agent-pool-size.png" alt-text="Azure portal screenshot showing Azure Spring Cloud Build Service page with 'General info' highlighted.":::
 
 ## Default Builder and Tanzu Buildpacks
 
@@ -58,15 +60,15 @@ Besides the `default` builder, you can also create custom builders with the prov
 
 All the builders configured in a Spring Cloud Service instance are listed in the **Build Service** section under **VMware Tanzu components**.
 
-![List of configured builders](./media/enterprise/how-to-enterprise-build-service/builder-list.png)
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/builder-list.png" alt-text="Azure portal screenshot showing Build Service page with list of configured builders.":::
 
 Select **Add** to create a new builder. The image below shows the resources used to create the customized builder.
 
-![Fields to fill in to Add a builder](./media/enterprise/how-to-enterprise-build-service/builder-create.png)
+:::image type="content" source="{source}" alt-text="Screenshot of 'Add Builder' pane.":::
 
-A custom builder can also be edited. You can update the buildpacks or the [OS Stack](https://docs.pivotal.io/tanzu-buildpacks/stacks.html), but the builder name is read only.
+You can also edit a custom builder. You can update the buildpacks or the [OS Stack](https://docs.pivotal.io/tanzu-buildpacks/stacks.html), but the builder name is read only.
 
-![How to edit the builder](./media/enterprise/how-to-enterprise-build-service/builder-edit.png)
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/builder-edit.png" alt-text="Azure portal screenshot showing Build Service page with builders list and context menu showing 'Edit Builder' command.":::
 
 You can delete any custom builder, but the `default` builder is read only.
 
@@ -83,7 +85,7 @@ If the builder isn't specified, the `default` builder will be used.
 
 ## Real-time build logs
 
-A build task will be triggered when an app is deployed from an Azure CLI command. Build logs are streamed in real time as part of the CLI command output. See [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md) to diagnose build logs.
+A build task will be triggered when an app is deployed from an Azure CLI command. Build logs are streamed in real time as part of the CLI command output. For information on using build logs to diagnose problems, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md) .
 
 ## Buildpack bindings
 
@@ -91,33 +93,33 @@ You can configure Kpack Images with Service Bindings as described in the [Cloud 
 
 Currently, buildpack binding only supports binding the buildpacks listed below. Follow the documentation links listed under each type to configure the properties and secrets for buildpack binding.
 
-1. ApplicationInsights
+- ApplicationInsights
 
    - [Monitor Apps with Application Insights](./how-to-application-insights.md).
 
-1. NewRelic
+- NewRelic
 
    - [New Relic Partner Buildpack](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html#new-relic).
    - [New Relic Environment Variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
-1. Dynatrace
+- Dynatrace
 
    - [Dynatrace Partner Buildpack](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html#dynatrace).
    - [Determine the values for the required environment variables](https://www.dynatrace.com/support/help/shortlink/azure-spring#envvar).
 
-1. AppDynamics
+- AppDynamics
 
    - [AppDynamic Partner Buildpack](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html#appdynamics).
    - [Configure Using the Environment Variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties).
 
-1. ElasticAPM
+- ElasticAPM
 
    - [ElasticAPM Partner Buildpack](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html#elastic-apm).
    - [Elastic Configuration](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html).
 
 ## Manage buildpack bindings
 
-Buildpack bindings can be managed with the Azure portal, or the Azure CLI.
+You can manage buildpack bindings with the Azure portal or the Azure CLI.
 
 # [Portal](#tab/azure-portal)
 
@@ -127,13 +129,13 @@ Follow these steps to view the current buildpack bindings:
 
 1. Open the [Azure portal](https://ms.portal.azure.com/?AppPlatformExtension=entdf#home).
 1. Select **Build Service**.
-1. Select **Edit** under the *Bindings* column to view the bindings configured under a builder.
+1. Select **Edit** under the **Bindings** column to view the bindings configured under a builder.
 
 ## Unbind a buildpack binding
 
-There are two ways to unbind a buildpack binding. You can either select the **Bound** hyperlink, then **Unbind binding**, or select **Edit Binding** and then select **Unbind**.
+There are two ways to unbind a buildpack binding. You can either select the **Bound** hyperlink and then select **Unbind binding**, or select **Edit Binding** and then select **Unbind**.
 
-If you unbind a binding, the bind status will change from *Bound* to *Unbound*.
+If you unbind a binding, the bind status will change from **Bound** to **Unbound**.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -150,7 +152,7 @@ az spring-cloud build-service builder buildpack-binding list \
 
 ## Create a binding
 
-Use this command to change the binding from *Unbound* to *Bound* status:
+Use this command to change the binding from **Unbound** to **Bound** status:
 
 ```azurecli
 az spring-cloud build-service builder buildpack-binding create \
@@ -163,11 +165,11 @@ az spring-cloud build-service builder buildpack-binding create \
     --secrets e=f g=h
 ```
 
-For more information, see the [Buildpack bindings](#buildpack-bindings) section for information on the `properties` and `secrets` parameters for your buildpack.
+For information on the `properties` and `secrets` parameters for your buildpack, see the [Buildpack bindings](#buildpack-bindings) section.
 
 ## Show the details for a specific binding
 
-The details of a specific binding can be viewed using the following command:
+You can view the details of a specific binding using the following command:
 
 ```azurecli
 az spring-cloud build-service builder buildpack-binding show \
@@ -179,7 +181,7 @@ az spring-cloud build-service builder buildpack-binding show \
 
 ## Edit the properties of a binding
 
-A binding's properties can be changed using the following command:
+You can change a binding's properties using the following command:
 
 ```azurecli
 az spring-cloud build-service builder buildpack-binding set \
@@ -196,7 +198,7 @@ For more information on the `properties` and `secrets` parameters for your build
 
 #### Delete a binding
 
-Use the following command to change the binding status from *Bound* to *Unbound*.
+Use the following command to change the binding status from **Bound** to **Unbound**.
 
 ```azurecli
 az spring-cloud build-service builder buildpack-binding delete \
@@ -210,4 +212,4 @@ az spring-cloud build-service builder buildpack-binding delete \
 
 ## Next steps
 
-* [Azure Spring Cloud](index.yml)
+- [Azure Spring Cloud](index.yml)

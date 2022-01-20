@@ -6,11 +6,13 @@ author: karlerickson
 ms.author: caiqing
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 12/15/2021
+ms.date: 02/09/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Get started with Enterprise Tier
+
+**This article applies to:** ✔️ Enterprise tier
 
 This article shows you how to get started with Enterprise Tier in Azure Spring Cloud.
 
@@ -34,11 +36,11 @@ Assign a public endpoint for the gateway to access to it, using the following st
 
 1. Select the **Spring Cloud Gateway** section.
 1. Select **Overview** to view the running state and resources allocated to Spring Cloud Gateway.
-1. Select **Yes** next to *Assign endpoint* to assign a public endpoint. A URL will be generated for you after a few minutes.
+1. Select **Yes** next to **Assign endpoint** to assign a public endpoint. A URL will be generated for you after a few minutes.
 
-![Assign public endpoint for gateway](./media/enterprise/getting-started-enterprise/gateway-overview.png)
+   :::image type="content" source="media/enterprise/getting-started-enterprise/gateway-overview.png" alt-text="Azure portal screenshot of Azure Spring Cloud overview page with 'Assign endpoint' highlighted.":::
 
-1. Save the URL which will be used later.
+1. Save the URL for use later.
 
 ### Configure the Spring Cloud Gateway properties
 
@@ -59,7 +61,7 @@ The Spring Cloud Gateway properties will be used to integrate with the API porta
 
 Use the following steps to create rules to access apps previously deployed through Spring Cloud Gateway.
 
-1. Save the following JSON to the file `customers-service.json`.
+1. Save the following JSON to the *customers-service.json* file.
 
   ```json
    [
@@ -105,7 +107,7 @@ To use API portal, follow these steps to assign a public endpoint to the API por
 1. Select **Overview** to view the running state and resources allocated to the API portal.
 1. Select **Yes** next to *Assign endpoint* to assign a public endpoint. A URL will be generated for you after a few minutes.
 
-   ![Assign public endpoint for API portal](./media/enterprise/getting-started-enterprise/api-portal-overview.png)
+   :::image type="content" source="media/enterprise/getting-started-enterprise/api-portal-overview.png" alt-text="Azure portal screenshot of Azure Spring Cloud API portal page with 'Assign endpoint' highlighted.":::
 
 1. Visit the routes information through the API portal.
 
@@ -114,7 +116,7 @@ To use API portal, follow these steps to assign a public endpoint to the API por
 
    Select the assigned endpoint URL to go to API portal. You can see all the routes configured in Spring Cloud Gateway.
 
-   ![API portal with configured routes](./media/enterprise/getting-started-enterprise/api-portal-portal.png)
+   :::image type="content" source="media/enterprise/getting-started-enterprise/api-portal-portal.png" alt-text="Screenshot of the API portal showing configured routes.":::
 
 1. Try out APIs through the API portal.
 
@@ -123,7 +125,7 @@ To use API portal, follow these steps to assign a public endpoint to the API por
 
    Select the API you would like to try out, then select `EXECUTE`. The response from the API will be shown.
 
-   ![Try out the API portal](./media/enterprise/getting-started-enterprise/api-portal-tryout.png)
+   :::image type="content" source="media/enterprise/getting-started-enterprise/api-portal-tryout.png" alt-text="Screenshot of the API portal.":::
 
 ## Real-time app log streaming
 
@@ -159,7 +161,7 @@ For more information on monitoring apps with third-party APMs, see [Buildpack Bi
 
 1. Open the [Azure portal](https://ms.portal.azure.com/?AppPlatformExtension=entdf#home), then delete the service instance as in the following screenshot.
 
-   ![Delete an instance image](./media/enterprise/getting-started-enterprise/service-instance-delete-instance.png)
+   :::image type="content" source="media/enterprise/getting-started-enterprise/service-instance-delete-instance.png" alt-text="Azure portal screenshot showing Azure Spring Cloud overview page with Delete button highlighted.":::
 
 1. Run the following command to remove the preview version of the Azure CLI extension.
 

@@ -6,11 +6,13 @@ author: karlerickson
 ms.author: xiading
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 12/17/2021
+ms.date: 02/09/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Use Spring Cloud Gateway
+
+**This article applies to:** ✔️ Enterprise tier
 
 This article shows you how to use Spring Cloud Gateway with Azure Spring Cloud Enterprise Tier.
 
@@ -24,7 +26,7 @@ To integrate with [API portal](./how-to-use-enterprise-api-portal.md), Spring Cl
 
 Spring Cloud Gateway has two components: Spring Cloud Gateway operator and Spring Cloud Gateway instance. The operator is responsible for the lifecycle of Spring Cloud Gateway instances and routing rules. It's transparent to the developer and Azure Spring Cloud will manage it.
 
-Spring Cloud Gateway instance routes traffic according to rules. It supports rich features and can be customized using the sections below. Both scale in/out and up/down are supported to meet dynamic traffic load.
+Spring Cloud Gateway instance routes traffic according to rules. It supports rich features, and you can customize it using the sections below. Both scale in/out and up/down are supported to meet dynamic traffic load.
 
 Default resource usage:
 
@@ -140,7 +142,7 @@ Not all the filters/predicates are supported in Azure Spring Cloud because of se
 
    Select **Yes** next to *Assign endpoint* to assign a public endpoint. You'll get a URL in a few minutes. Save the URL to use later.
 
-   ![Assign public endpoint for gateway](./media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-overview.png)
+   :::image type="content" source="media/enterprise/getting-started-enterprise/gateway-overview.png" alt-text="Azure portal screenshot of Azure Spring Cloud overview page with 'Assign endpoint' highlighted.":::
 
    You can also use CLI to do it, as shown in the following command:
 
@@ -161,13 +163,13 @@ Not all the filters/predicates are supported in Azure Spring Cloud because of se
 
    You can also view those properties in the portal.
 
-   ![Properties endpoint for gateway](./media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-configuration.png)
+   :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Azure portal screenshot showing Azure Spring Cloud Spring Cloud Gateway page with Configuration pane showing.":::
 
 1. Configure routing rules to apps.
 
    Create rules to access apps deployed in the above step through Spring Cloud Gateway.
 
-   Save the following content to the file `customers-service.json`.
+   Save the following content to the *customers-service.json* file.
 
    ```json
       [
@@ -198,7 +200,7 @@ Not all the filters/predicates are supported in Azure Spring Cloud because of se
 
    You can also view the routes in the portal.
 
-   ![Routes for gateway](./media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png)
+   :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png" alt-text="Azure portal screenshot of Azure Spring Cloud Spring Cloud Gateway page showing 'Routing rules' pane.":::
 
 1. Use the following command to access the `customers service` and `owners` APIs through the gateway endpoint:
 
@@ -219,4 +221,4 @@ Not all the filters/predicates are supported in Azure Spring Cloud because of se
 
 ## Next steps
 
-* [Azure Spring Cloud](index.yml)
+- [Azure Spring Cloud](index.yml)

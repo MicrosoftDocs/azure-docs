@@ -5,11 +5,13 @@ author: karlerickson
 ms.author: caiqing
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 01/18/2022
+ms.date: 02/09/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Quickstart: Build and deploy apps to Azure Spring Cloud using the Enterprise tier
+
+**This article applies to:** ✔️ Enterprise tier
 
 This quickstart shows you how to build and deploy applications to Azure Spring Cloud using the Enterprise tier.
 

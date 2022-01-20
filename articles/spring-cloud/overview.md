@@ -12,6 +12,8 @@ ms.custom: devx-track-java, contperf-fy21q2
 
 # What is Azure Spring Cloud?
 
+**This article applies to:** ✔️ Enterprise tier ✔️ Basic/Standard tier
+
 Azure Spring Cloud makes it easy to deploy Spring Boot applications to Azure without any code changes.  The service manages the infrastructure of Spring Cloud applications so developers can focus on their code.  Azure Spring Cloud provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
 The following video shows an app composed of Spring Boot applications running on Azure using Azure Spring Cloud.

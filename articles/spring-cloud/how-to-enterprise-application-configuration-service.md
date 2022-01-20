@@ -6,11 +6,13 @@ author: karlerickson
 ms.author: xiading
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 11/08/2021
+ms.date: 02/09/2022
 ms.custom: devx-track-java
 ---
 
 # Use Application Configuration Service
+
+**This article applies to:** ✔️ Enterprise tier
 
 This article shows you how to use Application Configuration Service with Azure Spring Cloud Enterprise Tier.
 
@@ -28,7 +30,7 @@ Application Configuration Service supports Azure DevOps, GitHub, GitLab, and Bit
 
 To manage the service settings, open the **Settings** section and add a new entry under the **Repositories** section.
 
-:::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-settings.png" alt-text="Screenshot of where to add a repository" lightbox="media/enterprise/how-to-enterprise-application-configuration-service/config-service-settings.png":::
+:::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-settings.png" alt-text="Screenshot of where to add a repository." lightbox="media/enterprise/how-to-enterprise-application-configuration-service/config-service-settings.png":::
 
 The properties for each entry are described in the following table.
 
@@ -51,7 +53,7 @@ Configuration will be pulled from Git backends using what is defined in a patter
 
 The following image shows the three types of repository authentication supported by Application Configuration Service.
 
-:::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-auth.png" alt-text="Screenshot of where to edit authentication types":::
+:::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-auth.png" alt-text="Screenshot of where to edit authentication types.":::
 
 - Public repository
 
@@ -89,11 +91,11 @@ The refresh frequency is managed by Azure Spring Cloud and fixed to 60 seconds.
 
 1. Load the configuration to your application
 
-A Spring application holds the properties as the beans of the Spring Application Context via the Environment interface. There are several ways to load the new configurations.
+A Spring application holds the properties as the beans of the Spring Application Context via the Environment interface. The following list shows several ways to load the new configurations:
 
 - Restart the application. After restarting, the application will always load the new configuration.
 
-- By calling the /actuator/refresh endpoint exposed on the config client via the Spring Actuator.
+- Call the */actuator/refresh* endpoint exposed on the config client via the Spring Actuator.
 
    To use this method, add the following dependency to your configuration client’s pom.xml
 
@@ -104,12 +106,13 @@ A Spring application holds the properties as the beans of the Spring Application
    </dependency>
    ```
 
-   You will also enable the actuator endpoint by adding the following configurations:
-   ```
+   You can also enable the actuator endpoint by adding the following configurations:
+
+   ```properties
    management.endpoints.web.exposure.include=refresh, bus-refresh, beans, env
    ```
 
-   After reloading the property sources by calling the /actuator/refresh endpoint, the attributes bound with @Value in the beans having the annotation @RefreshScope is refreshed.
+   After reloading the property sources by calling the */actuator/refresh* endpoint, the attributes bound with `@Value` in the beans having the annotation `@RefreshScope` are refreshed.
 
    ``` java
    @Service
@@ -121,7 +124,7 @@ A Spring application holds the properties as the beans of the Spring Application
    }
    ```
 
-   Next, curl the application endpoint to refresh the new configuration.
+   Next, use curl with the application endpoint to refresh the new configuration.
 
    ``` bash
    curl -X POST http://{app-endpoint}/actuator/refresh
@@ -129,14 +132,14 @@ A Spring application holds the properties as the beans of the Spring Application
 
 ## Configure Application Configuration Service settings using the portal
 
-You can configure Application Configuration Service using the portal, by following these steps:
+You can configure Application Configuration Service using the portal by following these steps:
 
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service.
 
    ![Application Configuration Service Overview screen](./media/enterprise/getting-started-enterprise/config-service-overview.png)
 
-1. Select **Settings** and add a new entry in the **Repositories** section with the git backend information:
+1. Select **Settings** and add a new entry in the **Repositories** section with the Git backend information:
 
 1. Select **Validate** to validate access to the target URI. After validation completes successfully, select **Apply** to update the configuration settings.
 
@@ -146,9 +149,12 @@ You can configure Application Configuration Service using the portal, by followi
 
 You can configure Application Configuration Service using the CLI, by following these steps:
 
-
 ```azurecli
-az spring-cloud application-configuration-service git repo add --name <entry-name> --patterns <patterns> --uri <git-backend-uri> --label <git-branch-name>
+az spring-cloud application-configuration-service git repo add \
+    --name <entry-name> \
+    --patterns <patterns> \
+    --uri <git-backend-uri> \
+    --label <git-branch-name>
 ```
 
 ## Use Application Configuration Service with applications using the portal
@@ -161,7 +167,7 @@ To use the centralized configurations, you must bind the app to Application Conf
 
 1. Select **Bind app** and choose one app in the dropdown. Select **Apply** to bind.
 
-   :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png" alt-text="Screenshot of where to select application to bind":::
+   :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png" alt-text="Screenshot of where to select the application to bind.":::
 
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to for the binding to take effect.
@@ -173,7 +179,7 @@ To use the centralized configurations, you must bind the app to Application Conf
    c. In the left navigation pane, select **Configuration**, then select **General settings**.
    d. In the **Config file patterns** dropdown, choose one or more patterns from the list.
 
-   :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-pattern.png" alt-text="Screenshot of pattern selection screen":::
+   :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-pattern.png" alt-text="Screenshot of the pattern selection screen.":::
 
    e. Select **Save**
 
@@ -183,9 +189,12 @@ You can use Application Configuration Service with applications, by using this c
 
 ```azurecli
 az spring-cloud application-configuration-service bind --app <app-name>
-az spring-cloud app deploy -n <app-name> --artifact-path <app.jar> --config-file-pattern <config-file-pattern>
+az spring-cloud app deploy \
+    --name <app-name> \
+    --artifact-path <path-to-your-JAR-file> \
+    --config-file-pattern <config-file-pattern>
 ```
 
 ## Next steps
 
-* [Azure Spring Cloud](index.yml)
+- [Azure Spring Cloud](index.yml)
