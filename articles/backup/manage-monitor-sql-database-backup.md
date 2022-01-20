@@ -168,7 +168,7 @@ Sometimes, the workload extension on the VM may become impacted for one reason o
 
 Use this option with caution. When triggered on a VM with an already healthy extension, this operation will cause the extension to get restarted. This may cause all the in-progress jobs to fail. Check for one or more of the [symptoms](backup-sql-server-azure-troubleshoot.md#re-registration-failures) before triggering the re-register operation.
 
-## SQL database backup experience
+## Manage database backup when backed-up VM is moved/deleted
 
 The backed-up SQL VM is deleted or moved using Resource move. The experience depends on the following characteristics of the new VM.
 
