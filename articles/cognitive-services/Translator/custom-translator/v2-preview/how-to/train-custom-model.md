@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 01/19/2022
+ms.date: 01/20/2022
 ms.author: lajanuar
 ms.topic: conceptual
 ---
@@ -38,6 +38,13 @@ A model provides translations for a specific language pair. The outcome of a suc
     >**Notifications** displays model training in progress, e.g., **Submitting data** state. Training model takes few hours, subject to the number of selected sentences.
 
    :::image type="content" source="../media/quickstart/train-model.png" alt-text="Screenshot showing the train model blade.":::
+
+## When to select dictionary-only training
+
+For better results, we recommended letting the system learn from your training data. However, when you don't have enough parallel sentences to meet the 10,000 minimum requirements, or sentences and compound nouns must be rendered as-is, use dictionary-only training. Your model will typically complete training much faster than with full training. The resulting models will use the baseline models for translation along with the dictionaries you have added. You won't see BLEU scores or get a test report.
+
+> [!Note] 
+>Custom Translator doesn't sentence-align dictionary files. Therefore, it is important that there are an equal number of source and target phrases/sentences in your dictionary documents and that they are precisely aligned. If not, the document upload will fail.
 
 ## Model details
 

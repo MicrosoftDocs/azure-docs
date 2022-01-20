@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 01/19/2022
+ms.date: 01/20/2022
 ms.author: lajanuar
 ms.topic: conceptual
 ---
@@ -30,6 +30,16 @@ You can publish one model per project to any one of our three geographic regions
 1. Select **Publish**. The status should transition from _Deploying_ to _Deployed_.
 
    :::image type="content" source="../media/quickstart/publish-model.png" alt-text="Screenshot showing the publish model blade.":::
+
+## Replace a published model
+
+To replace a published model, you can exchange the published model with a different model in the same region(s):
+
+1. Select the replacement model.
+
+1. Select **Publish**.
+
+1. Select **publish** once more in the **Publish model** dialog window.
 
 ## Next steps
 

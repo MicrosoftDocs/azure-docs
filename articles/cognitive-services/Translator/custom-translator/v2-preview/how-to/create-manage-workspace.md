@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 01/19/2022
+ms.date: 01/20/2022
 ms.author: lajanuar
 ms.topic: conceptual
 
@@ -74,7 +74,7 @@ The person who created the workspace is the owner. Within **Workspace settings**
 
 1. Select **role** from the dropdown list.
 
-1. Select **Add**.
+1. Select **Share**.
 
 :::image type="content" source="../media/quickstart/manage-workspace-settings-1.png" alt-text="Screenshot illustrating how to share a workspace.":::
 
