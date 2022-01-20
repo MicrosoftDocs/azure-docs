@@ -1,11 +1,11 @@
 ---
 title: Manage Azure HPC Cache storage targets
 description: How to suspend, remove, force delete, and flush Azure HPC Cache storage targets, and how to understand the storage target state
-author: femila
+author: ronhogue
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/27/2021
-ms.author: femila
+ms.date: 01/06/2022
+ms.author: rohogue
 ---
 
 # View and manage storage targets
@@ -35,13 +35,13 @@ These options are available:
 * **Force remove** - Delete a storage target, skipping some safety steps (**Force remove can cause data loss**)
 * **Delete** - Permanently remove a storage target
 
-Some storage targets also have a **Refresh DNS** option on this menu, which updates the storage target IP address from a custom DNS server. This configuration is uncommon.
+Some storage targets also have a **Refresh DNS** option on this menu, which updates the storage target IP address from a custom DNS server or from an Azure Storage private endpoint.
 
 Read the rest of this article for more detail about these options.
 
 ### Write cached files to the storage target
 
-The **Flush** option tells the cache to immediately copy any changed files stored in the cache to the back-end storage system. For example, if your client machines are updating a particular file repeatedly, it is held in the cache for quicker access and not written to the long-term storage system for a period ranging from several minutes to more than an hour.
+The **Flush** option tells the cache to immediately copy any changed files stored in the cache to the back-end storage system. For example, if your client machines are updating a particular file repeatedly, it's held in the cache for quicker access and not written to the long-term storage system for a period ranging from several minutes to more than an hour.
 
 The **Flush** action tells the cache to write all files to the storage system.
 
@@ -78,9 +78,9 @@ You can use the Azure portal or the AZ CLI to delete a storage target.
 
 The regular delete option permanently removes the storage target from the HPC Cache, but first it synchronizes the cache contents with the back-end storage system. It's different from the force delete option, which does not synchronize data.
 
-Deleting a storage target removes the storage system's association with this Azure HPC Cache, but it does not change the back-end storage system. For example, if you used an Azure Blob storage container, the container and its contents still exist after you delete it from the cache. You can add the container to a different Azure HPC Cache, re-add it to this cache, or delete it with the Azure portal.
+Deleting a storage target removes the storage system's association with this Azure HPC Cache, but it doesn't change the back-end storage system. For example, if you used an Azure Blob storage container, the container and its contents still exist after you delete it from the cache. You can add the container to a different Azure HPC Cache, re-add it to this cache, or delete it with the Azure portal.
 
-If there is a large amount of changed data stored in the cache, deleting a storage target can take several minutes to complete. Wait for the action to finish to be sure that the data is safely stored in your long-term storage system.
+If there's a large amount of changed data stored in the cache, deleting a storage target can take several minutes to complete. Wait for the action to finish to be sure that the data is safely stored in your long-term storage system.
 
 #### [Portal](#tab/azure-portal)
 
@@ -105,13 +105,19 @@ $ az hpc-cache storage-target remove --resource-group cache-rg --cache-name doc-
 
 ---
 
-### Update IP address (custom DNS configurations only)
+### Update IP address (specific configurations only)
 
-If your cache uses a non-default DNS configuration, it's possible for your NFS storage target's IP address to change because of back-end DNS changes. If your DNS server changes the back-end storage system's IP address, Azure HPC Cache can lose access to the storage system.
+In some situations, you might need to update your storage target's IP address. This can happen in two scenarios:
 
-Ideally, you should work with the manager of your cache's custom DNS system to plan for any updates, because these changes make storage unavailable.
+* Your cache uses a custom DNS system instead of the default setup, and the network infrastructure has changed.
 
-If you need to update a storage target's DNS-provided IP address, use the **Storage targets** page. Click the **...** symbol in the right column to open the context menu. Choose **Refresh DNS** to query the custom DNS server for a new IP address.
+* Your storage target uses a private endpoint to access Azure Blob or NFS-mounted blob storage, and you have updated the endpoint's configuration. (You should suspend storage targets before modifying their private endpoints, as described in the [prerequisites article](hpc-cache-prerequisites.md#work-with-private-endpoints).)
+
+With a custom DNS system, it's possible for your NFS storage target's IP address to change because of back-end DNS changes. If your DNS server changes the back-end storage system's IP address, Azure HPC Cache can lose access to the storage system. Ideally, you should work with the manager of your cache's custom DNS system to plan for any updates, because these changes make storage unavailable.
+
+If you use a private endpoint for secure storage access, the endpoint's IP addresses can change if you modify its configuration. If you need to change your private endpoint configuration, you should suspend the storage target (or targets) that use the endpoint, then refresh their IP addresses when you re-activate them. Read [Work with private endpoints](hpc-cache-prerequisites.md#work-with-private-endpoints) for additional information.
+
+If you need to update a storage target's IP address, use the **Storage targets** page. Click the **...** symbol in the right column to open the context menu. Choose **Refresh DNS** to query the custom DNS server or private endpoint for a new IP address.
 
 ![Screenshot of storage target list. For one storage target, the "..." menu in the far right column is open and these options appear: Flush, Suspend, Refresh DNS, Force remove, Resume (this option is disabled), and Delete.](media/refresh-dns.png)
 
@@ -121,10 +127,10 @@ If successful, the update should take less than two minutes. You can only refres
 
 The storage target list shows two types of status: **State** and **Provisioning state**.
 
-* **State** indicates the operational state of the storage target. This value updates regularly and helps you understand whether or not the storage target is available for client requests, and also which of the management options are available.
+* **State** indicates the operational state of the storage target. This value updates regularly and helps you understand whether the storage target is available for client requests, and which of the management options are available.
 * **Provisioning state** tells you whether the last action to add or edit the storage target was successful. This value is only updated if you edit the storage target.
 
-The **State** value affects which management options you can use. Here is a short explanation of the values and their effects.
+The **State** value affects which management options you can use. Here's a short explanation of the values and their effects.
 
 * **Ready** - The storage target is operating normally and available to clients. You can use any of the management options on this storage target (except for **Resume**, which only is valid for suspended storage targets).
 * **Busy** - The storage target is processing another operation. You can delete or force remove the storage target.

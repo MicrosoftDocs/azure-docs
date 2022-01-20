@@ -282,7 +282,7 @@ For additional installation options and further details, see the [**Log Analytic
 
 #### Determine the logs to send
 
-For the Windows DNS Server and Windows Firewall connectors, select the **Install solution** button. For the legacy Security Events connector, choose the [**event set**](windows-security-event-id-reference.md) you wish to send and select **Update**.
+For the Windows DNS Server and Windows Firewall connectors, select the **Install solution** button. For the legacy Security Events connector, choose the **event set** you wish to send and select **Update**. For more information, see [Windows security event sets that can be sent to Microsoft Sentinel](windows-security-event-id-reference.md).
 
 You can find and query the data for these services using the table names in their respective sections in the [Data connectors reference](data-connectors-reference.md) page.
 

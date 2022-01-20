@@ -10,7 +10,7 @@ ms.topic: sample
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma
-ms.date: 01/05/2022
+ms.date: 01/18/2022
 ---
 
 # Use CLI to import a BACPAC file into a database in SQL Database
