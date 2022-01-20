@@ -196,7 +196,7 @@ Remember to add the import
 To save an anchor, the user must collect environment data.
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=198-231,256&highlight=28-33)]
 > [!Note]
-> A HoloLens can possibly reuse already captured environment data surrounding the anchor resulting in `IsReadyForCreate` to be true instantly when called.
+> A HoloLens can possibly reuse already captured environment data surrounding the anchor, resulting in `IsReadyForCreate` to be true already when called for the first time.
 
 Now that the cloud spatial anchor has been prepared, we can try the actual save here.
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?name=CreateAnchor&highlight=35-58)]
