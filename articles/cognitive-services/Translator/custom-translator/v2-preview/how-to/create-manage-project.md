@@ -82,13 +82,13 @@ To modify the project name, project description, or domain description:
    :::image type="content" source="../media/how-to/delete-project-1.png" alt-text="Screenshot showing delete project fields.":::
 
    >[!Note]
-   >If your project has published model or in training status, delete fails with the Following message:
+   >f your project has a published model or a model that is currently in training, you will only be able to delete your project once your model is no longer published or training.
    >
    > :::image type="content" source="../media/how-to/delete-project-2.png" alt-text="Screenshot showing the unable to delete message.":::
 
 ## Next steps
 
-- Learn [how to manage project documents](build-manage-training-set-documents.md).
+- Learn [how to manage project documents](create-manage-training-documents.md).
 - Learn [how to train a model](train-custom-model.md).
 - Learn [how to test and evaluate model quality](view-model-test-translation.md).
 - Learn [how to publish model](publish-model.md).

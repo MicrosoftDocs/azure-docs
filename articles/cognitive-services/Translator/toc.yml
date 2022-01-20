@@ -152,8 +152,8 @@ items:
         href: custom-translator/v2-preview/how-to/create-manage-workspace.md
       - name: Create and manage a project
         href: custom-translator/v2-preview/how-to/create-manage-project.md
-      - name: Build and manage training set documents
-        href: custom-translator/v2-preview/how-to/build-manage-training-set-documents.md
+      - name: Create and manage training documents
+        href: custom-translator/v2-preview/how-to/create-manage-training-documents.md
       - name: Train a custom model
         href: custom-translator/v2-preview/how-to/train-custom-model.md
       - name: View the model details and test translation

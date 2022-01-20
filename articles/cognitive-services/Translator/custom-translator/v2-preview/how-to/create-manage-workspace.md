@@ -1,7 +1,7 @@
 ---
 title: Create and manage a workspace
 titleSuffix: Azure Cognitive Services
-description: How to create and manage workspaces—places to manage your documents, projects, models.
+description: How to create and manage workspaces
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -17,7 +17,7 @@ ms.topic: conceptual
 > [!IMPORTANT]
 > Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
 
-Workspaces are places to manage your documents, projects, and models. When you create a workspace, you can choose to use the workspace independently, share it with teammates, or divide up the work and create multiple workspaces.
+ Workspaces are places to manage your documents, projects, and models. When you create a workspace, you can choose to use the workspace independently or share it with teammates to divide up the work.
 
 ## Create workspace
 
@@ -50,7 +50,7 @@ Workspaces are places to manage your documents, projects, and models. When you c
 
 Select a workspace and navigate to **Workspace settings**. You can manage the following workspace settings:
 
-* Change or delete the resource key in the global resource region. If using a specific region resource key, you will need to create a new workspace.
+* Change the resource key for global regions. If you are using a regional specific resource, you cannot change your resource key.
 
 * Change the workspace name.
 
@@ -64,11 +64,11 @@ The person who created the workspace is the owner. Within **Workspace settings**
 
 * **Owner**. An owner has full permissions within the workspace.
 
-* **Editor**. An editor can add documents, train models, and delete documents and projects. Editors can add a subscription key, but cannot modify who the workspace is shared with, delete the workspace, or change the workspace name.
+* **Editor**. An editor can add documents, train models, and delete documents and projects. They cannot modify who the workspace is shared with, delete the workspace, or change the workspace name.
 
 * **Reader**. A reader can view (and download if available) all information in the workspace.
 
-1. Select **Share workspace**.
+1. Select **Share**.
 
 1. Complete the **email address** field for collaborators.
 
@@ -80,9 +80,9 @@ The person who created the workspace is the owner. Within **Workspace settings**
 
 :::image type="content" source="../media/quickstart/manage-workspace-settings-2.png" alt-text="Screenshot illustrating share workspace settings.":::
 
-### Unshare workspace
+### Remove somebody from a workspace
 
-1. Select *Share workspace*.
+1. Select **Share**.
 
 2. Select the **X** icon next to the **Role** and email address that you want to remove.
 
