@@ -44,9 +44,9 @@ For more information about how requests are made to Front Door, see [Front Door 
 
 ::: zone pivot="front-door-standard-premium"
 
-## Match request to a Front Door endpoint
+## Match request to a Front Door profile
 
-When Front Door receives an HTTP request, it uses the request's `Host` header to match the request to the correct customer's Front Door endpoint. If the request is using a [custom domain name](standard-premium/how-to-add-custom-domain.md), the domain name must be registered with Front Door to enable requests to be matched to your endpoint.
+When Front Door receives an HTTP request, it uses the request's `Host` header to match the request to the correct customer's Front Door profile. If the request is using a [custom domain name](standard-premium/how-to-add-custom-domain.md), the domain name must be registered with Front Door to enable requests to be matched to your profile.
 
 ::: zone-end
 
