@@ -88,10 +88,10 @@ The main differences between these options are listed in the following table:
 | Fast restore point | No | Yes | No |
 | Ability to restore on a different zone | Not supported | Yes | Yes |
 | Ability to restore to a different VNET | No | Yes | Yes |
-| Ability to restore to a different region | Yes (Geo-redundant) | No | User Managed |
-| Ability to restore a deleted server | Yes | No | No |
+| Ability to restore to a different region | Yes (Geo-redundant) | Yes (Geo-redundant) | User Managed |
+| Ability to restore a deleted server | Yes | Yes | No |
 | [**Disaster Recovery**](flexible-server/concepts-business-continuity.md) | | | | 
-| DR across Azure regions | Using cross region read replicas, geo-redundant backup | Not supported | User Managed |
+| DR across Azure regions | Using cross region read replicas, geo-redundant backup | Using geo-redundant backup | User Managed |
 | Automatic failover | No | Not Supported | No |
 | Can use the same r/w endpoint | No | Not Supported | No |
 | [**Monitoring**](flexible-server/concepts-monitoring.md) | | | |

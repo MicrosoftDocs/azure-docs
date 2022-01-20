@@ -56,7 +56,8 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
     "extendedSessionsEnabled": false,
     "extendedSessionIdleTimeoutInSeconds": 30,
     "useAppLease": true,
-    "useGracefulShutdown": false
+    "useGracefulShutdown": false,
+    "maxEntityOperationBatchSize": 50
   }
  }
 }
@@ -118,5 +119,6 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |useAppLease|true|When set to `true`, apps will require acquiring an app-level blob lease before processing task hub messages. For more information, see the [disaster recovery and geo-distribution](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md) documentation. Available starting in v2.3.0.
 |useLegacyPartitionManagement|false|When set to `false`, uses a partition management algorithm that reduces the possibility of duplicate function execution when scaling out.  Available starting in v2.3.0.|
 |useGracefulShutdown|false|(Preview) Enable gracefully shutting down to reduce the chance of host shutdowns failing in-process function executions.|
+|maxEntityOperationBatchSize(2.6.1)|**Consumption plan**: 50 <br> **Dedicated/Premium plan**: 5000|The maximum number of entity operations that are processed as a [batch](../articles/azure-functions/durable/durable-functions-perf-and-scale.md#entity-operation-batching). If set to 1, batching is disabled, and each operation message is processed by a separate function invocation.|
 
 Many of these settings are for optimizing performance. For more information, see [Performance and scale](../articles/azure-functions/durable/durable-functions-perf-and-scale.md).
