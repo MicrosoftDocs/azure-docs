@@ -41,10 +41,10 @@ To keep document size down, avoid adding non-queryable data to an index. Every f
 
 1. [Increase the number of partitions](search-capacity-planning.md#add-or-reduce-replicas-and-partitions), even if only on a temporary basis. Partition allocation can be readjusted downwards after an initial indexing run to reduce the overall cost of running the service.
 
-Adding additional replicas may also increase indexing speeds but it isn't guaranteed. On the other hand, additional replicas will increase the query volume your search service can handle. Because indexing does not run in the background, increasing query capacity should help overall performance. Replicas are also a key component for getting an [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+Adding more replicas may also increase indexing speeds but it isn't guaranteed. On the other hand, additional replicas will increase the query volume your search service can handle. Because indexing does not run in the background, increasing query capacity should help overall performance.
 
 > [!NOTE]
-> When [adding partition and replicas](search-capacity-planning.md#add-or-reduce-replicas-and-partitions), or provisioning a service at a higher tier, consider the monetary cost and allocation time. Adding partitions can significantly increase indexing speed, but adding and removing them can take anywhere from 15 minutes to several hours. 
+> When [adding partition and replicas](search-capacity-planning.md#add-or-reduce-replicas-and-partitions), or provisioning a service at a higher tier, consider the monetary cost and allocation time. Adding partitions can significantly increase indexing speed, but adding and removing them can take anywhere from 15 minutes to several hours.
 >
 
 ## Add threads and a retry strategy
@@ -90,7 +90,7 @@ Default batch sizes are data source specific. Azure SQL Database and Azure Cosmo
 
 ## Scheduled indexers
 
-Indexer scheduling is an important mechanism for processing large data sets, as well as slow-running processes like image analysis in a cognitive search pipeline. Indexer processing operates within a 24-hour window. If processing fails to finish within 24 hours, the behaviors of indexer scheduling can work to your advantage. 
+Indexer scheduling is an important mechanism for processing large data sets, and slow-running processes like image analysis in a cognitive search pipeline. Indexer processing operates within a 24-hour window. If processing fails to finish within 24 hours, the behaviors of indexer scheduling can work to your advantage. 
 
 By design, scheduled indexing starts at specific intervals, with a job typically completing before resuming at the next scheduled interval. However, if processing does not complete within the interval, the indexer stops (because it ran out of time). At the next interval, processing resumes where it last left off, with the system keeping track of where that occurs. 
 
