@@ -10,16 +10,16 @@ ms.service: iot-hub-device-update
 
 # Migrate Devices from Public Preview to Public Preview Refresh
 
-As the Device Update for IoT Hub service releases new versions, you'll want to update your devices for the latest features and security improvements. This article provides information about how to migrate from the Public Preview release to the current, Public Preview Refresh (PPR) release. This article also explains the group and UX behavior across these release
+As the Device Update for IoT Hub service releases new versions, you'll want to update your devices for the latest features and security improvements. This article provides information about how to migrate from the Public Preview release to the current, Public Preview Refresh (PPR) release. This article also explains the group and UX behavior across these releases.
 
-To migrate successfully, you will have to upgrade the DU agent running on your devices. You will also have to create new device groups to deploy and manage updates. Please note that as there are major changes with the PPR release, we recommend that you follow the instructions closely to avoid errors.
+To migrate successfully, you will have to upgrade the DU agent running on your devices. You will also have to create new device groups to deploy and manage updates. Note that as there are major changes with the PPR release, we recommend that you follow the instructions closely to avoid errors.
 
 ## Update the device update agent
 
-1. To view devices using older agents (versions 0.7.0/0.6.0) and groups created before 3rd February 2021, the public preview portal which can be accessed through the banner.
+1. To view devices using older agents (versions 0.7.0/0.6.0) and groups created before 02/03/2022, the public preview portal, which can be accessed through the banner.
    :::image type="content" source="media/migration/switch-banner.png" alt-text="Screenshot of banner." lightbox="media/migration/switch-banner.png":::
 
-2. Create a new IoT/IoT Edge device on the Azure Portal. Copy the primary connection string for the device from the device view for later. For more details, refer the [Add Device to IoT Hub](device-update-simulator.md#add-device-to-azure-iot-hub) section.
+2. Create a new IoT/IoT Edge device on the Azure portal. Copy the primary connection string for the device from the device view for later. For more details, refer the [Add Device to IoT Hub](device-update-simulator.md#add-device-to-azure-iot-hub) section.
  
 3. Then, SSH into your device and remove the old Device update agent.
    ```bash
@@ -36,7 +36,7 @@ To migrate successfully, you will have to upgrade the DU agent running on your d
    ```
    Alternatively, you can get the .deb asset from 
 
-    Trying to upgrade the agent without removing the old agent and configuration files will result the in the error shown below.
+    Trying to upgrade the agent without removing the old agent and configuration files will result in the error shown below.
        :::image type="content" source="media/migration/update-error.png" alt-text="Screenshot of banner." lightbox="media/migration/update-error.png":::
     
     :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
@@ -58,19 +58,19 @@ To migrate successfully, you will have to upgrade the DU agent running on your d
  
 3. Add group tag to the device twin for the updated devices. For more details, refer the [Add a tag to your device](device-update-simulator.md#add-device-to-azure-iot-hub#add-a-tag-to-your-device) section.
 
-4. Recreate the groups in the PPR portal by going to ‘Add Groups’ and selecting the groups tag that automatically appears in the drop-down list. 
+4. Recreate the groups in the PPR portal by going to ‘Add Groups’ and selecting the corresponding groups tag from the drop-down list. 
  
-5. Please note that a group with the same name cannot be created in the PPR portal if the group in the public preview portal is not deleted.
+5. Note that a group with the same name cannot be created in the PPR portal if the group in the public preview portal is not deleted.
 
 ## Group and deployment behavior across releases
 
 1. Groups created in the Public Preview Refresh release portal will only allow addition of devices with the latest Device Update Agent (0.8.0). Devices with older agents (0.7.0/0.6.0) cannot be added to these groups.
  
-2. Any new IoT or IoT edge devices created and using the latest agent will be automatically added to a Default DeviceClass Group in the ‘Groups and Deployments’ tab and be ready for deployment. If a group tag is added to the device properties, then the device will be added to that group if a group for that tag exists. 
+2. Any new devices using the latest agent will automatically be added to a Default DeviceClass Group in the ‘Groups and Deployments’ tab. If a group tag is added to the device properties, then the device will be added to that group if a group for that tag exists. 
  
-3. For the device using the latest agent, if a group tag is added to the device properties but the corresponding group is not yet created the device will not be visible in the ‘Groups and Deployments’ tab
+3. For the device using the latest agent, if a group tag is added to the device properties but the corresponding group is not yet created the device will not be visible in the ‘Groups and Deployments’ tab.
  
-4. Devices using the older agents will be show up as ungrouped in the old portal if the hroup tag is not added.
+4. Devices using the older agents will show up as ungrouped in the old portal if the group tag is not added.
 
 ## Next Steps
 [Understand Device Update agent configuration file](device-update-configuration-file.md)
