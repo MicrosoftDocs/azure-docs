@@ -93,7 +93,7 @@ You can use the CreateReleaseAnnotation PowerShell script to create annotations 
         Id = [GUID]::NewGuid();
         AnnotationName = $releaseName;
         EventTime = (Get-Date).ToUniversalTime().GetDateTimeFormats("s")[0];
-        Category = "Deployment";
+        Category = "Deployment"; #Application Insights currently only displays annotations from "Deployment" Category
         Properties = ConvertTo-Json $releaseProperties -Compress
     }
     
@@ -103,7 +103,8 @@ You can use the CreateReleaseAnnotation PowerShell script to create annotations 
     # Use the following command for Linux Azure DevOps Hosts or other PowerShell scenarios
     # Invoke-AzRestMethod -Path "$aiResourceId/Annotations?api-version=2015-05-01" -Method PUT -Payload $body
     ```
-
+    > [!NOTE]
+    > Your annotations must have Category set to `Deployment` in order to be shown up in Application Insights and Workbook blades.
 3. Call the PowerShell script with the following code, replacing the angle-bracketed placeholders with your values. The -releaseProperties are optional.
 
     ```powershell
