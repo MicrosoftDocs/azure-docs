@@ -26,7 +26,7 @@ If multiple matching certificates are present on the device, the user can pick w
 <!---Clarify plans that are covered --->
 This topic covers how to configure and use certificate-based authentication for tenants in Office 365 Enterprise, US Government plans. You should already have a [public key infrastructure (PKI)](https://aka.ms/securingpki) configured.
 
-Follow these instructions to configure and use cloud-native certificate-based authentication for tenants in Azure Active Directory.
+Follow these instructions to configure and use cloud-native certificate-based authentication (CBA) for tenants in Azure Active Directory.
 
 >[!NOTE]
 >Cloud-native certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
@@ -43,103 +43,30 @@ Make sure that the following prerequisites are in place.
 
 ## Steps to configure and test cloud-native CBA
 
-There are some configuration steps an admin needs to perform before enabling Cloud Native Certificate-based Authentication. First, Admin must configure the trusted CAs that issue user certificates. Optionally configure authentication bindings to map certificates to single factor or multi factor and user binding configuration to map certificate field to a user object attribute. Once all the configurations are complete, enable Certificate-based authentication on the tenant.
+There are some configuration steps to complete before enabling cloud-native CBA. First, an admin must configure the trusted CAs that issue user certificates. As seen in the following diagram, we use role-based access control to make sure only least-privileged administrators make changes. Configuring the certificate authority is done only by the [Privileged Authentication Administrator](../roles/permissions-reference.md#privileged-authentication-administrator) role.
 
-As seen in the diagram below, we use role-based access control to make sure only admins with certain roles can make changes. Configuring the certificate authority is done only by privileged authentication admin role whereas configuring user related configuration can be done by authentication policy administrators.
+Optionally, you can also configure authentication bindings to map certificates to single-factor or multifactor and configure username bindings to map certificate field to a user object attribute. Configuring user-related settings can be done by [Authentication Policy Administrators](../roles/permissions-reference.md#authentication-policy-administrator). Once all the configurations are complete, enable cloud-native CBA on the tenant. 
 
-tutorial-enable-cloud-native-certificate-based-authentication
-
-## Requirements
-
-To configure certificate-based authentication, the following requirements must be met:
-
-- The root certificate authority and any intermediate certificate authorities must be configured in Azure Active Directory.
-- Each certificate authority must have a certificate revocation list (CRL) that can be referenced via an internet-facing URL.
-- You must have at least one certificate authority configured in Azure Active Directory. 
-- Your client device must have access to at least one certificate authority that issues client certificates.
-- A client certificate for client authentication must have been issued to your client.
- 
->[!IMPORTANT]
->The maximum size of a CRL for Azure Active Directory to successfully download and cache is 40MB, and the time required to download the CRL must not exceed 10 seconds. If Azure Active Directory can't download a CRL, certificate-based authentication using certificates issued by the corresponding certificate authority (CA) will fail. As a best practice to ensure CRL files are within size constraints, keep certificate lifetimes to within reasonable limits and clean up expired certificates.
-
-- Cloud-native certificate-based authentication is supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+:::image type="content" border="false" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/steps.png" alt-text="steps to enable cloud-native certificate-based authentication works in Azure AD.":::
 
 ## Step 1: Configure the certificate authorities
 
-To configure your certificate authorities in Azure Active Directory, for each certificate authority, upload the following items:
+To configure your certificate authorities in Azure Active Directory, follow the steps to [Configure Certificate Authorities](active-directory-certificate-based-authentication-get-started.md#step-2-configure-the-certificate-authorities).
 
-- The public portion of the certificate, in .cer format
-- The internet-facing URLs where the Certificate Revocation Lists (CRLs) reside
+>[!NOTE]
+>Only one Certificate Distribution Point (CDP) for a trusted CA is supported.
+>The CDP can be only HTTP URLs. We do not support Online Certificate Status Protocol (OCSP) or Lightweight Directory Access Protocol (LDAP) URLs.
 
-  The schema for a certificate authority looks as follows:
+## Step 2: Configure authentication binding policy 
 
-    ```
-    class TrustedCAsForPasswordlessAuth    {       CertificateAuthorityInformation[] certificateAuthorities;    }     class CertificateAuthorityInformation     {        CertAuthorityType authorityType;        X509Certificate trustedCertificate;        string crlDistributionPoint;        string deltaCrlDistributionPoint;        string trustedIssuer;        string trustedIssuerSKI;    }     enum CertAuthorityType    {        RootAuthority = 0,        IntermediateAuthority = 1    } 
-    ```
-
-For the configuration, you can use the [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2md):
-
-1. Start Windows PowerShell with administrator privileges.
-1. Install the Azure AD module version [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) or higher:
-
-   ```powershell
-   Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
-   ``` 
-
-As a first configuration step, you need to establish a connection with your tenant. After you establish a connection to your tenant, you can review, add, delete, and modify the trusted certificate authorities that are defined in your directory.
-
-### Connect 
-
-To establish a connection with your tenant, use the [Connect-AzureAD](/powershell/module/azuread/connect-azuread.md) cmdlet:
-
-```powershell
-Connect-AzureAD
-```  
-
-### Retrieve
-
-To retrieve the trusted certificate authorities that are defined in your directory, use the [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority.md) cmdlet:
-
-```powershell
-Get-AzureADTrustedCertificateAuthority
-```  
-
-### Add
-
-To create a trusted certificate authority, use the [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority.md) cmdlet and set the crlDistributionPoint attribute to a correct value:
-
-```powershell
-$certificate=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"    $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation    $new_ca.AuthorityType=0    $new_ca.TrustedCertificate=$certificate    $new_ca.crlDistributionPoint="<CRL Distribution URL>"    New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca  
-```
-
->[!NOTE] 
->If the crlDistributionPoint is not set or set to an empty value in the above command there will not be any CRL checking, and revocation of certificates is not possible.
-
-Only one crlDistributionPoint is supported per CA and it needs to be an http url only.
-  
-### Remove
-
-To remove a trusted certificate authority, use the [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority.md) cmdlet:
-    
-```powershell
-$c=Get-AzureADTrustedCertificateAuthority    Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2]
-``` 
- 
-### Modify
-To modify a trusted certificate authority, use the [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority.md) cmdlet:
-
-```powershell
-$c=Get-AzureADTrustedCertificateAuthority    $c[0].AuthorityType=1    Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]	   
-```   
-
-## Step 2: Configure Authentication methods policy 
+The authentication binding policy helps determine the strength of authentication to either a single factor or multi factor. Admin can leave it at default value of single factor or change to multi factor as well as configure custom policy rules at a more granular level either by issuer Subject or policy OID fields in the certificate.
 
 You can configure the Authentication methods policy two different ways:
 
-- [Using the Azure portal](#using-the-azure-portal)
-- [Using Graph API](#using-graph-api)
+- [Azure portal](#azure-portal)
+- [Graph API](#graph-api)
 
-### Using the Azure portal
+### Azure portal
 
 To enable the certificate-based authentication and configure user bindings in the Azure portal, complete the following steps:
 
@@ -200,7 +127,7 @@ To enable the certificate-based authentication and configure user bindings in th
 
 1. Click **Save** to save the changes. 
 
-### Using Graph API
+### Graph API
 
 To enable the certificate-based authentication and configure username bindings using Graph API, complete the following steps:
 
