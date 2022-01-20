@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 01/19/2022
+ms.date: 01/20/2022
 ms.author: alkohli
 ---
 
@@ -87,7 +87,7 @@ where
 |`/copyall` |Copies all attributes.|
 |`/e`      |Copies subdirectories, including empty directories.         |
 |`/dcopy:DAT`  |Copies data, attributes, and timestamps. Note: The /dcopy:DAT option must be used to transfer `CreationTime` on directories. |
-|`/B`      |Copies files in backup mode. |
+|`/B`      |Copies files in Backup mode. |
 |`/r:3`    |Specifies 3 retries on failed copies.         |
 |`/w:60`   |Specifies a wait time of 60 seconds between retries.         |
 |`/is`     |Includes the same files.         |
