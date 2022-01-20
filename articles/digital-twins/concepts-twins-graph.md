@@ -79,7 +79,7 @@ When represented as a JSON object, a digital twin will display the following fie
 | `$etag` | Standard HTTP field assigned by the web server |
 | `$metadata.$model` | The ID of the model interface that characterizes this digital twin |
 | `$metadata.<property-name>` | Other metadata information about properties of the digital twin |
-| `$metadata.<property-name>.lastUpdateTime` |  |
+| `$metadata.<property-name>.lastUpdateTime` | The date/time the property update message was processed by Azure Digital Twins |
 | `$metadata.<property-name>.sourceTime` | An optional, writable property representing the timestamp when the property update was observed in the real world. This property can only be written using the latest version of the [Azure Digital Twins APIs/SDKs](concepts-apis-sdks.md). For more information about how to update this property, see [Update a property's sourceTime](how-to-manage-twin.md#update-a-propertys-sourcetime). |
 | `<property-name>` | The value of a property in JSON (`string`, number type, or object) |
 | `$relationships` | The URL of the path to the relationships collection. This field is absent if the digital twin has no outgoing relationship edges. |
