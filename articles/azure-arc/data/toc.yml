@@ -101,6 +101,8 @@ items:
           items:
             - name: Data controller direct - CLI
               href: upgrade-data-controller-direct-cli.md
+            - name: Data controller direct - portal
+              href: upgrade-data-controller-direct-portal.md
     - name: Troubleshooting
       items:
         - name: Guide
