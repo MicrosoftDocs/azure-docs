@@ -23,7 +23,7 @@ As customers modernize their infrastructure, application, and data tiers, they a
 
 - 'Azure Active Directory - Password' offers authentication with Azure AD credentials
 - 'Azure Active Directory - Universal with MFA' adds multi-factor authentication
-- 'Azure Active Directory – Integrated' uses federation providers like ADFS to enable Single Sign-On experiences
+- 'Azure Active Directory – Integrated' uses federation providers like [Active Directory Federation Services](/windows-server/identity/active-directory-federation-services) (ADFS) to enable Single Sign-On experiences
 
 However, some legacy apps can't change their authentication to Azure AD: legacy application code may longer be available, there may be a dependency on legacy drivers, clients may not be able to be changed, and so on. Windows Authentication for Azure AD principals removes this migration blocker and provides support for a broader range of customer applications.
 

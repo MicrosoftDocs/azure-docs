@@ -80,11 +80,20 @@ TODO: add wording and final link to [How to set up Windows Authentication for Az
 
 ## Configure Azure SQL Managed Instance 
 
-Enable Windows Authentication for Azure AD principals on each managed instance by:
+The steps to set up Azure SQL Managed Instance are the same for both the incoming trust-based authentication flow and the modern interactive authentication flow.
 
-- Configuring Azure AD authentication on the managed instance. 
-- Enabling a system assigned service principal on the managed instance. The system assigned service principal allows managed instance users to authenticate using the Kerberos protocol.
-- Granting admin consent to the service principal.
+#### Prerequisites to configure a managed instance
+
+The following prerequisites are required to configure a managed instance for Windows Authentication for Azure AD principals:
+
+|Prerequisite  | Description  |
+|---------|---------|
+|Az.Sql PowerShell module | This PowerShell module provides management cmdlets for Azure SQL resources. Install this module by running the following PowerShell command: `Install-Module -Name Az.Sql`   |
+|Azure Active Directory PowerShell Module  | This module provides management cmdlets for Azure AD administrative tasks such as user and service principal management. Install this module by running the following PowerShell command: `Install-Module –Name AzureAD`  |
+| A managed instance | You may [create a new managed instance](../../azure-arc/data/create-sql-managed-instance.md) or use an existing managed instance. |
+
+#### Configure each managed instance
+
 
 TODO: add wording and final link to [Configure Azure SQL Managed Instance for Windows Authentication for Azure Active Directory](winauth-azuread-kerberos-managed-instance.md) when titles and file names are finalized.
 
