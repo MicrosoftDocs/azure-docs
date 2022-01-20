@@ -2,11 +2,15 @@
 
 # Configure customer-managed keys for Azure Machine Learning
 
-While most Azure services encrypt data at rest or in transit, by default this is done using a Microsoft-managed key. In this article, you'll learn how to use a customer-managed key with Azure Machine Learning and the following services that it relies on:
+While most Azure services encrypt data at rest or in transit, by default this is done using a Microsoft-managed key. In this article, you'll learn how to use a customer-managed key with Azure Machine Learning.
 
-* Azure Cosmos DB
-* Azure Containe Instance
-* Azure Kubernetes Service
+A customer-managed key can be used with the following services that Azure Machine Learning relies on:
+
+| Service | What it is used for |
+| ----- | ----- |
+| Azure Cosmos DB |
+| Azure Container Instance | Hosting trained models as inference endpoints |
+| Azure Kubernetes Service | Hosting trained models as inference endpoints |
 
 ## Open questions
 
@@ -24,6 +28,10 @@ While most Azure services encrypt data at rest or in transit, by default this is
 
 ## Prerequisites
 
+* An Azure subscription.
+* An Azure Key Vault instance. Key vault is used to securely store your keys. For more information, see [Create a key vault](/azure/key-vault/general/quick-create-portal).
+
+
 ## Azure Cosmos DB
 
 Azure Machine Learning stores metadata in an Azure Cosmos DB instance. By default, this instance is associated with a Microsoft subscription managed by Azure Machine Learning. All the data stored in Azure Cosmos DB is encrypted at rest with Microsoft-managed keys.
@@ -34,15 +42,12 @@ To use your own (customer-managed) keys to encrypt the Azure Cosmos DB instance,
 
 [TODO - extract info from https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#configure-your-azure-key-vault-instance on setting up the key vault].
 
-1. [Create an Azure Key Vault]() instance. [TODO - do we have any Azure ML specific requirements for AKV?]
+1. Configure your key vault instance following the guidance in [Configure customer-managed keys for your Azure Cosmos account with Azure Key Vault](/azure/cosmos-db/how-to-setup-cmk).
 
-    > [!NOTE]
-    > Enabling soft delete and purge protection on the CMK key vault instance is required before creating an encrypted machine learning workspace to protect against accidental data loss in case of vault deletion.
+    > [!IMPORTANT]
+    > When following the steps to configure key vault, you do not need to create a new Azure Cosmos account. One will be created for you when you create the Azure Machine Learning workspace.
 
-    > [!NOTE]
-    > This key vault instance can be different than the key vault that is created by Azure Machine Learning when you create the workspace. If you want to use the same key vault instance for the workspace, pass the same key vault while provisioning the workspace by using the [key_vault parameter](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
-
-1. When creating the workspace, se the following parameters. Both parameters are mandatory and supported in SDK, Azure CLI, REST APIs, and Resource Manager templates.
+1. Create an Azure Machine Learning workspace. When creating the workspace, use the following parameters. Both parameters are mandatory and supported in SDK, Azure CLI, REST APIs, and Resource Manager templates.
 
     * `cmk_keyvault`: This parameter is the resource ID of the key vault in your subscription. This key vault needs to be in the same region and subscription that you will use for the Azure Machine Learning workspace. 
 
