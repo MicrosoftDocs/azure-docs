@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Desktop personal desktop assignment type - Azure
-description: How to configure automatic or direct assignment for a Azure Virtual Desktop personal desktop host pool.
+description: How to configure automatic or direct assignment for an Azure Virtual Desktop personal desktop host pool.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 07/09/2020
@@ -24,15 +24,15 @@ This article assumes you've already downloaded and installed the Azure Virtual D
 
 ## Personal host pools overview
 
-A personal host pool is a type of host pool that has personal desktops. Personal desktops have a 1 to 1 mapping, where only 1 user can be assigned to any personal desktop and a user can only be assigned to a single personal desktop. Every time the user logs in, their user session will be directed to their assigned personal desktop session host. This host pool type is ideal for customers that have resource intensive workloads where it would benefit the user experience and session performance more to have a single session on a session host as opposed to multiple sessions. Also note that user activities, files, and settings persist on the VM OS disk after each user logoff. 
+A personal host pool is a type of host pool that has personal desktops. Personal desktops have a one to one mapping, where only one user can be assigned to any personal desktop and a user can only be assigned to a single personal desktop. Every time the user logs in, their user session will be directed to their assigned personal desktop session host. This host pool type is ideal for customers that have resource-intensive workloads where it would benefit the user experience and session performance more to have a single session on a session host as opposed to multiple sessions. Also note that user activities, files, and settings persist on the VM OS disk after each user logoff. 
 
-Since users must be assigned to a personal desktop to have a session on one, there are 2 types of assignment for a personal host pool, automatic assignment and direct assignment.
+Since users must be assigned to a personal desktop to have a session on one, there are two types of assignment for a personal host pool, automatic assignment and direct assignment.
 
 ## Configure automatic assignment
 
 Automatic assignment is the default assignment type for new personal desktop host pools created in your Azure Virtual Desktop environment. Automatically assigning users doesn't require a specific session host.
 
-To automatically assign users, first assign them to the personal desktop host pool so that they can see the desktop in their feed. When an assigned user launches the desktop in their feed, thir user session will be load balanced to an available session host if they have not already connected to the host pool, which completes the assignment process.
+To automatically assign users, first assign them to the personal desktop host pool so that they can see the desktop in their feed. When an assigned user launches the desktop in their feed, their user session will be load balanced to an available session host if they haven't already connected to the host pool, which completes the assignment process.
 
 To configure a host pool to automatically assign users to VMs, run the following PowerShell cmdlet:
 
@@ -134,7 +134,7 @@ To reassign a personal desktop in the Azure portal:
 
 ## Next steps
 
-Now that you've configured the personal desktop assignment type, you can sign in to a Azure Virtual Desktop client to test it as part of a user session. These next two How-tos will tell you how to connect to a session using the client of your choice:
+Now that you've configured the personal desktop assignment type, you can sign in to an Azure Virtual Desktop client to test it as part of a user session. These next two How-tos will tell you how to connect to a session using the client of your choice:
 
 - [Connect with the Windows Desktop client](./user-documentation/connect-windows-7-10.md)
 - [Connect with the web client](./user-documentation/connect-web.md)
