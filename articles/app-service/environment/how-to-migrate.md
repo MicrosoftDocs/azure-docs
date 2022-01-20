@@ -2,9 +2,10 @@
 title: How to migrate App Service Environment v2 to App Service Environment v3
 description: Learn how to migrate your App Service Environment v2 to App Service Environment v3
 author: seligj95
-ms.topic: article
+ms.topic: tutorial
 ms.date: 2/1/2022
 ms.author: jordanselig
+zone_pivot_groups: experience-portal-cli
 ---
 # How to migrate App Service Environment v2 to App Service Environment v3
 
@@ -105,3 +106,5 @@ az appservice ase show --name $ASE_NAME --resource group $ASE_RG
 
 > [!div class="nextstepaction"]
 > [App Service Environment v3 Networking](networking.md)
+
+<!-- give a couple seconds for the portal to validate if migration is supported -->
