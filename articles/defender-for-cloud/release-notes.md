@@ -157,11 +157,11 @@ The **[Services should listen on allowed ports only](https://portal.azure.com/#b
 
 ### Added 'Active Alert' workbook
 
-To assist our users in their understanding of the active threats to their environments, and prioritize between active alerts during the remidiation process, we have added the Active Alerts workbook.
+To assist our users in their understanding of the active threats to their environments, and prioritize between active alerts during the remediation process, we have added the Active Alerts workbook.
 
 :::image type="content" source="media/release-notes/active-alerts-workbook.png" alt-text="Screenshot showing the addition of the Active alerts workbook.":::
 
-The active alerts workbook allows users to view a unified dashboard of their aggregated alerts by severity, type, tag, MITRE ATT&CK tactics, and location. Select this link, to learn how to [use the 'Active Alerts' workbook](custom-dashboards-azure-workbooks.md#use-the-active-alerts-workbook).
+The active alerts workbook allows users to view a unified dashboard of their aggregated alerts by severity, type, tag, MITRE ATT&CK tactics, and location. Learn more in [Use the 'Active Alerts' workbook](custom-dashboards-azure-workbooks.md#use-the-active-alerts-workbook).
 
 ## December 2021
 
