@@ -1,11 +1,11 @@
 ---
-title: Set up a lab using Azure Lab Services | Microsoft Docs
+title: Create a lab using Azure Lab Services | Microsoft Docs
 description: In this tutorial, you use Azure Lab Services to set up a lab with virtual machines that are used by students in your class. 
 ms.topic: tutorial
 ms.date: 1/6/2022
 ---
 
-# Tutorial: Set up a lab
+# Tutorial: Create and publish a lab
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
@@ -13,19 +13,20 @@ In this tutorial, you set up a lab with virtual machines that are used by studen
 
 > [!div class="checklist"]
 > * Create a lab
+> * Publish a lab
 > * Add users to the lab
 > * Set schedule for the lab
 > * Send invitation email to students
 
 ## Prerequisites
 
-To set up a lab, you must be a member of one of these roles in the lab plan: Owner, Lab Creator, or Contributor. For more information, see [Azure Lab Services built-in roles](administrator-guide.md#rbac-roles). The user account that you used to create a lab plan will already have the required permissions to create a lab.
+To set up a lab, you must be a member of one of these roles in the lab plan: Owner, Lab Creator, or Contributor. (All these roles have `Microsoft.LabServices/labPlans/CreateLab/action` permission.)  For more information, see [Azure Lab Services built-in roles](administrator-guide.md#rbac-roles). The user account that you used to create a lab plan will already have the required permissions to create a lab.
 
 Here's the typical workflow when using Azure Lab Services:
 
-1. The person that created the lab plan adds other users to the **Lab Creator** role. For example, the administrator (who created the lab plan) assigns educators to the **Lab Creator** role on the lab plan or resource group so that they can create labs for their classes.  The administrator can also assign educators the **Lab Creator** role on the resource group that contains one or more lab plans.  
+1. The person that created the lab plan adds other users to the **Lab Creator** role. For example, the administrator (who created the lab plan) assigns educators to the **Lab Creator** role on the lab plan or resource group so that they can create labs for their classes.  The administrator can also assign educators the **Lab Creator** role on the resource group that contains one or more lab plans.  To assign the **Lab Creator** role to someone, see [Add a user to the Lab Creator role](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role).
 2. Then, the educators create labs with VMs for their classes and send registration links to students in the class.  If the administrator assigned the **Lab Creator** role at the resource group, the educator can choose from all lab plans in that resource group when creating new labs.
-3. Students use the registration link that they receive from educators to register to the lab. Once they're registered, they can use VMs in the labs to do the class work and homework.  If the [Canvas](lab-services-within-canvas-overview.md) or [Teams](lab-services-within-teams-overview.md) integration with Azure Lab Services is used, this step is skipped by the students.
+3. Students use the registration link that they receive from educators to register to the lab. Once they're registered, they can use VMs in the labs to do the class work and homework.  If  [Canvas](lab-services-within-canvas-overview.md) or [Teams](lab-services-within-teams-overview.md) integration with Azure Lab Services is used, this step is skipped by the students.
 
 ## Create a lab
 
@@ -70,7 +71,9 @@ In this step, you create a lab for your class in Azure Lab Services portal.
     > [!NOTE]
     > Template VMs incur **cost** when running, so ensure that the template VM is shutdown when you don’t need it to be running.
 
-## Publish the lab
+If you chose to create a Linux template VM, more setup is required to use a GUI remote desktop. For more information, see [Enable graphical remote desktop for Linux virtual machines](how-to-use-remote-desktop-linux-student.md).
+
+## Publish a lab
 
 In this step, you publish the lab. When you publish the template VM, Azure Lab Services creates VMs in the lab by using the template. All virtual machines have the same configuration as the template.
 
