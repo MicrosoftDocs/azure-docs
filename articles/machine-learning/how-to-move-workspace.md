@@ -39,8 +39,27 @@ Moving the workspace enables you to migrate the workspace and its contents as a 
 ## Prerequisites
 
 - An Azure Machine Learning workspace in the source subscription. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
-- You must have permissions to manage resources in both source and target subscriptions. For example, Contributor or Owner role at the subscription level.
-- The destination subscription must be registered for Azure Machine Learning resource provider.
+- You must have permissions to manage resources in both source and target subscriptions. For example, Contributor or Owner role at the __subscription__ level. For more information on roles, see [Azure roles](/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles)
+- The destination subscription must be registered for required resource providers. The following table contains a list of the resource providers required by Azure Machine Learning:
+
+    | Resource provider | Why it's needed |
+    | ----- | ----- |
+    | __Microsoft.MachineLearningServices__ | Creating the Azure Machine Learning workspace. |
+    | __Microsoft.Storage__ | Azure Storage Account is used as the default storage for the workspace. |
+    | __Microsoft.ContainerRegistry__ | Azure Container Registry is used by the workspace to build Docker images. |
+    | __Microsoft.KeyVault__ | Azure Key Vault is used by the workspace to store secrets. |
+    | __Microsoft.Notebooks/NotebookProxies__ | Integrated notebooks on Azure Machine Learning compute instance. |
+    | __Microsoft.ContainerService__ | If you plan on deploying trained models to Azure Kubernetes Services. |
+
+    If you plan on using a customer-managed key with Azure Machine Learning, then the following service providers must be registered:
+
+    | Resource provider | Why it's needed |
+    | ----- | ----- |
+    | __Microsoft.DocumentDB/databaseAccounts__ | Azure CosmosDB instance that logs metadata for the workspace. |
+    | __Microsoft.Search/searchServices__ | Azure Search provides indexing capabilities for the workspace. |
+
+    For information on registering resource providers, see [Resolve errors for resource provider registration](../articles/azure-resource-manager/templates/error-register-resource-provider.md).
+
 - The [Azure CLI](/cli/azure/install-azure-cli).
 
     > [!TIP]
@@ -90,4 +109,4 @@ After the move has completed, recreate any computes and redeploy any web service
 
 ## Next steps
 
-* Learn about [resource move](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription)
+* Learn about [resource move](/azure/azure-resource-manager/management/move-resource-group-and-subscription)
