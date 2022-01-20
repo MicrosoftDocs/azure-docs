@@ -8,7 +8,7 @@ ms.service: backup
 ms.author: v-amallick
 ---
 
-# Restore Azure PostgreSQL databases using Azure data protection REST API
+# Restore Azure PostgreSQL databases using Azure data protection REST API (preview)
 
 This article explains how to restore [Azure PostgreSQL databases](../postgresql/overview.md#azure-database-for-postgresql---single-server) to an Azure PostgreSQL server backed-up by Azure Backup.
 
