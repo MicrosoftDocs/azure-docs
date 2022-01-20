@@ -83,7 +83,6 @@ At this point, Custom Translator is processing your documents and attempting to 
 ## Next steps
 
 - Learn [how to train a model](train-custom-model.md).
-- Learn [how to view model details](view-model-details.md).
 - Learn [how to test and evaluate model quality](view-model-test-translation.md).
 - Learn [how to publish model](publish-model.md).
 - Learn [how to translate with custom models](translate-with-custom-model.md).

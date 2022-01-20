@@ -156,7 +156,7 @@ items:
         href: custom-translator/v2-preview/how-to/build-manage-training-set-documents.md
       - name: Train a custom model
         href: custom-translator/v2-preview/how-to/train-custom-model.md
-      - name: View model details and test translation
+      - name: View the model details and test translation
         href: custom-translator/v2-preview/how-to/view-model-test-translation.md
       - name: Publish a custom model
         href: custom-translator/v2-preview/how-to/publish-model.md
@@ -178,7 +178,7 @@ items:
         href: custom-translator/how-to-view-document-details.md
       - name: Train a model
         href: custom-translator/how-to-train-model.md
-      - name: View model details
+      - name: View the model details
         href: custom-translator/how-to-view-model-details.md
       - name: View system test results
         href: custom-translator/how-to-view-system-test-results.md
