@@ -17,7 +17,7 @@ ms.reviewer: vvasic, jovanpop, wiassaf
 In Azure Synapse Analytics, Spark [databases](../metadata/database.md) and [tables](../metadata/table.md) are shared with serverless SQL pool. [Lake databases](../database-designer/concepts-lake-database.md), [Parquet](query-parquet-files.md), and [CSV](query-single-csv-file.md) backed tables created with Spark are automatically available in serverless SQL pool. This feature allows using serverless SQL pool to explore and query data prepared by using Spark pools.
 On below diagram, you can see a high-level architecture overview to utilize this feature. First, Azure Synapse Pipelines are moving data from on-premise (or other) storage to Azure Data Lake Storage. Spark can now enrich the data, and create databases, and tables that are getting synchronized to serverless Synapse SQL. Later, user can execute ad-hoc queries on top of the enriched data or serve it to Power BI for example. 
 
-![Enrich in Spark, serve with SQL diagram.](./media/shared-databases-access-control/enrich-in-spark-serve-with-sql.png)
+![Enrich in Spark, serve with SQL diagram.](./media/shared-databases-access-control/enrich-in-spark-serve-sql.png)
 
 ## Full administrator access(sysadmin)
 Once these databases and tables are synchronized from Spark to serverless SQL pool, these external tables in serverless SQL pool can be used to access the same data. However, objects in serverless SQL pool are read-only because of keeping consistency with the Spark pools objects. The limitation makes only users with Synapse SQL Administrator or Synapse Administrator roles can access these objects in serverless SQL pool. If a non-admin user tries to execute a query on the synchronized database/table, they'll receive error like:
