@@ -26,6 +26,8 @@ For more information and pricing. Go to the [NAT gateway overview](../../virtual
 
 > [!Note] 
 > Using NAT gateway with App Service is dependent on regional VNet Integration, and therefore **Standard**, **Premium**, **PremiumV2** or **PremiumV3** App Service plan is required.
+>
+> If you plan to use, or already use, [Service Endpoints with App Service regional VNet Integration](../app-service/overview-vnet-integration.md#service-endpoints) they will continue to work as expected with the addition of a NAT gateway to the subnet. The Service Endpoint adds a more specific route, so traffic to the service it represents will not egress via the NAT gateway. For more information see [Virtual Network Service Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## Configuring NAT gateway integration
 
