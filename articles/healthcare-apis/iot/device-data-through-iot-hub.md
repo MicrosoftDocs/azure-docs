@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 12/14/2021
+ms.date: 1/19/2022
 ms.author: jasteppe
 ---
 
@@ -34,7 +34,7 @@ Below is a diagram of the IoT device message flow from IoT Hub into IoT connecto
 
 ##  Create a managed identity for IoT Hub
 
-For this tutorial, we'll be using an IoT Hub with a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
+For this tutorial, we'll be using an IoT Hub with a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
 
 The user-assigned managed identity will be used to provide access to your IoT connector device message event hub using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). 
 
