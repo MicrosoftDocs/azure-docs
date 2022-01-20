@@ -75,7 +75,7 @@ We'll now set some Unity project settings that help us target the Windows Hologr
 1. Click on the yellow warning sign next to **OpenXR** to display all OpenXR issues.
 1. Select **Fix all**
 1. To fix the issue "_At least one interaction profile must be added_", click on *Edit* to open the OpenXR Project settings. Then under **Interaction Profiles** select the **+** symbol and select **Microsoft Hand Interaction Profile**
-![Unity - OpenXR Setup](../../../includes/media/spatial-anchors-unity/unity-HL2-OpenXRSetup.png)
+![Unity - OpenXR Setup](../../../includes/media/spatial-anchors-unity/unity-hl2-openxr-setup.png)
 
 #### Change Quality Settings
 1. Select **Edit** > **Project Settings** > **Quality**
@@ -117,7 +117,7 @@ You should now have an empty scene that is ready to be deployed to your HoloLens
     1. Select **Add Component** again and search for and add the **SpatialAnchorManager** script
     1. In the added **SpatialAnchorManager** component fill out the **Account ID**, **Account Key** and **Account Domain** which you have copied in the previous step from the spatial anchors resource in the Azure portal.
 
-![Unity - ASA GameObject](../../../includes/media/spatial-anchors-unity/unity-ASA-gameobject.png)
+![Unity - ASA GameObject](../../../includes/media/spatial-anchors-unity/unity-azurespatialanchors-gameobject.png)
 
 ## App Overview
 Our app will support the following interactions:
