@@ -24,15 +24,15 @@ There are several types of encryption available for your managed disks, includin
 
 Here is a comparison of SSE, ADE, and encryption at host.
 
-| | Encryption at rest (OS and data disks) | Temp disk encryption | Encryption of caches | Data flows encrypted between Compute and Storage | Customer control of keys | Microsoft Defender for Cloud disk encryption status |
-|--|--|--|--|--|--|--|
-| **Encryption at rest with platform-managed key (SSE+PMK)** | &#x2705; | &#10060; | &#10060; | &#10060; | &#10060; | Unhealthy, not applicable if exempt |
-| **Encryption at rest with customer-managed key (SSE+CMK)** | &#x2705; | &#10060; | &#10060; | &#10060; | &#x2705; | Unhealthy, not applicable if exempt |
-| **Azure Disk Encryption** | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | Healthy |
-| **Encryption at Host**  | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | Unhealthy, not applicable if exempt |
+| | Encryption at rest (OS and data disks) | Temp disk encryption | Encryption of caches | Data flows encrypted between Compute and Storage | Customer control of keys | Does not use your VM's CPU | Works for custom images | Microsoft Defender for Cloud disk encryption status |
+|--|--|--|--|--|--|--|--|--|
+| **Encryption at rest with platform-managed key (SSE+PMK)** | &#x2705; | &#10060; | &#10060; | &#10060; | &#10060; | &#x2705; | &#x2705; | Unhealthy, not applicable if exempt |
+| **Encryption at rest with customer-managed key (SSE+CMK)** | &#x2705; | &#10060; | &#10060; | &#10060; | &#x2705; | &#x2705; | &#x2705; | Unhealthy, not applicable if exempt |
+| **Azure Disk Encryption** | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |&#10060; | &#10060; Does not work for custom linux images | Healthy |
+| **Encryption at Host**  | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | Unhealthy, not applicable if exempt |
 
 > [!Important]
-> For Encryption at Host, Microsoft Defender for Cloud does not detect the encryption state.
+> For Encryption at Host, Microsoft Defender for Cloud does not detect the encryption state. We are in the process of updating Microsoft Defender
 
 ## Next steps
 
