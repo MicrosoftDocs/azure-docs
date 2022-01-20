@@ -139,7 +139,7 @@ If Application Insights Java agent detects that you may be missing a cipher suit
 Cipher suites come into play before a client application and server exchange information over an SSL/TLS connection. The client application initiates an SSL handshake. Part of that process involves notifying the server which cipher suites it supports. The server receives that information and compares the cipher suites supported by the client application with the algorithms it supports. If it finds a match, the server notifies the client application and a secure connection is established. If it does not find a match, the server refuses the connection.
 
 #### How to determine client side cipher suites:
-In this case, the client can be considered as the JVM on which your instrumented application is running. Starting from 3.2.5-BETA, Application Insights Java will log the supported cipher suites in the application insights log file when it encounters an IOException or SocketException.
+In this case, the client is the JVM on which your instrumented application is running. Starting from 3.2.5-BETA, Application Insights Java will log the missing cipher suites in the application insights log file when it encounters an IOException or SocketException.
 
 If using an earlier versions, compile and run the following Java program to get the list of supported cipher suites in JVM:
 
@@ -159,6 +159,11 @@ public class Ciphers {
     }
 }
 ```
+Following are the expected cipher suites in JVM:
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 #### How to determine server side cipher suites:
 In this case, the server side is the Application Insights ingestion endpoint or the Application Insights Live metrics endpoint. You can use an online tool like [SSLLABS](https://www.ssllabs.com/ssltest/analyze.html) to determine the expected cipher suites based on the endpoint url.
