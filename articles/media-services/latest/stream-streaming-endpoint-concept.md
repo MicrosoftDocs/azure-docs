@@ -24,7 +24,6 @@ When you create a Media Services account, a **default** streaming endpoint is cr
 
 > [!NOTE]
 > To start streaming videos, you need to start the **Streaming Endpoint** from which you want to stream the video.
->
 > You're only billed when your streaming endpoint is in the running state.
 
 Make sure to also review the article [Dynamic packaging](encode-dynamic-packaging-concept.md).
@@ -57,8 +56,6 @@ The following table describes the Premium and Standard streaming endpoint types.
 > [!NOTE]
 > For customers looking to deliver content to large internet audiences, we recommend you enable CDN on the streaming endpoint.
 
-For information on SLA, see [Pricing and SLA](https://azure.microsoft.com/pricing/details/media-services/).
-
 ## Comparing streaming types
 
 Feature|Standard|Premium
@@ -85,7 +82,6 @@ Recommended usage |Recommended for testing and non-essential streaming scenarios
 |Standard Streaming Endpoint (preview)|2.0|0|Yes|Paid|
 |Premium Streaming Units|1.0|> 0|Yes|Paid|
 |Premium Streaming Units|2.0|> 0|Yes|Paid|
-
 
 > [!NOTE]
 > The SLA is only applicable to the Premium streaming endpoints and not the Standard streaming endpoints. For information on SLA, see [Pricing and SLA](https://azure.microsoft.com/pricing/details/media-services/).
