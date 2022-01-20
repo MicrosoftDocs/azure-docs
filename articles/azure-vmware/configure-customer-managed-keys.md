@@ -10,9 +10,9 @@ ms.date: 12/17/2021
 
 ## Overview
 
-This article will show you how to encrypt VMware vSAN Key Encryption Keys (KEK) with Customer Managed Keys (CMKs) handled by customer-owned Azure Key Vault. 
+This article will show you how to encrypt VMware vSAN Key Encryption Keys (KEK) with Customer-Managed Keys (CMKs) handled by customer-owned Azure Key Vault. 
 
-When CMK encryption are enabled on your Azure VMware Solution private cloud, Azure VMware Solution uses the CMK from your key vault to encrypt the vSAN KEKs. Each ESXi host that participates in the vSAN cluster uses randomly generated Disk Encryption Keys (DEKs) that ESXi uses to encrypt disk data at rest. vSAN encrypts all DEKs with a KEK provided by Azure VMware Solution KMS. Azure VMware Solution private cloud and Key vault don't need to be in the same subscription.
+When CMK encryptions are enabled on your Azure VMware Solution private cloud, Azure VMware Solution uses the CMK from your key vault to encrypt the vSAN KEKs. Each ESXi host that participates in the vSAN cluster uses randomly generated Disk Encryption Keys (DEKs) that ESXi uses to encrypt disk data at rest. vSAN encrypts all DEKs with a KEK provided by Azure VMware Solution key management system (KMS). Azure VMware Solution private cloud and Key vault don't need to be in the same subscription.
 
 When managing your own encryption keys, you can do the following actions:
 
@@ -20,7 +20,7 @@ When managing your own encryption keys, you can do the following actions:
 - Centrally manage and lifecycle CMK.
 - Revoke Azure from accessing the KEK.
 
-Customer managed keys (CMKs) feature supports, shown below by key type and key size.
+Customer-managed keys (CMKs) feature supports, shown below by key type and key size.
 
 - RSA: 2048, 3072, 4096
 - RSA-HSM: 2048, 3072, 4096
@@ -29,7 +29,7 @@ Customer managed keys (CMKs) feature supports, shown below by key type and key s
 
 <!-- New content from Rahi to go here -->
 
-:::image type="content" source="media/configure-customer-managed-keys/customer-managed-keys-topology-diagram.png" alt-text="Diagram showing the customer managed keys topology." border="false" lightbox="media/configure-customer-managed-keys/customer-managed-keys-topology-diagram.png":::
+:::image type="content" source="media/configure-customer-managed-keys/customer-managed-keys-topology-diagram.png" alt-text="Diagram showing the customer-managed keys topology." border="false" lightbox="media/configure-customer-managed-keys/customer-managed-keys-topology-diagram.png":::
 
 
 ## Prerequisites
@@ -156,7 +156,7 @@ Navigate to your **Azure Key vault** and provide access to the SDDC on Azure Key
 
     1. Under **Encryption key**, choose the **select from key vault** button.
     1. Select the encryption type, then the **Select key vault and key** option.
-    1. Select the Key vault and key from the drop down, click **Select**.
+    1. Select the Key vault and key from the drop-down, click **Select**.
     
     **Option 2**
 
@@ -272,9 +272,9 @@ Below is the JSON file used to create an Azure Resource Manager template (ARM te
 }
 ```
 ---
-## Customer Managed Key version lifecycle
+## Customer-Managed Key version lifecycle
 
-Change the Customer Managed Key (CMK) by creating a new version of the key. The creation of a new version won't interrupt the virtual machine (VM) workflow.
+Change the Customer-Managed Key (CMK) by creating a new version of the key. The creation of a new version won't interrupt the virtual machine (VM) workflow.
 
 In Azure VMware Solution, CMK key version rotation will depend on the key selection setting you've chosen during CMK setup.
 
@@ -286,9 +286,9 @@ A customer enables CMK encryption without supplying a specific key version for C
 
 A customer can enable CMK encryption for a specified CMK key version to supply the full key version URI under the **Enter Key from URI** option. In this scenario, when the customer's current key expires, the customer will need to re-enable CMK encryption with a new key.
 
-## Change from Customer Managed Key to Microsoft Managed Key 
+## Change from Customer-Managed Key to Microsoft Managed Key 
 
-If a customer wants to change from Customer managed key (CMK) to Microsoft managed key (MMK), it won't interrupt VM workload. To make the change from CMK to MMK, follow the steps below.
+If a customer wants to change from Customer-managed key (CMK) to Microsoft managed key (MMK), it won't interrupt VM workload. To make the change from CMK to MMK, follow the steps below.
 
 1. From your Azure VMware Solution private cloud, under **Manage**, select **Encryption**.
 
