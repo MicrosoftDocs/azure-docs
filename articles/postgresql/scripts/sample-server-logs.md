@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.date: 02/28/2018
+ms.date: 01/20/2022
 ---
 
 # Enable and download server slow query logs of an Azure Database for PostgreSQL server using Azure CLI
