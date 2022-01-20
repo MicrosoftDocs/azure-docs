@@ -36,6 +36,8 @@ When scanning MySQL source, Azure Purview supports:
 
 - Fetching static lineage on assets relationships among tables and views.
 
+When setting up scan, you can choose to scan an entire MySQL server, or scope the scan to a subset of databases matching the given name(s) or name pattern(s).
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -117,7 +119,7 @@ To create and run a new scan, do the following:
         * Provide the user name used to connect to the database server in the User name input field.
         * Store the user password used to connect to the database server in the secret key.
 
-    1. **Database**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. When the list is empty, all available schemas are imported.
+    1. **Database**: List subset of databases to import expressed as a semicolon separated list. For example, `database1; database2`. All user databases are imported if the list is empty. All system databases (for example, SysAdmin) are ignored by default.
 
         Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: `A%; %B; %C%; D`
         * Start with A or
