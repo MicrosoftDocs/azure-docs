@@ -78,8 +78,8 @@ public class Program
 
 ## Select synthesis language and voice
 
-The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants.
-You can get the [full list](../../../language-support.md#prebuilt-neural-voices) or try them in a [text-to-speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. You can get the [full list](../../../language-support.md#prebuilt-neural-voices) or try them in a [text-to-speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+
 Specify the language or voice of `SpeechConfig` to match your input text and use the wanted voice:
 
 ```csharp
@@ -87,7 +87,7 @@ static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     // Note: if only language is set, the default voice of that language is chosen.
-    config.SpeechSynthesisLanguage = "<your-synthesis-language>"; // e.g. "de-DE"
+    config.SpeechSynthesisLanguage = "<your-synthesis-language>"; // For example, "de-DE"
     // The voice setting will overwrite the language setting.
     // The voice setting will not overwrite the voice element in input SSML.
     config.SpeechSynthesisVoiceName = "<your-wanted-voice>";
@@ -98,7 +98,7 @@ static async Task SynthesizeAudioAsync()
 
 Next, you create a [`SpeechSynthesizer`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer) object. This object executes text-to-speech conversions and outputs to speakers, files, or other output streams. `SpeechSynthesizer` accepts as parameters:
 
-- The [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) object created in the previous step
+- The [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) object that you created in the previous step
 - An [`AudioConfig`](/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig) object that specifies how output results should be handled
 
 To start, create an `AudioConfig` instance to automatically write the output to a .wav file by using the `FromWavFileOutput()` function. Instantiate it with a `using` statement. A `using` statement in this context automatically disposes of unmanaged resources and causes the object to go out of scope after disposal.
@@ -176,7 +176,7 @@ You can customize audio output attributes, including:
 
 To change the audio format, you use the `SetSpeechSynthesisOutputFormat()` function on the `SpeechConfig` object. This function expects an `enum` instance of type [`SpeechSynthesisOutputFormat`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat), which you use to select the output format. See the [list of audio formats](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat) that are available.
 
-There are various options for file types, depending on your requirements. By definition, raw formats like `Raw24Khz16BitMonoPcm` don't include audio headers. Use raw formats only in one of these situations:
+There are various options for different file types, depending on your requirements. By definition, raw formats like `Raw24Khz16BitMonoPcm` don't include audio headers. Use raw formats only in one of these situations:
 
 - You know that your downstream implementation can decode a raw bitstream.
 - You plan to manually build headers based on factors like bit depth, sample rate, and number of channels.
@@ -201,7 +201,7 @@ Running your program again will write a .wav file to the specified path.
 
 ## Use SSML to customize speech characteristics
 
-You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the text-to-speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
+You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and more in the text-to-speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
 
 To start using SSML for customization, you make a simple change that switches the voice.
 

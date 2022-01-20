@@ -84,6 +84,7 @@ void synthesizeSpeech()
 
 The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants.
 You can get the [full list](../../../language-support.md#prebuilt-neural-voices) or try them in a [text-to-speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+
 Specify the language or voice of [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) to match your input text and use the wanted voice:
 
 ```cpp
@@ -91,7 +92,7 @@ void synthesizeSpeech()
 {
     auto config = SpeechConfig::FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     // Note: if only language is set, the default voice of that language is chosen.
-    config->SetSpeechSynthesisLanguage("<your-synthesis-language>"); // e.g. "de-DE"
+    config->SetSpeechSynthesisLanguage("<your-synthesis-language>"); // For example, "de-DE"
     // The voice setting will overwrite the language setting.
     // The voice setting will not overwrite the voice element in input SSML.
     config->SetSpeechSynthesisVoiceName("<your-wanted-voice>");
@@ -180,7 +181,7 @@ You can customize audio output attributes, including:
 
 To change the audio format, you use the `SetSpeechSynthesisOutputFormat()` function on the `SpeechConfig` object. This function expects an `enum` instance of type [`SpeechSynthesisOutputFormat`](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat), which you use to select the output format. See the [list of audio formats](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat) that are available.
 
-There are various options for file types, depending on your requirements. By definition, raw formats like `Raw24Khz16BitMonoPcm` don't include audio headers. Use raw formats only in one of these situations:
+There are various options for different file types, depending on your requirements. By definition, raw formats like `Raw24Khz16BitMonoPcm` don't include audio headers. Use raw formats only in one of these situations:
 
 - You know that your downstream implementation can decode a raw bitstream.
 - You plan to manually build headers based on factors like bit depth, sample rate, and number of channels.
@@ -205,7 +206,7 @@ Running your program again will write a .wav file to the specified path.
 
 ## Use SSML to customize speech characteristics
 
-You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the text-to-speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
+You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and more in the text-to-speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
 
 To start using SSML for customization, you make a simple change that switches the voice.
 
