@@ -2,7 +2,7 @@
 title: Workbooks gallery in Microsoft Defender for Cloud
 description: Learn how to create rich, interactive reports of your Microsoft Defender for Cloud data with the integrated Azure Monitor Workbooks gallery
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 01/20/2022
 ---
 
 # Create rich, interactive reports of Defender for Cloud data
@@ -35,6 +35,7 @@ With the integrated Azure Workbooks functionality, Microsoft Defender for Cloud 
 - ['System Updates' workbook](#use-the-system-updates-workbook) - View missing system updates by resources, OS, severity, and more
 - ['Vulnerability Assessment Findings' workbook](#use-the-vulnerability-assessment-findings-workbook) - View the findings of vulnerability scans of your Azure resources
 - ['Compliance Over Time' workbook](#use-the-compliance-over-time-workbook) - View the status of a subscription's compliance with the regulatory or industry standards you've selected 
+- [`Active Alerts` workbook](#use-the-active-alerts-workbook) - view active alerts by severity, type, tag, MITRE ATT&CK tactics, and location.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-microsoft-defender-for-cloud.png" alt-text="Gallery of built-in workbooks in Microsoft Defender for Cloud.":::
 
@@ -125,6 +126,48 @@ You can keep drilling down - right down to the recommendation level - to view th
 >
 > :::image type="content" source="media/custom-dashboards-azure-workbooks/export-workbook-data.png" alt-text="Exporting compliance workbook data to Excel.":::
 
+### Use the 'Active Alerts' workbook
+
+This workbook displays the active security alerts for your subscriptions on one dashboard. Security alerts are the notifications that Defender for Cloud generates when it detects threats on your resources. Defender for Cloud prioritizes, and lists the alerts, along with information needed for quick investigation and remediation.
+
+This workbook benefits you by letting you understand the active threats on your environment, and allows you to prioritize between the active alerts.
+
+> [!NOTE]
+> Most workbooks use Azure Resource Graph (ARG) to query their data. For example, to display the Map View, Log Analytics workspace is used to query the data. [Continuous export](continuous-export.md) should be enabled, and export the security alerts to the Log Analytics workspace.
+
+You can view the active alerts by severity, resource group, or tag.
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/active-alerts-pie-charts.png" alt-text="Screenshot showing a sample view of the alerts viewed by Severity, Resource Group, or Tag.":::
+
+You can also view your subscription's top alerts by attacked resources, alert types, and new alerts.
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/top-alerts.png" alt-text="Screenshot highlighting the top alerts for your subscriptions.":::
+
+You can get more details on any of these alerts by selecting it.
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/active-alerts-high.png" alt-text="Screenshot that shows all the active alerts with high severity from a specific resource.":::
+
+The MITRE ATT&CK tactics displays by the order of the kill-chain, and the number of alerts the subscription has at each stage. 
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/mitre-attack-tactics.png" alt-text="Screenshot showing the order of the kill-chain, and the number of alerts":::
+
+You can see all of the active alerts in a table with the ability to filter by columns. By selecting an alert, the alert view button appears.
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/active-alerts-table.png" alt-text="Screenshot showing the table of active alerts.":::
+
+By selecting the Open Alert View button, you can see all the details of that specific alert.
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/alert-details-screen.png" alt-text="Screenshot of an alert's details.":::
+
+By selecting Map View, you can also see all alerts based on their location. 
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/alerts-map-view.png" alt-text="Screenshot of the alerts when viewed in a map.":::
+
+By selecting a location on the map you will be able to view all of the alerts for that location. 
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/map-alert-details.png" alt-text="Screenshot showing the alerts in a specific location.":::
+
+You can see the details for that alert with the Open Alert View button.
 
 ## Import workbooks from other workbook galleries
 
