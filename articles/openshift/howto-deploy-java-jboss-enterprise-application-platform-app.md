@@ -174,7 +174,7 @@ Follow the next steps to build and run the application locally.
 
 1. Open `http://localhost:8080/` in your browser to visit the application home page. If you have created more instances, you can access them by shifting the port number, for example `http://localhost:9080/`. The application will look similar to the following image:
 
-    ![ToDo EAP demo Application](./media/howto-deploy-java-eap-app/todo-demo-application.png)
+    ![ToDo EAP demo Application](./media/howto-deploy-java-enterprise-application-platform-app/todo-demo-application.png)
 
 1. Check the application health endpoints (live and ready). These endpoints will be used by OpenShift to verify when your pod is live and ready to receive user requests:
 
@@ -300,15 +300,15 @@ Before deploying the application, let's create the expected Secret object that w
 
 2. Open the OpenShift console and navigate to the developer view (in the **</> Developer** perspective in the left hand menu)
 
-    ![OpenShift console developer view](./media/howto-deploy-java-eap-app/console_developer_view.png)
+    ![OpenShift console developer view](./media/howto-deploy-java-enterprise-application-platform-app/console-developer-view.png)
 
 3. Once you are in the **</> Developer** perspective, ensure you have selected the **eap-demo** project at the **Project** combo box.
 
-    ![OpenShift console project combo box](./media/howto-deploy-java-eap-app/console_project_combo_box.png)
+    ![OpenShift console project combo box](./media/howto-deploy-java-enterprise-application-platform-app/console-project-combo-box.png)
 
 4. Go to **+Add**, then select **Helm Chart**. You will arrive at the Helm Chart catalog available on your ARO cluster. Write **eap** on the filter input box to filter all the Helm Charts and get the EAP ones. At this stage, you should see two options:
 
-    ![OpenShift console EAP Helm Charts](./media/howto-deploy-java-eap-app/console_eap_helm_charts.png)
+    ![OpenShift console EAP Helm Charts](./media/howto-deploy-java-enterprise-application-platform-app/console-eap-helm-charts.png)
 
 5. Since our application uses MicroProfile capabilities, we are going to select select for this demo the Helm Chart for EAP XP (at the time of this writing, the exact version of the Helm Chart is **EAP Xp3 v1.0.0**). The `Xp3` stands for Expansion Pack version 3.0.0. With the JBoss Enterprise Application Platform expansion pack, developers can use Eclipse MicroProfile application programming interfaces (APIs) to build and deploy microservices-based applications.
 
@@ -320,21 +320,21 @@ At this point, we need to configure the chart to be able to build and deploy the
 1. We can configure the Helm Chart either using a **Form View** or a **YAML View**. Select **YAML View** in the **Configure via** box.
 1. Then, change the YAML content to configure the Helm Chart by copying the content of the Helm Chart file available at _deployment/application/todo-list-helm-chart.yaml_ instead of the existing content:
 
-   ![OpenShift console EAP Helm Chart YAML content](./media/howto-deploy-java-eap-app/console_eap_helm_charts_yaml_content.png)
+   :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/console-eap-helm-charts-yaml-content-inline.png" alt-text="OpenShift console EAP Helm Chart YAML content" lightbox="media/article-folder-name/media/howto-deploy-java-enterprise-application-platform-app/console-eap-helm-charts-yaml-content-expanded.png":::
 
 1. Finally, select **Install** to start the application deployment. This will open the **Topology** view with a graphical representation of the Helm release (named **eap-todo-list-demo**) and its associated resources.
 
-    ![OpenShift console topology](./media/howto-deploy-java-eap-app/console_topology.png)
+    ![OpenShift console topology](./media/howto-deploy-java-enterprise-application-platform-app/console-topology.png)
 
     The Helm Release (abbreviated **HR**) is named **eap-todo-list-demo**. It includes a Deployment resource (abbreviated **D**) also named **eap-todo-list-demo**.
 
 1. When the build is finished (the bottom-left icon will display a green check) and the application is deployed (the circle outline is in dark blue), you can go to application the URL (using the top-right icon) from the route associated to the deployment.
 
-    ![OpenShift console open application](./media/howto-deploy-java-eap-app/console_open_application.png)
+    ![OpenShift console open application](./media/howto-deploy-java-enterprise-application-platform-app/console-open-application.png)
 
 1. The application is opened in your browser looking similar to the following image ready to be used:
 
-    ![OpenShift application running](./media/howto-deploy-java-eap-app/application_running_openshift.png)
+    ![OpenShift application running](./media/howto-deploy-java-enterprise-application-platform-app/application-running-openshift.png)
 
 1. The application shows you the name of the pod which has served the information. To verify the clustering capabilities, you could add some Todos. Then delete the pod with the name indicated in the **Server Host Name** field that appears on the application `(oc delete pod <pod name>)`, and once deleted, create a new Todo on the same application window. You will see that the new Todo is added via an Ajax request and the **Server Host Name** field now shows a different name. Behind the scenes, the new request has been dispatched by the OpenShift load balancer and delivered to an available pod. The Jakarta Faces view has been restored from the HTTP Session copy stored in the pod which is now processing the request. Indeed you will see that the **Session ID** field has not changed. If the session were not replicated across your pods, you would get a Jakarta Faces ViewExpiredException, and your application won't work as expected.
 
@@ -344,7 +344,7 @@ At this point, we need to configure the chart to be able to build and deploy the
 
 If you only want to delete your application, you can open the OpenShift console and, at the developer view, navigate to the **Helm** menu option. On this menu, you will see all the Helm Chart releases installed on your cluster.
 
-   ![OpenShift uninstall application](./media/howto-deploy-java-eap-app/console_uninstall_application.png)
+   :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/console-uninstall-application-inline.png" alt-text="OpenShift uninstall application" lightbox="media/article-folder-name/media/howto-deploy-java-enterprise-application-platform-app/console-uninstall-application-expanded.png":::
 
 Locate the **eap-todo-list-demo** Helm Chart and at the end of the row, select the tree vertical dots to open the action contextual menu entry.
 
