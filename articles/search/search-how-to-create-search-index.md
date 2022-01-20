@@ -12,25 +12,25 @@ ms.topic: how-to
 ms.date: 01/12/2021
 ---
 
-# Create a search index in Azure Cognitive Search
+# Create an index in Azure Cognitive Search
 
-In Azure Cognitive Search, query requests target the searchable text in a [search index](search-what-is-an-index.md). 
+In Azure Cognitive Search, query requests target the searchable text in a [**search index**](search-what-is-an-index.md). 
 
-In this article, learn the steps for defining and publishing a search index. Once the index exists, [data import](search-what-is-data-import.md) follows as a separate task. 
+In this article, learn the steps for defining and publishing a search index. Once the index exists, [**data import**](search-what-is-data-import.md) follows as a separate task. 
 
 ## Prerequisites
 
-Write permissions on the search service are required for creating and loading indexes. Permission can be granted through an [admin API key](search-security-api-keys.md) on the request. Alternatively, if you're participating in the Azure Active Directory [role-based access control public preview](search-security-rbac.md), you can issue your request as a member of the Search Contributor role.
++ Write permissions on the search service. Permission can be granted through an [admin API key](search-security-api-keys.md) on the request. Alternatively, if you're participating in the Azure Active Directory [role-based access control public preview](search-security-rbac.md), you can issue your request as a member of the Search Contributor role.
 
-Index creation is largely a schema definition exercise. Before creating one, you should have:
++ An external data source that provides the content to be indexed. You will refer to the data source to understand what kind of schema you will need for the search index. Index creation is largely a schema definition exercise. Before creating one, you should have:
 
-+ A clear idea of which fields you want to make searchable, retrievable, filterable, facetable, and sortable in your index (more about this is discussed in [schema checklist](#schema-checklist)).
+  + A clear idea of which fields you want to make searchable, retrievable, filterable, facetable, and sortable in the search index (more about this is discussed in [schema checklist](#schema-checklist)).
 
-+ A unique identifier in source data that can be used as the document key (or ID) in the index.
+  + A unique identifier in source data that can be used as the [document key (or ID)](#document-keys) in the index.
 
-+ A stable index location. Moving an existing index to a different search service is not supported out-of-the-box. Revisit application requirements and make sure the existing search service, its capacity and location, are sufficient for your needs.
++ A stable index location. Moving an existing index to a different search service is not supported out-of-the-box. Revisit application requirements and make sure that your existing search service, its capacity and location, are sufficient for your needs.
 
-Finally, all service tiers have [index limits](search-limits-quotas-capacity.md#index-limits) on the number of objects that you can create. For example, if you are experimenting on the Free tier, you can only have 3 indexes at any given time. Within the index itself, there are limits on the number of complex fields and collections.
++ Finally, all service tiers have [index limits](search-limits-quotas-capacity.md#index-limits) on the number of objects that you can create. For example, if you are experimenting on the Free tier, you can only have 3 indexes at any given time. Within the index itself, there are limits on the number of complex fields and collections.
 
 ## Document keys
 
@@ -57,18 +57,15 @@ To minimize churn in the design process, the following table describes which ele
 | [cross-origin remote scripting (CORS)](#corsoptions) | Yes |
 | [Encryption](search-security-manage-encryption-keys.md) | Yes |
 
-> [!NOTE]
-> [Synonym maps](search-synonyms.md) are not part of an index definition. Modifications to a synonym map have no impact on the physical search index.
-
 ## Schema checklist
 
-Use this checklist to help drive the design decisions for your search index.
+Use this checklist to assist the design decisions for your search index.
 
 1. Review [naming conventions](/rest/api/searchservice/naming-rules) so that index and field names conform to the naming rules.
 
 1. Review [supported data types](/rest/api/searchservice/supported-data-types). The data type will impact how the field is used. For example, numeric content is filterable but not full text searchable. The most common data type is `Edm.String` for searchable text, which is tokenized and queried using the full text search engine.
 
-1. Identify one string field in the source data that contains unique values, allowing it to function as the document key in your index. For example, if you're indexing from Blob Storage, the metadata storage path is often used as the document key. 
+1. Identify one string field in the source data that contains unique values, allowing it to function as the [document key](#document-keys) in your index. For example, if you're indexing from Blob Storage, the metadata storage path is often used as the document key. 
 
 1. Identify the fields in your data source that will contribute searchable content in the index. Searchable content includes short or long strings that are queried using the full text search engine. If the content is verbose (small phrases or bigger chunks), experiment with different analyzers to see how the text is tokenized.
 
@@ -207,8 +204,8 @@ The following properties can be set for CORS:
 
 ## Next steps
 
-Use the following links to become familiar with loading an index with data.
+Use the following links to become familiar with loading an index with data, or extending an index with a synonyms map.
 
 + [Data import overview](search-what-is-data-import.md)
-
 + [Add, Update or Delete Documents (REST)](/rest/api/searchservice/addupdate-or-delete-documents) 
++ [Synonym maps](search-synonyms.md)
