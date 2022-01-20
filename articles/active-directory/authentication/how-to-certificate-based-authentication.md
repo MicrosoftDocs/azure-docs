@@ -59,9 +59,9 @@ To configure your certificate authorities in Azure Active Directory, follow the 
 
 ## Step 2: Configure authentication binding policy 
 
-The authentication binding policy helps determine the strength of authentication to either a single factor or multi factor. Admin can leave it at default value of single factor or change to multi factor as well as configure custom policy rules at a more granular level either by issuer Subject or policy OID fields in the certificate.
+The authentication binding policy helps determine the strength of authentication to either a single factor or multi factor. An admin can change the default value from single-factor to multifactor and configure custom policy rules by mapping to issuer Subject or policy OID fields in the certificate.
 
-You can configure the Authentication methods policy two different ways:
+You can configure the authentication binding policy two different ways:
 
 - [Azure portal](#azure-portal)
 - [Graph API](#graph-api)
@@ -70,92 +70,95 @@ You can configure the Authentication methods policy two different ways:
 
 To enable the certificate-based authentication and configure user bindings in the Azure portal, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
-1. Search for and select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Authentication Policy Administrator.
+1. Select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
 1. Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
-1. Under **Basics**, click **On** to enable certificate-based authentication.
-1. Certificate-based authentication can be enabled for a targeted set of users.
-   1. Click **All Users** to enable for all users.
-   1. Click on **Select Users** to enable for a set of users or group. Click **+ Add users**, select specific users and groups, and click **Select** to add them.
 
-   After certificate-based authentication is enabled, all users will see the link to sign in with a certificate. Only users who are enabled for certificate-based authentication will be able to authenticate with this method.
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/policy.png" alt-text="Screenshot of Authentication policy.":::
+
 
 1. Click **Configure** to set up authentication binding and username binding.
-1. The protection level attribute has a default value of **Single-factor authentication**. Select **Multi-factor authentication** to change the default value to MFA. The protection level value will be used if no custom rules are added. If custom rules are added, then the protection level defined at the rule level will be honored instead.
+1. The protection level attribute has a default value of **Single-factor authentication**. Select **Multi-factor authentication** to change the default value to MFA. 
 
-1. To add custom rules, click on **Add rule**.
-   1. To create a rule by Certificate issuer, make sure to select ‘Certificate issuer’.
+   >[!NOTE] 
+   >The default protection level value will be in effect if no custom rules are added. If custom rules are added, the protection level defined at the rule level will be honored instead.
+
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/default.png" alt-text="Screenshot of default policy.":::
+
+1. You can also set up custom authentication binding rules to help determine the protection level for client certificates. It can be configured using either the issuer Subject or policy OID fields in the certificate.
+
+   Authentication binding rules will map the certificate attributes (issuer or policy OID) to a value, and select default protection level for that rule. Multiple rules can be created.
+
+
+   To add custom rules, click on **Add rule**.
+
+   To create a rule by Certificate issuer, make sure to select **Certificate issuer**.
+
    1. Select a **Certificate issuer identifier** from the list box.
-   1. Protection level default value is **Single-factor authentication**. Select **Multi-factor authentication** to change the default value to MFA.
- 
-   There can be only one binding for each certificate field.
+   1. Protection level default value is **Single-factor authentication**. Select **Multi-factor authentication** to change the default value.
 
-   Supported set of bindings:
-   - SAN Principal Name -> User Principal Name 
-   - SAN Principal Name -> onPremisesUserPrincipalName  
-   - RFC822Name -> User Principal Name 
-   - RFC822Name -> onPremisesUserPrincipalName 
- 
-   Default binding (use if no binding explicitly configured) 
-   - SAN Principal Name -> User Principal Name 
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/multifactor.png" alt-text="Screenshot of multifactor authentication policy.":::
 
  
-1. To create a rule by Policy OID, make sure to select **Policy OID**.
+ 
+   To create a rule by Policy OID, make sure to select **Policy OID**.
+
    1. Enter a value for **Policy OID**.
-   1. Protection level default value is **Single-factor authentication**. Select **Multi-factor authentication** to change the default value to MFA.
+   1. Protection level default value is **Single-factor authentication**. Select **Multi-factor authentication** to change the default value.
+
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/policy-oid.png" alt-text="Screenshot of mapping to Policy OID.":::
  
-      Strong Authentication binding rules: 
-      - Exact match is used for Strong authentication via policy OID.
-        If you have a certificate A with policy OID **1.2.3.4.5** and a derived credential B based on that certificate has a policy OID **1.2.3.4.5.6** and the rule is defined as **Policy OID** with value **1.2.3.4.5** with Multi-factor authentication, only the certificate A will satisfy Multi-factor authentication and credential B will satisfy only Single-factor authentication. If the user used derived credential during sign-in and was configured to have MFA, the user will be asked for a second factor for successful authentication.
-      - Policy OID rules will take precedence over Certificate issuer rules. If a certificate has both policy OID and Issuer, the policy OID is always checked first and if no policy rule is found then the issuer subject bindings are checked. Policy OID has a higher strongAuth binding priority than the issuer. 
-      - If one CA binds to two-factor authentication, all user certificates that this CA issues qualify as two-factor authentication. The same logic applies for single-factor authentication. 
-      - If one policy OID binds to two-factor authentication, all user certificates that include this policy OID as one of the OIDs (A user certificate could have multiple policy OIDs) qualify as multifactor authentication.  
-      - If there is a conflict between multiple policy OIDs (such as when a certificate has two policy OIDs, one binds to single-factor authentication and the other binds to two-factor authentication) then treat the certificate as a single-factor authentication.
-      - One certificate could only have one valid strong authentication binding (that is, a certificate could not bind to both single-factor and two-factor authentication).
  
+## Step 3: Configure username binding policy
+
+The username binding policy helps determine the user in the tenant. By default, we map Principal Name in the certificate to onPremisesUserPrincipalName in the user object to determine the user.
+
+An admin can override the default and create a custom mapping. Currently, we support two certificate fields, SAN (Subject Alternate Name) Principal Name and SAN RFC822Name, to map against the user object attribute userPrincipalName and onPremisesUserPrincipalName.
+
+
 1. Create the Username binding by selecting one of the X.509 certificate fields to bind with one of the user attributes. The username binding order represents the priority level of the binding. The first one has the highest priority and so on.
 
-   The way multiple user bindings are processed is as follows. Use the highest priority (lowest number) binding.  
-   - If the X.509 certificate field is on the presented certificate, attempt to look up the user by using the value in the specified field. 
-     - If a unique user is found, authenticate the user. 
-     - If a unique user is not found, authentication fails. 
-   - If the X.509 certificate field is not on the presented certificate, move to the next priority binding. 
-   
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/username-binding-policy.png" alt-text="Screenshot of a username binding policy.":::
+
    If the specified X.509 certificate field is found on the certificate, but Azure AD doesn’t find a user object using that value, the authentication fails. Azure AD doesn’t try the next binding in the list.
 
    Only if the X.509 certificate field is not on the certificate does it attempt the next priority.
 
 1. Click **Save** to save the changes. 
 
-### Graph API
+Currently supported set of Username bindings:
+1. SAN Principal Name > userPrincipalName
+1. SAN Principal Name > onPremisesUserPrincipalName
+1. SAN RFC822Name > userPrincipalName
+1. SAN RFC822Name > onPremisesUserPrincipalName
 
-To enable the certificate-based authentication and configure username bindings using Graph API, complete the following steps:
+.[!NOTE]
+>If the RFC822Name binding is evaluated and if no RFC822Name is specified in the certificate Subject Alternative Name, we will fall back on legacy Subject Name "E=user@contoso.com" if no RFC822Name is specified in the certificate we will fall back on legacy Subject Name E=user@contoso.com.
 
-1. Go to [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-1. Click **Sign into Graph Explorer** and log in to your tenant.
-1. Click **Settings** > **Select permission**.
-1. Enter "auth" in the search bar and consent all related permissions.
-1. GET all authentication methods
 
-   GET - [https://graph.microsoft.com/beta/policies/authenticationmethodspolicy](https://graph.microsoft.com/beta/policies/authenticationmethodspolicy) 
+The final configuration will look like this image:
 
-1. GET X509Certificate authentication method
+:::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/final.png" alt-text="Screenshot of the final configuration.":::
 
-   GET - [https://graph.microsoft.com/beta/policies/authenticationmethodspolicy/authenticationMetHodConfigurations/X509Certificate](https://graph.microsoft.com/beta/policies/authenticationmethodspolicy/authenticationMetHodConfigurations/X509Certificate) 
+## Step 4: Enable Certificate Based Authentication on the tenant
 
-1. PATCH X509Certificate strong auth with sample authentication rules with certificate user bindings and certificate rules.
-    
-    Request body:
+Using the MyApps portal
+To enable the certificate-based authentication in the Azure myapps portal, complete the following steps:
+1.	Sign in to the Myapps portal as a Global Administrator.
+2.	Select Azure Active Directory, then choose Security from the menu on the left-hand side.
+3.	Under Manage, select Authentication methods > Certificate-based Authentication.
+4.	Under Basics, select ‘Yes’ to enable certificate-based authentication.
+5.	Certificate-based authentication can be enabled for a targeted set of users.
+1.	Click All Users to enable all users.
+2.	Click on Select Users to enable selected users or groups. 
+3.	Click + Add users, select specific users and groups
+4.	Click Select to add them.
 
-    ```json
-    {"@odata.context": https://graph.microsoft-ppe.com/testppebetatestx509certificatestrongauth/$metadata#authenticationMethodConfigurations/$entity,	"@odata.type": "#microsoft.graph.x509CertificateAuthenticationMethodConfiguration",	"id": "X509Certificate",	"state": "disabled",	"certificateUserBindings": [{			"x509CertificateField": "PrincipalName",			"userProperty": "onPremisesUserPrincipalName",			"priority": 1		},		{			"x509CertificateField": "RFC822Name",			"userProperty": "userPrincipalName",			"priority": 2		}	],	"authenticationModeConfiguration": {		"x509CertificateAuthenticationDefaultMode": "x509CertificateSingleFactor",		"rules": [{				"x509CertificateRuleType": "issuerSubject",				"identifier": "CN=Microsoft Corp Enterprise CA",				"x509CertificateAuthenticationMode": "x509CertificateMultiFactor"			},			{				"x509CertificateRuleType": "policyOID",				"identifier": "1.2.3.4",				"x509CertificateAuthenticationMode": "x509CertificateMultiFactor"			}		]	},	includeTargets@odata.context: https://graph.microsoft-ppe.com/testppebetatestx509certificatestrongauth/$metadata#policies/authenticationMethodsPolicy/authenticationMethodConfigurations('X509Certificate')/microsoft.graph.x509CertificateAuthenticationMethodConfiguration/includeTargets,	"includeTargets": [{		"targetType": "group",		"id": "all_users",		"isRegistrationRequired": false	}]} 
-    ```
-
-   You will get a 204 response and sending a GET command should show the set policies.
-
-1. Test sign in works according to the policies.
  
-## Step 3: Test your configuration
+Once certificate-based authentication is enabled on the tenant, all users in the tenant will see the option to sign in with a certificate. Only users who are enabled for certificate-based authentication will be able to authenticate using the X.509 certificate. 
+
+
+## Step 5: Test your configuration
 
 ### Testing your certificate
 
@@ -234,6 +237,38 @@ However, to disable CRL checking if there are issues with CRL for a particular C
 ```powershell
 $c=Get-AzureADTrustedCertificateAuthority    	$c[0]. crlDistributionPoint =””   	 Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
 ```
+
+### Enable cloud-native CBS using Microsoft Graph API
+
+To enable the certificate-based authentication and configure username bindings using Graph API, complete the following steps.
+
+>[!NOTE]
+>The following steps will not work in US Government tenants with MS Graph and will need to use postman tool.
+
+1. Go to [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+1. Click **Sign into Graph Explorer** and log in to your tenant.
+1. Click **Settings** > **Select permission**.
+1. Enter "auth" in the search bar and consent all related permissions.
+1. GET all authentication methods
+
+   GET - [https://graph.microsoft.com/beta/policies/authenticationmethodspolicy](https://graph.microsoft.com/beta/policies/authenticationmethodspolicy) 
+
+1. GET X509Certificate authentication method
+
+   GET - [https://graph.microsoft.com/beta/policies/authenticationmethodspolicy/authenticationMetHodConfigurations/X509Certificate](https://graph.microsoft.com/beta/policies/authenticationmethodspolicy/authenticationMetHodConfigurations/X509Certificate) 
+
+1. PATCH X509Certificate strong auth with sample authentication rules with certificate user bindings and certificate rules.
+    
+    Request body:
+
+    ```json
+    {"@odata.context": https://graph.microsoft-ppe.com/testppebetatestx509certificatestrongauth/$metadata#authenticationMethodConfigurations/$entity,	"@odata.type": "#microsoft.graph.x509CertificateAuthenticationMethodConfiguration",	"id": "X509Certificate",	"state": "disabled",	"certificateUserBindings": [{			"x509CertificateField": "PrincipalName",			"userProperty": "onPremisesUserPrincipalName",			"priority": 1		},		{			"x509CertificateField": "RFC822Name",			"userProperty": "userPrincipalName",			"priority": 2		}	],	"authenticationModeConfiguration": {		"x509CertificateAuthenticationDefaultMode": "x509CertificateSingleFactor",		"rules": [{				"x509CertificateRuleType": "issuerSubject",				"identifier": "CN=Microsoft Corp Enterprise CA",				"x509CertificateAuthenticationMode": "x509CertificateMultiFactor"			},			{				"x509CertificateRuleType": "policyOID",				"identifier": "1.2.3.4",				"x509CertificateAuthenticationMode": "x509CertificateMultiFactor"			}		]	},	includeTargets@odata.context: https://graph.microsoft-ppe.com/testppebetatestx509certificatestrongauth/$metadata#policies/authenticationMethodsPolicy/authenticationMethodConfigurations('X509Certificate')/microsoft.graph.x509CertificateAuthenticationMethodConfiguration/includeTargets,	"includeTargets": [{		"targetType": "group",		"id": "all_users",		"isRegistrationRequired": false	}]} 
+    ```
+
+   You will get a 204 response and re-run the GET command to make sure the policies are updated correctly.
+
+1. Test the configuration by signing in with a certificate that satisfies the policy.
+ 
 
 ## Next steps 
 
