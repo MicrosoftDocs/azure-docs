@@ -83,19 +83,19 @@ Create the control plane pipeline by choosing _New Pipeline_ from the Pipelines 
 
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |
-| Branch  | private-preview                                 |
+| Branch  | main                                 |
 | Path    | `deploy/pipelines/01-deploy-control-plane.yaml` |
 | Name    | Control plane deployment                        |
 
 Save the Pipeline, to see the Save option click the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Control plane deployment' by choosing 'Rename/Move' from the three-dot menu on the right.
 
-## SAP workload zone pipeline
+## SAP workload zone deployment pipeline
 
 Create the SAP workload zone pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
 
 | Setting | Value                                        |
 | ------- | -------------------------------------------- |
-| Branch  | private-preview                              |
+| Branch  | main                              |
 | Path    | `deploy/pipelines/02-sap-workload-zone.yaml` |
 | Name    | SAP workload zone deployment                 |
 
@@ -107,7 +107,7 @@ Create the SAP system deployment pipeline by choosing _New Pipeline_ from the Pi
 
 | Setting | Value                                            |
 | ------- | ------------------------------------------------ |
-| Branch  | private-preview                                  |
+| Branch  | main                                  |
 | Path    | `deploy/pipelines/03-sap-system-deployment.yaml` |
 | Name    | SAP system deployment (infrastructure)           |
 
@@ -119,7 +119,7 @@ Create the SAP software acquisition pipeline by choosing _New Pipeline_ from the
 
 | Setting | Value                                            |
 | ------- | ------------------------------------------------ |
-| Branch  | private-preview                                  |
+| Branch  | main                                             |
 | Path    | `deploy/pipelines/04-sap-software-download.yaml` |
 | Name    | SAP software acquisition                         |
 
@@ -131,7 +131,7 @@ Create the SAP configuration and software installation pipeline by choosing _New
 
 | Setting | Value                                              |
 | ------- | -------------------------------------------------- |
-| Branch  | private-preview                                    |
+| Branch  | main                                               |
 | Path    | `deploy/pipelines/05-DB-and-SAP-installation.yaml` |
 | Name    | configuration and software installation            |
 
@@ -143,7 +143,7 @@ Create the deployment removal pipeline by choosing _New Pipeline_ from the Pipel
 
 | Setting | Value                                        |
 | ------- | -------------------------------------------- |
-| Branch  | private-preview                              |
+| Branch  | main                              |
 | Path    | `deploy/pipelines/10-remover-terraform.yaml` |
 | Name    | Deployment removal                           |
 
@@ -155,7 +155,7 @@ Create the deployment removal ARM pipeline by choosing _New Pipeline_ from the P
 
 | Setting | Value                                           |
 | ------- | ----------------------------------------------- |
-| Branch  | private-preview                                 |
+| Branch  | main                                 |
 | Path    | `deploy/pipelines/11-remover-arm-fallback.yaml` |
 | Name    | Deployment removal using ARM                    |
 
@@ -164,9 +164,21 @@ Save the Pipeline, to see the Save option click the chevron next to the Run butt
 > [!NOTE]
 > Only use this pipeline as last resort, removing just the resource groups will leave remnants that may complicate re-deployments.
 
+## Repository updater pipeline
+
+Create the Repository updater pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+
+| Setting | Value                                           |
+| ------- | ----------------------------------------------- |
+| Branch  | main                                            |
+| Path    | `deploy/pipelines/20-update-ado-repository.yaml`|
+| Name    | Repository updater                              |
+
+Save the Pipeline, to see the Save option click the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Repository updater' by choosing 'Rename/Move' from the three-dot menu on the right.
+
 ## Register the Deployer as an self-hosted agent for Azure DevOps
 
-You can use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devops/pipelines/agents/v2-linux) to perform the Ansible configuration activities. As a one-time step, you must register the Deployer as an agent.
+You can use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devops/pipelines/agents/v2-linux) to perform the Ansible configuration activities. As a one-time step, you must register the Deployer as an self-hosted agent.
 
 ### Prerequisites
 

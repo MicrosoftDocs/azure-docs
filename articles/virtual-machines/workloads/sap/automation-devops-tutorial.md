@@ -102,7 +102,64 @@ SAP System configuration name: DEV-WEEU-SAP01-X00
 
 You can track the progress in the Azure DevOps portal. Once the deployment is complete you can see the SAP System details in the _Extensions_ tab.
 
+## Downloading the SAP Software
 
+Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _SAP software acquisition_ pipeline. Run the pipeline and when prompted enter the following values:
+
+Name of Bill of Materials (BoM): S41909SPS03_v0009ms
+Control Plane Environment name: MGMT
+Control Plane Environment name: WEEU
+
+You can track the progress in the Azure DevOps portal. 
+
+## Running the Configuration and SAP Installation pipeline
+
+Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _SAP software acquisition_ pipeline. Run the pipeline and when prompted enter the following values:
+
+SAP System configuration name: DEV-WEEU-SAP01-X00
+Bill of Materials name: S41909SPS03_v0009ms
+SAP Fully Qualified Domain Name: sap.contoso.net
+
+In the variables section choose the agent pool for the region: MGMT-WEEU-POOL.
+
+Choose the playbooks to execute.
+
+:::image type="content" source="media/automation-devops/automation-os-sap.png" alt-text="DevOps tutorial, OS and SAP configuration":::
+
+You can track the progress in the Azure DevOps portal. 
+
+## Running the Repository update pipeline
+
+Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _Repository updater_ pipeline. Run the pipeline and when prompted enter the following values:
+
+Source repository: https://github.com/Azure/sap-automation.git
+Source branch to update from: main
+
+Only choose 'Force the update' if the update fails.
+
+
+## Running the removal pipeline
+
+Run the pipeline by navigating to the Pipelines section in the [Azure DevOps Portal](https://dev.azure.com) and selecting the _Deployment removal _ pipeline. Run the pipeline and select which deployment to remove.
+
+### SAP System removal
+
+When prompted enter the following values:
+
+SAP System configuration name: DEV-WEEU-SAP01-X00
+
+### SAP Workload Zone removal
+
+When prompted enter the following values:
+
+SAP workload zone configuration name: DEV-WEEU-SAP01-INFRASTRUCTURE
+
+### Control Plane removal
+
+When prompted enter the following values:
+
+Deployer configuration name: MGMT-WEEU-DEP00-INFRASTRUCTURE
+SAP Library configuration name: MGMT-WEEU-SAP_LIBRARY
 ## Next step
 
 > [!div class="nextstepaction"]
