@@ -31,6 +31,7 @@ Updates in January include:
 - [Renamed two recommendations](#renamed-two-recommendations)
 - [Deprecate Kubernetes cluster containers should only listen on allowed ports policy](#deprecate-kubernetes-cluster-containers-should-only-listen-on-allowed-ports-policy)
 - [Added 'Active Alerts' workbook](#added-active-alert-workbook)
+- ['System update' recommendation added to government cloud](#system-update-recommendation-added-to-government-cloud)
 
 ### Microsoft Defender for Resource Manager updated with new alerts and greater emphasis on high-risk operations mapped to MITRE ATT&CK® Matrix
 
@@ -162,6 +163,12 @@ To assist our users in their understanding of the active threats to their enviro
 :::image type="content" source="media/release-notes/active-alerts-workbook.png" alt-text="Screenshot showing the addition of the Active alerts workbook.":::
 
 The active alerts workbook allows users to view a unified dashboard of their aggregated alerts by severity, type, tag, MITRE ATT&CK tactics, and location. Learn more in [Use the 'Active Alerts' workbook](custom-dashboards-azure-workbooks.md#use-the-active-alerts-workbook).
+
+### 'System update' recommendation added to government cloud
+
+The 'System updates should be installed on your machines' recommendation is now available on all government clouds.  
+
+It's likely that this change will impact your government cloud subscription's secure score. We expect the change to lead to a decreased score, but it's possible the recommendation's inclusion might result in an increased score in some cases.
 
 ## December 2021
 
