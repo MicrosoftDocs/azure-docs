@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 1/19/2022
+ms.date: 1/20/2022
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
@@ -41,7 +41,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection  
  
-We previously announced in April 2020, a new combined registration experience enabling users to register authentication methods for SSPR and multi-factor authentication at the same time was generally available for existing customer to opt-in. Any Azure AD tenants created after August 2020 automatically have the default experience set to combined registration. Starting in 2022 Microsoft will be enabling the multi-factor authenticationn and SSPR combined registration experience for existing customers. [Learn more](../authentication/concept-registration-mfa-sspr-combined.md).
+We previously announced in April 2020, a new combined registration experience enabling users to register authentication methods for SSPR and multifactor authentication at the same time was generally available for existing customer to opt-in. Any Azure AD tenants created after August 2020 automatically have the default experience set to combined registration. Starting in 2022 Microsoft will be enabling the multifactor authentication and SSPR combined registration experience for existing customers. [Learn more](../authentication/concept-registration-mfa-sspr-combined.md).
  
 ---
 
@@ -51,7 +51,7 @@ We previously announced in April 2020, a new combined registration experience en
 **Service category:** Microsoft Authenticator App  
 **Product capability:** User Authentication  
  
-To prevent accidental notification approvals, admins can now  require users to enter the number displayed on the sign-in screen when approving an multi-factor authentication notification in the Authenticator app. This feature adds an additional security measure to the Microsoft Authenticator app. [Learn more](../authentication/how-to-mfa-number-match.md).
+To prevent accidental notification approvals, admins can now  require users to enter the number displayed on the sign-in screen when approving an multifactor authentication notification in the Authenticator app. This feature adds an additional security measure to the Microsoft Authenticator app. [Learn more](../authentication/how-to-mfa-number-match.md).
  
 ---
 
@@ -61,7 +61,7 @@ To prevent accidental notification approvals, admins can now  require users to e
 **Service category:** Reporting  
 **Product capability:** Monitoring & Reporting  
  
-We are no longer publishing sign-in logs with the following error codes because these events are pre-authentication events that occur before our service has authenticated a user. Because these events happen before authentication, our service is not always able to correctly identify the user. If a user continues on to authenticate, the user sign-in will show up in your tenant Sign-in logs. These logs are no longer visible in the Azure Portal UX, and querying these error codes in the Graph API will no longer return results.
+We are no longer publishing sign-in logs with the following error codes because these events are pre-authentication events that occur before our service has authenticated a user. Because these events happen before authentication, our service is not always able to correctly identify the user. If a user continues on to authenticate, the user sign-in will show up in your tenant Sign-in logs. These logs are no longer visible in the Azure portal UX, and querying these error codes in the Graph API will no longer return results.
 
 |Error code | Failure reason|
 | --- | --- |
@@ -80,7 +80,7 @@ We are no longer publishing sign-in logs with the following error codes because 
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
  
-We previously announced in April 2020, a new combined registration experience enabling users to register authentication methods for SSPR and multi-factor authentication (MFA) at the same time was generally available for existing customer to opt-in. Any Azure AD tenants created after August 2020 automatically have the default experience set to combined registration. Starting 2022, Microsoft will be enabling the MFA/SSPR combined registration experience for existing customers. [Learn more](../authentication/concept-registration-mfa-sspr-combined.md).
+We previously announced in April 2020, a new combined registration experience enabling users to register authentication methods for SSPR and multifactor authentication at the same time was generally available for existing customer to opt-in. Any Azure AD tenants created after August 2020 automatically have the default experience set to combined registration. Starting 2022, Microsoft will be enabling the MFA/SSPR combined registration experience for existing customers. [Learn more](../authentication/concept-registration-mfa-sspr-combined.md).
  
 ---
 
@@ -142,7 +142,7 @@ Several user attributes have been added to the list of attributes available to m
 **Service category:** Authentications (Logins)  
 **Product capability:** Identity Security & Protection
  
-We have recently added other property to the sign-in logs called "Session Lifetime Policies Applied". This property will list all the session lifetime policies that applied to the sign-in for example, Sign-in frequency, Remember multi-factor authentication and Configurable token lifetime. [Learn more](../reports-monitoring/concept-sign-ins.md#authentication-details).
+We have recently added other property to the sign-in logs called "Session Lifetime Policies Applied". This property will list all the session lifetime policies that applied to the sign-in for example, Sign-in frequency, Remember multifactor authentication and Configurable token lifetime. [Learn more](../reports-monitoring/concept-sign-ins.md#authentication-details).
  
 ---
 
@@ -689,7 +689,7 @@ We've released beta MS Graph API for Azure AD access reviews. The API has method
 **Product capability:** Identity Security & Protection
  
 
-The "Register or join devices" user action is generally available in Conditional access. This user action allows you to control multi-factor authentication (MFA) policies for Azure Active Directory (AD) device registration. Currently, this user action only allows you to enable multi-factor authentication (MFA) as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration continue to be disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions).
+The "Register or join devices" user action is generally available in Conditional access. This user action allows you to control multifactor authentication policies for Azure Active Directory (AD) device registration. Currently, this user action only allows you to enable multifactor authentication as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration continue to be disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions).
 
 ---
 
@@ -747,14 +747,14 @@ For more information about how to better secure your organization by using autom
  
 ---
 
-### Multi-factor (MFA) fraud report – new audit event
+### Multifactor fraud report – new audit event
 
 **Type:** Changed feature  
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
  
 
-To help administrators understand that their users are blocked for multi-factor authentication (MFA) as a result of fraud report, we have added a new audit event. This audit event is tracked when the user reports fraud. The audit log is available in addition to the existing information in the sign-in logs about fraud report. To learn how to get the audit report, see [multifactor authentication Fraud alert](../authentication/howto-mfa-mfasettings.md#fraud-alert).
+To help administrators understand that their users are blocked for multifactor authentication as a result of fraud report, we have added a new audit event. This audit event is tracked when the user reports fraud. The audit log is available in addition to the existing information in the sign-in logs about fraud report. To learn how to get the audit report, see [multifactor authentication Fraud alert](../authentication/howto-mfa-mfasettings.md#fraud-alert).
 
 ---
 
@@ -951,7 +951,7 @@ Access packages in Azure AD entitlement management now support setting the user'
 
 ---
 
-### General availability - Enable external users to self-service sign-up in AAD using MSA accounts
+### General availability - Enable external users to self-service sign-up in Azure AD using MSA accounts
 
 **Type:** New feature  
 **Service category:** B2B  
@@ -988,9 +988,9 @@ Anomalous token detection is now available in Identity Protection. This feature 
 **Service category:** Conditional Access  
 **Product capability:** Identity Security & Protection
  
-The Register or join devices user action in Conditional access is now in general availability. This user action allows you to control multi-factor authentication (MFA) policies for Azure AD device registration. 
+The Register or join devices user action in Conditional access is now in general availability. This user action allows you to control multifactor authentication (MFA) policies for Azure AD device registration. 
 
-Currently, this user action only allows you to enable multi-factor authentication (MFA) as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration continue to be disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions). 
+Currently, this user action only allows you to enable multifactor authentication as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration continue to be disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions). 
 
 ---
 
