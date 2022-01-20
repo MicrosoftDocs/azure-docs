@@ -431,6 +431,8 @@ items:
       items:
       - name: Database access control
         href: ../azure-sql/database/logins-create-manage.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
+      - name: Shared database access control
+        href: sql/shared-databases-access-control.md
       - name: Data security
         items:
         - name: Column-level security

@@ -181,14 +181,6 @@ To check the status of DWU changes:
 1. Connect to the master database associated with your server.
 2. Submit the following query to check database state.
 
-```sql
-SELECT    *
-FROM      sys.databases
-;
-```
-
-1. Submit the following query to check status of operation
-
     ```sql
     SELECT    *
     FROM      sys.dm_operation_status
