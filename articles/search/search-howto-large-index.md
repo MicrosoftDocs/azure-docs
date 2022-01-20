@@ -1,7 +1,7 @@
 ---
 title: Index large data set using built-in indexers
 titleSuffix: Azure Cognitive Search
-description: Strategies for large data indexing or computationally intensive indexing through batch mode, resourcing, and techniques for scheduled, parallel, and distributed indexing.
+description: Strategies for large data indexing or computationally-intensive indexing through batch mode, resourcing, and techniques for scheduled, parallel, and distributed indexing.
 
 manager: nitinme
 author: dereklegenzoff
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 01/20/2022
 ---
 
-# How to index large data sets in Azure Cognitive Search
+# Index large data sets in Azure Cognitive Search
 
 Azure Cognitive Search supports [two basic approaches](search-what-is-data-import.md) for importing data into a search index: *pushing* your data into the index programmatically, or pointing an [Azure Cognitive Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
 
@@ -21,9 +21,14 @@ The same techniques also apply to long-running processes. In particular, the ste
 
 The following sections explain techniques for indexing large amounts of data using both the push API and indexers.For more information and code samples that illustrate push model indexing, see [Tutorial: Optimize indexing speeds](tutorial-optimize-indexing-push-api.md).
 
-## Indexing large amounts of data with the "push" API
+## Indexing with the "push" API
 
 When pushing data into an index using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method (.NET)](/dotnet/api/azure.search.documents.searchclient.indexdocuments), there are several key considerations that impact indexing speed. Those factors are outlined in the section below, and range from setting service capacity to code optimizations.
+
++ [Data location and transfer speed](#check-data-location)
++ [Index schema](#review-index-schema)
++ [Service capacity](#check-service-capacity-and-partitions) and [thread management](#add-threads-and-a-retry-strategy)
++ [Batch multiple documents per request](#check-the-batch-size)
 
 ## Check data location
 
@@ -49,6 +54,8 @@ Adding more replicas may also increase indexing speeds but it isn't guaranteed. 
 
 ## Add threads and a retry strategy
 
+In contrast with indexer APIs, when you are using the push APIs to index documents, your application code should ensure there are sufficient threads to make full use of the available capacity. 
+
 1. [Increase the number of threads](tutorial-optimize-indexing-push-api.md#use-multiple-threadsworkers) in your client code. As you increase the tier of your search service or increase the partitions, you should also increase the number of concurrent threads so that you can take full advantage of the new capacity.
 
 1. As you ramp up the requests hitting the search service, you may encounter [HTTP status codes](/rest/api/searchservice/http-status-codes) indicating the request didn't fully succeed. During indexing, two common HTTP status codes are:
@@ -72,7 +79,7 @@ Using batches to index documents will significantly improve indexing performance
 
 Because the optimal batch size depends on your index and your data, the best approach is to test different batch sizes to determine what results in the fastest indexing speeds for your scenario. [Tutorial: Optimize indexing with the push API](tutorial-optimize-indexing-push-api.md) provides sample code for testing batch sizes using the .NET SDK. 
 
-## Using an indexer "pull" API for high-volume or long-running indexing
+## Indexer-based "pull" indexing 
 
 [Indexers](search-indexer-overview.md) crawl [supported data sources](search-indexer-overview.md#supported-data-sources) for searchable content. While not specifically intended for large-scale indexing, several indexer capabilities are particularly useful for accommodating larger data sets:
 
@@ -115,6 +122,10 @@ Azure Cognitive Search does not lock the index for updates. Concurrent writes ar
 1. Specify the same target search index in each indexer.
 
 1. Schedule the indexers.
+
+Although multiple indexer-data-source sets can target the same index, be careful of indexer runs that can overwrite existing values in the index. If a second indexer-data-source targets the same documents and fields, any values from the first run will be overwritten. Field values are replaced in full; an indexer cannot merge values from multiple runs into the same field.
+
+If you are pulling from different data source types, a challenge for this scenario lies in designing an index schema that works for all incoming data, and a document key structure that is uniform in the search index. Natively, the values that uniquely identify a document are metadata_storage_path in a blob container and a primary key in a SQL table. You can imagine that one or both sources must be amended to provide key values in a common format, regardless of content origin. For this scenario, you should expect to perform some level of pre-processing to homogenize the data so that it can be pulled into a single index.  
 
 ## See also
 
