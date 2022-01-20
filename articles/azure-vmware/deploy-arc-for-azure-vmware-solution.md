@@ -207,7 +207,7 @@ We recommend assigning this role at the subscription level or resource group you
 1. Select **Access control (IAM)** in the table of contents located on the left sidebar.
 1. Select **Add role assignment** from the **Grant access to this resource**. 
    :::image type="content" source="media/deploy-arc-for-avs/assign-custom-role-user-groups.png" alt-text="Image showing navigation to access control IAM and add role assignment."lightbox="media/deploy-arc-for-avs/assign-custom-role-user-groups.png":::
-1. Select the custom role you want to assign (Azure Arc VMware Solution: **Administrator**, **Private Cloud User**, or **VM Contributor**).
+1. Select the custom role you want to assign, Azure Arc VMware Solution: **Administrator**, **Private Cloud User**, or **VM Contributor**.
 1. Search for **AAD user** or **group name** that you want to assign this role to.
 1. Select the **AAD user** or **group name**. Repeat this step for each user or group you want to give permission to.
 1. Repeat the above steps for each scope and role.
