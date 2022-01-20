@@ -231,7 +231,7 @@ For more information, use the command `Get-Help Get-EflowVmTelemetryOption -full
 The **Get-EflowVmTpmProvisioningInfo** command returns the TPM provisioning information. This command takes no parameters. It returns an object that contains two properties:
 
 * Endorsement Key
-* Registration Id
+* Registration ID
 
 For more information, use the command `Get-Help Get-EflowVmTpmProvisioningInfo -full`.
 
