@@ -58,8 +58,8 @@ The client accepts a `DTMI` as input and returns a dictionary with all required 
 using Azure.IoT.ModelsRepository;
 
 var client = new ModelsRepositoryClient();
-IDictionary<string, string> models = client.GetModels("dtmi:com:example:TemperatureController;1");
-models.Keys.ToList().ForEach(k => Console.WriteLine(k));
+ModelResult models = client.GetModel("dtmi:com:example:TemperatureController;1");
+models.Content.Keys.ToList().ForEach(k => Console.WriteLine(k));
 ```
 
 The expected output should display the `DTMI` of the three interfaces found in the dependency chain:

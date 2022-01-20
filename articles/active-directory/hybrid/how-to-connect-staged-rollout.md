@@ -85,7 +85,7 @@ The following scenarios are not supported for staged rollout:
 
 - When you first add a security group for staged rollout, you're limited to 200 users to avoid a UX time-out. After you've added the group, you can add more users directly to it, as required.
 
-- While users are in Staged Rollout, password expiration policy is set to 90 days with no option to customize it. 
+- While users are in Staged Rollout with Password Hash Synchronization (PHS), by default no password expiration is applied. Password expiration can be applied by enabling "EnforceCloudPasswordPolicyForPasswordSyncedUsers". When "EnforceCloudPasswordPolicyForPasswordSyncedUsers" is enabled, password expiration policy is set to 90 days from the time password was set on-prem with no option to customize it. To learn how to set 'EnforceCloudPasswordPolicyForPasswordSyncedUsers' see [Password expiration policy](./how-to-connect-password-hash-synchronization.md#enforcecloudpasswordpolicyforpasswordsyncedusers).
 
 - Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition for Windows 10 version older than 1903. This scenario will fall back to the WS-Trust endpoint of the federation server, even if the user signing in is in scope of staged rollout.
 

@@ -2,7 +2,7 @@
 title: Bicep language for deploying Azure resources
 description: Describes the Bicep language for deploying infrastructure to Azure. It provides an improved authoring experience over using JSON to develop templates.
 ms.topic: conceptual
-ms.date: 01/03/2022
+ms.date: 01/19/2022
 ---
 
 # What is Bicep?
@@ -17,6 +17,64 @@ Bicep provides the following advantages over other infrastructure-as-code option
 
 - **Support for all resource types and API versions**: Bicep immediately supports all preview and GA versions for Azure services. As soon as a resource provider introduces new resources types and API versions, you can use them in your Bicep file. You don't have to wait for tools to be updated before using the new services.
 - **Simple syntax**: When compared to the equivalent JSON template, Bicep files are more concise and easier to read. Bicep requires no previous knowledge of programming languages. Bicep syntax is declarative and specifies which resources and resource properties you want to deploy.
+
+  The following examples show the difference between a Bicep file and the equivalent JSON template. Both examples deploy a storage account.
+
+  # [Bicep](#tab/bicep)
+
+  ```bicep
+  param location string = resourceGroup().location
+  param storageAccountName string = 'toylaunch${uniqueString(resourceGroup().id)}'
+
+  resource storageAccount 'Microsoft.Storage/storageAccounts@2021-06-01' = {
+    name: storageAccountName
+    location: location
+    sku: {
+      name: 'Standard_LRS'
+    }
+    kind: 'StorageV2'
+    properties: {
+      accessTier: 'Hot'
+    }
+  }
+  ```
+
+  # [JSON](#tab/json)
+
+  ```json
+  {
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]"
+      },
+      "storageAccountName": {
+        "type": "string",
+        "defaultValue": "[format('toylaunch{0}', uniqueString(resourceGroup().id))]"
+      }
+    },
+    "resources": [
+      {
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2021-06-01",
+        "name": "[parameters('storageAccountName')]",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard_LRS"
+        },
+        "kind": "StorageV2",
+        "properties": {
+          "accessTier": "Hot"
+        }
+      }
+    ]
+  }
+  ```
+
+  ---
+
 - **Authoring experience**: When you use VS Code to create your Bicep files, you get a first-class authoring experience. The editor provides rich type-safety, intellisense, and syntax validation.
 - **Modularity**: You can break your Bicep code into manageable parts by using [modules](./modules.md). The module deploys a set of related resources. Modules enable you to reuse code and simplify development. Add the module to a Bicep file anytime you need to deploy those resources.
 - **Integration with Azure services**: Bicep is integrated with Azure services such as Azure Policy, template specs, and Blueprints.

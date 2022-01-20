@@ -31,13 +31,11 @@ For more details about subscription licenses that qualify to run Windows 10 on A
 
 **Eligible subscription licenses:**
 
--	Microsoft 365 E3/E5 
--	Microsoft 365 F3 
--	Microsoft 365 A3/A5 
 -	Windows 10 Enterprise E3/E5
 -	Windows 10 Education A3/A5 
+-	Microsoft 365 A3/A5
+-	Microsoft 365 F3/E3/E5 
 -	Windows VDA E3/E5
-
 
 ## Deploying Windows 10 Image from Azure Marketplace 
 For PowerShell, CLI and Azure Resource Manager template deployments, Windows 10 images can be found using the `PublisherName: MicrosoftWindowsDesktop` and `Offer: Windows-10`. Windows 10 version Creators Update (1809) or later is supported for Multitenant Hosting Rights. 
