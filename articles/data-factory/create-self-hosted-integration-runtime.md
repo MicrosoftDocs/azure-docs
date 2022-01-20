@@ -456,7 +456,7 @@ When your self-hosted integration runtime is recovered from crash, you can eithe
 > [!NOTE]
 > If you prefer to store the credential locally, your need to put the domain for interactive authoring in the allowlist of your firewall 
 > and open the port. This channel is also for the self-hosted integration runtime to get the credentials. 
-> For the domain and port needed for interactive authoring, refer to [Ports and firewalls](#Ports-and-firewalls)
+> For the domain and port needed for interactive authoring, refer to [Ports and firewalls](#ports-and-firewalls)
 
 ## Installation best practices
 
