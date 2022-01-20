@@ -122,15 +122,15 @@ When you are ready to create an indexer on a remote search service, you will nee
 
 1. [Sign in to Azure portal](https://portal.azure.com).
 
-1. On the search service Overview pge, choose from two options for creating an indexer: 
+1. On the search service Overview page, choose from two options: 
 
    + [**Import data wizard**](search-import-data-portal.md). The wizard is unique in that it creates all of the required elements. Other approaches require that you have predefined a data source and index.
 
    + **New Indexer**, a visual editor for specifying an indexer definition. 
 
-The following screenshot shows where you can find these features in the portal. 
+   The following screenshot shows where you can find these features in the portal. 
 
-  :::image type="content" source="media/search-howto-create-indexers/portal-indexer-client.png" alt-text="hotels indexer" border="true":::
+   :::image type="content" source="media/search-howto-create-indexers/portal-indexer-client.png" alt-text="hotels indexer" border="true":::
 
 ### [**REST**](#tab/indexer-rest)
 
