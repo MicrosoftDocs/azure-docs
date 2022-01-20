@@ -33,8 +33,8 @@ In this tutorial, you'll learn how to:
 
 In this step, we'll create a service that filters packets based on their protocol. Specifically, it'll do the following.
 
-* Block ICMP packets flowing away from the packet core instance.
-* Block UDP packets flowing away from the packet core instance on port 11.
+* Block ICMP packets flowing away from SIMs.
+* Block UDP packets flowing away from SIMs on port 11.
 * Allow all other ICMP and UDP traffic in both directions, but no other IP traffic.
 
 Do the following to create the service.
@@ -74,7 +74,7 @@ Do the following to create the service.
     |**Policy rule precedence**     | Select **10**.        |
     |**Allow traffic**     | Select **Blocked**.        |
 
-1. We'll now create a data flow template that matches on ICMP packets flowing away from the packet core instance, so that they can be blocked by the `rule_block_icmp_uplink_traffic` rule.
+1. We'll now create a data flow template that matches on ICMP packets flowing away from SIMs, so that they can be blocked by the `rule_block_icmp_uplink_traffic` rule.
     Select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
 
     |Field  |Value  |
@@ -86,7 +86,7 @@ Do the following to create the service.
     |**Ports**     | Leave blank.        |
 
 1. Select **Add**.
-1. We'll now create another data flow template for the same rule that matches on UDP packets flowing away from the packet core instance on port 11. 
+1. We'll now create another data flow template for the same rule that matches on UDP packets flowing away SIMs on port 11. 
 
     Select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
 
@@ -136,7 +136,7 @@ Do the following to create the service.
 
 In this step, we'll create a service that blocks traffic from specific sources. Specifically, it'll do the following.
 
-* Block UDP packets labeled with the remote address 10.204.141.200 and port 12 flowing towards the packet core instance.
+* Block UDP packets labeled with the remote address 10.204.141.200 and port 12 flowing towards SIMs.
 * Block UDP packets labeled with any remote address in the range 10.204.141.0/24 and port 15 flowing in both directions
 * Allow all other IP traffic in both directions.
 
@@ -176,7 +176,7 @@ Do the following to create the service.
     |**Policy rule precedence**     | Select **11**.        |
     |**Allow traffic**     | Select **Blocked**.        |
 
-1. We'll now create a data flow template that matches on UDP packets flowing towards from the packet core instance from 10.204.141.200 on port 12, so that they can be blocked by the `rule_block_udp_from_specific_sources` rule.
+1. We'll now create a data flow template that matches on UDP packets flowing towards SIMs from 10.204.141.200 on port 12, so that they can be blocked by the `rule_block_udp_from_specific_sources` rule.
 
     Select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
 
@@ -185,7 +185,7 @@ Do the following to create the service.
     |**Template name**     |`udp_downlink_traffic`         |
     |**Protocols**     | Select **UDP**.        |
     |**Direction**     | Select **Downlink**.        |
-    |**Remote IPs**     | `10.204.141.200`        |
+    |**Remote IPs**     | `10.204.141.200/32`        |
     |**Ports**     | `12`        |
 
 1. Select **Add**.
@@ -240,8 +240,8 @@ Do the following to create the service.
 
 In this step, we'll create a service that limits the bandwidth of traffic on matching flows. Specifically, it'll do the following.
 
-* Limit the Maximum Bit Rate (MBR) for packets flowing away from the packet core instance to 2 Gbps.
-* Limit the Maximum Bit Rate (MBR) for packets flowing towards the packet core instance to 1 Gbps.
+* Limit the Maximum Bit Rate (MBR) for packets flowing away from SIMs to 2 Gbps.
+* Limit the Maximum Bit Rate (MBR) for packets flowing towards SIMs to 1 Gbps.
 
 Do the following to create the service.
 
@@ -257,7 +257,7 @@ Do the following to create the service.
 
     :::image type="content" source="media\configure-service-azure-portal\create-command-bar-option.png" alt-text="Screenshot of the Azure portal showing the Create option in the command bar.":::
 
-1. We'll now enter values to define the QoS characteristics that will be applied to Service Data Flows that match this service. On the **Basics** tab, fill out the fields as follows.
+1. We'll now enter values to define the QoS characteristics that will be applied to Service Data Flows that match this service. We'll use the **Maximum Bit Rate (MBR) - Uplink** and **Maximum Bit Rate (MBR) - Downlink** fields to set our bandwidth limits. On the **Basics** tab, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|
@@ -446,17 +446,19 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
 
     :::image type="content" source="media/provision-sims-azure-portal/resource-group-containing-multiple-sims.png" alt-text="Screenshot of the Azure portal showing a resource group containing new SIM resources.":::
 
-1. Select the **Mobile Network** resource corresponding to your private mobile network.
-1. In the resource menu, select **SIMs**.
-1. Tick the checkbox next to **SIM1** and then select **Assign SIM policy**.
-1. On the **Assign SIM policy** blade, select **sim-policy-1**.
+1. Select the **SIM1** SIM resource.
+1. In the command bar, select **Assign SIM policy**.
+1. Under **Assign SIM policy** on the right, set the **SIM policy** field to **sim-policy-1**.
 1. Select the **Assign SIM policy** button.
-1. <!-- still need to confirm what happens post deployment and navigation-->
-1. Select the **Mobile Network** resource corresponding to your private mobile network.
-1. In the resource menu, select **SIMs**.
-1. Tick the checkbox next to **SIM2** and then select **Assign SIM policy**.
-1. On the **Assign SIM policy** blade, select **sim-policy-2**.
+1. Once the deployment is complete, select **Go to Resource**.
+1. Check the **SIM policy** field in the **Management** section to confirm **sim-policy-1** has been successfully assigned.
+1. Select the name of the resource group in the **Resource group** field under **Essentials**.
+1. Select **Show hidden types** and then select the **SIM2** resource.
+1. In the command bar, select **Assign SIM policy**.
+1. Under **Assign SIM policy** on the right, set the **SIM policy** field to **sim-policy-2**.
 1. Select the **Assign SIM policy** button.
+1. Once the deployment is complete, select **Go to Resource**.
+1. Check the **SIM policy** field in the **Management** section to confirm **sim-policy-2** has been successfully assigned.
 
 You now have now provisioned two SIMs and assigned them to different SIM policies. Each of these SIM policies provides access to a different set of services.
 
