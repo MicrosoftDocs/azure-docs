@@ -57,6 +57,9 @@ For the Public Preview Refresh release, the Device Update agent needs to be upda
 
  8. Delete the old IoT/IoT Edge device from the public preview portal.
 
+> [!NOTE] 
+> Attempting to update the agent through a DU deployment will lead to the device no longer being manageable by Device Update. The device will have to be re-provisioned to be managed from Device Update.
+
 ## Migrating Groups to Public Preview Refresh
 
 1. If your devices are using Device Update agent versions 0.6.0 or 0.7.0, upgrade to the latest agent version 0.8.0 following the steps above. 
