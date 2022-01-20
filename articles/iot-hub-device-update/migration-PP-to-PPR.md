@@ -16,6 +16,8 @@ To migrate successfully, you will have to upgrade the DU agent running on your d
 
 ## Update the device update agent
 
+For the Public Preview Refresh release, the Device Update agent needs to be updated manually as described below. Updating the agent through a Device Update deployment is not supported due to major changes across the Public Preview and PPR release. 
+
 1. To view devices using older agents (versions 0.7.0/0.6.0) and groups created before 02/03/2022, navigate to the public preview portal, which can be accessed through the banner.
 
    :::image type="content" source="media/migration/switch-banner.png" alt-text="Screenshot of banner." lightbox="media/migration/switch-banner.png":::
@@ -61,7 +63,7 @@ To migrate successfully, you will have to upgrade the DU agent running on your d
  
 2. Delete the existing groups in the public preview portal by navigating through the banner. 
  
-3. Add group tag to the device twin for the updated devices. For more details, refer the [Add a tag to your device](device-update-simulator.md#add-device-to-azure-iot-hub#add-a-tag-to-your-device) section.
+3. Add group tag to the device twin for the updated devices. For more details, refer the [Add a tag to your device](device-update-simulator.md#add-device-to-azure-iot-hub) section.
 
 4. Recreate the groups in the PPR portal by going to ‘Add Groups’ and selecting the corresponding groups tag from the drop-down list. 
  
