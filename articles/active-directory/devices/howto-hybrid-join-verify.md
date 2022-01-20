@@ -1,12 +1,12 @@
 ---
-title: Verify hybrid Azure Active Directory join
-description: Verify configurations for hybris Azure AD joined devices
+title: Verify hybrid Azure Active Directory join state
+description: Verify configurations for hybrid Azure AD joined devices
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 01/20/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -32,8 +32,8 @@ For downlevel devices, see the article [Troubleshooting hybrid Azure Active Dire
 
 1. Go to the devices page using a [direct link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
 2. Information on how to locate a device can be found in [How to manage device identities using the Azure portal](./device-management-azure-portal.md).
-3. If the **Registered** column says **Pending**, then Hybrid Azure AD Join hasn't completed. In federated environments, this state can happen only if it failed to register and Azure AD Connect is configured to sync the devices.
-4. If the **Registered** column contains a **date/time**, then Hybrid Azure AD Join has completed.
+3. If the **Registered** column says **Pending**, then hybrid Azure AD Join hasn't completed. In federated environments, this state happens only if it failed to register and Azure AD Connect is configured to sync the devices.
+4. If the **Registered** column contains a **date/time**, then hybrid Azure AD Join has completed.
 
 ## Using PowerShell
 

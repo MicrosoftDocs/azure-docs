@@ -1,12 +1,12 @@
 ---
-title: Manual configuration hybrid Azure Active Directory join devices
+title: Manual configuration for hybrid Azure Active Directory join devices
 description: Learn how to manually configure hybrid Azure Active Directory join devices.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 01/07/2022
+ms.date: 01/20/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -29,7 +29,7 @@ This article covers the manual configuration of requirements for hybrid Azure AD
 - Global administrator credentials for your Azure AD tenant.
 - Enterprise administrator credentials for each of the on-premises Active Directory Domain Services forests.
 - (**For federated domains**) Windows Server 2012 R2 with Active Directory Federation Services installed.
-- Users must be able to register their devices with Azure AD. More information about this setting can be found under the heading **Configure device settings**, in the article, [Configure device settings](device-management-azure-portal.md#configure-device-settings).
+- Users can register their devices with Azure AD. More information about this setting can be found under the heading **Configure device settings**, in the article, [Configure device settings](device-management-azure-portal.md#configure-device-settings).
 
 Hybrid Azure AD join requires devices to have access to the following Microsoft resources from inside your organization's network:  
 

@@ -1,12 +1,12 @@
 ---
-title: Targeted deployment of hybrid Azure AD join
-description: Learn how to do a targeted deployment of hybrid Azure AD join before enabling it across the entire organization all at once
+title: Targeted deployments of hybrid Azure AD join
+description: Learn how to do a targeted deployment of hybrid Azure AD join before enabling it across the entire organization all at once.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 01/18/2022
+ms.date: 01/20/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

@@ -1,12 +1,12 @@
 ---
-title: How to plan your Azure Active Directory join implementation
+title: Plan your Azure Active Directory join deployment
 description: Explains the steps that are required to implement Azure AD joined devices in your environment.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 01/20/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

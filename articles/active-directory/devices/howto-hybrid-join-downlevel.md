@@ -1,12 +1,12 @@
 ---
-title: Enable downlevel devices to hybrid Azure Azure Active Directory join
-description: Configure older operating systems to hybrid Azure AD join
+title: Enable downlevel devices for hybrid Azure Active Directory join
+description: Configure older operating systems for hybrid Azure AD join
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 01/20/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Enable older operating systems
 
-If some of your domain-joined devices are Windows downlevel devices, you must:
+If some of your domain-joined devices are Windows [downlevel devices](hybrid-azuread-join-plan.md#windows-down-level-devices), you must complete the following steps to allow them to hybrid Azure AD join:
 
 - Configure the local intranet settings for device registration
 - Install Microsoft Workplace Join for Windows downlevel computers

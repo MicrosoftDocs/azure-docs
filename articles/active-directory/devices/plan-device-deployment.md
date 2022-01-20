@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 01/20/2022
 
 ms.author: baselden
 author: BarbaraSelden
@@ -25,13 +25,11 @@ The landscape of your user's devices is constantly expanding. Organizations may 
 
 Azure Active Directory (Azure AD) enables your organization to meet these goals with device identity management. You can now get your devices in Azure AD and control them from a central location in the [Azure portal](https://portal.azure.com/). This process gives you a unified experience, enhanced security, and reduces the time needed to configure a new device.
 
-There are multiple methods to integrate your devices into Azure AD:
+There are multiple methods to integrate your devices into Azure AD, they can work separately or together based on the operating system and your requirements:
 
 * You can [register devices](concept-azure-ad-register.md) with Azure AD
-
-* [Join devices](concept-azure-ad-join.md) to Azure AD (cloud-only) or
-
-* [Create a hybrid Azure AD join](concept-azure-ad-join-hybrid.md) in between devices in your on-premises Active Directory and Azure AD. 
+* [Join devices](concept-azure-ad-join.md) to Azure AD (cloud-only)
+* [Hybrid Azure AD join](concept-azure-ad-join-hybrid.md) devices to your on-premises Active Directory domain and Azure AD. 
 
 ## Learn
 
@@ -131,17 +129,13 @@ Registered devices are often managed with [Microsoft Intune](/mem/intune/enrollm
 BYOD and corporate owned mobile device are registered by users installing the Company portal app.
 
 * [iOS](/mem/intune/user-help/install-and-sign-in-to-the-intune-company-portal-app-ios)
-
 * [Android](/mem/intune/user-help/enroll-device-android-company-portal)
-
 * [Windows 10](/mem/intune/user-help/enroll-windows-10-device)
-
 * [macOS](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp)
 
 If registering your devices is the best option for your organization, see the following resources:
 
 * This overview of [Azure AD registered devices](concept-azure-ad-register.md).
-
 * This end-user documentation on [Register your personal device on your organization’s network](https://support.microsoft.com/account-billing/register-your-personal-device-on-your-work-or-school-network-8803dd61-a613-45e3-ae6c-bd1ab25bf8a8).
 
 ## Azure AD join
@@ -153,7 +147,6 @@ Azure AD join enables you to transition towards a cloud-first model with Windows
 If this option is best for your organization, see the following resources:
 
 * This overview of [Azure AD joined devices](concept-azure-ad-join.md).
-
 * Familiarize yourself with the [Azure AD join implementation plan](azureadjoin-plan.md).
 
 ### Provisioning Azure AD Joined devices
@@ -165,9 +158,7 @@ To provision devices to Azure AD join, you have the following approaches:
 If you have either Windows 10 Professional or Windows 10 Enterprise installed on a device, the experience defaults to the setup process for company-owned devices.
 
 * [Windows Out of Box Experience (OOBE) or from Windows Settings](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973)
-
 * [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot)
-
 * [Bulk Enrollment](/mem/intune/enrollment/windows-bulk-enroll)
 
 Choose your deployment procedure after careful [comparison of these approaches](azureadjoin-plan.md).
@@ -189,16 +180,14 @@ Most organizations already have domain joined devices and manage them via Group 
 If hybrid Azure AD join is the best option for your organization, see the following resources:
 
 * This overview of [hybrid Azure AD joined devices](concept-azure-ad-join-hybrid.md).
-
 * Familiarize yourself with the [hybrid Azure AD join implementation](hybrid-azuread-join-plan.md) plan.
 
 ### Provisioning hybrid Azure AD join to your devices
 
 [Review your identity infrastructure](hybrid-azuread-join-plan.md). Azure AD Connect provides you with a wizard to configure hybrid Azure AD join for:
 
-* [Federated domains](hybrid-azuread-join-federated-domains.md)
-
-* [Managed domains](hybrid-azuread-join-managed-domains.md)
+* [Managed domains](howto-hybrid-azure-ad-join.md#managed-domains)
+* [Federated domains](howto-hybrid-azure-ad-join.md#federated-domains)
 
 If installing the required version of Azure AD Connect isn't an option for you, see [how to manually configure hybrid Azure AD join](hybrid-azuread-join-manual.md). 
 
@@ -240,16 +229,6 @@ Review supported and unsupported platforms for integrated devices:
 We recommend that you consider [Microsoft Intune Mobile Application management (MAM)](/mem/intune/apps/app-management) with or without device management for registered iOS or Android devices.
 
 Administrators can also [deploy virtual desktop infrastructure (VDI) platforms](howto-device-identity-virtual-desktop-infrastructure.md) hosting Windows operating systems in their organizations to streamline management and reduce costs through consolidation and centralization of resources. 
-
-### Troubleshoot device identities
-
-* [Troubleshooting devices using the dsregcmd command](troubleshoot-device-dsregcmd.md)
-
-If you experience issues with completing hybrid Azure AD join for domain-joined Windows devices, see:
-
-* [Troubleshoot hybrid Azure AD join for Windows current devices](troubleshoot-hybrid-join-windows-current.md)
-
-* [Troubleshoot hybrid Azure AD join for Windows down level devices](troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Next steps
 
