@@ -119,9 +119,10 @@ The Azure Monitor agent sends data to Azure Monitor Metrics (preview) or a Log A
 The Azure Monitor agent doesn't require any keys but instead requires a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before you deploy the agent.
 
 ## Networking
-The Azure Monitor agent supports Azure service tags. Both AzureMonitor and AzureResourceManager tags are required. The Azure Monitor agent doesn't yet work with Azure Monitor Private Link Scopes. If the machine connects through a proxy server to communicate over the internet, review the following requirements to understand the network configuration required.
+The Azure Monitor agent supports Azure service tags (both AzureMonitor and AzureResourceManager tags are required). It supports connecting via private links and direct proxies as described below.
 
 ### Proxy configuration
+If the machine connects through a proxy server to communicate over the internet, review requirements below to understand the network configuration required.
 
 The Azure Monitor agent extensions for Windows and Linux can communicate either through a proxy server or a Log Analytics gateway to Azure Monitor by using the HTTPS protocol. Use it for Azure virtual machines, Azure virtual machine scale sets, and Azure Arc for servers. Use the extensions settings for configuration as described in the following steps. Both anonymous and basic authentication by using a username and password are supported.
 
@@ -161,6 +162,9 @@ New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType Azur
 ```
 
 ---
+
+## Private link configuration
+To configure the agent to use private links for network communications with Azure Monitor, you can use [Azure Monitor Private Links Scopes (AMPLS)](../logs/private-link-security.md) and [data collection endpoints](./data-collection-endpoint-overview.md) to enable required network isolation. [View steps to configure network isolation for the agent](./data-collection-endpoint-overview.md#enable-network-isolation-for-the-azure-monitor-agent)
 
 ## Next steps
 
