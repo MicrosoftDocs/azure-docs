@@ -136,12 +136,12 @@ If you see this exception after upgrading to Java agent version greater than 3.2
 If Application Insights Java agent detects that you may be missing a cipher suite that is required by one of the endpoints it connects to, it will alert you and link you here.
 
 ### Background on Cipher Suites: 
-Cipher suites come into play before a client application and server exchange information over an SSL/TLS connection. The client application initiates what is known as an SSL handshake. Part of that process involves notifying the server which cipher suites it supports. The server receives that information and compares the cipher suites supported by the client application with the algorithms it supports. If and when it finds a match of supported methods, the server notifies the client application and a secure connection is established. If it does not find a match, the server refuses the connection.
+Cipher suites come into play before a client application and server exchange information over an SSL/TLS connection. The client application initiates an SSL handshake. Part of that process involves notifying the server which cipher suites it supports. The server receives that information and compares the cipher suites supported by the client application with the algorithms it supports. If it finds a match, the server notifies the client application and a secure connection is established. If it does not find a match, the server refuses the connection.
 
 #### How to determine client side cipher suites:
 In this case, the client can be considered as the JVM on which your instrumented application is running. Starting from 3.2.5-BETA, Application Insights Java will log the supported cipher suites in the application insights log file when it encounters an IOException or SocketException.
 
-If using earlier versions, compile and run the following Java program to get the list of supported cipher suites in JVM:
+If using an earlier versions, compile and run the following Java program to get the list of supported cipher suites in JVM:
 
 ```
 import javax.net.ssl.SSLServerSocketFactory;
@@ -161,7 +161,7 @@ public class Ciphers {
 ```
 
 #### How to determine server side cipher suites:
-In this case, the server side case be considered as Application Insights ingestion endpoint or the Application Insights Live metrics endpoint. You can use an online tool like [SSLLABS](https://www.ssllabs.com/ssltest/analyze.html) to determine the expected cipher suites based on the endpoint url.
+In this case, the server side is the Application Insights ingestion endpoint or the Application Insights Live metrics endpoint. You can use an online tool like [SSLLABS](https://www.ssllabs.com/ssltest/analyze.html) to determine the expected cipher suites based on the endpoint url.
 
 #### How to add the missing cipher suites:
 
