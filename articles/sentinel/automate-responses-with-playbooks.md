@@ -106,7 +106,7 @@ Azure Logic Apps communicates with other systems and services using connectors. 
 
 - [Test your Logic App](#run-a-playbook-manually-on-an-alert).
 
-- Attach the playbook to an [automation rule](#incident-creation-automated-response) or an [analytics rule](#alert-creation-automated-response), or [run manually when required](#run-a-playbook-manually-on-an-alert).
+- Attach the playbook to an [automation rule](#incident-creation-automated-response) or an [analytics rule](#alert-creation-automated-response), or [run manually when required](#run-a-playbook-manually).
 
 ### Use cases for playbooks
 
