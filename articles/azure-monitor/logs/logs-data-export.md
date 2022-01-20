@@ -637,9 +637,6 @@ N/A
 ## Unsupported tables
 If the data export rule includes an unsupported table, the configuration will succeed, but no data will be exported for that table. If the table is later supported, then its data will be exported at that time.
 
-If the data export rule includes a table that doesn't exist, it will fail with the error "Table \<tableName\> does not exist in the workspace".
-
-
 ## Supported tables
 Supported tables are currently limited to those specified below. All data from the table will be exported unless limitations are specified. This list is updated as more tables are added.
 

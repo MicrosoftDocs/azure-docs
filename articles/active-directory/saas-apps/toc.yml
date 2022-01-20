@@ -48,7 +48,9 @@
       - name: Active and Thriving
         href: active-and-thriving-tutorial.md
       - name: Active and Thriving - Perth Airport
-        href: active-and-thriving-perth-airport-tutorial.md    
+        href: active-and-thriving-perth-airport-tutorial.md
+      - name: Active Directory SSO for DoubleYou
+        href: active-directory-sso-for-doubleyou-tutorial.md    
       - name: Acunetix 360
         href: acunetix-360-tutorial.md
       - name: Adaptive Insights
@@ -191,6 +193,8 @@
         href: assetsonar-tutorial.md
       - name: Astra Schedule
         href: astra-schedule-tutorial.md
+      - name: Athena Systems Login Platform
+        href: athena-systems-login-platform-tutorial.md  
       - name: Atlassian Cloud
         href: atlassian-cloud-tutorial.md
       - name: Atlassian Jira and Confluence
@@ -255,7 +259,7 @@
         href: beyond-identity-admin-console-tutorial.md  
       - name: BGS Online
         href: bgsonline-tutorial.md
-      - name: BIC Cloud Design
+      - name: BIC Process Design
         href: bic-cloud-design-tutorial.md
       - name: Bime
         href: bime-tutorial.md
@@ -589,6 +593,8 @@
         href: deskradar-tutorial.md
       - name: DigiCert
         href: digicert-tutorial.md
+      - name: Dining Sidekick
+        href: dining-sidekick-tutorial.md  
       - name: Direct
         href: direct-tutorial.md
       - name: Directions on Microsoft
@@ -689,6 +695,8 @@
         href: empactis-tutorial.md
       - name: EmpCenter
         href: empcenter-tutorial.md
+      - name: Emplifi platform
+        href: emplifi-platform-tutorial.md  
       - name: Enablon
         href: enablon-tutorial.md
       - name: Encompass
@@ -1334,6 +1342,8 @@
         href: mevisio-tutorial.md
       - name: Michigan Data Hub Single Sign-On
         href: michigan-data-hub-single-sign-on-tutorial.md
+      - name: MiHCM
+        href: mihcm-tutorial.md  
       - name: Mimecast Admin Console
         href: mimecast-admin-console-tutorial.md
       - name: Mimecast Personal Portal
@@ -1710,6 +1720,8 @@
         href: real-links-tutorial.md
       - name: Recognize
         href: recognize-tutorial.md
+      - name: Recurly
+        href: recurly-tutorial.md  
       - name: RedBrick Health
         href: ./redbrick-health-tutorial.md
       - name: RedVector
@@ -1846,6 +1858,8 @@
         href: sciquest-spend-director-tutorial.md
       - name: ScreenSteps
         href: screensteps-tutorial.md
+      - name: Scuba Analytics
+        href: scuba-analytics-tutorial.md  
       - name: SD Elements
         href: sd-elements-tutorial.md
       - name: SDS & Chemical Information Management
@@ -2130,6 +2144,8 @@
         href: timeoffmanager-tutorial.md
       - name: Timetabling Solutions
         href: timetabling-solutions-tutorial.md
+      - name: TimeTrack
+        href: timetrack-tutorial.md  
       - name: TIMU
         href: timu-tutorial.md
       - name: TINFOIL SECURITY
