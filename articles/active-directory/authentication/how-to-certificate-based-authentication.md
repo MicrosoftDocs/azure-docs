@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 01/20/2022
 
 ms.author: justinha
 author: justinha
@@ -142,101 +142,56 @@ The final configuration will look like this image:
 
 ## Step 4: Enable Certificate Based Authentication on the tenant
 
-Using the MyApps portal
-To enable the certificate-based authentication in the Azure myapps portal, complete the following steps:
-1.	Sign in to the Myapps portal as a Global Administrator.
-2.	Select Azure Active Directory, then choose Security from the menu on the left-hand side.
-3.	Under Manage, select Authentication methods > Certificate-based Authentication.
-4.	Under Basics, select ‘Yes’ to enable certificate-based authentication.
-5.	Certificate-based authentication can be enabled for a targeted set of users.
-1.	Click All Users to enable all users.
-2.	Click on Select Users to enable selected users or groups. 
-3.	Click + Add users, select specific users and groups
-4.	Click Select to add them.
+To enable the certificate-based authentication in the Azure MyApps portal, complete the following steps:
 
+1. Sign in to the [MyApps portal](https://myapps.microsoft.com/) as a Global Administrator.
+2.	Select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
+3.	Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
+4.	Under **Basics**, select **Yes** to enable CBA.
+5.	CBA can be enabled for a targeted set of users.
+   1. Click **All Users** to enable all users.
+   1. Click **Select Users** to enable selected users or groups. 
+   1. Click **+ Add users**, select specific users and groups.
+   1. Click **Select** to add them.
+
+4.	Select ‘Sign in with a certificate’
+5.	Pick the correct user certificate in the Client certificate picker UI and click OK.
  
 Once certificate-based authentication is enabled on the tenant, all users in the tenant will see the option to sign in with a certificate. Only users who are enabled for certificate-based authentication will be able to authenticate using the X.509 certificate. 
-
 
 ## Step 5: Test your configuration
 
 ### Testing your certificate
 
-As a first configuration test, you should try to sign in to Outlook Web Access or SharePoint Online using your on-device browser.
-If your sign-in is successful, then you know that:
+As a first configuration test, you should try to sign in to the [MyApps portal](https://myapps.microsoft.com/) using your on-device browser.
 
-- The user certificate has been provisioned to your test device
-- Azure Active Directory is configured correctly with trusted CA’s
-- User Binding is configured correctly, and user can be found and authenticated.
- 
-### Testing strong authentication
+1. Enter your User Principal Name (UPN).
 
-1. Create a policy OID rule, with protection level as **Multi-factor authentication** and value set to one of the policy OID’s in your certificate.
-1. Configure User to have a Multi-factor authentication.
-1. Navigate to an application that authenticates with the test tenant. Enter your UPN.
-1. Click **Next**. Select **Signin with a certificate**.
-1. A certificate dialog prompts for the user to select a certificate. Certificates are expected to be on the device.
-1. Click **OK** and Policy in the certificate will satisfy multi-factor authentication and user will be authenticated into the application.
-1. If you also have other Authentication Methods enabled in your tenant, users may see the following UI experience instead of the link to ‘Sign in with a Certificate’ and authenticate.
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/name.png" alt-text="Screenshot of the User Principal Name.":::
 
-### Sign-in logs
- 
-Sign-in logs provide information about sign-in and how your resources are used by your users. For more information about sign-in logs, see [Sign-in logs in Azure Active Directory](../reports-monitoring/concept-all-sign-ins.md).
- 
-There are several entries logged into the sign-in logs for an authentication request.
+1. Click **Next**.
 
-1. The first entry is logged to note the Certificate request. Authentication details tab will show more detail.
-1. The second entry will have status of interrupted which is an expected part of the login flow, where a user is asked if they want to remain signed into this browser to make further logins easier. 
-   The **Additional details** tab provides more details.
-1. If the sign-in is successful, you will see messages about the login success.
-1. If the sign-in failed, there will be a message with the failure reason.
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/certificate.png" alt-text="Screenshot of sign in with certificate.":::
 
-### Audit logs
+   If you have enabled other authentication methods like Phone sign in or Fido Users may see a different slogin screen.
 
-Any user management changes will be logged in the audit logs.
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/alternative.png" alt-text="Screenshot of the alternative sign in.":::
 
-## Configure manual revocation
+1. Select **Sign in with a certificate**.
+1.	Pick the correct user certificate in the client certificate picker UI and click **OK**.
 
-To revoke a client certificate, Azure Active Directory fetches the certificate revocation list (CRL) from the URLs uploaded as part of certificate authority information and caches it. The last publish timestamp (Effective Date property) in the CRL is used to ensure the CRL is still valid. The CRL is periodically referenced to revoke access to certificates that are a part of the list.
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/picker.png" alt-text="Screenshot of the certificate picker UI.":::
+   
+1. Users should be signed into Myapps portal. 
 
-If a more instant revocation is required (for example, if a user loses a device), the authorization token of the user can be invalidated. To invalidate the authorization token, set the StsRefreshTokenValidFrom field for this user using Windows PowerShell. You must update the StsRefreshTokenValidFrom field for each user you want to revoke access for. 
+If your sign in is successful, then you know that:
 
-To ensure that the revocation persists, you must set the Effective Date of the CRL to a date after the value set by StsRefreshTokenValidFrom and ensure the certificate in question is in the CRL.
+- The user certificate has been provisioned into your test device.
+- Azure Active Directory is configured correctly with trusted CAs.
+- Username binding is configured correctly, and the user is found and authenticated.
 
-The following steps outline the process for updating and invalidating the authorization token by setting the StsRefreshTokenValidFrom field.
+### Testing custom authentication binding rules
 
-1. Connect with admin credentials to the MSOL service:
-
-   ```powershell
-   $msolcred = get-credential         connect-msolservice -credential $msolcred
-   ``` 
-1. Retrieve the current StsRefreshTokensValidFrom value for a user:
-
-   ```powershell
-   $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`        $user.StsRefreshTokensValidFrom
-   ```
-         
-1. Configure a new StsRefreshTokensValidFrom value for the user equal to the current timestamp:
-
-   ```powershell
-   Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
-   ``` 
-
-The date you set must be in the future. If the date is not in the future, the StsRefreshTokensValidFrom property is not set. If the date is in the future, StsRefreshTokensValidFrom is set to the current time (not the date indicated by Set-MsolUser command).
-
-## Confirm certificate revocation checks
-
-Run the [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority.md) cmdlet and make sure the CA has a valid http url set in the certificateDistributionPoint attribute.
-
-## Turn certificate revocation checking on or off for a particular CA
-
-We highly recommend not to disable CRL checking as you will not have the revocation ability for the certificates. 
-
-However, to disable CRL checking if there are issues with CRL for a particular CA you can modify a trusted certificate authority, use the [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority.md) cmdlet:
-
-```powershell
-$c=Get-AzureADTrustedCertificateAuthority    	$c[0]. crlDistributionPoint =””   	 Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
-```
 
 ### Enable cloud-native CBS using Microsoft Graph API
 
