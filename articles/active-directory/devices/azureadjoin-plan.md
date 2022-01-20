@@ -51,13 +51,11 @@ Consider Azure AD join if your goals align with the following criteria:
 
 ## Review your identity infrastructure  
 
-Azure AD join works in managed and federated environments.  
+Azure AD join works in managed and federated environments. We think most organizations will deploy hybrid Azure AD join with managed domains. Managed domain scenarios don't require configuring a federation server.
 
 ### Managed environment
 
 A managed environment can be deployed either through [Password Hash Sync](../hybrid/how-to-connect-password-hash-synchronization.md) or [Pass Through Authentication](../hybrid/how-to-connect-pta-quick-start.md) with Seamless Single Sign On.
-
-These scenarios don't require you to configure a federation server for authentication.
 
 ### Federated environment
 
@@ -76,7 +74,6 @@ If your identity provider doesn't support these protocols, Azure AD join doesn't
 
 > [!NOTE]
 > Currently, Azure AD join does not work with [AD FS 2019 configured with external authentication providers as the primary authentication method](/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Azure AD join defaults to password authentication as the primary method, which results in authentication failures in this scenario
-
 
 ### Smartcards and certificate-based authentication
 
@@ -191,7 +188,6 @@ Starting Windows 10 2004 update, users can also use remote desktop from an Azure
 ### RADIUS and Wi-Fi authentication
 
 Currently, Azure AD joined devices don't support RADIUS authentication for connecting to Wi-Fi access points, since RADIUS relies on presence of an on-premises computer object. As an alternative, you can use certificates pushed via Intune or user credentials to authenticate to Wi-Fi. 
-
 
 ## Understand your provisioning options
 **Note**: Azure AD joined devices cannot be deployed using  System Preparation Tool (Sysprep) or similar imaging tools
