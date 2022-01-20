@@ -348,6 +348,66 @@ To make changes to the OSM ConfigMap for version v0.8.4, use the following guida
     > [!NOTE]
     > To ensure that the ConfigMap changes are not reverted to the default, pass in the same configuration settings to all subsequent az k8s-extension create commands.
 
+## Certificate Management
+[cert-manager](https://cert-manager.io/) is a provider that can be used for issuing signed certificates to OSM without 
+the need for storing private keys in Kubernetes. Refer to OSM's [cert-manager documentation](https://release-v0-11.docs.openservicemesh.io/docs/guides/certificates/) 
+and [demo](https://docs.openservicemesh.io/docs/demos/cert-manager_integration/) to learn more. Values to configure cert-manager must be passed in during OSM installation using the Azure CLI.
+
+> [!NOTE]
+> Use the commands provided in the OSM GitHub documentation with caution. Ensure that you use the correct namespace name `arc-osm-system`.
+
+To set cert-manager as the certificate provider, create a JSON file with the following `certificateProvider.kind` value.
+Include and update the subsequent `certmanager.issuer` lines if you would like to change from default values specified in OSM documentation.
+
+```json
+{
+  "osm.osm.certificateProvider.kind" : "cert-manager",
+  "osm.osm.certmanager.issuerName" : "<issuer name>",
+  "osm.osm.certmanager.issuerKind" : "<issuer kind>",
+  "osm.osm.certmanager.issuerGroup" : "<issuer group>"
+}
+```
+
+Set the file path as an environment variable:
+   ```azurecli-interactive
+   export SETTINGS_FILE=<json-file-path>
+   ```
+
+Run the `az k8s-extension create` command used to create the OSM extension, and pass in the settings file using configuration settings:
+   ```azurecli-interactive
+   az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --version $VERSION --configuration-settings-file $SETTINGS_FILE
+   ```
+
+## Ingress
+OSM provides multiple options to expose mesh services externally using ingress. OSM has been tested with [Contour](https://projectcontour.io/), which 
+works with the ingress controller installed outside the mesh and provisioned with a certificate to participate in the mesh.
+Refer to [OSM's ingress documentation](https://docs.openservicemesh.io/docs/guides/traffic_management/ingress/#1-using-contour-ingress-controller-and-gateway) 
+and [demo](https://docs.openservicemesh.io/docs/demos/ingress_contour/) to learn more. Values to configure 
+Contour must be passed in during OSM installation using the Azure CLI.
+
+> [!NOTE]
+> Use the commands provided in the OSM GitHub documentation with caution. Ensure that you use the correct namespace name `arc-osm-system`.
+
+To set required values for configuring Contour, create the following JSON file.
+```json
+{
+  "osm.osm.osmNamespace" : "arc-osm-system",
+  "osm.contour.enabled" : "true",
+  "osm.contour.configInline.tls.envoy-client-certificate.name" : "osm-contour-envoy-client-cert", 
+  "osm.contour.configInline.tls.envoy-client-certificate.namespace" : "arc-osm-system"
+}
+```
+
+Set the file path as an environment variable:
+   ```azurecli-interactive
+   export SETTINGS_FILE=<json-file-path>
+   ```
+
+Run the `az k8s-extension create` command used to create the OSM extension, and pass in the settings file using configuration settings:
+   ```azurecli-interactive
+   az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --version $VERSION --configuration-settings-file $SETTINGS_FILE
+   ```
+
 ## Using the Azure Arc-enabled Open Service Mesh
 
 To start using OSM capabilities, you need to first onboard the application namespaces to the service mesh. Download the OSM CLI from [OSM GitHub releases page](https://github.com/openservicemesh/osm/releases/). Once the namespaces are added to the mesh, you can configure the SMI policies to achieve the desired OSM capability.
