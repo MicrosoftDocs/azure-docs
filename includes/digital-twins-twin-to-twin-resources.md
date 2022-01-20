@@ -31,7 +31,7 @@ The output from this command is information about the endpoint you've created.
 
 Look for the `provisioningState` field in the output, and check that the value is "Succeeded."
 
-:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/output-endpoints.png" alt-text="Screenshot of the result of the endpoint query in the Cloud Shell of the Azure portal, showing the endpoint with a provisioningState of Succeeded.":::
+:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/output-endpoints.png" alt-text="Screenshot of the result of the endpoint query in the Cloud Shell of the Azure portal, showing the endpoint with a provisioningState of Succeeded." lightbox="../articles/digital-twins/media/tutorial-end-to-end/output-endpoints.png":::
 
 It may also say "Provisioning", meaning that the endpoint is still being created. If so, wait a few seconds and run the following command to check the status of the endpoint. Repeat until the `provisioningState` shows "Succeeded."
 
