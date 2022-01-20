@@ -46,8 +46,9 @@ This topic describes how to enable Microsoft CloudKnox Permissions Management (C
         For information on how to create a service principal through the Azure portal, see [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli). 
 
 
-        For information on how to get an az command and login with the no subscriptions flag, see [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true).
+        For information on how to get an az command and login with the no subscriptions flag, see [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login).
 
+        <!---(/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true)--->
 
     1. After the script runs successfully, the service application attributes for CloudKnox display. View the **Cloud Infrastructure Entitlement Management** application in the Azure AD portal under **Enterprise Applications**.
 
