@@ -3,7 +3,7 @@ title: Azure Purview Asset Management Processes
 description: This article provides process and best practice guidance to effectively manage the lifecycle of assets in the Azure Purview catalog
 author: Jubairp
 ms.author: jubairpatel
-ms.service: Azure purview
+ms.service: purview
 ms.topic: conceptual
 ms.date: 01/06/2022
 ---
