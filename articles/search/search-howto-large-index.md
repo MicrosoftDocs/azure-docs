@@ -25,20 +25,21 @@ The following sections explain techniques for indexing large amounts of data usi
 
 When pushing data into an index using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method (.NET)](/dotnet/api/azure.search.documents.searchclient.indexdocuments), there are several key considerations that impact indexing speed. Those factors are outlined in the section below, and range from setting service capacity to code optimizations.
 
-+ [Data location and transfer speed](#check-data-location)
 + [Index schema](#review-index-schema)
-+ [Service capacity](#check-service-capacity-and-partitions) and [thread management](#add-threads-and-a-retry-strategy)
++ [Data location and transfer speed](#check-data-location)
 + [Batch multiple documents per request](#check-the-batch-size)
-
-## Check data location
-
-Network data transfer speeds can be a limiting factor when indexing data. Indexing data from within your Azure environment is an easy way to speed up indexing.
++ [Service capacity](#check-service-capacity-and-partitions)
++ [Manage threads](#add-threads-and-a-retry-strategy)
 
 ## Review index schema
 
 The schema of your index plays an important role in indexing data. The more fields you have, and the more properties you set (such as *searchable*, *facetable*, or *filterable*), all contribute to increased indexing time.
 
 To keep document size down, avoid adding non-queryable data to an index. Every field that you add to an index should be there for a reason. If you need to integrate non-queryable data such as images into search results, you should define a non-searchable field that stores a URL reference to the resource.
+
+## Check data location
+
+Network data transfer speeds can be a limiting factor when indexing data. Indexing data from within your Azure environment is an easy way to speed up indexing.
 
 ## Check service capacity and partitions
 
@@ -51,6 +52,17 @@ Adding more replicas may also increase indexing speeds but it isn't guaranteed. 
 > [!NOTE]
 > When [adding partition and replicas](search-capacity-planning.md#add-or-reduce-replicas-and-partitions), or provisioning a service at a higher tier, consider the monetary cost and allocation time. Adding partitions can significantly increase indexing speed, but adding and removing them can take anywhere from 15 minutes to several hours.
 >
+
+## Check the batch size
+
+One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. These limits apply whether you're using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method](/dotnet/api/azure.search.documents.searchclient.indexdocuments) in the .NET SDK. For either API, you would package 1000 documents in the body of each request.
+
+Using batches to index documents will significantly improve indexing performance. Determining the optimal batch size for your data is a key component of optimizing indexing speeds. The two primary factors influencing the optimal batch size are:
+
++ The schema of your index
++ The size of your data
+
+Because the optimal batch size depends on your index and your data, the best approach is to test different batch sizes to determine what results in the fastest indexing speeds for your scenario. [Tutorial: Optimize indexing with the push API](tutorial-optimize-indexing-push-api.md) provides sample code for testing batch sizes using the .NET SDK.
 
 ## Add threads and a retry strategy
 
@@ -68,17 +80,6 @@ In contrast with indexer APIs, when you are using the push APIs to index documen
 
 The Azure .NET SDK automatically retries 503s and other failed requests but you'll need to implement your own logic to retry 207s. Open-source tools such as [Polly](https://github.com/App-vNext/Polly) can also be used to implement a retry strategy.
 
-## Check the batch size
-
-One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. These limits apply whether you're using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method](/dotnet/api/azure.search.documents.searchclient.indexdocuments) in the .NET SDK. For either API, you would package 1000 documents in the body of each request.
-
-Using batches to index documents will significantly improve indexing performance. Determining the optimal batch size for your data is a key component of optimizing indexing speeds. The two primary factors influencing the optimal batch size are:
-
-+ The schema of your index
-+ The size of your data
-
-Because the optimal batch size depends on your index and your data, the best approach is to test different batch sizes to determine what results in the fastest indexing speeds for your scenario. [Tutorial: Optimize indexing with the push API](tutorial-optimize-indexing-push-api.md) provides sample code for testing batch sizes using the .NET SDK. 
-
 ## Indexer-based "pull" indexing 
 
 [Indexers](search-indexer-overview.md) crawl [supported data sources](search-indexer-overview.md#supported-data-sources) for searchable content. While not specifically intended for large-scale indexing, several indexer capabilities are particularly useful for accommodating larger data sets:
@@ -95,7 +96,7 @@ As with the push API, indexers allow you to configure the number of items per ba
 
 Default batch sizes are data source specific. Azure SQL Database and Azure Cosmos DB have a default batch size of 1000. In contrast, Azure Blob indexing sets batch size at 10 documents in recognition of the larger average document size. 
 
-## Scheduled indexers
+## Scheduled indexers for long-running processes
 
 Indexer scheduling is an important mechanism for processing large data sets, and slow-running processes like image analysis in a cognitive search pipeline. Indexer processing operates within a 24-hour window. If processing fails to finish within 24 hours, the behaviors of indexer scheduling can work to your advantage. 
 
