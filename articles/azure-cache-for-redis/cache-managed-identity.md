@@ -39,7 +39,7 @@ Each type of managed identity has advantages, but in Azure Cache for Redis, the 
 
 Managed identity can be enabled either when you create a cache instance or after the cache has been created. During the creation of a cache, only a system-assigned identity can be assigned. Either identity type can be added to an existing cache.
 
-### Prerequisites & Limitations
+### Prerequisites and limitations
 
 To use managed identity, you must have a premium-tier cache.
 
@@ -154,7 +154,7 @@ Set-AzRedisCache -ResourceGroupName \"MyGroup\" -Name \"MyCache\" -IdentityType 
 > [!NOTE]
 > Adding an Azure Cache for Redis instance as a storage blog data contributor through system-assigned identity will conveniently add the cache instance to the [trusted services list](/azure/storage/common/storage-network-security?tabs=azure-portal), making firewall exceptions easier to implement.
 
-## Use Managed Identity to access a storage account
+## Use managed identity to access a storage account
 
 ### Use managed identity with data persistence
 
@@ -172,7 +172,7 @@ Set-AzRedisCache -ResourceGroupName \"MyGroup\" -Name \"MyCache\" -IdentityType 
 
    :::image type="content" source="media/cache-managed-identity/redis-persistence.png"  alt-text="export data in resource menu":::
 
-### Use Managed identity to import and export cache data
+### Use managed identity to import and export cache data
 
 1. Open your Azure Cache for Redis instance that has been assigned the Storage Blob Data Contributor role and go to the **Import** or **Export** tab under **Administration**.
 
@@ -189,7 +189,7 @@ Set-AzRedisCache -ResourceGroupName \"MyGroup\" -Name \"MyCache\" -IdentityType 
 > [!IMPORTANt]
 >If you see an export or import failure, double check that your storage account has been configured with your cache's system-assigned or user-assigned identity. The identity used will default to system-assigned identity if it is enabled. Otherwise, the first listed user-assigned identity is used.
 
-## Next Steps
+## Next steps
 
 - [Learn more](cache-overview.md#service-tiers) about Azure Cache for Redis features
 - [What are managed identies](/azure/active-directory/managed-identities-azure-resources/overview)
