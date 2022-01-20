@@ -74,9 +74,9 @@ To use managed identity, you must have a premium-tier cache.
 
 1. To enable a system-assigned identity, select the **System assigned (preview)** tab, and select **On** under **Status**. Select **Save** to confirm.
 
-1. A dialog pops up saying that your cache will be registered with Azure Active Directory and that it can be granted permissions to access resources protected by Azure AD. Select **Yes**.
-
    :::image type="content" source="media/cache-managed-identity/identity-save.png" alt-text="System assigned identity status is on":::
+
+1. A dialog pops up saying that your cache will be registered with Azure Active Directory and that it can be granted permissions to access resources protected by Azure AD. Select **Yes**.
 
 1. You see an **Object (principal) ID**, indicating that the identity has been assigned.
 
