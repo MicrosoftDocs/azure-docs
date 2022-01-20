@@ -17,7 +17,7 @@ ms.topic: conceptual
 > [!IMPORTANT]
 > Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
 
-Workspaces are places to manage your documents, projects, models. When you create a workspace, you can choose to use the workspace independently, share it with teammates or you can divide up the work and create multiple workspaces.
+Workspaces are places to manage your documents, projects, and models. When you create a workspace, you can choose to use the workspace independently, share it with teammates, or divide up the work and create multiple workspaces.
 
 ## Create workspace
 
@@ -80,13 +80,15 @@ The person who created the workspace is the owner. Within **Workspace settings**
 
 :::image type="content" source="../media/quickstart/manage-workspace-settings-2.png" alt-text="Screenshot illustrating share workspace settings.":::
 
-### Unshare workspace steps
+### Unshare workspace
 
-1. Select *Share workspace*
-2. Select the `X` icon next to the *Role* of the email you want to remove
+1. Select *Share workspace*.
+
+2. Select the **X** icon next to the **Role** and email address that you want to remove.
 
 :::image type="content" source="../media/quickstart/manage-workspace-settings-3.png" alt-text="Screenshot illustrating how to unshare a workspace.":::
 
 ## Next Steps
 
-* Learn [How to manage projects](manage-projects.md) to build high-quality custom translation systems.
+> [!div class="nextstepaction"]
+> [Learn how to manage projects](manage-projects.md)

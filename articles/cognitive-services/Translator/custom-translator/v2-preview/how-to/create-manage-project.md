@@ -1,7 +1,7 @@
 ---
 title: Create and manage a project
 titleSuffix: Azure Cognitive Services
-description: How to create and manage a project in the Azure Cognitive Services Custom Translator portal v2.0.
+description: How to create and manage a project in the Azure Cognitive Services Custom Translator Preview.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -85,11 +85,11 @@ To modify the project name, project description, or domain description:
    >If your project has published model or in training status, delete fails with the Following message:
    >
    > :::image type="content" source="../media/how-to/delete-project-2.png" alt-text="Screenshot showing the unable to delete message.":::
-   
+
 ## Next steps
 
-- Learn [how to manage project documents](build-upload-training-set.md).
+- Learn [how to manage project documents](build-manage-training-set-documents.md).
 - Learn [how to train a model](train-custom-model.md).
-- Learn [how to test and evaluate model quality](test-model-details.md).
+- Learn [how to test and evaluate model quality](view-model-test-translation.md).
 - Learn [how to publish model](publish-model.md).
 - Learn [how to translate with custom models](translate-with-custom-model.md).

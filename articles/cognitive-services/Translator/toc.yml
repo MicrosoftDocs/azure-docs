@@ -137,7 +137,7 @@ items:
   items:
   - name: What is Custom Translator?
     href: custom-translator/overview.md
-  - name: Custom Translation | preview
+  - name: Custom Translation | Preview
     expanded: true
     items:
     - name: What is a Custom Translator project?
@@ -152,16 +152,14 @@ items:
         href: custom-translator/v2-preview/how-to/create-manage-workspace.md
       - name: Create and manage a project
         href: custom-translator/v2-preview/how-to/create-manage-project.md
-      - name: Build and upload a training set
-        href: custom-translator/v2-preview/how-to/build-upload-training-set.md
+      - name: Build and manage training set documents
+        href: custom-translator/v2-preview/how-to/build-manage-training-set-documents.md
       - name: Train a custom model
         href: custom-translator/v2-preview/how-to/train-custom-model.md
-      - name: View custom model details
-        href: custom-translator/v2-preview/how-to/view-model-details.md
-      - name: View model test results
-        href: custom-translator/v2-preview/how-to/test-model-details.md
+      - name: View model details and test translation
+        href: custom-translator/v2-preview/how-to/view-model-test-translation.md
       - name: Publish a custom model
-        href: custom-translator/v2-preview/how-to/publish-model.md  
+        href: custom-translator/v2-preview/how-to/publish-model.md
       - name: Translate text with a custom model
         href: custom-translator/v2-preview/how-to/translate-with-custom-model.md
   - name: Custom Translator | Legacy

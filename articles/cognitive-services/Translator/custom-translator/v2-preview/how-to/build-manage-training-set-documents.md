@@ -11,7 +11,7 @@ ms.author: lajanuar
 ms.topic: conceptual
 ---
 
-# Build and upload a training set | Preview
+# Build and manage training set documents | Preview
 
 > [!IMPORTANT]
 > Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
@@ -84,6 +84,6 @@ At this point, Custom Translator is processing your documents and attempting to 
 
 - Learn [how to train a model](train-custom-model.md).
 - Learn [how to view model details](view-model-details.md).
-- Learn [how to test and evaluate model quality](test-model-details.md).
+- Learn [how to test and evaluate model quality](view-model-test-translation.md).
 - Learn [how to publish model](publish-model.md).
 - Learn [how to translate with custom models](translate-with-custom-model.md).

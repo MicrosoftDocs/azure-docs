@@ -1,15 +1,14 @@
 ---
 title: Train model
 titleSuffix: Azure Cognitive Services
-description: How to train a custom model in the Azure Cognitive Services Custom Translator v2.0.  
+description: How to train a custom model in the Azure Cognitive Services Custom Translator Preview.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 01/13/2022
+ms.date: 01/19/2022
 ms.author: lajanuar
 ms.topic: conceptual
-#Customer intent: As a Custom Translator user, I want to understand how to create project, so that I can build and manage a project.
 ---
 # Train a custom model | Preview
 
@@ -20,54 +19,60 @@ A model is the system, which provides translation for a specific language pair. 
 
 ## Create model
 
-1. Select **Train model** blade
-1. Type **Model name**, for example, "en-de with sample data"
-1. Keep the default **Full training** selected or select **Dictionary-only training**
+1. Select the **Train model** blade.
 
->[!Note]
->Full training displays all uploaded document types. Dictionary-only displays dictionary documents only.
+1. Type the **Model name**.
+
+1. Keep the default **Full training** selected or select **Dictionary-only training**.
+
+   >[!Note]
+   >Full training displays all uploaded document types. Dictionary-only displays dictionary documents only.
 
 1. Under **Select documents**, select the documents you want to use to train the model, for example, `sample-English-German` and review the training cost associated with the selected number of sentences.
-1. Select **Train now**
-1. Select **Train** to confirm
 
->[!Note]
->**Notifications** displays model training in progress, e.g., **Submitting data** state. Training model takes few hours, subject to the number of selected sentences.
+1. Select **Train now**.
 
-![Create a model](../media/quickstart/train-model.png)
+1. Select **Train** to confirm.
+
+    >[!Note]
+    >**Notifications** displays model training in progress, e.g., **Submitting data** state. Training model takes few hours, subject to the number of selected sentences.
+
+   :::image type="content" source="../media/quickstart/train-model.png" alt-text="Screenshot showing the train model blade.":::
 
 ## Model details
 
-1. After successful model training, select **Model details** blade
-1. Select the model name "en-de with sample data" to review training date/time, total training time, number of sentences used for training, tuning, testing, dictionary, and whether the system generated the test and tuning sets. You will use the `Category ID` to make translation requests.
-1. Evaluate the model BLEU score. Using the test set, **BLEU score** is the custom model score and **Baseline BLEU** is the pre-trained baseline model used for customization. Higher **BLEU score** means higher translation quality using the custom model.
+1. After successful model training, select the **Model details** blade.
 
-![Model details](../media/quickstart/model-details.png)
+1. Select the **Model Name** to review training date/time, total training time, number of sentences used for training, tuning, testing, dictionary, and whether the system generated the test and tuning sets. You will use `Category ID` to make translation requests.
+
+1. Evaluate the model [BLEU score](../beginners-guide.md#what-is-a-bleu-score). Using the test set, **BLEU score** is the custom model score and **Baseline BLEU** is the pre-trained baseline model used for customization. A higher **BLEU score** means higher translation quality using the custom model.
+
+   :::image type="content" source="../media/quickstart/model-details.png" alt-text="Screenshot showing model details fields.":::
 
 ## Duplicate model
 
-1. Select **Model details** blade.
+1. Select the **Model details** blade.
 
 1. Hover over the model name and check the selection button.
 
 1. Select **Duplicate**.
 
-1. Fill in `New model name`.
+1. Fill in **New model name**.
 
-1. Keep **Train immediately** checked if no additional data would be selected or uploaded, otherwise, check **Save as draft**
+1. Keep **Train immediately** checked if no additional data will be selected or uploaded, otherwise, check **Save as draft**
 
 1. Select **Save**
 
-> [!Note]
->
-> If you save the model as `Draft`, **Model details** is updated with the model name in `Draft` status.
->
-> To add more documents, select on the model name and follow `Create model` section above.
+   > [!Note]
+   >
+   > If you save the model as `Draft`, **Model details** is updated with the model name in `Draft` status.
+   >
+   > To add more documents, select on the model name and follow `Create model` section above.
 
-![Duplicate model](../media/how-to/duplicate-model.png)
+   :::image type="content" source="../media/how-to/duplicate-model.png" alt-text="Screenshot showing the duplicate model blade.":::
 
 ## Next steps
 
-- Learn [how to test and evaluate model quality](test-model-details.md).
+- Learn [how to test and evaluate model quality](view-model-test-translation.md).
 - Learn [how to publish model](publish-model.md).
 - Learn [how to translate with custom models](translate-with-custom-model.md).

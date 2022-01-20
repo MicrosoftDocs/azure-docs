@@ -6,22 +6,31 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/17/2020
+ms.date: 01/19/2022
 ms.author: lajanuar
 ms.topic: conceptual
-#Customer intent: As a Custom Translator user, I want to understand how to translate with custom models, so that I can improve the translation quality.
 ---
 # Translate text with a custom model | Preview
 
 > [!IMPORTANT]
 > Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
 
-After you publish your custom model to any of our regions (North America, Europe, or Asia Pacific) your model is ready to process translation requests.
+After you publish your custom model to any of our regions (North America, Europe, or Asia Pacific) you can access it with the Translator API by using the `Category ID` parameter. To retrieve, choose the copy icon:
+
+   :::image type="content" source="../media/how-to/publish-model.png" alt-text="{alt-text}":::
 
 ## How to translate
 
-1. Developers should use the `Category ID` when making a translation request via Microsoft Translator [Text API V3](../../../reference/v3-0-translate.md?tabs=curl). More information about the Translator Text API can be found on the [API Reference](../../../reference/v3-0-reference.md) webpage.
-2. You may also want to download and install our free [DocumentTranslator app for Windows](https://github.com/MicrosoftTranslator/DocumentTranslator/releases/tag/V2.9.4).
+1. Use the `Category ID` when making a custom translation request via Microsoft Translator [Text API V3](../../../reference/v3-0-translate.md?tabs=curl). The `Category ID` is created by concatenating the WorkspaceID, project label, and category code. Use the `CategoryID` with the Text Translator API to get custom translations.
+
+   ```http
+   https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=de&category=a2eb72f9-43a8-46bd-82fa-4693c8b64c3c-TECH
+
+   ```
+
+More information about the Translator Text API can be found on the [Translator API Reference](../../../reference/v3-0-translate.md) page.
+
+1. You may also want to download and install our free [DocumentTranslator app for Windows](https://github.com/MicrosoftTranslator/DocumentTranslator/releases/tag/V2.9.4).
 
 ## Next steps
 
