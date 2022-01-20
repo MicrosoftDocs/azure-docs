@@ -19,7 +19,9 @@ An App Service Environment v2 can be migrated to an [App Service Environment v3]
 
 Ensure you understand how migrating to an App Service Environment v3 will affect your applications. Review the [migration process](migrate.md#overview-of-the-migration-process) to understand the process timeline and where and when you'll need to get involved. Also review the [FAQs](migrate.md#frequently-asked-questions), which may answer some questions you currently have.
 
-For the initial preview of the migration feature, you should follow the below steps in order and as written since you'll be making Azure REST API calls. The recommended way for making these calls is by using the [Azure CLI](/cli/azure/). For information about other methods, see [Getting Started with Azure REST](/rest/api/azure/).
+::: zone pivot="experience-cli"
+
+When using the Azure CLI to carry out the migration, you should follow the below steps in order and as written since you'll be making Azure REST API calls. The recommended way for making these calls is by using the [Azure CLI](/cli/azure/). For information about other methods, see [Getting Started with Azure REST](/rest/api/azure/).
 
 For this guide, [install the Azure CLI](/cli/azure/install-azure-cli) or use the [Azure Cloud Shell](https://shell.azure.com/).
 
@@ -75,7 +77,7 @@ App Service Environment v3 requires the subnet it's in to have a single delegati
 az network vnet subnet update -g $ASE_RG -n <subnet-name> --vnet-name <vnet-name> --delegations Microsoft.Web/hostingEnvironments
 ```
 
-![subnet delegation sample](./media/migration/subnet-delegation.jpg)
+![subnet delegation sample](./media/migration/subnet-delegation.png)
 
 ## 6. Migration to App Service Environment v3
 
@@ -96,8 +98,26 @@ Once you get a status of "Ready", migration is done and you have an App Service 
 Get the details of your new environment by running the following command or by navigating to the [Azure portal](https://portal.azure.com).
 
 ```azurecli
-az appservice ase show --name $ASE_NAME --resource group $ASE_RG
+az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 ```
+
+::: zone-end
+
+::: zone pivot="experience-portal"
+
+## 1. Validate migration is supported
+
+From the [Azure portal](https://portal.azure.com), navigate to the **Overview** page for the App Service Environment you'll be migrating. The platform will validate if migration is supported for your App Service Environment. Wait a couple seconds after the page loads for this to take place.
+
+If migration is supported for your App Service Environment, there are three ways to access the migration feature. These include a banner at the top of the overview page, a new item in the left-hand side menu called **Migration (preview)**, and an info box on the **Configuration** page. Select any of these to move on to the next step in the migration process.
+
+![migration access points](./media/migration/portal-overview.png)
+
+![configuration page view](./media/migration/configuration-migration-support.png)
+
+If you don't see these options, this means your App Service Environment isn't supported for migration at this time or your environment is in an unhealthy or suspended state. You won't be able to migrate if your environment is in an unhealthy or suspended state. If your environment [won't be supported for migration](migrate.md#migration-feature-limitations) or you want to migrate to App Service Environment v3 without using the migration feature, see [migration alternatives](migration-alternatives.md).
+
+::: zone-end
 
 ## Next steps
 
