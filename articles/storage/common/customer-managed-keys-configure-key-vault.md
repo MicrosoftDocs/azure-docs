@@ -228,13 +228,42 @@ az keyvault set-policy \
 
 ## Configure customer-managed keys for a new account
 
+When you configure encryption with customer-managed keys for a new storage account, you can choose to automatically update the key version used for Azure Storage encryption whenever a new version is available in the associated key vault. Alternately, you can explicitly specify a key version to be used for encryption until the key version is manually updated.
+
+You must use an existing user-assigned managed identity to authorize access to the key vault when you configure customer-managed keys while creating the storage account. The user-assigned managed identity must have appropriate permissions to access the key vault.
+
+### [Azure portal](#tab/portal)
+
+To configure customer-managed keys for a new storage account with automatic updating of the key version in the Azure portal, follow these steps:
+
+1. In the Azure portal, navigate to the **Storage accounts** page, and select the **Create** button to create a new account.
+1. Follow the steps outlined in [Create a storage account](storage-account-create.md) to fill out the fields on the **Basics**, **Advanced**, **Networking**, and **Data Protection** tabs.
+1. On the **Encryption** tab, indicate for which services you want to enable support for customer-managed keys in the **Enable support for customer-managed keys** field.
+1. In the **Encryption type** field, select **Customer-managed keys (CMK)**.
+1. In the **Encryption key** field, choose **Select a key vault and key**, and specify the key vault and key.
+1. For the **User-assigned identity** field, select an existing user-assigned managed identity.
+
+    :::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-new-account-configure-cmk.png" alt-text="Screenshot showing how to configure customer-managed keys for a new storage account in Azure portal":::
+
+1. Select **Review + create** to validate and create the new account.
+
+You can also configure customer-managed keys with manual updating of the key version when you create a new storage account. Follow the steps described in [Configure encryption for manual updating of key versions](#configure-encryption-for-manual-updating-of-key-versions).
+
+### [PowerShell](#tab/powershell)
+
 TBD
+
+### [Azure CLI](#tab/azure-cli)
+
+TBD
+
+---
 
 ## Configure customer-managed keys for an existing account
 
-Next, configure your Azure Storage account to use customer-managed keys with Azure Key Vault and specify the key to associate with the storage account.
+When you configure encryption with customer-managed keys for an existing storage account, you can choose to automatically update the key version used for Azure Storage encryption whenever a new version is available in the associated key vault. Alternately, you can explicitly specify a key version to be used for encryption until the key version is manually updated.
 
-When you configure encryption with customer-managed keys, you can choose to automatically update the key version used for Azure Storage encryption whenever a new version is available in the associated key vault. Alternately, you can explicitly specify a key version to be used for encryption until the key version is manually updated.
+You can use either a system-assigned or user-assigned managed identity to authorize access to the key vault when you configure customer-managed keys for an existing storage account.
 
 > [!NOTE]
 > To rotate a key, create a new version of the key in Azure Key Vault. Azure Storage does not handle the rotation of the key in Azure Key Vault, so you will need to rotate your key manually or create a function to rotate it on a schedule.
@@ -245,7 +274,7 @@ Azure Storage can automatically update the customer-managed key that is used for
 
 ### [Azure portal](#tab/portal)
 
-To configure customer-managed keys with automatic updating of the key version in the Azure portal, follow these steps:
+To configure customer-managed keys for an existing account with automatic updating of the key version in the Azure portal, follow these steps:
 
 1. Navigate to your storage account.
 1. On the **Settings** blade for the storage account, click **Encryption**. By default, key management is set to **Microsoft Managed Keys**, as shown in the following image.
@@ -275,7 +304,7 @@ After you've specified the key, the Azure portal indicates that automatic updati
 
 ### [PowerShell](#tab/powershell)
 
-To configure customer-managed keys with automatic updating of the key version with PowerShell, install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module, version 2.0.0 or later.
+To configure customer-managed keys for an existing account with automatic updating of the key version with PowerShell, install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module, version 2.0.0 or later.
 
 Next, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings, omitting the key version. Include the **-KeyvaultEncryption** option to enable customer-managed keys for the storage account.
 
@@ -287,9 +316,9 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
-To configure customer-managed keys with automatic updating of the key version with Azure CLI, install [Azure CLI version 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+To configure customer-managed keys for an existing account with automatic updating of the key version with Azure CLI, install [Azure CLI version 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 Next, call [az storage account update](/cli/azure/storage/account#az_storage_account_update) to update the storage account's encryption settings, omitting the key version. Include the `--encryption-key-source` parameter and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account.
 
