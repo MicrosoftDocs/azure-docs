@@ -35,6 +35,7 @@ You can use any code editor to do the steps in this tutorial. [Visual Studio Cod
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Set up a subscription to send configuration change events from App Configuration to a Service Bus topic
 > * Set up your .NET Core app to update its configuration in response to changes in App Configuration.
 > * Consume the latest configuration in your application.
@@ -177,47 +178,65 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 
 ## Build and run the app locally
 
-1. Set an environment variable named **AppConfigurationConnectionString**, and set it to the access key to your App Configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+1. Set an environment variable named **AppConfigurationConnectionString**, and set it to the access key to your App Configuration store.
+
+    ### [Windows command prompt](#tab/windowscommandprompt)
+
+    To build and run the app locally using the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```console
-     setx AppConfigurationConnectionString "connection-string-of-your-app-configuration-store"
+        setx AppConfigurationConnectionString "connection-string-of-your-app-configuration-store"
     ```
+
+    ### [PowerShell](#tab/powershell)
 
     If you use Windows PowerShell, run the following command:
 
     ```powershell
-     $Env:AppConfigurationConnectionString = "connection-string-of-your-app-configuration-store"
+    $Env:AppConfigurationConnectionString = "connection-string-of-your-app-configuration-store"
     ```
+
+    ### [macOS](#tab/unix)
 
     If you use macOS or Linux, run the following command:
 
     ```console
-     export AppConfigurationConnectionString='connection-string-of-your-app-configuration-store'
+    export AppConfigurationConnectionString='connection-string-of-your-app-configuration-store'
     ```
 
-1. Run the following command to build the console app:
+    ### [Linux](#tab/linux)
+
+    If you use macOS or Linux, run the following command:
 
     ```console
-     dotnet build
+    export AppConfigurationConnectionString='connection-string-of-your-app-configuration-store'
     ```
 
-1. After the build successfully completes, run the following command to run the app locally:
+    ---
+
+2. Run the following command to build the console app:
 
     ```console
-     dotnet run
+    dotnet build
     ```
 
-    ![Push refresh run before update](./media/dotnet-core-app-pushrefresh-initial.png)
+3. After the build successfully completes, run the following command to run the app locally:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
+    ```console
+    dotnet run
+    ```
 
-1. Select **Configuration Explorer**, and update the values of the following keys:
+        ![Push refresh run before update](./media/dotnet-core-app-pushrefresh-initial.png)
+
+4. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
+
+5. Select **Configuration Explorer**, and update the values of the following keys:
 
     | Key | Value |
     |---|---|
     | TestApp:Settings:Message | Data from Azure App Configuration - Updated |
 
-1. Wait for 30 seconds to allow the event to be processed and configuration to be updated.
+6. Wait for 30 seconds to allow the event to be processed and configuration to be updated.
 
     ![Push refresh run after updated](./media/dotnet-core-app-pushrefresh-final.png)
 
