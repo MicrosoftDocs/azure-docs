@@ -10,7 +10,6 @@ ms.author: eur
 
 #### Speech-to-text Container v3.0.0
 - Support for using containers in [disconnected environments](../../../containers/disconnected-containers.md).
-- 
 #### Speech-to-text Container v2.18.0
 - Regular monthly updates - including security upgrades and vulnerability fixes.
 
