@@ -36,18 +36,38 @@
   - name: How-to guides
     expanded: true
     items:
-    - name: CloudKnox 
+    - name: View avoidable risk metrics
       expanded: true
       items:
       - name: The CloudKnox dashboard
         href: cloudknox-ui-dashboard.md
+      - name: View permission metrics
+        href: cloudknox-product-dashboard.md
+    - name: Set personal information and preferences
+      expanded: true
+      items:
       - name: The Settings dashboard
         href: cloudknox-ui-product-settings.md
+    - name: View task information
+      expanded: true
+      items:
+      - name: The Tasks pane
+        href: cloudknox-ui-tasks.md
+    - name: View roles and identities that access specified accounts
+      expanded: true
+      items:
+      - name: The Account Explorer
+        href: cloudknox-product-account-explorer.md
       - name: Set personal information and preferences
         href: cloudknox-product-account-settings.md
-      - name: View permission metrics on the CloudKnox dashboard
-        href: cloudknox-product-dashboard.md
-    - name: Usage Analytics
+    - name: Manage organizational and personal information
+      expanded: true
+      items:
+      - name: The Account Settings dashboard
+        href: cloudknox-ui-account-settings.md
+      - name: Set personal information and preferences
+        href: cloudknox-product-account-settings.md
+    - name: View information about identities, resources, and tasks
       expanded: true
       items:
       - name: The Usage Analytics dashboard
@@ -70,7 +90,7 @@
         href: cloudknox-usage-analytics-access-keys.md
       - name: View usage analytics information about serverless functions
         href: cloudknox-usage-analytics-serverless-functions.md
-    - name: JEP Controller
+    - name: Manage roles/policies and permission requests
       expanded: true
       items:
       - name: The JEP Controller dashboard
@@ -81,7 +101,7 @@
         href: cloudknox-howto-create-role-policy.md
       - name: Create or approve a request for privileges 
         href: cloudknox-howto-create-approve-privilege-request.md
-    - name: Audit trail
+    - name: Review how users access their authorization systems
       expanded: true
       items:
       - name: The Audit Trail dashboard
@@ -92,24 +112,15 @@
         href: cloudknox-howto-generate-custom-reports.md
       - name: Filter and query user activity
         href: cloudknox-product-audit-trail.md
-    - name: Autopilot
-      expanded: true
-      items:
-      - name: The Autopilot dashboard
-        href: cloudknox-ui-autopilot.md
-      - name: Manage users with the Autopilot dashboard
-        href: cloudknox-product-autopilot.md
-      - name: Create a rule
-        href: cloudknox-howto-create-rule.md 
-    - name: Data management
+    - name: Collect authorization system data
       expanded: true
       items:
       - name: Collect authorization system data
         href: cloudknox-product-data-sources.md
-    - name: User management
+    - name: Manage user and role permissions
       expanded: true
       items:
-      - name: The User Management dashboard
+      - name: Manage permissions with the JEP Controller
         href: cloudknox-ui-user-management.md
       - name: Define and manage users, roles, and access levels
         href: cloudknox-product-define-permission-levels.md
@@ -117,12 +128,12 @@
         href: cloudknox-product-jep-controller.md
       - name: Create group-based permissions
         href: cloudknox-howto-create-group-based-permissions.md
-    - name: Integration
+    - name: Set up and view authorization systems
       expanded: true
       items:
       - name: The Integrations dashboard
         href: cloudknox-ui-integrations.md
-    - name: Activity triggers 
+    - name: Set activity alerts and triggers 
       expanded: true
       items: 
       - name: The Activity Triggers dashboard
@@ -131,7 +142,16 @@
         href: cloudknox-howto-create-alert-trigger.md
       - name: Create and save product alerts
         href: cloudknox-product-alerts.md
-    - name: Reports 
+    - name: Manage rules for authorization systems
+      expanded: true
+      items:
+      - name: The Autopilot dashboard
+        href: cloudknox-ui-autopilot.md
+      - name: Manage users with the Autopilot dashboard
+        href: cloudknox-product-autopilot.md
+      - name: Create a rule
+        href: cloudknox-howto-create-rule.md 
+    - name: Create and view reports 
       expanded: true
       items: 
       - name: The Reports dashboard
@@ -153,39 +173,6 @@
         href: cloudknox-ui-compliance.md
       - name: View product compliance guidelines
         href: cloudknox-product-compliance.md
-  - name: Dashboards
-    expanded: true
-    items:
-    - name: The CloudKnox dashboard
-      href: cloudknox-ui-dashboard.md
-    - name: The Settings dashboard
-      href: cloudknox-ui-product-settings.md
-    - name: The User Management dashboard
-      href: cloudknox-ui-user-management.md
-    - name: The Integrations dashboard
-      href: cloudknox-ui-integrations.md
-    - name: The Account Settings dashboard
-      href: cloudknox-ui-account-settings.md
-    - name: The Activity Triggers dashboard
-      href: cloudknox-ui-triggers.md
-    - name: The Tasks pane
-      href: cloudknox-ui-tasks.md
-    - name: The Account Explorer
-      href: cloudknox-product-account-explorer.md
-    - name: The Usage Analytics dashboard
-      href: cloudknox-ui-usage-analytics.md
-    - name: The Usage Analytics explorers
-      href: cloudknox-usage-analytics-explorers.md
-    - name: The Audit Trail dashboard
-      href: cloudknox-ui-audit-trail.md
-    - name: The JEP Controller dashboard
-      href: cloudknox-ui-jep-controller.md
-    - name: The Compliance dashboard
-      href: cloudknox-ui-compliance.md
-    - name: The Reports dashboard
-      href: cloudknox-ui-reports.md
-    - name: The Autopilot dashboard
-      href: cloudknox-ui-autopilot.md
   #- name: Troubleshooting
     #expanded: true
     #items:
