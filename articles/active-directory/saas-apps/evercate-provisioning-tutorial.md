@@ -57,7 +57,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 	[![Sign in](media/evercate-provisioning-tutorial/sign-in-1.png)](media/evercate-provisioning-tutorial/sign-in-1.png#lightbox)
 
 1. Tick the "**Consent on behalf of your organization**" before clicking accept.
-	[![Consent](media/evercate-provisioning-tutorial/consent.png)](media/evercate-provisioning-tutorial/consent.png#lightbox)
+	[![Provide consent](media/evercate-provisioning-tutorial/consent.png)](media/evercate-provisioning-tutorial/consent.png#lightbox)
       > [!NOTE]
       > If you missed ticking the consent checkbox, every user will get a similar dialog upon their first sign in. See below under the section “Configuring the application in Azure” on how to give consent for your organization after the connection is made.
 
