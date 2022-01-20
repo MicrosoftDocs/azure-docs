@@ -5,20 +5,21 @@ description: In this tutorial, you create and publish a product in Azure API Man
 author: dlepow
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 12/15/2021
+ms.date: 01/18/2022
 ms.author: danlep
 ms.custom: devdivchpfy22
 
 ---
 # Tutorial: Create and publish a product
 
-In Azure API Management, a [*product*](api-management-terminology.md#term-definitions) contains one or more APIs, a usage quota, and the terms of use. After a product is published, developers can subscribe to the product and begin to use the product's APIs.  
+In Azure API Management, a [*product*](api-management-terminology.md#term-definitions) contains one or more APIs, a usage quota, and the terms of use. After a product is published, developers can [subscribe](api-management-subscriptions.md) to the product and begin to use the product's APIs.  
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create and publish a product
 > * Add an API to the product
+> * Access product APIs
 
 :::image type="content" source="media/api-management-howto-add-products/added-product-1.png" alt-text="API Management products in portal":::
 
@@ -46,12 +47,12 @@ In this tutorial, you learn how to:
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Display name             | The name as you want it to be shown in the [developer portal](api-management-howto-developer-portal.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | Description              | Provide information about the product such as its purpose, the APIs it provides access to, and other details.                                                                                                                                               |
-    | Published                    | Select **Published** if you want to publish the product. Before the APIs in a product can be called, the product must be published. By default, new products are unpublished, and are visible only to the  **Administrators** group.                                                                                      |
-    | Requires subscription    | Select if a user is required to subscribe to use the product.                                                                                                                                                                                                                                   |
+    | State                    | Select **Published** if you want to publish the product. Before the APIs in a product can be called, the product must be published. By default, new products are unpublished, and are visible only to the  **Administrators** group.                                                                                      |
+    | Requires subscription    | Select if a user is required to subscribe to use the product (the product is *protected*) and a subscription key must be used to access the product's APIs. If a subscription isn't required (the product is *open*), a subscription key isn't required to access the product's APIs. See [Access to product APIs](#access-to-product-apis) later in this article.                                                                                                                                                                                                   |
     | Requires approval        | Select if you want an administrator to review and accept or reject subscription attempts to this product. If not selected, subscription attempts are auto-approved.                                                                                                                         |
-    | Subscription count limit | Optionally, limit the count of multiple simultaneous subscriptions.                                                                                                                                                                                                                                |
-    | Legal terms              | You can include the terms of use for the product, which subscribers must accept to use the product.                                                                                                                                                                                                             |
-    | APIs                     | Select one or more APIs. You can also add APIs after creating the product. For more information, see [Add APIs to a product](#add-apis-to-a-product) later in this article. |
+    | Subscription count limit | Optionally limit the count of multiple simultaneous subscriptions.                                                                                                                                                                                                                                |
+    | Legal terms              | You can include the terms of use for the product which subscribers must accept in order to use the product.                                                                                                                                                                                                             |
+    | APIs                     | Select one or more APIs. You can also add APIs after creating the product. For more information, see [Add APIs to a product](#add-apis-to-a-product) later in this article. <br/><br/>If the product is open (doesn't require a subscription), you can only add an API that isn't associated with another open product.                |
 
 1. Select **Create** to create your new product.
 
@@ -77,7 +78,7 @@ You can specify various values for your product:
    | `--product-name` | The name as you want it to be shown in the [developer portal](api-management-howto-developer-portal.md). |
    | `--description`  | Provide information about the product such as its purpose, the APIs it provides access to, and other details. |
    | `--state`        | Select **published** if you want to publish the product. Before the APIs in a product can be called, the product must be published. By default, new products are unpublished, and are visible only to the  **Administrators** group. |
-   | `--subscription-required` | Select if a user is required to subscribe to use the product. |
+   | `--subscription-required` | Select if a user is required to subscribe to use the product (the product is *protected*) or a subscription isn't required (the product is *open*). See [Access to product APIs](#access-to-product-apis) later in this article. |
    | `--approval-required` | Select if you want an administrator to review and accept or reject subscription attempts to this product. If not selected, subscription attempts are auto-approved. |
    | `--subscriptions-limit` | Optionally, limit the count of multiple simultaneous subscriptions.|
    | `--legal-terms`         | You can include the terms of use for the product, which subscribers must accept to use the product. |
@@ -114,8 +115,6 @@ Continue configuring the product after saving it. In your API Management instanc
 ## Add APIs to a product
 
 Products are associations of one or more APIs. You can include many APIs and offer them to developers through the developer portal. During the product creation, you can add one or more existing APIs. You can also add APIs to the product later, either from the Products **Settings** page or while creating an API.
-
-Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the API Management instance, you're an administrator already, so you're subscribed to every product by default.
 
 ### Add an API to an existing product
 
@@ -162,8 +161,26 @@ az apim product api delete --resource-group apim-hello-word-resource-group \
 
 ---
 
-> [!TIP]
-> You can create or update a user's subscription to a product with custom subscription keys through a [REST API](/rest/api/apimanagement/current-ga/subscription/create-or-update) or PowerShell command.
+## Access to product APIs
+
+After you publish a product, developers can access the APIs. Depending on how the product is configured, they may need to subscribe to the product for access.
+
+* **Protected product** - Developers must first subscribe to a protected product to get access to the product's APIs. When they subscribe, they get a subscription key that can access any API in that product. If you created the API Management instance, you are an administrator already, so you are subscribed to every product by default. For more information, see [Subscriptions in Azure API Management](api-management-subscriptions.md).
+
+    When a client makes an API request with a valid product subscription key, API Management processes the request and permits access in the context of the product. Policies and access control rules configured for the product can be applied.
+
+    > [!TIP]
+    > You can create or update a user's subscription to a product with custom subscription keys through a [REST API](/rest/api/apimanagement/current-ga/subscription/create-or-update) or PowerShell command.
+
+* **Open product** - Developers can access an open product's APIs without a subscription key. However, you can configure other mechanisms to secure client access to the APIs, including [OAuth 2.0](api-management-howto-protect-backend-with-aad.md), [client certificates](api-management-howto-mutual-certificates-for-clients.md), and [restricting caller IP addresses](./api-management-access-restriction-policies.md#RestrictCallerIPs).
+
+    When a client makes an API request without a subscription key:
+    
+    * API Management checks whether the API is associated with an open product. 
+
+    * If the open product exists, it then processes the request in the context of that open product. Policies and access control rules configured for the open product can be applied. 
+
+For more information, see [How API Management handles requests with or without subscription keys](api-management-subscriptions.md#how-api-management-handles-requests-with-or-without-subscription-keys).
 
 ## Next steps
 
@@ -172,6 +189,7 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Create and publish a product
 > * Add an API to the product
+> * Access product APIs
 
 Advance to the next tutorial:
 
