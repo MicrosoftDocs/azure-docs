@@ -53,7 +53,7 @@ Creating a project is the first step in building and publishing a model.
 
 1. Select **Create project**.
 
-   :::image type="content" source="../media/how-to/create-project-dialog.png" alt-text="Screenshot showing the create project fields.":::
+   :::image type="content" source="../media/how-to/create-project-dialog.png" alt-text="Screenshot illustrating the create project fields.":::
 
 ## Edit a project
 
@@ -65,11 +65,11 @@ To modify the project name, project description, or domain description:
 
 1. The **Edit and Delete** buttons should now be visible.
 
-   :::image type="content" source="../media/how-to/edit-project-dialog-1.png" alt-text="Screenshot showing the edit project fields":::
+   :::image type="content" source="../media/how-to/edit-project-dialog-1.png" alt-text="Screenshot illustrating the edit project fields":::
 
 1. Select **Edit** and fill in or modify existing text.
 
-    a. :::image type="content" source="../media/how-to/edit-project-dialog-2.png" alt-text="Screenshot showing detailed edit project fields.":::
+    a. :::image type="content" source="../media/how-to/edit-project-dialog-2.png" alt-text="Screenshot illustrating detailed edit project fields.":::
 
 1. Select **Edit project** to save.
 
@@ -79,12 +79,12 @@ To modify the project name, project description, or domain description:
 
 1. Select **Delete** and read the delete message before you select **Delete project** to confirm.
 
-   :::image type="content" source="../media/how-to/delete-project-1.png" alt-text="Screenshot showing delete project fields.":::
+   :::image type="content" source="../media/how-to/delete-project-1.png" alt-text="Screenshot illustrating delete project fields.":::
 
    >[!Note]
    >f your project has a published model or a model that is currently in training, you will only be able to delete your project once your model is no longer published or training.
    >
-   > :::image type="content" source="../media/how-to/delete-project-2.png" alt-text="Screenshot showing the unable to delete message.":::
+   > :::image type="content" source="../media/how-to/delete-project-2.png" alt-text="Screenshot illustrating the unable to delete message.":::
 
 ## Next steps
 

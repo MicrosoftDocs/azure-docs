@@ -58,7 +58,9 @@ You can read an overview of translation and custom translation, learn some tips,
 
 1. After you sign-in to Custom Translator, you will be asked for permission to read your profile from the Microsoft identity platform to request your user access token and refresh token. Both tokens are needed for authentication and to ensure that you aren't signed out during your live session or while training your models. </br>Select **Yes**.
 
-    ![Create workspace](media/quickstart/first-time-user.png)
+   :::image type="content" source="media/quickstart/first-time-user.png" alt-text="Screenshot illustrating how to create a workspace.":::
+
+  
 
 1. Select **My workspaces**
 
@@ -77,9 +79,9 @@ You can read an overview of translation and custom translation, learn some tips,
    >[!Note]
    > Region must match the region that was selected during the resource creation. You can use **KEY 1** or **KEY 2.**
 
-   :::image type="content" source="media/quickstart/resource-key.png" alt-text="Screenshot showing the resource key.":::
+   :::image type="content" source="media/quickstart/resource-key.png" alt-text="Screenshot illustrating the resource key.":::
 
-   :::image type="content" source="media/quickstart/create-workspace-1.png" alt-text="Screenshot showing workspace creation.":::
+   :::image type="content" source="media/quickstart/create-workspace-1.png" alt-text="Screenshot illustrating workspace creation.":::
 
 ## Create a project
 
@@ -99,7 +101,7 @@ You will create English-to-German project to train a custom model with only a [t
 
 1. Select **Create project**
 
-    ![Create project](media/quickstart/create-project.png)
+   :::image type="content" source="media/quickstart/create-project.png" alt-text="Screenshot illustrating how to create a project.":::
 
 ## Upload documents
 
@@ -129,7 +131,7 @@ In this quickstart, you will upload [training](../training-and-model.md#training
     >[!Note]
     >You can upload the sample phrase and sentence dictionaries dataset. This step is left for you to complete.
 
-    ![Upload documents](media/quickstart/upload-model.png)
+   :::image type="content" source="media/quickstart/upload-model.png" alt-text="Screenshot illustrating how to upload documents.":::
 
 ## Train your model
 
@@ -150,7 +152,7 @@ Now you are ready to train your English-to-German model.
     >[!Note]
     >**Notifications** displays model training in progress, e.g., **Submitting data** state. Training model takes few hours, subject to the number of selected sentences.
 
-    ![Create a model](media/quickstart/train-model.png)
+    :::image type="content" source="media/quickstart/train-model.png" alt-text="Screenshot illustrating how to create a model.":::
 
 1. After successful model training, select the  **Model details** blade.
 
@@ -161,7 +163,7 @@ Now you are ready to train your English-to-German model.
     >[!Note]
     >If you train with our shared customer sample datasets, BLEU score will be different than the image.
 
-    ![Model details](media/quickstart/model-details.png)
+    :::image type="content" source="media/quickstart/model-details.png" alt-text="Screenshot illustrating model details.":::
 
 ## Test your model
 
@@ -171,7 +173,7 @@ Once your training has completed successfully, inspect the test set translated s
 2. Select "en-de with sample data"
 3. Human evaluate translation from **New model** (custom model), and **Baseline model** (our pre-trained baseline used for customization) against **Reference** (target translation from the test set)
 
-    ![Model test results](media/quickstart/model-test-details.png)
+   :::image type="content" source="media/quickstart/model-test-details.png" alt-text="Screenshot illustrating model test results.":::
 
 ## Publish your model
 
@@ -185,7 +187,7 @@ Publishing your model makes it available for use with the Translator API. A proj
 
 1. Select **Publish**. The status should transition from _Deploying_ to _Deployed_.
 
-    ![Deploy a trained model](media/quickstart/publish-model.png)
+   :::image type="content" source="media/quickstart/publish-model.png" alt-text="Screenshot illustrating how to deploy a trained model.":::
 
 ## Translate text
 

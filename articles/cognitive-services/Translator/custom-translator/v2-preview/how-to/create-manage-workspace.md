@@ -23,7 +23,7 @@ ms.topic: conceptual
 
 1. After you sign in to Custom Translator, you will be asked for permission to read your profile from the Microsoft identity platform to request your user access token and refresh token. Both tokens are needed for authentication and to ensure that you aren't signed out during your live session or while training your models. </br>Select **Yes**.
 
-    :::image type="content" source="../media/quickstart/first-time-user.png" alt-text="Screenshot showing first-time sign-in.":::
+    :::image type="content" source="../media/quickstart/first-time-user.png" alt-text="Screenshot illustrating first-time sign-in.":::
 
 1. Select **My workspaces**
 
@@ -42,9 +42,9 @@ ms.topic: conceptual
    >[!Note]
    > Region must match the region that was selected during the resource creation. You can use **KEY 1** or **KEY 2.**
 
-   :::image type="content" source="../media/quickstart/resource-key.png" alt-text="Screenshot showing the resource key.":::
+   :::image type="content" source="../media/quickstart/resource-key.png" alt-text="Screenshot illustrating the resource key.":::
 
-   :::image type="content" source="../media/quickstart/create-workspace-1.png" alt-text="Screenshot showing workspace creation.":::
+   :::image type="content" source="../media/quickstart/create-workspace-1.png" alt-text="Screenshot illustrating workspace creation.":::
 
 ## Manage workspace settings
 

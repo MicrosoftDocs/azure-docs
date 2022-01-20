@@ -20,7 +20,7 @@ A well-trained custom translation model provides more accurate domain-specific t
 
 Training a full custom translation model requires a substantial amount of data. If you do not have at least 10,000 sentences of previously trained documents, you will not be able to train a full-language translation model. However, you can either train a dictionary-only model or use the high-quality, out-of-the-box translations available with the Text Translator API.
 
-![Custom vs. general](media/how-to/for-beginners.png)
+:::image type="content" source="media/how-to/for-beginners.png" alt-text="Screenshot illustrating the difference between custom and general models.":::
 
 ## What does training a custom translation model involve?
 

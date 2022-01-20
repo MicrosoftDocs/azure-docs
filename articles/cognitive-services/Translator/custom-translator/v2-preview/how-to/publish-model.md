@@ -29,7 +29,7 @@ You can publish one model per project to any one of our three geographic regions
 
 1. Select **Publish**. The status should transition from _Deploying_ to _Deployed_.
 
-   :::image type="content" source="../media/quickstart/publish-model.png" alt-text="Screenshot showing the publish model blade.":::
+   :::image type="content" source="../media/quickstart/publish-model.png" alt-text="Screenshot illustrating the publish model blade.":::
 
 ## Replace a published model
 

@@ -61,7 +61,7 @@ Document types are associated with the language pair selected when you create a 
 
 1. Select **Next**.
 
-   ![Document upload link](../media/how-to/upload-1.png)
+   :::image type="content" source="../media/how-to/upload-1.png" alt-text="Screenshot illustrating the document upload link.":::
 
    >[!Note]
    >Choosing **Dictionary set** launches **Choose type of dictionary** dialog.
@@ -69,7 +69,7 @@ Document types are associated with the language pair selected when you create a 
 
 1. Select your documents format from the radio buttons.
 
-    ![Upload document page](../media/how-to/upload-2.png)
+   :::image type="content" source="../media/how-to/upload-2.png" alt-text="Screenshot illustrating the upload document page.":::
 
     - For **Parallel documents**, fill in the `Document set name` and select **Browse files** to select source and target documents.
     - For **Translation memory (TM)** file or **Upload multiple sets with ZIP**, select **Browse files** to select the file
@@ -78,7 +78,7 @@ Document types are associated with the language pair selected when you create a 
 
 At this point, Custom Translator is processing your documents and attempting to extract sentences as indicated in the upload notification. Once done processing, you will see the upload successful notification.
 
-   ![Upload document processing dialog](../media/quickstart/document-upload-notification.png)
+   :::image type="content" source="../media/quickstart/document-upload-notification.png" alt-text="Screenshot illustrating the upload document processing dialog window.":::
 
 ## Next steps
 

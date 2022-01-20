@@ -37,7 +37,7 @@ A model provides translations for a specific language pair. The outcome of a suc
     >[!Note]
     >**Notifications** displays model training in progress, e.g., **Submitting data** state. Training model takes few hours, subject to the number of selected sentences.
 
-   :::image type="content" source="../media/quickstart/train-model.png" alt-text="Screenshot showing the train model blade.":::
+   :::image type="content" source="../media/quickstart/train-model.png" alt-text="Screenshot illustrating the train model blade.":::
 
 ## When to select dictionary-only training
 
@@ -54,7 +54,7 @@ For better results, we recommended letting the system learn from your training d
 
 1. Evaluate the model [BLEU score](../beginners-guide.md#what-is-a-bleu-score). Using the test set, **BLEU score** is the custom model score and **Baseline BLEU** is the pre-trained baseline model used for customization. A higher **BLEU score** means higher translation quality using the custom model.
 
-   :::image type="content" source="../media/quickstart/model-details.png" alt-text="Screenshot showing model details fields.":::
+   :::image type="content" source="../media/quickstart/model-details.png" alt-text="Screenshot illustrating model details fields.":::
 
 ## Duplicate model
 
@@ -76,7 +76,7 @@ For better results, we recommended letting the system learn from your training d
    >
    > To add more documents, select on the model name and follow `Create model` section above.
 
-   :::image type="content" source="../media/how-to/duplicate-model.png" alt-text="Screenshot showing the duplicate model blade.":::
+   :::image type="content" source="../media/how-to/duplicate-model.png" alt-text="Screenshot illustrating the duplicate model blade.":::
 
 ## Next steps
 

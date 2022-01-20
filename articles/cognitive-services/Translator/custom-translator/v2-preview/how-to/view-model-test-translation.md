@@ -33,7 +33,7 @@ A BLEU score is a number between zero and 100. A score of zero indicates a very 
 
 1. Evaluate the model [BLEU](../beginners-guide.md#what-is-a-bleu-score) score. Using the test set, **BLEU score** is the custom model score and **Baseline BLEU** is the pre-trained baseline model used for customization. A higher **BLEU score** means there is high translation quality using the custom model.
 
-   :::image type="content" source="../media/quickstart/model-details.png" alt-text="Screenshot showing the model detail."::: 
+   :::image type="content" source="../media/quickstart/model-details.png" alt-text="Screenshot illustrating the model detail."::: 
 
 ## Test quality of your model's translation
 
@@ -45,7 +45,7 @@ A BLEU score is a number between zero and 100. A score of zero indicates a very 
 
 1. If you're satisfied with the training results, place a deployment request for the trained model.
 
-   :::image type="content" source="../media/quickstart/model-test-details.png" alt-text="Screenshot showing the test model blade.":::
+   :::image type="content" source="../media/quickstart/model-test-details.png" alt-text="Screenshot illustrating the test model blade.":::
 
 ## Next steps
 
