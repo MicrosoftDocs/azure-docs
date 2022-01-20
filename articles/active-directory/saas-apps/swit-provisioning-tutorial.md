@@ -41,7 +41,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Swit to support provisioning with Azure AD
 
-To configure Swit to support provisioning with Azure AD - please send an email to `help@swit.io`.
+To configure Swit to support provisioning with Azure AD, send an email to `help@swit.io`.
 
 ## Step 3. Add Swit from the Azure AD application gallery
 
