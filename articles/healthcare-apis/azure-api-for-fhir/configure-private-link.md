@@ -92,15 +92,15 @@ Go back to the resource group of the FHIR server. Select and open the Private DN
 
 For more information on how private link DNS zone resolves the private endpoint IP address to the fully qualified domain name (FQDN) of the resource such as the FHIR server, see [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md).
 
-  :::image type="content" source="media/private-link/add-vnet-link.png" alt-text="Add VNet link." lightbox="media/private-link/add-vnet-link.png":::
+  :::image type="content" source="media/private-link/private-link-add-vnet-link.png" alt-text="Add VNet link." lightbox="media/private-link/private-link-add-vnet-link.png":::
 
 You can add more VNet links if needed, and view all VNet links you've added from the portal.
 
-  :::image type="content" source="media/private-link/private-link-vnet-links.png" alt-text="Add VNet link." lightbox="media/private-link/private-link-vnet-links.png":::
+  :::image type="content" source="media/private-link/private-link-vnet-links.png" alt-text="Private Link VNet links." lightbox="media/private-link/private-link-vnet-links.png":::
   
 Also, from the overview tab you can view the FHIR server private IP address and IP addresses of the VMs connected to peered virtual networks.
 
-  :::image type="content" source="media/private-link/private-link-dns-zone.png" alt-text="Add VNet link." lightbox="media/private-link/private-link-dns-zone.png":::
+  :::image type="content" source="media/private-link/private-link-dns-zone.png" alt-text="Private Link FHIR and VM Private IP Addresses." lightbox="media/private-link/private-link-dns-zone.png":::
 
 ## Test and troubleshoot private link and VNet peering
 
