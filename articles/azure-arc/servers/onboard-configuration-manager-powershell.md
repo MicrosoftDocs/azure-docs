@@ -66,7 +66,6 @@ Select a collection of targets for your script by doing the following:
 1. In the **Assets and Compliance** workspace, select **Device Collections**.
 1. In the **Device Collections** list, select the collection of devices on which you want to run the script.
 1. Select a collection of your choice, and then select **Run Script**.
-   :::image type="content" source="media/onboard-configuration-manager-powershell/configuration-manager-run-script.png" alt-text="Screenshot of the Run Script option in Configuration Manager.":::
 1. On the **Script** page of the **Run Script** wizard, choose the script you authored and approved.
 1. Click **Next**, and then complete the wizard.
 
