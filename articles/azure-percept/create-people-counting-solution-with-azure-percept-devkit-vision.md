@@ -1,7 +1,7 @@
 ---
 title: Create a people counting solution with Azure Percept DK and Azure Percept Vision
 description: This guide will focus on detecting and counting people using the Azure Percept DK hardware, Azure IoT Hub, Azure Stream Analytics, and Power BI dashboard. 
-author: nkhuyent
+author: sbhasale
 ms.author: sbhasale
 ms.service: azure-percept 
 ms.topic: tutorial 
@@ -10,10 +10,7 @@ ms.custom: template-tutorial
 ---
 
 
-
 # Tutorial: Create a People Counting Solution with Azure Percept DK and Azure Percept Vision
-
-
 This guide will focus on detecting and counting people using the Azure Percept DK hardware, Azure IoT Hub, Azure Stream Analytics, and Power BI dashboard. 
 
 The tutorial is intended to show detailed steps on how users can create, configure, and implement the basic components of this solution. Users can easily expand the tutorial and create additional ways to visualize people counting data. 
@@ -24,51 +21,37 @@ Top customer scenarios:
 - Understanding peak occupancy levels and when they occur. 
 - Detecting people counting after hours: count of people in space during non-business hours. 
 
-
-
-
 In this tutorial, you learn how to:
 
-> Step 0: Set up your Azure Percept DK and Vision AI model
->
-> Step 1: Create a Container Registry resource
->
-> Step 2: Build and push your edge solution to Container Registry 
->
-> Step 3: Deploy edge solution to device
->
-> Step 4: Add a Consumer group to your IoT Hub
-> 
-> Step 5: Create a Stream Analytics Job
->
-> Step 6: Create and publish a Power BI report to visualize data
->
-> Step 7: Clean up resources
-
+- Set up your Azure Percept DK and Vision AI model
+- Create a Container Registry resource
+- Build and push your edge solution to Container Registry 
+- Deploy edge solution to device
+- Add a Consumer group to your IoT Hub
+- Create a Stream Analytics Job
+- Create and publish a Power BI report to visualize data
+  
 ## Solution Architecture
-![Solution Architecture](./media/create-people-counting-solution-with-azure-percept-vision-images/solution-architecture.png)
+[ ![Solution Architecture](./media/create-people-counting-solution-with-azure-percept-vision-images/solution-architecture-mini.png) ](./media/create-people-counting-solution-with-azure-percept-vision-images/solution-architecture.png#lightbox)
 
 - Input : Video stream from Azure Percept DK
 
 - Output: Count of people in Power BI dashboard 
   
-    ![Power BI](./media/create-people-counting-solution-with-azure-percept-vision-images/power-bi.png)
-
-    
-## Prerequisites
+[ ![Power BI](./media/create-people-counting-solution-with-azure-percept-vision-images/power-bi-mini.png) ](./media/create-people-counting-solution-with-azure-percept-vision-images/power-bi.png#lightbox)
 
 
 - Percept DK ([Purchase](https://www.microsoft.com/store/build/azure-percept/8v2qxmzbz9vc))
 - Azure Subscription: ([Free trial account](https://azure.microsoft.com/free/))
-- Power BI subsription: ([Try Power BI for free](https://go.microsoft.com/fwlink/?LinkId=874445&clcid=0x409&cmpid=pbi-gett-hero-try-powerbifree))
+- Power BI subscription: ([Try Power BI for free](https://go.microsoft.com/fwlink/?LinkId=874445&clcid=0x409&cmpid=pbi-gett-hero-try-powerbifree))
 - Power BI workspace: ([Create the new workspaces in Power BI](https://github.com/MicrosoftDocs/powerbi-docs/blob/main/powerbi-docs/collaborate-share/service-create-the-new-workspaces.md))
 - [Azure Percept DK setup experience](./quickstart-percept-dk-set-up.md): you connected your devkit to a Wi-Fi network, created an IoT Hub, and connected your devkit to the IoT Hub
 - Download and install [VS Code]()
 - Download and install [Git]()
 - Install the IoT Hub Extension in VS Code
 - Install the Azure IoT Tools Extension in VS Code
-- Download and install [Docker Desktopn]() (Will require a PC reboot)
-- (Only for Windows Users) Install WSL2 by running the following commands in Windows PowerShell or Terminal (on MacOS) (Will require a PC restart)
+- Download and install [Docker Desktop]() (Will require a PC reboot)
+- (Only for Windows Users) Install WSL2 by running the following commands in Windows PowerShell or Terminal (on Mac OS) (Will require a PC restart)
 
     `wsl --install`
 
@@ -80,7 +63,7 @@ Setting up the Azure Percept DK is the first step in the tutorial. Below are the
 
 1. Follow [Quickstart: unbox and assemble your Azure Percept DK components](./quickstart-percept-dk-unboxing.md) and the next steps.
 2. Connect the camera module to the Azure Percept DK via the USB-C cable.
-3. Open Command Prompt (for Windows) or Terminal (on MacOS) and execute the command-
+3. Open Command Prompt (for Windows) or Terminal (on Mac OS) and execute the command-
 
     `git clone https://github.com/microsoft/Azure-Percept-Reference-Solutions.git` 
 
@@ -90,12 +73,12 @@ Setting up the Azure Percept DK is the first step in the tutorial. Below are the
 ## Step 1: Create a Container Registry resource
 Azure Container Registry is a managed, private Docker registry service based on the open-souce Docker Registry. Container Registries are used to manage and store your private Docker containers images and related artifacts. 
 
-1. Login to Azure Portal https://portal.azure.com/
+1. Login to Azure portal https://portal.azure.com/
 2. To create a Container Registry, go to [Create container registry - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.ContainerRegistry)
 
-    a. Select your Azure Subscription in the `Subscription` drop down box 
+    a. Select your Azure Subscription in the `Subscription` drop-down box 
 
-    b. Select your preferred resource group from the `Resource group` drop down menu. It is recommended to use the `Resource group` which contains the IOT Hub connected to the Azure Percept DK. 
+    b. Select your preferred resource group from the `Resource group` drop-down menu. It is recommended to use the `Resource group` which contains the IOT Hub connected to the Azure Percept DK. 
 
     c. Provide a unique `Registry Name`
 
@@ -130,7 +113,7 @@ This section guides users on modifying the cloned people counting repo with thei
 
     ![select arm64v8](./media/create-people-counting-solution-with-azure-percept-vision-images/vscode-arm64v8.png)
 
-2. Within the `people-counting-with-azure-percept-vision` directory go to `modules/CountModule/` directoryand open `module.json`. Fill in your `Container registry address` (same as the `Login server` saved earlier) and followed by a `repository name` **(Note- please make sure your repository name is all lowercase)** 
+2. Within the `people-counting-with-azure-percept-vision` directory go to `modules/CountModule/` directory and open `module.json`. Fill in your `Container registry address` (same as the `Login server` saved earlier) and followed by a `repository name` **(Note- please make sure your repository name is all lowercase)** 
 
     `"repository": "<Your container registry login server/repository name>"` 
     
@@ -138,7 +121,7 @@ This section guides users on modifying the cloned people counting repo with thei
 
     `"repository": "visiontrainingacr.azurecr.io/countmodule"`
     
-    ![example of count module](./media/create-people-counting-solution-with-azure-percept-vision-images/countmodule.png)
+    ![example of count module](./media/create-people-counting-solution-with-azure-percept-vision-images/count-module.png)
 
 3. Now you will build the module image and push it to your container registry. Open Visual Studio Code integrated terminal by selecting `View > Terminal `
 
@@ -148,7 +131,7 @@ This section guides users on modifying the cloned people counting repo with thei
 
 5. Visual Studio Code now has access to your container registry. In the next steps you will turn the solution code into a container image. In Visual Studio Code explorer, right click the `deployment.template.json` file and select `Build and Push IoT Edge Solution`
 
-    ![Build and Push IoT Edge Solution](./media/create-people-counting-solution-with-azure-percept-vision-images/buildnpush.png)
+    ![Build and Push IoT Edge Solution](./media/create-people-counting-solution-with-azure-percept-vision-images/build-and-push.png)
 
     The build and push command starts three operations. First, it creates a new folder in the solution called `config` that holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate docker file for your target architecture. Then, it runs `docker push` to push the image repository to your container registry. This process may take several minutes the first time but is faster the next time that you run the commands.
 
@@ -158,7 +141,7 @@ This section guides users on modifying the cloned people counting repo with thei
 
 8. To further verify what the build and push command did, go to the Azure portal, and navigate to your container registry. In your container registry, select `Repositories` then `countmodule`
 
-    ![select repositories](./media/create-people-counting-solution-with-azure-percept-vision-images/acr.png)
+    ![select repositories](./media/create-people-counting-solution-with-azure-percept-vision-images/azure-container-registry.png)
 
 
 ## Step 3: Deploy edge solution to device
@@ -176,7 +159,7 @@ Step 3 will guide users on creating and deploying a manifest to the Azure Percep
 
 4. Under your device, expand `Modules` to see a list of deployed and running modules. Click the refresh button. You should see the `CountModule` running on your device.
 
-    ![view the count module](./media/create-people-counting-solution-with-azure-percept-vision-images/modulerun.png)
+    ![view the count module](./media/create-people-counting-solution-with-azure-percept-vision-images/module-run.png)
 
 5. Go to [Azure Percept Studio](https://ms.portal.azure.com/#blade/AzureEdgeDevices/Main/devices) and on the left panel, select Devices, then select your Azure Percept device 
 
@@ -194,11 +177,11 @@ Step 3 will guide users on creating and deploying a manifest to the Azure Percep
 
     ![verify the video stream](./media/create-people-counting-solution-with-azure-percept-vision-images/stream.png)
 
-9. After verifying the video stream and bounding boxes, please close the webstream browser tab. 
+9. After verifying the video stream and bounding boxes, please close the web stream browser tab. 
 
-10. To ensure the Count Module is setup correctly, in the Azure Portal go to your IoT Hub. On the left panel under `Device management `select `IoT Edge`
+10. To ensure the Count Module is setup correctly, in the Azure portal go to your IoT Hub. On the left panel under `Device management `select `IoT Edge`
 
-    ![select iot edge](./media/create-people-counting-solution-with-azure-percept-vision-images/iotedge.png)
+    ![select iot edge](./media/create-people-counting-solution-with-azure-percept-vision-images/iot-edge.png)
 
 11. From the IoT device list click on your Azure Percept DK device
 
@@ -228,7 +211,7 @@ Consumer groups provide independent views into the event stream that enable apps
 
 2. On the left pane, select `Hub settings > Built-in endpoints`. Enter a name for your new consumer group in the text box under `Consumer groups`
 
-    ![new consumer group](./media/create-people-counting-solution-with-azure-percept-vision-images/consumergp.png)
+    ![new consumer group](./media/create-people-counting-solution-with-azure-percept-vision-images/consumer-group.png)
 
 3. Click anywhere outside the text box to save the consumer group
 
@@ -245,7 +228,7 @@ Step 5 guides users through creating, configuring, and running a Stream Analytic
 
     - `Location` - Use the same location as your resource group. 
 
-    ![resource group](./media/create-people-counting-solution-with-azure-percept-vision-images/sajob.png)
+    ![resource group](./media/create-people-counting-solution-with-azure-percept-vision-images/stream-analytics-job.png)
 
 3. Click `Create`
 
@@ -254,7 +237,7 @@ Step 5 guides users through creating, configuring, and running a Stream Analytic
 
 2. In the `Inputs` pane, select `Add stream input`, then select `IoT Hub` from the drop-down list.
 
-    ![drop-down list](./media/create-people-counting-solution-with-azure-percept-vision-images/sainput.png)
+    ![drop-down list](./media/create-people-counting-solution-with-azure-percept-vision-images/stream-analytics-input.png)
 
 3. On the new input pane, enter the following information - 
 
@@ -276,7 +259,7 @@ Step 5 guides users through creating, configuring, and running a Stream Analytic
 
     Leave all other fields as default
 
-    ![example view](./media/create-people-counting-solution-with-azure-percept-vision-images/sainputfields.png)
+    ![example view](./media/create-people-counting-solution-with-azure-percept-vision-images/stream-analytics-input-fields.png)
 
 4. Click `Save`
 
@@ -290,12 +273,12 @@ Step 5 guides users through creating, configuring, and running a Stream Analytic
 
     c. Give your workspace a name and description (optional) and click `Save `
 
-    d. Go back to the Azure Portal and go to the Stream Analytics job
+    d. Go back to the Azure portal and go to the Stream Analytics job
 
 2. Under `Job topology`, select `Outputs`
 3. In the `Outputs` pane, select `Add`, and then select `Power BI` from the drop-down list 
 
-    ![view of drop-down list](./media/create-people-counting-solution-with-azure-percept-vision-images/saoutput.png)
+    ![view of drop-down list](./media/create-people-counting-solution-with-azure-percept-vision-images/stream-analytics-output.png)
 
 4. Enter the following information-
 
@@ -309,7 +292,7 @@ Step 5 guides users through creating, configuring, and running a Stream Analytic
 
     e. `Authentication mode` - Leave as the default 
 
-    ![Leave as the default](./media/create-people-counting-solution-with-azure-percept-vision-images/saoutputfields.png)
+    ![Leave as the default](./media/create-people-counting-solution-with-azure-percept-vision-images/stream-analytics-output-fields.png)
 
 5. On the `Power BI - New output` pane, select `Authorize` and follow the prompts to sign into your Power BI account 
 
@@ -337,27 +320,27 @@ Step 5 guides users through creating, configuring, and running a Stream Analytic
 ### Run the Stream Analytics job
 1. In the Stream Analytics job, select `Overview`, then select `Start > Now > Start`
 
-    ![overview](./media/create-people-counting-solution-with-azure-percept-vision-images/sastart.png)
+    ![overview](./media/create-people-counting-solution-with-azure-percept-vision-images/stream-analytics-start.png)
 
 2. Once the job successfully starts, the job status changes from `Stopped` to `Running` 
 
-    ![running state](./media/create-people-counting-solution-with-azure-percept-vision-images/sarunning.png)
+    ![running state](./media/create-people-counting-solution-with-azure-percept-vision-images/stream-analytics-running.png)
 
 
 ## Step 6: Create and publish a Power BI report to visualize data
 This step will guide users on how to create a Power BI report from the People Counting telemetry data. The tutorial walks through initial steps to visualize people counting data. Users who are interested to learn more ways to transform, aggregate, and visualize their data could explore the [Power BI product page](https://powerbi.microsoft.com/) for ideas and templates.
 
-1. Log in to [Power BI](https://msit.powerbi.com/home) and select your Workspace (this is the same Group Workspace you used while creating the Stream Analytics job output) 
+1. Login to [Power BI](https://msit.powerbi.com/home) and select your Workspace (this is the same Group Workspace you used while creating the Stream Analytics job output) 
 
-    ![select your Workspace](./media/create-people-counting-solution-with-azure-percept-vision-images/pbi.png)
+    ![select your Workspace](./media/create-people-counting-solution-with-azure-percept-vision-images/power-bi-1.png)
 
 2. Verify that you see your dataset
 
-    ![verify dataset](./media/create-people-counting-solution-with-azure-percept-vision-images/pbidataset.png)
+    ![verify dataset](./media/create-people-counting-solution-with-azure-percept-vision-images/power-bi-data-set.png)
 
 3. On the left scroll panel select `+ Create` and then click `Pick a published dataset`
 
-    ![publish dataset](./media/create-people-counting-solution-with-azure-percept-vision-images/pbicreate.png)
+    ![publish dataset](./media/create-people-counting-solution-with-azure-percept-vision-images/power-bi-create.png)
 
 4. Select your dataset and click `Create `
 
@@ -365,15 +348,15 @@ This step will guide users on how to create a Power BI report from the People Co
 
 6. Under `Visualizations` select `Line and clustered column chart`
 
-    ![select correct column chart](./media/create-people-counting-solution-with-azure-percept-vision-images/pbifields.png)
+    ![select correct column chart](./media/create-people-counting-solution-with-azure-percept-vision-images/power-bi-fields.png)
 
 7. This will generate a graph as follows-
 
-    ![graph is generated](./media/create-people-counting-solution-with-azure-percept-vision-images/pbigraph.png)
+    ![graph is generated](./media/create-people-counting-solution-with-azure-percept-vision-images/ power-bi-graph.png)
 
 8. Click `Refresh` periodically to update the graph
 
-    ![update the graph](./media/create-people-counting-solution-with-azure-percept-vision-images/pbigraphrefresh.png)
+    ![update the graph](./media/create-people-counting-solution-with-azure-percept-vision-images/power-bi-graph-refresh.png)
 
 
 
