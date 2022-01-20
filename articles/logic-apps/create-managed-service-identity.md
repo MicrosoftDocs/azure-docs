@@ -548,7 +548,7 @@ To use a managed identity for authentication, some Azure resources, such as Azur
 
    For more information about assigning roles, review the documentation, [Assign roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. After you finish setting up access for the identity, you can then use the identity to [authenticate access for triggers and actions that support managed identities](#authenticate-access-with-identity).
+1. After you finish, you can use the identity to [authenticate access for triggers and actions that support managed identities](#authenticate-access-with-identity).
 
 <a name="azure-portal-access-policy"></a>
 
@@ -563,9 +563,13 @@ To use a managed identity for authentication, some Azure resources, such as Azur
    > [!NOTE]
    > If the resource doesn't have the **Access policies** option, [try assigning a role assignment instead](#azure-portal-assign-role).
 
+   ![Screenshot showing the Azure portal and key vault example with "Access policies" pane open.](./media/create-managed-service-identity/create-access-policy.png)
+
 1. On the **Permissions** tab, select the required permissions that the identity needs to access the target resource.
 
    For example, to use the identity with the managed Azure Key Vault connector's **List secrets** operation, the identity needs **List** permissions. So, in the **Secret permissions** column, select **List**.
+
+   ![Screenshot showing "Permissions" tab with "List" permissions selected.](./media/create-managed-service-identity/select-access-policy-permissions.png)
 
 1. When you're ready, **Next**. On the **Principal** tab, find and select the managed identity, which is a user-assigned identity in this example:
 
@@ -575,8 +579,6 @@ To use a managed identity for authentication, some Azure resources, such as Azur
    > Before you can use the identity with the Azure Key Vault connector's **List operations**, 
    > make sure that your key vault contains at least one secret, if none exist. For more information, 
    > review [Add a secret to Key Vault](../key-vault/secrets/quick-create-portal.md).
-
-1. Now, you can use the managed identity to authenticate access to the key vault and use the **List secrets** operation.
 
 <a name="authenticate-access-with-identity"></a>
 
