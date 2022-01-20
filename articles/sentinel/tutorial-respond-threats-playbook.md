@@ -210,16 +210,34 @@ You use a playbook to respond to an **alert** by creating an **analytics rule**,
 
 ## Run a playbook on demand
 
-You can also run a playbook on demand.
+You can also manually run a playbook on demand, on both incidents (in Preview) and alerts. This can be useful in situations where you want more human input into and control over orchestration and response processes.
 
- > [!NOTE]
- > Only playbooks using the **alert trigger** can be run on-demand.
+### Run a playbook manually on an alert
 
-To run a playbook on-demand:
+1. In the **Incidents** page, select an incident.
 
-1. In the **Incidents** page, select an incident and click on **View full details**.
+1. Select **View full details** at the bottom of the incident details pane.
 
-2. In the **Alerts** tab, click on the alert you want to run the playbook on, and scroll all the way to the right and click **View playbooks** and select a playbook to **run** from the list of available playbooks on the subscription.
+1. In the incident details page, select the **Alerts** tab, choose the alert you want to run the playbook on, and select the **View playbooks** link at the end of the line of that alert.
+
+1. The **Alert playbooks** pane will open. You'll see a list of all playbooks configured with the **Microsoft Sentinel Alert** Logic Apps trigger that you have access to.
+
+1. Select **Run** on the line of a specific playbook to run it immediately.
+
+You can see the run history for playbooks on an alert by selecting the **Runs** tab on the **Alert playbooks** pane. It might take a few seconds for any just-completed run to appear in the list. Selecting a specific run will open the full run log in Logic Apps.
+
+### Run a playbook manually on an incident
+
+1. In the **Incidents** page, select an incident. 
+
+1. From the incident details pane that appears on the right, select **Actions > Run playbook (Preview)**.  
+    (Selecting the three dots at the end of the incident's line on the grid or right-clicking the incident will display the same list as the **Action** button.)
+
+1. The **Run playbook on incident** panel opens on the right. You'll see a list of all playbooks configured with the **Microsoft Sentinel Incident** Logic Apps trigger that you have access to.
+
+1. Select **Run** on the line of a specific playbook to run it immediately.
+
+You can see the run history for playbooks on an incident by selecting the **Runs** tab on the **Run playbook on incident** panel. It might take a few seconds for any just-completed run to appear in the list. Selecting a specific run will open the full run log in Logic Apps.
 
 ## Next steps
 
