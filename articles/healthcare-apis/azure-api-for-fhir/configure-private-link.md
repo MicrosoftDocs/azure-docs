@@ -64,20 +64,6 @@ After the deployment is complete, you can go back to "Private endpoint connectio
 
 ![Options](media/private-link/private-link-options.png)
 
-## Manage private endpoint
-
-### View
-
-Private endpoints and the associated network interface controller (NIC) are visible in Azure portal from the resource group they were created in.
-
-![View in resources](media/private-link/private-link-view.png)
-
-### Delete
-
-Private endpoints can only be deleted from the Azure portal from the **Overview** blade or by selecting the **Remove** option under the **Networking Private endpoint connections** tab. Selecting **Remove** will delete the private endpoint and the associated NIC. If you delete all private endpoints to the FHIR resource and the public network, access is disabled and no request will make it to your FHIR server.
-
-![Delete Private Endpoint](media/private-link/private-link-delete.png)
-
 ## VNet Peering
 
 With Private Link configured, you can access the FHIR server in the same VNet or a different VNet that is peered to the VNet for the FHIR server. Follow the steps below to configure VNet peering and Private Link DNS zone configuration.
@@ -101,6 +87,20 @@ You can add more VNet links if needed, and view all VNet links you've added from
 Also, from the overview tab you can view the FHIR server private IP address and IP addresses of the VMs connected to peered virtual networks.
 
   :::image type="content" source="media/private-link/private-link-dns-zone.png" alt-text="Private Link FHIR and VM Private IP Addresses." lightbox="media/private-link/private-link-dns-zone.png":::
+
+## Manage private endpoint
+
+### View
+
+Private endpoints and the associated network interface controller (NIC) are visible in Azure portal from the resource group they were created in.
+
+![View in resources](media/private-link/private-link-view.png)
+
+### Delete
+
+Private endpoints can only be deleted from the Azure portal from the **Overview** blade or by selecting the **Remove** option under the **Networking Private endpoint connections** tab. Selecting **Remove** will delete the private endpoint and the associated NIC. If you delete all private endpoints to the FHIR resource and the public network, access is disabled and no request will make it to your FHIR server.
+
+![Delete Private Endpoint](media/private-link/private-link-delete.png)
 
 ## Test and troubleshoot private link and VNet peering
 
@@ -159,9 +159,4 @@ Based on your setup, please see the how-to-guides to register your applications
 * [Register a confidential client application](register-confidential-azure-ad-client-app.md)
 * [Register a public client application](register-public-azure-ad-client-app.md)
 * [Register a service application](register-service-azure-ad-client-app.md)
-
-Once you have registered your applications, you can deploy the Azure API for FHIR.
-
->[!div class="nextstepaction"]
->[Deploy Azure API for FHIR](fhir-paas-powershell-quickstart.md)
 
