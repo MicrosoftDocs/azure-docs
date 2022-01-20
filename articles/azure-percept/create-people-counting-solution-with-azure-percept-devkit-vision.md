@@ -5,7 +5,7 @@ author: sbhasale
 ms.author: sbhasale
 ms.service: azure-percept 
 ms.topic: tutorial 
-ms.date: 12/14/2021 
+ms.date: 01/19/2021 
 ms.custom: template-tutorial 
 ---
 
