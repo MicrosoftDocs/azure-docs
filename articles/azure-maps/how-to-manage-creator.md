@@ -11,7 +11,7 @@ services: azure-maps
 
 # Manage Azure Maps Creator
 
-You can use Azure Maps Creator to create private indoor map data. Using the Azure Maps API and the Indoor Maps module, you can develop interactive and dynamic indoor map web applications. For pricing information see the *Creator* section in [Azure Maps pricing](https://aka.ms/CreatorPricing).
+You can use Azure Maps Creator to create private indoor map data. Using the Azure Maps API and the Indoor Maps module, you can develop interactive and dynamic indoor map web applications. For pricing information, see the *Creator* section in [Azure Maps pricing](https://aka.ms/CreatorPricing).
 
 This article takes you through the steps to create and delete a Creator resource in an Azure Maps account.
 
