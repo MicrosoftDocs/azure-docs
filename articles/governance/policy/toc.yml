@@ -365,13 +365,13 @@
   - name: Terraform resources
     items:
     - name: Assignment
-      href: https://www.terraform.io/docs/providers/azurerm/r/policy_assignment.html
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_policy_assignment
     - name: Definition
-      href: https://www.terraform.io/docs/providers/azurerm/r/policy_definition.html
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/policy_definition
     - name: Initiative (Set Definition)
-      href: https://www.terraform.io/docs/providers/azurerm/r/policy_set_definition.html
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/policy_set_definition
     - name: Remediation
-      href: https://www.terraform.io/docs/providers/azurerm/r/policy_remediation.html
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/policy_remediation
 - name: Resources
   items:
   - name: GitHub - Azure Policy samples
