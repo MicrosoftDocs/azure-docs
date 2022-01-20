@@ -25,6 +25,7 @@ In Azure Resource Manager, a [public IP](virtual-network-public-ip-address.md) a
 * Application Gateways
 * Azure Firewall
 * Bastion Host
+* Route Server
 
 For Virtual Machine Scale Sets, use [Public IP Prefixes](public-ip-address-prefix.md).
 
@@ -42,6 +43,7 @@ The following table shows the property a public IP can be associated to a resour
 | Application gateway |Front-end configuration |Yes (V1 only) |Yes (V2 only) | No | No |
 | Azure Firewall | Front-end configuration | No | Yes | No | No |
 | Bastion Host | Public IP configuration | No | Yes | No | No |
+| Route Server | Front-end configuration | No | Yes | No | No |
 
 ## IP address version
 
