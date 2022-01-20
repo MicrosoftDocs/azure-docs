@@ -85,6 +85,7 @@ Once your IoT Edge device connects, be sure to continue configuring the Upstream
   * Set up host storage for system modules
   * Reduce memory space used by the IoT Edge hub
   * Do not use debug versions of module images
+  * Be mindful of twin size limits when using custom modules
 
 ### Be consistent with upstream protocol
 
@@ -133,6 +134,15 @@ The default value of the timeToLiveSecs parameter is 7200 seconds, which is two 
 ### Do not use debug versions of module images
 
 When moving from test scenarios to production scenarios, remember to remove debug configurations from deployment manifests. Check that none of the module images in the deployment manifests have the **\.debug** suffix. If you added create options to expose ports in the modules for debugging, remove those create options as well.
+
+#### Be mindful of twin size limits when using custom modules
+
+The deployment manifest containing custom modules is part of the EdgeAgent twin. The size limitation on properties of this twin are [described here](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins#device-twin-size).
+
+When deploying many modules it is possible to exhaust this twin size limit. There are a few common mitigations to this hard limit:
+1. Store any configuration in the custom module twin, which has its own limit.
+2. Store some configuration that points to a non-space-limited location (i.e. blob store)
+
 
 ## Container management
 
