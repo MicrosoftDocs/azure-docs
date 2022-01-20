@@ -17,6 +17,8 @@ Run search jobs on any type of log. But search jobs are ideally adapted for sear
 
 ## Start a search job
 
+Go to **Search** in Microsoft Sentinel to enter your search criteria.
+
 1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
 1. Under **General**, select **Search (preview)**.
 1. In the **Search** box, enter the search term.
@@ -27,6 +29,8 @@ Run search jobs on any type of log. But search jobs are ideally adapted for sear
    :::image type="content" source="media/search-jobs/search-job-criteria.png" alt-text="Screenshot of search page with search criteria of administrator, timerange last 90 days, and table selected.":::
 
    When the search job starts, a notification and the job status shows on the search page.
+
+1. Wait for your search job to complete. Depending on your dataset and search criteria, the search job may take 10 minutes to 24 hours to complete. If your search job takes longer than 24 hours, it will time out. If that happens, refine your search criteria and try again.
 
 ## View search job results
 
@@ -51,4 +55,9 @@ View the status and results of your search job by going to the **Saved Searches*
 
 ## Next steps
 
+To learn more, see the following topics.
+
 - [Hunt with bookmarks](bookmarks.md)
+- Log restore
+- Basic logs
+- Archived logs
