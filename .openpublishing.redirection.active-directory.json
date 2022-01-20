@@ -7051,6 +7051,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/hybrid/how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md",
+            "redirect_url": "/azure/active-directory/devices/howto-hybrid-azure-ad-join",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/active-directory/devices/hybrid-azuread-join-federated-domains.md",
             "redirect_url": "/azure/active-directory/devices/howto-hybrid-azure-ad-join",
             "redirect_document_id": false
