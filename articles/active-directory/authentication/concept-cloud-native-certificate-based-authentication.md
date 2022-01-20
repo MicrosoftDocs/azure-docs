@@ -40,7 +40,7 @@ The following images below show how cloud-native CBA simplifies the customer env
 :::image type="content" border="false" source="./media/concept-cloud-native-certificate-based-authentication/cloud-native-cert.png" alt-text="Diagram of cloud-native certificate-based authentication.":::
 
 
-### Key benefits of using cloud-native certificate-based authentication
+## Key benefits of using cloud-native certificate-based authentication
 
 | Benefits | Description |
 |---------|---------|
@@ -48,7 +48,7 @@ The following images below show how cloud-native CBA simplifies the customer env
 | Easy to deploy and administer |- No need for complex on-premises deployments or network configuration.<br>- Directly authenticate against Azure AD. <br>- No management overhead or cost. |
 | Secure |- On-premises passwords need not be stored in the cloud in any form.<br>- Protects your user accounts by working seamlessly with Azure AD Conditional Access policies, including multifactor authentication (MFA) and blocking legacy authentication.<br>- Strong authentication support where users can define authentication policies through the certificate fields like issuer or policy OID (object identifiers) to determine which certificates qualify as single-factor versus multifactor. |
 
-### Feature highlights
+## Feature highlights
 
 - Facilitates onboarding to Azure quickly without being delayed by additional on-premises infrastructure to support certificate-based authentication in public and United States Government clouds. 
 - Provides support for unphishable multifactor authentication.

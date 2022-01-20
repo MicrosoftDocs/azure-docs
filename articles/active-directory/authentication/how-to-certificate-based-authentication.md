@@ -127,12 +127,13 @@ An admin can override the default and create a custom mapping. Currently, we sup
 1. Click **Save** to save the changes. 
 
 Currently supported set of Username bindings:
-1. SAN Principal Name > userPrincipalName
-1. SAN Principal Name > onPremisesUserPrincipalName
-1. SAN RFC822Name > userPrincipalName
-1. SAN RFC822Name > onPremisesUserPrincipalName
 
-.[!NOTE]
+- SAN Principal Name > userPrincipalName
+- SAN Principal Name > onPremisesUserPrincipalName
+- SAN RFC822Name > userPrincipalName
+- SAN RFC822Name > onPremisesUserPrincipalName
+
+>[!NOTE]
 >If the RFC822Name binding is evaluated and if no RFC822Name is specified in the certificate Subject Alternative Name, we will fall back on legacy Subject Name "E=user@contoso.com" if no RFC822Name is specified in the certificate we will fall back on legacy Subject Name E=user@contoso.com.
 
 
