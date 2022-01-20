@@ -1,4 +1,3 @@
-
 ---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Workplace by Meta | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Workplace by Meta.
