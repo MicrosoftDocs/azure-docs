@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 01/20/2021
+ms.date: 01/20/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
