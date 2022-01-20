@@ -139,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot shows the SSO Settings.](./media/balsamiq-wireframes-tutorial/settings.png "SSO Settings") 
 
-1. Copy all the required values and paste it in **Basic SAML Configuration** section in the Azure Portal and click **Next**.
+1. Copy all the required values and paste it in **Basic SAML Configuration** section in the Azure portal and click **Next**.
 
     ![Screenshot shows the Service Provider Details.](./media/balsamiq-wireframes-tutorial/details.png "Service Provider Details")
 
@@ -151,7 +151,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     1. In the **Identity Provider Issuer** textbox, paste the value of **Azure AD Identifier**, which you have copied from the Azure portal.
 
-    1. Open the downloaded **Federation Metadata XML** file from the Azure Portal and **Upload** the file into **Public Certificate** section.
+    1. Open the downloaded **Federation Metadata XML** file from the Azure portal and **Upload** the file into **Public Certificate** section.
     
     1. Click **Next**.
 
