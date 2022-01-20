@@ -24,10 +24,9 @@ This article explains how cloud-native certificate-based authentication (CBA) ag
 >[!NOTE]
 >Cloud-native certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-
 ## How does Azure Active Directory certificate-based authentication work?
 
-When a user tries to sign into an application secured by Azure AD, and if Certificate-based Authentication is enabled on the tenant, the following steps occur:
+When a user tries to sign into an application secured by Azure AD, and if CBA is enabled on the tenant, the following steps occur:
 
 1. The user tries to access an application, such as [MyApps portal](https://myapps.microsoft.com/).
 1. If the user is not already signed in, the user is redirected to the Azure AD **User Sign-in** page at [https://login.microsoftonline.com/](https://login.microsoftonline.com/).
@@ -224,9 +223,9 @@ The following table explains some details.
 
 ## Next steps
 
-- [Overview of cloud-native certificate-based authentication](concept-cloud-native-certificate-based-authentication.md)
-- [Limitations with cloud-native certificate-based authentication](concept-cloud-native-certificate-based-authentication-limitations.md)
-- [Get started with cloud-native certificate-based authentication](how-to-certificate-based-authentication.md)
+- [Overview of cloud-native CBA](concept-cloud-native-certificate-based-authentication.md)
+- [Limitations with cloud-native CBA](concept-cloud-native-certificate-based-authentication-limitations.md)
+- [Get started with cloud-native CBA](how-to-certificate-based-authentication.md)
 - [FAQ](cloud-native-certificate-based-authentication-faq.yml)
-- [Troubleshoot cloud-native certificate-based authentication](troubleshoot-cloud-native-certificate-based-authentication.md)
+- [Troubleshoot cloud-native CBA](troubleshoot-cloud-native-certificate-based-authentication.md)
 
