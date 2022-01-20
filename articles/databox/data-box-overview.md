@@ -153,6 +153,19 @@ Data Box can transfer data based on the region in which service is deployed, the
 - **Destination storage accounts** - The storage accounts that store the data are available in all Azure regions where the service is available.
 
 
+## Data resiliency
+
+THIS SECTION HAS NOT YET BEEN WRITTEN. THIS IS RAW SOURCE MATERIAL (tweaked - don't look sight of the original source).
+
+In the extreme event of any Azure region being impacted by a disaster, the Data Box service will be made available through the corresponding paired region. Both ongoing and new orders will be tracked and fulfilled through the service via the paired region. No action is required from customers for regions where there is a failover region within the same country or commerce boundary. However, some Azure regions don't have a paired region within the same geographic or commerce boundary. If there is a disaster in any of those regions, you will need to create the Data Box order again from a different region that is available, and copy the data to Azure in the new region.
+
+The Data Box service is geographical in nature and has a single active deployment in one region within each country or commerce boundary. For data resiliency, a passive instance of the service is maintained in a different region within the same country or commerce boundary. If a disaster IMPACTS a region, the paired region is used to fulfil your orders. Failover is automatic, and is handled by Microsoft.<!--1) How often is data failed over from the active deployment to the passive instance of the service?-->
+
+Some Azure regions - Brazil and Southeast Asia - don’t have a paired region within the same geographic or commerce boundary. For regions that do not have a paired region within the same geography or commerce boundary, you will need to create the Data Box order from a different, available region and copy the data to Azure in the new region.<!--Does this relate to imports only? For an export order, -->
+
+LINKS TO: Paired regions source
+
+
 ## Next steps
 
 - Review the [Data Box system requirements](data-box-system-requirements.md).
