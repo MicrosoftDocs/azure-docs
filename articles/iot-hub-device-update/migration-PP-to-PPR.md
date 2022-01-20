@@ -16,12 +16,13 @@ To migrate successfully, you will have to upgrade the DU agent running on your d
 
 ## Update the device update agent
 
-1. To view devices using older agents (versions 0.7.0/0.6.0) and groups created before 02/03/2022, the public preview portal, which can be accessed through the banner.
+1. To view devices using older agents (versions 0.7.0/0.6.0) and groups created before 02/03/2022, navigate to the public preview portal, which can be accessed through the banner.
+
    :::image type="content" source="media/migration/switch-banner.png" alt-text="Screenshot of banner." lightbox="media/migration/switch-banner.png":::
 
 2. Create a new IoT/IoT Edge device on the Azure portal. Copy the primary connection string for the device from the device view for later. For more details, refer the [Add Device to IoT Hub](device-update-simulator.md#add-device-to-azure-iot-hub) section.
  
-3. Then, SSH into your device and remove the old Device update agent.
+3. Then, SSH into your device and remove the old Device Update agent.
    ```bash
    sudo apt remove deviceupdate-agent 
    ```
@@ -30,18 +31,22 @@ To migrate successfully, you will have to upgrade the DU agent running on your d
    rm -f /etc/adu/adu-conf.txt 
    ```
    
-5. Install the new agent.
+5. Install the new agent
    ```bash
    sudo apt-get install deviceupdate-agent 
    ```
-   Alternatively, you can get the .deb asset from 
+   Alternatively, you can get the .deb asset from [GitHub](https://github.com/Azure/iot-hub-device-update) and install the agent
+   
+      ```bash
+   sudo apt install <file>.deb
+   ```
 
-    Trying to upgrade the agent without removing the old agent and configuration files will result in the error shown below.
-       :::image type="content" source="media/migration/update-error.png" alt-text="Screenshot of banner." lightbox="media/migration/update-error.png":::
+   Trying to upgrade the Device Update agent without removing the old agent and configuration files will result in the error shown below.
     
-    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
+   :::image type="content" source="media/migration/update-error.png" alt-text="Screenshot of update error." lightbox="media/migration/update-error.png":::
+    
 
-6. Enter your IoT device's module (or device, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md)) primary connection string in the configuration file by running the command below.
+6. Enter your IoT device's device (or module, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md)) primary connection string in the configuration file by running the command below.
 
    ```markdown
    /etc/adu/du-config.json
