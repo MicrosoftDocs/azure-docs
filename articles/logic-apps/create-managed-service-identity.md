@@ -515,7 +515,6 @@ However, to access an Azure key vault with your managed identity, you have to cr
 | Azure Resource Manager template (ARM template) | [Key Vault access policy resource definition](/templates/microsoft.keyvault/vaults/) |
 | Azure PowerShell | [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-powershell) |
 | Azure CLI | [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-cli) |
-accesspolicies?tabs=json) |
 |||
 
 <a name="azure-portal-assign-role"></a>
@@ -571,7 +570,7 @@ To use a managed identity for authentication, some Azure resources, such as Azur
 
    ![Screenshot showing "Permissions" tab with "List" permissions selected.](./media/create-managed-service-identity/select-access-policy-permissions.png)
 
-1. When you're ready, **Next**. On the **Principal** tab, find and select the managed identity, which is a user-assigned identity in this example:
+1. When you're ready, select **Next**. On the **Principal** tab, find and select the managed identity, which is a user-assigned identity in this example:
 
 1. Skip the optional **Application** step, select **Next**, and finish creating the access policy.
 
