@@ -81,7 +81,7 @@ az network vnet subnet update -g $ASE_RG -n <subnet-name> --vnet-name <vnet-name
 
 ## 6. Migration to App Service Environment v3
 
-Only start this step once you've completed all pre-migration actions listed above and understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what will happen during this time. There will be about one hour of downtime. Scaling and modifications to your existing App Service Environment will be blocked during this step.
+Only start this step once you've completed all pre-migration actions that are listed above and understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what will happen during this time. There will be about one hour of downtime. Scaling and modifications to your existing App Service Environment will be blocked during this step.
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=fullmigration" --verbose
@@ -107,15 +107,15 @@ az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 
 ## 1. Validate migration is supported
 
-From the [Azure portal](https://portal.azure.com), navigate to the **Overview** page for the App Service Environment you'll be migrating. The platform will validate if migration is supported for your App Service Environment. Wait a couple seconds after the page loads for this to take place.
+From the [Azure portal](https://portal.azure.com), navigate to the **Overview** page for the App Service Environment you'll be migrating. The platform will validate if migration is supported for your App Service Environment. Wait a couple seconds after the page loads for this validation to take place.
 
-If migration is supported for your App Service Environment, there are three ways to access the migration feature. These include a banner at the top of the overview page, a new item in the left-hand side menu called **Migration (preview)**, and an info box on the **Configuration** page. Select any of these to move on to the next step in the migration process.
+If migration is supported for your App Service Environment, there are three ways to access the migration feature. These methods include a banner at the top of the overview page, a new item in the left-hand side menu called **Migration (preview)**, and an info box on the **Configuration** page. Select any of these methods to move on to the next step in the migration process.
 
 ![migration access points](./media/migration/portal-overview.png)
 
 ![configuration page view](./media/migration/configuration-migration-support.png)
 
-If you don't see these options, your App Service Environment isn't supported for migration at this time or your environment is in an unhealthy or suspended state therefore blocking migration. If your environment [won't be supported for migration](migrate.md#migration-feature-limitations) or you want to migrate to App Service Environment v3 without using the migration feature, see [migration alternatives](migration-alternatives.md).
+If you don't see these options, your App Service Environment isn't supported for migration at this time or your environment is in an unhealthy or suspended state (which blocks migration). If your environment [won't be supported for migration](migrate.md#migration-feature-limitations) or you want to migrate to App Service Environment v3 without using the migration feature, see [migration alternatives](migration-alternatives.md).
 
 The migration page will guide you through the series of steps to complete the migration.
 
@@ -123,13 +123,13 @@ The migration page will guide you through the series of steps to complete the mi
 
 ## 2. Generate IP addresses for your new App Service Environment v3
 
-Under **Pre-migration** click the checkbox to confirm you understand the implications of the pre-migration step and then select **Confirm** to start pre-migration. This step will take about 5 minutes to complete. Don't scale or make changes to your existing App Service Environment during this time. If you may see a message a few minutes after starting this step asking you to refresh the page, please do so to allow your new IP addresses to appear.
+Under **Pre-migration** confirm you understand the implications of the pre-migration step to start pre-migration. This step will take about 5 minutes to complete. Don't scale or make changes to your existing App Service Environment during this time. If you may see a message a few minutes after starting this step asking you to refresh the page, select refresh as shown below to allow your new IP addresses to appear.
 
 ![pre-migration request to refresh](./media/migration/pre-migration-refresh.png)
 
 ## 3. Update dependent resources with new IPs
 
-When the previous step finishes, you will be shown the IP addresses for your new App Service Environment v3. Using the new IPs, update any resources and networking components to ensure your new environment functions as intended once migration is complete. It's your responsibility to make any necessary updates. Don't move on to the next step until you confirm that you have made these updates.
+When the previous step finishes, you'll be shown the IP addresses for your new App Service Environment v3. Using the new IPs, update any resources and networking components to ensure your new environment functions as intended once migration is complete. It's your responsibility to make any necessary updates. Don't move on to the next step until you confirm that you have made these updates.
 
 ![sample IPs](./media/migration/ip-sample.png)
 
@@ -141,9 +141,9 @@ App Service Environment v3 requires the subnet it's in to have a single delegati
 
 ## 5. Migration to App Service Environment v3
 
-Once you have completed all of the above steps, you will be able to start migration. Make sure you understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what will happen during this time. There will be about one hour of downtime. Scaling and modifications to your existing App Service Environment will be blocked during this step.
+Once you've completed all of the above steps, you can start migration. Make sure you understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what will happen during this time. There will be about one hour of downtime. Scaling and modifications to your existing App Service Environment will be blocked during this step.
 
-When migration is complete, you will have an App Service Environment v3.
+When migration is complete, you'll have an App Service Environment v3.
 
 ::: zone-end
 

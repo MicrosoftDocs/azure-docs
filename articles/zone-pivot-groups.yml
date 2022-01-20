@@ -941,6 +941,15 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+# Owner: jordanselig
+- id: app-service-cli-portal
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-azp
+    title: Azure portal
+  - id: platform-azcli
+    title: Azure CLI
 # Owner: msangapu
 - id: app-service-vscode-cli-portal
   title: Development environment
