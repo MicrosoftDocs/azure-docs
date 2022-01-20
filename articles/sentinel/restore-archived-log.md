@@ -60,3 +60,7 @@ Restored data tables are deleted automatically after 8 days. But you can delete 
 1. Select **Delete** for that table row.
 
    :::image type="content" source="media/restore-archived-log/delete-restored-table.png" alt-text="Screenshot of restoration tab that shows the delete button on each row.":::
+
+## Next steps
+
+- [Hunt with bookmarks](bookmarks.md)
