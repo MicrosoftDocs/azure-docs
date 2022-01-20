@@ -145,21 +145,23 @@ The final configuration will look like this image:
 To enable the certificate-based authentication in the Azure MyApps portal, complete the following steps:
 
 1. Sign in to the [MyApps portal](https://myapps.microsoft.com/) as a Global Administrator.
-2.	Select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
-3.	Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
+1. Select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
+1. Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
 4.	Under **Basics**, select **Yes** to enable CBA.
-5.	CBA can be enabled for a targeted set of users.
+1. CBA can be enabled for a targeted set of users.
    1. Click **All Users** to enable all users.
    1. Click **Select Users** to enable selected users or groups. 
    1. Click **+ Add users**, select specific users and groups.
    1. Click **Select** to add them.
 
-4.	Select ‘Sign in with a certificate’
-5.	Pick the correct user certificate in the Client certificate picker UI and click OK.
+1. Select **Sign in with a certificate**.
+1. Pick the correct user certificate in the Client certificate picker UI and click OK.
  
 Once certificate-based authentication is enabled on the tenant, all users in the tenant will see the option to sign in with a certificate. Only users who are enabled for certificate-based authentication will be able to authenticate using the X.509 certificate. 
 
 ## Step 5: Test your configuration
+
+This section covers how to test your certificate and custom authentication binding rules.
 
 ### Testing your certificate
 
