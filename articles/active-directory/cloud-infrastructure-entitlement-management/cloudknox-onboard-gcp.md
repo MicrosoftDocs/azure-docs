@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/18/2022
+ms.date: 01/20/2022
 ms.author: v-ydequadros
 ---
 
@@ -17,14 +17,10 @@ ms.author: v-ydequadros
 This topic describes how to onboard the Google Cloud Platform (GCP) authorization system on Microsoft CloudKnox Permissions Management (CloudKnox).
 
 > [!NOTE] 
-> To complete this task you must have Global Administrator permissions.
+> To complete this task, you must have Global Administrator permissions.
+> Before beginning this task, make sure you have completed the steps provided in [Enable CloudKnox on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.md).
 
-> [!NOTE] 
-> Before beginning this task, make sure you have completed the steps provided in Enable CloudKnox on your Azure Active Directory tenant.
-
-<!---[Enable CloudKnox on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.html).--->
-
-**To onboard the GCP authorization system on CloudKnox:**
+## Onboard GCP
 
 1. If the **Data Collectors** tab isn't displayed: 
 
@@ -108,7 +104,7 @@ This topic describes how to onboard the Google Cloud Platform (GCP) authorizatio
 
 
 
-<!---## Next steps--->
+## Next steps
 
-<!---For information on how to onboard Amazon Web Services (AWS), see [Onboard the (AWS) authorization system](cloudknox-onboard-aws.html).--->
-<!---For information on how to onboard Microsoft Azure, see [Onboard the Azure authorization system](cloudknox-onboard-azure.html).--->
+- For information on how to onboard Amazon Web Services (AWS), see [Onboard the AWS authorization system](cloudknox-onboard-aws.md).
+- For information on how to onboard Microsoft Azure, see [Onboard the Azure authorization system](cloudknox-onboard-azure.md).
