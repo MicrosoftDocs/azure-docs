@@ -6,7 +6,7 @@ ms.service: api-management
 author: martinpankraz
 ms.author: mapankra
 ms.topic: how-to
-ms.date: 01/18/2022
+ms.date: 01/19/2022
 ms.custom: 
 ---
 
@@ -21,11 +21,6 @@ In this article, you'll:
 > * Complete API configuration
 > * Test the API in the Azure portal
 
-For advanced information, see:
-
-* [Example end-to-end scenario](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/) to integrate API Management with an SAP gateway.
-* [SAP principal propagation policy](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) sample.
-
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
@@ -33,13 +28,14 @@ For advanced information, see:
 
 ## Convert OData metadata to OpenAPI JSON
 
-1. Retrieve metadata XML from your SAP service. You can use the SAP Gateway Client or a direct HTTP call to retrieve the XML.
+1. Retrieve metadata XML from your SAP service. You can use the SAP Gateway Client (transaction `/IWFND/GW_CLIENT`) or a direct HTTP call to retrieve the XML.
+
 1. Convert the OData XML to OpenAPI JSON format using the OASIS [open-source tool](https://github.com/oasis-tcs/odata-openapi).
     
     * For test purposes with a single XML file, you can use a [web-based converter](https://convert.odata-openapi.net/) based on the open-source tool.
     * With the tool or the web-based converter, make sure that you configure the IP address:port of your SAP server and the base path of your service.
 
-1. Save the `openapi-spec.json` file locally for import to API Management
+1. Save the `openapi-spec.json` file locally for import to API Management.
 
 [!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
 
@@ -83,6 +79,12 @@ For advanced information, see:
 1. Select an operation, enter any required values, and select **Send**.
 1. View the response. To troubleshoot, [trace](api-management-howto-api-inspector.md) the call.
 1. When testing is complete, exit the test console.
+
+## Production considerations
+
+* See an [Example end-to-end scenario](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/) to integrate API Management with an SAP gateway.
+* Use an [SAP principal propagation policy](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) to configure and control access to an SAP backend.
+* For guidance to deploy, manage, and migrate APIs at scale, see [CI/CD for API Management using Azure Resource Manager templates](devops-api-development-templates.md).
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
