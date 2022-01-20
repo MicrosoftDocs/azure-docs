@@ -114,7 +114,8 @@ Do you want to enforce any of the following access controls on cloud apps?
 **Access tokens are by default issued if a Conditional Access policy condition does not trigger an access control**. 
 
 This doesn’t prevent the app to have separate authorization to block access. For example, consider a policy where: 
-  *IF user is in finance team, THEN force MFA to access their payroll app.
+  
+  * IF user is in finance team, THEN force MFA to access their payroll app.
 
   * IF a user not in finance team attempts to access the payroll app, the user will be issued an access token. 
 
