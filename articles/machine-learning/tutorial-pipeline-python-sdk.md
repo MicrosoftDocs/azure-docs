@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: lobrien
 ms.author: laobri
 ms.reviewer: laobri
-ms.date: 01/228/2022
+ms.date: 01/28/2022
 ms.custom: devx-track-python
 ---
 
@@ -124,7 +124,7 @@ if not found:
 # For a more detailed view of current AmlCompute status, use get_status().print(compute_target.get_status().serialize())
 ```
 > [!Note]
-> GPU availability depends on the quota of your Azure subscription and upon Azure capacity. See [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas).
+> GPU availability depends on the quota of your Azure subscription and upon Azure capacity. See [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md).
     
 ### Create a dataset for the Azure-stored data
 
@@ -240,10 +240,10 @@ The call to `PythonScriptStep` specifies that, when the pipeline step is run:
 
 * All the files in the `script_folder` directory are uploaded to the `compute_target`
 * Among those uploaded source files, the file `prepare.py` will be run
-* The `fashion_ds` dataset will be mounted on the `compute_target` and appear as a directory
+* The `fashion_ds` and `prepared_fashion_ds` datasets will be mounted on the `compute_target` and appear as directories
 * The path to the `fashion_ds` files will be the first argument to `prepare.py`. In `prepare.py`, this argument is assigned to `mounted_input_path`
 * The path to the `prepared_fashion_ds` will be the second argument to `prepare.py`. In `prepare.py`, this argument is assigned to `mounted_output_path`
-* Because `allow_reuse` is `True`, it will not be re-run until its source files or inputs change
+* Because `allow_reuse` is `True`, it will not be rerun until its source files or inputs change
 * This `PythonScriptStep` will be named `prepare step`
 
 tk More on reuse? tk
@@ -254,9 +254,12 @@ tk
 
 ### Create the training step's source
 
-With larger pipelines, the best practice is to put each steps' source code in a separate directory (`src/prepare/`, `src/train/`, etc.) but for this tutorial, just use or create the file `train.py` in the same `keras-mnist-fashion/` source directory.
+With larger pipelines, it's a good practice to put each step's source code in a separate directory (`src/prepare/`, `src/train/`, etc.) but for this tutorial, just use or create the file `train.py` in the same `keras-mnist-fashion/` source directory.
 
 ```python
+# train.py
+# Trains a small convolutional neural net on the Fashion-MNIST dataset
+
 import keras
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten
@@ -371,7 +374,7 @@ plt.legend(fontsize=12)
 plt.grid(True)
 
 # log an image
-run.log_image("Loss_vs_Accuracy", plot=plt)
+run.log_image("Loss_and_Accuracy", plot=plt)
 
 # create a ./outputs/model folder in the compute target
 # files saved in the "./outputs" folder are automatically uploaded into run history
@@ -387,18 +390,18 @@ model.save_weights("./outputs/model/model.h5")
 print("model saved in ./outputs/model folder")
 ```
 
-The majority of this code should be familiar to ML developers: 
+Most of this code should be familiar to ML developers: 
 
 * The data is partitioned into train and validation sets for training, and a separate test subset for final scoring
 * The input shape is 28x28x1 (only 1 because the input is grayscale), there will be 256 inputs in a batch, and there are 10 classes
 * The number of training epochs will be 10
-* The model has 3 convolutional layers, with max pooling and dropout, followed by a dense layer and softmax head
+* The model has three convolutional layers, with max pooling and dropout, followed by a dense layer and softmax head
 * The model is fitted for 10 epochs and then evaluated
 * The model architecture is written to "outputs/model/model.json" and the weights to `outputs/model/model.h5`
 
-Some of the code, though, is specific to Azure Machine Learning. `run = Run.get_context()` retrieves a [`Run`](..python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) object, which contains the current service context. The `train.py` source uses this `run` object to retrieve the input dataset via it's name (an alternative to the code in `prepare.py` that retrieved the dataset via the `argv` array of script arguments). 
+Some of the code, though, is specific to Azure Machine Learning. `run = Run.get_context()` retrieves a [`Run`](../python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=True) object, which contains the current service context. The `train.py` source uses this `run` object to retrieve the input dataset via its name (an alternative to the code in `prepare.py` that retrieved the dataset via the `argv` array of script arguments). 
 
-The `run` object is also used to log the training progress at the end of every epoch and, at the end of training, to log the graph of loss versus accuracy over time.
+The `run` object is also used to log the training progress at the end of every epoch and, at the end of training, to log the graph of loss and accuracy over time.
 
 ### Create the training pipeline step
 
