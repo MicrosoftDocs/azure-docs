@@ -58,6 +58,7 @@ Here is a high-level summary of the data-flow steps for copying with a self-host
 - The supported versions of Windows are:
   - Windows 8.1
   - Windows 10
+  - Windows 11
   - Windows Server 2012
   - Windows Server 2012 R2
   - Windows Server 2016
