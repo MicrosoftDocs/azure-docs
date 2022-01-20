@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 01/19/2022
+ms.date: 01/20/2022
 ms.author: alkohli
 ---
 
@@ -53,9 +53,15 @@ Read-only attributes on directories aren't transferred.
 
 #### ACLs
 
-**SMB transfers.** In Windows, all the ACLs for directories and files that you copy to your Data Box over SMB are copied and transferred. Transfers include both discretionary ACLs (DACLs) and system ACLs (SACLs). In Linux, only Windows NT ACLs are transferred.
+ACLs DEFINITION
 
-**NFS transfers.** ACLs aren't transferred during data copies over Network File System (NFS) and when you use the data copy service to transfer your data. The data copy service reads data directly from your shares and can't read ACLs.
+**Transfer methods.** Support for ACLs transfer during a data copy varies with the file transfer protocol or service that you use. There are also some differences when you use a Windows client vs. a Linux client for the data copy.
+
+- SMB transfers. When you [copy data over SMB](databox/data-box-deploy-copy-data.md), all the ACLs for directories and files that you copy to your Data Box over SMB are copied and transferred. Transfers include both discretionary ACLs (DACLs) and system ACLs (SACLs). If you're using a Linux client for an SMB transfer, only Windows NT ACLs are transferred.
+
+- NFS transfers. ACLs aren't transferred when you [copy data over Network File System (NFS)](databox/data-box-deploy-copy-data-via-nfs.md).
+
+- Data copy service - ACLs aren't transferred when you [copy data via the data copy service](data-box-deploy-copy-data-via-copy-service.md). The data copy service reads data directly from your shares and can't read ACLs.
  
 **Default ACLs.** Even if your data copy tool does not copy ACLs, in Windows, the default ACLs on directories and files are transferred to Azure Files. The default ACLs aren't transferred in Linux.
 
@@ -64,7 +70,6 @@ The default ACLs have permissions for the built-in Administrator account, the SY
 The ACLs contain security descriptors with the following properties: ACLs, Owner, Group, SACL.
 
 **Disabling ACLs transfer.** Transfer of ACLs is enabled by default. You might want to disable this setting in the local web UI on your Data Box. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md).
-
 
 > [!NOTE]
 > Files with ACLs containing conditional access control entry (ACE) strings are not copied. This is a known issue. To work around this, copy these files to the Azure Files share manually by mounting the share and then using a copy tool that supports copying ACLs.
