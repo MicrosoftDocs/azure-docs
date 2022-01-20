@@ -71,7 +71,7 @@ The ACLs contain security descriptors with the following properties: ACLs, Owner
 
 **Disabling ACLs transfer.** Transfer of ACLs is enabled by default. You might want to disable this setting in the local web UI on your Data Box. For more information, see [Use the local web UI to administer your Data Box and Data Box.-->
 
-Depending on the transfer method used and whether you're using a Windows or Linux client, some or all discretionary and default access control lists (ACLs) are transferred during the data copy to Azure Files.
+Depending on the transfer method used and whether you're using a Windows or Linux client, some or all discretionary and default access control lists (ACLs) on files and folders may be transferred during the data copy to Azure Files.
 
 **ACLs transfer over SMB.** When you use a Windows client for an [SMB file transfer](./data-box-deploy-copy-data.md), all the ACLs for directories and files that you copy to your Data Box are copied and transferred. Transfers include both discretionary ACLs (DACLs) and system ACLs (SACLs). If you use a Linux client for an SMB transfer, only Windows NT ACLs are transferred.
 
