@@ -33,7 +33,7 @@ Depending on how you delete a VM, it only deletes the VM resource, not the netwo
 1. Under **Data disks**, you can either attach an existing data disk or create a new disk and attach it to the VM.
 
     - If you choose **Create and attach a new disk**, the **Create a new disk** page will open and you can select whether to delete the disk when you delete the VM.
-        :::image type="content" source="media/delete/delete-data-disk.png" alt-text="Screenshot showing the checkbox to choose to delete the data disk when the VM is deleted.":::
+        :::image type="content" source="media/delete/delete-data-disk.png" alt-text="Screenshot showing a checkbox to choose to delete the data disk when the VM is deleted.":::
 
     - If you choose to **Attach an existing disk**, you will be able to choose the disk, LUN, and whether you want to delete the data disk when you delete the VM.
         :::image type="content" source="media/delete/delete-existing-data-disk.png" alt-text="Screenshot showing the checkbox to choose to delete the data disk when the VM is deleted.":::
