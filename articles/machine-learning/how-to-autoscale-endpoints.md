@@ -16,7 +16,7 @@ ms.date: 11/03/2021
 
 Autoscale automatically runs the right amount of resources to handle the load on your application. [Managed endpoints](concept-endpoints.md) supports autoscaling through integration with the Azure Monitor autoscale feature.
 
-Azure Monitor autoscaling supports a rich set of rules. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination. For more information, see [Overview of autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview).
+Azure Monitor autoscaling supports a rich set of rules. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination. For more information, see [Overview of autoscale in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md).
 
 :::image type="content" source="media/how-to-autoscale-endpoints/concept-autoscale.png" alt-text="Diagram for autoscale adding/removing instance as needed":::
 
@@ -182,7 +182,7 @@ If you are not going to use your deployments, delete them:
 
 To learn more about autoscale with Azure Monitor, see the following articles:
 
-- [Understand autoscale settings](/azure/azure-monitor/autoscale/autoscale-understanding-settings)
-- [Overview of common autoscale patterns](/azure/azure-monitor/autoscale/autoscale-common-scale-patterns)
-- [Best practices for autoscale](/azure/azure-monitor/autoscale/autoscale-best-practices)
-- [Troubleshooting Azure autoscale](/azure/azure-monitor/autoscale/autoscale-troubleshoot)
+- [Understand autoscale settings](../azure-monitor/autoscale/autoscale-understanding-settings.md)
+- [Overview of common autoscale patterns](../azure-monitor/autoscale/autoscale-common-scale-patterns.md)
+- [Best practices for autoscale](../azure-monitor/autoscale/autoscale-best-practices.md)
+- [Troubleshooting Azure autoscale](../azure-monitor/autoscale/autoscale-troubleshoot.md)

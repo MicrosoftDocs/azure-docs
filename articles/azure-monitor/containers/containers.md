@@ -92,7 +92,7 @@ The following table outlines the Docker orchestration and operating system monit
 
 Use the following information to install and configure the solution.
 
-1. Add the Container Monitoring solution to your Log Analytics workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) or by using the process described in [Add monitoring solutions from the Solutions Gallery](../insights/solutions.md).
+1. Add the Container Monitoring solution to your Log Analytics workspace from [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) or by using the process described in [Add monitoring solutions from the Solutions Gallery](../insights/solutions.md).
 
 2. Install and use Docker with a Log Analytics agent. Based on your operating system and Docker orchestrator, you can use the following methods to configure your agent.
    - For standalone hosts:
@@ -636,6 +636,9 @@ It's often useful to build queries starting with an example or two and then modi
 Saving queries is a standard feature in Azure Monitor. By saving them, you'll have those that you've found useful handy for future use.
 
 After you create a query that you find useful, save it by clicking **Favorites** at the top of the Log Search page. Then you can easily access it later from the **My Dashboard** page.
+
+## Removing solution from your workspace
+To remove the Container Monitoring Solution, follow the instructions for removing solutions using one of the following: [Azure portal](../insights/solutions.md?tabs=portal#remove-a-monitoring-solution), [PowerShell](/powershell/module/az.monitoringsolutions/remove-azmonitorloganalyticssolution), or [Azure CLI](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-delete)
 
 ## Next steps
 

@@ -70,6 +70,7 @@ To complete this tutorial, you need to:
     > Regarding the storage account used as part of the migration, you must either:
     > * Choose to allow all network to access the storage account.
     > * Turn on [subnet delegation](../virtual-network/manage-subnet-delegation.md) on MI subnet and update the Storage Account firewall rules to allow this subnet.
+    > * You can't use an Azure Storage account that has a private endpoint with Azure Database Migration Service.
 
 * Ensure that your virtual network Network Security Group rules don't block the outbound port 443 of ServiceTag for ServiceBus, Storage and AzureMonitor. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Configure your [Windows Firewall for source database engine access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).

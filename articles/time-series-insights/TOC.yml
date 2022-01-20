@@ -229,7 +229,5 @@
       href: https://feedback.azure.com/d365community/forum/873d6d1c-0c25-ec11-b6e6-000d3a4f07b8
   - name: Azure videos
     href: https://azure.microsoft.com/resources/videos/index/?services=time-series-insights
-  - name: Channel 9 videos
-    href: https://channel9.msdn.com/Search?term=time%20series%20insights
   - name: Azure IoT updates
     href: https://azure.microsoft.com/roadmap/?category=iot

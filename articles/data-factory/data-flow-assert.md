@@ -41,7 +41,7 @@ Select ```fail data flow``` if you wish to have your data flow activity fail imm
 
 ### Assert ID
 
-Assert ID is a property where you will enter a (string) name for your assertion. You will be able to use the identifier later downstream in your data flow using ```hasError()``` or to output the assertion failure code.
+Assert ID is a property where you will enter a (string) name for your assertion. You will be able to use the identifier later downstream in your data flow using ```hasError()``` or to output the assertion failure code. Assert IDs must be unique within each dataflow.
 
 ### Assert description
 
