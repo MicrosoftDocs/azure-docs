@@ -8,12 +8,11 @@ ms.date: 10/15/2021
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
-monikerRange: "=iotedge-2018-06"
 ---
 
 # PowerShell functions for IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Understand the PowerShell functions that deploy, provision, and get the status of your IoT Edge for Linux on Windows (EFLOW) virtual machine.
 
@@ -232,7 +231,7 @@ For more information, use the command `Get-Help Get-EflowVmTelemetryOption -full
 The **Get-EflowVmTpmProvisioningInfo** command returns the TPM provisioning information. This command takes no parameters. It returns an object that contains two properties:
 
 * Endorsement Key
-* Registration Id
+* Registration ID
 
 For more information, use the command `Get-Help Get-EflowVmTpmProvisioningInfo -full`.
 

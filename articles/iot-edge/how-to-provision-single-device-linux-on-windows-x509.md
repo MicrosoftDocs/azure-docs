@@ -7,12 +7,11 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/27/2021
 ms.author: kgremban
-monikerRange: "iotedge-2018-06"
 ---
 
 # Create and provision an IoT Edge for Linux on Windows device using X.509 certificates
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 This article provides end-to-end instructions for registering and provisioning an IoT Edge for Linux on Windows device.
 

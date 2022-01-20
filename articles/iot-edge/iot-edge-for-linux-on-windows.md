@@ -10,12 +10,11 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/18/2021
 ms.author: kgremban
-monikerRange: "=iotedge-2018-06"
 ---
 
 # What is Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge for Linux on Windows allows you to run containerized Linux workloads alongside Windows applications in Windows IoT deployments. Businesses that rely on Windows IoT to power their edge devices can now take advantage of the cloud-native analytics solutions being built in Linux.
 
@@ -43,9 +42,9 @@ Bi-directional communication between Windows process and the Linux virtual machi
 A Windows device with the following minimum requirements:
 
 * System Requirements
-   * Windows 10¹/11 (Pro, Enterprise, IoT Enterprise)
-   * Windows Server 2019¹/2022  
-   <sub>¹ Windows 10 and Windows Server 2019 minimum build 17763 with all current cumulative updates installed.</sub>
+   * Windows 10<sup>1</sup>/11 (Pro, Enterprise, IoT Enterprise)
+   * Windows Server 2019<sup>1</sup>/2022  
+   <sub><sup>1</sup> Windows 10 and Windows Server 2019 minimum build 17763 with all current cumulative updates installed.</sub>
 
 * Hardware requirements
   * Minimum Free Memory: 1 GB
