@@ -22,7 +22,7 @@ ms.custom: has-adal-ref
 This article explains how cloud-native certificate-based authentication (CBA) against Azure Active Directory (Azure AD) works, with background information and testing scenarios.
 
 >[!NOTE]
->Cloud-native certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities.
+>Cloud-native certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 
 ## How does Azure Active Directory certificate-based authentication work?
@@ -116,10 +116,10 @@ An admin can configure the CRL distribution point during the setup process of th
 
 **Typical flow of the CRL check:**
 
-1. Azure AD will attempt to download the CRL at the first sign in event of any user with a certificate of the corresponding trusted issuer/certificate authority. 
-1. Azure AD will cache and re-use the CRL for any subsequent usage. It will honor the **Next update date** and if available **Next CRL Publish date** (used by Windows Server CAs) in the CRL document.
+1. Azure AD will attempt to download the CRL at the first sign in event of any user with a certificate of the corresponding trusted issuer or certificate authority. 
+1. Azure AD will cache and re-use the CRL for any subsequent usage. It will honor the **Next update date** and, if available, **Next CRL Publish date** (used by Windows Server CAs) in the CRL document.
 1. The user certificate-based authentication will fail if:
-   1. A CRL has been configured for the trusted issuer and Azure AD cannot download the CRL, due to availability, size or latency constraints.
+   1. A CRL has been configured for the trusted issuer and Azure AD cannot download the CRL, due to availability, size, or latency constraints.
    1. The user's certificate is listed as revoked on the CRL.
    
       :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/user-cert.png" alt-text="Screenshot of the revoked user certificate in the CRL." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/user-cert.png":::  

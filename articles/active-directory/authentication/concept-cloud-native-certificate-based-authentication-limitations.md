@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 01/20/2022
 
 ms.author: justinha
 author: justinha
@@ -19,6 +19,10 @@ ms.custom: has-adal-ref
 # Limitations with cloud native certificate-based authentication in Azure Active Directory
 
 This topic covers supported and unsupported scenarios for cloud native certificate-based authentication in Azure Active Directory.
+
+>[!NOTE]
+>Cloud-native certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+
 
 ## Supported scenarios
 

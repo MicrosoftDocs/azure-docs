@@ -21,7 +21,7 @@ ms.custom: has-adal-ref
 This topic covers how to troubleshoot cloud native certificate-based authentication in Azure Active Directory.
 
 >[!NOTE]
->Cloud-native certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities.
+>Cloud-native certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 
 ## Next steps 
