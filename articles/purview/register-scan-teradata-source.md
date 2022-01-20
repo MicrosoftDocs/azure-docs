@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 01/20/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -18,9 +18,9 @@ This article outlines how to register Teradata, and how to authenticate and inte
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes**](how-to-lineage-teradata.md)|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes*](#lineage)|
 
-\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+\* *Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
 
 The supported Teradata database versions are 12.x to 17.x.
 
@@ -36,6 +36,8 @@ When scanning Teradata source, Azure Purview supports:
     - Functions including the parameter dataset
 
 - Fetching static lineage on assets relationships among tables, views and stored procedures.
+
+When setting up scan, you can choose to scan an entire Teradata server, or scope the scan to a subset of databases matching the given name(s) or name pattern(s).
 
 ## Prerequisites
 
@@ -112,7 +114,7 @@ Follow the steps below to scan Teradata to automatically identify assets and cla
 
         To understand more on credentials, refer to the link [here](./manage-credentials.md)
 
-    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For Example: `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. When the list is empty, all available schemas are imported.
+    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For Example: `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default.
 
         Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: `A%; %B; %C%; D`
         * Start with A or
@@ -138,6 +140,14 @@ Follow the steps below to scan Teradata to automatically identify assets and cla
 1. Review your scan and select **Save and Run**.
 
 [!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
+
+## Lineage
+
+After scanning your Teradata source, you can [browse data catalog](how-to-browse-catalog.md) or [search data catalog](how-to-search-catalog.md) to view the asset details. 
+
+Go to the asset -> lineage tab, you can see the asset relationship when applicable. Refer to the [supported capabilities](#supported-capabilities) section on the supported Teradata lineage scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
+
+:::image type="content" source="media/register-scan-teradata-source/lineage.png" alt-text="Teradata lineage view" border="true":::
 
 ## Next steps
 
