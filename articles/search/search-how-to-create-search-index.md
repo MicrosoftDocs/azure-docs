@@ -14,11 +14,9 @@ ms.date: 01/12/2021
 
 # Create a search index in Azure Cognitive Search
 
-Queries in Azure Cognitive Search target searchable text in a search index. In this article, learn the steps for defining and publishing a search index using any of the modalities supported by Azure Cognitive Search. 
+In Azure Cognitive Search, query requests target the searchable text in a [search index](search-what-is-an-index.md). 
 
-Unless you are using an [indexer](search-howto-create-indexers.md), creating an index and populating an index are two separate tasks. For non-indexer scenarios, your next step after index creation will be [data import](search-what-is-data-import.md). 
-
-To learn more about index-related concepts, see [Search indexes in Azure Cognitive Search](search-what-is-an-index.md).
+In this article, learn the steps for defining and publishing a search index. Once the index exists, [data import](search-what-is-data-import.md) follows as a separate task. 
 
 ## Prerequisites
 
@@ -111,7 +109,7 @@ The following screenshot highlights where **Add index** and **Import data** appe
 + [Create a search index using REST and Postman](search-get-started-rest.md)
 + [Get started with Visual Studio Code and Azure Cognitive Search](search-get-started-vs-code.md)
 
-The REST API provides defaults for field attribution. For example, all Edm.String fields are searchable by default. Attributes are shown in full below for illustrative purposes, but you can omit attribution in cases where the default values apply.
+The REST API provides defaults for field attribution. For example, all `Edm.String` fields are searchable by default. Attributes are shown in full below for illustrative purposes, but you can omit attribution in cases where the default values apply.
 
 Refer to the [Index operations (REST)](/rest/api/searchservice/index-operations) for help with formulating index requests.
 
