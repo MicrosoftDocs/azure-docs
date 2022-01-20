@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 01/17/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -18,7 +18,7 @@ This article outlines how to register Hive Metastore databases, and how to authe
 
 |**Metadata extraction**|  **Full scan**  |**Incremental scan**|**Scoped scan**|**Classification**|**Access policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| Yes** |
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes**](#lineage) |
 
 \** Lineage is supported if the dataset is used as a source or sink in the [Azure Data Factory Copy activity](how-to-link-azure-data-factory.md).
 
@@ -179,6 +179,12 @@ Use the following steps to scan Hive Metastore databases to automatically identi
 1. Review your scan and select **Save and Run**.
 
 [!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
+
+## Lineage
+
+After scanning your Hive Metastore source, you can [browse data catalog](how-to-browse-catalog.md) or [search data catalog](how-to-search-catalog.md) to view the asset details. 
+
+Go to the asset -> lineage tab, you can see the asset relationship when applicable. Refer to the [supported capabilities](#supported-capabilities) section on the supported Hive Metastore lineage scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
 
 ## Next steps
 
