@@ -1,6 +1,6 @@
 ---
 title: Plan your hybrid Azure Active Directory join deployment
-description: Explains the steps that are required to implement Azure AD joined devices in your environment.
+description: Explains the steps that are required to implement hybrid Azure AD joined devices in your environment.
 
 services: active-directory
 ms.service: active-directory
