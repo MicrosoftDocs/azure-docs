@@ -56,13 +56,13 @@ az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=prem
 Run the following command to check the status of this step.
 
 ```azurecli
-az rest --method get --uri "${ASE_ID}?api-version=2018-11-01" --query properties.status
+az rest --method get --uri "${ASE_ID}?api-version=2021-02-01" --query properties.status
 ```
 
 If it's in progress, you'll get a status of "Migrating". Once you get a status of "Ready", run the following command to get your new IPs. If you don't see the new IPs immediately, wait a few minutes and try again.
 
 ```azurecli
-az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2018-11-01"
+az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2021-02-01"
 ```
 
 ## 4. Update dependent resources with new IPs
@@ -90,7 +90,7 @@ az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=full
 Run the following command to check the status of your migration. The status will show as "Migrating" while in progress.
 
 ```azurecli
-az rest --method get --uri "${ASE_ID}?api-version=2018-11-01" --query properties.status
+az rest --method get --uri "${ASE_ID}?api-version=2021-02-01" --query properties.status
 ```
 
 Once you get a status of "Ready", migration is done and you have an App Service Environment v3.
