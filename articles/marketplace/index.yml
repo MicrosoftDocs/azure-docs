@@ -73,7 +73,7 @@ landingContent:
         url: downloads-dashboard.md
       - text: Ratings and reviews dashboard
         url: ratings-reviews.md
-      - text: See More
+      - text: See more
         url: analytics.md   
 
   - title: Create an offer
@@ -130,7 +130,7 @@ landingContent:
     - linkListType: get-started
       links:
       - text: Support options
-        url: /partner-center/report-problems-with-partner-center
+        url: /partner-center/report-problems-with-partner-center?context=/azure/marketplace/context/context
       - text: Troubleshoot authentication errors
         url: cloud-partner-portal-api-troubleshooting-authentication-errors.md
       - text: Geographic availability and currencies
