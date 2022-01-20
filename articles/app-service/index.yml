@@ -35,51 +35,51 @@ landingContent:
         links:
           - text: Deploy an ASP.NET web app
             url: quickstart-dotnetcore.md
-          - text: Create a Node.js web app in Azure
+          - text: Deploy a Node.js web app
             url: quickstart-nodejs.md
-          - text: Create a PHP web app in Azure App Service
+          - text: Deploy a PHP web app
             url: quickstart-php.md
-          - text: Create a Java app on Azure App Service
+          - text: Deploy a Java app
             url: quickstart-java.md
-          - text: Create a Python app using Azure App Service on Linux
+          - text: Deploy a Python web app
             url: quickstart-python.md
-          - text: Create a Ruby on Rails App in App Service
+          - text: Deploy a Ruby on Rails web app
             url: quickstart-ruby.md
 
   - title: Common tasks
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Map an existing custom DNS name to Azure App Service
+          - text: Map a custom DNS name
             url: app-service-web-tutorial-custom-domain.md
-          - text: Secure a custom DNS name with a TLS/SSL binding in Azure App Service
+          - text: Secure a custom DNS name with a TLS/SSL binding
             url: configure-ssl-bindings.md
-          - text: Set up staging environments in Azure App Service
+          - text: Set up staging environments
             url: deploy-staging-slots.md
       - linkListType: how-to-guide
         links:
-          - text: Open an SSH session to a Linux container in Azure App Service
+          - text: Open an SSH session to a Linux container
             url: configure-linux-open-ssh-session.md
-          - text: Migrate an active DNS name to Azure App Service
+          - text: Migrate an active DNS name
             url: manage-custom-dns-migrate-domain.md
 
   - title: Run custom containers
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Run a custom container in Azure
+          - text: Run a custom container
             url: quickstart-custom-container.md
       - linkListType: tutorial
         links:
-          - text: Create a multi-container (preview) app in Web App for Containers
+          - text: Create a multi-container (preview) app
             url: tutorial-multi-container-app.md          
-          - text: Migrate custom software to Azure App Service using a custom container
+          - text: Migrate custom software to App Service in a container
             url: tutorial-custom-container.md
       - linkListType: how-to-guide
         links:
-          - text: Continuous deployment with custom containers in Azure App Service
+          - text: Continuous deployment with custom containers
             url: deploy-ci-cd-custom-container.md
-          - text: Mount Azure Storage as a local share in a custom container in App Service
+          - text: Mount Azure Storage as a local share in a custom container
             url: configure-connect-to-azure-storage.md
           - text: Deploy a custom container to App Service using GitHub Actions
             url: deploy-container-github-action.md
@@ -87,19 +87,19 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Deploy an ASP.NET app to Azure with Azure SQL Database
+          - text: Build an ASP.NET app with Azure SQL Database
             url: app-service-web-tutorial-dotnet-sqldatabase.md
-          - text: Build an ASP.NET Core and Azure SQL Database app in Azure App Service
+          - text: Build an ASP.NET Core and Azure SQL Database app
             url: tutorial-dotnetcore-sqldb-app.md
-          - text: Build a PHP and MySQL app in Azure App Service
+          - text: Build a PHP and MySQL app
             url: tutorial-php-mysql-app.md
-          - text: Build a Node.js and MongoDB app in Azure
+          - text: Build a Node.js and MongoDB app
             url: tutorial-nodejs-mongodb-app.md
           - text: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
             url: tutorial-java-spring-cosmosdb.md
-          - text: Deploy a Django web app with PostgreSQL in Azure App Service
+          - text: Deploy a Python (Django) web app with PostgreSQL
             url: tutorial-python-postgresql-app.md
-          - text: Build a Ruby and Postgres app in Azure App Service on Linux
+          - text: Build a Ruby and Postgres app
             url: tutorial-ruby-postgres-app.md
 
   - title: Secure
@@ -110,47 +110,47 @@ landingContent:
             url: overview-security.md
       - linkListType: tutorial
         links:
-          - text: Secure Azure SQL Database connection from App Service using a managed identity
+          - text: Secure Azure SQL Database connection from App Service without connection secrets
             url: tutorial-connect-msi-sql-database.md
-          - text: Enable authentication in App Service and access storage and Microsoft Graph
+          - text: Enable authentication in App Service and access storage without secrets
             url: scenario-secure-app-overview.md
-          - text: Secure Cognitive Service connection from App Service using Key Vault
+          - text: Connect securely to services with Key Vault secrets
             url: tutorial-connect-msi-key-vault.md
-          - text: Isolate back-end communication in Azure App Service with Virtual Network integration
+          - text: Isolate back-end communication with Virtual Network integration
             url: tutorial-networking-isolate-vnet.md
-          - text: Authenticate and authorize users end-to-end in Azure App Service
+          - text: Authenticate users end-to-end
             url: tutorial-auth-aad.md
 
   - title: Manage and integrate
     linkLists:
       - linkListType: concept
         links:
-          - text: Manage an App Service plan in Azure
+          - text: Manage an App Service plan
             url: app-service-plan-manage.md
-      - linkListType: tutorial
-        links:
-          - text: Host a RESTful API with CORS in Azure App Service
-            url: app-service-web-tutorial-rest-api.md
-          - text: Add Azure CDN to an Azure App Service web app
-            url: ../cdn/cdn-add-to-web-app.md
-      - linkListType: how-to-guide
-        links:
           - text: Integrate your app with an Azure virtual network
             url: ./overview-vnet-integration.md
           - text: Azure App Service Hybrid Connections
             url: app-service-hybrid-connections.md
-          - text: Configure a custom domain name in Azure App Service with Traffic Manager integration
+      - linkListType: tutorial
+        links:
+          - text: Host a RESTful API with CORS
+            url: app-service-web-tutorial-rest-api.md
+          - text: Add a CDN to your application
+            url: ../cdn/cdn-add-to-web-app.md
+      - linkListType: how-to-guide
+        links:
+          - text: Map a custom domain when integrated with Traffic Manager
             url: configure-domain-traffic-manager.md
-          - text: Back up your app in Azure
+          - text: Back up your app
             url: manage-backup.md
 
   - title: Upload your code or content
     linkLists:
       - linkListType: deploy
         links:
-          - text: Deploy your app to Azure App Service using FTP/S
+          - text: Upload content with FTP
             url: deploy-ftp.md
-          - text: Deploy files to App Service
+          - text: Deploy zip packages and individual files
             url: deploy-zip.md
           - text: Local Git deployment to Azure App Service
             url: deploy-local-git.md
@@ -158,7 +158,7 @@ landingContent:
             url: deploy-content-sync.md
           - text: Continuous deployment to Azure App Service
             url: deploy-continuous-deployment.md
-          - text: Run your app in Azure App Service directly from a ZIP package
+          - text: Run your app directly from a zip package
             url: deploy-run-package.md
 
   - title: Monitor your app
@@ -175,16 +175,16 @@ landingContent:
             url: tutorial-troubleshoot-monitor.md
       - linkListType: how-to-guide
         links:
-          - text: Enable diagnostics logging for apps in Azure App Service
+          - text: Enable diagnostics logging for apps
             url: troubleshoot-diagnostic-logs.md
-          - text: Get resource events in Azure App Service
+          - text: Get resource events
             url: get-resource-events.md
-          - text: Monitor App Service instances using Health check
+          - text: Monitor App Service instances using health check
             url: monitor-instances-health-check.md
             
       - linkListType: reference
         links:
-          - text: Monitor apps in Azure App Service
+          - text: Quotas & alerts
             url: web-sites-monitor.md
 
   - title: More resources
@@ -203,13 +203,13 @@ landingContent:
             url: samples-powershell.md
       - linkListType: reference
         links:
-          - text: az appservice
+          - text: Azure CLI
             url: /cli/azure/appservice
-          - text: Az.Websites
+          - text: Azure PowerShell
             url: /powershell/module/az.websites/#app_service
-          - text: Azure App Service
+          - text: REST API
             url: /rest/api/appservice/
-          - text: Microsoft.Web resource types
+          - text: ARM template resource types
             url: /azure/templates/microsoft.web/allversions
 
   - title: App Service on Azure Arc (preview)
