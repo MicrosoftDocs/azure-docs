@@ -103,8 +103,11 @@ az aks update-credentials \
     --name myAKSCluster \
     --reset-service-principal \
     --service-principal "$SP_ID" \
-    --client-secret "$SP_SECRET"
+    --client-secret "${SP_SECRET:Q}"
 ```
+
+> [!IMPORTANT]
+> When using Azure generated secrets, secrets may contain special characters ("-" or "~"); therefore it may be nessesary to excape the characters that are stored in the value of the secret variable (in this case the variable is "SP_SECRET"). This can be done by keeping the vairable within the quotes and adding brackets with the appropate delimiter (:Q or @Q) depending on the console you are using as shown above, for example: "{VARIABLE_HERE:Q}" or "{VARIABLE_HERE@Q}".
 
 For small and midsize clusters, it takes a few moments for the service principal credentials to be updated in the AKS.
 
