@@ -58,6 +58,6 @@ View the status and results of your search job by going to the **Saved Searches*
 To learn more, see the following topics.
 
 - [Hunt with bookmarks](bookmarks.md)
-- [Restore archived logs](restore-archive-log.md)
+- [Restore archived logs](restore-archived-log.md)
 - Basic logs
 - Archived logs
