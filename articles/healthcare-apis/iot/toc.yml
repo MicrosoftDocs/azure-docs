@@ -50,6 +50,8 @@ items:
       href: how-to-use-fhir-mappings.md
     - name: Display Metrics
       href: how-to-display-metrics.md
+    - name: Enable diagnostics logging
+      href: iot-metrics-diagnostics-export.md
     - name: Create copies of mappings
       href: how-to-create-mappings-copies.md
 - name: Concepts
