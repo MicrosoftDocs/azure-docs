@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: 
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 12/07/2021
+ms.date: 01/20/2022
 ms.author: cynthn
 ms.custom: template-how-to 
 
@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 # Delete a VM and attached resources
 
-Depending on how you delete a VM, it only deletes the VM resource, not the networking and disk resources. You can change this default behavior when you create a VM, or update an existing VM, to delete specific resources along with the VM. 
+Depending on how you delete a VM, it only deletes the VM resource, not the networking and disk resources. You can change this default behavior when you create a VM, or update an existing VM, to delete specific resources along with the VM.
 
 
 ## Set delete options when creating a VM
@@ -30,7 +30,9 @@ Depending on how you delete a VM, it only deletes the VM resource, not the netwo
 
     :::image type="content" source="media/delete/delete-disk.png" alt-text="Screenshot checkbox to choose to have the disk deleted when the VM is deleted.":::
 
-1. Under **Data disks**, you can choose which data disks, if any, to delete when you delete the VM.
+1. Under **Data disks**, you can either attach an existing data disk or create a new disk and attach it to the VM. 
+    If you choose **Create and attach a new disk**, the **Create a new disk** page will open and you can select whether to delete the disk when you delete the VM.
+    
 1. When you are done adding your disk information, select **Next : Networking >**. The **Networking** tab will open.
 1. Towards the bottom of the page, select **Delete public IP and NIC when VM is deleted**.
 
