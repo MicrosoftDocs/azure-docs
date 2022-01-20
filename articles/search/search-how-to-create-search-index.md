@@ -9,20 +9,18 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 11/12/2021
+ms.date: 01/12/2021
 ---
 
 # Create a search index in Azure Cognitive Search
 
-Queries in Azure Cognitive Search target searchable text in a search index. In this article, learn the steps for defining and publishing a search index using any of the modalities supported by Azure Cognitive Search. 
+In Azure Cognitive Search, query requests target the searchable text in a [search index](search-what-is-an-index.md). 
 
-Unless you are using an [indexer](search-howto-create-indexers.md), creating an index and populating an index are two separate tasks. For non-indexer scenarios, your next step after index creation will be [data import](search-what-is-data-import.md). 
-
-To learn more about index-related concepts, see [Search indexes in Azure Cognitive Search](search-what-is-an-index.md).
+In this article, learn the steps for defining and publishing a search index. Once the index exists, [data import](search-what-is-data-import.md) follows as a separate task. 
 
 ## Prerequisites
 
-Write permissions are required for creating and loading indexes, granted through an [admin API key](search-security-api-keys.md) on the request. Alternatively, if you're participating in the Azure Active Directory [role-based access control public preview](search-security-rbac.md), you can issue your request as a member of the Search Contributor role.
+Write permissions on the search service are required for creating and loading indexes. Permission can be granted through an [admin API key](search-security-api-keys.md) on the request. Alternatively, if you're participating in the Azure Active Directory [role-based access control public preview](search-security-rbac.md), you can issue your request as a member of the Search Contributor role.
 
 Index creation is largely a schema definition exercise. Before creating one, you should have:
 
@@ -33,6 +31,12 @@ Index creation is largely a schema definition exercise. Before creating one, you
 + A stable index location. Moving an existing index to a different search service is not supported out-of-the-box. Revisit application requirements and make sure the existing search service, its capacity and location, are sufficient for your needs.
 
 Finally, all service tiers have [index limits](search-limits-quotas-capacity.md#index-limits) on the number of objects that you can create. For example, if you are experimenting on the Free tier, you can only have 3 indexes at any given time. Within the index itself, there are limits on the number of complex fields and collections.
+
+## Document keys
+
+A search index has one required field: a document key. A document key is the unique identifier of a search document. In Azure Cognitive Search, it must be a string, and it must originate from unique values in the data source that's providing the content to be indexed. A search service does not generate key values, but in special cases (such as the [Azure Table indexer](search-howto-indexing-azure-tables.md)) it will synthesize existing values to create a unique key for the documents being indexed.
+
+During incremental indexing, where just new and updated content is indexed, incoming documents with new keys are added, while incoming documents with existing keys are either merged or overwritten, depending on whether index fields are null or populated.
 
 ## Allowed updates
 
@@ -64,9 +68,7 @@ Use this checklist to help drive the design decisions for your search index.
 
 1. Review [supported data types](/rest/api/searchservice/supported-data-types). The data type will impact how the field is used. For example, numeric content is filterable but not full text searchable. The most common data type is `Edm.String` for searchable text, which is tokenized and queried using the full text search engine.
 
-1. Identify one field in the source data that contains unique values, allowing it to function as the key field in your index. For example, if you're indexing from Blob Storage, the storage path is often used as the document key. 
-
-   Every index requires one field that serves as the *document key* (sometimes referred to as the "document ID"). The key will be a string in the search index, but you can map it to any unique identifier in your source data. The ability to uniquely identify specific search documents is required for reconstituting a record or entity in a search result, for retrieving a specific document in the search index, and for selective data processing at the per-document level.
+1. Identify one string field in the source data that contains unique values, allowing it to function as the document key in your index. For example, if you're indexing from Blob Storage, the metadata storage path is often used as the document key. 
 
 1. Identify the fields in your data source that will contribute searchable content in the index. Searchable content includes short or long strings that are queried using the full text search engine. If the content is verbose (small phrases or bigger chunks), experiment with different analyzers to see how the text is tokenized.
 
@@ -78,9 +80,9 @@ Use this checklist to help drive the design decisions for your search index.
 
    + Filterable fields are returned in arbitrary order, so consider making them sortable as well.
 
-## Formulate a request
+## Create an index
 
-When you're ready to create the index, there are several ways to move forward. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
+When you're ready to create the index, use a search client that can send the request. You can use the Azure portal or REST APIs for early development and proof-of-concept testing.
 
 During development, plan on frequent rebuilds. Because physical structures are created in the service, [dropping and re-creating indexes](search-howto-reindex.md) is necessary for many modifications. You might consider working with a subset of your data to make rebuilds go faster.
 
@@ -88,12 +90,12 @@ During development, plan on frequent rebuilds. Because physical structures are c
 
 Index design through the portal enforces requirements and schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. In the portal, there are two options for creating a search index: 
 
-+ **Add index** is an embedded editor for specifying an index schema
-+ [**Import data**](search-import-data-portal.md) is a wizard
++ **Add index**, an embedded editor for specifying an index schema
++ [**Import data wizard**](search-import-data-portal.md)
 
-The wizard packs in additional operations by also creating an indexer, data source, and loading data. If this is more than what you want, you should just use **Add index** or another approach.
+The wizard is an end-to-end workflow that creates an indexer, a data source, and a finished index. It also loads the data. If this is more than what you want, use **Add index** instead.
 
-The following screenshot shows where you can find **Add index** and **Import data** on the command bar. After an index is created, you can find it again in the **Indexes** tab.
+The following screenshot highlights where **Add index** and **Import data** appear on the command bar. After an index is created, you can find it again in the **Indexes** tab.
 
   :::image type="content" source="media/search-what-is-an-index/add-index.png" alt-text="Add index command" border="true":::
 
@@ -107,7 +109,7 @@ The following screenshot shows where you can find **Add index** and **Import dat
 + [Create a search index using REST and Postman](search-get-started-rest.md)
 + [Get started with Visual Studio Code and Azure Cognitive Search](search-get-started-vs-code.md)
 
-The REST API provides defaults for field attribution. For example, all Edm.String fields are searchable by default. Attributes are shown in full below for illustrative purposes, but you can omit attribution in cases where the default values apply.
+The REST API provides defaults for field attribution. For example, all `Edm.String` fields are searchable by default. Attributes are shown in full below for illustrative purposes, but you can omit attribution in cases where the default values apply.
 
 Refer to the [Index operations (REST)](/rest/api/searchservice/index-operations) for help with formulating index requests.
 
