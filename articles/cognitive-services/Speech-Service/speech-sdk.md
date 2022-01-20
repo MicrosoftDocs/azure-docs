@@ -14,19 +14,19 @@ ms.author: eur
 
 # About the Speech SDK
 
-The Speech software development kit (SDK) exposes many of the Speech service capabilities, to empower you to develop speech-enabled applications. The Speech SDK is available in many programming languages and across all platforms.
+The Speech software development kit (SDK) exposes many of the Speech service capabilities you can use to develop speech-enabled applications. The Speech SDK is available in many programming languages and across all platforms.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
 ## Scenario capabilities
 
-The Speech SDK exposes many features from the Speech service, but not all of them. The capabilities of the Speech SDK are often associated with scenarios. The Speech SDK is ideal for both real-time and non-real-time scenarios, using local devices, files, Azure blob storage, and even input and output streams. When a scenario can't be achieved with the Speech SDK, look for a REST API alternative.
+The Speech SDK exposes many features from the Speech service, but not all of them. The capabilities of the Speech SDK are often associated with scenarios. The Speech SDK is ideal for both real-time and non-real-time scenarios, by using local devices, files, Azure Blob Storage, and even input and output streams. When a scenario can't be achieved with the Speech SDK, look for a REST API alternative.
 
 ### Speech-to-text
 
 [Speech-to-text](speech-to-text.md) (also known as *speech recognition*) transcribes audio streams to text that your applications, tools, or devices can consume or display. Use speech-to-text with [Language Understanding (LUIS)](../luis/index.yml) to derive user intents from transcribed speech and act on voice commands. Use [speech translation](speech-translation.md) to translate speech input to a different language with a single call. For more information, see [Speech-to-text basics](./get-started-speech-to-text.md).
 
-**Speech recognition (SR), phrase list, intent, translation, and on-premises containers** are available on the following platforms:
+**Speech recognition, phrase list, intent, translation, and on-premises containers** are available on the following platforms:
 
   - C++/Windows and Linux and macOS
   - C# (Framework and .NET Core)/Windows and UWP and Unity and Xamarin and Linux and macOS
@@ -35,13 +35,13 @@ The Speech SDK exposes many features from the Speech service, but not all of the
   - Python
   - Swift
   - Objective-C
-  - Go (SR only)
+  - Go (speech recognition only)
 
 ### Text-to-speech
 
-[Text-to-speech](text-to-speech.md) (also known as *speech synthesis*) converts text into humanlike synthesized speech. The input text is either string literals or using the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). For more information on standard or neural voices, see [Text-to-speech language and voice support](language-support.md#text-to-speech).
+[Text-to-speech](text-to-speech.md) (also known as *speech synthesis*) converts text into humanlike synthesized speech. The input text is either string literals or uses the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). For more information on standard or neural voices, see [Text-to-speech language and voice support](language-support.md#text-to-speech).
 
-**Text-to-speech (TTS)** is available on the following platforms:
+**Text-to-speech** is available on the following platforms:
 
   - C++/Windows and Linux and macOS
   - C# (Framework and .NET Core)/Windows and UWP and Unity and Xamarin and Linux and macOS
@@ -51,7 +51,7 @@ The Speech SDK exposes many features from the Speech service, but not all of the
   - Swift
   - Objective-C
   - Go
-  - TTS REST API can be used in every other situation.
+  - Text-to-speech REST API can be used in every other situation
 
 ### Voice assistants
 
@@ -128,7 +128,7 @@ The Speech SDK covers many feature capabilities of the Speech service, but for s
 
 ## Customization
 
-The Speech service delivers great functionality with its default models across speech-to-text, text-to-speech, and speech translation. Sometimes you might want to increase the baseline performance to work even better with your unique use case. The Speech service has a variety of no-code customization tools that make it easy. You can use them to create a competitive advantage with custom models based on your own data. These models will only be available to you and your organization.
+The Speech service delivers great functionality with its default models across speech-to-text, text-to-speech, and speech translation. Sometimes you might want to increase the baseline performance to work even better with your unique use case. The Speech service has various no-code customization tools that make it easy. You can use them to create a competitive advantage with custom models based on your own data. These models will only be available to you and your organization.
 
 ### Custom speech-to-text
 
