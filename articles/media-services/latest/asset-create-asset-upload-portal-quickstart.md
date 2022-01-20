@@ -36,7 +36,7 @@ This quickstart shows you how to use the Azure portal to upload, encode, and str
 
 * After the content gets processed, you can deliver media content to the client players. To make the videos in the output asset available to the clients for playback, you have to create a [streaming locator](stream-streaming-locators-concept.md). When creating a streaming locator, you need to specify a [streaming policy](stream-streaming-policy-concept.md). Streaming policies enable you to define streaming protocols and encryption options (if any) for your streaming locators. For information on packaging and filtering content, see [Packaging and delivery](encode-dynamic-packaging-concept.md) and [Filters](filters-concept.md).
 
-* You can protect your content by encrypting it with Advanced Encryption Standard (AES-128) or/and any of the three major DRM systems such as Microsoft PlayReady, Google Widevine, and Apple FairPlay. For information on how to configure the content protection, see [Quickstart: Use portal to encrypt content](drm-encrypt-content-how-to.md).
+* You can protect your content by encrypting it with Advanced Encryption Standard (AES-128) or/and any of the three major DRM systems like Microsoft PlayReady, Google Widevine, and Apple FairPlay. For information on how to configure the content protection, see [Quickstart: Use portal to encrypt content](drm-encrypt-content-how-to.md).
         
 ## Prerequisites
 
@@ -49,15 +49,9 @@ Follow the steps to [Create a Media Services account](account-create-how-to.md).
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Locate and select your Media Services account.
 1. In the left navigation pane, select **Assets** under **Media Services**.
-    
-    ![In Assets resource, select Upload.](./media/asset-create-asset-upload-portal-quickstart/select-assets-upload.png)
-
 1. Select **Upload** at the top of the window. 
-1. Choose a **Storage account** from the pull down menu. 
-
-    ![The upload new assets window in the Azure Media Services portal.](./media/asset-create-asset-upload-portal-quickstart/upload-new-assets.png)
-
-1. Browse the file that you want to upload. This creates an **Asset name** for your media. If required, you can edit this **Asset name**.
+1. Choose a **Storage account** from the pull-down menu. 
+1. Browse the file that you want to upload. An **Asset name** gets created for your media. If necessary, you can edit this **Asset name**.
 
     > [!TIP]
     > If you want to choose multiple files, add them to one folder in Windows File Explorer. When browsing to **Upload files**, select all the files. This creates multiple assets. 
@@ -68,15 +62,9 @@ Follow the steps to [Create a Media Services account](account-create-how-to.md).
 ## Add transform
 
 1. Under the **Media Services** services, select **Transforms + jobs**.
-
-    ![In Transforms + jobs resource, select Add transform.](./media/asset-create-asset-upload-portal-quickstart/select-transform.png)
-
 1. Select **Add transform**.
 1. In the **Add a transform** window, enter the details. 
-1. If your media is a video, select **Encoding** as your **Transform type**. Select a **Built-in preset name** from the pull down menu. For more information, see [EncoderNamedPreset](/rest/api/media/transforms/create-or-update#encodernamedpreset).
-
-    ![Add a transform window.](media/asset-create-asset-upload-portal-quickstart/add-transform.png)
-
+1. If your media is a video, select **Encoding** as your **Transform type**. Select a **Built-in preset name** from the pull-down menu. For more information, see [EncoderNamedPreset](/rest/api/media/transforms/create-or-update#encodernamedpreset).
 1. Select **Add**.
 
 ## Encode (Add job)
@@ -84,21 +72,9 @@ Follow the steps to [Create a Media Services account](account-create-how-to.md).
 1. Select either **Assets** or **Transforms + jobs**. 
 1. Select **Add job** at the top of the resource window.
 1. In **Create a job** window, enter the details. Select **Create**.
-
-    ![Create a job window.](media/asset-create-asset-upload-portal-quickstart/create-a-job.png)
-
-1. Navigate to **Transforms + jobs**. Select the **Transform name** to check the job status.
-    
-    A job goes through multiple stages, such as **Scheduled**, **Queued**, **Processing**, and **Finished**. 
-
-    ![Check your job status.](./media/asset-create-asset-upload-portal-quickstart/check-job-status.png)
-
-    If the job has encountered an error, you get the **Error** state.
-
+1. Navigate to **Transforms + jobs**. Select the **Transform name** to check the job status. A job goes through multiple states like **Scheduled** , **Queued**, **Processing**, and **Final**. If the job encounters an error, you get the **Error** state.
 1. Navigate to your **Assets** resource window. After the job gets created successfully, it generates an output asset that contains the encoded content.
     
-    ![Screenshot of the Assets window in Azure portal showing the output asset.](./media/asset-create-asset-upload-portal-quickstart/output-asset-gets-created.png)
-
 ## Publish and stream
 
 To publish an asset, you need to add a streaming locator to your asset and run the streaming endpoint.
@@ -108,42 +84,21 @@ To publish an asset, you need to add a streaming locator to your asset and run t
 1. Under Media Services, select **Assets**. 
 1. Select the output asset.
 1. Select **New streaming locator**.
-
-    ![Select the output asset and then, select New streaming locator.](./media/asset-create-asset-upload-portal-quickstart/click-add-streaming-locator.png)
-
 1. In **Add streaming locator** window, enter the details. Select a predefined **Streaming policy**. For more information, see [streaming policies](stream-streaming-policy-concept.md).
-
 1. If you want your stream to be encrypted, [Create a content key policy](drm-encrypt-content-how-to.md#create-a-content-key-policy) and select it in the **Add streaming locator** window.
-
-    ![Provide details in the Add streaming locator window.](./media/asset-create-asset-upload-portal-quickstart/add-streaming-locator-window.png)
-
-1. Select **Add**. This publishes the asset and generates the streaming URLs.
-
-    ![Published asset with streaming URLs.](./media/asset-create-asset-upload-portal-quickstart/published-asset-with-streaming-urls.png)
+1. Select **Add**. This action publishes the asset and generates the streaming URLs.
 
 ### Start streaming endpoint
-1. Once the asset gets published, you can stream it right in the portal. You can also copy the streaming URL and use it in your client player.
-
-    Make sure the [streaming endpoint](stream-streaming-endpoint-concept.md) is running. When you first create a Media Services account, a default streaming endpoint gets created and remains in a stopped state. **Start** the streaming endpoint to stream your content. You're only billed when your streaming endpoint is in the running state.
-
+1. Once the asset gets published, you can stream it right in the portal. You can also copy the streaming URL and use it in your client player. Make sure the [streaming endpoint](stream-streaming-endpoint-concept.md) is running. When you first create a Media Services account, a default streaming endpoint gets created and remains in a stopped state. **Start** the streaming endpoint to stream your content. You're only billed when your streaming endpoint is in the running state.
 1. Select the output asset. 
-1. Select **Start streaming endpoint?**. Select **Start** to run the streaming endpoint. The status of **default** streaming endpoint changes from **Stopped** to **Running**. Your billing will start now.
-
-    You can now use the streaming URLs to deliver content.
-
-    ![Screenshot shows how to start the default streaming endpoint.](./media/asset-create-asset-upload-portal-quickstart/start-streaming-endpoint.png)
-
+1. Select **Start streaming endpoint?**. Select **Start** to run the streaming endpoint. The status of **default** streaming endpoint changes from **Stopped** to **Running**. Your billing will start now. You can now use the streaming URLs to deliver content.
 1. Select **Reload player**. 
 
 ### Stop streaming endpoint
 
 1. Navigate to **Media Services** and select **Streaming endpoints**. 
 1. Select your streaming endpoint **Name**. In this quickstart, we are using the **default** streaming endpoint. The current state is **Running**.
-1. Select **Stop**. This opens the **Stop streaming endpoint?** window. Select **Yes**. 
-
-    ![Screenshot shows how to stop the default streaming endpoint.](./media/asset-create-asset-upload-portal-quickstart/stop-streaming-endpoint.png)
-
-    Now, the **default** streaming endpoint is in a **Stopped** state. You cannot use the streaming URLs to deliver the content.
+1. Select **Stop**. A **Stop streaming endpoint?** window gets opened. Select **Yes**. Now, the **default** streaming endpoint is in a **Stopped** state. You cannot use the streaming URLs to deliver the content.
 
 ## Cleanup resources
 
