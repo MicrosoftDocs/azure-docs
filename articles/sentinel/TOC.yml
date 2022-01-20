@@ -272,6 +272,8 @@
     items:
     - name: Investigate incidents
       href: investigate-cases.md
+    - name: Search large datasets
+      href: search-jobs.md
     - name: Create custom entity activities
       href: customize-entity-activities.md
     - name: Collaborate in Microsoft Teams
