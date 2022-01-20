@@ -102,7 +102,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     /// <summary>
     /// Called when a user is air tapping for a short time 
     /// </summary>
-    /// <param name="handPosition"></param>
+    /// <param name="handPosition">Location where tap was registered</param>
     private async void ShortTap(Vector3 handPosition)
     {
         await _spatialAnchorManager.StartSessionAsync();
@@ -157,11 +157,11 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 
     // <IsAnchorNearby>
     /// <summary>
-    /// Returns true if an Anchor GameObject is within 15cm of the received position
+    /// Returns true if an Anchor GameObject is within 15cm of the received reference position
     /// </summary>
-    /// <param name="position"></param>
-    /// <param name="anchorGameObject"></param>
-    /// <returns></returns>
+    /// <param name="position">Reference position</param>
+    /// <param name="anchorGameObject">Anchor GameObject within 15cm of received position. Not necessarily the nearest to this position. If no AnchorObject is within 15cm, this value will be null</param>
+    /// <returns>True if a Anchor GameObject is within 15cm</returns>
     private bool IsAnchorNearby(Vector3 position, out GameObject anchorGameObject)
     {
         anchorGameObject = null;
@@ -198,8 +198,8 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     /// <summary>
     /// Creates an Azure Spatial Anchor at the given position rotated towards the user
     /// </summary>
-    /// <param name="position"></param>
-    /// <returns></returns>
+    /// <param name="position">Position where Azure Spatial Anchor will be created</param>
+    /// <returns>Async Task</returns>
     private async Task CreateAnchor(Vector3 position)
     {
         //Create Anchor GameObject. We will use ASA to save the position and the rotation of this GameObject.
@@ -278,8 +278,8 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     /// <summary>
     /// Callback when an anchor is located
     /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="args"></param>
+    /// <param name="sender">Callback sender</param>
+    /// <param name="args">Callback AnchorLocatedEventArgs</param>
     private void SpatialAnchorManager_AnchorLocated(object sender, AnchorLocatedEventArgs args)
     {
         Debug.Log($"ASA - Anchor recognized as a possible anchor {args.Identifier} {args.Status}");
@@ -310,7 +310,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     /// <summary>
     /// Deleting Cloud Anchor attached to the given GameObject and deleting the GameObject
     /// </summary>
-    /// <param name="anchorGameObject"></param>
+    /// <param name="anchorGameObject">Anchor GameObject that is to be deleted</param>
     private async void DeleteAnchor(GameObject anchorGameObject)
     {
         CloudNativeAnchor cloudNativeAnchor = anchorGameObject.GetComponent<CloudNativeAnchor>();
