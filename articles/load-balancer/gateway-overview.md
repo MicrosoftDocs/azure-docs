@@ -20,7 +20,7 @@ You can insert appliances transparently for different kinds of scenarios such as
 * Advanced packet analytics
 * Intrusion detection and prevention systems
 * Traffic mirroring
-* inline DDoS
+* DDoS protection
 * Custom appliances
 
 With Gateway Load Balancer, you can easily add or remove advanced network functionality without additional management overhead. It provides the bump-in-the-wire technology you need to ensure all traffic to a public endpoint is first sent to the appliance before your application. In scenarios with NVAs, it's especially important that flows are symmetrical. Gateway Load Balancer maintains flow stickiness to a specific instance in the backend pool along with flow symmetry. As a result, a consistent route to your network virtual appliance is ensured – without additional manual configuration. As a result, packets traverse the same network path in both directions and appliances that need this key capability are able to function seamlessly.
