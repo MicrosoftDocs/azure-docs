@@ -1,0 +1,905 @@
+---
+title: 'Tutorial: ML pipelines for training'
+titleSuffix: Azure Machine Learning
+description: In this tutorial, you build a machine learning pipeline for image classification. Focus on machine learning instead of infrastructure and automation.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: mlops
+ms.topic: tutorial
+author: lobrien
+ms.author: laobri
+ms.reviewer: laobri
+ms.date: 01/228/2022
+ms.custom: devx-track-python
+---
+
+# Tutorial: Build an Azure Machine Learning pipeline for image classification
+
+In this tutorial, you learn how to build an [Azure Machine Learning pipeline](concept-ml-pipelines.md) to prepare data and train a machine learning model. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation.  
+
+The example trains a small [Keras](tk) convolutional neural network to classify images in the [Fashion MNIST](tk) dataset. 
+
+* This tutorial is based on the `image-classification.ipynb` notebook found in the `python-sdk/tutorial/using-pipelines` directory of the [AzureML Examples](https://github.com/azure/azureml-examples) repository. The source code for the steps themselves is in the `keras-mnist-fashion` subdirectory.
+
+In this tutorial, you complete the following tasks:
+
+> [!div class="checklist"]
+> * Configure workspace 
+> * Create an Experiment to hold your work
+> * Provision a ComputeTarget to do the work
+> * Create a Dataset in which to store compressed data
+> * Create a pipeline step to prepare the data for training
+> * Define a runtime Environment in which to perform training
+> * Create a pipeline step to define the neural network and perform the training
+> * Compose a Pipeline from the pipeline steps
+> * Run the pipeline in the experiment
+> * Review the output of the steps and the trained
+
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
+
+## Prerequisites
+
+* Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace.
+* A Python environment in which you have installed both the `azureml-core` and `azureml-pipelines` packages. This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at runtime for training.
+
+> [!Important]
+> Currently, the most recent Python release compatible with `azureml-pipelines` is Python 3.8. If you have difficulty installing the `azureml-pipelines` package, ensure that `python --version` is a compatible release. Consult the documentation of your Python virtual environment manager (`venv`, `conda`, etc.) for instructions.
+
+## Import types
+
+Import all the Azure Machine Learning types that you will need for this tutorial:
+
+```python
+import os
+import azureml.core
+from azureml.core import (
+    Workspace,
+    Experiment,
+    Dataset,
+    Datastore,
+    ComputeTarget,
+    Environment,
+    ScriptRunConfig
+)
+from azureml.data import OutputFileDatasetConfig
+from azureml.core.compute import AmlCompute
+from azureml.core.compute_target import ComputeTargetException
+from azureml.pipeline.steps import PythonScriptStep
+from azureml.pipeline.core import Pipeline
+
+# check core SDK version number
+print("Azure ML SDK Version: ", azureml.core.VERSION)
+```
+
+## Configure workspace
+
+Create a workspace object from the existing Azure Machine Learning workspace.
+
+```python
+workspace = Workspace.from_config()
+```
+
+> [!IMPORTANT]
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+
+## Create the infrastructure for your pipeline 
+
+Create an `Experiment` object to hold the results of your pipeline runs:
+
+```python
+exp = Experiment(workspace=workspace, name="keras-mnist-fashion")
+```
+
+Create a `ComputeTarget` that represents the machine resource on which your pipeline will run. The simple neural network used in this tutorial trains in just a few minutes even on a CPU-based machine. If you wish to use a GPU for training, set `use_gpu` to `True`. Provisioning a compute target generally takes about five minutes.
+
+```python
+use_gpu = False
+
+# choose a name for your cluster
+cluster_name = "gpu-cluster" if use_gpu else "cpu-cluster"
+
+found = False
+# Check if this compute target already exists in the workspace.
+cts = workspace.compute_targets
+if cluster_name in cts and cts[cluster_name].type == "AmlCompute":
+    found = True
+    print("Found existing compute target.")
+    compute_target = cts[cluster_name]
+if not found:
+    print("Creating a new compute target...")
+    compute_config = AmlCompute.provisioning_configuration(
+        vm_size= "STANDARD_NC6" if use_gpu else "STANDARD_D2_V2"
+        # vm_priority = 'lowpriority', # optional
+        max_nodes=4,
+    )
+
+    # Create the cluster.
+    compute_target = ComputeTarget.create(workspace, cluster_name, compute_config)
+
+    # Can poll for a minimum number of nodes and for a specific timeout.
+    # If no min_node_count is provided, it will use the scale settings for the cluster.
+    compute_target.wait_for_completion(
+        show_output=True, min_node_count=None, timeout_in_minutes=10
+    )
+# For a more detailed view of current AmlCompute status, use get_status().print(compute_target.get_status().serialize())
+```
+> [!Note]
+> GPU availability depends on the quota of your Azure subscription and upon Azure capacity. See [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas).
+    
+### Create a dataset for the Azure-stored data
+
+[Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist) is a dataset of fashion images divided into 10 classes. Each image is a 28x28 grayscale image and there are 60,000 training and 10,000 test images. As an image classification problem, Fashion-MNIST is harder than the classic MNIST handwritten digit database. It's distributed in the same [compressed binary format](http://yann.lecun.com/exdb/mnist/) as the original handwritten digit database.
+
+To create a `Dataset` that references the Web-based data, run:
+
+```python
+data_urls = ["https://data4mldemo6150520719.blob.core.windows.net/demo/mnist-fashion"]
+fashion_ds = Dataset.File.from_files(data_urls)
+
+# list the files referenced by fashion_ds
+print(fashion_ds.to_path())
+```
+
+This code completes quickly. The underlying data remains in the Azure blobstorage specified in the `data_urls` array.
+
+## Create the data-preparation pipeline step
+
+The first step in this pipeline will convert the compressed datafiles of `fashion_ds` into a dataset in your own workspace consisting of CSV files ready for use in training. Once registered with the workspace, your collaborators can access this data for their own analysis, training, etc. 
+
+```python
+datastore = workspace.get_default_datastore()
+prepared_fashion_ds = OutputFileDatasetConfig(
+    destination=(datastore, "outputdataset/{run-id}")
+).register_on_complete(name="prepared_fashion_ds")
+```
+
+The above code specifies a dataset that is based on the output of a pipeline step. The underlying processed files will be put in the workspace's default datastore's blob storage at the path specified in `destination`. The dataset will be registered in the workspace with the name `prepared_fashion_ds`. 
+
+### Create the pipeline step's source
+
+The code that you've executed so far has create and controlled Azure resources. Now it is time to write code that does the first step in the domain. 
+
+If you are following along with the example in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/using-pipelines), the source file is already available as `keras-mnist-fashion/prepare.py`. 
+
+If you are working from scratch, create a subdirectory called `kera-mnist-fashion/`. Create a new file, add the following code to it, and name it `prepare.py`. 
+
+```python
+# prepare.py
+# Converts MNIST-formatted files at the passed-in input path to a passed-in output path
+import os
+import sys
+
+# Conversion routine for MNIST binary format
+def convert(imgf, labelf, outf, n):
+    f = open(imgf, "rb")
+    l = open(labelf, "rb")
+    o = open(outf, "w")
+
+    f.read(16)
+    l.read(8)
+    images = []
+
+    for i in range(n):
+        image = [ord(l.read(1))]
+        for j in range(28 * 28):
+            image.append(ord(f.read(1)))
+        images.append(image)
+
+    for image in images:
+        o.write(",".join(str(pix) for pix in image) + "\n")
+    f.close()
+    o.close()
+    l.close()
+
+# The MNIST-formatted source
+mounted_input_path = sys.argv[1]
+# The output directory at which the outputs will be written
+mounted_output_path = sys.argv[2]
+
+# Create the output directory
+os.makedirs(mounted_output_path, exist_ok=True)
+
+# Convert the training data
+convert(
+    os.path.join(mounted_input_path, "mnist-fashion/train-images-idx3-ubyte"),
+    os.path.join(mounted_input_path, "mnist-fashion/train-labels-idx1-ubyte"),
+    os.path.join(mounted_output_path, "mnist_train.csv"),
+    60000,
+)
+
+# Convert the test data
+convert(
+    os.path.join(mounted_input_path, "mnist-fashion/t10k-images-idx3-ubyte"),
+    os.path.join(mounted_input_path, "mnist-fashion/t10k-labels-idx1-ubyte"),
+    os.path.join(mounted_output_path, "mnist_test.csv"),
+    10000,
+)
+```
+
+The code in `prepare.py` takes two command-line arguments: the first is assigned to `mounted_input_path` and the second to `mounted_output_path`. If that subdirectory does not exist, the call to `os.makedirs` creates it. Then, the program converts the training and testing data and outputs the comma-separated files to the `mounted_output_path`.
+
+### Specify the pipeline step
+
+Back in the Python environment you're using to specify the pipeline, run this code to create a `PythonScriptStep` for your preparation code:
+
+```python
+script_folder = "./keras-mnist-fashion"
+
+prep_step = PythonScriptStep(
+    name="prepare step",
+    script_name="prepare.py",
+    # On the compute target, mount fashion_ds dataset as input, prepared_fashion_ds as output
+    arguments=[fashion_ds.as_named_input("fashion_ds").as_mount(), prepared_fashion_ds],
+    source_directory=script_folder,
+    compute_target=compute_target,
+    allow_reuse=True,
+)
+```
+
+The call to `PythonScriptStep` specifies that, when the pipeline step is run:
+
+* All the files in the `script_folder` directory are uploaded to the `compute_target`
+* Among those uploaded source files, the file `prepare.py` will be run
+* The `fashion_ds` dataset will be mounted on the `compute_target` and appear as a directory
+* The path to the `fashion_ds` files will be the first argument to `prepare.py`. In `prepare.py`, this argument is assigned to `mounted_input_path`
+* The path to the `prepared_fashion_ds` will be the second argument to `prepare.py`. In `prepare.py`, this argument is assigned to `mounted_output_path`
+* Because `allow_reuse` is `True`, it will not be re-run until its source files or inputs change
+* This `PythonScriptStep` will be named `prepare step`
+
+tk More on reuse? tk
+
+## Create the training step
+
+tk
+
+### Create the training step's source
+
+With larger pipelines, the best practice is to put each steps' source code in a separate directory (`src/prepare/`, `src/train/`, etc.) but for this tutorial, just use or create the file `train.py` in the same `keras-mnist-fashion/` source directory.
+
+```python
+import keras
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, Flatten
+from keras.layers import Conv2D, MaxPooling2D
+from keras.layers.normalization import BatchNormalization
+from keras.utils import to_categorical
+from keras.callbacks import Callback
+
+import numpy as np
+import pandas as pd
+import os
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from azureml.core import Run
+
+# dataset object from the run
+run = Run.get_context()
+dataset = run.input_datasets["prepared_fashion_ds"]
+
+# split dataset into train and test set
+(train_dataset, test_dataset) = dataset.random_split(percentage=0.8, seed=111)
+
+# load dataset into pandas dataframe
+data_train = train_dataset.to_pandas_dataframe()
+data_test = test_dataset.to_pandas_dataframe()
+
+img_rows, img_cols = 28, 28
+input_shape = (img_rows, img_cols, 1)
+
+X = np.array(data_train.iloc[:, 1:])
+y = to_categorical(np.array(data_train.iloc[:, 0]))
+
+# here we split validation data to optimize classifier during training
+X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=13)
+
+# test data
+X_test = np.array(data_test.iloc[:, 1:])
+y_test = to_categorical(np.array(data_test.iloc[:, 0]))
+
+
+X_train = (
+    X_train.reshape(X_train.shape[0], img_rows, img_cols, 1).astype("float32") / 255
+)
+X_test = X_test.reshape(X_test.shape[0], img_rows, img_cols, 1).astype("float32") / 255
+X_val = X_val.reshape(X_val.shape[0], img_rows, img_cols, 1).astype("float32") / 255
+
+batch_size = 256
+num_classes = 10
+epochs = 10
+
+# construct neuron network
+model = Sequential()
+model.add(
+    Conv2D(
+        32,
+        kernel_size=(3, 3),
+        activation="relu",
+        kernel_initializer="he_normal",
+        input_shape=input_shape,
+    )
+)
+model.add(MaxPooling2D((2, 2)))
+model.add(Dropout(0.25))
+model.add(Conv2D(64, (3, 3), activation="relu"))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.25))
+model.add(Conv2D(128, (3, 3), activation="relu"))
+model.add(Dropout(0.4))
+model.add(Flatten())
+model.add(Dense(128, activation="relu"))
+model.add(Dropout(0.3))
+model.add(Dense(num_classes, activation="softmax"))
+
+model.compile(
+    loss=keras.losses.categorical_crossentropy,
+    optimizer=keras.optimizers.Adam(),
+    metrics=["accuracy"],
+)
+
+class LogRunMetrics(Callback):
+    # callback at the end of every epoch
+    def on_epoch_end(self, epoch, log):
+        # log a value repeated which creates a list
+        run.log("Loss", log["loss"])
+        run.log("Accuracy", log["accuracy"])
+
+
+history = model.fit(
+    X_train,
+    y_train,
+    batch_size=batch_size,
+    epochs=epochs,
+    verbose=1,
+    validation_data=(X_val, y_val),
+    callbacks=[LogRunMetrics()],
+)
+
+score = model.evaluate(X_test, y_test, verbose=0)
+
+# log a single value
+run.log("Final test loss", score[0])
+print("Test loss:", score[0])
+
+run.log("Final test accuracy", score[1])
+print("Test accuracy:", score[1])
+
+plt.figure(figsize=(6, 3))
+plt.title("Fashion MNIST with Keras ({} epochs)".format(epochs), fontsize=14)
+plt.plot(history.history["accuracy"], "b-", label="Accuracy", lw=4, alpha=0.5)
+plt.plot(history.history["loss"], "r--", label="Loss", lw=4, alpha=0.5)
+plt.legend(fontsize=12)
+plt.grid(True)
+
+# log an image
+run.log_image("Loss_vs_Accuracy", plot=plt)
+
+# create a ./outputs/model folder in the compute target
+# files saved in the "./outputs" folder are automatically uploaded into run history
+os.makedirs("./outputs/model", exist_ok=True)
+
+# serialize NN architecture to JSON
+model_json = model.to_json()
+# save model JSON
+with open("./outputs/model/model.json", "w") as f:
+    f.write(model_json)
+# save model weights
+model.save_weights("./outputs/model/model.h5")
+print("model saved in ./outputs/model folder")
+```
+
+The majority of this code should be familiar to ML developers: 
+
+* The data is partitioned into train and validation sets for training, and a separate test subset for final scoring
+* The input shape is 28x28x1 (only 1 because the input is grayscale), there will be 256 inputs in a batch, and there are 10 classes
+* The number of training epochs will be 10
+* The model has 3 convolutional layers, with max pooling and dropout, followed by a dense layer and softmax head
+* The model is fitted for 10 epochs and then evaluated
+* The model architecture is written to "outputs/model/model.json" and the weights to `outputs/model/model.h5`
+
+Some of the code, though, is specific to Azure Machine Learning. `run = Run.get_context()` retrieves a [`Run`](..python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) object, which contains the current service context. The `train.py` source uses this `run` object to retrieve the input dataset via it's name (an alternative to the code in `prepare.py` that retrieved the dataset via the `argv` array of script arguments). 
+
+The `run` object is also used to log the training progress at the end of every epoch and, at the end of training, to log the graph of loss versus accuracy over time.
+
+### Create the training pipeline step
+
+The training step has a slightly more complex configuration than the preparation step. The preparation step used only standard Python libraries. More commonly, you'll need to modify the runtime environment in which your source code runs. 
+
+Create a file `conda_dependencies.yml` with the following contents:
+
+```yml
+dependencies:
+- python=3.6.2
+- pip:
+  - azureml-core
+  - azureml-dataset-runtime
+  - keras==2.4.3
+  - tensorflow==2.4.3
+  - numpy
+  - scikit-learn
+  - pandas
+  - matplotlib
+```
+
+The `Environment` class represents the runtime environment in which a machine learning task runs. Associate the above specification with the training code with:
+
+```python
+keras_env = Environment.from_conda_specification(
+    name="keras-env", file_path="./conda_dependencies.yml"
+)
+
+train_cfg = ScriptRunConfig(
+    source_directory=script_folder,
+    script="train.py",
+    compute_target=compute_target,
+    environment=keras_env,
+)
+```
+
+Creating the training step itself uses code similar to that used to create the preparation step:
+
+```python
+train_step = PythonScriptStep(
+    name="train step",
+    arguments=[
+        prepared_fashion_ds.read_delimited_files().as_input(name="prepared_fashion_ds")
+    ],
+    source_directory=train_cfg.source_directory,
+    script_name=train_cfg.script,
+    runconfig=train_cfg.run_config,
+)
+```
+
+## Create and run the pipeline
+
+Now that you've specified data inputs and outputs and created your pipeline's steps, you can compose them into a pipeline and run it:
+
+```python
+pipeline = Pipeline(workspace, steps=[prep_step, train_step])
+run = exp.submit(pipeline)
+```
+
+The `Pipeline` object you create runs in your `workspace` and is composed of the preparation and training steps you've specified. 
+
+> [!Note]
+> This pipeline has a simple dependency graph: the training step relies on the preparation step and the preparation step relies on the `fashion_ds` dataset. Production pipelines will often have much more complex dependencies. Steps may rely on multiple upstream steps, a source code change in an early step may have far-reaching consequences, etc.. Azure Machine Learning tracks these concerns for you. You need only pass in the array of `steps` and Azure Machine Learning takes care of calculating the execution graph.
+
+The call to `submit` the `Experiment` completes quickly, and produces output similar to:
+
+```dotnetcli
+Submitted PipelineRun 5968530a-abcd-1234-9cc1-46168951b5eb
+Link to Azure Machine Learning Portal: https://ml.azure.com/runs/abc-xyz...
+```
+
+You can monitor the pipeline run by opening the link or you can block until it completes by running:
+
+```python
+run.wait_for_completion(show_output=True)
+```
+
+Once the pipeline completes, you can retrieve the metrics you logged in the training step: 
+
+```python
+run.find_step_run("train step")[0].get_metrics()
+```
+
+If you are satisfied with the metrics, you can register the model in your workspace:
+
+```python
+run.find_step_run("train step")[0].register_model(
+    model_name="keras-model",
+    model_path="outputs/model/",
+    datasets=[("train test data", fashion_ds)],
+)
+```
+
+--------
+
+## Create a datastore for sample images
+
+On the `pipelinedata` account, get the ImageNet evaluation public data sample from the `sampledata` public blob container. Call `register_azure_blob_container()` to make the data available to the workspace under the name `images_datastore`. Then, set the workspace default datastore as the output datastore. Use the output datastore to score output in the pipeline.
+
+For more information on accessing data, see [How to access data](./how-to-access-data.md).
+
+```python
+from azureml.core.datastore import Datastore
+
+batchscore_blob = Datastore.register_azure_blob_container(ws, 
+                      datastore_name="images_datastore", 
+                      container_name="sampledata", 
+                      account_name="pipelinedata", 
+                      overwrite=True)
+
+def_data_store = ws.get_default_datastore()
+```
+
+## Create dataset objects
+
+When building pipelines, `Dataset` objects are used for reading data from workspace datastores, and `OutputFileDatasetConfig` objects are used for transferring intermediate data between pipeline steps.
+
+> [!Important]
+> The batch scoring example in this tutorial uses only one pipeline step. In use cases that have multiple steps, the typical flow will include these steps:
+>
+> 1. Use `Dataset` objects as *inputs* to fetch raw data, perform some transformation, and then *output* with an `OutputFileDatasetConfig` object.
+>
+> 2. Use the `OutputFileDatasetConfig` *output object* in the preceding step as an *input object*. Repeat it for subsequent steps.
+
+In this scenario, you create `Dataset` objects that correspond to the datastore directories for both the input images and the classification labels (y-test values). You also create an `OutputFileDatasetConfig` object for the batch scoring output data.
+
+```python
+from azureml.core.dataset import Dataset
+from azureml.data import OutputFileDatasetConfig
+
+input_images = Dataset.File.from_files((batchscore_blob, "batchscoring/images/"))
+label_ds = Dataset.File.from_files((batchscore_blob, "batchscoring/labels/"))
+output_dir = OutputFileDatasetConfig(name="scores")
+```
+
+Register the datasets to the workspace if you want to reuse it later. This step is optional.
+
+```python
+
+input_images = input_images.register(workspace = ws, name = "input_images")
+label_ds = label_ds.register(workspace = ws, name = "label_ds")
+```
+
+## Download and register the model
+
+Download the pretrained Tensorflow model to use it for batch scoring in a pipeline. First, create a local directory where you store the model. Then, download and extract the model.
+
+```python
+import os
+import tarfile
+import urllib.request
+
+if not os.path.isdir("models"):
+    os.mkdir("models")
+    
+response = urllib.request.urlretrieve("http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz", "model.tar.gz")
+tar = tarfile.open("model.tar.gz", "r:gz")
+tar.extractall("models")
+```
+
+Next, register the model to your workspace, so you can easily retrieve the model in the pipeline process. In the `register()` static function, the `model_name` parameter is the key you use to locate your model throughout the SDK.
+
+```python
+from azureml.core.model import Model
+ 
+model = Model.register(model_path="models/inception_v3.ckpt",
+                       model_name="inception",
+                       tags={"pretrained": "inception"},
+                       description="Imagenet trained tensorflow inception",
+                       workspace=ws)
+```
+
+## Create and attach the remote compute target
+
+Machine learning pipelines can't be run locally, so you run them on cloud resources or *remote compute targets*. A remote compute target is a reusable virtual compute environment where you run experiments and machine learning workflows. 
+
+Run the following code to create a GPU-enabled [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) target, and then attach it to your workspace. For more information about compute targets, see the [conceptual article](./concept-compute-target.md).
+
+
+```python
+from azureml.core.compute import AmlCompute, ComputeTarget
+from azureml.exceptions import ComputeTargetException
+compute_name = "gpu-cluster"
+
+# checks to see if compute target already exists in workspace, else create it
+try:
+    compute_target = ComputeTarget(workspace=ws, name=compute_name)
+except ComputeTargetException:
+    config = AmlCompute.provisioning_configuration(vm_size="STANDARD_NC6",
+                                                   vm_priority="lowpriority", 
+                                                   min_nodes=0, 
+                                                   max_nodes=1)
+
+    compute_target = ComputeTarget.create(workspace=ws, name=compute_name, provisioning_configuration=config)
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+```
+
+## Write a scoring script
+
+To do the scoring, create a batch scoring script called `batch_scoring.py`, and then write it to the current directory. The script takes input images, applies the classification model, and then outputs the predictions to a results file.
+
+The `batch_scoring.py` script takes the following parameters, which get passed from the `ParallelRunStep` you create later:
+
+- `--model_name`: The name of the model being used.
+- `--labels_dir`: The location of the `labels.txt` file.
+
+The pipeline infrastructure uses the `ArgumentParser` class to pass parameters into pipeline steps. For example, in the following code, the first argument `--model_name` is given the property identifier `model_name`. In the `init()` function, `Model.get_model_path(args.model_name)` is used to access this property.
+
+
+```python
+%%writefile batch_scoring.py
+
+import os
+import argparse
+import datetime
+import time
+import tensorflow as tf
+from math import ceil
+import numpy as np
+import shutil
+from tensorflow.contrib.slim.python.slim.nets import inception_v3
+
+from azureml.core import Run
+from azureml.core.model import Model
+from azureml.core.dataset import Dataset
+
+slim = tf.contrib.slim
+
+image_size = 299
+num_channel = 3
+
+
+def get_class_label_dict(labels_dir):
+    label = []
+    labels_path = os.path.join(labels_dir, 'labels.txt')
+    proto_as_ascii_lines = tf.gfile.GFile(labels_path).readlines()
+    for l in proto_as_ascii_lines:
+        label.append(l.rstrip())
+    return label
+
+
+def init():
+    global g_tf_sess, probabilities, label_dict, input_images
+
+    parser = argparse.ArgumentParser(description="Start a tensorflow model serving")
+    parser.add_argument('--model_name', dest="model_name", required=True)
+    parser.add_argument('--labels_dir', dest="labels_dir", required=True)
+    args, _ = parser.parse_known_args()
+
+    label_dict = get_class_label_dict(args.labels_dir)
+    classes_num = len(label_dict)
+
+    with slim.arg_scope(inception_v3.inception_v3_arg_scope()):
+        input_images = tf.placeholder(tf.float32, [1, image_size, image_size, num_channel])
+        logits, _ = inception_v3.inception_v3(input_images,
+                                              num_classes=classes_num,
+                                              is_training=False)
+        probabilities = tf.argmax(logits, 1)
+
+    config = tf.ConfigProto()
+    config.gpu_options.allow_growth = True
+    g_tf_sess = tf.Session(config=config)
+    g_tf_sess.run(tf.global_variables_initializer())
+    g_tf_sess.run(tf.local_variables_initializer())
+
+    model_path = Model.get_model_path(args.model_name)
+    saver = tf.train.Saver()
+    saver.restore(g_tf_sess, model_path)
+
+
+def file_to_tensor(file_path):
+    image_string = tf.read_file(file_path)
+    image = tf.image.decode_image(image_string, channels=3)
+
+    image.set_shape([None, None, None])
+    image = tf.image.resize_images(image, [image_size, image_size])
+    image = tf.divide(tf.subtract(image, [0]), [255])
+    image.set_shape([image_size, image_size, num_channel])
+    return image
+
+
+def run(mini_batch):
+    result_list = []
+    for file_path in mini_batch:
+        test_image = file_to_tensor(file_path)
+        out = g_tf_sess.run(test_image)
+        result = g_tf_sess.run(probabilities, feed_dict={input_images: [out]})
+        result_list.append(os.path.basename(file_path) + ": " + label_dict[result[0]])
+    return result_list
+```
+
+> [!TIP]
+> The pipeline in this tutorial has only one step, and it writes the output to a file. For multi-step pipelines, you also use `ArgumentParser` to define a directory to write output data for input to subsequent steps. For an example of passing data between multiple pipeline steps by using the `ArgumentParser` design pattern, see the [notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb).
+
+## Build the pipeline
+
+Before you run the pipeline, create an object that defines the Python environment and creates the dependencies that your `batch_scoring.py` script requires. The main dependency required is Tensorflow, but you also install `azureml-core` and `azureml-dataprep[fuse]` which are required by ParallelRunStep. Also, specify Docker and Docker-GPU support.
+
+```python
+from azureml.core import Environment
+from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core.runconfig import DEFAULT_GPU_IMAGE
+
+cd = CondaDependencies.create(pip_packages=["tensorflow-gpu==1.15.2",
+                                            "azureml-core", "azureml-dataprep[fuse]"])
+env = Environment(name="parallelenv")
+env.python.conda_dependencies = cd
+env.docker.base_image = DEFAULT_GPU_IMAGE
+```
+
+### Create the configuration to wrap the script
+
+Create the pipeline step using the script, environment configuration, and parameters. Specify the compute target you already attached to your workspace.
+
+```python
+from azureml.pipeline.steps import ParallelRunConfig
+
+parallel_run_config = ParallelRunConfig(
+    environment=env,
+    entry_script="batch_scoring.py",
+    source_directory=".",
+    output_action="append_row",
+    mini_batch_size="20",
+    error_threshold=1,
+    compute_target=compute_target,
+    process_count_per_node=2,
+    node_count=1
+)
+```
+
+### Create the pipeline step
+
+A pipeline step is an object that encapsulates everything you need to run a pipeline, including:
+
+* Environment and dependency settings
+* The compute resource to run the pipeline on
+* Input and output data, and any custom parameters
+* Reference to a script or SDK logic to run during the step
+
+Multiple classes inherit from the parent class [`PipelineStep`](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep). You can choose classes to use specific frameworks or stacks to build a step. In this example, you use the `ParallelRunStep` class to define your step logic by using a custom Python script. If an argument to your script is either an input to the step or an output of the step, the argument must be defined *both* in the `arguments` array *and* in either the `input` or the `output` parameter, respectively. 
+
+In scenarios where there is more than one step, an object reference in the `outputs` array becomes available as an *input* for a subsequent pipeline step.
+
+```python
+from azureml.pipeline.steps import ParallelRunStep
+from datetime import datetime
+
+parallel_step_name = "batchscoring-" + datetime.now().strftime("%Y%m%d%H%M")
+
+label_config = label_ds.as_named_input("labels_input")
+
+batch_score_step = ParallelRunStep(
+    name=parallel_step_name,
+    inputs=[input_images.as_named_input("input_images")],
+    output=output_dir,
+    arguments=["--model_name", "inception",
+               "--labels_dir", label_config],
+    side_inputs=[label_config],
+    parallel_run_config=parallel_run_config,
+    allow_reuse=False
+)
+```
+
+For a list of all the classes you can use for different step types, see the [steps package](/python/api/azureml-pipeline-steps/azureml.pipeline.steps).
+
+## Submit the pipeline
+
+Now, run the pipeline. First, create a `Pipeline` object by using your workspace reference and the pipeline step you created. The `steps` parameter is an array of steps. In this case, there's only one step for batch scoring. To build pipelines that have multiple steps, place the steps in order in this array.
+
+Next, use the `Experiment.submit()` function to submit the pipeline for execution. The `wait_for_completion` function outputs logs during the pipeline build process. You can use the logs to see current progress.
+
+> [!IMPORTANT]
+> The first pipeline run takes roughly *15 minutes*. All dependencies must be downloaded, a Docker image is created, and the Python environment is provisioned and created. Running the pipeline again takes significantly less time because those resources are reused instead of created. However, total run time for the pipeline depends on the workload of your scripts and the processes that are running in each pipeline step.
+
+```python
+from azureml.core import Experiment
+from azureml.pipeline.core import Pipeline
+
+pipeline = Pipeline(workspace=ws, steps=[batch_score_step])
+pipeline_run = Experiment(ws, 'Tutorial-Batch-Scoring').submit(pipeline)
+pipeline_run.wait_for_completion(show_output=True)
+```
+
+### Download and review output
+
+Run the following code to download the output file that's created from the `batch_scoring.py` script. Then, explore the scoring results.
+
+```python
+import pandas as pd
+
+batch_run = next(pipeline_run.get_children())
+batch_output = batch_run.get_output_data("scores")
+batch_output.download(local_path="inception_results")
+
+for root, dirs, files in os.walk("inception_results"):
+    for file in files:
+        if file.endswith("parallel_run_step.txt"):
+            result_file = os.path.join(root, file)
+
+df = pd.read_csv(result_file, delimiter=":", header=None)
+df.columns = ["Filename", "Prediction"]
+print("Prediction has ", df.shape[0], " rows")
+df.head(10)
+```
+
+## Publish and run from a REST endpoint
+
+Run the following code to publish the pipeline to your workspace. In your workspace in Azure Machine Learning studio, you can see metadata for the pipeline, including run history and durations. You can also run the pipeline manually from the studio.
+
+Publishing the pipeline enables a REST endpoint that you can use to run the pipeline from any HTTP library on any platform.
+
+```python
+published_pipeline = pipeline_run.publish_pipeline(
+    name="Inception_v3_scoring", description="Batch scoring using Inception v3 model", version="1.0")
+
+published_pipeline
+```
+
+To run the pipeline from the REST endpoint, you need an OAuth2 Bearer-type authentication header. The following example uses interactive authentication (for illustration purposes), but for most production scenarios that require automated or headless authentication, use service principal authentication as [described in this article](how-to-setup-authentication.md).
+
+Service principal authentication involves creating an *App Registration* in *Azure Active Directory*. First, you generate a client secret, and then you grant your service principal *role access* to your machine learning workspace. Use the [`ServicePrincipalAuthentication`](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication) class to manage your authentication flow. 
+
+Both [`InteractiveLoginAuthentication`](/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication) and `ServicePrincipalAuthentication` inherit from `AbstractAuthentication`. In both cases, use the [`get_authentication_header()`](/python/api/azureml-core/azureml.core.authentication.abstractauthentication#get-authentication-header--) function in the same way to fetch the header:
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+
+interactive_auth = InteractiveLoginAuthentication()
+auth_header = interactive_auth.get_authentication_header()
+```
+
+Get the REST URL from the `endpoint` property of the published pipeline object. You can also find the REST URL in your workspace in Azure Machine Learning studio. 
+
+Build an HTTP POST request to the endpoint. Specify your authentication header in the request. Add a JSON payload object that has the experiment name.
+
+Make the request to trigger the run. Include code to access the `Id` key from the response dictionary to get the value of the run ID.
+
+```python
+import requests
+
+rest_endpoint = published_pipeline.endpoint
+response = requests.post(rest_endpoint, 
+                         headers=auth_header, 
+                         json={"ExperimentName": "Tutorial-Batch-Scoring",
+                               "ParameterAssignments": {"process_count_per_node": 6}})
+run_id = response.json()["Id"]
+```
+
+Use the run ID to monitor the status of the new run. The new run takes another 10-15 min to finish. 
+
+The new run will look similar to the pipeline you ran earlier in the tutorial. You can choose not to view the full output.
+
+```python
+from azureml.pipeline.core.run import PipelineRun
+from azureml.widgets import RunDetails
+
+published_pipeline_run = PipelineRun(ws.experiments["Tutorial-Batch-Scoring"], run_id)
+RunDetails(published_pipeline_run).show()
+```
+
+## Clean up resources
+
+Don't complete this section if you plan to run other Azure Machine Learning tutorials.
+
+### Stop the compute instance
+
+[!INCLUDE [aml-stop-server](../../includes/aml-stop-server.md)]
+
+### Delete everything
+
+If you don't plan to use the resources you created, delete them, so you don't incur any charges:
+
+1. In the Azure portal, in the left menu, select **Resource groups**.
+1. In the list of resource groups, select the resource group you created.
+1. Select **Delete resource group**.
+1. Enter the resource group name. Then, select **Delete**.
+
+You can also keep the resource group but delete a single workspace. Display the workspace properties, and then select **Delete**.
+
+## Next steps
+
+In this tutorial, you used the following types:
+
+* The `Workspace` represents your Azure Machine Learning workspace. It contained
+    * The `Experiment` that contains the results of training runs of your pipeline
+    * The `Dataset` that lazily loaded the data held in your `Datastore`. 
+    * The `ComputeTarget` that represents the machine(s) on which the pipeline steps run
+    * The `Environment` that is the runtime environment in which the pipeline steps run
+    * The `Pipeline` that composes the `PythonScriptStep` steps into a whole
+    
+The `Workspace` object contains references to other resources (notebooks, endpoints, etc.) that were not used in this tutorial. 
+
+The `OutputFileDatasetConfig` promotes the output of a run to a file-based dataset.
+
+The `ScriptRunConfig` associates a `ComputeTarget` and `Environment` with Python source files. A `PythonScriptStep` takes that `ScriptRunConfig` and defines its inputs and outputs, which in this pipeline was the file dataset built by the `OutputFileDatasetConfig`.
+
+In this machine learning pipelines tutorial, you did the following tasks:
+
+> [!div class="checklist"]
+> * Built a pipeline with environment dependencies to run on a remote GPU compute resource.
+> * Created a scoring script to run batch predictions by using a pretrained Tensorflow model.
+> * Published a pipeline and enabled it to be run from a REST endpoint.
+
+For more examples of how to build pipelines by using the machine learning SDK, see the [notebook repository](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines).
