@@ -91,4 +91,4 @@ The person who created the workspace is the owner. Within **Workspace settings**
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Learn how to manage projects](create-manage-projects.md)
+> [Learn how to manage projects](create-manage-project.md)

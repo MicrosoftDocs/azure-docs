@@ -44,4 +44,4 @@ English-to-French and French-to-English, create two projects: one for English â†
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to manage projects](create-manage-projects.md)
+> [Learn how to manage projects](how-to/create-manage-project.md)
