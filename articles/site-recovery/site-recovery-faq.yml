@@ -323,8 +323,8 @@ sections:
         answer: |
               A replication policy defines the settings for the retention history of recovery points. The policy also defines the frequency of app-consistent snapshots. By default, Azure Site Recovery creates a new replication policy with default settings of:
 
-              - 24 hours for the retention history of recovery points.
-              - 4 hours for the frequency of app-consistent snapshots.
+              - 1 day for the retention history of recovery points.
+              - 0 hours for the frequency of app-consistent snapshots (Disabled app-consistency).
 
       - question: |
          What is a crash-consistent recovery point?
@@ -361,24 +361,24 @@ sections:
       - question: |
          How are recovery points generated and saved?
         answer: |
-              To understand how Site Recovery generates recovery points, let's see an example of a replication policy. This replication policy has a recovery point with a 24-hour retention window and an app-consistent frequency snapshot of 1 hour.
+              To understand how Site Recovery generates recovery points, let's see an example of a replication policy. This replication policy has a recovery point with a 1 day retention window and an app-consistent frequency snapshot of 1 hour.
 
-              Site Recovery creates a crash-consistent recovery point every 5 minutes. You can't change this frequency. For the most recent hour, you can choose from 12 crash-consistent points and 1 app-consistent point. As time progresses, Site Recovery prunes all the recovery points beyond the last hour and saves only 1 recovery point per hour for up to 24 hours, and only 1 recovery point every 2 hours for up to 72 hours.
+              Site Recovery creates a crash-consistent recovery point every 5 minutes. You can't change this frequency. For the most recent 2 hours, you can choose from 24 crash-consistent points and 2 app-consistent points. As time progresses, Site Recovery prunes all the recovery points beyond the last 2 hours and saves only 1 recovery point per hour for up to 24 hours of the day.
 
               The following screenshot illustrates the example. In the screenshot:
 
-              - Within the past hour, there are recovery points with a frequency of 5 minutes.
-              - Beyond the past hour, Site Recovery keeps only 1 recovery point.
+              - Within the past 2 hours, there are recovery points with a frequency of 5 minutes.
+              - Beyond the past 2 hours, Site Recovery keeps only 1 recovery point per hour.
 
                 ![List of generated recovery points](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
 
       - question: |
          How far back can I recover?
         answer: |
-             The oldest recovery point that you can use is 72 hours.
+             The oldest recovery point that you can use is 15 days in case of Managed disk and 3 days in case of Unmanaged disk.
 
       - question: |
-         I have a replication policy of 24 hours. What will happen if a problem prevents Site Recovery from generating recovery points for more than 24 hours? Will my previous recovery points be lost?
+         I have a replication policy of 1 day. What will happen if a problem prevents Site Recovery from generating recovery points for more than 1 day? Will my previous recovery points be lost?
         answer: |
              No, Site Recovery will keep all your previous recovery points. Depending on the recovery points' retention window, Site Recovery replaces the oldest point only if it generates new points. Because of the problem, Site Recovery can't generate any new recovery points. Until there are new recovery points, all the old points will remain after you reach the window of retention.
 
@@ -395,7 +395,7 @@ sections:
       - question: |
          Does increasing the retention period of recovery points increase the storage cost?
         answer: |
-             Yes, if you increase the retention period from 24 hours to 72 hours, Site Recovery will save the recovery points for an additional 48 hours. The added time will incur storage charges. For example, a single recovery point might have delta changes of 10 GB with a per-GB cost of $0.16 per month. Additional charges would be $1.60 × 48 per month.
+             Yes, if you increase the retention period from 1 day to 3 days, Site Recovery will save the recovery points for an additional 2 days. The added time will incur storage charges since there will be 12 additional recovery points that needs to be saved with increase in retention period from 1 day to 3 days. For example, a single recovery point might have delta changes of 10 GB with a per-GB cost of $0.16 per month. Additional charges would be $1.60 × 12 per month.
 
   - name: Failover
     questions:
