@@ -53,7 +53,7 @@ Read-only attributes on directories aren't transferred.
 
 #### ACLs
 
-ACLs DEFINITION
+<!--ACLs DEFINITION
 
 **Transfer methods.** Support for ACLs transfer during a data copy varies with the file transfer protocol or service that you use. There are also some differences when you use a Windows client vs. a Linux client for the data copy.
 
@@ -64,6 +64,18 @@ ACLs DEFINITION
 - Data copy service - ACLs aren't transferred when you [copy data via the data copy service](data-box-deploy-copy-data-via-copy-service.md). The data copy service reads data directly from your shares and can't read ACLs.
  
 **Default ACLs.** Even if your data copy tool does not copy ACLs, in Windows, the default ACLs on directories and files are transferred to Azure Files. The default ACLs aren't transferred in Linux.
+
+The default ACLs have permissions for the built-in Administrator account, the SYSTEM account, and the SMB share user account that was used to mount and copy data in the Data Box.
+
+The ACLs contain security descriptors with the following properties: ACLs, Owner, Group, SACL.
+
+**Disabling ACLs transfer.** Transfer of ACLs is enabled by default. You might want to disable this setting in the local web UI on your Data Box. For more information, see [Use the local web UI to administer your Data Box and Data Box.-->
+
+When you use a Windows client for an SMB file transfer, all the ACLs for directories and files that you copy to your Data Box over SMB are copied and transferred. Transfers include both discretionary ACLs (DACLs) and system ACLs (SACLs). If you're using a Linux client for an SMB transfer, only Windows NT ACLs are transferred.
+
+ACLs aren't transferred when you copy data over Network File System (NFS) or use the data copy service. The data copy service reads data directly from your shares and can't read ACLs.
+ 
+**Transfer of default ACLs.** Even if your data copy tool does not copy ACLs, the default ACLs on directories and files are transferred to Azure Files when you do the transfer from a Windows client. The default ACLs aren't transferred when you use a Linux client.
 
 The default ACLs have permissions for the built-in Administrator account, the SYSTEM account, and the SMB share user account that was used to mount and copy data in the Data Box.
 
