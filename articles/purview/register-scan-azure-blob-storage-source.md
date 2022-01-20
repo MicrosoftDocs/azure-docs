@@ -27,8 +27,6 @@ For file types such as csv, tsv, psv, ssv, the schema is extracted when the foll
 * First row values are unique
 * First row values are not a date or a number
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWPdqG]
-
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
