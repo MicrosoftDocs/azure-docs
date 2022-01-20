@@ -82,10 +82,11 @@ Azure Event Hubs supports the following dimensions for metrics in Azure Monitor.
 ## Runtime Audit Logs
 Runtime Audit Logs captures aggregated diagnostic logs for all data plane access operations (such as send or receive events) in Dedicated SKU. 
 
-> [!NOTE]
+> [!NOTE] 
 > Runtime audit logs are currently available in *Dedicated* tier only.  
 
 Runtime Audit Logs include the elements listed in the following table:
+
 Name | Description
 ------- | -------
 `ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. 
@@ -104,8 +105,9 @@ Name | Description
 
 The following code is an example of a runtime audit log JSON string:
 
-```json
 Example:
+
+```json
 {
     "ActivityId": "<activity id>",
     "ActivityName": "ConnectionOpen | Authenticate | SendMessage | ReceiveMessage | GetRuntimeInfo",
