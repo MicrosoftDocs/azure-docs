@@ -335,17 +335,26 @@ Application Insights Java 3.x is already listening for telemetry that's sent to 
     </dependency>
     ```
 
-1. Use the Micrometer [global registry](https://micrometer.io/docs/concepts#_global_registry) to create a meter:
+2. Use the Micrometer [global registry](https://micrometer.io/docs/concepts#_global_registry) to create a meter:
 
     ```java
-    static final Counter counter = Metrics.counter("test_counter");
+    static final Counter counter = Metrics.counter("test.counter");
     ```
 
-1. Use the counter to record metrics:
+3. Use the counter to record metrics:
 
     ```java
     counter.increment();
     ```
+
+4. The metrics will be ingested into the
+   [customMetrics](/azure/azure-monitor/reference/tables/custommetrics) table, with tags captured in the
+   `customDimensions` column. You can also view the metrics in the
+   [Metrics explorer](../essentials/metrics-getting-started.md) under the "Log-based metrics" metric namespace.
+
+    > [!NOTE]
+    > Application Insights Java replaces all non-alphanumeric characters (except dashes) in the Micrometer metric name
+    > with underscores, so the `test.counter` metric above will show up as `test_counter`.
 
 ### Send custom traces and exceptions by using your favorite logging framework
 
