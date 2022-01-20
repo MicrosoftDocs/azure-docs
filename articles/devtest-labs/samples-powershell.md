@@ -1,7 +1,7 @@
 ---
 title: Azure PowerShell Samples
 description: Azure PowerShell Samples - Scripts to help you manage labs in Azure Lab Services
-ms.topic: landing-page
+ms.topic: sample
 ms.date: 06/26/2020
 ---
 
