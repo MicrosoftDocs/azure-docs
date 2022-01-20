@@ -32,15 +32,24 @@ In this article, you'll learn how to enable IoT connector metrics logging. The f
 
 4. Enter a name in the **Diagnostic setting name** dialog box.
 
-5. Under **Destination details**, select the method you want to use to access your diagnostic logs. In this example, we've selected an Azure storage account.
+5. Under **Destination details**, select the method you want to use to access your metrics logs. In this example, we've selected an Azure storage account.
 
+   IoT connector logs and metrics can be sent to destinations in the following table:
+
+   |Destination|Description|
+   |-----------|-----------|
+   |Log Analytics workspace|Metrics are converted to log form. This option may not be available for all resource types. Sending them to the Azure Monitor Logs store (which is searchable via Log Analytics) helps you to integrate them into queries, alerts, and visualizations with existing log data.|
+   |Azure storage account|Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely.|
+   |Event Hubs|Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other Log Analytics solutions.|
+   |Azure Monitor partner integrations|Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms. Useful when you're already using one of the partners.|
+   
 > [!Important]
 > Each **Destination details** selection requires that certain resources (for example: an existing storage account) be created and available before the selection can be successfully configured. Click each selection to get a list of required resources.
 
 6. Select **AllMetrics**
 
 > [!Note]
-> **Allmetrics** contains the following IoT connector metrics:
+> **AllMetrics** contains the following IoT connector metrics:
 > * TotalErrors
 > * DeviceEvent
 > * NormalizedEvent
