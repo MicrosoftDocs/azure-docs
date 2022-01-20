@@ -33,6 +33,8 @@ When scanning Cassandra source, Azure Purview supports:
 
 - Fetching static lineage on assets relationships among tables and materialized views.
 
+When setting up scan, you can choose to scan an entire Cassandra instance, or scope the scan to a subset of keyspaces matching the given name(s) or name pattern(s).
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

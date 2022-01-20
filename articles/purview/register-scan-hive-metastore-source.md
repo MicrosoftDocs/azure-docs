@@ -36,6 +36,8 @@ When scanning Hive metastore source, Azure Purview supports:
 
 - Fetching static lineage on assets relationships among tables and views.
 
+When setting up scan, you can choose to scan an entire Hive metastore database, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
+
 ## Prerequisites
 
 * You must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -159,7 +161,7 @@ Use the following steps to scan Hive Metastore databases to automatically identi
 
         All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default.
 
-        When the list is empty, all available schemas are imported. Acceptable schema name patterns that use SQL `LIKE` expression syntax include the percent sign (%). For example, `A%; %B; %C%; D` means:
+        Acceptable schema name patterns that use SQL `LIKE` expression syntax include the percent sign (%). For example, `A%; %B; %C%; D` means:
 
         * Start with A or
         * End with B or
