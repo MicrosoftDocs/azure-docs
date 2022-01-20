@@ -175,7 +175,7 @@ As a first configuration test, you should try to sign in to the [MyApps portal](
 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/certificate.png" alt-text="Screenshot of sign in with certificate.":::
 
-   If you have enabled other authentication methods like Phone sign in or Fido Users may see a different slogin screen.
+   If you have enabled other authentication methods like Phone sign in or Fido Users may see a different login screen.
 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/alternative.png" alt-text="Screenshot of the alternative sign in.":::
 
