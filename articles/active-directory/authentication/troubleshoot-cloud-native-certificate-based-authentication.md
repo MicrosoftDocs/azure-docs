@@ -18,52 +18,67 @@ ms.custom: has-adal-ref
 ---
 # Troubleshoot cloud native certificate-based authentication in Azure Active Directory (Preview)
 
-This topic covers how to troubleshoot cloud native certificate-based authentication in Azure Active Directory.
+This topic covers how to troubleshoot cloud native certificate-based authentication (CBA) in Azure Active Directory.
 
 >[!NOTE]
 >Cloud-native certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-Why do I not see an option to sign in using certificates against Azure Active Directory after I enter my username?
-Admin needs to enable Certificate-based Authentication on the tenant so signing in with certificate option is available for users. <Link to getting started doc step 2>
-User-facing sign-in error messages
+## Why don't I see an option to sign in using certificates against Azure Active Directory after I enter my username?
 
-If the user is unable to sign in using Certificate-based Authentication, they may see one of the following user-facing errors on the Azure AD sign-in screen.:
-ADSTS1001000 - Unable to acquire certificate policy from tenant
+An administrator needs to enable CBA for the tenant to make the sign in with certificate option available for users. Link to getting started doc step 2
+
+## User-facing sign-in error messages
+
+If the user is unable to sign in using Certificate-based Authentication, they may see one of the following user-facing errors on the Azure AD sign-in screen.
+
+**ADSTS1001000 - Unable to acquire certificate policy from tenant**
 
 This error occurs when the wrong user's UPN is entered in the sign-in page and client certificate selected are not the same. Make sure the UPN and the certificate are of the same user.
-AADSTS1001003 – User Sign in fails with “Unable To Acquire Value Specified In Binding From Certificate”
+
+**AADSTS1001003 – User sign-in fails with "Unable To Acquire Value Specified In Binding From Certificate"**
 
 This error is returned if the user selects the wrong user certificate from the list while signing in.
-Make sure the certificate is valid and works for the user binding and authentication policy config.
 
-AADSTS50034 - Users sign in fails with “Your account or password is incorrect. If you don't remember your password, reset it now.
-Ensure the user is attempting to sign in with the correct username. This error happens when we are not able to find a unique user from the certificate fields. 
--	Make sure user bindings are set correctly and the certificate field is mapped to the correct user Attribute.
--	Make sure the user Attribute contains the correct value that matches the certificate field value.
-<Link to Getting started configure user binding>
-If the user is a federated user moving to Azure AD and if the user binding configuration is Principal Name -> onPremisesUserPrincipalName. 
--	Make sure the onPremisesUserPrincipalName is being synced, and ALT IDs are enabled in AAD Connect. 
--	Make sure to check the AAD Connect configuration that the value of onPremisesUserPrincipalName is sync’d and is correct.
-Note
-There is a known issue that this scenario is not logged into the sign-in logs.
+Make sure the certificate is valid and works for the user binding and authentication policy configuration.
 
-AADSTS130501 - Users sign in fails with “Sign in was blocked due to User Credential Policy”
-This error happens when the target user is not in scope for the Certificate-based authentication. Please make sure the user is listed in the “target” attribute of Certificate-based authentication.
-<Link to Getting started configuring enable CBA (step 4)>
+**AADSTS50034 - Users sign in fails with “Your account or password is incorrect. If you don't remember your password, reset it now.**
 
-User Sign in failed but not much diagnostic information.
-There is a known issue that sometimes when the authentication fails, the failure screen may not have error message or trouble shooting information.
-Say when a user certificate is revoked and is part of a Certificate Revocation List, authentication would fail correctly. However, instead of the error message you might see a screen like below.
+Make sure the user is trying to sign in with the correct username. This error happens when a unique user can't be found in the certificate fields. 
 
-:::image type="content" border="false" source="./media/troubleshoot-cloud-native-certificate-based-authentication/failed.png" alt-text="Illustration with steps about how cloud-native certificate-based authentication works in Azure AD.":::
+- Make sure user bindings are set correctly and the certificate field is mapped to the correct user Attribute.
+- Make sure the user Attribute contains the correct value that matches the certificate field value.
 
-To get more diagnostic information, look at the sign-in logs. For example, if a user authentication fails due to CRL validation, sign-in logs would show the error information correctly.
+Link to Getting started configure user binding
 
-:::image type="content" border="false" source="./media/troubleshoot-cloud-native-certificate-based-authentication/deatils.png" alt-text="Illustration with steps about how cloud-native certificate-based authentication works in Azure AD." lightbox="./media/troubleshoot-cloud-native-certificate-based-authentication/details.png":::
+If the user is a federated user moving to Azure AD and if the user binding configuration is Principal Name > onPremisesUserPrincipalName:
+
+- Make sure the onPremisesUserPrincipalName is being synchronized, and ALT IDs are enabled in Azure AD Connect. 
+- Make sure the value of onPremisesUserPrincipalName is correct and synchronized in Azure AD Connect.
+
+>[!NOTE]
+>There is a known issue that this scenario is not logged into the sign-in logs.
+
+**AADSTS130501 - Users sign in fails with "Sign in was blocked due to User Credential Policy"**
+
+This error happens when the target user is not in scope for the Certificate-based authentication. Make sure the user is listed in the **target** attribute of Certificate-based authentication.
+
+Link to Getting started configuring enable CBA (step 4)
+
+## User sign-in failed but not much diagnostic information
+
+There is a known issue when the authentication sometimes fails, the failure screen may not have an error message or troubleshooting information.
+
+For example, if a user certificate is revoked and is part of a Certificate Revocation List, then authentication fails correctly. However, instead of the error message, you might see the following screen:
+
+:::image type="content" border="false" source="./media/troubleshoot-cloud-native-certificate-based-authentication/failed.png" alt-text="Error message for cloud-native certificate-based authentication works in Azure AD.":::
+
+To get more diagnostic information, look in **Sign-in logs**. If a user authentication fails due to CRL validation for example, sign-in logs show the error information correctly.
+
+:::image type="content" border="false" source="./media/troubleshoot-cloud-native-certificate-based-authentication/deatils.png" alt-text="Screenshot of Authentication Details." lightbox="./media/troubleshoot-cloud-native-certificate-based-authentication/details.png":::
 
 ## Why didn't my changes to authentication policy changes take effect?
 
-The authentication policy is cached. After a policy update, it may take up to an hour for the changes to be effective. Please try after an hour to make sure the policy caching is not the cause.
+The authentication policy is cached. After a policy update, it may take up to an hour for the changes to be effective. Try after an hour to make sure the policy caching is not the cause.
 
 ## I see a valid Certificate Revocation List (CRL) endpoint set, but why don't I see any CRL revocation?
 
