@@ -133,7 +133,7 @@ If you see this exception after upgrading to Java agent version greater than 3.2
 
 ## Missing Cipher Suites
 
-If Application Insights Java agent detects that you may be missing a cipher suite that is required by one of the endpoints it connects to, it will alert you and link you here.
+If the Application Insights Java agent detects that you do not have any of the cipher suites that are supported by the endpoints it connects to, it will alert you and link you here.
 
 ### Background on Cipher Suites: 
 Cipher suites come into play before a client application and server exchange information over an SSL/TLS connection. The client application initiates an SSL handshake. Part of that process involves notifying the server which cipher suites it supports. The server receives that information and compares the cipher suites supported by the client application with the algorithms it supports. If it finds a match, the server notifies the client application and a secure connection is established. If it does not find a match, the server refuses the connection.
@@ -141,7 +141,7 @@ Cipher suites come into play before a client application and server exchange inf
 #### How to determine client side cipher suites:
 In this case, the client is the JVM on which your instrumented application is running. Starting from 3.2.5-BETA, Application Insights Java will log the missing cipher suites in the application insights log file when it encounters an IOException or SocketException.
 
-If using an earlier versions, compile and run the following Java program to get the list of supported cipher suites in JVM:
+If using an earlier version of Application Insights Java, compile and run the following Java program to get the list of supported cipher suites in your JVM:
 
 ```
 import javax.net.ssl.SSLServerSocketFactory;
@@ -159,7 +159,7 @@ public class Ciphers {
     }
 }
 ```
-Following are the expected cipher suites in JVM:
+Following are the cipher suites that are generally supported by the Application Insights endpoints:
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 
 - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
