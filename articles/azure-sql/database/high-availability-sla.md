@@ -5,14 +5,13 @@ description: Learn about the Azure SQL Database and SQL Managed Instance service
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: high-availability
-ms.custom: sqldbrb=2
+ms.custom: sqldbrb=2, references_regions
 ms.devlang: 
 ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
 ms.reviewer: kendralittle, mathoma, emlisa
 ms.date: 1/20/2022
-ms.custom: references_regions
 ---
 
 # High availability for Azure SQL Database and SQL Managed Instance
