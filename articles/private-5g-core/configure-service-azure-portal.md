@@ -1,5 +1,5 @@
 ---
-title: Configure a service for Azure Private 5G Core Preview - Azure portal
+title: Configure a service for Azure Private 5G Core Preview
 description: With this how-to guide, learn how to configure a service for Azure Private 5G Core Preview through the Azure portal. 
 author: djrmetaswitch
 ms.author: drichards
@@ -11,7 +11,8 @@ ms.custom: template-how-to
 
 # Configure a service for Azure Private 5G Core Preview - Azure portal
 
-Services are representations of a particular set of QoS information that you want to offer to UEs. For more information, see [Policy control](policy-control.md).
+Services are representations of a particular set of QoS information that you want to offer to UEs. For example, you may want to configure a service that provides higher bandwidth limits for particular traffic. You can also use services to block particular traffic types or traffic from specific sources. 
+For more information, see [Policy control](policy-control.md).
 
 In this how-to guide, we'll configure a service using the Azure portal.
 

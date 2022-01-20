@@ -1,5 +1,6 @@
 ---
 title: Policy control
+titlesuffix: Azure Private 5G Core Preview
 description: Information on Azure Private 5G Core Preview's policy control configuration, which allows for flexible traffic handling in your private mobile network. 
 author: djrmetaswitch
 ms.author: drichards
@@ -25,7 +26,7 @@ A **QoS Profile** has two main components.
 
 - A **5G QoS Identifier (5QI)**. The 5QI value corresponds to a set of QoS characteristics that should be used for the QoS Flow. These characteristics include guaranteed and maximum bitrates, priority levels, and limits on latency, jitter, and error rate. The 5QI is given as a scalar number.
 
-  You can find more information on 5QI and on each of the QoS characteristics in 3GPP TS 23.501. You can also find definitions for standardized (or non-dynamic) 5QI values.
+  You can find more information on 5QI and each of the QoS characteristics in 3GPP TS 23.501. You can also find definitions for standardized (or non-dynamic) 5QI values.
 
   The required parameters for each 5QI value are pre-configured in the Next Generation Node B (gNB).
 
@@ -42,11 +43,11 @@ Azure Private 5G Core provides configuration to allow you to determine the QoS F
 
 ### Services
 
-A **service** is a representation of a set of QoS characteristics that you want to offer to UEs on SDFs that match particular properties, such as their destination, or the protocol used. You can also use services to limit or block particular SDFs based on these properties.
+A **service** is a representation of a set of QoS characteristics that you want to apply to SDFs that match particular properties, such as their destination, or the protocol used. You can also use services to limit or block particular SDFs based on these properties.
 
 Each service includes the following.
 
-- A set of QoS characteristics that should be offered to SDFs matching the service. The packet core instance will use these characteristics to create a QoS Flow to bind to matching SDFs. You can specify the following QoS settings on a service.
+- A set of QoS characteristics that should be applied on SDFs matching the service. The packet core instance will use these characteristics to create a QoS Flow to bind to matching SDFs. You can specify the following QoS settings on a service.
 
   - The Maximum Bit Rate (MBR) for uplink traffic (away from the UE) across all matching SDFs.
   - The MBR for downlink traffic (towards the UE) across all matching SDFs.
@@ -101,7 +102,7 @@ During PDU session establishment, the packet core instance takes the following s
 
 Azure Private 5G Core policy control configuration is flexible, allowing you to configure new services and SIM policies whenever you need, based on the changing requirements of your private mobile network.
 
-[Tutorial: Create an example set of policy control configuration](tutorial-create-example-set-of-policy-control-configuration.md) provides a step-by-step guide through configuring some example services for common use cases, and then applying these services to new SIM policies. Run through this tutorial to familiarize yourself with the process of building policy control configuration.
+[Tutorial: Create an example set of policy control configuration](tutorial-create-example-set-of-policy-control-configuration.md) provides a step-by-step guide through configuring some example services for common use cases, and applying these services to new SIM policies. Run through this tutorial to familiarize yourself with the process of building policy control configuration.
 
 When you first come to design the policy control configuration for your own private mobile network, we recommend taking the following approach.
 
