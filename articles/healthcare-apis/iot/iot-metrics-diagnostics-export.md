@@ -6,18 +6,18 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 1/20/2021
+ms.date: 1/19/2021
 ms.author: jasteppe
 ---
 
-# Enable IoT connector metrics through Diagnostic settings
+# Enable IoT connector metrics logging through Diagnostic settings
 
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this article, you'll learn how to enable IoT connector metrics logs. The feature that enables metrics logging is the [**Diagnostic settings**](../../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
+In this article, you'll learn how to enable IoT connector metrics logging. The feature that enables metrics logging is the [**Diagnostic settings**](../../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
 
-## Enable metrics logging exporting for IoT connector
+## Enable metrics logging for IoT connector
 1. To enable metrics logging for IoT connector, select **IoT connector** in your Workspace.
  
    :::image type="content" source="media/iot-metrics-export/iot-connector-logging-workspace.png" alt-text="Select IoT connector within Workspace" lightbox="media/iot-metrics-export/iot-connector-logging-workspace.png":::
@@ -32,12 +32,12 @@ In this article, you'll learn how to enable IoT connector metrics logs. The feat
 
 4. Enter a name in the **Diagnostic setting name** dialog box.
 
-5. Under **Destination details**, select the method you want to use to access your diagnostic logs. In this example, we have selected an Azure storage account.
+5. Under **Destination details**, select the method you want to use to access your diagnostic logs. In this example, we've selected an Azure storage account.
 
 > [!Important]
 > Each **Destination details** selection requires that certain resources (for example: an existing storage account) be created and available before the selection can be successfully configured. Click each selection to get a list of required resources.
 
-6. Select **Allmetrics**
+6. Select **AllMetrics**
 
 > [!Note]
 > **Allmetrics** contains the following IoT connector metrics:
