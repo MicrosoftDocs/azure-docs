@@ -4,7 +4,7 @@ description: List of services that support Azure AD authentication
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 12/08/2021
+ms.date: 01/10/2022
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -23,6 +23,7 @@ The following services support Azure AD authentication. New services are added t
 | Azure Batch                     | [Authenticate Batch service solutions with Active Directory](../../batch/batch-aad-auth.md)         |
 | Azure Container Registry        | [Authenticate with an Azure container registry](../../container-registry/container-registry-authentication.md)                                                                       |
 | Azure Cognitive Services        | [Authenticate requests to Azure Cognitive Services](../../cognitive-services/authentication.md?tabs=powershell#authenticate-with-azure-active-directory)                                                                          |
+| Azure Communication Services    | [Authenticate to Azure Communication Services](../../communication-services/concepts/authentication.md)   |
 | Azure Databricks                | [Authenticate using Azure Active Directory tokens](/azure/databricks/dev-tools/api/latest/aad/)
 | Azure Data Explorer             | [How-To Authenticate with Azure Active Directory for Azure Data Explorer Access](/azure/data-explorer/kusto/management/access-control/how-to-authenticate-with-aad)                                                                                                     |
 | Azure Data Lake Storage Gen1    | [Authentication with Azure Data Lake Storage Gen1 using Azure Active Directory](../../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)                                                                                                  |
@@ -31,7 +32,7 @@ The following services support Azure AD authentication. New services are added t
 | Azure IoT Hub                   | [Control access to IoT Hub](../../iot-hub/iot-hub-devguide-security.md)                                                                               |
 | Azure Key Vault                 | [Authentication in Azure Key Vault](../../key-vault/general/authentication.md)
 | Azure Kubernetes Service (AKS)  | [Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities in Azure Kubernetes Service](../../aks/azure-ad-rbac.md)                                                                                                                           |
-| Azure Machine Learning Services | [Set up authentication for Azure Machine Learning resources and workflows](/azure/machine-learning/how-to-setup-authentication)                                                                                         |
+| Azure Machine Learning Services | [Set up authentication for Azure Machine Learning resources and workflows](../../machine-learning/how-to-setup-authentication.md)                                                                                         |
 | Azure Maps                      | [Manage authentication in Azure Maps](../../azure-maps/how-to-manage-authentication.md) |
 | Azure Media services            | [Access the Azure Media Services API with Azure AD authentication](../../media-services/previous/media-services-use-aad-auth-to-access-ams-api.md) |
 | Azure Monitor                   | [Azure AD authentication for Application Insights (Preview)](../../azure-monitor/app/azure-ad-authentication.md?tabs=net)                                                                                              |

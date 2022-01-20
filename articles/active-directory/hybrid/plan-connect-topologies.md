@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 01/14/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -138,7 +138,7 @@ We recommend having a single tenant in Azure AD for an organization. Before you 
 
 ### (Public preview) Sync AD objects to multiple Azure AD tenants
 
-![Diagram that shows a topology of multiple Azure A D tenants.](./media/plan-connect-topologies/multi-tenant-1.png)
+![Diagram that shows a topology of multiple Azure A D tenants.](./media/plan-connect-topologies/multi-tenant-2.png)
 
 > [!NOTE]
 > This topology is currently in Public Preview. As the supported scenarios might still change, we recommend not deploying this topology in a production environment.

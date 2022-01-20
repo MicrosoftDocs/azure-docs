@@ -10,7 +10,7 @@ ms.date: 08/11/2021
 ---
 # How to get lineage from Oracle into Azure Purview
 
-This article elaborates on the data lineage aspects of Oracle source in Azure Purview. The prerequisite to see data lineage in Purview for Oracle is to [scan your Oracle.](../purview/register-scan-oracle-source.md) 
+This article elaborates on the data lineage aspects of Oracle source in Azure Purview. The prerequisite to see data lineage in Azure Purview for Oracle is to [scan your Oracle.](../purview/register-scan-oracle-source.md) 
 
 ## Lineage of Oracle artifacts in Azure Purview
 

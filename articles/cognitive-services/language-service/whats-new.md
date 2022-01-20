@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 12/10/2021
+ms.date: 01/07/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -19,7 +19,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 
 ## December 2021
 
-* The version 3.1-preview.x REST endpoints and 5.1.0-beta.x client library have been retired. Please upgrade to the General Available version of the API(v3.1). If you're using the client libraries, use package version 5.1.0 or higher. See the [migration guide](https://aka.ms/ta-get-started-sdk) for details.
+* The version 3.1-preview.x REST endpoints and 5.1.0-beta.x client library have been retired. Please upgrade to the General Available version of the API(v3.1). If you're using the client libraries, use package version 5.1.0 or higher. See the [migration guide](./concepts/migrate-language-service-latest.md) for details.
 
 ## November 2021
 
@@ -46,8 +46,8 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 * SDK support for sending requests to custom models:
     * [Custom Named Entity Recognition](custom-named-entity-recognition/how-to/call-api.md?tabs=client#use-the-client-libraries)
     * [Custom text classification](custom-classification/how-to/call-api.md?tabs=api#use-the-client-libraries)
-    * [Custom language understanding](conversational-language-understanding/how-to/deploy-query-model.md#use-the-client-libraries)
+    * [Custom language understanding](conversational-language-understanding/how-to/deploy-query-model.md#use-the-client-libraries-azure-sdk)
  
 ## Next steps
 
-* [What is Azure Cognitive Service for Language?](overview.md)  
+* [What is Azure Cognitive Service for Language?](overview.md)
