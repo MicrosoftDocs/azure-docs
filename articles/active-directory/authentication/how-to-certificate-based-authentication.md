@@ -192,6 +192,49 @@ If your sign in is successful, then you know that:
 
 ### Testing custom authentication binding rules
 
+Let's walk through a scenario where we will validate strong authentication by creating two authentication policy rules, one via issuer subject satisfying single factor and one via policy OID satisfying multi factor. 
+
+1. Create an issuer Subject rule with protection level as single factor authentication and value set to your CAs Subject value, say: 
+
+   `CN=ContosoCA,DC=Contoso,DC=org`
+
+1. Create a policy OID rule, with protection level as multi-factor authentication and value set to one of the policy OID’s in your certificate, say 1.2.3.4.
+
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/policy-oid-rule.png" alt-text="Screenshot of the Policy OID rule.":::
+
+1. Create a conditional access policy for the user to require multi-factor authentication by following steps at [Conditional Access - Require MFA](../conditional-access/howto-conditional-access-policy-all-users-mfa.md#create-a-conditional-access-policy).
+1. Navigate to [MyApps portal](https://myapps.microsoft.com/). Enter your UPN.
+
+
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/name.png" alt-text="Screenshot of the User Principal Name.":::
+
+1. Click **Next**.
+
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/certificate.png" alt-text="Screenshot of sign in with certificate.":::
+
+   If you have enabled other authentication methods like Phone sign in or Fido Users may see a different slogin screen.
+
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/alternative.png" alt-text="Screenshot of the alternative sign in.":::
+
+1.	Select **Sign in with a certificate**.
+   
+   The client certificate picker UI will come up.
+
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/client-picker.png" alt-text="Screenshot of the client picker.":::
+
+1.	Select the client certificate. Click **Certificate Information**.
+1.	The certificate will be shown, and you can verify the issuer and policy OID values.
+
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/issuer.png" alt-text="Screenshot of the issuer.":::
+
+   Click **Details**.
+
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/authentication-details.png" alt-text="Screenshot of the authentication details.":::
+
+1. Select the client certificate and Click OK
+1. The policy OID in the certificate matches the configured value of **1.2.3.4** and it will satisfy multi-factor authentication. Similarly, the issuer in the certificate matches the configured value of **CN=ContosoCA,DC=Contoso,DC=org** and it will satisfy single-factor authentication
+1. Since policy OID rule takes precedence over issuer rule, the certificate will satisfy multi-factor authentication.
+1. The conditional access policy for the user requires MFA and the certificate satisfies multi factor, the user will be authenticated into the application.
 
 ### Enable cloud-native CBS using Microsoft Graph API
 
