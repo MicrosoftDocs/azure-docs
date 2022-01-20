@@ -58,7 +58,7 @@ Moving the workspace enables you to migrate the workspace and its contents as a 
     | __Microsoft.DocumentDB/databaseAccounts__ | Azure CosmosDB instance that logs metadata for the workspace. |
     | __Microsoft.Search/searchServices__ | Azure Search provides indexing capabilities for the workspace. |
 
-    For information on registering resource providers, see [Resolve errors for resource provider registration](../articles/azure-resource-manager/templates/error-register-resource-provider.md).
+    For information on registering resource providers, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/templates/error-register-resource-provider).
 
 - The [Azure CLI](/cli/azure/install-azure-cli).
 
