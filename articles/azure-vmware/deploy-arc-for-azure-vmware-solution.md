@@ -432,7 +432,7 @@ Use the following tips as your self-help guide.
 
 **Where can I find more information related to Azure Arc resource bridge?**
 
-- For more information, go to [Azure Arc resource bridge (preview) overview](https://docs.microsoft.com/azure/azure-arc/resource-bridge/overview)
+- For more information, go to [Azure Arc resource bridge (preview) overview](../azure-arc/resource-bridge/overview)
 
 ## Appendices
 
