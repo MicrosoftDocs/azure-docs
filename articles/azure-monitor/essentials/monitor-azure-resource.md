@@ -16,7 +16,7 @@ In this tutorial, you learn:
 > [!div class="checklist"]
 > * What Azure Monitor is and how it's integrated into the portal for other Azure services
 > * The types of data collected by Azure Monitor for Azure resources
-> * Azure Monitor tools used to used to collect and analyze data
+> * Azure Monitor tools used to collect and analyze data
 
 > [!NOTE]
 > This tutorial describes Azure Monitor concepts and walks you through different menu items. To jump right into using Azure Monitor features, start with [Tutorial: Analyze metrics for an Azure resource](../essentials/tutorial-metrics.md).

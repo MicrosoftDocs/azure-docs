@@ -70,38 +70,14 @@ If you require sending an amount of messages that exceeds the rate-limits, pleas
 For more information on the SMS SDK and service, see the [SMS SDK overview](./sms/sdk-features.md) page or the [SMS FAQ](./sms/sms-faq.md) page.
 
 ## Chat
-When using the chat APIs, you might receive a ```429``` error. This indicates you are hitting the service limitations and your requests will be queued to be sent once the number of requests is below the threshold.
 
-| **Operation**         | **Scope**                 | Timeframe (s) | Limit (request #) |
-|--|--|--|--|
-|Send Message 	        | Per Thread 	        |60 	        |2000 |
-|Send Message            | Per User per Thread 	|60 	        |50 |
-|Get Message 	        | Per User Per Thread   |-              |- |
-|Get Messages 	        |Per User Per Thread    |5              |15 |
-|Get Messages           |Per Thread	        |5	        |250 |
-|Update Message 	|Per User per Thread 	|5 	        |3 |
-|Update Message         | 	 	        |60             |30 |
-|Update Message         | 	                |180            |60 | 
-|Get Thread             |Per User Per Thread    |5              |10 |
-|Get Thread             |Per User 	        |5 	        |20 |
-|Get Threads 	        |Per User 	        |5              |40 |
-|UpdateThreadRoster 	|Per Thread 	        |300 	        |25 |
-|UpdateThreadRoster   |Per User               |60 	        |25 |
-|UpdateThreadRoster   |Per User Per Thread 	|1 	        |- |
-
-### Other maximum limitations
+### Size Limits
 
 | **Name**         | Limit  |
 |--|--|
 |Number of participants in thread|250 |
 |Batch of participants - CreateThread|200 |
 |Batch of participants - AddParticipant|200 |
-
-### Action to take
-
-All chat SDKs have retry policies in place, with exponential back-off set by default (you can override this if you'd like). The API returns a retry-after header that indicates the number of seconds suggested to wait before retrying to send the message.
-
-For more information about the chat SDK and service, see the [chat SDK overview](./chat/sdk-features.md) page.
 
 ## Voice and video calling
 

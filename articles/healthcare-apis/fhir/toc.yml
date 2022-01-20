@@ -71,9 +71,14 @@ items:
       href: search-samples.md
   - name: Operations
     expanded: true
-    items:  
-    - name: Profile validation
-      href: validation-against-profiles.md
+    items:
+    - name: $validate
+      expanded: false
+      items:
+      - name: Store profiles
+        href: store-profiles-in-fhir.md
+      - name: Use $validate
+        href: validation-against-profiles.md
     - name: Patient-everything in FHIR
       href: patient-everything.md
     - name: $member-match operation
@@ -83,7 +88,7 @@ items:
     items:
     - name: Configure settings for export
       href: configure-export-data.md
-    - name: Export
+    - name: Export FHIR data
       href: export-data.md
     - name: De-identified export
       href: de-identified-export.md

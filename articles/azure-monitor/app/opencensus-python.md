@@ -4,6 +4,7 @@ description: Provides instructions to wire up OpenCensus Python with Azure Monit
 ms.topic: conceptual
 ms.date: 10/12/2021
 ms.reviewer: mbullwin
+ms.devlang: python
 ms.custom: devx-track-python
 author: lzchen
 ms.author: lechen

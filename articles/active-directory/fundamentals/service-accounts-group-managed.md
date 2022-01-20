@@ -3,7 +3,7 @@ title: Secure group managed service accounts  | Azure Active Directory
 description: A guide to securing group managed service account (gMSA) computer accounts.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals

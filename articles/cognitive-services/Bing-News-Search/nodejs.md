@@ -10,6 +10,7 @@ ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
+ms.devlang: javascript
 ms.custom: seodec2018, devx-track-js, mode-api
 ---
 # Quickstart: Perform a news search using Node.js and the Bing News Search REST API

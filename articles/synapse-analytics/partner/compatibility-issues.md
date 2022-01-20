@@ -2,13 +2,13 @@
 title: Compatibility issues with third-party applications and Azure Synapse Analytics 
 description: Describes known issues that third-party applications may find with Azure Synapse
 services: synapse-analytics 
-author: periclesrocha
+author: gillharmeet
 ms.service: synapse-analytics 
 ms.topic: troubleshooting
 ms.subservice: sql
 ms.date: 11/18/2020 
-ms.author: procha 
-ms.reviewer: jrasnick
+ms.author: harmeetgill 
+ms.reviewer: sngun
 ---
 
 # Compatibility issues with third-party applications and Azure Synapse Analytics

@@ -12,25 +12,18 @@ The [Az.LabServices (preview)](https://github.com/Azure/azure-devtestlab/tree/ma
 
 ## Install and launch
 
-1. Install [Azure PowerShell](/powershell/azure/) if it doesn't exist on your machine. 
-
-1. Download [Az.LabServices.psm1](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Modules/Library/Az.LabServices.psm1) to your machine.
-
+1. Install [Azure PowerShell](/powershell/azure/). 
+1. Download [Az.LabServices.psm1](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Modules/Library/Az.LabServices.psm1) module to your machine.
 1. Import the module:
-
     ```powershell
     Import-Module .\Az.LabServices.psm1
     ```
-    
-1. To list all the labs in your subscription:
-
+   Some example commands: 
     ```powershell
+    # To list all the labs in your subscription:
     Get-AzLabAccount | Get-AzLab
-    ```
-    
-1. To stop all running VMs in all labs:
 
-    ```powershell
+    #To stop all running VMs in all labs
     Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
     ```
     

@@ -34,7 +34,7 @@ Assuming you have one gen2 storage account named **storegen2** and the account h
 
 ![Screenshot of gen2 storage account](./media/synapse-file-mount-api/gen2-storage-account.png)
 
-To mount container **mycontainer**, mssparkutils need to check whether you have the permission to access the container at first, currently we support three authentication methods to trigger mount operation, **LinkeService**, **accountKey**, and **sastoken**. 
+To mount container **mycontainer**, mssparkutils need to check whether you have the permission to access the container at first, currently we support three authentication methods to trigger mount operation, **LinkedService**, **accountKey**, and **sastoken**. 
 
 ### Via Linked Service (recommend):
 

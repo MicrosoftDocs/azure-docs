@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 04/29/2021
+ms.date: 12/21/2021
 ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
@@ -225,8 +225,11 @@ if __name__ == "__main__":
             '--momentum', 0.92],
     )
 
-    # use curated pytorch environment 
-    env = ws.environments['AzureML-PyTorch-1.3-CPU']
+    # set up pytorch environment
+    env = Environment.from_conda_specification(
+        name='pytorch-env',
+        file_path='pytorch-env.yml'
+    )
     config.run_config.environment = env
 
     run = experiment.submit(config)

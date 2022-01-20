@@ -46,7 +46,11 @@
       - name: AcquireIO
         href: acquireio-tutorial.md
       - name: Active and Thriving
-        href: active-and-thriving-tutorial.md  
+        href: active-and-thriving-tutorial.md
+      - name: Active and Thriving - Perth Airport
+        href: active-and-thriving-perth-airport-tutorial.md
+      - name: Active Directory SSO for DoubleYou
+        href: active-directory-sso-for-doubleyou-tutorial.md    
       - name: Acunetix 360
         href: acunetix-360-tutorial.md
       - name: Adaptive Insights
@@ -183,6 +187,8 @@
         href: askyourteam-tutorial.md
       - name: Asset Bank
         href: assetbank-tutorial.md
+      - name: Asset Planner
+        href: asset-planner-tutorial.md  
       - name: AssetSonar
         href: assetsonar-tutorial.md
       - name: Astra Schedule
@@ -251,7 +257,7 @@
         href: beyond-identity-admin-console-tutorial.md  
       - name: BGS Online
         href: bgsonline-tutorial.md
-      - name: BIC Cloud Design
+      - name: BIC Process Design
         href: bic-cloud-design-tutorial.md
       - name: Bime
         href: bime-tutorial.md
@@ -277,6 +283,8 @@
         href: blue-access-for-members-tutorial.md
       - name: BlueJeans
         href: bluejeans-tutorial.md
+      - name: Blue Ocean Brain
+        href: blue-ocean-brain-tutorial.md  
       - name: BeyondTrust Remote Support
         href: bomgarremotesupport-tutorial.md
       - name: Bonusly
@@ -583,6 +591,8 @@
         href: deskradar-tutorial.md
       - name: DigiCert
         href: digicert-tutorial.md
+      - name: Dining Sidekick
+        href: dining-sidekick-tutorial.md  
       - name: Direct
         href: direct-tutorial.md
       - name: Directions on Microsoft
@@ -617,6 +627,8 @@
         href: drift-tutorial.md
       - name: Dropbox Business
         href: dropboxforbusiness-tutorial.md
+      - name: DRTrack
+        href: drtrack-tutorial.md  
       - name: Druva
         href: druva-tutorial.md
       - name: Dynamic Signal
@@ -721,6 +733,8 @@
         href: exceed-ai-tutorial.md
       - name: ExcelityGlobal
         href: excelityglobal-tutorial.md
+      - name: Excelity HCM
+        href: excelity-hcm-tutorial.md  
       - name: ExpenseIn
         href: expensein-tutorial.md
       - name: Expensify
@@ -788,6 +802,8 @@
         href: fivetran-tutorial.md  
       - name: Flatter Files
         href: flatter-files-tutorial.md
+      - name: Flexera One
+        href: flexera-one-tutorial.md  
       - name: Float
         href: float-tutorial.md
       - name: Flock
@@ -1134,6 +1150,8 @@
         href: joinme-tutorial.md
       - name: JoinedUp
         href: joinedup-tutorial.md  
+      - name: Jooto
+        href: jooto-tutorial.md  
       - name: JOSA
         href: josa-tutorial.md
       - name: Jostle
@@ -1832,6 +1850,8 @@
         href: sciquest-spend-director-tutorial.md
       - name: ScreenSteps
         href: screensteps-tutorial.md
+      - name: Scuba Analytics
+        href: scuba-analytics-tutorial.md  
       - name: SD Elements
         href: sd-elements-tutorial.md
       - name: SDS & Chemical Information Management
@@ -2433,6 +2453,8 @@
         href: atlassian-cloud-provisioning-tutorial.md
       - name: AuditBoard
         href: auditboard-provisioning-tutorial.md
+      - name: Autodesk SSO
+        href: autodesk-sso-provisioning-tutorial.md
       - name: Azure Databricks SCIM Connector
         href: /azure/databricks/administration-guide/users-groups/scim/aad?bc=%2fazure%2factive-directory%2fsaas-apps%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fsaas-apps%2ftoc.json
       - name: AWS Single Sign-On
@@ -2789,12 +2811,16 @@
         href: teamgo-provisioning-tutorial.md
       - name: TeamViewer
         href: teamviewer-provisioning-tutorial.md
+      - name: TerraTrue
+        href: terratrue-provisioning-tutorial.md
       - name: ThousandEyes
         href: thousandeyes-provisioning-tutorial.md
       - name: Tic-Tac Mobile
         href: tic-tac-mobile-provisioning-tutorial.md
       - name: TimeClock 365
         href: timeclock-365-provisioning-tutorial.md
+      - name: Timeclock 365 SAML
+        href: timeclock-365-saml-provisioning-tutorial.md
       - name: Templafy SAML2
         href: templafy-saml-2-provisioning-tutorial.md
       - name: Templafy OpenID Connect

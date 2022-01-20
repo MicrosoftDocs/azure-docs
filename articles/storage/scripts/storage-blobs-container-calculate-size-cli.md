@@ -23,6 +23,8 @@ This script calculates the size of a container in Azure Blob storage by totaling
 
 > [!IMPORTANT]
 > This CLI script provides an estimated size for the container and should not be used for billing calculations.
+>
+> The maximum number of blobs returned with a single listing call is 5000. If you need to return more than 5000 blobs, use a continuation token to request additional sets of results.
 
 ## Sample script
 
