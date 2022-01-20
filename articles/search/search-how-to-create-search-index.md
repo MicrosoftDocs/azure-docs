@@ -66,12 +66,16 @@ During development, plan on frequent rebuilds. Because physical structures are c
 
 ### [**Azure portal**](#tab/index-portal)
 
-Index design through the portal enforces requirements and schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. In the portal, there are two options for creating a search index: 
+Index design through the portal enforces requirements and schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. 
 
-+ **Add index**, an embedded editor for specifying an index schema
-+ [**Import data wizard**](search-import-data-portal.md)
+1. [Sign in to the Azure portal](https://portal.azure.com)
 
-The wizard is an end-to-end workflow that creates an indexer, a data source, and a finished index. It also loads the data. If this is more than what you want, use **Add index** instead.
+1. In the search service Overview page, choose either option for creating a search index: 
+
+   + **Add index**, an embedded editor for specifying an index schema
+   + [**Import data wizard**](search-import-data-portal.md)
+
+   The wizard is an end-to-end workflow that creates an indexer, a data source, and a finished index. It also loads the data. If this is more than what you want, use **Add index** instead.
 
 The following screenshot highlights where **Add index** and **Import data** appear on the command bar. After an index is created, you can find it again in the **Indexes** tab.
 
