@@ -8,7 +8,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 07/22/2021
+ms.date: 01/20/22
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure or export data from Azure.
 ---
@@ -155,15 +155,13 @@ Data Box can transfer data based on the region in which service is deployed, the
 
 ## Data resiliency
 
-THIS SECTION HAS NOT YET BEEN WRITTEN. THIS IS RAW SOURCE MATERIAL (tweaked - don't look sight of the original source).
+The Data Box service is geographical in nature and has a single active deployment in one region within each country or commerce boundary. For data resiliency, a passive instance of the service is maintained, usually in a different region within the same country or commerce boundary. For a few Azure regions, the paired region is outside the commerce or geographic boundary of the active region.<!--Verify final statement. Pairing does occur, just not in the same commerce/geographic region?-->
 
-In the extreme event of any Azure region being impacted by a disaster, the Data Box service will be made available through the corresponding paired region. Both ongoing and new orders will be tracked and fulfilled through the service via the paired region. No action is required from customers for regions where there is a failover region within the same country or commerce boundary. However, some Azure regions don't have a paired region within the same geographic or commerce boundary. If there is a disaster in any of those regions, you will need to create the Data Box order again from a different region that is available, and copy the data to Azure in the new region.
+In the extreme event of any Azure region being affected by a disaster, the Data Box service will be made available through the corresponding paired region. Both ongoing and new orders will be tracked and fulfilled through the service via the paired region. Failover is automatic, and is handled by Microsoft.
 
-The Data Box service is geographical in nature and has a single active deployment in one region within each country or commerce boundary. For data resiliency, a passive instance of the service is maintained in a different region within the same country or commerce boundary. If a disaster IMPACTS a region, the paired region is used to fulfil your orders. Failover is automatic, and is handled by Microsoft.<!--1) How often is data failed over from the active deployment to the passive instance of the service?-->
+In most Azure regions, this is transparent and no action is required of customers. However, some Azure regions don't have a paired region within the same geographic or commerce boundary. In those regions, the customer will need to create their Data Box order again from a different, available region, and copy the data to Azure in the new region.<!--This covers imports. What about exports? Does Support contact the customer, and ask them to submit a new order for the paired region outside the geographic boundary?-->
 
-Some Azure regions - Brazil and Southeast Asia - don’t have a paired region within the same geographic or commerce boundary. For regions that do not have a paired region within the same geography or commerce boundary, you will need to create the Data Box order from a different, available region and copy the data to Azure in the new region.<!--Does this relate to imports only? For an export order, -->
-
-LINKS TO: Paired regions source
+<!--SOURCE: In the extreme event of any Azure region being affected by a disaster, the Data Box service will be made available through the corresponding paired region. Both ongoing and new orders will be tracked and fulfilled through the service via the paired region. No action is required from customers for regions where there is a failover region within the same country or commerce boundary. However, some Azure regions don't have a paired region within the same geographic or commerce boundary. If there is a disaster in any of those regions, you will need to create the Data Box order again from a different region that is available, and copy the data to Azure in the new region.-->
 
 
 ## Next steps
