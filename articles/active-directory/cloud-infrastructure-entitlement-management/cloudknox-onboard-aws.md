@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/18/2022
+ms.date: 01/19/2022
 ms.author: v-ydequadros
 ---
 
@@ -17,12 +17,10 @@ ms.author: v-ydequadros
 This topic describes how to onboard the Amazon Web Services (AWS) authorization system on Microsoft CloudKnox Permissions Management (CloudKnox).
 
 > [!NOTE] 
-> To complete this task you must have Global Administrator permissions.
+> To complete this task, you must have Global Administrator permissions.
 
 > [!NOTE] 
-> Before beginning this task, make sure you have completed the steps provided in Enable CloudKnox on your Azure Active Directory tenant.
-
-<!---[Enable CloudKnox on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.html).--->
+> Before beginning this task, make sure you have completed the steps provided in [Enable CloudKnox on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.md).
 
 **To onboard the AWS authorization system on CloudKnox:**
 
@@ -32,24 +30,31 @@ This topic describes how to onboard the Amazon Web Services (AWS) authorization 
 
 1. On the **Data Collectors** tab, select **AWS**, and then select **Create Configuration**.
 
-1. In **CloudKnox Onboarding – Azure OIDC App Creation**, enter the **OIDC Azure App Name**.
+1. In **CloudKnox Onboarding – Azure AD OIDC App Creation**, enter the **Azure AD OIDC Azure App Name**.
 
-1. To create the app registration, copy the script and run it in your command-line app.
+1. To create the app registration, copy the script and run it in your Azure command-line app.
+
+    You can change the app name, but you can't change the application ID URL.
 
 1. To confirm that the app was created, open **App Registrations** in Azure and, on the **All applications** tab, locate your app.
 
 1. Select the app name to open the **Expose an API** page.
 
-    The API is displayed in the **Application ID URI** box. This API enables the connection with the OIDC account.
-1. Log in to AWS and select the CloudKnox account as the OIDC provider.
+    The API is displayed in the overview page and the **Application ID URI** box. This API enables the connection with the OIDC account.
 
-1. Return to CloudKnox, and in the **CloudKnox Onboarding – Azure OIDC Account Details & IDP Access** box, enter the **AWS OIDC Account ID**. Then select **Launch Template**.
+    If you aren't already logged in to AWS, you're prompted to do so. 
+
+1. Open a new browser window and log in to AWS. Then select the AWS account where you want to create the OIDC provider.
+
+1. Return to CloudKnox, and in the **CloudKnox Onboarding – Azure AD OIDC Account Details & IDP Access** box, enter the **AWS OIDC Account ID**. Then select **Launch Template**.
+
+    The AWS OIDC Account ID specifies where you want to create the OIDC connector. You can change the Role name to your requirements. 
 
     The **AWS Quick create stack** page opens. 
 
 1. To create basic entities, for example the OIDC provider, the assumed role policy, or the role the IDC provider requires to connect to Azure AD Security Token Service (Azure AD STS), scroll to the bottom of the page, and in the **Capabilities** box, select **I acknowledge that AWS CloudFormation might create IAM resources with custom names**. Then select **Create stack.**
 
-    AWS creates the required IDC entities including the role that the IDC provider needs to connect to Azure AD STS. These entity names are listed in the **Resources** page.
+    AWS creates the required IDC entities including the role that the IDC provider needs to connect to Azure AD STS. These entity names are listed on the **Resources** page.
 
 1. In the **CloudKnox Data Collectors** tab, select **Next**.
 
@@ -83,7 +88,9 @@ This topic describes how to onboard the Amazon Web Services (AWS) authorization 
 
 1. Return to the **CloudKnox Data Collectors** tab and select **Next**.
 
-1. (Optional but recommended) In the **CloudKnox Onboarding – AWS Central Logging Account Details** box, enter the **Logging Account ID** and **Logging Account Role**. Then select **Next**.
+1. Optional but recommended: You can use the master account to detect all the AWS accounts in your organization. This option automatically onboards newly added AWS accounts if they have a correct CloudKnox role. 
+
+    In the **CloudKnox Onboarding – AWS Central Logging Account Details** box, enter the **Logging Account ID** and **Logging Account Role**. Then select **Next**.
 
 1. In the **Enter Your AWS Account ID** box, enter your account ID.
 
@@ -110,8 +117,8 @@ This topic describes how to onboard the Amazon Web Services (AWS) authorization 
     The data collection process takes a few minutes, so you may have to refresh your screen a few times to see the data.
 
 
-<!---## Next steps--->
+## Next steps
 
-<!---For information on how to onboard Microsoft Azure, see [Onboard the Azure authorization system](cloudknox-onboard-azure.html).--->
-<!---For information on how to onboard Google Cloud Platform (GCP), see [Onboard the GCP authorization system](cloudknox-onboard-gcp.html).--->
+- For information on how to onboard Microsoft Azure, see [Onboard the Azure authorization system](cloudknox-onboard-azure.md).
+- For information on how to onboard Google Cloud Platform (GCP), see [Onboard the GCP authorization system](cloudknox-onboard-gcp.md).
 
