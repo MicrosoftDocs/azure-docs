@@ -17,7 +17,7 @@ ms.date: 01/13/2022
 
 
 ## Existing data
-Retention for tables configured for Basic Logs is 8 days. If you have existing data over 8 days old in a table that you configure for Basic Logs, that data will be moved to [Archived Logs](archived-logs.md).
+Retention for tables configured for Basic Logs is 8 days. If you have existing data over 8 days old in a table that you configure for Basic Logs, that data will be moved to [Archived Logs](archived-logs-overview.md).
 
 
 ## Configure with REST API

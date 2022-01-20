@@ -107,13 +107,14 @@ source
 | extend DeviceId = tostring(parsedAdditionalContext.DeviceID)
 ```
 
+## Supported KQL features
 
-## Supported statements
+### Supported statements
 
-###	let statement
-The right-hand side of [let]() can be a scalar expression, a tabular expression or a user-defined function. Only user-defined functions with scalar arguments are supported.
+####	let statement
+The right-hand side of [let](/data-explorer/kusto/query/letstatement) can be a scalar expression, a tabular expression or a user-defined function. Only user-defined functions with scalar arguments are supported.
 
-### tabular expression statements
+#### tabular expression statements
 The only supported data sources for the KQL statement are as follows:
 
 –	**source**, which represents the source data. For example:
@@ -131,7 +132,7 @@ print x = 2 + 2, y = 5 | extend z = exp2(x) + exp2(y)
 ```
 
 
-## Tabular Operators
+### Tabular Operators
 - [extend](/azure/data-explorer/kusto/query/extendoperator)
 - [project](/azure/data-explorer/kusto/query/projectoperator)
 - [print](/azure/data-explorer/kusto/query/printoperator)
@@ -141,15 +142,15 @@ print x = 2 + 2, y = 5 | extend z = exp2(x) + exp2(y)
 - [project-rename](/azure/data-explorer/kusto/query/projectrenameoperator)
 - [columnifexists]() (use columnifexists instead of column_ifexists)
 
-## Scalar operators
+### Scalar operators
 
-### Numerical operators
+#### Numerical operators
 All [Numerical operators](/azure/data-explorer/kusto/query/numoperators) are supported.
 
-### Datetime and Timespan arithmetic operators
+#### Datetime and Timespan arithmetic operators
 All [Datetime and Timespan arithmetic operators](/azure/data-explorer/kusto/query/datetime-timespan-arithmetic) are supported.
 
-### String operators
+#### String operators
 The following [String operators](/azure/data-explorer/kusto/query/datatypes-string-operators) are supported.
 
     – ==
@@ -172,7 +173,7 @@ The following [String operators](/azure/data-explorer/kusto/query/datatypes-stri
     – in
     – !in
 
-### Bitwise operators
+#### Bitwise operators
 
 The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators) are supported.
 
@@ -183,9 +184,9 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
     – binary_shift_left()
     – binary_shift_right()
 
-## Scalar functions
+### Scalar functions
 
-### Bitwise functions
+#### Bitwise functions
 
 - [binary_and](/azure/data-explorer/kusto/query/binary-andfunction)
 - [binary_or](/azure/data-explorer/kusto/query/binary-orfunction)
@@ -194,7 +195,7 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 - [binary_shift_right](/azure/data-explorer/kusto/query/binary-shift-rightfunction)
 - [binary_xor](/azure/data-explorer/kusto/query/binary-xorfunction)
 
-### Conversion functions
+#### Conversion functions
 
 - [tobool](/azure/data-explorer/kusto/query/toboolfunction)
 - [todatetime](/azure/data-explorer/kusto/query/todatetimefunction)
@@ -205,7 +206,7 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 - [tostring](/azure/data-explorer/kusto/query/tostringfunction)
 - [totimespan](/azure/data-explorer/kusto/query/totimespanfunction)
 
-### DateTime and TimeSpan functions
+#### DateTime and TimeSpan functions
 
 - [ago](/azure/data-explorer/kusto/query/agofunction)
 - [datetime_add](/azure/data-explorer/kusto/query/datetime-addfunction)
@@ -232,7 +233,7 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 - [totimespan](/azure/data-explorer/kusto/query/totimespanfunction)
 - [weekofyear](/azure/data-explorer/kusto/query/weekofyearfunction)
 
-### Dynamic and array functions
+#### Dynamic and array functions
 
 - [array_concat](/azure/data-explorer/kusto/query/arrayconcatfunction)
 - [array_length](/azure/data-explorer/kusto/query/arraylengthfunction)
@@ -242,7 +243,7 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 - [parse_xml](/azure/data-explorer/kusto/query/parse-xmlfunction.html)
 - [zip](/azure/data-explorer/kusto/query/zipfunction)
 
-### Mathematical functions
+#### Mathematical functions
 
 - [abs](/azure/data-explorer/kusto/query/abs-function)
 - [bin/floor](/azure/data-explorer/kusto/query/binfunction)
@@ -260,14 +261,14 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 - [round](/azure/data-explorer/kusto/query/roundfunction)
 - [sign](/azure/data-explorer/kusto/query/signfunction)
 
-### Conditional functions
+#### Conditional functions
 
 - [case](/azure/data-explorer/kusto/query/casefunction)
 - [iif](/azure/data-explorer/kusto/query/iiffunction)
 - [max_of](/azure/data-explorer/kusto/query/max-offunction)
 - [min_of](/azure/data-explorer/kusto/query/min-offunction)
 
-### String functions
+#### String functions
 
 - [base64_encodestring](/azure/data-explorer/kusto/query/base64_encode_tostringfunction) (use base64_encodestring instead of base64_encode_tostring)
 - [base64_decodestring](/azure/data-explorer/kusto/query/base64_decode_tostringfunction) (use base64_decodestring instead of base64_decode_tostring)
@@ -287,16 +288,16 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 - [toupper](/azure/data-explorer/kusto/query/toupperfunction)
 - [hash_sha256](/azure/data-explorer/kusto/query/sha256hashfunction)
 
-### Type functions
+#### Type functions
 
 - [gettype](/azure/data-explorer/kusto/query/gettypefunction)
 - [isnotnull](/azure/data-explorer/kusto/query/isnotnullfunction)
 - [isnull](/azure/data-explorer/kusto/query/isnullfunction)
 
-## Identifier quoting
+### Identifier quoting
 Use [Identifier quoting](/azure/data-explorer/kusto/query/schema-entities/entity-names?q=identifier#identifier-quoting) as required.
 
-## Dynamic literals
+### Dynamic literals
 [Dynamic literals](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals) are not supported, but you can use the [parse_json function](/azure/data-explorer/kusto/query/parsejsonfunction) as a workaround.
 
 For example, the following query is not supported:

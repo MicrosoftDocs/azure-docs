@@ -36,8 +36,8 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{
 >Table name must end with _RST postfix
 #### Request Body
 |Name | Type | Description |
-| --- | --- | --- |
-|properties.restoredLogs.sourceTable | string  | Table to restore data from |s
+|:---|:---|:---|
+|properties.restoredLogs.sourceTable | string  | Table to restore data from |
 |properties.restoredLogs.startRestoreTime | string  | Date and time to start the restore from |
 |properties.restoredLogs.endRestoreTime | string  | Date and time to end the restore by |
 

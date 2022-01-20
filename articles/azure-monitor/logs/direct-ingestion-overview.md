@@ -16,7 +16,7 @@ With direct ingestion, you can send data to a Log Analytics workspace from any R
 
 
 ## Basic operation
-The payload of your API call includes the source data formatted in JSON. Your call connects to a [data collection endpoint](../platform/data-collectio-rule-overivew.md/data-collection-endpoint) and specifies a [data collection rule](platform/data-collection-rule.md). The data collection rule understands the format of the source data, potentially filters it and transforms it for the target table, and then sends it to a specific table in a specific workspace. You can modify the target table and workspace by modifying the data collection rule without any change to the REST API call or source data.
+The payload of your API call includes the source data formatted in JSON. Your call connects to a [data collection endpoint](../platform/data-collection-rule-overivew.md/data-collection-endpoint) and specifies a [data collection rule](../platform/data-collection-rule.md). The data collection rule understands the format of the source data, potentially filters it and transforms it for the target table, and then sends it to a specific table in a specific workspace. You can modify the target table and workspace by modifying the data collection rule without any change to the REST API call or source data.
 
 :::image type="content" source="media/direct-ingestion/direct-ingestion-overview.png" alt-text="Overview diagram for direct ingestion" lightbox="media/direct-ingestion/direct-ingestion-overview.png":::
 
