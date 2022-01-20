@@ -42,9 +42,9 @@ Before you begin, check in **Configuration Manager Default Settings** that the P
 1. On the **Script** page of the **Create Script** wizard, configure the following settings:
    1. **Script Name** – Onboard Azure Arc
    1. **Script language** - PowerShell
-   1. **Import** – Import the installation script that you generated in the Azure Portal.
+   1. **Import** – Import the installation script that you generated in the Azure portal.
       :::image type="content" source="media/onboard-configuration-manager-powershell/configuration-manager-create-script.png" alt-text="Screenshot of the Create Script screen in Configuration Manager.":::
-1. In the Script Wizard, paste the script generated from Azure Portal. Edit this pasted script with the Service Principal Secret for the service principal you generated.
+1. In the Script Wizard, paste the script generated from Azure portal. Edit this pasted script with the Service Principal Secret for the service principal you generated.
 1. Complete the wizard. The new script is displayed in the **Script** list with a status of **Waiting for approval**.
 
 ## Approve the script in Configuration Manager

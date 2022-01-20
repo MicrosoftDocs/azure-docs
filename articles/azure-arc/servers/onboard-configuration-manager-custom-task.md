@@ -29,7 +29,7 @@ Next, [create an application in Configuration Manager](/mem/configmgr/apps/get-s
 1. On the **Home** tab, in the **Create** group, select **Create Application**.
 1. On the **General** page of the Create Application Wizard, select **Automatically detect information about this application from installation files**. This action pre-populates some of the information in the wizard with information that is extracted from the installation .msi file. Then, specify the following information:
    1. **Type**: Select **Windows Installer (*.msi file)**
-   1. **Location**: Select **Browse** to choose the location where you saved the installation file **AzureConnectedMachineAgent.msi**
+   1. **Location**: Select **Browse** to choose the location where you saved the installation file **AzureConnectedMachineAgent.msi**.
       :::image type="content" source="media/onboard-configuration-manager-custom-task/configuration-manager-create-application.png" alt-text="Screenshot of the Create Application Wizard in Configuration Manager.":::
 1. Select **Next**, and on the **Import Information** page, select **Next** again.
 1. On the **General Information** page, you can supply further information about the application to help you sort and locate it in the Configuration Manager console. Once complete, select Next.
@@ -46,6 +46,7 @@ The next step is to define a custom task sequence that installs the Azure Connec
 1. On the **Home** tab of the ribbon, in the **Create** group, select **Create Task Sequence**. This will launch the Create Task Sequence Wizard.
 1. On the **Create a New Task Sequence** page, select **Create a new custom task sequence**.
 1. On the **Task Sequence Information** page, specify a name for the task sequence and optionally a description of the task sequence.
+
    :::image type="content" source="media/onboard-configuration-manager-custom-task/configuration-manager-create-task-sequence.png" alt-text="Screenshot of the Create Task Sequence Wizard in Configuration Manager.":::
 
 After you complete the Create Task Sequence Wizard, Configuration Manager adds the custom task sequence to the **Task Sequences** node. You can now edit this task sequence to add steps to it.
