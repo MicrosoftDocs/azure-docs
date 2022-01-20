@@ -77,7 +77,6 @@ Click the resource provider name in the following table to see the list of opera
 | [Microsoft.HDInsight](#microsofthdinsight) |
 | [Microsoft.Kusto](#microsoftkusto) |
 | [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated) |
-| [Microsoft.Purview](#microsoftpurview) |
 | [Microsoft.StreamAnalytics](#microsoftstreamanalytics) |
 | [Microsoft.Synapse](#microsoftsynapse) |
 | **Blockchain** |
@@ -5774,53 +5773,6 @@ Azure service: [Power BI Embedded](/azure/power-bi-embedded/)
 > | Microsoft.PowerBIDedicated/servers/skus/read | Retrieve available SKU information for the Server. |
 > | Microsoft.PowerBIDedicated/skus/read | Retrieves the information of Skus |
 > | Microsoft.PowerBIDedicated/skus/read | Retrieves the information of Skus |
-
-### Microsoft.Purview
-
-Azure service: [Azure Purview](../purview/index.yml)
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.Purview/register/action | Register the subscription for Microsoft Purview provider. |
-> | Microsoft.Purview/unregister/action | Unregister the subscription for Microsoft Purview provider. |
-> | Microsoft.Purview/setDefaultAccount/action | Sets the default account for the scope. |
-> | Microsoft.Purview/removeDefaultAccount/action | Removes the default account for the scope. |
-> | Microsoft.Purview/accounts/read | Read account resource for Microsoft Purview provider. |
-> | Microsoft.Purview/accounts/write | Write account resource for Microsoft Purview provider. |
-> | Microsoft.Purview/accounts/delete | Delete account resource for Microsoft Purview provider. |
-> | Microsoft.Purview/accounts/listkeys/action | List keys on the account resource for Microsoft Purview provider. |
-> | Microsoft.Purview/accounts/addrootcollectionadmin/action | Add root collection admin to account resource for Microsoft Purview provider. |
-> | Microsoft.Purview/accounts/move/action | Move account resource for Microsoft Purview provider. |
-> | Microsoft.Purview/accounts/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connection. |
-> | Microsoft.Purview/accounts/operationresults/read | Read the operation status on the account resource for Microsoft Purview provider. |
-> | Microsoft.Purview/accounts/privateEndpointConnectionProxies/read | Read Account Private Endpoint Connection Proxy. |
-> | Microsoft.Purview/accounts/privateEndpointConnectionProxies/write | Write Account Private Endpoint Connection Proxy. |
-> | Microsoft.Purview/accounts/privateEndpointConnectionProxies/delete | Delete Account Private Endpoint Connection Proxy. |
-> | Microsoft.Purview/accounts/privateEndpointConnectionProxies/validate/action | Validate Account Private Endpoint Connection Proxy. |
-> | Microsoft.Purview/accounts/privateEndpointConnectionProxies/operationResults/read | Monitor Private Endpoint Connection Proxy async operations. |
-> | Microsoft.Purview/accounts/privateEndpointConnections/read | Read Private Endpoint Connection. |
-> | Microsoft.Purview/accounts/privateEndpointConnections/write | Create or update Private Endpoint Connection. |
-> | Microsoft.Purview/accounts/privateEndpointConnections/delete | Delete Private Endpoint Connection. |
-> | Microsoft.Purview/accounts/privatelinkresources/read | Read Account Link Resources. |
-> | Microsoft.Purview/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource. |
-> | Microsoft.Purview/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource. |
-> | Microsoft.Purview/accounts/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for the catalog. |
-> | Microsoft.Purview/accounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for the catalog. |
-> | Microsoft.Purview/checknameavailability/read | Check if name of purview account resource is available for Microsoft Purview provider. |
-> | Microsoft.Purview/getDefaultAccount/read | Gets the default account for the scope. |
-> | Microsoft.Purview/locations/operationResults/read | Monitor async operations. |
-> | Microsoft.Purview/operations/read | Reads all available operations for Microsoft Purview provider. |
-> | **DataAction** | **Description** |
-> | Microsoft.Purview/accounts/data/read | Permission is deprecated. |
-> | Microsoft.Purview/accounts/data/write | Permission is deprecated. |
-> | Microsoft.Purview/accounts/scan/read | Permission is deprecated. |
-> | Microsoft.Purview/accounts/scan/write | Permission is deprecated. |
-> | Microsoft.Purview/attributeBlobs/read | Read Attribute Blob. |
-> | Microsoft.Purview/attributeBlobs/write | Write Attribute Blob. |
-> | Microsoft.Purview/policyElements/read | Read Policy Element. |
-> | Microsoft.Purview/policyElements/write | Create or update Policy Element. |
-> | Microsoft.Purview/policyElements/delete | Delete Policy Element. |
 
 ### Microsoft.StreamAnalytics
 
