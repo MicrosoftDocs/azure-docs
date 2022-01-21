@@ -480,6 +480,13 @@ The `principalId` property value is a unique identifier for the identity that's 
 
 ---
 
+<a name="setup-identity-apihub-authentiation"></a>
+
+## Set up user-assigned managed identity for token authentication (Advanced)
+
+If your scenario requires finer-grained control over how authentication connection authentication for managed connector , you can set up token authentication for those connections. 
+
+
 <a name="access-other-resources"></a>
 
 ## Give identity access to resources
