@@ -24,15 +24,15 @@ This article assumes you've already downloaded and installed the Azure Virtual D
 
 ## Personal host pools overview
 
-A personal host pool is a type of host pool that has personal desktops. Personal desktops have a one to one mapping, where only one user can be assigned to any personal desktop and a user can only be assigned to a single personal desktop. Every time the user logs in, their user session will be directed to their assigned personal desktop session host. This host pool type is ideal for customers that have resource-intensive workloads where it would benefit the user experience and session performance more to have a single session on a session host as opposed to multiple sessions. Also note that user activities, files, and settings persist on the VM OS disk after each user logoff. 
+A personal host pool is a type of host pool that has personal desktops. Personal desktops have one-to-one mapping, which means a single user can only be assigned to a single personal desktop. Every time the user signs in, their user session is directed to their assigned personal desktop session host. This host pool type is ideal for customers with resource-intensive workloads because user experience and session performance will improve if there's only one session on the session host. Another benefit of this host pool type is that user activities, files, and settings persist on the virtual machine operating system (VM OS) disk after the user signs out.
 
-Since users must be assigned to a personal desktop to have a session on one, there are two types of assignment for a personal host pool, automatic assignment and direct assignment.
+Users must be assigned to a personal desktop to start their session. There are two types of assignments in a personal host pool: automatic assignment and direct assignment.
 
 ## Configure automatic assignment
 
 Automatic assignment is the default assignment type for new personal desktop host pools created in your Azure Virtual Desktop environment. Automatically assigning users doesn't require a specific session host.
 
-To automatically assign users, first assign them to the personal desktop host pool so that they can see the desktop in their feed. When an assigned user launches the desktop in their feed, their user session will be load balanced to an available session host if they haven't already connected to the host pool, which completes the assignment process.
+To automatically assign users, first assign them to the personal desktop host pool so that they can see the desktop in their feed. When an assigned user launches the desktop in their feed, their user session will be load-balanced to an available session host if they haven't already connected to the host pool.
 
 To configure a host pool to automatically assign users to VMs, run the following PowerShell cmdlet:
 
@@ -48,7 +48,7 @@ New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtuali
 
 ## Configure direct assignment
 
-Unlike automatic assignment, when you use direct assignment, you must assign the user to both the personal desktop host pool and a specific session host before they can connect to their personal desktop. If the user is only assigned to a host pool without a session host assignment, they won't be able to access resources and will receive a no resources available error.
+Unlike automatic assignment, when you use direct assignment, you must assign the user to both the personal desktop host pool and a specific session host before they can connect to their personal desktop. If the user is only assigned to a host pool without a session host assignment, they won't be able to access resources and will see an error message that says, "No resources available."
 
 To configure a host pool to require direct assignment of users to session hosts, run the following PowerShell cmdlet:
 
@@ -93,9 +93,9 @@ Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -Re
 ```
 
 >[!IMPORTANT]
-> - You must include the -Force parameter when running the PowerShell cmdlet to unassign a personal desktop. Excluding the -Force parameter will result in an error.
-> - There must be 0 existing user sessions on the session host at the time you are unassigning the user from the personal desktop. If there is an existing user session on the session host that you are unassigning, the operation will fail.
-> - If the session host currently has no user assignment, nothing will happen after running this cmdlet.
+> - You must include the _-Force_ parameter when running the PowerShell cmdlet to unassign a personal desktop. If you don't include the _-Force_ parameter, you'll receive an error message.
+> - There must be no existing user sessions on the session host when you unassign the user from the personal desktop. If there's an existing user session on the session host while you're unassigning it, you won't be able to unassign the personal desktop successfully.
+> - If the session host has no user assignment, nothing will happen when you run this cmdlet.
 
 To unassign a personal desktop in the Azure portal:
 1. Sign in to the Azure portal at <https://portal.azure.com>.
@@ -116,9 +116,9 @@ Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -Re
 ```
 
 >[!IMPORTANT]
-> - You must include the -Force parameter when running the PowerShell cmdlet to reassign a personal desktop. Excluding the -Force parameter will result in an error.
-> - There must be 0 existing user sessions on the session host at the time you are reassigning the personal desktop to another user. If there is an existing user session on the session host that you are reassigning, the operation will fail.
-> - If the user principal name (UPN) provided for the -AssignedUser parameter is the same as the UPN currently assigned to the personal desktop, nothing will happen.
+> - You must include the _-Force_ parameter when running the PowerShell cmdlet to reassign a personal desktop. If you don't include the _-Force_ parameter, you'll receive an error message.
+> - There must be no existing user sessions on the session host when you reassign a personal desktop. If there's an existing user session on the session host while you're reassigning it, you won't be able to reassign the personal desktop successfully.
+> - If the user principal name (UPN) you enter for the _-AssignedUser_ parameter is the same as the UPN currently assigned to the personal desktop, the cmdlet won't do anything.
 > - If the session host currently has no user assignment, the personal desktop will be assigned to the provided UPN.
 
 To reassign a personal desktop in the Azure portal:
@@ -134,7 +134,7 @@ To reassign a personal desktop in the Azure portal:
 
 ## Next steps
 
-Now that you've configured the personal desktop assignment type, you can sign in to an Azure Virtual Desktop client to test it as part of a user session. These next two How-tos will tell you how to connect to a session using the client of your choice:
+Now that you've configured the personal desktop assignment type, you can sign in to an Azure Virtual Desktop client to test it as part of a user session. These articles will show you how to connect to a session using the client of your choice:
 
 - [Connect with the Windows Desktop client](./user-documentation/connect-windows-7-10.md)
 - [Connect with the web client](./user-documentation/connect-web.md)
