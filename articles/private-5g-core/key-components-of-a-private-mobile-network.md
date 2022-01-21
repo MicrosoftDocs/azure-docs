@@ -35,7 +35,7 @@ Azure Private 5G Core provides flexible traffic handling though customizable pol
 You will configure two primary types of resource to manage policy control for your private mobile network.
 
 - **Services** - Each service is a representation of a set of QoS characteristics that you want to offer to UEs on SDFs that match particular properties, such as their destination, or the protocol used. You can also use services to limit or block particular SDFs based on these properties.
-- **SIM policies** - SIM policies allow you to define different sets of policies and interoperability settings which can each be applied to a group of SIMs. You'll need to assign a SIM to a SIM policy before the SIM can use the private mobile network.
+- **SIM policies** - SIM policies allow you to define different sets of policies and interoperability settings, which can each be assigned to a group of SIMs. SIM policies also allow you to determine which services will be offered to the SIMs. You'll need to assign a SIM policy to a SIM before that SIM can use the private mobile network.
 
 For detailed information on policy control, see [Policy control](policy-control.md)
 
