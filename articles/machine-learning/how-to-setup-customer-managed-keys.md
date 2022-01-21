@@ -4,7 +4,7 @@
 
 Azure Machine Learning is built on top of multiple Azure services. Several of these services allow you to use a key you provide (customer-managed key) to add an extra layer of encryption. The keys you provide are stored securely using Azure Key Vault.
 
-In this article, you'll learn how to use customer-managed keys with Azure Machine Learning. Your keys are used with the following services that Azure Machine Learning relies on:
+In this article, you'll learn how to use customer-managed keys with the following services that Azure Machine Learning relies on:
 
 | Service | What it is used for |
 | ----- | ----- |
@@ -15,18 +15,14 @@ In this article, you'll learn how to use customer-managed keys with Azure Machin
 > [!TIP]
 > While it may be possible to use the same key for everything, using a different key for each service or instance allows you to rotate or revoke the keys without impacting multiple things.
 
+You'll also learn how to use the the [hbi_workspace flag](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). This flag controls the amount of [data Microsoft collects for diagnostic purposes](#microsoft-collected-data) and enables [additional encryption in Microsoft-managed environments](../security/fundamentals/encryption-atrest.md). In addition, it enables the following behaviors:
 
-## Open questions
+* Starts encrypting the local scratch disk in your Azure Machine Learning compute cluster, provided you have not created any previous clusters in that subscription. Else, you need to raise a support ticket to enable encryption of the scratch disk of your compute clusters.
+* Cleans up your local scratch disk between runs.
+* Securely passes credentials for your storage account, container registry, and SSH account from the execution layer to your compute clusters using your key vault.
 
-* Do we recommend re-using the same key to secure multiple services? Seems like separate keys offers less of an attack surface. Someone gets one key, they only get that service and you can regenerate the key as needed.
-
-* How do we (or do we?) position HBI in here? It's not a customer-managed key, but is adjacent, as it enables encryption of 'more stuff'.
-
-* Key rotation info/considerations for ACI/AKS?
-
-* Does the AKS info also apply to ARC K8S deployments?
-
-* Does the diagram at /azure/cosmos-db/media/how-to-setup-cmk/cmk-intro.png apply generically to all CMK? Or just Cosmos DB? That is, representing it as the CMK being applied on top of the service-managed keys?
+> [!TIP]
+> The `hbi_workspace` flag does not impact encryption in transit, only encryption at rest.
 
 ## Prerequisites
 
@@ -34,9 +30,19 @@ In this article, you'll learn how to use customer-managed keys with Azure Machin
     
 ## Limitations
 
+### HBI_workspace flag
+
+* The `hbi_workspace` flag can only be set when a workspace is created. It cannot be changed for an existing workspace.
+* When this flag is set to True, one possible impact is increased difficulty troubleshooting issues. This could happen because some telemetry isn't sent to Microsoft and there is less visibility into success rates or problem types, and therefore may not be able to react as proactively when this flag is True.
+
+### Azure Key Vault
+
+The Azure Key Vault that contains your keys must be in the same Azure region that you plan to create the Azure Machine Learning workspace in.
 ### Azure Cosmos DB
 
 * Azure Machine Learning stores metadata in an Azure Cosmos DB. If you __don't__ use a customer-managed key, the Azure Cosmos DB instance is created in a _Microsoft subscription_ managed by Azure Machine Learning. So it does not appear in your Azure subscription. All the data stored in Azure Cosmos DB is encrypted at rest with Microsoft-managed keys.
+
+* The decision to use a customer-managed key for the Azure Cosmos DB instance can only be made when the workspace is created. It cannot be changed for an existing workspace.
 
 * When using a customer-managed key, the Cosmos DB instance is created in a Microsoft-managed resource group in __your subscription__. It is __created automatically when you create the Azure Machine Learning workspace__. The following services are also created in this resource group, and are used by the customer-managed key configuration:
 
@@ -56,13 +62,39 @@ In this article, you'll learn how to use customer-managed keys with Azure Machin
 
 * To estimate the additional cost of the Azure Cosmos DB instance, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
+## HBI_workspace flag
+
+To enable the `hbi_workspace` flag when creating an Azure Machine Learning workspace, follow the steps in one of the following articles:
+
+* [How to create and manage a workspace](how-to-manage-workspace.md).
+* [How to create and manage a workspace using the Azure CLI](how-to-manage-workspace-cli.md).
+* [How to create a workspace using Hashicorp Terraform](how-to-manage-workspace-terraform.md).
+* [How to create a workspace using Azure Resource Manager templates](how-to-create-workspace-template.md).
+
 ## Create Azure Key Vault
 
-When creating Azure Key Vault, you must enable __soft delete__ and __purge protection__.
+1. When creating Azure Key Vault, you must enable __soft delete__ and __purge protection__.
 
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+    :::image type="content" source="{source}" alt-text="{alt-text}":::
 
-For more information, see [Create a key vault](/azure/key-vault/general/quick-create-portal).
+    For the steps to create the key vault, see [Create a key vault](/azure/key-vault/general/quick-create-portal).
+
+1. Once the key vault has been created, select it in the [Azure portal](https://portal.azure.com). From __Overview__, copy the __Vault URI__. This value is needed by other steps in this article.
+1. 
+## Create a key
+
+1. From the [Azure portal](https://portal.azure.com), select the key vault instance. Then select __Keys__ from the left.
+1. Select __+ Generate/import__ from the top of the page. Use the following values to create a key:
+
+    * Set __Options__ to __Generate__.
+    * Enter a __Name__ for the key. The name should be something that you identifies what the planned use is. For example, `my-cosmos-key`.
+    * Set __Key type__ to __RSA__.
+    * We recommend selecting at least __3072__ for the __RSA key size__.
+    * Leave __Enabled__ set to yes.
+
+    Optionally you can set an activation date, expiration date, and tags.
+
+1. Select __Create__ to create the key.
 
 ## Azure Cosmos DB
 
@@ -89,9 +121,6 @@ To use your own (customer-managed) keys to encrypt the Azure Cosmos DB instance,
     * `cmk_keyvault`: This parameter is the resource ID of the key vault in your subscription. This key vault needs to be in the same region and subscription that you will use for the Azure Machine Learning workspace. 
 
     * `resource_cmk_uri`: This parameter is the full resource URI of the customer managed key in your key vault, including the [version information for the key](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning). 
-
-> [!TIP]
-> If you need to __rotate or revoke__ your key, you can do so at any time. When rotating a key, Cosmos DB will start using the new key (latest version) to encrypt data at rest. When revoking (disabling) a key, Cosmos DB takes care of failing requests. It usually takes an hour for the rotation or revocation to be effective.
 
 For more information on customer-managed keys with Cosmos DB, see [Configure customer-managed keys for your Azure Cosmos DB account](../cosmos-db/how-to-setup-cmk.md).
 
@@ -121,3 +150,7 @@ This process allows you to encrypt both the Data and the OS Disk of the deployed
 
 > [!IMPORTANT]
 > This process only works with AKS K8s version 1.17 or higher.
+
+## Rotate keys
+
+* Cosmos DB: If you need to __rotate or revoke__ your key, you can do so at any time. When rotating a key, Cosmos DB will start using the new key (latest version) to encrypt data at rest. When revoking (disabling) a key, Cosmos DB takes care of failing requests. It usually takes an hour for the rotation or revocation to be effective.
