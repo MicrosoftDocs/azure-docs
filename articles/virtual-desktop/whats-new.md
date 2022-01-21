@@ -36,6 +36,11 @@ The Azure Virtual Desktop agent updates at least once per month.
 
 Here's what's changed in the Azure Virtual Desktop Agent:
 
+- Version 1.0.3855.1400: This update was released December 2021 and has the following changes:
+    - Fixes an issue that caused an unhandled exception.
+    - This version now supports Azure Stack HCI by retrieving VM metadata from the Azure Arc service.
+    - This version now allows built-in stacks to be automatically updated if its version number is beneath a certain threshold.
+    - The UrlsAccessibleCheck health check now only gets the URL until the path delimiter to prevent 404 errors.
 - Version 1.0.3719.1700: This update was released November 2021 and has the following changes:
     - Updated agent error messages.
     - Fixes an issue with the agent restarting every time the side-by-side stack was updated.

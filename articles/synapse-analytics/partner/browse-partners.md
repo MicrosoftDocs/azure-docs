@@ -7,8 +7,8 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 07/14/2021
-author: periclesrocha
-ms.author: procha
+author: gillharmeet
+ms.author: harmeetgill
 ms.reviewer: omafnan, wiassaf
 ms.custom: seo-lt-2019
 ---

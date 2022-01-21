@@ -30,6 +30,7 @@ Unless otherwise noted, prebuilt entities are available in all LUIS application 
 |Chinese|[zh-CN](#chinese-entity-support)||
 |Dutch|[nl-NL](#dutch-entity-support)||
 |English|[en-US (American)](#english-american-entity-support)||
+|English|[en-GB (British)](#english-british-entity-support)||
 |French|[fr-CA (Canada)](#french-canadian-entity-support), [fr-FR (France)](#french-france-entity-support), ||
 |German|[de-DE](#german-entity-support)||
 |Italian|[it-IT](#italian-entity-support)||
@@ -92,6 +93,28 @@ The following entities are supported:
 The following entities are supported:
 
 | Prebuilt entity | en-US |
+| --------------- | :---: |
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
+[Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>weight<br>information (ex: bit/byte)<br>length (ex: meter)<br>speed (ex: mile per hour)  |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    V2, V3   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    V2, V3   |
+[Percentage](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
+[PersonName](luis-reference-prebuilt-person.md)   |    V2, V3   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
+
+## English (British) entity support
+
+The following entities are supported:
+
+| Prebuilt entity | en-GB |
 | --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    V2, V3   |

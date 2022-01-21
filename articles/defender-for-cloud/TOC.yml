@@ -238,8 +238,13 @@
     displayName: Azure Defender for App Service, defender for app
     href: defender-for-app-service-introduction.md
   - name: Protect your Azure Storage accounts
-    displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
-    href: defender-for-storage-introduction.md
+    items:
+    - name: Overview of Defender for Storage
+      displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
+      href: defender-for-storage-introduction.md
+    - name: Exclude a storage account
+      displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
+      href: defender-for-storage-exclude.md
   - name: Protect your Key Vault keys and secrets
     items:
     - name: Overview of Defender for Key Vault
@@ -358,7 +363,7 @@
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
-    href: /azure/defender-for-iot/
+    href: ../defender-for-iot/index.yml
   - name: Azure security documentation
     href: ../security/index.yml
   - name: Readiness Roadmap

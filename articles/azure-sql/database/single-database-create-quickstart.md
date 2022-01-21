@@ -9,7 +9,7 @@ ms.topic: quickstart
 author: LitKnd
 ms.author: kendralittle
 ms.reviewer: mathoma
-ms.date: 01/05/2022
+ms.date: 01/17/2022
 ---
 # Quickstart: Create an Azure SQL Database single database
 
@@ -206,6 +206,8 @@ The following values are used in subsequent commands to create the database and 
    # Show randomized variables
    Write-host "Resource group name is" $resourceGroupName
    Write-host "Server name is" $serverName
+
+
 ```
 
 ### Create resource group
