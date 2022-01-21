@@ -23,11 +23,11 @@ Hazard symbols identified in the manual are:
 | ![Notice Icon](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-safety-notice.png) **NOTICE:** | Indicates information considered important, but not hazard-related. |
 | ![Hazard Symbol](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-safety-warning.png) | Hazard Symbol |
 | ![Tip Hazard Icon](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-safety-tip-hazard.png)  | Tip Hazard|
-| ![Tip Hazard Icon](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-overload-tip-hazard.jpg)  | Overload Tip Hazard|
+| ![Tip Hazard Icon 2](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-overload-tip-hazard.jpg)  | Overload Tip Hazard|
 | ![Heavy Weight Icon](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-safety-heavy-weight.png)  | Heavy Weight Hazard|
 | ![Electrical Shock Icon](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-safety-electric-shock.png) | Electric Shock Hazard |
 | ![No User Serviceable Parts Icon](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-safety-do-not-access.png) | No User Serviceable Parts. Do not access unless properly trained. |
 | ![Multiple Power Sources Icon](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-safety-disconnect-all-power.png)  | Multiple power sources. Disconnect all power cords to remove all power from the equipment. |
 | ![Pinching Points Icon](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-pinching-points.png)  | Crush or Pinching Hazard |
 | ![Hot Components or Surfaces Icon](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-hot-component-surface.png)  | Hot Surface. Do not touch. Allow to cool before servicing.. |
-| ![Moving parts hazard](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-moving-parts-hazard.png)  | Moving parts hazard |
+| ![Moving parts hazard 2](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-moving-parts-hazard.png)  | Moving parts hazard |
