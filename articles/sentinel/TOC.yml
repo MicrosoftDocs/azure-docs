@@ -275,7 +275,7 @@
     - name: Search large datasets
       href: search-jobs.md
     - name: Restore historical data
-      href: restore-archived-log.md
+      href: restore.md
     - name: Create custom entity activities
       href: customize-entity-activities.md
     - name: Collaborate in Microsoft Teams

@@ -1,5 +1,5 @@
 ---
-title: Search across long time spans in large datasets - Microsoft Sentinel
+title: Search historical data in large datasets - Microsoft Sentinel
 description: Learn how to use search jobs to search extremely large datasets.
 author: cwatson-cat
 ms.topic: how-to
@@ -7,7 +7,7 @@ ms.date: 01/14/2022
 ms.author: cwatson
 ---
 
-# Search across long time spans in extremely large datasets
+# Search historical data in large datasets
 
 Use search jobs when you start an investigation to find specific events in logs within a given time frame. You can search all your logs, filter through them, and look for events that match your criteria.
 
@@ -58,6 +58,6 @@ View the status and results of your search job by going to the **Saved Searches*
 To learn more, see the following topics.
 
 - [Hunt with bookmarks](bookmarks.md)
-- [Restore archived logs](restore-archived-log.md)
+- [Restore archived logs](restore.md)
 - Basic logs
 - Archived logs
