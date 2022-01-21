@@ -13,7 +13,7 @@ ms.date: 01/21/2022
 
 Question answering stores answer text as markdown. There are many flavors of markdown. In order to make sure the answer text is returned and displayed correctly, use this reference.
 
-Use the **[CommonMark](https://commonmark.org/help/tutorial/index.html)** tutorial to validate your Markdown. The tutorial has a **Try it** feature for quick copy/paste validation.
+Use the **[CommonMark](https://commonmark.org/help/tutorial/index.html)** tutorial to validate your markdown. The tutorial has a **Try it** feature for quick copy/paste validation.
 
 ## When to use rich-text editing versus markdown
 
