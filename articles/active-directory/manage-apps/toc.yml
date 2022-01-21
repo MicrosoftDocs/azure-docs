@@ -25,7 +25,7 @@
   - name: Tutorials
     items:
     - name: List of app integration tutorials
-      href: /azure/active-directory/saas-apps/tutorial-list
+      href: ../saas-apps/tutorial-list.md
   - name: Samples
     items: 
     - name: Overview of App Management samples
@@ -96,7 +96,7 @@
           href: configure-user-consent.md
         - name: Configure group owner consent
           href: configure-user-consent-groups.md
-        - name: Configure risked-based step-up consent
+        - name: Configure risk-based step-up consent
           href: configure-risk-based-step-up-consent.md
         - name: Configure permission classifications
           href: configure-permission-classifications.md
@@ -148,6 +148,8 @@
           href: migrate-okta-sync-provisioning-to-azure-active-directory.md
         - name: Migrate Okta federation to Azure AD managed authentication
           href: migrate-okta-federation-to-azure-active-directory.md
+    - name: Publish applications
+      href: v2-howto-app-gallery-listing.md
     - name: Secure legacy apps 
       items:
       - name: Secure hybrid access with Azure AD 
@@ -183,7 +185,7 @@
             - name: SSL-VPN
               href: f5-aad-password-less-vpn.md  
             - name: B2C
-              href: https://docs.microsoft.com/azure/active-directory-b2c/partner-f5
+              href: ../../active-directory-b2c/partner-f5.md
     - name: Silverfort
       href: silverfort-azure-ad-integration.md
     - name: Single sign-on
@@ -200,6 +202,8 @@
         href: troubleshoot-password-based-sso.md
       - name: Troubleshoot SAML-based single sign-on
         href: troubleshoot-saml-based-sso.md
+      - name: Troubleshoot Microsoft Application Network sign-in
+        href: troubleshoot-app-publishing.md
       - name: Debug SAML-based single sign-on
         href: debug-saml-sso-issues.md
       - name: Unexpected consent prompt

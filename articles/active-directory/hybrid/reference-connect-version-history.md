@@ -58,6 +58,16 @@ If you want all the latest features and updates, check this page and install wha
 
 To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md).
 
+## 2.0.91.0
+
+### Release status
+
+01/19/2022: Released for download only, not available for auto upgrade
+
+### Functional changes
+
+- We updated the Azure AD Connect Health component in this release from version 3.1.110.0 to version 3.2.1823.12. This new version provides compliance of the Azure AD Connect Health component with the [Federal Information Processing Standards (FIPS)](https://www.nist.gov/standardsgov/compliance-faqs-federal-information-processing-standards-fips) requirements. 
+
 ## 2.0.89.0
 
 ### Release status

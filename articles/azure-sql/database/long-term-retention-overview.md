@@ -17,7 +17,7 @@ ms.date: 07/13/2021
 
 Many applications have regulatory, compliance, or other business purposes that require you to retain database backups beyond the 7-35 days provided by Azure SQL Database and Azure SQL Managed Instance [automatic backups](automated-backups-overview.md). By using the long-term retention (LTR) feature, you can store specified SQL Database and SQL Managed Instance full backups in Azure Blob storage with [configured redundancy](automated-backups-overview.md#backup-storage-redundancy) for up to 10 years. LTR backups can then be restored as a new database.
 
-Long-term retention can be enabled for Azure SQL Database, and is available in public preview for Azure SQL Managed Instance. This article provides a conceptual overview of long-term retention. To configure long-term retention, see [Configure Azure SQL Database LTR](long-term-backup-retention-configure.md) and [Configure Azure SQL Managed Instance LTR](../managed-instance/long-term-backup-retention-configure.md). 
+Long-term retention can be enabled for Azure SQL Database and for Azure SQL Managed Instance. This article provides a conceptual overview of long-term retention. To configure long-term retention, see [Configure Azure SQL Database LTR](long-term-backup-retention-configure.md) and [Configure Azure SQL Managed Instance LTR](../managed-instance/long-term-backup-retention-configure.md). 
 
 > [!NOTE]
 > You can use SQL Agent jobs to schedule [copy-only database backups](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) as an alternative to LTR beyond 35 days.
