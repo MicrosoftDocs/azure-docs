@@ -36,7 +36,7 @@ Go to **Search** in Microsoft Sentinel to enter your search criteria.
 
 View the status and results of your search job by going to the **Saved Searches** tab.
 
-1. In your Microsoft Sentinel workspace select **Search** > **Saved Searches**.
+1. In your Microsoft Sentinel workspace, select **Search** > **Saved Searches**.
 
    :::image type="content" source="media/search-jobs/saved-searches-tab.png" alt-text="Screenshot that shows saved searches tab on the search page.":::
 

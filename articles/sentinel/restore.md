@@ -9,9 +9,9 @@ ms.author: cwatson
 
 # Restore archived logs from search
 
-In some cases, you may need to do a full investigation on historical data. Bring historical log data into the current hot cache to run high performing queries and analytics. Specify a target table and a specific time range for the data you want to restore. Within a few minutes the log data is available within the workspace. Then you can run high performance queries by using full KQL.
+In some cases, you may need to do a full investigation on historical data. Bring historical log data into the current hot cache to run high performing queries and analytics. Specify a target table and a specific time range for the data you want to restore. Within a few minutes, the log data is available within the workspace. Then you can run high-performance queries by using full KQL.
 
-Log restore is ideally adapted for restoring historical logs stored in log data archive. After you restore the data, it's available within your workspace for 8 days.
+Log restore is ideally adapted for restoring historical logs stored in log data archive. After you restore the data, it's available within your workspace for eight days.
 
 ## Restore archived log data
 
@@ -37,7 +37,7 @@ You can restore archived data directly from the **Search (preview)** page or fro
 
 View the status and results of the log data restore by going to the **Restoration** tab. You can view the restored data when the status of the restore job shows **Data Available**.
 
-1. In your Microsoft Sentinel workspace select **Search** > **Restoration**.
+1. In your Microsoft Sentinel workspace, select **Search** > **Restoration**.
 
    :::image type="content" source="media/restore/restoration-tab.png" alt-text="Screenshot of the restoration tab on the search page.":::
 
@@ -53,9 +53,9 @@ View the status and results of the log data restore by going to the **Restoratio
 
 ## Delete restored data tables
 
-Restored data tables are deleted automatically after 8 days. But you can delete restored data tables at any time.
+Restored data tables are deleted automatically after eight days. But you can delete restored data tables at any time.
 
-1. In your Microsoft Sentinel workspace select **Search** > **Restoration**.
+1. In your Microsoft Sentinel workspace, select **Search** > **Restoration**.
 1. Identify the table you want to delete.
 1. Select **Delete** for that table row.
 
