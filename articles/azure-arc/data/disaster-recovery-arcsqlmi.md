@@ -11,6 +11,11 @@ Coneptually the Distributed Availability Groups (DAGs) used in Azure Arc enabled
 > 1. The Azure Arc enabled SQL Managed Instances in both geo-primary and geo-secondary sites need to be identical in terms of their compute & capacity, as well as service tiers they are deployed in.
 > 2. Distributed Availability Groups can be setup for both General Purpose and Business Critical service tiers. 
 
+Configuring the Distributed Availability Groups involves creating the DAG custom resoueces on each of the primary and secondary sites, retrieving and copying over the mirroring certificates and setting up the distributed availability group between the primary and secondary sites.
+
+A properly configured DAG setup would look as below:
+
+![High availability settings](.\media\business-continuity\dag.png)
 
 ### Configure Distributed Availability groups 
 
