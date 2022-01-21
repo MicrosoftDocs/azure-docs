@@ -79,7 +79,7 @@ az network vnet subnet update -g $ASE_RG -n <subnet-name> --vnet-name <vnet-name
 
 ![subnet delegation sample](./media/migration/subnet-delegation.png)
 
-## 6. Migration to App Service Environment v3
+## 6. Migrate to App Service Environment v3
 
 Only start this step once you've completed all pre-migration actions that are listed above and understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what will happen during this time. There will be about one hour of downtime. Scaling and modifications to your existing App Service Environment will be blocked during this step.
 
@@ -93,7 +93,7 @@ Run the following command to check the status of your migration. The status will
 az rest --method get --uri "${ASE_ID}?api-version=2021-02-01" --query properties.status
 ```
 
-Once you get a status of "Ready", migration is done and you have an App Service Environment v3.
+Once you get a status of "Ready", migration is done and you have an App Service Environment v3. Your apps will now be running in your new environment.
 
 Get the details of your new environment by running the following command or by navigating to the [Azure portal](https://portal.azure.com).
 
@@ -123,7 +123,7 @@ The migration page will guide you through the series of steps to complete the mi
 
 ## 2. Generate IP addresses for your new App Service Environment v3
 
-Under **Pre-migration** confirm you understand the implications of the pre-migration step to start pre-migration. This step will take about 5 minutes to complete. Don't scale or make changes to your existing App Service Environment during this time. If you may see a message a few minutes after starting this step asking you to refresh the page, select refresh as shown below to allow your new IP addresses to appear.
+Under **Generate new IP addresses**, confirm you understand the implications and start the process. This step will take about 5 minutes to complete. Don't scale or make changes to your existing App Service Environment during this time. If you may see a message a few minutes after starting this step asking you to refresh the page, select refresh as shown below to allow your new IP addresses to appear.
 
 ![pre-migration request to refresh](./media/migration/pre-migration-refresh.png)
 
@@ -139,11 +139,11 @@ App Service Environment v3 requires the subnet it's in to have a single delegati
 
 ![ux subnet delegation sample](./media/migration/subnet-delegation-ux.png)
 
-## 5. Migration to App Service Environment v3
+## 5. Migrate to App Service Environment v3
 
 Once you've completed all of the above steps, you can start migration. Make sure you understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what will happen during this time. There will be about one hour of downtime. Scaling and modifications to your existing App Service Environment will be blocked during this step.
 
-When migration is complete, you'll have an App Service Environment v3.
+When migration is complete, you'll have an App Service Environment v3 and all of your apps will be running in your new environment. You can confirm the environment's version by checking the **Configuration** page for your App Service Environment.
 
 ::: zone-end
 
