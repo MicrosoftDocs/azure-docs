@@ -88,7 +88,7 @@ For a discussion of considerations for choosing a region for the Azure Stack Edg
 
 ## Billing model
 
-Microsoft Azure charges a monthly, recurring subscription fee for an Azure Stack Edge device. In addition, there are onetime fees for shipping. There is no on-premises software license for the device although guest virtual machine (VMs) may require their own licenses under Bring Your Own License (BYOL).
+Microsoft Azure charges a monthly, recurring subscription fee for an Azure Stack Edge device. In addition, there is a onetime fee for shipping. There is no on-premises software license for the device although guest virtual machine (VMs) may require their own licenses under Bring Your Own License (BYOL).
 
 Currency conversion and discounts are handled centrally by the Azure Commerce billing platform, and you get one unified, itemized bill at the end of each month.
 
