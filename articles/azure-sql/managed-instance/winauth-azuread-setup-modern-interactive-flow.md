@@ -27,10 +27,11 @@ There is no AD to Azure AD set up required for enabling software running on Azur
 
 |Prerequisite  |Description  |
 |---------|---------|
-|Clients running Windows 10 21H1 or higher that are joined to Azure AD. |         |
+|Clients running Windows 10, version 21H1 or a higher version of Windows. |         |
+|The clients must be joined to Azure AD or Hybrid Azure AD. |  You can determine if this prerequisite is met by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status` |
+|The application must connect to the managed instance via an interactive session. | This supports applications such as SQL Server Management Studio (SSMS) and web applications, but will not work for applications which run as a service.  <!--TODO: validate this wording -->|
 |Azure AD tenant. |         |
 |Azure AD Connect installed. | Hybrid environments where identities exist both in Azure AD and AD. |
-|Azure AD joined or Hybrid Azure AD joined machine. *TODO: not sure how this pre-req differs from the clients? Is this machine for something else?* |  You can determine if this prerequisite is met by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status` |
 
 
 TODO: add that this can be done through Local Policy

@@ -32,12 +32,12 @@ To implement the incoming trust-based authentication flow, first ensure that the
 
 |Prerequisite  |Description  |
 |---------|---------|
-|Clients running Windows Server 2012 or higher. *TODO: Is this available only for server versions of windows? Can customers using non-server OSes access? Or am I wrong and this line is not about the clients?* |         |
+|Clients running Windows 8, Windows Server 2012, or a higher version of Windows. |         |
+|The clients must be joined to AD. |  You can determine if this prerequisite is met by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status`  |
 |Azure AD Hybrid Authentication Management Module. | This PowerShell module provides management features for on-premises setup. |
 |Azure tenant.  |         |
 |Azure subscription under the same Azure AD tenant you plan to use for authentication.|         |
-|Azure AD Connect installed. | Hybrid environments where identities exist both in Azure AD and Active Directory (AD). |
-|AD joined machine.  *TODO: not sure how this pre-req differs from the clients? Is this machine for something else?* |  You can determine if this prerequisite is met by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status`  |
+|Azure AD Connect installed. | Hybrid environments where identities exist both in Azure AD and AD. |
 
 ## Create and configure the Azure AD Kerberos Trusted Domain Object
 

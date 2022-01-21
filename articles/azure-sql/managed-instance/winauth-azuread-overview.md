@@ -40,12 +40,11 @@ By enabling Windows Authentication for Azure Active Directory principals, custom
 Windows Authentication for Azure Active Directory principals also enables the following patterns on managed instances. These patterns are frequently used in traditional on-premises SQL Servers:
 
 
-- **"Double hop" authentication** <!--- TODO: link to double hop article once it's created -->
-    - Web applications use IIS identity impersonation to run queries against an instance in the security context of the end user.
-    - Linked servers  <!--- TODO: link to linked server article once it's created --> are used to run queries across instances in the security context of the originating user.
-- TODO: Add linked server and profiler examples and link to the scenario pages when available.
+- **"Double hop" authentication**: <!--- TODO: link to double hop article once it's created -->  Web applications use IIS identity impersonation to run queries against an instance in the security context of the end user.
+- **Linked servers**  <!--- TODO: link to linked server article once it's created --> are used to run queries across instances in the security context of the originating user.
+- **SQL Server Profiler** can be launched using Windows authentication, providing ease of use for database administrators and developers accustomed to this workflow.
 
- <!--- Hold off on this until validate that we have support for this:
+ <!--- Hold off on this until we validate that we have support for this:
 - **SharePoint, Reporting Services, Integration Services, and Analysis Services** 
     - Many on-premises SQL Server customers use applications such as SharePoint, SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS), and SQL Server Analysis Services (SSAS). Using Windows Authentication is a recommended security best practice for these applications.
     - Azure SQL Managed Instance is certified for SharePoint 2019 and SharePoint 2016.
@@ -62,4 +61,5 @@ For example, a customer can enable a mobile analyst, using proven tools that rel
 Learn more about implementing Windows Authentication for Azure AD principals on Azure SQL Managed Instance:
 
 - TODO: add link for announcement blog post
-- TODO: add links to related articles in this set after titles and filenames are finalized
+- [How Windows Authentication for Azure SQL Managed Instance is implemented with Azure Active Directory and Kerberos (Preview)](winauth-implementation-aad-kerberos.md)
+- [How to set up Windows Authentication for Azure SQL Managed Instance using Azure Active Directory and Kerberos (Preview)](winauth-azuread-setup.md)
