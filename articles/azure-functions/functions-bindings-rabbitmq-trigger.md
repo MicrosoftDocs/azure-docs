@@ -4,7 +4,7 @@ description: Learn how to run an Azure Function when a RabbitMQ message is creat
 author: cachai2
 ms.assetid:
 ms.topic: reference
-ms.date: 11/17/2021
+ms.date: 01/21/2022
 ms.author: cachai
 ms.devlang: csharp, java, javascript, python
 ms.custom:
@@ -176,7 +176,6 @@ def main(myQueueItem) -> None:
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"
-Example pending.
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
 
@@ -323,7 +322,6 @@ The queue message is available via `context.bindings.<NAME>` where `<NAME>` matc
 
 ::: zone-end   
 ::: zone pivot="programming-language-powershell"
-Content pending.
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
