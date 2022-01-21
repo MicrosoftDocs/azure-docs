@@ -36,11 +36,11 @@ The following Azure AD Multi-Factor Authentication settings are available in the
 
 ## Account lockout
 
-To prevent repeated multi-factor authentication attempts as part of an attack, the account lockout settings let you specify how many failed attempts to allow before the account becomes locked out for a period of time. The account lockout settings are  applied only when a PIN code is entered for the multi-factor authentication prompt.
+To prevent repeated MFA attempts as part of an attack, the account lockout settings let you specify how many failed attempts to allow before the account becomes locked out for a period of time. The account lockout settings are  applied only when a PIN code is entered for the MFA prompt.
 
 The following settings are available:
 
-* Number of multi-factor authentication denials that trigger account lockout
+* Number of MFA denials that trigger account lockout
 * Minutes until account lockout counter is reset
 * Minutes until account is automatically unblocked
 
@@ -78,7 +78,7 @@ To unblock a user, complete the following steps:
 
 ## Fraud alert
 
-The fraud alert feature lets users report fraudulent attempts to access their resources. When an unknown and suspicious multi-factor authentication prompt is received, users can report the fraud attempt by using the Microsoft Authenticator app or through their phone.
+The fraud alert feature lets users report fraudulent attempts to access their resources. When an unknown and suspicious MFA prompt is received, users can report the fraud attempt by using the Microsoft Authenticator app or through their phone.
 
 The following fraud alert configuration options are available:
 
@@ -148,9 +148,9 @@ Users can have a combination of up to five OATH hardware tokens or authenticator
 
 ## Phone call settings
 
-If users receive phone calls for multi-factor authentication prompts, you can configure their experience, such as caller ID or the voice greeting they hear.
+If users receive phone calls for MFA prompts, you can configure their experience, such as caller ID or the voice greeting they hear.
 
-In the United States, if you haven't configured multi-factor authentication caller ID, voice calls from Microsoft come from the following number. Uses with spam filters should exclude this number.
+In the United States, if you haven't configured MFA caller ID, voice calls from Microsoft come from the following number. Uses with spam filters should exclude this number.
 
 * *+1 (855) 330-8653*
 
@@ -224,7 +224,7 @@ To use your own custom messages, complete the following steps:
 1. Browse for and select an .mp3 or .wav sound file to upload.
 1. Select **Add** and then **Save**.
 
-## Multi-factor authentication service settings
+## MFA service settings
 
 Settings for app passwords, trusted IPs, verification options, and remembering multi-factor authentication on trusted devices are available in the service settings. This is a legacy portal. It isn't part of the regular Azure AD portal.
 
@@ -239,7 +239,7 @@ The trusted IPs feature of Azure AD Multi-Factor Authentication bypasses multi-f
 >
 > IPv6 ranges are supported only in the [Named locations (preview)](../conditional-access/location-condition.md) interface.
 
-If your organization uses the NPS extension to provide multi-factor authentication to on-premises applications, the source IP address will always appear to be the NPS server that the authentication attempt flows through.
+If your organization uses the NPS extension to provide MFA to on-premises applications, the source IP address will always appear to be the NPS server that the authentication attempt flows through.
 
 | Azure AD tenant type | Trusted IP feature options |
 |:--- |:--- |
@@ -335,16 +335,16 @@ To enable or disable verification methods, complete the following steps:
 
 ### Remember multi-factor authentication
 
- The **remember multi-factor authentication** feature lets users bypass subsequent verifications for a specified number of days, after they've successfully signed in to a device by using multi-factor authentication. To enhance usability and minimize the number of times a user has to perform multi-factor authentication on a given device, select a duration of 90 days or more.
+ The **remember multi-factor authentication** feature lets users bypass subsequent verifications for a specified number of days, after they've successfully signed in to a device by using MFA. To enhance usability and minimize the number of times a user has to perform MFA on a given device, select a duration of 90 days or more.
 
 > [!IMPORTANT]
-> If an account or device is compromised, remembering multi-factor authentication for trusted devices can affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [Revoke MFA Sessions](howto-mfa-userdevicesettings.md).
+> If an account or device is compromised, remembering MFA for trusted devices can affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [Revoke MFA Sessions](howto-mfa-userdevicesettings.md).
 >
-> The revoke action revokes the trusted status from all devices, and the user is required to perform multi-factor authentication again. You can also instruct your users to restore the original multi-factor authentication status on their own devices as noted in [Manage your settings for multi-factor authentication](https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7#turn-on-two-factor-verification-prompts-on-a-trusted-device).
+> The revoke action revokes the trusted status from all devices, and the user is required to perform multi-factor authentication again. You can also instruct your users to restore the original MFA status on their own devices as noted in [Manage your settings for multi-factor authentication](https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
 #### How the feature works
 
-The **remember multi-factor authentication** feature sets a persistent cookie on the browser when a user selects the **Don't ask again for *X* days** option at sign-in. The user isn't prompted again for multi-factor authentication from that browser until the cookie expires. If the user opens a different browser on the same device or clears the cookies, they're prompted again to verify.
+The **remember multi-factor authentication** feature sets a persistent cookie on the browser when a user selects the **Don't ask again for *X* days** option at sign-in. The user isn't prompted again for MFA from that browser until the cookie expires. If the user opens a different browser on the same device or clears the cookies, they're prompted again to verify.
 
 The **Don't ask again for *X* days** option isn't shown on non-browser applications, regardless of whether the app supports modern authentication. These apps use _refresh tokens_ that provide new access tokens every hour. When a refresh token is validated, Azure AD checks that the last multi-factor authentication occurred within the specified number of days.
 
@@ -353,14 +353,14 @@ The feature reduces the number of authentications on web apps, which normally pr
 > [!IMPORTANT]
 > The **remember multi-factor authentication** feature isn't compatible with the **keep me signed in** feature of AD FS, when users perform multi-factor authentication for AD FS through MFA Server or a third-party multi-factor authentication solution.
 >
-> If your users select **keep me signed in** on AD FS and also mark their device as trusted for multi-factor authentication, the user isn't automatically verified after the **remember multi-factor authentication** number of days expires. Azure AD requests a fresh multi-factor authentication, but AD FS returns a token with the original multi-factor authentication claim and date, rather than performing multi-factor authentication again. *This reaction sets off a verification loop between Azure AD and AD FS.*
+> If your users select **keep me signed in** on AD FS and also mark their device as trusted for MFA, the user isn't automatically verified after the **remember multi-factor authentication** number of days expires. Azure AD requests a fresh multi-factor authentication, but AD FS returns a token with the original MFA claim and date, rather than performing multi-factor authentication again. *This reaction sets off a verification loop between Azure AD and AD FS.*
 >
 > The **remember multi-factor authentication** feature isn't compatible with B2B users and won't be visible for B2B users when they sign in to the invited tenants.
 >
 
 #### Enable remember multi-factor authentication
 
-To enable and configure the option to allow users to remember their multi-factor authentication status and bypass prompts, complete the following steps:
+To enable and configure the option to allow users to remember their MFA status and bypass prompts, complete the following steps:
 
 1. In the Azure portal, search for and select **Azure Active Directory**, and then select **Users**.
 1. Select **Per-user MFA**.
