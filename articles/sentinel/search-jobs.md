@@ -11,9 +11,7 @@ ms.author: cwatson
 
 Use search jobs when you start an investigation to find specific events in logs within a given time frame. You can search all your logs, filter through them, and look for events that match your criteria.
 
-Search in Microsoft Sentinel is built on top of search jobs. Search jobs are asynchronous queries that fetch records. The results are returned to a search table that's created in your workspace at the time of the search. The search job uses parallel processing to run the search job across long time spans in extremely large datasets.
-
-Run search jobs on any type of log. But search jobs are ideally adapted for searching archived and basic logs.
+Before you start a search job, see [Start an investigation by searching large datasets (Preview)](investigate-large-datasets.md) and (billing topic around different log types and search charges).
 
 ## Start a search job
 
@@ -59,5 +57,5 @@ To learn more, see the following topics.
 
 - [Hunt with bookmarks](bookmarks.md)
 - [Restore archived logs](restore.md)
-- Basic logs
-- Archived logs
+- [Basic logs (preview)](../azure-monitor/logs/azure-monitor-basic-logs.md)
+- [Archived logs (preview)](../azure-monitor/logs/azure-monitor-archived-logs.md)

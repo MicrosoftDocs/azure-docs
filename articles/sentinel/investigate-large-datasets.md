@@ -27,13 +27,15 @@ When you review your search results in Log Analytics, you can switch your query 
 
 Use search to find events in any of the following log types:
 
-- Analytics logs
-- Basic logs
-- Archived logs
+- [Analytics logs](../azure-monitor/logs/data-platform-logs.ms)
+- [Basic logs (preview)](../azure-monitor/logs/azure-monitor-basic-logs.md)
+- [Archived logs (preview)](../azure-monitor/logs/azure-monitor-archived-logs.md)
 
 ### Limitations of search jobs
 
-- Optimized for querying one table at a time.
+Before you start a search job, be aware of the following limitations:
+
+- Optimized to query one table at a time.
 - Uses reduced KQL that supports advanced filtering in a where clause but doesn't support joins, unions, or aggregations.
 - Supports long running searches up to a 24 hour time-out.
 
@@ -47,10 +49,11 @@ When you need to do a full investigation on archived data, restore a table from 
 
 Log restore is ideally suited for restoring historical logs stored in log data archive.
 
-Log tables are restored in new table with a *_RST suffix.
-Restored tables are not re-ingested. After you restore the data, it's available within your workspace for eight days.
+A restored Log table is available in new table with a *_RST suffix and not re-ingested. Restored tables are automatically deleted after eight days. But you can delete restored tables at any time.
 
 ### Limitations of log restore
+
+Before you start restore an archived log table, be aware of the following limitations:
 
 - Restored data is available for eight days.
 - Restore one table at a time.
