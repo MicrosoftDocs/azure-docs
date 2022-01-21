@@ -275,7 +275,7 @@ Run the following queries in the Cloud Shell to answer some questions about the 
 1. **What are all the rooms on floor0?** (query by relationship)
 
     ```azurecli-interactive
-    az dt twin query --dt-name <Azure-Digital-Twins-instance-name> --query-command "SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.`$dtId = 'floor0'"
+    az dt twin query --dt-name <Azure-Digital-Twins-instance-name> --query-command "SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.\$dtId = 'floor0'"
     ```
 
     You can query based on relationships in your graph, to get information about how twins are connected or to restrict your query to a certain area. Only room0 is on floor0, so it's the only room in the result.
@@ -285,7 +285,7 @@ Run the following queries in the Cloud Shell to answer some questions about the 
     > [!NOTE]
     > A twin's ID (like floor0 in the query above) is queried using the metadata field `$dtId`. 
     >
-    >When using Cloud Shell to run a query with metadata fields like this one that begin with `$`, you should escape the `$` with a backtick to let Cloud Shell know it's not a variable and should be consumed as a literal in the query text. This is reflected in the screenshot above.
+    >When using Cloud Shell to run a query with metadata fields like this one that begin with `$`, you should escape the `$` with a backslash to let Cloud Shell know it's not a variable and should be consumed as a literal in the query text. This is reflected in the screenshot above.
 
 1. **What are all the twins in my environment with a temperature above 75?** (query by property)
 
@@ -300,7 +300,7 @@ Run the following queries in the Cloud Shell to answer some questions about the 
 1. **What are all the rooms on *floor0* with a temperature above 75?** (compound query)
 
     ```azurecli-interactive
-    az dt twin query --dt-name <Azure-Digital-Twins-instance-name> --query-command "SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.`$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75"
+    az dt twin query --dt-name <Azure-Digital-Twins-instance-name> --query-command "SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.\$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75"
     ```
 
     You can also combine the earlier queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`. This query uses `AND` to make the previous query about twin temperatures more specific. The result now only includes rooms with temperatures above 75 that are on floor0—which in this case, is none of them. The result set is empty.
