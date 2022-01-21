@@ -2,8 +2,11 @@
 title: Create backup policies for disks using data protection REST API
 description: In this article, you'll learn how to create and manage backup policies for disks using REST API.
 ms.topic: conceptual
-ms.date: 10/06/2021
+ms.date: 01/21/2022
 ms.assetid: ecc107c0-311c-42d0-a094-654d7ee30443
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Create Azure Data Protection backup policies for disks using REST API

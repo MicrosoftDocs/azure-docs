@@ -1,12 +1,14 @@
 ---
 title: About Azure Database for PostgreSQL backup
-description: An overview on Azure Database for PostgreSQL backup (preview)
+description: An overview on Azure Database for PostgreSQL backup
 ms.topic: conceptual
-ms.date: 09/28/2021
-ms.custom: references_regions
+ms.date: 01/21/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
-# About Azure Database for PostgreSQL backup (preview)
+# About Azure Database for PostgreSQL backup
 
 Azure Backup and Azure Database Services have come together to build an enterprise-class backup solution for Azure Database for PostgreSQL servers that retains backups for up to 10 years. Besides long-term retention, the solution offers the following capabilities:
 
@@ -17,22 +19,6 @@ Azure Backup and Azure Database Services have come together to build an enterpri
 - Use of **pg_dump** allows a greater flexibility in restores. This helps you restore across database versions 
 
 You can use this solution independently or in addition to the [native backup solution offered by Azure PostgreSQL](../postgresql/concepts-backup.md) that offers retention up to 35 days. The native solution is suited for operational recoveries, such as when you want to recover from the latest backups. The Azure Backup solution helps you with your compliance needs and more granular and flexible backup/restore.
-
-## Support matrix
-
-|Support  |Details  |
-|---------|---------|
-|Supported deployments   |  [Azure Database for PostgreSQL - Single Server](../postgresql/overview.md#azure-database-for-postgresql---single-server)     |
-|Supported Azure regions |  East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, Brazil South, Canada Central, North Europe, West Europe, UK South, UK West, Germany West Central, Switzerland North, Switzerland West, East Asia, Southeast Asia, Japan East, Japan West, Korea Central, Korea South, India Central, Australia East, Australia Central, Australia Central 2, UAE North  |
-|Supported Azure PostgreSQL versions    |   9.5, 9.6, 10, 11      |
-
-## Feature considerations and limitations
-
-- All operations are supported from the Azure portal only. 
-- Recommended limit for the maximum database size is 400 GB.
-- Cross-region backup isn't supported. Therefore, you can't back up an Azure PostgreSQL server to a vault in another region. Similarly, you can only restore a backup to a server within the same region as the vault. However, we support cross-subscription backup and restore. 
-- Only the data is recovered during restore; "roles" aren't restored.
-- In preview, we recommend you to run the solution only on your test environment.
 
 ## Backup process
 

@@ -1,14 +1,14 @@
 ---
 title: Back up Azure Database for PostgreSQL 
-description: Learn about Azure Database for PostgreSQL backup with long-term retention (preview)
+description: Learn about Azure Database for PostgreSQL backup with long-term retention
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 01/21/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
 ---
 
-# Azure Database for PostgreSQL backup with long-term retention (preview)
+# Azure Database for PostgreSQL backup with long-term retention
 
 This article describes how to back up Azure Database for PostgreSQL server.
 
@@ -107,7 +107,7 @@ You can create a Backup policy on the go during the configure backup flow. Alter
 
 1. Define **Retention** settings. You can add one or more retention rules. Each retention rule assumes inputs for specific backups, and data store and retention duration for those backups.
 
-1. To store your backups in one of the two data stores (or tiers), choose **Backup data store** (standard tier) or **Archive data store** (in preview).
+1. To store your backups in one of the two data stores (or tiers), choose **Backup data store** (standard tier) or **Archive data store**.
 
 1. Choose **On-expiry** to move the backup to archive data store upon its expiry in the backup data store.
 

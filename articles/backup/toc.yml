@@ -36,6 +36,8 @@
     href: tutorial-sql-backup.md
   - name: Back up SAP HANA databases in Azure VMs
     href: tutorial-backup-sap-hana-db.md
+  - name: Back up PostgreSQL databases
+    href: tutorial-postgresql-backup.md
   - name: Back up Windows Server
     href: tutorial-backup-windows-server-to-azure.md
   - name: Restore files to Windows Server
@@ -76,6 +78,8 @@
       href: active-directory-backup-restore.md
     - name: Supported VM SKUs for Azure Policy
       href: backup-azure-policy-supported-skus.md
+    - name: PostgreSQL database backup support matrix
+      href: backup-azure-database-postgresql-support-matrix.md
     - name: Automation in Azure Backup
       href: backup-support-automation.md
   - name: Frequently asked questions (FAQ)
@@ -96,6 +100,8 @@
       href: faq-backup-sql-server.yml
     - name: FAQ-Back up SAP HANA databases on Azure VMs
       href: sap-hana-faq-backup-azure-vm.yml
+    - name: FAQ-Back up Azure Database for PostgreSQL server
+      href: backup-azure-database-postgresql-server-faq.yml
     - name: FAQ-Azure Backup Server and DPM
       href: backup-azure-dpm-azure-server-faq.yml
     - name: FAQ-Azure Backup monitor alert

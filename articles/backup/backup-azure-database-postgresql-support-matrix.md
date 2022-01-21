@@ -1,0 +1,37 @@
+---
+title: Azure Database for PostgreSQL server backup support matrix
+description: Provides a summary of support settings and limitations of Azure Database for PostgreSQL server backup.
+ms.topic: conceptual
+ms.date: 01/22/2022
+ms.custom: references_regions
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+---
+
+# Azure Database for PostgreSQL server backup support matrix
+
+You can use [Azure Backup](./backup-overview.md) to protect Azure Database for PostgreSQL server. This article summarizes region availability, supported scenarios, and limitations.
+
+## Supported regions
+
+Azure Database for PostgreSQL server backup is available in the following regions: East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, Brazil South, Canada Central, North Europe, West Europe, UK South, UK West, Germany West Central, Switzerland North, Switzerland West, East Asia, Southeast Asia, Japan East, Japan West, Korea Central, Korea South, India Central, Australia East, Australia Central, Australia Central 2, UAE North  |
+
+## Support scenarios
+
+|Support  | Details  |
+|---------| ---------|
+|Supported deployments   |  [Azure Database for PostgreSQL - Single Server](../postgresql/overview.md#azure-database-for-postgresql---single-server)     |
+|Supported Azure PostgreSQL versions    |   9.5, 9.6, 10, 11      |
+
+## Feature considerations and limitations
+
+- All operations are supported from the Azure portal only. 
+- Recommended limit for the maximum database size is 400 GB.
+- Cross-region backup isn't supported. Therefore, you can't back up an Azure PostgreSQL server to a vault in another region. Similarly, you can only restore a backup to a server within the same region as the vault. However, we support cross-subscription backup and restore. 
+- Only the data is recovered during restore; "roles" aren't restored.
+- In preview, we recommend you to run the solution only on your test environment.
+
+## Next steps
+
+- [Back up Azure Database for PostgreSQL server](backup-azure-database-postgresql.md)
