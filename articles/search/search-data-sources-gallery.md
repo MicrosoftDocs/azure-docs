@@ -831,7 +831,7 @@ The Database Server connector will crawl content from a Relational Database serv
 
 by [BA Insight](https://www.bainsight.com/)
 
-The Deltek Vision Connector honors the security of the source system and provides both full and incremental crawls, so users always have the latest information available to them. It indexes content from Deltek Vision into Azure, SharePoint on Microsoft 365, or SharePoint 2016/2013, surfacing it through BA Insight's SmartHub to provide users with integrated search results.
+The Deltek Vision Connector honors the security of the source system and provides both full and incremental crawls, so users always have the latest information available to them. It indexes content from Deltek Vision into Azure, SharePoint in Microsoft 365, or SharePoint 2016/2013, surfacing it through BA Insight's SmartHub to provide users with integrated search results.
 
 [More details](https://www.bainsight.com/connectors/deltek-connector-sharepoint-azure-elasticsearch/)
 
@@ -2451,7 +2451,7 @@ BA Insight's SharePoint Connector allows you to connect to SharePoint 2019, fetc
 
 ---
 
-### SharePoint on Microsoft 365
+### SharePoint in Microsoft 365
 
 by [Accenture](https://www.accenture.com)
 
@@ -2475,11 +2475,11 @@ The SharePoint connector will crawl content from any SharePoint site collection 
 
 ---
 
-### SharePoint on Microsoft 365
+### SharePoint in Microsoft 365
 
 by [BA Insight](https://www.bainsight.com/)
 
-BA Insight's SharePoint Connector allows you to connect to SharePoint on Microsoft 365, fetch data from any site, document library, or list; and index this content securely.
+BA Insight's SharePoint Connector allows you to connect to SharePoint in Microsoft 365, fetch data from any site, document library, or list; and index this content securely.
 
 [More details](https://www.bainsight.com/connectors/sharepoint-online-connector/)
 

@@ -33,7 +33,7 @@ An indexer in Azure Cognitive Search is a crawler that extracts searchable data 
 
 ## Prerequisites
 
-+ [SharePoint for Microsoft 365](/sharepoint/introduction) cloud service
++ [SharePoint in Microsoft 365](/sharepoint/introduction) cloud service
 
 + Files in a [document library](https://support.microsoft.com/office/what-is-a-document-library-3b5976dd-65cf-4c9e-bf5a-713c10ca2872)
 
