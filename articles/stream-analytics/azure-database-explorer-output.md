@@ -38,8 +38,7 @@ The following table lists the property names and their description for creating 
 
 ## Partitioning
 
-Partitioning needs to enabled and is based on the PARTITION BY clause in the query. When the Inherit Partitioning option is enabled, it follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md). 
-
+Partitioning is based on the PARTITION BY clause in the query. This output automatically inherits partitioning of the query step, which based on PARTITION BY query clause can follow the input partitioning for a [fully parallel job](stream-analytics-scale-jobs.md). 
 
 ## When to use Azure Data Explorer or/and Azure Stream Analytics
 
