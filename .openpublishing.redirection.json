@@ -22859,6 +22859,11 @@
       "redirect_document_id": ""
     },
     {
+      "source_path_from_root": "/articles/search/cognitive-search-resources-documentation.md",
+      "redirect_url": "/azure/search/cognitive-search-concept-intro",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/search/search-blob-ai-integration.md",
       "redirect_url": "/azure/search/cognitive-search-concept-intro",
       "redirect_document_id": false
@@ -45206,6 +45211,11 @@
     {
       "source_path_from_root": "/articles/azure/sentinel/connect-windows-virtual-desktop.md",
       "redirect_url": "/azure/sentinel/connect-azure-virtual-desktop",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure/cognitive-services/translator/custom-translator/v2-preview/project-overview.md",
+      "redirect_url": "/azure/cognitive-services/translator/custom-translator/v2-preview/beginners-guide",
       "redirect_document_id": true
     }
   ]
