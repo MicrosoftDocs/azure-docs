@@ -2,7 +2,7 @@
 title: Enable ingress-to-app Transport Layer Security
 titleSuffix: Azure Spring Cloud
 description: How to enable ingress-to-app Transport Layer Security for an application.
-author: WenhaoZhang-MS
+author: Descatles
 ms.author: wenhaozhang
 ms.service: spring-cloud
 ms.topic: how-to
