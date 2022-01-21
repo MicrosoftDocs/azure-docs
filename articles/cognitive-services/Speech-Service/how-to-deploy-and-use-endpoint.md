@@ -72,7 +72,7 @@ On the **Deploy model** tab of [Speech Studio](https://aka.ms/custom-voice-porta
 
 ### Suspend and resume endpoint via REST API
 
-This section will show you how to suspend or resume a Custom Voice endpoint via REST API.
+This section will show you how to suspend or resume a custom neural voice endpoint via REST API.
 
 #### Prerequisites
 
