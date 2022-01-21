@@ -265,7 +265,7 @@ Once the data has been converted from the compressed format to CSV files, it can
 
 With larger pipelines, it's a good practice to put each step's source code in a separate directory (`src/prepare/`, `src/train/`, and so on) but for this tutorial, just use or create the file `train.py` in the same `keras-mnist-fashion/` source directory.
 
-:::code language="python" source="~/azureml-examples-main/README.md" highlight="20-23":::
+:::code language="python" source="~/azureml-examples-main/python-sdk/readme.py" highlight="20-23":::
 
 Most of this code should be familiar to ML developers: 
 
