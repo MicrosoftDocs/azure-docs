@@ -1,6 +1,6 @@
 ---
 title: Markdown format - question answering
-description: Following is the list of markdown formats that you can use in the question answering answer text.
+description: Following is the list of markdown formats that you can use your answer text.
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.author: mbullwin
@@ -23,11 +23,11 @@ Markdown is a better tool when you need to autogenerate content to create knowle
 
 ## Supported markdown format
 
-Following is the list of markdown formats that you can use in question answering answer text.
+Following is the list of markdown formats that you can use in your answer text.
 
 |Purpose|Format|Example markdown|
-|--|--|--|--|
-A new line between 2 sentences.|`\n\n`|`How can I create a bot with \n\n question answering?`|![format new line between two sentences](./media/concepts-datasources/format-newline.png)|
+|--|--|--|
+A new line between 2 sentences.|`\n\n`|`How can I create a bot with \n\n question answering?`|
 |Headers from h1 to h6, the number of `#` denotes which header. 1 `#` is the h1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|
 |Italics |`*text*`|`How do I create a bot with *QnA Maker*?`|
 |Strong (bold)|`**text**`|`How do I create a bot with **QnA Maker**?`|
@@ -51,8 +51,8 @@ If you want to add content using update/replace knowledge base APIs and the cont
 | Yes | \&lt;br\&gt; | &lt;br&gt; |
 | Yes | \&lt;h3\&gt;header\&lt;/h3\&gt; | &lt;h3&gt;header&lt;/h3&gt; |
 
-Additionally, CR LF(\r\n) are converted to \n in the KB. LF(\n) is kept as is. If you want to escape any escape sequence like a \t or \n you can use backslash, for example: '\\\\r\\\\n' and '\\\\t'
+Additionally, `CR LF(\r\n)` are converted to `\n` in the KB. `LF(\n)` is kept as is. If you want to escape any escape sequence like a \t or \n you can use backslash, for example: '\\\\r\\\\n' and '\\\\t'
 
 ## Next steps
 
-Review batch testing [file formats](reference-tsv-format-batch-testing.md).
+* [Import a knowledge base](../how-to/migrate-knowledge-base.md)
