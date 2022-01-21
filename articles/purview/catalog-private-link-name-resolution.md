@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/10/2022
+ms.date: 01/21/2022
 # Customer intent: As an Azure Purview admin, I want to set up private endpoints for my Azure Purview account, for secure access.
 ---
 
@@ -175,7 +175,6 @@ If you do not use DNS forwarders and instead you manage A records directly in yo
 | `Contoso-Purview.proxy.purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
 | `Contoso-Purview.guardian.purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
 | `gateway.purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
-| `Contoso-Purview.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
 | `manifest.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
 | `cdn.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
 | `hub.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |

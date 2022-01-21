@@ -72,7 +72,7 @@ Reset also applies to just new and update operations. It will not trigger deleti
 
 Once you reset an indexer, you cannot undo the action.
 
-### [**Azure portal**](#tab/reset-indexer-portal)
+### [**Azure portal**](#tab/portal)
 
 1. [Sign in to Azure portal](https://portal.azure.com) and open the search service page.
 1. On the **Overview** page, select the **Indexers** tab.
