@@ -175,7 +175,7 @@ As a first configuration test, you should try to sign in to the [MyApps portal](
 
 1. Select **Sign in with a certificate**.
 
-1.	Pick the correct user certificate in the client certificate picker UI and click **OK**.
+1.	Pick the correct user certificate in the client certificate picker UI and click **Ok**.
 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/picker.png" alt-text="Screenshot of the certificate picker UI.":::
 
@@ -200,12 +200,11 @@ Let's walk through a scenario where we will validate strong authentication by cr
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/policy-oid-rule.png" alt-text="Screenshot of the Policy OID rule.":::
 
 1. Create a conditional access policy for the user to require multi-factor authentication by following steps at [Conditional Access - Require MFA](../conditional-access/howto-conditional-access-policy-all-users-mfa.md#create-a-conditional-access-policy).
-1. Navigate to [MyApps portal](https://myapps.microsoft.com/). Enter your UPN.
-
+1. Navigate to [MyApps portal](https://myapps.microsoft.com/). Enter your UPN and click **Next**.
 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/name.png" alt-text="Screenshot of the User Principal Name.":::
 
-1. Click **Next**.
+1. Select **Sign in with a certificate**.
 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/certificate.png" alt-text="Screenshot of sign in with certificate.":::
 
@@ -213,19 +212,12 @@ Let's walk through a scenario where we will validate strong authentication by cr
 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/alternative.png" alt-text="Screenshot of the alternative sign in.":::
 
-1.	Select **Sign in with a certificate**.
-
-   The client certificate picker UI will come up.
-
+1.	Select the client certificate and click **Certificate Information**. 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/client-picker.png" alt-text="Screenshot of the client picker.":::
-
-1.	Select the client certificate. Click **Certificate Information**.
-1.	The certificate will be shown, and you can verify the issuer and policy OID values.
-
+   The certificate will be shown, and you can verify the issuer and policy OID values. 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/issuer.png" alt-text="Screenshot of the issuer.":::
 
-   Click **Details**.
-
+1. To see Policy OID values, click **Details**.
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/authentication-details.png" alt-text="Screenshot of the authentication details.":::
 
 1. Select the client certificate and click **Ok**.
@@ -238,27 +230,71 @@ Let's walk through a scenario where we will validate strong authentication by cr
 To enable the certificate-based authentication and configure username bindings using Graph API, complete the following steps.
 
 >[!NOTE]
->The following steps will not work in US Government tenants with MS Graph and will need to use postman tool.
+>The following steps will not work in US Government. US Government tenants with MS Graph will need to use the postman tool.
 
 1. Go to [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-1. Click **Sign into Graph Explorer** and log in to your tenant.
+1. Click **Sign into Graph Explorer** and sign in to your tenant.
 1. Click **Settings** > **Select permission**.
 1. Enter "auth" in the search bar and consent all related permissions.
 1. GET all authentication methods
 
-   GET - [https://graph.microsoft.com/beta/policies/authenticationmethodspolicy](https://graph.microsoft.com/beta/policies/authenticationmethodspolicy) 
+   ```http
+   GET  https://graph.microsoft.com/beta/policies/authenticationmethodspolicy
+   ```
 
 1. GET X509Certificate authentication method
 
-   GET - [https://graph.microsoft.com/beta/policies/authenticationmethodspolicy/authenticationMetHodConfigurations/X509Certificate](https://graph.microsoft.com/beta/policies/authenticationmethodspolicy/authenticationMetHodConfigurations/X509Certificate) 
+   ```http
+   GET https://graph.microsoft.com/beta/policies/authenticationmethodspolicy/authenticationMetHodConfigurations/X509Certificate
+   ```
 
-1. PATCH X509Certificate strong auth with sample authentication rules with certificate user bindings and certificate rules.
+1. To update policy run a PATCH command.
+
+   PATCH X509Certificate strong auth with sample authentication rules with certificate user bindings and certificate rules.
     
     Request body:
 
-    ```json
-    {"@odata.context": https://graph.microsoft-ppe.com/testppebetatestx509certificatestrongauth/$metadata#authenticationMethodConfigurations/$entity,	"@odata.type": "#microsoft.graph.x509CertificateAuthenticationMethodConfiguration",	"id": "X509Certificate",	"state": "disabled",	"certificateUserBindings": [{			"x509CertificateField": "PrincipalName",			"userProperty": "onPremisesUserPrincipalName",			"priority": 1		},		{			"x509CertificateField": "RFC822Name",			"userProperty": "userPrincipalName",			"priority": 2		}	],	"authenticationModeConfiguration": {		"x509CertificateAuthenticationDefaultMode": "x509CertificateSingleFactor",		"rules": [{				"x509CertificateRuleType": "issuerSubject",				"identifier": "CN=Microsoft Corp Enterprise CA",				"x509CertificateAuthenticationMode": "x509CertificateMultiFactor"			},			{				"x509CertificateRuleType": "policyOID",				"identifier": "1.2.3.4",				"x509CertificateAuthenticationMode": "x509CertificateMultiFactor"			}		]	},	includeTargets@odata.context: https://graph.microsoft-ppe.com/testppebetatestx509certificatestrongauth/$metadata#policies/authenticationMethodsPolicy/authenticationMethodConfigurations('X509Certificate')/microsoft.graph.x509CertificateAuthenticationMethodConfiguration/includeTargets,	"includeTargets": [{		"targetType": "group",		"id": "all_users",		"isRegistrationRequired": false	}]} 
-    ```
+
+   ```http
+   {
+"@odata.context": https://graph.microsoft-ppe.com/testppebetatestx509certificatestrongauth/$metadata#authenticationMethodConfigurations/$entity,
+      "@odata.type": "#microsoft.graph.x509CertificateAuthenticationMethodConfiguration",
+      "id": "X509Certificate",
+      "state": "disabled",
+      "certificateUserBindings": [{
+                               "x509CertificateField": "PrincipalName",
+                               "userProperty": "onPremisesUserPrincipalName",
+                               "priority": 1
+                  },
+                  {
+                               "x509CertificateField": "RFC822Name",
+                               "userProperty": "userPrincipalName",
+                               "priority": 2
+                  }
+      ],
+      "authenticationModeConfiguration": {
+                  "x509CertificateAuthenticationDefaultMode": "x509CertificateSingleFactor",
+                  "rules": [{
+                                            "x509CertificateRuleType": "issuerSubject",
+                                            "identifier": "CN=ContosoCA,DC=Contoso,DC=org ",
+                                     "x509CertificateAuthenticationMode": "x509CertificateMultiFactor"
+                               },
+                               {
+                                            "x509CertificateRuleType": "policyOID",
+                                            "identifier": "1.2.3.4",
+                                     "x509CertificateAuthenticationMode": "x509CertificateMultiFactor"
+                               }
+                  ]
+      },
+      includeTargets@odata.context: https://graph.microsoft-ppe.com/testppebetatestx509certificatestrongauth/$metadata#policies/authenticationMethodsPolicy/authenticationMethodConfigurations('X509Certificate')/microsoft.graph.x509CertificateAuthenticationMethodConfiguration/includeTargets,
+      "includeTargets": [{
+                  "targetType": "group",
+                  "id": "all_users",
+                  "isRegistrationRequired": false
+      }]
+}
+
+   ```
 
    You will get a 204 response and re-run the GET command to make sure the policies are updated correctly.
 
