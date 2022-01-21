@@ -7,7 +7,7 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.date: 01/11/2022
+ms.date: 01/20/2022
 ---
 
 # Monitor and scale an Azure Database for MariaDB server using Azure CLI
