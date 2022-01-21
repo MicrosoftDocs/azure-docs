@@ -118,7 +118,7 @@ speechConfig->SetProperty(PropertyId::SpeechServiceConnection_ContinuousLanguage
 ::: zone-end
 ::: zone pivot="programming-language-python"
 ```python
-speech_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, value='Latency')
+speech_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_ContinuousLanguageIdPriority, value='Latency')
 ```
 ::: zone-end
 
@@ -180,7 +180,7 @@ source_language_recognizer.start_continuous_recognition()
 source_language_recognizer.stop_continuous_recognition()
 
 # Start and stop continuous recognition with Continuous LID
-speech_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, value='Latency')
+speech_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_ContinuousLanguageIdPriority, value='Latency')
 source_language_recognizer.start_continuous_recognition()
 source_language_recognizer.stop_continuous_recognition()
 ```
@@ -356,7 +356,7 @@ using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 
 var region = "<paste-your-region>";
-// currently the v2 endpoint is required for this design pattern
+// Continuous LID requires the v2 endpoint. In a future SDK release you won't need to set it. 
 var endpointString = $"wss://{region}.stt.speech.microsoft.com/speech/universal/v2";
 var endpointUrl = new Uri(endpointString);
 
@@ -476,7 +476,7 @@ using namespace Microsoft::CognitiveServices::Speech;
 using namespace Microsoft::CognitiveServices::Speech::Audio;
 
 auto region = "<paste-your-region>";
-// currently the v2 endpoint is required for this design pattern
+// Continuous LID requires the v2 endpoint. In a future SDK release you won't need to set it. 
 auto endpointString = std::format("wss://{}.stt.speech.microsoft.com/speech/universal/v2", region);
 auto config = SpeechConfig::FromEndpoint(endpointString, "<paste-your-subscription-key>");
 
@@ -824,7 +824,7 @@ using Microsoft.CognitiveServices.Speech.Translation;
 public static async Task MultiLingualTranslation()
 {
     var region = "<paste-your-region>";
-    // currently the v2 endpoint is required for this design pattern
+    // Continuous LID requires the v2 endpoint. In a future SDK release you won't need to set it. 
     var endpointString = $"wss://{region}.stt.speech.microsoft.com/speech/universal/v2";
     var endpointUrl = new Uri(endpointString);
     
@@ -943,7 +943,7 @@ using namespace Microsoft::CognitiveServices::Speech::Translation;
 void MultiLingualTranslation()
 {
     auto region = "<paste-your-region>";
-    // currently the v2 endpoint is required for this design pattern
+    // Continuous LID requires the v2 endpoint. In a future SDK release you won't need to set it. 
     auto endpointString = std::format("wss://{}.stt.speech.microsoft.com/speech/universal/v2", region);
     auto config = SpeechTranslationConfig::FromEndpoint(endpointString, "<paste-your-subscription-key>");
 
