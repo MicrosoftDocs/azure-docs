@@ -39,9 +39,27 @@ The output stored in the storage account is fetched from within the workbook by 
 
 Below is a description of the various components.
 
-##Azure storage account
+## Create Azure storage account
 
+1. In the portal, in the **Search resources** bar, type **Storage accounts** in the search box and select **Enter**.
+
+1. Select **Storage accounts** from the results. On the Storage accounts page, select **+ Create** to open the **Create a storage account** page.
 The Azure storage account has the following configuration settings
+
+1. On the **Create WAN** page, on the **Basics** tab, fill in the fields. Modify the example values to apply to your environment.
+
+   :::image type="content" source="./media/virtual-wan-create-vwan-include/basics.png" alt-text="Screenshot shows the Create WAN pane with the Basics tab selected.":::
+
+   * **Subscription**: Select the subscription that you want to use.
+   * **Resource group**: Create new or use existing.
+   * **Storage account name**: Type the name you want to call your storage account.
+   * **Region**: Select a region for your storage account
+   * **Performance**: Standard or Premium. **Standard** is adequate for our monitoring purposes. 
+   * **Redundancy**: Choose between Locally-redundant storage, Geo-redundant storage, Zone-redundant storage, and Geo-zone-redundant storage.
+
+1. After you finish filling out the fields, at the bottom of the page, select **Next: Advanced>**.
+
+1. Once validation passes, click **Create** to create the virtual WAN.
 
 Storage account name: <storageaccountname>
 StorageAccount Configuration:
