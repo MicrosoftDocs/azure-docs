@@ -1,6 +1,6 @@
 ---
 title: Run Azure IoT Edge on Ubuntu Virtual Machines | Microsoft Docs
-description: Azure IoT Edge setup instructions for Ubuntu 20.04 LTS Virtual Machines
+description: Azure IoT Edge setup instructions for Ubuntu LTS Virtual Machines
 author: toolboc
 manager: veyalla
 # this is the PM responsible
