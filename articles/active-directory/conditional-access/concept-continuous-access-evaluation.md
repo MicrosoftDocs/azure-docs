@@ -68,9 +68,10 @@ This process enables the scenario where users lose access to organizational file
 
 | | Office web apps | Office Win32 apps | Office for iOS | Office for Android | Office for Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Not Supported | Supported | Supported | Supported | Supported |
+| **SharePoint Online** | Not Supported <sup>1</sup> | Supported | Supported | Supported | Supported |
 | **Exchange Online** | Not Supported | Supported | Supported | Supported | Supported |
 
+<sup>1</sup> - Token lifetime for Office web apps is reduced to 1 hour when a Conditional Access policy is set 
 | | OneDrive web | OneDrive Win32 | OneDrive iOS | OneDrive Android | OneDrive Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **SharePoint Online** | Supported | Not Supported | Supported | Supported | Not Supported |
@@ -199,13 +200,13 @@ For an explanation of the office update channels, see [Overview of update channe
 
 ### Coauthoring in Office apps
 
-When multiple users are collaborating on a document at the same time, their access to the document may not be immediately revoked by CAE based on user revocation or policy change events. In this case, the user loses access completely after: 
+When multiple users are collaborating on a document at the same time, their access to the document may not be immediately revoked by CAE based on policy change events. In this case, the user loses access completely after: 
 
 - Closing the document
 - Closing the Office app
-- After a period of 10 hours
+- After 1 hour when a Conditional Access IP policy is set
 
-To reduce this time a SharePoint Administrator can reduce the maximum lifetime of coauthoring sessions for documents stored in SharePoint Online and OneDrive for Business, by [configuring a network location policy in SharePoint Online](/sharepoint/control-access-based-on-network-location). Once this configuration is changed, the maximum lifetime of coauthoring sessions will be reduced to 15 minutes, and can be adjusted further using the SharePoint Online PowerShell command "[Set-SPOTenant –IPAddressWACTokenLifetime](/powershell/module/sharepoint-online/set-spotenant)".
+To further reduce this time a SharePoint Administrator can reduce the maximum lifetime of coauthoring sessions for documents stored in SharePoint Online and OneDrive for Business, by [configuring a network location policy in SharePoint Online](/sharepoint/control-access-based-on-network-location). Once this configuration is changed, the maximum lifetime of coauthoring sessions will be reduced to 15 minutes, and can be adjusted further using the SharePoint Online PowerShell command "[Set-SPOTenant –IPAddressWACTokenLifetime](/powershell/module/sharepoint-online/set-spotenant)".
 
 ### Enable after a user is disabled
 
