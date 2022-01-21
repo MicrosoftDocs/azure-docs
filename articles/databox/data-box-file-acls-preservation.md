@@ -72,6 +72,8 @@ The ACLs contain security descriptors with the following properties: ACLs, Owner
 **Disabling ACLs transfer.** Transfer of ACLs is enabled by default. You might want to disable this setting in the local web UI on your Data Box. For more information, see [Use the local web UI to administer your Data Box and Data Box.-->
 
 Depending on the transfer method used and whether you're using a Windows or Linux client, some or all discretionary and default access control lists (ACLs) on files and folders may be transferred during the data copy to Azure Files.
+
+Transfer of ACLs is enabled by default. You might want to disable this setting in the local web UI on your Data Box. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md).
  
 > [!NOTE]
 > Files with ACLs containing conditional access control entry (ACE) strings are not copied. This is a known issue. To work around this, copy these files to the Azure Files share manually by mounting the share and then using a copy tool that supports copying ACLs.
@@ -81,7 +83,6 @@ Depending on the transfer method used and whether you're using a Windows or Linu
 When you use a Windows client for an [SMB file transfer](./data-box-deploy-copy-data.md), all the ACLs for directories and files that you copy to your Data Box are copied and transferred. Transfers include both discretionary ACLs (DACLs) and system ACLs (SACLs). If you use a Linux client for an SMB transfer, only Windows NT ACLs are transferred.<!--Kyle asked: What are Windows NT ACLs.-->
 
 ACLs aren't transferred when you [copy data over NFS](./data-box-deploy-copy-data-via-nfs.md) or [use the data copy service](data-box-deploy-copy-data-via-copy-service.md). The data copy service reads data directly from your shares and can't read ACLs.
-
 
 **Default ACLs transfer**  
 
@@ -98,7 +99,6 @@ Default ACLs include the following items:
 
 **Disabling ACLs transfer**  
 
-Transfer of ACLs is enabled by default. You might want to disable this setting in the local web UI on your Data Box. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md).
 
 ## Copying data and metadata
 
