@@ -174,6 +174,7 @@ The oldest recovery point that you can use is 15 days in case of Managed disk an
 ### How does the pruning of recovery points happen?
 
 Crash-consistent recovery points are generated in every five minutes. App-consistent snapshots are generated based on the input frequency entered by you. Beyond two hours, pruning of recovery points may happen based on the retention period that you input. Following are the scenarios:
+
 |**Retention Period input**        | **Pruning mechanism**                               |
 |----------------------------------|-----------------------------------------------------|
 |0 day|No recovery point saved. You can failover only to the latest point|
