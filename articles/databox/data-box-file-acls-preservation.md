@@ -104,9 +104,6 @@ The following default ACLs are transferred:
 
 - Security descriptors with these properties: DACL, Owner, Group, SACL
 
-**Disabling ACLs transfer**  
-
-
 ## Copying data and metadata
 
 To transfer the ACLs, timestamps, and attributes for your data, use the following procedures to copy data into the Data Box.
