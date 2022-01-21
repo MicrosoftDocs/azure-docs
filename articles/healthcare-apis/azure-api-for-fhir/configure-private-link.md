@@ -70,7 +70,7 @@ With Private Link configured, you can access the FHIR server in the same VNet or
 
 1. Configure VNet Peering.
 
-You can configure VNet peering from the portal or using PowerShell, CLI scripts and Azure Resource Manager (ARM) template. The second VNet can be in the same or different subscriptions, and in the same or different regions. Make sure that you grant the **Network contributor** role. For more information on VNet Peering, see [Create a virtual network peering](../../virtual-network/create-peering-different-subscriptions.md).
+You can configure VNet peering from the portal or using PowerShell, CLI scripts, and Azure Resource Manager (ARM) template. The second VNet can be in the same or different subscriptions, and in the same or different regions. Make sure that you grant the **Network contributor** role. For more information on VNet Peering, see [Create a virtual network peering](../../virtual-network/create-peering-different-subscriptions.md).
 
 2. Add VNet link to the private link zone.
 
