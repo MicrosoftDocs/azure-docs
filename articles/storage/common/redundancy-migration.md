@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/30/2021
+ms.date: 01/19/2022
 ms.author: tamram
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell
@@ -36,13 +36,13 @@ The following table provides an overview of how to switch from each type of repl
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
 | <b>…from LRS</b> | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting<sup>1,2</sup> | Perform a manual migration <br /><br /> OR <br /><br /> Request a live migration<sup>5</sup> | Perform a manual migration <br /><br /> OR <br /><br /> Switch to GRS/RA-GRS first and then request a live migration<sup>3</sup> |
 | <b>…from GRS/RA-GRS</b> | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A | Perform a manual migration <br /><br /> OR <br /><br /> Switch to LRS first and then request a live migration<sup>3</sup> | Perform a manual migration <br /><br /> OR <br /><br /> Request a live migration<sup>3</sup> |
-| <b>…from ZRS</b> | Perform a manual migration | Perform a manual migration | N/A | Request a live migration<sup>3</sup> <br /><br /> OR <br /><br /> Use PowerShell or Azure CLI to change the replication setting as part of a failback operation only<sup>4</sup> |
+| <b>…from ZRS</b> | Perform a manual migration | Perform a manual migration | N/A | Request a live migration<sup>3</sup> <br /><br /> OR <br /><br /> Use Azure portal, PowerShell, or Azure CLI to change the replication setting as part of a failback operation only<sup>4</sup> |
 | <b>…from GZRS/RA-GZRS</b> | Perform a manual migration | Perform a manual migration | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A |
 
 <sup>1</sup> Incurs a one-time egress charge.<br />
 <sup>2</sup> Migrating from LRS to GRS is not supported if the storage account contains blobs in the archive tier.<br />
 <sup>3</sup> Live migration is supported for standard general-purpose v2 and premium file share storage accounts. Live migration is not supported for premium block blob or page blob storage accounts.<br />
-<sup>4</sup> After an account failover to the secondary region, it's possible to initiate a fail back from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). For more information, see [Use caution when failing back to the original primary](storage-disaster-recovery-guidance.md#use-caution-when-failing-back-to-the-original-primary). <br />
+<sup>4</sup> After an account failover to the secondary region, it's possible to initiate a fail back from the new primary back to the new secondary with Azure portal, PowerShell, or Azure CLI (version 2.30.0 or later). For more information, see [Use caution when failing back to the original primary](storage-disaster-recovery-guidance.md#use-caution-when-failing-back-to-the-original-primary). <br />
 <sup>5</sup> Migrating from LRS to ZRS is not supported if the storage account contains Azure Files NFSv4.1 shares. <br />
 
 > [!CAUTION]

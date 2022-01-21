@@ -60,7 +60,7 @@ You can change the runtime version used by your function app. Because of the pot
 
 You can also view and set the `FUNCTIONS_EXTENSION_VERSION` from the Azure CLI.  
 
-Using the Azure CLI, view the current runtime version with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) command.
+Using the Azure CLI, view the current runtime version with the [az functionapp config appsettings list](/cli/azure/functionapp/config/appsettings) command.
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <function_app> \
