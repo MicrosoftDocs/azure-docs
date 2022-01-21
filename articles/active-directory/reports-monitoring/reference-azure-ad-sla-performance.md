@@ -48,6 +48,8 @@ You rely on Azure AD to provide identity and access management for your vital sy
 
 To help you plan for moving workloads to Azure AD, we publish past SLA performance. These numbers show the level at which Azure AD met the requirements in the [SLA for Azure Active Directory (Azure AD)](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1/), for all tenants. 
 
+For each month, we truncate the SLA attainment at three places after the decimal. Numbers are not rounded up, so actual SLA attainment is higher than indicated. 
+
 ||January | February | March |	April |	May | June | July |	August | September | October | November | December |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 2021 | | 99.999 | 99.999 | 99.999 | 99.999 | 99.999 | 99.999 | 99.999 | 99.999 | 99.999 | 99.998 | 99.998 |
