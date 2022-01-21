@@ -109,7 +109,7 @@ When you create a new service of Azure Healthcare APIs, your data is encrypted u
 
 * FHIR service provides encryption of data at rest when data is persisted in the data store.
 * DICOM service provides encryption of data at rest when imaging data including embedded metadata is persisted in the data store. When metadata is extracted and persisted in the FHIR service, it is encrypted automatically.
-* IoT Connector, after data mapping and normalization, persists device messages to the FHIR service, which is encrypted automatically. In cases where device messages are sent to Azure event hubs, which uses Azure Storage to store the data, data is automatically encrypted with Azure Storage Service Encryption (Azure SSE).
+* IoT Connector, after data mapping and normalization, persists device messages to the FHIR service, which is encrypted automatically. In cases where device messages are sent to Azure Event Hubs, which use Azure Storage to store the data, data is automatically encrypted with Azure Storage Service Encryption (Azure SSE).
 
 ## Next steps
 
