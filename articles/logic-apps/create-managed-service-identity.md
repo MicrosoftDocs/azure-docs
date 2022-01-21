@@ -19,7 +19,7 @@ Azure Logic Apps supports the [*system-assigned* managed identity](../active-dir
 
 * A logic app resource can share the same user-assigned identity across a group of other logic app resources.
 
-* Based on whether your logic app resource type is Consumption or Standard, your logic app resource can enable *either* the system-assigned identity *or* a user-assigned identity, or your logic app resource can enable *both* identity types at the same time.
+* Based on your logic app resource type, you can enable either the system-assigned identity, user-assigned identity, or both at the same time:
 
   | Logic app resource type | Environment | Managed identity support |
   |-------------------------|-------------|--------------------------|
