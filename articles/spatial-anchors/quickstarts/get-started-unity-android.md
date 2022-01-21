@@ -40,7 +40,7 @@ To complete this quickstart, make sure you have:
 
 ## Download and open the Unity sample project
 
-### Download Sample
+### Clone Samples Repository
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
