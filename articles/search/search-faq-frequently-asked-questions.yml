@@ -19,6 +19,18 @@ sections:
   - name: General
     questions:
       - question: |
+          How do integrate search into my solution?
+        answer: |
+          Client code should call the client libraries or REST APIs to connect to a search index, formulate queries, and handle responses. You can also write code that builds and refreshes an index, or runs indexers programmatically or by script.
+
+      - question: |
+          Is there functional parity across the various APIs?
+        answer: |
+          Not always. The REST API is always the first to implement new features in preview API versions, and the generally available versions support all programmatic operations. The client libraries in Azure SDKs will pick up new features over time, but are released on their own schedule.
+
+          Although the REST APIs are first out with newest features, the Azure SDKs provide more coding support and are recommended over REST unless a required feature is unavailable.
+
+      - question: |
           Can I pause the service and stop billing?
         answer: |
           You cannot pause a search service. In Azure Cognitive Search, computing resources are allocated when the service is created. It's not possible to release and reclaim those resources on-demand.
@@ -27,16 +39,6 @@ sections:
           Can I upgrade, downgrade, rename or move the service?
         answer: |
           Service tier, name, and region are fixed for the lifetime of the service.
-
-      - question: |
-          Is there functional parity across the various APIs?
-        answer: |
-          Not always. The REST API is always the first to implement new features in preview API versions, and the generally available versions support all programmatic operations. The client libraries in Azure SDKs will pick up new features over time, but are released on their own schedule.
-
-      - question: |
-          How do integrate search into my solution?
-        answer: |
-          Client code should call the client libraries or REST APIs to connect to a search index, formulate queries, and handle responses. You can also write code that builds and refreshes an index, or runs indexers programmatically or by script.
 
   - name: Indexing 
     questions:
@@ -58,12 +60,7 @@ sections:
           If you are using the search indexer for Azure SQL Database, there are no restrictions on the use of primary or secondary replicas as a data source when building an index from scratch. However, refreshing an index with incremental updates (based on changed records) requires the primary replica. This requirement comes from SQL Database, which guarantees change tracking on primary replicas only. If you try using secondary replicas for an index refresh workload, there is no guarantee you get all of the data.
 
   - name: Queries
-    questions:
-      - question: |
-          Can I search across multiple indexes?
-        answer: |
-          No, a query is always scoped to a single index.
-          
+    questions:         
       - question: |
           Why are there zero matches on terms I know to be valid?
         answer: |
@@ -75,7 +72,12 @@ sections:
           Why are my wildcard searches slow?
         answer: |
           Most wildcard search queries, like prefix, fuzzy and regex, are rewritten internally with matching terms in the search index. This extra processing adds to latency. Further, broad search queries, like `a*` for example, that are likely to be rewritten with many terms can be very slow. For performant wildcard searches, consider defining a [custom analyzer](/rest/api/searchservice/custom-analyzers-in-azure-search).
-          
+
+      - question: |
+          Can I search across multiple indexes?
+        answer: |
+          No, a query is always scoped to a single index.
+           
       - question: |
           Why is the search score a constant 1.0 for every match?
         answer: |
