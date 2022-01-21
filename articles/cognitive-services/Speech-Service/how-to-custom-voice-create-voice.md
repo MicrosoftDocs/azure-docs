@@ -1,7 +1,7 @@
 ---
 title: "Create a Custom Voice - Speech service"
 titleSuffix: Azure Cognitive Services
-description: "When you're ready to upload your data, go to the Custom Voice portal. Create or select a Custom Voice project. The project must share the right language/locale and the gender properties as the data you intend to use for your voice training."
+description: "When you're ready to upload your data, go to the Custom Voice portal. Create or select a Custom Voice project. The project must share the right language, locale, and gender properties as the data you intend to use for your voice training."
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -14,100 +14,100 @@ ms.author: eur
 
 # Create and use your voice model
 
-In [Prepare training data](how-to-custom-voice-prepare-data.md), you learned about the different data types you can use to train a custom neural voice and the different format requirements. Once you've prepared your data and the voice talent verbal statement, you can start to upload them to the [Speech Studio](https://aka.ms/custom-voice-portal). In this article, you learn how to train a custom neural voice through the Speech Studio portal. See the [supported languages](language-support.md#custom-neural-voice) for Custom Neural Voice.
+In [Prepare training data](how-to-custom-voice-prepare-data.md), you learned about the different data types you can use to train a custom neural voice, and the different format requirements. After you've prepared your data and the voice talent verbal statement, you can start to upload them to the [Speech Studio](https://aka.ms/custom-voice-portal). In this article, you learn how to train a custom neural voice through the Speech Studio portal. See the [supported languages](language-support.md#custom-neural-voice) for Custom Neural Voice.
 
 ## Prerequisites
 
-* Complete [get started with Custom Neural Voice](how-to-custom-voice.md)
-* [Prepare training data](how-to-custom-voice-prepare-data.md)
+* Complete [get started with Custom Neural Voice](how-to-custom-voice.md).
+* [Prepare training data](how-to-custom-voice-prepare-data.md).
 
 ## Set up voice talent
 
-A voice talent is an individual or target speaker whose voices are recorded and used to create neural voice models. Before you create a voice, define your voice persona and select a right voice talent. For details on recording voice samples, see [the tutorial](record-custom-voice-samples.md).
+A *voice talent* is an individual or target speaker whose voices are recorded and used to create neural voice models. Before you create a voice, define your voice persona and select a right voice talent. For details on recording voice samples, see [the tutorial](record-custom-voice-samples.md).
 
-To train a neural voice, you must create a voice talent profile with an audio file recorded by the voice talent consenting to the usage of their speech data to train a custom voice model. When preparing your recording script, make sure you include the statement sentence. You can find the statement in multiple languages [here](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice/script/verbal-statement-all-locales.txt). The language of the verbal statement must be the same as your recording. You need to upload this audio file to the Speech Studio as shown below to create a voice talent profile, which is used to verify against your training data when you create a voice model. Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here.
+To train a neural voice, you must create a voice talent profile with an audio file recorded by the voice talent, consenting to the usage of their speech data to train a custom voice model. When you prepare your recording script, make sure you include the statement sentence. You can find the statement in multiple languages on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice/script/verbal-statement-all-locales.txt). The language of the verbal statement must be the same as your recording.
 
- :::image type="content" source="media/custom-voice/upload-verbal-statement.png" alt-text="Upload voice talent statement":::
+Upload this audio file to the Speech Studio as shown in the following screenshot. You create a voice talent profile, which is used to verify against your training data when you create a voice model. For more information, see [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
+
+ :::image type="content" source="media/custom-voice/upload-verbal-statement.png" alt-text="Screenshot that shows the upload voice talent statement.":::
  
 > [!NOTE]
 > Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext), and then [apply for access](https://aka.ms/customneural). 
 
-The following steps assume you've prepared the voice talent verbal consent files.  Go to [Speech Studio](https://aka.ms/custom-voice-portal) to select a custom neural voice project, then follow the following steps to create a voice talent profile.
+The following steps assume that you've prepared the voice talent verbal consent files. Go to [Speech Studio](https://aka.ms/custom-voice-portal) to select a Custom Neural Voice project, and then follow these steps to create a voice talent profile.
 
-1. Navigate to **Text-to-Speech** > **Custom Voice** > **select a project** > **Set up voice talent**.
+1. Go to **Text-to-Speech** > **Custom Voice** > **select a project**, and select **Set up voice talent**.
 
-2. Select **Add voice talent**.
+1. Select **Add voice talent**.
 
-3. Next, to define voice characteristics, select **Target scenario** to be used. Then describe your **Voice characteristics**.
+1. Next, to define voice characteristics, select **Target scenario**. Then describe your **Voice characteristics**.
 
-> [!NOTE]
-> The scenarios you provide must be consistent with what you've applied for in the application form.
+   >[!NOTE]
+   >The scenarios you provide must be consistent with what you've applied for in the application form.
 
-4. Then, go to **Upload voice talent statement**, follow the instruction to upload voice talent statement you've prepared beforehand.
+1. Then, go to **Upload voice talent statement**, and follow the instruction to upload the voice talent statement you've prepared beforehand.
 
-> [!NOTE]
-> Make sure the verbal statement is recorded in the same settings as your training data, including the recording environment and speaking style.
+   >[!NOTE]
+   >Make sure the verbal statement is recorded in the same settings as your training data, including the recording environment and speaking style.
 
-5. Finally, go to **Review and create**,  you can review the settings and select **Submit**.
+1. Go to **Review and create**, review the settings, and select **Submit**.
 
 ## Upload your data
 
-When you're ready to upload your data, go to the **Prepare training data** tab to add your first training set and upload data.  A training set is a set of audio utterances and their mapping scripts used for training a voice model. You can use a training set to organize your training data. Data readiness checking will be done per each training set. You can import multiple data to a training set.
+When you're ready to upload your data, go to the **Prepare training data** tab to add your first training set and upload data. A *training set* is a set of audio utterances and their mapping scripts used for training a voice model. You can use a training set to organize your training data. The service checks data readiness per each training set. You can import multiple data to a training set.
 
-You can do the following to create and review your training data.
+You can do the following to create and review your training data:
 
-1. On the **Prepare training data** tab, select **Add training set** to enter **Name** and **Description** > **Create** to add a new training set.
+1. On the **Prepare training data** tab, select **Add training set**, and enter the name. Select **Description** > **Create** to add a new training set. When the training set is successfully created, you can start to upload your data. 
 
-   When the training set is successfully created, you can start to upload your data. 
-
-2. To upload data, select **Upload data** > **Choose data type** > **Upload data** and **Specify the target training set**  > Enter **Name** and **Description** for your data > review the settings and select **Submit**.
+1. To upload data, select **Upload data** > **Choose data type** > **Upload data**. Specify the target training set, and enter the name and description for your data. Review the settings, and select **Submit**.
 
 > [!NOTE]
->- Duplicate audio names will be removed from the training. Make sure the data you select don't contain the same audio names within the .zip file or across multiple .zip files. If utterance IDs (either in audio or script files) are duplicate, they'll be rejected.
->- If you've created data files in the previous version of Speech Studio, you must specify a training set for your data in advance to use them. Or else, an exclamation mark will be appended to the data name, and the data could not be used.
+>- Duplicate audio names are removed from the training. Make sure the data you select don't contain the same audio names within the .zip file or across multiple .zip files. If utterance IDs (either in audio or script files) are duplicates, they're rejected.
+>- If you've created data files in the previous version of Speech Studio, you must specify a training set for your data in advance to use them. If you haven't, an exclamation mark is appended to the data name, and the data can't be used.
 
-Each data you upload must meet the requirements for the data type that you choose. It's important to correctly format your data before it's uploaded, which ensures the data will be accurately processed by the Custom Neural Voice service. Go to [Prepare training data](how-to-custom-voice-prepare-data.md) and make sure your data has been rightly formatted.
+Each data file you upload must meet the requirements for the data type that you choose. It's important to correctly format your data before it's uploaded, which ensures that Custom Neural Voice processes the data accurately. Go to [Prepare training data](how-to-custom-voice-prepare-data.md), and confirm that your data is correctly formatted.
 
 > [!NOTE]
 > - Standard subscription (S0) users can upload five data files simultaneously. If you reach the limit, wait until at least one of your data files finishes importing. Then try again.
-> - The maximum number of data files allowed to be imported per subscription is 10 .zip files for free subscription (F0) users and 500 for standard subscription (S0) users.
+> - The maximum number of data files allowed to be imported per subscription is 10 .zip files for free subscription (F0) users, and 500 for standard subscription (S0) users.
 
-Data files are automatically validated once you hit the **Submit** button. Data validation includes series of checks on the audio files to verify their file format, size, and sampling rate. Fix the errors if any and submit again. 
+Data files are automatically validated when you select **Submit**. Data validation includes series of checks on the audio files to verify their file format, size, and sampling rate. If there are any errors, fix them and submit again. 
 
-Once the data is uploaded, you can check the details in the training set detail view. On the **Overview** tab, you can further check the pronunciation scores and the noise level for each of your data. The pronunciation score ranges from 0 to 100. A score below 70 normally indicates a speech error or script mismatch. A heavy accent can reduce your pronunciation score and affect the generated digital voice.
+After the data is uploaded, you can check the details in the training set detail view. On the **Overview** tab, you can further check the pronunciation scores and the noise level for each of your data files. The pronunciation score ranges from 0 to 100. A score below 70 normally indicates a speech error or script mismatch. A heavy accent can reduce your pronunciation score and affect the generated digital voice.
 
 A higher signal-to-noise ratio (SNR) indicates lower noise in your audio. You can typically reach a 35+ SNR by recording at professional studios. Audio with an SNR below 20 can result in obvious noise in your generated voice.
 
 Consider re-recording any utterances with low pronunciation scores or poor signal-to-noise ratios. If you can't re-record, consider excluding those utterances from your data.
 
-On the **Data details**, you can check the data details of the training set. If there are any typical issues with the data, follow the instructions in the message displayed to fix them before training.
+On **Data details**, you can check the data details of the training set. If there are any typical issues with the data, follow the instructions in the message that appears, to fix them before training.
 
-The issues are divided into three types. Referring to the following three tables to check the respective types of errors.
+The issues are divided into three types. Refer to the following three tables to check the respective types of errors.
 
-Manually fix the first type of errors listed in the table below, otherwise the data with these errors will be excluded during training.
+Manually fix the first type of errors listed in the following table. Otherwise, the data with these errors will be excluded during training.
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
-| Script | Invalid separator| You must separate the utterance ID and the script content with a TAB character.|
-| Script | Invalid script ID| Script line ID must be numeric.|
+| Script | Invalid separator| You must separate the utterance ID and the script content with a Tab character.|
+| Script | Invalid script ID| The script line ID must be numeric.|
 | Script | Duplicated script|Each line of the script content must be unique. The line is duplicated with {}.|
 | Script | Script too long| The script must be less than 1,000 characters.|
 | Script | No matching audio| The ID of each utterance (each line of the script file) must match the audio ID.|
-| Script | No valid script| No valid script found in this dataset. Fix the script lines that appear in the detailed issue list.|
-| Audio | No matching script| No audio files match the script ID. The name of the wav files must match with the IDs in the script file.|
-| Audio | Invalid audio format| The audio format of the .wav files is invalid. Check the wav file format using an audio tool like [SoX](http://sox.sourceforge.net/).|
-| Audio | Low sampling rate| The sampling rate of the .wav files cannot be lower than 16 KHz.|
-| Audio | Too long audio| Audio duration is longer than 30 seconds. Split the long audio into multiple files. We suggest utterances should be shorter than 15 seconds.|
+| Script | No valid script| No valid script is found in this dataset. Fix the script lines that appear in the detailed issue list.|
+| Audio | No matching script| No audio files match the script ID. The name of the .wav files must match with the IDs in the script file.|
+| Audio | Invalid audio format| The audio format of the .wav files is invalid. Check the .wav file format by using an audio tool like [SoX](http://sox.sourceforge.net/).|
+| Audio | Low sampling rate| The sampling rate of the .wav files can't be lower than 16 KHz.|
+| Audio | Too long audio| Audio duration is longer than 30 seconds. Split the long audio into multiple files. It's a good idea to make utterances shorter than 15 seconds.|
 | Audio | No valid audio| No valid audio is found in this dataset. Check your audio data and upload again.|
 
-The second type of errors listed in the table below will be automatically fixed, but double checking the fixed data is recommended.
+The following errors are fixed automatically, but you should confirm that the fixes have been made.
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
 | Mismatch |Silence auto fixed |The start silence is detected to be shorter than 100 ms, and has been extended to 100 ms automatically. Download the normalized dataset and review it. |
 | Mismatch |Silence auto fixed | The end silence is detected to be shorter than 100 ms, and has been extended to 100 ms automatically. Download the normalized dataset and review it.|
 
-If the third type of errors listed in the table below aren't fixed, although the data with these errors won't be excluded during training, it will affect the quality of training. For higher-quality training, manually fixing these errors is recommended. 
+If the following errors aren't fixed, the data with these errors isn't excluded during training, but they affect the quality of training. For higher-quality training, it's a good idea to fix these errors manually. 
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
