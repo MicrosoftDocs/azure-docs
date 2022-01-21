@@ -943,12 +943,12 @@ groups:
     title: Python
 # Owner: jordanselig
 - id: app-service-cli-portal
-  title: Platform
-  prompt: Choose a platform
+  title: Experience
+  prompt: Choose an experience
   pivots:
-  - id: platform-azp
-    title: Azure portal
-  - id: platform-azcli
+  - id: experience-azp
+    title: Azure Portal
+  - id: experience-azcli
     title: Azure CLI
 # Owner: msangapu
 - id: app-service-vscode-cli-portal

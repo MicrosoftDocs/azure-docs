@@ -19,7 +19,7 @@ An App Service Environment v2 can be migrated to an [App Service Environment v3]
 
 Ensure you understand how migrating to an App Service Environment v3 will affect your applications. Review the [migration process](migrate.md#overview-of-the-migration-process) to understand the process timeline and where and when you'll need to get involved. Also review the [FAQs](migrate.md#frequently-asked-questions), which may answer some questions you currently have.
 
-::: zone pivot="platform-azcli"
+::: zone pivot="experience-azcli"
 
 When using the Azure CLI to carry out the migration, you should follow the below steps in order and as written since you'll be making Azure REST API calls. The recommended way for making these calls is by using the [Azure CLI](/cli/azure/). For information about other methods, see [Getting Started with Azure REST](/rest/api/azure/).
 
@@ -103,7 +103,7 @@ az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 
 ::: zone-end
 
-::: zone pivot="platform-azp"
+::: zone pivot="experience-azp"
 
 ## 1. Validate migration is supported
 
