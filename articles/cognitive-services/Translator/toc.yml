@@ -140,8 +140,6 @@ items:
   - name: Custom Translation | Preview
     expanded: true
     items:
-    - name: Overview
-      href: custom-translator/v2-preview/project-overview.md
     - name: Custom Translator for beginners
       href: custom-translator/v2-preview/beginners-guide.md
     - name: Quickstart

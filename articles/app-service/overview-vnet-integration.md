@@ -64,6 +64,14 @@ Because subnet size can't be changed after assignment, use a subnet that's large
 
 When you want your apps in your plan to reach a virtual network that's already connected to by apps in another plan, select a different subnet than the one being used by the preexisting virtual network integration.
 
+You must have at least the following RBAC permissions on the subnet or at a higher level to configure regional virtual network integration through Azure portal, CLI or when setting the `virtualNetworkSubnetId` site property directly:
+
+| Action | Description |
+|-|-|
+| Microsoft.Network/virtualNetworks/read | Read the virtual network definition |
+| Microsoft.Network/virtualNetworks/subnets/read | Read a virtual network subnet definition |
+| Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
+
 ### Routes
 
 There are two types of routing to consider when you configure regional virtual network integration. Application routing defines what traffic is routed from your application and into the virtual network. Network routing is the ability to control how traffic is routed from your virtual network and out.
