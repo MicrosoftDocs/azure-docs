@@ -613,12 +613,12 @@
         href: cognitive-search-skill-sentiment.md
 - name: Resources
   items:
-  - name: FAQ
-    href: search-faq-frequently-asked-questions.yml
   - name: Azure Community Support
     href: https://azure.microsoft.com/support/community/?product=search
   - name: Azure Updates
     href: https://azure.microsoft.com/updates/?product=search
+  - name: FAQ
+    href: search-faq-frequently-asked-questions.yml
   - name: Partner spotlight
     href: resource-partners-knowledge-mining.md
   - name: Partner data sources (Terms of Use)
