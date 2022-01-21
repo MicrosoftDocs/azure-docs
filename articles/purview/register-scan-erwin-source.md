@@ -50,6 +50,8 @@ When scanning erwin Mart source, Azure Purview supports:
 
 - Fetching static lineage on assets relationships among entities, views and stored procedures.
 
+When setting up scan, you can choose to scan an entire erwin Mart server, or scope the scan to a list of models matching the given name(s).
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -137,8 +139,6 @@ To create and run a new scan, do the following:
 
         > [!Note]
         > This parameter is only applicable for erwin Mart version 9.1 or later.
-
-    1. **Browse mode** - Select the mode for browsing erwin Mart. Possible options are "Libraries and Models" or "Libraries only".
 
     1. **Models** - Scope your scan by providing a semicolon separated list of erwin model locator strings. For example, mart://Mart/Samples/eMovies;mart://Mart/Erwin_Tutorial/AP_Physical
 

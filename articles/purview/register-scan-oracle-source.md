@@ -18,9 +18,9 @@ This article outlines how to register Oracle, and how to authenticate and intera
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes**](#lineage)|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes*](#lineage)|
 
-\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+\* *Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
 
 The supported Oracle server versions are 6i to 19c. Proxy server is not supported when scanning Oracle source.
 
@@ -39,7 +39,9 @@ When scanning Oracle source, Azure Purview supports:
     - Synonyms
     - Types including the type attributes
 
-- Fetching static lineage on assets relationships among tables, views and stored procedures.
+- Fetching static lineage on assets relationships among tables, views and stored procedures. Stored procedure lineage is supported for static SQL returning result set.
+
+When setting up scan, you can choose to scan an entire Oracle server, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
 
 ## Prerequisites
 
@@ -164,7 +166,7 @@ To create and run a new scan, do the following:
         * Provide the user name used by JDBC to connect to the database server in the User name input field.
         * Store the user password used by JDBC to connect to the database server in the secret key.
 
-    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. When the list is empty, all available schemas are imported.
+    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list in **case-sensitive** manner. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default.
 
         Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: `A%; %B; %C%; D`
         * Start with A or
