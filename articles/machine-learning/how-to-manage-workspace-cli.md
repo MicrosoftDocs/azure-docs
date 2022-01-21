@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 09/23/2021
+ms.date: 01/05/2022
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ---
@@ -30,6 +30,8 @@ In this article, you learn how to create and manage Azure Machine Learning works
 ## Limitations
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+
+[!INCLUDE [application-insight](../../includes/machine-learning-application-insight.md)]
 
 ## Connect the CLI to your Azure subscription
 
@@ -437,3 +439,5 @@ The Azure Machine Learning workspace uses Azure Container Registry (ACR) for som
 For more information on the Azure CLI extension for machine learning, see the [az ml](/cli/azure/ml) documentation.
 
 To check for problems with your workspace, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).
+
+To learn how to move a workspace to a new Azure subscription, see [How to move a workspace](how-to-move-workspace.md).

@@ -1,13 +1,13 @@
 ---
 title: Parent resource errors
-description: Describes how to resolve errors when working with a parent resource in an Azure Resource Manager template (ARM template) or Bicep file.
+description: Describes how to resolve errors when you deploy a resource that's dependent on a parent resource in a Bicep file or Azure Resource Manager template (ARM template).
 ms.topic: troubleshooting
-ms.date: 12/01/2021
+ms.date: 12/20/2021
 ---
 
 # Resolve errors for parent resources
 
-This article describes the `ParentResourceNotFound` error you might get when deploying a resource that's dependent on a parent resource.
+This article describes the `ParentResourceNotFound` error you might get when deploying a resource that's dependent on a parent resource. The error occurs when you deploy resources with a Bicep file or Azure Resource Manager template (ARM template).
 
 ## Symptom
 

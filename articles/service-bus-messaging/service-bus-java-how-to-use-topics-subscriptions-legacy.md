@@ -3,7 +3,7 @@ title: Use Azure Service Bus topics and subscriptions with Java
 description: In this article, you write Java code to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic.
 ms.date: 07/27/2021
 ms.topic: how-to
-ms.devlang: Java
+ms.devlang: java
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 

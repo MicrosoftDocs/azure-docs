@@ -3,8 +3,8 @@ title: Upgrade host OS for compute cluster and instance
 titleSuffix: Azure Machine Learning
 description: Upgrade the host OS for compute cluster and compute instance from Ubuntu 16.04 LTS to 18.04 LTS.
 services: machine-learning
-author: nishankgu
-ms.author: nigup
+author: cjgronlund
+ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core

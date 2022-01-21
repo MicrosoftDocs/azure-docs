@@ -21,7 +21,7 @@ As you plan your migration of VMware servers to Azure, review the [migration sup
 Requirement | Details
 --- | ---
 **Project limits** | You can create multiple Azure Migrate projects in an Azure subscription.<br /><br /> You can discover and assess up to 50,000 servers in a VMware environment in a single [project](migrate-support-matrix.md#project). A project can include physical servers and servers from a Hyper-V environment, up to the assessment limits.
-**Discovery** | The Azure Migrate appliance can discover up to 10,000 servers on a server running vCenter Server.
+**Discovery** | The Azure Migrate appliance can discover up to 10,000 servers running across multiple vCenter Servers.<br /><br /> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance. 
 **Assessment** | You can add up to 35,000 servers in a single group.<br /><br /> You can assess up to 35,000 servers in a single assessment.
 
 Learn more about [assessments](concepts-assessment-calculation.md).
@@ -117,7 +117,7 @@ Support | Details
 
 Support | Details
 --- | ---
-**Supported servers** | Currently supported only for servers in your VMware environment.
+**Supported servers** | You can enable agentless dependency analysis on up to 1000 servers (across multiple vCenter Servers), discovered per appliance. Currently supported only for servers in your VMware environment.
 **Windows servers** | Windows Server 2019<br />Windows Server 2016<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2 (64-bit)<br />Microsoft Windows Server 2008 (32-bit)
 **Linux servers** | Red Hat Enterprise Linux 7, 6, 5<br /> Ubuntu Linux 16.04, 14.04<br /> Debian 8, 7<br /> Oracle Linux 7, 6<br /> CentOS 7, 6, 5<br /> SUSE Linux Enterprise Server 11 and later
 **Server requirements** | VMware Tools (10.2.1 and later) must be installed and running on servers you want to analyze.<br /><br /> Servers must have PowerShell version 2.0 or later installed.

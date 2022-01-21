@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 08/05/2021
+ms.date: 12/16/2021
 ---
 
 # Introduction: Centers for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule
@@ -31,7 +31,7 @@ There are three main pieces to the Interoperability and Patient Access ruling:
 
 * **Provider Directory API (Required July 1, 2021)** – CMS-regulated payers are required by this portion of the rule to make provider directory information publicly available via a standards-based API. Through making this information available, third-party application developers will be able to create services that help patients find providers for specific care needs and clinicians find other providers for care coordination.  
 
-* **Payer-to-Payer Data Exchange (Required January 1, 2022)** – CMS-regulated payers are required to exchange certain patient clinical data at the patient’s request with other payers. While there's no requirement to follow any kind of standard, applying FHIR to exchange this data is encouraged. 
+* **Payer-to-Payer Data Exchange (Originally required Jan 1, 2022 - [Currently Delayed](https://www.cms.gov/Regulations-and-Guidance/Guidance/Interoperability/index))** – CMS-regulated payers are required to exchange certain patient clinical data at the patient’s request with other payers. While there's no requirement to follow any kind of standard, applying FHIR to exchange this data is encouraged. 
 
 ## Key FHIR concepts
 

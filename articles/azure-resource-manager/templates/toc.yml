@@ -410,10 +410,10 @@
       href: key-vault-parameter.md
   - name: Export templates
     items:
-    - name: Azure CLI
-      href: export-template-cli.md
     - name: Portal
       href: export-template-portal.md
+    - name: Azure CLI
+      href: export-template-cli.md
     - name: PowerShell
       href: export-template-powershell.md
   - name: Test templates
