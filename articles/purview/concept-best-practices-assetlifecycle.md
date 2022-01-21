@@ -28,27 +28,28 @@ An organization employing Azure Purview should define processes and people struc
 
 ### Best practice processes that should be considered when starting the data governance journey with Azure Purview: 
 
-1.	**Capture and maintain assets** - Understand how to initially structure and record assets in the catalog for management 
-2.	**Glossary and Classification management** - Understand how to effectively manage the catalog metadata needed to apply and maintain a business glossary
-3.	**Moving and deleting assets** – Managing collections and assets by understanding how to move assets from one collection to another or delete asset metadata from Azure Purview
+- **Capture and maintain assets** - Understand how to initially structure and record assets in the catalog for management 
+- **Glossary and Classification management** - Understand how to effectively manage the catalog metadata needed to apply and maintain a business glossary
+- **Moving and deleting assets** – Managing collections and assets by understanding how to move assets from one collection to another or delete asset metadata from Azure Purview
 
 ## Data curator organizational personas
 
 The [Data Curator](catalog-permissions.md) role in Azure Purview controls read/write permission to assets within a collection group. To support the processes below, the Data Curator role has been granted to separate data governance personas in the organization: 
 
-Note: The 4 **personas** listed are suggested read/write users, and would all be assigned Data Curator role in Azure Purview. 
+> [!Note] 
+> The 4 **personas** listed are suggested read/write users, and would all be assigned Data Curator role in Azure Purview. 
 
-1.	Data Owner or Data Expert:
+1. Data Owner or Data Expert:
 
-<li> Data Owner: Senior business stakeholder with authority and budget who is accountable for overseeing the quality and protection of a data subject area. This person is accountable for making decisions on who has the right to access data and how it is used
+    - Data Owner is typically a senior business stakeholder with authority and budget who is accountable for overseeing the quality and protection of a data subject area. This person is accountable for making decisions on who has the right to access data and how it is used
 
-<li> Data Expert: An individual who is an authority in the business process, data manufacturing process or data consumption patterns in the business. 
+    - Data Expert is an individual who is an authority in the business process, data manufacturing process or data consumption patterns in the business. 
 
-2.	Data Steward or Data Custodian
+1. Data Steward or Data Custodian
 
-<li> Data Steward: Business professional responsible for overseeing the definition, quality and management of a data subject area or data entity. They are typically experts in the data domain and work in a team with other data stewards across the enterprise to make decisions to ensure all aspects of data management are applied
+    -  Data Steward is typically a business professional responsible for overseeing the definition, quality and management of a data subject area or data entity. They are typically experts in the data domain and work in a team with other data stewards across the enterprise to make decisions to ensure all aspects of data management are applied
 
-<li> Data Custodian: An individual responsible for performing one or more data controls. 
+    - Data Custodian is an individual responsible for performing one or more data controls. 
 
 ## 1. Capture and maintain assets
 
@@ -116,9 +117,9 @@ This process describes the high-level steps and roles to delete asset metadata f
 
 Asset Metadata may need to be deleted manually for many reasons: 
 
-<li> To remove asset metadata where the data is deleted (if a full re-scan is not performed)
-<li> To remove asset metadata where the data is purged according to its retention period
-<li> To reduce/manage the size of the data map 
+- To remove asset metadata where the data is deleted (if a full re-scan is not performed)
+- To remove asset metadata where the data is purged according to its retention period
+- To reduce/manage the size of the data map 
 
 
 > [!Note]
@@ -137,7 +138,9 @@ Asset Metadata may need to be deleted manually for many reasons:
 | 6 | [Scanning best practices](concept-best-practices-scanning.md)
 
 > [!Note] 
-> <li> Deleting a collection, registered source or scan from Azure Purview does not delete all associated asset metadata. <li>  It is not possible to bulk delete asset metadata using the Azure Purview Portal <li>	Deleting the asset metadata does not delete all associated lineage or other relationship data (for example, glossary or classification assignments) about the asset from the data map. The asset information and relationships will no longer be visible in the portal. 
+> - Deleting a collection, registered source or scan from Azure Purview does not delete all associated asset metadata. 
+> -  It is not possible to bulk delete asset metadata using the Azure Purview Portal 
+> - Deleting the asset metadata does not delete all associated lineage or other relationship data (for example, glossary or classification assignments) about the asset from the data map. The asset information and relationships will no longer be visible in the portal. 
 
 ## Next steps
 - [Azure Purview accounts architectures and best practices](concept-best-practices-accounts.md)
