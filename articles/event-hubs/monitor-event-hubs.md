@@ -3,7 +3,7 @@ title: Monitoring Azure Event Hubs
 description: Learn how to use Azure Monitor to view, analyze, and create alerts on metrics from Azure Event Hubs. 
 ms.topic: conceptual
 ms.custom: subject-monitoring
-ms.date: 06/13/2021
+ms.date: 01/20/2022
 ---
 
 # Monitor Azure Event Hubs
@@ -90,7 +90,7 @@ Following are sample queries that you can use to help you monitor your Azure Eve
     | where Category == "OperationalLogs"
     | summarize count() by "EventName"
 
-+ Get runtime audit logs during last hour. 
++ Get runtime audit logs generated in the last one hour. 
 
     ```Kusto
     AzureDiagnostics
