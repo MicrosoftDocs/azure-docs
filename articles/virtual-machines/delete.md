@@ -21,7 +21,9 @@ Depending on how you delete a VM, it may only delete the VM resource, not the ne
 
 ### [Portal](#tab/portal2)
 
-When you create a VM through the portal, the default for the OS disk if for it to be deleted when you delete the VM.
+When you create a VM through the portal using an existing OS disk, the default is to detach the disk when the VM is deleted.
+
+When you create a VM through the portal and use an image, either your own or from an Azure Marketplace image, the default is to delete the OS disk along with the VM.
 
 1. Open the [portal](https://portal.azure.com).
 1. Select **+ Create a resource**.
