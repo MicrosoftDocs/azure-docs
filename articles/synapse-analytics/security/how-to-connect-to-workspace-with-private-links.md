@@ -1,12 +1,12 @@
 ---
 title: Connect to a Synapse workspace using private links
 description: This article will teach you how to connect to your Azure Synapse workspace using private links
-author: ashinMSFT
+author: Danzhang-msft
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security 
-ms.date: 04/15/2020 
-ms.author: seshin
+ms.date: 01/20/2022 
+ms.author: danzhang
 ms.reviewer: sngun
 ---
 
@@ -16,7 +16,11 @@ This article will teach you how to create a private endpoint to your Azure Synap
 
 ## Step 1: Register Network resource provider
 
-If you haven't already done so, register the Network resource provider. Registering a resource provider configures your subscription to work with the resource provider. Choose *Microsoft.Network* from the list of resource providers when you [register](../../azure-resource-manager/management/resource-providers-and-types.md). If the Network resource provider is already registered, then proceed to Step 2.
+If you haven't already done so, register the Network resource provider in the subscription hosting the Azure Synapse Workspace. Registering a resource provider configures your subscription to work with the resource provider. Choose *Microsoft.Network* from the list of resource providers when you [register](../../azure-resource-manager/management/resource-providers-and-types.md). 
+
+If you are creating a private endpoint in a different subscription than the subscription hosting the Azure Synapse Workspace, register *Microsoft.Synapse* in the subscription hosting the private endpoint. This is required when trying to approve or delete the private endpoint connection.
+
+If the required resource provider is already registered, then proceed to Step 2.
 
 ## Step 2: Open your Azure Synapse workspace in Azure portal
 

@@ -72,6 +72,15 @@ sections:
           If you have not configured password writeback for a specific user or if the user doesn't have a valid Azure AD license assigned, the user can't update their password in the cloud. They can't update their password, even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Update it according to the method recommended by your organization, or ask your admin if you need help." The user or the administrator must reset their password in on-premises Active Directory.
           
       - question: |
+          The user logs on to Azure AD with his credentials (username, password). In the meantime the user’s password expires, but the user can still access Azure AD resources. Why does this happen?
+        answer: |
+          The password expiry does not trigger the revocation of authentication tokens or cookies. Until the tokens or cookies are valid, the user will be able to use them. This applies regardless of the authentication type (PTA, PHS and federated scenarios).
+
+          For more details please check the documentation below:
+          [Microsoft identity platform access tokens - Microsoft identity platform | Microsoft Docs](../develop/access-tokens.md#revocation)
+
+     
+      - question: |
           How does Pass-through Authentication protect you against brute-force password attacks?
         answer: |
           [Read information about Smart Lockout](../authentication/howto-password-smart-lockout.md).

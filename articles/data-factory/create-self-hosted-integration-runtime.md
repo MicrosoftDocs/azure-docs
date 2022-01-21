@@ -446,6 +446,18 @@ For example, to copy from an on-premises data store to a SQL Database sink or an
 > [!NOTE]
 > If your firewall doesn't allow outbound port 1433, the self-hosted integration runtime can't access the SQL database directly. In this case, you can use a [staged copy](copy-activity-performance.md) to SQL Database and Azure Synapse Analytics. In this scenario, you require only HTTPS (port 443) for the data movement.
 
+## Credentials store
+There are two ways to store the credentials when using self-hosted integration runtime:
+1. Use Azure Key Vault.
+This is the recommended way to store your credentials in Azure. The self-hosted integration runtime can directly get the credentials from Azure Key Vault which can highly avoid some potential security issues or any credential in-sync problems between self-hosted integration runtime nodes.
+2. Store credentials locally.
+The credentials will be push to the machine of your self-hosted integration runtime and be encrypted. 
+When your self-hosted integration runtime is recovered from crash, you can either recover credential from the one you backup before or edit linked service and let the credential be pushed to self-hosted integration runtime again. Otherwise, the pipeline doesn't work due to the lack of credential when running via self-hosted integration runtime.
+> [!NOTE]
+> If you prefer to store the credential locally, your need to put the domain for interactive authoring in the allowlist of your firewall 
+> and open the port. This channel is also for the self-hosted integration runtime to get the credentials. 
+> For the domain and port needed for interactive authoring, refer to [Ports and firewalls](#ports-and-firewalls)
+
 ## Installation best practices
 
 You can install the self-hosted integration runtime by downloading a Managed Identity setup package from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). See the article [Move data between on-premises and cloud](tutorial-hybrid-copy-powershell.md) for step-by-step instructions.

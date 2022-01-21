@@ -5,7 +5,7 @@ author: chanuengg
 ms.author: csugunan
 ms.service: purview
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 01/20/2022
 ---
 # Azure Purview Data Catalog lineage user guide
 
@@ -28,11 +28,23 @@ Data integration and ETL tools can push lineage in to Azure Purview at execution
 | Azure Data Share | [Share snapshot](how-to-link-azure-data-share.md) |
  
 ### Data storage systems
-Databases & storage solutions such as SQL Server, Teradata, and SAP have query engines to transform data using scripting language. Data lineage from stored procedures is collected in to Azure Purview and stitched with lineage from other systems.
+Databases & storage solutions such as Oracle, Teradata, and SAP have query engines to transform data using scripting language. Data lineage from views/stored procedures/etc are collected into Azure Purview and stitched with lineage from other systems. Lineage is supported for the following data sources via Azure Purview data scan. Learn more about the supported lineage scenarios from the respective article.
 
-| Data storage system | Supported scope |
-| ---------------------- | ------------|
-| Teradata | Stored procedures
+|**Category**|  **Data source**  |
+|---|---|
+|Database|    [Cassandra](register-scan-cassandra-source.md)|
+|| [DB2](register-scan-db2.md) |
+|| [Google BigQuery](register-scan-google-bigquery-source.md)|
+|| [Hive Metastore Database](register-scan-hive-metastore-source.md) |
+|| [MySQL](register-scan-mysql.md) |
+|| [Oracle](register-scan-oracle-source.md) |
+|| [PostgreSQL](register-scan-postgresql.md) |
+|| [Snowflake](register-scan-snowflake.md) |
+|| [Teradata](register-scan-teradata-source.md)|
+|Services and apps|    [Erwin](register-scan-erwin-source.md)|
+|| [Looker](register-scan-looker-source.md)|
+|| [SAP ECC](register-scan-sapecc-source.md)|
+|| [SAP S/4HANA](register-scan-saps4hana-source.md) |
 
 ### Data analytics & reporting systems
 Data systems like Azure ML and Power BI report lineage into Azure Purview. These systems will use the datasets from storage systems and process through their meta model to create BI Dashboard, ML experiments and so on.

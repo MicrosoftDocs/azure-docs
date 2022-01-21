@@ -13,7 +13,7 @@ This article lists key DevTest Labs concepts and definitions:
 A lab is the infrastructure that encompasses a group of resources, such as Virtual Machines (VMs), that lets you better manage those resources by specifying limits and quotas.
 
 ## Virtual machine
-An Azure VM is one type of [on-demand, scalable computing resources](/azure/architecture/guide/technology-choices/compute-decision-tree) that Azure offers. Azure VMs give you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
+An Azure VM is one type of [on-demand, scalable computing resource](/azure/architecture/guide/technology-choices/compute-decision-tree) that Azure offers. Azure VMs give you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
 
 [Overview of Windows virtual machines in Azure](../virtual-machines/windows/overview.md) gives you information to consider before you create a VM, how you create it, and how you manage it.
 
@@ -26,7 +26,7 @@ A VM that is claimable isn't initially assigned to any particular user, but will
 In DevTest Labs, an environment refers to a collection of Azure resources in a lab. [Create an environment](./devtest-lab-create-environment-from-arm.md) discusses how to create multi-VM environments from your Azure Resource Manager templates.
 
 ## Base images
-Base images are VM images with all the tools and settings preinstalled and configured. You can create a VM by picking an existing base and adding an artifact to install your test agent. The use of bases images reduces VM creation time.
+Base images are VM images with all the tools and settings preinstalled and configured. You can create a VM by picking an existing base and adding an artifact to install your test agent. The use of base images reduces VM creation time.
 
 ## Artifacts
 Artifacts are used to deploy and configure your application after a VM is provisioned. Artifacts can be:
@@ -68,9 +68,9 @@ Within the scope of DevTest Labs, there are two types of roles to define user pe
 |Lab&nbsp;Owner| Has access to any resources within the lab. A lab owner can modify policies, read and write any VMs, change the virtual network, and so on.|
 |Lab User | Can view all lab resources, such as VMs, policies, and virtual networks, but can't modify policies or any VMs created by other users.|
 
-To see how to create custom roles in DevTest Labs, refer to the article, [Grant user permissions to specific lab policies](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
+To see how to create custom roles in DevTest Labs, refer to the article [Grant user permissions to specific lab policies](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
-Since scopes are hierarchical, when a user has permissions at a certain scope, they also have permissions at every lower-level scope. Subscription owners have access to all resources in a subscription, which include virtual machines, virtual networks, and labs. A subscription owner automatically inherits the role of lab owner. However, the opposite isn't true. A lab owner has access to a lab, which is a lower scope than the subscription level. So, a lab owner can't see virtual machines or virtual networks or any resources that are outside of the lab.
+Since scopes are hierarchical, when a user has permissions at a certain scope, they also have permissions at every lower-level scope. Subscription owners have access to all resources in a subscription, which include virtual machines, virtual networks, and labs. A subscription owner automatically inherits the role of lab owner. However, the opposite isn't true; a lab owner has access to a lab, which is a lower scope than the subscription level. So, a lab owner can't see virtual machines or virtual networks or any resources that are outside of the lab.
 
 ## Azure Resource Manager templates
 The concepts discussed in this article can be configured by using Azure Resource Manager (ARM) templates. ARM templates let you define the infrastructure/configuration of your Azure solution and repeatedly deploy it in a consistent state.
