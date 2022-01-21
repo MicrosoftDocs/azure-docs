@@ -8,7 +8,7 @@ metadata:
   description: Host websites, web apps, RESTful APIs, and mobile back ends in Azure App Service. Find quickstarts, tutorials, and samples to help you succeed with App Service.
   ms.topic: landing-page
   ms.service: app-service
-  ms.date: 08/06/2020
+  ms.date: 01/14/2022
 
 landingContent:
   - title: About App Service
@@ -40,6 +40,8 @@ landingContent:
             url: quickstart-php.md
           - text: First Java app
             url: quickstart-java.md
+          - text: First WordPress app
+            url: quickstart-wordpress.md
           - text: First Python Flask app (Linux only)
             url: quickstart-python.md
           - text: First Ruby app (Linux only)
