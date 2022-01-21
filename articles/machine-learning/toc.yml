@@ -297,6 +297,8 @@
                 href: how-to-manage-workspace-terraform.md
               - name: Use REST
                 href: how-to-manage-rest.md
+              - name: How to move a workspace
+                href: how-to-move-workspace.md
               - name: Link to Azure Synapse Analytics workspace
                 href: how-to-link-synapse-ml-workspaces.md
               - name: Workspace Diagnostics

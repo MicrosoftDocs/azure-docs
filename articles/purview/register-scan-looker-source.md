@@ -41,6 +41,8 @@ When scanning Looker source, Azure Purview supports:
 
 - Fetching static lineage on assets relationships among views and layouts.
 
+When setting up scan, you can choose to scan an entire Looker server, or scope the scan to a subset of Looker projects matching the given name(s).
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
