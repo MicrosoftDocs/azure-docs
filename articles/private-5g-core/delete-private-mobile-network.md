@@ -2,7 +2,7 @@
 title: Delete a private mobile network
 titlesuffix: Azure Private 5G Core Preview
 description: Learn how to delete a private mobile network deployed through Azure Private 5G Core 
-author: djrmetaswitch[Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md)
+author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
 ms.topic: how-to

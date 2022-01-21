@@ -2,8 +2,8 @@
 title: Move a private mobile network to another region
 titlesuffix: Azure Private 5G Core Preview
 description: In this how-to guide, you'll learn how to move your private mobile network to another Azure region. 
-author: drichards
-ms.author: djrmetaswitch
+author: djrmetaswitch
+ms.author: drichards
 ms.service: private-mobile-network
 ms.topic: how-to
 ms.custom: subject-moving-resources

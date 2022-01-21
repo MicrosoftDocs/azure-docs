@@ -72,7 +72,7 @@ The following is an example of the file format you must use if you want to provi
   "integratedCircuitCardIdentifier": "8922345678901234567",
   "internationalMobileSubscriberIdentity": "001019990010002",
   "authenticationKey": "11112233445566778899AABBCCDDEEFF",
-  "operatorKeyCode": "63bfa50ee6523365ff14c1f45f88738d"
+  "operatorKeyCode": "63bfa50ee6523365ff14c1f45f88738d",
   "deviceType": "Sensor"
  }
 ]
