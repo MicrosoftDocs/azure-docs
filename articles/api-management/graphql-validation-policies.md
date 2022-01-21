@@ -6,7 +6,7 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 01/12/2022
+ms.date: 01/21/2022
 ms.author: danlep
 ms.custom: ignite-fall-2021
 ---
@@ -41,7 +41,7 @@ Because GraphQL queries use a flattened schema:
     * The schema element   
 
 **Authorize element**  
-Configure the `authorize` element to set an appropriate authorization rule for one or more query paths. 
+Configure the `authorize` element to set an appropriate authorization rule for one or more paths. 
 * Each rule can optionally provide a different action.
 * Use policy expressions to specify conditional actions. 
 
@@ -53,14 +53,14 @@ The policy for path=`/__*` is the [introspection](https://graphql.org/learn/intr
 ```xml
 <validate-graphql-request error-variable-name="variable name" max-size="size in bytes" max-depth="query depth">
     <authorize>
-        <rule path="query path, for example: '/listUsers' or '/__*'" action="string or policy expression that evaluates to 'allow|remove|reject|ignore'" />
+        <rule path="query or mutation path, for example: '/Query/listUsers' or '/__*'" action="string or policy expression that evaluates to 'allow|remove|reject|ignore'" />
     </authorize>
 </validate-graphql-request>
 ```
 
-### Example
+### Example: Query validation
 
-This example applies the follow validation and authorization rules to a GraphQL query:
+This example applies the following validation and authorization rules to a GraphQL query:
 * Requests larger than 100 kb or with query depth greater than 4 are rejected. 
 * Requests to the introspection system are rejected. 
 * The `/ship/missions/name` field is removed from requests containing more than two headers. 
@@ -69,7 +69,21 @@ This example applies the follow validation and authorization rules to a GraphQL 
 <validate-graphql-request error-variable-name="name" max-size="102400" max-depth="4"> 
     <authorize>
         <rule path="/__*" action="reject" /> 
-        <rule path="/ship/missions/name" action="@(context.Request.Headers.Count > 2 ? "remove" : "allow")" />
+        <rule path="Query/ship/missions/name" action="@(context.Request.Headers.Count > 2 ? "remove" : "allow")" />
+    </authorize>
+</validate-graphql-request> 
+```
+
+### Example: Mutation validation
+
+This example applies the following validation and authorization rules to a GraphQL mutation:
+* Requests larger than 100 kb or with query depth greater than 4 are rejected. 
+* Requests to mutate the `deleteUser` field are denied except when the request is from IP address `198.51.100.1`. 
+
+```xml
+<validate-graphql-request error-variable-name="name" max-size="102400" max-depth="4"> 
+    <authorize>
+        <rule path="/Mutation/deleteUser" action="@(context.Request.IpAddress <> "198.51.100.1" ? "deny" : "allow")" />
     </authorize>
 </validate-graphql-request> 
 ```
@@ -80,7 +94,7 @@ This example applies the follow validation and authorization rules to a GraphQL 
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | `validate-graphql-request` | Root element.                                                                                                                               | Yes      |
 | `authorize` | Add this element to provide field-level authorization with both request- and field-level errors.   | No |
-| `rule` | Add one or more of these elements to authorize specific query paths. Each rule can optionally specify a different [action](#request-actions). | No |
+| `rule` | Add one or more of these elements to authorize specific query or mutation paths. Each rule can optionally specify a different [action](#request-actions). | No |
 
 ### Attributes
 
@@ -89,7 +103,7 @@ This example applies the follow validation and authorization rules to a GraphQL 
 | `error-variable-name` | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
 | `max-size` | Maximum size of the request payload in bytes. Maximum allowed value: 102,400 bytes (100 KB). (Contact [support](https://azure.microsoft.com/support/options/) if you need to increase this limit.) | Yes       | N/A   |
 | `max-depth` | An integer. Maximum query depth. | No | 6 |
-| `path` | Query path to execute authorization validation on. | Yes | N/A |
+| `path` | Path to execute authorization validation on. | Yes | N/A |
 | `action` | [Action](#request-actions) to perform if the rule applies. May be specified conditionally using a policy expression. |  No     | allow   |
 
 ### Request actions
