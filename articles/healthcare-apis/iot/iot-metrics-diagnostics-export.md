@@ -20,19 +20,19 @@ In this article, you'll learn how to configure the diagnostic setting for IoT co
 ## Create diagnostic setting for IoT connector
 1. To enable metrics export for IoT connector, select **IoT connectors** in your Workspace.
  
-   :::image type="content" source="media/iot-metrics-export/iot-connector-logging-workspace.png" alt-text="Select IoT connector within Workspace" lightbox="media/iot-metrics-export/iot-connector-logging-workspace.png":::
+   :::image type="content" source="media/iot-metrics-export/iot-connector-logging-workspace.png" alt-text="Screenshot of select IoT connector within Workspace." lightbox="media/iot-metrics-export/iot-connector-logging-workspace.png":::
 
 2. Select the IoT connector that you want to configure metrics export for.
    
-   :::image type="content" source="media/iot-metrics-export/iot-connector-logging-select-connector.png" alt-text="Select IoT connector for exporting metrics" lightbox="media/iot-metrics-export/iot-connector-logging-select-connector.png":::
+   :::image type="content" source="media/iot-metrics-export/iot-connector-logging-select-connector.png" alt-text="Screenshot of select IoT connector for exporting metrics" lightbox="media/iot-metrics-export/iot-connector-logging-select-connector.png":::
 
 3. Select the **Diagnostic settings** button and then select the **+ Add diagnostic setting** button.
 
-   :::image type="content" source="media/iot-metrics-export/iot-connector-logging-select-diagnostic-settings.png" alt-text="Select the Diagnostic settings and select the + Add diagnostic setting buttons." lightbox="media/iot-metrics-export/iot-connector-logging-select-diagnostic-settings.png"::: 
+   :::image type="content" source="media/iot-metrics-export/iot-connector-logging-select-diagnostic-settings.png" alt-text="Screenshot of select the Diagnostic settings and select the + Add diagnostic setting buttons." lightbox="media/iot-metrics-export/iot-connector-logging-select-diagnostic-settings.png"::: 
 
 4. After the **+ Add diagnostic setting** page opens, enter a name in the **Diagnostic setting name** dialog box.   
 
-    :::image type="content" source="media/iot-metrics-export/iot-connector-logging-select-diagnostic-configuration.png" alt-text="Provide a name for your diagnostic setting, where you want the metrics to be exported, ALLMetrics, and save" lightbox="media/iot-metrics-export/iot-connector-logging-select-diagnostic-configuration.png"::: 
+    :::image type="content" source="media/iot-metrics-export/iot-connector-logging-select-diagnostic-configuration.png" alt-text="Screenshot diagnostic setting and required fields." lightbox="media/iot-metrics-export/iot-connector-logging-select-diagnostic-configuration.png"::: 
 
 5. Under **Destination details**, select the destination you want to use to export your IoT connector metrics to. In the above example, we've selected an Azure storage account.
 
@@ -45,18 +45,18 @@ In this article, you'll learn how to configure the diagnostic setting for IoT co
    |Event Hubs|Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other Log Analytics solutions.|
    |Azure Monitor partner integrations|Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms. Useful when you're already using one of the partners.|
    
-> [!Important]
-> Each **Destination details** selection requires that certain resources (for example, an existing Azure storage account) be created and available before the selection can be successfully configured. Choose each selection to get a list of the required resources.
+   > [!Important]
+   > Each **Destination details** selection requires that certain resources (for example, an existing Azure storage account) be created and available before the selection can be successfully configured. Choose each selection to get a list of the required resources.
 
 6. Select **AllMetrics**.
 
-> [!Note]
-> To view a complete list of IoT connector metrics associated with **AllMetrics**, see [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisworkspacesiotconnectors). 
+   > [!Note]
+   > To view a complete list of IoT connector metrics associated with **AllMetrics**, see [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisworkspacesiotconnectors). 
 
 7. Select **Save**.
 
-> [!Note] 
-> It might take up to 15 minutes for the first IoT connector metrics to display in the destination of your choice.  
+   > [!Note] 
+   > It might take up to 15 minutes for the first IoT connector metrics to display in the destination of your choice.  
  
 For more information about how to work with diagnostics logs, see the [Azure Resource Log documentation](../../azure-monitor/essentials/platform-logs-overview.md).
 
