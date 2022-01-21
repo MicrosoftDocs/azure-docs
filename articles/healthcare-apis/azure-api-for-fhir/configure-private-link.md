@@ -68,13 +68,9 @@ After the deployment is complete, you can go back to "Private endpoint connectio
 
 With Private Link configured, you can access the FHIR server in the same VNet or a different VNet that is peered to the VNet for the FHIR server. Follow the steps below to configure VNet peering and Private Link DNS zone configuration.
 
-1. Configure VNet Peering.
+1. Configure VNet Peering. You can configure VNet peering from the portal or using PowerShell, CLI scripts, and Azure Resource Manager (ARM) template. The second VNet can be in the same or different subscriptions, and in the same or different regions. Make sure that you grant the **Network contributor** role. For more information on VNet Peering, see [Create a virtual network peering](../../virtual-network/create-peering-different-subscriptions.md).
 
-You can configure VNet peering from the portal or using PowerShell, CLI scripts, and Azure Resource Manager (ARM) template. The second VNet can be in the same or different subscriptions, and in the same or different regions. Make sure that you grant the **Network contributor** role. For more information on VNet Peering, see [Create a virtual network peering](../../virtual-network/create-peering-different-subscriptions.md).
-
-2. Add VNet link to the private link zone.
-
-In the Azure portal, select the resource group of the FHIR server. Select and open the Private DNS zone, **privatelink.azurehealthcareapis.com**. Select **Virtual network links** under the *settings* section. Click the Add button to add your second VNet to the private DNS zone. Enter the link name of your choice, select the subscription and the VNet you just created. Optionally, you can enter the resource ID for the second VNet. Select **Enable auto registration**, which automatically adds a DNS record for your VM connected to the second VNet. When you delete a VNet link, the DNS record for the VM is also deleted.
+2. Add VNet link to the private link zone. In the Azure portal, select the resource group of the FHIR server. Select and open the Private DNS zone, **privatelink.azurehealthcareapis.com**. Select **Virtual network links** under the *settings* section. Click the Add button to add your second VNet to the private DNS zone. Enter the link name of your choice, select the subscription and the VNet you just created. Optionally, you can enter the resource ID for the second VNet. Select **Enable auto registration**, which automatically adds a DNS record for your VM connected to the second VNet. When you delete a VNet link, the DNS record for the VM is also deleted.
 
 For more information on how private link DNS zone resolves the private endpoint IP address to the fully qualified domain name (FQDN) of the resource such as the FHIR server, see [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md).
 
