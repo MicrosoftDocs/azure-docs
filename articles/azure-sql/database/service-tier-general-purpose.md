@@ -1,5 +1,5 @@
 ---
-title: General purpose service tier
+title: General Purpose service tier
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance 
 description: Learn about the General Purpose service tier for Azure SQL Database and Azure SQL Managed Instance. 
 services: sql-database
@@ -13,7 +13,7 @@ ms.author: danil
 ms.reviewer: kendralittle, mathoma, urmilano
 ms.date: 01/31/2022
 ---
-# General purpose service tier - Azure SQL Database and Azure SQL Managed Instance
+# General Purpose service tier - Azure SQL Database and Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Azure SQL Database and Azure SQL Managed Instance are based on the SQL Server database engine architecture adapted for the cloud environment in order to ensure default availability even in the cases of infrastructure failures. 
@@ -66,6 +66,6 @@ To learn more, review [single database resource limits](resource-limits-vcore-si
 ## Next steps
 
 - Find resource characteristics (number of cores, I/O, memory) of the General Purpose/standard tier in [SQL Managed Instance](../managed-instance/resource-limits.md#service-tier-characteristics), single database in [vCore model](resource-limits-vcore-single-databases.md) or [DTU model](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes), or elastic pool in [vCore model](resource-limits-vcore-elastic-pools.md) and [DTU model](resource-limits-dtu-elastic-pools.md#standard-elastic-pool-limits).
-- Learn about [Business Critical](service-tier-business-critical.md) and [Hyperscale](service-tier-Hyperscale.md) service tiers.
+- Learn about [Business Critical](service-tier-business-critical.md) and [Hyperscale](service-tier-hyperscale.md) service tiers.
 - Learn about [Service Fabric](../../service-fabric/service-fabric-overview.md).
 - For more options for high availability and disaster recovery, see [Business Continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md).

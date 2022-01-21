@@ -38,7 +38,7 @@ Service tier options in the vCore purchasing model include General Purpose and B
 
 For more details, review [resource limits](resource-limits.md). 
 
-|**Category**|**General purpose**|**Business critical**|
+|**Category**|**General Purpose**|**Business Critical**|
 |---|---|---|
 |**Best for**|Most business workloads. Offers budget-oriented, balanced, and scalable compute and storage options. |Offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance.|
 |**Availability**|1 replica, no read-scale replicas|4 replicas total, 1 [read-scale replica](../database/read-scale-out.md),<br/> 2 high availability replicas (HA)|

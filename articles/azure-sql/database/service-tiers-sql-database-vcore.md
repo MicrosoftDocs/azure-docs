@@ -40,7 +40,7 @@ Service tier options in the vCore purchasing model include General Purpose, Busi
 
 For greater details, review resource limits for [logical server](resource-limits-logical-server.md), [single databases](resource-limits-vcore-single-databases.md), and [pooled databases](resource-limits-vcore-elastic-pools.md). 
 
-|**Use case**|**General purpose**|**Business critical**|**Hyperscale**|
+|**Use case**|**General Purpose**|**Business Critical**|**Hyperscale**|
 |---|---|---|---|
 |**Best for**|Most business workloads. Offers budget-oriented, balanced, and scalable compute and storage options. |Offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance per database replica.|Most business workloads with highly scalable storage and read-scale requirements.  Offers higher resilience to failures by allowing configuration of more than one isolated database replica. |
 |**Availability**|1 replica, no read-scale replicas, <br/>zone-redundant high availability (HA) (preview)|3 replicas, 1 [read-scale replica](read-scale-out.md),<br/>zone-redundant high availability (HA)|
@@ -58,7 +58,7 @@ For information on selecting a service tier for your particular workload, see th
 
 - [When to choose the General Purpose service tier](service-tier-general-purpose.md#when-to-choose-this-service-tier)
 - [When to choose the Business Critical service tier](service-tier-business-critical.md#when-to-choose-this-service-tier)
-- [When to choose the Hyperscale service tier](service-tier-Hyperscale.md#who-should-consider-the-Hyperscale-service-tier)
+- [When to choose the Hyperscale service tier](service-tier-hyperscale.md#who-should-consider-the-Hyperscale-service-tier)
 
 ## Resource limits
 

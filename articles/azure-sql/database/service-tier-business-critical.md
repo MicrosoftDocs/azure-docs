@@ -1,5 +1,5 @@
 ---
-title: Business critical service tier
+title: Business Critical service tier
 titleSuffix:  Azure SQL Database & Azure SQL Managed Instance
 description: Learn about the Business Critical service tier for Azure SQL Database and Azure SQL Managed Instance. 
 services: sql-database
@@ -13,7 +13,7 @@ ms.author: danil
 ms.reviewer: kendralittle, mathoma, urmilano
 ms.date: 01/31/2022
 ---
-# Business critical tier - Azure SQL Database and Azure SQL Managed Instance 
+# Business Critical tier - Azure SQL Database and Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Azure SQL Database and Azure SQL Managed Instance are both based on the SQL Server database engine architecture adjusted for the cloud environment in order to ensure default SLA availability even in cases of infrastructure failures. 
@@ -71,6 +71,6 @@ To learn more, review [single database resource limits](resource-limits-vcore-si
 ## Next steps
 
 - Find resource characteristics (number of cores, I/O, memory) of Business Critical tier in [SQL Managed Instance](../managed-instance/resource-limits.md#service-tier-characteristics), Single database in [vCore model](resource-limits-vcore-single-databases.md) or [DTU model](resource-limits-dtu-single-databases.md#premium-service-tier), or Elastic pool in [vCore model](resource-limits-vcore-elastic-pools.md) and [DTU model](resource-limits-dtu-elastic-pools.md#premium-elastic-pool-limits).
-- Learn about [General Purpose](service-tier-general-purpose.md) and [Hyperscale](service-tier-Hyperscale.md) service tiers.
+- Learn about [General Purpose](service-tier-general-purpose.md) and [Hyperscale](service-tier-hyperscale.md) service tiers.
 - Learn about [Service Fabric](../../service-fabric/service-fabric-overview.md).
 - For more options for high availability and disaster recovery, see [Business Continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md).
