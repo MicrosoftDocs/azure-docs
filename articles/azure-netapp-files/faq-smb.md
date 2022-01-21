@@ -40,7 +40,7 @@ Azure NetApp Files supports Windows Server 2008r2SP1-2019 versions of Active Dir
 
 As a best practice, set the maximum tolerance for computer clock synchronization to five minutes. For more information, see [Maximum tolerance for computer clock synchronization](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
 
-## Can I manage `SMB Shares`, `Sessions`, and `Open Files` through Computer Management Console (MMC)?
+## Can I manage `SMB Shares`, `Sessions`, and `Open Files` through Microsoft Management Console (MMC)?
 
 Azure NetApp Files supports modifying `SMB Shares` by using MMC. However, modifying share properties has significant risk. If the users or groups assigned to the share properties are removed from the Active Directory, or if the permissions for the share become unusable, then the entire share will become inaccessible.
 
@@ -57,7 +57,7 @@ To use an Azure NetApp Files SMB share as a DFS-N folder target, provide the Uni
 
 ## Can the SMB share permissions be changed?   
 
-Azure NetApp Files supports modifying `SMB Shares` by using MMC.  However, modifying share properties has significant risk. If the users or groups assigned to the share properties are removed from the Active Directory, or if the permissions for the share become unusable, then the entire share will become inaccessible.
+Azure NetApp Files supports modifying `SMB Shares` by using Microsoft Management Console (MMC). However, modifying share properties has significant risk. If the users or groups assigned to the share properties are removed from the Active Directory, or if the permissions for the share become unusable, then the entire share will become inaccessible.
 
 You can change the NTFS permissions of the root volume by using [NTFS file and folder permissions](azure-netapp-files-create-volumes-smb.md#ntfs-file-and-folder-permissions) procedure.
 
