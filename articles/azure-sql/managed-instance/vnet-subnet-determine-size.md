@@ -72,7 +72,7 @@ An update operation typically requires [resizing the virtual cluster](management
 During a scaling operation, instances temporarily require additional IP capacity that depends on pricing tier:
 
 | **Pricing tier** | **Scenario** | **Additional addresses**  |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | GP | Scaling vCores | 3 |
 | GP | Scaling storage | 0 |
 | GP | Switching to BC | 5 |
