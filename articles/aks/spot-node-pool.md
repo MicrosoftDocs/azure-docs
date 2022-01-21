@@ -78,7 +78,7 @@ az aks nodepool show --resource-group myResourceGroup --cluster-name myAKSCluste
 
 Confirm *scaleSetPriority* is *Spot*.
 
-To schedule a pod to run on a spot node, add a toleration and a node affinity that corresponds to the taint applied to your spot node. The following example shows a portion of a yaml file that defines a toleration and node affinity that corresponds to a *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* taint used in the previous step.
+To schedule a pod to run on a spot node, add a toleration and node affinity that corresponds to the taint applied to your spot node. The following example shows a portion of a yaml file that defines a toleration and node affinity that corresponds to a *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* taint used in the previous step.
 
 ```yaml
 spec:
