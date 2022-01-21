@@ -333,7 +333,7 @@ These steps apply to Linux only.
 
    Either use the default values or specify any value for fields like OS Disk Size, Type, and encryption type.
 
-   ![Screenshot image of the 'Data disks' page in the Create a virtual machine flow.](C:\Users\sharroy\Documents\Github docs\Cert docs\media\2nd.png)
+   ![Screenshot image of the 'Data disks' page in the Create a virtual machine flow.](media/2nd.png)
 
 1. After you create the VM, select **Disks** in the left pane.
 
@@ -343,8 +343,8 @@ These steps apply to Linux only.
 
    1. Select **Attach Existing Disk**.
 
-      ![Screenshot showing how to add a data disk to your VHD.](C:\Users\sharroy\Documents\Github docs\Cert docs\media\Data Disk.PNG)
-      ![Screenshot showing how to select the data disk for your VHD](C:\Users\sharroy\Documents\Github docs\Cert docs\media\Source data disk.PNG)
+      ![Screenshot showing how to add a data disk to your VHD.](media/Data Disk.PNG)
+      ![Screenshot showing how to select the data disk for your VHD](media/Source data disk.PNG)
 
    1. Find your VHD storage account.
    1. Select **Container** and then select your VHD.
