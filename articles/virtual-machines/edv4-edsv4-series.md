@@ -29,7 +29,6 @@ Edv4-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice L
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<sup>1</sup> <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
-[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps<sup>*</sup>  | Max NICs|Max network bandwidth (Mbps) |
@@ -58,7 +57,6 @@ Edsv4-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice 
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
-[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps<sup>*</sup> | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs|Max network bandwidth (Mbps) |
