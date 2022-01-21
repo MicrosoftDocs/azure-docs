@@ -25,5 +25,16 @@
             "redirect_url": "/azure/data-factory/transform-data-using-custom-activity",
             "redirect_document_id": false
         }
+        ,
+        {
+            "source_path_from_root": "/articles/data-factory/blog.md",
+            "redirect_url": "https://techcommunity.microsoft.com/t5/Azure-Data-Factory/bg-p/AzureDataFactoryBlog",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/pricing.md",
+            "redirect_url": "https://azure.microsoft.com/pricing/details/data-factory/",
+            "redirect_document_id": false
+        }
     ]
 }

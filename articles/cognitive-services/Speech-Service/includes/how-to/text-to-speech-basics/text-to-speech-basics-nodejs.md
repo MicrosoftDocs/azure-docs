@@ -119,32 +119,7 @@ function synthesizeSpeech() {
 
 Run the program. A synthesized speech is written to a .wav file in the location that you specified.
 
-## Synthesize to speaker output
-
-You can choose to output the synthesized speech directly to a speaker instead of writing to a file. To synthesize speech from a web browser, instantiate `AudioConfig` by using the `fromDefaultSpeakerOutput()` static function. The audio is sent to the current active output device.
-
-```javascript
-function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
-    const audioConfig = sdk.AudioConfig.fromDefaultSpeakerOutput();
-
-    const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
-    synthesizer.speakTextAsync(
-        "Synthesizing directly to speaker output.",
-        result => {
-            if (result) {
-                synthesizer.close();
-                return result.audioData;
-            }
-        },
-        error => {
-            console.log(error);
-            synthesizer.close();
-        });
-}
-```
-
-## Get a result as an in-memory stream
+## Get result as an in-memory stream
 
 For many scenarios in speech application development, you likely need the resulting audio data as an in-memory stream rather than directly writing to a file. You can build custom behavior, including:
 
@@ -152,12 +127,7 @@ For many scenarios in speech application development, you likely need the result
 * Integrate the result with other APIs or services.
 * Modify the audio data and write custom .wav headers.
 
-It's simple to make this change from the previous example. First, remove the `AudioConfig` block, because you'll manage the output behavior manually from this point onward for increased control. Then pass `undefined` for `AudioConfig` in the `SpeechSynthesizer` constructor.
-
-> [!NOTE]
-> Passing `undefined` for `AudioConfig`, rather than omitting it as you did in the previous speaker output example, will not play the audio by default on the current active output device.
-
-This time, you save the result to a [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult) variable. The `SpeechSynthesisResult.audioData` property returns an `ArrayBuffer` value of the output data, the default browser stream type. For server-side code, convert `ArrayBuffer` to a buffer stream.
+In the following example, you save the result to a [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult) variable. The `SpeechSynthesisResult.audioData` property returns an `ArrayBuffer` of the output data, the default browser stream type. For server-side code, convert `ArrayBuffer` to a buffer stream.
 
 The following code works for the client side:
 
@@ -196,7 +166,6 @@ function synthesizeSpeech() {
             synthesizer.close();
 
             // convert arrayBuffer to stream
-            // return stream
             const bufferStream = new PassThrough();
             bufferStream.end(Buffer.from(audioData));
             return bufferStream;

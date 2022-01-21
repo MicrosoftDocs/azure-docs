@@ -3,7 +3,7 @@ title: Monitoring Azure Event Hubs data reference
 description: Important reference material needed when you monitor Azure Event Hubs. 
 ms.topic: reference
 ms.custom: subject-monitoring
-ms.date: 06/11/2021
+ms.date: 01/20/2022
 ---
 
 
@@ -46,8 +46,8 @@ The following two types of errors are classified as **user errors**:
 | Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
 | ------------------- | ----------------- | --- | --- | --- | --- | 
 | Captured Messages| No | Count| Total | The number of captured messages.  | Entity name |
-| Captured Bytes | No | Bytes | Total | Captured bytes for an event hubs | Entity name | 
-| Capture Backlog | No | Count| Total | Capture backlog for an event hubs | Entity name | 
+| Captured Bytes | No | Bytes | Total | Captured bytes for an event hub | Entity name | 
+| Capture Backlog | No | Count| Total | Capture backlog for an event hub | Entity name | 
 
 
 ### Connection metrics
@@ -78,6 +78,64 @@ Azure Event Hubs supports the following dimensions for metrics in Azure Monitor.
 ## Resource logs
 [!INCLUDE [event-hubs-diagnostic-log-schema](./includes/event-hubs-diagnostic-log-schema.md)]
 
+
+## Runtime audit Logs
+Runtime audit logs capture aggregated diagnostic information for all data plane access operations (such as send or receive events) in the Event Hubs dedicated cluster. 
+
+> [!NOTE] 
+> Runtime audit logs are currently available only in the **dedicated** tier.  
+
+Runtime audit logs include the elements listed in the following table:
+
+Name | Description
+------- | -------
+`ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. 
+`ActivityName` | Runtime operation name.  
+`ResourceId` | Resource associated with the activity. 
+`Timestamp` | Aggregation time.
+`Status` | Status of the activity (success or failure).
+`Protocol` | Type of the protocol associated with the operation.
+`AuthType` | Type of authentication (Azure Active Directory or SAS Policy).
+`AuthKey` | Azure Active Directory application ID or SAS policy name that's used to authenticate to a resource.
+`NetworkType` | Type of the network access: `PublicNetworkAccess`, `PrivateNetworkAccess`.
+`ClientIP` | IP address of the client application.
+`Count` | Total number of operations performed during the aggregated period of 1 minute. 
+`Properties` | Metadata that are specific to the data plane operation. 
+`Category` | Log category
+
+Here's an example of a runtime audit log entry:
+
+```json
+{
+    "ActivityId": "<activity id>",
+    "ActivityName": "ConnectionOpen | Authenticate | SendMessage | ReceiveMessage | GetRuntimeInfo",
+    "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/<Event Hubs namespace>/eventhubs/<event hub name>",
+    "Time": "1/1/2021 8:40:06 PM +00:00",
+    "Status": "Success | Failure",
+    "Protocol": "AMQP | KAFKA | HTTP | Web Sockets", 
+    "AuthType": "SAS | Azure Active Directory", 
+    "AuthId": "<app name | SAS policy name>",
+    "NetworkType": "PublicNetworkAccess | PrivateNetworkAccess", 
+    "ClientIp": "x.x.x.x",
+    "Count": 1,
+    "Properties": {
+        "key1": "value1",
+        "key2": "value2"
+    }, 
+    "Category": "RuntimeAuditLogs"
+ }
+
+```
+
+## Application metrics Logs
+Application metrics logs capture the aggregated information on certain metrics related to data plane operations. The captured information includes the following runtime metrics. 
+
+Name | Description
+------- | -------
+`ConsumerLag` | Indicate the lag between consumers and producers. 
+`NamespaceActiveConnections` | Details of active connections established from a client to the event hub. 
+`GetRuntimeInfo` | Obtain run time information from Event Hubs. 
+`GetPartitionRuntimeInfo` | Obtain the approximate runtime information for a logical partition of an event hub. 
 
 
 ## Azure Monitor Logs tables
