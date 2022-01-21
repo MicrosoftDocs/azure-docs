@@ -50,7 +50,7 @@ az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> --resource-g
 
 If the instance was created successfully, the result in Cloud Shell looks something like this, outputting information about the resource you've created:
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="Screenshot of the Cloud Shell window with successful creation of a resource group and Azure Digital Twins instance in the Azure portal.":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="Screenshot of the Cloud Shell window with successful creation of a resource group and Azure Digital Twins instance in the Azure portal." lightbox="media/how-to-set-up-instance/cloud-shell/create-instance.png":::
 
 Note the Azure Digital Twins instance's **hostName**, **name**, and **resourceGroup** from the output. These values are all important and you may need to use them as you continue working with your Azure Digital Twins instance, to set up authentication and related Azure resources. If other users will be programming against the instance, you should share these values with them.
 

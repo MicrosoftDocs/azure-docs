@@ -2,7 +2,7 @@
 title: Bicep language for deploying Azure resources
 description: Describes the Bicep language for deploying infrastructure to Azure. It provides an improved authoring experience over using JSON to develop templates.
 ms.topic: conceptual
-ms.date: 01/19/2022
+ms.date: 01/20/2022
 ---
 
 # What is Bicep?
@@ -116,42 +116,8 @@ Bicep automatically manages dependencies between resources. You can avoid settin
 
 The structure of the Bicep file is more flexible than the JSON template. You can declare parameters, variables, and outputs anywhere in the file. In JSON, you have to declare all parameters, variables, and outputs within the corresponding sections of the template.
 
-## FAQ
-
-**Why create a new language instead of using an existing one?**
-
-You can think of Bicep as a revision to the existing ARM template language rather than a new language. The syntax has changed, but the core functionality and runtime remain the same.
-
-Before developing Bicep, we considered using an existing programming language. We decided our target audience would find it easier to learn Bicep rather than getting started with another language.
-
-**Why not focus your energy on Terraform or other third-party Infrastructure as Code offerings?**
-
-Different users prefer different configuration languages and tools. We want to make sure all of these tools provide a great experience on Azure. Bicep is part of that effort.
-
-If you're happy using Terraform, there's no reason to switch. Microsoft is committed to making sure Terraform on Azure is the best it can be.
-
-For customers who have selected ARM templates, we believe Bicep improves the authoring experience. Bicep also helps with the transition for customers who haven't adopted infrastructure as code.
-
-**Is this ready for production use?**
-
-Yes. Starting with version 0.3, Bicep is supported by Microsoft support plans. Bicep has parity with what can be accomplished with ARM Templates. There are no breaking changes that are currently planned, but it's possible we'll need to create breaking changes in the future.
-
-**Is Bicep only for Azure?**
-
-Currently, we aren't planning for Bicep to extend beyond Azure. We want to fully support Azure and optimize the deployment experience.
-
-Meeting that goal requires working with some APIs that are outside of Azure. We expect to provide extensibility points for those scenarios.
-
-**What happens to my existing ARM templates?**
-
-They continue to function exactly as they always have. You don't need to make any changes. We'll continue to support the underlying ARM template JSON language. Bicep files compile to JSON, and that JSON is sent to Azure for deployment.
-
-When you're ready, you can [decompile the JSON files to Bicep](./decompile.md).
-
-**Can I use Bicep to deploy to Azure Stack Hub?**
-
-Yes, you can use Bicep for your Azure Stack Hub deployments, but note that Bicep may show types that are not yet available in Azure Stack Hub. You can view a set of examples in the [Azure Stack Hub QuickStart Template GitHub repo](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/Bicep).
-
 ## Next steps
 
 Get started with the [Quickstart](./quickstart-create-bicep-use-visual-studio-code.md).
+
+For answers to common questions, see [Frequently asked questions for Bicep](frequently-asked-questions.yml).
