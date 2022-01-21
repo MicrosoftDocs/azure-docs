@@ -34,46 +34,14 @@ Check the version of the security daemon running on your device by using the com
 
 On Linux x64 devices, use apt-get or your appropriate package manager to update the security daemon to the latest version.
 
-Get the latest repository configuration from Microsoft:
-
-  # [Ubuntu 20.04](#tab/ubuntu2004)
-
-  ```bash
-  curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > ./microsoft-prod.list
-  ```
-
-  # [Ubuntu 18.04](#tab/ubuntu1804)
-
-  ```bash
-  curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
-  ```
-
-  # [Raspberry Pi OS](#tab/rpios)
-
-  ```bash
-  curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
-  ```
-
-  ---
-
-Copy the generated list to the sources.list.d directory.
-
-   ```bash
-   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-   ```
-
-Install the Microsoft GPG public key.
-
-   ```bash
-   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-   ```
-
 Update apt.
 
    ```bash
    sudo apt-get update
    ```
+
+   > [!NOTE]
+   > For instructions to get the latest repository configuration from Microsoft see how to [Access the Microsoft installation packages](how-to-provision-single-device-linux-symmetric#access-the-microsoft-installation-packages).
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
