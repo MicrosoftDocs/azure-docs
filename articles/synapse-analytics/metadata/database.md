@@ -25,7 +25,7 @@ Since the databases are synchronized to serverless SQL pool asynchronously, ther
 
 ## Manage a Spark created database
 
-To manage Spark created databases you need to use Apache Spark pools. For example, create or delete it through a Spark pool job.
+To manage Spark created databases, you need to use Apache Spark pools. For example, create or delete it through a Spark pool job.
 
 Objects in synchronized databases cannot be modified from serverless SQL pool.
 
@@ -46,11 +46,11 @@ If a security principal requires the ability to create objects or drop objects i
 
 ### SQL security model
 
-Synapse workspace provides T-SQL endpoint that enables you to query the shared database using the serverless SQL pool. As a prerequisite, you need to enable a user to access shared databases in serverless SQL pool. There are two wyt to allow a user to access the shared databases:
+Synapse workspace provides T-SQL endpoint that enables you to query the shared database using the serverless SQL pool. As a prerequisite, you need to enable a user to access shared databases in serverless SQL pool. There are two ways to allow a user to access the shared databases:
 - You can assign a `Synapse SQL Administrator` workspace role or `sysadmin` server-level role in the serverless SQL pool. This role has a full control on all databases.
 - You can grant `GRANT CONNECT ANY DATABASE` and `GRANT SELECT ALL USER SECURABLES` server-level permissions on serverless SQL pool to a login that will enable the login to access and read any database. This might be a good choice for assigning reader/non-admin access to a user.
 
-Learn more about setting [access control on shared databases](shared-databases-access-control.md).
+Learn more about setting [access control on shared databases](../sql/shared-databases-access-control.md).
 
 ## Examples
 
