@@ -7,7 +7,7 @@ ms.date: 01/20/2022
 ms.author: cwatson
 ---
 
-# Restore archived logs from search
+# Restore archived logs from search (Preview)
 
 In some cases, you may need to do a full investigation on historical data. Bring historical log data into the current hot cache to run high performing queries and analytics. Specify a target table and a specific time range for the data you want to restore. Within a few minutes, the log data is available within the workspace. Then you can run high-performance queries by using full KQL.
 
