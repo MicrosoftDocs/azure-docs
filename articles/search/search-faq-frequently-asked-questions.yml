@@ -11,7 +11,7 @@ metadata:
   ms.topic: conceptual
   ms.date: 01/20/2022
     
-title: Azure Cognitive Search - frequently asked questions (FAQ)
+title: Frequently asked questions—Azure Cognitive Search 
 summary:  Find answers to commonly asked questions about concepts, code, and scenarios related to Azure Cognitive Search.
 
 
@@ -23,12 +23,18 @@ sections:
         answer: |
           You cannot pause the service. Computing resources are allocated when the service is created. It's not possible to release and reclaim those resources on-demand.
 
+      - question: |
+          Can I upgrade or downgrade in-place, or rename or move my search service to a different region?
+        answer: |
+          No, the service tier, name, and region are fixed for the lifetime of the service.
+
+
   - name: Indexing FAQ
     questions:
       - question: |
           Can I move, backup, and restore indexes or index snapshots?
         answer: |
-          Search indexes are considered downstream data structures, accepting content from other data sources that collect operational data. As such, there is no built-in support for backing up and restoring indexes because the expectation is that you would rebuild it from source data if you deleted it or wanted to move it.
+          There is no native support for index management, and there is no concept of an index snapshot. Search indexes are considered downstream data structures, accepting content from other data sources that collect operational data. As such, there is no built-in support for backing up and restoring indexes because the expectation is that you would rebuild it from source data if you deleted it or wanted to move it.
           
           However, if you want to move an index between search services, you can try the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
                    
@@ -38,7 +44,7 @@ sections:
           No, if you delete an Azure Cognitive Search index or service, it cannot be recovered. When you delete a search service, all indexes in the service are deleted permanently.   
                     
       - question: |
-          Can I index from SQL Database replicas (Applies to Azure SQL Database indexers)
+          Can I index from SQL Database replicas (applies to Azure SQL Database indexers)
         answer: |
           There are no restrictions on the use of primary or secondary replicas as a data source when building an index from scratch. However, refreshing an index with incremental updates (based on changed records) requires the primary replica. This requirement comes from SQL Database, which guarantees change tracking on primary replicas only. If you try using secondary replicas for an index refresh workload, there is no guarantee you get all of the data.
 
@@ -76,19 +82,19 @@ sections:
           Not always. The REST API is always the first to implement features. The client libraries in Azure SDKs will pick up new features over time, but are released on their own schedule.
 
       - question: |
-          How do integrate Azure Cognitive Search into my solution?
+          How do integrate Cognitive Search into my solution?
         answer: |
           Client code should call the client libraries or REST APIs to connect to a search index, formulate queries, and handle responses. You can also write code that builds and refreshes an index, or runs indexers programmatically or by script.
 
   - name: Security FAQ
     questions:
       - question: |
-          Where does Azure Cognitive Search store customer data?
+          Where does Cognitive Search store customer data?
         answer: |
           Cognitive Search doesn't store customer data outside of the region in which the service is deployed.
 
       - question: |
-          Does Azure Cognitive Search send customer data to other services for processing?
+          Does Cognitive Search send customer data to other services for processing?
         answer: |
           Yes, if you use the built-in skills based on Cognitive Services, the indexer sends requests to Cognitive Services over the internal network. If you add a custom skill, the indexer will send content to the URI provided in the custom skill.
 
@@ -98,13 +104,13 @@ sections:
           Typically, users who are authorized to run your application are also authorized to see all search results. Cognitive Search does not have built-in support for row-level or document-level permissions, but you can implement [security filters](./search-security-trimming-for-azure-search.md) as a workaround. 
 
       - question: |
-          Can I control access to search operations based on user identity?
+          Can I control access to operations based on user identity?
         answer: |
           [Role-based authorization](search-security-rbac.md) for data plane operations over content is now in public preview. 
 
 additionalContent: |
 
   ## See also
-     [StackOverflow: Azure Cognitive Search](https://stackoverflow.com/questions/tagged/azure-search)   
+     [Stack Overflow: Azure Cognitive Search](https://stackoverflow.com/questions/tagged/azure-search)   
      [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)  
      [What is Azure Cognitive Search?](search-what-is-azure-search.md)
