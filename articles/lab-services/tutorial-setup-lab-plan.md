@@ -1,12 +1,12 @@
 ---
-title: Set up a lab plan with Azure Lab Services | Microsoft Docs
+title: Create a lab plan with Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab plan with Azure Lab Services, add a lab creator, and specify Marketplace images to be used by labs in the lab plan. 
 ms.topic: tutorial
 ms.date: 01/06/2022
 ms.custom: subject-rbac-steps
 ---
 
-# Tutorial: Set up a lab plan with Azure Lab Services
+# Tutorial: Create a lab plan with Azure Lab Services
 
 In Azure Lab Services, the lab plan serves as a collection of configurations and settings that apply to the labs created from it. In your lab plan, give permission to others to create labs, and set policies that apply to newly created labs. In this tutorial, learn how to create a lab plan.
 

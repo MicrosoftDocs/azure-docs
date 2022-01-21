@@ -43,7 +43,7 @@ For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-s
 
 ## Template machine configuration
 
-The Data Science Virtual Machine for Linux image provides the necessary deep learning frameworks and tools required for this type of class. If you chose **Use a virtual machine image without customization** when creating the lab, the ability to customize the template machine will be disabled.  You can [publish the lab](tutorial-setup-lab.md#publish-the-lab) when ready.
+The Data Science Virtual Machine for Linux image provides the necessary deep learning frameworks and tools required for this type of class. If you chose **Use a virtual machine image without customization** when creating the lab, the ability to customize the template machine will be disabled.  You can [publish the lab](tutorial-setup-lab.md#publish-a-lab) when ready.
 
 ## Cost
 

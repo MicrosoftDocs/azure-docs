@@ -28,14 +28,15 @@ The following steps show how to use the Azure portal to create a lab plan with A
 1. In the Azure portal, select **Create a resource** at the top left of the screen.
 1. Select **All services** in the left menu.  Select **DevOps** from **Categories**.  Then, select **Lab plans (preview)**.
 1. On the **Lab plans** page, click **Create**.
-TODO – screenshot
+:::image type="content" source="./media/quick-create-lab-plan-portal/select-lab-plans-service.png" alt-text="Screenshot that shows the Lab plan resource.":::
+select-lab-plans-service.png
+
 1. On the **Basics** tab of the **Create a lab plan** page:
     1. For the **Subscription**, select the Azure subscription in which you want to create the lab plan.
     1. For **Resource Group**, select **Create New** and enter *myResourceGroup*.
     1. For **Name**, enter a *MyLabPlan*.
     1. For **Region**, select the Azure region you want to create the lab plan.  This is also the default region where your labs will be created.
-    
-TODO - screenshot
+    :::image type="content" source="./media/quick-create-lab-plan-portal/Create-lab-plan-basics-tab.png" alt-text="Screenshot that shows the Basics tab of the Create a new lab plan experience.":::
 1. Select **Review + create**.
 1. Review the summary and select **Create**.
 TODO - screenshot 
