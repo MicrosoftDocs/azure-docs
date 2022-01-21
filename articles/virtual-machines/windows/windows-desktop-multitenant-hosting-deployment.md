@@ -122,8 +122,8 @@ Location                 : westus
 LicenseType              :
 ```
 
-## Additional Information about joining Azure AD
-Azure provisions all Windows VMs with built-in administrator account, which cannot be used to join AAD. For example, *Settings > Account > Access Work or School > +Connect* will not work. You must create and log on as a second administrator account to join Azure AD manually. You can also configure Azure AD using a provisioning package, use the link in the *Next Steps* section to learn more.
+## Additional Information about joining Azure Active Directory
+Azure provisions all Windows VMs with built-in administrator account, which cannot be used to join Azure Active Directory. For example, *Settings > Account > Access Work or School > +Connect* will not work. You must create and log on as a second administrator account to join Azure AD manually. You can also configure Azure AD using a provisioning package, use the link in the *Next Steps* section to learn more.
 
 ## Next Steps
 - Learn more about [Configuring VDA for Windows 10](/windows/deployment/vda-subscription-activation)
