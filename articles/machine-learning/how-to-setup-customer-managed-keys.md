@@ -26,7 +26,7 @@ In this article, you'll learn how to use customer-managed keys with the followin
 > [!TIP]
 > While it may be possible to use the same key for everything, using a different key for each service or instance allows you to rotate or revoke the keys without impacting multiple things.
 
-You'll also learn how to use the the [hbi_workspace flag](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). This flag controls the amount of [data Microsoft collects for diagnostic purposes](#microsoft-collected-data) and enables [additional encryption in Microsoft-managed environments](../security/fundamentals/encryption-atrest.md). In addition, it enables the following behaviors:
+You'll also learn how to use the the [hbi_workspace flag](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). This flag controls the amount of data Microsoft collects for diagnostic purposes and enables [additional encryption in Microsoft-managed environments](../security/fundamentals/encryption-atrest.md). In addition, it enables the following behaviors:
 
 * Starts encrypting the local scratch disk in your Azure Machine Learning compute cluster, provided you have not created any previous clusters in that subscription. Else, you need to raise a support ticket to enable encryption of the scratch disk of your compute clusters.
 * Cleans up your local scratch disk between runs.
@@ -60,14 +60,14 @@ The Azure Key Vault that contains your keys must be in the same Azure region tha
     * Azure Storage Account
     * Azure Search
 
-    Since these services are created in your Azure subscription, it means that you are charged for these service instances. If your subscription does not have enough quota for the Azure Cosmos DB service, a failure will occur. For more information on quotas, see [Azure Cosmos DB service quotas](../articles/cosmos-db/concepts-limits.md)
+    Since these services are created in your Azure subscription, it means that you are charged for these service instances. If your subscription does not have enough quota for the Azure Cosmos DB service, a failure will occur. For more information on quotas, see [Azure Cosmos DB service quotas](/azure/cosmos-db/concepts-limits)
 
     The managed resource group is named in the format `<AML Workspace Resource Group Name><GUID>`. If your Azure Machine Learning workspace uses a private endpoint, a virtual network is also created in this resource group. This VNet is used to secure communication between the services in this resource group and your Azure Machine Learning workspace.
 
     > [!WARNING]
     > __Don't delete the resource group__ that contains this Azure Cosmos DB instance, or any of the resources automatically created in this group. If you need to delete the resource group, Cosmos DB, etc., you must delete the Azure Machine Learning workspace that uses it. The resource group, Cosmos DB instance, and other automatically created resources are deleted when the associated workspace is deleted.
 
-* The  [__Request Units__](../articles/cosmos-db/request-units.md) used by this Cosmos DB account automatically scale as needed. The __minimum__ RU is __1200__. The __maximum__ RU is __12000__.
+* The  [__Request Units__](/azure/cosmos-db/request-units) used by this Cosmos DB account automatically scale as needed. The __minimum__ RU is __1200__. The __maximum__ RU is __12000__.
 
 * You __cannot provide your own VNet for use with the Cosmos DB__ that is created. You also __cannot modify the virtual network__. For example, you cannot change the IP address range that it uses.
 
@@ -86,7 +86,7 @@ To enable the `hbi_workspace` flag when creating an Azure Machine Learning works
 
 1. When creating Azure Key Vault, you must enable __soft delete__ and __purge protection__.
 
-    :::image type="content" source="{source}" alt-text="{alt-text}":::
+    <!-- :::image type="content" source="{source}" alt-text="{alt-text}"::: -->
 
     For the steps to create the key vault, see [Create a key vault](/azure/key-vault/general/quick-create-portal).
 
@@ -113,7 +113,7 @@ Azure Machine Learning stores metadata in an Azure Cosmos DB instance. By defaul
 
 To use your own (customer-managed) keys to encrypt the Azure Cosmos DB instance, use the following steps:
 
-1. Register the __Microsoft.DocumentDB__ resource provider in your subscription, if not done already. For more information, see For information on registering resource providers, see [Resolve errors for resource provider registration](../articles/azure-resource-manager/templates/error-register-resource-provider.md).
+1. Register the __Microsoft.DocumentDB__ resource provider in your subscription, if not done already. For more information, see For information on registering resource providers, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/templates/error-register-resource-provider).
 
 1. To configure the key vault, select it in the [Azure portal](https://portal.azure.com) and then select __Access polices__ from the left menu.
 
@@ -121,6 +121,7 @@ To use your own (customer-managed) keys to encrypt the Azure Cosmos DB instance,
     1. Under __Principal__, search for __Azure Cosmos DB__ and then select it. The principal ID for this entry is different depending on the Azure region you are using:
 
         | Region | Principal ID |
+        | ----- | ----- |
         | Azure public | `a232010e-820c-4083-83bb-3ace5fc29d0b` |
         | Azure Government | `57506a73-e302-42a9-b869-6f12d9ec29e9` |
         | Azure China | ????? |
