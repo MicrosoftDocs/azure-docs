@@ -73,7 +73,7 @@ Having already set up [data collection from your CEF sources](connect-common-eve
 1. You must run the following command on those machines to disable the synchronization of the agent with the Syslog configuration in Microsoft Sentinel. This ensures that the configuration change you made in the previous step does not get overwritten.
 
     ```c
-    sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable
+    sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'
     ```
 
 ## Configure your device's logging settings
