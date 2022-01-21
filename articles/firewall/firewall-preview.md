@@ -15,7 +15,7 @@ The following Azure Firewall preview features are available publicly for you to 
 
 ## Feature flags
 
-As new features are released to preview, some of them will be behind a feature flag. To enable the functionality in your environment, You must enable the feature flag on your subscription. These features are applied at the subscription level for all firewalls (VNet firewalls and SecureHub firewalls).  
+As new features are released to preview, some of them will be behind a feature flag. To enable the functionality in your environment, you must enable the feature flag on your subscription. These features are applied at the subscription level for all firewalls (VNet firewalls and SecureHub firewalls).  
 
 This article will be updated to reflect the features that are currently in preview with instructions to enable them. When the features move to General Availability (GA), they'll be available to all customers without the need to enable a feature flag. 
 
