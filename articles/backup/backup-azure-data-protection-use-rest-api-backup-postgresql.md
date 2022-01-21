@@ -9,7 +9,7 @@ ms.author: v-amallick
 ms.assetid: 55fa0a81-018f-4843-bef8-609a44c97dcd
 ---
 
-# Back up Azure PostgreSQL databases using Azure data protection via REST API
+# Back up Azure PostgreSQL databases using Azure data protection via REST API (preview)
 
 This article describes how to manage backups for Azure PostgreSQL databases via REST API.
 

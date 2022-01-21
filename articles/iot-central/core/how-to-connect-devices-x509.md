@@ -390,9 +390,9 @@ To connect the IoT Edge device to IoT Central using the X.509 device certificate
 
 To learn more, see [Create and provision IoT Edge devices at scale on Linux using X.509 certificates](../../iot-edge/how-to-provision-devices-at-scale-linux-x509.md).
 
-## Connect an IoT Edge leaf device
+## Connect a downstream device to IoT Edge
 
-IoT Edge uses X.509 certificates to secure the connection between leaf devices and an IoT Edge device acting as a gateway. To learn more about configuring this scenario, see [Connect a downstream device to an Azure IoT Edge gateway](../../iot-edge/how-to-connect-downstream-device.md).
+IoT Edge uses X.509 certificates to secure the connection between downstream devices and an IoT Edge device acting as a transparent gateway. To learn more about configuring this scenario, see [Connect a downstream device to an Azure IoT Edge gateway](../../iot-edge/how-to-connect-downstream-device.md).
 
 ## Roll X.509 device certificates
 
