@@ -1,6 +1,6 @@
 ---
-title: Migrate Devices and Groups from Public Preview to Public Preview Refresh| Microsoft Docs
-description: Understand how to migrate devices and groups from Public Preview to PPR
+title: Migrating to the latest Device Update for Azure IoT Hub release | Microsoft Docs
+description: Understand how to migrate to latest Device Update for Azure IoT Hub release
 author: EshaShah
 ms.author: eshashah
 ms.date: 1/14/2022
@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
 
-# Migrate Devices and Groups from Public Preview to Public Preview Refresh
+# Migrate devices and groups from Public Preview to Public Preview Refresh
 
-As the Device Update for IoT Hub service releases new versions, you'll want to update your devices for the latest features and security improvements. This article provides information about how to migrate from the Public Preview release to the current, Public Preview Refresh (PPR) release. This article also explains the group and UX behavior across these releases.
+As the Device Update for IoT Hub service releases new versions, you'll want to update your devices for the latest features and security improvements. This article provides information about how to migrate from the Public Preview release to the current, Public Preview Refresh (PPR) release. This article also explains the group and UX behavior across these releases. If you do not have devices, groups, and deployments that use the Public Preview release, you can ignore this page.
 
 To migrate successfully, you will have to upgrade the DU agent running on your devices. You will also have to create new device groups to deploy and manage updates. Note that as there are major changes with the PPR release, we recommend that you follow the instructions closely to avoid errors.
 
@@ -60,7 +60,7 @@ For the Public Preview Refresh release, the Device Update agent needs to be upda
 > [!NOTE] 
 > Attempting to update the agent through a DU deployment will lead to the device no longer being manageable by Device Update. The device will have to be re-provisioned to be managed from Device Update.
 
-## Migrating Groups to Public Preview Refresh
+## Migrate groups to Public Preview Refresh
 
 1. If your devices are using Device Update agent versions 0.6.0 or 0.7.0, upgrade to the latest agent version 0.8.0 following the steps above. 
  
@@ -74,15 +74,15 @@ For the Public Preview Refresh release, the Device Update agent needs to be upda
 
 ## Group and deployment behavior across releases
 
-1. Groups created in the Public Preview Refresh release portal will only allow addition of devices with the latest Device Update Agent (0.8.0). Devices with older agents (0.7.0/0.6.0) cannot be added to these groups.
+- Groups created in the Public Preview Refresh release portal will only allow addition of devices with the latest Device Update Agent (0.8.0). Devices with older agents (0.7.0/0.6.0) cannot be added to these groups.
  
-2. Any new devices using the latest agent will automatically be added to a Default DeviceClass Group in the ‘Groups and Deployments’ tab. If a group tag is added to the device properties, then the device will be added to that group if a group for that tag exists. 
+- Any new devices using the latest agent will automatically be added to a Default DeviceClass Group in the ‘Groups and Deployments’ tab. If a group tag is added to the device properties, then the device will be added to that group if a group for that tag exists. 
  
-3. For the device using the latest agent, if a group tag is added to the device properties but the corresponding group is not yet created the device will not be visible in the ‘Groups and Deployments’ tab.
+- For the device using the latest agent, if a group tag is added to the device properties but the corresponding group is not yet created the device will not be visible in the ‘Groups and Deployments’ tab.
  
-4. Devices using the older agents will show up as ungrouped in the old portal if the group tag is not added.
+- Devices using the older agents will show up as ungrouped in the old portal if the group tag is not added.
 
-## Next Steps
+## Next steps
 [Understand Device Update agent configuration file](device-update-configuration-file.md)
 
 You can use the following tutorials for a simple demonstration of Device Update for IoT Hub:
