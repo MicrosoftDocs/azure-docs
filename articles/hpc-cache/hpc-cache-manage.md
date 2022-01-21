@@ -1,11 +1,11 @@
 ---
 title: Manage and update Azure HPC Cache
 description: How to manage and update Azure HPC Cache using the Azure portal or Azure CLI
-author: femila
+author: ronhogue
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/08/2021
-ms.author: femila
+ms.date: 01/19/2022
+ms.author: rohogue
 ---
 
 # Manage your cache
@@ -32,9 +32,9 @@ Read more about these options below.
 > [!TIP]
 > You can also manage individual storage targets - read [View and manage storage targets](manage-storage-targets.md) for details.
 
-Click the image below to watch a [video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) that demonstrates cache management tasks.
+<!-- Click the image below to watch a [video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) that demonstrates cache management tasks.
 
-[![video thumbnail: Azure HPC Cache: Manage (click to visit the video page)](media/video-5-manage.png)](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)
+[![video thumbnail: Azure HPC Cache: Manage (click to visit the video page)](media/video-5-manage.png)](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)  -->
 
 ## Stop the cache
 

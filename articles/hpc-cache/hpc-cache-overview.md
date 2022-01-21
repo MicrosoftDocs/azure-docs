@@ -1,11 +1,11 @@
 ---
 title: Azure HPC Cache overview
 description: Describes Azure HPC Cache, a file access accelerator solution for high-performance computing 
-author: femila
+author: ronhogue
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 03/11/2021
-ms.author: femila
+ms.date: 01/19/2022
+ms.author: rohogue
 ---
 
 # What is Azure HPC Cache?
@@ -14,11 +14,11 @@ Azure HPC Cache speeds access to your data for high-performance computing (HPC) 
 
 Azure HPC Cache is easy to launch and monitor from the Azure portal. Existing NFS storage or new Blob containers can become part of its aggregated namespace, which makes client access simple even if you change the back-end storage target.
 
-## Overview video
+<!-- ## Overview video
 
 [![video thumbnail: Azure HPC Cache overview - click to visit video page](media/video-1-overview.png)](https://azure.microsoft.com/resources/videos/hpc-cache-overview/)
 
-Click the image above to watch a [short overview of Azure HPC Cache](https://azure.microsoft.com/resources/videos/hpc-cache-overview/).
+Click the image above to watch a [short overview of Azure HPC Cache](https://azure.microsoft.com/resources/videos/hpc-cache-overview/). -->
 
 ## Use cases
 
