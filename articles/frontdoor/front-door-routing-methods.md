@@ -25,6 +25,9 @@ There are four traffic routing methods available in Front Door:
 
 All Front Door configurations include monitoring of backend health and automated instant global failover. For more information, see [Front Door Backend Monitoring](front-door-health-probes.md). Your Front Door can work based off of a single routing method. But depending on your application needs, you can also combine multiple routing methods to build an optimal routing topology.
 
+> [!NOTE]
+> When you use the [Front Door rules engine](front-door-rules-engine.md), you can configure a rule to [override the backend pool](front-door-rules-engine-actions.md#route-configuration-overrides) for a request. The backend pool set by the rules engine overrides the routing process described in this article.
+
 ## <a name = "latency"></a>Lowest latencies based traffic-routing
 
 Deploying backends in two or more locations across the globe can improve the responsiveness of your applications by routing traffic to the destination that is 'closest' to your end users. The default traffic-routing method for your Front Door configuration forwards requests from your end users to the closest backend of the Front Door environment that received the request. Combined with the Anycast architecture of Azure Front Door, this approach ensures that each of your end users get maximum performance personalized based on their location.

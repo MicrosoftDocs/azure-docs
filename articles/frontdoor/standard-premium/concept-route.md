@@ -24,6 +24,9 @@ A Front Door Standard/Premium routing configuration is composed of two major par
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+> [!NOTE]
+> When you use the [Front Door rules engine](concept-rule-set.md), you can configure a rule to [override the origin group](concept-rule-set-actions.md#OriginGroupOverride) for a request. The origin group set by the rules engine overrides the routing process described in this article.
+
 ### Incoming match (left-hand side)
 
 The following properties determine whether the incoming request matches the routing rule (or left-hand side):
