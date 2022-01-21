@@ -192,15 +192,15 @@ For the next test scenario, configure the authentication policy where the Issuer
 :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/multifactor.png" alt-text="Screenshot of the Authentication policy configuration showing multifactor authentication required." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/multifactor.png":::  
 
 1. Sign in to the Azure portal using CBA. since the policy was set to satisfy multifactor authentication, the user sign-in is successful without a second factor.
-1. Click **Azure Active Directory** > **Sign-in logs**.
+1. Click **Azure Active Directory** > **Sign-in logs**, including and entry with **Interrupted** status.
 
    You will see several entries in the Sign-in logs. 
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/test-mfa.png" alt-text="Screenshot of details in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/test-mfa.png":::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/interrupted-user.png" alt-text="Screenshot of details in the sign-in logs." :::  
 
-   The entry with **Interrupted** status has diagnostic info in the **Additional Details** tab.
+   The entry  has diagnostic info in the **Additional Details** tab.
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/interrupted.png" alt-text="Screenshot of interrupted attempt details in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/interrupted.png":::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/interrupted-user-details.png" alt-text="Screenshot of interrupted attempt details in the sign-in logs." :::  
 
    The following table explains some details.
 
