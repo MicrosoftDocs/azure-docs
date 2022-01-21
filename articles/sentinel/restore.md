@@ -9,11 +9,13 @@ ms.author: cwatson
 
 # Restore archived logs from search (Preview)
 
-In some cases, you may need to do a full investigation on historical data. Bring historical log data into the current hot cache to run high performing queries and analytics. Specify a target table and a specific time range for the data you want to restore. Within a few minutes, the log data is available within the workspace. Then you can run high-performance queries by using full KQL.
+Restore historical logs you've stored in a log data archive to run high performing queries and analytics. After you restore the data in Microsoft Sentinel, it's available within your workspace for eight days.
 
-Log restore is ideally adapted for restoring historical logs stored in log data archive. After you restore the data, it's available within your workspace for eight days.
+Before you restore an archived log, see [Start an investigation by searching large datasets (Preview)](investigate-large-datasets.md) and (billing topic around archive > unarchived).
 
 ## Restore archived log data
+
+To restore an archived log in Microsoft Sentinel, specify a target table and a specific time range for the data you want to restore. Within a few minutes, the log data is available within the workspace. Then you can run high-performance queries by using full KQL.
 
 You can restore archived data directly from the **Search (preview)** page or from a saved search.
 
