@@ -77,7 +77,7 @@ You can create a Backup policy on the go during the configure backup flow. Alter
 
 To prepare the database, follow these steps:
 
-1. [Create secrets in the key vault](backup-azure-database-postgresql.mdcreate-secrets-in-the-key-vault).
+1. [Create secrets in the key vault](backup-azure-database-postgresql.md#create-secrets-in-the-key-vault).
 1. [Grant privileges to database users using PowerShell scripts](backup-azure-database-postgresql.md#run-powershell-script-to-grant-privileges-to-database-users).
 
 
@@ -119,7 +119,7 @@ You can configure backup on multiple databases across multiple Azure PostgreSQL 
 
       However, with this option, Azure Backup gets no visibility about the key vault you’ve referenced. Therefore, access permissions on the key vault can’t be granted inline. The backup admin along with the Postgres and/or key vault admin need to ensure that the backup vault’s [access on the key vault is granted manually](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-key-vault-associated-with-the-postgresql-server) outside the configure backup flow for the backup operation to succeed.
 
-   1. **Select the key vault**: Use this option if you know the key vault and secret name. With this option, you (backup admin with write access on the key vault) can grant the access permissions on the key vault inline. The key vault and the secret could pre-exist or be created on the go. Ensure that the secret is the PG server connection string in ADO.net format updated with the credentials of the database user that has been granted with the ‘backup’ privileges on the server. Learn more about [how to create the [secrets in the key vault](#create-secrets-in-the-key-vault).
+   1. **Select the key vault**: Use this option if you know the key vault and secret name. With this option, you (backup admin with write access on the key vault) can grant the access permissions on the key vault inline. The key vault and the secret could pre-exist or be created on the go. Ensure that the secret is the PG server connection string in ADO.net format updated with the credentials of the database user that has been granted with the _backup_ privileges on the server. Learn more about [how to create the [secrets in the key vault](backup-azure-database-postgresql.md#create-secrets-in-the-key-vault).
 
       :::image type="content" source="./media/backup-azure-database-postgresql/assign-secret-store-inline.png" alt-text="Screenshot showing how to assign secret store." lightbox="./media/backup-azure-database-postgresql/assign-secret-store-expanded.png":::
 
@@ -146,7 +146,7 @@ You can configure backup on multiple databases across multiple Azure PostgreSQL 
    - Backup vault accesses secrets from the key vault and runs a test connection to the database to validate if the credentials have been entered correctly. The privileges of the database user are also checked to see [if the Database user has backup-related permissions on the database](backup-azure-database-postgresql-overview.md#database-users-backup-privileges-on-the-database).
 
    - PostgreSQL admin will have all the backup and restore permissions on the database by default. Therefore,  validations would succeed.
-   - A low-privileged user may not have backup/restore permissions on the database. Therefore, the validations would fail. A PowerShell script is dynamically generated (one per record/selected database). [Run the PowerShell script to grant these privileges to the database user on the database](#create-secrets-in-the-key-vault). Alternatively, you can assign these privileges using PG admin or PSQL tool.
+   - A low-privileged user may not have backup/restore permissions on the database. Therefore, the validations would fail. A PowerShell script is dynamically generated (one per record/selected database). [Run the PowerShell script to grant these privileges to the database user on the database](backup-azure-database-postgresql.md#create-secrets-in-the-key-vault). Alternatively, you can assign these privileges using PG admin or PSQL tool.
 
    :::image type="content" source="./media/backup-azure-database-postgresql/backup-vault-accesses-secrets-inline.png" alt-text="Screenshot showing the backup vault access secrets from the key vault." lightbox="./media/backup-azure-database-postgresql/backup-vault-accesses-secrets-expanded.png":::      
 

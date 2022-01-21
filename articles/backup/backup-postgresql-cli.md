@@ -20,7 +20,7 @@ In this article, you'll learn how to:
 -  Configure a backup of an Azure PostgreSQL database
 -  Run an on-demand backup job
 
-For informgreSQL databases supported scenarios and limitations, see the [support matrix](backup-azure-database-postgresql-overview.md#support-matrix).
+For informgreSQL databases supported scenarios and limitations, see the [support matrix](backup-azure-database-postgresql-support-matrix.md).
 
 ## Create a Backup vault
 
