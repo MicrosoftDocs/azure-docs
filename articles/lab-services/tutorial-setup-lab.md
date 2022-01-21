@@ -2,7 +2,7 @@
 title: Create a lab using Azure Lab Services | Microsoft Docs
 description: In this tutorial, you use Azure Lab Services to set up a lab with virtual machines that are used by students in your class. 
 ms.topic: tutorial
-ms.date: 1/6/2022
+ms.date: 1/21/2022
 ---
 
 # Tutorial: Create and publish a lab
@@ -20,7 +20,8 @@ In this tutorial, you set up a lab with virtual machines that are used by studen
 
 ## Prerequisites
 
-To set up a lab, you must be a member of one of these roles in the lab plan: Owner, Lab Creator, or Contributor. (All these roles have `Microsoft.LabServices/labPlans/CreateLab/action` permission.)  For more information, see [Azure Lab Services built-in roles](administrator-guide.md#rbac-roles). The user account that you used to create a lab plan will already have the required permissions to create a lab.
+- A lab plan.  To create a lab plan, see [Tutorial: Create a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
+- Permission to create a lab.  Uou must be a member of one of these roles in the lab plan: Owner, Lab Creator, or Contributor.  For more information, see [Azure Lab Services built-in roles](administrator-guide.md#rbac-roles). The user account used to create a lab plan will already have the required permissions to create a lab.
 
 Here's the typical workflow when using Azure Lab Services:
 
@@ -37,7 +38,7 @@ In this step, you create a lab for your class in Azure Lab Services portal.
 3. Select **New lab**.  
     <br>:::image type="content" source="./media/tutorial-setup-lab/new-lab-button.png" alt-text="Screenshot of Azure Lab Services portal.  New lab button is highlighted.":::
 4. In the **New Lab** window, do the following actions:
-    1. Specify a **name**, **virtual machine image**, **size**, and **region** for your lab, and select **Next**.  Possibly, you'll need to choose a **lab plan**.  If there's more than one lab plan in the resource group, you'll see a dropdown to choose a lab plan.  If there's only one lab plan in the resource group, this option will be hidden.
+    1. Specify a **name**, **virtual machine image**, **size**, and **region** for your lab, and select **Next**.  Possibly, you'll need to choose a **lab plan**.  If more than one lab plan is in the resource group, you'll see a dropdown to choose a lab plan.  If there's only one lab plan in the resource group, this option will be hidden.
         :::image type="content" source="./media/tutorial-setup-lab/new-lab-window.png" alt-text="Screenshot of the New lab window for Azure Lab Services.":::
     1. On the **Virtual machine credentials** page, specify default administrator credentials for all VMs in the lab. Specify the **name** and the **password** for the administrator.  By default all the student VMs will have the same password as the one specified here.
 
@@ -89,12 +90,12 @@ In this step, you publish the lab. When you publish the template VM, Azure Lab S
 
 3. You see the **status of publishing** the template on page.
 
-    :::image type="content" source="./media/tutorial-setup-lab/publish-template-progress.png" alt-text="Screenshot of Azure Lab Services template page.  The publishing is in progress message is highlighted.":::
+    :::image type="content" source="./media/tutorial-setup-lab/publish-template-progress.png" alt-text="Screenshot of Azure Lab Services template page.  The publishing in progress message is highlighted.":::
 
 4. Wait until the publishing is complete.
-5. Select **Virtual machine pool** on the left menu or select **Virtual machines** tile on the dashboard page to see the list of available machines. Confirm that you see virtual machines that are in **Unassigned** state. These VMs aren't assigned to students yet. They should be in **Stopped** state. For more information about managing the virtual machine pool, see [Managing Virtual Machines](get-started-manage-labs.md#managing-virtual-machines).
+5. Select **Virtual machine pool** on the left menu or select **Virtual machines** tile on the dashboard page to see the list of available machines. Confirm that you see virtual machines that are in **Unassigned** state. These VMs aren't assigned to students yet. They should be in **Stopped** state. For more information about managing the virtual machine pool, see [Manage a VM pool in Lab Services](how-to-manage-vm-pool.md).
 
-    :::image type="content" source="./media/tutorial-setup-lab/virtual-machines-stopped.png" alt-text="Screenshot of virtual machines stopped.  The virtual machine pool menu item is highlighted.":::
+    :::image type="content" source="./media/tutorial-setup-lab/virtual-machines-stopped.png" alt-text="Screenshot of virtual machines stopped.  The virtual machine pool menu is highlighted.":::
 
     > [!NOTE]
     > When an educator turns on a student VM, quota for the student isn't affected. Quota for a user specifies the number of lab hours available to a student outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md?#set-quotas-for-users).
@@ -105,7 +106,7 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
 
 1. Switch to the **Schedules** page, and select **Add scheduled event** on the toolbar.  **Add scheduled event** will be disabled if the lab is actively being published.
 
-    :::image type="content" source="./media/how-to-create-schedules/add-schedule-button.png" alt-text="Screenshot of the Add scheduled event button on the Schedules page. The Schedules menu item and Add scheduled event button are highlighted.":::
+    :::image type="content" source="./media/how-to-create-schedules/add-schedule-button.png" alt-text="Screenshot of the Add scheduled event button on the Schedules page. The Schedules menu and Add scheduled event button are highlighted.":::
 
 1. On the **Add scheduled event** page, do the following steps:
     1. Confirm that **Standard** is selected the **Event type**.  
@@ -129,71 +130,29 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
 
 For more information about creating and managing schedules for a class, see [Create and manage schedule for labs](how-to-create-schedules.md).
 
+
 ## Add users to the lab
+
+In this section, you add students to the lab.  Students can be added to a lab several ways including [manually by entering an email address](how-to-configure-student-usage.md#add-users-by-email-address), [uploading a CSV file with student information](how-to-configure-student-usage.md#add-users-by-uploading-a-csv-file), or [syncing to an Azure AD group](how-to-configure-student-usage.md#sync-users-with-azure-ad-group).
 
 By default, the **Restrict access** option, found on the **Users** page, is turned on for a lab. *Only* listed users can register with the lab by using the registration link you send. You can turn off restricted access, which allows students to register with the lab as long as they have the registration link.
 
-### Add users from an Azure AD group
-
-You can sync a lab user list to an existing Azure Active Directory (Azure AD) group.  Syncing an Azure AD group means that you don't have to manually add or delete users.
-
-An Azure AD group can be created within your organization's Azure Active Directory to manage access to organizational resources and cloud-based apps. To learn more, see [Azure AD groups](../active-directory/fundamentals/active-directory-manage-groups.md). If your organization uses Microsoft Office 365 or Azure services, your organization will already have admins who manage your Azure Active Directory.
-
-> [!IMPORTANT]
-> Make sure the user list is empty. If there are existing users inside a lab that you added manually or through importing a CSV file, the option to sync the lab to an existing group will not appear.
-
-1. In the left pane, select **Users**.
-1. Select **Sync from group**.
-
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-sync-group.png" alt-text="Add users by syncing from an Azure AD group.":::
-
-1. You'll be prompted to pick an existing Azure AD group to sync your lab to.
-
-    If you don't see an Azure AD group in the list, could be because of the following reasons:
-
-    * You're using a guest account for an Azure AD with [restricted access](/azure/active-directory/enterprise-users/users-restrict-guest-permissions). If you aren't able to search for groups inside the Azure AD, you can't add an Azure AD group to the lab.
-    * The Azure AD group you're looking for was created through Teams.  Azure AD groups created through Teams don't show up in this list. To use Azure Lab Services with Teams, see [Azure Lab Services within Microsoft Teams](lab-services-within-teams-overview.md) and [managing a lab’s user list from within Teams](how-to-manage-user-lists-within-teams.md).
-1. Once you picked the Azure AD group to sync your lab to, select **Add**.
-1. Once a lab is synced, it will pull everyone inside the Azure AD group into the lab as users. You'll see the user list updated. Only the people in this Azure AD group will have access to your lab. The user list will refresh every 24 hours to match the latest membership of the Azure AD group. You can also select on the **Sync** button on the **Users** page to manually sync to the latest changes in the Azure AD group.
-1. Invite the users to your lab by clicking on the **Invite All** button, which will send an email to all users with the registration link to the lab.
-
-### Add users manually from email(s) or CSV file
-
-In this section, you add students to the lab.  Students can be added manually by entering an email address or by uploading a CSV file with student information.
-
-#### Add users by email address
-
-1. In the left pane, select **Users**.
+1. Select the **Users** page.
 1. Select **Add users manually**.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-manually.png" alt-text="Add users manually.":::
+    :::image type="content" source="./media/tutorial-setup-lab/add-users-manually.png" alt-text="Add users manually.":::
 1. Select **Add by email address** (default), enter the students' email addresses on separate lines or on a single line separated by semicolons.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/add-users-email-addresses.png" alt-text="Add users' email addresses":::
+    :::image type="content" source="./media/tutorial-setup-lab/add-users-email-addresses.png" alt-text="Add users' email addresses":::
 1. Select **Save**.
 
     The list displays the email addresses and statuses of the current users, whether they're registered with the lab or not.
 
-    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="Users list.":::
+    :::image type="content" source="./media/tutorial-setup-lab/list-of-added-users.png" alt-text="Users list.":::
 
     > [!NOTE]
-    > After the students are registered with the lab, the list displays their names. The name that's shown in the list is constructed by using the first and last names of the students information from Azure Active Directory or their Microsoft Account.  For more information on supported account types, see [Student accounts](how-to-configure-student-usage.md#student-accounts).
+    > After the students are registered with the lab, the list displays their names. The name that's shown in the list is constructed by using the first and last names of the student's information from Azure AD or their Microsoft Account.  For more information on supported account types, see [Student accounts](how-to-configure-student-usage.md#student-accounts).
 
-#### Add users by uploading a CSV file
-
-You can also add users by uploading a CSV file that contains their email addresses.
-
-A CSV text file is used to store comma-separated (CSV) tabular data (numbers and text). Instead of storing information in columns fields (such as in spreadsheets), a CSV file stores information separated by commas. Each line in a CSV file will have the same number of comma-separated "fields." You can use Excel to easily create and edit CSV files.
-
-1. Using Microsoft Excel, create a CSV file that lists students' email addresses in one column.
-
-    :::image type="content" source="./media/how-to-configure-student-usage/csv-file-with-users.png" alt-text="List of users in a CSV file.":::
-1. At the top of the **Users** pane, select **Add users**, and then select **Upload CSV**.
-1. Select the CSV file that contains the students' email addresses, and then select **Open**.  The **Add users** window displays the email address list from the CSV file.
-1. Select **Save**.
-1. In the **Users** pane, view the list of added students.
-
-    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="List of added users in the Users pane.":::
 
 ## Send invitation emails to users
 
@@ -203,7 +162,7 @@ A CSV text file is used to store comma-separated (CSV) tabular data (numbers and
     :::image type="content" source="./media/tutorial-setup-lab/send-email.png" alt-text="Screenshot of Send invitation by email windows for Azure Lab Services.":::
 1. You see the status of **invitation** in the **Users** list. The status should change to **Sending** and then to **Sent on &lt;date&gt;**.
 
-For more information about managing student usage of the lab, see [How to configure student usage](how-to-configure-student-usage.md).
+For more information about managing students in the lab, see [How to configure student usage](how-to-configure-student-usage.md).
 
 ## Next steps
 

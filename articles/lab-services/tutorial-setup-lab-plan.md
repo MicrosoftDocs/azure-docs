@@ -48,25 +48,7 @@ The following steps illustrate how to use the Azure portal to create a lab plan 
     :::image type="content" source="./media/tutorial-setup-lab-plan/lab-plan-page.png" alt-text="Lab plan page":::
 
 ## Add a user to the Lab Creator role
-
-To set up a lab in a lab plan, the user must be a member of the **Lab Creator** role in the lab plan. To provide educators the permission to create labs for their classes, add them to the **Lab Creator** role. For more information about assigning roles, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
-
-> [!NOTE]
-> Lab plan owners don't need to complete this step to create labs.  They skip this step.
-
-1. On the **Lab Plan** page, select **Access control (IAM)**
-
-1. Select **Add** > **Add role assignment (Preview)**.
-
-    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
-
-1. On the **Role** tab, select the **Lab Creator** role.
-
-    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
-
-1. On the **Members** tab, select the user you want to add to the **Lab Creators** role
-
-1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+[!INCLUDE [Add Lab Creator role](./includes/lab-services-add-lab-creator.md)]
 
 ## Next steps
 
