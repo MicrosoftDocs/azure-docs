@@ -68,7 +68,7 @@ When the **Application Insights** feature is enabled, you can:
 
 * In the left navigation pane, select **Logs** to view all applications' logs, or one application's logs when filtering by `cloud_RoleName`.
 
-   :::image type="content" source="media/enterprise/how-to-application-insights/ai-application-logs.png" alt-text="Azure portal screenshot of Application Insights with Logs page showing." lightbox="media/enterprise/how-to-application-insights/ai-application-logs.png":::
+   :::image type="content" source="media/enterprise/how-to-application-insights/aplication-insights-application-logs.png" alt-text="Azure portal screenshot of Application Insights with Logs page showing." lightbox="media/enterprise/how-to-application-insights/application-insights-application-logs.png":::
 
 ## Manage Application Insights using the Azure portal
 
@@ -99,7 +99,7 @@ You can use the Portal to check or update the current settings in Application In
 1. Select **Application Insights**.
 1. Enable Application Insights by selecting **Edit binding**, or the **Unbound** hyperlink.
 
-   :::image type="content" source="media/enterprise/how-to-application-insights/ai-binding-enable.png" alt-text="Azure portal screenshot of Azure Spring Cloud instance with Application Insights page showing and drop-down menu visible with 'Edit binding' option.":::
+   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-binding-enable.png" alt-text="Azure portal screenshot of Azure Spring Cloud instance with Application Insights page showing and drop-down menu visible with 'Edit binding' option.":::
 
 1. Edit **Application Insights** or **Sampling rate**, then select **Save**.
 
@@ -108,13 +108,13 @@ You can use the Portal to check or update the current settings in Application In
 1. Select **Application Insights**.
 1. Select **Unbind binding** to disable Application Insights.
 
-   :::image type="content" source="media/enterprise/how-to-application-insights/ai-unbind-binding.png" alt-text="Azure portal screenshot of Azure Spring Cloud instance with Application Insights page showing and drop-down menu visible with 'Unbind binding' option.":::
+   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-unbind-binding.png" alt-text="Azure portal screenshot of Azure Spring Cloud instance with Application Insights page showing and drop-down menu visible with 'Unbind binding' option.":::
 
 ### Change Application Insights Settings
 
 Select the name under the *Application Insights* column to open the Application Insights section.
 
-:::image type="content" source="media/enterprise/how-to-application-insights/ai-change-settings.png" alt-text="Azure portal screenshot of Azure Spring Cloud instance with Application Insights page showing.":::
+:::image type="content" source="media/enterprise/how-to-application-insights/application-insights-change-settings.png" alt-text="Azure portal screenshot of Azure Spring Cloud instance with Application Insights page showing.":::
 
 ### Edit Application Insights buildpack bindings in Build Service
 
@@ -128,11 +128,11 @@ Application Insights settings are found in the *ApplicationInsights* item listed
 
 1. Select the **Bound** hyperlink, or select **Edit Binding** under the ellipse, to open and edit the Application Insights buildpack bindings.
 
-   :::image type="content" source="media/enterprise/how-to-application-insights/ai-builder-settings.png" alt-text="Azure portal screenshot of 'Edit bindings for default builder' pane.":::
+   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-builder-settings.png" alt-text="Azure portal screenshot of 'Edit bindings for default builder' pane.":::
 
 1. Edit the binding settings, then select **Save**.
 
-   :::image type="content" source="media/enterprise/how-to-application-insights/ai-edit-binding.png" alt-text="Azure portal screenshot of 'Edit binding' pane.":::
+   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-edit-binding.png" alt-text="Azure portal screenshot of 'Edit binding' pane.":::
 
 ::: zone-end
 
