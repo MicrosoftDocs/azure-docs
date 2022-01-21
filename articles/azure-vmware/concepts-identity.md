@@ -55,7 +55,7 @@ The CloudAdmin role in Azure VMware Solution has the following privileges on vCe
 
 Azure VMware Solution supports the use of custom roles with equal or lesser privileges than the CloudAdmin role. 
 
-You'll use the CloudAdmin role to create, modify, or delete custom roles with privileges lesser than or equal to their current role. You can create roles with privileges greater than CloudAdmin, but you can't assign the role to any users or groups or delete the role.
+You'll use the CloudAdmin role to create, modify, or delete custom roles with privileges lesser than or equal to their current role. You can create roles with privileges greater than CloudAdmin. You can't assign the role to any users or groups or delete the role.
 
 To prevent creating roles that can't be assigned or deleted, clone the CloudAdmin role as the basis for creating new custom roles.
 
@@ -90,10 +90,37 @@ To prevent creating roles that can't be assigned or deleted, clone the CloudAdmi
 
 ## NSX-T Manager access and identity
 
->[!NOTE]
->NSX-T [!INCLUDE [nsxt-version](includes/nsxt-version.md)] is currently supported for all new private clouds.
+When a private cloud is provisioned using Azure portal, Software Defined Data Center (SDDC) management components like vCenter, NSX-T Manager, and others are provisioned for customers. 
 
-Use the *admin* account to access NSX-T Manager. It has full privileges and lets you create and manage Tier-1 (T1) gateways, segments (logical switches), and all services. In addition, the privileges give you access to the NSX-T Tier-0 (T0) gateway. A change to the T0 gateway could result in degraded network performance or no private cloud access. Open a support request in the Azure portal to request any changes to your NSX-T T0 gateway.
+Microsoft is responsible for the lifecycle management of NSX-T appliances like, NSX-T Managers and NSX-T Edges. They're responsible for bootstrapping network configuration, like creating the Tier-0 gateway. 
+
+You're responsible for NSX-T SDN configuration, for example:
+
+- Network segments
+- Other Tier-1 gateways
+- Distributed firewall rules
+- Stateful services like gateway firewall 
+- Load balancer on Tier-1 gateways 
+
+Users can access NSX-T Manager using the built-in local user "admin" assigned to **Enterprise admin** role that gives full privileges to a user to manage NSX-T. While Microsoft manages the lifecycle of NSX-T, certain operations aren't allowed by a user. For example, editing the configuration of host and edge transport nodes or start an upgrade. To provide a clear separation of control between the Azure VMware Solution control plane configuration and Azure VMware Solution private cloud user, Azure VMware Solution now deploys a new user with specific set of permissions needed by a user.  
+
+For new private cloud deployments starting **January 2022**, NSX-T access will be provided with a built-in local user **cloudadmin** assigned to **CloudAdmin** role with a specific set of permissions to use NSX-T functionality for workloads. You can add an identity source, like on-premises LDAP server, and assign AD users and groups to the **CloudAdmin** role in NSX-T. 
+
+> [!NOTE]
+> Admin access to NSX-T will not be provided to users for private cloud deployments created after **January 2022**.
+
+The following permissions are assigned to the **cloudadmin** role in Azure VMware Solution NSX-T.
+
+NSX-T Cloud admin Privileges
+
+You can view the permissions granted to the Azure VMware Solution CloudAdmin role on your Azure VMware Solution private cloud NSX-T.
+
+1. Log into the NSX-T Manager and go to **Systems** > **Users and Roles**.
+1. Under **Roles**, select and expand **cloudadmin** role.
+1. Select a category like, Networking, Security, etc. to view the specific permissions.
+
+> [!NOTE]
+> **Private clouds created before January 2022** will switch from **admin** role to **cloudacmin** role. You'll receive a notification through Azure Service Health that includes the timeline of this change so you can change the NSX-T credentials you've used for other integration.
 
  
 ## Next steps
