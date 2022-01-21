@@ -10,9 +10,10 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 10/29/2018
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
+ms.custom: contperf-fy21q3-portal
 
 ms.collection: M365-identity-device-management
 ---
