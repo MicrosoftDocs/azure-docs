@@ -5,16 +5,11 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: overview
-ms.date: 07/19/2021
+ms.date: 01/20/2022
 ms.author: ginle
 ---
 
-# Authentication & Authorization for the Healthcare APIs (preview)
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-This article provides an overview of the authentication and authorization process for accessing the Healthcare APIs services.
+# Authentication & Authorization for the Healthcare APIs 
 
 ## Authentication
 
@@ -121,4 +116,4 @@ When you create a new service of Azure Healthcare APIs, your data is encrypted u
 In this document, you learned the authentication and authorization of the Healthcare APIs. To learn how to deploy an instance of the Healthcare APIs service, see
 
 >[!div class="nextstepaction"]
->[Deploy Healthcare APIs (preview) workspace using Azue portal](healthcare-apis-quickstart.md)
+>[Deploy Healthcare APIs workspace using Azue portal](healthcare-apis-quickstart.md)
