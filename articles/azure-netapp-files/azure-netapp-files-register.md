@@ -29,24 +29,7 @@ To use the Azure NetApp Files service, you need to register the NetApp Resource 
     az account set --subscription <subscriptionId>
     ```
 
-3. In the Azure Cloud Shell console, enter the following command to verify that your subscription has been approved:
-    
-    ```azurecli
-    az feature list | grep NetApp
-    ```
-
-   The command output appears as follows:
-   
-    ```output
-    "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
-    "name": "Microsoft.NetApp/ANFGA" 
-    ```
-       
-   `<SubID>` is your subscription ID.
-
-
-
-4. In the Azure Cloud Shell console, enter the following command to register the Azure Resource Provider: 
+3. In the Azure Cloud Shell console, enter the following command to register the Azure Resource Provider: 
     
     ```azurecli
     az provider register --namespace Microsoft.NetApp --wait
@@ -54,7 +37,7 @@ To use the Azure NetApp Files service, you need to register the NetApp Resource 
 
    The `--wait` parameter instructs the console to wait for the registration to complete. The registration process can take some time to complete.
 
-5. In the Azure Cloud Shell console, enter the following command to verify that the Azure Resource Provider has been registered: 
+4. In the Azure Cloud Shell console, enter the following command to verify that the Azure Resource Provider has been registered: 
     
     ```azurecli
     az provider show --namespace Microsoft.NetApp
@@ -72,9 +55,9 @@ To use the Azure NetApp Files service, you need to register the NetApp Resource 
 
    `<SubID>` is your subscription ID.  The `state` parameter value indicates `Registered`.
 
-6. From the Azure portal, click the **Subscriptions** blade.
-7. In the Subscriptions blade, click your subscription ID. 
-8. In the settings of the subscription, click **Resource providers** to verify that Microsoft.NetApp Provider indicates the Registered status: 
+5. From the Azure portal, click the **Subscriptions** blade.
+6. In the Subscriptions blade, click your subscription ID. 
+7. In the settings of the subscription, click **Resource providers** to verify that Microsoft.NetApp Provider indicates the Registered status: 
 
       ![Registered Microsoft.NetApp](../media/azure-netapp-files/azure-netapp-files-registered-resource-providers.png)
 
