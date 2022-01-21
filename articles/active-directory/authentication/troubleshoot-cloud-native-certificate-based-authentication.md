@@ -33,7 +33,7 @@ If the user is unable to sign in using Certificate-based Authentication, they ma
 
 **ADSTS1001000 - Unable to acquire certificate policy from tenant**
 
-This error occurs when the wrong user's UPN is entered in the sign-in page and client certificate selected are not the same. Make sure the UPN and the certificate are of the same user.
+This is a server-side error that occurs when the server could not fetch an authentication policy for the user using the SAN Principal Name/SAN RFC822Name field of the user certificate. Make sure that the authentication policy rules are correct, a valid certificate is used, and retry. 
 
 **AADSTS1001003 – User sign-in fails with "Unable To Acquire Value Specified In Binding From Certificate"**
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 01/21/2022
 
 ms.author: justinha
 author: justinha
@@ -28,12 +28,10 @@ This topic covers supported and unsupported scenarios for cloud native certifica
 
 The following scenarios are supported:
 
-- User sign-ins to web browser-based applications.
-- User sign-ins to Outlook clients.
-- User sign-ins on mobile native browsers for managed accounts.
-- User sign-ins on Office 365 apps <!---Which ones should we list as Peter tested some and it worked--->
+- User sign-ins to web browser-based applications on all platforms.
+- User sign-ins on mobile Native browsers.
 - Support for strong authentication with multifactor authentication.
-- Certificate to user account binding configurations using the subject field and issuer is supported.
+- Certificate-to-user account binding configurations using the subject field and issuer.
 
 ## Unsupported scenarios
 
