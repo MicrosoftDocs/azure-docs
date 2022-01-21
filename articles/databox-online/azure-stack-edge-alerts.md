@@ -192,7 +192,7 @@ The following alerts indicate an issue with a hardware component, such as physic
 |Alert text |Severity |Description / Recommended action |
 |-----------|---------|---------------------------------|
 |{0} on {1} has failed. |Critical |This is because the power supply is not connected properly or has failed. Take the following steps to resolve this issue:<ol><li>Make sure that the power supply connection is proper.</li><li>[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) to order a replacement power supply unit. |
-|Could not reach {1}. |Critical      |If the controller is turned off, restart the controller.<br>Make sure that the power supply is functional. For information on monitoring the power supply LEDs, go to https://www.microsoft.com/2.<!--Need new link target. This one goes nowhere--><br>If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
+|Could not reach {1}. |Critical      |If the controller is turned off, restart the controller.<br>Make sure that the power supply is functional. For information on monitoring the power supply LEDs, go to https://www.microsoft.com/.<!--Need new link target. This one goes nowhere--><br>If the issue persists, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). |
 |{0} is powered off. |Warning |Connect the Power Supply Unit to a Power Distribution Unit. |
 |One or more device components are not working properly. |Critical |[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for next steps. |
 |Could not replace {0}. |Warning |[Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for next steps. |
