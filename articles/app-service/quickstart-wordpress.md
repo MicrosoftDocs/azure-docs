@@ -10,7 +10,7 @@ ms.custom: mvc
 
 In this quickstart, you'll learn how to create and deploy your first  ([WordPress](https://www.wordpress.org)) site to [Azure App Service](overview.md) using [Azure Portal](https://portal.azure.com). 
 
-This quickstart configures WordPress in App Service on Linux. It uses the **Basic** tier and [**incurs a cost**](https://azure.microsoft.com/en-us/pricing/details/app-service/linux/) for your Azure subscription.
+This quickstart configures WordPress in App Service on Linux. It uses the **Basic** tier and [**incurs a cost**](https://azure.microsoft.com/pricing/details/app-service/linux/) for your Azure subscription.
 
 > [!IMPORTANT]
 > [After November 28, 2022, PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74)
@@ -37,7 +37,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
      :::image type="content" source="./media/quickstart-wordpress/04-wordpress-basics-project-details.png?text=Azure portal WordPress Project Details" alt-text="Screenshot of WordPress project details":::
 
-1. Under **Instance details**, type a globally unique name for your web app and choose **Linux** for **Operating System**. Select **Basic** for **Hosting plan**. See the table below for App and DB SKUs. For pricing, visit [App Service pricing](https://azure.microsoft.com/en-us/pricing/details/app-service/linux/) and [Azure Database for MySQL pricing](https://azure.microsoft.com/en-us/pricing/details/mysql/flexible-server/). 
+1. Under **Instance details**, type a globally unique name for your web app and choose **Linux** for **Operating System**. Select **Basic** for **Hosting plan**. See the table below for App and DB SKUs. For pricing, visit [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) and [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/). 
 
      :::image type="content" source="./media/quickstart-wordpress/05-wordpress-basics-instance-details.png?text=WordPress basics instance details" alt-text="Screenshot of WordPress instance details":::
 
@@ -63,7 +63,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 When no longer needed, you can delete the resource group, App service, and all related resources.
 
-1. From your App Service *overview* page, click the *resource group* you created in the [Create Azure resources](#create-azure-resources) step.
+1. From your App Service *overview* page, click the *resource group* you created in the [Create WordPress site using Azure Portal](#create-wordpress-site-using-azure-portal) step.
 
     :::image type="content" source="./media/quickstart-wordpress/resource-group.png" alt-text="Resource group in App Service overview page":::
 
