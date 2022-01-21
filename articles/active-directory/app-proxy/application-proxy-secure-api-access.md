@@ -105,9 +105,9 @@ To register the AppProxyNativeAppSample native app:
 
    1. Under **Name**, enter *AppProxyNativeAppSample*.
 
-   1. Under **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**.
+   1. Under **Supported account types**, select **Accounts in this organizational directory only (Contoso only - Single tenant)**.
 
-   1. Under **Redirect URL**, drop down and select **Public client/native (mobile & desktop)**, and then enter *https://login.microsoftonline.com/common/oauth2/nativeclient*.
+   1. Under **Redirect URL**, drop down and select **Public client/native (mobile & desktop)**, and then enter *https://login.microsoftonline.com/common/oauth2/nativeclient    *.
 
    1. Select **Register**, and wait for the app to be successfully registered.
 
