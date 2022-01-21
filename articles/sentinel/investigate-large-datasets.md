@@ -37,19 +37,19 @@ Before you start a search job, be aware of the following limitations:
 
 - Optimized to query one table at a time.
 - Uses reduced KQL that supports advanced filtering in a where clause but doesn't support joins, unions, or aggregations.
-- Supports long running searches up to a 24 hour time-out.
+- Supports long running searches up to a 24-hour time-out.
 
 ### Bookmarks supported
 
 Similar to the threat hunting dashboard, you can bookmark rows that contain information you find interesting so you can attach them to an incident or refer to them later. To learn more, see [Create bookmarks](hunting.md#create-bookmarks).
 
-## Restore historical data in archived logs
+## Restore historical data from archived logs
 
-When you need to do a full investigation on archived data, restore a table from search in Microsoft Sentinel. Specify a target table and time range for the data you want to restore. Within a few minutes the log data is available within the workspace. Then you can run high performance queries by using full KQL.
+When you need to do a full investigation on archived data, restore a table from search in Microsoft Sentinel. Specify a target table and time range for the data you want to restore. Within a few minutes, the log data is available within the workspace. Then you can run high-performance queries by using full KQL.
 
 Log restore is ideally suited for restoring historical logs stored in log data archive.
 
-A restored Log table is available in new table with a *_RST suffix and not re-ingested. Restored tables are automatically deleted after eight days. But you can delete restored tables at any time.
+A restored Log table is available in new table with a *_RST suffix and not reingested. Restored tables are automatically deleted after eight days. But you can delete restored tables at any time.
 
 ### Limitations of log restore
 
@@ -57,3 +57,8 @@ Before you start restore an archived log table, be aware of the following limita
 
 - Restored data is available for eight days.
 - Restore one table at a time.
+
+## Next steps
+
+- [Search across long time spans in large datasets (Preview)](search-jobs.md)
+- [Restore archived logs from search (Preview)](restore.md)
