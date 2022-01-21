@@ -1,5 +1,16 @@
-
-
+---
+title: How to use customer-managed keys
+titleSuffix: Azure Machine Learning
+description: 'Learn how to improve data security with Azure Machine Learning by using customer-managed keys.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: enterprise-readiness
+ms.topic: conceptual
+ms.author: jhirono
+author: jhirono
+ms.reviewer: larryfr
+ms.date: 01/21/2022
+---
 # Configure customer-managed keys for Azure Machine Learning
 
 Azure Machine Learning is built on top of multiple Azure services. Several of these services allow you to use a key you provide (customer-managed key) to add an extra layer of encryption. The keys you provide are stored securely using Azure Key Vault.
