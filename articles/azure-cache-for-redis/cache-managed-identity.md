@@ -192,4 +192,4 @@ Set-AzRedisCache -ResourceGroupName \"MyGroup\" -Name \"MyCache\" -IdentityType 
 ## Next steps
 
 - [Learn more](cache-overview.md#service-tiers) about Azure Cache for Redis features
-- [What are managed identies](/azure/active-directory/managed-identities-azure-resources/overview)
+- [What are managed identifies](/azure/active-directory/managed-identities-azure-resources/overview)
