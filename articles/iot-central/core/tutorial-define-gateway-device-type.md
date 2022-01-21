@@ -220,7 +220,7 @@ When you connect a downstream device, you can modify the provisioning payload to
 
 A gateway can register and provision a downstream device, and associate the downstream device with the gateway as follows:
 
-# [Javascript](#tab/javascript)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 var crypto = require('crypto');
