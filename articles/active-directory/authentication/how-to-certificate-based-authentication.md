@@ -257,7 +257,7 @@ To enable the certificate-based authentication and configure username bindings u
 
    ```http
    {
-"@odata.context": https://graph.microsoft-ppe.com/testppebetatestx509certificatestrongauth/$metadata#authenticationMethodConfigurations/$entity,
+   "@odata.context": https://graph.microsoft-ppe.com/testppebetatestx509certificatestrongauth/$metadata#authenticationMethodConfigurations/$entity,
       "@odata.type": "#microsoft.graph.x509CertificateAuthenticationMethodConfiguration",
       "id": "X509Certificate",
       "state": "disabled",
@@ -292,15 +292,12 @@ To enable the certificate-based authentication and configure username bindings u
                   "id": "all_users",
                   "isRegistrationRequired": false
       }]
-}
-
+   }
    ```
 
-   You will get a 204 response and re-run the GET command to make sure the policies are updated correctly.
-
+1. You will get a 204 response and re-run the GET command to make sure the policies are updated correctly.
 1. Test the configuration by signing in with a certificate that satisfies the policy.
  
-
 ## Next steps 
 
 - [Overview of cloud-native certificate-based authentication](concept-cloud-native-certificate-based-authentication.md)
