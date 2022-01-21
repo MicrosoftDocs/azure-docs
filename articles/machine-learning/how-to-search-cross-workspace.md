@@ -41,16 +41,16 @@ Change the scope of applicable subscriptions and workspaces by clicking the 'Cha
 ## Structured search 
 
 Click on any number of filters to create more specific search queries.  The following filters are supported:
-* job: 
-* model:
-* component:
-* tags:
-* submittedBy: 
+* Job: 
+* Model:
+* Component:
+* Tags:
+* SubmittedBy: 
 
-If an asset filter (job, model, component) is present, results will be scoped to those tabs. Other filters will apply to all assets unless an asset filter is also present in the query. Similarly, free text search can be provided alongside filters but will scoped to the tabs designated by asset filters if present. 
+If an asset filter (job, model, component) is present, results will be scoped to those tabs. Other filters will apply to all assets unless an asset filter is also present in the query. Similarly, free text search can be provided alongside filters but will be scoped to the tabs chosen by asset filters if present. 
 
-Please note: 
-* Filters search for exact matches of text. Please use free text queries for 'contains' search.
+Note: 
+* Filters search for exact matches of text. Use free text queries for 'contains' search.
 * Quotations are required around values that include spaces or other special characters.  
 * If duplicate filters are provided, only the first will be recognized in search results. 
 * While filter strings must match the provided options (ex. job:), input text of any language is supported. 
@@ -77,4 +77,4 @@ Customize the display of columns in the search results table. These views can be
 
 ## Known Issues
 
-If you have previously used this feature, a search result error may occur. Please reselect your preferred workspaces in the Directory + Subscription + Workspace tab.
+If you have previously used this feature, a search result error may occur. Reselect your preferred workspaces in the Directory + Subscription + Workspace tab.
