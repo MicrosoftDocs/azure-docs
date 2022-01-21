@@ -35,8 +35,8 @@ A schedule is part of the indexer definition. If the "schedule" property is omit
 
 | Property | Description |
 |----------|-------------|
-| `"interval"` (minutes) | (required) The amount of time between the start of two consecutive indexer executions. The smallest interval allowed is 5 minutes, and the longest is 1440 minutes (24 hours). It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). </br></br>The pattern for this is: `P(nD)(T(nH)(nM))`. </br></br>Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.|
-| `"startTime"` | (optional) Start time is specified in coordinated universal time (UTC). If omitted, the current time is used. This time can be in the past, in which case the first execution is scheduled as if the indexer has been running continuously since the original start time.|
+| "interval" | (required) The amount of time between the start of two consecutive indexer executions. The smallest interval allowed is 5 minutes, and the longest is 1440 minutes (24 hours). It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). </br></br>The pattern for this is: `P(nD)(T(nH)(nM))`. </br></br>Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.|
+| "startTime" | (optional) Start time is specified in coordinated universal time (UTC). If omitted, the current time is used. This time can be in the past, in which case the first execution is scheduled as if the indexer has been running continuously since the original start time.|
 
 The following example is a schedule that starts on January 1 at midnight and runs every 50 minutes.
 
@@ -102,9 +102,9 @@ await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 
 ## Scheduling behavior
 
-For text-based indexing, the scheduler can kick off as many indexer jobs as the search service supports, which is based on the number of search units. For example, if the service has three replicas and four partitions, you should be able to have twelve indexer jobs in active execution, whether initiated on demand or on a schedule.
+For text-based indexing, the scheduler can kick off as many indexer jobs as the search service supports, which is determined by the number of search units. For example, if the service has three replicas and four partitions, you should be able to have twelve indexer jobs in active execution, whether initiated on demand or on a schedule.
 
-Skills-based indexers run in a different [execution environment](search-howto-run-reset-indexers.md#indexer-execution) and independent of the number of service units. In most cases, multiple skills-based indexers will run in parallel, but doing so depends on capacity.
+Skills-based indexers run in a different [execution environment](search-howto-run-reset-indexers.md#indexer-execution) and are independent of the number of service units. Multiple skills-based indexers can run in parallel, but doing so depends on node availability within the cluster.
 
 Although multiple indexers can run simultaneously, a given indexer is single instance. You cannot run two copies of the same indexer concurrently. If an indexer happens to still be running when its next scheduled execution is set to start, the pending execution is postponed until the next scheduled occurrence, allowing the current job to finish.
 
