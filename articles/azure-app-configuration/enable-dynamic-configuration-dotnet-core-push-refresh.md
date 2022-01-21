@@ -226,7 +226,7 @@ A random delay is added before the cached value is marked as dirty to reduce pot
     dotnet run
     ```
 
-        ![Push refresh run before update](./media/dotnet-core-app-pushrefresh-initial.png)
+    ![Push refresh run before update](./media/dotnet-core-app-pushrefresh-initial.png)
 
 4. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
 
