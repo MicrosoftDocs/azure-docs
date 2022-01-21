@@ -168,6 +168,6 @@ To learn about:
 
 ## Social
 
-- [Key Vault blog](/archive/blogs/kv/)
 - [Microsoft Q&A](/answers/products/)
-- [Stack Overflow for Key Vault](https://stackoverflow.com/questions/tagged/azure-keyvault)
+- [Stack Overflow for questions about Key Vault](https://stackoverflow.com/questions/tagged/azure-keyvault)
+- [Azure Feedback for features requests](https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0)

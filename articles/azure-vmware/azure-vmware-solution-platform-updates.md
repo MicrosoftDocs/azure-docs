@@ -2,12 +2,24 @@
 title: Platform updates for Azure VMware Solution
 description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
-ms.date: 11/23/2021
+ms.date: 12/22/2021
 ---
 
 # Platform updates for Azure VMware Solution
 
 Azure VMware Solution will apply important updates starting in March 2021. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
+
+## December 22, 2021
+
+Azure VMware Solution (AVS) has completed maintenance activities to address critical vulnerabilities in Apache Log4j. 
+The fixes documented in the VMware security advisory [VMSA-2021-0028.6](https://www.vmware.com/security/advisories/VMSA-2021-0028.html) to address CVE-2021-44228 and CVE-2021-45046 have been applied to these AVS managed VMware products: vCenter, NSX-T, SRM and HCX. 
+We strongly encourage customers to apply the fixes to on-premises HCX connector appliances.
+ 
+We also recommend customers to review the security advisory and apply the fixes for other affected VMware products or workloads.
+ 
+If you need any assistance or have questions, please [contact us](https://ms.portal.azure.com/#home).
+
+
 
 ## December 12, 2021
 

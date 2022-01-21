@@ -10,6 +10,7 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
+ms.devlang: python
 ms.custom: devx-track-python, mode-api
 ---
 

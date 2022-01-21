@@ -22,7 +22,7 @@ The following example shows the rules that are available for configuration.
   "analyzers": {
     "core": {
       "enabled": true,
-      "verbose": true,
+      "verbose": false,
       "rules": {
         "adminusername-should-not-be-literal": {
           "level": "warning"
@@ -39,6 +39,9 @@ The following example shows the rules that are available for configuration.
         "no-unused-vars": {
           "level": "warning"
         },
+        "outputs-should-not-contain-secrets": {
+          "level": "warning"
+        },
         "prefer-interpolation": {
           "level": "warning"
         },
@@ -46,6 +49,12 @@ The following example shows the rules that are available for configuration.
           "level": "warning"
         },
         "simplify-interpolation": {
+          "level": "warning"
+        },
+        "use-protectedsettings-for-commandtoexecute-secrets": {
+          "level": "warning"
+        },
+        "use-stable-vm-image": {
           "level": "warning"
         }
       }
@@ -119,6 +128,6 @@ For the rule about hardcoded environment URLs, you can customize which URLs are 
 
 ## Next steps
 
-* [Configure your Bicep environment](bicep-config.md)
-* [Add module settings in Bicep config](bicep-config-modules.md)
-* Learn about the [Bicep linter](linter.md)
+- [Configure your Bicep environment](bicep-config.md)
+- [Add module settings in Bicep config](bicep-config-modules.md)
+- Learn about the [Bicep linter](linter.md)

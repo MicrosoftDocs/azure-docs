@@ -8,6 +8,7 @@ ms.date: 01/11/2018
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
+ms.devlang: php
 ---
 
 # How to use Queue Storage from PHP
