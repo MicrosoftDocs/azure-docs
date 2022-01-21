@@ -16,7 +16,7 @@ An IoT Edge device can act as a gateway that provides a connection between other
 
 IoT Edge supports the [*transparent* and *translation* gateway patterns](../../iot-edge/iot-edge-as-gateway.md). This article summarizes how to implement the transparent gateway pattern. In this pattern, the gateway passes messages from the downstream device through to the IoT Hub endpoint in your IoT Central application. The gateway does not manipulate the messages as they pass through. In IoT Central, each downstream device appears as child to the gateway device:
 
-:::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/edgewithdownstreamdeviceidentity.png" alt-text="IoT Edge as a transparent gateway." border="false":::
+:::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/edge-transparent-gateway.png" alt-text="IoT Edge as a transparent gateway." border="false":::
 
 For simplicity, this article uses virtual machines to host the downstream and gateway devices. In a real scenario, the downstream device and gateway would run on physical devices on your local network.
 
