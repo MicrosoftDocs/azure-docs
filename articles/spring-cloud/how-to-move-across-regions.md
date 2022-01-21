@@ -138,7 +138,7 @@ In the example below, the new service name for Azure Spring Cloud is *new-servic
     }
     ```
 
-    After the app is created, it uses a default banner application. You need to deploy the jar files again using the CLI. For more information, see [Configure the new Azure Spring Cloud](#configure-the-new-azure-spring-cloud).
+    After the app is created, it uses a default banner application. You need to deploy the jar files again using the CLI. For more information, see [Configure the new Azure Spring Cloud](#configure-the-new-azure-spring-cloud-service-instance).
 
 1. If service binding was used and you want to import it to a new service, add the `key` property for the target bound resource. For example, a bound mysql database would be included in the template using the following example:
 
@@ -168,7 +168,7 @@ After modifying the template, the new resource can be created using **Deploy a c
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the top search box, search for *Deploy a custom template*.
 
-    :::image type="content" source="media/move-across-regions/search-deploy-template.png" alt-text="Azure portal screenshot showing how to search for deploy a custom template service.":::
+    :::image type="content" source="media/move-across-regions/search-deploy-template.png" alt-text="Azure portal screenshot showing how to search for deploy a custom template service." lightbox="media/move-across-regions/search-deploy-template.png" border="true":::
 
 1. Under **Services**, select **Deploy a custom template**.
 1. Go to the **Select a template** tab, then select **Build your own template in the editor**.
