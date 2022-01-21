@@ -102,7 +102,7 @@ To enable the certificate-based authentication and configure user bindings in th
 
       :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/multifactor-policy-oid.png" alt-text="Screenshot of mapping to Policy OID.":::
 
-   Click **Ok** to save any custom rule.
+1. Click **Ok** to save any custom rule.
 
 ## Step 3: Configure username binding policy
 
