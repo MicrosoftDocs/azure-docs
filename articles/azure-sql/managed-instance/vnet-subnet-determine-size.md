@@ -24,10 +24,10 @@ By design, a managed instance needs a minimum of 32 IP addresses in a subnet. As
 
 - Number of managed instances, including the following instance parameters:
   - Service tier
-  - Hardware generation
   - Number of vCores
+  - [Hardware generation](resource-limits.md#hardware-generation-characteristics)
   - [Maintenance window](../database/maintenance-window.md)
-- Plans to scale up/down or change the service tier
+- Plans to scale up/down or change the service tier, hardware generation, or maintenance window
 
 > [!IMPORTANT]
 > A subnet size of 16 IP addresses (subnet mask /28) allows the deployment of a single managed instance inside it. It should be used only for evaluation or for dev/test scenarios where scaling operations won't be performed. 
