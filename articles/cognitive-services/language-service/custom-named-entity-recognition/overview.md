@@ -64,7 +64,7 @@ Using Custom NER typically involves several different steps.
 
 ## Next steps
 
-* Use the [quickstart article](quickstart.md) to start using custom text classification.  
+* Use the [quickstart article](quickstart.md) to start using custom named entity recognition.  
 
 * As you go through the application development lifecycle, review the [glossary](glossary.md) to learn more about the terms used throughout the documentation for this feature. 
 

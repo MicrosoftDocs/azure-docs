@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Create an app registration (CLI)
 titleSuffix: Azure Digital Twins
-description: See how to create an Azure AD app registration, as an authentication option for client apps, using the CLI.
+description: Learn how to create an Azure AD app registration, as an authentication option for client apps, using the CLI.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/8/2021
+ms.date: 1/5/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -18,6 +18,8 @@ ms.service: digital-twins
 # Create an app registration to use with Azure Digital Twins (CLI)
 
 [!INCLUDE [digital-twins-create-app-registration-selector.md](../../includes/digital-twins-create-app-registration-selector.md)]
+
+This article describes how to create an app registration to use with Azure Digital Twins using the CLI. It includes instructions for creating a manifest file containing service information, creating the app registration, verifying success, collecting important values, and other possible steps that your organization may require.
 
 When working with an Azure Digital Twins instance, it's common to interact with that instance through client applications, such as a custom client app or a sample like [Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md). Those applications need to authenticate with Azure Digital Twins to interact with it, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration**.
 
@@ -151,5 +153,5 @@ For more information about app registration and its different setup options, see
 
 In this article, you set up an Azure AD app registration that can be used to authenticate client applications with the Azure Digital Twins APIs.
 
-Next, read about authentication mechanisms, including one that uses app registrations and others that do not:
+Next, read about authentication mechanisms, including one that uses app registrations and others that don't:
 * [Write app authentication code](how-to-authenticate-client.md)

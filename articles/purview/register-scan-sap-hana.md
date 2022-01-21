@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 12/28/2021
+ms.date: 01/11/2022
 ms.custom: template-how-to
 ---
 
@@ -21,9 +21,9 @@ This article outlines how to register SAP HANA, and how to authenticate and inte
 
 |**Metadata extraction**|  **Full scan**  |**Incremental scan**|**Scoped scan**|**Classification**|**Access policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| No |
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| No |
 
-When scanning SAP HANA source, Purview supports extracting technical metadata including:
+When scanning SAP HANA source, Azure Purview supports extracting technical metadata including:
 
 - Server
 - Databases
@@ -34,6 +34,8 @@ When scanning SAP HANA source, Purview supports extracting technical metadata in
 - Functions including the parameter dataset
 - Sequences
 - Synonyms
+
+When setting up scan, you can choose to scan an entire SAP HANA database, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
 
 ## Prerequisites
 
@@ -134,7 +136,7 @@ The supported authentication type for a SAP HANA source is **Basic authenticatio
 
     1. **Database**: Specify the name of the database instance to import.
 
-    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas and objects are ignored by default. When the list is empty, all available schemas are imported.
+    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas and objects are ignored by default.
        
         Acceptable schema name patterns that use SQL `LIKE` expression syntax include the percent sign (%). For example, `A%; %B; %C%; D` means:
         * Start with A or
