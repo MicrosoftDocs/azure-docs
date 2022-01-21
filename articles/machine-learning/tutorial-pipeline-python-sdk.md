@@ -39,21 +39,21 @@ If you don't have an Azure subscription, create a free account before you begin.
 ## Prerequisites
 
 * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace.
-* A Python environment in which you have installed both the `azureml-core` and `azureml-pipelines` packages. This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at runtime for training.
+* A Python environment in which you've installed both the `azureml-core` and `azureml-pipelines` packages. This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at runtime for training.
 
 > [!Important]
-> Currently, the most recent Python release compatible with `azureml-pipelines` is Python 3.8. If you have difficulty installing the `azureml-pipelines` package, ensure that `python --version` is a compatible release. Consult the documentation of your Python virtual environment manager (`venv`, `conda`, etc.) for instructions.
+> Currently, the most recent Python release compatible with `azureml-pipelines` is Python 3.8. If you've difficulty installing the `azureml-pipelines` package, ensure that `python --version` is a compatible release. Consult the documentation of your Python virtual environment manager (`venv`, `conda`, and so on) for instructions.
 
 ## Start an interactive Python session
 
-This tutorial uses the Python SDK for Azure ML to create and control an Azure Machine Learning pipeline. The tutorial assumes that you will be running the code snippets interactively in either a Python REPL environment or a Jupyter notebook. 
+This tutorial uses the Python SDK for Azure ML to create and control an Azure Machine Learning pipeline. The tutorial assumes that you'll be running the code snippets interactively in either a Python REPL environment or a Jupyter notebook. 
 
 * This tutorial is based on the `image-classification.ipynb` notebook found in the `python-sdk/tutorial/using-pipelines` directory of the [AzureML Examples](https://github.com/azure/azureml-examples) repository. The source code for the steps themselves is in the `keras-mnist-fashion` subdirectory.
 
 
 ## Import types
 
-Import all the Azure Machine Learning types that you will need for this tutorial:
+Import all the Azure Machine Learning types that you'll need for this tutorial:
 
 ```python
 import os
@@ -77,7 +77,7 @@ from azureml.pipeline.core import Pipeline
 print("Azure ML SDK Version: ", azureml.core.VERSION)
 ```
 
-The Azure ML SDK version should be 1.37 or greater. If it is not, upgrade with `pip install --upgrade azureml-core`.
+The Azure ML SDK version should be 1.37 or greater. If it isn't, upgrade with `pip install --upgrade azureml-core`.
 
 ## Configure workspace
 
@@ -137,7 +137,7 @@ if not found:
 
 ### Create a dataset for the Azure-stored data
 
-Fashion-MNIST] is a dataset of fashion images divided into 10 classes. Each image is a 28x28 grayscale image and there are 60,000 training and 10,000 test images. As an image classification problem, Fashion-MNIST is harder than the classic MNIST handwritten digit database. It's distributed in the same compressed binary formaas the original [handwritten digit database](http://yann.lecun.com/exdb/mnist/) .
+Fashion-MNIST] is a dataset of fashion images divided into 10 classes. Each image is a 28x28 grayscale image and there are 60,000 training and 10,000 test images. As an image classification problem, Fashion-MNIST is harder than the classic MNIST handwritten digit database. It's distributed in the same compressed binary form as the original [handwritten digit database](http://yann.lecun.com/exdb/mnist/) .
 
 To create a `Dataset` that references the Web-based data, run:
 
@@ -153,7 +153,7 @@ This code completes quickly. The underlying data remains in the Azure storage re
 
 ## Create the data-preparation pipeline step
 
-The first step in this pipeline will convert the compressed data files of `fashion_ds` into a dataset in your own workspace consisting of CSV files ready for use in training. Once registered with the workspace, your collaborators can access this data for their own analysis, training, etc. 
+The first step in this pipeline will convert the compressed data files of `fashion_ds` into a dataset in your own workspace consisting of CSV files ready for use in training. Once registered with the workspace, your collaborators can access this data for their own analysis, training, and so on 
 
 ```python
 datastore = workspace.get_default_datastore()
@@ -168,9 +168,9 @@ The above code specifies a dataset that is based on the output of a pipeline ste
 
 The code that you've executed so far has create and controlled Azure resources. Now it is time to write code that does the first step in the domain. 
 
-If you are following along with the example in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/using-pipelines), the source file is already available as `keras-mnist-fashion/prepare.py`. 
+If you're following along with the example in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/using-pipelines), the source file is already available as `keras-mnist-fashion/prepare.py`. 
 
-If you are working from scratch, create a subdirectory called `kera-mnist-fashion/`. Create a new file, add the following code to it, and name the file `prepare.py`. 
+If you're working from scratch, create a subdirectory called `kera-mnist-fashion/`. Create a new file, add the following code to it, and name the file `prepare.py`. 
 
 ```python
 # prepare.py
@@ -225,7 +225,7 @@ convert(
 )
 ```
 
-The code in `prepare.py` takes two command-line arguments: the first is assigned to `mounted_input_path` and the second to `mounted_output_path`. If that subdirectory does not exist, the call to `os.makedirs` creates it. Then, the program converts the training and testing data and outputs the comma-separated files to the `mounted_output_path`.
+The code in `prepare.py` takes two command-line arguments: the first is assigned to `mounted_input_path` and the second to `mounted_output_path`. If that subdirectory doesn't exist, the call to `os.makedirs` creates it. Then, the program converts the training and testing data and outputs the comma-separated files to the `mounted_output_path`.
 
 ### Specify the pipeline step
 
@@ -252,10 +252,10 @@ The call to `PythonScriptStep` specifies that, when the pipeline step is run:
 * The `fashion_ds` and `prepared_fashion_ds` datasets will be mounted on the `compute_target` and appear as directories
 * The path to the `fashion_ds` files will be the first argument to `prepare.py`. In `prepare.py`, this argument is assigned to `mounted_input_path`
 * The path to the `prepared_fashion_ds` will be the second argument to `prepare.py`. In `prepare.py`, this argument is assigned to `mounted_output_path`
-* Because `allow_reuse` is `True`, it will not be rerun until its source files or inputs change
+* Because `allow_reuse` is `True`, it won't be rerun until its source files or inputs change
 * This `PythonScriptStep` will be named `prepare step`
 
-Modularity and reuse are key benefits of pipelines. Azure Machine Learning can automatically determine source code or Dataset changes. The output of a step that is not affected will be reused without rerunning the steps again if `allow_reuse` is `True`. If a step relies on a data source external to Azure Machine Learning that may change (for instance, a URL that contains sales data), set `allow_reuse` to `False` and the pipeline step will run every time the pipeline is run. 
+Modularity and reuse are key benefits of pipelines. Azure Machine Learning can automatically determine source code or Dataset changes. The output of a step that isn't affected will be reused without rerunning the steps again if `allow_reuse` is `True`. If a step relies on a data source external to Azure Machine Learning that may change (for instance, a URL that contains sales data), set `allow_reuse` to `False` and the pipeline step will run every time the pipeline is run. 
 
 ## Create the training step
 
@@ -263,7 +263,7 @@ Once the data has been converted from the compressed format to CSV files, it can
 
 ### Create the training step's source
 
-With larger pipelines, it's a good practice to put each step's source code in a separate directory (`src/prepare/`, `src/train/`, etc.) but for this tutorial, just use or create the file `train.py` in the same `keras-mnist-fashion/` source directory.
+With larger pipelines, it's a good practice to put each step's source code in a separate directory (`src/prepare/`, `src/train/`, and so on) but for this tutorial, just use or create the file `train.py` in the same `keras-mnist-fashion/` source directory.
 
 :::code language="python" source="~/azureml-examples-main/python-sdk/tutorial/using-pipelines/keras-mnist-fashion/train.py" highlight="20-23":::
 
@@ -315,7 +315,7 @@ train_cfg = ScriptRunConfig(
 )
 ```
 
-Creating the training step itself uses code similar to that used to create the preparation step:
+Creating the training step itself uses code similar to the code used to create the preparation step:
 
 ```python
 train_step = PythonScriptStep(
@@ -341,7 +341,7 @@ run = exp.submit(pipeline)
 The `Pipeline` object you create runs in your `workspace` and is composed of the preparation and training steps you've specified. 
 
 > [!Note]
-> This pipeline has a simple dependency graph: the training step relies on the preparation step and the preparation step relies on the `fashion_ds` dataset. Production pipelines will often have much more complex dependencies. Steps may rely on multiple upstream steps, a source code change in an early step may have far-reaching consequences, etc.. Azure Machine Learning tracks these concerns for you. You need only pass in the array of `steps` and Azure Machine Learning takes care of calculating the execution graph.
+> This pipeline has a simple dependency graph: the training step relies on the preparation step and the preparation step relies on the `fashion_ds` dataset. Production pipelines will often have much more complex dependencies. Steps may rely on multiple upstream steps, a source code change in an early step may have far-reaching consequences, and so on. Azure Machine Learning tracks these concerns for you. You need only pass in the array of `steps` and Azure Machine Learning takes care of calculating the execution graph.
 
 The call to `submit` the `Experiment` completes quickly, and produces output similar to:
 
@@ -365,7 +365,7 @@ Once the pipeline completes, you can retrieve the metrics you logged in the trai
 run.find_step_run("train step")[0].get_metrics()
 ```
 
-If you are satisfied with the metrics, you can register the model in your workspace:
+If you're satisfied with the metrics, you can register the model in your workspace:
 
 ```python
 run.find_step_run("train step")[0].register_model(
@@ -406,7 +406,7 @@ In this tutorial, you used the following types:
     * The `Pipeline` that composes the `PythonScriptStep` steps into a whole
     * The `Model` that you registered after being satisfied with the training process
     
-The `Workspace` object contains references to other resources (notebooks, endpoints, etc.) that were not used in this tutorial. For more, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
+The `Workspace` object contains references to other resources (notebooks, endpoints, and so on) that were not used in this tutorial. For more, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
 
 The `OutputFileDatasetConfig` promotes the output of a run to a file-based dataset. For more information on datasets and working with data, see [How to access data](./how-to-access-data.md).
 
