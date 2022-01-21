@@ -92,7 +92,7 @@ To assign a role to a user-assigned managed identity, your account needs the [Us
    - **Assign access to**: The resource to assign the user-assigned managed identity.
    - **Select**: The member to assign access.
    
-  ![Screenshot that shows the user-assigned managed identity IAM.]("/media/how-manage-user-assigned-managed-identities/assign-role-screenshot2.png")
+  ![Screenshot that shows the user-assigned managed identity IAM.](media/how-manage-user-assigned-managed-identities/assign-role-screenshot2.png)
 
 
 ::: zone-end
