@@ -13,7 +13,7 @@ metadata:
 
 title: "FAQ: Billing for Azure Stack Edge Pro GPU"
 summary:
-  The billing model for an Azure Stack Edge Pro with GPU device is based on a monthly charge to the Azure subscription with onetime charges for shipping and other onetime charges to replace a lost or damaged device or provide extra security. There is no traditional licensing fee. This FAQ answers questions you may have about the billing for your Azure Stack Edge device.
+  The billing model for an Azure Stack Edge Pro with GPU device is based on a monthly charge to the Azure subscription with a onetime charge for shipping and other charges to replace a lost or damaged device or provide extra security. There is no traditional licensing fee. This FAQ answers questions you may have about the billing for your Azure Stack Edge device.
 
 sections:
   - name: ignored
