@@ -46,7 +46,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Log in to Evercate as an administrator and click on **Settings** in the top menu.
 1. Under Settings, navigate to **Advanced -> Connect Azure AD**.
 1. Click the button "**I understand, connect Azure AD**" to start the process.
-	[![connect Azure AD](media/evercate-provisioning-tutorial/connect-azure-ad.png)](media/evercate-provisioning-tutorial/connect-azure-ad.png#lightbox)
+	[![connect Azure AD](media/evercate-provisioning-tutorial/connect-azure-ad-page.png)](media/evercate-provisioning-tutorial/connect-azure-ad-page.png#lightbox)
 1. Now you are taken to Microsoft’s Sign in page where you need to sign in as an administrator for your AD.
 
       The Microsoft user you sign in with must:
@@ -54,10 +54,10 @@ The scenario outlined in this tutorial assumes that you already have the followi
       * Be an administrator with permissions to “Enterprise Applications”.
       * Be an AD user and not a personal account.
 
-	[![Sign in](media/evercate-provisioning-tutorial/sign-in-1.png)](media/evercate-provisioning-tutorial/sign-in-1.png#lightbox)
+	[![Sign in](media/evercate-provisioning-tutorial/sign-in-page.png)](media/evercate-provisioning-tutorial/sign-in-page.png#lightbox)
 
 1. Tick the "**Consent on behalf of your organization**" before clicking accept.
-	[![Provide consent](media/evercate-provisioning-tutorial/consent.png)](media/evercate-provisioning-tutorial/consent.png#lightbox)
+	[![Provide consent](media/evercate-provisioning-tutorial/consent-page.png)](media/evercate-provisioning-tutorial/consent-page.png#lightbox)
       > [!NOTE]
       > If you missed ticking the consent checkbox, every user will get a similar dialog upon their first sign in. See below under the section “Configuring the application in Azure” on how to give consent for your organization after the connection is made.
 
