@@ -114,7 +114,7 @@ There are some risks associated with parallel indexing. First, recall that index
 
 The number of indexing jobs that can run simultaneously varies for text-based and skills-based indexing. For more information, see [Indexer execution](search-howto-run-reset-indexers.md#indexer-execution).
 
-1. In the [Azure portal](https://portal.azure.com), check the number of search units used by your search service. Select **Settings** > **Scale** to view the number at the top of the page. The number of indexers that will run in parallel is approximately equal to the number of search units. 
+1. For text-based indexing, [sign in to Azure portal](https://portal.azure.com) and check the number of search units used by your search service. Select **Settings** > **Scale** to view the number at the top of the page. The number of indexers that will run in parallel is approximately equal to the number of search units. 
 
 1. Partition source data among multiple containers or multiple virtual folders inside the same container.
 
@@ -122,7 +122,7 @@ The number of indexing jobs that can run simultaneously varies for text-based an
 
 1. Specify the same target search index in each indexer.
 
-1. Schedule the indexers.
+1. Schedule the indexers. Review indexer status and execution history for confirmation.
 
 Although multiple indexer-data-source sets can target the same index, be careful of indexer runs that can overwrite existing values in the index. If a second indexer-data-source targets the same documents and fields, any values from the first run will be overwritten. Field values are replaced in full; an indexer cannot merge values from multiple runs into the same field.
 
