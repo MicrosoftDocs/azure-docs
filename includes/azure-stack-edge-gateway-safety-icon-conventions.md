@@ -30,4 +30,4 @@ Hazard symbols identified in the manual are:
 | ![Multiple Power Sources Icon](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-safety-disconnect-all-power.png)  | Multiple power sources. Disconnect all power cords to remove all power from the equipment. |
 | ![Pinching Points Icon](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-pinching-points.png)  | Crush or Pinching Hazard |
 | ![Hot Components or Surfaces Icon](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-hot-component-surface.png)  | Hot Surface. Do not touch. Allow to cool before servicing.. |
-| ![Moving parts hazard 2](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-moving-parts-hazard.png)  | Moving parts hazard |
+| ![Moving parts hazard icon](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-moving-parts-hazard.png)  | Moving parts hazard |
