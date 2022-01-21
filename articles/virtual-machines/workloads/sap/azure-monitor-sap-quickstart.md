@@ -7,8 +7,7 @@ ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.date: 07/08/2021
-
----	
+---
 
 # Deploy Azure Monitor for SAP Solutions by using the Azure portal
 
@@ -46,24 +45,45 @@ To fetch specific metrics, you need to unprotect some methods for the current re
 3. Execute transaction RZ10.
 4. Select the appropriate profile (*DEFAULT.PFL*).
 5. Select **Extended Maintenance** > **Change**. 
-6. Select the profile parameter "service/protectedwebmethods” and modify to have the following value, then click Copy:  
- 
-SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList 
+6. Select the profile parameter "service/protectedwebmethods" and modify to have the following value, then click Copy:  
+
+   ```service/protectedwebmethods instruction
+      SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList
 
 7. Go back and select **Profile** > **Save**.
 8. After saving the changes for this parameter, please restart the SAPStartSRV service on each of the instances in the SAP system. (Restarting the services will not restart the SAP system; it will only restart the SAPStartSRV service (in Windows) or daemon process (in Unix/Linux))
    8a. On Windows systems, this can be done in a single window using the SAP Microsoft Management Console (MMC) / SAP Management Console(MC).  Right-click on each instance and choose All Tasks -> Restart Service.
 ![MMC](https://user-images.githubusercontent.com/75772258/126453939-daf1cf6b-a940-41f6-98b5-3abb69883520.png)
-   8b. On Linux systems, use the command:  sapcontrol -nr <NN> -function RestartService, where NN is the SAP instance number to restart the host which is logged into.
+
+   8b. On Linux systems, use the below command where NN is the SAP instance number to restart the host which is logged into.
+   
+   ```RestartService
+   sapcontrol -nr <NN> -function RestartService
+   
 9. Once the SAP service is restarted, please check to ensure the updated web method protection exclusion rules have been applied for each instance by running the following command: 
-sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods -user “<adminUser>” “<adminPassword>”
-The output should look like :-
-![SS](https://user-images.githubusercontent.com/75772258/126454265-d73858c3-c32d-4afe-980c-8aba96a0b2a4.png)
-10. To conclude and validate, a test query can be done against web methods to validate the connection by logging into each instance and running the following commands:
-For all instances : sapcontrol -nr <NN> -function GetProcessList
-For the ENQUE instance : sapcontrol -nr <NN> -function EnqGetStatistic
-For ABAP instances : sapcontrol -nr <NN> -function ABAPGetWPTable
-For ABAP/J2EE/JEE instances : sapcontrol -nr <NN> -function GetQueueStatistic
+
+**Logged as \<sidadm\>** 
+   `sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods`
+
+**Logged as different user** 
+   `sapcontrol -nr <NN> -function ParameterValue service/protectedwebmethods -user "<adminUser>" "<adminPassword>"`
+
+   The output should look like :-
+   ![SS](https://user-images.githubusercontent.com/75772258/126454265-d73858c3-c32d-4afe-980c-8aba96a0b2a4.png)
+
+10. To conclude and validate, a test query can be done against web methods to validate ( replace the hostname , instance number and method name ) leverage the below powershell script 
+
+```Powershell command to test unprotect method 
+$SAPHostName = "<hostname>"
+$InstanceNumber = "<instancenumber>"
+$Function = "ABAPGetWPTable"
+[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
+$sapcntrluri = "https://" + $SAPHostName + ":5" + $InstanceNumber + "14/?wsdl"
+$sapcntrl = New-WebServiceProxy -uri $sapcntrluri -namespace WebServiceProxy -class sapcntrl
+$FunctionObject = New-Object ($sapcntrl.GetType().NameSpace + ".$Function")
+$sapcntrl.$Function($FunctionObject)
+```
+11. **Repeat Steps 3-10 for each instance profile **.
 
 >[!Important] 
 >It is critical that the sapstartsrv service is restarted on each instance of the SAP system for the SAPControl web methods to be unprotected.  These read-only SOAP API are required for the NetWeaver provider to fetch metric data from the SAP System and failure to unprotect these methods will lead to empty or missing visualizations on the NetWeaver metric workbook.
@@ -88,12 +108,12 @@ To install the NetWeaver provider on the Azure portal:
    
    ![Screenshot showing the configuration options for adding a SAP NetWeaver provider.](https://user-images.githubusercontent.com/75772258/114583569-5c777d80-9c9f-11eb-99a2-8c60987700c2.png)
 
-1.	When you're finished, select **Add provider**. Continue to add providers as needed, or select **Review + create** to complete the deployment.
+1.    When you're finished, select **Add provider**. Continue to add providers as needed, or select **Review + create** to complete the deployment.
 
 >[!Important]
 >If the SAP application servers (ie. virtual machines) are part of a network domain, such as one managed by Azure Active Directory, then it is critical that the corresponding subdomain is provided in the Subdomain text box.  The Azure Monitor for SAP collector VM that exists inside the Virtual Network is not joined to the domain and as such will not be able to resolve the hostname of instances inside the SAP system unless the hostname is a fully qualified domain name.  Failure to provide this will result in missing / incomplete visualizations in the NetWeaver workbook.
  
->For example, if the hostname of the SAP system has a fully qualified domain name of “myhost.mycompany.global.corp” then please enter a Hostname of “myhost” and provide a Subdomain of “mycompany.global.corp”.  When the NetWeaver provider invokes the GetSystemInstanceList API on the SAP system, SAP returns the hostnames of all instances in the system.  The collector VM will use this list to make additional API calls to fetch metrics specific to each instance’s features (e.g.  ABAP, J2EE, MESSAGESERVER, ENQUE, ENQREP, etc…). If specified, the collector VM will then use the subdomain  “mycompany.global.corp” to build the fully qualified domain name of each instance in the SAP system.  
+>For example, if the hostname of the SAP system has a fully qualified domain name of "myhost.mycompany.global.corp" then please enter a Hostname of "myhost" and provide a Subdomain of "mycompany.global.corp".  When the NetWeaver provider invokes the GetSystemInstanceList API on the SAP system, SAP returns the hostnames of all instances in the system.  The collector VM will use this list to make additional API calls to fetch metrics specific to each instance's features (e.g.  ABAP, J2EE, MESSAGESERVER, ENQUE, ENQREP, etc…). If specified, the collector VM will then use the subdomain  "mycompany.global.corp" to build the fully qualified domain name of each instance in the SAP system.  
  
 >Please DO NOT specify an IP Address for the hostname field if the SAP system is a part of network domain.
 
@@ -151,7 +171,7 @@ To install the NetWeaver provider on the Azure portal:
    ALTER ROLE [db_datareader] ADD MEMBER [AMS]
    ALTER ROLE [db_denydatawriter] ADD MEMBER [AMS]
    GO
-   ``` 
+   ```
 
 1. Select **Add provider**, and then:
 
@@ -177,7 +197,7 @@ After completing above pre-requisite installation, create a provider for each cl
 
 1. For **Type**, select **High-availability cluster (Pacemaker)**. 
    
-1. Configure providers for each node of cluster by entering endpoint URL in **HA Cluster Exporter Endpoint**. For **SUSE** based clusters enter **http://<IP  address>:9664/metrics**. For **RHEL** based cluster, enter **http://<IP address>:44322/metrics?names=ha_cluster**
+1. Configure providers for each node of cluster by entering endpoint URL in **HA Cluster Exporter Endpoint**. For **SUSE** based clusters enter **http://\<IP  address\>:9664/metrics**. For **RHEL** based cluster, enter **http://\<IP address\>:44322/metrics?names=ha_cluster**
  
 1. Enter the system ID, host name, and cluster name in the respective boxes.
    
@@ -224,4 +244,4 @@ After completing above pre-requisite installation, create a provider for each cl
 Learn more about Azure Monitor for SAP Solutions.
 
 > [!div class="nextstepaction"]
-> [Azure Monitor for SAP Solutions](azure-monitor-overview.md)
+> [Monitor SAP on Azure](monitor-sap-on-azure.md)

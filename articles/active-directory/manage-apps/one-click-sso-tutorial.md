@@ -1,6 +1,7 @@
 ---
-title: One-click, single sign-on (SSO) configuration of your Azure Marketplace application  | Microsoft Docs
+title: One-click, single sign-on (SSO) configuration of your Azure Marketplace application
 description: Steps for one-click configuration of  SSO for your application from the Azure Marketplace.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -31,7 +32,7 @@ The one-click SSO feature is designed to configure single sign-on for Azure Mark
 ## Prerequisites
 
 - An active subscription of the application to configure with SSO. You also need admin credentials.
-- The **My Apps Secure Sign-in extension** from Microsoft installed in the browser. For more information, see [Access and use apps on the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+- The **My Apps Secure Sign-in extension** from Microsoft installed in the browser. For more information, see [Access and use apps on the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## One-click SSO configuration steps
 
@@ -76,4 +77,4 @@ The one-click SSO feature is designed to configure single sign-on for Azure Mark
 ## Additional resources
 
 - [List of tutorials on how to integrate SaaS apps with Azure Active Directory](../saas-apps/tutorial-list.md)
-- [What is the My Apps Secure Sign-in browser extension?](../user-help/my-apps-portal-end-user-access.md)
+- [What is the My Apps Secure Sign-in browser extension?](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)

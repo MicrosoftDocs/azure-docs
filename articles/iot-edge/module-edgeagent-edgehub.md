@@ -79,7 +79,6 @@ The following table does not include the information that is copied from the des
 | lastDesiredVersion | This integer refers to the last version of the desired properties processed by the IoT Edge agent. |
 | lastDesiredStatus.code | This status code refers to the last desired properties seen by the IoT Edge agent. Allowed values: `200` Success, `400` Invalid configuration, `412` Invalid schema version, `417` the desired properties are empty, `500` Failed |
 | lastDesiredStatus.description | Text description of the status |
-| configurationHealth.{deploymentId}.health | `healthy` if the runtime status of all modules set by the deployment {deploymentId} is either `running` or `stopped`, `unhealthy` otherwise |
 | runtime.platform.OS | Reporting the OS running on the device |
 | runtime.platform.architecture | Reporting the architecture of the CPU on the device |
 | systemModules.edgeAgent.runtimeStatus | The reported status of IoT Edge agent: {"running" \| "unhealthy"} |

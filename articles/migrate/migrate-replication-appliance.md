@@ -54,7 +54,7 @@ License | The appliance comes with a Windows Server 2016 evaluation license, whi
 Operating system locale | English (en-us)
 TLS | TLS 1.2 should be enabled.
 .NET Framework | .NET Framework 4.6 or later should be installed on the machine (with strong cryptography enabled.
-MySQL | MySQL should be installed on the appliance.<br/> MySQL should be installed. You can install manually, or Site Recovery can install it during appliance deployment.
+MySQL | MySQL should be installed on the appliance.<br/> MySQL should be installed. You can install manually, or Azure Migrate can install it during appliance deployment.
 Other apps | Don't run other apps on the replication appliance.
 Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
 Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))

@@ -8,7 +8,6 @@ manager: mtillman
 editor: skwan
 ms.assetid: 0adc8b11-884e-476c-8c43-84f9bf12a34b
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity

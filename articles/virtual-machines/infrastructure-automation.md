@@ -11,6 +11,8 @@ ms.author: cynthn
 
 # Use infrastructure automation tools with virtual machines in Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 To create and manage Azure virtual machines (VMs) in a consistent manner at scale, some form of automation is typically desired. There are many tools and solutions that allow you to automate the complete Azure infrastructure deployment and management lifecycle. This article introduces some of the infrastructure automation tools that you can use in Azure. These tools commonly fit in to one of the following approaches:
 
 - Automate the configuration of VMs
@@ -64,15 +66,15 @@ Learn more details about cloud-init on Azure:
 
 
 ## PowerShell DSC
-[PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview/overview) is a management platform to define the configuration of target machines. DSC can also be used on Linux through the [Open Management Infrastructure (OMI) server](https://collaboration.opengroup.org/omi/).
+[PowerShell Desired State Configuration (DSC)](/powershell/dsc/overview) is a management platform to define the configuration of target machines. DSC can also be used on Linux through the [Open Management Infrastructure (OMI) server](https://collaboration.opengroup.org/omi/).
 
 DSC configurations define what to install on a machine and how to configure the host. A Local Configuration Manager (LCM) engine runs on each target node that processes requested actions based on pushed configurations. A pull server is a web service that runs on a central host to store the DSC configurations and associated resources. The pull server communicates with the LCM engine on each target host to provide the required configurations and report on compliance.
 
 Learn how to:
 
-- [Create a basic DSC configuration](/powershell/scripting/dsc/quickstarts/website-quickstart).
-- [Configure a DSC pull server](/powershell/scripting/dsc/pull-server/pullserver).
-- [Use DSC for Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
+- [Create a basic DSC configuration](/powershell/dsc/quickstarts/website-quickstart).
+- [Configure a DSC pull server](/powershell/dsc/pull-server/pullserver).
+- [Use DSC for Linux](/powershell/dsc/getting-started/lnxgettingstarted).
 
 
 ## Azure Custom Script Extension
@@ -111,7 +113,7 @@ Azure Automation also provides a Desired State Configuration (DSC) service that 
 
 Learn how to:
 
-- [Create a PowerShell runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md).
+- [Create a PowerShell runbook](../automation/learn/powershell-runbook-managed-identity.md).
 - [Use Hybrid Runbook Worker to manage on-premises resources](../automation/automation-hybrid-runbook-worker.md).
 - [Use Azure Automation DSC](../automation/automation-dsc-getting-started.md).
 

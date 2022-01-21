@@ -9,13 +9,12 @@ manager: rkarlin
 ms.assetid: 5aa0a7ac-8f18-4ede-92a1-ae0dfe585e28
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/05/2021
 ms.author: terrylan
-# Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
+# Customer intent: As an IT Pro or decision maker, I am trying to learn about identity management capabilities in Azure
 ---
 # Azure identity management security overview
 
@@ -165,7 +164,7 @@ Azure AD Identity Protection is a security service that provides a consolidated 
 Learn more:
 
 * [Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
-* [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* Channel 9: Azure AD and Identity Show: Identity Protection Preview
 
 ## Hybrid identity management/Azure AD connect
 

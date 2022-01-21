@@ -6,7 +6,7 @@ ms.date: 06/23/2021
 ms.custom: devx-track-js
 ---
 
-# Relay Hybrid Connections Node API overview
+# Relay Hybrid Connections Node.js API overview
 
 ## Overview
 

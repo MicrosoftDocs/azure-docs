@@ -12,6 +12,8 @@ ms.topic: how-to
 ---
 # Run scripts in your Linux VM
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 To automate tasks or troubleshoot issues, you may need to run commands in a VM. The following article gives a brief overview of the features that are available to run scripts and commands within your VMs.
 
 ## Custom Script Extension

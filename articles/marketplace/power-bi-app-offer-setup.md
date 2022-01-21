@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 05/26/2021
+ms.date: 11/22/2021
 ---
 
 # Create a Power BI app offer
@@ -21,16 +21,20 @@ Review [Plan a Power BI offer](marketplace-power-bi.md). It will explain the tec
 
 ## Create a new offer
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
-3. On the Overview page, select **+ New offer** > **Power BI app**.
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
 
-    :::image type="content" source="media/power-bi/new-offer-power-bi-app.png" alt-text="The left pane menu options and the 'New offer' button.":::
+1. On the Home page, select the **Marketplace offers** tile.
+
+    [ ![Illustrates the Marketplace offers tile on the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. On the Marketplace offers page, select **+ New offer** > **Power BI app**.
+
+    [ ![Illustrates the Power BI app offer type available from the New offer button.](./media/power-bi/new-offer-power-bi-app-workspaces.png) ](./media/power-bi/new-offer-power-bi-app-workspaces.png#lightbox)
 
 > [!IMPORTANT]
 > After an offer is published, any edits you make to it in Partner Center appear on Microsoft AppSource only after you republish the offer. Be sure to always republish an offer after changing it.
 
-If **Power BI App** isn't shown or enabled, your account doesn't have permission to create this offer type. Please check that you've met all the [requirements](marketplace-dynamics-365.md) for this offer type, including registering for a developer account.
+If **Power BI App** isn't shown or enabled, your account doesn't have permission to create this offer type. Please check that you've met all the [requirements](./marketplace-dynamics-365.md) for this offer type, including registering for a developer account.
 
 ## New offer
 

@@ -5,10 +5,10 @@ description: Migrate data from a PostgreSQL database into an Azure Arc-enabled P
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: TheJY
-ms.author: jeanyd
+author: grrlgeek
+ms.author: jeschult
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
@@ -40,9 +40,8 @@ To do this backup/restore operation, you can use any tool that is capable of doi
 - `psql`
 - ...
 
-   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
-
 ## Example
+
 Let's illustrate those steps using the `pgAdmin` tool.
 Consider the following setup:
 - **Source:**  
@@ -76,8 +75,10 @@ az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> -
 ```
 That returns an output like:
 ```console
-[
-  {
+{
+  "instances": [
+    {
+      "endpoints": [
     "Description": "PostgreSQL Instance",
     "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
   },
@@ -89,7 +90,13 @@ That returns an output like:
     "Description": "Metrics Dashboard",
     "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
   }
-]
+],
+"engine": "PostgreSql",
+"name": "postgres01"
+}
+  ],
+  "namespace": "arc"
+}
 ```
 
 Let's name the destination database **RESTORED_MyOnPremPostgresDB**.
@@ -124,12 +131,17 @@ Expand the Postgres instance hosted in your Azure Arc setup. You will see the ta
 
 Within your Arc setup you can use `psql` to connect to your Postgres instance, set the database context to `RESTORED_MyOnPremPostgresDB` and query the data:
 
-1. List the end points to help from your `psql` connection string:
+1. List the end points to help form your `psql` connection string:
 
-   ```azurecli
+   ```Az CLI
    az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> --use-k8s
-   [
-     {
+   ```
+
+   ```Az CLI
+   {
+     "instances": [
+       {
+         "endpoints": [
        "Description": "PostgreSQL Instance",
        "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
      },
@@ -141,7 +153,13 @@ Within your Arc setup you can use `psql` to connect to your Postgres instance, s
        "Description": "Metrics Dashboard",
        "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
      }
-   ]
+   ],
+   "engine": "PostgreSql",
+   "name": "postgres01"
+   }
+     ],
+     "namespace": "arc"
+   }
    ```
 
 1. From your `psql` connection string use the `-d` parameter to indicate the database name. With the below command, you will be prompted for the password:
@@ -184,13 +202,13 @@ Within your Arc setup you can use `psql` to connect to your Postgres instance, s
 ## Next steps
 
 - Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from all the power of Azure Database for PostgreSQL Hyperscale:
-    * [Nodes and tables](../../postgresql/concepts-hyperscale-nodes.md)
-    * [Determine application type](../../postgresql/concepts-hyperscale-app-type.md)
-    * [Choose a distribution column](../../postgresql/concepts-hyperscale-choose-distribution-column.md)
-    * [Table colocation](../../postgresql/concepts-hyperscale-colocation.md)
-    * [Distribute and modify tables](../../postgresql/howto-hyperscale-modify-distributed-tables.md)
-    * [Design a multi-tenant database](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
-    * [Design a real-time analytics dashboard](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
+    * [Nodes and tables](../../postgresql/hyperscale/concepts-nodes.md)
+    * [Determine application type](../../postgresql/hyperscale/concepts-app-type.md)
+    * [Choose a distribution column](../../postgresql/hyperscale/concepts-choose-distribution-column.md)
+    * [Table colocation](../../postgresql/hyperscale/concepts-colocation.md)
+    * [Distribute and modify tables](../../postgresql/hyperscale/howto-modify-distributed-tables.md)
+    * [Design a multi-tenant database](../../postgresql/hyperscale/tutorial-design-database-multi-tenant.md)*
+    * [Design a real-time analytics dashboard](../../postgresql/hyperscale/tutorial-design-database-realtime.md)*
 
 > *In these documents, skip the sections **Sign in to the Azure portal**, and **Create an Azure Database for Postgres - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for PostgreSQL Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc-enabled PostgreSQL Hyperscale.
 

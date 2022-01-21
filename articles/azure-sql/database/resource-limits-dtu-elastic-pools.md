@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
-ms.reviewer: mathoma
-ms.date: 04/09/2021
+ms.reviewer: kendralittle, mathoma
+ms.date: 01/18/2022
 ---
 # Resources limits for elastic pools using the DTU purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -53,7 +53,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 | Max storage per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Max In-Memory OLTP storage per pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 | Max number DBs per pool <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
-| Max concurrent workers (requests) per pool <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
+| Max concurrent workers per pool <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Max concurrent sessions per pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
 | Min DTU per database choices | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
 | Max DTU per database choices | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
@@ -62,7 +62,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 
 <sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
 
-<sup>2</sup> For the max concurrent workers (requests) for any individual database, see [Single database resource limits](resource-limits-vcore-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
+<sup>2</sup> For the max concurrent workers for any individual database, see [Single database resource limits](resource-limits-vcore-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
 ### Standard elastic pool limits
 
@@ -72,7 +72,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 | Max storage per pool (GB) | 500 | 750 | 1024 | 1280 | 1536 | 2048 |
 | Max In-Memory OLTP storage per pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A |
 | Max number DBs per pool <sup>2</sup> | 100 | 200 | 500 | 500 | 500 | 500 |
-| Max concurrent workers (requests) per pool <sup>3</sup> | 100 | 200 | 400 | 600 | 800 | 1600 |
+| Max concurrent workers per pool <sup>3</sup> | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Max concurrent sessions per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Min DTU per database choices | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
 | Max DTU per database choices | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
@@ -83,7 +83,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 
 <sup>2</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
 
-<sup>3</sup> For the max concurrent workers (requests) for any individual database, see [Single database resource limits](resource-limits-vcore-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
+<sup>3</sup> For the max concurrent workers for any individual database, see [Single database resource limits](resource-limits-vcore-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
 ### Standard elastic pool limits (continued)
 
@@ -93,7 +93,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 | Max storage per pool (GB) | 2560 | 3072 | 3584 | 4096 | 4096 |
 | Max In-Memory OLTP storage per pool (GB) | N/A | N/A | N/A | N/A | N/A |
 | Max number DBs per pool <sup>2</sup> | 500 | 500 | 500 | 500 | 500 |
-| Max concurrent workers (requests) per pool <sup>3</sup> | 2400 | 3200 | 4000 | 5000 | 6000 |
+| Max concurrent workers per pool <sup>3</sup> | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Max concurrent sessions per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Min DTU per database choices | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Max DTU per database choices | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
@@ -104,7 +104,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 
 <sup>2</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
 
-<sup>3</sup> For the max concurrent workers (requests) for any individual database, see [Single database resource limits](resource-limits-vcore-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
+<sup>3</sup> For the max concurrent workers for any individual database, see [Single database resource limits](resource-limits-vcore-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
 ### Premium elastic pool limits
 
@@ -125,7 +125,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 
 <sup>2</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
 
-<sup>3</sup> For the max concurrent workers (requests) for any individual database, see [Single database resource limits](resource-limits-vcore-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
+<sup>3</sup> For the max concurrent workers for any individual database, see [Single database resource limits](resource-limits-vcore-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
 ### Premium elastic pool limits (continued)
 
@@ -135,7 +135,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 | Max storage per pool (GB) | 2048 | 2560 | 3072 | 3548 | 4096|
 | Max In-Memory OLTP storage per pool (GB) | 16 | 20 | 24 | 28 | 32 |
 | Max number DBs per pool <sup>2</sup> | 100 | 100 | 100 | 100 | 100 |
-| Max concurrent workers (requests) per pool <sup>3</sup> | 3200 | 4000 | 4800 | 5600 | 6400 |
+| Max concurrent workers per pool <sup>3</sup> | 3200 | 4000 | 4800 | 5600 | 6400 |
 | Max concurrent sessions per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Min DTU per database choices | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Max DTU per database choices | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
@@ -146,7 +146,7 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 
 <sup>2</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
 
-<sup>3</sup> For the max concurrent workers (requests) for any individual database, see [Single database resource limits](resource-limits-vcore-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
+<sup>3</sup> For the max concurrent workers for any individual database, see [Single database resource limits](resource-limits-vcore-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
 > [!IMPORTANT]
 > More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, and Germany Northeast. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see [P11-P15 current limitations](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
@@ -179,7 +179,9 @@ The following table describes per database properties for pooled databases.
 > Additionally, setting min DTUs per database to a value greater than 0 implicitly limits the number of databases that can be added to the pool. For example, if you set the min DTUs to 100 in a 400 DTU pool, it means that you will not be able to add more than 4 databases to the pool, because 100 DTUs are reserved for each database.
 > 
 
-While the per database properties are expressed in DTUs, they also govern consumption of other resource types, such as data IO, log IO, and worker threads. As you adjust min and max per database DTUs values, reservations and limits for all resource types are adjusted proportionally.
+While the per database properties are expressed in DTUs, they also govern consumption of other resource types, such as data IO, log IO, buffer pool memory, and worker threads. As you adjust min and max per database DTUs values, reservations and limits for all resource types are adjusted proportionally.
+
+Min and max per database DTU values apply to resource consumption by user workloads, but not to resource consumption by internal processes. For example, for a database with a per database max DTU set to half of the pool eDTU, user workload cannot consume more than one half of the buffer pool memory. However, this database can still take advantage of pages in the buffer pool that were loaded by internal processes. For more information, see [Resource consumption by user workloads and internal processes](resource-limits-logical-server.md#resource-consumption-by-user-workloads-and-internal-processes).
 
 ## Next steps
 

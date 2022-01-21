@@ -5,10 +5,10 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: conceptual
-author: DavidTrigano
-ms.author: datrigan
-ms.reviewer: vanto
-ms.date: 08/01/2021
+author: Rupp29
+ms.author: arupp
+ms.reviewer: kendralittle, vanto, mathoma
+ms.date: 08/25/2021
 ms.custom: azure-synapse, sqldbrb=1
 ---
 # Auditing for Azure SQL Database and Azure Synapse Analytics
@@ -153,7 +153,7 @@ To configure writing audit logs to an event hub, select **Event Hub**. Select th
 
 ## <a id="subheading-3"></a>Analyze audit logs and reports
 
-If you chose to write audit logs to Azure Monitor logs:
+If you chose to write audit logs to Log Analytics:
 
 - Use the [Azure portal](https://portal.azure.com). Open the relevant database. At the top of the database's **Auditing** page, select **View audit logs**.
 
@@ -266,9 +266,9 @@ For a script example, see [Configure auditing and threat detection using PowerSh
 **REST API**:
 
 - [Create or Update Database Auditing Policy](/rest/api/sql/database%20auditing%20settings/createorupdate)
-- [Create or Update Server Auditing Policy](/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Create or Update Server Auditing Policy](/rest/api/sql/2017-03-01-preview/server-auditing-settings/create-or-update)
 - [Get Database Auditing Policy](/rest/api/sql/database%20auditing%20settings/get)
-- [Get Server Auditing Policy](/rest/api/sql/server%20auditing%20settings/get)
+- [Get Server Auditing Policy](/rest/api/sql/2017-03-01-preview/server-auditing-settings/get)
 
 Extended policy with WHERE clause support for additional filtering:
 
@@ -295,6 +295,6 @@ You can manage Azure SQL Database auditing using [Azure Resource Manager](../../
 
 ## See also
 
-- Data Exposed episode [What's New in Azure SQL Auditing](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-in-Azure-SQL-Auditing) on Channel 9.
+- Data Exposed episode [What's New in Azure SQL Auditing](/Shows/Data-Exposed/Whats-New-in-Azure-SQL-Auditing) on Channel 9.
 - [Auditing for SQL Managed Instance](../managed-instance/auditing-configure.md)
 - [Auditing for SQL Server](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)

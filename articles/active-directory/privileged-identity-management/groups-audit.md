@@ -4,14 +4,14 @@ description: View activity and audit history for privileged access group assignm
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2020
+ms.date: 10/07/2021
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management

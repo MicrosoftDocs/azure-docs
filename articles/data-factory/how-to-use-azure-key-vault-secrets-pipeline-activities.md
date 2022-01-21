@@ -6,7 +6,7 @@ ms.author: abnarain
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 10/22/2021
 ---
 
 # Use Azure Key Vault secrets in pipeline activities
@@ -23,21 +23,24 @@ This feature relies on the data factory managed identity.  Learn how it works fr
 
 1. Open the properties of your data factory and copy the Managed Identity Application ID value.
 
-    ![Managed Identity Value](media/how-to-use-azure-key-vault-secrets-pipeline-activities/managedidentity.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/managedidentity.png" alt-text="Managed Identity Value":::
 
 2. Open the key vault access policies and add the managed identity permissions to Get and List secrets.
 
-    ![Screenshot that shows the "Access policies" page with the "Add Access Policy" action highlighted.](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png" alt-text="Screenshot that shows the &quot;Access policies&quot; page with the &quot;Add Access Policy&quot; action highlighted.":::
 
-    ![Key Vault access policies](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png" alt-text="Key Vault access policies":::
 
     Click **Add**, then click **Save**.
 
 3. Navigate to your Key Vault secret and copy the Secret Identifier.
 
-    ![Secret Identifier](media/how-to-use-azure-key-vault-secrets-pipeline-activities/secretidentifier.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/secretidentifier.png" alt-text="Secret Identifier":::
 
     Make a note of your secret URI that you want to get during your data factory pipeline run.
+    
+    > [!CAUTION]
+    > The secret URI is structured like this: `{vaultBaseUrl}/secrets/{secret-name}/{secret-version}`. The _secret-version_ is optional; the latest version is returned when not specified. It is often desirable to specify a secret URI in a pipeline without a specific version so that the pipeline always uses the latest version of the secret.
 
 4. In your Data Factory pipeline, add a new Web activity and configure it as follows.  
 
@@ -49,7 +52,7 @@ This feature relies on the data factory managed identity.  Learn how it works fr
     |Authentication     |MSI         |
     |Resource        |https://vault.azure.net       |
 
-    ![Web activity](media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png" alt-text="Web activity":::
 
     > [!IMPORTANT]
     > You must add **?api-version=7.0** to the end of your secret URI.  
@@ -59,7 +62,7 @@ This feature relies on the data factory managed identity.  Learn how it works fr
 
 5. To use the value in another activity, use the following code expression **@activity('Web1').output.value**.
 
-    ![Code expression](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png" alt-text="Code expression":::
 
 ## Next steps
 

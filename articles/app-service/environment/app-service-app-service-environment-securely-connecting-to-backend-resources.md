@@ -1,12 +1,12 @@
 ---
 title: Connect to back end v1
 description: Learn about how to securely connect to backend resources from an App Service Environment. This doc is provided only for customers who use the legacy v1 ASE.
-author: stefsch
+author: madsd
 
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.topic: article
 ms.date: 10/04/2016
-ms.author: stefsch
+ms.author: madsd
 ms.custom: seodec18
 
 ---

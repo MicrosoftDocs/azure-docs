@@ -39,6 +39,7 @@ To configure Azure AD integration with Peakon, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Peakon supports **SP** and **IDP** initiated SSO
+* Peakon supports [**automated** user provisioning and deprovisioning](peakon-provisioning-tutorial.md) (recommended).
 
 ## Adding Peakon from the gallery
 
@@ -242,7 +243,7 @@ In the case of Peakon, provisioning is a manual task.
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Peakon tile in the Access Panel, you should be automatically signed in to the Peakon for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the Peakon tile in the Access Panel, you should be automatically signed in to the Peakon for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional Resources
 

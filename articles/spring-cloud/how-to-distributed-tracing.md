@@ -10,7 +10,9 @@ ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
-# Use distributed tracing with Azure Spring Cloud
+# Use distributed tracing with Azure Spring Cloud (deprecated)
+> [!NOTE]
+> Distributed Tracing is deprecated. For more information, see [Application Insights Java In-Process Agent in Azure Spring Cloud](./how-to-application-insights.md).
 
 With the distributed tracing tools in Azure Spring Cloud, you can easily debug and monitor complex issues. Azure Spring Cloud integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](../azure-monitor/app/app-insights-overview.md). This integration provides powerful distributed tracing capability from the Azure portal.
 
@@ -100,7 +102,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [Deploy your first Azure Spring Cloud application](./quickstart.md) quickstart to provision and run an Azure Spring Cloud service.
+To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [Deploy your first Spring Boot app in Azure Spring Cloud](./quickstart.md) quickstart to provision and run an Azure Spring Cloud service.
 
 ## Add dependencies
 
@@ -112,7 +114,7 @@ To follow these procedures, you need an Azure Spring Cloud service that is alrea
 
    After this change, the Zipkin sender can send to the web.
 
-1. Skip this step if you followed our [guide to preparing an Azure Spring Cloud application](how-to-prepare-app-deployment.md). Otherwise, go to your local development environment and edit your pom.xml file to include the following Spring Cloud Sleuth dependency:
+1. Skip this step if you followed our [guide to preparing an application in Azure Spring Cloud](how-to-prepare-app-deployment.md). Otherwise, go to your local development environment and edit your pom.xml file to include the following Spring Cloud Sleuth dependency:
 
     * Spring boot version < 2.4.x.
 
@@ -208,4 +210,4 @@ Application Insights provides monitoring capabilities in addition to the applica
 
 ## Next steps
 
-In this article, you learned how to enable and understand distributed tracing in Azure Spring Cloud. To learn about binding services to an application, see [Bind an Azure Cosmos DB database to an Azure Spring Cloud application](./how-to-bind-cosmos.md).
+In this article, you learned how to enable and understand distributed tracing in Azure Spring Cloud. To learn about binding services to an application, see [Bind an Azure Cosmos DB database to an application in Azure Spring Cloud](./how-to-bind-cosmos.md).

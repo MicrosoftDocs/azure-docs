@@ -1,7 +1,7 @@
 ---
 title: Create schedule for labs  in Azure Lab Services | Microsoft Docs
 description: Learn how to create schedules for labs in Azure Lab Services so that VMs in the labs start up and shut down at a specified time. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

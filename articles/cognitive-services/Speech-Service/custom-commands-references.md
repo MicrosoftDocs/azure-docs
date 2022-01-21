@@ -46,12 +46,24 @@ Note that, if you configured a **required parameter** to have a **Default value*
 ### Type
 Custom Commands supports the following parameter types:
 
+* Age
+* Currency
 * DateTime
+* Dimension
+* Email
 * Geography
 * Number
+* Ordinal
+* Percentage
+* PersonName
+* PhoneNumber
 * String
+* Temperature
+* Url
 
-All these parameter types except for Geography, support default value configuration, which you can configure from the portal.
+Every locale supports the "String" parameter type, but availability of all other types differs by locale. Custom Commands uses LUIS's prebuilt entity resolution, so the availability of a parameter type in a locale depends on LUIS's prebuilt entity support in that locale. You can find [more details on LUIS's prebuilt entity support per locale](../luis/luis-reference-prebuilt-entities.md).
+
+Some parameter types like Number, String and DateTime support default value configuration, which you can configure from the portal.
 
 ### Configuration
 Configuration is a parameter property defined only for the type String. The following values are supported:

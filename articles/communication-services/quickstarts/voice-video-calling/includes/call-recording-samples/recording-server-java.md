@@ -35,16 +35,22 @@ The following classes handle some of the major features of the recording Server 
 | CallingServerClientBuilder | This class is used to create instance of CallingServerClient.|
 | CallingServerClient | This class is needed for the calling functionality. You obtain an instance via CallingServerClientBuilder and use it to start/hangup a call, play/cancel audio and add/remove participants |
 
-## Getting serverCallId as a requirement for call recording server APIs
+## Getting serverCallId as a requirement for call recording server APIs from JavaScript application
 
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this API please use 'beta' release of ACS Calling Web SDK. A client sample with recording flows is available at [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/public-preview).
 
 
-Call recording is an extended feature of the core Call API. You first need to obtain the recording feature API object:
+Call recording is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
 
-```JavaScript
-const callRecordingApi = call.api(Features.Recording);
+```js
+import { Features} from "@azure/communication-calling";
+```
+
+Then you can get the recording feature API object from the call instance:
+
+```js
+const callTransferApi = call.feature(Features.Recording);
 ```
 
 Subscribe to recording changes:
@@ -96,9 +102,27 @@ Use the server call ID received during initiation of the call.
 URI recordingStateCallbackUri = new URI("<CallbackUri>");
 
 Response<StartCallRecordingResult> response = this.callingServerClient.initializeServerCall("<serverCallId>")
-.startRecordingWithResponse(String.valueOf(recordingStateCallbackUri),null);
+.startRecordingWithResponse(String.valueOf(recordingStateCallbackUri), null, null);
 ```
 The `startRecordingWithResponse` API response contains the recording ID of the recording session.
+
+## Start recording session with StartRecordingOptions using 'startRecordingWithResponse' server API
+
+Use the server call ID received during initiation of the call.
+
+- RecordingContent is used to pass the recording content type. Ex: AUDIO/AUDIO_VIDEO.
+- RecordingChannel is used to pass the recording channel type. Ex: MIXED/UNMIXED.
+- RecordingFormat is used to pass the format of the recording. Ex: MP4/MP3/WAV.
+
+```java
+URI recordingStateCallbackUri = new URI("<CallbackUri>");
+StartRecordingOptions recordingOptions = new StartRecordingOptions();
+recordingOptions.setRecordingContent(RecordingContent.AUDIO_VIDEO);
+recordingOptions.setRecordingChannel(RecordingChannel.MIXED);
+recordingOptions.setRecordingFormat(RecordingFormat.MP4);
+Response<StartCallRecordingResult> response = this.callingServerClient.initializeServerCall("<serverCallId>")
+.startRecordingWithResponse(String.valueOf(recordingStateCallbackUri), recordingOptions, null);
+```
 
 ## Stop recording session using 'stopRecordingWithResponse' server API
 

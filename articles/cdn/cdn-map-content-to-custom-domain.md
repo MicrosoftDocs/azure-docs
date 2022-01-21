@@ -62,7 +62,9 @@ Use multiple CNAME records for different subdomains from the same custom domain 
 You can map a custom domain with different subdomains to the same CDN endpoint.
 
 > [!NOTE]
-> This tutorial uses the CNAME record type. If you're using A or AAAA record types, follow the same steps below and replace CNAME with the record type of your choice.
+> - This tutorial uses the CNAME record type for multiple purposes:
+>   - *Traffic routing* can be accomplished with a CNAME record as well as A or AAAA record types in Azure DNS. To apply, follow the steps below and replace the CNAME record with the record type of your choice.  
+>   - A CNAME record is **required** for custom domain *ownership validation* and must be available when adding the custom domain to a CDN Endpoint.  More details below.
 
 ---
 # [**Azure DNS**](#tab/azure-dns)

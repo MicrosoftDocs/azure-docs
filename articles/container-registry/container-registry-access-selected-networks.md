@@ -13,7 +13,7 @@ IP network rules are configured on the public registry endpoint. IP network rule
 
 Configuring IP access rules is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry tiers](container-registry-skus.md).
 
-Each registry supports a maximum of 100 network access rules.
+Each registry supports a maximum of 100 IP access rules.
 
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 

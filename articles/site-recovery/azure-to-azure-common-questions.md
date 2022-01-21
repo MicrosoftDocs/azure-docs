@@ -280,7 +280,7 @@ A [recovery plan](site-recovery-create-recovery-plans.md) in Site Recovery orche
 
 ### How does sequencing work?
 
-In a recovery plan, you can create multiple groups of VM for sequencing. Groups fails over one at one time, so that VMs that are part of the same group fail over together. [Learn more](recovery-plan-overview.md#model-apps).
+In a recovery plan, you can create up to 7 groups of VM for sequencing. Groups fails over one at one time, so that VMs that are part of the same group fail over together. [Learn more](recovery-plan-overview.md#model-apps).
 
 ### How can I find the RTO of a recovery plan?
 

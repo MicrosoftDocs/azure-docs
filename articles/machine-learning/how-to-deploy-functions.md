@@ -1,14 +1,14 @@
 ---
-title: Deploy ml models to Azure Functions Apps (preview)
+title: Deploy ML models to Azure Functions Apps (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to use Azure Machine Learning to package and deploy a model as a Web Service in an Azure Functions App.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.author: vaidyas
-author: vaidya-s
+ms.subservice: mlops
+ms.author: ssambare
+author: shivanissambare
 ms.reviewer: larryfr
-ms.date: 03/06/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: racking-python, devx-track-azurecli
 
@@ -28,7 +28,7 @@ With Azure Machine Learning, you can create Docker images from trained machine l
 
 * An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
 * The [Azure CLI](/cli/azure/install-azure-cli).
-* A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](tutorial-train-models-with-aml.md) to train and register one.
+* A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](tutorial-train-deploy-notebook.md) to train and register one.
 
     > [!IMPORTANT]
     > The code snippets in this article assume that you have set the following variables:

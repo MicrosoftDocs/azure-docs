@@ -4,10 +4,8 @@ description: Create an Azure Stream Analytics edge job and deploy it to Azure St
 ms.service: stream-analytics
 author: an-emma
 ms.author: raan
-
 ms.topic: how-to
 ms.date: 03/15/2021
-ms.custom: seodec18
 ---
 
 # Run Azure Stream Analytics on Azure Stack
@@ -38,8 +36,8 @@ In addition to having network access to the Azure Stack Hub resources, the IoT E
 
 The following articles show how to set up the IoT Edge runtime on your device or VM:
 
-* [Install the Azure IoT Edge runtime on Windows](../iot-edge/how-to-install-iot-edge.md)
-* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../iot-edge/how-to-install-iot-edge.md)
+* [Install the Azure IoT Edge runtime on Windows](../iot-edge/how-to-provision-single-device-linux-on-windows-symmetric.md)
+* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../iot-edge/how-to-provision-single-device-linux-symmetric.md)
 
 
 ## Create an Azure Stream Analytics edge job
@@ -85,8 +83,9 @@ After you create your Stream Analytics job in the Azure portal, configure it wit
 
 1. Go to your Stream Analytics job in the Azure portal.
 1. Under **Configure**, select **Storage account settings**, and choose the storage account you created in the previous step.
-   > [!div class="mx-imgBorder"]
-   > [ ![Screenshot that shows the Job storage account setting.](media/on-azure-stack/storage-account-settings.png) ](media/on-azure-stack/storage-account-settings.png#lightbox)
+
+   :::image type="content" source="media/on-azure-stack/storage-account-settings.png" alt-text="Screenshot that shows the Job storage account setting." lightbox="media/on-azure-stack/storage-account-settings.png":::
+
 1. Under **Job Topology**, select **Inputs** > **Add stream input.**
 1. Select **IoT Hub**, **Event Hub**, or **Edge Hub** from the dropdown list. 
 1. If the input is an event hub or IoT hub in an Azure Stack Hub subscription, provide information manually as shown here.
@@ -96,29 +95,27 @@ After you create your Stream Analytics job in the Azure portal, configure it wit
    | Field | Value |
    | --- | --- |
    | Input alias | A friendly name that you use in the job's query to reference this input. |
-   | Service Bus namespace | The namespace is a container for a set of messaging entities. When you create a new event hub, you also create the namespace. An example is *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com*. |
+   | Service Bus namespace | The namespace is a container for a set of messaging entities. When you create a new event hub, you also create the namespace. An example is `sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com`. |
    | Event Hub name | The name of the event hub to use as input. |
    | Event Hub policy name | The shared access policy that provides access to the event hub. Each shared access policy has a name, permissions that you set, and access keys. This option is automatically populated unless you select the option to provide the event hub settings manually. |
    | Event Hub policy key | The shared access key used to authorize access to the event hub. This option is automatically populated unless you select the option to provide the event hub settings manually. You can find it in the event hub settings. |
    | Event Hub consumer group (optional) | Use a distinct consumer group for each Stream Analytics job. This string identifies the consumer group to use to ingest data from the event hub. If no consumer group is specified, the Stream Analytics job uses the $Default consumer group. |
    | Partition count | Partition count is the number of partitions in an event hub. |
 
-   > [!div class="mx-imgBorder"]
-   > [ ![Screenshot that shows Event Hub Inputs.](media/on-azure-stack/event-hub-input.png) ](media/on-azure-stack/event-hub-input.png#lightbox)
-
+   :::image type="content" source="media/on-azure-stack/event-hub-input.png" alt-text="Screenshot that shows Event Hub Inputs." lightbox="media/on-azure-stack/event-hub-input.png":::
+   
    #### IoT hub
 
    | Field | Value |
    | --- | --- |
    | Input alias | A friendly name that you use in the job's query to reference this input. |
-   | IoT Hub | The name of the IoT hub to use as input. An example is *<IoT Hub Name>.shanghai.azurestack.corp.microsoft.com*. |
+   | IoT Hub | The name of the IoT hub to use as input. An example is `<IoT Hub Name>.shanghai.azurestack.corp.microsoft.com`. |
    | Shared access policy name | The shared access policy that provides access to the IoT hub. Each shared access policy has a name, permissions that you set, and access keys. |
    | Shared access policy key | The shared access key used to authorize access to the IoT hub. This option is automatically populated unless you select the option to provide the Iot hub settings manually. |
    | Consumer group (optional) | Use a different consumer group for each Stream Analytics job. The consumer group is used to ingest data from the IoT hub. Stream Analytics uses the $Default consumer group unless you specify otherwise. |
    | Partition count | Partition count is the number of partitions in an event hub. |
 
-   > [!div class="mx-imgBorder"]
-   > [ ![Screenshot that shows IoT Hub inputs.](media/on-azure-stack/iot-hub-input.png) ](media/on-azure-stack/iot-hub-input.png#lightbox)
+   :::image type="content" source="media/on-azure-stack/iot-hub-input.png" alt-text="Screenshot that shows IoT Hub inputs." lightbox="media/on-azure-stack/iot-hub-input.png" :::
 
 1. Keep the default values for the other fields, and select **Save**.
 1. Under **Job Topology**, open **Outputs**, and then select **Add**.
@@ -130,20 +127,18 @@ After you create your Stream Analytics job in the Azure portal, configure it wit
    | Field | Value |
    | --- | --- |
    | Output alias | A friendly name used in queries to direct the query output to this event hub. |
-   | Service Bus namespace | A container for a set of messaging entities. When you created a new event hub, you also created a service bus namespace. An example is *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com*. |
+   | Service Bus namespace | A container for a set of messaging entities. When you created a new event hub, you also created a service bus namespace. An example is `sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com`. |
    | Event Hub name | The name of your event hub output. |
    | Event Hub policy name | The shared access policy, which you can create on the event hub's **Configure** tab. Each shared access policy has a name, permissions that you set, and access keys. |
    | Event Hub policy key | The shared access key that's used to authenticate access to the event hub namespace. |
 
-   > [!div class="mx-imgBorder"]
-   > [ ![Screenshot that shows Event Hub outputs.](media/on-azure-stack/event-hub-output.png) ](media/on-azure-stack/event-hub-output.png#lightbox)
-
+   :::image type="content" source="media/on-azure-stack/event-hub-output.png" lightbox="media/on-azure-stack/event-hub-output.png" alt-text="Screenshot that shows Event Hub outputs.":::
    #### Blob storage 
 
    | Field | Value |
    | --- | --- |
    | Output alias | A friendly name used in queries to direct the query output to this blob storage. |
-   | Storage account | The name of the storage account where you're sending your output. An example is *<Storage Account Name>.blob.shanghai.azurestack.corp.microsoft.com*. |
+   | Storage account | The name of the storage account where you're sending your output. An example is `<Storage Account Name>.blob.shanghai.azurestack.corp.microsoft.com`. |
    | Storage account key | The secret key associated with the storage account. This option is automatically populated unless you select the option to provide the blob storage settings manually. |
 
 > [!NOTE]
@@ -156,17 +151,16 @@ After you create your Stream Analytics job in the Azure portal, configure it wit
 1. Select **Set modules** > **+ Add**, and then select **Azure Stream Analytics Module**. 
 1. Select the subscription and the Stream Analytics edge job that you created. Select **Save**, and then select **Next:Routes**.
 
-   > [!div class="mx-imgBorder"]
-   > [ ![Screenshot that shows adding modules.](media/on-azure-stack/edge-modules.png) ](media/on-azure-stack/edge-modules.png#lightbox)
+   :::image type="content" source="media/on-azure-stack/edge-modules.png" lightbox="media/on-azure-stack/edge-modules.png" alt-text="Screenshot that shows adding modules.":::
 
 1. Select **Review + create >**.
-1. In the **Review + create** step, select **Create**. 
-   > [!div class="mx-imgBorder"]
-   > [ ![Screenshot that shows the manifest.](media/on-azure-stack/module-content.png) ](media/on-azure-stack/module-content.png#lightbox)
-1. Confirm that the module is added to the list.
-   > [!div class="mx-imgBorder"]
-   > [ ![Screenshot that shows the deployment page.](media/on-azure-stack/edge-deployment.png) ](media/on-azure-stack/edge-deployment.png#lightbox)
+1. In the **Review + create** step, select **Create**.
 
+   :::image type="content" source="media/on-azure-stack/module-content.png" lightbox="media/on-azure-stack/module-content.png" alt-text="Screenshot that shows the manifest.":::
+
+1. Confirm that the module is added to the list.
+
+   :::image type="content" source="media/on-azure-stack/edge-deployment.png" lightbox="media/on-azure-stack/edge-deployment.png" alt-text="Screenshot that shows the deployment page.":::
 ## Next steps
 - [Azure Stream Analytics on IoT Edge](./stream-analytics-edge.md)
 - [Develop Stream Analytics edge jobs](/stream-analytics-query/stream-analytics-query-language-reference)

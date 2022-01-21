@@ -6,6 +6,7 @@ ms.author: stevevi
 ms.service: azure-government
 ms.topic: quickstart
 ms.date: 06/14/2021
+ms.custom: mode-other
 ---
 
 # Deploy STIG-compliant Linux Virtual Machines (Preview)

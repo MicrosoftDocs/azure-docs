@@ -11,7 +11,6 @@ editor: TomSh
 ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -65,7 +64,7 @@ For even more powerful protection, consider using [Windows Defender Advanced Thr
 Learn more:
 
 * [Get Started with WDATP](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)  
-* [Overview of WDATP capabilities](/microsoft-365/security/defender-endpoint/whats-new-in-microsoft-defender-atp)  
+* [Overview of WDATP capabilities](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/what-s-new-in-the-wdatp-portal/ba-p/200828)  
 
 ## Hardware security module
 
@@ -130,18 +129,18 @@ Learn more:
 
 ## Security policy management and reporting
 
-Azure Security Center helps you prevent, detect, and respond to threats. Security Center gives you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. It helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+Microsoft Defender for Cloud helps you prevent, detect, and respond to threats. Defender for Cloud gives you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. It helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-Security Center helps you optimize and monitor the security of your virtual machines by:
+Defender for Cloud helps you optimize and monitor the security of your virtual machines by:
 
 * Providing [security recommendations](../../security-center/security-center-recommendations.md) for the virtual machines. Example recommendations include: apply system updates, configure ACLs endpoints, enable antimalware, enable network security groups, and apply disk encryption.
 * Monitoring the state of your virtual machines.
 
 Learn more:
 
-* [Introduction to Azure Security Center](../../security-center/security-center-introduction.md)
-* [Azure Security Center frequently asked questions](../../security-center/faq-general.yml)
-* [Azure Security Center planning and operations](../../security-center/security-center-planning-and-operations-guide.md)
+* [Introduction to Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
+* [Microsoft Defender for Cloud frequently asked questions](../../security-center/faq-general.yml)
+* [Microsoft Defender for Cloud planning and operations](../../security-center/security-center-planning-and-operations-guide.md)
 
 ## Compliance
 

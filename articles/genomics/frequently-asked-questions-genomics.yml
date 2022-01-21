@@ -4,9 +4,9 @@ metadata:
   titleSuffix: Microsoft Genomics
   description: Get answers to common questions related to using the Microsoft Genomics service, including technical information, SLA, and billing. 
   services: genomics
-  author: grhuynh
+  author: vigunase
   manager: cgronlun
-  ms.author: grhuynh
+  ms.author: vigunase
   ms.service: genomics
   ms.topic: troubleshooting
   ms.date: 12/07/2017

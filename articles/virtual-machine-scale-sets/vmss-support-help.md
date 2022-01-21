@@ -20,7 +20,7 @@ Here are suggestions for where you can get help when developing your Azure virtu
 
 Various articles explain how to determine, diagnose, and fix issues that you might encounter when using [Azure Virtual Machines](../virtual-machines/index.yml) and [virtual machine scale sets](overview.md).
 
--  [Azure Virtual Machine troubleshooting documentation](/troubleshoot/azure/virtual-machines/welcome-virtual-machines) 
+-  [Azure Virtual Machine scale set troubleshooting documentation](/troubleshoot/azure/virtual-machine-scale-sets/welcome-virtual-machine-scale-sets) 
 - [Frequently asked questions about Azure virtual machine scale sets](virtual-machine-scale-sets-faq.yml)
 
 
@@ -45,7 +45,7 @@ If you can't find an answer to your problem using search, submit a new question 
 | [Azure Virtual Machine Images](../virtual-machines/shared-image-galleries.md) | [azure-virtual-machine-images](/answers/topics/azure-virtual-machines-images.html) | 
 | [Azure Virtual Machine migration](../virtual-machines/classic-vm-deprecation.md) | [azure-virtual-machine-migration](/answers/topics/azure-virtual-machines-migration.html) | 
 | [Azure Virtual Machine monitoring](../azure-monitor/vm/monitor-vm-azure.md) | [azure-virtual-machine-monitoring](/answers/topics/azure-virtual-machines-monitoring.html) |
-| [Azure Virtual Machine networking](../virtual-machines/network-overview.md) | [azure-virtual-machine-networking](/answers/topics/azure-virtual-machines-networking.html) | 
+| [Azure Virtual Machine networking](../virtual-network/network-overview.md) | [azure-virtual-machine-networking](/answers/topics/azure-virtual-machines-networking.html) | 
 | [Azure Virtual Machine storage](../virtual-machines/managed-disks-overview.md) | [azure-virtual-machine-storage](/answers/topics/azure-virtual-machines-storage.html) | 
 
 ## Create an Azure support request
@@ -82,19 +82,6 @@ If you need help with the language and tools used to develop and manage Azure vi
 | Terraform | https://github.com/Azure/terraform/issues | 
 | Ansible | https://github.com/Azure/Ansible/issues | 
 
-
-
-## Submit feature requests on Azure Feedback
-
-<div class='icon is-large'>
-    <img alt='UserVoice' src='./media/logos/azure-feedback-logo.png'>
-</div>
-
-To request new features, post them on Azure Feedback. Share your ideas for improving Azure virtual machine scale sets.
-
-| Service                       | Azure Feedback URL |
-|-------------------------------|---------------|
-| Azure Virtual Machines  | https://feedback.azure.com/forums/216843-virtual-machines 
 
 ## Stay informed of updates and new releases
 

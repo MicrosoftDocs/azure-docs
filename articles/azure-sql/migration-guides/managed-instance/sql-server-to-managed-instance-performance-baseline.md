@@ -8,7 +8,7 @@ ms.devlang:
 ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: mathoma
+ms.reviewer: mathoma, wiassaf
 ms.date: 11/06/2020
 ---
 # Migration performance: SQL Server to  Azure SQL Managed Instance performance baseline

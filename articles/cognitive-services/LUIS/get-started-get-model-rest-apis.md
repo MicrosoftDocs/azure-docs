@@ -5,6 +5,7 @@ description: In this article, add example utterances to change a model and train
 services: cognitive-services
 
 manager: nitinme
+ms.devlang: csharp, golang, java, javascript, python
 ms.custom: "seodec18, devx-track-python, devx-track-js, devx-track-csharp"
 ms.service: cognitive-services
 ms.subservice: language-understanding

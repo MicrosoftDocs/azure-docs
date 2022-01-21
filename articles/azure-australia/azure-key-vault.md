@@ -101,7 +101,7 @@ It is important to develop an appropriate key rotation strategy for keys which a
 ### High availability
 
 The ISM has several controls that relate to Business Continuity.
-Azure Key Vault has multiple layers of redundancy with contents replicated within the region and to the secondary, [paired region](../best-practices-availability-paired-regions.md).
+Azure Key Vault has multiple layers of redundancy with contents replicated within the region and to the secondary, [paired region](../availability-zones/cross-region-replication-azure.md).
 
 When the key vault is in a fail-over state, it is in read-only mode and will return to read-write mode the primary service is restored.
 

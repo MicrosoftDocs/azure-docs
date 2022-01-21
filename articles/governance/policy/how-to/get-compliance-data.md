@@ -67,7 +67,7 @@ Evaluations of assigned policies and initiatives happen as the result of various
   pre-defined expectation of when the evaluation cycle completes. Once it completes, updated
   compliance results are available in the portal and SDKs.
 
-- The [Guest Configuration](../concepts/guest-configuration.md) resource provider is updated with
+- The [guest configuration](../concepts/guest-configuration.md) resource provider is updated with
   compliance details by a managed resource.
 
 - On-demand scan

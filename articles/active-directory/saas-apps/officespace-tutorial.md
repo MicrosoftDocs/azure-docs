@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * OfficeSpace Software supports **SP** initiated SSO.
+* OfficeSpace Software supports [**automated user provisioning and deprovisioning**](officespace-software-provisioning-tutorial.md) (recommended).
 * OfficeSpace Software supports **Just In Time** user provisioning.
 
 ## Add OfficeSpace Software from the gallery
@@ -158,7 +159,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 In this section, a user called B.Simon is created in OfficeSpace Software. OfficeSpace Software supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in OfficeSpace Software, a new one is created after authentication.
 
 > [!NOTE]
-> If you need to create an user manually, you need to Contact [OfficeSpace Software support team](mailto:support@officespacesoftware.com).
+> If you need to create a user manually, you need to Contact [OfficeSpace Software support team](mailto:support@officespacesoftware.com).
 
 ## Test SSO 
 
@@ -168,8 +169,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to OfficeSpace Software Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the OfficeSpace Software tile in the My Apps, this will redirect to OfficeSpace Software Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the OfficeSpace Software tile in the My Apps, this will redirect to OfficeSpace Software Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure OfficeSpace Software you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure OfficeSpace Software you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

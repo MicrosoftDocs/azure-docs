@@ -9,7 +9,7 @@ ms.date: 09/21/2020
 ms.custom: references_regions
 ---
 
-# Manage zone redundant high availability in Azure Database for MySQL Flexible Server (Preview)
+# Manage zone redundant high availability in Azure Database for MySQL Flexible Server 
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -29,7 +29,7 @@ This page provides guidelines how you can enable or disable high availability. T
 
 This section provides details specifically for HA-related fields. You can follow these steps to deploy high availability while creating your flexible server.
 
-1. In the [Azure portal](https://portal.azure.com/), choose flexible Server and Select **Create**.  For details on how to fill details such as **Subscription**, **Resource group**, **Server name**, **Region**, and other fields, see how-to documentation for the server creation.
+1. In the [Azure portal](https://portal.azure.com/), choose flexible Server and Select **Create**.  For details on how to fill details such as **Subscription**, **Resource group**, **Server name**, **Region**, and other fields, see how-to documentation for the server creation.
 
 2. Select the checkbox for **Zone redundant high availability** in the Availability option.
 
@@ -49,11 +49,11 @@ This section provides details specifically for HA-related fields. You can follow
 
 Follow these steps to disable high availability for your flexible server that is already configured with zone redundancy.
 
-1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for MySQL flexible server.
+1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for MySQL flexible server.
 
-2. On the flexible server page, Select **High Availability** from the front panel to open high availability page.
+2. On the flexible server page, Select **High Availability** from the front panel to open high availability page.
 
-3. Select on the **zone redundant high availability** checkbox to disable the option and Select **Save** to save the change.
+3. Select on the **zone redundant high availability** checkbox to disable the option and Select **Save** to save the change.
 
 4. A confirmation dialog will be shown where you can confirm disabling HA.
 
@@ -65,9 +65,9 @@ Follow these steps to disable high availability for your flexible server that is
 
 Follow these steps to force failover from your primary to standby flexible server
 
-1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for MySQL flexible server which has high availability feature enabled.
+1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for MySQL flexible server which has high availability feature enabled.
 
-2. On the flexible server page, Select **High Availability** from the front panel to open high availability page.
+2. On the flexible server page, Select **High Availability** from the front panel to open high availability page.
 
 3. Check the **Primary availability zone** and the **Standby availability zone**
 
@@ -84,4 +84,4 @@ Follow these steps to force failover from your primary to standby flexible serve
 ## Next steps
 
 - Learn about [business continuity](./concepts-business-continuity.md)
-- Learn about [zone redundant high availability](./concepts-high-availability.md)
+- Learn about [zone redundant high availability](./concepts-high-availability.md)

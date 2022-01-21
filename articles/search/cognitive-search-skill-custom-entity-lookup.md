@@ -6,7 +6,7 @@ description: Extract different custom entities from text in an Azure Cognitive S
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
 ---
 

@@ -73,6 +73,9 @@
     - name: Monitor delegation changes
       displayName: activity log
       href: ./how-to/monitor-delegation-changes.md
+    - name: Onboard subscriptions in a management group
+      displayName: mg, policy, logic app
+      href: ./how-to/onboard-management-group.md
   - name: View and manage customers 
     displayName: my customers
     href: ./how-to/view-manage-customers.md
@@ -98,7 +101,7 @@
       - name: Deploy a policy that can be remediated
         displayName: deployIfNotExists, modify, managed identities, managed identity
         href: ./how-to/deploy-policy-remediation.md
-    - name: Azure Sentinel integration
+    - name: Microsoft Sentinel integration
       href: ./how-to/manage-sentinel-workspaces.md
 - name: Reference
   items:
@@ -115,7 +118,7 @@
   - name: REST
     href: /rest/api/managedservices/
   - name: OpenAPI
-    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-09-01
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./samples/policy-reference.md
@@ -134,4 +137,4 @@
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-lighthouse&regions=all
   - name: Product feedback
-    href: https://feedback.azure.com/forums/922753
+    href: https://feedback.azure.com/d365community/forum/cd8dfdcb-f824-ec11-b6e6-000d3a4f0da0

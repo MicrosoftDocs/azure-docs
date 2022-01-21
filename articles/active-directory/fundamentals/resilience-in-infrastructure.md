@@ -1,9 +1,9 @@
 ---
 title: Build resilience in your IAM infrastructure with Azure Active Directory
-description: A guide for architects and IT administrators non building resilience to disruption of their IAM infrastructure.
+description: A guide for architects and IT administrators on building resilience to disruption of their IAM infrastructure.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals

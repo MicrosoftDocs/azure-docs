@@ -14,7 +14,7 @@ metadata:
   ms.collection: collection
   ms.author: sgilley
   author: sdgilley
-  ms.date: 08/02/2021
+  ms.date: 10/21/2021
   ms.custom: jordan-changes
 
 # highlightedContent section 
@@ -42,9 +42,9 @@ highlightedContent:
       itemType: get-started
       url: tutorial-1st-experiment-hello-world.md 
     # Card
-    - title: "Responsible machine learning"
-      itemType: concept
-      url: concept-responsible-ml.md      
+    - title: "Migrate from ML Studio (classic)"
+      itemType: how-to-guide
+      url: migrate-overview.md      
 
 conceptualContent:
 # Supports up to 3 sections
@@ -69,15 +69,19 @@ conceptualContent:
     # Card
     - title: Deploy models
       links:
-        - url: how-to-deploy-and-where.md
-          itemType: how-to-guide
-          text: How to deploy a model
+        - url: concept-endpoints.md
+          itemType: concept
+          text: Streamline model deployment with endpoints (preview)
         - url: how-to-deploy-managed-online-endpoints.md
           itemType: how-to-guide
           text: Real-time scoring with a managed endpoint (preview)
         - url: how-to-use-batch-endpoint.md
           itemType: how-to-guide
           text: Batch scoring with managed endpoints (preview)
+        - url: how-to-deploy-and-where.md
+          itemType: how-to-guide
+          text: Options for deploying models without using endpoints
+
     # Card
     - title: Manage the ML lifecycle (MLOps)
       links:
@@ -114,6 +118,9 @@ conceptualContent:
         - url: /cli/azure/ml/
           itemType: reference
           text: V2 CLI (preview)
+        - url: ./algorithm-module-reference/module-reference.md
+          itemType: reference
+          text: Algorithm & module reference 
     # Card
     - title: Resources
       links:

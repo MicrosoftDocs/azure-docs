@@ -1,15 +1,15 @@
 ---
-title: Capture images for a no-code vision solution in Azure Percept Studio
+title: Capture images in Azure Percept Studio
 description: How to capture images with your Azure Percept DK in Azure Percept Studio
-author: mimcco
-ms.author: mimcco
+author: nkhuyent
+ms.author: nbabar
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Capture images for a vision project in Azure Percept Studio
+# Capture images in Azure Percept Studio
 
 Follow this guide to capture images using Azure Percept DK for an existing vision project. If you haven't created a vision project yet, see the [no-code vision tutorial](./tutorial-nocode-vision.md).
 

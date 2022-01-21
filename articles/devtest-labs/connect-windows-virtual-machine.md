@@ -1,5 +1,5 @@
 ---
-title: Connect to your Windows virtual machines in Azure DevTest Labs
+title: Connect to your Windows virtual machines
 description: Learn how to connect to your Windows virtual machine in a lab (Azure DevTest Labs)
 ms.topic: how-to
 ms.date: 07/17/2020

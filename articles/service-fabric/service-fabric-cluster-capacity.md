@@ -59,7 +59,7 @@ A further consideration for your node type properties is durability level, which
 The *durability level* designates the privileges your Service Fabric VMs have with the underlying Azure infrastructure. This privilege allows Service Fabric to pause any VM-level infrastructure request (such as reboot, reimage, or migration) that impacts the quorum requirements for Service Fabric system services and your stateful services.
 
 > [!IMPORTANT]
-> Durability level is set per node type. If there's none specified, *Bronze* tier will be used, however it doesn't provide automatic OS upgrades. *Silver* or *Gold* durability is recommended for production workloads.
+> Durability level is set per node type. If there's none specified, *Bronze* tier will be used. Production workloads require a durability level of Silver or Gold to help avoid data loss from VM-level infrastructure requests.
 
 The table below lists Service Fabric durability tiers, their requirements, and affordances.
 

@@ -1,7 +1,7 @@
 ---
 title: Third-party data modeling tools for Azure Cosmos DB graph data
 description: This article describes various tools to  design the Graph data model.
-author: mansha
+author: manishmsfte
 ms.author: mansha
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -35,7 +35,7 @@ This tool provides the data modeling of vertices / edges and their respective pr
 
 The animation at Figure-2 provides a demonstration of reverse engineering, extraction of entities from RDBMS then Hackolade will discover relations from foreign key relationships then modifications.
 
-Sample DDL for source as SQL Server available at [here](https://github.com/Azure-Samples/northwind-ddl-sample/nw.sql)   
+Sample DDL for source as SQL Server available at [here](https://github.com/Azure-Samples/northwind-ddl-sample/blob/main/nw.sql)   
 
 
 :::image type="content" source="./media/graph-modeling-tools/hackolade-screenshot.jpg" alt-text="Graph Diagram":::
@@ -49,9 +49,8 @@ The following image demonstrates reverse engineering from RDBMS & Hackolade in a
 **Figure-2:** Hackolade in action (demonstrating SQL to Gremlin data model conversion)
 ### Useful links 
 -	[Download a 14-day free trial](https://hackolade.com/download.html)
--	[Schedule a demo](https://c.x.ai/pdesmarets)
 -  [Get more data models](https://hackolade.com/samplemodels.html#cosmosdb).
 -  [Documentation of Hackolade](https://hackolade.com/help/CosmosDBGremlin.html)
 
 ## Next steps
-- [Visualizing the data](/graph-visualization)
+- [Visualizing the data](./graph-visualization-partners.md)

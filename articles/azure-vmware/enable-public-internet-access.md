@@ -120,12 +120,12 @@ Once all components are deployed, you can see them in the added Resource group. 
 
 1. Under the **DNS** tab, select **Disable**, and then select **Next: Rules**.
 
-1. Select **Add a rule collection**, provide the below details, and select **Add** and then select **Next: Threat intelligence**.
+1. Select **Add a rule collection**, provide the below details and select **Add**. Then select **Next: Threat intelligence**.
 
    -  Name
-   -  Rules collection Type - DNAT
+   -  Rules collection Type - **DNAT**
    -  Priority
-   -  Rule collection Action – Allow
+   -  Rule collection Action – **Allow**
    -  Name of rule
    -  Source Type- **IPaddress**
    -  Source - **\***

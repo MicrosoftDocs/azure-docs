@@ -1,5 +1,5 @@
 ---
-title: 'What is a workspace'
+title: 'What is a workspace?'
 titleSuffix: Azure Machine Learning
 description: The workspace is the top-level resource for Azure Machine Learning. It keeps a history of all training runs, with logs, metrics, output, and a snapshot of your scripts. 
 services: machine-learning
@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2021
+ms.date: 01/04/2022
 #Customer intent: As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
 
@@ -112,11 +112,22 @@ When you create a new workspace, it automatically creates several Azure resource
   > By default, the storage account is a general-purpose v1 account. You can [upgrade this to general-purpose v2](../storage/common/storage-account-upgrade.md) after the workspace has been created. 
   > Do not enable hierarchical namespace on the storage account after upgrading to general-purpose v2.
 
-  To use an existing Azure Storage account, it cannot be of type BlobStorage or a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
+  To use an existing Azure Storage account, it cannot be of type BlobStorage or a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage nor hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
   
-+ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that you use during training and when you deploy a model. To minimize costs, ACR is **lazy-loaded** until deployment images are created.
++ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that are used for the following components:
+    * [Azure Machine Learning environments](concept-environments.md) when training and deploying models
+    * [AutoML](concept-automated-ml.md) when deploying
+    * [Data profiling](how-to-connect-data-ui.md#data-profile-and-preview)
 
-+ [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Stores monitoring information about your models.
+    To minimize costs, ACR is **lazy-loaded** until images are needed.
+
+    > [!NOTE]
+    > If your subscription setting requires adding tags to resources under it, Azure Container Registry (ACR) created by Azure Machine Learning will fail, since we cannot set tags to ACR.
+
++ [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Stores monitoring and diagnostics information. For more information, see [Monitor and collect data from Machine Learning web service endpoints](../../articles/machine-learning/how-to-enable-app-insights.md).
+
+    > [!NOTE]
+    > You can delete the Application Insights instance after cluster creation if you want. Deleting it limits the information gathered from the workspace, and may make it more difficult to troubleshoot problems. __If you delete the Application Insights instance created by the workspace, you cannot re-create it without deleting and recreating the workspace__.
 
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Stores secrets that are used by compute targets and other sensitive information that's needed by the workspace.
 

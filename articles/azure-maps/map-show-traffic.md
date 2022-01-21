@@ -1,13 +1,11 @@
 ---
 title: Show traffic on a map | Microsoft Azure Maps
 description: Find out how to add traffic data to maps. Learn about flow data, and see how to use the Azure Maps Web SDK to add incident data and flow data to maps.
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-manager: 
 ms.custom: codepen, devx-track-js
 ---
 
@@ -39,7 +37,7 @@ Below is the complete running code sample of the above functionality.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Show traffic on a map' src='//codepen.io/azuremaps/embed/WMLRPw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>Show traffic on a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Show traffic on a map' src='//codepen.io/azuremaps/embed/WMLRPw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>Show traffic on a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## Traffic overlay options
@@ -48,7 +46,7 @@ The following tool lets you switch between the different traffic overlay setting
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Traffic overlay options" src="//codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="700" scrolling="no" title="Traffic overlay options" src="//codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>Traffic overlay options</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -70,7 +68,7 @@ map.controls.add(new atlas.control.TrafficLegendControl(), { position: 'bottom-l
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Traffic controls" src="https://codepen.io/azuremaps/embed/ZEWaeLJ?height500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" scrolling="no" title="Traffic controls" src="https://codepen.io/azuremaps/embed/ZEWaeLJ?height500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/ZEWaeLJ'>Traffic controls</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>

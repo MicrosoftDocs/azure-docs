@@ -142,7 +142,7 @@ Create a [QnAMakerRuntimeClient](https://github.com/Azure/azure-sdk-for-ruby/blo
 
 :::code language="ruby" source="~/cognitive-services-quickstart-code/ruby/qnamaker/sdk/quickstart.rb" id="AuthorizationQuery":::
 
-Use the QnAMakerRuntimeClient to get an answer from the knowledge or to send new suggested questions to the knowledge base for [active learning](../concepts/active-learning-suggestions.md).
+Use the QnAMakerRuntimeClient to get an answer from the knowledge or to send new suggested questions to the knowledge base for [active learning](../index.yml).
 
 ## Generate an answer from the knowledge base
 

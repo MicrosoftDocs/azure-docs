@@ -6,6 +6,8 @@
     href: overview.md
 - name: Quickstarts
   items:
+  - name: Portal
+    href: quickstart-portal.md
   - name: Python
     href: quickstart-python.md
   - name: ARM template

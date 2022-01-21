@@ -85,7 +85,7 @@ appconfigId=$(az appconfig show --name <appconfig_name> --resource-group <resour
 endpoint=https://$sitename.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \
-  --resource-id $appconfigId \
+  --source-resource-id $appconfigId \
   --name <event_subscription_name> \
   --endpoint $endpoint
 ```
@@ -111,7 +111,8 @@ You've triggered the event, and Event Grid sent the message to the endpoint you 
   "subject": "https://{appconfig-name}.azconfig.io/kv/Foo",
   "data": {
     "key": "Foo",
-    "etag": "a1LIDdNEIV6wCnfv3xaip7fMXD3"
+    "etag": "a1LIDdNEIV6wCnfv3xaip7fMXD3",
+    "syncToken":"zAJw6V16=Njo1IzMzMjE3MzA=;sn=3321730"
   },
   "eventType": "Microsoft.AppConfiguration.KeyValueModified",
   "eventTime": "2019-05-31T18:59:54Z",

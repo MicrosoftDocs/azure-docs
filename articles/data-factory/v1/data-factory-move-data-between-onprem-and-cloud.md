@@ -4,8 +4,9 @@ description: Set up a data gateway to move data between on-premises and the clou
 author: nabhishek
 ms.author: abnarain
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 robots: noindex
 ---
 # Move data between on-premises sources and the cloud with Data Management Gateway
@@ -44,10 +45,10 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
 1. Log in to the [Azure portal](https://portal.azure.com).
 2. Click **Create a resource**, click **Intelligence + analytics**, and click **Data Factory**.
 
-   ![New->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
+   :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png" alt-text="New->DataFactory":::  
 3. In the **New data factory** page, enter **ADFTutorialOnPremDF** for the Name.
 
-    ![Add to Startboard](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png" alt-text="Add to Startboard":::
 
    > [!IMPORTANT]
    > The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name "ADFTutorialOnPremDF" is not available**, change the name of the data factory (for example, yournameADFTutorialOnPremDF) and try creating again. Use this name in place of ADFTutorialOnPremDF while performing remaining steps in this tutorial.
@@ -65,18 +66,18 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
    >
 7. After creation is complete, you see the **Data Factory** page as shown in the following image:
 
-   ![Data Factory Home Page](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
+   :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png" alt-text="Data Factory Home Page":::
 
 ## Create gateway
 1. In the **Data Factory** page, click **Author and deploy** tile to launch the **Editor** for the data factory.
 
-    ![Author and Deploy Tile](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png" alt-text="Author and Deploy Tile":::
 2. In the Data Factory Editor, click **... More** on the toolbar and then click **New data gateway**. Alternatively, you can right-click **Data Gateways** in the tree view, and click **New data gateway**.
 
-   ![New data gateway on toolbar](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
+   :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png" alt-text="New data gateway on toolbar":::
 3. In the **Create** page, enter **adftutorialgateway** for the **name**, and click **OK**.     
 
-    ![Create Gateway page](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png" alt-text="Create Gateway page":::
 
     > [!NOTE]
     > In this walkthrough, you create the logical gateway with only one node (on-premises Windows machine). You can scale out a data management gateway by associating multiple on-premises machines with the gateway. You can scale up by increasing number of data movement jobs that can run concurrently on a node. This feature is also available for a logical gateway with a single node. See [Scaling data management gateway in Azure Data Factory](data-factory-data-management-gateway-high-availability-scalability.md) article for details.  
@@ -91,7 +92,7 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
    >
    >
 
-    ![Gateway - Configure page](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png" alt-text="Gateway - Configure page":::
 
     This way is the easiest way (one-click) to download, install, configure, and register the gateway in one single step. You can see the **Microsoft Data Management Gateway Configuration Manager** application is installed on your computer. You can also find the executable **ConfigManager.exe** in the folder: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**.
 
@@ -105,10 +106,10 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
    >
 5. Wait for a couple of minutes or wait until you see the following notification message:
 
-    ![Gateway installation successful](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png" alt-text="Gateway installation successful":::
 6. Launch **Data Management Gateway Configuration Manager** application on your computer. In the **Search** window, type **Data Management Gateway** to access this utility. You can also find the executable **ConfigManager.exe** in the folder: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
 
-    ![Gateway Configuration Manager](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png" alt-text="Gateway Configuration Manager":::
 7. Confirm that you see `adftutorialgateway is connected to the cloud service` message. The status bar the bottom displays **Connected to the cloud service** along with a **green check mark**.
 
     On the **Home** tab, you can also do the following operations:
@@ -120,7 +121,7 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
    * Specify time at which an update to the gateway can be installed.
 8. Switch to the **Settings** tab. The certificate specified in the **Certificate** section is used to encrypt/decrypt credentials for the on-premises data store that you specify on the portal. (optional) Click **Change** to use your own certificate instead. By default, the gateway uses the certificate that is auto-generated by the Data Factory service.
 
-    ![Gateway certificate configuration](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png" alt-text="Gateway certificate configuration":::
 
     You can also do the following actions on the **Settings** tab:
 
@@ -129,7 +130,7 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
    * Set an HTTP proxy to be used by the gateway.     
 9. (optional) Switch to the **Diagnostics** tab, check the **Enable verbose logging** option if you want to enable verbose logging that you can use to troubleshoot any issues with the gateway. The logging information can be found in **Event Viewer** under **Applications and Services Logs** -> **Data Management Gateway** node.
 
-    ![Diagnostics tab](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png" alt-text="Diagnostics tab":::
 
     You can also perform the following actions in the **Diagnostics** tab:
 
@@ -146,7 +147,7 @@ In this step, you create two linked services: **AzureStorageLinkedService** and 
 #### Add a linked service to a SQL Server database
 1. In the **Data Factory Editor**, click **New data store** on the toolbar and select **SQL Server**.
 
-   ![New SQL Server linked service](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
+   :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png" alt-text="New SQL Server linked service":::
 2. In the **JSON editor** on the right, do the following steps:
 
    1. For the **gatewayName**, specify **adftutorialgateway**.    
@@ -156,14 +157,14 @@ In this step, you create two linked services: **AzureStorageLinkedService** and 
       2. For **databasename**, enter the name of the database.
       3. Click **Encrypt** button on the toolbar. You see the Credentials Manager application.
 
-         ![Credentials Manager application](./media/data-factory-move-data-between-onprem-and-cloud/credentials-manager-application.png)
+         :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/credentials-manager-application.png" alt-text="Credentials Manager application":::
       4. In the **Setting Credentials** dialog box, specify authentication type, user name, and password, and click **OK**. If the connection is successful, the encrypted credentials are stored in the JSON and the dialog box closes.
       5. Close the empty browser tab that launched the dialog box if it is not automatically closed and get back to the tab with the Azure portal.
 
          On the gateway machine, these credentials are **encrypted** by using a certificate that the Data Factory service owns. If you want to use the certificate that is associated with the Data Management Gateway instead, see Set credentials securely.    
    3. Click **Deploy** on the command bar to deploy the SQL Server linked service. You should see the linked service in the tree view.
 
-      ![SQL Server linked service in the tree view](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    
+      :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png" alt-text="SQL Server linked service in the tree view":::    
 
 #### Add a linked service for an Azure storage account
 1. In the **Data Factory Editor**, click **New data store** on the command bar and click **Azure storage**.
@@ -180,7 +181,7 @@ In this step, you create input and output datasets that represent input and outp
 ### Prepare On-premises SQL Server for the tutorial
 1. In the database you specified for the SQL Server linked service (**SqlServerLinkedService**), use the following SQL script to create the **emp** table in the database.
 
-    ```SQL   
+    ```sql
     CREATE TABLE dbo.emp
     (
         ID int IDENTITY(1,1) NOT NULL,
@@ -190,9 +191,10 @@ In this step, you create input and output datasets that represent input and outp
     )
     GO
     ```
+
 2. Insert some sample into the table:
 
-    ```SQL
+    ```sql
     INSERT INTO emp VALUES ('John', 'Doe')
     INSERT INTO emp VALUES ('Jane', 'Doe')
     ```
@@ -200,10 +202,11 @@ In this step, you create input and output datasets that represent input and outp
 ### Create input dataset
 
 1. In the **Data Factory Editor**, click **... More**, click **New dataset** on the command bar, and click **SQL Server table**.
+
 2. Replace the JSON in the right pane with the following text:
 
-    ```JSON   
-    {        
+    ```json
+    {
         "name": "EmpOnPremSQLTable",
         "properties": {
             "type": "SqlServerTable",
@@ -224,8 +227,9 @@ In this step, you create input and output datasets that represent input and outp
                 }
             }
         }
-    }     
-    ```       
+    }
+    ```
+
    Note the following points:
 
    * **type** is set to **SqlServerTable**.
@@ -234,14 +238,15 @@ In this step, you create input and output datasets that represent input and outp
    * For an input dataset that is not generated by another pipeline in Azure Data Factory, you must set **external** to **true**. It denotes the input data is produced external to the Azure Data Factory service. You can optionally specify any external data policies using the **externalData** element in the **Policy** section.    
 
    See [Move data to/from SQL Server](data-factory-sqlserver-connector.md) for details about JSON properties.
-3. Click **Deploy** on the command bar to deploy the dataset.  
+
+3. Click **Deploy** on the command bar to deploy the dataset.
 
 ### Create output dataset
 
 1. In the **Data Factory Editor**, click **New dataset** on the command bar, and click **Azure Blob storage**.
 2. Replace the JSON in the right pane with the following text:
 
-    ```JSON   
+    ```json
     {
         "name": "OutputBlobTable",
         "properties": {
@@ -259,8 +264,9 @@ In this step, you create input and output datasets that represent input and outp
                 "interval": 1
             }
         }
-     }
-    ```   
+    }
+    ```
+
    Note the following points:
 
    * **type** is set to **AzureBlob**.
@@ -337,11 +343,10 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
          "isPaused": false
        }
      }
-    ```   
+    ```
+
    > [!IMPORTANT]
    > Replace the value of the **start** property with the current day and **end** value with the next day.
-   >
-   >
 
    Note the following points:
 
@@ -365,10 +370,10 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 #### View the data factory in a Diagram View
 1. In the **Azure portal**, click **Diagram** tile on the home page for the **ADFTutorialOnPremDF** data factory. :
 
-    ![Diagram Link](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png" alt-text="Diagram Link":::
 2. You should see the diagram similar to the following image:
 
-    ![Diagram View](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png" alt-text="Diagram View":::
 
     You can zoom in, zoom out, zoom to 100%, zoom to fit, automatically position pipelines and datasets, and show lineage information (highlights upstream and downstream items of selected items).  You can double-click an object (input/output dataset or pipeline) to see properties for it.
 
@@ -377,19 +382,19 @@ In this step, you use the Azure portal to monitor what's going on in an Azure da
 
 1. In the diagram, double-click **EmpOnPremSQLTable**.  
 
-    ![EmpOnPremSQLTable slices](./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png" alt-text="EmpOnPremSQLTable slices":::
 2. Notice that all the data slices up are in **Ready** state because the pipeline duration (start time to end time) is in the past. It is also because you have inserted the data in the SQL Server database and it is there all the time. Confirm that no slices show up in the **Problem slices** section at the bottom. To view all the slices, click **See More** at the bottom of the list of slices.
 3. Now, In the **Datasets** page, click **OutputBlobTable**.
 
-    ![OputputBlobTable slices](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png" alt-text="OputputBlobTable slices":::
 4. Click any data slice from the list and you should see the **Data Slice** page. You see activity runs for the slice. You see only one activity run usually.  
 
-    ![Data Slice Blade](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png" alt-text="Data Slice Blade":::
 
     If the slice is not in the **Ready** state, you can see the upstream slices that are not Ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list.
 5. Click the **activity run** from the list at the bottom to see **activity run details**.
 
-   ![Activity Run Details page](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)
+   :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png" alt-text="Activity Run Details page":::
 
    You would see information such as throughput, duration, and the gateway used to transfer the data.
 6. Click **X** to close all the pages until you
@@ -397,7 +402,7 @@ In this step, you use the Azure portal to monitor what's going on in an Azure da
 8. (optional) Click **Pipelines**, click **ADFTutorialOnPremDF**, and drill through input tables (**Consumed**) or output datasets (**Produced**).
 9. Use tools such as [Microsoft Storage Explorer](https://storageexplorer.com/) to verify that a blob/file is created for each hour.
 
-   ![Azure Storage Explorer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
+   :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png" alt-text="Azure Storage Explorer":::
 
 ## Next steps
 * See [Data Management Gateway](data-factory-data-management-gateway.md) article for all the details about the Data Management Gateway.

@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Build policies to enforce compliance"
-description: In this tutorial, you use policies to enforce standards, control costs, maintain security, and impose enterprise wide design principles.
-ms.date: 05/01/2021
+description: In this tutorial, you use policies to enforce standards, control costs, maintain security, and impose enterprise-wide design principles.
+ms.date: 08/17/2021
 ms.topic: tutorial
 ---
 # Tutorial: Create and manage policies to enforce compliance

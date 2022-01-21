@@ -6,8 +6,8 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 06/16/2021
+ms.custom: seo-lt-2019, contperf-fy22q2
+ms.date: 11/29/2021
 ---
 
 # Azure Private Link for Azure Data Factory
@@ -59,7 +59,7 @@ Enabling the Private Link service for each of the preceding communication channe
    > Connecting to Azure Data Factory via private endpoint is only applicable to self-hosted integration runtime in data factory. It is not supported for Azure Synapse.
 
 > [!WARNING]
-> If you enable Private Link in Azure Data Factory and block public access at the same time, make sure when you create a linked service, your credentials are stored in an Azure key vault. Otherwise, the credentials won't work.
+> If you enable Private Link in Azure Data Factory and block public access at the same time, it is reccomended that you store your credentials in an Azure key vault to ensure they are secure.
 
 ## DNS changes for private endpoints
 When you create a private endpoint, the DNS CNAME resource record for the Data Factory is updated to an alias in a subdomain with the prefix 'privatelink'. By default, we also create a [private DNS zone](../dns/private-dns-overview.md), corresponding to the 'privatelink' subdomain, with the DNS A resource records for the private endpoints.
@@ -70,8 +70,8 @@ For the illustrated example above, the DNS resource records for the Data Factory
 
 | Name | Type | Value |
 | ---------- | -------- | --------------- |
-| DataFactoryA.{region}.datafactory.azure.net |	CNAME	| DataFactoryA.{region}.privatelink.datafactory.azure.net |
-| DataFactoryA.{region}.privatelink.datafactory.azure.net |	CNAME	| < data factory service public endpoint > |
+| DataFactoryA.{region}.datafactory.azure.net |	CNAME	| DataFactoryA.{region}.datafactory.azure.net |
+| DataFactoryA.{region}.datafactory.azure.net |	CNAME	| < data factory service public endpoint > |
 | < data factory service public endpoint >	| A | < data factory service public IP address > |
 
 The DNS resource records for DataFactoryA, when resolved in the VNet hosting the private endpoint, will be:
@@ -81,7 +81,7 @@ The DNS resource records for DataFactoryA, when resolved in the VNet hosting the
 | DataFactoryA.{region}.datafactory.azure.net | CNAME	| DataFactoryA.{region}.privatelink.datafactory.azure.net |
 | DataFactoryA.{region}.privatelink.datafactory.azure.net	| A | < private endpoint IP address > |
 
-If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the Data Factory endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for ' DataFactoryA.{region}.privatelink.datafactory.azure.net' with the private endpoint IP address.
+If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the Data Factory endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for ' DataFactoryA.{region}.datafactory.azure.net' with the private endpoint IP address.
 
 For more information on configuring your own DNS server to support private endpoints, refer to the following articles:
 - [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
@@ -236,7 +236,7 @@ Finally, you must create the private endpoint in your data factory.
 > Disabling public network access is applicable only to the self-hosted integration runtime, not to Azure Integration Runtime and SQL Server Integration Services (SSIS) Integration Runtime.
 
 > [!NOTE]
-> You can still access the Azure Data Factory portal through a public network after you create private endpoint for portal.
+> You can still access the Azure Data Factory portal through a public network after you create private endpoint for the portal.
 
 ## Next steps
 

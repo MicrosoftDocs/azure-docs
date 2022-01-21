@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: tutorial
-ms.date: 05/19/2021
+ms.date: 09/21/2021
 ---
 
 # Tutorial: Migrate MongoDB to Azure Cosmos DB API for MongoDB offline
@@ -45,6 +45,10 @@ To complete this tutorial, you need to:
 
 * [Complete the pre-migration](../cosmos-db/mongodb-pre-migration.md) steps, such as estimating throughput and choosing a partition key.
 * [Create an account for the Azure Cosmos DB API for MongoDB](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
+
+  > [!NOTE]
+  > DMS is currently not supported if you are migrating to API for MongoDB account that is provisioned with serverless mode.
+
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using Azure Resource Manager. This deployment model provides site-to-site connectivity to your on-premises source servers by using either [Azure ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). For more information about creating a virtual network, see the [Azure Virtual Network documentation](../virtual-network/index.yml), especially the "quickstart" articles with step-by-step details.
 
     > [!NOTE]
@@ -227,6 +231,12 @@ After the migration finishes, you can check your Azure Cosmos DB account to veri
 ## Post-migration optimization
 
 After you migrate the data stored in MongoDB database to the Azure Cosmos DB API for MongoDB, you can connect to Azure Cosmos DB and manage the data. You can also perform other post-migration optimization steps. These might include optimizing the indexing policy, updating the default consistency level, or configuring global distribution for your Azure Cosmos DB account. For more information, see [Post-migration optimization](../cosmos-db/mongodb-post-migration.md).
+
+## Additional resources
+
+* Trying to do capacity planning for a migration to Azure Cosmos DB?
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../cosmos-db/convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](../cosmos-db/mongodb/estimate-ru-capacity-planner.md)
 
 ## Next steps
 

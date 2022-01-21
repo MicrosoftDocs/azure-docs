@@ -1,13 +1,13 @@
----	
-title: Resolve login error for Azure Dev Tools for Teaching	
-description: This describes the actions a student should take if they receive an error message when logging in to Azure Dev Tools for Teaching.	
-author: rymend	
-ms.author: rymend	
-ms.topic: troubleshooting	
+---
+title: Resolve login error for Azure Dev Tools for Teaching
+description: This describes the actions a student should take if they receive an error message when logging in to Azure Dev Tools for Teaching.
+author: rymend
+ms.author: rymend
+ms.topic: troubleshooting
 ms.service: azure-education
 ms.subservice: education-hub
-ms.date: 06/30/2020	
----	
+ms.date: 06/30/2020
+---
 
 # Troubleshooting student login issues
 Accessing Azure Dev Tools for Teaching requires a user to have a Microsoft Account (MSA). Students will be automatically directed to create an MSA if their account is not already an MSA or linked to an MSA. If your domain is associated with Active Directory, all accounts under that domain are already considered an MSA.

@@ -4,9 +4,9 @@ titleSuffix: Microsoft Genomics
 description: This article describes how to file a support request to contact Microsoft Genomics if you're not able to resolve your issue with the troubleshooting guide or FAQ. 
 keywords: troubleshooting, error, debugging, support
 services: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 05/23/2018

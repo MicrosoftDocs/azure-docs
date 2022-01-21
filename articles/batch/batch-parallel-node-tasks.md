@@ -4,6 +4,7 @@ description: Increase efficiency and lower costs by using fewer compute nodes an
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.custom: "H1Hack27Feb2017, devx-track-csharp"
+ms.devlang: csharp
 ---
 # Run tasks concurrently to maximize usage of Batch compute nodes
 

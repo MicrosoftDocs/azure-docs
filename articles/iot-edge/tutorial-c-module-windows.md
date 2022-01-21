@@ -50,7 +50,7 @@ To understand your options for developing and deploying C modules using Windows 
 Before you begin this tutorial, set up your development environment by following the instructions in the [Develop IoT Edge modules using Windows containers](tutorial-develop-for-windows.md) tutorial. After you complete it, your environment will contain the following prerequisites:
 
 * A free or standard-tier [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* A [Windows device that's running Azure IoT Edge](how-to-install-iot-edge-windows-on-windows.md).
+* A [Windows device that's running Azure IoT Edge](how-to-provision-single-device-windows-symmetric.md).
 * A container registry, such as [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio 2019](/visualstudio/install/install-visual-studio), configured with the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) extension.
 * [Docker Desktop](https://docs.docker.com/docker-for-windows/install/), configured to run Windows containers.

@@ -3,7 +3,7 @@ title: Manage expiration of web content in Azure CDN | Microsoft Docs
 description: Learn how to manage expiration of Azure Web Apps/Cloud Services, ASP.NET, or IIS content in Azure CDN.
 services: cdn
 documentationcenter: .NET
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 
@@ -11,11 +11,11 @@ ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
 ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: how-to
 ms.date: 02/15/2018
-ms.author: allensu
+ms.author: duau
 
 ---
 # Manage expiration of web content in Azure CDN
@@ -75,7 +75,7 @@ The preferred method for setting a web server's `Cache-Control` header is to use
 
     ![CDN custom caching rules example](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 
-    The first custom caching rule sets a cache duration of four hours for any files in the `/webfolder1` folder on the origin server specified by your endpoint. The second rule overrides the first rule for the `file1.txt` file only and sets a cache duration of two hours for it.
+    The first custom caching rule sets a cache duration of four days for any files in the `/webfolder1` folder on the origin server specified by your endpoint. The second rule overrides the first rule for the `file1.txt` file only and sets a cache duration of two days for it.
 
 1. Select **Save**.
 

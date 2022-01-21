@@ -14,7 +14,7 @@ ms.workload: identity
 ms.date: 11/11/2019
 ms.author: rayluo
 ms.reviewer: marsma, rayluo, nacanuma
-ms.custom: aaddev, devx-track-python
+ms.custom: aaddev, devx-track-python, has-adal-ref
 #Customer intent: As a Python application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
 ---
 

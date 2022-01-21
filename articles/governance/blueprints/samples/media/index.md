@@ -1,7 +1,7 @@
 ---
 title: Media blueprint sample overview
 description: Overview of the Media blueprint sample. This blueprint sample helps customers assess specific Media controls.
-ms.date: 04/02/2021
+ms.date: 09/08/2021
 ms.topic: sample
 ---
 # Overview of the Media blueprint sample

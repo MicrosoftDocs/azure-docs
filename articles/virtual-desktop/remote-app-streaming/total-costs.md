@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 07/14/2021
+ms.date: 11/12/2021
 ms.author: helohr
 manager: femila
 ---
@@ -108,3 +108,5 @@ User access costs will appear each billing cycle on the Azure billing invoice fo
 If you'd like to get a clearer idea of how much specific parts of your deployment will cost, take a look at these articles:
 
 - [Understanding licensing and per-user access pricing](licensing.md)
+- [Estimate per-user app streaming costs for Azure Virtual Desktop](streaming-costs.md)
+- [Tag Azure Virtual Desktop resources to manage costs](../tag-virtual-desktop-resources.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)

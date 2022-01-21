@@ -50,24 +50,24 @@ In this step, you'll create a pipeline that contains a data flow activity.
 
 1. On the home page of Azure Data Factory, select **Orchestrate**.
 
-   ![Screenshot that show the ADF home page.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that show the ADF home page.":::
 
 1. In the **General** tab for the pipeline, enter **DeltaLake** for **Name** of the pipeline.
 1. In the factory top bar, slide the **Data Flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
 
-    ![Data Flow Activity](media/tutorial-data-flow/dataflow1.png)
+    :::image type="content" source="media/tutorial-data-flow/dataflow1.png" alt-text="Data Flow Activity":::
 1. In the **Activities** pane, expand the **Move and Transform** accordion. Drag and drop the **Data Flow** activity from the pane to the pipeline canvas.
 
-    ![Screenshot that shows the pipeline canvas where you can drop the Data Flow activity.](media/tutorial-data-flow/activity1.png)
+    :::image type="content" source="media/tutorial-data-flow/activity1.png" alt-text="Screenshot that shows the pipeline canvas where you can drop the Data Flow activity.":::
 1. In the **Adding Data Flow** pop-up, select **Create new Data Flow** and then name your data flow **DeltaLake**. Click Finish when done.
 
-    ![Screenshot that shows where you name your data flow when you create a new data flow.](media/tutorial-data-flow/activity2.png)
+    :::image type="content" source="media/tutorial-data-flow/activity2.png" alt-text="Screenshot that shows where you name your data flow when you create a new data flow.":::
 
 ## Build transformation logic in the data flow canvas
 
 You will take any source data (in this tutorial, we'll use a Parquet file source) and use a sink transformation to land the data in Parquet format using the most effective mechanisms for data lake ETL.
 
-![Final flow](media/data-flow/parts-final.png "Final flow")
+:::image type="content" source="media/data-flow/parts-final.png" alt-text="Final flow":::
 
 ### Tutorial objectives
 
@@ -96,7 +96,7 @@ It is very common to use unique values in your data to create folder hierarchies
 1. When accessing the data partitions in a data flow source, you will point to just the top-level folder above ```releaseyear``` and use a wildcard pattern for each subsequent folder, ex: ```**/**/*.parquet```
 1. To manipulate the data values, or even if need to generate synthetic values for folder names, use the Derived Column transformation to create the values you wish to use in your folder names.
 
-![Key partitioning](media/data-flow/key-parts.png "Key partitioning")
+:::image type="content" source="media/data-flow/key-parts.png" alt-text="Key partitioning":::
    
 ### Name folder as data values
 
@@ -108,7 +108,7 @@ A slightly better performing sink technique for lake data using ADLS Gen2 that d
 1. Pick the column that you wish to use for generating folder names.
 1. To manipulate the data values, or even if need to generate synthetic values for folder names, use the Derived Column transformation to create the values you wish to use in your folder names.
 
-![Folder option](media/data-flow/folders.png "Folders")
+:::image type="content" source="media/data-flow/folders.png" alt-text="Folder option":::
 
 ### Name file as data values
 

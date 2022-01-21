@@ -2,7 +2,7 @@
 title: Extension resource types
 description: Lists the Azure resource types are used to extend the capabilities of other resource types.
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 10/20/2021
 ---
 
 # Resource types that extend capabilities of other resources
@@ -21,7 +21,9 @@ An extension resource is a resource that adds to another resource's capabilities
 
 ## Microsoft.Authorization
 
+- Microsoft.Authorization/batchResourceCheckAccess
 - Microsoft.Authorization/denyAssignments
+- Microsoft.Authorization/eligibleChildResources
 - Microsoft.Authorization/locks
 - Microsoft.Authorization/policyAssignments
 - Microsoft.Authorization/policyDefinitions
@@ -42,6 +44,7 @@ An extension resource is a resource that adds to another resource's capabilities
 
 ## Microsoft.Automanage
 
+- Microsoft.Automanage/configurationProfileAssignmentIntents
 - Microsoft.Automanage/configurationProfileAssignments
 
 ## Microsoft.Billing
@@ -64,6 +67,8 @@ An extension resource is a resource that adds to another resource's capabilities
 ## Microsoft.ChangeAnalysis
 
 - Microsoft.ChangeAnalysis/changes
+- Microsoft.ChangeAnalysis/changeSnapshots
+- Microsoft.ChangeAnalysis/computeChanges
 
 ## Microsoft.Consumption
 
@@ -116,6 +121,11 @@ An extension resource is a resource that adds to another resource's capabilities
 
 - Microsoft.DataMigration/DatabaseMigrations
 
+## Microsoft.Diagnostics
+
+- Microsoft.Diagnostics/InsightDiagnostics
+- Microsoft.Diagnostics/solutions
+
 ## Microsoft.EventGrid
 
 - Microsoft.EventGrid/eventSubscriptions
@@ -126,6 +136,10 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.GuestConfiguration/configurationProfileAssignments
 - Microsoft.GuestConfiguration/guestConfigurationAssignments
 - Microsoft.GuestConfiguration/software
+
+## Microsoft.HybridConnectivity
+
+- Microsoft.HybridConnectivity/endpoints
 
 ## microsoft.insights
 
@@ -146,9 +160,15 @@ An extension resource is a resource that adds to another resource's capabilities
 - microsoft.insights/topology
 - microsoft.insights/transactions
 
+## Microsoft.IoTSecurity
+
+- Microsoft.IoTSecurity/sensors
+- Microsoft.IoTSecurity/sites
+
 ## Microsoft.KubernetesConfiguration
 
 - Microsoft.KubernetesConfiguration/extensions
+- Microsoft.KubernetesConfiguration/fluxConfigurations
 - Microsoft.KubernetesConfiguration/sourceControlConfigurations
 
 ## Microsoft.Maintenance
@@ -183,6 +203,13 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.PolicyInsights/policyTrackedResources
 - Microsoft.PolicyInsights/remediations
 
+## Microsoft.Quota
+
+- Microsoft.Quota/operationsStatus
+- Microsoft.Quota/quotaRequests
+- Microsoft.Quota/quotas
+- Microsoft.Quota/usages
+
 ## Microsoft.RecoveryServices
 
 - Microsoft.RecoveryServices/backupProtectedItems
@@ -203,18 +230,14 @@ An extension resource is a resource that adds to another resource's capabilities
 
 - Microsoft.Security/adaptiveNetworkHardenings
 - Microsoft.Security/advancedThreatProtectionSettings
+- Microsoft.Security/antiMalwareSettings
 - Microsoft.Security/assessmentMetadata
 - Microsoft.Security/assessments
 - Microsoft.Security/Compliances
 - Microsoft.Security/dataCollectionAgents
-- Microsoft.Security/devices
 - Microsoft.Security/deviceSecurityGroups
 - Microsoft.Security/InformationProtectionPolicies
 - Microsoft.Security/insights
-- Microsoft.Security/iotAlerts
-- Microsoft.Security/iotRecommendations
-- Microsoft.Security/iotSensors
-- Microsoft.Security/iotSites
 - Microsoft.Security/jitPolicies
 - Microsoft.Security/serverVulnerabilityAssessments
 - Microsoft.Security/sqlVulnerabilityAssessments
@@ -233,7 +256,11 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.SecurityInsights/entities
 - Microsoft.SecurityInsights/entityQueryTemplates
 - Microsoft.SecurityInsights/incidents
+- Microsoft.SecurityInsights/listrepositories
+- Microsoft.SecurityInsights/metadata
+- Microsoft.SecurityInsights/onboardingStates
 - Microsoft.SecurityInsights/settings
+- Microsoft.SecurityInsights/sourceControls
 - Microsoft.SecurityInsights/threatIntelligence
 - Microsoft.SecurityInsights/watchlists
 

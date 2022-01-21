@@ -6,7 +6,7 @@ author: dlepow
 ms.service: api-management
 ms.topic: how-to
 ms.date: 08/11/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: references_regions
 
 ---
@@ -60,7 +60,7 @@ In the portal, optionally enable zone redundancy when you add a location to your
 1. Select an existing location, or select **+ Add** in the top bar. The location must [support availability zones](#supported-regions).
 1. Select the number of scale **[Units](upgrade-and-scale.md)** in the location.
 1. In **Availability zones**, select one or more zones. The number of units selected must distribute evenly across the availability zones. For example, if you selected 3 units, select 3 zones so that each zone hosts one unit.
-1. If the API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), configure virtual network settings in the location. Select an existing virtual network, subnet, and public IP address that are available in the location.
+1. If the API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), configure virtual network settings in the location by select an existing virtual network, subnet, and public IP address that are available in the location. For an existing location, the virtual network and subnet must be configured from the Virtual Network blade.
 1. Select **Apply** and then select **Save**.
 
 :::image type="content" source="media/zone-redundancy/add-location-zones.png" alt-text="Enable zone redundancy":::

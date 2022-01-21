@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: reference
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: 
+ms.reviewer: kendralittle
 ms.date: 5/18/2021
 ---
 # Azure SQL Database glossary of terms

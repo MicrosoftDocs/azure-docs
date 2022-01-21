@@ -2,18 +2,14 @@
 title: 'Tutorial: Configure Tribeloo for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Tribeloo.
 services: active-directory
-documentationcenter: ''
 author: twimmers
 writer: twimmers
 manager: beatrizd
-
 ms.assetid: d1063ef2-5d39-4480-a1e2-f58ebe7f98c3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/07/2021
 ms.author: thwimmer
 ---
@@ -53,7 +49,7 @@ Navigate to the [Tribeloo app](https://app.tribeloo.com/) and log as a user with
 	![Access User Management](media/tribeloo-provisioning-tutorial/tribeloo-user-management.png)
 
 1. Select the **User provisioning**(1) tab. On this tab, you have access to Tribeloo information that you will have to use to configure the Azure AD integration.
-   1. **SCIM base url** (2)
+   1. **SCIM base URL** (2)
    1. **SCIM Bearer token** (3)
 1. Copy these values to the clipboard and paste them in the corresponding Azure AD fields (see Step 5). The AD fields are named **Tenant URL** and **Secret Token** respectively.
 

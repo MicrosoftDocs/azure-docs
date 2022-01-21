@@ -18,6 +18,9 @@ ms.subservice: B2C
 
 In this sample tutorial, learn how to enable [Akamai Web Application Firewall (WAF)](https://www.akamai.com/us/en/resources/web-application-firewall.jsp) solution for Azure Active Directory (AD) B2C tenant using custom domains. Akamai WAF helps organization protect their web applications from malicious attacks that aim to exploit vulnerabilities such as SQL injection and Cross site scripting.
 
+>[!NOTE]
+>This feature is in public preview.
+
 Benefits of using Akamai WAF solution:
 
 - An edge platform that allows traffic management to your services.
@@ -37,7 +40,7 @@ To get started, you'll need:
 - [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
 - An [Akamai WAF](https://www.akamai.com/us/en/akamai-free-trials.jsp) account.
- 
+
 ## Scenario description
 
 Akamai WAF integration includes the following components:
@@ -58,25 +61,25 @@ Akamai WAF integration includes the following components:
 
 [Sign-up](https://www.akamai.com) and create an Akamai account.
 
-### Create and configure property 
+### Create and configure property
 
 1. [Create a new property](https://control.akamai.com/wh/CUSTOMER/AKAMAI/en-US/WEBHELP/property-manager/property-manager-help/GUID-14BB87F2-282F-4C4A-8043-B422344884E6.html).
 
-2. Configure the property settings as:  
+2. Configure the property settings as:
 
-| Property | Value |
-|:---------------|:---------------|
-|Property version | Select Standard or Enhanced TLS (preferred) |
-|Property hostnames | Add a property hostname. This is the name of your custom domain, for example: login.domain.com. <BR> Create or modify a certificate with the appropriate settings for the custom domain name. For more information, see [this](https://learn.akamai.com/en-us/webhelp/property-manager/https-delivery-with-property-manager/GUID-9EE0EB6A-E62B-4F5F-9340-60CBD093A429.html). |
+    | Property | Value |
+    |:---------------|:---------------|
+    |Property version | Select Standard or Enhanced TLS (preferred) |
+    |Property hostnames | Add a property hostname. This is the name of your custom domain, for example: login.domain.com. <BR> Create or modify a certificate with the appropriate settings for the custom domain name. For more information, see [this](https://learn.akamai.com/en-us/webhelp/property-manager/https-delivery-with-property-manager/GUID-9EE0EB6A-E62B-4F5F-9340-60CBD093A429.html). |
 
 3. Set the origin server property configuration settings as:
 
-|Property| Value |
-|:-----------|:-----------|
-| Origin type | Your origin |
-| Origin server hostname | yourafddomain.azurefd.net |
-| Forward host header | Origin hostname |
-| Cache key hostname| Origin hostname |
+    |Property| Value |
+    |:-----------|:-----------|
+    | Origin type | Your origin |
+    | Origin server hostname | yourafddomain.azurefd.net |
+    | Forward host header | Incoming Host Header |
+    | Cache key hostname| Incoming Host Header |
 
 ### Configure DNS
 
@@ -92,13 +95,15 @@ Create a CNAME record in your DNS such as login.domain.com that points to the Ed
 
 Learn more about [how the control works and configuration options](https://control.akamai.com/dl/security/GUID-81C0214B-602A-4663-839D-68BCBFF41292.html).
 
+<!-- docutune:ignore "Security Center" -->
+
 ### Test the settings
 
 Check the following to ensure all traffic to Azure AD B2C is now going through the custom domain:
 
 - Make sure all incoming requests to Azure AD B2C custom domain are routed via Akamai WAF and using valid TLS connection.
 - Ensure all cookies are set correctly by Azure AD B2C for the custom domain.
-- The Akamai WAF dashboard available under Security Center console display charts for all traffic passing through the WAF along with any attack traffic.
+- The Akamai WAF dashboard available under Defender for Cloud console display charts for all traffic passing through the WAF along with any attack traffic.
 
 ## Next steps
 

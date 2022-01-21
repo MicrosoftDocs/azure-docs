@@ -3,7 +3,7 @@ title: Tutorial - Define a new gateway device type in Azure IoT Central | Micros
 description: This tutorial shows you, as a builder, how to define a new IoT gateway device type in your Azure IoT Central application.
 author: rangv
 ms.author: rangv
-ms.date: 10/22/2019
+ms.date: 12/21/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -13,7 +13,7 @@ manager: peterpr
 
 # Tutorial - Define a new IoT gateway device type in your Azure IoT Central application
 
-This tutorial shows you how to use a gateway device template to define a gateway device in your IoT Central application. You then configure several downstream devices that connect to your IoT Central application through the gateway device. 
+This tutorial shows you how to use a gateway device template to define a gateway device in your IoT Central application. You then configure several downstream devices that connect to your IoT Central application through the gateway device.
 
 In this tutorial, you create a **Smart Building** gateway device template. A **Smart Building** gateway device has relationships with other downstream devices.
 
@@ -48,17 +48,17 @@ To create a device template for an **S1 Sensor** device:
 
 1. In the left pane, select **Device Templates**. Then select **+ New** to start adding the template.
 
-1. Scroll down until you can see the tile for the **Minew S1** device. Select the tile and then select **Next: Customize**.
+1. Scroll down until you can see the tile for the **Minew S1** device. Select the tile and then select **Next: Review**.
 
-1. On the **Review** page, select **Create** to add the device template to your application. 
+1. On the **Review** page, select **Create** to add the device template to your application.
 
 To create a device template for an **RS40 Occupancy Sensor** device:
 
 1. In the left pane, select **Device Templates**. Then select **+ New** to start adding the template.
 
-1. Scroll down until you can see the tile for the ***RS40 Occupancy Sensor** device. Select the tile and then select **Next: Customize**.
+1. Scroll down until you can see the tile for the **Rigado RS40 Occupancy Sensor** device. Select the tile and then select **Next: Review**.
 
-1. On the **Review** page, select **Create** to add the device template to your application. 
+1. On the **Review** page, select **Create** to add the device template to your application.
 
 You now have device templates for the two downstream device types:
 
@@ -79,9 +79,7 @@ To add a new gateway device template to your application:
 
 1. Enter **Smart Building gateway device** as the template name and then select **Next: Review**.
 
-1. On the **Review** page, select **Create**. 
-
-
+1. On the **Review** page, select **Create**.
 
 1. On the **Create a model** page, select the **Custom model** tile.
 
@@ -89,9 +87,7 @@ To add a new gateway device template to your application:
 
 1. Enter **Send Data** as the display name, and then select **Property** as the capability type.
 
-1. Select **+ Add capability** to add another capability. Enter **Boolean Telemetry** as the display name, select **Telemetry** as the capability type, and then select **Boolean** as schema.
-
-1. Select **Save**.
+1. Select **Boolean** as the schema type and then select **Save**.
 
 ### Add relationships
 

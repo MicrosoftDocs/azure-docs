@@ -1,18 +1,18 @@
 ---
 title: Control inbound traffic v1
 description: Learn how to control inbound traffic to an App Service Environment. This doc is provided only for customers who use the legacy v1 ASE.
-author: ccompy
+author: madsd
 
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.topic: article
 ms.date: 01/11/2017
-ms.author: stefsch
+ms.author: madsd
 ms.custom: seodec18
 
 ---
 # How To Control Inbound Traffic to an App Service Environment
 ## Overview
-An App Service Environment can be created in **either** an Azure Resource Manager virtual network, **or** a classic deployment model [virtual network][virtualnetwork].  A new virtual network and new subnet can be defined at the time an App Service Environment is created. Instead, an App Service Environment can be created in a pre-existing virtual network and pre-existing subnet.  As of June 2016, ASEs can also be deployed into virtual networks that use either public address ranges or RFC1918 address spaces (private addresses).  For more information, see [How To Create an App Service Environment][HowToCreateAnAppServiceEnvironment].
+An App Service Environment can be created in **either** an Azure Resource Manager virtual network, **or** a classic deployment model [virtual network][virtualnetwork].  A new virtual network and new subnet can be defined at the time an App Service Environment is created. Instead, an App Service Environment can be created in a pre-existing virtual network and pre-existing subnet.  As of June 2016, ASEs can also be deployed into virtual networks that use either public address ranges or RFC1918 address spaces (private addresses).  For more information, see [How to Create an ASEv1 from template](app-service-app-service-environment-create-ilb-ase-resourcemanager.md).
 
 Always create an App Service Environment within a subnet. A subnet provides a network boundary that can be used to lock down inbound traffic behind upstream devices and services. This setup allows only specific upstream IP addresses to accept HTTP and HTTPS traffic.
 
@@ -127,7 +127,6 @@ For more information, see [Securely connecting to Backend resources from an App 
 
 <!-- LINKS -->
 [virtualnetwork]: ../../virtual-network/virtual-networks-faq.md
-[HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
 [NetworkSecurityGroups]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md
 [SecurelyConnecttoBackend]:  app-service-app-service-environment-securely-connecting-to-backend-resources.md

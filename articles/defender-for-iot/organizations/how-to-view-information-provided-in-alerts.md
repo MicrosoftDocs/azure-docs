@@ -1,7 +1,7 @@
 ---
 title: About alert messages
 description: Select an alert from the Alerts window to review details.
-ms.date: 3/21/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

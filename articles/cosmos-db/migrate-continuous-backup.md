@@ -1,11 +1,11 @@
 ---
 title: Migrate an Azure Cosmos DB account from periodic to continuous backup mode
 description: Azure Cosmos DB currently supports a one-way migration from periodic to continuous mode and it’s irreversible. After migrating from periodic to continuous mode, you can leverage the benefits of continuous mode.
-author: SnehaGunda
+author: kanshiG
+ms.author: govindk
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 07/29/2021
-ms.author: sngun
+ms.date: 12/08/2021
 ms.topic: how-to
 ms.reviewer: sngun
 ---
@@ -13,7 +13,7 @@ ms.reviewer: sngun
 # Migrate an Azure Cosmos DB account from periodic to continuous backup mode
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Azure CosmosDB accounts with periodic mode backup policy can be migrated to continuous mode using [Azure portal](#portal), [CLI](#cli), [PowerShell](#powershell), or [Resource Manager templates](#ARM-template). Migration from periodic to continuous mode is a one-way migration and it’s not reversible. After migrating from periodic to continuous mode, you can leverage the benefits of continuous mode.
+Azure Cosmos DB accounts with periodic mode backup policy can be migrated to continuous mode using [Azure portal](#portal), [CLI](#cli), [PowerShell](#powershell), or [Resource Manager templates](#ARM-template). Migration from periodic to continuous mode is a one-way migration and it’s not reversible. After migrating from periodic to continuous mode, you can leverage the benefits of continuous mode.
 
 The following are the key reasons to migrate into continuous mode:
 
@@ -26,7 +26,7 @@ The following are the key reasons to migrate into continuous mode:
 > [!NOTE]
 > The migration capability is one-way only and it's an irreversible action. Which means once you migrate from periodic mode to continuous mode, you can’t switch back to periodic mode.
 >
-> You can migrate an account to continuous backup mode only if the following conditions are true:
+> You can migrate an account to continuous backup mode only if the following conditions are true. Also checkout the [point in time restore limitations](continuous-backup-restore-introduction.md#current-limitations) before migrating your account:
 >
 > * If the account is of type SQL API or API for MongoDB.
 > * If the account has a single write region.
@@ -109,6 +109,24 @@ Install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps
     }
    ```
 
+### Check the migration status
+
+Run the following command and check the **status**, **targetType** properties of the **backupPolicy** object. The status shows in-progress after the migration starts:
+
+```azurecli-interactive
+az cosmosdb show -n "myAccount" -g "myrg"
+```
+
+:::image type="content" source="./media/migrate-continuous-backup/migration-status-started-powershell.png" alt-text="Check the migration status using PowerShell command":::
+
+When the migration is complete, backup type changes to **Continuous**. Run the same command again to check the status:
+
+```azurecli-interactive
+az cosmosdb show -n "myAccount" -g "myrg"
+```
+
+:::image type="content" source="./media/migrate-continuous-backup/migration-status-complete-powershell.png" alt-text="Backup type changes to continuous after the migration is complete":::
+
 ## <a id="ARM-template"></a> Migrate using Resource Manager template
 
 To migrate to continuous backup mode using ARM template, find the backupPolicy section of your template and update the `type` property. For example, if your existing template has backup policy like the following JSON object:
@@ -165,9 +183,26 @@ Once the migration process is started, the account will start to become a contin
 #### How do I perform a restore to a timestamp before/during/after the migration?
 Assume that you started migration at t1 and finished at t5, you can’t use a restore timestamp between t1 and t5.
 
-  To restore to a time after t5 because your account is now in continuous mode, you can perform the restore using Azure portal, CLI, or PowerShell like you normally do with continuous account. This self-service restore request can only be done after the migration is complete.
+To restore to a time after t5 because your account is now in continuous mode, you can perform the restore using Azure portal, CLI, or PowerShell like you normally do with continuous account. This self-service restore request can only be done after the migration is complete.
 
-  To restore to a time before t1, you can open a support ticket like you normally do with the periodic backup account. After the migration, you have up to 30 days to perform the periodic restore.  During these 30 days, you can restore based on the backup retention/interval of your account before the migration.  For example, if the backup config was to retain 24 copies at 1 hour interval, then you can restore to anytime between [t1 – 24 hours] and [t1].
+To restore to a time before t1, you can open a support ticket like you normally do with the periodic backup account. After the migration, you have up to 30 days to perform the periodic restore.  During these 30 days, you can restore based on the backup retention/interval of your account before the migration.  For example, if the backup config was to retain 24 copies at 1 hour interval, then you can restore to anytime between [t1 – 24 hours] and [t1].
+
+#### Which account level control plane operations are blocked during migration?
+Operations such as add/remove region, failover, changing backup policy, throughput changes resulting in data movement are blocked during migration.
+
+#### If the migration fails for some underlying issue, would it still block the control plane operation until it is retried and completed successfully?
+Failed migration will not block any control plane operations. If migration fails, it’s recommended to retry until it succeeds before performing any other control plane operations.
+
+#### Is it possible to cancel the migration?
+It is not possible to cancel the migration because it is not a reversible operation.
+
+#### Is there a tool that can help estimate migration time based on the data usage and number of regions?
+There isn't a tool to estimate time. But our scale runs indicate single region with 1 TB of data takes roughly one and half hour.
+
+For multi-region accounts, calculate the total data size as `Number_of_regions * Data_in_single_region`.
+
+#### Since the continuous backup mode is now GA, would you still recommend restoring a copy of your account and try migration on the copy before deciding to migrate the production account?
+It’s recommended to test the continuous backup mode feature to see it works as expected before migrating production accounts. Because migration is a one-way operation and it’s not reversible.
 
 ## Next steps
 
@@ -178,3 +213,7 @@ To learn more about continuous backup mode, see the following articles:
 * [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
 
 * Restore an account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
+
+Trying to do capacity planning for a migration to Azure Cosmos DB?
+   * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+   * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

@@ -64,6 +64,7 @@ Each query has multiple properties that help you group and find them. These prop
 - **Category** – A type of information such as *Security* or *Audit*. Categories are identical to the categories defined in the Tables side pane. See the [Azure Monitor Table Reference](/azure/azure-monitor/reference/tables/tables-category) for a full list of categories.  
 - **Solution** – An Azure Monitor solution associated with the queries
 - **Topic** – The topic of the example query such as *Activity Logs* or *App logs*. The topic property is unique to example queries and may differ according to the specific resource type.
+- - **Query Type** - Defines the type of the query. Query Type may be Example Queries, Query pack Queries or Legacy Queries
 - **Labels** - Custom labels that you can define and assign when you [save your own query](save-query.md).
 - **Tags** - Custom properties that can be defined when you [create a query pack](query-packs.md). Tags allow your organization to create their own taxonomies for organizing queries.
 
@@ -78,6 +79,8 @@ The query interface is populated with the following types of queries:
 **Query packs:** A [query pack](query-packs.md) holds a collection of log queries, including queries that you save yourself. This includes the [default query pack](query-packs.md#default-query-pack) and any other query packs that your organization may have created in the subscription.
 
 **Legacy queries:** Log queries previously saved in the query explorer experience and queries Azure solutions that are installed in the workspace. These are listed in the query dialog box under **Legacy queries**.
+>[!TIP]
+> Legacy Quereis are only avaiable in a Log Analytics Workspace.
 
 ## Effect of query scope
 The queries that are available when you open Log Analytics is determined by the current [query scope ](scope.md).
