@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 01/20/2022
+ms.date: 01/31/2022
 ---
 # DTU-based purchasing model overview 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

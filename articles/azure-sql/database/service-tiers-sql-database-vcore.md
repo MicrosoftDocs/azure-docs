@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kendralittle, sashan, moslake, mathoma
-ms.date: 01/20/2022
+ms.date: 01/31/2022
 ms.custom: references_regions, ignite-fall-2021
 ---
 # vCore purchasing model - Azure SQL Database 
@@ -36,7 +36,7 @@ The vCore purchasing model used by Azure SQL Database provides several benefits 
 
 ## Service tiers
 
-Service tier options in the vCore purchasing model include general purpose, business critical, and hyperscale. The service tier generally service tier defines hardware, storage type and IOPS, high availability and disaster recovery options, and other features like memory-optimized object types.
+Service tier options in the vCore purchasing model include General Purpose, Business Critical, and Hyperscale. The service tier generally service tier defines hardware, storage type and IOPS, high availability and disaster recovery options, and other features like memory-optimized object types.
 
 For greater details, review resource limits for [logical server](resource-limits-logical-server.md), [single databases](resource-limits-vcore-single-databases.md), and [pooled databases](resource-limits-vcore-elastic-pools.md). 
 
@@ -56,9 +56,9 @@ For greater details, review resource limits for [logical server](resource-limits
 
 For information on selecting a service tier for your particular workload, see the following articles:
 
-- [When to choose the general purpose service tier](service-tier-general-purpose.md#when-to-choose-this-service-tier)
-- [When to choose the business critical service tier](service-tier-business-critical.md#when-to-choose-this-service-tier)
-- [When to choose the hyperscale service tier](service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
+- [When to choose the General Purpose service tier](service-tier-general-purpose.md#when-to-choose-this-service-tier)
+- [When to choose the Business Critical service tier](service-tier-business-critical.md#when-to-choose-this-service-tier)
+- [When to choose the Hyperscale service tier](service-tier-Hyperscale.md#who-should-consider-the-Hyperscale-service-tier)
 
 ## Resource limits
 
@@ -88,14 +88,14 @@ For regions where Gen4/Gen5 is available, see [Gen4/Gen5 availability](#gen4gen5
 - Depending on the workload, Fsv2-series can deliver more CPU performance per vCore than Gen5, and the 72 vCore size can provide more CPU performance for less cost than 80 vCores on Gen5. 
 - Fsv2 provides less memory and tempdb per vCore than other hardware so workloads sensitive to those limits may want to consider Gen5 or M-series instead.  
 
-Fsv2-series in only supported in the general purpose tier. For regions where Fsv2-series is available, see [Fsv2-series availability](#fsv2-series-1).
+Fsv2-series in only supported in the General Purpose tier. For regions where Fsv2-series is available, see [Fsv2-series availability](#fsv2-series-1).
 
 ### M-series
 
 - M-series is a memory optimized hardware option for workloads demanding more memory and higher compute limits than provided by Gen5.
 - M-series provides 29 GB per vCore and up to 128 vCores, which increases the memory limit relative to Gen5 by 8x to nearly 4 TB.
 
-M-series is only supported in the business critical tier and does not support zone redundancy.  For regions where M-series is available, see [M-series availability](#m-series-1).
+M-series is only supported in the Business Critical tier and does not support zone redundancy.  For regions where M-series is available, see [M-series availability](#m-series-1).
 
 #### Azure offer types supported by M-series
 
@@ -215,7 +215,7 @@ The following table compares compute and memory between the different generation
 |M-series     |- Intel&reg; E7-8890 v3 2.5 GHz and Intel&reg; 8280M 2.7 GHz (Cascade Lake) processors<br>- Provision up to 128 vCores (1 vCore = 1 hyper-thread)|- 29 GB per vCore<br>- Provision up to 3.7 TB|
 |DC-series     | - Intel XEON E-2288G processors<br>- Featuring Intel Software Guard Extension (Intel SGX))<br>- Provision up to 8 vCores (1 vCore = 1 physical core) | 4.5 GB per vCore |
 
-\* In the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamic management view, hardware generation for databases using Intel&reg; SP-8160 (Skylake) processors appears as Gen6, while hardware generation for databases using Intel&reg; 8272CL (Cascade Lake) appears as Gen7. Resource limits for all Gen5 databases are the same regardless of processor type (Broadwell, Skylake, or Cascade Lake).
+\* In the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamic management view, hardware generation for databases using Intel&reg; SP-8160 (Skylake) processors appears as Gen6, hardware generation for databases using Intel&reg; 8272CL (Cascade Lake) appears as Gen7 and hardware generation for databases using Intel Xeon&reg; Platinum 8307C (Ice Lake) appear as Gen8. Resource limits for all Gen5 databases are the same regardless of processor type (Broadwell, Skylake, or Cascade Lake).
 
 For more information on vCore resource limits, review [single databases](resource-limits-vcore-single-databases.md), or [pooled databases](resource-limits-vcore-elastic-pools.md).
 

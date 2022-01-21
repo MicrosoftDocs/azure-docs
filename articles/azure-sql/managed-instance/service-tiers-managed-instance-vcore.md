@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sashan, moslake
-ms.date: 01/20/2022
+ms.date: 01/31/2022
 ms.custom: ignite-fall-2021
 ---
 # vCore purchasing model - Azure SQL Managed Instance
@@ -34,7 +34,7 @@ The virtual core (vCore) purchasing model used by Azure SQL Managed Instance pro
 
 ## <a id="compute-tiers"></a>Service tiers
 
-Service tier options in the vCore purchasing model include general purpose and business critical. The service tier generally defines the storage architecture, space and I/O limits, and business continuity options related to availability and disaster recovery. 
+Service tier options in the vCore purchasing model include General Purpose and Business Critical. The service tier generally defines the storage architecture, space and I/O limits, and business continuity options related to availability and disaster recovery. 
 
 For more details, review [resource limits](resource-limits.md). 
 
@@ -54,8 +54,8 @@ For more details, review [resource limits](resource-limits.md).
 
 For information on selecting a service tier for your particular workload, see the following articles:
 
-- [When to choose the general purpose service tier](../database/service-tier-general-purpose.md#when-to-choose-this-service-tier)
-- [When to choose the business critical service tier](../database/service-tier-business-critical.md#when-to-choose-this-service-tier)
+- [When to choose the General Purpose service tier](../database/service-tier-general-purpose.md#when-to-choose-this-service-tier)
+- [When to choose the Business Critical service tier](../database/service-tier-business-critical.md#when-to-choose-this-service-tier)
 
 ## Compute
 
@@ -131,4 +131,4 @@ Premium-series and memory optimized premium-series hardware is in preview, and h
 - For pricing details, see 
     - [Azure SQL Managed Instance single instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql-managed-instance/single/)
     - [Azure SQL Managed Instance pools pricing page](https://azure.microsoft.com/pricing/details/azure-sql-managed-instance/pools/)
-- For details about the specific compute and storage sizes available in the general purpose and business critical service tiers, see [vCore-based resource limits for Azure SQL Managed Instance](resource-limits.md).
+- For details about the specific compute and storage sizes available in the General Purpose and Business Critical service tiers, see [vCore-based resource limits for Azure SQL Managed Instance](resource-limits.md).

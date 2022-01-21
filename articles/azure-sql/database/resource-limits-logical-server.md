@@ -10,7 +10,7 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 01/20/2022
+ms.date: 01/31/2022
 ---
 
 # Resource management in Azure SQL Database
@@ -167,7 +167,7 @@ Log rate governor traffic shaping is surfaced via the following wait types (expo
 
 When encountering a log rate limit that is hampering desired scalability, consider the following options:
 
-- Scale up to a higher service level in order to get the maximum log rate of a service tier, or switch to a different service tier. The [hyperscale](service-tier-hyperscale.md) service tier provides 100 MB/s log rate regardless of chosen service level.
+- Scale up to a higher service level in order to get the maximum log rate of a service tier, or switch to a different service tier. The [Hyperscale](service-tier-Hyperscale.md) service tier provides 100 MB/s log rate regardless of chosen service level.
 - If data being loaded is transient, such as staging data in an ETL process, it can be loaded into tempdb (which is minimally logged).
 - For analytic scenarios, load into a clustered [columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview) table, or a table with indexes that use [data compression](/sql/relational-databases/data-compression/data-compression). This reduces the required log rate. This technique does increase CPU utilization and is only applicable to data sets that benefit from clustered columnstore indexes or data compression.
 
@@ -206,7 +206,7 @@ This move occurs in an online fashion, similarly to a database scaling operation
 Because all data is copied to local storage volumes on different machines, moving larger databases may require a substantial amount of time. During that time, if local space consumption by the database or elastic pool, or by the tempdb database grows rapidly, the risk of running out of space increases. The system initiates database movement in a balanced fashion to minimize out-of-space errors while avoiding unnecessary failovers.
 
 > [!NOTE]
-> Database movement due to insufficient local storage only occurs in the Premium or Business Critical service tiers. It does not occur in the hyperscale, General Purpose, Standard, and Basic service tiers, because in those tiers data files are not stored in local storage.
+> Database movement due to insufficient local storage only occurs in the Premium or Business Critical service tiers. It does not occur in the Hyperscale, General Purpose, Standard, and Basic service tiers, because in those tiers data files are not stored in local storage.
 
 ## Tempdb sizes
 

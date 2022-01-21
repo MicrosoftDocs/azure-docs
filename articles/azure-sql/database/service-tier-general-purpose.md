@@ -1,7 +1,7 @@
 ---
 title: General purpose service tier
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance 
-description: Learn about the general purpose service tier for Azure SQL Database and Azure SQL Managed Instance. 
+description: Learn about the General Purpose service tier for Azure SQL Database and Azure SQL Managed Instance. 
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service-overview
@@ -11,25 +11,25 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: kendralittle, mathoma, urmilano
-ms.date: 01/20/2022
+ms.date: 01/31/2022
 ---
 # General purpose service tier - Azure SQL Database and Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Azure SQL Database and Azure SQL Managed Instance are based on the SQL Server database engine architecture adapted for the cloud environment in order to ensure default availability even in the cases of infrastructure failures. 
 
-This article describes and compares the general purpose service tier used by Azure SQL Database and Azure SQL Managed instance. The general purpose service tier is best used for budget-oriented, balanced compute and storage options. 
+This article describes and compares the General Purpose service tier used by Azure SQL Database and Azure SQL Managed instance. The General Purpose service tier is best used for budget-oriented, balanced compute and storage options. 
 
 
 ## Overview 
 
-The architectural model for the general purpose service tier is based on a separation of compute and storage. This architectural model relies on high availability and reliability of Azure Blob storage that transparently replicates database files and guarantees no data loss if underlying infrastructure failure happens.
+The architectural model for the General Purpose service tier is based on a separation of compute and storage. This architectural model relies on high availability and reliability of Azure Blob storage that transparently replicates database files and guarantees no data loss if underlying infrastructure failure happens.
 
 The following figure shows four nodes in standard architectural model with the separated compute and storage layers.
 
 ![Separation of compute and storage](./media/service-tier-general-purpose/general-purpose-service-tier.png)
 
-In the architectural model for the general purpose service tier, there are two layers:
+In the architectural model for the General Purpose service tier, there are two layers:
 
 - A stateless compute layer that is running the `sqlservr.exe` process and contains only transient and cached data (for example – plan cache, buffer pool, column store pool). This stateless node is operated by Azure Service Fabric that initializes process, controls health of the node, and performs failover to another place if necessary.
 - A stateful data layer with database files (.mdf/.ldf) that are stored in Azure Blob storage. Azure Blob storage guarantees that there will be no data loss of any record that is placed in any database file. Azure Storage has built-in data availability/redundancy that ensures that every record in log file or page in data file will be preserved even if the process crashes.
@@ -38,11 +38,11 @@ Whenever the database engine or operating system is upgraded, some part of under
 
 ## When to choose this service tier
 
-The general purpose service tier is a default service tier in Azure SQL Database and Azure SQL Managed Instance that is designed for most of generic workloads. If you need a fully managed database engine with a default SLA and storage latency between 5 and 10 ms, the general purpose tier is the option for you.
+The General Purpose service tier is a default service tier in Azure SQL Database and Azure SQL Managed Instance that is designed for most of generic workloads. If you need a fully managed database engine with a default SLA and storage latency between 5 and 10 ms, the General Purpose tier is the option for you.
 
 ## Compare products
 
-The following table shows resource limits for both Azure SQL Database and Azure SQL Managed Instance in the general purpose service tier: 
+The following table shows resource limits for both Azure SQL Database and Azure SQL Managed Instance in the General Purpose service tier: 
 
 | **Category** | **Azure SQL Database** | **Azure SQL Managed Instance** |
 |:--|:--|:--|
@@ -65,7 +65,7 @@ To learn more, review [single database resource limits](resource-limits-vcore-si
 
 ## Next steps
 
-- Find resource characteristics (number of cores, I/O, memory) of the general purpose/standard tier in [SQL Managed Instance](../managed-instance/resource-limits.md#service-tier-characteristics), single database in [vCore model](resource-limits-vcore-single-databases.md) or [DTU model](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes), or elastic pool in [vCore model](resource-limits-vcore-elastic-pools.md) and [DTU model](resource-limits-dtu-elastic-pools.md#standard-elastic-pool-limits).
-- Learn about [business critical](service-tier-business-critical.md) and [hyperscale](service-tier-hyperscale.md) service tiers.
+- Find resource characteristics (number of cores, I/O, memory) of the General Purpose/standard tier in [SQL Managed Instance](../managed-instance/resource-limits.md#service-tier-characteristics), single database in [vCore model](resource-limits-vcore-single-databases.md) or [DTU model](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes), or elastic pool in [vCore model](resource-limits-vcore-elastic-pools.md) and [DTU model](resource-limits-dtu-elastic-pools.md#standard-elastic-pool-limits).
+- Learn about [Business Critical](service-tier-business-critical.md) and [Hyperscale](service-tier-Hyperscale.md) service tiers.
 - Learn about [Service Fabric](../../service-fabric/service-fabric-overview.md).
 - For more options for high availability and disaster recovery, see [Business Continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md).
