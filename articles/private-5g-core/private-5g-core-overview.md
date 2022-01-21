@@ -99,8 +99,8 @@ Azure Private 5G Core provides proactive, real-time analysis of all message traf
 
 The following diagram shows each of the Network Functions supported by a packet core instance. It also shows the interfaces these Network Functions use to interoperate with third-party components.
 
-:::image type="content" source="media/azure-private-5g-core/packet-core-architecture.png" alt-text="Packet core architecture diagram displaying each of the supported Network Functions and their interfaces.":::
-Diagram displaying the packet core architecture. The packet core includes the following network functions: the A M F, the S M F, the U P F, the U D R, the N R F, the P C F, the U D M and the A U S F. The A M F communicates with 5G user equipment over the N1 interface. A G Node B provided by a Microsoft partner communicates with the A M F over the N2 interface and the U P F over the N3 interface. The U P F communicates with the data network over the N6 interface. Several Network Functions use the N A F interface to communicate with the Application Function, which is provided by a service provider or enterprise.
+:::image type="complex" source="media/azure-private-5g-core/packet-core-architecture.png" alt-text="Packet core architecture diagram displaying each of the supported Network Functions and their interfaces.":::
+   Diagram displaying the packet core architecture. The packet core includes the following network functions: the A M F, the S M F, the U P F, the U D R, the N R F, the P C F, the U D M and the A U S F. The A M F communicates with 5G user equipment over the N1 interface. A G Node B provided by a Microsoft partner communicates with the A M F over the N2 interface and the U P F over the N3 interface. The U P F communicates with the data network over the N6 interface. Several Network Functions use the N A F interface to communicate with the Application Function, which is provided by a service provider or enterprise.
 :::image-end:::
 
 ## Azure services consumed by Azure Private 5G Core
