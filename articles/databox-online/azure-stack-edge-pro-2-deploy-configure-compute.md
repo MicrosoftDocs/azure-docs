@@ -1,20 +1,18 @@
 ---
-title: Tutorial to filter, analyze data with compute on Azure Stack Edge Pro GPU | Microsoft Docs
-description: Learn how to configure compute role on Azure Stack Edge Pro GPU and use it to transform data before sending to Azure.
+title: Tutorial to filter, analyze data with compute on Azure Stack Edge Pro 2
+description: Learn how to configure compute role on Azure Stack Edge Pro 2 and use it to transform data before sending to Azure.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/08/2021
+ms.date: 01/21/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
 
-# Tutorial: Configure compute on Azure Stack Edge Pro GPU device
-
-<!--ALPA WILL VERIFY - [!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+# Tutorial: Configure compute on Azure Stack Edge Pro 2 device
 
 This tutorial describes how to configure a compute role and create a Kubernetes cluster on your Azure Stack Edge Pro device. 
 
@@ -30,7 +28,7 @@ In this tutorial, you learn how to:
  
 ## Prerequisites
 
-Before you set up a compute role on your Azure Stack Edge Pro device, make sure that:
+Before you set up a compute role on your Azure Stack Edge Pro 2 device, make sure that:
 
 - You've activated your Azure Stack Edge Pro device as described in [Activate Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 - Make sure that you've followed the instructions in [Enable compute network](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#enable-compute-network) and:

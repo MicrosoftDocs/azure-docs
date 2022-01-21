@@ -1,6 +1,6 @@
 ---
-title: Predeployment checklist to deploy Azure Stack Edge Pro 2 device | Microsoft Docs
-description: This article describes the information that can be gathered before you deploy your Azure Stack Edge Pro 2 device.
+title: Predeployment checklist to deploy Azure Stack Edge Pro GPU device | Microsoft Docs
+description: This article describes the information that can be gathered before you deploy your Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 

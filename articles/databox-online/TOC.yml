@@ -38,9 +38,9 @@
     - name: Review requirements
       items:
       - name: For Azure Stack Edge
-        href: azure-stack-edge-pro-2-system-requirements.md
+        href: azure-stack-edge-placeholder.md
       - name: For Azure Stack Edge Blob storage
-        href: azure-stack-edge-pro-2-system-requirements-rest.md
+        href: azure-stack-edge-placeholder.md
     - name: Understand limits
       href: azure-stack-edge-limits.md 
     - name: Security overview
@@ -48,9 +48,9 @@
     - name: Review specifications
       items:
       - name: Device specifications
-        href: azure-stack-edge-pro-2-technical-specifications-compliance.md
+        href: azure-stack-edge-placeholder.md
       - name: Power cord specifications
-        href: azure-stack-edge-pro-2-technical-specifications-power-cords-regional.md
+        href: azure-stack-edge-placeholder.md
 - name: Azure Stack Edge Pro - GPU
   items:
   - name: Overview

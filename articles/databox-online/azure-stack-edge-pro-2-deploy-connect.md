@@ -1,19 +1,19 @@
 ---
-title: Tutorial to connect to, configure, activate Azure Stack Edge Pro device with GPU in Azure portal | Microsoft Docs
-description: Learn how you can connect to your Azure Stack Edge device with an onboard GPU by using the local web UI.
+title: Tutorial to connect to, configure, activate Azure Stack Edge Pro 2 device 
+description: Learn how you can connect to your Azure Stack Edge Pro 2 device by using the local web UI.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/29/2020
+ms.date: 01/21/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
-# Tutorial: Connect to Azure Stack Edge Pro with GPU
+# Tutorial: Connect to Azure Stack Edge Pro 2
 
-This tutorial describes how you can connect to your Azure Stack Edge Pro device with an onboard GPU by using the local web UI.
+This tutorial describes how you can connect to your Azure Stack Edge Pro 2 device by using the local web UI.
 
 The connection process can take around 5 minutes to complete.
 
