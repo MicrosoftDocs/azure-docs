@@ -204,8 +204,8 @@ Write-Host "Press [ENTER] to continue..."
 - It is only possible to create *new* keys. It is not possible to update existing keys, and it is not possible to create new versions of existing keys. If the key already exists, then the existing key is retrieved from storage and used (no write operations will occur).
 - To be authorized to use this API, the caller needs to have the **"Microsoft.KeyVault/vaults/keys/write"** RBAC Action. The built-in "Key Vault Contributor" role is sufficient, since it authorizes all RBAC Actions which match the pattern "Microsoft.KeyVault/*". See the below screenshots for more information.
 
-:::image type="content" source="../media/media/keys-quick-template-1.png" alt-text="Create a key via ARM 1":::
-:::image type="content" source="../media/media/keys-quick-template-2.png" alt-text="Create a key via ARM 2":::
+:::image type="content" source="../media/keys-quick-template-1.png" alt-text="Create a key via ARM 1":::
+:::image type="content" source="../media/keys-quick-template-2.png" alt-text="Create a key via ARM 2":::
 
 
 ### Existing API (creating key via data plane)
