@@ -161,7 +161,7 @@ Let's look closer at some of the entries you can find in the sign in logs.
 
 :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entries-single.png" alt-text="Screenshot of single-factor authentication entries in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entries-single.png":::  
 
-The first entry requests the X.509 certificate from the user. The status **Success** just means that Azure AD validated that CBA is enabled in the tenant and a certificate is requested for authentication.
+The first entry requests the X.509 certificate from the user. The status **Success** means that Azure AD validated that CBA is enabled in the tenant and a certificate is requested for authentication.
 
 :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entry-one.png" alt-text="Screenshot of single-factor authentication entry in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entry-one.png" :::  
 
@@ -190,7 +190,6 @@ These additional entries show that the authentication is complete and a primary 
 For the next test scenario, configure the authentication policy where the Issuer subject rule satisfies multifactor authentication.
 
 :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/multifactor.png" alt-text="Screenshot of the Authentication policy configuration showing multifactor authentication required." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/multifactor.png":::  
-
 
 1. Sign in to the Azure portal using CBA. since the policy was set to satisfy multifactor authentication, the user sign-in is successful without a second factor.
 1. Click **Azure Active Directory** > **Sign in logs**.
