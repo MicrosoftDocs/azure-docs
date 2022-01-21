@@ -214,7 +214,7 @@ Let's walk through a scenario where we will validate strong authentication by cr
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/alternative.png" alt-text="Screenshot of the alternative sign in.":::
 
 1.	Select **Sign in with a certificate**.
-   
+
    The client certificate picker UI will come up.
 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/client-picker.png" alt-text="Screenshot of the client picker.":::
@@ -228,10 +228,10 @@ Let's walk through a scenario where we will validate strong authentication by cr
 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/authentication-details.png" alt-text="Screenshot of the authentication details.":::
 
-1. Select the client certificate and Click OK
-1. The policy OID in the certificate matches the configured value of **1.2.3.4** and it will satisfy multi-factor authentication. Similarly, the issuer in the certificate matches the configured value of **CN=ContosoCA,DC=Contoso,DC=org** and it will satisfy single-factor authentication
-1. Since policy OID rule takes precedence over issuer rule, the certificate will satisfy multi-factor authentication.
-1. The conditional access policy for the user requires MFA and the certificate satisfies multi factor, the user will be authenticated into the application.
+1. Select the client certificate and click **Ok**.
+1. The policy OID in the certificate matches the configured value of **1.2.3.4** and it will satisfy multifactor authentication. Similarly, the issuer in the certificate matches the configured value of **CN=ContosoCA,DC=Contoso,DC=org** and it will satisfy single-factor authentication.
+1. Because policy OID rule takes precedence over issuer rule, the certificate will satisfy multifactor authentication.
+1. The conditional access policy for the user requires MFA and the certificate satisfies multifactor, so the user will be authenticated into the application.
 
 ### Enable cloud-native CBA using Microsoft Graph API
 
