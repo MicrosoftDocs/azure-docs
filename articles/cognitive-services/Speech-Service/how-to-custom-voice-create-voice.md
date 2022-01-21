@@ -12,7 +12,7 @@ ms.date: 11/04/2019
 ms.author: eur
 ---
 
-# Create and train your voice model
+# Train your voice model
 
 In [Prepare training data](how-to-custom-voice-prepare-data.md), you learned about the different data types you can use to train a custom neural voice and the different format requirements. Once you've prepared your data and the voice talent verbal statement, you can start to upload them to the [Speech Studio](https://aka.ms/custom-voice-portal). In this article, you learn how to train a custom neural voice through the Speech Studio portal. See the [supported languages](language-support.md#custom-neural-voice) for Custom Neural Voice.
 
@@ -198,7 +198,7 @@ The quality of the voice depends on many factors, including the size of the trai
 
 ## Next steps
 
-- [How to deploy and use endpoint](how-to-deploy-and-use-endpoint.md)
+- [Deploy and use your voice model](how-to-deploy-and-use-endpoint.md)
 - [How to record voice samples](record-custom-voice-samples.md)
 - [Text-to-Speech API reference](rest-text-to-speech.md)
 - [Long Audio API](long-audio-api.md)

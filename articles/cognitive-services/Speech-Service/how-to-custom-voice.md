@@ -77,5 +77,6 @@ If you are using the old version of Custom Voice (to be retired in 2/2024), chec
 ## Next steps
 
 - [Prepare data for custom neural voice](how-to-custom-voice-prepare-data.md)
-- [Train and deploy a custom neural voice](how-to-custom-voice-create-voice.md)
+- [Train your voice model](how-to-custom-voice-create-voice.md)
+- [Deploy and use your voice model](how-to-deploy-and-use-endpoint.md)
 - [How to record voice samples](record-custom-voice-samples.md)

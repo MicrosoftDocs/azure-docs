@@ -1,7 +1,7 @@
 ---
-title: How to deploy and use endpoint - Speech service
+title: How to deploy and use voice model - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn about how to deploy and use a custom neural voice endpoint.
+description: Learn about how to deploy and use a custom neural voice model.
 services: cognitive-services
 author: Ling-Cao
 manager: qiliao123
@@ -12,24 +12,22 @@ ms.date: 1/20/2022
 ms.author: caoling
 ---
 
-# Deploy and use your endpoint
+# Deploy and use your voice model
 
 After you've successfully created and tested your voice model, you deploy it in a custom Text-to-Speech endpoint. You then use this endpoint in place of the usual endpoint when making Text-to-Speech requests through the REST API. Your custom endpoint can be called only by the subscription that you've used to deploy the model.
 
-## Deploy a custom neural voice endpoint
+## Create a custom neural voice endpoint
 
 You can do the following to create a custom neural voice endpoint.
 
 1. On the **Deploy model** tab, select **Deploy model**. 
-2. Next, select a voice model you would like to associate with this endpoint. 
-3. Then, enter a **Name** and **Description** for your custom endpoint.
+2. Next, select a voice model you want to deploy.
+3. Then, enter a **Name** and **Description** for your endpoint.
 4. Finally, select **Deploy** to create your endpoint.
 
 After you've clicked the **Deploy** button, in the endpoint table, you'll see an entry for your new endpoint. It may take a few minutes to instantiate a new endpoint. When the status of the deployment is **Succeeded**, the endpoint is ready for use.
 
-You can **Suspend** and **Resume** your endpoint if you don't use it all the time. When an endpoint is reactivated after suspension, the endpoint URL will be kept the same so you don't need to change your code in your apps.  You can also suspend and resume endpoint via REST API. Read the following section to see how to suspend and resume endpoint via REST API.
-
-You can also update the endpoint to a new model. To change the model, make sure the new model is named the same as the one you want to update. 
+You can also update the endpoint to a new model. To change the model, make sure the new model is named the same as the one you want to update.
 
 > [!NOTE]
 >- Standard subscription (S0) users can create up to 50 endpoints, each with its own custom neural voice.
@@ -41,19 +39,42 @@ The custom endpoint is functionally identical to the standard endpoint that's us
 
 We also provide an online tool, [Audio Content Creation](https://speech.microsoft.com/audiocontentcreation), that allows you to fine-tune their audio output using a friendly UI.
 
-## How to suspend and resume endpoint via REST API
+## Copy your voice model to another projects or regions
 
-With endpoint Suspend and Resume functions, you can flexibly control the endpoint hosting status and save the hosting costs. The charging will stop once the endpoint is suspended, meanwhile it can’t be used to synthesize speech until you resume it successfully.
+You can copy your voice model to another project or other regions. Do the following steps to easily deploy the voice model to a different region or project.
+
+1. On the **Train model** tab, select a voice model you want to copy, and select **Copy to project** , as shown below.
+
+   :::image type="content" source="media/custom-voice/copy-to-project.png" alt-text="Copy to project":::
+
+2. Next, select the target **Region**, **Speech resource**, and **Project**, as shown in the screenshot below. If no speech resource or project is found in the target region, you need to follow the instructions displayed to create one. Select **Submit** to copy the model.
+
+    :::image type="content" source="media/custom-voice/copy-voice-model.png" alt-text="Copy voice model":::
+
+3. Then, after you successfully copy the model, select **View model** under the notification message to go into the target **Train model** page.
+4. Finally, select the newly copied model and **Deploy model**.
+
+> [!NOTE]
+> Custom neural voice training is only available in the three regions: East US, Southeast Asia, and UK South. But you can easily copy a neural voice model from the three regions to other different regions. Check the regions supported for Custom Neural Voice: [regions for Custom Neural Voice](regions.md#text-to-speech).
+
+## How to suspend and resume endpoint
+
+You can **Suspend** and **Resume** your endpoint if you don't use it all the time. With endpoint **Suspend** and **Resume** functions, you can flexibly control the endpoint hosting status and save the hosting costs. The charging will stop once the endpoint is suspended, meanwhile it can’t be used to synthesize speech until you resume it successfully. When an endpoint is reactivated after suspension, the endpoint URL will be kept the same so you don't need to change your code in your apps.
+
+You can suspend and resume endpoint via portal or REST API.
 
 > [!NOTE]
 > The Suspend or Resume operation will take a while to complete, the Suspend time should be short and the Resume time should be similar to the deployment time.
 
+### Suspend and resume endpoint via portal
+
+On the **Deploy model** tab of [Speech Studio](https://aka.ms/custom-voice-portal), select the endpoint you want to suspend, then select **Suspend** option displayed on the endpoint details page to suspend the endpoint. To reactivate your endpoint, select **Resume** option on the endpoint details page.
+
+### Suspend and resume endpoint via REST API
+
 This section will show you how to suspend or resume a Custom Voice endpoint via REST API.
 
-> [!Tip]
-> The endpoint Suspend and Resume functions have been supported on [Speech Studio portal](https://aka.ms/custom-voice-portal) too.
-
-### Prerequisites
+#### Prerequisites
 
 For an existing endpoint you want to suspend or resume, you'll need to prepare:
 
@@ -63,11 +84,11 @@ For an existing endpoint you want to suspend or resume, you'll need to prepare:
 
 * The subscription key the endpoint is associated with (Endpoint key).
 
-Go to [Speech Studio](https://aka.ms/custom-voice-portal) to select your custom neural voice endpoint, then you can get the above parameters on the endpoint details page as shown below.
+Go to **Deploy model** tab on the [Speech Studio](https://aka.ms/custom-voice-portal) to select the endpoint, then you can get the above parameters on the endpoint details page as shown below.
 
 :::image type="content" source="media/custom-voice/endpoint-parameter-for-rest-api.png" alt-text="Endpoint parameter for rest API":::
 
-### Suspend endpoint
+#### Suspend endpoint
 
 Suspend the endpoint identified by the given ID, which applies to the endpoint in `Succeeded` status.
 
@@ -77,7 +98,7 @@ Suspend the endpoint identified by the given ID, which applies to the endpoint i
 
 2. Follow the [Get endpoint](#get-endpoint) steps to track the operation progress. You can poll the get endpoint API in a loop until the status becomes `Disabled`, and the status property will change from `Succeeded` status, to `Disabling`, and finally to `Disabled`.
 
-#### Sample request
+##### Sample request
 
 HTTP sample
 
@@ -95,13 +116,13 @@ cURL sample - Run with command-line tool in Linux (and in the Windows Subsystem 
 curl -v -X POST "https://<REGION_IDENTIFIER>.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/endpoints/<Endpoint_ID>/suspend" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY >" -H "content-type: application/json" -H "content-length: 0"
 ```
 
-#### Sample response
+##### Sample response
 
 Status code: 202 Accepted
 
 For details, see [Response header](#response-header).
 
-### Resume endpoint
+#### Resume endpoint
 
 Resume the endpoint identified by the given ID, which applies to the endpoint in `Disabled` status.
 
@@ -111,7 +132,7 @@ Resume the endpoint identified by the given ID, which applies to the endpoint in
 
 2. Follow the [Get endpoint](#get-endpoint) steps to track the operation progress. You can poll the API in a loop until the status becomes `Succeeded` or `Disabled`, and the status property will change from `Disabled` status, to `Running`, and finally to `Succeeded` or `Disabled` if failed.
 
-#### Sample request
+##### Sample request
 
 HTTP sample
 
@@ -129,13 +150,13 @@ cURL sample - Run with command-line tool in Linux (and in the Windows Subsystem 
 curl -v -X POST "https://<REGION_IDENTIFIER>.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/endpoints/<Endpoint_ID>/resume" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY >" -H "content-type: application/json" -H "content-length: 0"
 ```
 
-#### Sample response
+##### Sample response
 
 Status code: 202 Accepted
 
 For details, see [Response header](#response-header).
 
-### Get endpoint
+#### Get endpoint
 
 Get the endpoint identified by the given ID, this API allows you to query the details of the endpoint.
 
@@ -159,7 +180,7 @@ The definition of status property:
 > [!Tip]
 > If the status goes to `Failed` or `Disabled` for Resume, you can check the `properties.error` for the detailed error message.
 
-#### Sample request
+##### Sample request
 
 HTTP sample
 
@@ -175,7 +196,7 @@ cURL sample - Run with command-line tool in Linux (and in the Windows Subsystem 
 curl -v -X GET "https://<REGION_IDENTIFIER>.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/endpoints/<Endpoint_ID>" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY >"
 ```
 
-#### Sample response
+##### Sample response
 
 Status code: 200 OK
 
@@ -198,7 +219,7 @@ Status code: 200 OK
 }
 ```
 
-### Request parameter
+#### Request parameter
 
 Replace the parameters with proper data you found at [Prerequisites](#prerequisites) step.
 
@@ -208,7 +229,7 @@ Replace the parameters with proper data you found at [Prerequisites](#prerequisi
 | `Endpoint_ID` | Path   | `True` | string | <Endpoint_ID> - The identifier of the endpoint.                                |
 | `Ocp-Apim-Subscription-Key` | Header | `True` | string | <YOUR_SUBSCRIPTION_KEY > The subscription key the endpoint is associated with. |
 
-### Response header
+#### Response header
 
 Status code: 202 Accepted
 
@@ -217,7 +238,7 @@ Status code: 202 Accepted
 | `Location` | string | The location of the endpoint that can be used as the full URL to get endpoint. |
 | `Retry-After` | string | The total seconds of recommended interval to retry to get endpoint status.       |
 
-### HTTP status codes
+#### HTTP status codes
 
 The HTTP status code for each response indicates success or common errors.
 
