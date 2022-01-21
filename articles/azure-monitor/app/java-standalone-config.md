@@ -228,6 +228,18 @@ Instrumentation key overrides allow you to override the [default instrumentation
 }
 ```
 
+## Autocollect InProc dependencies (preview)
+
+Starting from 3.2.0, if you want to capture controller "InProc" dependencies, please use the following configuration:
+
+```json
+{
+  "preview": {
+    "captureControllerSpans": true
+  }
+}
+```
+
 ## Telemetry processors (preview)
 
 It allows you to configure rules that will be applied to request, dependency and trace telemetry, for example:

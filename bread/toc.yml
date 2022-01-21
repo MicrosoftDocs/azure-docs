@@ -617,7 +617,7 @@
     - name: Data Transformation
       tocHref: /azure/healthcare-apis/data-transformation/
       topicHref: /azure/healthcare-apis/fhir/convert-data
-    - name: IoT Connector
+    - name: IoT connector
       tocHref: /azure/healthcare-apis/iot/
       topicHref: /azure/healthcare-apis/iot/index
   - name: Azure API for FHIR

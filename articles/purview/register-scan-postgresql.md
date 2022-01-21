@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 01/11/2022
+ms.date: 01/20/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -21,7 +21,7 @@ This article outlines how to register PostgreSQL, and how to authenticate and in
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| Yes|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage) |
 
 The supported PostgreSQL server versions are 8.4 to 12.x.
 
@@ -36,6 +36,8 @@ When scanning PostgreSQL source, Azure Purview supports:
     - Views including the columns
     
 - Fetching static lineage on assets relationships among tables and views.
+
+When setting up scan, you can choose to scan an entire PostgreSQL database, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
 
 ## Prerequisites
 
@@ -121,7 +123,7 @@ To create and run a new scan, do the following:
 
     1. **Database**： Specify the name of the database instance to import.
 
-    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. When the list is empty, all available schemas are imported.
+    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default.
         
         Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: `A%; %B; %C%; D`
         * Start with A or
@@ -145,6 +147,14 @@ To create and run a new scan, do the following:
 1. Review your scan and select **Save and Run**.
 
 [!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
+
+## Lineage
+
+After scanning your PostgreSQL source, you can [browse data catalog](how-to-browse-catalog.md) or [search data catalog](how-to-search-catalog.md) to view the asset details. 
+
+Go to the asset -> lineage tab, you can see the asset relationship when applicable. Refer to the [supported capabilities](#supported-capabilities) section on the supported PostgreSQL lineage scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
+
+:::image type="content" source="media/register-scan-postgresql/lineage.png" alt-text="PostgreSQL lineage view" border="true":::
 
 ## Next steps
 
