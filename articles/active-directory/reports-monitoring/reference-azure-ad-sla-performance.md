@@ -20,9 +20,25 @@ ms.reviewer: besiler
 ms.collection: M365-identity-device-management
 ---
 
-# Azure Active Directory SLA for performance 
+# Azure Active Directory SLA performance 
 
-Use this document to see how the Azure AD service has performed according to the [SLA for Azure Active Directory (Azure AD)](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1/). This document shows worldwide SLA performance for Azure AD tenants.  
+As an identity admin, you may need Azure AD availability tracking so you can ensure vital apps and workloads have the reliable identity and access management your business requires. This article shows how the Azure AD service has performed according to the [SLA for Azure Active Directory (Azure AD)](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1/). 
+
+You can use this article in discussions with app or business owners to help them understand the performance they can expect from Azure AD. 
+
+
+## Service availability commitment 
+
+Microsoft offers Premium Azure AD customers the opportunity to get a service credit if Azure AD fails to meet the documented SLA. When you request a service credit, Microsoft evaluates the SLA for your specific tenant; however, this global SLA can give you an indication of the general health of Azure AD over time. 
+
+The SLA covers the following scenarios that are vital to businesses:
+
+- **User authentication:** Users are able to login to the Azure Active Directory service.
+
+- **App access:** Azure Active Directory successfully emits the authentication and authorization tokens required for users to log into applications connected to the service.
+
+For full details on SLA coverage and instructions on requesting a service credit, see the SLA for Azure Active Directory (Azure AD) | Microsoft Azure.
+
 
 ## No planned downtime 
 
@@ -32,7 +48,11 @@ You rely on Azure AD to provide identity and access management for your vital sy
 
 To help you plan for moving workloads to Azure AD, we publish past SLA performance. These numbers show the level at which Azure AD met the requirements in the [SLA for Azure Active Directory (Azure AD)](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1/), for all tenants. 
 
-  
+||January | February | March |	April |	May | June | July |	August | September | October | November | December |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 2021 | | 99.999 | 99.999 | 99.999 | 99.999 | 99.999 | 99.999 | 99.999 | 99.999 | 99.999 | 99.998 | 99.998 |
+|2022 | | | | | | | | | | | | |
+
 
   
 
