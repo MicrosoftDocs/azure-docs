@@ -11,30 +11,39 @@ metadata:
   ms.topic: conceptual
   ms.date: 01/20/2022
     
-title: Frequently asked questions—Azure Cognitive Search 
+title: Azure Cognitive Search FAQ
 summary:  Find answers to commonly asked questions about concepts, code, and scenarios related to Azure Cognitive Search.
 
 
 sections:
-  - name: Service FAQ
+  - name: General
     questions:
       - question: |
-          Can I pause Azure Cognitive Search service and stop billing?
+          Can I pause the service and stop billing?
         answer: |
           You cannot pause the service. Computing resources are allocated when the service is created. It's not possible to release and reclaim those resources on-demand.
 
       - question: |
-          Can I upgrade or downgrade in-place, or rename or move my search service to a different region?
+          Can I upgrade, downgrade, rename or move the service?
         answer: |
-          No, the service tier, name, and region are fixed for the lifetime of the service.
+          Service tier, name, and region are fixed for the lifetime of the service.
 
+      - question: |
+          Is there functional parity across the various APIs?
+        answer: |
+          Not always. The REST API is always the first to implement features. The client libraries in Azure SDKs will pick up new features over time, but are released on their own schedule.
 
-  - name: Indexing FAQ
+      - question: |
+          How do integrate search into my solution?
+        answer: |
+          Client code should call the client libraries or REST APIs to connect to a search index, formulate queries, and handle responses. You can also write code that builds and refreshes an index, or runs indexers programmatically or by script.
+
+  - name: Indexing 
     questions:
       - question: |
           Can I move, backup, and restore indexes or index snapshots?
         answer: |
-          There is no native support for index management, and there is no concept of an index snapshot. Search indexes are considered downstream data structures, accepting content from other data sources that collect operational data. As such, there is no built-in support for backing up and restoring indexes because the expectation is that you would rebuild it from source data if you deleted it or wanted to move it.
+          There is no native support for index management, and no concept of an index snapshot. Search indexes are considered downstream data structures, accepting content from other data sources that collect operational data. As such, there is no built-in support for backing up and restoring indexes because the expectation is that you would rebuild it from source data if you deleted it or wanted to move it.
           
           However, if you want to move an index between search services, you can try the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
                    
@@ -48,7 +57,7 @@ sections:
         answer: |
           There are no restrictions on the use of primary or secondary replicas as a data source when building an index from scratch. However, refreshing an index with incremental updates (based on changed records) requires the primary replica. This requirement comes from SQL Database, which guarantees change tracking on primary replicas only. If you try using secondary replicas for an index refresh workload, there is no guarantee you get all of the data.
 
-  - name: Query FAQ
+  - name: Queries
     questions:
       - question: |
           Can I search across multiple indexes?
@@ -73,20 +82,8 @@ sections:
           Search scores are generated for full text search queries, based on the [statistical properties of matching terms](search-lucene-query-architecture.md#stage-4-scoring), and ordered high to low in the result set. Query types that are not full text search (wildcard, prefix, regex) are not ranked by a relevance score. This behavior is by design. A constant score allow matches found through query expansion to be included in the results, without affecting the ranking.
           
           For example, suppose an input of "tour*" in a wildcard search produces matches on "tours", "tourettes", and "tourmaline". Given the nature of these results, there is no way to reasonably infer which terms are more valuable than others. For this reason, term frequencies are ignored when scoring results in queries of types wildcard, prefix, and regex. Search results based on a partial input are given a constant score to avoid bias towards potentially unexpected matches.
-          
-  - name: Programmability FAQ
-    questions:
-      - question: |
-          Is there functional parity across the REST API and client libraries in the Azure SDKs?
-        answer: |
-          Not always. The REST API is always the first to implement features. The client libraries in Azure SDKs will pick up new features over time, but are released on their own schedule.
 
-      - question: |
-          How do integrate Cognitive Search into my solution?
-        answer: |
-          Client code should call the client libraries or REST APIs to connect to a search index, formulate queries, and handle responses. You can also write code that builds and refreshes an index, or runs indexers programmatically or by script.
-
-  - name: Security FAQ
+  - name: Security
     questions:
       - question: |
           Where does Cognitive Search store customer data?
@@ -110,7 +107,10 @@ sections:
 
 additionalContent: |
 
-  ## See also
+  ## Next steps
+
+  If your question isn't answered here, you can refer to the following sources for more questions and answers.
+  
      [Stack Overflow: Azure Cognitive Search](https://stackoverflow.com/questions/tagged/azure-search)   
      [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)  
      [What is Azure Cognitive Search?](search-what-is-azure-search.md)
