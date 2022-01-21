@@ -77,21 +77,22 @@ To enable the certificate-based authentication and configure user bindings in th
    >[!NOTE] 
    >The default protection level value will be in effect if no custom rules are added. If custom rules are added, the protection level defined at the rule level will be honored instead.
 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/default.png" alt-text="Screenshot of default policy.":::
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/change-default.png" alt-text="Screenshot of how to change the default policy to MFA.":::
 
-1. You can also set up custom authentication binding rules to help determine the protection level for client certificates. It can be configured using either the issuer Subject or policy OID fields in the certificate.
+1. You can also set up custom authentication binding rules to help determine the protection level for client certificates. It can be configured using either the issuer Subject or Policy OID fields in the certificate.
 
-   Authentication binding rules will map the certificate attributes (issuer or policy OID) to a value, and select default protection level for that rule. Multiple rules can be created.
-
+   Authentication binding rules will map the certificate attributes (issuer or Policy OID) to a value, and select default protection level for that rule. Multiple rules can be created.
 
    To add custom rules, click on **Add rule**.
 
-   To create a rule by Certificate issuer, make sure to select **Certificate issuer**.
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/add-rule.png" alt-text="Screenshot of how to add a rule.":::
+
+   To create a rule by certificate issuer, make sure to select **Certificate issuer**.
 
    1. Select a **Certificate issuer identifier** from the list box.
    1. Protection level default value is **Single-factor authentication**. Select **Multi-factor authentication** to change the default value.
 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/multifactor.png" alt-text="Screenshot of multifactor authentication policy.":::
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/multifactor-issuer.png" alt-text="Screenshot of multifactor authentication policy.":::
 
 
    To create a rule by Policy OID, make sure to select **Policy OID**.
@@ -99,8 +100,7 @@ To enable the certificate-based authentication and configure user bindings in th
    1. Enter a value for **Policy OID**.
    1. Protection level default value is **Single-factor authentication**. Select **Multi-factor authentication** to change the default value.
 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/policy-oid.png" alt-text="Screenshot of mapping to Policy OID.":::
- 
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/multifactor-policy-oid.png" alt-text="Screenshot of mapping to Policy OID.":::
  
 ## Step 3: Configure username binding policy
 
