@@ -68,13 +68,13 @@ After the deployment is complete, you can go back to "Private endpoint connectio
 
 With Private Link configured, you can access the FHIR server in the same VNet or a different VNet that is peered to the VNet for the FHIR server. Follow the steps below to configure VNet peering and Private Link DNS zone configuration.
 
-1.Configure VNet Peering
+1. Configure VNet Peering.
 
 You can configure VNet peering from the portal or using PowerShell, CLI scripts and Azure Resource Manager (ARM) template. The second VNet can be in the same or different subscriptions, and in the same or different regions. Make sure that you grant the **Network contributor** role. For more information on VNet Peering, see [Create a virtual network peering](../../virtual-network/create-peering-different-subscriptions.md).
 
-2.Add VNet link to the private link zone
+2. Add VNet link to the private link zone.
 
-Go back to the resource group of the FHIR server. Select and open the Private DNS zone, **privatelink.azurehealthcareapis.com**. Select Virtual network links under the settings section. Click the Add button to add your second VNet to the private DNS zone. Enter the link name of your choice, select the subscription and the VNet you just created. Optionally, you can enter the resource ID for the second VNet. Select Auto registration, which automatically adds a DNS record for your VM connected to the second VNet. When you delete a VNet link, the DNS record for the VM is also deleted.
+In the Azure portal, select the resource group of the FHIR server. Select and open the Private DNS zone, **privatelink.azurehealthcareapis.com**. Select **Virtual network links** under the *settings* section. Click the Add button to add your second VNet to the private DNS zone. Enter the link name of your choice, select the subscription and the VNet you just created. Optionally, you can enter the resource ID for the second VNet. Select **Enable auto registration**, which automatically adds a DNS record for your VM connected to the second VNet. When you delete a VNet link, the DNS record for the VM is also deleted.
 
 For more information on how private link DNS zone resolves the private endpoint IP address to the fully qualified domain name (FQDN) of the resource such as the FHIR server, see [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md).
 
@@ -84,7 +84,7 @@ You can add more VNet links if needed, and view all VNet links you've added from
 
   :::image type="content" source="media/private-link/private-link-vnet-links.png" alt-text="Private Link VNet links." lightbox="media/private-link/private-link-vnet-links.png":::
   
-Also, from the overview tab you can view the FHIR server private IP address and IP addresses of the VMs connected to peered virtual networks.
+From the Overview blade you can view the private IP addresses of the FHIR server and the VMs connected to peered virtual networks.
 
   :::image type="content" source="media/private-link/private-link-dns-zone.png" alt-text="Private Link FHIR and VM Private IP Addresses." lightbox="media/private-link/private-link-dns-zone.png":::
 
@@ -119,7 +119,7 @@ To ensure your private endpoint can send traffic to your server:
 
 ### Use nslookup
 
-You can use the **nslookup** tool to verify connectivity. If the private link is configured properly, you should see the FHIR server url resolves to the valid private IP address, as shown below. Note that IP address **168.63.129.16** is a virtual public IP address used in Azure. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)
+You can use the **nslookup** tool to verify connectivity. If the private link is configured properly, you should see the FHIR server URL resolves to the valid private IP address, as shown below. Note that IP address **168.63.129.16** is a virtual public IP address used in Azure. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)
 
 ```
 C:\Users\testuser>nslookup fhirserverxxx.azurehealthcareapis.com
@@ -132,7 +132,7 @@ Address:  172.21.0.4
 Aliases:  fhirserverxxx.azurehealthcareapis.com
 ```
 
-If the private link is not configured properly, for example, the second VNet is not added to the private link DNS zone when VNet Peering is configured for two or more virtual networks, you will see the public IP address and a few aliases including the Traffic Manager endpoint, indicating that the private link DNS zone cannot resolve to the valid private IP address for the FHIR server. 
+If the private link is not configured properly, you may see the public IP address instead and a few aliases including the Traffic Manager endpoint. This indicates that the private link DNS zone cannot resolve to the valid private IP address of the FHIR server. One possible reason is that the second peered VNet hasn't been added to the private link DNS zone. As a result, you will see the HTTP 403 error, "Access to xxx was denied", when trying to access the /metadata endpoint of the FHIR server.  
 
 ```
 C:\Users\testuser>nslookup fhirserverxxx.azurehealthcareapis.com
@@ -151,9 +151,9 @@ For more information, see [Troubleshoot Azure Private Link connectivity problems
 
 ## Next steps
 
-In this article, you've learned how to configure private link and VNet peering and troubleshoot the private link and VNet configurations.
+In this article, you've learned how to configure the private link and VNet peering. You also learned how to troubleshoot the private link and VNet configurations.
 
-Based on your setup, please see the how-to-guides to register your applications
+Based on your private link setup and for more information about registering your applications, see
 
 * [Register a resource application](register-resource-azure-ad-client-app.md)
 * [Register a confidential client application](register-confidential-azure-ad-client-app.md)
