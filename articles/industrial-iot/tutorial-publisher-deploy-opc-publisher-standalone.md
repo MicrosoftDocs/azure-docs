@@ -34,8 +34,8 @@ If you don’t have an Azure subscription, create a free trial account
 1. Pick the Azure subscription to use. If no Azure subscription is available, one must be created.
 2. Pick the IoT Hub the OPC Publisher is supposed to send data to. If no IoT Hub is available, one must be created.
 3. Pick the IoT Edge device the OPC Publisher is supposed to run on (or enter a name for a new IoT Edge device to be created).
-4. Select `Create`. The `Set modules on Device` page for the selected IoT Edge device opens.
-5. Select `OPCPublisher` to open the OPC Publisher's `Update IoT Edge Module` page and then select `Container Create Options`.
+4. Select **Create**. The **Set modules on Device** page for the selected IoT Edge device opens.
+5. Select **OPCPublisher** to open the OPC Publisher's **Update IoT Edge Module** page and then select **Container Create Options**.
 6. Specify other container create options based on your usage of OPC Publisher, see next section below.
 
 All supported docker images for the docker OPC Publisher are listed [here](https://mcr.microsoft.com/v2/iotedge/opc-publisher/tags/list). For non-OPC UA-enabled assets, leading industrial connectivity providers offer OPC UA adapter software.  These adapters are available in the Azure [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1).
