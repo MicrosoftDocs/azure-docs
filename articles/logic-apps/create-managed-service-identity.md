@@ -11,23 +11,21 @@ ms.custom: devx-track-azurepowershell, subject-rbac-steps, ignite-fall-2021
 
 # Authenticate access to Azure resources with managed identities in Azure Logic Apps
 
-Some triggers and actions in logic app workflows support using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md), previously known as a *Managed Service Identity (MSI)*, to authenticate connections to resources protected by Azure Active Directory (Azure AD). When your logic app resource enables and uses a managed identity, you don't have to provide credentials, secrets, or Azure AD tokens. Azure manages this identity and helps keep authentication information secure because you don't have to manage this sensitive information.
+In logic app workflows, some triggers and actions support using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md), previously known as a *Managed Service Identity (MSI)*, to authenticate access to resources protected by Azure Active Directory (Azure AD). When you enable your logic app resource to use a managed identity for authentication, you don't have to provide credentials, secrets, or Azure AD tokens. Azure manages this identity and helps keep authentication information secure because you don't have to manage this sensitive information.
 
-Azure Logic Apps supports the [*system-assigned* managed identity](../active-directory/managed-identities-azure-resources/overview.md), which you can use with only one logic app resource, and the [*user-assigned* managed identity](../active-directory/managed-identities-azure-resources/overview.md), which you can share across a group of logic app resources, based on where your logic app workflows run.
+Azure Logic Apps supports the [*system-assigned* managed identity](../active-directory/managed-identities-azure-resources/overview.md) and the [*user-assigned* managed identity](../active-directory/managed-identities-azure-resources/overview.md), but the following differences exist between these identity types:
 
-| Logic app resource type | Environment | Description |
-|-------------------------|-------------|-------------|
-| Consumption | - Multi-tenant Azure Logic Apps <p><p>- Integration service environment (ISE) | You can enable and use *either* the system-assigned identity or a *single* user-assigned identity at the logic app resource level and connection level. |
-| Standard | - Single-tenant Azure Logic Apps <p><p>- App Service Environment v3 (ASEv3) <p><p>- Azure Arc enabled Logic Apps | Currently, you can use *either* the system-assigned identity, which is enabled by default, or a *single* user-assigned identity. |
-|||
+* A logic app resource can enable and use only one unique system-assigned identity.
 
-Manage identity support also differs between Consumption and Standard logic app resource types:
+* A logic app resource can share the same user-assigned identity across a group of other logic app resources.
 
-| Logic app resource type | Managed identity support |
-|-------------------------|--------------------------|
-| Consumption | Either the system-assigned *or* user-assigned identity. You can enable *only one* identity type at a time, and you can add *only one* user-assigned identity to your logic app resource. |
-| Standard | System-assigned identity, which is enabled by default, and user-assigned identity. You can enable *both* identity types at the same time, and you can add *multiple* user-assigned identities to your logic app resource. |
-|||
+* Based on whether your logic app resource type is Consumption or Standard, your logic app resource can enable *either* the system-assigned identity *or* a user-assigned identity, or your logic app resource can enable *both* identity types at the same time.
+
+  | Logic app resource type | Environment | Managed identity support |
+  |-------------------------|-------------|--------------------------|
+  | Consumption | - Multi-tenant Azure Logic Apps <p><p>- Integration service environment (ISE) | - You can enable *either* the system-assigned identity type *or* the user-assigned identity type on your logic app resource. <p>- If enabled with the user-assigned identity type, your logic app resource can have *only a single user-assigned identity* at any one time. <p>- You can use the identity at the logic app resource level and at the connection level. |
+  | Standard | - Single-tenant Azure Logic Apps <p><p>- App Service Environment v3 (ASEv3) <p><p>- Azure Arc enabled Logic Apps | - You can enable *both* the system-assigned identity type, which is enabled by default, *and* the user-assigned identity type at the same time. <p>- Your logic app resource can have *multiple* user-assigned identities at the same time. <p>- You can use the identity at the logic app resource level and at the connection level. |
+  ||||
 
 To learn more about managed identity limits in Azure Logic Apps, review [Limits on managed identities for logic apps](logic-apps-limits-and-config.md#managed-identity). For more information about the Consumption and Standard logic app resource types and environments, review the following documentation:
 
