@@ -5,10 +5,10 @@ metadata:
 
 title: Frequently asked questions for Bicep
 summary: |
-  Here are some answers to common questions about using Bicep for infrastructure as code solutions.
+  This article provides answers to common questions about Bicep and how you use it for deploying resources to Azure.
 
 sections:
-  - name: Single section
+  - name: Intention
     questions:
       - question: Why create a new language instead of using an existing one?
         answer: |
@@ -24,6 +24,8 @@ sections:
 
           For customers who have selected ARM templates, we believe Bicep improves the authoring experience. Bicep also helps with the transition for customers who haven't adopted infrastructure as code.
 
+  - name: Availability
+    questions:
       - question: Is this ready for production use?
         answer: |
           Yes. Starting with version 0.3, Bicep is supported by Microsoft support plans. Bicep has parity with what can be accomplished with ARM Templates. There are no breaking changes that are currently planned, but it's possible we'll need to create breaking changes in the future.
@@ -34,12 +36,14 @@ sections:
 
           Meeting that goal requires working with some APIs that are outside of Azure. We expect to provide extensibility points for those scenarios.
 
+      - question: Can I use Bicep to deploy to Azure Stack Hub?
+        answer: |
+          Yes, you can use Bicep for your Azure Stack Hub deployments, but note that Bicep may show types that are not yet available in Azure Stack Hub. You can view a set of examples in the [Azure Stack Hub QuickStart Template GitHub repo](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/Bicep).
+
+  - name: ARM templates
+    questions:
       - question: What happens to my existing ARM templates?
         answer: |
           They continue to function exactly as they always have. You don't need to make any changes. We'll continue to support the underlying ARM template JSON language. Bicep files compile to JSON, and that JSON is sent to Azure for deployment.
 
           When you're ready, you can [decompile the JSON files to Bicep](./decompile.md).
-
-      - question: Can I use Bicep to deploy to Azure Stack Hub?
-        answer: |
-          Yes, you can use Bicep for your Azure Stack Hub deployments, but note that Bicep may show types that are not yet available in Azure Stack Hub. You can view a set of examples in the [Azure Stack Hub QuickStart Template GitHub repo](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/Bicep).
