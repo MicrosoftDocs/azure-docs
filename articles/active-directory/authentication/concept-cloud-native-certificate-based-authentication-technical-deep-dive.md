@@ -34,14 +34,14 @@ When a user tries to sign into an application secured by Azure AD, and if CBA is
    
    :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in.png" alt-text="Screenshot of the Sign-in for MyApps portal.":::
   
-1. If Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled for the tenant, the user sees a link to **Sign in with a certificate** on the password page. If you do not see the sign in link, make sure CBA is enabled on the tenant. For more information, see [Frequently asked questions about Cloud native certificate authentication](cloud-native-certificate-based-authentication-faq.yml).
+1. If Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled for the tenant, the user sees a link to **Sign in with a certificate** on the password page. If you do not see the sign-in link, make sure CBA is enabled on the tenant. For more information, see [Frequently asked questions about Cloud native certificate authentication](cloud-native-certificate-based-authentication-faq.yml).
    
    >[!NOTE]
    > If CBA is enabled, all users see the link to **Sign in with a certificate** on the password page. CBA cannot be enabled for specific users. 
 
    :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-cert.png" alt-text="Screenshot of the Sign-in with a certificate.":::
 
-1. After the user clicks the link, the client is redirected to [http://certauth.login.microsoftonline.com](http://certauth.login.microsoftonline.com). The endpoint performs mutual authentication and requests the client certificate as part of the TLS handshake. You will see an entry for this request in the sign in logs. There is a [known issue](#known-issues) where User ID is displayed instead of Username.
+1. After the user clicks the link, the client is redirected to [http://certauth.login.microsoftonline.com](http://certauth.login.microsoftonline.com). The endpoint performs mutual authentication and requests the client certificate as part of the TLS handshake. You will see an entry for this request in the Sign-in logs. There is a [known issue](#known-issues) where User ID is displayed instead of Username.
 
    :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-log.png" alt-text="Screenshot of the Sign-in log in Azure AD.":::
    
@@ -115,7 +115,7 @@ An admin can configure the CRL distribution point during the setup process of th
 
 **Typical flow of the CRL check:**
 
-1. Azure AD will attempt to download the CRL at the first sign in event of any user with a certificate of the corresponding trusted issuer or certificate authority. 
+1. Azure AD will attempt to download the CRL at the first sign-in event of any user with a certificate of the corresponding trusted issuer or certificate authority. 
 1. Azure AD will cache and re-use the CRL for any subsequent usage. It will honor the **Next update date** and, if available, **Next CRL Publish date** (used by Windows Server CAs) in the CRL document.
 1. The user certificate-based authentication will fail if:
    1. A CRL has been configured for the trusted issuer and Azure AD cannot download the CRL, due to availability, size, or latency constraints.
@@ -155,35 +155,35 @@ For the first test scenario, configure the authentication policy where the Issue
 :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/single-factor.png" alt-text="Screenshot of the Authentication policy configuration showing single-factor authentication required." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/single-factor.png":::  
 
 1. Sign in to the Azure portal as the test user by using CBA. The authentication policy is set where Issuer subject rule satisfies single-factor authentication, but the user has MFA required by the conditional access policy, so a second authentication factor is requested.
-1. After sign-in was succeeds, click **Azure Active Directory** > **Sign in logs**.
+1. After sign-in was succeeds, click **Azure Active Directory** > **Sign-in logs**.
 
-Let's look closer at some of the entries you can find in the sign in logs.
+   Let's look closer at some of the entries you can find in the Sign-in logs.
 
-:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entries-single.png" alt-text="Screenshot of single-factor authentication entries in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entries-single.png":::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entries-single.png" alt-text="Screenshot of single-factor authentication entries in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entries-single.png":::  
 
-The first entry requests the X.509 certificate from the user. The status **Success** means that Azure AD validated that CBA is enabled in the tenant and a certificate is requested for authentication.
+   The first entry requests the X.509 certificate from the user. The status **Success** means that Azure AD validated that CBA is enabled in the tenant and a certificate is requested for authentication.
 
-:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entry-one.png" alt-text="Screenshot of single-factor authentication entry in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entry-one.png" :::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entry-one.png" alt-text="Screenshot of single-factor authentication entry in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entry-one.png" :::  
 
-You can also click **Authentication Details** to verify the success status.
+   You can also click **Authentication Details** to verify the success status.
 
-:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-details.png" alt-text="Screenshot of single-factor sign-in details in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-details.png":::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-details.png" alt-text="Screenshot of single-factor sign-in details in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-details.png":::  
 
-The next entry provides more information about the authentication request and the certificate used. We can see that since the certificate satisfies only a single-factor and the user requires MFA, a second factor was requested.
+   The next entry provides more information about the authentication request and the certificate used. We can see that since the certificate satisfies only a single-factor and the user requires MFA, a second factor was requested.
 
-:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/second-factor.png" alt-text="Screenshot of second-factor sign-in details in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/second-factor.png":::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/second-factor.png" alt-text="Screenshot of second-factor sign-in details in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/second-factor.png":::  
 
-The **Authentication Details** also show the second factor request.
+   The **Authentication Details** also show the second factor request.
 
-:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-details-mfa.png" alt-text="Screenshot of multifactor sign-in details in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-details-mfa.png":::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-details-mfa.png" alt-text="Screenshot of multifactor sign-in details in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-details-mfa.png":::  
 
-The **Additional Details** show the certificate information.
+   The **Additional Details** show the certificate information.
 
-:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/additional-details.png" alt-text="Screenshot of multifactor additional details in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/additional-details.png":::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/additional-details.png" alt-text="Screenshot of multifactor additional details in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/additional-details.png":::  
 
-These additional entries show that the authentication is complete and a primary refresh token is sent back to the browser and user is given access to the resource.
+   These additional entries show that the authentication is complete and a primary refresh token is sent back to the browser and user is given access to the resource.
 
-:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/refresh-token.png" alt-text="Screenshot of refresh token details in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/refresh-token.png":::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/refresh-token.png" alt-text="Screenshot of refresh token details in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/refresh-token.png":::  
 
 ### Test multifactor authentication
 
@@ -192,29 +192,29 @@ For the next test scenario, configure the authentication policy where the Issuer
 :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/multifactor.png" alt-text="Screenshot of the Authentication policy configuration showing multifactor authentication required." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/multifactor.png":::  
 
 1. Sign in to the Azure portal using CBA. since the policy was set to satisfy multifactor authentication, the user sign-in is successful without a second factor.
-1. Click **Azure Active Directory** > **Sign in logs**.
+1. Click **Azure Active Directory** > **Sign-in logs**.
 
-You will see several entries in the sign-in logs. 
+   You will see several entries in the Sign-in logs. 
 
-:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/test-mfa.png" alt-text="Screenshot of details in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/test-mfa.png":::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/test-mfa.png" alt-text="Screenshot of details in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/test-mfa.png":::  
 
-The entry with **Interrupted** status has diagnostic info in the **Additional Details** tab.
+   The entry with **Interrupted** status has diagnostic info in the **Additional Details** tab.
 
-:::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/interrupted.png" alt-text="Screenshot of interrupted attempt details in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/interrupted.png":::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/interrupted.png" alt-text="Screenshot of interrupted attempt details in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/interrupted.png":::  
 
-The following table explains some details.
+   The following table explains some details.
 
-| Field   | Description  |
-|---------|--------------|
-| User certificate subject name | Refers to the subject name field in the certificate. |
-| User certificate binding | Certificate: Principal Name; User Attribute: userPrincipalName; Rank: 1<br>This shows which SAN PrincipalName certificate field was mapped to userPrincipalName user attribute and was priority 1. |
-| User certificate authentication level | multiFactorAuthentication |
-| User certificate authentication level type | PolicyId<br>This shows policy OID was used to determine the authentication strength. |
-| User certificate authentication level identifier | 1.2.3.4<br>This shows the value of the identifier policy OID from the certificate. |
+   | Field   | Description  |
+   |---------|--------------|
+   | User certificate subject name | Refers to the subject name field in the certificate. |
+   | User certificate binding | Certificate: Principal Name; User Attribute: userPrincipalName; Rank: 1<br>This shows which SAN PrincipalName certificate field was mapped to userPrincipalName user attribute and was priority 1. |
+   | User certificate authentication level | multiFactorAuthentication |
+   | User certificate authentication level type | PolicyId<br>This shows policy OID was used to determine the authentication strength. |
+   | User certificate authentication level identifier | 1.2.3.4<br>This shows the value of the identifier policy OID from the certificate. |
 
 ## Known issues
 
-- Sign in log shows the user id **fe3f7e7b-0044-4690-8ea5-1e9c6be5d026** instead of the username in one of the log entries.
+- The Sign-in log shows the user ID **fe3f7e7b-0044-4690-8ea5-1e9c6be5d026** instead of the username in one of the log entries.
 
   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/username.png" alt-text="Screenshot of username in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/username.png":::
  
