@@ -87,39 +87,40 @@ To enable the certificate-based authentication and configure user bindings in th
 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/add-rule.png" alt-text="Screenshot of how to add a rule.":::
 
-   To create a rule by certificate issuer, make sure to select **Certificate issuer**.
+   To create a rule by certificate issuer, click **Certificate issuer**.
 
    1. Select a **Certificate issuer identifier** from the list box.
-   1. Protection level default value is **Single-factor authentication**. Select **Multi-factor authentication** to change the default value.
+   1. Click **Multi-factor authentication**.
 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/multifactor-issuer.png" alt-text="Screenshot of multifactor authentication policy.":::
+      :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/multifactor-issuer.png" alt-text="Screenshot of multifactor authentication policy.":::
 
 
-   To create a rule by Policy OID, make sure to select **Policy OID**.
+   To create a rule by Policy OID, click **Policy OID**.
 
    1. Enter a value for **Policy OID**.
-   1. Protection level default value is **Single-factor authentication**. Select **Multi-factor authentication** to change the default value.
+   1. Click **Multi-factor authentication**.
 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/multifactor-policy-oid.png" alt-text="Screenshot of mapping to Policy OID.":::
- 
+      :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/multifactor-policy-oid.png" alt-text="Screenshot of mapping to Policy OID.":::
+
+   Click **Ok** to save any custom rule.
+
 ## Step 3: Configure username binding policy
 
 The username binding policy helps determine the user in the tenant. By default, we map Principal Name in the certificate to onPremisesUserPrincipalName in the user object to determine the user.
 
 An admin can override the default and create a custom mapping. Currently, we support two certificate fields, SAN (Subject Alternate Name) Principal Name and SAN RFC822Name, to map against the user object attribute userPrincipalName and onPremisesUserPrincipalName.
 
-
-1. Create the Username binding by selecting one of the X.509 certificate fields to bind with one of the user attributes. The username binding order represents the priority level of the binding. The first one has the highest priority and so on.
+1. Create the username binding by selecting one of the X.509 certificate fields to bind with one of the user attributes. The username binding order represents the priority level of the binding. The first one has the highest priority and so on.
 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/username-binding-policy.png" alt-text="Screenshot of a username binding policy.":::
 
    If the specified X.509 certificate field is found on the certificate, but Azure AD doesn’t find a user object using that value, the authentication fails. Azure AD doesn’t try the next binding in the list.
 
-   Only if the X.509 certificate field is not on the certificate does it attempt the next priority.
+   The next priority is attempted only if the X.509 certificate field is not in the certificate.
 
 1. Click **Save** to save the changes. 
 
-Currently supported set of Username bindings:
+Currently supported set of username bindings:
 
 - SAN Principal Name > userPrincipalName
 - SAN Principal Name > onPremisesUserPrincipalName
@@ -128,7 +129,6 @@ Currently supported set of Username bindings:
 
 >[!NOTE]
 >If the RFC822Name binding is evaluated and if no RFC822Name is specified in the certificate Subject Alternative Name, we will fall back on legacy Subject Name "E=user@contoso.com" if no RFC822Name is specified in the certificate we will fall back on legacy Subject Name E=user@contoso.com.
-
 
 The final configuration will look like this image:
 
@@ -143,8 +143,8 @@ To enable the certificate-based authentication in the Azure MyApps portal, compl
 1. Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
 4.	Under **Basics**, select **Yes** to enable CBA.
 1. CBA can be enabled for a targeted set of users.
-   1. Click **All Users** to enable all users.
-   1. Click **Select Users** to enable selected users or groups. 
+   1. Click **All users** to enable all users.
+   1. Click **Select users** to enable selected users or groups. 
    1. Click **+ Add users**, select specific users and groups.
    1. Click **Select** to add them.
 
@@ -169,7 +169,7 @@ As a first configuration test, you should try to sign in to the [MyApps portal](
 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/certificate.png" alt-text="Screenshot of sign in with certificate.":::
 
-   If you have enabled other authentication methods like Phone sign in or Fido Users may see a different login screen.
+   If you have enabled other authentication methods like Phone sign-in or FIDO2, users may see a different sign-in screen.
 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/alternative.png" alt-text="Screenshot of the alternative sign in.":::
 
@@ -191,11 +191,11 @@ If your sign in is successful, then you know that:
 
 Let's walk through a scenario where we will validate strong authentication by creating two authentication policy rules, one via issuer subject satisfying single factor and one via policy OID satisfying multi factor. 
 
-1. Create an issuer Subject rule with protection level as single factor authentication and value set to your CAs Subject value, say: 
+1. Create an issuer Subject rule with protection level as single factor authentication and value set to your CAs Subject value. For example: 
 
    `CN=ContosoCA,DC=Contoso,DC=org`
 
-1. Create a policy OID rule, with protection level as multi-factor authentication and value set to one of the policy OID’s in your certificate, say 1.2.3.4.
+1. Create a policy OID rule, with protection level as multi-factor authentication and value set to one of the policy OID’s in your certificate. For example, 1.2.3.4.
 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/policy-oid-rule.png" alt-text="Screenshot of the Policy OID rule.":::
 
@@ -209,7 +209,7 @@ Let's walk through a scenario where we will validate strong authentication by cr
 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/certificate.png" alt-text="Screenshot of sign in with certificate.":::
 
-   If you have enabled other authentication methods like Phone sign in or Fido Users may see a different slogin screen.
+   If you have enabled other authentication methods like Phone sign-in or FIDO2, users may see a different sign-in screen.
 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/alternative.png" alt-text="Screenshot of the alternative sign in.":::
 
