@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 01/21/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -26,7 +26,7 @@ All of the Identity Protection policies have an impact on the sign in experience
 
 ## Multi-factor authentication registration
 
-Enabling the Identity Protection policy requiring multi-factor authentication registration and targeting all of your users, will make sure that they have the ability to use Azure AD MFA to self-remediate in the future. Configuring this policy gives your users a 14-day period where they can choose to register and at the end are forced to register. The experience for users is outlined below. More information can be found in the end-user documentation in the article, [Overview for two-factor verification and your work or school account](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc).
+Enabling the Identity Protection policy requiring multi-factor authentication registration and targeting all of your users, will make sure that they can use Azure AD MFA to self-remediate in the future. Configuring this policy gives your users a 14-day period where they can choose to register and at the end are forced to register.
 
 ### Registration interrupt
 
@@ -38,11 +38,11 @@ Enabling the Identity Protection policy requiring multi-factor authentication re
 
 ## Risky sign-in remediation
 
-When an administrator has configured a policy for sign-in risks, the affected users are notified when they try to sign in and trigger the policies risk level. 
+When an administrator has configured a policy for sign-in risks, affected users are interrupted when they hit the configured risk level. 
 
 ### Risky sign-in self-remediation
 
-1. The user is informed that something unusual was detected about their sign-in, such as signing in from a new location, device, or app.
+1. The user is informed that something unusual was detected about their sign-in. This could be something like, such as signing in from a new location, device, or app.
    
     ![Something unusual prompt](./media/concept-identity-protection-user-experience/120.png)
 
@@ -76,6 +76,18 @@ Administrators can choose to block users upon sign-in depending on their risk le
 ![Blocked by user risk policy](./media/concept-identity-protection-user-experience/104.png)
 
 IT staff can follow the instructions in the section [Unblocking users](howto-identity-protection-remediate-unblock.md#unblocking-based-on-user-risk) to allow users to sign back in.
+
+## High risk technician
+
+If your organization has users who are delegated access to another tenant and they trigger high risk they may be blocked from signing into those other tenants. 
+
+> For example: An organization has a managed service provider (MSP) who takes care of configuring their cloud environment. 
+> 
+> One of the MSPs technicians credentials are leaked and triggers high risk. That technician will be blocked from the ability to sign in to other tenants. 
+> The technician can self-remediate and sign in if the home tenant has enabled the appropriate policy [requiring password change for high risk](../conditional-access/howto-conditional-access-policy-risk-user.md) or [MFA for risky users](../conditional-access/howto-conditional-access-policy-risk.md). 
+> If the home tenant has not enabled this policy an administrator in the technician's home tenant will have to [remediate the risk](howto-identity-protection-remediate-unblock.md#remediation).
+
+
 
 ## See also
 
