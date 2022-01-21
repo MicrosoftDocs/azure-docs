@@ -161,8 +161,8 @@ Optional - The Image Builder Build VM, that is created by the Image Builder serv
     "properties": { 
       "vmProfile": {
 	"userAssignedIdentities": [
-        "/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName>"
-      ]
+          "/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName>"
+        ]
       },
     },
 ```
