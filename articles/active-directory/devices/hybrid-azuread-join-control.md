@@ -97,7 +97,6 @@ After you verify that everything works as expected, you can automatically regist
 ## Next steps
 
 - [Plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
-
 - [Configure hybrid Azure AD join](howto-hybrid-azure-ad-join.md)
-
 - [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual.md)
+- [Use Conditional Access to require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md)

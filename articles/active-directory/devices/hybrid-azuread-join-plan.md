@@ -125,7 +125,8 @@ To register devices as hybrid Azure AD join to respective tenants, organizations
 
 Organizations may want to do a targeted rollout of hybrid Azure AD join before enabling it for their entire organization. Review the article [Hybrid Azure AD join targeted deployment](hybrid-azuread-join-control.md) to understand how to accomplish it.
 
-When all of the pre-requisites are in place, Windows devices will automatically register as devices in your Azure AD tenant. The state of these device identities in Azure AD is referred as hybrid Azure AD join. More information about the concepts covered in this article can be found in the article [Introduction to device identity management in Azure Active Directory](overview.md).
+> [!WARNING]
+> Organizations should include a sample of users from varying roles and profiles in their pilot group. A targeted rollout will help identify any issues your plan may not have addressed before you enable for the entire organization.
 
 ## Select your scenario based on your identity infrastructure
 

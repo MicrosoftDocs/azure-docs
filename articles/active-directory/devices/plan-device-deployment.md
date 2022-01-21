@@ -76,6 +76,9 @@ We recommend that the initial configuration of your integration method is in a t
 
 You may want to do a [targeted deployment of hybrid Azure AD join](hybrid-azuread-join-control.md) before enabling it across the entire organization.
 
+> [!WARNING]
+> Organizations should include a sample of users from varying roles and profiles in their pilot group. A targeted rollout will help identify any issues your plan may not have addressed before you enable for the entire organization.
+
 ## Choose your integration methods
 
 Your organization can use multiple device integration methods in a single Azure AD tenant. The goal is to choose the method(s) suitable to get your devices securely managed in Azure AD. There are many parameters that drive this decision including ownership, device types, primary audience, and your organization’s infrastructure.

@@ -135,3 +135,4 @@ If you experience issues with completing hybrid Azure AD join for domain-joined 
 
 - [Downlevel device enablement](howto-hybrid-join-downlevel.md)
 - [Hybrid Azure AD join verification](howto-hybrid-join-verify.md)
+- [Use Conditional Access to require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md)

@@ -485,3 +485,4 @@ If you experience issues completing hybrid Azure AD join for domain-joined Windo
 - [Hybrid Azure AD join verification](howto-hybrid-join-verify.md)
 - [Downlevel device enablement](howto-hybrid-join-downlevel.md)
 - [Plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
+- [Use Conditional Access to require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md)
