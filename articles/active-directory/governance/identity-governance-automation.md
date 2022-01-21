@@ -1,5 +1,5 @@
 ---
-title: Orchestrate Azure AD Identity Governance tasks with Azure Automation
+title: Automate Azure AD Identity Governance tasks with Azure Automation
 description: Learn how to write PowerShell scripts in Azure Automation to interact with Azure Active Directory entitlement management and other features.
 services: active-directory
 documentationCenter: ''
@@ -210,4 +210,5 @@ There are two places where you can see the expiration date in the Azure portal.
 
 ## Next steps
 
-- [Archive logs and reporting on Azure AD entitlement management in Azure Monitor](entitlement-management-logs-and-reporting.md)
+- [Create an Automation account using the Azure portal](/azure/automation/quickstarts/create-account-portal)
+- [Manage access to resources in Active Directory entitlement management using Microsoft Graph PowerShell](/powershell/microsoftgraph/tutorial-entitlement-management?view=graph-powershell-beta)
