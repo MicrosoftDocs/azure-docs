@@ -2561,6 +2561,8 @@
         href: elium-provisioning-tutorial.md
       - name: Exium
         href: exium-provisioning-tutorial.md
+      - name: Evercate
+        href: evercate-provisioning-tutorial.md
       - name: Facebook Work Accounts
         href: facebook-work-accounts-provisioning-tutorial.md  
       - name: Federated Directory
@@ -2783,22 +2785,22 @@
         href: shopify-plus-provisioning-tutorial.md
       - name: Sigma Computing
         href: sigma-computing-provisioning-tutorial.md
+      - name: Signagelive
+        href: signagelive-provisioning-tutorial.md
       - name: Slack
         href: slack-provisioning-tutorial.md
-      - name: Snowflake
-        href: snowflake-provisioning-tutorial.md
+      - name: Smartfile
+        href: smartfile-provisioning-tutorial.md
       - name: Smartsheet
         href: smartsheet-provisioning-tutorial.md
       - name: Smallstep SSH
         href: smallstep-ssh-provisioning-tutorial.md
+      - name: Snowflake
+        href: snowflake-provisioning-tutorial.md
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-provisioning-tutorial.md
       - name: SoSafe
         href: sosafe-provisioning-tutorial.md
-      - name: Symantec Web Security Service (WSS)
-        href: symantec-web-security-service.md
-      - name: Smartfile
-        href: smartfile-provisioning-tutorial.md
       - name: SpaceIQ
         href: spaceiq-provisioning-tutorial.md
       - name: Splashtop
@@ -2807,8 +2809,10 @@
         href: starleaf-provisioning-tutorial.md
       - name: Storegate
         href: storegate-provisioning-tutorial.md
-      - name: Signagelive
-        href: signagelive-provisioning-tutorial.md
+      - name: Swit
+        href: swit-provisioning-tutorial.md
+      - name: Symantec Web Security Service (WSS)
+        href: symantec-web-security-service.md
     - name: T - Z
       items:
       - name: Tableau Online

@@ -3,7 +3,7 @@ title: Monitoring Azure Event Hubs
 description: Learn how to use Azure Monitor to view, analyze, and create alerts on metrics from Azure Event Hubs. 
 ms.topic: conceptual
 ms.custom: subject-monitoring
-ms.date: 06/13/2021
+ms.date: 01/20/2022
 ---
 
 # Monitor Azure Event Hubs
@@ -39,7 +39,7 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](..
 
 If you use **Azure Storage** to store the diagnostic logging information, the information is stored in containers named **insights-logs-operationlogs** and **insights-metrics-pt1m**. Sample URL for an operation log: `https://<Azure Storage account>.blob.core.windows.net/insights-logs-operationallogs/resourceId=/SUBSCRIPTIONS/<Azure subscription ID>/RESOURCEGROUPS/<Resource group name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Namespace name>/y=<YEAR>/m=<MONTH-NUMBER>/d=<DAY-NUMBER>/h=<HOUR>/m=<MINUTE>/PT1H.json`. The URL for a metric log is similar. 
 
-If you use **Azure Event Hubs** to store the diagnostic logging information, the information is stored in event hubs named **insights-logs-operationlogs** and **insights-metrics-pt1m**. You can also select your own event hub. 
+If you use **Azure Event Hubs** to store the diagnostic logging information, the information is stored in Event Hubs instances named **insights-logs-operationlogs** and **insights-metrics-pt1m**. You can also select your own event hub. 
 
 If you use **Log Analytics** to store the diagnostic logging information, the information is stored in tables named **AzureDiagnostics** and **AzureMetrics**. 
 
@@ -81,7 +81,7 @@ For a detailed reference of the logs and metrics, see [Azure Event Hubs monitori
 
 Following are sample queries that you can use to help you monitor your Azure Event Hubs resources: 
 
-+ Get errors from the past 7 days
++ Get errors from the past seven days
 
     ```Kusto
     AzureDiagnostics
@@ -90,7 +90,7 @@ Following are sample queries that you can use to help you monitor your Azure Eve
     | where Category == "OperationalLogs"
     | summarize count() by "EventName"
 
-+ Get runtime audit logs during last hour. 
++ Get runtime audit logs generated in the last one hour. 
 
     ```Kusto
     AzureDiagnostics
