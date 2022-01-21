@@ -23,7 +23,7 @@ The Speech service implementation of SSML is based on the World Wide Web Consort
 > [!IMPORTANT]
 > Chinese characters are counted as two characters for billing, including Kanji used in Japanese, Hanja used in Korean, or Hanzi used in other languages. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-## Prebuilt neural voice and custom neural voice
+## Prebuilt neural voices and custom neural voices
 
 Use a humanlike neural voice or create your own custom neural voice unique to your product or brand. For a complete list of supported languages, locales, and voices, see [Language support](language-support.md). To learn more about using a prebuilt neural voice and a custom neural voice, see [Text-to-speech overview](text-to-speech.md).
 
@@ -313,7 +313,7 @@ This SSML snippet shows how to use `<lang xml:lang>` to change the speaking lang
 </speak>
 ```
 
-## Add or remove a break/pause
+## Add or remove a break or pause
 
 Use the `break` element to insert pauses or breaks between words. You can also use it to prevent pauses that are automatically added by text-to-speech.
 
