@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 
 Language identification is used to identify natural languages spoken in audio when compared against a list of [supported languages](language-support.md). 
 
-Language identification use cases include:
+Language identification (LID) use cases include:
 
 * [Standalone language identification](#standalone-language-identification) when you only need to detect the natural language in an audio source.
 * [Speech-to-text language identification](#speech-to-text) when you need to detect the natural language in an audio source and then transcribe it to text. 
@@ -104,19 +104,22 @@ Prioritize `Latency` if you need a low-latency result such as during live stream
 * **At-start:** With at-start LID in `Latency` mode the result is returned in less than 5 seconds. With at-start LID in `Accuracy` mode the result is returned in 30 seconds. You set the priority for at-start LID with the `SpeechServiceConnection_SingleLanguageIdPriority` property.   
 * **Continuous:** With continuous LID in `Latency` mode the results are returned every 2 seconds for the duration of the audio. With continuous LID in `Accuracy` mode the results are returned within no set time frame for the duration of the audio. You set the priority for continuous LID with the `SpeechServiceConnection_ContinuousLanguageIdPriority` property. 
 
-Speech uses at-start LID with `Latency` prioritization by default. You need to set a priority property for any other LID configuration. Here is an example of using continuous LID while still prioritizing latency. 
+Speech uses at-start LID with `Latency` prioritization by default. You need to set a priority property for any other LID configuration.  
 
 ::: zone pivot="programming-language-csharp"
+Here is an example of using continuous LID while still prioritizing latency.
 ```csharp
 speechConfig.SetProperty(PropertyId.SpeechServiceConnection_ContinuousLanguageIdPriority, "Latency");
 ```
 ::: zone-end
 ::: zone pivot="programming-language-cpp"
+Here is an example of using continuous LID while still prioritizing latency.
 ```cpp
 speechConfig->SetProperty(PropertyId::SpeechServiceConnection_ContinuousLanguageIdPriority, "Latency");
 ```
 ::: zone-end
 ::: zone pivot="programming-language-python"
+Here is an example of using continuous LID while still prioritizing latency.
 ```python
 speech_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_ContinuousLanguageIdPriority, value='Latency')
 ```
@@ -128,7 +131,7 @@ If none of the candidate languages are present in the audio or if the language i
 
 ### Recognize once or continuous
 
-Language identification is performed during a process called recognition. You will make a request to the Speech service for recognition of audio. 
+Language identification is completed during a process called recognition. You will make a request to the Speech service for recognition of audio. 
 
 > [!IMPORTANT]
 > Don't confuse recognition with identification. Recognition can be used with or without language identification, but language identification requires recognition.
@@ -668,7 +671,7 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 
 ### Using Speech-to-text custom models
 
-In addition to language identification using Speech service base models, you can also specify a custom model for enhanced recognition. If a custom model isn't provided, the service will use the default language model.
+You can use a custom model as an alternative to the Speech service base models. If a custom model isn't provided, the service will use the default language model.
 
 The sample below illustrates how to specify a custom model in your call to the Speech service. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used.
 
