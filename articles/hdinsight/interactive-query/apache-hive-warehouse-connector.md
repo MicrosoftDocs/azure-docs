@@ -23,7 +23,7 @@ The Hive Warehouse Connector (HWC) makes it easier to use Spark and Hive togethe
 > - Hive LLAP mode using LLAP daemons **[Recommended]**
 
 By default, HWC is configured to use Hive LLAP daemons. 
-For executing Hive queries (both read and write) using the above modes with their respective APIs, see [HWC APIs] (./hive-warehouse-connector-apis.md).
+For executing Hive queries (both read and write) using the above modes with their respective APIs, see [HWC APIs](./hive-warehouse-connector-apis.md).
 
 :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png" alt-text="hive warehouse connector architecture" border="true":::
 

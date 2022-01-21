@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/14/2022
+ms.date: 01/21/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -33,6 +33,8 @@ Several features of Azure NetApp Files require that you have an Active Directory
     The AD connection is visible only through the NetApp account it is created in. However, you can enable the Shared AD feature to allow NetApp accounts that are under the same subscription and same region to use an AD server created in one of the NetApp accounts. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](#shared_ad). When you enable this feature, the AD connection becomes visible in all NetApp accounts that are under the same subscription and same region. 
 
 * The admin account you use must have the capability to create machine accounts in the organizational unit (OU) path that you will specify.  
+
+* The admin account you use must have the capability to create machine accounts in the organizational unit (OU) path that you will specify. In some cases, `msDS-SupportedEncryptionTypes` write permission is required to set account attributes within AD.
 
 * If you change the password of the Active Directory user account that is used in Azure NetApp Files, be sure to update the password configured in the [Active Directory Connections](#create-an-active-directory-connection). Otherwise, you will not be able to create new volumes, and your access to existing volumes might also be affected depending on the setup.  
 
