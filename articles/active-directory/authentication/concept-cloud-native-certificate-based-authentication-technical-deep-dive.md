@@ -214,7 +214,7 @@ For the next test scenario, configure the authentication policy where the Issuer
 
 ## Known issues
 
-- The Sign-in log shows the user ID **fe3f7e7b-0044-4690-8ea5-1e9c6be5d026** instead of the username in one of the log entries.
+- The Sign-in log shows the user ID GUID instead of the username in one of the log entries.
 
   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/username.png" alt-text="Screenshot of username in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/username.png":::
  
