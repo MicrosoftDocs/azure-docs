@@ -1,5 +1,5 @@
 ---
-title: Save on JBoss EAP Integrated Support with reservations
+title: Save on JBoss EAP Integrated Support on Azure App Service with reservations
 description: Learn how you can save on your JBoss EAP Integrated Support fee on Azure App Service.
 author: jasonfreeberg
 ms.reviewer: primattal
