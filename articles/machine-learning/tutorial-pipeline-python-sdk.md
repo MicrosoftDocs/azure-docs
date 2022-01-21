@@ -17,9 +17,7 @@ ms.custom: devx-track-python
 
 In this tutorial, you learn how to build an [Azure Machine Learning pipeline](concept-ml-pipelines.md) to prepare data and train a machine learning model. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation.  
 
-The example trains a small [Keras](tk) convolutional neural network to classify images in the [Fashion MNIST](tk) dataset. 
-
-* This tutorial is based on the `image-classification.ipynb` notebook found in the `python-sdk/tutorial/using-pipelines` directory of the [AzureML Examples](https://github.com/azure/azureml-examples) repository. The source code for the steps themselves is in the `keras-mnist-fashion` subdirectory.
+The example trains a small [Keras](https://keras.io/) convolutional neural network to classify images in the [Fashion MNIST](https://github.com/zalandoresearch/fashion-mnist) dataset. 
 
 In this tutorial, you complete the following tasks:
 
@@ -44,6 +42,13 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 > [!Important]
 > Currently, the most recent Python release compatible with `azureml-pipelines` is Python 3.8. If you have difficulty installing the `azureml-pipelines` package, ensure that `python --version` is a compatible release. Consult the documentation of your Python virtual environment manager (`venv`, `conda`, etc.) for instructions.
+
+## Start an interactive Python session
+
+This tutorial uses the Python SDK for Azure ML to create and control an Azure Machine Learning pipeline. The tutorial assumes that you will be running the code snippets interactively in either a Python REPL environment or a Jupyter notebook. 
+
+* This tutorial is based on the `image-classification.ipynb` notebook found in the `python-sdk/tutorial/using-pipelines` directory of the [AzureML Examples](https://github.com/azure/azureml-examples) repository. The source code for the steps themselves is in the `keras-mnist-fashion` subdirectory.
+
 
 ## Import types
 
@@ -70,6 +75,8 @@ from azureml.pipeline.core import Pipeline
 # check core SDK version number
 print("Azure ML SDK Version: ", azureml.core.VERSION)
 ```
+
+The Azure ML SDK version should be 1.37 or greater. If it is not, upgrade with `pip install --upgrade azureml-core`.
 
 ## Configure workspace
 
@@ -123,12 +130,13 @@ if not found:
     )
 # For a more detailed view of current AmlCompute status, use get_status().print(compute_target.get_status().serialize())
 ```
+
 > [!Note]
 > GPU availability depends on the quota of your Azure subscription and upon Azure capacity. See [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md).
-    
+
 ### Create a dataset for the Azure-stored data
 
-[Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist) is a dataset of fashion images divided into 10 classes. Each image is a 28x28 grayscale image and there are 60,000 training and 10,000 test images. As an image classification problem, Fashion-MNIST is harder than the classic MNIST handwritten digit database. It's distributed in the same [compressed binary format](http://yann.lecun.com/exdb/mnist/) as the original handwritten digit database.
+Fashion-MNIST] is a dataset of fashion images divided into 10 classes. Each image is a 28x28 grayscale image and there are 60,000 training and 10,000 test images. As an image classification problem, Fashion-MNIST is harder than the classic MNIST handwritten digit database. It's distributed in the same compressed binary formaas the original [handwritten digit database](http://yann.lecun.com/exdb/mnist/) .
 
 To create a `Dataset` that references the Web-based data, run:
 
@@ -144,7 +152,7 @@ This code completes quickly. The underlying data remains in the Azure storage re
 
 ## Create the data-preparation pipeline step
 
-The first step in this pipeline will convert the compressed datafiles of `fashion_ds` into a dataset in your own workspace consisting of CSV files ready for use in training. Once registered with the workspace, your collaborators can access this data for their own analysis, training, etc. 
+The first step in this pipeline will convert the compressed data files of `fashion_ds` into a dataset in your own workspace consisting of CSV files ready for use in training. Once registered with the workspace, your collaborators can access this data for their own analysis, training, etc. 
 
 ```python
 datastore = workspace.get_default_datastore()
@@ -161,7 +169,7 @@ The code that you've executed so far has create and controlled Azure resources. 
 
 If you are following along with the example in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/using-pipelines), the source file is already available as `keras-mnist-fashion/prepare.py`. 
 
-If you are working from scratch, create a subdirectory called `kera-mnist-fashion/`. Create a new file, add the following code to it, and name it `prepare.py`. 
+If you are working from scratch, create a subdirectory called `kera-mnist-fashion/`. Create a new file, add the following code to it, and name the file `prepare.py`. 
 
 ```python
 # prepare.py
@@ -246,149 +254,17 @@ The call to `PythonScriptStep` specifies that, when the pipeline step is run:
 * Because `allow_reuse` is `True`, it will not be rerun until its source files or inputs change
 * This `PythonScriptStep` will be named `prepare step`
 
-tk More on reuse? tk
+Modularity and reuse are key benefits of pipelines. Azure Machine Learning can automatically determine source code or Dataset changes. The output of a step that is not affected will be reused without rerunning the steps again if `allow_reuse` is `True`. If a step relies on a data source external to Azure Machine Learning that may change (for instance, a URL that contains sales data), set `allow_reuse` to `False` and the pipeline step will run every time the pipeline is run. 
 
 ## Create the training step
 
-tk
+Once the data has been converted from the compressed format to CSV files, it can be used for training a convolutional neural network.
 
 ### Create the training step's source
 
 With larger pipelines, it's a good practice to put each step's source code in a separate directory (`src/prepare/`, `src/train/`, etc.) but for this tutorial, just use or create the file `train.py` in the same `keras-mnist-fashion/` source directory.
 
-```python
-# train.py
-# Trains a small convolutional neural net on the Fashion-MNIST dataset
-
-import keras
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, Flatten
-from keras.layers import Conv2D, MaxPooling2D
-from keras.layers.normalization import BatchNormalization
-from keras.utils import to_categorical
-from keras.callbacks import Callback
-
-import numpy as np
-import pandas as pd
-import os
-import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
-from azureml.core import Run
-
-# dataset object from the run
-run = Run.get_context()
-dataset = run.input_datasets["prepared_fashion_ds"]
-
-# split dataset into train and test set
-(train_dataset, test_dataset) = dataset.random_split(percentage=0.8, seed=111)
-
-# load dataset into pandas dataframe
-data_train = train_dataset.to_pandas_dataframe()
-data_test = test_dataset.to_pandas_dataframe()
-
-img_rows, img_cols = 28, 28
-input_shape = (img_rows, img_cols, 1)
-
-X = np.array(data_train.iloc[:, 1:])
-y = to_categorical(np.array(data_train.iloc[:, 0]))
-
-# here we split validation data to optimize classifier during training
-X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=13)
-
-# test data
-X_test = np.array(data_test.iloc[:, 1:])
-y_test = to_categorical(np.array(data_test.iloc[:, 0]))
-
-
-X_train = (
-    X_train.reshape(X_train.shape[0], img_rows, img_cols, 1).astype("float32") / 255
-)
-X_test = X_test.reshape(X_test.shape[0], img_rows, img_cols, 1).astype("float32") / 255
-X_val = X_val.reshape(X_val.shape[0], img_rows, img_cols, 1).astype("float32") / 255
-
-batch_size = 256
-num_classes = 10
-epochs = 10
-
-# construct neuron network
-model = Sequential()
-model.add(
-    Conv2D(
-        32,
-        kernel_size=(3, 3),
-        activation="relu",
-        kernel_initializer="he_normal",
-        input_shape=input_shape,
-    )
-)
-model.add(MaxPooling2D((2, 2)))
-model.add(Dropout(0.25))
-model.add(Conv2D(64, (3, 3), activation="relu"))
-model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(0.25))
-model.add(Conv2D(128, (3, 3), activation="relu"))
-model.add(Dropout(0.4))
-model.add(Flatten())
-model.add(Dense(128, activation="relu"))
-model.add(Dropout(0.3))
-model.add(Dense(num_classes, activation="softmax"))
-
-model.compile(
-    loss=keras.losses.categorical_crossentropy,
-    optimizer=keras.optimizers.Adam(),
-    metrics=["accuracy"],
-)
-
-class LogRunMetrics(Callback):
-    # callback at the end of every epoch
-    def on_epoch_end(self, epoch, log):
-        # log a value repeated which creates a list
-        run.log("Loss", log["loss"])
-        run.log("Accuracy", log["accuracy"])
-
-
-history = model.fit(
-    X_train,
-    y_train,
-    batch_size=batch_size,
-    epochs=epochs,
-    verbose=1,
-    validation_data=(X_val, y_val),
-    callbacks=[LogRunMetrics()],
-)
-
-score = model.evaluate(X_test, y_test, verbose=0)
-
-# log a single value
-run.log("Final test loss", score[0])
-print("Test loss:", score[0])
-
-run.log("Final test accuracy", score[1])
-print("Test accuracy:", score[1])
-
-plt.figure(figsize=(6, 3))
-plt.title("Fashion MNIST with Keras ({} epochs)".format(epochs), fontsize=14)
-plt.plot(history.history["accuracy"], "b-", label="Accuracy", lw=4, alpha=0.5)
-plt.plot(history.history["loss"], "r--", label="Loss", lw=4, alpha=0.5)
-plt.legend(fontsize=12)
-plt.grid(True)
-
-# log an image
-run.log_image("Loss_and_Accuracy", plot=plt)
-
-# create a ./outputs/model folder in the compute target
-# files saved in the "./outputs" folder are automatically uploaded into run history
-os.makedirs("./outputs/model", exist_ok=True)
-
-# serialize NN architecture to JSON
-model_json = model.to_json()
-# save model JSON
-with open("./outputs/model/model.json", "w") as f:
-    f.write(model_json)
-# save model weights
-model.save_weights("./outputs/model/model.h5")
-print("model saved in ./outputs/model folder")
-```
+:::code language="python" source="source="~/azureml-examples-main/python-sdk/tutorial/using-pipelines/keras-mnist-fashion/train.py" highlight="20-23":::
 
 Most of this code should be familiar to ML developers: 
 
@@ -521,29 +397,20 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 In this tutorial, you used the following types:
 
-* The `Workspace` represents your Azure Machine Learning workspace. It contained
+* The `Workspace` represents your Azure Machine Learning workspace. It contained:
     * The `Experiment` that contains the results of training runs of your pipeline
-    * The `Dataset` that lazily loaded the data held in your `Datastore`. 
+    * The `Dataset` that lazily loaded the data held in the Fashion-MNIST datastore
     * The `ComputeTarget` that represents the machine(s) on which the pipeline steps run
     * The `Environment` that is the runtime environment in which the pipeline steps run
     * The `Pipeline` that composes the `PythonScriptStep` steps into a whole
+    * The `Model` that you registered after being satisfied with the training process
     
-The `Workspace` object contains references to other resources (notebooks, endpoints, etc.) that were not used in this tutorial. 
+The `Workspace` object contains references to other resources (notebooks, endpoints, etc.) that were not used in this tutorial. For more, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
 
-The `OutputFileDatasetConfig` promotes the output of a run to a file-based dataset.
+The `OutputFileDatasetConfig` promotes the output of a run to a file-based dataset. For more information on datasets and working with data, see [How to access data](./how-to-access-data.md).
 
-The `ScriptRunConfig` associates a `ComputeTarget` and `Environment` with Python source files. A `PythonScriptStep` takes that `ScriptRunConfig` and defines its inputs and outputs, which in this pipeline was the file dataset built by the `OutputFileDatasetConfig`.
+For more on compute targets and environments, see [What are compute targets in Azure Machine Learning?](concept-compute-target.md) and [What are Azure Machine Learning environments?](concept-environments.md)
 
-In this machine learning pipelines tutorial, you did the following tasks:
+The `ScriptRunConfig` associates a `ComputeTarget` and `Environment` with Python source files. A `PythonScriptStep` takes that `ScriptRunConfig` and defines its inputs and outputs, which in this pipeline was the file dataset built by the `OutputFileDatasetConfig`. 
 
-> [!div class="checklist"]
-> * Built a pipeline with environment dependencies to run on a remote GPU compute resource.
-> * Created a scoring script to run batch predictions by using a pretrained Tensorflow model.
-> * Published a pipeline and enabled it to be run from a REST endpoint.
-
-For more examples of how to build pipelines by using the machine learning SDK, see the [notebook repository](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines).
-
-
-For more information on accessing data, see [How to access data](./how-to-access-data.md).
-
-For more information about compute targets, see the [conceptual article](./concept-compute-target.md).
+For more examples of how to build pipelines by using the machine learning SDK, see the [example repository](https://github.com/Azure/azureml-examples).
