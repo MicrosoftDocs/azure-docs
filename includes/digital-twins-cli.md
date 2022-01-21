@@ -7,6 +7,8 @@ ms.date: 1/18/2022
 ms.author: baanders
 ---
 
+### Set up CLI session
+
 To start working with Azure Digital Twins in the CLI, the first thing to do is log in and set the CLI context to your subscription for this session. Run these commands in your CLI window:
 
 ```azurecli-interactive

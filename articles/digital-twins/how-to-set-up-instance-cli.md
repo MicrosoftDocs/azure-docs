@@ -26,8 +26,6 @@ This article covers the steps to **set up a new Azure Digital Twins instance**, 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-### Set up CLI session 
-
 [!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
 
 ## Create the Azure Digital Twins instance
