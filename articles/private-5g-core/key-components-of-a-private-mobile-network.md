@@ -26,6 +26,8 @@ Each site resource represents a physical enterprise location (for example, Conto
 
 During the deployment of your private mobile network, you will create a Kubernetes cluster on each Azure Stack Edge device. This serves as the platform for the packet core instance in the site. 
 
+Each packet core instance connects to a Radio Access Network (RAN) to provide coverage for 5G devices. You'll source your RAN from a third party, and you won't manage it using Azure.
+
 ## Policy control
 
 Azure Private 5G Core provides flexible traffic handling though customizable policy control, allowing you to determine exactly how your packet core instance applies Quality of Service (QoS) characteristics to Service Data Flows (SDFs) to meet your deployment's needs. You can also use policy control to block or limit certain flows.
