@@ -34,7 +34,7 @@ The JavaScript SDK is now updated to support the latest REST API release of 2021
 
 To download the latest package, see the [@azure/arm-media-services NPM package](https://www.npmjs.com/package/@azure/arm-mediaservices).
 
-An updated and expanded set of Node.js and Typescript based samples for the new JavaScript package is available in Git Hub. 
+An updated and expanded set of Node.js and TypeScript based samples for the new JavaScript package is available in Git Hub. 
 [https://github.com/Azure-Samples/media-services-v3-node-tutorials](https://github.com/Azure-Samples/media-services-v3-node-tutorials)
 
 ### Hebrew, Persian, and Portugal Portuguese languages available in the Audio/Video Analyzer preset for transcriptions
@@ -141,8 +141,8 @@ This feature can also be used to shut off all public internet delivery of DRM li
 
 See the article [Restrict access to DRM license and AES key delivery using IP allowlists](./drm-content-protection-key-delivery-ip-allow.md) for details.
 
-### New Samples for Python and Node.js (with Typescript)
-Updated samples for **Node.js** that use the latest Typescript support in the Azure SDK.
+### New Samples for Python and Node.js (with TypeScript)
+Updated samples for **Node.js** that use the latest TypeScript support in the Azure SDK.
 
 |Sample|Description|
 |---|---|
@@ -251,7 +251,7 @@ New client SDK versions for all available languages are now available with the a
 Please update to the latest client SDKs in your code bases using your package manager.
 
 - [.NET SDK package 3.0.4](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/)
-- [Node.js Typescript version 8.1.0](https://www.npmjs.com/package/@azure/arm-mediaservices)
+- [Node.js TypeScript version 8.1.0](https://www.npmjs.com/package/@azure/arm-mediaservices)
 - [Python azure-mgmt-media 3.1.0](https://pypi.org/project/azure-mgmt-media/)
 - [Java SDK 1.0.0-beta.2](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-mediaservices/1.0.0-beta.2/jar)
 
@@ -263,9 +263,9 @@ Please update to the latest client SDKs in your code bases using your package ma
 
 - **[Managed Identities](concept-managed-identities.md)**: Customers may enable a System Assigned Managed Identity for a Media Services account to provide access to Key Vaults (for Customer-Managed Keys) and storage accounts (for Trusted Storage).
 
-### Updated Typescript Node.js Samples using isomorphic SDK for JavaScript
+### Updated TypeScript Node.js Samples using isomorphic SDK for JavaScript
 
-The Node.js samples have been updated to use the latest isomorphic SDK. The samples now show use of Typescript. In addition, a new live streaming sample was added for Node.js/Typescript.
+The Node.js samples have been updated to use the latest isomorphic SDK. The samples now show use of TypeScript. In addition, a new live streaming sample was added for Node.js/TypeScript.
 
 See the latest samples in the **[media-services-v3-node-tutorials](https://github.com/Azure-Samples/media-services-v3-node-tutorials)** Git Hub repo.
 
@@ -610,7 +610,7 @@ Azure AD Authentication and Azure role-based access control (Azure RBAC) enable 
 
 #### Client SDKs  
 
-Languages supported in Media Services v3: .NET Core, Java, Node.js, Ruby, Typescript, Python, Go.
+Languages supported in Media Services v3: .NET Core, Java, Node.js, Ruby, TypeScript, Python, Go.
 
 #### Live encoding updates
 

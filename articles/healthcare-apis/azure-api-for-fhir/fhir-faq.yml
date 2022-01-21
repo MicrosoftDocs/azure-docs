@@ -74,7 +74,7 @@ sections:
       - question: |
           Where can I see what is releasing in Azure API for FHIR?
         answer: |
-          The [release notes](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/release-notes) page provides an overview of everything that has shipped to the managed service in the previous month. 
+          The [release notes](./release-notes.md) page provides an overview of everything that has shipped to the managed service in the previous month. 
           
           For more information about what's releasing in Azure API for FHIR, see [releases](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. We have worked to tag items with Azure-API-for-FHIR if they will release to the managed service and are usually available two weeks after they are on the release page in open-source. We have also included instructions on [how to test the build](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you'd like to test in your own environment. 
           

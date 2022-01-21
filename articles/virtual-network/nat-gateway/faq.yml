@@ -39,11 +39,11 @@ sections:
       
       - question: Are basic SKU resources (Basic Load Balancer and Basic public IP addresses) compatible with VNet NAT gateway?
         answer: |
-          No. VNet NAT gateway can only be used with standard SKU resources. Learn more from [VNet NAT basics](/azure/virtual-network/nat-gateway/nat-overview#vnet-nat-basics)
+          No. VNet NAT gateway can only be used with standard SKU resources. Learn more from [VNet NAT basics](./nat-overview.md#vnet-nat-basics)
           You can upgrade your basic Load Balancer and basic public IP address to standard in order to work with VNet NAT gateway.
           
-          To upgrade a basic load balancer to standard, see [Upgrade Azure Public Load Balancer](/azure/load-balancer/upgrade-basic-standard)
-          To upgrade a basic public IP to standard, see [Upgrade a public IP address](/azure/virtual-network/ip-services/public-ip-upgrade-portal)
+          To upgrade a basic load balancer to standard, see [Upgrade Azure Public Load Balancer](../../load-balancer/upgrade-basic-standard.md)
+          To upgrade a basic public IP to standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md)
       
       - question: Can Virtual Network NAT gateway be attached to multiple virtual networks?  
         answer: |
@@ -55,7 +55,7 @@ sections:
 
       - question: Can Virtual Network NAT gateway be associated with a gateway subnet? 
         answer: |
-          No. Virtual Network NAT can't be associated with a [gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub) subnet.
+          No. Virtual Network NAT can't be associated with a [gateway](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) subnet.
           
       - question: Can multiple Virtual Network NAT gateways be attached to a single subnet?
         answer: |
@@ -83,18 +83,17 @@ sections:
       
       - question: Can I use Virtual Network NAT gateway with Azure App Services? 
         answer: |
-          Yes. For more information about Virtual Network NAT integration with Azure App Services, see [Virtual Network NAT gateway integration](https://docs.microsoft.com/azure/app-service/networking/nat-gateway-integration).
+          Yes. For more information about Virtual Network NAT integration with Azure App Services, see [Virtual Network NAT gateway integration](../../app-service/networking/nat-gateway-integration.md).
       
       - question: Can I use Virtual Network NAT gateway with Azure Kubernetes Service? 
         answer: |
-          Yes. For more information about Virtual Network NAT integration with Azure Kubernetes Service, see [Managed NAT Gateway (preview)](https://docs.microsoft.com/azure/aks/nat-gateway).
+          Yes. For more information about Virtual Network NAT integration with Azure Kubernetes Service, see [Managed NAT Gateway (preview)](../../aks/nat-gateway.md).
 
       - question: Can I use Virtual Network NAT gateway with Azure Firewall?
         answer: |
-          Yes. For more information about Virtual Network NAT integration with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](https://docs.microsoft.com/azure/firewall/integrate-with-nat-gateway).
+          Yes. For more information about Virtual Network NAT integration with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](../../firewall/integrate-with-nat-gateway.md).
           
 additionalContent: |
 
   ## Next steps
      If your question is not listed above, please send feedback about this page with your question. This will create a GitHub issue for the product team to ensure all of our valued customer questions are answered.
- 

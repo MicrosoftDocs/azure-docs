@@ -44,7 +44,7 @@ Download the [applicationinsights-agent-3.2.4.jar](https://github.com/microsoft/
 >    For details, see the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0).
 >
 > If you're upgrading from 3.1.x:
-> 
+>    -  Starting from 3.2.0, controller "InProc" dependencies are not captured by default. For details on how to enable this, please see the [config options](./java-standalone-config.md#autocollect-inproc-dependencies-preview).
 >    - Database dependency names are now more concise with the full (sanitized) query still present in the `data` field. HTTP dependency names are now more descriptive.
 >    This change can affect custom dashboards or alerts if they relied on the previous values.
 >    For details, see the [3.2.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0).
@@ -335,17 +335,26 @@ Application Insights Java 3.x is already listening for telemetry that's sent to 
     </dependency>
     ```
 
-1. Use the Micrometer [global registry](https://micrometer.io/docs/concepts#_global_registry) to create a meter:
+2. Use the Micrometer [global registry](https://micrometer.io/docs/concepts#_global_registry) to create a meter:
 
     ```java
-    static final Counter counter = Metrics.counter("test_counter");
+    static final Counter counter = Metrics.counter("test.counter");
     ```
 
-1. Use the counter to record metrics:
+3. Use the counter to record metrics:
 
     ```java
     counter.increment();
     ```
+
+4. The metrics will be ingested into the
+   [customMetrics](/azure/azure-monitor/reference/tables/custommetrics) table, with tags captured in the
+   `customDimensions` column. You can also view the metrics in the
+   [Metrics explorer](../essentials/metrics-getting-started.md) under the "Log-based metrics" metric namespace.
+
+    > [!NOTE]
+    > Application Insights Java replaces all non-alphanumeric characters (except dashes) in the Micrometer metric name
+    > with underscores, so the `test.counter` metric above will show up as `test_counter`.
 
 ### Send custom traces and exceptions by using your favorite logging framework
 
