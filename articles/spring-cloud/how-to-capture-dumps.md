@@ -15,13 +15,13 @@ ms.custom: devx-track-java
 
 This article describes how to manually generate a heap dump or thread dump, and how to start Java Flight Recorder (JFR).
 
-Effective troubleshooting is critical to ensure you can fix issues in production environments and keep your business online. Azure Spring Cloud provides application log streaming and query, rich metrics emitting, alerts, distributed tracing, and so forth. However, when you get alerts about requests with high latency, JVM heap leak, or high CPU usage, there is no last-mile solution. Therefore, we've enabled you to manually generate a heap dump, generate a thread dump, and start JFR.
+Effective troubleshooting is critical to ensure you can fix issues in production environments and keep your business online. Azure Spring Cloud provides application log streaming and query, rich metrics emitting, alerts, distributed tracing, and so forth. However, when you get alerts about requests with high latency, JVM heap leak, or high CPU usage, there's no last-mile solution. For this reason, we've enabled you to manually generate a heap dump, generate a thread dump, and start JFR.
 
 ## Prerequisites
 
 * A deployed Azure Spring Cloud service instance. To get started, see [Quickstart: Deploy your first application to Azure Spring Cloud](quickstart.md).
 * At least one application already created in your service instance.
-* Your own persistent storage as described in [How to enable your own persistent storage in Azure Spring Cloud](how-to-custom-persistent-storage.md). This storage is used to save generated diagnostic files. The paths you provide in the parameter values below should be under the mount path of the persistent storage bound to your app. If you want to use a path under the mount path, be sure to create the sub-path beforehand.
+* Your own persistent storage as described in [How to enable your own persistent storage in Azure Spring Cloud](how-to-custom-persistent-storage.md). This storage is used to save generated diagnostic files. The paths you provide in the parameter values below should be under the mount path of the persistent storage bound to your app. If you want to use a path under the mount path, be sure to create the subpath beforehand.
 
 ## Generate a heap dump
 
