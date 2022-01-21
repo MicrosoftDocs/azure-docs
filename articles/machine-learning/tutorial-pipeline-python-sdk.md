@@ -31,7 +31,8 @@ In this tutorial, you complete the following tasks:
 > * Create a pipeline step to define the neural network and perform the training
 > * Compose a Pipeline from the pipeline steps
 > * Run the pipeline in the experiment
-> * Review the output of the steps and the trained
+> * Review the output of the steps and the trained neural network
+> * Register the model for further use
 
 If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
@@ -264,7 +265,7 @@ Once the data has been converted from the compressed format to CSV files, it can
 
 With larger pipelines, it's a good practice to put each step's source code in a separate directory (`src/prepare/`, `src/train/`, etc.) but for this tutorial, just use or create the file `train.py` in the same `keras-mnist-fashion/` source directory.
 
-:::code language="python" source="source="~/azureml-examples-main/python-sdk/tutorial/using-pipelines/keras-mnist-fashion/train.py" highlight="20-23":::
+:::code language="python" source="~/azureml-examples-main/python-sdk/tutorial/using-pipelines/keras-mnist-fashion/train.py" highlight="20-23":::
 
 Most of this code should be familiar to ML developers: 
 
@@ -275,7 +276,7 @@ Most of this code should be familiar to ML developers:
 * The model is fitted for 10 epochs and then evaluated
 * The model architecture is written to "outputs/model/model.json" and the weights to `outputs/model/model.h5`
 
-Some of the code, though, is specific to Azure Machine Learning. `run = Run.get_context()` retrieves a [`Run`](../python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=True) object, which contains the current service context. The `train.py` source uses this `run` object to retrieve the input dataset via its name (an alternative to the code in `prepare.py` that retrieved the dataset via the `argv` array of script arguments). 
+Some of the code, though, is specific to Azure Machine Learning. `run = Run.get_context()` retrieves a [`Run`](/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=True) object, which contains the current service context. The `train.py` source uses this `run` object to retrieve the input dataset via its name (an alternative to the code in `prepare.py` that retrieved the dataset via the `argv` array of script arguments). 
 
 The `run` object is also used to log the training progress at the end of every epoch and, at the end of training, to log the graph of loss and accuracy over time.
 
