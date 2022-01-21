@@ -15,7 +15,7 @@ ms.date: 01/31/2022
 
 # What is Windows Authentication for Azure Active Directory principals on Azure SQL Managed Instance? (Preview)
 
-[Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) is the intelligent, scalable cloud database service that combines the broadest SQL Server database engine compatibility with the benefits of a fully managed and evergreen platform as a service. Kerberos authentication for Azure Active Directory (Azure AD) enables Windows authentication access to Azure SQL Managed Instance. Windows Authentication for managed instances empowers customers to move existing services to the cloud while maintaining a seamless user experience and provides the basis for infrastructure modernization.
+[Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) is the intelligent, scalable cloud database service that combines the broadest SQL Server database engine compatibility with the benefits of a fully managed and evergreen platform as a service. Kerberos authentication for Azure Active Directory (Azure AD) enables Windows Authentication access to Azure SQL Managed Instance. Windows Authentication for managed instances empowers customers to move existing services to the cloud while maintaining a seamless user experience and provides the basis for infrastructure modernization.
 
 ## Key capabilities and scenarios
 
@@ -43,10 +43,13 @@ Windows Authentication for Azure Active Directory principals also enables the fo
 - **"Double hop" authentication** <!--- TODO: link to double hop article once it's created -->
     - Web applications use IIS identity impersonation to run queries against an instance in the security context of the end user.
     - Linked servers  <!--- TODO: link to linked server article once it's created --> are used to run queries across instances in the security context of the originating user.
- 
+- TODO: Add linked server and profiler examples and link to the scenario pages when available.
+
+ <!--- Hold off on this until validate that we have support for this:
 - **SharePoint, Reporting Services, Integration Services, and Analysis Services** 
     - Many on-premises SQL Server customers use applications such as SharePoint, SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS), and SQL Server Analysis Services (SSAS). Using Windows Authentication is a recommended security best practice for these applications.
     - Azure SQL Managed Instance is certified for SharePoint 2019 and SharePoint 2016.
+-->
 
 ### Modernize security infrastructure
 

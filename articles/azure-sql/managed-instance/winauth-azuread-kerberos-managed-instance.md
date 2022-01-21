@@ -53,8 +53,6 @@ TODO: add screenshot
 
 TODO: Insufficient privileges to view applications, so I can't tell what the step is or generate a new screenshot -- do they click the check mark? Do they need to click save?
 
-TODO: There are some KDC proxy setup steps in the word doc here, but I think they are a repeat of what is in the incoming trust based flow and should not be here?
-
 ## Connect to the managed instance with Windows Authentication
 
 If you have already implemented either the incoming trust-based authentication flow](winauth-azuread-setup-incoming-trust-based-flow.md) or the [modern interactive authentication flow](winauth-azuread-setup-modern-interactive-flow.md), depending on the version of your client, you can now test connecting to your managed instance with Windows Authentication.

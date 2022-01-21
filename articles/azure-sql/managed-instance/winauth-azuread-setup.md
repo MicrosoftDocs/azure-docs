@@ -16,13 +16,19 @@ ms.date: 01/31/2022
 
 # How to set up Windows Authentication for Azure SQL Managed Instance using Azure Active Directory and Kerberos (Preview)
 
+TODO: reposition modern interactive flow as recommended when available, and incoming trust-based as fallback.
+
+TODO: update other prereq tables with mods here.
+
  This article gives an overview of how to set up infrastructure and managed instances to implement [Windows Authentication for Azure AD principals on Azure SQL Managed Instance](winauth-azuread-overview.md).
 
 There are two phases to set up Windows Authentication for Azure SQL Managed Instance using Azure AD and Kerberos. 
 
 - **One-time infrastructure setup**
+TODO: refer to matrix and update these
+
     - Synchronize Active Directory (AD) and Azure AD, if this has not already been done.
-    - Set up incoming trust-based authentication flow for down-level clients.
+    - Set up incoming trust-based authentication flow for down-level clients. 
     - Enable the modern interactive authentication flow for clients running Windows 10 21H1 and higher.
 - **Configuration of Azure SQL Managed Instance**
     - Create a system assigned service principal for each managed instance.
@@ -47,18 +53,18 @@ The following prerequisites are required to implement the incoming trust-based a
 
 |Prerequisite  |Description  |
 |---------|---------|
-|Clients running Windows Server 2012 or higher. *TODO: Is this available only for server versions of windows? Can customers using non-server OSes access? Or am I wrong and this line is not about the clients?* |         |
+|Clients running Windows Server 2012 or higher. *TODO: Is this available only for server versions of windows? Can customers using non-server OSes access? A: yes will work for consumer equivalent.* |         |
 |Azure AD Hybrid Authentication Management Module. | This PowerShell module provides management features for on-premises setup. |
 |Azure tenant.  |         |
 |Azure subscription under the same Azure AD tenant you plan to use for authentication.|         |
 |Azure AD Connect installed. | Hybrid environments where identities exist both in Azure AD and AD. |
-|AD joined machine.  *TODO: not sure how this pre-req differs from the clients? Is this machine for something else?* |  You can determine if this prerequisite is met by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status`  |
+|AD joined machine.  *TODO: not sure how this pre-req differs from the clients? Same client-- move to just below the top line and change wording.* |  You can determine if this prerequisite is met by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status`  |
 
 #### Implement the incoming trust-based flow
 
 TODO: add wording and final link to [How to set up Windows Authentication for Azure Active Directory with the incoming trust based flow (Preview)](winauth-azuread-setup-incoming-trust-based-flow.md) when titles and file names are finalized.
 
-### Modern interactive flow
+### Modern interactive flow (recommended)
 
 The modern interactive flow works with enlightened clients running Windows 10 21H1 and higher that are Azure AD or Hybrid Azure AD joined. In the modern interactive flow,  users can access Azure SQL Managed Instance without requiring a line of sight to Domain Controllers (DCs). There is no need for a trust object to be created in the customer's AD.
 
@@ -68,10 +74,11 @@ The following prerequisites are required to implement the modern interactive aut
 
 |Prerequisite  |Description  |
 |---------|---------|
-|Clients running Windows 10 21H1 or higher that are joined to Azure AD. |         |
+|Clients running Windows 10 21H1 or higher. |         |
 |Azure AD tenant. |         |
 |Azure AD Connect installed. | Hybrid environments where identities exist both in Azure AD and AD. |
-|Azure AD joined or Hybrid Azure AD joined machine. *TODO: not sure how this pre-req differs from the clients? Is this machine for something else?* |  You can determine if this prerequisite is met by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status` |
+|Clients are joined to Azure AD or Hybrid Azure AD. *TODO: Same as client, move up and tweak wording.* |  You can determine if this prerequisite is met by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status` |
+|Interactive session (like you are logged into SSMS. Not a service running on a machine.) TODO: work on wording for this, possibly with a link | |
 
 #### Implement the modern interactive flow
 
@@ -111,7 +118,7 @@ Due to Service Principal Name (SPN) configuration requirements, during the limit
 <!-- TODO: clarify - upgrade of what? A client machine? The Managed Instance? Something else? -->
 Windows limits how often it connects to Azure AD, so there is a potential for user accounts to not have a refreshed Kerberos Ticket Granting Ticket (TGT) within 4 hours of an upgrade or fresh deployment.  User accounts who do not have a refreshed TGT results in failed ticket requests from Azure AD.  
 
-<!--TODO: clarify where dsregcmd.exe is run and what locking and unlocking means. Does dsregcmd.exe need to be run on each client machine?  Is the locking and unlocking of the user done in AD? Azure AD? Can we link to specific instructions for locking and unlocking? -->
+<!--TODO: clarify where dsregcmd.exe is run and what locking and unlocking means. Does dsregcmd.exe need to be run on each client machine? A: YES -->
 As an administrator, you can trigger an online logon immediately to handle upgrade scenarios by running the following command, then locking and unlocking the user session to get a refreshed TGT:
 
 ```dos

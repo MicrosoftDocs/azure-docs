@@ -144,6 +144,8 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
 
 ## Configure the Group Policy Object (GPO)
 
+TODO: Add that this can be done in local policy as well.
+
 TODO: Clarify if "down-level versions of Windows" is Windows Server 2012+, or something else.
 
 1. Identify your [Azure AD tenant ID](/azure/active-directory/fundamentals/active-directory-how-to-find-tenant.md).
@@ -164,7 +166,7 @@ TODO: Clarify if "down-level versions of Windows" is Windows Server 2012+, or so
 
 ## Rotate the Kerberos Key
 
-TODO: Clarify if I'm correct that this does not need to be done as part of setup, and that this is a periodic security task to be carried out later, and/or an optional task for testing purposes. If this is part of setup, this section should be moved up and reframed.
+TODO: Clarify if I'm correct that this does not need to be done as part of setup, and that this is a periodic security task to be carried out later, and/or an optional task for testing purposes. If this is part of setup, this section should be moved up and reframed. A: is recommended to do this from time to time, doesn't have to be done after creation.
 
 You can rotate the Kerberos Key for the created Azure AD Service account and Trusted Domain Object.
 

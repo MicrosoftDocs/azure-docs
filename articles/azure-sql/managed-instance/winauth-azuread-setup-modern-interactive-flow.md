@@ -32,7 +32,9 @@ There is no AD to Azure AD set up required for enabling software running on Azur
 |Azure AD Connect installed. | Hybrid environments where identities exist both in Azure AD and AD. |
 |Azure AD joined or Hybrid Azure AD joined machine. *TODO: not sure how this pre-req differs from the clients? Is this machine for something else?* |  You can determine if this prerequisite is met by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status` |
 
-## Configure group policy
+
+TODO: add that this can be done through Local Policy
+## Configure group or local policy
 
 Enable the following Group Policy setting `Administrative Templates\System\Kerberos\Allow retrieving the cloud Kerberos ticket during the logon`.
 
