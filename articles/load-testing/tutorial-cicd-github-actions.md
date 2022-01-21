@@ -93,7 +93,7 @@ First, you'll create an Azure Active Directory [service principal](/azure/active
 
 1. Copy this JSON object, which you can use to authenticate from GitHub.
 
-1. Grant permissions to the service principal to create and run tests with Azure Load Testing.
+1. Grant permissions to the service principal to create and run tests with Azure Load Testing. The Load Test Contributor role grants permissions to create, manage and run tests in an Azure Load Testing resource.
 
     First, retrieve the ID of the service principal object by running this Azure CLI command:
 
@@ -110,8 +110,6 @@ First, you'll create an Azure Active Directory [service principal](/azure/active
     ```
     
     In the previous command, replace the placeholder text `<sp-object-id>` with the `ObjectId` value from the previous Azure CLI command. Also, replace `<subscription-id>` with your Azure subscription ID.
-
-    The Load Test Contributor role grants permissions to create, manage and run tests in an Azure Load Testing resource.
 
 ### Configure the GitHub secret
 
