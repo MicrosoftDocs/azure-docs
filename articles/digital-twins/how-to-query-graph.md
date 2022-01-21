@@ -42,7 +42,7 @@ Get digital twins by **properties** (including ID and metadata):
 As shown in the query above, the ID of a digital twin is queried using the metadata field `$dtId`.
 
 >[!TIP]
-> If you are using Cloud Shell to run a query with metadata fields that begin with `$`, you should escape the `$` with a backtick to let Cloud Shell know it's not a variable and should be consumed as a literal in the query text.
+> If you are using Cloud Shell to run a query with metadata fields that begin with `$`, you should escape the `$` with a backslash to let Cloud Shell know it's not a variable and should be consumed as a literal in the query text.
 
 You can also get twins based on **whether a certain property is defined**. Here's a query that gets twins that have a defined *Location* property:
 

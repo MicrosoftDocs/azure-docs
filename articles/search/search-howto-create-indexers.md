@@ -14,11 +14,11 @@ ms.date: 01/17/2022
 
 # Creating indexers in Azure Cognitive Search
 
-A search indexer provides an automated workflow for reading content from an external data source, and ingesting that content into a search index on your search service. Indexers support two workflows: 
+A search indexer connects to an external data source, retrieves and processes data, and then passes it to the search engine for indexing. Indexers support two workflows:
 
-+ Extract text and metadata during indexing for full text search scenarios
++ Extract text and metadata during indexing for full text search scenarios.
 
-+ Apply integrated machine learning and AI models to analyze content that is *not* intrinsically searchable, such as images and large undifferentiated text. This extended workflow is called [AI enrichment](cognitive-search-concept-intro.md) and it's indexer-driven.
++ Apply integrated machine learning and AI models to analyze content that is not otherwise searchable, such as images and large undifferentiated text. This extended workflow is called [AI enrichment](cognitive-search-concept-intro.md) and it's indexer-driven.
 
 Using indexers significantly reduces the quantity and complexity of the code you need to write. This article focuses on the basics of creating an indexer. Depending on the data source and your workflow, additional configuration might be necessary.
 
@@ -118,13 +118,19 @@ In terms of how indexers interact with an index, an indexer only checks field na
 
 When you are ready to create an indexer on a remote search service, you will need a search client, such as Azure portal or Postman, or code that instantiates an indexer client. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
 
-### [**Azure portal**](#tab/indexer-portal)
+### [**Azure portal**](#tab/portal)
 
-The portal provides two options for creating an indexer: [**Import data wizard**](search-import-data-portal.md) and **New Indexer** that provides a visual editor for specifying an indexer definition. The wizard is unique in that it creates all of the required elements. Other approaches require that you have predefined a data source and index.
+1. [Sign in to Azure portal](https://portal.azure.com).
 
-The following screenshot shows where you can find these features in the portal. 
+1. On the search service Overview page, choose from two options: 
 
-  :::image type="content" source="media/search-howto-create-indexers/portal-indexer-client.png" alt-text="hotels indexer" border="true":::
+   + [**Import data wizard**](search-import-data-portal.md). The wizard is unique in that it creates all of the required elements. Other approaches require that you have predefined a data source and index.
+
+   + **New Indexer**, a visual editor for specifying an indexer definition. 
+
+   The following screenshot shows where you can find these features in the portal. 
+
+   :::image type="content" source="media/search-howto-create-indexers/portal-indexer-client.png" alt-text="hotels indexer" border="true":::
 
 ### [**REST**](#tab/indexer-rest)
 
