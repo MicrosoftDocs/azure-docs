@@ -2,15 +2,19 @@
 
 # Configure customer-managed keys for Azure Machine Learning
 
-While most Azure services encrypt data at rest or in transit, by default this is done using a Microsoft-managed key. In this article, you'll learn how to use a customer-managed key that you provide. Your key is used to secure the services that Azure Machine Learning uses to store data.
+Azure Machine Learning is built on top of multiple Azure services. Several of these services allow you to use a key you provide (customer-managed key) to add an extra layer of encryption. The keys you provide are stored securely using Azure Key Vault.
 
-A customer-managed key can be used with the following services that Azure Machine Learning relies on:
+In this article, you'll learn how to use customer-managed keys with Azure Machine Learning. Your keys are used with the following services that Azure Machine Learning relies on:
 
 | Service | What it is used for |
 | ----- | ----- |
-| Azure Cosmos DB |
+| Azure Cosmos DB | Stores metadata for Azure Machine Learning |
 | Azure Container Instance | Hosting trained models as inference endpoints |
 | Azure Kubernetes Service | Hosting trained models as inference endpoints |
+
+> [!TIP]
+> While it may be possible to use the same key for everything, using a different key for each service or instance allows you to rotate or revoke the keys without impacting multiple things.
+
 
 ## Open questions
 
@@ -27,34 +31,38 @@ A customer-managed key can be used with the following services that Azure Machin
 ## Prerequisites
 
 * An Azure subscription.
-* An Azure Key Vault instance. Key vault is used to securely store your keys. For more information, see [Create a key vault](/azure/key-vault/general/quick-create-portal).
-
-    > [!TIP]
-    > While it may be possible to use the same key for everything, using a different key for each service or instance allows you to rotate or revoke the keys without impacting multiple things.
-
+    
 ## Limitations
 
 ### Azure Cosmos DB
 
-Azure Machine Learning stores metadata in an Azure Cosmos DB. If you __don't__ use a customer-managed key, the Azure Cosmos DB instance is created in a _Microsoft subscription_ managed by Azure Machine Learning. So it does not appear in your Azure subscription. All the data stored in Azure Cosmos DB is encrypted at rest with Microsoft-managed keys.
+* Azure Machine Learning stores metadata in an Azure Cosmos DB. If you __don't__ use a customer-managed key, the Azure Cosmos DB instance is created in a _Microsoft subscription_ managed by Azure Machine Learning. So it does not appear in your Azure subscription. All the data stored in Azure Cosmos DB is encrypted at rest with Microsoft-managed keys.
 
-When using a customer-managed key, the Cosmos DB instance is created in a Microsoft-managed resource group in __your subscription__. The following services are also created in this resource group, and are used by the customer-managed key configuration:
+* When using a customer-managed key, the Cosmos DB instance is created in a Microsoft-managed resource group in __your subscription__. It is __created automatically when you create the Azure Machine Learning workspace__. The following services are also created in this resource group, and are used by the customer-managed key configuration:
 
-* Azure Storage Account
-* Azure Search
+    * Azure Storage Account
+    * Azure Search
 
-Since these services are created in your Azure subscription, it means that you are charged for these service instances. If your subscription does not have enough quota for the Azure Cosmos DB service, a failure will occur. For more information on quotas, see [Azure Cosmos DB service quotas](../articles/cosmos-db/concepts-limits.md)
+    Since these services are created in your Azure subscription, it means that you are charged for these service instances. If your subscription does not have enough quota for the Azure Cosmos DB service, a failure will occur. For more information on quotas, see [Azure Cosmos DB service quotas](../articles/cosmos-db/concepts-limits.md)
 
-The managed resource group is named in the format `<AML Workspace Resource Group Name><GUID>`. If your Azure Machine Learning workspace uses a private endpoint, a virtual network is also created in this resource group. This VNet is used to secure communication between the services in this resource group and your Azure Machine Learning workspace.
+    The managed resource group is named in the format `<AML Workspace Resource Group Name><GUID>`. If your Azure Machine Learning workspace uses a private endpoint, a virtual network is also created in this resource group. This VNet is used to secure communication between the services in this resource group and your Azure Machine Learning workspace.
 
-> [!WARNING]
-> __Don't delete the resource group__ that contains this Azure Cosmos DB instance, or any of the resources automatically created in this group. If you need to delete the resource group, Cosmos DB, etc., you must delete the Azure Machine Learning workspace that uses it. The resource group, Cosmos DB instance, and other automatically created resources are deleted when the associated workspace is deleted.
+    > [!WARNING]
+    > __Don't delete the resource group__ that contains this Azure Cosmos DB instance, or any of the resources automatically created in this group. If you need to delete the resource group, Cosmos DB, etc., you must delete the Azure Machine Learning workspace that uses it. The resource group, Cosmos DB instance, and other automatically created resources are deleted when the associated workspace is deleted.
 
-The  [__Request Units__](../articles/cosmos-db/request-units.md) used by this Cosmos DB account automatically scale as needed. The __minimum__ RU is __1200__. The __maximum__ RU is __12000__.
+* The  [__Request Units__](../articles/cosmos-db/request-units.md) used by this Cosmos DB account automatically scale as needed. The __minimum__ RU is __1200__. The __maximum__ RU is __12000__.
 
-You __cannot provide your own VNet for use with the Cosmos DB__ that is created. You also __cannot modify the virtual network__. For example, you cannot change the IP address range that it uses.
+* You __cannot provide your own VNet for use with the Cosmos DB__ that is created. You also __cannot modify the virtual network__. For example, you cannot change the IP address range that it uses.
 
-To estimate the additional cost of the Azure Cosmos DB instance, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+* To estimate the additional cost of the Azure Cosmos DB instance, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+
+## Create Azure Key Vault
+
+When creating Azure Key Vault, you must enable __soft delete__ and __purge protection__.
+
+:::image type="content" source="{source}" alt-text="{alt-text}":::
+
+For more information, see [Create a key vault](/azure/key-vault/general/quick-create-portal).
 
 ## Azure Cosmos DB
 
@@ -64,10 +72,17 @@ To use your own (customer-managed) keys to encrypt the Azure Cosmos DB instance,
 
 1. Register the __Microsoft.DocumentDB__ resource provider in your subscription, if not done already. For more information, see For information on registering resource providers, see [Resolve errors for resource provider registration](../articles/azure-resource-manager/templates/error-register-resource-provider.md).
 
-1. Configure your key vault instance following the guidance in [Configure customer-managed keys for your Azure Cosmos account with Azure Key Vault](/azure/cosmos-db/how-to-setup-cmk).
+1. To configure the key vault, select it in the [Azure portal](https://portal.azure.com) and then select __Access polices__ from the left menu.
 
-    > [!IMPORTANT]
-    > When following the steps to configure key vault, don't create a new Azure Cosmos account. One will be created for you when you create the Azure Machine Learning workspace.
+    1. To create permissions for Azure Cosmos DB, select __+ Create__ at the top of the page. Under __Key permissions__, select __Get__, __Unwrap Key__, and __Wrap key__ permissions.
+    1. Under __Principal__, search for __Azure Cosmos DB__ and then select it. The principal ID for this entry is different depending on the Azure region you are using:
+
+        | Region | Principal ID |
+        | Azure public | `a232010e-820c-4083-83bb-3ace5fc29d0b` |
+        | Azure Government | `57506a73-e302-42a9-b869-6f12d9ec29e9` |
+        | Azure China | ????? |
+
+    1. Select __Review + Create__, and then select __Create__.
 
 1. Create an Azure Machine Learning workspace. When creating the workspace, use the following parameters. Both parameters are mandatory and supported in SDK, Azure CLI, REST APIs, and Resource Manager templates.
 
@@ -82,7 +97,7 @@ For more information on customer-managed keys with Cosmos DB, see [Configure cus
 
 ## Azure Container Instance
 
-When deploying a trained model to an Azure Container instance (ACI), you can encrypt the deployed resource using a customer-managed key. For information on generating a key, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#generate-a-new-key).
+When __deploying__ a trained model to an Azure Container instance (ACI), you can encrypt the deployed resource using a customer-managed key. For information on generating a key, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#generate-a-new-key).
 
 To use the key when deploying a model to Azure Container Instance, create a new deployment configuration using `AciWebservice.deploy_configuration()`. Provide the key information using the following parameters:
 
