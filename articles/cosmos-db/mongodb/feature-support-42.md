@@ -1,6 +1,6 @@
 ---
-title: 4.2 server version supported features and syntax in Azure Cosmos DB's API for MongoDB 
-description: Learn about Azure Cosmos DB's API for MongoDB 4.2 server version supported features and syntax. Learn about the database commands, query language support, datatypes, aggregation pipeline commands, and operators supported.
+title: 4.2 server version supported features and syntax in Azure Cosmos DB API for MongoDB 
+description: Learn about Azure Cosmos DB API for MongoDB 4.2 server version supported features and syntax. Learn about the database commands, query language support, datatypes, aggregation pipeline commands, and operators supported.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
@@ -9,27 +9,27 @@ author: gahl-levy
 ms.author: gahllevy
 ---
 
-# Azure Cosmos DB's API for MongoDB (4.2 server version): supported features and syntax
+# Azure Cosmos DB API for MongoDB (4.2 server version): supported features and syntax
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB's API for MongoDB using any of the open-source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB's API for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service, offering [multiple database APIs](../choose-api.md). You can communicate with the Azure Cosmos DB API for MongoDB using any of the open-source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB API for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities that Cosmos DB provides: [global distribution](../distribute-data-globally.md), [automatic sharding](../partitioning-overview.md), availability and latency guarantees, encryption at rest, backups, and much more.
+By using the Azure Cosmos DB API for MongoDB, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities that Cosmos DB provides: [global distribution](../distribute-data-globally.md), [automatic sharding](../partitioning-overview.md), availability and latency guarantees, encryption at rest, backups, and much more.
 
 ## Protocol Support
 
-The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB. When using Azure Cosmos DB's API for MongoDB accounts, the 3.6+ versions of accounts have the endpoint in the format `*.mongo.cosmos.azure.com` whereas the 3.2 version of accounts has the endpoint in the format `*.documents.azure.com`.
+The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB API for MongoDB. When using Azure Cosmos DB API for MongoDB accounts, the 3.6+ versions of accounts have the endpoint in the format `*.mongo.cosmos.azure.com` whereas the 3.2 version of accounts has the endpoint in the format `*.documents.azure.com`.
 
 > [!NOTE]
-> This article only lists the supported server commands and excludes client-side wrapper functions. Client-side wrapper functions such as `deleteMany()` and `updateMany()` internally utilize the `delete()` and `update()` server commands. Functions utilizing supported server commands are compatible with Azure Cosmos DB's API for MongoDB.
+> This article only lists the supported server commands, and excludes client-side wrapper functions. Client-side wrapper functions such as `deleteMany()` and `updateMany()` internally utilize the `delete()` and `update()` server commands. Functions utilizing supported server commands are compatible with the Azure Cosmos DB API for MongoDB.
 
 ## Query language support
 
-Azure Cosmos DB's API for MongoDB provides comprehensive support for MongoDB query language constructs. Below you can find the detailed list of currently supported operations, operators, stages, commands, and options.
+Azure Cosmos DB API for MongoDB provides comprehensive support for MongoDB query language constructs. Below you can find the detailed list of currently supported operations, operators, stages, commands, and options.
 
 ## Database commands
 
-Azure Cosmos DB's API for MongoDB supports the following database commands:
+Azure Cosmos DB API for MongoDB supports the following database commands:
 
 ### Query and write operation commands
 
@@ -161,7 +161,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | $unwind | Yes |
 
 > [!NOTE]
-> `$lookup` does not yet support the [uncorrelated subqueries](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#join-conditions-and-uncorrelated-sub-queries) feature introduced in server version 3.6. You will receive an error with a message containing `let is not supported` if you attempt to use the `$lookup` operator with `let` and `pipeline` fields.
+> The `$lookup` aggregation does not yet support the [uncorrelated subqueries](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#join-conditions-and-uncorrelated-sub-queries) feature introduced in server version 3.6. You will receive an error with a message containing `let is not supported` if you attempt to use the `$lookup` operator with `let` and `pipeline` fields.
 
 ### Boolean expressions
 
@@ -385,7 +385,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 ## Data types
 
-Azure Cosmos DB's API for MongoDB supports documents encoded in MongoDB BSON format. The 4.2 API version enhances the internal usage of this format to improve performance and reduce costs. Documents written or updated through an endpoint running 4.2 benefit from this.
+Azure Cosmos DB API for MongoDB supports documents encoded in MongoDB BSON format. The 4.2 API version enhances the internal usage of this format to improve performance and reduce costs. Documents written or updated through an endpoint running 4.2 benefit from this.
  
 In an [upgrade scenario](upgrade-mongodb-version.md), documents written prior to the upgrade to version 4.2 will not benefit from the enhanced performance until they are updated via a write operation through the 4.2 endpoint.
 
@@ -611,9 +611,9 @@ Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/refe
 
 ## Next steps
 
-- Learn how to [use Studio 3T](connect-using-mongochef.md) with Azure Cosmos DB's API for MongoDB.
-- Learn how to [use Robo 3T](connect-using-robomongo.md) with Azure Cosmos DB's API for MongoDB.
-- Explore MongoDB [samples](nodejs-console-app.md) with Azure Cosmos DB's API for MongoDB.
+- Learn how to [use Studio 3T](connect-using-mongochef.md) with Azure Cosmos DB API for MongoDB.
+- Learn how to [use Robo 3T](connect-using-robomongo.md) with Azure Cosmos DB API for MongoDB.
+- Explore MongoDB [samples](nodejs-console-app.md) with Azure Cosmos DB API for MongoDB.
 - Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
-    - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)
+    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md). 
+    - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md).
