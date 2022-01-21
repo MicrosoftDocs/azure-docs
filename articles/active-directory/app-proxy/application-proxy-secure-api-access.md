@@ -182,7 +182,7 @@ To configure the native app to connect to Azure Active Directory and call the AP
 
 - Paste the SecretAPI **Application ID URI** in the `<add key="todo:TodoListResourceId" value="" />` field. You can find and copy this value (a URI) from the SecretAPI **Expose an API** page.
 
-- Paste the SecretAPI **Home Page URL** in the `<add key="todo:TodoListBaseAddress" value="" />` field. You can find and copy this value (a URL) from the SecretAPI **Branding** page.
+- Paste the SecretAPI **Home Page URL** in the `<add key="todo:TodoListBaseAddress" value="" />` field. You can find and copy this value (a URL) from the SecretAPI **Branding & properties** page.
 
 > [!NOTE]
 > If the solution won't build and reports error *invalid Resx file* go to the solution explorer, expand **Properties**, right-click `Resources.resx` and select **View Code**. Comment lines 121 to 123.
