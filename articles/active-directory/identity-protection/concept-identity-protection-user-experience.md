@@ -79,15 +79,12 @@ IT staff can follow the instructions in the section [Unblocking users](howto-ide
 
 ## High risk technician
 
-If your organization has users who are delegated access to another tenant and they trigger high risk they may be blocked from signing into those other tenants. 
+If your organization has users who are delegated access to another tenant and they trigger high risk they may be blocked from signing into those other tenants. For example: 
 
-> For example: An organization has a managed service provider (MSP) who takes care of configuring their cloud environment. 
-> 
-> One of the MSPs technicians credentials are leaked and triggers high risk. That technician will be blocked from the ability to sign in to other tenants. 
-> The technician can self-remediate and sign in if the home tenant has enabled the appropriate policy [requiring password change for high risk](../conditional-access/howto-conditional-access-policy-risk-user.md) or [MFA for risky users](../conditional-access/howto-conditional-access-policy-risk.md). 
-> If the home tenant has not enabled this policy an administrator in the technician's home tenant will have to [remediate the risk](howto-identity-protection-remediate-unblock.md#remediation).
-
-
+1. An organization has a managed service provider (MSP) who takes care of configuring their cloud environment. 
+1. One of the MSPs technicians credentials are leaked and triggers high risk. That technician is blocked from signing in to other tenants. 
+1. The technician can self-remediate and sign in if the home tenant has enabled the appropriate policies [requiring password change for high risk users](../conditional-access/howto-conditional-access-policy-risk-user.md) or [MFA for risky users](../conditional-access/howto-conditional-access-policy-risk.md). 
+   1. If the home tenant has not enabled self-remediation policies, an administrator in the technician's home tenant will have to [remediate the risk](howto-identity-protection-remediate-unblock.md#remediation).
 
 ## See also
 
