@@ -21,7 +21,7 @@ sections:
       - question: |
           Can I pause the service and stop billing?
         answer: |
-          You cannot pause the service. Computing resources are allocated when the service is created. It's not possible to release and reclaim those resources on-demand.
+          You cannot pause a search service. In Azure Cognitive Search, computing resources are allocated when the service is created. It's not possible to release and reclaim those resources on-demand.
 
       - question: |
           Can I upgrade, downgrade, rename or move the service?
@@ -31,7 +31,7 @@ sections:
       - question: |
           Is there functional parity across the various APIs?
         answer: |
-          Not always. The REST API is always the first to implement features. The client libraries in Azure SDKs will pick up new features over time, but are released on their own schedule.
+          Not always. The REST API is always the first to implement new features in preview API versions, and the generally available versions support all programmatic operations. The client libraries in Azure SDKs will pick up new features over time, but are released on their own schedule.
 
       - question: |
           How do integrate search into my solution?
@@ -41,9 +41,9 @@ sections:
   - name: Indexing 
     questions:
       - question: |
-          Can I move, backup, and restore indexes or index snapshots?
+          Can I move, backup, and restore indexes?
         answer: |
-          There is no native support for index management, and no concept of an index snapshot. Search indexes are considered downstream data structures, accepting content from other data sources that collect operational data. As such, there is no built-in support for backing up and restoring indexes because the expectation is that you would rebuild it from source data if you deleted it or wanted to move it.
+          There is no native support for index management. Search indexes are considered downstream data structures, accepting content from other data sources that collect operational data. As such, there is no built-in support for backing up and restoring indexes because the expectation is that you would rebuild an index from source data if you deleted it or wanted to move it.
           
           However, if you want to move an index between search services, you can try the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
                    
@@ -53,9 +53,9 @@ sections:
           No, if you delete an Azure Cognitive Search index or service, it cannot be recovered. When you delete a search service, all indexes in the service are deleted permanently.   
                     
       - question: |
-          Can I index from SQL Database replicas (applies to Azure SQL Database indexers)
+          Can I index from SQL Database replicas?
         answer: |
-          There are no restrictions on the use of primary or secondary replicas as a data source when building an index from scratch. However, refreshing an index with incremental updates (based on changed records) requires the primary replica. This requirement comes from SQL Database, which guarantees change tracking on primary replicas only. If you try using secondary replicas for an index refresh workload, there is no guarantee you get all of the data.
+          If you are using the search indexer for Azure SQL Database, there are no restrictions on the use of primary or secondary replicas as a data source when building an index from scratch. However, refreshing an index with incremental updates (based on changed records) requires the primary replica. This requirement comes from SQL Database, which guarantees change tracking on primary replicas only. If you try using secondary replicas for an index refresh workload, there is no guarantee you get all of the data.
 
   - name: Queries
     questions:
@@ -77,7 +77,7 @@ sections:
           Most wildcard search queries, like prefix, fuzzy and regex, are rewritten internally with matching terms in the search index. This extra processing adds to latency. Further, broad search queries, like `a*` for example, that are likely to be rewritten with many terms can be very slow. For performant wildcard searches, consider defining a [custom analyzer](/rest/api/searchservice/custom-analyzers-in-azure-search).
           
       - question: |
-          Why is the search score a constant value of 1.0 for every match?
+          Why is the search score a constant 1.0 for every match?
         answer: |
           Search scores are generated for full text search queries, based on the [statistical properties of matching terms](search-lucene-query-architecture.md#stage-4-scoring), and ordered high to low in the result set. Query types that are not full text search (wildcard, prefix, regex) are not ranked by a relevance score. This behavior is by design. A constant score allow matches found through query expansion to be included in the results, without affecting the ranking.
           
