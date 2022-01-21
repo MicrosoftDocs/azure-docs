@@ -168,7 +168,7 @@ Upgrade the extension to full mode with Azure PowerShell:
 # Get the existing  Compute VM
 $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
 # Register with SQL IaaS Agent extension in full mode
-Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full -Location $vm.Location
+Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
 ```
 
 ---

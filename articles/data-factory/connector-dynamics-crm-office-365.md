@@ -1,25 +1,26 @@
 ---
-title: Copy data in Dynamics (Microsoft Dataverse)
+title: Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM 
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from Microsoft Dynamics CRM or Microsoft Dynamics 365 (Microsoft Dataverse) to supported sink data stores or from supported source data stores to Dynamics CRM or Dynamics 365 by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
+description: Learn how to copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics.
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 12/31/2021
+ms.date: 01/10/2022
 ---
-# Copy data from and to Dynamics 365 (Microsoft Dataverse) or Dynamics CRM
+# Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-This article outlines how to use a copy activity in Azure Data Factory or Synapse pipelines to copy data from and to Microsoft Dynamics 365 and Microsoft Dynamics CRM. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of a copy activity.
+This article outlines how to use a copy activity in Azure Data Factory or Synapse pipelines to copy data from and to Dynamics 365 (Microsoft Dataverse) or Dynamics CRM, and use a data flow to transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM. To learn more, read the [Azure Data Factory](introduction.md) and the [Azure Synapse Analytics](..\synapse-analytics\overview-what-is.md) introduction articles.
 
 ## Supported capabilities
 
 This connector is supported for the following activities:
 
 - [Copy activity](copy-activity-overview.md) with [supported source and sink matrix](copy-activity-overview.md)
+- [Mapping data flow](concepts-data-flow-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from Dynamics 365 (Microsoft Dataverse) or Dynamics CRM to any supported sink data store. You also can copy data from any supported source data store to Dynamics 365 (Microsoft Dataverse) or Dynamics CRM. For a list of data stores that a copy activity supports as sources and sinks, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
@@ -500,6 +501,84 @@ In copy-activity column mapping, map the two columns as follows:
 If all of your source records map to the same target entity and your source data doesn't contain the target entity name, here is a shortcut: in the copy activity source, add an additional column. Name the new column by using the pattern `{lookup_field_name}@EntityReference`, set the value to the target entity name, then proceed with column mapping as usual. If your source and sink column names are identical, you can also skip explicit column mapping because copy activity by default maps columns by name.
 
 :::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-add-entity-reference-column.png" alt-text="Dynamics lookup-field adding an entity-reference column":::
+
+## Mapping data flow properties
+
+When transforming data in mapping data flow, you can read and write to tables from Dynamics. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows. You can choose to use a Dynamics dataset or an [inline dataset](data-flow-source.md#inline-datasets) as source and sink type.
+
+### Source transformation
+
+The below table lists the properties supported by Dynamics. You can edit these properties in the **Source options** tab.
+
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Table | If you select Table as input, data flow fetches all the data from the table specified in the dataset. | No | - | tableName |
+| Query |FetchXML is a proprietary query language that is used in Dynamics online and on-premises. See the following example. To learn more, see [Build queries with FetchXML](/previous-versions/dynamicscrm-2016/developers-guide/gg328332(v=crm.8)). | No | String | query |
+| Entity | The logical name of the entity to retrieve. | Yes when use inline mode | - | entity|
+
+> [!Note]
+> If you select **Query** as input type, the column type from tables can not be retrieved. It will be treated as string by default. 
+
+#### Dynamics source script example
+
+When you use Dynamics as source type, the associated data flow script is:
+
+```
+source(
+   output(
+               new_name as string,
+               new_dataflowtestid as string
+         ),
+   store: 'dynamics',
+   format: 'dynamicsformat',
+   baseUrl: $baseUrl,
+   cloudType:'AzurePublic',
+   servicePrincipalId:$servicePrincipalId,
+   servicePrincipalCredential:$servicePrincipalCredential,
+   entity:'new_datalowtest'
+query:' <fetch mapping='logical' count='3 paging-cookie=''><entity name='new_dataflow_crud_test'><attribute name='new_name'/><attribute name='new_releasedate'/></entity></fetch> '
+  ) ~> movies
+
+```
+
+### Sink transformation
+
+The below table lists the properties supported by Dynamics sink. You can edit these properties in the **Sink options** tab.
+
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Entity | The logical name of the entity to retrieve. | Yes when use inline mode | - | entity|
+| Request interval | The interval time between API requests in millisecond. | No  | - | requestInterval|
+| Update method | Specify what operations are allowed on your database destination. The default is to only allow inserts.<br>To update, upsert, or delete rows, an [Alter row transformation](data-flow-alter-row.md) is required to tag rows for those actions. | Yes | `true` or `false` | insertable <br/>updateable<br/>upsertable<br>deletable|
+| Alternate key name | The alternate key name defined on your entity to do an update, upsert or delete.  | No | - | alternateKeyName |
+
+#### Dynamics sink script example
+
+When you use Dynamics as sink type, the associated data flow script is:
+
+```
+moviesAltered sink(
+        input(new_name as string,
+                            new_id as string,
+                            new_releasedate as string
+                             ),
+         store: 'dynamics',
+              format: 'dynamicsformat',
+              baseUrl: $baseUrl,
+
+              cloudType:'AzurePublic',
+              servicePrincipalId:$servicePrincipalId,
+              servicePrincipalCredential:$servicePrincipalCredential,
+              updateable: true,
+              upsertable: true,
+              insertable: true,
+              deletable:true,
+              alternateKey:'new_testalternatekey',
+              entity:'new_dataflow_crud_test',
+
+requestInterval:1000
+         ) ~> movieDB
+```
 
 ## Lookup activity properties
 
