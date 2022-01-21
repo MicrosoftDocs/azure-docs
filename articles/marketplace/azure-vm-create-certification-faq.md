@@ -343,7 +343,8 @@ These steps apply to Linux only.
 
    1. Select **Attach Existing Disk**.
 
-      ![Screenshot showing how to add a data disk to your VHD.](./media/create-vm/vm-certification-issues-solutions-18.png)
+      ![Screenshot showing how to add a data disk to your VHD.](C:\Users\sharroy\Documents\Github docs\Cert docs\media\Data Disk.PNG)
+      ![Screenshot showing how to select the data disk for your VHD](C:\Users\sharroy\Documents\Github docs\Cert docs\media\Source data disk.PNG)
 
    1. Find your VHD storage account.
    1. Select **Container** and then select your VHD.
@@ -385,56 +386,6 @@ These steps apply to Linux only.
       ![Putty client command line screenshot showing the commands for creating the 2048 offset.](./media/create-vm/vm-certification-issues-solutions-24.png)
 
 1. Detach the VHD from VM and delete the VM.
-
-### How to keep 1 MB free space by moving existing data on VHD (2048 sectors, each sector of 512 bytes)
-
-These steps apply to Linux only.
-
-1. Create any kind of Linux VM, such as Ubuntu, Cent OS, or other. Fill the required fields and select **Next: Disks >**.
-
-   ![Screenshot that shows the Create a virtual machine page with the 'Next: Disks command' button highlighted.](./media/create-vm/vm-certification-issues-solutions-15.png)
-
-1. Create an unmanaged disk for your VM.
-
-   ![Screenshot image of the 'Data disks' page in the Create a virtual machine flow.](./media/create-vm/vm-certification-issues-solutions-16.png)
-
-   Either use the default values or specify any value for fields like NIC, NSG, and public IP.
-
-1. After you create the VM, select **Disks** in the left pane.
-
-   ![Screenshot showing how to select disks for a VM.](./media/create-vm/vm-certification-issues-solutions-17.png)
-
-1. Attach your VHD as data disk to your VM for creating a partition table.
-
-   1. Attach your VHD as data disk to your VM for creating a partition table.
-
-   1. Select **Add DataDisk** > **Existing Blob**.
-
-      ![Screenshot showing how to add a data disk to your VHD.](./media/create-vm/vm-certification-issues-solutions-18.png)
-
-   1. Find your VHD storage account.
-   1. Select **Container** and then select your VHD.
-   1. Select **OK**.
-
-      ![Screenshot of the attach unmanaged disk page.](./media/create-vm/vm-certification-issues-solutions-19.png)
-
-      Your VHD will be added as data disk LUN 0.
-
-   1. Restart the VM.
-
-1. Log in to the VM with Putty or another client and run `sudo  -i` command to gain root access.
-
-   ![Putty client command line screenshot showing log in and the sudo -i command.](./media/create-vm/vm-certification-issues-solutions-20.png)
-
-1. Run the command `echo '+1M,' | sfdisk --move-data /dev/sdc -N 1`.
-
-   ![Putty client command line screenshot showing the execution of the commands.](./media/create-vm/vm-certification-issues-solutions-25.png)
-
-   >[!NOTE]
-   >This command may take some time to complete because it depends upon the size of the disk.
-
-1. Detach the VHD from VM and delete the VM.
-
 
 ## Default credentials
 
