@@ -14,11 +14,11 @@ ms.date: 01/17/2022
 
 # Creating indexers in Azure Cognitive Search
 
-A search indexer provides an automated workflow for reading content from an external data source, and ingesting that content into a search index on your search service. Indexers support two workflows: 
+A search indexer connects to an external data source, retrieves and processes data, and then passes it to the search engine for indexing. Indexers support two workflows:
 
-+ Extract text and metadata during indexing for full text search scenarios
++ Extract text and metadata during indexing for full text search scenarios.
 
-+ Apply integrated machine learning and AI models to analyze content that is *not* intrinsically searchable, such as images and large undifferentiated text. This extended workflow is called [AI enrichment](cognitive-search-concept-intro.md) and it's indexer-driven.
++ Apply integrated machine learning and AI models to analyze content that is not otherwise searchable, such as images and large undifferentiated text. This extended workflow is called [AI enrichment](cognitive-search-concept-intro.md) and it's indexer-driven.
 
 Using indexers significantly reduces the quantity and complexity of the code you need to write. This article focuses on the basics of creating an indexer. Depending on the data source and your workflow, additional configuration might be necessary.
 
