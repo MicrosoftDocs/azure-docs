@@ -45209,7 +45209,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "articles/azure/cognitive-services/translator/custom-translator/v2-preview/project-overview.md",
+      "source_path_from_root": "/articles/azure/cognitive-services/translator/custom-translator/v2-preview/project-overview.md",
       "redirect_url": "/azure/cognitive-services/translator/custom-translator/v2-preview/beginners-guide",
       "redirect_document_id": true
     }
