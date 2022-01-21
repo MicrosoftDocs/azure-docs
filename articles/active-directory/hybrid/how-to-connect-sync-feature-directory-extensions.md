@@ -49,6 +49,9 @@ The list of attributes is read from the schema cache that's created during insta
 
 An object in Azure AD can have up to 100 attributes for directory extensions. The maximum length is 250 characters. If an attribute value is longer, the sync engine truncates it.
 
+>[NOTE!]
+>It is not supported to sync computed attributes, such as msDS-UserPasswordExpiryTimeComputed. If you upgrade from an old version of AADConnect you may still see these attributes show up in the installation wizard, you should not enable them though. Their value will not sync to Azure AD if you do.
+
 ## Configuration changes in Azure AD made by the wizard
 
 During installation of Azure AD Connect, an application is registered where these attributes are available. You can see this application in the Azure portal. Its name is always **Tenant Schema Extension App**.

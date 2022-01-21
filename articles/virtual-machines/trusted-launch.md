@@ -156,10 +156,6 @@ Azure Defender for Cloud periodically performs attestation. If the attestation f
 
 Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) is typically deployed in conjunction with Guarded Fabric. A Guarded Fabric consists of a Host Guardian Service (HGS), one or more guarded hosts, and a set of Shielded VMs. Hyper-V Shielded VMs are intended for use in fabrics where the data and state of the virtual machine must be protected from both fabric administrators and untrusted software that might be running on the Hyper-V hosts. Trusted launch on the other hand can be deployed as a standalone virtual machine or virtual machine scale sets on Azure without additional deployment and management of HGS. All of the trusted launch features can be enabled with a simple change in deployment code or a checkbox on the Azure portal.  
 
-### How can I convert existing VMs to trusted launch?
-
-You can update a gen 2 VM to use Trusted Launch. For more information about how to update an existing VM to use Trusted Launch, see [Deploy a VM with trusted launch enabled](trusted-launch-portal.md#verify-or-update-your-settings).
-
 ### What is VM Guest State (VMGS)?  
 
 VM Guest State (VMGS) is specific to Trusted Launch VM. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. The lifecycle of the VMGS blob is tied to that of the OS Disk.  

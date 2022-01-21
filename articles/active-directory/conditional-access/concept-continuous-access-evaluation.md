@@ -176,8 +176,7 @@ Your identity provider and resource providers may see different IP addresses. Th
  
 Examples:
 
-- Your identity provider sees one IP address from the client.
-- Your resource provider sees a different IP address from the client after passing through a proxy.
+- Your identity provider sees one IP address from the client while your resource provider sees a different IP address from the client after passing through a proxy.
 - The IP address your identity provider sees is part of an allowed IP range in policy but the IP address from the resource provider isn't.
 
 To avoid infinite loops because of these scenarios, Azure AD issues a one hour CAE token and won't enforce client location change. In this case, security is improved compared to traditional one hour tokens since we're still evaluating the [other events](#critical-event-evaluation) besides client location change events.
