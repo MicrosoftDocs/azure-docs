@@ -18,7 +18,7 @@ ms.date: 01/21/2022
 
 Azure SQL Managed Instance must be deployed within an Azure [virtual network](../../virtual-network/virtual-networks-overview.md). The number of managed instances that can be deployed in the subnet of a virtual network depends on the size of the subnet (subnet range).
 
-When you create a managed instance, Azure allocates a number of virtual machines that depends on the tier you selected during provisioning. Because these virtual machines are associated with your subnet, they require IP addresses. To ensure high availability during regular operations and service maintenance, Azure might allocate more virtual machines. The number of required IP addresses in a subnet then becomes larger than the number of managed instances in that subnet.
+When you create a managed instance, Azure allocates a number of virtual machines that depend on the tier you selected during provisioning. Because these virtual machines are associated with your subnet, they require IP addresses. To ensure high availability during regular operations and service maintenance, Azure might allocate more virtual machines. The number of required IP addresses in a subnet then becomes larger than the number of managed instances in that subnet.
 
 By design, a managed instance needs a minimum of 32 IP addresses in a subnet. As a result, you can use a minimum subnet mask of /27 when defining your subnet IP ranges. We recommend careful planning of subnet size for your managed instance deployments. Consider the following inputs during planning:
 
@@ -38,7 +38,7 @@ Size your subnet according to your future needs for instance deployment and scal
 
 - Azure uses five IP addresses in the subnet for its own needs.
 - Each virtual cluster allocates an additional number of addresses. 
-- Each managed instance uses a number of addresses that depends on pricing tier and hardware generation.
+- Each managed instance uses a number of addresses that depend on pricing tier and hardware generation.
 - Each scaling request temporarily allocates an additional number of addresses.
 
 > [!IMPORTANT]
@@ -55,14 +55,14 @@ VC = virtual cluster
 
 In the preceding table:
 
-- The **Total** column displays the total number of addresses that are used by a single deployed instance to the subnet.
+- The **Total** column displays the total number of addresses that are used by a single-deployed instance to the subnet.
 - When you add more instances to the subnet, the number of addresses used by the instance increases. The total number of addresses then also increases.
 - Addresses represented in the **Azure usage** column are shared across multiple virtual clusters.
 - Addresses represented in the **VC usage** column are shared across instances placed in that virtual cluster.
 
 Also consider the [maintenance window feature](../database/maintenance-window.md) when you're determining the subnet size, especially when multiple instances will be deployed inside the same subnet. Specifying a maintenance window for a managed instance during its creation or afterward means that it must be placed in a virtual cluster with the corresponding maintenance window. If there is no such virtual cluster in the subnet, a new one must be created first to accommodate the instance.
 
-The same scenario as for the maintenance window applies for changing the [hardware generaiton](resource-limits.md#hardware-generation-characteristics) as virtual cluster is built per hardware generation. In case of new instace creation or changing the hardware generation of the existing instance, if there is no such virtual cluster in the subnet, a new one must be created first to accommodate the instance.
+The same scenario as for the maintenance window applies for changing the [hardware generation](resource-limits.md#hardware-generation-characteristics) as virtual cluster is built per hardware generation. In case of new instance creation or changing the hardware generation of the existing instance, if there is no such virtual cluster in the subnet, a new one must be created first to accommodate the instance.
 
 An update operation typically requires [resizing the virtual cluster](management-operations-overview.md). When a new create or update request comes, the SQL Managed Instance service communicates with the compute platform with a request for new nodes that need to be added. Based on the compute response, the deployment system either expands the existing virtual cluster or creates a new one. Even if in most cases the operation will be completed within same virtual cluster, a new one might be created on the compute side. 
 
@@ -92,8 +92,8 @@ We recommend the following formula for calculating the total number of IP addres
 
 Explanation:
 - 5 = number of IP addresses reserved by Azure
-- 12 addresses per GP instance = 6 for virtual cluster, 3 for managed instance, 3 additional for scaling operation
-- 16 addresses per BC instance = 6 for virtual cluster, 5 for managed instance, 5 additional for scaling operation
+- 12 addresses per GP instance = 6 for virtual cluster, 3 for managed instance, 3 more for scaling operation
+- 16 addresses per BC instance = 6 for virtual cluster, 5 for managed instance, 5 more for scaling operation
 - 16 addresses as a backup = scenario where new virtual cluster is created
 
 Example: 
