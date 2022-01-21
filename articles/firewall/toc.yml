@@ -35,6 +35,8 @@
       href: features.md
     - name: Azure Firewall Premium features
       href: premium-features.md
+    - name: Azure Firewall preview features
+      href: firewall-preview.md
     - name: IDPS signature rule categories
       href: idps-signature-categories.md
     - name: Azure Firewall Premium in the portal

@@ -39,7 +39,7 @@ When scanning Oracle source, Azure Purview supports:
     - Synonyms
     - Types including the type attributes
 
-- Fetching static lineage on assets relationships among tables, views and stored procedures.
+- Fetching static lineage on assets relationships among tables, views and stored procedures. Stored procedure lineage is supported for static SQL returning result set.
 
 When setting up scan, you can choose to scan an entire Oracle server, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
 
