@@ -132,7 +132,7 @@ Address:  172.21.0.4
 Aliases:  fhirserverxxx.azurehealthcareapis.com
 ```
 
-If the private link is not configured properly, you may see the public IP address instead and a few aliases including the Traffic Manager endpoint. This indicates that the private link DNS zone cannot resolve to the valid private IP address of the FHIR server. One possible reason is that the second peered VNet hasn't been added to the private link DNS zone. As a result, you will see the HTTP 403 error, "Access to xxx was denied", when trying to access the /metadata endpoint of the FHIR server.  
+If the private link is not configured properly, you may see the public IP address instead and a few aliases including the Traffic Manager endpoint. This indicates that the private link DNS zone cannot resolve to the valid private IP address of the FHIR server. When VNet peering is configured, one possible reason is that the second peered VNet hasn't been added to the private link DNS zone. As a result, you will see the HTTP error 403, "Access to xxx was denied", when trying to access the /metadata endpoint of the FHIR server.
 
 ```
 C:\Users\testuser>nslookup fhirserverxxx.azurehealthcareapis.com
