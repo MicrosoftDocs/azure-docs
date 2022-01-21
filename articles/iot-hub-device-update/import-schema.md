@@ -13,6 +13,8 @@ If you want to import an update into Device Update for IoT Hub, be sure you've r
 
 ## Import manifest JSON schema version 4.0
 
+Import manifest JSON schema is hosted at [SchemaStore.org](https://json.schemastore.org/azure-deviceupdate-import-manifest-4.0.json).
+
 ### Schema
 
 **Properties**
@@ -326,104 +328,6 @@ Base64-encoded file hash value using SHA-256 algorithm.
 
 * **Type**: `string`
 * **Required**: Yes
-
-## Example import update API request body
-
-If you are using the sample import manifest output from [How to add a new update](./import-update.md#review-the-generated-import-manifest), and want to call the Device Update [REST API](/rest/api/deviceupdate/updates) directly to perform the import, the corresponding request body should look like this:
-
-```json
-[
-  {
-    "importManifest": {
-      "url": "http://<your Azure Storage location file path>/importManifest.json",
-      "sizeInBytes": <size of import manifest file>,
-      "hashes": {
-        "sha256": "<hash of import manifest file>"
-      }
-    },
-    "files": [
-      {
-        "filename": "file1.json",
-        "url": "http://<your Azure Storage location file path>/file1.json"
-      },
-      {
-        "filename": "file2.zip",
-        "url": "http://<your Azure Storage location file path>/file2.zip"
-      }
-    ]
-  }
-]
-```
-
-## OAuth authorization when calling Device Update APIs
-
-Device Update for IoT Hub REST API requires OAuth 2.0 authorization token. It accepts tokens acquired using any of the Azure Active Directory supported flows for users, applications, or managed identities.
-
-### Resource details
-
-* **Resource**: https://api.adu.microsoft.com
-* **Authorization URL**: https://login.microsoftonline.com/common/oauth2/authorize
-* **Scopes**:
-
-    | Name | Description |
-    | --- | --- |
-    | `https://api.adu.microsoft.com/user_impersonation` | Impersonate your user account |
-    | `https://api.adu.microsoft.com/.default`  | Client credential flows |
-
-### Permissions
-
-You will need to add permissions to your Azure AD app in the API permissions tab in Azure AD Application view - request API permission to Azure Device Update (located in *APIs my organization uses*) and grant the delegated `user_impersonation` permission.
-
-Notes:
-* If an Azure AD application is used to sign the user in, the scope must have `/user_impersonation`.
-* Some authorization flows require extra Azure AD application setup:
-    * For public client flow, enable *mobile and desktop* flow.
-    * For implicit flow, add *Web platform* and select *Access tokens* for the authorization endpoint.
-
-### Examples
-
-**Acquiring a token using Azure CLI:**
-
-```azurecli
-az login
-az account get-access-token --resource 'https://api.adu.microsoft.com/'
-```
-
-**Acquiring a token using PowerShell MSAL library:**
-
-_Using user credentials_
-
-```powershell
-$clientId = '<app_id>’
-$tenantId = '<tenant_id>’
-$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
-$Scope = 'https://api.adu.microsoft.com/user_impersonation'
-
-Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope
-```
-
-_Using user credentials with device code_
-
-```powershell
-$clientId = '<app_id>’
-$tenantId = '<tenant_id>’
-$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
-$Scope = 'https://api.adu.microsoft.com/user_impersonation'
-
-Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope -Interactive -DeviceCode
-```
-
-_Using app credentials_
-
-```powershell
-$clientId = '<app_id>’
-$tenantId = '<tenant_id>’
-$cert = '<client_certificate>'
-$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
-$Scope = 'https://api.adu.microsoft.com/.default'
-
-Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope -ClientCertificate $cert
-```
 
 ## Next steps
 
