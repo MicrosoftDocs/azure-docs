@@ -588,7 +588,7 @@ items:
     - name: General
       items:
       - name: Markdown format
-        href: question answering/reference/markdown-format.md
+        href: question-answering/reference/markdown-format.md
     - name: REST API
       items:
       - name: Prebuilt
