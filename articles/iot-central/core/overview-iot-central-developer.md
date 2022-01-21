@@ -34,19 +34,19 @@ A IoT device is a standalone device connects directly to IoT Central. A IoT devi
 
 ### IoT Edge device
 
-An IoT Edge device connects directly to IoT Central. An IoT Edge device can send its own telemetry, report its properties, and respond to writable property updates and commands. IoT Edge modules can process data locally on the IoT Edge device. An IoT Edge device can also act as an intermediary for other devices known as leaf devices. Scenarios that use IoT Edge devices include:
+An IoT Edge device connects directly to IoT Central. An IoT Edge device can send its own telemetry, report its properties, and respond to writable property updates and commands. IoT Edge modules can process data locally on the IoT Edge device. An IoT Edge device can also act as an intermediary for other devices known as downstream devices. Scenarios that use IoT Edge devices include:
 
 - Aggregate or filter telemetry before it's sent to IoT Central. This approach can help to reduce the costs of sending data to IoT Central.
-- Enable devices that can't connect directly to IoT Central to connect through the IoT Edge device. For example, a leaf device might use bluetooth to connect to the IoT Edge device, which then connects over the internet to IoT Central.
-- Control leaf devices locally to avoid the latency associated with connecting to IoT Central over the internet.
+- Enable devices that can't connect directly to IoT Central to connect through the IoT Edge device. For example, a downstream device might use bluetooth to connect to the IoT Edge device, which then connects over the internet to IoT Central.
+- Control downstream devices locally to avoid the latency associated with connecting to IoT Central over the internet.
 
-IoT Central only sees the IoT Edge device, not the leaf devices connected to the IoT Edge device.
+IoT Central only sees the IoT Edge device, not the downstream devices connected to the IoT Edge device.
 
 To learn more, see [Add an Azure IoT Edge device to your Azure IoT Central application](./tutorial-add-edge-as-leaf-device.md).
 
 ### Gateways
 
-A gateway device manages one or more downstream devices that connect to your IoT Central application. You use IoT Central to configure the relationships between the downstream devices and the gateway device. Both IoT devices and IoT Edge devices can act as gateways. To learn more, see [Define a new IoT gateway device type in your Azure IoT Central application](./tutorial-define-gateway-device-type.md).
+A gateway device manages one or more downstream devices that connect to your IoT Central application. A gateway device can process the telemetry from the downstream devices before it's forwarded to your IoT Central application. Both IoT devices and IoT Edge devices can act as gateways. To learn more, see [Define a new IoT gateway device type in your Azure IoT Central application](./tutorial-define-gateway-device-type.md) and [How to connect devices through an IoT Edge transparent gateway](how-to-connect-iot-edge-transparent-gateway.md).
 
 ## Connect a device
 
