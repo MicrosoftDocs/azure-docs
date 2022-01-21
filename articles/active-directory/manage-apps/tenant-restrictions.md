@@ -51,9 +51,9 @@ There are two steps to get started with tenant restrictions. First, make sure th
 
 To use tenant restrictions, your clients must be able to connect to the following Azure AD URLs to authenticate: 
 
-- [login.microsoftonline.com](https://login.microsoftonline.com/)
-- [login.microsoft.com](https://login.microsoft.com/)
-- [login.windows.net](https://login.windows.net/). 
+- login.microsoftonline.com
+- login.microsoft.com
+- login.windows.net 
 
 Additionally, to access Office 365, your clients must also be able to connect to the fully qualified domain names (FQDNs), URLs, and IP addresses defined in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
@@ -145,7 +145,7 @@ For Outlook on Windows, customers may choose to implement restrictions preventin
 
 ### Azure RMS and Office Message Encryption incompatibility
 
-The Azure Rights Management Service (RMS) and Office Message Encryption features are not compatible with tenant restrictions. These features rely on signing your users into other tenants in order to get decryption keys for the encrypted documents. Because tenant restrictions blocks access to other tenants, encrypted mail and documents sent to your users from untrusted tenants will not be accessible.
+The [Azure Rights Management Service](/azure/information-protection/what-is-azure-rms) (RMS) and [Office Message Encryption](/microsoft-365/compliance/ome) features are not compatible with tenant restrictions. These features rely on signing your users into other tenants in order to get decryption keys for the encrypted documents. Because tenant restrictions blocks access to other tenants, encrypted mail and documents sent to your users from untrusted tenants will not be accessible.
 
 ## Testing
 
