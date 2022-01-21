@@ -23,3 +23,5 @@ items:
   items:
   - name: Key components of a private mobile network
     href: key-components-of-a-private-mobile-network.md
+  - name: Statement of compliance
+    href: statement-of-compliance.md
