@@ -15,7 +15,7 @@ ms.date: 12/31/2021
 
 Start a debug session to identify and resolve errors, validate changes, and push changes to a published skillset in your Azure Cognitive Search service.
 
-A debug session is a cached indexer and skillset execution, scoped to a single document, that you can edit and test your changes interactively. If you are unfamiliar with how a debug session works, see [Debug sessions in Azure Cognitive Search](cognitive-search-debug-session.md). To practice a debug workflow with a sample document, see [Tutorial: Debug sessions](cognitive-search-tutorial-debug-sessions.md).
+A debug session is a cached indexer and skillset execution, scoped to a single document, that you can use to edit and test your changes interactively. If you are unfamiliar with how a debug session works, see [Debug sessions in Azure Cognitive Search](cognitive-search-debug-session.md). To practice a debug workflow with a sample document, see [Tutorial: Debug sessions](cognitive-search-tutorial-debug-sessions.md).
 
 > [!Important]
 > Debug sessions is a preview portal feature, provided under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -64,7 +64,7 @@ As a best practice, resolve problems with inputs before moving on to outputs.
 
 To prove whether a modification resolves an error, follow these steps:
 
-1. Select **Save** in Skill Details to preserve your changes.
+1. Select **Save** in the skill details pane to preserve your changes.
 
 1. Select **Run** in the session window to invoke skillset execution using the modified definition.
 
@@ -103,7 +103,7 @@ The following steps show you how to get information about a skill.
    + **Skill Settings** if you prefer a visual editor
    + **Skill JSON Editor** to edit the JSON document directly
 
-1. Check the [path syntax for referencing nodes](cognitive-search-concept-annotations-syntax.md) in an enrichment tree. Inputs are usually one of the following:
+1. Check the [path syntax for referencing nodes](cognitive-search-concept-annotations-syntax.md) in an enrichment tree. Following are some of the most common input paths:
 
    + `/document/content` for chunks of text. This node is populated from the blob's content property.
    + `/document/merged_content` for chunks of text in skillets that include Text Merge skill.

@@ -10,7 +10,6 @@ ms.reviewer: nibaccam
 author: swatig007
 ms.author: swatig
 ms.date: 01/18/2022
-ms.custom: 
 ---
 
 # Hyperparameters for computer vision tasks in automated machine learning

@@ -34,10 +34,12 @@
         - name: Create a no-code voice assistant in Azure Percept Studio
           href: tutorial-no-code-speech.md         
     - name: Advanced prototyping with Azure Percept
-      items:
+      items:  
         - name: Create a people counting solution with Azure Percept DK and Azure Percept Vision
-          href: create-people-counting-solution-with-azure-percept-devkit-vision.md  
-          
+          href: create-people-counting-solution-with-azure-percept-devkit-vision.md
+        - name: Voice control your inventory and visualize with Power BI dashboard
+          href: voice-control-your-inventory-then-visualize-with-power-bi-dashboard.md
+
 - name: Concepts
   items:
     - name: Azure Percept DK
