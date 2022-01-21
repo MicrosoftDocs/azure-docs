@@ -641,7 +641,7 @@ Implement the `OnMessageReceivedAsync()` method in `SampleChatHub`.
         {
             await _serviceClient.SendToAllAsync($"[{request.ConnectionContext.UserId}] {request.Data}");
 
-            return request.CreateResponse($"[SYSTEM] ack."));
+            return request.CreateResponse($"[SYSTEM] ack.");
         }
     }
     ```

@@ -96,7 +96,7 @@
           href: configure-user-consent.md
         - name: Configure group owner consent
           href: configure-user-consent-groups.md
-        - name: Configure risked-based step-up consent
+        - name: Configure risk-based step-up consent
           href: configure-risk-based-step-up-consent.md
         - name: Configure permission classifications
           href: configure-permission-classifications.md
