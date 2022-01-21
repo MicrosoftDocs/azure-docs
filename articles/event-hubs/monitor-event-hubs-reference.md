@@ -18,7 +18,7 @@ Counts the number of data and management operations requests.
 
 | Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
 | ---------- | ---------- | ----- | --- | --- | --- | 
-| Incoming Requests| Yes | Count | Total | The number of requests made to the Event Hubs service over a specified period. | Entity name| 
+| Incoming Requests| Yes | Count | Total | The number of requests made to the Event Hubs service over a specified period. This metric includes all the data and management plane operations. | Entity name| 
 | Successful Requests| No | Count | Total | The number of successful requests made to the Event Hubs service over a specified period. |  Entity name<br/><br/>Operation Result | 
 | Throttled Requests| No | Count | Total |  The number of requests that were throttled because the usage was exceeded. | Entity name<br/><br/>Operation Result |
 
@@ -40,7 +40,8 @@ The following two types of errors are classified as **user errors**:
 
 
 > [!NOTE]
-> These values are point-in-time values. Incoming messages that were consumed immediately after that point-in-time may not be reflected in these metrics. 
+> - These values are point-in-time values. Incoming messages that were consumed immediately after that point-in-time may not be reflected in these metrics. 
+> - The **Incoming requests** metric includes all the data and management plane operations. The **Incoming messages** metric gives you the total number of events that are sent to the event hub. For example, if you send a batch of 100 events to an event hub, it'll count as 1 incoming request and 100 incoming messages. 
 
 ### Capture metrics
 | Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
