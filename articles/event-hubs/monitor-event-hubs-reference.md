@@ -46,8 +46,8 @@ The following two types of errors are classified as **user errors**:
 | Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
 | ------------------- | ----------------- | --- | --- | --- | --- | 
 | Captured Messages| No | Count| Total | The number of captured messages.  | Entity name |
-| Captured Bytes | No | Bytes | Total | Captured bytes for an event hubs | Entity name | 
-| Capture Backlog | No | Count| Total | Capture backlog for an event hubs | Entity name | 
+| Captured Bytes | No | Bytes | Total | Captured bytes for an event hub | Entity name | 
+| Capture Backlog | No | Count| Total | Capture backlog for an event hub | Entity name | 
 
 
 ### Connection metrics
@@ -96,7 +96,7 @@ Name | Description
 `Status` | Status of the activity (success or failure).
 `Protocol` | Type of the protocol associated with the operation.
 `AuthType` | Type of authentication (Azure Active Directory or SAS Policy).
-`AuthKey` | Azure Active Directory application Id or SAS policy name that's used to authenticate to a resource.
+`AuthKey` | Azure Active Directory application ID or SAS policy name that's used to authenticate to a resource.
 `NetworkType` | Type of the network access: `PublicNetworkAccess`, `PrivateNetworkAccess`.
 `ClientIP` | IP address of the client application.
 `Count` | Total number of operations performed during the aggregated period of 1 minute. 
