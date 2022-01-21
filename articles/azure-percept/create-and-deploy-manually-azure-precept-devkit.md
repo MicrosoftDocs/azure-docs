@@ -30,7 +30,7 @@ SSH (Secure Shell) into your devkit and run the following command then write dow
 Example output: 2021.111.124.109 
 
 ## Create an Azure IoT Edge device for the Devkit
-If you have a device already created, you can skip to the [Manually deploy the deployment.json to the device](#Manually-deploy-the-deployment.json-to-the-Azure-Percept-device) section. 
+If you have a device already created, you can skip to the [Manually deploy the deployment.json to the device](#manually-deploy-the-deploymentjson-to-the-azure-percept-device) section. 
 1. Go to [Azure portal](https://portal.azure.com) and select the **IoT Hub** where you will create the device. 
 2. Navigate to **IoT Edge** and select **Add an IoT Edge device**
 3. On the **Create a Device** screen, name your device in the **Device ID** section and leave all other fields as default, then click the **Save** button. <br />
@@ -56,7 +56,7 @@ If you have a device already created, you can skip to the [Manually deploy the d
 
 ## Manually deploy the deployment.json to the Azure Percept device 
 The deployment.json files are a representation of all default modules necessary to begin using the Azure Percept devkit. 
-1. Download the appropriate deployment.json from [GitHub](https://github.com/microsoft/azure-percept-advanced-development/tree/main/default-configuration) for your reported software version. Refer to the [How to Identify your Azure Percept Devkit software version](#How-to-identify-your-Azure-Percept-Devkit-software-version) section above.
+1. Download the appropriate deployment.json from [GitHub](https://github.com/microsoft/azure-percept-advanced-development/tree/main/default-configuration) for your reported software version. Refer to the [How to Identify your Azure Percept Devkit software version](#how-to-identify-your-azure-percept-devkit-software-version) section above.
    1. For 2021.111.124.xxx and later   -----> use [default-deployment-2112.json](https://github.com/microsoft/azure-percept-advanced-development/blob/main/default-configuration/default-deployment-2112.json)
    2. For 2021.109.129.xxx and lower use ----> use [default-deployment-2108.json](https://github.com/microsoft/azure-percept-advanced-development/blob/main/default-configuration/default-deployment-2108.json)
 2. Launch VSCode and Sign into Azure. Be sure you have installed the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) Extension 
