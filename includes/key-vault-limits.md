@@ -34,7 +34,7 @@ This section describes service limits for resource type `vaults`.
 > - 4,000 RSA 2,048-bit software-key GET transactions
 > - 2,000 RSA 2,048-bit HSM-key GET transactions
 > - 250 RSA 4,096-bit HSM-key GET transactions
-> - 124 RSA 4,096-bit HSM-key GET transactions and 8 RSA 2,048-bit HSM-key GET transactions
+> - 248 RSA 4,096-bit HSM-key GET transactions and 16 RSA 2,048-bit HSM-key GET transactions
 
 #### Secrets, managed storage account keys, and vault transactions:
 
