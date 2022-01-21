@@ -5,13 +5,13 @@ author: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 01/21/2022
 ms.author: kgremban
 ---
 
 # Create and provision an IoT Edge for Linux on Windows device using symmetric keys
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 This article provides end-to-end instructions for registering and provisioning an IoT Edge for Linux on Windows device.
 
@@ -58,6 +58,9 @@ You're ready to set up your device with its cloud identity and authentication in
 
 To provision your device using symmetric keys, you will need your device's **connection string**.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 You can use the Windows Admin Center or an elevated PowerShell session to provision your devices.
 
 # [PowerShell](#tab/powershell)
@@ -84,9 +87,29 @@ For more information about the `Provision-EflowVM` command, see [PowerShell func
 
 ---
 
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+Run the following command in an elevated PowerShell session on your target device. Replace the placeholder text with your own values.
+
+```powershell
+Provision-EflowVm -provisioningType ManualConnectionString -devConnString "PASTE_DEVICE_CONNECTION_STRING_HERE"
+```
+
+For more information about the `Provision-EflowVM` command, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md#provision-eflowvm).
+
+:::moniker-end
+<!-- end 1.2 -->
+
 ## Verify successful configuration
 
 Verify that IoT Edge for Linux on Windows was successfully installed and configured on your IoT Edge device.
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 # [PowerShell](#tab/powershell)
 
@@ -130,6 +153,44 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
    * The **IoT Edge Status** section shows the service status, and should be reporting **active (running)**.
 
 ---
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. Log in to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
+
+   ```powershell
+   Connect-EflowVm
+   ```
+
+   >[!NOTE]
+   >The only account allowed to SSH to the virtual machine is the user that created it.
+
+1. Once you are logged in, you can check the list of running IoT Edge modules using the following Linux command:
+
+   ```bash
+   sudo iotedge list
+   ```
+
+1. If you need to troubleshoot the IoT Edge service, use the following Linux commands.
+
+    1. Retrieve the service logs.
+
+       ```bash
+       sudo journalctl -u iotedge
+       ```
+
+    2. Use the `check` tool to verify configuration and connection status of the device.
+
+       ```bash
+       sudo iotedge check
+       ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 
