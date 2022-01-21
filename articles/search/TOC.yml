@@ -613,20 +613,18 @@
         href: cognitive-search-skill-sentiment.md
 - name: Resources
   items:
+  - name: FAQ
+    href: search-faq-frequently-asked-questions.yml
   - name: Azure Community Support
     href: https://azure.microsoft.com/support/community/?product=search
+  - name: Azure Updates
+    href: https://azure.microsoft.com/updates/?product=search
   - name: Partner spotlight
     href: resource-partners-knowledge-mining.md
   - name: Partner data sources (Terms of Use)
     href: search-data-sources-terms-of-use.md
-  - name: FAQ
-    href: search-faq-frequently-asked-questions.yml
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/search/
-  - name: Azure Updates
-    href: https://azure.microsoft.com/updates/?product=search
-  - name: Compliance and certifications
-    href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
   - name: Demo sites
     items:
     - name: Financial files demo
