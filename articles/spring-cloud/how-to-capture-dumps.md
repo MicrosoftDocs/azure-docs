@@ -74,4 +74,4 @@ Navigate to the target file path in your persistent storage and find your dump/J
 
 ## Next steps
 
-- [Use the diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Cloud](tutorial-dump-jvm-options.md)
+- [Use the diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Cloud](how-to-dump-jvm-options.md)
