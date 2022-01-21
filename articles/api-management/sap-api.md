@@ -6,7 +6,7 @@ ms.service: api-management
 author: martinpankraz
 ms.author: mapankra
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 01/21/2022
 ms.custom: 
 ---
 
@@ -28,12 +28,12 @@ In this article, you'll:
 
 ## Convert OData metadata to OpenAPI JSON
 
-1. Retrieve metadata XML from your SAP service. You can use the SAP Gateway Client (transaction `/IWFND/GW_CLIENT`) or a direct HTTP call to retrieve the XML.
+1. Retrieve metadata XML from your SAP service. You can retrieve it using the SAP Gateway Client (transaction `/IWFND/GW_CLIENT`). Alternatively, make a direct HTTP call to retrieve the XML: `http://<OData server>:<port>/<path>/$metadata`.
 
 1. Convert the OData XML to OpenAPI JSON format using the OASIS [open-source tool](https://github.com/oasis-tcs/odata-openapi).
     
     * For test purposes with a single XML file, you can use a [web-based converter](https://convert.odata-openapi.net/) based on the open-source tool.
-    * With the tool or the web-based converter, make sure that you configure the IP address:port of your SAP server and the base path of your service.
+    * With the tool or the web-based converter, make sure that you configure the IP address:port of your SAP OData server and the base path of your service.
 
 1. Save the `openapi-spec.json` file locally for import to API Management.
 
@@ -51,7 +51,7 @@ In this article, you'll:
 1. Enter API settings. You can set the values during creation or configure them later by going to the **Settings** tab. 
     * In **API URL suffix**, we recommend using the same URL path as in the original SAP service.
 
-    * For more information about settings, see [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
+    * For more information about API settings, see [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
 
 1. Select **Create**.
 
@@ -61,14 +61,15 @@ In this article, you'll:
 
 ## Complete API configuration
 
-[Add](add-api-manually.md#add-and-test-an-operation) the following three operations to the API that you imported.
+* [Add](add-api-manually.md#add-and-test-an-operation) the following three operations to the API that you imported.
 
-|Operation  |Description  |Further configuration for operation  |
-|---------|---------|---------|
-|`GET $metadata`     |   Metadata operation      |  Add a `200 OK` response.       |
-|`HEAD /`     | Operation at root to fetch tokens        |         |
-|`GET /`     |   GET operation for service root      |    Configure the following [rewrite-uri](api-management-transformation-policies.md#RewriteURL) inbound policy:<br/><br>    `<rewrite-uri template="/" copy-unmatched-params="true" />`|
+    |Operation  |Description  |Further configuration for operation  |
+    |---------|---------|---------|
+    |`GET $metadata`     |   Metadata operation      |  Add a `200 OK` response.       |
+    |`HEAD /`     | Operation at root to fetch tokens        |         |
+    |`GET /`     |   GET operation for service root      |    Configure the following [rewrite-uri](api-management-transformation-policies.md#RewriteURL) inbound policy:<br/><br>    `<rewrite-uri template="/" copy-unmatched-params="true" />`|
 
+* Configure authentication to your backend using an appropriate method for your environment. For examples, see [API Management authentication policies](api-management-authentication-policies.md).
 
 ## Test your API
 
@@ -84,7 +85,9 @@ In this article, you'll:
 
 * See an [Example end-to-end scenario](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/) to integrate API Management with an SAP gateway.
 * Use an [SAP principal propagation policy](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) to configure and control access to an SAP backend.
-* For guidance to deploy, manage, and migrate APIs at scale, see [CI/CD for API Management using Azure Resource Manager templates](devops-api-development-templates.md).
+* For guidance to deploy, manage, and migrate APIs at scale, see:
+    * [Automated API deployments with APIOps](/architecture/example-scenario/devops/automated-api-deployments-apiops)
+    * [CI/CD for API Management using Azure Resource Manager templates](devops-api-development-templates.md).
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
