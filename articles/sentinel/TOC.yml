@@ -111,8 +111,8 @@
     href: hunting.md
   - name: Investigate
     items:
-    - name: Investigate historical data
-      href: investigate-historical-data.md
+    - name: Investigate large datasets
+      href: investigate-large-datasets.md
   - name: SOAR
     items:
     - name: Orchestration, automation, and response
