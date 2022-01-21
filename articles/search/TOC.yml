@@ -515,17 +515,19 @@
       href: /python/api/overview/azure/search-documents-readme
     - name: Management API
       href: /python/api/overview/azure/search/management
-  - name: Azure CLI
-    href: /cli/azure/search
-  - name: Azure PowerShell
-    href: /powershell/module/az.search 
-  - name: Azure Resource Manager template
-    href: /azure/templates/microsoft.search/searchservices
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-reference.md
-  - name: Monitoring data reference
-    href: monitor-azure-cognitive-search-data-reference.md
+  - name: Management, monitoring, compliance
+    items:
+    - name: Azure CLI
+      href: /cli/azure/search
+    - name: Azure PowerShell
+      href: /powershell/module/az.search 
+    - name: Azure Resource Manager template
+      href: /azure/templates/microsoft.search/searchservices
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
+    - name: Monitoring data reference
+      href: monitor-azure-cognitive-search-data-reference.md
   - name: OData language reference
     items:
     - name: Overview
