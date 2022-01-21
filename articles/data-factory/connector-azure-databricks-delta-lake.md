@@ -102,7 +102,7 @@ This Azure Databricks Delta Lake connector supports the following authentication
 
 ### Access token
 
-The following properties are supported for access token authentication in an Azure Databricks Delta Lake linked service.
+The following properties are supported for the Azure Databricks Delta Lake linked service:
 
 | Property    | Description                                                  | Required |
 | :---------- | :----------------------------------------------------------- | :------- |
