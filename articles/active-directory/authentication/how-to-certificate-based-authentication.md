@@ -61,13 +61,6 @@ To configure your certificate authorities in Azure Active Directory, follow the 
 
 The authentication binding policy helps determine the strength of authentication to either a single factor or multi factor. An admin can change the default value from single-factor to multifactor and configure custom policy rules by mapping to issuer Subject or policy OID fields in the certificate.
 
-You can configure the authentication binding policy two different ways:
-
-- [Azure portal](#azure-portal)
-- [Graph API](#graph-api)
-
-### Azure portal
-
 To enable the certificate-based authentication and configure user bindings in the Azure portal, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Authentication Policy Administrator.
@@ -99,8 +92,7 @@ To enable the certificate-based authentication and configure user bindings in th
 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/multifactor.png" alt-text="Screenshot of multifactor authentication policy.":::
 
- 
- 
+
    To create a rule by Policy OID, make sure to select **Policy OID**.
 
    1. Enter a value for **Policy OID**.
@@ -240,7 +232,7 @@ Let's walk through a scenario where we will validate strong authentication by cr
 1. Since policy OID rule takes precedence over issuer rule, the certificate will satisfy multi-factor authentication.
 1. The conditional access policy for the user requires MFA and the certificate satisfies multi factor, the user will be authenticated into the application.
 
-### Enable cloud-native CBS using Microsoft Graph API
+### Enable cloud-native CBA using Microsoft Graph API
 
 To enable the certificate-based authentication and configure username bindings using Graph API, complete the following steps.
 
