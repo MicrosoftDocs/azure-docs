@@ -23,7 +23,7 @@ Azure ML users can now search for machine learning assets such as jobs, models, 
 
 From this centralized global view, select from recently visited workspaces or browse documentation and tutorial resources.
 
-![global view](./media/globalview.jpg)
+![global view](./media/globalhome.png)
 
 ### Search
 
