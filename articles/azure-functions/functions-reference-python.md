@@ -343,6 +343,37 @@ In this function, the value of the `name` query parameter is obtained from the `
 
 Likewise, you can set the `status_code` and `headers` for the response message in the returned [HttpResponse] object.
 
+### Using Flask
+
+
+You can also leverage the Flask framework.
+
+ASGI, Handler Approach
+```python
+app=Flask("Test")
+
+@app.route("/api/HandleApproach")
+def test():
+    return "Hello!"
+
+def main(req: func.HttpRequest, context) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+    return func.AsgiMiddleware(app).handle(req, context)
+```
+
+WSGI, Wrapper Approach
+```python
+app=Flask("Test")
+
+@app.route("/api/WrapperApproach")
+def test():
+    return "Hello!" 
+
+def main(req: func.HttpRequest, context) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+    return func.WsgiMiddleware(app).handle(req, context)
+```
+
 ## Scaling and Performance
 
 For scaling and performance best practices for Python function apps, see the [Python scale and performance article](python-scale-performance-reference.md).
