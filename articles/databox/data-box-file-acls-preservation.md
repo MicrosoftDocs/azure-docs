@@ -80,16 +80,13 @@ Transfer of ACLs is enabled by default. You might want to disable this setting i
 
 **ACLs transfer over SMB** 
 
-When you use a Windows client for an [SMB file transfer](./data-box-deploy-copy-data.md), all the ACLs for directories and files that you copy to your Data Box are copied and transferred. Transfers include both discretionary ACLs (DACLs) and system ACLs (SACLs). If you use a Linux client for an SMB transfer, only Windows NT ACLs are transferred.<!--Kyle asked: What are Windows NT ACLs.-->
+During an [SMB file transfer](./data-box-deploy-copy-data.md), the following ACLs are transferred:
 
-When you use a Windows client for an [SMB file transfer](./data-box-deploy-copy-data.md), the following ACLs are transferred:
+- Discretionary ACLs (DACLs) and system ACLs (SACLs) for directories and files that you copy to your Data Box
+- If you use a Linux client, only Windows NT ACLs are transferred.<!--Kyle asked: What are Windows NT ACLs.-->
 
-- ACLs for directories and files that you copy to your Data Box
-- Discretionary ACLs (DACLs) and system ACLs (SACLs) are included.
-
-  When you use a Linux client for an SMB transfer, only Windows NT ACLs are transferred.
-
-ACLs aren't transferred when you [copy data over NFS](./data-box-deploy-copy-data-via-nfs.md) or [use the data copy service](data-box-deploy-copy-data-via-copy-service.md). The data copy service reads data directly from your shares and can't read ACLs.
+> [!NOTE]
+> ACLs aren't transferred when you [copy data over NFS](./data-box-deploy-copy-data-via-nfs.md) or [use the data copy service](data-box-deploy-copy-data-via-copy-service.md). The data copy service reads data directly from your shares and can't read ACLs.
 
 **Default ACLs transfer**  
 
