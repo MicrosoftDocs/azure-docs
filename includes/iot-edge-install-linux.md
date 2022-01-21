@@ -15,19 +15,27 @@ You need to complete two steps on your device before it's ready to install the I
 
 ### Access the Microsoft installation packages
 
-1. Download the repository configuration package that matches your device's operating system.
+1. Get the latest repository configuration from Microsoft:
 
-   * **Ubuntu Server 18.04**:
+  # [Ubuntu 20.04](#tab/ubuntu2004)
 
-      ```bash
-      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
-      ```
+  ```bash
+  curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > ./microsoft-prod.list
+  ```
 
-   * **Raspberry Pi OS Stretch**:
+  # [Ubuntu 18.04](#tab/ubuntu1804)
 
-      ```bash
-      curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
-      ```
+  ```bash
+  curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+  ```
+
+  # [Raspberry Pi OS](#tab/rpios)
+
+  ```bash
+  curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+  ```
+
+  ---
 
 1. Copy the generated list to the sources.list.d directory.
 
