@@ -2,17 +2,15 @@
 title: "Quickstart: Azure Blob storage library v12 - JavaScript in a browser"
 description: In this quickstart, you learn how to use the Azure Blob storage client library version 12 for JavaScript in a browser. You create a container and an object in Blob storage. Next, you learn how to list all of the blobs in a container. Finally, you learn how to delete blobs and delete a container.
 author: normesta
-
 ms.author: normesta
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: devx-track-js
-
+ms.devlang: javascript
+ms.custom: devx-track-js, mode-api
+#Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage.
 ---
-
-<!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
 # Quickstart: Manage blobs with JavaScript v12 SDK in a browser
 
@@ -32,7 +30,7 @@ Additional resources:
 - [Node.js](https://nodejs.org)
 - [Microsoft Visual Studio Code](https://code.visualstudio.com)
 - A Visual Studio Code extension for browser debugging, such as:
-  - [Debugger for Microsoft Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge)
+  - [Debugger for Microsoft Edge](https://devblogs.microsoft.com/visualstudio/debug-javascript-in-microsoft-edge-from-visual-studio/)
   - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
   - [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug)
 

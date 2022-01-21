@@ -115,6 +115,8 @@
       href: active-directory-architecture.md
     - name: Integrating all your apps with Azure AD
       href: five-steps-to-full-application-integration-with-azure-ad.md
+    - name: Parallel identity options
+      href: azure-active-directory-parallel-identity-options.md
     - name: Multi-tenant user management
       items:
       - name: Multi-tenant user management introduction

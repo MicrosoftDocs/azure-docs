@@ -17,6 +17,23 @@ ms.custom: devx-track-azurepowershell, synapse
 
 The Until activity provides the same functionality that a do-until looping structure provides in programming languages. It executes a set of activities in a loop until the condition associated with the activity evaluates to true. You can specify a timeout value for the until activity. 
 
+## Create an Until activity with UI
+
+To use an Until activity in a pipeline, complete the following steps:
+
+1. Search for _Until_ in the pipeline Activities pane, and drag a Set Variable activity to the pipeline canvas.  
+1. Select the Until activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/control-flow-until-activity/until-activity.png" alt-text="Shows the Settings tab of the Until activity in the pipeline canvas.":::
+
+1. Enter an expression that will be evaluated after all child activities defined in the Until activity are executed.  If the expression evaluates to false, the Until activity will execute all its child activities again.  When it evaluates to true, the Until activity will complete.  The expression can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).  The example below checks the value of a previously defined pipeline array variable called TestVariable to see if it evaluates to ['done'].
+
+   :::image type="content" source="media/control-flow-until-activity/dynamic-content-to-check-variable-value.png" alt-text="Shows the &nbsp;Add dynamic content&nbsp; pane with an expression to check a variable for a defined value.":::
+
+1. Define activities that the Until activity will execute by selecting the Edit Activities button on the Until activity directly, or by selecting the Activities tab to select it there.  A new activities editor pane will be displayed where you can add any activities for the Until activity to execute.  In this example, a Set Variable activity simply sets the value of the variable referenced in the expression above to ['done'], so the Until activity's expression will be true the first time it is executed, and the Until activity will stop.  In your real-world use, you can check any conditions required and the Until activity will continue to execute its child activities each time the expression is evaluated, until the conditions are met.
+
+   :::image type="content" source="media/control-flow-until-activity/child-activities-editor.png" alt-text="Shows the activities editor for an Until activity with a Set Variable activity defined.":::
+
 ## Syntax
 
 ```json

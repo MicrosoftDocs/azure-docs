@@ -157,10 +157,6 @@ Using advanced search options changes the search behavior as follows:
 | **Number of search results displayed** | When you're using advanced search parameters, only 50 results are shown at a time. |
 |     |         |
 
-> [!NOTE]
-> Advanced search is currently in public preview.
->
-
 > [!TIP]
 >  If you're unable to find the incident you're looking for, remove search parameters to expand your search. If your search results in too many items, add more filters to narrow down your results.
 >

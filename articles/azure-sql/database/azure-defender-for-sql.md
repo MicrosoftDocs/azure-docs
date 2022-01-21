@@ -65,7 +65,7 @@ Use any of the following tools to enable Microsoft Defender for your subscriptio
 
 ### Enable Microsoft Defender for Azure SQL Database at the resource level
 
-We recommend enabling Microsoft Defender plans at the subscription level and this can help the creation of unprotected resources. However, if you have an organizational reason to enable Microsoft Defender for Cloud at the server level, use the following steps:
+We recommend enabling Microsoft Defender plans at the subscription level and this can help the creation of protected resources. However, if you have an organizational reason to enable Microsoft Defender for Cloud at the server level, use the following steps:
 
 1. From the [Azure portal](https://portal.azure.com), open your server or managed instance.
 1. Under the **Security** heading, select **Defender for Cloud**.

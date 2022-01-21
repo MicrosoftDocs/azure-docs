@@ -4,7 +4,7 @@ description: Learn how to grant access to Azure resources for users, groups, ser
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity

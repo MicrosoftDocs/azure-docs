@@ -2,7 +2,7 @@
 title: Bicep functions - scopes
 description: Describes the functions to use in a Bicep file to retrieve values about deployment scopes.
 ms.topic: conceptual
-ms.date: 10/18/2021
+ms.date: 11/23/2021
 ---
 
 # Scope functions for Bicep
@@ -13,13 +13,11 @@ This article describes the Bicep functions for getting scope values.
 
 `managementGroup()`
 
+Returns an object with properties from the management group in the current deployment.
+
 `managementGroup(identifier)`
 
 Returns an object used for setting the scope to a management group.
-
-Or
-
-Returns an object with properties from the management group in the current deployment.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
@@ -46,7 +44,7 @@ The following example sets the scope for a module to a management group.
 ```bicep
 param managementGroupIdentifier string
 
-module  'module.bicep' = {
+module  'mgModule.bicep' = {
   name: 'deployToMG'
   scope: managementGroup(managementGroupIdentifier)
 }
@@ -115,15 +113,15 @@ output newManagementGroup string = mgName
 
 `resourceGroup()`
 
+Returns an object that represents the current resource group.
+
 `resourceGroup(resourceGroupName)`
+
+And
 
 `resourceGroup(subscriptionId, resourceGroupName)`
 
-Returns an object used for setting the scope to a resource group.
-
-Or
-
-Returns an object that represents the current resource group.
+Return an object used for setting the scope to a resource group.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
@@ -172,7 +170,7 @@ The following example scopes a module to a resource group.
 ```bicep
 param resourceGroupName string
 
-module exampleModule 'module.bicep' = {
+module exampleModule 'rgModule.bicep' = {
   name: 'exampleModule'
   scope: resourceGroup(resourceGroupName)
 }
@@ -210,13 +208,11 @@ You can also use the resourceGroup function to apply tags from the resource grou
 
 `subscription()`
 
+Returns details about the subscription for the current deployment.
+
 `subscription(subscriptionId)`
 
 Returns an object used for setting the scope to a subscription.
-
-Or
-
-Returns details about the subscription for the current deployment.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
@@ -254,7 +250,7 @@ When used for getting details about the subscription, the function returns the f
 The following example scopes a module to the subscription.
 
 ```bicep
-module exampleModule 'module.bicep' = {
+module exampleModule 'subModule.bicep' = {
   name: 'deployToSub'
   scope: subscription()
 }
@@ -291,7 +287,7 @@ An object used for setting the `scope` property on a [module](modules.md#set-mod
 The following example shows a module deployed to the tenant.
 
 ```bicep
-module exampleModule 'module.bicep' = {
+module exampleModule 'tenantModule.bicep' = {
   name: 'deployToTenant'
   scope: tenant()
 }

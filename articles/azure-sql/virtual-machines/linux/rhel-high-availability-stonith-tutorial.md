@@ -6,7 +6,6 @@ ms.subservice:
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: jroth
 ms.date: 06/25/2020
 ---
 # Tutorial: Configure availability groups for SQL Server on RHEL virtual machines in Azure 

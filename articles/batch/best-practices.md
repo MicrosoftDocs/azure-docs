@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 09/03/2021
+ms.date: 12/13/2021
 ms.topic: conceptual
 ---
 
@@ -116,7 +116,7 @@ Tasks can be automatically retried by Batch. There are two types of retries: use
 
 Although rare, a task can be retried internally due to failures on the compute node, such as not being able to update internal state or a failure on the node while the task is running. The task will be retried on the same compute node, if possible, up to an internal limit before giving up on the task and deferring the task to be rescheduled by Batch, potentially on a different compute node.
 
-There are no design differences when executing your tasks on dedicated or low-priority nodes. Whether a task is preempted while running on a low-priority node or interrupted due to a failure on a dedicated node, both situations are mitigated by designing the task to withstand failure.
+There are no design differences when executing your tasks on dedicated or [Spot nodes](batch-spot-vms.md). Whether a task is preempted while running on a Spot node or interrupted due to a failure on a dedicated node, both situations are mitigated by designing the task to withstand failure.
 
 ### Build durable tasks
 

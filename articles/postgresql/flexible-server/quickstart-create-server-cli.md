@@ -6,16 +6,15 @@ ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 9/22/2020
-ms.custom: mvc, devx-track-azurecli
+ms.date: 11/30/2021
+ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL Flexible Server using Azure CLI
 
 This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create an Azure Database for PostgreSQL Flexible Server in five minutes. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-> [!IMPORTANT] 
-> Azure Database for PostgreSQL Flexible Server is currently in preview.
+
 
 ## Launch Azure Cloud Shell
 

@@ -6,8 +6,8 @@ metadata:
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: conceptual
   ms.date: 03/19/2021
-  author: saasguide
-  ms.author: souchak
+  author: arifgani
+  ms.author: argani
     
 title: Common questions about SaaS fulfillment APIs
 summary: This article describes several of the integration requirements for the Microsoft commercial marketplace to enable Azure customers to subscribe to SaaS offers.

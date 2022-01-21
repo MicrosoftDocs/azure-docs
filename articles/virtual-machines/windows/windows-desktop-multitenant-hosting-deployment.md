@@ -24,20 +24,18 @@ For more information, see [Multitenant Hosting for Windows 10](https://www.micro
 
 ## Subscription Licenses that qualify for Multitenant Hosting Rights
 
-Using the [Microsoft admin center](/microsoft-365/admin/admin-overview/about-the-admin-center), you can confirm if a user has been assigned a Windows 10 supported license.
+For more details about subscription licenses that qualify to run Windows 10 on Azure, download the [Windows 10 licensing breif for Virtual Desktops](https://download.microsoft.com/download/3/D/4/3D42BDC2-6725-4B29-B75A-A5B04179958B/Licensing_brief_PLT_Windows_10_licensing_for_Virtual_Desktops.pdf)
 
 > [!IMPORTANT]
 > Users **must** have one of the below subscription licenses in order to use Windows 10 images in Azure for any production workload. If you do not have one of these subscription licenses, they can be purchased through your [Cloud Service Partner](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) or directly through [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1).
 
 **Eligible subscription licenses:**
 
--	Microsoft 365 E3/E5 
--	Microsoft 365 F3 
--	Microsoft 365 A3/A5 
 -	Windows 10 Enterprise E3/E5
 -	Windows 10 Education A3/A5 
+-	Microsoft 365 A3/A5
+-	Microsoft 365 F3/E3/E5 
 -	Windows VDA E3/E5
-
 
 ## Deploying Windows 10 Image from Azure Marketplace 
 For PowerShell, CLI and Azure Resource Manager template deployments, Windows 10 images can be found using the `PublisherName: MicrosoftWindowsDesktop` and `Offer: Windows-10`. Windows 10 version Creators Update (1809) or later is supported for Multitenant Hosting Rights. 

@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Policy exception for Azure Purview
-description: This article describes how to create an Azure Policy exception for Purview while leaving existing Policies in place to maintain security.
+description: This article describes how to create an Azure Policy exception for Azure Purview while leaving existing Policies in place to maintain security.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 08/26/2021
 ---
 
-# Create an Azure Policy exception for Purview
+# Create an Azure Policy exception for Azure Purview
 
-Many subscriptions have [Azure Policies](../governance/policy/overview.md) in place that restrict the creation of some resources. This is to maintain subscription security and cleanliness. However, Purview accounts deploy two other Azure resources when they are created: an Azure Storage account, and an Event Hub namespace. When you [create Purview Account](create-catalog-portal.md), these resources will be deployed. They will be managed by Azure, so you don't need to maintain them, but you will need to deploy them.
+Many subscriptions have [Azure Policies](../governance/policy/overview.md) in place that restrict the creation of some resources. This is to maintain subscription security and cleanliness. However, Azure Purview accounts deploy two other Azure resources when they are created: an Azure Storage account, and an Event Hub namespace. When you [create Azure Purview Account](create-catalog-portal.md), these resources will be deployed. They will be managed by Azure, so you don't need to maintain them, but you will need to deploy them.
 
 To maintain your policies in your subscription, but still allow the creation of these managed resources, you can create a policy exception.
 
-## Create a policy exception for Purview
+## Create a policy exception for Azure Purview
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and search for **Policy**
 
@@ -64,7 +64,7 @@ To maintain your policies in your subscription, but still allow the creation of 
     ```
   
     > [!Note]
-    > The tag could be anything beside `resourceBypass` and it's up to you to define value when creating Purview in latter steps as long as the policy can detect the tag.
+    > The tag could be anything beside `resourceBypass` and it's up to you to define value when creating Azure Purview in latter steps as long as the policy can detect the tag.
 
     :::image type="content" source="media/create-catalog-portal/policy-definition.png" alt-text="Screenshot showing how to create policy definition.":::
 
@@ -74,7 +74,7 @@ To maintain your policies in your subscription, but still allow the creation of 
 
 > [!Note] 
 > If you have **Azure Policy** and need to add exception as in **Prerequisites**, you need to add the correct tag. For example, you can add `resourceBypass` tag:
-> :::image type="content" source="media/create-catalog-portal/add-purview-tag.png" alt-text="Add tag to Purview account.":::
+> :::image type="content" source="media/create-catalog-portal/add-purview-tag.png" alt-text="Add tag to Azure Purview account.":::
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Linux NFS read-ahead best practices for Azure NetApp Files - Session slot
 description: Describes filesystem cache and Linux NFS read-ahead best practices for Azure NetApp Files.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2021
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # Linux NFS read-ahead best practices for Azure NetApp Files
 

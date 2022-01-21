@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/17/2021
+ms.date: 11/17/2021
 ms.author: jeedes
 ---
 # Tutorial: Integrate Dropbox Business with Azure Active Directory
@@ -34,7 +34,7 @@ To get started, you need the following items:
 
 * In this tutorial, you configure and test Azure AD SSO in a test environment. Dropbox Business supports **SP** initiated SSO.
 
-* Dropbox Business supports [Automated user provisioning and deprovisioning](dropboxforbusiness-tutorial.md).
+* Dropbox Business supports [Automated user provisioning and deprovisioning](dropboxforbusiness-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -167,6 +167,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ### Create Dropbox Business test user
 
 In this section, a user called B.Simon is created in Dropbox Business. Dropbox Business supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Dropbox Business, a new one is created after authentication.
+
+This application also supports automatic user provisioning. See how to enable auto provisioning for [Dropbox Business](dropboxforbusiness-provisioning-tutorial.md).
 
 >[!Note]
 >If you need to create a user manually, Contact [Dropbox Business Client support team](https://www.dropbox.com/business/contact)

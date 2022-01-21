@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 11/10/2021
 ms.author: normesta
 ms.reviewer: fryu
+ms.devlang: csharp
 ms.custom: "subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
 ---
 
@@ -104,7 +105,7 @@ If you choose to archive your logs to a storage account, you'll pay for the volu
    > [!div class="mx-imgBorder"]
    > ![Diagnostic settings page archive storage](media/monitor-blob-storage/diagnostic-logs-settings-pane-archive-storage.png)
 
-2. In the **Storage account** drop-down list, select the storage account that you want to archive your logs to, click the **OK** button, and then select the **Save** button.
+2. In the **Storage account** drop-down list, select the storage account that you want to archive your logs to, and then select the **Save** button.
 
    [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
@@ -122,7 +123,7 @@ If you choose to stream your logs to an event hub, you'll pay for the volume of 
    > [!div class="mx-imgBorder"]
    > ![Diagnostic settings page event hub](media/monitor-blob-storage/diagnostic-logs-settings-pane-event-hub.png)
 
-3. Click the **OK** button, and then select the **Save** button.
+3. Select the **Save** button.
 
 #### Send logs to Azure Log Analytics
 
@@ -646,7 +647,7 @@ This table shows how this feature is supported in your account and the impact on
 | Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
 
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and Secure File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
 
 <sup>2</sup>    Feature is supported at the preview level.
 

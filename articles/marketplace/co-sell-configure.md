@@ -4,10 +4,10 @@ description: The information you provide on the Co-sell with Microsoft tab for y
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: sharath-satish-msft
-ms.author: shsatish
+author: vikrambmsft
+ms.author: vikramb
 ms.reviewer: stmummer
-ms.date: 09/27/2021
+ms.date: 01/11/2022
 ---
 
 # Configure co-sell for a commercial marketplace offer
@@ -20,19 +20,15 @@ The Co-sell option is available for the following offer types.
 - Azure Container
 - Azure Virtual Machine
 - Consulting service
-- Dynamics 365 for Customer Engagement & Power Apps
-- Dynamics 365 for operations
-- Dynamics 365 business central
+- Dynamics 365 apps on Dataverse and Power Apps
+- Dynamics 365 Operations Apps
+- Dynamics 365 Business Central
 - IoT Edge Module
 - Managed Service
 - Power BI App
 - Software as a service (SaaS)
 
 ## Go to the Co-sell with Microsoft tab
-
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
-
-#### [Workspaces view](#tab/workspaces-view)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
@@ -51,22 +47,6 @@ The Co-sell option is available for the following offer types.
 1. In the menu on the left, select **Co-sell with Microsoft**.
 
     [ ![Illustrates the Co-sell with Microsoft page.](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png) ](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png#lightbox)
-
-#### [Current view](#tab/current-view)
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
-    > [!TIP]
-    > If you don’t see **Commercial Marketplace** in the left-navigation, [create a commercial marketplace account in Partner Center](create-account.md) and make sure your account is enrolled in the commercial marketplace program.
-1. On the **Overview** tab, select the offer you want to co-sell.
-    > [!NOTE]
-    > You can configure co-sell for a new offer that’s not yet published or with an offer that’s already published.
-
-1. In the menu on the left, select **Co-sell with Microsoft**.
-
-    [![Illustrates the Co-sell with Microsoft link in the left navigation.](./media/co-sell/co-sell-with-microsoft-tab.png)](./media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
-
----
 
 ## Co-sell listings
 
@@ -120,7 +100,7 @@ The supported file types are .pdf, .ppt, .pptx, .doc, .docx, .xls, .xlsx, .jpg, 
 
 | **Documents**    | **Description**  |
 | :------------------- | :-------------------|
-| *Solution/offer one-pager (Required)* | Drive awareness among potential customers with a professionally designed one-pager that showcases the value proposition of your solution.<br><br>You can use one of the relevant templates to provide a customer-ready description of your offering:<br><ul><li> [Microsoft Azure one-pager template](https://aka.ms/Customer-One-Pager_MicrosoftAzure)</li><li>[Microsoft Dynamics 365 one-pager template](https://aka.ms/Customer-One-Pager_MicrosoftDynamics365)</li> <li>[Microsoft 365 one-pager template](https://aka.ms/Customer-One-Pager_MicrosoftOffice365) </li><li>[Windows 10 one-pager template](https://aka.ms/Customer-One-Pager_Windows)</li></ul> <br> Microsoft sales teams may share this information with customers to help determine if your offering may be a good fit, and to ensure that it is customer ready. |
+| *Solution/offer one-pager (Required)* | Drive awareness among potential customers with a professionally designed one-pager that showcases the value proposition of your solution.<br><br>You can use one of the relevant templates to provide a customer-ready description of your offering:<br><ul><li> [Microsoft Azure one-pager template](https://aka.ms/Customer-One-Pager_MicrosoftAzure)</li><li>[Microsoft Dynamics 365 one-pager template](https://aka.ms/Customer-One-Pager_MicrosoftDynamics365)</li> <li>[Microsoft 365 one-pager template](https://aka.ms/Customer-One-Pager_MicrosoftOffice365) </li><li>[Windows 10 one-pager template](https://aka.ms/Customer-One-Pager_Windows)</li></ul> <br> Microsoft sales teams may share this information with customers to help determine if your offering may be a good fit, and to ensure that it is customer ready. <br><br>A one-pager <i>should not</i> be longer than 10 pages. |
 | *Solution/offer pitch deck (Required)* | You can use the [Customer presentation template](https://aka.ms/GTMServices_CustomerPresentation) to create your pitch deck. This deck should reference the [Reference architecture diagram](reference-architecture-diagram.md). The purpose of this slide deck is to pitch your offer and its value proposition. After ensuring that your offer is customer ready, Microsoft sales teams may share this presentation with customers to articulate the value that your company and Microsoft bring when deploying a joint solution. The presentation should cover what your offer does, how it can help customers, what industries the offer is relevant for, and how it compares with competing solutions. |
 | *Customer case study* (Optional)| Use the [Case study template](https://aka.ms/GTM_Case_Study_Template) to create your customer case study. This information shows a potential customer how you and Microsoft have successfully deployed your offer in prior cases. |
 | *Verifiable customer wins* (Optional) | Provide specific examples of customer successes after your offer has been deployed. |

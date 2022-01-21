@@ -10,7 +10,7 @@ ms.assetid: f535d0b5-f86c-465f-81c6-177f4f490987
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
@@ -80,8 +80,8 @@ using System.IO;
 using System.Threading;
 using System.Collections.Generic;
 using Microsoft.WindowsAzure.MediaServices.Client;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Queue;
+using Azure.Storage.Queues;
+using Azure.Storage.Queues.Models;
 using System.Runtime.Serialization.Json;
 
 namespace JobNotification
@@ -137,7 +137,7 @@ namespace JobNotification
             ConfigurationManager.AppSettings["StorageConnectionString"];
 
         private static CloudMediaContext _context = null;
-        private static CloudQueue _queue = null;
+        private static QueueClient _queue = null;
         private static INotificationEndPoint _notificationEndPoint = null;
 
         private static readonly string _singleInputMp4Path =
@@ -146,6 +146,7 @@ namespace JobNotification
         static void Main(string[] args)
         {
             string endPointAddress = Guid.NewGuid().ToString();
+            string queueName = "queueName";
 
             // Create the context.
             AzureAdTokenCredentials tokenCredentials = 
@@ -158,7 +159,7 @@ namespace JobNotification
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
             
             // Create the queue that will be receiving the notification messages.
-            _queue = CreateQueue(_StorageConnectionString, endPointAddress);
+            _queue = CreateQueue(_StorageConnectionString, queueName);
 
             // Create the notification point that is mapped to the queue.
             _notificationEndPoint =
@@ -178,18 +179,13 @@ namespace JobNotification
         }
 
 
-        static public CloudQueue CreateQueue(string storageAccountConnectionString, string endPointAddress)
+        static public QueueClient CreateQueue(string storageAccountConnectionString, string queueName)
         {
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageAccountConnectionString);
-
             // Create the queue client
-            CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-
-            // Retrieve a reference to a queue
-            CloudQueue queue = queueClient.GetQueueReference(endPointAddress);
+            QueueClient queue = new QueueClient(storageAccountConnectionString, queueName);
 
             // Create the queue if it doesn't already exist
-            queue.CreateIfNotExists();
+            queue.CreateIfNotExistsAsync();
 
             return queue;
         }
@@ -244,54 +240,51 @@ namespace JobNotification
                 // Specify how often you want to get messages from the queue.
                 Thread.Sleep(TimeSpan.FromSeconds(10));
 
-                foreach (var message in _queue.GetMessages(10))
+                foreach (QueueMessage message in _queue.ReceiveMessages(maxMessages: 10).Value)
                 {
-                    using (Stream stream = new MemoryStream(message.AsBytes))
+                    DataContractJsonSerializerSettings settings = new DataContractJsonSerializerSettings();
+                    settings.UseSimpleDictionaryFormat = true;
+                    DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(EncodingJobMessage), settings);
+                    EncodingJobMessage encodingJobMsg = (EncodingJobMessage)ser.ReadObject(message.Body.ToStream);
+
+                    Console.WriteLine();
+
+                    // Display the message information.
+                    Console.WriteLine("EventType: {0}", encodingJobMsg.EventType);
+                    Console.WriteLine("MessageVersion: {0}", encodingJobMsg.MessageVersion);
+                    Console.WriteLine("ETag: {0}", encodingJobMsg.ETag);
+                    Console.WriteLine("TimeStamp: {0}", encodingJobMsg.TimeStamp);
+                    foreach (var property in encodingJobMsg.Properties)
                     {
-                        DataContractJsonSerializerSettings settings = new DataContractJsonSerializerSettings();
-                        settings.UseSimpleDictionaryFormat = true;
-                        DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(EncodingJobMessage), settings);
-                        EncodingJobMessage encodingJobMsg = (EncodingJobMessage)ser.ReadObject(stream);
+                        Console.WriteLine("    {0}: {1}", property.Key, property.Value);
+                    }
 
-                        Console.WriteLine();
-
-                        // Display the message information.
-                        Console.WriteLine("EventType: {0}", encodingJobMsg.EventType);
-                        Console.WriteLine("MessageVersion: {0}", encodingJobMsg.MessageVersion);
-                        Console.WriteLine("ETag: {0}", encodingJobMsg.ETag);
-                        Console.WriteLine("TimeStamp: {0}", encodingJobMsg.TimeStamp);
-                        foreach (var property in encodingJobMsg.Properties)
+                    // We are only interested in messages
+                    // where EventType is "JobStateChange".
+                    if (encodingJobMsg.EventType == "JobStateChange")
+                    {
+                        string JobId = (String)encodingJobMsg.Properties.Where(j => j.Key == "JobId").FirstOrDefault().Value;
+                        if (JobId == jobId)
                         {
-                            Console.WriteLine("    {0}: {1}", property.Key, property.Value);
-                        }
-
-                        // We are only interested in messages
-                        // where EventType is "JobStateChange".
-                        if (encodingJobMsg.EventType == "JobStateChange")
-                        {
-                            string JobId = (String)encodingJobMsg.Properties.Where(j => j.Key == "JobId").FirstOrDefault().Value;
-                            if (JobId == jobId)
-                            {
-                                string oldJobStateStr = (String)encodingJobMsg.Properties.
+                            string oldJobStateStr = (String)encodingJobMsg.Properties.
                                                             Where(j => j.Key == "OldState").FirstOrDefault().Value;
-                                string newJobStateStr = (String)encodingJobMsg.Properties.
+                            string newJobStateStr = (String)encodingJobMsg.Properties.
                                                             Where(j => j.Key == "NewState").FirstOrDefault().Value;
 
-                                JobState oldJobState = (JobState)Enum.Parse(typeof(JobState), oldJobStateStr);
-                                JobState newJobState = (JobState)Enum.Parse(typeof(JobState), newJobStateStr);
+                            JobState oldJobState = (JobState)Enum.Parse(typeof(JobState), oldJobStateStr);
+                            JobState newJobState = (JobState)Enum.Parse(typeof(JobState), newJobStateStr);
 
-                                if (newJobState == (JobState)expectedState)
-                                {
-                                    Console.WriteLine("job with Id: {0} reached expected state: {1}",
-                                        jobId, newJobState);
-                                    jobReachedExpectedState = true;
-                                    break;
-                                }
+                            if (newJobState == (JobState)expectedState)
+                            {
+                                Console.WriteLine("job with Id: {0} reached expected state: {1}",
+                                    jobId, newJobState);
+                                jobReachedExpectedState = true;
+                                break;
                             }
                         }
                     }
                     // Delete the message after we've read it.
-                    _queue.DeleteMessage(message);
+                    _queue.DeleteMessage(message.MessageId, message.PopReceipt);
                 }
 
                 // Wait until timeout

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: quickstart
 ms.date: 10/14/2021
-ms.custom: template-quickstart, devx-track-azurecli
+ms.custom: template-quickstart, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Create an Azure Data Factory using Azure CLI

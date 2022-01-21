@@ -5,12 +5,11 @@ description: In this Quickstart, run a sample WPF desktop application that uses 
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 08/16/2021
+ms.custom: mvc, mode-other
+ms.date: 01/13/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---

@@ -1,13 +1,12 @@
 ---
 title: Add a line layer to Android maps | Microsoft Azure Maps
 description: Learn how to add lines to maps. See examples that use the Azure Maps Android SDK to add line layers to maps and to customize lines with symbols and color gradients.
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 zone_pivot_groups: azure-maps-android
 ---
 
@@ -450,7 +449,7 @@ For this sample, the following image was loaded into the drawable folder of the 
 
 | ![Purple arrow icon image](media/android-map-add-line-layer/purple-arrow-right.png)|
 |:-----------------------------------------------------------------------:|
-|                           `purple_arrow_right.png`                       |
+|                           `purple-arrow-right.png`                       |
 
 The screenshot below shows the above code displaying a line with arrow icons displayed along it.
 

@@ -3,7 +3,7 @@ title: How to use the WebJobs SDK
 description: Learn more about how to write code for the WebJobs SDK. Create event-driven background processing jobs that access data in Azure and third-party services.
 author: ggailey777
 
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/24/2021

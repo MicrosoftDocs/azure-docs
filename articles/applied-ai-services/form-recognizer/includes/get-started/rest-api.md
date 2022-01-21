@@ -71,7 +71,7 @@ https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samp
 #### Request
 
 ```bash
-curl -v -i POST "https://{endpoint}/formrecognizer/v2.1/layout/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{​​​​​​​'source': '{your-document-url}'}​​​​​​​​"
+curl -v -i POST "https://{endpoint}/formrecognizer/v2.1/layout/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{​​​​​​​'urlSource': '{your-document-url}'}​​​​​​​​"
 ```
 
 #### Operation-Location
@@ -145,7 +145,7 @@ Before you run the command, make these changes:
 #### Request
 
 ```bash
-curl -v -i POST https://{endpoint}/formrecognizer/v2.1/prebuilt/invoice/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key:  {subscription key}" --data-ascii "{​​​​​​​'source': '{your invoice URL}'}​​​​​​​​"
+curl -v -i POST https://{endpoint}/formrecognizer/v2.1/prebuilt/invoice/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key:  {subscription key}" --data-ascii "{​​​​​​​'urlSource': '{your invoice URL}'}​​​​​​​​"
 ```
 
 #### Operation-Location

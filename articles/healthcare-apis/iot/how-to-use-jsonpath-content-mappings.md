@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 11/22/2021
 ms.author: jasteppe
 ---
 
@@ -219,6 +219,9 @@ The JsonPathContentTemplate allows matching on and extracting values from an Azu
     }
 }
 ```
+
+> [!TIP]
+> See IoT connector [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
 
 ## Next steps
 

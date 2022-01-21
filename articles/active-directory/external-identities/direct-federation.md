@@ -6,12 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 12/06/2021
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
 ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
@@ -103,13 +102,10 @@ Depending on the partner's IdP, the partner might need to update their DNS recor
      - idaptive.app
      - idaptive.qa
 
-2. If the IdP is not one of the allowed providers listed in the previous step, check the partner's IdP authentication URL to see if the domain matches the target domain or a host within the target domain. In other words, when setting up federation for `fabrikam.com`:
+2. If the IdP is not one of the allowed providers listed in the previous step, check the partner's IdP passive authentication URL to see if the domain matches the target domain or a host within the target domain. In other words, when setting up federation for `fabrikam.com`:
 
      - If the authentication URL is `https://fabrikam.com` or `https://sts.fabrikam.com/adfs` (a host in the same domain), no DNS changes are needed.
      - If the authentication URL is `https://fabrikamconglomerate.com/adfs` or `https://fabrikam.com.uk/adfs`, the domain doesn't match the fabrikam.com domain, so the partner will need to add a text record for the authentication URL to their DNS configuration.
-
-    > [!IMPORTANT]
-    > There's a known issue with the following step. Currently, adding a DNS text record to the federating IdP's domain won't unblock authentication. We're actively working on fixing this issue.
 
 3. If DNS changes are needed based on the previous step, ask the partner to add a TXT record to their domain's DNS records, like the following example:
 

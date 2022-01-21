@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/21/2021
 ms.custom: devx-track-csharp
-ms.devlang: dotnet
+ms.devlang: csharp
 ---
 
 # 2 - Create and load Search Index with .NET
