@@ -19,10 +19,10 @@ This guide demonstrates how to run your Java, Java EE, [Jakarta EE](https://jaka
 
 ## Prerequisites
 
+[!INCLUDE [aro-quota](includes/aro-quota.md)]
+
 Complete the following prerequisites to successfully walk through this guide.
 
-> [!NOTE]
-> Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](../azure-portal/supportability/per-vm-quota-requests.md). Note that the free trial subscription isn't eligible for a quota increase, [upgrade to a Pay-As-You-Go subscription](../cost-management-billing/manage/upgrade-azure-subscription.md) before requesting a quota increase.
 
 1. Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS).
 1. Install a Java SE implementation (for example, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).

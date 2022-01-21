@@ -20,7 +20,7 @@ To complete this exercise, you need:
 
 * A deployed Azure Spring Cloud service instance. Follow our [quickstart on deploying an app via the Azure CLI](./quickstart.md) to get started.
 * At least one application already created in your service instance.
-* At least one [persistent storage already bind on your app](how-to-built-in-persistent-storage.md) to save generated diagnostic files.
+* At least one [persistent storage already bind on your app](how-to-custom-persistent-storage.md) to save generated diagnostic files.
 
 **If customers want to use path under mount path, please ensure that the sub-path have already been created.**
 

@@ -60,7 +60,7 @@ In this article you learn how to enable the following workspaces resources in a 
 
 * Your Azure Container Registry must be Premium version. For more information on upgrading, see [Changing SKUs](../container-registry/container-registry-skus.md#changing-tiers).
 
-* Your Azure Container Registry must be in the same virtual network and subnet as the storage account and compute targets used for training or inference.
+* If your Azure Container Registry uses a __private endpoint__, it must be in the same _virtual network_ as the storage account and compute targets used for training or inference. If it uses a __service endpoint__, it must be in the same _virtual network_ and _subnet_ as the storage account and compute targets.
 
 * Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md).
 
