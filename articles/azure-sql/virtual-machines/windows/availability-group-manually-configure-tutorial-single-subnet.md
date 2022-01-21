@@ -130,7 +130,7 @@ Add the other SQL Server to the cluster.
 
 ### Add a cluster quorum file share
 
-In this example, the Windows cluster uses a file share to create a cluster quorum. This tutorial uses a Node and File Share Majority quorum. For more information, see [Configure and Manage Quorum](https://docs.microsoft.com/windows-server/failover-clustering/manage-cluster-quorum).
+In this example, the Windows cluster uses a file share to create a cluster quorum. This tutorial uses a Node and File Share Majority quorum. For more information, see [Configure and Manage Quorum](/windows-server/failover-clustering/manage-cluster-quorum).
 
 1. Connect to the file share witness member server with a remote desktop session.
 
