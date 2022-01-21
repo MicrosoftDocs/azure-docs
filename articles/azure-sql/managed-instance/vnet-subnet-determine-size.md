@@ -11,7 +11,7 @@ ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma, bonova, srbozovi, wiassaf
-ms.date: 12/06/2021
+ms.date: 01/21/2022
 ---
 # Determine required subnet size and range for Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,54 +48,47 @@ GP = general purpose;
 BC = business critical; 
 VC = virtual cluster
 
-| **Hardware generation** | **Pricing tier** | **Azure usage** | **VC usage** | **Instance usage** | **Total** |
-| --- | --- | --- | --- | --- | --- |
-| Gen4 | GP | 5 | 1 | 5 | 11 |
-| Gen4 | BC | 5 | 1 | 5 | 11 |
-| Gen5 | GP | 5 | 6 | 3 | 14 |
-| Gen5 | BC | 5 | 6 | 5 | 16 |
+| **Pricing tier** | **Azure usage** | **VC usage** | **Instance usage** | **Total** |
+| --- | --- | --- | --- | --- |
+| GP | 5 | 6 | 3 | 14 |
+| BC | 5 | 6 | 5 | 16 |
 
 In the preceding table:
 
-- The **Total** column displays the total number of addresses that are used by a single deployed instance to the subnet. 
-- When you add more instances to the subnet, the number of addresses used by the instance increases. The total number of addresses then also increases. For example, adding another Gen4 GP managed instance would increase the **Instance usage** value to 10 and would increase the **Total** value of used addresses to 16. 
-- Addresses represented in the **Azure usage** column are shared across multiple virtual clusters.  
+- The **Total** column displays the total number of addresses that are used by a single deployed instance to the subnet.
+- When you add more instances to the subnet, the number of addresses used by the instance increases. The total number of addresses then also increases.
+- Addresses represented in the **Azure usage** column are shared across multiple virtual clusters.
 - Addresses represented in the **VC usage** column are shared across instances placed in that virtual cluster.
 
 Also consider the [maintenance window feature](../database/maintenance-window.md) when you're determining the subnet size, especially when multiple instances will be deployed inside the same subnet. Specifying a maintenance window for a managed instance during its creation or afterward means that it must be placed in a virtual cluster with the corresponding maintenance window. If there is no such virtual cluster in the subnet, a new one must be created first to accommodate the instance.
+
+The same scenario as for the maintenance window applies for changing the [hardware generaiton](resource-limits.md#hardware-generation-characteristics) as virtual cluster is built per hardware generation. In case of new instace creation or changing the hardware generation of the existing instance, if there is no such virtual cluster in the subnet, a new one must be created first to accommodate the instance.
 
 An update operation typically requires [resizing the virtual cluster](management-operations-overview.md). When a new create or update request comes, the SQL Managed Instance service communicates with the compute platform with a request for new nodes that need to be added. Based on the compute response, the deployment system either expands the existing virtual cluster or creates a new one. Even if in most cases the operation will be completed within same virtual cluster, a new one might be created on the compute side. 
 
 
 ## Update scenarios
 
-During a scaling operation, instances temporarily require additional IP capacity that depends on pricing tier and hardware generation:
+During a scaling operation, instances temporarily require additional IP capacity that depends on pricing tier:
 
-| **Hardware generation** | **Pricing tier** | **Scenario** | **Additional addresses**  |
+| **Pricing tier** | **Scenario** | **Additional addresses**  |
 | --- | --- | --- | --- |
-| Gen4<sup>1</sup> | GP or BC | Scaling vCores | 5 |
-| Gen4<sup>1</sup> | GP or BC | Scaling storage | 5 |
-| Gen4 | GP or BC | Switching from GP to BC or BC to GP | 5 |
-| Gen4 | GP | Switching to Gen5 | 9 |
-| Gen4 | BC | Switching to Gen5 | 11 |
-| Gen5 | GP | Scaling vCores | 3 |
-| Gen5 | GP | Scaling storage | 0 |
-| Gen5 | GP | Switching to BC | 5 |
-| Gen5 | BC | Scaling vCores | 5 |
-| Gen5 | BC | Scaling storage | 5 |
-| Gen5 | BC | Switching to GP | 3 |
+| GP | Scaling vCores | 3 |
+| GP | Scaling storage | 0 |
+| GP | Switching to BC | 5 |
+| BC | Scaling vCores | 5 |
+| BC | Scaling storage | 5 |
+| BC | Switching to GP | 3 |
 
-<sup>1</sup> Gen4 hardware is being phased out and is no longer available for new deployments. Updating the hardware generation from Gen4 to Gen5 will take advantage of capabilities specific to Gen5.
-  
 ## Calculate the number of IP addresses
 
-We recommend the following formula for calculating the total number of IP addresses. This formula takes into account the potential creation of a new virtual cluster during a later create request or instance update. It also takes into account the maintenance window requirements of virtual clusters.
+We recommend the following formula for calculating the total number of IP addresses. This formula takes into account the potential creation of a new virtual cluster during a later create request or instance update. It also takes into account the maintenance window and hardware generation requirements of virtual clusters.
 
 **Formula: 5 + (a * 12) + (b * 16) + (c * 16)**
 
 - a = number of GP instances
 - b = number of BC instances
-- c = number of different maintenance window configurations
+- c = number of different maintenance window configurations and hardware generations
 
 Explanation:
 - 5 = number of IP addresses reserved by Azure
