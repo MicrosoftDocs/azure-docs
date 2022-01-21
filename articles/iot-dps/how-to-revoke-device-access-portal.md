@@ -101,7 +101,7 @@ To disallow an individual device in an enrollment group, follow these steps:
 
       **IoT Hub Device ID**: Leave this blank. For devices provisioned through X.509 enrollment groups, the device ID is set by the device certificate CN and is the same as the registration ID.
 
-      ![Screenshot of properties for the disallowed device in an X.509 enrollment entry](./media/how-to-revoke-device-access-portal/add-enrollment-x509.png)
+      :::image type="content" source="./media/how-to-revoke-device-access-portal/add-enrollment-x509.png" alt-text="Screenshot of properties for the disallowed device in an X.509 enrollment entry.":::
 
     - If you don't have the device certificate, on the **Add Enrollment** page select:
 
@@ -113,11 +113,11 @@ To disallow an individual device in an enrollment group, follow these steps:
 
       **IoT Hub Device ID**: Leave this blank. For devices provisioned through X.509 enrollment groups, the device ID is set by the device certificate CN and is the same as the registration ID.
 
-      ![Screenshot of properties for the disallowed device in a symmetric key enrollment entry](./media/how-to-revoke-device-access-portal/add-enrollment-symmetric-key.png)
+      :::image type="content" source="./media/how-to-revoke-device-access-portal/add-enrollment-symmetric-key.png" alt-text="Screenshot of properties for the disallowed device in a symmetric key enrollment entry.":::
 
 6. Scroll to the bottom of the **Add Enrollment** page and select **Disable** on the **Enable entry** switch, and then select **Save**.
 
-    ![Screenshot of disabled individual enrollment entry to disable device from group enrollment in the portal](./media/how-to-revoke-device-access-portal/select-disable-on-indivdual-entry.png)
+    :::image type="content" source="./media/how-to-revoke-device-access-portal/select-disable-on-indivdual-entry.png" alt-text="Screenshot of disabled individual enrollment entry to disable device from group enrollment in the portal.":::
 
 When you successfully create your enrollment, you should see your disabled device enrollment listed on the **Individual Enrollments** tab.
 
