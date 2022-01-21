@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/02/2021
+ms.date: 01/21/2022
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp, javascript
@@ -105,9 +105,9 @@ az rest --method post --uri $uri --body $body --headers "Content-Type=applicatio
 
 After executing the script, you can verify in the [Azure portal](https://portal.azure.com) that the requested API permissions are assigned to the managed identity.
 
-Go to **Azure Active Directory**, and then select **Enterprise applications**. This pane displays all the service principals in your tenant. In **All Applications**, select the service principal for the managed identity. 
+Go to **Azure Active Directory**, and then select **Enterprise applications**. This pane displays all the service principals in your tenant. In **Managed Identities**, select the service principal for the managed identity.
 
-If you're following this tutorial, there are two service principals with the same display name (SecureWebApp2020094113531, for example). The service principal that has a **Homepage URL** represents the web app in your tenant. The service principal without the **Homepage URL** represents the system-assigned managed identity for your web app. The **Object ID** value for the managed identity matches the object ID of the managed identity that you previously created.
+If you're following this tutorial, there are two service principals with the same display name (SecureWebApp2020094113531, for example). The service principal that has a **Homepage URL** represents the web app in your tenant. The service principal that appears in **Managed Identities** should *not* have a **Homepage URL** listed and the **Object ID** should match the object ID value of the managed identity in the [previous step](#enable-managed-identity-on-app).
 
 Select the service principal for the managed identity.
 
