@@ -70,7 +70,7 @@ The default value for `duration` is 60 seconds.
 
 ## Get your diagnostic files
 
-Navigate to the target file path in your persistent storage and find your dump/JFR. From there, you can download them to your local machine. The name of the generated file will be similar to *\<app-instance\>\_heapdump\_\<time-stamp\>.hprof* for the heap dump, *\<app-instance\>\_threaddump\_\<time-stamp\>.txt* for the thread dump, and *\<app-instance\>\_JFR\_\<time-stamp\>.jfr* for the JFR file.
+Navigate to the target file path in your persistent storage and find your dump/JFR. From there, you can download them to your local machine. The name of the generated file will be similar to *`<app-instance>_heapdump_<time-stamp>.hprof`* for the heap dump, *`<app-instance>_threaddump_<time-stamp>.txt`* for the thread dump, and *`<app-instance>_JFR_<time-stamp>.jfr`* for the JFR file.
 
 ## Next steps
 
