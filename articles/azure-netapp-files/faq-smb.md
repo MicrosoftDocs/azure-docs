@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 10/11/2021
+ms.date: 01/21/2022
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -42,7 +42,9 @@ As a best practice, set the maximum tolerance for computer clock synchronization
 
 ## Can I manage `SMB Shares`, `Sessions`, and `Open Files` through Computer Management Console (MMC)?
 
-Management of `SMB Shares`, `Sessions`, and `Open Files` through Computer Management Console (MMC) is currently not supported.
+Azure NetApp Files supports modifying `SMB Shares` by using MMC. However, modifying share properties has significant risk. If the users or groups assigned to the share properties are removed from the Active Directory, or if the permissions for the share become unusable, then the entire share will become inaccessible.
+
+Azure NetApp Files does not support using MMC to manage `Sessions` and `Open Files`.
 
 ## How can I obtain the IP address of an SMB volume via the portal?
 
@@ -55,8 +57,9 @@ To use an Azure NetApp Files SMB share as a DFS-N folder target, provide the Uni
 
 ## Can the SMB share permissions be changed?   
 
-No, the share permissions cannot be changed. However, the NTFS permissions of the `root` volume can be changed using the [NTFS file and folder permissions](azure-netapp-files-create-volumes-smb.md#ntfs-file-and-folder-permissions) procedure. 
+Azure NetApp Files supports modifying `SMB Shares` by using MMC.  However, modifying share properties has significant risk. If the users or groups assigned to the share properties are removed from the Active Directory, or if the permissions for the share become unusable, then the entire share will become inaccessible.
 
+You can change the NTFS permissions of the root volume by using [NTFS file and folder permissions](azure-netapp-files-create-volumes-smb.md#ntfs-file-and-folder-permissions) procedure.
 
 ## Next steps  
 
