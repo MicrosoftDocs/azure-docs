@@ -76,8 +76,10 @@
           href: howto-deploy-with-s2i.md
         - name: Deploy an application using OpenShift Serverless
           href: howto-deploy-with-serverless.md
-        - name: Deploy an Open Liberty/WebSphere Liberty app
+        - name: Deploy an Open Liberty/WebSphere Liberty Java app
           href: howto-deploy-java-liberty-app.md
+        - name: Deploy a JBoss EAP Java app
+          href: howto-deploy-java-jboss-enterprise-application-platform-app.md
     - name: Azure Red Hat OpenShift 3.11
       items:
         - name: Set up your Azure Red Hat OpenShift dev environment for Azure Red Hat OpenShift 3.11
