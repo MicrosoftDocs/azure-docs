@@ -115,11 +115,11 @@ To disallow an individual device in an enrollment group, follow these steps:
 
       ![Screenshot of properties for the disallowed device in a symmetric key enrollment entry](./media/how-to-revoke-device-access-portal/add-enrollment-symmetric-key.png)
 
-6. Scroll to the bottom of the **Add Enrollment** page and select **Disable** on the **Enable entry** switch, and then select **Save**. 
+6. Scroll to the bottom of the **Add Enrollment** page and select **Disable** on the **Enable entry** switch, and then select **Save**.
 
-    [![Screenshot of disabled individual enrollment entry to disable device from group enrollment in the portal](./media/how-to-revoke-device-access-portal/select-disable-on-indivdual-entry.png)
+    ![Screenshot of disabled individual enrollment entry to disable device from group enrollment in the portal](./media/how-to-revoke-device-access-portal/select-disable-on-indivdual-entry.png)
 
-When you successfully create your enrollment, you should see your disabled device enrollment listed on the **Individual Enrollments** tab. 
+When you successfully create your enrollment, you should see your disabled device enrollment listed on the **Individual Enrollments** tab.
 
 ## Next steps
 
