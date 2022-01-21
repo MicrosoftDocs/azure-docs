@@ -60,9 +60,9 @@ keywords: text to speech
 
 ## Get position information
 
-Your project might need to know when a word is spoken by text-to-speech so that it can take specific action based on that timing. As an example, if you wanted to highlight words as they were spoken, you would need to know what to highlight, when to highlight it, and for how long to highlight it.
+Your project might need to know when a word is spoken by text-to-speech so that it can take specific action based on that timing. For example, if you want to highlight words as they're spoken, you need to know what to highlight, when to highlight it, and for how long to highlight it.
 
-You can accomplish this by using the `WordBoundary` event available within `SpeechSynthesizer`. This event is raised at the beginning of each new spoken word. It provides a time offset within the spoken stream and a text offset within the input prompt:
+You can accomplish this by using the `WordBoundary` event within `SpeechSynthesizer`. This event is raised at the beginning of each new spoken word. It provides a time offset within the spoken stream and a text offset within the input prompt:
 
 * `AudioOffset` reports the output audio's elapsed time between the beginning of synthesis and the start of the next word. This is measured in hundred-nanosecond units (HNS), with 10,000 HNS equivalent to 1 millisecond.
 * `WordOffset` reports the character position in the input string (original text or [SSML](speech-synthesis-markup.md)) immediately before the word that's about to be spoken.

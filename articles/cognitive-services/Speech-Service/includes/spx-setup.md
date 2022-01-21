@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 Follow these steps to install the Speech CLI on Windows:
 
-1. On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform. Installing it for the first time might require a restart.
+1. Install the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform. Installing it for the first time might require a restart.
 1. Install [.NET Core 3.1 SDK](/dotnet/core/install/windows).
 2. Install the Speech CLI via NuGet by entering this command:
 
@@ -88,13 +88,13 @@ The Speech CLI tool saves configuration settings as files. It loads these files 
 When you're using the Speech CLI within a Docker container, you must mount a local directory from the container, so the tool can:
 
 - Store or find the configuration settings.
-- Read or write any files required by the command, such as audio files of speech.
+- Read or write any files that the command requires, such as audio files of speech.
 
 On Windows, enter this command to create a local directory that the Speech CLI can use from within the container:
 
 `mkdir c:\spx-data`
 
-Or on Linux or macOS, enter this command in a terminal to create a directory and see its absolute path:
+On Linux or macOS, enter this command in a terminal to create a directory and see its absolute path:
 
 ```bash
 mkdir ~/spx-data

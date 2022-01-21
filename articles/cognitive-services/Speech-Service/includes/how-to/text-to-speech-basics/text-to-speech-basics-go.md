@@ -125,7 +125,7 @@ func main() {
 }
 ```
 
-Run the following commands to create a `go.mod` file that links to components hosted on GitHub:
+Run the following commands to create a *go.mod* file that links to components hosted on GitHub:
 
 ```shell
 go mod init quickstart
@@ -244,7 +244,7 @@ func main(subscription string, region string) {
 }
 ```
 
-Run the following commands to create a `go.mod` file that links to components hosted on GitHub:
+Run the following commands to create a *go.mod* file that links to components hosted on GitHub:
 
 ```shell
 go mod init quickstart

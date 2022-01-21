@@ -117,9 +117,9 @@ function synthesizeSpeech() {
 }
 ```
 
-Run the program. A synthesized speech is written to a .wav file in the location that you specified.
+Run the program. Synthesized speech is written to a .wav file in the location that you specified.
 
-## Get result as an in-memory stream
+## Get a result as an in-memory stream
 
 For many scenarios in speech application development, you likely need the resulting audio data as an in-memory stream rather than directly writing to a file. You can build custom behavior, including:
 
@@ -127,7 +127,7 @@ For many scenarios in speech application development, you likely need the result
 * Integrate the result with other APIs or services.
 * Modify the audio data and write custom .wav headers.
 
-In the following example, you save the result to a [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult) variable. The `SpeechSynthesisResult.audioData` property returns an `ArrayBuffer` of the output data, the default browser stream type. For server-side code, convert `ArrayBuffer` to a buffer stream.
+In the following example, you save the result to a [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult) variable. The `SpeechSynthesisResult.audioData` property returns an `ArrayBuffer` value of the output data, the default browser stream type. For server-side code, convert `ArrayBuffer` to a buffer stream.
 
 The following code works for the client side:
 

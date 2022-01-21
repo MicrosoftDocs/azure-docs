@@ -16,20 +16,20 @@ This article assumes that you have an Azure account and a Speech service subscri
 
 ## Convert text to speech
 
-At a command prompt, run the following command. Insert the following values into the command:
+At a command prompt, run the following command. Insert these values into the command:
 - Your subscription key for the Speech service
 - Your Speech service region
 
 You might also want to change the following values:
 - The `X-Microsoft-OutputFormat` header value, which controls the audio output format. You can find a list of supported audio output formats in the [text-to-speech REST API reference](../../../rest-text-to-speech.md#audio-outputs).
-- The output voice. To get a list of voices available for your speech endpoint, see the next section.
-- The output file. In this example, we direct the response from the server into a file named `output.mp3`.
+- The output voice. To get a list of voices available for your Speech service endpoint, see the next section.
+- The output file. In this example, we direct the response from the server into a file named *output.mp3*.
 
 :::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/text-to-speech.sh":::
 
-## List available voices for your speech endpoint
+## List available voices for your Speech service endpoint
 
-To list the available voices for your speech endpoint, run the following command:
+To list the available voices for your Speech service endpoint, run the following command:
 
 :::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/get-voices.sh" id="request":::
 

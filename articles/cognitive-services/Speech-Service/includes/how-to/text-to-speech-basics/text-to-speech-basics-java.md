@@ -120,7 +120,7 @@ Run the program. A synthesized .wav file is written to the location that you spe
 
 ## Synthesize to speaker output
 
-In some cases, you might want to output synthesized speech directly to a speaker. To do this, instantiate the `AudioConfig` by using the `fromDefaultSpeakerOutput()` static function. This change outputs to the current active output device.
+In some cases, you might want to output synthesized speech directly to a speaker. To do this, instantiate `AudioConfig` by using the `fromDefaultSpeakerOutput()` static function. This step outputs to the current active output device.
 
 ```java
 public static void main(String[] args) {
@@ -170,7 +170,7 @@ You can customize audio output attributes, including:
 
 To change the audio format, you use the `setSpeechSynthesisOutputFormat()` function on the `SpeechConfig` object. This function expects an `enum` instance of type [`SpeechSynthesisOutputFormat`](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisoutputformat), which you use to select the output format. See the [list of audio formats](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat) that are available.
 
-There are various options for different file types, depending on your requirements. Note that by definition, raw formats like `Raw24Khz16BitMonoPcm` don't include audio headers. Use raw formats only in one of these situations:
+There are various options for different file types, depending on your requirements. By definition, raw formats like `Raw24Khz16BitMonoPcm` don't include audio headers. Use raw formats only in one of these situations:
 
 - You know that your downstream implementation can decode a raw bitstream.
 - You plan to manually build headers based on factors like bit depth, sample rate, and number of channels.
