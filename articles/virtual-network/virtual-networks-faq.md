@@ -399,6 +399,9 @@ No, ICMP traffic that is sourced from a subnet with service endpoints enabled wi
  
 ### How does NSG on a subnet work with service endpoints?
 To reach the Azure service, NSGs need to allow outbound connectivity. If your NSGs are opened to all Internet outbound traffic, then the service endpoint traffic should work. You can also limit the outbound traffic to service IPs only using the Service tags.  
+
+### Does the NAT Gateway work with Service Endpoints?
+Yes, the addition of a NAT Gateway to a subnet with Service Endpoints does not affect the Service Endpoints. Service Endpoints enable a more specific route for the destination Azure service traffic they represent. Traffic for the Service Endpoint will continue to be routed toward the service and wont go via the NAT Gateway.
  
 ### What permissions do I need to set up service endpoints?
 Service endpoints can be configured on a virtual network independently by a user with write access to the virtual network. To secure Azure service resources to a VNet, the user must have permission **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** for the subnets being added. This permission is included in the built-in service administrator role by default and can be modified by creating custom roles. Learn more about built-in roles and assigning specific permissions to [custom roles](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
