@@ -44,56 +44,56 @@ Virtual machines created from Marketplace resources with plans attached can't be
 
 1. Get information about the plan.
 
-  # [Azure CLI](#tab/azure-cli)
+   # [Azure CLI](#tab/azure-cli)
 
-  ```azurecli
-  az vm show --resource-group demoRG --name myVm1 --query plan
-  ```
+   ```azurecli
+   az vm show --resource-group demoRG --name myVm1 --query plan
+   ```
 
-  # [PowerShell](#tab/azure-powershell)
+   # [PowerShell](#tab/azure-powershell)
 
-  ```azurepowershell
-  $vm = get-AzVM -ResourceGroupName demoRG -Name myVm1
-  $vm.Plan
-  ```
+   ```azurepowershell
+   $vm = get-AzVM -ResourceGroupName demoRG -Name myVm1
+   $vm.Plan
+   ```
 
-  ---
+   ---
 
 1. Check that the offering still exists in the Marketplace.
 
-  # [Azure CLI](#tab/azure-cli)
+   # [Azure CLI](#tab/azure-cli)
 
-  ```azurecli
+   ```azurecli
    az vm image list-skus --publisher Fabrikam --offer LinuxServer --location centralus
    ```
 
-  # [PowerShell](#tab/azure-powershell)
+   # [PowerShell](#tab/azure-powershell)
 
-  ```azurepowershell
-  Get-AzVMImageSku -Location "Central US" -PublisherName "Fabrikam" -Offer "LinuxServer"
-  ```
+   ```azurepowershell
+   Get-AzVMImageSku -Location "Central US" -PublisherName "Fabrikam" -Offer "LinuxServer"
+   ```
 
-  ---
+   ---
 
 1. Either clone the OS disk to the destination subscription, or move the original disk after deleting the virtual machine from source subscription.
 
 1. In the destination subscription, accept the Marketplace terms for your plan. You can accept the terms by running the following PowerShell command:
 
-  # [Azure CLI](#tab/azure-cli)
+   # [Azure CLI](#tab/azure-cli)
 
-  ```azurecli
-  az vm image terms accept --publisher {publisher} --offer {product/offer} --plan {name/SKU}
-  ```
+   ```azurecli
+   az vm image terms accept --publisher {publisher} --offer {product/offer} --plan {name/SKU}
+   ```
 
-  # [PowerShell](#tab/azure-powershell)
+   # [PowerShell](#tab/azure-powershell)
 
-  ```azurepowershell
-  Get-AzMarketplaceTerms -Publisher {publisher} -Product {product/offer} -Name {name/SKU} | Set-AzMarketplaceTerms -Accept
-  ```
+   ```azurepowershell
+   Get-AzMarketplaceTerms -Publisher {publisher} -Product {product/offer} -Name {name/SKU} | Set-AzMarketplaceTerms -Accept
+   ```
 
-  ---
+   ---
 
-  Or, you can create a new instance of a virtual machine with the plan through the portal. You can delete the virtual machine after accepting the terms in the new subscription.
+   Or, you can create a new instance of a virtual machine with the plan through the portal. You can delete the virtual machine after accepting the terms in the new subscription.
 
 1. In the destination subscription, recreate the virtual machine from the cloned OS disk using PowerShell, CLI, or an Azure Resource Manager template. Include the marketplace plan that's attached to the disk. The information about the plan should match the plan you purchased in the new subscription. For more information, see [Create the VM](../../../virtual-machines/marketplace-images.md#create-the-vm).
 
@@ -128,68 +128,68 @@ If [soft delete](../../../backup/soft-delete-virtual-machines.md) is enabled for
 
 1. If you're moving only one virtual machine, get the restore point collection for that virtual machine.
 
-  # [Azure CLI](#tab/azure-cli)
+   # [Azure CLI](#tab/azure-cli)
 
-  ```azurecli-interactive
-  RESTOREPOINTCOL=$(az resource list -g AzureBackupRG_<VM location>_1 --resource-type Microsoft.Compute/restorePointCollections --query "[?starts_with(name, 'AzureBackup_<VM name>')].id" --output tsv)
-  ```
+   ```azurecli-interactive
+   RESTOREPOINTCOL=$(az resource list -g AzureBackupRG_<VM location>_1 --resource-type Microsoft.Compute/restorePointCollections --query "[?starts_with(name, 'AzureBackup_<VM name>')].id" --output tsv)
+   ```
 
-  # [PowerShell](#tab/azure-powershell)
+   # [PowerShell](#tab/azure-powershell)
 
-  ```azurepowershell-interactive
-  $restorePointCollection = Get-AzResource -ResourceGroupName AzureBackupRG_<VM location>_1 -name AzureBackup_<VM name>* -ResourceType Microsoft.Compute/restorePointCollections
-  ```
+   ```azurepowershell-interactive
+   $restorePointCollection = Get-AzResource -ResourceGroupName AzureBackupRG_<VM location>_1 -name AzureBackup_<VM name>* -ResourceType Microsoft.Compute/restorePointCollections
+   ```
 
-  ---
+   ---
 
-  Delete this resource. This operation deletes only the instant recovery points, not the backed-up data in the vault.
+   Delete this resource. This operation deletes only the instant recovery points, not the backed-up data in the vault.
 
-  # [Azure CLI](#tab/azure-cli)
+   # [Azure CLI](#tab/azure-cli)
 
-  ```azurecli-interactive
-  az resource delete --ids $RESTOREPOINTCOL
-  ```
+   ```azurecli-interactive
+   az resource delete --ids $RESTOREPOINTCOL
+   ```
 
-  # [PowerShell](#tab/azure-powershell)
+   # [PowerShell](#tab/azure-powershell)
 
-  ```azurepowershell-interactive
-  Remove-AzResource -ResourceId $restorePointCollection.ResourceId -Force
-  ```
+   ```azurepowershell-interactive
+   Remove-AzResource -ResourceId $restorePointCollection.ResourceId -Force
+   ```
 
-  ---
+   ---
 
 1. If you're moving all the virtual machines with back ups in this location, get the restore point collections for those virtual machines.
 
-  # [Azure CLI](#tab/azure-cli)
+   # [Azure CLI](#tab/azure-cli)
 
-  ```azurecli-interactive
-  RESTOREPOINTCOL=$(az resource list -g AzureBackupRG_<VM location>_1 --resource-type Microsoft.Compute/restorePointCollections)
-  ```
+   ```azurecli-interactive
+   RESTOREPOINTCOL=$(az resource list -g AzureBackupRG_<VM location>_1 --resource-type Microsoft.Compute/restorePointCollections)
+   ```
 
-  # [PowerShell](#tab/azure-powershell)
+   # [PowerShell](#tab/azure-powershell)
 
-  ```azurepowershell-interactive
-  $restorePointCollection = Get-AzResource -ResourceGroupName AzureBackupRG_<VM location>_1 -ResourceType Microsoft.Compute/restorePointCollections
-  ```
+   ```azurepowershell-interactive
+   $restorePointCollection = Get-AzResource -ResourceGroupName AzureBackupRG_<VM location>_1 -ResourceType Microsoft.Compute/restorePointCollections
+   ```
 
-  ---
+   ---
 
-  Delete each resource. This operation deletes only the instant recovery points, not the backed-up data in the vault.
+   Delete each resource. This operation deletes only the instant recovery points, not the backed-up data in the vault.
 
-  # [Azure CLI](#tab/azure-cli)
+   # [Azure CLI](#tab/azure-cli)
 
-  ```azurecli-interactive
-  az resource delete --ids $RESTOREPOINTCOL
-  ```
+   ```azurecli-interactive
+   az resource delete --ids $RESTOREPOINTCOL
+   ```
 
-  # [PowerShell](#tab/azure-powershell)
+   # [PowerShell](#tab/azure-powershell)
 
-  ```azurepowershell-interactive
-  foreach ($restorePoint in $restorePointCollection)
-  {
-    Remove-AzResource -ResourceId $restorePoint.ResourceId -Force
-  }
-  ```
+   ```azurepowershell-interactive
+   foreach ($restorePoint in $restorePointCollection)
+   {
+     Remove-AzResource -ResourceId $restorePoint.ResourceId -Force
+   }
+   ```
 
   ---
 
