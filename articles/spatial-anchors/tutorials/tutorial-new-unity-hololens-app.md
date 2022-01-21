@@ -117,7 +117,7 @@ You should now have an empty scene that is ready to be deployed to your HoloLens
     1. Select **Add Component** again and search for and add the **SpatialAnchorManager** script
     1. In the added **SpatialAnchorManager** component fill out the **Account ID**, **Account Key** and **Account Domain** which you have copied in the previous step from the spatial anchors resource in the Azure portal.
 
-![Unity - ASA GameObject](../../../includes/media/spatial-anchors-unity/unity-azurespatialanchors-gameobject.png)
+![Unity - ASA GameObject](../../../includes/media/spatial-anchors-unity/unity-asa-gameobject.png)
 
 ## App Overview
 Our app will support the following interactions:
@@ -284,7 +284,7 @@ Here is how the complete `AzureSpatialAnchorsScript` class file should look like
 
 ## Next steps
 
-In this tutorial, you've learnt how to implement a basic Spatial Anchors application for HoloLens using Unity. To learn more about how to use Azure Spatial Anchors in a new Android app, continue to the next tutorial.
+In this tutorial, you learned how to implement a basic Spatial Anchors application for HoloLens using Unity. To learn more about how to use Azure Spatial Anchors in a new Android app, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Starting a new Android app](tutorial-new-android-app.md)
