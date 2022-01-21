@@ -515,7 +515,7 @@
       href: /python/api/overview/azure/search-documents-readme
     - name: Management API
       href: /python/api/overview/azure/search/management
-  - name: Management, monitoring, compliance
+  - name: Resource management
     items:
     - name: Azure CLI
       href: /cli/azure/search
