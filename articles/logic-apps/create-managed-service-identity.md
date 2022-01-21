@@ -577,6 +577,8 @@ To use a managed identity for authentication, some Azure resources, such as Azur
    > make sure that your key vault contains at least one secret, if none exist. For more information, 
    > review [Add a secret to Key Vault](../key-vault/secrets/quick-create-portal.md).
 
+In the next section about using a managed identity to authenticate access for a trigger or action, the example continues with the steps from an an earlier section where you set up access using RBAC, which didn't apply to Azure Key Vault triggers and actions. However, the general steps to use a managed identity for authentication are the same.
+
 <a name="authenticate-access-with-identity"></a>
 
 ## Authenticate access with managed identity
