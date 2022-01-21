@@ -36,115 +36,26 @@ In this guide, you'll learn how to use [Python APIs for ONNX Runtime](https://on
 
 ## Import libraries
 
-# [Multi-class image classification ](#tab/multi-class)
 
 ```python
+import json
+import glob
 import onnxruntime
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-import json
-import glob
-import torch
 from PIL import Image
 from azureml.train.automl.run import AutoMLRun
-from azureml.core import Experiment
 from azureml.core.workspace import Workspace
-from torchvision import transforms
-
-%matplotlib inline
-
-# tested with torch version: '1.7.1', torchvision version: '0.8.2')
-```
-
-# [Multi-label image classification](#tab/multi-label)
-
-```python
-import onnxruntime
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-import json
-import glob
-import torch
-from torchvision import transforms
-from PIL import Image
-from azureml.train.automl.run import AutoMLRun
 from azureml.core import Experiment
-from azureml.core.workspace import Workspace
-
-%matplotlib inline
-
-# tested with torch version: '1.7.1', torchvision version: '0.8.2')
-```
-
-# [Object detection with Faster R-CNN](#tab/object-detect-cnn)
-
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-import matplotlib.patches as patches
-import json
-import glob
-from PIL import Image
-from azureml.train.automl.run import AutoMLRun
-from azureml.core import Experiment
-from azureml.core.workspace import Workspace
 
 %matplotlib inline
 
 ```
-
-# [Object detection with YOLO](#tab/object-detect-yolo)
-
-For preprocessing and postprocessing required for YOLO, use `yolo_onnx_preprocessing_utils.py` file available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection).
-
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-import matplotlib.patches as patches
-import json
-import glob
-import torch
-from PIL import Image
-from azureml.train.automl.run import AutoMLRun
-from azureml.core import Experiment
-from azureml.core.workspace import Workspace
-from yolo_onnx_preprocessing_utils import preprocess
-from yolo_onnx_preprocessing_utils import non_max_suppression, _convert_to_rcnn_output
-
-
-%matplotlib inline
-
-# tested with torch version: '1.7.1', torchvision version: '0.8.2')
-```
-
-# [Instance segmentation](#tab/instance-segmentation)
-
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
-import json
-import cv2
-import glob
-from PIL import Image
-from azureml.train.automl.run import AutoMLRun
-from azureml.core import Experiment
-from azureml.core.workspace import Workspace
-
-%matplotlib inline
-```
-
----
 
 ## Download ONNX model files
 
 You can download ONNX model files from AutoML runs by using the Azure Machine Learning studio UI or the Azure Machine Learning Python SDK. We recommend downloading via the SDK with the experiment name and parent run ID.
 
-If you are looking to perform batch inference with object detection/instance segmentation models, navigate to `Model generation for batch scoring` section.
 
 ### Azure Machine Learning studio
 
@@ -166,8 +77,9 @@ With the SDK, you can select the best child run (by primary metric) with the exp
 The following code returns the best child run based on the relevant primary metric.
 
 ```python
-# Select the best child run
+from azureml.train.automl.run import AutoMLRun
 
+# Select the best child run
 run_id = '' # Specify the run ID
 automl_image_run = AutoMLRun(experiment=experiment, run_id=run_id)
 best_child_run = automl_image_run.get_best_child()
@@ -220,22 +132,10 @@ experiment_name = ''
 subscription_id = ''
 resource_group = ''
 workspace_name = ''
-
-ws = Workspace.create(name=workspace_name,
-                      subscription_id=subscription_id,
-                      resource_group=resource_group,
-                      exist_ok=True)
+# load the workspace and compute target
+ws = ''
+compute_target = ''
 experiment = Experiment(ws, name=experiment_name)
-
-# specify the name of the cluster.
-amlcompute_cluster_name = ''
-
-cts = ws.compute_targets
-if amlcompute_cluster_name in cts and cts[amlcompute_cluster_name].type == 'AmlCompute':
-    print('Found existing compute target.')
-    compute_target = cts[amlcompute_cluster_name]
-else:
-    print('Not found existing compute target.')
 
 # specify the run id of the automl run
 run_id = ''
@@ -293,21 +193,10 @@ subscription_id = ''
 resource_group = ''
 workspace_name = ''
 
-ws = Workspace.create(name=workspace_name,
-                      subscription_id=subscription_id,
-                      resource_group=resource_group,
-                      exist_ok=True)
+# load the workspace and compute target
+ws = ''
+compute_target = ''
 experiment = Experiment(ws, name=experiment_name)
-
-# Choose a name for your cluster.
-amlcompute_cluster_name = ''
-
-cts = ws.compute_targets
-if amlcompute_cluster_name in cts and cts[amlcompute_cluster_name].type == 'AmlCompute':
-    print('Found existing compute target.')
-    compute_target = cts[amlcompute_cluster_name]
-else:
-    print('Not found existing compute target.')
 
 # specify the run id of the automl run
 run_id = ''
@@ -363,21 +252,10 @@ subscription_id = ''
 resource_group = ''
 workspace_name = ''
 
-ws = Workspace.create(name=workspace_name,
-                      subscription_id=subscription_id,
-                      resource_group=resource_group,
-                      exist_ok=True)
+# load the workspace and compute target
+ws = ''
+compute_target = ''
 experiment = Experiment(ws, name=experiment_name)
-
-# Choose a name for your cluster.
-amlcompute_cluster_name = ''
-
-cts = ws.compute_targets
-if amlcompute_cluster_name in cts and cts[amlcompute_cluster_name].type == 'AmlCompute':
-    print('Found existing compute target.')
-    compute_target = cts[amlcompute_cluster_name]
-else:
-    print('Not found existing compute target.')
 
 # specify the run id of the automl run
 run_id = ''
@@ -491,7 +369,7 @@ The output is an array of logits for all the classes/labels.
 
 # [Multi-label image classification](#tab/multi-label)
 
-This example uses the model trained on the [multi-label fridgeObjects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/multilabelFridgeObjects.zip) with 128 images and 4 classes/labels to explain ONNX model inference. For more information on model training for multi-label image classification, see the [multi-label image classification notebook](https://github.com/Azure/azureml-examples/tree/master/python-sdk/tutorials/automl-with-azureml/image-classification-multilabel).
+This example uses the model trained on the [multi-label fridgeObjects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/multilabelFridgeObjects.zip) with 128 images and 4 classes/labels to explain ONNX model inference. For more information on model training for multi-label image classification, see the [multi-label image classification notebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-classification-multilabel).
 
 ### Input format
 
@@ -689,6 +567,9 @@ assert batch_size == img_data.shape[0]
 ### With PyTorch
 
 ```python
+import torch
+from torchvision import transforms
+
 def _make_3d_tensor(x) -> torch.Tensor:
     """This function is for images that have less channels.
 
@@ -829,6 +710,9 @@ assert batch_size == img_data.shape[0]
 ### With PyTorch
 
 ```python
+import torch
+from torchvision import transforms
+
 def _make_3d_tensor(x) -> torch.Tensor:
     """This function is for images that have less channels.
 
@@ -962,6 +846,7 @@ batch, channel, height_onnx, width_onnx
 For preprocessing required for YOLO, refer to [yolo_onnx_preprocessing_utils.py](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection).
 
 ```python
+from yolo_onnx_preprocessing_utils import preprocess
 
 # use height and width based on the generated model
 test_images_path = "automl_models_od_yolo/test_images_dir/*" # replace with path to images
@@ -1305,6 +1190,8 @@ for batch_sample in range(0, batch_size*3, 3):
 The following code creates boxes, labels, and scores. Use these bounding box details to perform the same postprocessing steps as you did for the Faster R-CNN model. 
 
 ```python
+from yolo_onnx_preprocessing_utils import non_max_suppression, _convert_to_rcnn_output
+
 result = non_max_suppression(
     torch.from_numpy(result),
     conf_thres=0.1,
@@ -1365,6 +1252,8 @@ print(json.dumps(bounding_boxes_batch, indent=1))
 Visualize an input image with Labels
 
 ```python
+import matplotlib.image as mpimg
+
 sample_image_index = 0 # change this for an image of interest from image_files list
 IMAGE_SIZE = (18, 12)
 plt.figure(figsize=IMAGE_SIZE)
@@ -1400,6 +1289,8 @@ plt.show()
 Visualize an input image with Labels
 
 ```python
+import matplotlib.image as mpimg
+
 sample_image_index = 0 # change this for an image of interest from image_files list
 IMAGE_SIZE = (18, 12)
 plt.figure(figsize=IMAGE_SIZE)
@@ -1437,6 +1328,9 @@ plt.show()
 Visualize an input image with boxes and Labels
 
 ```python
+import matplotlib.image as mpimg
+import matplotlib.patches as patches
+
 img_np = mpimg.imread(image_files[1])  # replace with desired image index
 image_boxes = filtered_boxes_batch[1]  # replace with desired image index
 
@@ -1473,6 +1367,9 @@ plt.show()
 Visualize an input image with boxes and Labels
 
 ```python
+import matplotlib.image as mpimg
+import matplotlib.patches as patches
+
 img_np = mpimg.imread(image_files[1])  # replace with desired image index
 image_boxes = bounding_boxes_batch[1]  # replace with desired image index
 
@@ -1509,6 +1406,8 @@ plt.show()
 Visualize a sample Input Image with Masks and Labels
 
 ```python
+import matplotlib.patches as patches
+
 def display_detections(image, boxes, labels, scores, masks, resize_height, 
                        resize_width, classes, score_threshold):
     """Visualize boxes and masks
@@ -1557,7 +1456,7 @@ def display_detections(image, boxes, labels, scores, masks, resize_height,
         mask = mask > score_threshold
         image_masked = image.copy()
         image_masked[mask] = (0, 255, 255)
-        alpha = .5  # alpha blending with range 0 to 1
+        alpha = 0.5  # alpha blending with range 0 to 1
         cv2.addWeighted(image_masked, alpha, image, 1 - alpha,0, image)
         rect = patches.Rectangle((box[0], box[1]), box[2] - box[0], box[3] - box[1],\
                                  linewidth=1, edgecolor='b', facecolor='none')
