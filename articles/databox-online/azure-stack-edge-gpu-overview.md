@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 01/18/2022
+ms.date: 01/21/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro GPU is and how it works so I can use it to process and transform data before sending it to Azure.
 ---
@@ -88,11 +88,11 @@ For a discussion of considerations for choosing a region for the Azure Stack Edg
 
 ## Billing model
 
-Microsoft Azure charges a monthly, recurring subscription fee for an Azure Stack Edge device. In addition, there are onetime fees for shipping and customs. There is no on-premises software license for the device although guest virtual machine (VMs) may require their own licenses under Bring Your Own License (BYOL).
+Microsoft Azure charges a monthly, recurring subscription fee for an Azure Stack Edge device. In addition, there are onetime fees for shipping. There is no on-premises software license for the device although guest virtual machine (VMs) may require their own licenses under Bring Your Own License (BYOL).
 
 Currency conversion and discounts are handled centrally by the Azure Commerce billing platform, and you get one unified, itemized bill at the end of each month.
 
-Billing starts 10 days after a device is marked as **Shipped** and ends when you initiate return of your device.
+Billing starts 14 days after a device is marked as **Shipped** and ends when you initiate return of your device.
 
 The billing happens against the order resource. If you activate the device against a different resource, the order and billing details move to the new resource.
 
