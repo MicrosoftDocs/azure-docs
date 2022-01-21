@@ -175,13 +175,12 @@ As a first configuration test, you should try to sign in to the [MyApps portal](
 
 1. Select **Sign in with a certificate**.
 
-1.	Pick the correct user certificate in the client certificate picker UI and click **Ok**.
-
+1.	Pick the correct user certificate in the client certificate picker UI and click **OK**.
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/picker.png" alt-text="Screenshot of the certificate picker UI.":::
 
 1. Users should be signed into [MyApps portal](https://myapps.microsoft.com/). 
 
-If your sign in is successful, then you know that:
+If your sign-in is successful, then you know that:
 
 - The user certificate has been provisioned into your test device.
 - Azure Active Directory is configured correctly with trusted CAs.

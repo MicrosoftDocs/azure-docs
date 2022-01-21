@@ -159,19 +159,15 @@ For the first test scenario, configure the authentication policy where the Issue
 
    Let's look closer at some of the entries you can find in the Sign-in logs.
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entries-single.png" alt-text="Screenshot of single-factor authentication entries in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entries-single.png":::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entries-single.png" alt-text="Screenshot of single-factor authentication entries in the sign-in logs." :::  
 
    The first entry requests the X.509 certificate from the user. The status **Success** means that Azure AD validated that CBA is enabled in the tenant and a certificate is requested for authentication.
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entry-one.png" alt-text="Screenshot of single-factor authentication entry in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entry-one.png" :::  
-
-   You can also click **Authentication Details** to verify the success status.
-
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-details.png" alt-text="Screenshot of single-factor sign-in details in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-details.png":::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entry-one.png" alt-text="Screenshot of single-factor authentication entry in the sign-in logs." :::  
 
    The next entry provides more information about the authentication request and the certificate used. We can see that since the certificate satisfies only a single-factor and the user requires MFA, a second factor was requested.
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/second-factor.png" alt-text="Screenshot of second-factor sign-in details in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/second-factor.png":::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/second-factor.png" alt-text="Screenshot of second-factor sign-in details in the sign-in logs." :::  
 
    The **Authentication Details** also show the second factor request.
 
