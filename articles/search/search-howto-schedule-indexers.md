@@ -13,15 +13,15 @@ ms.date: 01/21/2022
 
 # Schedule an indexer in Azure Cognitive Search
 
-Indexers can be configured to run on a schedule when you set the "schedule" property in the indexer definition. By default, an indexer runs once, immediately after it is created. Afterwards, you can run it again on demand or set up a schedule. Some situations where indexer scheduling is useful include:
+Indexers can be configured to run on a schedule when you set the "schedule" property in the indexer definition. By default, an indexer runs once, immediately after it is created. Afterwards, you can run it again on demand or on a schedule. Some situations where indexer scheduling is useful include:
 
-+ Source data will change over time, and you want the search indexer to automatically process the difference.
++ Source data is changing over time, and you want the indexer to automatically process the difference.
 
-+ A search index will be populated from multiple data sources, and you want to stagger the indexer jobs to reduce conflicts.
++ A search index is populated from multiple data sources, and you want to stagger the indexer jobs to reduce conflicts.
 
 + Source data is very large and you want to spread the indexer processing over time. 
 
-  Indexer jobs are subject to a maximum running time of 24 hours for regular data sources and 2 hours for indexers with skillsets. If indexing cannot complete within the maximum interval, you can configure a schedule that runs every 2 hours. Indexers can automatically pick up where they left off, as evidenced by an internal high water mark that marks where indexing last ended. Running an indexer on a recurring 2-hour schedule allows it to process a very large data set (many millions of documents) beyond the 24-interval allowed for a single job. For more information about indexing large data volumes, see [How to index large data sets in Azure Cognitive Search](search-howto-large-index.md).
+  Indexer jobs are subject to a maximum running time of 24 hours for regular data sources and 2 hours for indexers with skillsets. If indexing cannot complete within the maximum interval, you can configure a schedule that runs every 2 hours. Indexers can automatically pick up where they left off, based on an internal high water mark that marks where indexing last ended. Running an indexer on a recurring 2-hour schedule allows it to process a very large data set (many millions of documents) beyond the 24-interval allowed for a single job. For more information about indexing large data volumes, see [How to index large data sets in Azure Cognitive Search](search-howto-large-index.md).
 
 ## Prerequisites
 
@@ -102,7 +102,9 @@ await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 
 ## Scheduling behavior
 
-The scheduler can kick off as many indexer jobs as the search service supports, which is based on the number of search units. For example, the service has three replicas and four partitions, you should be able to have twelve indexer jobs in active execution, whether initiated on demand or on a schedule.
+For text-based indexing, the scheduler can kick off as many indexer jobs as the search service supports, which is based on the number of search units. For example, if the service has three replicas and four partitions, you should be able to have twelve indexer jobs in active execution, whether initiated on demand or on a schedule.
+
+Skills-based indexers run in a different [execution environment](search-howto-run-reset-indexers.md#indexer-execution) and independent of the number of service units. In most cases, multiple skills-based indexers will run in parallel, but doing so depends on capacity.
 
 Although multiple indexers can run simultaneously, a given indexer is single instance. You cannot run two copies of the same indexer concurrently. If an indexer happens to still be running when its next scheduled execution is set to start, the pending execution is postponed until the next scheduled occurrence, allowing the current job to finish.
 
