@@ -37,7 +37,7 @@ The SLA covers the following scenarios that are vital to businesses:
 
 - **App access:** Azure Active Directory successfully emits the authentication and authorization tokens required for users to log into applications connected to the service.
 
-For full details on SLA coverage and instructions on requesting a service credit, see the SLA for Azure Active Directory (Azure AD) | Microsoft Azure.
+For full details on SLA coverage and instructions on requesting a service credit, see the [SLA for Azure Active Directory (Azure AD)](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1/).
 
 
 ## No planned downtime 
