@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: aarathin
 ms.author: aarathin
-ms.date: 01/12/2022
+ms.date: 01/24/2022
 ---
 
 # Support for the commercial marketplace program in Partner Center
@@ -19,45 +19,15 @@ Microsoft provides support for a wide variety of products and services. Finding 
 
 ## Get help or open a support ticket
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) with your work account. If you have not yet done so, you will need to [create a Partner Center account](create-account.md).
-
-1. On the Home page, select the **Help + support** tile.
-
-     [ ![Illustrates the Partner Center Home page with the Help + support tile highlighted.](./media/workspaces/partner-center-help-support-tile.png) ](./media/workspaces/partner-center-help-support-tile.png#lightbox)
-
-1. Under **My support requests**, select **+ New request**.
-
-1. In the **Problem summary** box, enter a brief description of the issue.
-
-1. In the **Problem type** box, do one of the following:
-
-    - **Option 1**: Enter keywords such as: Marketplace, Azure app, SaaS offer, account management, lead management, deployment issue, payout, or co-sell offer migration. Then select a problem type from the recommended list that appears.
-
-    - **Option 2**: Select **Browse topics** from the **Category** list and then select **Commercial Marketplace**. Then select the appropriate **Topic** and **Subtopic**.
-
-1. After you have found the topic of your choice, select **Review Solutions**.
-
-    ![Next step](./media/support/next-step.png)
-
-The following options are shown:
-
-- To select a different topic, click **Select a different issue**.
-- To help solve the issue, review the recommended steps and documents, if available.
-
-    [ ![Illustrates the Recommended solutions page.](./media/support/recommended-solutions.png) ](./media/support/recommended-solutions.png#lightbox)
-
-If you cannot find your answer in the self help, select **Provide issue details**. Complete all required fields to speed up the resolution process, then select **Submit**.
-
->[!Note]
->If you have not signed in to Partner Center, you may be required to sign in before you can create a ticket.
+Any Partner Center user can create a support request. To learn how, see [Get help and contact support](/partner-center/report-problems-with-partner-center).
 
 ## Track your existing support requests
 
 1. To review your open and closed tickets, sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) with your work account.
+1. In the top menu, select the **Help** icon (?).
+1. In the side-panel that appears, select **View my support requests**.
 
-1. On the Home page, select the **Help + support** tile.
-
-    [ ![Illustrates the Partner Center Home page with the Help + support tile highlighted.](./media/workspaces/partner-center-help-support-tile.png) ](./media/workspaces/partner-center-help-support-tile.png#lightbox)
+Your support tickets are shown under **My support requests**.
 
 ## Record issue details with a HAR file
 
