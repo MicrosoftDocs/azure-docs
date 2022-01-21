@@ -68,7 +68,7 @@ The deployment.json files are a representation of all default modules necessary 
 6. Deployment will take 1-5 mins to fully complete. 
    1. For those interested in watching the IoT Edge log as this deployment is going on, you can SSH into your Azure Percept devkit and watch the iotedge logs by issuing the command below. <br/>
     `sudo journalctl -u iotedge -f` 
-7. **Your Devkit is now ready to use** and you can navigate to the [Azure Percept portal](https://ms.portal.azure.com/#blade/AzureEdgeDevices/Main/overview) for more AI models. 
+7. Your Devkit is now ready to use!
 
 
 <!-- 5. Next steps
@@ -77,12 +77,4 @@ context so the customer can determine why they would click the link.
 -->
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
-- ADD NEXT STEP
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+Navigate to the [Azure Percept portal](https://ms.portal.azure.com/#blade/AzureEdgeDevices/Main/overview) for more AI models. 
