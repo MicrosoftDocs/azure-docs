@@ -25,58 +25,58 @@ To reduce the risk of bodily injury, electrical shock, fire, and equipment damag
 **Read all instructions first:**
 
 ![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Read all instructions](./media/azure-stack-edge-pro-2-safety/icon-safety-read-all-instructions.png)**DANGER:**
-* Before you begin to unpack the equipment, to prevent hazardous situations resulting in death, serious injury and/or property damage, read, and follow all warnings and instructions.|
+* Before you begin to unpack the equipment, to prevent hazardous situations resulting in death, serious injury and/or property damage, read, and follow all warnings and instructions.
 
 * Inspect the as-received equipment for damages. If the equipment enclosure is damaged, [contact Microsoft Support](https://aka.ms/CONTACT-ASE-SUPPORT) to obtain a replacement. Do not attempt to operate the device.
 
 ![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png) **CAUTION:**
 * If you suspect the device is malfunctioning, [contact Microsoft Support](https://aka.ms/CONTACT-ASE-SUPPORT) to obtain a replacement. Do not attempt to service the equipment. 
 
-![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Read all instructions](./media/azure-stack-edge-pro-2-safety/icon-safety-tip-hazard.png) **WARNING:**
+![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Tip hazard](./media/azure-stack-edge-pro-2-safety/icon-safety-tip-hazard.png) **WARNING:**
 * When installing into an equipment rack, the rack must be anchored to an unmovable support to prevent it from tipping before the rack-mounted equipment is installed or extended from it. The equipment rack must be installed according to the rack manufacturer's instructions. 
 
 
-![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Read all instructions](./media/azure-stack-edge-pro-2-safety/icon-safety-tip-hazard.png) **WARNING:**
+![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Tip hazard 2](./media/azure-stack-edge-pro-2-safety/icon-safety-tip-hazard.png) **WARNING:**
 * When using an equipment rack, the rack may tip over causing serious personal injury. Verify the equipment rack is anchored to the floor and/or bayed to its adjacent equipment racks before installing, extending, or removing equipment. Failure to do so could allow the rack system to tip over leading to death, injury, or damage. 
 
-![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Read all instructions](./media/azure-stack-edge-pro-2-safety/icon-safety-tip-hazard.png) **WARNING:**
+![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Tip hazard 3](./media/azure-stack-edge-pro-2-safety/icon-safety-tip-hazard.png) **WARNING:**
 * When installed into an equipment rack, do not extend more than one equipment (i.e. storage, server, etc.) from the rack at one time to prevent the equipment rack from becoming dangerously unstable.
 
-![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Overload tip hazard](./media/azure-stack-edge-pro-2-safety/icon-overload-tip-hazard.jpg)![Read all instructions](./media/azure-stack-edge-pro-2-safety/icon-safety-tip-hazard.png) **WARNING:**
+![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Overload tip hazard 2](./media/azure-stack-edge-pro-2-safety/icon-overload-tip-hazard.jpg)![Tip hazard 4](./media/azure-stack-edge-pro-2-safety/icon-safety-tip-hazard.png) **WARNING:**
 * When installed into an equipment rack, do not extend more than one equipment (i.e. storage, server, etc.) from the rack at one time to prevent the equipment rack from becoming dangerously unstable. 
 
 ![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)
 **WARNING:**
-* Hazardous voltage, current, or energy levels are present inside this equipment and any component displaying this symbol: :::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png" alt-text="Electric shock hazard"::: Do not service the equipment until all input power is removed, unless directed otherwise by the service instructions in an accompanying document for the component being serviced. To remove all input power, the equipment power cable must be disconnected from the AC electrical mains supply. Do not remove cover or barrier on any component that contains this label: :::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png" alt-text="Electric shock hazard"::: Servicing should only be performed by qualified trained technicians.
+* Hazardous voltage, current, or energy levels are present inside this equipment and any component displaying this symbol: :::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png" alt-text="Electric shock hazard description"::: Do not service the equipment until all input power is removed, unless directed otherwise by the service instructions in an accompanying document for the component being serviced. To remove all input power, the equipment power cable must be disconnected from the AC electrical mains supply. Do not remove cover or barrier on any component that contains this label: :::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png" alt-text="Electric shock hazard description 2"::: Servicing should only be performed by qualified trained technicians.
 
-![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)![Moving parts hazard](./media/azure-stack-edge-pro-2-safety/icon-moving-parts-hazard.png)
+![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard 2](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)![Moving parts hazard](./media/azure-stack-edge-pro-2-safety/icon-moving-parts-hazard.png)
 **WARNING:**
 * To reduce the risk of electrical shock, injury from moving parts, damage, or loss of data, always make sure to disconnect the equipment from the AC electrical source when working inside the equipment. Powering down the system does not ensure there is no electrical activity inside the equipment.
 
 
-![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)**WARNING:**
+![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard 3](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)**WARNING:**
 * Do not install equipment into a rack or on a wall while they are energized with external cables.
 
-![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)**WARNING:**
+![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard 4](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)**WARNING:**
 * Ensure power cords are not crushed or damaged during installation.
 
 
-![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)**WARNING:**
+![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard 5](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)**WARNING:**
 * Provide a safe electrical earth connection to the power supply cord. The AC cord has a three-wire grounding plug (a plug that has a grounding contact). This plug fits only a grounded AC outlet. Do not defeat the purpose of the grounding contact.
 
-![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)**WARNING:**
+![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard 6](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)**WARNING:**
 * Given that the plug on the power supply cord is the main disconnect device, ensure that the socket outlets are located near the equipment and are easily accessible.
 
-![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)**WARNING:**
+![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard 7](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)**WARNING:**
 * Unplug the power cord (by pulling the plug, not the cord) and disconnect all cables if any of the following conditions exist: The power cord or plug becomes frayed or otherwise damaged. You spill something into the device casing. The device is exposed to rain, excess moisture, or other liquids. The device has been dropped and the device casing is damaged. You suspect the device needs service or repair.
 
-![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)**WARNING:**
+![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard 8](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)**WARNING:**
 * Permanently unplug the unit before you move it or if you think it has become damaged in any way.
 
-![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)**WARNING:**
+![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard 9](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)**WARNING:**
 * Provide a suitable power source with electrical overload protection to meet the power specifications shown on the equipment rating label provided with the equipment.
 
-![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)**WARNING:**
+![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard 10](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)**WARNING:**
 * Do not attempt to modify or use AC power cord(s) other than the ones provided with the equipment.
 
 ![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png) **CAUTION:**
@@ -96,7 +96,7 @@ To reduce the risk of bodily injury, electrical shock, fire, and equipment damag
 * When provided with the equipment, carefully follow all instructions provided with the Wall Mount Equipment Bracket or the Slide Rail Kits. Failure to install these accessories properly can cause severe injuries.
 
 ![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png) **WARNING:**
-* The two and four post Slide Rail Kits are only compatible with the rack specifications in Electronic Industries Association (EIA) standard EIA-310-D. Choosing a rack that does not comply with the EIA-310-D specifications can cause hazards which can lead to severe injuries.
+* The two and four post Slide Rail Kits are only compatible with the rack specifications in Electronic Industries Association (EIA) standard EIA-310-D. Choosing a rack that does not comply with the EIA-310-D specifications can cause hazards that can lead to severe injuries.
 
 ![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png) **CAUTION:**
 * Do not use equipment if rails require excessive force when sliding the inner drawer assembly.
@@ -117,7 +117,7 @@ To reduce the risk of bodily injury, electrical shock, fire, and equipment damag
 * Humid environments tend to have less static electricity than dry environments. A grounding strap is warranted whenever danger of static electricity exists.
 
 ![Safety notice](./media/azure-stack-edge-pro-2-safety/icon-safety-notice.png) **NOTICE:**
-* Leave all replacement components inside their static-proof packaging until you are ready to use them.|
+* Leave all replacement components inside their static-proof packaging until you are ready to use them.
 
 
 ## Compliance Guide
@@ -178,7 +178,7 @@ This equipment complies with FCC/ISED radiation exposure limits set forth for an
 ### EUROPEAN UNION:
 
 :::image type="icon" source="media/azure-stack-edge-pro-2-safety/icon-safety-warning.png" border="false":::**WARNING:** 
-* This is a class A product. In a domestic environment, this product may cause radio interference in which case the user may be required to take adequate measures.
+* This device is a class A product. In a domestic environment, this product may cause radio interference in which case the user may be required to take adequate measures.
 :::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-ce-marking.png" alt-text="CE marking":::
 
 For Model: DB040-W only
