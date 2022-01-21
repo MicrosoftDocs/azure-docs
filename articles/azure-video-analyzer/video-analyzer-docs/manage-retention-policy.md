@@ -31,7 +31,7 @@ The retention period is typically set in the properties of a video sink node whe
 }
 ```
 
-You can also set or update the `retentionPeriod` property of a video resource, using Azure portal, or via the [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/Videos.json). Below is an example of setting a 3-day retention policy.
+You can also set or update the `retentionPeriod` property of a video resource, using Azure portal, or via the [REST API](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/Videos.json). Below is an example of setting a 3-day retention policy.
 
 ```
 "archival":

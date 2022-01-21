@@ -150,6 +150,10 @@
           href: monitor-app-lifecycle-events.md
         - name: Logback with custom persistent storage
           href: how-to-write-log-to-custom-persistent-storage.md
+        - name: Elastic APM Java Agent
+          href: how-to-elastic-apm-java-agent-monitor.md
+        - name: Analyze logs with ELK
+          href: how-to-elastic-diagnostic-settings.md
     - name: Network
       items:
         - name: Deploy Azure Spring Cloud in a virtual network

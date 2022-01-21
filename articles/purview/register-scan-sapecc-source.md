@@ -1,12 +1,12 @@
 ---
 title: Connect to and manage an SAP ECC source
-description: This guide describes how to connect to SAP ECC in Azure Purview, and use Purview's features to scan and manage your SAP ECC source.
+description: This guide describes how to connect to SAP ECC in Azure Purview, and use Azure Purview's features to scan and manage your SAP ECC source.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/04/2021
+ms.date: 01/20/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -18,11 +18,11 @@ This article outlines how to register SAP ECC, and how to authenticate and inter
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes**](how-to-lineage-sapecc.md)|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes*](#lineage)|
 
-\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+\* *Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
 
-When scanning SAP ECC source, Purview supports:
+When scanning SAP ECC source, Azure Purview supports:
 
 - Extracting technical metadata including:
 
@@ -45,9 +45,9 @@ When scanning SAP ECC source, Purview supports:
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Purview resource](create-catalog-portal.md).
+* An active [Azure Purview resource](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
@@ -73,7 +73,7 @@ When scanning SAP ECC source, Purview supports:
 
 ## Register
 
-This section describes how to register SAP ECC in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
+This section describes how to register SAP ECC in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
 
 ### Authentication for registration
 
@@ -81,7 +81,7 @@ The only supported authentication for SAP ECC source is **Basic authentication**
 
 ### Steps to register
 
-1. Navigate to your Purview account.
+1. Navigate to your Azure Purview account.
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On Register sources, select **SAP ECC**. Select **Continue.**
@@ -146,9 +146,17 @@ Follow the steps below to scan SAP ECC to automatically identify assets and clas
 
 [!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
 
+## Lineage
+
+After scanning your SAP ECC source, you can [browse data catalog](how-to-browse-catalog.md) or [search data catalog](how-to-search-catalog.md) to view the asset details. 
+
+Go to the asset -> lineage tab, you can see the asset relationship when applicable. Refer to the [supported capabilities](#supported-capabilities) section on the supported SAP ECC lineage scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
+
+:::image type="content" source="media/register-scan-sapecc-source/lineage.png" alt-text="SAP ECC lineage view" border="true":::
+
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

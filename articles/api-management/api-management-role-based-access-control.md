@@ -63,13 +63,6 @@ New-AzRoleAssignment -ObjectId <object ID of the user account> -RoleDefinitionNa
 
 The [Azure Resource Manager resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement) article contains the list of permissions that can be granted on the API Management level.
 
-## Video
-
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Role-Based-Access-Control-in-API-Management/player]
->
->
-
 ## Next steps
 
 To learn more about Role-Based Access Control in Azure, see the following articles:

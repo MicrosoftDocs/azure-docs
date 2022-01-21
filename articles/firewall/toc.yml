@@ -35,6 +35,8 @@
       href: features.md
     - name: Azure Firewall Premium features
       href: premium-features.md
+    - name: Azure Firewall preview features
+      href: firewall-preview.md
     - name: IDPS signature rule categories
       href: idps-signature-categories.md
     - name: Azure Firewall Premium in the portal
@@ -75,6 +77,8 @@
       href: /security/benchmark/azure/baselines/firewall-security-baseline?toc=/azure/firewall/toc.json
     - name: FTP support
       href: ftp-support.md
+    - name: Performance
+      href: firewall-performance.md
 - name: How-to guides
   items:
     - name: Deploy and configure - classic
