@@ -63,8 +63,9 @@ The authentication binding policy helps determine the strength of authentication
 
 To enable the certificate-based authentication and configure user bindings in the Azure portal, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Authentication Policy Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an Authentication Policy Administrator.
 1. Select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
+1. Click **Authentication methods** > **Policies**.
 1. Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/policy.png" alt-text="Screenshot of Authentication policy.":::
@@ -133,11 +134,11 @@ The final configuration will look like this image:
 
 :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/final.png" alt-text="Screenshot of the final configuration.":::
 
-## Step 4: Enable Certificate Based Authentication on the tenant
+## Step 4: Enable CBA on the tenant
 
 To enable the certificate-based authentication in the Azure MyApps portal, complete the following steps:
 
-1. Sign in to the [MyApps portal](https://myapps.microsoft.com/) as a Global Administrator.
+1. Sign in to the [MyApps portal](https://myapps.microsoft.com/) as an Authentication Policy Administrator.
 1. Select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
 1. Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
 4.	Under **Basics**, select **Yes** to enable CBA.
@@ -148,7 +149,7 @@ To enable the certificate-based authentication in the Azure MyApps portal, compl
    1. Click **Select** to add them.
 
 1. Select **Sign in with a certificate**.
-1. Pick the correct user certificate in the Client certificate picker UI and click OK.
+1. Pick the correct user certificate in the client certificate picker UI and click **OK**.
  
 Once certificate-based authentication is enabled on the tenant, all users in the tenant will see the option to sign in with a certificate. Only users who are enabled for certificate-based authentication will be able to authenticate using the X.509 certificate. 
 
