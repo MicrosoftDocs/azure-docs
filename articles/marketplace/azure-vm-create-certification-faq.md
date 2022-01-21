@@ -318,8 +318,9 @@ Refer to the following table for any issues that arise when you download the VM 
 
 ## VM images must have 1MB free space
 
-If you are [building your own image](azure-vm-create-using-own-image.md), ensure the first 2048 sectors (1 MB) of the OS disk is empty. Otherwise, your publishing will fail. This requirement is applicable to the OS disk only (not data disks). If you are building your image [from an approved base](azure-vm-create-using-approved-base.md), you can skip this requirement.
-
+If you are publishing your image to Azure (with **GPT parition**), it is **highly recommended** to keep the first 2048 sectors (1 MB) of the OS disk empty. This requirement is to allow Azure to add important metadata to the image (examples include metadata to improve boot time for customers, billing, and other details). Please note that this is a recommendation for best practice if you are already using [an approved base image] (azure-vm-create-using-approved-base.md) and your image has a valid billing tag. However, if your image does not have a valid billing tag, your publishing might fail in case the first 1MB of the OS disk is not empty. 
+If you are building your own image that does not have any valid billing tag, ensure the first 2048 sectors (1 MB) of the OS disk are empty. Otherwise, your publishing will fail. This requirement is applicable to the OS disk only (not data disks). If you are building your image from an approved base, it will already have first 1MB empty. Hence you will not need to work on it separately. 
+Please follow this step-by-step process to keep first 1MB free in your OS disk - How to keep 1 MB free space at the start on an empty VHD (2048 sectors, each sector of 512 bytes) 
 ### How to keep 1 MB free space at the start on an empty VHD (2048 sectors, each sector of 512 bytes)
 
 These steps apply to Linux only.
@@ -330,9 +331,9 @@ These steps apply to Linux only.
 
 1. Create an unmanaged disk for your VM.
 
-   Either use the default values or specify any value for fields like NIC, NSG, and public IP.
+   Either use the default values or specify any value for fields like OS Disk Size, Type, and encryption type.
 
-   ![Screenshot image of the 'Data disks' page in the Create a virtual machine flow.](./media/create-vm/vm-certification-issues-solutions-16.png)
+   ![Screenshot image of the 'Data disks' page in the Create a virtual machine flow.](C:\Users\sharroy\Documents\Github docs\Cert docs\media\2nd.png)
 
 1. After you create the VM, select **Disks** in the left pane.
 
@@ -340,7 +341,7 @@ These steps apply to Linux only.
 
 1. Attach your VHD as data disk to your VM for creating a partition table.
 
-   1. Select **Add DataDisk** > **Existing Blob**.
+   1. Select **Attach Existing Disk**.
 
       ![Screenshot showing how to add a data disk to your VHD.](./media/create-vm/vm-certification-issues-solutions-18.png)
 
