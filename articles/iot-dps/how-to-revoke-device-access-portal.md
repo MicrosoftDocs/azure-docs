@@ -3,7 +3,7 @@ title: Disenroll device from Azure IoT Hub Device Provisioning Service
 description: How to disenroll a device to prevent provisioning through Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/05/2018
+ms.date: 01/20/2022
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
@@ -14,7 +14,7 @@ manager: timlt
 
 Proper management of device credentials is crucial for high-profile systems like IoT solutions. A best practice for such systems is to have a clear plan of how to revoke access for devices when their credentials, whether a shared access signatures (SAS) token or an X.509 certificate, might be compromised. 
 
-Enrollment in the Device Provisioning Service enables a device to be [provisioned](about-iot-dps.md#provisioning-process). A provisioned device is one that has been registered with IoT Hub, allowing it to receive its initial [device twin](~/articles/iot-hub/iot-hub-devguide-device-twins.md) state and begin reporting telemetry data. This article describes how to disenroll a device from your provisioning service instance, preventing it from being provisioned again in the future.
+Enrollment in the Device Provisioning Service enables a device to be [provisioned](about-iot-dps.md#provisioning-process). A provisioned device is one that has been registered with IoT Hub, allowing it to receive its initial [device twin](~/articles/iot-hub/iot-hub-devguide-device-twins.md) state and begin reporting telemetry data. This article describes how to disenroll a device from your provisioning service instance, preventing it from being provisioned again in the future. To learn how to deprovision a device that has already been provisioned to an IoT hub, see [Manage deprovisioning](how-to-unprovision-devices.md).
 
 > [!NOTE] 
 > Be aware of the retry policy of devices that you revoke access for. For example, a device that has an infinite retry policy might continuously try to register with the provisioning service. That situation consumes service resources and possibly affects performance.
@@ -83,7 +83,7 @@ After you finish the procedure, you should see your entry removed from the list 
 
 ## Disallow specific devices in an enrollment group
 
-Devices that implement the X.509 attestation mechanism use the device's certificate chain and private key to authenticate. When a device connects and authenticates with Device Provisioning Service, the service first looks for an individual enrollment that matches the device's credentials. The service then searches enrollment groups to determine whether the device can be provisioned. If the service finds a disabled individual enrollment for the device, it prevents the device from connecting. The service prevents the connection even if an enabled enrollment group for an intermediate or root CA in the device's certificate chain exists. 
+Devices that implement the X.509 attestation mechanism use the device's certificate chain and private key to authenticate. When a device connects and authenticates with Device Provisioning Service, the service first looks for an individual enrollment with a registration ID that matches the common name (CN) of the device (end-entity) certificate. The service then searches enrollment groups to determine whether the device can be provisioned. If the service finds a disabled individual enrollment for the device, it prevents the device from connecting. The service prevents the connection even if an enabled enrollment group for an intermediate or root CA in the device's certificate chain exists.
 
 To disallow an individual device in an enrollment group, follow these steps:
 
@@ -91,15 +91,33 @@ To disallow an individual device in an enrollment group, follow these steps:
 2. From the list of resources, select the provisioning service that contains the enrollment group for the device that you want to disallow.
 3. In your provisioning service, select **Manage enrollments**, and then select the **Individual Enrollments** tab.
 4. Select the **Add individual enrollment** button at the top. 
-5. On the **Add Enrollment** page, select **X.509** as the attestation **Mechanism** for the device.
+5. Follow the appropriate step depending on whether you have the device (end-entity) certificate.
 
-    Upload the device certificate, and enter the device ID of the device to be disallowed. For the certificate, use the signed end-entity certificate installed on the device. The device uses the signed end-entity certificate for authentication.
+    - If you have the device certificate, on the **Add Enrollment** page select:
 
-    ![Set device properties for the disallowed device](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
+      **Mechanism**: X.509
+
+      **Primary .pem or .cer file**: Upload the device certificate. For the certificate, use the signed end-entity certificate installed on the device. The device uses the signed end-entity certificate for authentication.
+
+      **IoT Hub Device ID**: Leave this blank. For devices provisioned through X.509 enrollment groups, the device ID is set by the device certificate CN and is the same as the registration ID.
+
+      ![Screenshot of properties for the disallowed device in an X.509 enrollment entry](./media/how-to-revoke-device-access-portal/add-enrollment-x509.png)
+
+    - If you don't have the device certificate, on the **Add Enrollment** page select:
+
+      **Mechanism**: Symmetric Key
+
+      **Auto-generate keys**: Make sure this is selected. The keys don't matter for this scenario.
+
+      **Registration ID**: If the device has already been provisioned, use its IoT Hub device ID. You can find this in the registration records of the enrollment group, or in the IoT hub that the device was provisioned to. If the device has not yet been provisioned, enter the device certificate CN. (In this latter case, you don't need the device certificate, but you will need to know the CN.)
+
+      **IoT Hub Device ID**: Leave this blank. For devices provisioned through X.509 enrollment groups, the device ID is set by the device certificate CN and is the same as the registration ID.
+
+      ![Screenshot of properties for the disallowed device in a symmetric key enrollment entry](./media/how-to-revoke-device-access-portal/add-enrollment-symmetric-key.png)
 
 6. Scroll to the bottom of the **Add Enrollment** page and select **Disable** on the **Enable entry** switch, and then select **Save**. 
 
-    [![Use disabled individual enrollment entry to disable device from group enrollment, in the portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
+    [![Screenshot of disabled individual enrollment entry to disable device from group enrollment in the portal](./media/how-to-revoke-device-access-portal/select-disable-on-indivdual-entry.png)
 
 When you successfully create your enrollment, you should see your disabled device enrollment listed on the **Individual Enrollments** tab. 
 

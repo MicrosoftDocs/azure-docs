@@ -3,7 +3,7 @@ title: Deprovision devices that were provisioned with Azure IoT Hub Device Provi
 description: How to deprovision devices that have been provisioned with Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 05/11/2018
+ms.date: 01/20/2022
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
@@ -57,5 +57,13 @@ With enrollment groups, there are two scenarios to consider:
   3. After disabling or deleting all devices from their respective IoT hubs, you can optionally delete the enrollment group. Be aware, though, that, if you delete the enrollment group and there is an enabled enrollment group for a signing certificate higher up in the certificate chain of one or more of the devices, those devices can re-enroll. 
 
 - To deprovision a single device from an enrollment group:
-  1. Create a disabled individual enrollment for its leaf (device) certificate. This revokes access to the provisioning service for that device while still permitting access for other devices that have the enrollment group's signing certificate in their chain. Do not delete the disabled individual enrollment for the device. Doing so will allow the device to re-enroll through the enrollment group. 
+  1. Create a disabled individual enrollment for the device.
+  
+      - If you have the device (end-entity) certificate, you can create a disabled X.509 individual enrollment.
+      - If you don't have the device certificate, you can create a disabled symmetric key individual enrollment based on the device ID in the registration record for that device.
+
+      To learn more, see [Disallow specific devices in an enrollment group](how-to-revoke-device-access-portal.md#disallow-specific-devices-in-an-enrollment-group).
+  
+      The presence of a disabled individual enrollment for a device revokes access to the provisioning service for that device while still permitting access for other devices that have the enrollment group's signing certificate in their chain. Do not delete the disabled individual enrollment for the device. Doing so will allow the device to re-enroll through the enrollment group.
+
   2. Use the list of provisioned devices for that enrollment group to find the IoT hub that the device was provisioned to and disable or delete it from that hub's identity registry.
