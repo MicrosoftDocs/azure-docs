@@ -84,7 +84,7 @@ The authentication policy is cached. After a policy update, it may take up to an
 
 - Make sure the CRL distribution point is set to a valid HTTP URL.
 - Make sure the CRL distribution point is accessible via an internet-facing URL.
-- Make sure the CRL sizes are within the limit for public preview. For more information about the maximum CRL size, see [What is the maximum size for downloading a CRL?](cloud-native-certificate-based-authentication-faq.md#what-is-the-maximum-size-for-downloading-a-crl-).
+- Make sure the CRL sizes are within the limit for public preview. For more information about the maximum CRL size, see [What is the maximum size for downloading a CRL?](cloud-native-certificate-based-authentication-faq.yml#what-is-the-maximum-size-for-downloading-a-crl-).
 
 ## Next steps 
 
