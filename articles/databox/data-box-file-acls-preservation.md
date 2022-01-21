@@ -85,8 +85,7 @@ During an [SMB file transfer](./data-box-deploy-copy-data.md), the following ACL
 - Discretionary ACLs (DACLs) and system ACLs (SACLs) for directories and files that you copy to your Data Box
 - If you use a Linux client, only Windows NT ACLs are transferred.<!--Kyle asked: What are Windows NT ACLs.-->
 
-> [!NOTE]
-> ACLs aren't transferred when you [copy data over NFS](./data-box-deploy-copy-data-via-nfs.md) or [use the data copy service](data-box-deploy-copy-data-via-copy-service.md). The data copy service reads data directly from your shares and can't read ACLs.
+ACLs aren't transferred when you [copy data over NFS](./data-box-deploy-copy-data-via-nfs.md) or [use the data copy service](data-box-deploy-copy-data-via-copy-service.md). The data copy service reads data directly from your shares and can't read ACLs.
 
 **Default ACLs transfer**  
 
