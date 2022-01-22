@@ -30,10 +30,10 @@ highlightedContent:
     - title: What is verifiable credentials (preview)?
       itemType: overview
       url: ./verifiable-credentials/decentralized-identifier-overview.md
-    - title: Azure AD deployment checklist
+    - title: Azure AD feature deployment guide
       itemType: concept
       url: ./fundamentals/active-directory-deployment-checklist-p2.md
-    - title: Build resilience into identity and access management with Azure AD
+    - title: Build resilience into identity and access management
       itemType: overview
       url: ./fundamentals/resilience-overview.md
 
@@ -44,13 +44,13 @@ conceptualContent:
       links:
         - url: ./manage-apps/what-is-application-management.md
           itemType: overview
-          text: What is app management?
+          text: What is application management?
         - url: ./manage-apps/view-applications-portal.md
           itemType: quickstart
-          text: View the apps that are using your tenant for identity management
+          text: View enterprise applications in your tenant
         - url: ./manage-apps/add-application-portal-setup-sso.md
           itemType: quickstart
-          text: Set up SAML-based SSO
+          text: Enable single sign-on for an enterprise app
       footerLink:
         url: ./manage-apps/index.yml
         text: See more
@@ -59,13 +59,13 @@ conceptualContent:
       links:
         - url: ./app-provisioning/user-provisioning.md
           itemType: overview
-          text: What is application provisioning?
+          text: What is app provisioning?
         - url: ./app-provisioning/how-provisioning-works.md
           itemType: concept
           text: How application provisioning works
         - url: ./app-provisioning/plan-cloud-hr-provision.md
           itemType: how-to-guide
-          text: Plan cloud HR app user provisioning
+          text: Plan user provisioning from a cloud HR app
       footerLink:
         url: ./app-provisioning/index.yml
         text: See more
@@ -80,7 +80,7 @@ conceptualContent:
           text: Enable self-service password reset
         - url: ./authentication/tutorial-enable-azure-mfa.md
           itemType: tutorial
-          text: Secure user sign-in with Multi-Factor Authentication
+          text: Secure user sign-in with multifactor authentication
       footerLink:
         url: ./authentication/index.yml
         text: See more
@@ -89,13 +89,13 @@ conceptualContent:
       links:
         - url: ./cloud-sync/what-is-cloud-sync.md
           itemType: overview
-          text:  What is cloud sync?
+          text:  What is Azure AD cloud sync?
         - url: ./cloud-sync/tutorial-single-forest.md
           itemType: tutorial
-          text:  Integrate a single forest with a single Azure AD tenant
+          text:  Integrate a single forest with a single tenant
         - url: ./cloud-sync/how-to-install.md
           itemType: how-to-guide
-          text:  Install Azure AD Connect provisioning agent
+          text:  Install the Azure AD Connect provisioning agent
       footerLink:
         url: ./cloud-sync/index.yml
         text: See more
@@ -107,10 +107,10 @@ conceptualContent:
           text:  What is Conditional Access?
         - url: ./authentication/tutorial-enable-azure-mfa.md
           itemType: quickstart
-          text:  Secure user sign-in with Multi-Factor Authentication
+          text:  Secure user sign-in events with multifactor authentication
         - url: ./conditional-access/location-condition.md
           itemType: concept
-          text:  Using location in Conditional Access policy
+          text:  Use location in Conditional Access policy
       footerLink:
         url: ./conditional-access/index.yml
         text: See more
@@ -125,22 +125,22 @@ conceptualContent:
           text:  Plan a hybrid Azure AD join
         - url: ./devices/azureadjoin-plan.md
           itemType: how-to-guide
-          text:  Plan an Azure AD join
+          text:  Plan an Azure AD join implementation
       footerLink:
         url: ./devices/index.yml
         text: See more
 
-    - title: Domain services
+    - title: Domain Services
       links:
         - url: ../active-directory-domain-services/overview.md
           itemType: overview
           text:  What is Azure AD Domain Services?
         - url: ../active-directory-domain-services/tutorial-create-instance.md
           itemType: quickstart
-          text:  Create and configure a managed domain
+          text:  Create and configure a Domain Services managed domain
         - url: ../active-directory-domain-services/manage-group-policy.md
           itemType: how-to-guide
-          text:  Administer group policy in a managed domain
+          text:  Administer group policy in a Domain Services managed domain
       footerLink:
         url: ../active-directory-domain-services/index.yml
         text: See more
@@ -152,7 +152,7 @@ conceptualContent:
           text:  Create or update a dynamic group
         - url: ./enterprise-users/groups-settings-v2-cmdlets.md
           itemType: how-to-guide
-          text:  Manage Groups with Azure AD PowerShell (V2)
+          text:  Manage groups with Azure AD PowerShell (V2)
         - url: ./enterprise-users/directory-service-limits-restrictions.md
           itemType: reference
           text:  Azure AD service limits and restrictions
@@ -164,13 +164,13 @@ conceptualContent:
       links:
         - url: ./external-identities/compare-with-b2c.md
           itemType: overview
-          text: What are External Identities?
+          text: What are External Identities in Azure AD?
         - url: ../active-directory-b2c/overview.md
           itemType: overview
           text:  What is Azure AD B2C identity?
         - url: ./external-identities/what-is-b2b.md
           itemType: overview
-          text: What is guest user access in Azure AD B2B
+          text: What is guest user access in Azure AD B2B?
       footerLink:
         url: ./external-identities/index.yml
         text: See more
@@ -179,13 +179,13 @@ conceptualContent:
       links:
         - url: ./hybrid/whatis-hybrid-identity.md
           itemType: overview
-          text:  What is hybrid identity?
+          text:  What is hybrid identity with Azure AD?
         - url: ./hybrid/how-to-connect-sso.md
           itemType: how-to-guide
-          text:  Seamless Single Sign-On
+          text:  Azure AD Seamless Single Sign-On
         - url: ./hybrid/how-to-connect-install-custom.md
           itemType: how-to-guide
-          text:  Custom installation of Azure AD Connect
+          text:  Customize installation of Azure AD Connect
       footerLink:
         url: ./hybrid/index.yml
         text: See more
@@ -197,10 +197,10 @@ conceptualContent:
           text:  Manage access to resources in entitlement management
         - url: ./governance/create-access-review.md
           itemType: how-to-guide
-          text:  Create an access review of a group or app 
+          text:  Create an access review of groups and apps
         - url: ./conditional-access/terms-of-use.md
           itemType: how-to-guide
-          text: Require users to accept a terms of use
+          text: Create and manage terms of use
       footerLink:
         url: ./governance/index.yml
         text: See more
@@ -209,7 +209,7 @@ conceptualContent:
       links:
         - url: ./identity-protection/overview-identity-protection.md
           itemType: overview
-          text:  What is identity protection?
+          text:  What is Identity Protection?
         - url: ./identity-protection/howto-identity-protection-configure-risk-policies.md
           itemType: how-to-guide
           text:  Configure and enable risk policies
@@ -224,13 +224,13 @@ conceptualContent:
       links:
         - url: ./managed-identities-azure-resources/tutorial-windows-vm-access-sql.md
           itemType: tutorial
-          text:  Use Windows VM to access Azure SQL
+          text:  Use a system-assigned identity and Windows VM to access Azure SQL
         - url: ./managed-identities-azure-resources/how-to-use-vm-token.md
           itemType: how-to-guide
-          text:  Use managed identities to acquire an access token
+          text:  Use managed identities on an Azure VM to acquire an access token
         - url: ./managed-identities-azure-resources/services-support-managed-identities.md
           itemType: concept
-          text:  Services that use managed identities to access other services
+          text:  Services that can use managed identities to access other services
       footerLink:
         url: ./managed-identities-azure-resources/index.yml
         text: See more
@@ -269,10 +269,10 @@ conceptualContent:
       links:
         - url: ./reports-monitoring/concept-audit-logs.md
           itemType: concept
-          text:  Audit logs
+          text:  Audit logs in Azure AD
         - url: ./reports-monitoring/concept-sign-ins.md
           itemType: concept
-          text:  Sign-in logs
+          text:  Sign-in logs in Azure AD
         - url: https://login.microsoftonline.com/error
           itemType: reference
           text:  Look up sign-in error codes
@@ -284,10 +284,10 @@ conceptualContent:
       links:
         - url: ./roles/manage-roles-portal.md
           itemType: how-to-guide
-          text:  Assign Azure AD roles
+          text:  Assign Azure AD roles to users
         - url: ./roles/administrative-units.md
           itemType: concept
-          text:  Administrative units
+          text:  Administrative units in Azure AD
         - url: ./roles/custom-create.md
           itemType: how-to-guide
           text:  Create and assign a custom role
@@ -300,7 +300,7 @@ conceptualContent:
       links:
         - url: ./saas-apps/amazon-web-service-tutorial.md
           itemType: tutorial
-          text: Azure AD single sign-on integration with Amazon Web Services
+          text: Integrate Azure AD single sign-on with Amazon Web Services
         - url: ./saas-apps/workday-inbound-tutorial.md
           itemType: tutorial
           text: Configure Workday for automatic user provisioning
