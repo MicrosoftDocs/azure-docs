@@ -31,7 +31,8 @@ Overview content
 ::: zone pivot="platform-windows"
 
 ## Windows IoT OS Support
-Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 1903
+Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 1903 or greater
+* [Windows 10 IoT Enterprise Lifecycle](../lifecycle/products/windows-10-iot-enterprise)
 > [!Note]
 > The Windows secured-core tests require you to download and run the following package (https://aka.ms/Scforwiniot) from an Administrator Command Prompt on the IoT device being validated.
 
@@ -335,18 +336,6 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Validation|Device to be validated through toolset to ensure that firmware and kernel signatures are validated every time the device boots. <ul><li>UEFI: Secure boot is enabled</li><li>Uboot: Verified boot is enabled</li></ul>|
 |Resources||
 
----
-</br>
-
-|Name|SecuredCore.Protection.SignedUpdates|
-|:---|:---|
-|Status|Required|
-|Description|The purpose of the test is to validate that updates must be signed.|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that updates to the operating system, drivers, application software, libraries, packages and firmware will not be applied unless properly signed and validated.
-|Resources||
-
 ## Linux Configuration Requirements
 
 ---
@@ -441,6 +430,18 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Validation Type|Manual/Tools|
 |Validation|Partner confirmation that they were able to send an update to the device through Azure Device update and other approved services.|
 |Resources|[Device Update for IoT Hub](../iot-hub-device-update/index.yml)|
+
+---
+</br>
+
+|Name|SecuredCore.Protection.SignedUpdates|
+|:---|:---|
+|Status|Required|
+|Description|The purpose of the test is to validate that updates must be signed.|
+|Target Availability|2022|
+|Validation Type|Manual/Tools|
+|Validation|Device to be validated through toolset to ensure that updates to the operating system, drivers, application software, libraries, packages and firmware will not be applied unless properly signed and validated.
+|Resources||
 
 ---
 </br>
