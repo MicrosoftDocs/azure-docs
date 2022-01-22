@@ -6,7 +6,7 @@ ms.author: xupzhou
 ms.service: data-factory
 ms.subservice: concepts
 ms.topic: overview
-ms.date: 21/01/2022
+ms.date: 01/21/2022
 ---
 
 # What's new in Azure Data Factory
