@@ -6,7 +6,7 @@ author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 01/22/2022
 ms.author: lizross
 ms.custom: [amqp, mqtt, 'Role: Cloud Development']
 ---
