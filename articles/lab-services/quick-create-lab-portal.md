@@ -20,7 +20,7 @@ To complete this quick start, make sure that you have:
 ## Create a lab
 The following steps show how to create a lab with Azure Lab Services.
 
-1. Sign into the [Azure Lab Service portal]([https://labs.azure.com).
+1. Sign into the [Azure Lab Service portal](https://labs.azure.com).
 1. Select **New lab**.  
     
     :::image type="content" source="./media/quick-create-lab-portal/new-lab-button.png" alt-text="Screenshot of Azure Lab Services portal.  New lab button is highlighted.":::
@@ -60,7 +60,8 @@ When no longer needed, you can delete the lab.
 
 On the tile for the lab, select three dots (...) in the corner, and then select **Delete**.
 
-    ![Delete button](./media/how-to-manage-labs/delete-button.png)
+![Delete button](./media/how-to-manage-labs/delete-button.png)
+
 On the **Delete lab** dialog box, select **Delete** to continue with the deletion.
 
 ## Next steps
