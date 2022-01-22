@@ -213,7 +213,9 @@ Let's walk through a scenario where we will validate strong authentication by cr
 
 1.	Select the client certificate and click **Certificate Information**. 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/client-picker.png" alt-text="Screenshot of the client picker.":::
-   The certificate will be shown, and you can verify the issuer and policy OID values. 
+
+1. The certificate will be shown, and you can verify the issuer and policy OID values. 
+
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/issuer.png" alt-text="Screenshot of the issuer.":::
 
 1. To see Policy OID values, click **Details**.
