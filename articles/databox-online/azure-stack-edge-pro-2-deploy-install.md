@@ -212,11 +212,11 @@ Take the following steps to cable your device for power and network.
 
 1. Identify the various ports on the back plane of your device. You may have received one of the following devices from the factory depending on the number of GPUs in your device.
 
-    ![Back plane of a cabled device](./media/azure-stack-edge-pro-2-deploy-install/ase-two-pci-slots.png)
+    ![Back plane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
 
 2. Locate the disk slots and the power button on the front of the device.
 
-    ![Front plane of a device](./media/azure-stack-edge-pro-2-deploy-install/ase-gpu-device-front-plane-labeled.png)
+    ![Front plane of a device](./media/azure-stack-edge-gpu-deploy-install/ase-gpu-device-front-plane-labeled.png)
 
 3. Connect the power cord to the PSU in the enclosure. 
 4. Attach the power cord to the rack power distribution unit (PDU). 

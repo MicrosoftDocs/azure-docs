@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 01/11/2022
 ms.author: alkohli 
 ---
-# Deployment checklist for your Azure Stack Edge Pro 2 device  
+# Deployment checklist for your Azure Stack Edge Pro GPU device  
 
 This article describes the information that can be gathered ahead of the actual deployment of your Azure Stack Edge Pro 2 device. 
 

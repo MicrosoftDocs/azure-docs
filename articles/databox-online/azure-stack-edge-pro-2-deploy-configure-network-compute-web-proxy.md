@@ -1,19 +1,19 @@
 ---
-title: Tutorial to configure network settings for Azure Stack Edge Pro device with GPU in Azure portal | Microsoft Docs
-description: Tutorial to deploy Azure Stack Edge Pro GPU instructs you to configure network, compute network, and web proxy settings for your physical device.
+title: Tutorial to configure network settings for Azure Stack Edge Pro 2 device 
+description: Tutorial to deploy Azure Stack Edge Pro 2 instructs you to configure network, compute network, and web proxy settings for your physical device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 07/07/2021
+ms.date: 01/21/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
-# Tutorial: Configure network for Azure Stack Edge Pro with GPU
+# Tutorial: Configure network for Azure Stack Edge Pro 2
 
-This tutorial describes how to configure network for your Azure Stack Edge Pro device with an onboard GPU by using the local web UI.
+This tutorial describes how to configure network for your Azure Stack Edge Pro 2 device by using the local web UI.
 
 The connection process can take around 20 minutes to complete.
 

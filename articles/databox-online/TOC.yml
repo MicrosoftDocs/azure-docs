@@ -29,7 +29,7 @@
     - name: 6 - Configure certificates
       href: azure-stack-edge-pro-2-deploy-configure-certificates.md
     - name: 7 - Activate
-      href: azure-stack-edge-pro-2-deploy-activate.md 
+      href: azure-stack-edge-placeholder.md 
     - name: 8 - Configure compute
       href: azure-stack-edge-pro-2-deploy-configure-compute.md 
       
