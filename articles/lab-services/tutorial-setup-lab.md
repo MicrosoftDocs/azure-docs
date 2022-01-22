@@ -162,7 +162,7 @@ By default, the **Restrict access** option, found on the **Users** page, is turn
     :::image type="content" source="./media/tutorial-setup-lab/send-email.png" alt-text="Screenshot of Send invitation by email windows for Azure Lab Services.":::
 1. You see the status of **invitation** in the **Users** list. The status should change to **Sending** and then to **Sent on &lt;date&gt;**.
 
-For more information about managing students in the lab, see [How to configure student usage](how-to-configure-student-usage.md).
+For more information about managing usage of student VMs, see [How to configure student usage](how-to-configure-student-usage.md).
 
 ## Next steps
 
