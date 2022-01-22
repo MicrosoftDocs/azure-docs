@@ -115,9 +115,9 @@
       href: how-to-connect-vnet-injection.md
     - name: How to create a lab with a shared resource
       href: how-to-create-a-lab-with-shared-resource.md
-    - name: Use shared image gallery for custom images
+    - name: Use Azure Compute Gallery for custom images
       items:
-      - name: Attach or detach a shared image gallery
+      - name: Attach or detach a compute gallery
         href: how-to-attach-detach-shared-image-gallery.md
       - name: Create custom images for labs
         href: approaches-for-custom-image-creation.md

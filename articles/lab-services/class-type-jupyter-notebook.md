@@ -29,7 +29,7 @@ Enable settings described in the table below for the lab plan. For more informat
 | ------------------- | ------------ |
 | Marketplace image | Inside your lab account, enable either **Data Science Virtual Machine – Windows Server 2019** or **Data Science Virtual Machine – Ubuntu 18.04** depending on your OS needs. |
 
-This article uses the Data Science virtual machine images available on the Azure Marketplace because they are already configured with Jupyter Notebook. These images, however, also include many other development and modeling tools for data science. If you don't want those extra tools and want a lightweight setup with only Jupyter notebooks, create a custom VM image. For an example, [Installing JupyterHub on Azure](http://tljh.jupyter.org/en/latest/install/azure.html). Once the custom image is created, you can upload it to a shared image gallery to use the image inside Azure Lab Services. Learn more about [using Shared Image Gallery in Azure Lab Services](how-to-attach-detach-shared-image-gallery.md).
+This article uses the Data Science virtual machine images available on the Azure Marketplace because they are already configured with Jupyter Notebook. These images, however, also include many other development and modeling tools for data science. If you don't want those extra tools and want a lightweight setup with only Jupyter notebooks, create a custom VM image. For an example, [Installing JupyterHub on Azure](http://tljh.jupyter.org/en/latest/install/azure.html). Once the custom image is created, you can upload it to a compute gallery to use the image inside Azure Lab Services. Learn more about [using compute gallery in Azure Lab Services](how-to-attach-detach-shared-image-gallery.md).
 
 ### Lab settings
 

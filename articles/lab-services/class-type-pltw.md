@@ -100,7 +100,7 @@ The size of the virtual machine (VM) that we recommend using for PLTW classes de
 
 Some of the installation files that you need for PLTW are large. When you download the files to a lab template VM, they might take a long time to copy.
 
-Instead of downloading installation files to the template machine and installing everything there, we recommend creating your PLTW images in your physical environment.  You can then import the custom images into a shared image gallery so that you can use them to create your labs.  For more information, see [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md).
+Instead of downloading installation files to the template machine and installing everything there, we recommend creating your PLTW images in your physical environment.  You can then import the custom images into a compute gallery so that you can use them to create your labs.  For more information, see [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md).
 
 As you follow this recommendation, note the major tasks for setting up a lab:
 
@@ -114,7 +114,7 @@ As you follow this recommendation, note the major tasks for setting up a lab:
     b. [Install and configure OneDrive](./how-to-prepare-windows-template.md#install-and-configure-onedrive) or other backup options that your school might use.
     c. [Install and configure Windows updates](./how-to-prepare-windows-template.md#install-and-configure-updates).
 
-1. Upload the custom image to the [shared image gallery that's attached to your lab account](./how-to-attach-detach-shared-image-gallery.md).
+1. Upload the custom image to the [compute gallery that's attached to your lab account](./how-to-attach-detach-shared-image-gallery.md).
 1. Create a lab, and then select the custom image that you uploaded in the preceding step.
 1. After the lab is created, start and connect to the template VM to validate that the image works as expected.
 1. Finally, publish the template VM to create the students’ VMs.
@@ -132,7 +132,7 @@ Students can connect to their lab VMs from Windows computers, Mac, and Chromeboo
 
 ## Cost
 
-Let’s cover an example cost estimate for the PLTW classes.  This estimate doesn’t include the cost of running a license server or using a shared image gallery. Suppose you have a class of 25 students, each of whom has 20 hours of scheduled class time.  Each student also has an additional 10 quota hours for homework or assignments outside of scheduled class time.  Here are the estimated costs:
+Let’s cover an example cost estimate for the PLTW classes.  This estimate doesn’t include the cost of running a license server or using a compute gallery. Suppose you have a class of 25 students, each of whom has 20 hours of scheduled class time.  Each student also has an additional 10 quota hours for homework or assignments outside of scheduled class time.  Here are the estimated costs:
 
 - **Large VM**
 

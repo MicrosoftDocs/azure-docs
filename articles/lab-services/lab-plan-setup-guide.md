@@ -80,15 +80,15 @@ For more information about the lab Owner and Contributor roles, see [RBAC roles]
 
 ### Do you want to save images and share them across labs?
 
-Shared Image Gallery is a service that you can use for saving and sharing images. For classes that need to use the same image, Lab Creators can create the image and then export it to a shared image gallery.  After an image is exported to the shared image gallery, it can be used to create new labs.
+Azure Compute Gallery is a service that you can use for saving and sharing images. For classes that need to use the same image, Lab Creators can create the image and then export it to a compute gallery.  After an image is exported to the compute gallery, it can be used to create new labs.
 
-You might want to create your images in your physical environment and then import them to a shared image gallery. For more information, see the blog post [Import a custom image to a shared image gallery](https://techcommunity.microsoft.com/t5/azure-lab-services/import-custom-image-to-shared-image-gallery/ba-p/1777353).
+You might want to create your images in your physical environment and then import them to a compute gallery. For more information, see the blog post [Import a custom image to a compute gallery](https://techcommunity.microsoft.com/t5/azure-lab-services/import-custom-image-to-shared-image-gallery/ba-p/1777353).
 
-If you decide to use the Shared Image Gallery service, you'll need to create or attach a shared image gallery to your lab plan. You can postpone this decision for now, because a shared image gallery can be attached to a lab plan at any time.  
+If you decide to use the compute gallery service, you'll need to create or attach a compute gallery to your lab plan. You can postpone this decision for now, because a compute gallery can be attached to a lab plan at any time.  
 
 For more information, see:
 
-- The "Shared image gallery" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#shared-image-gallery)
+- The "Azure computegallery" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#azure-compute-gallery)
 - The "Pricing" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#pricing)
 
 ### Which images in Azure Marketplace will your labs use?
@@ -142,7 +142,7 @@ After you've finished planning, you're ready to set up your lab plan.
 
    ![Screenshot of a list of images available for review in Azure Marketplace.](./media/setup-guide/review-marketplace-images.png)
 
-   If a shared image gallery is attached to your lab plan, and you want to enable custom images to be shared by Lab Creators, complete similar steps as shown in the following screenshot:
+   If a compute gallery is attached to your lab plan, and you want to enable custom images to be shared by Lab Creators, complete similar steps as shown in the following screenshot:
 
    ![Screenshot of a list of enabled custom images in a shared image gallery.](./media/setup-guide/enable-sig-custom-images.png)
 

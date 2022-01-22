@@ -18,7 +18,7 @@ Each lab dashboard has a **Costs & Billing** section that lays out a rough estim
 This estimate might not show all the possible costs. A few resources aren't included:
 
 - The template preparation cost. It can vary significantly in the amount of time needed to create the template. The cost to run the template is the same as the overall lab cost per hour.
-- Any [shared image gallery](how-to-use-shared-image-gallery.md) costs, because a gallery can be shared among multiple labs.
+- Any [compute gallery](how-to-use-shared-image-gallery.md) costs, because a gallery can be shared among multiple labs.
 - Hours incurred when the lab creator starts a virtual machine (VM).
 - Networking costs if the lab is using [advanced networking](how-to-connect-vnet-injection.md).
 
@@ -57,10 +57,10 @@ By default, there are six columns: **Resource**, **Resource type**, **Location**
 
 In this example, adding the first and second rows (both start with **aaalab / dockerlab**) will give you the total cost for the lab "dockerlab" in the "aaalab" lab account or lab plan.
 
-To get the overall cost for the image gallery, change the resource type to `Microsoft.Compute/Galleries`. A shared image gallery might not show up in the costs, depending on where the gallery is stored.
+To get the overall cost for the image gallery, change the resource type to `Microsoft.Compute/Galleries`. A compute gallery might not show up in the costs, depending on where the gallery is stored.
 
 > [!NOTE]
-> A shared image gallery is connected to the lab plan. That means multiple labs can use the same image.
+> An Azure Compute Gallery is connected to the lab plan. That means multiple labs can use the same image.
 
 ## Separate the costs
 
@@ -91,7 +91,7 @@ In the schedule, you can add a stop-only event type that will stop all machines 
 
 ### Other costs related to labs
 
-Some costs aren't rolled into Lab Services but can be tied to a lab service. You can connect a shared image gallery to a lab, but it won't show under the Lab Services costs and does have costs. To help keep overall costs down, you should remove any unused images from the gallery because the images have an inherent storage cost.
+Some costs aren't rolled into Lab Services but can be tied to a lab service. You can connect a compute gallery to a lab, but it won't show under the Lab Services costs and does have costs. To help keep overall costs down, you should remove any unused images from the gallery because the images have an inherent storage cost.
 
 Labs can have connections to other Azure resources through a virtual network. When a lab is removed, you should remove the virtual network and the other resources.
 
