@@ -145,8 +145,8 @@ The following data sources are free with Microsoft Sentinel:
 - Microsoft Defender for Cloud and Microsoft Defender for Cloud Apps alerts. 
 
 > [!NOTE]
-- Although alerts are free, the raw logs for some Microsoft 365 Defender, Defender for Cloud Apps, Azure Active Directory (Azure AD), and Azure Information Protection (AIP) data types are paid.
-
+> Although alerts are free, the raw logs for some Microsoft 365 Defender, Defender for Cloud Apps, Azure Active Directory (Azure AD), and Azure Information Protection (AIP) data types are paid.
+> 
 The following table lists the free data sources you can enable in Microsoft Sentinel. Some of the data connectors, such as Microsoft 365 Defender and Defender for Cloud Apps, include both free and paid data types.
 
 | Microsoft Sentinel Data Connector   | Data type | Free or paid |
@@ -185,15 +185,6 @@ For more information about free and paid data sources and connectors, see [Conne
 > Data connectors listed as Public Preview do not generate cost. Data connectors generate cost only once becoming Generally Available (GA).
 >
 
-## Estimate Microsoft Sentinel costs
-
-If you're not yet using Microsoft Sentinel, you can use the [Microsoft Sentinel pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=azure-sentinel) to estimate the potential cost of using Microsoft Sentinel. Enter *Microsoft Sentinel* in the Search box and select the resulting Microsoft Sentinel tile. The pricing calculator helps you estimate your likely costs based on your expected data ingestion and retention.
-
-For example, you can enter the GB of daily data you expect to ingest in Microsoft Sentinel, and the region for your workspace. The calculator provides the aggregate monthly cost across these components:
-
-- Log Analytics data ingestion
-- Microsoft Sentinel data analysis
-- Log Analytics data retention
 
 ## Manage and monitor Microsoft Sentinel costs
 
