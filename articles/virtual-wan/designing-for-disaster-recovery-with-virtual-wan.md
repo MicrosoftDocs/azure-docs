@@ -8,7 +8,6 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 01/05/2022
 ms.author: rambala
-
 ---
 
 # Design for disaster recovery with Virtual WAN
