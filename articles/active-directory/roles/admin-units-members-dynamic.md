@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 01/19/2022
+ms.date: 01/21/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -72,6 +72,8 @@ Follow these steps to create administrative units with dynamic membership rules 
     After changing the administrative unit type, the existing membership may change based on the dynamic membership rule you provide.
 
 1. Select **Yes** to continue.
+
+For steps on how to edit your rule, see the following [Edit dynamic membership rules](#edit-dynamic-membership-rules) section.
 
 ### PowerShell
 
