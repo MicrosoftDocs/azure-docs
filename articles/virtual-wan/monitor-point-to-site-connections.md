@@ -48,7 +48,7 @@ The Azure storage account has the following configuration settings
 
 1. On the **Create WAN** page, on the **Basics** tab, fill in the fields. Modify the example values to apply to your environment.
 
-   :::image type="content" source="./media/monitor-point-to-site-connections/storage-account-basics.png" alt-text="Screenshot shows the Create WAN pane with the Basics tab selected.":::
+   :::image type="content" source="./media/monitor-point-to-site-connections/storage-account-basics.png" alt-text="Screenshot shows the basics section of creating a storage account.":::
 
    * **Subscription**: Select the subscription that you want to use.
    * **Resource group**: Create new or use existing.
@@ -58,7 +58,7 @@ The Azure storage account has the following configuration settings
    * **Redundancy**: Choose between Locally-redundant storage, Geo-redundant storage, Zone-redundant storage, and Geo-zone-redundant storage.
 
 1. After you finish filling out the fields, at the bottom of the page, select **Next: Advanced>**.
-    :::image type="content" source="./media/monitor-point-to-site-connections/storage-account-advanced.png" alt-text="Screenshot shows the Create WAN pane with the Basics tab selected.":::
+    :::image type="content" source="./media/monitor-point-to-site-connections/storage-account-advanced.png" alt-text="Screenshot shows advanced section of creating a storage account.":::
 
     * **Require secure transfer for REST API operations**: Choose **Enabled**
     * **Enable blob public access**: Choose **Disabled**
@@ -74,18 +74,25 @@ The Azure storage account has the following configuration settings
 
 1. Once the deployment is complete, go to the resource
 1. On the left-hand panel, click **Containers** under **Data storage**
-:::image type="content" source="./media/monitor-point-to-site-connections/container-create.png" alt-text="Screenshot shows the Create WAN pane with the Basics tab selected.":::
+:::image type="content" source="./media/monitor-point-to-site-connections/container-create.png" alt-text="Screenshot shows the initial container page.":::
 1. Click **+ Container** to create a new container
 1. Type a **Name** for your container and click **Create**
-1. Click on your new container resource
+
+## Create and upload blob to container
 1. On your machine, open a text editor application, such as **Notepad**
+   :::image type="content" source="./media/monitor-point-to-site-connections/notepad.png" alt-text="Screenshot shows how to open notepad.":::
 1. Leave the text file empty and click **File -> Save As**
 1. Save the empty text file with a name of your choice followed by the **.json** extension
-    :::image type="content" source="./media/monitor-point-to-site-connections/empty-json.png" alt-text="Screenshot shows the Create WAN pane with the Basics tab selected.":::
+    :::image type="content" source="./media/monitor-point-to-site-connections/empty-json.png" alt-text="Screenshot shows how to save json file.":::
+1. Go back to the **Containers** section in portal
+   :::image type="content" source="./media/monitor-point-to-site-connections/container-after.png" alt-text="Screenshot shows the container section after creating new container.":::
+1. Click on the second row, which corrersponds to the container you created (not $logs)
+1. If you see this red warning message saying ""**You do not have permission...**"", then click **Switch to Access key** as your authentication method. This is located right below the red warning box.
+1. Click **Upload**
+    :::image type="content" source="./media/monitor-point-to-site-connections/specific-container.png" alt-text="Screenshot shows the specific container that was created by user"::: 
+1. Select the file corresponding to your empty JSON file on your machine and click **Upload**
 
 
-Authentication method: Azure AD User Account (or switch to access key, as this will also work)
-Blob in container: create/upload empty file <vpnstatfile.json> in container
 Generate SAS token and URL: (SASURI, to be saved in KeyVault and used directly from within the workbook)
 Signing method: Account Key
 - Key 1: Permissions
