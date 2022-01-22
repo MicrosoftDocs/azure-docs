@@ -398,7 +398,7 @@ The following table explains the binding configuration properties that you set i
 |**name** | n/a | The name of the variable that represents the blob in function code.  Set to `$return` to reference the function return value.|
 |**path** |**BlobPath** | The path to the blob container. |
 |**connection** |**Connection**| The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
-|n/a | **Access** | Indicates whether you will be reading or writing. |
+|**Access** | n/a | Indicates whether you will be reading or writing. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

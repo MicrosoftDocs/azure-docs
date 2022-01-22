@@ -6,14 +6,14 @@ services: load-testing
 ms.service: load-testing
 ms.author: ninallam
 author: ninallam
-ms.date: 11/30/2021
+ms.date: 01/21/2022
 ms.topic: tutorial
 #Customer intent: As an Azure user, I want to learn how to automatically test builds for performance regressions on every pull request and/or deployment by using GitHub Actions.
 ---
 
 # Tutorial: Identify performance regressions with Azure Load Testing Preview and GitHub Actions
 
-This tutorial describes how to automate performance regression testing by using Azure Load Testing Preview and GitHub Actions. You'll configure a GitHub Actions continuous integration and continuous delivery (CI/CD) workflow to run a load test for a sample web application. You'll then use the test results to identify performance regressions.
+This tutorial describes how to automate performance regression testing by using Azure Load Testing Preview and GitHub Actions. You'll configure a GitHub Actions CI/CD workflow and use the [Azure Load Testing Action](https://github.com/marketplace/actions/azure-load-testing) to run a load test for a sample web application. You'll then use the test results to identify performance regressions.
 
 If you're using Azure Pipelines for your CI/CD workflows, see the corresponding [Azure Pipelines tutorial](./tutorial-cicd-azure-pipelines.md).
 
@@ -136,7 +136,7 @@ jobs:
 
 ## Configure the GitHub Actions workflow to run a load test
 
-In this section, you'll set up a GitHub Actions workflow that triggers the load test. The sample application repository contains a workflow file *SampleApp.yaml*. The workflow first deploys the sample web application to Azure App Service, and then invokes the load test. The GitHub action uses an environment variable to pass the URL of the web application to the Apache JMeter script.
+In this section, you'll set up a GitHub Actions workflow that triggers the load test. The sample application repository contains a workflow file *SampleApp.yaml*. The workflow first deploys the sample web application to Azure App Service, and then invokes the load test by using the [Azure Load Testing Action](https://github.com/marketplace/actions/azure-load-testing). The GitHub action uses an environment variable to pass the URL of the web application to the Apache JMeter script.
 
 Update the *SampleApp.yaml* GitHub Actions workflow file to configure the parameters for running the load test.
 
@@ -291,53 +291,6 @@ In this tutorial, you'll reconfigure the sample application to accept only secur
 
     The Azure Load Testing task securely passes the repository secret from the workflow to the test engine. The secret parameter is used only while you're running the load test. Then the parameter's value is discarded from memory.
 
-## Configure and use the Azure Load Testing action
-
-This section describes the Azure Load Testing GitHub action. You can use this action by referencing `azure/load-testing@v1` in your workflow. The action runs on Windows, Linux, and Mac runners. 
-
-You can use the following parameters to configure the GitHub action:
-
-|Parameter  |Description  |
-|---------|---------|
-|`loadTestConfigFile`    | *Required*. Path to the YAML configuration file for the load test. The path is fully qualified or relative to the default working directory.        |
-|`resourceGroup`     |  *Required*. Name of the resource group that contains the Azure Load Testing resource.       |
-|`loadTestResource`     |   *Required*. Name of an existing Azure Load Testing resource.      |
-|`secrets`   |   Array of JSON objects that consist of the name and value for each secret. The name should match the secret name that's used in the Apache JMeter test script. |
-|`env`     |   Array of JSON objects that consist of the name and value for each environment variable. The name should match the variable name that's used in the Apache JMeter test script. |
-
-The following YAML code snippet describes how to use the action in a GitHub Actions workflow: 
-
-```yaml
-- name: 'Azure Load Testing'
-  uses: azure/load-testing@v1
-  with:
-    loadTestConfigFile: '< YAML File path>'
-    loadTestResource: '<name of the load test resource>'
-    resourceGroup: '<name of the resource group of your load test resource>' 
-    secrets: |
-      [
-          {
-          "name": "<Name of the secret>",
-          "value": "${{ secrets.MY_SECRET1 }}",
-          },
-          {
-          "name": "<Name of the secret>",
-          "value": "${{ secrets.MY_SECRET2 }}",
-          }
-      ]
-    env: |
-      [
-          {
-          "name": "<Name of the variable>",
-          "value": "<Value of the variable>",
-          },
-          {
-          "name": "<Name of the variable>",
-          "value": "<Value of the variable>",
-          }
-      ]
-```
-
 ## Clean up resources
 
 [!INCLUDE [alt-delete-resource-group](../../includes/alt-delete-resource-group.md)]  
@@ -346,5 +299,6 @@ The following YAML code snippet describes how to use the action in a GitHub Acti
 
 You've now created a GitHub Actions workflow that uses Azure Load Testing for automatically running load tests. By using pass/fail criteria, you can set the status of the CI/CD workflow. With parameters, you can make the running of load tests configurable.
 
-* For more information about parameterizing load tests, see [Parameterize a load test](./how-to-parameterize-load-tests.md).
-* For more information about defining test pass/fail criteria, see [Define test criteria](./how-to-define-test-criteria.md).
+* Learn more about the [Azure Load Testing Action](https://github.com/marketplace/actions/azure-load-testing).
+* Learn how to [parameterize a load test](./how-to-parameterize-load-tests.md).
+* Learn how to [define test pass/fail criteria](./how-to-define-test-criteria.md).
