@@ -211,18 +211,18 @@ Let's walk through a scenario where we will validate strong authentication by cr
 
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/alternative.png" alt-text="Screenshot of the alternative sign in.":::
 
-1.	Select the client certificate and click **Certificate Information**. 
-
+1. Select the client certificate and click **Certificate Information**.
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/client-picker.png" alt-text="Screenshot of the client picker.":::
 
 1. The certificate will be shown, and you can verify the issuer and policy OID values. 
-
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/issuer.png" alt-text="Screenshot of the issuer.":::
 
 1. To see Policy OID values, click **Details**.
+
    :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/authentication-details.png" alt-text="Screenshot of the authentication details.":::
 
-1. Select the client certificate and click **Ok**.
+1. Select the client certificate and click **OK**.
+
 1. The policy OID in the certificate matches the configured value of **1.2.3.4** and it will satisfy multifactor authentication. Similarly, the issuer in the certificate matches the configured value of **CN=ContosoCA,DC=Contoso,DC=org** and it will satisfy single-factor authentication.
 1. Because policy OID rule takes precedence over issuer rule, the certificate will satisfy multifactor authentication.
 1. The conditional access policy for the user requires MFA and the certificate satisfies multifactor, so the user will be authenticated into the application.
