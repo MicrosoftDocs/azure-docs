@@ -20,13 +20,13 @@ You need to complete two steps on your device before it's ready to install the I
 
 1. Get the latest repository configuration from Microsoft:
 
-   # [Ubuntu 18.04](#tab/ubuntu1804)
+   # [Ubuntu 18.04](#tab/iotedge-2018-06_ubuntu1804)
 
    ```bash
    curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
    ```
 
-   # [Raspberry Pi OS](#tab/rpios)
+   # [Raspberry Pi OS](#tab/iotedge-2018-06_rpios)
 
    ```bash
    curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
@@ -59,18 +59,18 @@ You need to complete two steps on your device before it's ready to install the I
 
 1. Get the latest repository configuration from Microsoft:
 
-   # [Ubuntu 20.04](#tab/ubuntu2004)
+   # [Ubuntu 20.04](#tab/iotedge-2020-11_ubuntu2004)
    ```bash
    curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > ./microsoft-prod.list
    ```
 
-   # [Ubuntu 18.04](#tab/ubuntu1804)
+   # [Ubuntu 18.04](#tab/iotedge-2020-11_ubuntu1804)
 
    ```bash
    curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
    ```
 
-   # [Raspberry Pi OS](#tab/rpios)
+   # [Raspberry Pi OS](#tab/iotedge-2020-11_rpios)
 
    ```bash
    curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
