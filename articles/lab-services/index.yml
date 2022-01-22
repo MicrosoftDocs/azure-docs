@@ -37,11 +37,11 @@ landingContent:
     linkLists:
     - linkListType: tutorial
       links:
-        - text: Set up a lab plan      
+        - text: Create a lab plan      
           url: tutorial-setup-lab-plan.md
     - linkListType: how-to-guide
       links:
-        - text: Add Lab Creator
+        - text: Add a Lab Creator
           url: add-lab-creator.md
         - text: Configure auto-shutdown
           url: how-to-configure-auto-shutdown-lab-plans.md
@@ -52,15 +52,15 @@ landingContent:
     linkLists:
     - linkListType: tutorial
       links:
-        - text: Set up a lab
+        - text: Create a lab
           url: tutorial-setup-lab.md
     - linkListType: how-to-guide
       links:
         - text: Create and manage labs
           url: how-to-manage-lab-plans.md
-        - text: Set up, customize, and publish templates
+        - text: Customize and publish templates
           url: how-to-create-manage-template.md
-        - text: Set up and manage virtual machine pool 
+        - text: Manage the virtual machine pool 
           url: how-to-set-virtual-machine-passwords.md
         - text: Add and manage lab users
           url: how-to-configure-student-usage.md
