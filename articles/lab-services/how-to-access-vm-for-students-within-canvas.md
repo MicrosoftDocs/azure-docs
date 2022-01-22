@@ -9,7 +9,7 @@ ms.date: 11/01/2021
 
 When a lab is created within [Canvas](https://www.instructure.com/canvas), students can view and access all the VMs provisioned by the course educator. Once the lab is published and VMs are created, students will be automatically assigned a VM. Students can view and access the VMs assigned to them by selecting the tab containing **Azure Lab Services** app.
 
-Students must access their VMs through Canvas.  Their Canvas credentials will be used to log into Azure Lab Services.  
+Students must access their VMs through Canvas.  Their Canvas credentials will be used to log into Azure Lab Services.  For further instructions about connecting to your VM, see [Tutorial: Access a lab in Azure Lab Services](tutorial-connect-lab-virtual-machine.md)
 
 Azure Lab Services supports test users in Canvas and the ability for the instructor to act as another user.
 
