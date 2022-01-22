@@ -239,10 +239,16 @@ items:
               href: deploy-active-directory-sql-managed-instance.md
             - name: Connect SQL Managed Instance
               href: connect-active-directory-sql-managed-instance.md              
-        - name: Configure business continuity
+        - name: Business continuity
           items:
+            - name: Overview
+              href: arc-business-continuity-overview.md
             - name: Point in time restore
               href: point-in-time-restore.md
+            - name: High availability
+              href: high-availability-arcsqlmi.md
+            - name: Disaster recovery
+              href: disaster-recovery-arcsqlmi.md
 - name: Reference
   items:
   - name: Release version log
