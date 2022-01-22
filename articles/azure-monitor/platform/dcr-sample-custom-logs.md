@@ -10,7 +10,10 @@ ms.custom: references_region
 ---
 
 # Sample data collection rule - custom logs
+The sample [data collection rule](data-collection-rule-overview.md) below is for use with [direct log ingestion](../logs/direct-ingestion-overview.md). It has the following details:
 
+- Sends data to a table called MyTable_CL in a workspace called my-workspace.
+- Applies a transformation to the incoming data that .
 
 
 ```json
@@ -21,7 +24,7 @@ ms.custom: references_region
         "destinations": {
             "logAnalytics": [
                 {
-                    "workspaceResourceId": "/subscriptions/a9ø1aa27-742S-4221-ab13-bfd3437fa62S/resourceGroups/cefingestion/providers/microsoft.operationalinsights/workspaces/my-workspace",
+                    "workspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cefingestion/providers/microsoft.operationalinsights/workspaces/my-workspace",
                     "workspace Id" : "00000000-0000-0000-0000-000000000000",
                     "name": "LogAnalyticsDest" 
                 }
@@ -41,7 +44,7 @@ ms.custom: references_region
     },
     "location": "westus2", 
     "kind": "Direct", 
-    "id": "/subscriptions/a9ø1aa27-742S-4221-ab13-bfd3437fa62S/resourceGroups/CEFingestion/providers/Microsoft.Insights/dataCollectionRules/CEFIngestionSampleDCR2",
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/CEFingestion/providers/Microsoft.Insights/dataCollectionRules/CEFIngestionSampleDCR2",
     "name": "CEFIngestionSampleDCR2",
     "type": "Microsoft.Insights/dataCollectionRules", 
     "etag": "\"00000000-0000-0000-0000-000000000000\""

@@ -258,6 +258,9 @@ items:
     items:
     - name: Workspaces
       items:
+      - name: Overview
+        displayName: Log Analytics workspace
+        href: logs/log-analytics-workspace-overview.md
       - name: Create a workspace
         items:
         - name: Azure portal
@@ -315,6 +318,8 @@ items:
         href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
       - name: Standard columns
         href: logs/log-standard-columns.md
+      - name: Query Basic Logs
+        href: logs/basic-logs-query.md
       - name: Audit queries
         href: logs/query-audit.md
       - name: Optimize queries
