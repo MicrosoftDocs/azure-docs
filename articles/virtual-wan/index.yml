@@ -79,6 +79,8 @@ landingContent:
             url: migrate-from-hub-spoke-topology.md
       - linkListType: architecture
         links:
+          - text: Disaster recovery design
+            url: designing-for-disaster-recovery-with-virtual-wan.md
           - text: Global transit network architecture
             url: virtual-wan-global-transit-network-architecture.md
           - text: SD-WAN connectivity architecture
