@@ -125,7 +125,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: InvalidTemplate
 - **Message**: The pipeline expression cannot be evaluated.
 - **Cause**: The pipeline expression passed in the Data Flow activity isn't being processed correctly because of a syntax error.
-- **Recommendation**: Check data flow actvity name. Check expressions in activity monitoring to verify the expressions. For example, data flow activity name can not have a space or a hyphen.
+- **Recommendation**: Check data flow activity name. Check expressions in activity monitoring to verify the expressions. For example, data flow activity name can not have a space or a hyphen.
 
 ## Error code: 2011
 - **Message**: The activity was running on Azure Integration Runtime and failed to decrypt the credential of data store or compute connected via a Self-hosted Integration Runtime. Please check the configuration of linked services associated with this activity, and make sure to use the proper integration runtime type.
