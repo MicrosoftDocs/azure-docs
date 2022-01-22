@@ -9,10 +9,14 @@ ms.date: 01/19/2022
 ---
 
 # Search jobs in Azure Monitor (preview)
-Search jobs are asynchronous log queries in Azure Monitor that make results available as a table for further analytics. Use search jobs with [Archived Logs](archived-logs-overview.md) and [Basic Logs](basic-logs-overview.md) when you need to query specific records.
+Search jobs are asynchronous log queries in Azure Monitor that make results available as an [analytics table](log-analytics-overview.md) you can use for log queries. Use search jobs with [Archived Logs](archived-logs-overview.md) and [Basic Logs](basic-logs-overview.md) when you need to query specific records.
+
+> [!NOTE]
+> Search jobs are one method that you can use to analyze archived logs. The other 
 
 ## Basic operation
-Once a search job is executing, a custom log table is created in the same workspace to contain the results. It is a standard log table that is available for analytics or any other use. Search job results table is created with workspace default retention value. The admin can later set the table's retention values, or delete it, as any other table.
+When a search job is started, a custom log table is created in the same workspace to contain the results. This is an analytics log table that is available for log queries or any other features of Azure Monitor that use tables in a workspace. The table uses the retention value set for the workspace. You can later modify the retention of the table .
+
 Search job execution is audited via the activity logs as table write operation, and will not appear in query auditing. 
 During the job execution, when results are found they are ingested into the results table. For that reason, in most cases, the first batch of results appear in the table at least 10 minutes after the job execution started.
 
