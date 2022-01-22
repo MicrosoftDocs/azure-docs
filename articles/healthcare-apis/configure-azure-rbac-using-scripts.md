@@ -5,14 +5,11 @@ services: healthcare-apis
 author: SteveWohl
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 12/10/2021
+ms.date: 01/21/2022
 ms.author: zxue
 ---
 
 # Configure Azure RBAC Using Azure CLI and REST API
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 In this article, you'll learn how to grant permissions to client applications (and users) to access Healthcare APIs using Azure Command-Line Interface (CLI) and REST API. This step is referred to as "role assignment" or Azure 
 [role-based access control (Azure RBAC)](./../role-based-access-control/role-assignments-cli.md). To further your understanding about the application roles defined for Healthcare APIs, see [Configure Azure RBAC](configure-azure-rbac.md).
