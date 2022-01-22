@@ -159,11 +159,11 @@ After the device is rackmounted, you can install the bezel on the device.
 2. Insert the bezel in at an angle with fixed pins going into holes in right rack ear.
 3. Push [> shaped latch to the right, move left side of bezel into place, then release the latch until the spring pins engage with holes in left rack ear. 
 
-    ![Mount the bezel](./media/azure-stack-edge-gpu-deploy-install/mount-bezel.png)
+    <!--![Mount the bezel](./media/azure-stack-edge-gpu-deploy-install/mount-bezel.png)-->
 
 4. Lock the bezel in place using the provided security key. 
 
-    ![Lock the bezel](./media/azure-stack-edge-gpu-deploy-install/lock-bezel.png)
+    <!--![Lock the bezel](./media/azure-stack-edge-gpu-deploy-install/lock-bezel.png)-->
 
 ## Cable the device
 
