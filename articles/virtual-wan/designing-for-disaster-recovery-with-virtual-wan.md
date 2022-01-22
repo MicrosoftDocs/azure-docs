@@ -10,6 +10,7 @@ ms.date: 01/22/2022
 ms.author: rambala
 ---
 
+
 # Design for disaster recovery with Virtual WAN
 
 Virtual WAN allows you to aggregate, connect, centrally manage & secure, your different branches, Point-of-Presence (PoP), private users, offices, Azure virtual networks, and other multi-cloud deployments. You can use different type of network connectivity--SD-WAN, Site-to-site VPN, Point-to-site VPN, ExpressRoute--to connect your different sites to a Virtual WAN Hub. If you have multiple Virtual WAN Hubs, all the hubs would be connected in full mesh in a standard Virtual WAN deployment.
