@@ -59,8 +59,10 @@ To set your app to a [supported Node.js version](#show-nodejs-version), run the 
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_NODE_DEFAULT_VERSION="~16"
 ```
 
-> [!NOTE] This example uses the recommended "tilde syntax" to target the latest available version of Node.js 16 runtime on App Service.
-> Since the runtime is regularly patched and updated by the platform it's not recommended to target a specific minor version/patch as these are not guaranteed to be available due to potential security risks.
+> [!NOTE] 
+> This example uses the recommended "tilde syntax" to target the latest available version of Node.js 16 runtime on App Service.
+> 
+>Since the runtime is regularly patched and updated by the platform it's not recommended to target a specific minor version/patch as these are not guaranteed to be available due to potential security risks.
 
 > [!NOTE]
 > You should set the Node.js version in your project's `package.json`. The deployment engine runs in a separate process that contains all the supported Node.js versions.
