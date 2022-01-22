@@ -121,7 +121,7 @@ In **Overview**, select **Permissions**, and you'll see the added permissions fo
 
 # [C#](#tab/programming-language-csharp)
 
-The [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class is used to get a token credential for your code to authorize requests to Microsoft Graph. Create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class, which uses the managed identity to fetch tokens and attach them to the service client. The following code example gets the authenticated token credential and uses it to create a service client object, which gets the users in the group.
+The [ChainedTokenCredential](/dotnet/api/azure.identity.chainedtokencredential), [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential), and [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) classes are used to get a token credential for your code to authorize requests to Microsoft Graph. Create an instance of the [ChainedTokenCredential](/dotnet/api/azure.identity.chainedtokencredential) class, which uses the managed identity in the App Service environment or the development environment variables to fetch tokens and attach them to the service client. The following code example gets the authenticated token credential and uses it to create a service client object, which gets the users in the group.
 
 To see this code as part of a sample application, see the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity).
 
@@ -165,8 +165,12 @@ public IList<MSGraphUser> Users { get; set; }
 
 public async Task OnGetAsync()
 {
-    // Create the Microsoft Graph service client with a DefaultAzureCredential class, which gets an access token by using the available Managed Identity.
-    var credential = new DefaultAzureCredential();
+    // Create the Graph service client with a ChainedTokenCredential which gets an access
+    // token using the available Managed Identity or environment variables if running
+    // in development.
+    var credential = new ChainedTokenCredential(
+        new ManagedIdentityCredential(),
+        new EnvironmentCredential());
     var token = credential.GetToken(
         new Azure.Core.TokenRequestContext(
             new[] { "https://graph.microsoft.com/.default" }));
