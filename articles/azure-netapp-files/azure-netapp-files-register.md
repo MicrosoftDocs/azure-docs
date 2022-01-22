@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 10/04/2021
+ms.date: 01/21/2022
 ms.author: anfdocs
 ---
 # Register for NetApp Resource Provider
@@ -23,7 +23,7 @@ To use the Azure NetApp Files service, you need to register the NetApp Resource 
 
       ![Azure Cloud Shell icon](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
 
-2. If you have multiple subscriptions on your Azure account, select the one that has been approved for Azure NetApp Files:
+2. If you have multiple subscriptions on your Azure account, select the one that you want to configure for Azure NetApp Files:
     
     ```azurecli
     az account set --subscription <subscriptionId>
