@@ -17,13 +17,13 @@ The Synapse SQL Connector is an API that efficiently transfers data between serv
 ## Better performance than JDBC
 
 A JDBC connector would be a bottleneck with serial data transfer.
-In contrast, the Synapse SQL Connector uses the Azure Data Lake Storage Gen2 and Polybase to transfer data in parallel and at scale.
+In contrast, the Synapse SQL Connector uses Azure Storage and [PolyBase](/sql/relational-databases/polybase/polybase-guide) to transfer data in parallel and at scale.
 
 ![Connector Architecture](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
 ## Authentication in Azure Synapse Analytics
 
-Authentication works automatically with AAD after the following pre-requisites.
+Authentication works automatically with AAD after the following prerequisites.
 
 * Add the user to [db_exporter role](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) using system stored procedure [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
 * Add the user to [Storage Blob Data Contributor role](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) on the storage account.
