@@ -6,7 +6,8 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: aarathin
 ms.author: aarathin
-ms.date: 01/24/2022
+reviewer: kimnich
+ms.date: 1/24/2022
 ---
 
 # Support for the commercial marketplace program in Partner Center
