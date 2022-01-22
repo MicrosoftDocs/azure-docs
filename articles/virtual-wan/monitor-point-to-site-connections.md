@@ -99,22 +99,45 @@ The Azure storage account has the following configuration settings
 1. Click **Generate SAS token and URL**
 1. Copy down the **Blob SAS token** and **Blob SAS URL** to a secure location
 
-## Create Azure FunctionApp
+## Create Azure function app
 
-The FunctionApp has the following configuration settings
+1. In the portal, in the **Search resources** bar, type **Function App**.
 
-FunctionApp name: <functionappname>
-Identity: system assigned: Status: On (we enable the managed/built-in service identity to be able to access Azure without having to use a username/password or service principal based on secrets). Note down the object id of this identity (to be used in permission assignment
-)
-Configuration:
-Application settings
-- resource group: <resourcegroupname>
-- sasuri: @Microsoft.KeyVault(SecretUri=https://<keyvaultname>.vault.azure.net/secrets/sasuri/<version>) (update accordingly after keyvault is created.
-- storageaccountname: <storageaccountname>
-- storagecontainer: <storagecontainername>
-- subscription: <subscriptionid>
-- tenantname: <tenantname>
-- vpngw: <vpngw> This name is something like <guid>-eastus-ps2-gw . You can get this from the vWAN HUB User VPN settings.
+1. Select **Function App** from the results. On the Function App page, select **+ Create** to open the **Create Function App** page.
+
+1. On the **Create WAN** page, on the **Basics** tab, fill in the fields. Modify the example values to apply to your environment.
+
+   :::image type="content" source="./media/monitor-point-to-site-connections/function-app-basics.png" alt-text="Screenshot shows the basics tab of function app.":::
+
+   * **Subscription**: Select the subscription that you want to use.
+   * **Resource group**: Create new or use existing.
+   * **Function App name**: Choose a name for Function App
+   * **Publish**: Select **Code**
+   * **Runtime stack**: Select **PowerShell Core**
+   * **Version**: Choose 7.0 (or your preferred version)
+   * **Region**: Choose your preferred region
+
+1. The remaining tabs are optional to change, so you can click **Review + create** and then click **Create** when validation passes. 
+1. Go to the Function App resource
+1. Click on **Identity** under **Settings** in the left-hand panel. Toggle the **Status** button to **On** for **System assigned** and click **Save**.
+   :::image type="content" source="./media/monitor-point-to-site-connections/function-app-identity.png" alt-text="Screenshot shows the identity tab of function app.":::
+1. Click on **Configuration** under **Settings** in the left-hand panel
+1. Click on **+ New application setting**. Create the following 7 entries by inputting the **Name** and **Value** and clicking **Ok**:
+    - **Name**: "resourcegroup"
+        - **Value**: your resource group
+    - **Name**: "sasuri"
+        - **Value**:  @Microsoft.KeyVault(SecretUri=https://\<keyvaultname>.vault.azure.net/secrets/sasuri/\<version>) (update accordingly after keyvault is created.
+    - **Name**: "storageaccountname"
+        - **Value**: your storage account name
+    - **Name**: "storagecontainer"
+        - **Value**: your storage container name
+    - **Name**: "subscription"
+        - **Value**: your subscription ID
+    - **Name**: "vpngw"
+        - **Value**: This name is something like \<guid>-eastus-ps2-gw . You can get this from the vWAN HUB User VPN settings.
+ 1. Click **Save**
+
+1. It's time to create Function!!!
 
 Function:
 - FunctionName: <FunctionName>, choose for example a trigger type function to be executed each 5 minutes
@@ -181,6 +204,8 @@ Now assign the managed identity (objectid) this role.
 1. Click **Next** to go to the **Principal** tab. TODO: FIND FUNCTION APP MANAGED IDENTITY
 1. Click **Next** twice to get to the fourth tab: **Review + create** and click **Create** at the bottom.
 1. You should now see the newly created access policy under the **Access policies** section. Modifying the default values under the **Networking** tab is optional, so click **Review + create** in the bottom left-hand corner. 
+1. After creating, go back to the **Configuration** tab for the Function App and modify the following entry: 
+- **Name**: "sasuri", **Value**:  @Microsoft.KeyVault(SecretUri=https://\<keyvaultname>.vault.azure.net/secrets/sasuri/\<version>) 
 
 
 KeyVault settings:
