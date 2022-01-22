@@ -6,7 +6,7 @@ author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 01/22/2021
 ms.author: lizross
 ms.custom: [amqp, mqtt, 'Role: Cloud Development']
 ---
@@ -186,11 +186,9 @@ To filter messages before telemetry data is sent, you can update your [routing q
 
 ## Limitations for device connected and device disconnected events
 
-To receive device connection state events, a device must call either the *device-to-cloud send telemetry* or a *cloud-to-device receive message* operation with IoT Hub. However, if a device uses AMQP protocol to connect with IoT Hub, we recommend the device to call *cloud-to-device receive message* operation, otherwise their connection state notifications may be delayed by few minutes. If your device connects with MQTT protocol, IoT Hub keeps the cloud-to-device link open. To open the cloud-to-device link for AMQP, call the [Receive Async API](/rest/api/iothub/device/receivedeviceboundnotification).
+Device connection state events are available for devices connecting using either the MQTT or AMQP protocol, or using either of these protocols over WebSockets. Requests made only with HTTP/s won't trigger device connection state notifications. To start receiving device connection state events, after opening a connection a device must call either the *cloud-to-device receive message* operation, or the *device-to-cloud send telemetry* operation. Outside of the Azure IoT SDKs, in MQTT these operations equate to SUBSCRIBE or PUBLISH operations on the appropriate messaging [topics](iot-hub-mqtt-support.md). Over AMQP these equate to attaching or transferring a message on the [appropriate link paths](iot-hub-amqp-support.md).
 
-The device-to-cloud link stays open as long as the device sends telemetry.
-
-If a device connects and disconnects frequently, IoT Hub doesn't send every single connection state, but publishes the current connection state taken at a periodic snapshot of 60sec. Receiving either the same connection state event with different sequence numbers or different connection state events both mean that there was a change in the device connection state.
+IoT Hub does not report each individual device connect and disconnect, but rather publishes the current connection state taken at a periodic 60 second snapshot. Receiving either the same connection state event with different sequence numbers or different connection state events both mean that there was a change in the device connection state during the 60 second window.
 
 ## Tips for consuming events
 
