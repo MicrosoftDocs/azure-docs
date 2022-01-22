@@ -1,85 +1,69 @@
 ---
 title: Azure Lab Services Quickstart - Create a lab  using the Azure Lab Services labs.azure.com portal.
-description: In this quickstart, you learn how to create an Azure Lab Services llab using the labs.azure.com portal.
+description: In this quickstart, you learn how to create an Azure Lab Services lab using the labs.azure.com portal.
 ms.topic: quickstart
 ms.date: 1/18/2022
-ms.custom: TODO
+ms.custom: template-quickstart
 ---
 
-# Quickstart: Create a lab using the labs.azure.com portal
+# Quickstart: Create a lab using the Azure Lab Services portal
 
-Azure Lab Services provides students and teachers with access to virtual computer labs directly from their own computers.  Using virtual computer labs, students can access industry-standard software required for their programs of study through Virtual Machines (VMs).
-
-A VM is a virtual environment and acts as a substitute for a real, physical computer that you can access over the internet.  Each VM has its own processor, memory, and storage.  VMs give students access to operating systems and software without the need to have them installed on a student’s own computer.  Azure Lab Services provides a tool for students to access and navigate VMs and for teachers to manage their virtual computer labs.
-
-To create a virtual computer lab using Azure Lab Services, your first need to set up a lab plan in your Azure subscription which is typically done by your institution’s IT department or Azure administrator.  A lab plan is used to give permission to others to create labs and set policies that apply to the labs created from it. For detailed overview of Azure Lab Services, see TODO.
-
-In this quickstart, you create a lab plan using the Azure portal.
+Instructors can create labs containing VMs for students using the Azure Lab Services portal.  This quickstart shows you how to create a lab with Windows 11 Pro image.  Once a lab is created, an instructor [configures the template](how-to-create-manage-template.md), [adds lab users](how-to-configure-student-usage.md#add-and-manage-lab-users), and [publishes the lab](tutorial-setup-lab.md#publish-a-lab).
 
 ## Prerequisites
 
 To complete this quick start, make sure that you have:
 
 - Azure subscription.  If you don’t have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- Lab plan.  If you haven't create a lab plan, see [Quickstart: Create a lab plan using the Azure portal](quick-create-lab-plan-portal.md).
 
-## Create a resource group
-A resource group is a logical collection of Azure resources.  All resources are deployed and managed in a resource group.
+## Create a lab
+The following steps show how to create a lab with Azure Lab Services.
 
-1. Sign in the Azure portal.
-1. In the left navigation, select **Resource groups**.  Then select **Add**.
-TODO – screenshot
-1. For **Subscription**, select the name of the Azure subscription in which you want to create the resource group.
-1. Type a unique **name for the resource group**.  The system immediately checks to see if the name is available in the currently selected Azure subscription.
-1. Select a **region** for the resource group.
-1. Select **Review + Create**.
-1. One the **Review + Create page**, select **Create.**
-TODO – screenshot
+1. Sign into the [Azure Lab Service portal]([https://labs.azure.com).
+1. Select **New lab**.  
+    
+    :::image type="content" source="./media/quick-create-lab-portal/new-lab-button.png" alt-text="Screenshot of Azure Lab Services portal.  New lab button is highlighted.":::
 
-## Create a lab plan
-The following steps show how to use the Azure portal to create a lab plan with Azure Lab Services.
+1. In the **New Lab** window, choose the basic settings for the lab.
+    1. Set the **Name** to *Lab 101*.
+    1. Set the **Virtual machine image** to **Windows 11 Pro**.
+    1. Set the **Virtual machine size** to **Medium**. 
+    
+    :::image type="content" source="./media/quick-create-lab-portal/new-lab-window.png" alt-text="Screenshot of the New lab window for Azure Lab Services.":::
 
-1. In the Azure portal, select **Create a resource** at the top left of the screen.
-1. Select **All services** in the left menu.  Select **DevOps** from **Categories**.  Then, select **Lab plans**.  If you hover over **Lab plans** and select the **star** in the popup, it’s added to the **Favorites** section on the left menu.  From the next time onwards, you select **Lab plans** under **Favorites**.
-TODO – screenshot; also, need to verify with Fawad that this is how to find a Lab Plan resource
-1. On the **Lab plans** page, click **Create**.
-TODO – screenshot
-1. On the **Basics** tab of the **Create a lab plan** page, do the following actions:
-    1. For the **Subscription**, select the Azure subscription in which you want to create the lab plan.
-    1. For **Resource Group**, select the existing resource group you created in the previous section.  You can also select **Create new** and enter a name for a new resource group.
-    1. For **Name**, enter a name.
-    1. For **Region**, select the Azure region you want to create the lab plan.  This is also the default region where your labs will be created.
-TODO - screenshot
-1. Select **Review + create**.
-1. Review the summary and select **Create**.
-TODO - screenshot 
-1. When the deployment is complete, expand **Next steps**, and select **Go to resource**.
-1. Confirm that you see the **Lab plan** page.
-TODO – screenshot
+    1. On the **Virtual machine credentials** page, specify default administrator credentials for all VMs in the lab. Specify the **name** and the **password** for the administrator.  By default all the student VMs will have the same password as the one specified here.
+   
+    :::image type="content" source="./media/quick-create-lab-portal/new-lab-credentials.png" alt-text="Screenshot of the Virtual Machine credentials window for Azure Lab Services.":::
 
-## Add a user to the Lab Creator role
-To set up a lab in a lab plan, the user must be a member of the Lab Creator role in the lab plan.  To provide educators the permission to create labs for their classes, add them to the Lab Creator role.  For detailed steps, see [Assign Azure roles using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+    > [!IMPORTANT]
+    > Make a note of user name and password. They won't be shown again.
 
-> [!NOTE]
-> The user account that you used to create the lab plan is automatically added to this role.  If you are planning to use the same user account to create a lab, skip this step.
+    1. On the **Lab policies** page, leave the default selections and select **Next**.
 
-1. On the Lab plan page, select **Access control (IAM)**.
-1. Select **Add -> Add role assignment**.
-TODO - screenshot
-1. On the **Role** tab, select the **Lab Creator** role.
-TODO – screenshot
-1.  On the **Members** tab, select the user you want to add to the **Lab Creator** role.
-1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+    :::image type="content" source="./media/quick-create-lab-portal/quota-for-each-user.png" alt-text="Screenshot of the Lab policy window when creating a new Azure Lab Services lab.":::
+
+    1. On the **Template virtual machine settings** window, leave the selection on **Create a template virtual machine**.
+
+    :::image type="content" source="./media/quick-create-lab-portal/template-virtual-machine-settings.png" alt-text="Screenshot of the Template virtual machine settings windows when creating a new Azure Lab Services lab.":::
+
+1. You should see the following screen that shows the status of the template VM creation.
+
+    :::image type="content" source="./media/quick-create-lab-portal/create-template-vm-progress.png" alt-text="Screenshot of status of the template VM creation.":::
+
+1. When the lab is completed, you'll see the **Template** page of the lab.
+
+   :::image type="content" source="./media/quick-create-lab-portal/lab-template-page.png" alt-text="Screenshot of Template page of a lab.":::
+
+## Clean up resources
+When no longer needed, you can delete the lab.  
+
+On the tile for the lab, select three dots (...) in the corner, and then select **Delete**.
+
+    ![Delete button](./media/how-to-manage-labs/delete-button.png)
+On the **Delete lab** dialog box, select **Delete** to continue with the deletion.
 
 ## Next steps
-In this quickstart, you created a resource group and a lab plan.  To learn about how to create a lab as an educator, see the next quickstart:
- - TODO: link to create lab quick start
-
-For more information on Azure Lab Services, see the following articles:
-- TODO: add other articles here
-
-
-
-
-
-
-
+In this quickstart, you created a lab with Azure Lab Services.  Advance to the next article to learn how to configure the template VM.
+> [!div class="nextstepaction"]
+> [Configure a template VM](how-to-create-manage-template.md)

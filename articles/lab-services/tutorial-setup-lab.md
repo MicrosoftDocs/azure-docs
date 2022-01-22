@@ -51,7 +51,7 @@ In this step, you create a lab for your class in Azure Lab Services portal.
 
         :::image type="content" source="./media/tutorial-setup-lab/virtual-machine-credentials.png" alt-text="Screenshot that shows the Virtual machine credentials window when creating a new Azure Lab Services lab.":::
 
-    1. On the **Lab policies** page, leave default selections and select **Next**.
+    1. On the **Lab policies** page, leave the default selections and select **Next**.
 
         :::image type="content" source="./media/tutorial-setup-lab/quota-for-each-user.png" alt-text="Screenshot of the Lab policy window when creating a new Azure Lab Services lab.":::
 

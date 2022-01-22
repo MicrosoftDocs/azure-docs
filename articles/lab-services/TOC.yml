@@ -10,8 +10,12 @@
   items:
     - name: Create a lab plan
       items:
-      - name: Portal
+      - name: Azure portal
         href: quick-create-lab-plan-portal.md
+    - name: Create a lab
+      items:
+      - name: Azure Lab Services portal
+        href: quick-create-lab-portal.md
 - name: Tutorials
   items:
   - name: Set up a lab plan

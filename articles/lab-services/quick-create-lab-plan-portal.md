@@ -23,7 +23,7 @@ To complete this quick start, make sure that you have:
 - Azure subscription.  If you don’t have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create a lab plan
-The following steps show how to use the Azure portal to create a lab plan with Azure Lab Services.
+The following steps show how to use the Azure portal to create a lab plan.
 
 1. In the [Azure portal([https://portal.azure.com), select **Create a resource** at the top left of the screen.
 1. Select **All services** in the left menu.  Search for **Lab plans**.
@@ -63,12 +63,4 @@ When no longer needed, you can delete the resource group, lab plan, and all rela
 ## Next steps
 In this quickstart, you created a resource group and a lab plan.  Advance to the next article to learn how to create a lab.
 > [!div class="nextstepaction"]
-> [Next steps button](quick-create-lab-portal.md)
-
-
-
-
-
-
-
-
+> [Create a lab](quick-create-lab-portal.md)
