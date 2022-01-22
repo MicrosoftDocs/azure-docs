@@ -41,7 +41,7 @@ Below is a description of the various components.
 
 ## Create Azure storage account
 
-1. In the portal, in the **Search resources** bar, type **Storage accounts** in the search box and select **Enter**.
+1. In the portal, in the **Search resources** bar, type **Storage accounts**.
 
 1. Select **Storage accounts** from the results. On the Storage accounts page, select **+ Create** to open the **Create a storage account** page.
 The Azure storage account has the following configuration settings
@@ -91,20 +91,15 @@ The Azure storage account has the following configuration settings
 1. Click **Upload**
     :::image type="content" source="./media/monitor-point-to-site-connections/specific-container.png" alt-text="Screenshot shows the specific container that was created by user"::: 
 1. Select the file corresponding to your empty JSON file on your machine and click **Upload**
+1. After the file gets uploaded, click on the JSON file and navigate to the **Generate SAS** tab
+:::image type="content" source="./media/monitor-point-to-site-connections/generate-sas.png" alt-text="Screenshot shows the Generate SAS field for blob"::: 
+1. Under **Signing method**, choose **Account key**
+1. Under **Permissions**, give the key the following permissions: **Read, Add, Create, and Write**
+1. Choose an **Expiry** date and time for the key
+1. Click **Generate SAS token and URL**
+1. Copy down the **Blob SAS token** and **Blob SAS URL** to a secure location
 
-
-Generate SAS token and URL: (SASURI, to be saved in KeyVault and used directly from within the workbook)
-Signing method: Account Key
-- Key 1: Permissions
-    - Read, Add, Create, Write
-- Start : Choose start time
-- Expiry: Choose expiry time
- 
-You can choose to create two SAS keys, one for read/write access from the Azure FunctionApp and one with read access used from the workbook, but for now, we use the same SAS key and restrict access to the workbook.
-
-
- 
-##Azure FunctionApp
+## Create Azure FunctionApp
 
 The FunctionApp has the following configuration settings
 
@@ -161,12 +156,34 @@ Custom Role Name: <custom role name like MicrosoftNetworkP2SGWReader>. We don't 
 
 Now assign the managed identity (objectid) this role.
 
-##Azure KeyVault
 
-Create a KeyVault to keep the SAS key for Read/Write access to not expose it directly in the FunctionApp. Unfortunately we can't access this as a secret from the workbook, only from the FunctionApp.
+
+## Create Azure Key Vault
+
+1. In the portal, in the **Search resources** bar, type **Key vaults**.
+
+1. Select **+ Create** from the results to open the **Create a key vault** page.
+
+1. On the **Basics** tab, fill in the fields. Modify the example values to apply to your environment.
+
+   :::image type="content" source="./media/monitor-point-to-site-connections/key-vault-basics.png" alt-text="Screenshot shows the basics section of creating a key vault.":::
+
+   * **Subscription**: Select the subscription that you want to use.
+   * **Resource group**: Create new or use existing.
+   * **Storage account name**: Type the name you want to call your key vault.
+   * **Region**: Select a region for your storage account
+   * **Pricing tier**: Standard or Premium. **Standard** is adequate for our monitoring purposes. 
+1. Click **Next: Access policy >**
+1. Under **Permission model**, choose **Vault access policy**
+1. Leave the options under **Resource access** as disabled
+1. Under **Access policies**, click **+ Create**.
+   :::image type="content" source="./media/monitor-point-to-site-connections/create-access-policy-screen1.png" alt-text="Screenshot shows first screen in creating access policy.":::
+1. Click **Next** to go to the **Principal** tab. TODO: FIND FUNCTION APP MANAGED IDENTITY
+1. Click **Next** twice to get to the fourth tab: **Review + create** and click **Create** at the bottom.
+1. You should now see the newly created access policy under the **Access policies** section. Modifying the default values under the **Networking** tab is optional, so click **Review + create** in the bottom left-hand corner. 
+
 
 KeyVault settings:
-KeyVault Name: <keyvaultname>
 Secrets: 
 - sasuri: 
 - secret value: <SASURI> (storage account SAS key)
@@ -178,6 +195,11 @@ Permission model: Vault access policy
 - Key Permissions:  Get, List
 - Secret Permissions: Get, List
 - Select Principal: <FunctionApp managed identity>
+
+Generate SAS token and URL: (SASURI, to be saved in KeyVault and used directly from within the workbook)
+
+
+You can choose to create two SAS keys, one for read/write access from the Azure FunctionApp and one with read access used from the workbook, but for now, we use the same SAS key and restrict access to the workbook.
 
 
 ##Azure workbook
