@@ -169,7 +169,7 @@ After the Azure Stack Edge resource is up and running, you'll need to get the ac
 
    Once you've specified a key vault name, select **Generate key** to create an activation key. 
 
-   ![Screenshot of the Overview pane for a newly created Azure Stack Edge resource. The Generate Activation Key button is highlighted.](media/azure-stack-edge-pro-2-deploy-prep/azure-stack-edge-resource-3.png)
+   ![Screenshot of the Overview pane for a newly created Azure Stack Edge resource. The Generate Activation Key button is highlighted.](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
 
    Wait a few minutes while the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.
 
