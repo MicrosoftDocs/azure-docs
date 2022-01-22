@@ -4,7 +4,7 @@ description: Learn how to configure a Node.js app in the native Windows instance
 ms.custom: devx-track-js, devx-track-azurecli
 ms.devlang: javascript
 ms.topic: article
-ms.date: 04/23/2021
+ms.date: 01/21/2022
 zone_pivot_groups: app-service-platform-windows-linux
 
 ---
