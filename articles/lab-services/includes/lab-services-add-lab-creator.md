@@ -5,14 +5,14 @@ ms.date: 01/21/2022
 ms.topic: include
 ---
 
-To set up a lab in the [Azure Lab Services portal](https://labs.azure.com), the instructor must be assigned the **Lab Creator** role on the lab plan.  Assigning **Lab Creator** role on the lab plan's resource group will allow an instructor to use all lab plans in that resource group.
+To create or edit up a lab in the [Azure Lab Services portal](https://labs.azure.com), the instructor must be assigned the **Lab Creator** role on the lab plan.  Assigning **Lab Creator** role on the lab plan's resource group will allow an instructor to use all lab plans in that resource group.
 
 > [!NOTE]
 > Owners of a lab plan can automatically create labs and do not need to be assigned the **Lab Creator** role.
 
 1. On the **Overview** page for the lab plan, select **Add lab creators**.
 
-:::image type="content" source="../media/lab-services-add-lab-creator/lab-plan-overview-add-lab-creators-focused.png" alt-text="Screenshot that the deployment of the lab plan resource is complete." lightbox="../media/lab-services-add-lab-creator/lab-plan-overview-add-lab-creators.png":::
+:::image type="content" source="../media/lab-services-add-lab-creator/lab-plan-overview-add-lab-creators-focused.png" alt-text="Screenshot that the **Overview** page of the lab plan." lightbox="../media/lab-services-add-lab-creator/lab-plan-overview-add-lab-creators.png":::
 
 1. From the **Access control (IAM)** page, select **Add** > **Add role assignment**.
 
