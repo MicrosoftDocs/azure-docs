@@ -7,9 +7,8 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/22/2021
+ms.date: 10/07/2021
 ms.author: alkohli
-ms.localizationpriority: high 
 ---
 
 ::: zone target="docs"
@@ -70,11 +69,16 @@ The client computer containing the data must have a USB 3.0 or later port. The d
 
 Here is a list of the supported storage types for the Data Box Disk.
 
-| **Storage account** | **Notes** |
+| **Storage account** | **Supported access tiers** |
 | --- | --- |
-| Classic | Standard |
-| General Purpose  |Standard; both V1 and V2 are supported. Both hot and cool tiers are supported. |
+| Classic Standard | |
+| General-purpose v1 Standard  | Hot, Cool |
+| General-purpose v1 Premium   |  |
+| General-purpose v2 Standard<sup>*</sup> | Hot, Cool |
+| General-purpose v2 Premium   |  |
 | Blob storage account | |
+
+<sup>*</sup> *Azure Data Lake Storage Gen2 (ADLS Gen2) is supported.*
 
 > [!IMPORTANT]
 > Network File System (NFS) 3.0 protocol support in Azure Blob storage is not supported with Data Box Disk.

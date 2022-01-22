@@ -3,8 +3,8 @@ title: Disk pool planning note for vNet
 description: Important note about the importance of deploying a vNet closer to Azure VMware Solution hosts.
 ms.topic: include
 ms.date: 07/14/2021
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.service: azure-vmware
 
 # used in: 

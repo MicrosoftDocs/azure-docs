@@ -2,7 +2,7 @@
 title: Agent based recommendations
 description: Learn about the concept of security recommendations and how they are used for Defender for IoT devices.
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 11/09/2021
 ---
 
 # Security recommendations for IoT devices

@@ -3,7 +3,7 @@ title: Connect to Azure Virtual Desktop with the web client - Azure
 description: How to connect to Azure Virtual Desktop using the web client.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/20/2021
+ms.date: 09/30/2021
 ms.author: helohr
 manager: femila
 ---
@@ -18,15 +18,15 @@ The web client lets you access your Azure Virtual Desktop resources from a web b
 >The web client doesn't currently have mobile OS support.
 
 ## Supported operating systems and browsers
+
 >[!IMPORTANT]
->Beginning 30 September 2021, the Azure Virtual Desktop web client will no longer support Internet Explorer 11. We recommend that you transition to using the Microsoft Edge browser instead of Internet Explorer 11. For more information, check out our Tech Community [blog post](https://aka.ms/WVDSupportIE11).
+>As of September 30, 2021, the Azure Virtual Desktop web client no longer supports Internet Explorer. We recommend that you use Microsoft Edge to connect to the web client instead. For more information, see our [blog post](https://aka.ms/WVDSupportIE11).
 
 While any HTML5-capable browser should work, we officially support the following operating systems and browsers.
 
 | Browser           | Supported OS                     | Notes               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
-| Internet Explorer | Windows                          | Version 11 or later |
 | Apple Safari      | macOS                            |                     |
 | Mozilla Firefox   | Windows, macOS, Linux            | Version 55 or later |
 | Google Chrome     | Windows, macOS, Linux, Chrome OS |                     |

@@ -2,13 +2,16 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 04/27/2021 
+ms.date: 01/19/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Tenant deployments with ARM templates
 
 As your organization matures, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) across your Azure AD tenant. With tenant level templates, you can declaratively apply policies and assign roles at a global level.
+
+> [!TIP]
+> For an improved authoring experience, you can use Bicep rather than JSON to develop templates. For more information about Bicep syntax, see [tenant deployments](../bicep/deploy-to-tenant.md).
 
 ## Supported resources
 
@@ -33,8 +36,10 @@ For creating subscriptions, use:
 For managing costs, use:
 
 * [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
+* [billingRoleAssignments](/azure/templates/microsoft.billing/billingaccounts/billingroleassignments)
 * [instructions](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
 * [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
+* [policies](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/policies)
 
 For configuring the portal, use:
 
@@ -50,8 +55,8 @@ For templates, use:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-    ...
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+  ...
 }
 ```
 
@@ -59,8 +64,8 @@ The schema for a parameter file is the same for all deployment scopes. For param
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    ...
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  ...
 }
 ```
 
@@ -188,5 +193,5 @@ The following template assigns a role at the tenant scope.
 
 ## Next steps
 
-* To learn about assigning roles, see [Add Azure role assignments using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
+* To learn about assigning roles, see [Assign Azure roles using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
 * You can also deploy templates at [subscription level](deploy-to-subscription.md) or [management group level](deploy-to-management-group.md).

@@ -8,7 +8,7 @@ ms.author: sidram
 ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, mode-api
 ms.date: 07/01/2020
 ---
 
@@ -206,7 +206,7 @@ az stream-analytics transformation create \
     --job-name streamanalyticsjob \
     --name Transformation \
     --streaming-units "6" \
-    --transformation-query "SELECT * INTO asabloboutput FROM asaiotinput HAVING Temperature > 27"
+    --transformation-query "SELECT * INTO asabloboutput FROM asaiotinput WHERE Temperature > 27"
 ```
 ## Run the IoT simulator
 

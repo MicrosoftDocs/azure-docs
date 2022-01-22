@@ -3,7 +3,7 @@ title: SMB performance best practices for Azure NetApp Files| Microsoft Docs
 description: Helps you understand SMB performance and best practices for Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/10/2021
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # SMB performance best practices for Azure NetApp Files
 
@@ -161,5 +160,5 @@ As the output of `Get-SmbClientNetworkInterace` below shows, the virtual machine
 
 ## Next steps  
 
-- [FAQs About Azure NetApp Files](azure-netapp-files-faqs.md)
+- [SMB FAQs](faq-smb.md)
 - See the [Azure NetApp Files: Managed Enterprise File Shares for SMB Workloads](https://cloud.netapp.com/hubfs/Resources/ANF%20SMB%20Quickstart%20doc%20-%2027-Aug-2019.pdf?__hstc=177456119.bb186880ac5cfbb6108d962fcef99615.1550595766408.1573471687088.1573477411104.328&__hssc=177456119.1.1573486285424&__hsfp=1115680788&hsCtaTracking=cd03aeb4-7f3a-4458-8680-1ddeae3f045e%7C5d5c041f-29b4-44c3-9096-b46a0a15b9b1) about using SMB file shares with Azure NetApp Files.

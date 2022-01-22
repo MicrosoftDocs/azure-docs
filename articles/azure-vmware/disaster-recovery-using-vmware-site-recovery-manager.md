@@ -2,7 +2,7 @@
 title: Deploy disaster recovery with VMware Site Recovery Manager
 description: Deploy disaster recovery with VMware Site Recovery Manager (SRM) in your Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 10/04/2021
 ---
 
 # Deploy disaster recovery with VMware Site Recovery Manager
@@ -54,6 +54,8 @@ The workflow diagram shows the Primary Azure VMware Solution to secondary workfl
 :::image type="content" source="media/vmware-srm-vsphere-replication/site-recovery-manager-workflow.png" alt-text="Diagram showing the deployment workflow for VMware Site Recovery Manager on Azure VMware Solution." border="false":::
 
 ## Prerequisites
+
+Make sure you've explicitly provided the remote user the VRM administrator and SRM administrator roles in the remote vCenter.
 
 ### Scenario: On-premises to Azure VMware Solution 
 
@@ -206,6 +208,8 @@ After you've created the site pairing, follow the VMware documentation mentioned
 
 - [Perform a Failback (vmware.com)](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.admin.doc/GUID-556E84C0-F8B7-4F9F-AAB0-0891C084EDE4.html)
 
+   >[!NOTE]
+   >If IP Customization Rules have been defined for network mappings between the AVS environment and the on-premises environment, these rules will not be applied on failback from the AVS environment to the on-premises environment due to a [known issue](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/rn/srm-releasenotes-8-3.html#knownissues) with SRM 8.3.0. You can work around this limitation by removing protection from all VMs in the Protection Group and then reconfiguring protection on them prior to initiating the failback.
 
 
 ## Ongoing management of your SRM solution
@@ -304,7 +308,7 @@ VMware and Microsoft support teams will engage each other as needed to troublesh
 - [Operational Limits of vSphere Replication 8.3](https://docs.vmware.com/en/vSphere-Replication/8.3/com.vmware.vsphere.replication-admin.doc/GUID-E114BAB8-F423-45D4-B029-91A5D551AC47.html)
 - [Calculate bandwidth for vSphere Replication](https://docs.vmware.com/en/vSphere-Replication/8.3/com.vmware.vsphere.replication-admin.doc/GUID-4A34D0C9-8CC1-46C4-96FF-3BF7583D3C4F.html)
 - [SRM installation and configuration](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-B3A49FFF-E3B9-45E3-AD35-093D896596A0.html)
-- [vSphere Replication administration](https://docs.vmware.com/en/vSphere-Replication/8.3/com.vmware.vsphere.replication-admin.doc/GUID-35C0A355-C57B-430B-876E-9D2E6BE4DDBA.html)
+- [vSphere Replication administration](https://docs.vmware.com/en/vSphere-Replication/8.2/com.vmware.vsphere.replication-admin.doc/GUID-35C0A355-C57B-430B-876E-9D2E6BE4DDBA.html)
 - [Pre-requisites and Best Practices for SRM installation](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)
 - [Network ports for SRM](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-499D3C83-B8FD-4D4C-AE3D-19F518A13C98.html)
 - [Network ports for vSphere Replication](https://kb.vmware.com/s/article/2087769)

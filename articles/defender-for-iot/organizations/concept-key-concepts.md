@@ -1,13 +1,13 @@
 ---
 title: Key advantages
 description: Learn about basic Defender for IoT concepts.
-ms.date: 12/13/2020
+ms.date: 11/09/2021
 ms.topic: article
 ---
 
-# Basic concepts 
+# Basic concepts
 
-This article describes key advantages of Azure Defender for IoT.
+This article describes key advantages of Microsoft Defender for IoT.
 
 ## Rapid non-invasive deployment and passive monitoring
 
@@ -52,15 +52,15 @@ The platform provides an intuitive data-mining interface for granular searching 
 
 The Sensor Cloud Management mode determines where device, alert, and other information that the sensor detects is displayed.
 
-For **cloud-connected sensors**, information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Azure Sentinel.
+For **cloud-connected sensors**, information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Microsoft Sentinel.
 
 For **locally connected sensors**, information that the sensor detects is displayed in the sensor console. Detection information is also shared with the on-premises management console if the sensor is connected to it.
 
 ## Air-gapped networks
 
-If you're working in an air-gapped environment, the on-premises management console in Defender for IoT delivers a real-time view of key IoT and OT risk indicators and alerts across all of your facilities. Tightly integrated with your SOC workflows and runbooks, it enables easy prioritization of mitigation activities and cross-site correlation of threats.  
+If you're working in an air-gapped environment, the on-premises management console in Defender for IoT delivers a real-time view of key IoT and OT risk indicators and alerts across all of your facilities. Tightly integrated with your SOC workflows and runbooks, it enables easy prioritization of mitigation activities and cross-site correlation of threats.
 
-Defender for IoT provides a consolidated view of all your devices. It also provides critical information about the devices, such as type (PLC, RTU, DCS, and more), manufacturer, model, and firmware revision level, as well as alert information.  
+Defender for IoT provides a consolidated view of all your devices. It also provides critical information about the devices, such as type (PLC, RTU, DCS, and more), manufacturer, model, and firmware revision level, as well as alert information.
 
 Defender for IoT enables the effective management of multiple deployments and a comprehensive unified view of the network. Defender for IoT optimizes alert handling and control of operational network security.
 
@@ -107,6 +107,21 @@ Alerts are triggered when Horizon alert rule conditions are met.
 In addition, working with Horizon custom alerts lets you write your own alert titles and messages. Resolved protocol fields and values can be embedded in the alert message text.
 
 Using custom, condition-based alert triggering and messaging helps pinpoint specific network activity and effectively update your security, IT, and operational teams.
+
+For a complete list of supported protocols see, [Supported Protocols](concept-supported-protocols.md#supported-protocols).
+
+## What is an Inventory Device
+
+The Defender for IoT Device inventory displays an extensive range of asset attributes that are detected by sensors monitoring the organizations networks and managed endpoints.
+
+Defender for IoT will identify and classify devices as a single unique network device in the inventory for:
+
+1. Standalone IT/OT/IoT devices (w/ 1 or multiple NICs)
+1. Devices composed of multiple backplane components (including all racks/slots/modules)
+1. Devices acting as network infrastructure such as Switch/Router (w/ multiple NICs). 
+
+Public internet IP addresses, multicast groups, and broadcast groups are not considered inventory devices.
+Devices that have been inactive for more than 60 days are classified as inactive Inventory devices.
 
 
 ## High availability

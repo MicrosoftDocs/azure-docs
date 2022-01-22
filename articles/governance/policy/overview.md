@@ -46,7 +46,7 @@ Resources are evaluated at specific times during the resource lifecycle, the pol
 lifecycle, and for regular ongoing compliance evaluation. The following are the times or events that
 cause a resource to be evaluated:
 
-- A resource is created, updated, or deleted in a scope with a policy assignment.
+- A resource is created or updated in a scope with a policy assignment.
 - A policy or initiative is newly assigned to a scope.
 - A policy or initiative already assigned to a scope is updated.
 - During the standard compliance evaluation cycle, which occurs once every 24 hours.
@@ -79,7 +79,7 @@ resource. For more information about making existing resources compliant, see
 ### Video overview
 
 The following overview of Azure Policy is from Build 2018. For slides or video download, visit
-[Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030)
+[Govern your Azure environment through Azure Policy](/events/Build/2018/THR2030)
 on Channel 9.
 
 > [!VIDEO https://www.youtube.com/embed/dxMaYF2GB7o]
@@ -118,7 +118,7 @@ role includes most Azure Policy operations. **Owner** has full rights. Both **Co
 **Reader** have access to all _read_ Azure Policy operations. **Contributor** may trigger resource
 remediation, but can't _create_ definitions or assignments. **User Access Administrator** is
 necessary to grant the managed identity on **deployIfNotExists** or **modify** assignments necessary
-permissions.
+permissions. All policy objects will be readable to all roles over the scope.
 
 If none of the Built-in roles have the permissions required, create a
 [custom role](../../role-based-access-control/custom-roles.md).

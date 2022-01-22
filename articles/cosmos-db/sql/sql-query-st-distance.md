@@ -51,6 +51,9 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 
 This system function will benefit from a [geospatial index](../index-policy.md#spatial-indexes) except in queries with aggregates.
 
+> [!NOTE]
+> The GeoJSON specification requires that points within a Polygon be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
+
 ## Next steps
 
 - [Spatial functions Azure Cosmos DB](sql-query-spatial-functions.md)

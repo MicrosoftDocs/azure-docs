@@ -11,7 +11,7 @@ ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
 
-# Preview: Create virtual machines in a Flexible scale set using an ARM template
+# Create virtual machines in a Flexible scale set using an ARM template
 
 **Applies to:** :heavy_check_mark: Flexible scale sets
 
@@ -19,11 +19,11 @@ ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 This article steps through using an ARM template to create a virtual machine scale set in Flexible orchestration mode. For more information about Flexible scale sets, see [Flexible orchestration mode for virtual machine scale sets](flexible-virtual-machine-scale-sets.md). 
 
 
-> [!IMPORTANT]
-> Virtual machine scale sets in Flexible orchestration mode is currently in public preview. An opt-in procedure is needed to use the public preview functionality described below.
-> This preview version is provided without a service level agreement and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvmss-flexible-orchestration-quickstart%2Fazuredeploy.json)
 
 > [!CAUTION]
 > The orchestration mode is defined when you create the scale set and cannot be changed or updated later.
@@ -31,10 +31,6 @@ This article steps through using an ARM template to create a virtual machine sca
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-## Register for Flexible orchestration mode
-
-Before you can deploy virtual machine scale sets in Flexible orchestration mode, you must first [register your subscription for the preview feature](flexible-virtual-machine-scale-sets.md#register-for-flexible-orchestration-mode). The registration may take several minutes to complete.
 
 ## ARM template 
 

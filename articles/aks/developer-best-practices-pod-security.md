@@ -96,7 +96,6 @@ When applications need a credential, they communicate with the digital vault, re
 
 With Key Vault, you store and regularly rotate secrets such as credentials, storage account keys, or certificates. You can integrate Azure Key Vault with an AKS cluster using the [Azure Key Vault provider for the Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage). The Secrets Store CSI driver enables the AKS cluster to natively retrieve secret contents from Key Vault and securely provide them only to the requesting pod. Work with your cluster operator to deploy the Secrets Store CSI Driver onto AKS worker nodes. You can use a pod managed identity to request access to Key Vault and retrieve the secret contents needed through the Secrets Store CSI Driver.
 
-Azure Key Vault with Secrets Store CSI Driver can be used for Linux nodes and pods which require a Kubernetes version of 1.16 or greater. For Windows nodes and pods a Kubernetes version of 1.18 or greater is required.
 
 ## Next steps
 
@@ -109,7 +108,7 @@ This article focused on how to secure your pods. To implement some of these area
 [aad-pod-identity]: https://github.com/Azure/aad-pod-identity#demo
 [aks-keyvault-csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
-[selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#selinuxoptions-v1-core
+[selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#selinuxoptions-v1-core
 [aks-associated-projects]: https://awesomeopensource.com/projects/aks?categoryPage=11
 
 <!-- INTERNAL LINKS -->

@@ -164,7 +164,7 @@ New-AzRoleAssignment @RoleAssignParams
 > definitions can be created._", see
 > [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md).
 
-## Create a Shared Image Gallery
+## Create an Azure Compute Gallery (formerly known as Shared Image Gallery)
 
 Create the gallery.
 

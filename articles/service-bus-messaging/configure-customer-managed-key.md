@@ -31,7 +31,7 @@ After you enable customer-managed keys, you need to associate the customer manag
 1. To create a new key vault, follow the Azure Key Vault [Quickstart](../key-vault/general/overview.md). For more information about importing existing keys, see [About keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
 
     > [!IMPORTANT]
-    > Using customer-managed keys with Azure Service Bus requires that the key vault have two required properties configured. They are:  **Soft Delete** and **Do Not Purge**. These properties are enabled by default when you create a new key vault in the Azure portal. However, if you need to enable these properties on an existing key vault, you must use either PowerShell or Azure CLI.
+    > Using customer-managed keys with Azure Service Bus requires that the key vault have two required properties configured. They are:  **Soft Delete** and **Do Not Purge**. The Soft Delete property is enabled by default when you create a new key vault in the Azure portal whereas the Purge Protection is optional so make sure to select it when creating the Key Vault. Also, if you need to enable these properties on an existing key vault, you must use either PowerShell or Azure CLI.
 1. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault#az_keyvault_create) command.
 
     ```azurecli-interactive

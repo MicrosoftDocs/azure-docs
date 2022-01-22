@@ -74,10 +74,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up single sign-on with SAML** page, perform the following steps:
 
     a. In the **Identifier** text box, type the URL:
-    `https://login.factset.com`
+    `https://auth.factset.com`
 
     b. In the **Reply URL** text box, type the URL:
-    `https://login.factset.com/services/saml2/`
+    `https://auth.factset.com/sp/ACS.saml2`
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the metadata file and save it on your computer.
 
@@ -125,8 +125,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the FactSet for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the FactSet tile in the My Apps, you should be automatically signed in to the FactSet for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the FactSet tile in the My Apps, you should be automatically signed in to the FactSet for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure FactSet you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure FactSet you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

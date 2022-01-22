@@ -25,6 +25,10 @@ This article shows how to use the Request trigger and Response action so that yo
 
 For more information about security, authorization, and encryption for inbound calls to your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), exposing your logic app with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
+> [!NOTE]
+> For the **Logic App (Standard)** resource type in single-tenant Azure Logic Apps, Azure AD OAuth is currently 
+> unavailable for inbound calls to request-based triggers, such as the Request trigger and HTTP Webhook trigger.
+
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/free/).

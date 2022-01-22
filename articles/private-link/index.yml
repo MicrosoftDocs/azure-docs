@@ -24,6 +24,10 @@ landingContent:
         links:
           - text: What is Private Link?
             url: private-link-overview.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Private Link
+            url: /learn/modules/introduction-azure-private-link/
       - linkListType: video
         links:
           - text: Secure Azure PaaS resources using Private Link

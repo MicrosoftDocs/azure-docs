@@ -7,11 +7,11 @@ ms.date: 07/27/2021
 
 # App settings reference for Azure Functions
 
-App settings in a function app contain global configuration options that affect all functions for that function app. When you run locally, these settings are accessed as local [environment variables](functions-develop-local.md#local-settings-file). This article lists the app settings that are available in function apps.
+App settings in a function app contain configuration options that affect all functions for that function app. When you run locally, these settings are accessed as local [environment variables](functions-develop-local.md#local-settings-file). This article lists the app settings that are available in function apps.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-There are other global configuration options in the [host.json](functions-host-json.md) file and in the [local.settings.json](functions-develop-local.md#local-settings-file) file.
+There are other function app configuration options in the [host.json](functions-host-json.md) file and in the [local.settings.json](functions-develop-local.md#local-settings-file) file.
 Example connection string values are truncated for readability.
 
 > [!NOTE]
@@ -145,6 +145,18 @@ Path to the compiler used for TypeScript. Allows you to override the default if 
 |---|------------|
 |AzureWebJobs_TypeScriptPath|`%HOME%\typescript`|
 
+## DOCKER_SHM_SIZE
+
+Sets the shared memory size (in bytes) when the Python worker is using shared memory. To learn more, see [Shared memory](functions-reference-python.md#shared-memory).
+
+|Key|Sample value|
+|---|------------|
+|DOCKER_SHM_SIZE|`268435456`|
+
+The value above sets a shared memory size of ~256 MB. 
+
+Requires that [FUNCTIONS\_WORKER\_SHARED\_MEMORY\_DATA\_TRANSFER\_ENABLED](#functions_worker_shared_memory_data_transfer_enabled) be set to `1`.
+
 ## FUNCTION\_APP\_EDIT\_MODE
 
 Dictates whether editing in the Azure portal is enabled. Valid values are "readwrite" and "readonly".
@@ -201,6 +213,16 @@ Valid values:
 | `powershell` | [PowerShell](functions-reference-powershell.md) |
 | `python` | [Python](functions-reference-python.md) |
 
+## FUNCTIONS\_WORKER\_SHARED\_MEMORY\_DATA\_TRANSFER\_ENABLED
+
+This setting enables the Python worker to use shared memory to improve throughput. Enable shared memory when your Python function app is hitting memory bottlenecks. 
+
+|Key|Sample value|
+|---|------------|
+|FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED|`1`|
+
+With this setting enabled, you can use the [DOCKER_SHM_SIZE](#docker_shm_size) setting to set the shared memory size. To learn more, see [Shared memory](functions-reference-python.md#shared-memory).
+
 ## MDMaxBackgroundUpgradePeriod
 
 Controls the managed dependencies background update period for PowerShell function apps, with a default value of `7.00:00:00` (weekly).
@@ -250,9 +272,9 @@ The value for this setting indicates a custom package index URL for Python apps.
 
 To learn more, see [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
 
-## PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES
+## PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES (Preview)
 
-The configuration is specific to Python function apps. It defines the prioritization of module loading order. When your Python function apps face issues related to module collision (e.g. when you're using protobuf, tensorflow, or grpcio in your project), configuring this app setting to `1` should resolve your issue. By default, this value is set to `0`.
+The configuration is specific to Python function apps. It defines the prioritization of module loading order. When your Python function apps face issues related to module collision (e.g. when you're using protobuf, tensorflow, or grpcio in your project), configuring this app setting to `1` should resolve your issue. By default, this value is set to `0`. This flag is currently in Preview.
 
 |Key|Value|Description|
 |---|-----|-----------|
@@ -312,7 +334,7 @@ Only used when deploying to a Premium plan or to a Consumption plan running on W
 
 ## WEBSITE\_CONTENTOVERVNET
 
-A value of `1` enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. To learn more, see [Restrict your storage account to a virtual network](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
+A value of `1` enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. To learn more, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
 |Key|Sample value|
 |---|------------|
@@ -330,7 +352,7 @@ The file path to the function app code and configuration in an event-driven scal
 
 Only used when deploying to a Premium plan or to a Consumption plan running on Windows. Not supported for Consumptions plans running Linux. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
-When using an Azure Resource Manager template to create a function app during deployment, don't include WEBSITE_CONTENTSHARE in the template. This application setting is generated during deployment. To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md#windows).
+When using an Azure Resource Manager template to create a function app during deployment, don't include WEBSITE_CONTENTSHARE in the template. This slot setting is generated during deployment. To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md#windows).
 
 ## WEBSITE\_DNS\_SERVER
 
@@ -397,6 +419,6 @@ Indicates whether all outbound traffic from the app is routed through the virtua
 
 [Learn how to update app settings](functions-how-to-use-azure-function-app-settings.md#settings)
 
-[See global settings in the host.json file](functions-host-json.md)
+[See configuration settings in the host.json file](functions-host-json.md)
 
 [See other app settings for App Service apps](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

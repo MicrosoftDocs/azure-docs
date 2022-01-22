@@ -4,10 +4,10 @@ description: Migrate Co-sell solutions from OCP GTM to Partner Center (Azure Mar
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: vamahtan
-ms.author: vamahtan
+author: vikrambmsft
+ms.author: vikramb
 ms.reviewer: stmummer
-ms.date: 07/13/2021
+ms.date: 09/27/2021
 ---
 
 # Migration of co-sell solutions from OCP GTM to the commercial marketplace
@@ -62,11 +62,11 @@ Follow these steps before importing your solutions from OCP GTM:
 ## Begin the migration of your solutions from OCP GTM
 
 1. Begin the migration [here](https://go.microsoft.com/fwlink/?linkid=2165807).
-2. Select the **Overview** page, then **Click here to get started**.
+1. Select the **Overview** page, then **Click here to get started**.
 
     :::image type="content" source="media/co-sell-migrate/welcome-overveiw.png" alt-text="Displays overview page":::
 
-3. To begin migrating, select the **Solutions** tab, which displays all the solutions associated to your MPN IDs.
+1. To begin migrating, select the **Solutions** tab, which displays all the solutions associated to your MPN IDs.
 
     :::image type="content" source="media/co-sell-migrate/solutions-tab.png" alt-text="Partner Center Overview page, Solutions tab.":::
 
@@ -75,7 +75,7 @@ Follow these steps before importing your solutions from OCP GTM:
 
     Learn more about the solution status by reviewing the tool tips. All solutions pending action are listed under **Action**.<a name="beginmigration"></a>
 
-4. Select **Begin migration** (see image above) for the solution you want to migrate, then select one of the following options:
+1. Select **Begin migration** (see image above) for the solution you want to migrate, then select one of the following options:
 
     :::image type="content" source="media/co-sell-migrate/migration-options.png" alt-text="The three options for migration.":::
 
@@ -93,15 +93,16 @@ If you do not have an offer already in the commercial marketplace to merge a sol
 
 1. Create a draft offer in commercial marketplace
 
-   1. Select **+ New Offer**
+   1. On the commercial marketplace Overview page, select **+ New Offer**, and then select the offer type you want.
 
-        :::image type="content" source="media/co-sell-migrate/new-offer.png" alt-text="New Offer display":::
+        [ ![Screenshot of the New Offer button on the Marketplace offers page.](media/co-sell-migrate/new-offer-workspaces.png) ](media/co-sell-migrate/new-offer-workspaces.png#lightbox)
 
    2. Complete the required information in each tab.
-         • The **Learn more** links and tooltips will guide you through the requirements and details.
-         • Optionally, complete the **Resell through CSPs** page (in the left-nav menu below) to resell through the Cloud Solution Provider (CSP) program.
+      - The **Learn more** links and tooltips will guide you through the requirements and details.
+      - Optionally, complete the **Resell through CSPs** page (in the left-nav menu below) to resell through the Cloud Solution Provider (CSP) program.
 
-        :::image type="content" source="media/co-sell-migrate/offer-setup-nav.png" alt-text="Displays the Offer Setup page with overview options highlighted.":::
+        [ ![Displays the Offer Setup page with overview options highlighted.](media/co-sell-migrate/offer-setup-nav-workspaces.png) ](media/co-sell-migrate/offer-setup-nav-workspaces.png#lightbox)
+
    3. Select **Save Draft**.
         - For detailed instructions on the information you need to provide before your offer can be published, read the appropriate [publishing guide](./publisher-guide-by-offer-type.md).
         - Review the eligibility requirements in the corresponding article for your offer type to finalize the selection and configuration of your offer.
@@ -114,11 +115,16 @@ If you do not have an offer already in the commercial marketplace to merge a sol
     After the merge is complete you can return to the Co-sell with Microsoft tab and make updates if needed. For more information, see [Configure co-sell for a commercial marketplace offer](./co-sell-configure.md).
 1. When complete, select **Review and publish**.
 
-     :::image type="content" source="media/co-sell-migrate/co-sell-with-ms.png" alt-text="Co-Sell with Microsoft page is displayed with options highlighted":::
-1. After reviewing all submitted information, select **Publish** to submit your draft offer for certification review. [Learn more about the certification phase](./review-publish-offer.md).:::image type="content" source="media/co-sell-migrate/review-and-publish.png" alt-text="Displays the Review and Publish page.":::
+    [ ![Co-Sell with Microsoft page is displayed with options highlighted.](media/co-sell-migrate/co-sell-with-ms-workspaces.png) ](media/co-sell-migrate/co-sell-with-ms-workspaces.png#lightbox)
+
+1. After reviewing all submitted information, select **Publish** to submit your draft offer for certification review. [Learn more about the certification phase](./review-publish-offer.md).
+
+    [ ![Displays the Review and Publish page.](media/co-sell-migrate/review-and-publish-workspaces.png) ](media/co-sell-migrate/review-and-publish-workspaces.png#lightbox)
+
 1. Track the status of your submission on the Overview tab.
 
-    :::image type="content" source="media/co-sell-migrate/offer-overview-tab.png" alt-text="Dispalys overview tab":::
+    [ ![Illustrates the Publish status for an offer in Partner Center. The Go live button is shown. The View validation report link is also shown under Automated validation.](./media/review-publish-offer/publish-status-saas.png) ](./media/review-publish-offer/publish-status-saas.png#lightbox)
+
 1. We will notify you when our certification review is complete. If we provide actionable feedback, address it, then select **Publish** to initiate a recertification.
 
 1. Once your offer passes certification, preview the offer with the link provided and make any final adjustments you may want. When you're ready, select **Go live** (see button above) to publish your offer to relevant commercial marketplace storefront(s).

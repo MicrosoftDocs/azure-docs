@@ -6,9 +6,13 @@ ms.date: 08/19/2021
 ms.custom: devx-track-azurepowershell
 ---
 
-# Post to Azure Event Grid custom topics using access keys
+# Publish events to Azure Event Grid custom topics using access keys
 
 This article describes how to post an event to a custom topic using an access key. It shows the format of the post and event data. The [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) only applies to posts that match the expected format.
+
+
+> [!NOTE]
+> Azure AD authentication provides a superior authentication support than that's offered by access key or Shared Access Signature (SAS) token authentication. With Azure AD authentication, the identity is validated against Azure AD identity provider. As a developer, you won't have to handle keys in your code if you use Azure AD authentication. you'll also benefit from all security features built into the Microsoft Identity platform, such as Conditional Access, that can help you improve your application's security stance. For more information, see [Authenticate publishing clients using Azure Active Directory](authenticate-with-active-directory.md).
 
 ## Endpoint
 
@@ -65,7 +69,7 @@ For custom topics, the top-level data contains the same fields as standard resou
 ]
 ```
 
-For a description of these properties, see [Azure Event Grid event schema](event-schema.md). When posting events to an event grid topic, the array can have a total size of up to 1 MB. The maximum allowed size for an event is also 1 MB. Events over 64 KB are charged in 64-KB increments. 
+For a description of these properties, see [Azure Event Grid event schema](event-schema.md). When posting events to an event grid topic, the array can have a total size of up to 1 MB. The maximum allowed size for an event is also 1 MB. Events over 64 KB are charged in 64-KB increments. When receiving events in a batch, the maximum allowed number of events is 5,000 per batch.
 
 For example, a valid event data schema is:
 

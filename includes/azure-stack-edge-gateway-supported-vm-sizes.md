@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 07/01/2021
+ms.date: 09/24/2021
 ms.author: alkohli
 ---
 
@@ -41,6 +41,7 @@ The following VMs are supported for creation on your Azure Stack Edge device.
 
 For more information, see [Dv2 and DSv2-series](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series).
 
+
 ### NCasT4_v3-series (Preview)
 
 These sizes are supported for GPU VMs on your device and are optimized for compute-intensive GPU-accelerated applications. This series is focused on inference workloads featuring Nvidia's Tesla T4 GPU.
@@ -70,3 +71,24 @@ These series are optimized for computational workloads and run on Intel Xeon pro
 | **Standard_F16s**  | 16      | 32           | 64                  | 2000                           | 64000                               | 2300                             | 64              | 8         |
 
 For more information, see [Fsv2-series](../articles/virtual-machines/fsv2-series.md).
+
+### High-performance network VMs
+
+The high-performance network (HPN) virtual machines are tailored for workloads that require fast and uninterrupted performance using high speed network interfaces. Due to the nature of logical core pairing, the supported VM sizes have vCpu count in multiples of 2.  
+
+#### HPN DSv2-series
+
+| Size              | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs  |
+|-------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|
+| **Standard_DS2_v2_HPN**   | 2     | 7             | 14                  | 2000                           | 8000                                | 2300                             | 8               | 4         |
+| **Standard_DS3_v2_HPN**   | 4     | 14            | 28                  | 2000                           | 16000                               | 2300                             | 16              | 4         |
+| **Standard_DS4_v2_HPN**   | 8     | 28            | 56                  | 2000                           | 32000                               | 2300                             | 32              | 8         |
+
+#### HPN F-series
+
+| Size           | vCPU's  | Memory: GiB  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs  |
+|----------------|---------|--------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|
+| **Standard_F2s_HPN**   | 2       | 4            | 8                   | 2000                           | 8000                                | 2300                             | 8               | 4         |
+| **Standard_F4s_HPN**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 4         |
+| **Standard_F8s_HPN**   | 8       | 16           | 32                  | 2000                           | 32000                               | 2300                             | 32              | 8         |
+| **Standard_F16s_HPN**  | 16      | 32           | 64                  | 2000                           | 64000                               | 2300                             | 64              | 8         |

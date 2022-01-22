@@ -12,16 +12,18 @@ ms.subservice: partner
 
 # Analyze and migrate to Azure with Komprise
 
-This article helps you integrate the Komprise Intelligent Data Manager infrastructure with Azure storage services. It includes considerations and implementation guidance on how to analyze, and migrate your data.
+This article helps you integrate the Komprise Intelligent Data Management infrastructure with Azure storage services. It includes considerations and implementation guidance on how to analyze, and migrate your data.
 
-Komprise provides analytics and insights into network attached storage systems. It enables migration of data to Azure storage services like Azure Files, Azure NetApp Files, Azure Blob Storage, or ISV NAS solution. Learn more on [verified partner solutions for primary and secondary storage](../primary-secondary-storage/partner-overview.md).
+Komprise provides analytics and insights into file, and object data stored in network attached storage systems (NAS), and object stores, both on-premises and in the cloud.  It enables migration of data to Azure storage services like Azure Files, Azure NetApp Files, Azure Blob Storage, or other ISV NAS solution. Learn more on [verified partner solutions for primary and secondary storage](../primary-secondary-storage/partner-overview.md).
 
-Komprise will help in many different use cases, like:
+Common use cases for Komprise include:
 
-- Analysis of on-premises unstructured data to gain insights for data management, movement, positioning, archiving, protection, and confinement.
-- Migration of on-premises unstructured data to Azure Files, Azure NetApp Files, or ISV NAS solution,
-- Copy, or archive, on-premises unstructured data to Azure Blob Storage with native access
-- Migration of object storage solutions to Azure Blob Storage
+- Analysis of unstructured file and object data to gain insights for data management, movement, positioning, archiving, protection, and confinement,
+- Migration of file data to Azure Files, Azure NetApp Files, or ISV NAS solution,
+- Policy based tiering and archiving of file data to Azure Blob Storage while retaining transparent access from the original NAS solution and allowing native object access in Azure,
+- Copy file data to Azure Blob Storage on configurable schedules while retaining native object access in Azure
+- Migration of object data to Azure Blob Storage,
+- Tiering and data lifecycle management of objects across Hot, Cool, and Archive tiers of Azure Blob Storage based on last access time
 
 ## Reference architecture
 
@@ -29,9 +31,13 @@ The following diagram provides a reference architecture for on-premises to Azure
 
 :::image type="content" source="./media/komprise-quick-start-guide/komprise-architecture.png" alt-text="Reference architecture describes basic setup for Komprise Intelligent Data Manager":::
 
+The following diagram provides a reference architecture for migrating cloud and on-premises object workloads to Azure Blob Storage.
+
+:::image type="content" source="./media/komprise-quick-start-guide/komprise-architecture-blob.png" alt-text="Reference architecture describes setup for migrating cloud and on-premises object workloads to Azure Blob Storage":::
+
 Komprise is a software solution that is easily deployed in a virtual environment. The solutions consist of:
 - **Director** - The administration console for the Komprise Grid. It is used to configure the environment, monitor activities, view reports and graphs, and set policies.
-- **Observers** - Manage and analyze shares, summarize reports, communicate with the Director, and handle NFS data traffic.
+- **Observers** - Manage and analyze shares, summarize reports, communicate with the Director, and handle object and NFS data traffic.
 - **Proxies** - Simplify and accelerate SMB/CIFS data flow, easily scale to meet performance requirements of a growing environment.
 
 ## Before you begin
@@ -72,7 +78,7 @@ Use the following methods to identify the bandwidth headroom to Azure that is fr
 
 Komprise is simple to set up and enables running multiple migrations simultaneously in three steps:
 
-1.	Analyze your data to identify files to migrate or archive,
+1.	Analyze your data to identify files and objects to migrate or archive,
 1.	Define policies to migrate, move, or copy unstructured data to Azure Storage,
 1.	Activate policies that automatically move your data.
 
@@ -82,25 +88,26 @@ The first step is critical in finding and prioritizing the right data to migrate
   - Less frequently accessed files that you can cache on-premises or store on fast file service
   - Cold data you can archive to blob storage
 - Information on top users, groups, or shares to determine the order of the migration and the most impacted group within the organization to assess business impact
-- Number of files, or capacity per file type to determine type of stored files and if there are any possibilities to clean up the content. Cleaning up will reduce the migration effort, and reduce the cost of the target storage
-- Number of files, or capacity per file size to determine the duration of migration. Large number of small files will take longer to migrate than small number of large files
+- Number of files, or capacity per file type to determine type of stored files and if there are any possibilities to clean up the content. Cleaning up will reduce the migration effort, and reduce the cost of the target storage. Similar analytics is available for object data.
+- Number of files, or capacity per file size to determine the duration of migration. Large number of small files will take longer to migrate than small number of large files. Similar analytics is available for object data.
+- Cost of objects by storage tier to determine if cold data is incorrectly placed in expensive tiers, or hot data is incorrectly placed in cheaper tiers with high access costs. Right placing data based on access patterns enables optimizing overall cloud storage costs.
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-analyze-1.png" alt-text="Analysis by file type and access time":::
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-analyze-shares.png" alt-text="Example of share analysis":::
 
-- Custom query capability filter to filter exact set of files for your specific needs
+- Custom query capability filter to filter exact set of files and objects for your specific needs
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-analyze-custom.png" alt-text="Analysis for custom query":::
 
 ## Deployment guide
 
-Before deploying Komprise, the target service has to be deployed. You can learn more here:
+Before deploying Komprise, the target service must be deployed. You can learn more here:
 
 - How to create [Azure File Share](../../../files/storage-how-to-create-file-share.md)
 - How to create an [SMB volume](../../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md) or [NFS export](../../../../azure-netapp-files/azure-netapp-files-create-volumes.md) in Azure NetApp Files
 
-The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) for speed, scalability, and resilience. Alternatively, you may setup the environment in your Azure subscription using [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management).
+The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) for speed, scalability, and resilience. Alternatively, you may set up the environment in your Azure subscription using [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management).
 
 1. Open the Azure portal, and search for  **storage accounts**. 
 
@@ -151,6 +158,8 @@ The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) fo
 
    4.  Configure extra [security best practices](../../../blobs/security-recommendations.md).
 
+### Deployment instructions for managing file data
+
 1.	**Download** the Komprise Observer virtual appliance from the Director, deploy it to your hypervisor and configure it with the network and domain. Director is provided as a cloud service managed by Komprise. Information needed to access Director is sent with the welcome email once you purchase the solution.
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-setup-1.png" alt-text="Download appropriate image for Komprise Observer from Director":::
@@ -179,9 +188,37 @@ The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) fo
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-azure-files-2.png" alt-text="Enter details for Azure Files":::
 
+### Deployment instructions for managing object data
+
+Managing object provides different experience. The Director and Observer are provided as a cloud services, managed by Komprise. If you only need to analyze and archive data in Azure Blob Storage, no further deployment is required. If you need to perform migrations into Azure Blob Storage, get the Komprise Observer virtual appliance sent with the welcome email, and deploy it in a Linux virtual machine in your Azure cloud infrastructure. After deploying, follow the steps on the Komprise Director.
+
+1. Navigate to **Data Stores** and **Add New Object Store**. Select **Microsoft Azure** as the provider.
+
+    :::image type="content" source="./media/komprise-quick-start-guide/komprise-add-object-store.png" alt-text="Screenshot that shows adding new object store":::
+
+1. Add shares to analyze and migrate. These steps must be repeated for every source, and target share, or container. There are two options to perform the same action:
+    1. **Discover** all the containers by entering:
+        - Storage account name
+        - Primary access key
+        - Display name
+    
+        :::image type="content" source="./media/komprise-quick-start-guide/komprise-discover-storage-account.png" alt-text="Screenshot that shows how to discover containers in storage account":::
+
+        Required information can be found in **[Azure Portal](https://portal.azure.com/)** by navigating to the **Access keys** item under **Settings** for the storage account. If the keys are not showing, click on the **Show keys**.
+
+    1. **Specify** a container by entering:
+        - Container name
+        - Storage account name
+        - Primary access key
+        - Display name
+
+        :::image type="content" source="./media/komprise-quick-start-guide/komprise-add-container.png" alt-text="Screenshot that shows how to add containers in storage account":::
+
+        Container name represents the target container for the migration and needs to be created before migration. Other required information can be found in **[Azure Portal](https://portal.azure.com/)** by navigating to the **Access keys** item under **Settings** for the storage account. If the keys are not showing, click on the **Show keys**.
+
 ## Migration guide
 
-Komprise provides live migration, where end users and applications are not disrupted and can continue to access data during the migration. The migration process automates migrating directories, files, and links from a source to a destination. At each step data integrity is checked. All attributes, permissions, and access controls from the source are applied.
+Komprise provides live migration, where end users and applications are not disrupted and can continue to access data during the migration. The migration process automates migrating directories, files, and links from a source to a destination. At each step data integrity is checked. All attributes, permissions, and access controls from the source are applied. In an object migration, objects, prefixes, and metadata of each object are migrated.
 
 To configure and run a migration, follow these steps:
 
@@ -190,11 +227,19 @@ To configure and run a migration, follow these steps:
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-new-migrate.png" alt-text="Add new migration job":::
 
-1. Add migration task by selecting proper source and destination share. Provide a migration name. Once configured, click on **Start Migration**. 
+1. Add migration task by selecting proper source and destination share. Provide a migration name. Once configured, click on **Start Migration**. This step is slightly different for file and object data migrations.
    
-   :::image type="content" source="./media/komprise-quick-start-guide/komprise-add-migration.png" alt-text="Specify details for the migration job":::
+    1. File migration
 
-   (_Optional_) Define if you want to preserve access time and SMB ACLs on the destination. This option depends on the selected source and destination file service and protocol.
+       :::image type="content" source="./media/komprise-quick-start-guide/komprise-add-migration.png" alt-text="Specify details for the migration job":::
+
+       File migration provides options to preserve access time and SMB ACLs on the destination. This option depends on the selected source and destination file service and protocol.
+
+    1. Object migration
+
+        :::image type="content" source="./media/komprise-quick-start-guide/komprise-add-object-migration.png" alt-text="Screenshot that shows adding object migration":::
+
+        Object migration provides options to choose the destination Azure storage tier (Hot, Cool, Archive). You may also choose to verify each data transfer using MD5 checksum. Egress costs can occur with MD5 checksums as cloud objects must be retrieved to calculate the MD5 checksum.
 
 2. Once the migration started, you can go to **Migrate** to monitor the progress.
 

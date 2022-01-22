@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 12/06/2019
+ms.date: 09/10/2021
 ms.author: cynthn
 
 ---
@@ -37,6 +37,9 @@ The following command creates an SSH key pair using RSA encryption and a bit len
 ```bash
 ssh-keygen -m PEM -t rsa -b 4096
 ```
+
+> [!NOTE]
+> You can also create key pairs with the [Azure CLI](/cli/azure) with the [az sshkey create](/cli/azure/sshkey#az_sshkey_create) command, as described in [Generate and store SSH keys](../ssh-keys-azure-cli.md).
 
 If you use the [Azure CLI](/cli/azure) to create your VM with the [az vm create](/cli/azure/vm#az_vm_create) command, you can optionally generate SSH public and private key files using the `--generate-ssh-keys` option. The key files are stored in the ~/.ssh directory unless specified otherwise with the `--ssh-dest-key-path` option. If an ssh key pair already exists and the  `--generate-ssh-keys` option is used, a new key pair will not be generated but instead the existing key pair will be used. In the following command, replace *VMname* and *RGname* with your own values:
 

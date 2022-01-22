@@ -3,9 +3,9 @@ title: Submit a workflow using BAM file input
 titleSuffix: Microsoft Genomics
 description: This article demonstrates how to submit a workflow to the Microsoft Genomics service if your input file is  a single BAM file.  
 services: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017

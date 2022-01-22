@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about existing industry ontologies that can be adopted for Azure Digital Twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 2/26/2021
+ms.date: 10/27/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -16,6 +16,8 @@ ms.service: digital-twins
 ---
 
 # Adopting an industry ontology
+
+This article covers different sets of industry-standard ontologies that can be adopted to simplify solutions.
 
 Because it can be easier to start with an open-source Digital Twins Definition Language (DTDL) ontology than from a blank page, Microsoft is partnering with domain experts to publish ontologies. These ontologies represent widely accepted industry conventions and support various customer use cases. 
 
@@ -29,9 +31,9 @@ Each ontology is focused on an initial set of models. The ontology authors welco
 
 *Get the ontology from the following repository:* [Digital Twins Definition Language-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building).
 
-Microsoft has partnered with [RealEstateCore](https://www.realestatecore.io/) to deliver this open-source DTDL ontology for the real estate industry. [RealEstateCore](https://www.realestatecore.io/) is a Swedish consortium of real estate owners, software vendors, and research institutions.
+Microsoft has partnered with [RealEstateCore](https://www.realestatecore.io/) to deliver this open-source DTDL ontology for the real estate industry. [RealEstateCore](https://www.realestatecore.io/) is a Swedish consortium of real estate owners, software vendors, and research institutions.
 
-This smart buildings ontology provides common ground for modeling smart buildings, using industry standards (like [BRICK Schema](https://brickschema.org/ontology/) or [W3C Building Topology Ontology](https://w3c-lbd-cg.github.io/bot/index.html)) to avoid reinvention. The ontology also comes with best practices for how to consume and properly extend it. 
+This smart buildings ontology provides common ground for modeling smart buildings, using industry standards (like [BRICK Schema](https://brickschema.org/ontology/) or [W3C Building Topology Ontology](https://w3c-lbd-cg.github.io/bot/index.html)) to avoid reinvention. The ontology also comes with best practices for how to consume and properly extend it. 
 
 To learn more about the ontology's structure and modeling conventions, how to use it, how to extend it, and how to contribute, visit the ontology's repository on GitHub: [Azure/opendigitaltwins-building](https://github.com/Azure/opendigitaltwins-building). 
 

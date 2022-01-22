@@ -436,7 +436,7 @@ You can publish metadata by using a public API or a click-once registration tool
     </tr>
 </table>
 
-If you want to see a specific data source supported, suggest it (or voice your support if it has already been suggested) by going to the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/forums/906052-data-catalog).
+If you want to see a specific data source supported, suggest it (or voice your support if it has already been suggested) by going to the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/d365community/forum/3bedd14b-6b26-ec11-b6e6-000d3a4f032c).
 
 
 ## Data-source reference specification

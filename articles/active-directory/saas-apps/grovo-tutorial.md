@@ -142,7 +142,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Screenshot that shows the "S P initiated S A M L 2.0" section with the "Set up" button selected.](./media/grovo-tutorial/tutorial_grovo_setup.png)
 
-4. In **SP Initiated SAML 2.0** popup window perform the following steps:
+4. In the **SP Initiated SAML 2.0** pop-up window, perform the following steps:
 
 	![Grovo Configuration](./media/grovo-tutorial/tutorial_grovo_saml.png)
 
@@ -167,7 +167,7 @@ In this section, a user called B.Simon is created in Grovo. Grovo supports just-
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Grovo tile in the Access Panel, you should be automatically signed in to the Grovo for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the Grovo tile in the Access Panel, you should be automatically signed in to the Grovo for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 

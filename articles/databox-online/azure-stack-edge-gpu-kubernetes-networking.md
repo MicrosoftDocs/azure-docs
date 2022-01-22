@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 06/24/2021
+ms.date: 09/27/2021
 ms.author: alkohli
 ---
 # Kubernetes networking on Azure Stack Edge Pro GPU device
@@ -134,10 +134,10 @@ Add-HcsNetRoute -InterfaceAlias <Port number> -DestinationPrefix <Destination IP
 Here is an example output.
 
 ```output
-Add-HcsNetRoute -InterfaceAlias "Port3" -DestinationPrefix "192.168.21.0/24" -NextHop "192.168.20.1" -RouteMetric 100 
+Add-HcsNetRoute -InterfaceAlias "Port3" -DestinationPrefix "192.168.20.0/24" -NextHop "192.168.20.1" -RouteMetric 100 
 ```
 
-The above command will create an entry in the routing table that defines a destination subnet 192.168.21.0/24, specifies the next hop as 192.168.20.1, and assigns this routing entry a routing metric of 100. Lower the routing metric, higher the priority assigned to the route.
+The above command will create an entry in the routing table that defines a destination subnet 192.168.20.0/24, specifies the next hop as 192.168.20.1, and assigns this routing entry a routing metric of 100. Lower the routing metric, higher the priority assigned to the route.
 
 ## Check route configuration
 

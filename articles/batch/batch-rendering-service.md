@@ -1,9 +1,7 @@
 ---
 title: Rendering overview
 description: Introduction of using Azure for rendering and an overview of Azure Batch rendering capabilities
-author: mscurrell
-ms.author: markscu
-ms.date: 01/14/2021
+ms.date: 12/13/2021
 ms.topic: how-to
 ---
 
@@ -31,7 +29,7 @@ For many reasons, rendering is a workload perfectly suited for Azure:
 * Choose from a wide selection of hardware according to application, workload, and timeframe:
   * There’s a wide selection of hardware available in Azure that can be allocated and managed with Batch.
   * Depending on the project, the requirement may be for the best price/performance or the best overall performance.  Different scenes and/or rendering applications will have different memory requirements.  Some rendering application can leverage GPUs for the best performance or certain features. 
-* Low-priority or [Spot VMs](https://azure.microsoft.com/pricing/spot/) reduce cost:
+* Low-priority or [Azure Spot VMs](https://azure.microsoft.com/pricing/spot/) reduce cost:
   * Low-priority and Spot VMs are available for a large discount compared to standard VMs and are suitable for some job types.
   
 ## Existing on-premises rendering environment

@@ -10,7 +10,6 @@ ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: ne
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
@@ -228,7 +227,7 @@ Here are other considerations related to working with channels and related compo
 ## Related topics
 [Recommended on premises encoders](media-services-recommended-encoders.md)
 
-[Azure Media Services fragmented MP4 lives ingest specification](../media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services fragmented MP4 lives ingest specification](media-services-fmp4-live-ingest-overview.md)
 
 [Azure Media Services overview and common scenarios](media-services-overview.md)
 

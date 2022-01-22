@@ -7,9 +7,9 @@ manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 09/16/2021
 ---
 
 # Upgrading versions of the Azure Search .NET Management SDK

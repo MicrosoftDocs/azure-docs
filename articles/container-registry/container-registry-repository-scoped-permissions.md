@@ -3,6 +3,7 @@ title: Permissions to repositories in Azure Container Registry
 description: Create a token with permissions scoped to specific repositories in a Premium registry to pull or push images, or perform other actions
 ms.topic: article
 ms.date: 02/04/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Create a token with repository-scoped permissions
@@ -423,7 +424,7 @@ In the portal, select the token in the **Tokens (Preview)** screen, and select *
 
 * To manage scope maps and tokens, use additional commands in the [az acr scope-map][az-acr-scope-map] and [az acr token][az-acr-token] command groups.
 * See the [authentication overview](container-registry-authentication.md) for other options to authenticate with an Azure container registry, including using an Azure Active Directory identity, a service principal, or an admin account.
-
+* Learn about [connected registries](intro-connected-registry.md) and using tokens for [access](overview-connected-registry-access.md).
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

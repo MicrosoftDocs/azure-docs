@@ -5,7 +5,7 @@ author: ssen-msft
 ms.author: ssen
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 11/30/2021
 ---
 
 # Best practices for Query Store - Flexible Server

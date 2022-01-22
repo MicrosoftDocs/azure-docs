@@ -12,13 +12,13 @@ ms.author: esarroyo
 
 # Troubleshoot issues with advanced diagnostics queries for the SQL (Core) API
 
-[!INCLUDE[appliesto-all-apis-except-table](includes/appliesto-all-apis-except-table.md)]
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [SQL (Core) API](cosmos-db-advanced-queries.md)
 > * [MongoDB API](mongodb/diagnostic-queries-mongodb.md)
 > * [Cassandra API](cassandra/diagnostic-queries-cassandra.md)
-> * [Gremlin API](queries-gremlin.md)
+> * [Gremlin API](graph/diagnostic-queries-gremlin.md)
 >
 
 In this article, we'll cover how to write more advanced queries to help troubleshoot issues with your Azure Cosmos DB account by using diagnostics logs sent to **Azure Diagnostics (legacy)** and **resource-specific (preview**) tables.

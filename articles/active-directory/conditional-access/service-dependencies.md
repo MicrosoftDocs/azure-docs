@@ -10,11 +10,11 @@ ms.date: 09/21/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb
+ms.collection: M365-identity-device-management
 
 #Customer intent: As an IT admin, I need to understand what service dependencies are in Conditional Access so that I can assess how policies are applied
-ms.collection: M365-identity-device-management
 ---
 # What are service dependencies in Azure Active Directory Conditional Access? 
 
@@ -56,8 +56,10 @@ The below table lists additional service dependencies, where the client apps mus
 |                     | SharePoint                                  | Late-bound  |
 | Outlook groups      | Exchange                                    | Early-bound |
 |                     | SharePoint                                  | Early-bound |
-| PowerApps           | Microsoft Azure Management (portal and API) | Early-bound |
+| Power Apps           | Microsoft Azure Management (portal and API) | Early-bound |
 |                     | Windows Azure Active Directory              | Early-bound |
+|                     | SharePoint                                  | Early-bound |
+|                     | Exchange                                    | Early-bound |
 | Project             | Dynamics CRM                                | Early-bound |
 | Skype for Business  | Exchange                                    | Early-bound |
 | Visual Studio       | Microsoft Azure Management (portal and API) | Early-bound |

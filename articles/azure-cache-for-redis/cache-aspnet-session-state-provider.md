@@ -1,11 +1,12 @@
 ---
 title: Cache ASP.NET Session State Provider
 description: Learn how to store ASP.NET Session State in-memory using Azure Cache for Redis. 
-author: yegu-ms
-ms.author: yegu
+author: flang-msft
+ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.custom: devx-track-dotnet
+ms.devlang: csharp
+ms.custom: devx-track-csharp
 ms.date: 05/01/2017
 ---
 # ASP.NET Session State Provider for Azure Cache for Redis
@@ -29,12 +30,7 @@ Install-Package Microsoft.Web.RedisSessionStateProvider
 >
 >
 
-The Redis Session State Provider NuGet package has a dependency on the StackExchange.Redis.StrongName package. If the StackExchange.Redis.StrongName package is not present in your project, it is installed.
-
->[!NOTE]
->In addition to the strong-named StackExchange.Redis.StrongName package, there is also the StackExchange.Redis non-strong-named version. If your project is using the non-strong-named StackExchange.Redis version you must uninstall it, otherwise you get naming conflicts in your project. For more information about these packages, see [Configure .NET cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
->
->
+The Redis Session State Provider NuGet package has a dependency on the StackExchange.Redis package. If the StackExchange.Redis package is not present in your project, it is installed.
 
 The NuGet package downloads and adds the required assembly references and adds the following section into your web.config file. This section contains the required configuration for your ASP.NET application to use the Azure Cache for Redis Session State Provider.
 
@@ -128,4 +124,3 @@ For more information about session state and other best practices, see [Web Deve
 ## Next steps
 
 Check out the [ASP.NET Output Cache Provider for Azure Cache for Redis](cache-aspnet-output-cache-provider.md).
-

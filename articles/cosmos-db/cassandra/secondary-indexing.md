@@ -5,7 +5,7 @@ author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 04/04/2020
+ms.date: 09/03/2021
 ms.author: thvankra
 ms.reviewer: sngun
 ---
@@ -25,6 +25,9 @@ It's not advised to create an index on a frequently updated column. It is pruden
 > - data types such as frozen collection types, decimal, and variant types.
 > - Static columns
 > - Clustering keys
+
+> [!WARNING]
+> If you have a [compound primary key](cassandra-partitioning.md#compound-primary-key) in your table, and you want to filter *only* on the partition key value element of the compound primary key, please ensure that you *explicitly add a secondary index on the partition key*. Azure Cosmos DB Cassandra API does not apply indexes to partition keys by default, and the index in this scenario may significantly improve query performance. Review our article on [partitioning](cassandra-partitioning.md) for more information.
 
 ## Indexing example
 
@@ -67,6 +70,8 @@ You need to know what the index name is to drop the index. Run the `desc schema`
 ```shell
 drop index sampleks.t1_lastname_idx;
 ```
+
+
 
 ## Next steps
 * Learn how [automatic indexing](../index-overview.md) works in Azure Cosmos DB

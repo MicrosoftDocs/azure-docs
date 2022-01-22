@@ -131,4 +131,4 @@ If you didn't find the answer you're looking for, consider the following options
 * Post your question on [Microsoft Q&A question page](/answers/topics/azure-database-mysql.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
 * Send an email to the Azure Database for MySQL Team [@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com). This email address isn't a technical support alias.
 * Contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
-* To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
+* To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0).

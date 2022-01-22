@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/09/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with SolarWinds Service Desk (previously Samanage)
@@ -35,6 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * SolarWinds supports **SP** initiated SSO.
+* SolarWinds supports [Automated user provisioning](samanage-provisioning-tutorial.md).
 
 ## Add SolarWinds from the gallery
 
@@ -175,6 +176,9 @@ In the case of SolarWinds, provisioning is a manual task.
    >[!NOTE]
    >The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active. You can use any other SolarWinds user account creation tools or APIs provided by SolarWinds to provision Azure Active Directory user accounts.
 
+> [!NOTE]
+> SolarWinds also supports automatic user provisioning, you can find more details [here](./samanage-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -183,8 +187,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to SolarWinds Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the SolarWinds tile in the My Apps, this will redirect to SolarWinds Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the SolarWinds tile in the My Apps, this will redirect to SolarWinds Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure SolarWinds you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure SolarWinds you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

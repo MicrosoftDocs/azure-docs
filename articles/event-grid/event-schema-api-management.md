@@ -17,21 +17,21 @@ API Management emits the following event types:
 
 | Event type | Description |
 | ---------- | ----------- |
-| Microsoft.APIManagement.UserCreated | Raised when a user is created. |
-| Microsoft.APIManagement.UserUpdated | Raised when a user is updated. |
-| Microsoft.APIManagement.UserDeleted | Raised when a user is deleted. |
-| Microsoft.APIManagement.APICreated | Raised when an API is created. |
-| Microsoft.APIManagement.APIUpdated | Raised when an API is updated. |
-| Microsoft.APIManagement.APIDeleted | Raised when an API is deleted. |
-| Microsoft.APIManagement.ProductCreated | Raised when a product is created. |
-| Microsoft.APIManagement.ProductUpdated | Raised when a product is updated. |
-| Microsoft.APIManagement.ProductDeleted | Raised when a product is deleted. |
-| Microsoft.APIManagement.ReleaseCreated | Raised when an API release is created. |
-| Microsoft.APIManagement.ReleaseUpdated | Raised when an API release is updated. |
-| Microsoft.APIManagement.ReleaseDeleted | Raised when an API release is deleted. |
-| Microsoft.APIManagement.SubscriptionCreated | Raised when a subscription is created. |
-| Microsoft.APIManagement.SubscriptionUpdated | Raised when a subscription is updated. |
-| Microsoft.APIManagement.SubscriptionDeleted | Raised when a subscription is deleted. |
+| Microsoft.ApiManagement.UserCreated | Raised when a user is created. |
+| Microsoft.ApiManagement.UserUpdated | Raised when a user is updated. |
+| Microsoft.ApiManagement.UserDeleted | Raised when a user is deleted. |
+| Microsoft.ApiManagement.APICreated | Raised when an API is created. |
+| Microsoft.ApiManagement.APIUpdated | Raised when an API is updated. |
+| Microsoft.ApiManagement.APIDeleted | Raised when an API is deleted. |
+| Microsoft.ApiManagement.ProductCreated | Raised when a product is created. |
+| Microsoft.ApiManagement.ProductUpdated | Raised when a product is updated. |
+| Microsoft.ApiManagement.ProductDeleted | Raised when a product is deleted. |
+| Microsoft.ApiManagement.ReleaseCreated | Raised when an API release is created. |
+| Microsoft.ApiManagement.ReleaseUpdated | Raised when an API release is updated. |
+| Microsoft.ApiManagement.ReleaseDeleted | Raised when an API release is deleted. |
+| Microsoft.ApiManagement.SubscriptionCreated | Raised when a subscription is created. |
+| Microsoft.ApiManagement.SubscriptionUpdated | Raised when a subscription is updated. |
+| Microsoft.ApiManagement.SubscriptionDeleted | Raised when a subscription is deleted. |
 
 ## Example event
 
@@ -111,17 +111,14 @@ The following example shows the schema of a user deleted event. The schema of ot
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
-The following example shows the schema of an API updated event. The `data` property includes both the  `updatedProperies` array and the `resourceUri`.  The schema of other API Management resource updated events is similar. 
+The following example shows the schema of an API updated event. The schema of other API Management resource updated events is similar. 
 ```json
 [{
   "id": "95015754-aa51-4eb6-98d9-9ee322b82ad7",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
   "subject": "/apis/myapi;Rev=1",
   "data": {
-    "updatedProperties": [
-      "path"
-    ],
-    "resourceUri": "/subscriptions/subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
   },
   "eventType": "Microsoft.ApiManagement.APIUpdated",
   "dataVersion": "1",
@@ -132,7 +129,7 @@ The following example shows the schema of an API updated event. The `data` prope
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-The following example shows the schema of an API updated event. The `data` property includes both the  `updatedProperies` array and the `resourceUri`.  The schema of other API Management resource updated events is similar. 
+The following example shows the schema of an API updated event. The schema of other API Management resource updated events is similar. 
 
 ```json
 [{
@@ -140,10 +137,7 @@ The following example shows the schema of an API updated event. The `data` prope
   "source": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
   "subject": "/apis/myapi;Rev=1",
   "data": {
-    "updatedProperties": [
-      "path"
-    ],
-    "resourceUri": "/subscriptions/subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
   },
   "Type": "Microsoft.ApiManagement.APIUpdated",
   "Time": "2021-07-12T23:13:44.9048323Z",
@@ -161,7 +155,7 @@ An event has the following top-level data:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `topic` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
-| `subject` | string | The fully qualified ID of the resource that the compliance state change is for, including the resource name and resource type. Uses the format, `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>` |
+| `subject` | string | Publisher-defined path to the event subject. |
 | `eventType` | string | One of the registered event types for this event source. |
 | `eventTime` | string | The time the event is generated based on the provider's UTC time. |
 | `id` | string | Unique identifier for the event. |
@@ -176,7 +170,7 @@ An event has the following top-level data:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `source` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
-| `subject` | string | The fully qualified ID of the resource that the compliance state change is for, including the resource name and resource type. Uses the format, `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/providers/<ProviderNamespace>/<ResourceType>/<ResourceName>` |
+| `subject` | string | Publisher-defined path to the event subject. |
 | `type` | string | One of the registered event types for this event source. |
 | `time` | string | The time the event is generated based on the provider's UTC time. |
 | `id` | string | Unique identifier for the event. |
@@ -189,8 +183,7 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `resourceUri` | string | The URI of the API Management resource that triggered the event. |
-| `updatedProperties` | string[] | List of properties updated in the API Management resource that triggered an update event. |
+| `resourceUri` | string | The fully qualified ID of the resource that the compliance state change is for, including the resource name and resource type. Uses the format, `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/Microsoft.ApiManagement/service/<ServiceName>/<ResourceType>/<ResourceName>` |
 
 ## Tutorials and how-tos
 

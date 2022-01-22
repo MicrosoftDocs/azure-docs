@@ -6,7 +6,7 @@ description: Extract text from image files using optical character recognition (
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
 ---
 # OCR cognitive skill

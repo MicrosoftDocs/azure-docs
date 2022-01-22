@@ -6,7 +6,7 @@ ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: tutorial
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 07/19/2021
+ms.date: 10/22/2021
 author: swinarko
 ms.author: sawinark
 ---

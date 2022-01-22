@@ -4,7 +4,6 @@ description: This article provides the list of supported browsers for Azure Purv
 author: nayenama
 ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---
@@ -20,12 +19,12 @@ Azure Purview supports the following browsers. We recommend that you use the mos
 
 ## Chrome Incognito mode
 
- Chrome Incognito blocking 3rd party cookies must be disabled for Purview Studio to work.
+ Chrome Incognito blocking 3rd party cookies must be disabled for Azure Purview Studio to work.
 
 :::image type="content" source="./media/supported-browsers/incognito-chrome.png" alt-text="Screenshot showing chrome.":::
 
 ## Chromium Edge InPrivate mode
 
-Chromium Edge InPrivate using Strict Tracking Prevention must be disabled for Purview Studio to work.
+Chromium Edge InPrivate using Strict Tracking Prevention must be disabled for Azure Purview Studio to work.
 
 :::image type="content" source="./media/supported-browsers/incognito-edge.png" alt-text="Screenshot showing edge.":::

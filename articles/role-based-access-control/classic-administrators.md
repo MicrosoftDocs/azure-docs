@@ -4,11 +4,10 @@ description: Describes how to add or change the Azure Co-Administrator and Servi
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 
 ms.assetid: 
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity

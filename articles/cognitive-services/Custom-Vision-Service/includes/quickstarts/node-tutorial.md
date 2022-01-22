@@ -185,7 +185,7 @@ Results:
          Japanese Cherry: 0.01%
 ```
 
-You can then verify that the test image (found in **<sampleDataRoot>/Test/**) is tagged appropriately. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
+You can then verify that the test image (found in **\<sampleDataRoot\>/Test/**) is tagged appropriately. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
 
 [!INCLUDE [clean-ic-project](../../includes/clean-ic-project.md)]
 

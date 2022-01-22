@@ -7,10 +7,10 @@ ms.author: nibaccam
 ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: how-to
 ms.custom: automl,contperf-fy21q2
-ms.date: 12/18/2020
+ms.date: 10/21/2021
 ---
 
 # Data featurization in automated machine learning
@@ -110,7 +110,7 @@ Guardrail|Status|Condition&nbsp;for&nbsp;trigger
 **Validation split handling** |Done| The validation configuration was set to `'auto'` and the training data contained *fewer than 20,000 rows*. <br> Each iteration of the trained model was validated by using cross-validation. Learn more about [validation data](./how-to-configure-auto-train.md#training-validation-and-test-data). <br><br> The validation configuration was set to `'auto'`, and the training data contained *more than 20,000 rows*. <br> The input data has been split into a training dataset and a validation dataset for validation of the model.
 **Class balancing detection** |Passed <br><br><br><br>Alerted <br><br><br>Done | Your inputs were analyzed, and all classes are balanced in your training data. A dataset is considered to be balanced if each class has good representation in the dataset, as measured by number and ratio of samples. <br><br> Imbalanced classes were detected in your inputs. To fix model bias, fix the balancing problem. Learn more about [imbalanced data](./concept-manage-ml-pitfalls.md#identify-models-with-imbalanced-data).<br><br> Imbalanced classes were detected in your inputs and the sweeping logic has determined to apply balancing.
 **Memory issues detection** |Passed <br><br><br><br> Done |<br> The selected values (horizon, lag, rolling window) were analyzed, and no potential out-of-memory issues were detected. Learn more about time-series [forecasting configurations](./how-to-auto-train-forecast.md#configuration-settings). <br><br><br>The selected values (horizon, lag, rolling window) were analyzed and will potentially cause your experiment to run out of memory. The lag or rolling-window configurations have been turned off.
-**Frequency detection** |Passed <br><br><br><br> Done |<br> The time series was analyzed, and all data points are aligned with the detected frequency. <br> <br> The time series was analyzed, and data points that don't align with the detected frequency were detected. These data points were removed from the dataset. Learn more about [data preparation for time-series forecasting](./how-to-auto-train-forecast.md#preparing-data).
+**Frequency detection** |Passed <br><br><br><br> Done |<br> The time series was analyzed, and all data points are aligned with the detected frequency. <br> <br> The time series was analyzed, and data points that don't align with the detected frequency were detected. These data points were removed from the dataset. 
 
 ## Customize featurization
 
@@ -324,7 +324,7 @@ In order to invoke BERT, set  `enable_dnn: True` in your automl_settings and use
 
 AutoML takes the following steps for BERT. 
 
-1. **Preprocessing and tokenization of all text columns**. For example, the "StringCast" transformer can be found in the final model's featurization summary. An example of how to produce the model's featurization summary can be found in [this notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+1. **Preprocessing and tokenization of all text columns**. For example, the "StringCast" transformer can be found in the final model's featurization summary. An example of how to produce the model's featurization summary can be found in [this notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
 
 2. **Concatenate all text columns into a single text column**, hence the `StringConcatTransformer` in the final model. 
 
@@ -336,9 +336,9 @@ BERT generally runs longer than other featurizers. For better performance, we re
 
 AutoML will distribute BERT training across multiple nodes if they are available (upto a max of eight nodes). This can be done in your `AutoMLConfig` object by setting the `max_concurrent_iterations` parameter to higher than 1. 
 
-## Supported languages for BERT in autoML 
+## Supported languages for BERT in AutoML 
 
-AutoML currently supports around 100 languages and depending on the dataset's language, autoML chooses the appropriate BERT model. For German data, we use the German BERT model. For English, we use the English BERT model. For all other languages, we use the multilingual BERT model.
+AutoML currently supports around 100 languages and depending on the dataset's language, AutoML chooses the appropriate BERT model. For German data, we use the German BERT model. For English, we use the English BERT model. For all other languages, we use the multilingual BERT model.
 
 In the following code, the German BERT model is triggered, since the dataset language is specified to `deu`, the three letter language code for German according to [ISO classification](https://iso639-3.sil.org/code/deu):
 
@@ -349,11 +349,11 @@ featurization_config = FeaturizationConfig(dataset_language='deu')
 
 automl_settings = {
     "experiment_timeout_minutes": 120,
-    "primary_metric": 'accuracy', 
-# All other settings you want to use 
+    "primary_metric": 'accuracy',
+# All other settings you want to use
     "featurization": featurization_config,
     
-  "enable_dnn": True, # This enables BERT DNN featurizer
+    "enable_dnn": True, # This enables BERT DNN featurizer
     "enable_voting_ensemble": False,
     "enable_stack_ensemble": False
 }

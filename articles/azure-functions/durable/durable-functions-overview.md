@@ -18,7 +18,7 @@ ms.reviewer: azfuncdf
 Durable Functions currently supports the following languages:
 
 * **C#**: both [precompiled class libraries](../functions-dotnet-class-library.md) and [C# script](../functions-reference-csharp.md).
-* **JavaScript**: supported only for version 2.x of the Azure Functions runtime. Requires version 1.7.0 of the Durable Functions extension, or a later version. 
+* **JavaScript**: supported only for version 2.x or later of the Azure Functions runtime. Requires version 1.7.0 of the Durable Functions extension, or a later version. 
 * **Python**: requires version 2.3.1 of the Durable Functions extension, or a later version.
 * **F#**: precompiled class libraries and F# script. F# script is only supported for version 1.x of the Azure Functions runtime.
 * **PowerShell**: Supported only for version 3.x of the Azure Functions runtime and PowerShell 7. Requires version 2.x of the bundle extensions.
@@ -794,15 +794,22 @@ You can get started with Durable Functions in under 10 minutes by completing one
 
 In these quickstarts, you locally create and test a "hello world" durable function. You then publish the function code to Azure. The function you create orchestrates and chains together calls to other functions.
 
+## Publications
+
+Durable Functions is developed in collaboration with Microsoft Research. As a result, the Durable Functions team actively produces research papers and artifacts; these include:
+
+* [Durable Functions: Semantics for Stateful Serverless](https://www.microsoft.com/en-us/research/uploads/prod/2021/10/DF-Semantics-Final.pdf) _(OOPSLA'21)_
+* [Serverless Workflows with Durable Functions and Netherite](https://arxiv.org/pdf/2103.00033.pdf) _(pre-print)_
+
 ## Learn more
 
 The following video highlights the benefits of Durable Functions:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player] 
+> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player] 
 
 For a more in-depth discussion of Durable Functions and the underlying technology, see the following video (it's focused on .NET, but the concepts also apply to other supported languages):
 
-> [!VIDEO https://channel9.msdn.com/Events/dotnetConf/2018/S204/player]
+> [!VIDEO https://docs.microsoft.com/Events/dotnetConf/2018/S204/player]
 
 Because Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), it isn't appropriate for all applications. For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
 

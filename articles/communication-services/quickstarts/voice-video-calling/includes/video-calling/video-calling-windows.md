@@ -30,7 +30,7 @@ Check `Microphone` to access the audio feed of the microphone.
 Check `WebCam` to access the camera of the device. 
 
 Add the following code to your `Package.appxmanifest` by right-clicking and choosing View Code. 
-```XML
+```xml
 <Extensions>
 <Extension Category="windows.activatableClass.inProcessServer">
 <InProcessServer>
@@ -100,6 +100,7 @@ namespace CallingQuickstart
         {
             this.InitializeComponent();
             this.InitCallAgentAndDeviceManager();
+            remoteParticipantDictionary = new Dictionary<string, RemoteParticipant>();
         }
         
         private async void InitCallAgentAndDeviceManager()
@@ -127,6 +128,7 @@ namespace CallingQuickstart
         Call call;
         DeviceManager deviceManager;
         LocalVideoStream[] localVideoStream;
+        Dictionary<String, RemoteParticipant> remoteParticipantDictionary;
     }
 }
 ```
@@ -157,8 +159,7 @@ private async void InitCallAgentAndDeviceManager()
     deviceManager = await callClient.GetDeviceManager();
 
     CommunicationTokenCredential token_credential = new CommunicationTokenCredential("<USER_ACCESS_TOKEN>");
-    callClient = new CallClient();
-
+    
     CallAgentOptions callAgentOptions = new CallAgentOptions()
     {
         DisplayName = "<DISPLAY_NAME>"
@@ -252,6 +253,8 @@ private async void Agent_OnCallsUpdated(object sender, CallsUpdatedEventArgs arg
     {
         foreach (var remoteParticipant in call.RemoteParticipants)
         {
+            String remoteParticipantMRI = remoteParticipant.Identifier.ToString();
+            remoteParticipantDictionary.TryAdd(remoteParticipantMRI, remoteParticipant);
             await AddVideoStreams(remoteParticipant.VideoStreams);
             remoteParticipant.OnVideoStreamsUpdated += async (s, a) => await AddVideoStreams(a.AddedRemoteVideoStreams);
         }
@@ -264,6 +267,8 @@ private async void Call_OnRemoteParticipantsUpdated(object sender, ParticipantsU
 {
     foreach (var remoteParticipant in args.AddedParticipants)
     {
+        String remoteParticipantMRI = remoteParticipant.Identifier.ToString();
+        remoteParticipantDictionary.TryAdd(remoteParticipantMRI, remoteParticipant);
         await AddVideoStreams(remoteParticipant.VideoStreams);
         remoteParticipant.OnVideoStreamsUpdated += async (s, a) => await AddVideoStreams(a.AddedRemoteVideoStreams);
     }
@@ -304,7 +309,7 @@ private async void Call_OnStateChanged(object sender, PropertyChangedEventArgs a
             await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
                 LocalVideo.Source = null;
-                RemoteVideo = null;
+                RemoteVideo.Source = null;
             });
             break;
         default:
@@ -331,5 +336,7 @@ private async void HangupButton_Click(object sender, RoutedEventArgs e)
 You can build and run the code on Visual Studio. Please note that for solution platforms we support `ARM64`, `x64` and `x86`. 
 
 You can make an outbound video call by providing a user ID in the text field and clicking the `Start Call` button. 
+
+Note: Calling `8:echo123` will stop the video stream because echo bot does not support video streaming. 
 
 For more information on user IDs (identity) check the [User Access Tokens](../../../access-tokens.md) guide. 

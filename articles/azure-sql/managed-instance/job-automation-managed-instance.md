@@ -198,6 +198,6 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name];
 ## Learn more
 
 - [What is Azure SQL Managed Instance?](../managed-instance/sql-managed-instance-paas-overview.md)
-- [What's new in Azure SQL Database & SQL Managed Instance?](../../azure-sql/database/doc-changes-updates-release-notes.md?tabs=managed-instance)
+- [What's new in Azure SQL Managed Instance?](doc-changes-updates-release-notes-whats-new.md)
 - [Azure SQL Managed Instance T-SQL differences from SQL Server](../../azure-sql/managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 - [Features comparison: Azure SQL Database and Azure SQL Managed Instance](../../azure-sql/database/features-comparison.md)

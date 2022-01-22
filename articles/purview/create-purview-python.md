@@ -1,55 +1,51 @@
 ---
-title: 'Quickstart: Create an Purview Account using Python'
-description: Create an Azure Purview Account using Python.
+title: 'Quickstart: Create an Azure Purview account using Python'
+description: Create an Azure Purview account using Python.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 04/02/2021
+ms.date: 09/27/2021
+ms.custom: mode-api
 ---
 
-# Quickstart: Create a Purview Account using Python
+# Quickstart: Create an Azure Purview account using Python
 
-In this quickstart, you create a Purview account using Python. 
+In this quickstart, you will create an Azure Purview account programatically using Python. [Python reference for Azure Purview](/python/api/azure-mgmt-purview/) is available, but this article will take you through all the steps needed to create an account with Python.
 
-## Prerequisites
+Azure Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Azure Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end to end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+For more information about Azure Purview, [see our overview page](overview.md). For more information about deploying Azure Purview across your organization, [see our deployment best practices](deployment-best-practices.md).
 
-* Your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
-
-* Your account must have permission to create resources in the subscription
-
-* If you have **Azure Policy** blocking all applications from creating **Storage account** and **EventHub namespace**, you need to make policy exception using tag, which can be entered during the process of creating a Purview account. The main reason is that for each Purview Account created, it needs to create a managed Resource Group and within this resource group, a Storage account and an
-EventHub namespace. For more information refer to [Create Catalog Portal](create-catalog-portal.md)
-
+[!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 
 ## Install the Python package
 
-1. Open a terminal or command prompt with administrator privileges. 
+1. Open a terminal or command prompt with administrator privileges.
 2. First, install the Python package for Azure management resources:
 
     ```python
     pip install azure-mgmt-resource
     ```
-3. To install the Python package for Purview, run the following command:
+
+3. To install the Python package for Azure Purview, run the following command:
 
     ```python
     pip install azure-mgmt-purview
     ```
 
-    The [Python SDK for Purview](https://github.com/Azure/azure-sdk-for-python) supports Python 2.7, 3.3, 3.4, 3.5, 3.6 and 3.7.
+    The [Python SDK for Azure Purview](https://github.com/Azure/azure-sdk-for-python) supports Python 2.7, 3.3, 3.4, 3.5, 3.6 and 3.7.
 
 4. To install the Python package for Azure Identity authentication, run the following command:
 
     ```python
     pip install azure-identity
     ```
-    > [!NOTE] 
-    > The "azure-identity" package might have conflicts with "azure-cli" on some common dependencies. If you meet any authentication issue, remove "azure-cli" and its dependencies, or use a clean machine without installing "azure-cli" package to make it work.
-    
+
+    > [!NOTE]
+    > The "azure-identity" package might have conflicts with "azure-cli" on some common dependencies. If you meet any authentication issue, remove "azure-cli" and its dependencies, or use a clean machine without installing "azure-cli" package.
+
 ## Create a purview client
 
 1. Create a file named **purview.py**. Add the following statements to add references to namespaces.
@@ -63,8 +59,8 @@ EventHub namespace. For more information refer to [Create Catalog Portal](create
 	import time
     ```
 
-2. Add the following code to the **Main** method that creates an instance of PurviewManagementClient class. You use this object to create a purview account, delete purview account, check name availability and other resource provider operations.
- 
+2. Add the following code to the **Main** method that creates an instance of PurviewManagementClient class. You'll use this object to create a purview accounts, delete purview accounts, check name availability, and other resource provider operations.
+
     ```python
     def main():
     
@@ -77,7 +73,7 @@ EventHub namespace. For more information refer to [Create Catalog Portal](create
     # The purview name. It must be globally unique.
     purview_name = '<purview account name>'
 
-    # Location name, where Purview account must be created.
+    # Location name, where Azure Purview account must be created.
     location = '<location name>'    
 
     # Specify your Active Directory client ID, client secret, and tenant ID
@@ -102,7 +98,7 @@ EventHub namespace. For more information refer to [Create Catalog Portal](create
        
     try:
 	    pa = (purview_client.accounts.begin_create_or_update(rg_name, purview_name, purview_resource)).result()
-	    print("location:", pa.location, " Purview Account Name: ", pa.name, " Id: " , pa.id ," tags: " , pa.tags)  
+	    print("location:", pa.location, " Azure Purview Account Name: ", pa.name, " Id: " , pa.id ," tags: " , pa.tags)  
     except:
 	    print("Error")
 	    print_item(pa)
@@ -111,7 +107,7 @@ EventHub namespace. For more information refer to [Create Catalog Portal](create
         pa = (purview_client.accounts.get(rg_name, purview_name))  
         print(getattr(pa,'provisioning_state'))
         if getattr(pa,'provisioning_state') != "Failed" :
-            print("Error in creating Purview account")
+            print("Error in creating Azure Purview account")
             break
         time.sleep(30)      
       ```
@@ -161,7 +157,7 @@ Here is the full Python code:
        
     try:
 	    pa = (purview_client.accounts.begin_create_or_update(rg_name, purview_name, purview_resource)).result()
-	    print("location:", pa.location, " Purview Account Name: ", purview_name, " Id: " , pa.id ," tags: " , pa.tags) 
+	    print("location:", pa.location, " Azure Purview Account Name: ", purview_name, " Id: " , pa.id ," tags: " , pa.tags) 
     except:
 	    print("Error in submitting job to create account")
 	    print_item(pa)
@@ -170,7 +166,7 @@ Here is the full Python code:
         pa = (purview_client.accounts.get(rg_name, purview_name))  
         print(getattr(pa,'provisioning_state'))
         if getattr(pa,'provisioning_state') != "Failed" :
-            print("Error in creating Purview account")
+            print("Error in creating Azure Purview account")
             break
         time.sleep(30)    
 
@@ -180,14 +176,11 @@ main()
 
 ## Run the code
 
-Build and start the application, then verify the pipeline execution.
-
-The console prints the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. Wait until you see the copy activity run details with data read/written size. Then, use tools such as [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to check the blob(s) is copied to "outputBlobPath" from "inputBlobPath" as you specified in variables.
-
+Build and start the application. The console prints the progress of Azure Purview account creation. Wait until it is completed.
 Here is the sample output:
 
 ```console
-location: southcentralus  Purview Account Name:  purviewpython7  Id:  /subscriptions/8c2c7b23-848d-40fe-b817-690d79ad9dfd/resourceGroups/Demo_Catalog/providers/Microsoft.Purview/accounts/purviewpython7  tags:  None
+location: southcentralus  Azure Purview Account Name:  purviewpython7  Id:  /subscriptions/8c2c7b23-848d-40fe-b817-690d79ad9dfd/resourceGroups/Demo_Catalog/providers/Microsoft.Purview/accounts/purviewpython7  tags:  None
 Creating
 Creating
 Succeeded
@@ -195,11 +188,11 @@ Succeeded
 
 ## Verify the output
 
-Go to the **Purview accounts** page in the Azure portal and verify the account created using the above code. 
+Go to the **Azure Purview accounts** page in the Azure portal and verify the account created using the above code.
 
-## Delete Purview Account
+## Delete Azure Purview account
 
-To delete purview account, add the following code to the program:
+To delete purview account, add the following code to the program, then run:
 
 ```python
 pa = purview_client.accounts.begin_delete(rg_name, purview_name).result()
@@ -207,9 +200,10 @@ pa = purview_client.accounts.begin_delete(rg_name, purview_name).result()
 
 ## Next steps
 
-The code in this tutorial creates a purview account and  deletes a purview account. You can now download the python SDK and learn about other resource provider actions you can perform for a Purview account.
+The code in this tutorial creates a purview account and  deletes a purview account. You can now download the python SDK and learn about other resource provider actions you can perform for an Azure Purview account.
 
-Advance to the next article to learn how to allow users to access your Azure Purview Account. 
+Follow these next articles to learn how to navigate the Azure Purview Studio, create a collection, and grant access to Azure Purview.
 
-> [!div class="nextstepaction"]
-> [Add users to your Azure Purview Account](catalog-permissions.md)
+* [How to use the Azure Purview Studio](use-purview-studio.md)
+* [Create a collection](quickstart-create-collection.md)
+* [Add users to your Azure Purview account](catalog-permissions.md)

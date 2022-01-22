@@ -1,13 +1,14 @@
 ---
 title: How to use Queue Storage (C++) - Azure Storage
 description: Learn how to use the Queue Storage service in Azure. Samples are written in C++.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 07/16/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
+ms.devlang: cpp
 ---
 
 # How to use Queue Storage from C++
@@ -273,7 +274,7 @@ queue.delete_queue_if_exists();
 
 Now that you've learned the basics of Queue Storage, follow these links to learn more about Azure Storage.
 
-- [How to use Blob Storage from C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+- [How to use Blob Storage from C++](../blobs/quickstart-blobs-c-plus-plus.md)
 - [How to use Table Storage from C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 - [List Azure Storage resources in C++](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 - [Azure Storage client library for C++ reference](https://azure.github.io/azure-storage-cpp)

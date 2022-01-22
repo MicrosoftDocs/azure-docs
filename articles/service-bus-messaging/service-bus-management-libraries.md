@@ -3,6 +3,7 @@ title: Programmatically manage Azure Service Bus namespaces and entities
 description: This article explains how to dynamically or programmatically provision Service Bus namespaces and entities.
 ms.topic: article
 ms.date: 08/06/2021
+ms.devlang: csharp,java,javascript,python
 ---
 
 # Dynamically provision Service Bus namespaces and entities 
@@ -55,5 +56,5 @@ Service Bus client libraries that are used for operations like send and receive 
 
 
 ## Next steps
-- Send messages to and receive messages from queue using the latest Service Bus library: [.NET](./service-bus-dotnet-get-started-with-queues.md#send-messages), [Java](./service-bus-java-how-to-use-queues.md), [JavaScript](./service-bus-nodejs-how-to-use-queues.md), [Python](./service-bus-python-how-to-use-queues.md)
+- Send messages to and receive messages from queue using the latest Service Bus library: [.NET](./service-bus-dotnet-get-started-with-queues.md#send-messages-to-the-queue), [Java](./service-bus-java-how-to-use-queues.md), [JavaScript](./service-bus-nodejs-how-to-use-queues.md), [Python](./service-bus-python-how-to-use-queues.md)
 - Send messages to topic and receive messages from subscription using the latest Service Bus library: .[NET](./service-bus-dotnet-how-to-use-topics-subscriptions.md),  [Java](./service-bus-java-how-to-use-topics-subscriptions.md), [JavaScript](./service-bus-nodejs-how-to-use-topics-subscriptions.md), [Python](./service-bus-python-how-to-use-topics-subscriptions.md)

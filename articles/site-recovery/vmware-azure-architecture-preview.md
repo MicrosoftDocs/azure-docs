@@ -20,7 +20,7 @@ For information about Azure Site Recovery architecture in Classic architecture, 
 
 The following table and graphic provide a high-level view of the components used for VMware VMs/physical machines disaster recovery to Azure.
 
-![VMware to Azure architecture](./media/vmware-azure-architecture-preview/architecture-preview.png)
+[![VMware to Azure architecture](./media/vmware-azure-architecture-preview/architecture-preview.png)](./media/vmware-azure-architecture-preview/architecture-preview.png#lightbox)
 
 **Component** | **Requirement** | **Details**
 --- | --- | ---

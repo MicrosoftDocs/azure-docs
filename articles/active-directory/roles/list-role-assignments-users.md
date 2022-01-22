@@ -23,7 +23,7 @@ A role can be assigned to a user directly or transitively via a group. This arti
 
 - AzureADPreview module when using PowerShell
 - Microsoft.Graph module when using PowerShell
-- Admin consent when using Graph explorer for Microsoft Graph API
+- Admin consent when using Graph Explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 

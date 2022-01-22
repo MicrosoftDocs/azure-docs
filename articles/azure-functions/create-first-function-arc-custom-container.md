@@ -3,6 +3,7 @@ title: 'Quickstart: Create a function app on Azure Arc in a custom container'
 description: Get started with Azure Functions on Azure Arc by deploying your first function app in a custom Linux container.
 ms.topic: quickstart
 ms.date: 05/11/2021
+ms.custom: mode-other
 ---
 
 # Create your first function on Azure Arc using a custom container (preview)
@@ -10,7 +11,7 @@ ms.date: 05/11/2021
 In this quickstart, you create an Azure Functions project running in a custom container and deploy it to an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md) from your Docker Hub account. To learn more, see [App Service, Functions, and Logic Apps on Azure Arc](../app-service/overview-arc-integration.md). This scenario only supports function apps running on Linux.   
 
 > [!NOTE]
-> Support for running functions on an Arc-enabled Kubernetes cluster is currently in preview.  
+> Support for running functions on an Azure Arc-enabled Kubernetes cluster is currently in preview.  
 
 ## Prerequisites
 
@@ -19,7 +20,7 @@ On your local computer:
 # [C\#](#tab/csharp)
 
 + [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245 or later.
++ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245.
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 + [Docker](https://docs.docker.com/install/)  
 + [Docker ID](https://hub.docker.com/signup)
@@ -27,7 +28,7 @@ On your local computer:
 # [JavaScript](#tab/nodejs)
 
 + [Node.js](https://nodejs.org/) version 12. Node.js version 10 is also supported.
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245 or later.
++ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245.
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 + [Docker](https://docs.docker.com/install/)  
 + [Docker ID](https://hub.docker.com/signup)
@@ -35,7 +36,7 @@ On your local computer:
 # [Python](#tab/python)
 
 + [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version)
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245 or later.
++ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3245.
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 + [Docker](https://docs.docker.com/install/)  
 + [Docker ID](https://hub.docker.com/signup)
@@ -218,7 +219,7 @@ This code must be run either in Cloud Shell or in Bash on your local computer. R
 
 ## Next steps
 
-Now that you have your function app running in a container an Arc-enabled App Service Kubernetes environment, you can connect it to Azure Storage by adding a Queue Storage output binding.
+Now that you have your function app running in a container an Azure Arc-enabled App Service Kubernetes environment, you can connect it to Azure Storage by adding a Queue Storage output binding.
 
 # [C\#](#tab/csharp)  
 
