@@ -88,7 +88,6 @@ Copy and paste the following json payload in a text file named `test.json`.
         "Microsoft.Communication.RouterJobClosed",
         "Microsoft.Communication.RouterJobCancelled",
         "Microsoft.Communication.RouterJobExceptionTriggered",
-        "Microsoft.Communication.RouterJobExceptionCleared",
         "Microsoft.Communication.RouterWorkerOfferIssued",
         "Microsoft.Communication.RouterWorkerOfferAccepted",
         "Microsoft.Communication.RouterWorkerOfferDeclined",

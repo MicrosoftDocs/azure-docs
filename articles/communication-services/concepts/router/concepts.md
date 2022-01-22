@@ -16,67 +16,96 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-Azure Communication Services Job Router solves the problem of matching some abstract supply with some abstract demand on a system. Integrated with Azure Event Grid, Job Router delivers near real-time notifications to you, enabling you to build reactive applications to control the behavior of your Job Router instance.
+Azure Communication Services Job Router solves the problem of matching supply with demand.
 
-## Job Router overview
+A real-world example of this may be call center agents (supply) being matched to incoming support calls (demand).
 
-The Job Router SDKs can be used to build various business scenarios where you have the need to match a unit of work to a particular resource. For example, the work could be defined as a series of phone calls with many potential contact center agents, or a web chat request with a live agent handling multiple concurrent sessions with other people. The need to route some abstract unit of work to an available resource requires you to define the work, known as a [Job](#job), a [Queue](#queue), the [Worker](#worker), and a set of [Policies](#policies), which define the behavioral aspects of how these components interact with each other.
+## Key Concepts
 
-## Job Router architecture
+### Job
 
-Azure Communication Services Job Router uses events to notify your applications about actions within the service. The following diagrams illustrate a simplified flow common to Job Router; submitting a Job, registering a Worker, handling the Job Offer.
+A Job represents a unit of work (demand), which needs to be routed to an available Worker (supply).
 
-### Job submission flow
+A real-world example of this may be an incoming call or chat in the context of a call center.
 
-1. The Contoso application submits a Job to the Job Router in the Azure Communication Services instance.
-2. The Job is classified and an event is raised called **RouterJobClassified** which includes all the information about the Job and how the classification process may have modified its properties.
+#### Job submission flow
+
+1. Your application submits a Job to the Job Router API.
+2. The Job is classified and a [JobClassified Event][job_classified_event] is sent via EventGrid which includes all the information about the Job and how the classification process may have modified its properties.
  
     :::image type="content" source="../media/router/acs-router-job-submission.png" alt-text="Diagram showing Communication Services' Job Router submitting a job.":::
 
-### Worker registration flow
+### Worker
 
-1. When a Worker is ready to accept a Job, they register with the Job Router via Contoso's Application.
-2. Job Router then sends back a **RouterWorkerRegistered**
+A Worker represents the supply available to handle a Job. Each worker registers with with or more queues to receive jobs.
+
+A real-world example of this may be an agent working in a call center.
+
+#### Worker registration flow
+
+1. When your Worker is ready to take on work, you can register the worker via the Job Router API.
+2. Job Router then sends a [WorkerRegistered Event][worker_registered_event]
 
     :::image type="content" source="../media/router/acs-router-worker-registration.png" alt-text="Diagram showing Communication Services' Job Router worker registration.":::
 
-### Matching and accepting a job flow
+### Queue
 
-1. When Job Router finds a matching Worker for a Job, it offers the work by sending a **RouterWorkerOfferIssued** which the Contoso Application would receive and send a signal to the connected user using a platform such as the Azure SignalR Service.
-2. The Worker accepts the Offer.
-3. Job Router sends an **RouterWorkerOfferAccepted** signifying to the Contoso Application the Worker is assigned to the Job.
+A Queue represents an ordered list of jobs waiting to be served by a worker.  Workers will register with a queue to receive work from it.
+
+A real-world example of this may be a call queue in a call center.
+
+### Channel
+
+A Channel represents a grouping of jobs by some type.  When a worker registers to receive work, they must also specify for which channels they can handle work, and how much of each can they handle concurrently.  Channels are just a string discriminator and are not explicitly created.
+
+A real-world example of this may be `voice calls` or `chats` in a call center.
+
+### Offer
+
+An Offer is extended by JobRouter to a worker to handle a particular job when it determines a match, this notification is normally delivered via [EventGrid][subscribe_events].  The worker can either accept or decline the offer using th JobRouter API, or it will expire according to the time to live configured on the distribution policy.
+
+A real-world example of this may be the ringing of an agent in a call center.
+
+#### Offer flow
+
+1. When Job Router finds a matching Worker for a Job, it offers the work by sending a [OfferIssued Event][offer_issued_event] via EventGrid.
+2. The Offer is accepted via the Job Router API.
+3. Job Router sends a [OfferAccepted Event][offer_accepted_event] signifying to the Contoso Application the Worker is assigned to the Job.
 
     :::image type="content" source="../media/router/acs-router-accept-offer.png" alt-text="Diagram showing Communication Services' Job Router accept offer.":::
 
-## Real-time notifications
+### Distribution Policy
 
-Azure Communication Services relies on Event Grid's messaging platform to send notifications about what actions Job Router is taking on the workload you send. Job Router sends messages in the form of events whenever an important action happens such as Job lifecycle events including job creation, completion, offer acceptance, and many more.
+A Distribution Policy represents a configuration set that controls how jobs in a queue are distributed to workers registered with that queue.
+This configuration includes how long an Offer is valid before it expires and the distribution mode, which define the order in which workers are picked when there are multiple available.
 
-## Job
+#### Distribution Modes
 
-A Job represents the unit of work, which needs to be routed to an available Worker. Jobs are defined using the Azure Communication Services Job Router SDKs or by submitting an authenticated request to the REST API. Jobs often contain a reference to some unique identifier you may have such as a call ID or a ticket number, along with the characteristics of the work being performed.
+The 3 types of modes are
 
-## Queue
+- **Round Robin**: Workers are ordered by `Id` and the next worker after the previous one that got an offer is picked.
+- **Longest Idle**: The worker that has not been working on a job for the longest.
+- **Best Worker**: You can specify an expression to compare 2 workers to determine which one to pick.
 
-When a Job is created it is assigned to a Queue, either statically at the time of submission, or dynamically through the application of a classification policy. Jobs are grouped together by their assigned Queue and can take on different characteristics depending on how you intend on distributing the workload. Queues require a **Distribution Policy** to determine how jobs are offered to eligible workers.
+### Labels
 
-Queues in the Job Router can also contain Exception Policies that determine the behavior of Jobs when certain conditions arise. For example, you may want a Job to be moved to a different Queue, the priority increased, or both based on a timer or some other condition.
+You can attach labels to workers, jobs and queues.  These are key value pairs that can be of `string`, `number` or `boolean` data types.
 
-## Worker
+A real-world example of this may be the skill level of a particular worker or the team or geographic location.
 
-A Worker represents the supply available to handle a Job for a particular Queue. Each Worker registered with the Job Router comes with a set of **Labels**, their associated **Queues**, **channel configurations**, and a **total capacity score**. The Job Router uses these factors to determine when and how to route Jobs to a worker in real time.
+### Label Selectors
 
-Azure Communication Services Job Router maintains and uses the status of a Worker using simple **Active**, **Inactive**, or **Draining** states to determine when available Jobs can be matched to a worker. Together with the status, the channel configuration, and the total capacity score, Job Router calculates viable Workers and issues Offers related to the Job.
+Label selectors can be attached to a job in order to target a subset of workers serving the queue.
 
-## Policies
+A real-world example of this may be a condition on an incoming call that the agent must have a minimum level of knowledge of a particular product.
 
-Azure Communication Services Job Router applies flexible Policies to attach dynamic behavior to various aspects of the system. Depending on the policy, a Job's Labels can be consumed & evaluated to alter a Job's priority, which Queue it should be in, and much more. Certain Policies in the Job Router offer inline function processing using PowerFx, or for more complex scenarios, a callback to an Azure Function.
+### Classification policy
 
-**Classification policy -** A classification policy helps Job Router define the Queue, the Priority, and can alter the Worker Selectors when the sender is unable or unaware of these parameters at the time of submission. For more information about classification, see the [classification concepts](classification-concepts.md) page.
+A classification policy can be used to dynamically select a queue, determine job priority and attach worker label selectors to a job by leveraging a rules engine.
 
-**Distribution policy -** When the Job Router receives a new Job, the Distribution Policy is used to locate a suitable Worker and manage the Job Offers. Workers are selected using different **modes**, and based on the policy, Job Router can notify one or more Workers concurrently.
+### Exception policy
 
-**Exception policy -** An exception policy controls the behavior of a Job based on a trigger and executes a desired action. The exception policy is attached to a Queue so it can control the behavior of Jobs in the Queue.
+An exception policy controls the behavior of a Job based on a trigger and executes a desired action. The exception policy is attached to a Queue so it can control the behavior of Jobs in the Queue.
 
 ## Next steps
 
@@ -88,3 +117,20 @@ Azure Communication Services Job Router applies flexible Policies to attach dyna
 - [Classifying a Job](../../how-tos/router-sdk/job-classification.md)
 - [Escalate a Job](../../how-tos/router-sdk/escalate-job.md)
 - [Subscribe to events](../../how-tos/router-sdk/subscribe-events.md)
+
+<!-- LINKS -->
+[azure_sub]: https://azure.microsoft.com/free/dotnet/
+[cla]: https://cla.microsoft.com
+[nuget]: https://www.nuget.org/
+[netstandars2mappings]:https://github.com/dotnet/standard/blob/master/docs/versions.md
+[useraccesstokens]:https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-csharp
+[communication_resource_docs]: https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp
+[communication_resource_create_portal]:  https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp
+[communication_resource_create_power_shell]: https://docs.microsoft.com/powershell/module/az.communication/new-azcommunicationservice
+[communication_resource_create_net]: https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-net
+
+[subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
+[worker_registered_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerregistered
+[job_classified_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobclassified
+[offer_issued_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferissued
+[offer_accepted_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferaccepted
