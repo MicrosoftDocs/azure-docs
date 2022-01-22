@@ -1,15 +1,13 @@
 ﻿﻿---
-
 title: 'Design for disaster recovery with Azure Virtual WAN | Microsoft Docs'
 description: This page provides architectural recommendations for disaster recovery while using Azure Virtual WAN.
 services: virtual-wan
 author: rambk
 
 ms.service: virtual-wan
-ms.topic: disaster-recovery
+ms.topic: how-to
 ms.date: 01/22/2022
 ms.author: rambala
-
 ---
 
 # Design for disaster recovery with Virtual WAN
