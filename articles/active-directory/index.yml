@@ -73,7 +73,7 @@ conceptualContent:
     - title: Authentication
       links:
         - url: ./authentication/overview-authentication.md
-          itemType: concept
+          itemType: overview
           text: What is Azure AD authentication?
         - url: ./authentication/tutorial-enable-sspr.md
           itemType: tutorial
@@ -136,7 +136,7 @@ conceptualContent:
           itemType: overview
           text:  What is Azure AD Domain Services?
         - url: ../active-directory-domain-services/tutorial-create-instance.md
-          itemType: quickstart
+          itemType: tutorial
           text:  Create and configure a Domain Services managed domain
         - url: ../active-directory-domain-services/manage-group-policy.md
           itemType: how-to-guide
@@ -181,7 +181,7 @@ conceptualContent:
           itemType: overview
           text:  What is hybrid identity with Azure AD?
         - url: ./hybrid/how-to-connect-sso.md
-          itemType: how-to-guide
+          itemType: concept
           text:  Azure AD Seamless Single Sign-On
         - url: ./hybrid/how-to-connect-install-custom.md
           itemType: how-to-guide
@@ -193,7 +193,7 @@ conceptualContent:
     - title: Identity governance
       links:
         - url: ./governance/entitlement-management-access-package-first.md
-          itemType: how-to-guide
+          itemType: tutorial
           text:  Manage access to resources in entitlement management
         - url: ./governance/create-access-review.md
           itemType: how-to-guide
@@ -229,7 +229,7 @@ conceptualContent:
           itemType: how-to-guide
           text:  Use managed identities on an Azure VM to acquire an access token
         - url: ./managed-identities-azure-resources/services-support-managed-identities.md
-          itemType: concept
+          itemType: reference
           text:  Services that can use managed identities to access other services
       footerLink:
         url: ./managed-identities-azure-resources/index.yml
@@ -241,7 +241,7 @@ conceptualContent:
           itemType: overview
           text:  What is the Microsoft identity platform?
         - url: ./develop/v2-oauth2-auth-code-flow.md
-          itemType: concept
+          itemType: reference
           text:  OAuth 2.0 authorization code flow
         - url: ./develop/quickstart-register-app.md
           itemType: quickstart
@@ -305,7 +305,7 @@ conceptualContent:
           itemType: tutorial
           text: Configure Workday for automatic user provisioning
         - url: ./develop/v2-howto-app-gallery-listing.md
-          itemType: get-started
+          itemType: how-to-guide
           text: Publish your app to the Azure AD app gallery
       footerLink:
         url: ./saas-apps/tutorial-list.md
