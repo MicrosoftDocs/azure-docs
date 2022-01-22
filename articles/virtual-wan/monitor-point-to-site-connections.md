@@ -48,7 +48,7 @@ The Azure storage account has the following configuration settings
 
 1. On the **Create WAN** page, on the **Basics** tab, fill in the fields. Modify the example values to apply to your environment.
 
-   :::image type="content" source="./media/virtual-wan-create-vwan-include/basics.png" alt-text="Screenshot shows the Create WAN pane with the Basics tab selected.":::
+   :::image type="content" source="./media/monitor-point-to-site-connections/storage-account-basics.png" alt-text="Screenshot shows the Create WAN pane with the Basics tab selected.":::
 
    * **Subscription**: Select the subscription that you want to use.
    * **Resource group**: Create new or use existing.
@@ -58,18 +58,32 @@ The Azure storage account has the following configuration settings
    * **Redundancy**: Choose between Locally-redundant storage, Geo-redundant storage, Zone-redundant storage, and Geo-zone-redundant storage.
 
 1. After you finish filling out the fields, at the bottom of the page, select **Next: Advanced>**.
+    :::image type="content" source="./media/monitor-point-to-site-connections/storage-account-advanced.png" alt-text="Screenshot shows the Create WAN pane with the Basics tab selected.":::
 
-1. Once validation passes, click **Create** to create the virtual WAN.
+    * **Require secure transfer for REST API operations**: Choose **Enabled**
+    * **Enable blob public access**: Choose **Disabled**
+    * **Enable storage account key access**: Choose **Enabled**
+    * **Default to Azure Active Directory authorization in the Azure portal**: Choose **Enabled**
+    * **Minimum TLS version**: Choose **Version 1.2** 
 
-Storage account name: <storageaccountname>
-StorageAccount Configuration:
-- Secure transfer required: Enabled
-- Allow Blob public access: Disabled
-- Allow storage account key access: Enabled
-- Default to Azure Active Directory authorization in the Azure Portal: Enabled
-- Minimum TLS version: Version 1.2
-- Replication: Locally-redundant storage (LRS)
-Storage Container name: <storagecontainername>
+1. Click **Review + create** at the bottom to run validation
+
+1. Once validation passes, click **Create** to create the storage account.
+
+## Create container
+
+1. Once the deployment is complete, go to the resource
+1. On the left-hand panel, click **Containers** under **Data storage**
+:::image type="content" source="./media/monitor-point-to-site-connections/container-create.png" alt-text="Screenshot shows the Create WAN pane with the Basics tab selected.":::
+1. Click **+ Container** to create a new container
+1. Type a **Name** for your container and click **Create**
+1. Click on your new container resource
+1. On your machine, open a text editor application, such as **Notepad**
+1. Leave the text file empty and click **File -> Save As**
+1. Save the empty text file with a name of your choice followed by the **.json** extension
+    :::image type="content" source="./media/monitor-point-to-site-connections/empty-json.png" alt-text="Screenshot shows the Create WAN pane with the Basics tab selected.":::
+
+
 Authentication method: Azure AD User Account (or switch to access key, as this will also work)
 Blob in container: create/upload empty file <vpnstatfile.json> in container
 Generate SAS token and URL: (SASURI, to be saved in KeyVault and used directly from within the workbook)
@@ -80,6 +94,8 @@ Signing method: Account Key
 - Expiry: Choose expiry time
  
 You can choose to create two SAS keys, one for read/write access from the Azure FunctionApp and one with read access used from the workbook, but for now, we use the same SAS key and restrict access to the workbook.
+
+
  
 ##Azure FunctionApp
 
