@@ -45223,6 +45223,11 @@
       "source_path_from_root": "/articles/lab-services/tutorial-connect-virtual-machine-lab.md",
       "redirect_url": "/azure/lab-services/tutorial-connect-lab-virtual-machine",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/lab-services/get-started-manage-labs.md",
+      "redirect_url": "/azure/lab-services/quick-create-lab-portal",
+      "redirect_document_id": false
     }
   ]
 }
