@@ -31,7 +31,7 @@ Whether you use language identification [on its own](#standalone-language-identi
 - Decide whether to use [at-start or continuous](#at-start-and-continuous-language-identification) language identification.
 - Prioritize [low latency or high accuracy](#accuracy-and-latency-prioritization) of results.
 
-Then you make a recognize once or continuous recognition request to the Speech service. 
+Then you make a [recognize once or continuous recognition](#recognize-once-or-continuous) request to the Speech service. 
 
 Code snippets are included with the concepts described next. Complete samples for each use case are provided further below.
 
@@ -39,8 +39,7 @@ Code snippets are included with the concepts described next. Complete samples fo
 
 You provide candidate languages, at least one of which is expected be in the audio. You can include up to 4 languages for [at-start LID](#at-start-and-continuous-language-identification) or up to 10 languages for [continuous LID](#at-start-and-continuous-language-identification).  
 
-> [!NOTE]
-> You must provide the full 4-letter locale, but the Speech service only uses the base language. For example, if you include both "en-US" and "en-GB", the Speech service only uses the Speech-to-text model for English. Do not include multiple locales for the same language. 
+You must provide the full 4-letter locale, but language identification only uses one locale per base language. Do not include multiple locales (e.g., "en-US" and "en-GB") for the same language. 
 
 ::: zone pivot="programming-language-csharp"
 ```csharp
@@ -87,8 +86,8 @@ Speech supports both at-start and continuous language identification (LID).
 > [!NOTE]
 > Continuous language identification is only supported with Speech SDKs in C#, C++, and Python.
 
-- At-start LID identifies the language within the first few seconds of audio, and makes only one determination per audio. Use at-start LID if the language in the audio won't change.
-- Continuous LID can identify multiple languages for the duration of the audio. Use continuous LID if the language in the audio could change. Please note, the accuracy is limited if multiple languages are used within the same utterance. 
+- At-start LID identifies the language once within the first few seconds of audio. Use at-start LID if the language in the audio won't change.
+- Continuous LID can identify multiple languages for the duration of the audio. Use continuous LID if the language in the audio could change. Continuous LID does not support changing languages within the same sentence. For example, if you are primarily speaking Spanish and insert some English words, it will not detect the language change per word. 
 
 You implement at-start LID or continuous LID by calling methods for [recognize once or continuous](#recognize-once-or-continuous). Results also depend upon your [Accuracy and Latency prioritization](#accuracy-and-latency-prioritization).
 
@@ -101,7 +100,7 @@ You can choose to prioritize accuracy or latency with language identification.
 
 Prioritize `Latency` if you need a low-latency result such as during live streaming. Set the priority to `Accuracy` if the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning. Allowing the engine more time will improve language identification results. 
 
-* **At-start:** With at-start LID in `Latency` mode the result is returned in less than 5 seconds. With at-start LID in `Accuracy` mode the result is returned in 30 seconds. You set the priority for at-start LID with the `SpeechServiceConnection_SingleLanguageIdPriority` property.   
+* **At-start:** With at-start LID in `Latency` mode the result is returned in less than 5 seconds. With at-start LID in `Accuracy` mode the result is returned within 30 seconds. You set the priority for at-start LID with the `SpeechServiceConnection_SingleLanguageIdPriority` property.   
 * **Continuous:** With continuous LID in `Latency` mode the results are returned every 2 seconds for the duration of the audio. With continuous LID in `Accuracy` mode the results are returned within no set time frame for the duration of the audio. You set the priority for continuous LID with the `SpeechServiceConnection_ContinuousLanguageIdPriority` property. 
 
 Speech uses at-start LID with `Latency` prioritization by default. You need to set a priority property for any other LID configuration.  
@@ -125,9 +124,7 @@ speech_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnect
 ```
 ::: zone-end
 
-If none of the candidate languages are present in the audio or if the language identification confidence is low, the returned result can vary by mode. 
-* In `Latency` priority mode the Speech service returns one of the candidate languages provided, even if those languages were not in the audio. For example, if `fr-FR` (French) and `en-US` (English) are provided as candidates, but German is spoken, either "French" or "English" would be returned. 
-* In `Accuracy` priority mode the Speech service returns "Unknown" if none of the candidate languages are detected or if the language identification confidence is low. 
+For continuous LID using `Latency` as the priority, the Speech service returns one of the candidate languages provided even if those languages were not in the audio. For example, if `fr-FR` (French) and `en-US` (English) are provided as candidates, but German is spoken, either "French" or "English" would be returned. Otherwise the Speech service returns "Unknown" if none of the candidate languages are detected or if the language identification confidence is low. 
 
 ### Recognize once or continuous
 
@@ -149,13 +146,13 @@ The `SpeechServiceConnection_ContinuousLanguageIdPriority` property is always re
 var result = await recognizer.RecognizeOnceAsync();
 
 // Start and stop continuous recognition with At-start LID
-await recognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
-await recognizer.StopContinuousRecognitionAsync().ConfigureAwait(false);
+await recognizer.StartContinuousRecognitionAsync();
+await recognizer.StopContinuousRecognitionAsync();
 
 // Start and stop continuous recognition with Continuous LID
 speechConfig.SetProperty(PropertyId.SpeechServiceConnection_ContinuousLanguageIdPriority, "Latency");
-await recognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
-await recognizer.StopContinuousRecognitionAsync().ConfigureAwait(false);
+await recognizer.StartContinuousRecognitionAsync();
+await recognizer.StopContinuousRecognitionAsync();
 ```
 ::: zone-end
 ::: zone pivot="programming-language-cpp"
@@ -671,8 +668,6 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 
 ### Using Speech-to-text custom models
 
-You can use a custom model as an alternative to the Speech service base models. If a custom model isn't provided, the service will use the default language model.
-
 The sample below illustrates how to specify a custom model in your call to the Speech service. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used.
 
 ::: zone pivot="programming-language-csharp"
@@ -783,7 +778,7 @@ public static async Task RecognizeOnceSpeechTranslationAsync()
 
     speechTranslationConfig.SetProperty(PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, "Latency");
 
-    //Source lang is required, but is currently NoOp 
+    // Source language is required, but currently ignored. 
     string fromLanguage = "en-US";
     speechTranslationConfig.SpeechRecognitionLanguage = fromLanguage;
 
@@ -833,7 +828,7 @@ public static async Task MultiLingualTranslation()
     
     var config = SpeechTranslationConfig.FromEndpoint(endpointUrl, "<paste-your-subscription-key>");
 
-    // Source lang is required, but is currently NoOp 
+    // Source language is required, but currently ignored. 
     string fromLanguage = "en-US";
     config.SpeechRecognitionLanguage = fromLanguage;
 
@@ -954,7 +949,7 @@ void MultiLingualTranslation()
     auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "ja-JP", "zh-CN" });
 
     promise<void> recognitionEnd;
-    // Source lang is required, but is currently NoOp 
+    // Source language is required, but currently ignored. 
     auto fromLanguage = "en-US";
     config->SetSpeechRecognitionLanguage(fromLanguage);
     config->AddTargetLanguage("de");
