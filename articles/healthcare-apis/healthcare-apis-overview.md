@@ -5,14 +5,11 @@ services: healthcare-apis
 author: stevewohl
 ms.service: healthcare-apis
 ms.topic: overview
-ms.date: 07/09/2021
+ms.date: 01/21/2022
 ms.author: ginle
 ---
 
-# What is Azure Healthcare APIs (preview)?
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# What is Azure Healthcare APIs?
 
 Azure Healthcare APIs is a set of managed API services based on open standards and frameworks that enable workflows to improve healthcare and offer scalable and secure healthcare solutions. Using a set of managed API services and frameworks that’s dedicated to the healthcare industry is important and beneficial because health data collected from patients and healthcare consumers can be fragmented from across multiple systems, device types, and data formats. Gaining insights from health data is one of the biggest barriers to sustaining population and personal health and overall wellness understanding. Bringing disparate systems, workflows, and health data together is more important today. A unified and aligned approach to health data access, standardization, and trend capturing would enable the discovery of operational and clinical insights. We can streamline the process of connecting new device applications and enable new research projects. Using Azure Healthcare APIs as a scalable and secure healthcare solution can enable workflows to improve healthcare through insights discovered by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. 
 

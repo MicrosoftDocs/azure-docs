@@ -5,15 +5,12 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 07/12/2021
+ms.date: 01/21/2022
 ms.author: ginle
 ms.custom: mode-api
 ---
 
-# Deploy Healthcare APIs (preview) workspace using Azure portal
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Deploy Healthcare APIs workspace using Azure portal
 
 In this article, you’ll learn how to create a workspace by deploying Azure Healthcare APIs through the Azure portal. The workspace is a centralized logical container for all your healthcare APIs services such as FHIR services, DICOM® services, and IoT Connectors. It allows you to organize and manage certain configuration settings that are shared among all the underlying datasets and services where applicable.
 
@@ -39,7 +36,7 @@ In the searchbox, enter **Azure Healthcare APIs**.
 
 Select **Create** to create a new Azure Healthcare APIs account.
 
-   [ ![Create workspace preview](media/create-workspace-preview.png) ](media/create-workspace-preview.png#lightbox)
+   [ ![Create workspace](media/create-workspace-preview.png) ](media/create-workspace-preview.png#lightbox)
 
 ## Enter Subscription and instance details
 
