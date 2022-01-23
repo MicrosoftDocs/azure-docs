@@ -761,7 +761,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/active-directory/external-identities/authentication-conditional-access.md",
+            "source_path_from_root": "/articles/active-directory/external-identities/conditional-access.md",
             "redirect_url": "/azure/active-directory/external-identities/authentication-conditional-access",
             "redirect_document_id": true
         },
@@ -836,7 +836,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/active-directory/active-directory-authentication-conditional-access.md",
+            "source_path_from_root": "/articles/active-directory/active-directory-conditional-access.md",
             "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
             "redirect_document_id": false
         },
@@ -1136,7 +1136,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-authentication-conditional-access.md",
+            "source_path_from_root": "/articles/active-directory/active-directory-application-proxy-conditional-access.md",
             "redirect_url": "/azure/active-directory/application-proxy-enable-remote-access-sharepoint",
             "redirect_document_id": false
         },
@@ -1736,12 +1736,12 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/active-directory/conditional-access/app-based-authentication-conditional-access.md",
+            "source_path_from_root": "/articles/active-directory/conditional-access/app-based-conditional-access.md",
             "redirect_url": "/azure/active-directory/conditional-access/howto-policy-approved-app-or-app-protection",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/active-directory/conditional-access/app-protection-based-authentication-conditional-access.md",
+            "source_path_from_root": "/articles/active-directory/conditional-access/app-protection-based-conditional-access.md",
             "redirect_url": "/azure/active-directory/conditional-access/howto-policy-approved-app-or-app-protection",
             "redirect_document_id": true
         },
@@ -1866,7 +1866,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/active-directory/active-directory-b2b-external-collaboration-settings-configure.md",
+            "source_path_from_root": "/articles/active-directory/active-directory-b2b-delegate-invitations.md",
             "redirect_url": "/azure/active-directory/b2b/external-collaboration-settings-configure",
             "redirect_document_id": true
         },
@@ -3836,8 +3836,8 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/active-directory/b2b/authentication-conditional-access.md",
-            "redirect_url": "/azure/active-directory/external-identities/conditional-access",
+            "source_path_from_root": "/articles/active-directory/b2b/conditional-access.md",
+            "redirect_url": "/azure/active-directory/external-identities/authentication-conditional-access",
             "redirect_document_id": true
         },
         {
@@ -3856,7 +3856,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/active-directory/b2b/external-collaboration-settings-configure.md",
+            "source_path_from_root": "/articles/active-directory/b2b/delegate-invitations.md",
             "redirect_url": "/azure/active-directory/external-identities/external-collaboration-settings-configure",
             "redirect_document_id": true
         },
