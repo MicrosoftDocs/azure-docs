@@ -168,7 +168,7 @@ Defender for Containers expands on the registry scanning features of the Defende
 
 The new recommendation, **Running container images should have vulnerability findings resolved** groups running images that have vulnerabilities and provides details about the issues discovered and how to remediate them.
 
-:::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="test":::
+:::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="Screenshot showing where the recommendation is viewable" lightbox="media/defender-for-containers/running-image-vulnerabilities-recommendation-expanded.png":::
 
 ## Run-time protection for Kubernetes nodes and clusters
 
