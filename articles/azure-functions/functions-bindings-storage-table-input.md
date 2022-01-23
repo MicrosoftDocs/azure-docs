@@ -683,8 +683,8 @@ In [C# class libraries](dotnet-isolated-process-guide.md), the `TableInputAttrib
 | **TableName** | The name of the table.| 
 | **PartitionKey** |Optional. The partition key of the table entity to read. | 
 |**RowKey** | Optional. The row key of the table entity to read. | 
-| **Take** | Optional. The maximum number of entities to read into an [IEnumerable<T>]. Can't be used with `RowKey`.| 
-|**Filter** | Optional. An OData filter expression for entities to read into an [IEnumerable<T>]. Can't be used with `RowKey`. | 
+| **Take** | Optional. The maximum number of entities to read into an [IEnumerable\<T\>]. Can't be used with `RowKey`.| 
+|**Filter** | Optional. An OData filter expression for entities to read into an [IEnumerable\<T\>]. Can't be used with `RowKey`. | 
 |**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an "AzureWebJobs" prefixed app setting or connection string name. For example, if your setting name is `AzureWebJobsMyStorage`, you can specify `MyStorage` here. The Functions runtime will automatically look for an app setting that named `AzureWebJobsMyStorage`. If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
 # [C# script](#tab/csharp-script)
@@ -717,7 +717,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 |---------|---------|
 | **[TableInputName](/java/api/com.microsoft.azure.functions.annotation.tableinput.name)** | The name of the table. | 
  **[PartitionKey](/java/api/com.microsoft.azure.functions.annotation.tableinput.partitionkey)** |Optional. The partition key of the table entity to read. | 
-|**[RowKey](/java/api/com.microsoft.azure.functions.annotation.tableinput.rowkey)** |**RowKey** | The row key of the table entity to read. | 
+|**[RowKey](/java/api/com.microsoft.azure.functions.annotation.tableinput.rowkey)** | The row key of the table entity to read. | 
 |**[Take](/java/api/com.microsoft.azure.functions.annotation.tableinput.take)** | Optional. The maximum number of entities to read.| 
 |**[Filter](/java/api/com.microsoft.azure.functions.annotation.tableinput.filter)** | Optional. An OData filter expression for table input. | 
 |**[Connection](/java/api/com.microsoft.azure.functions.annotation.tableinput.connection)** | The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an `AzureWebJobs` prefixed app setting or connection string name. For example, if your setting name is `AzureWebJobsMyStorage`, you can specify `MyStorage` here. The Functions runtime will automatically look for an app setting that named `AzureWebJobsMyStorage`. If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
@@ -759,7 +759,7 @@ To execute queries that return multiple entities, bind to an [IQueryable<T>] of 
 # [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 To return a specific entity by key, use a plain-old CLR object (POCO). The specific `TableName`, `PartitionKey`, and `RowKey` are used to try and get a specific entity from the table.
 
- When returning multiple entities as an [IEnumerable<T>], you can instead use `Take` and `Filter` properties to restrict the result set.
+ When returning multiple entities as an [IEnumerable\<T\>], you can instead use `Take` and `Filter` properties to restrict the result set.
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 Functions version 1.x doesn't support isolated process.
 # [Functions 2.x and higher](#tab/functionsv2/csharp-script)
@@ -797,4 +797,4 @@ For specific usage details, see [Example](#example).
 [CloudTable]: /dotnet/api/microsoft.azure.cosmos.table.cloudtable
 [TableEntity]: /dotnet/api/azure.data.tables.tableentity
 [IQueryable<T>]: /dotnet/api/system.linq.iqueryable-1
-[IEnumerable<T>]: /dotnet/api/system.collections.generic.ienumerable-1
+[IEnumerable\<T\>]: /dotnet/api/system.collections.generic.ienumerable-1
