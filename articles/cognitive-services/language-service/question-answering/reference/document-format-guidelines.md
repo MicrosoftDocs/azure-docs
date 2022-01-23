@@ -96,25 +96,6 @@ Question answering in the form of structured *.txt*, *.tsv* or *.xls* files can 
 
 Any additional columns in the source file are ignored.
 
-#### Example of structured Excel file
-
-Below is an example of a structured question and answer *.xls* file, with HTML content:
-
-> [!div class="mx-imgBorder"]
-> ![Structured question answering excel example for a knowledge base](../../../qnamaker/media/qnamaker-concepts-datasources/structured-qna-xls.png)
-
-#### Example of alternate questions for single answer in Excel file
-
-Below is an example of a structured question answer *.xls* file, with several alternate questions for a single answer:
-
-> [!div class="mx-imgBorder"]
-> ![Example of alternate questions for single answer in Excel file](../../../qnamaker/media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
-
-After the file is imported, the question-and-answer pair is in the knowledge base as shown below:
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot of alternate questions for single answer imported into knowledge base](../../../qnamaker/media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
-
 ### Structured data format through import
 
 Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured .tsv file that contains data source information. This information helps group the question-answer pairs and attribute them to a particular data source. Question answer pairs have an optional metadata field that can be used to group question answer pairs into categories.
@@ -146,11 +127,6 @@ Question answering can support FAQ web pages in three different forms:
 
 This is the most common type of FAQ page, in which the answers immediately follow the questions in the same page.
 
-Below is an example of a plain FAQ page:
-
-> [!div class="mx-imgBorder"]
-> ![Plain FAQ page example for a knowledge base](../../../qnamaker/media/qnamaker-concepts-datasources/plain-faq.png)
-
 ### FAQ pages with links
 
 In this type of FAQ page, questions are aggregated together and are linked to answers that are either in different sections of the same page, or in different pages.
@@ -175,9 +151,6 @@ Question answering can process semi-structured support web pages, such as web ar
 
 > [!NOTE]
 > Extraction for support articles is a new feature and is in early stages. It works best for simple pages, that are well structured, and do not contain complex headers/footers.
-
-> [!div class="mx-imgBorder"]
-> ![Question answering supports extraction from semi-structured web pages where a clear structure is presented with hierarchical headings](../../../qnamaker/media/qnamaker-concepts-datasources/support-web-pages-with-heirarchical-structure.png)
 
 ## Import and export knowledge base
 
