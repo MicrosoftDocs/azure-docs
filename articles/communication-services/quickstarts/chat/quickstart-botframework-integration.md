@@ -5,7 +5,7 @@ You will learn how to:
 
 - [Create and deploy a bot](#step-1---create-and-deploy-a-bot)
 - [Get an Azure Communication Services Resource](#step-2---Get-an-Azure-Communication-Services-Resource)
-- [Eanble ACS Chat Channel](#step-3---Eanble-ACS-Chat-Channel)
+- [Enable ACS Chat Channel](#step-3---Enable-ACS-Chat-Channel)
 - [Create a chat app and add bot as a participant](#step-4---Create-a-chat-app-and-add-bot-as-a-participant)
 - [More things you can do with bot](#More-things-you-can-do-with-bot)
 
