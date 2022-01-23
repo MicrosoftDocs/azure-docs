@@ -30,12 +30,10 @@ See the [application development lifecycle](../overview.md#application-developme
 ## View the model's evaluation details
 
 1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
-    1. Look for the section in Language Studio labeled **Extract information**.
-    2. Select **Custom named entity extraction**.
 
 2. Select **View model details** from the menu on the left side of the screen.
 
-3. View your model training status in the **Status** column, and the F1 score for the model in the **F1 score** column. you can click on the model name for more details.
+3. In this page you can only view the sucessfuly trained models. You can click on the model name for more details.
 
 4. You can find the **model-level** evaluation metrics under **Overview**, and the **entity-level** evaluation metrics under **Entity performance metrics**. The confusion matrix for the model is located under **Test set confusion matrix**
     
