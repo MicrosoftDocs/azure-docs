@@ -155,7 +155,7 @@ Learn more:
 
 **Estimated date for change:** March 2022
 
-There are currently AWS recommendations in the preview stage. These recommendations include AWS Foundational Security Best Practices standard (default). All of the recommendations will become Generally Available (GA) in March 2022.
+There are currently AWS recommendations in the preview stage. These recommendations come from the AWS Foundational Security Best Practices standard which is assigned by default. All of the recommendations will become Generally Available (GA) in March 2022.
 
 When these recommendations go live, their impact will be included in the calculations of your secure score. Expect changes to your secure score.
 
