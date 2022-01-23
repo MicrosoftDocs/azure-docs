@@ -27,7 +27,7 @@ SIM policies allow you to define different sets of policies and interoperability
 :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 1. In the resource menu, select **SIM policies**.
 
-    :::image type="content" source="media\configure-sim-policy-azure-portal\sim-policies-resource-menu-option.png" alt-text="Screenshot of the Azure portal. It shows the SIM policies option in the resource menu of a Mobile Network resource.":::
+    :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policies-resource-menu-option.png" alt-text="Screenshot of the Azure portal. It shows the SIM policies option in the resource menu of a Mobile Network resource.":::
 
 1. In the command bar, select **Create**.
 1. Under **Create a SIM policy**, do the following.
@@ -39,7 +39,7 @@ SIM policies allow you to define different sets of policies and interoperability
 1. Under **Create a SIM policy**, confirm that your new network scope has the correct configuration.
 1. If you want to assign this SIM policy to one or more existing provisioned SIMs, select **Next : Assign to SIMs**, and then select your chosen SIMs from the list that appears.
 
-    :::image type="content" source="media\configure-sim-policy-azure-portal\assign-to-sims-tab.png" alt-text="Screenshot of the Azure portal. It shows the Assign to SIMs tab for a SIM policy.":::
+    :::image type="content" source="media/configure-sim-policy-azure-portal/assign-to-sims-tab.png" alt-text="Screenshot of the Azure portal. It shows the Assign to SIMs tab for a SIM policy.":::
 
 1. Select **Next : Review + create**.
 1. Confirm that the configuration for the SIM policy is correct. If the configuration isn't valid, you'll see an error message and the configuration tab(s) containing the invalid configuration will be flagged with red dots. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
@@ -47,20 +47,20 @@ SIM policies allow you to define different sets of policies and interoperability
     Once your configuration has been validated, you can select the **Review + create** button to create your SIM policy.
 1. The Azure portal will display the following confirmation screen when the SIM policy has been created.
 
-    :::image type="content" source="media\configure-sim-policy-azure-portal\sim-policy-deployment-confirmation.png" alt-text="Screenshot of the Azure portal. It shows confirmation of the successful deployment of a SIM policy.":::
+    :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policy-deployment-confirmation.png" alt-text="Screenshot of the Azure portal. It shows confirmation of the successful deployment of a SIM policy.":::
 
 1. Select **Go to resource group**. In the resource group that appears, select the **Mobile Network** resource representing your private mobile network. 
 1. In the resource menu, select **SIM policies**.
 
-    :::image type="content" source="media\configure-sim-policy-azure-portal\sim-policies-resource-menu-option.png" alt-text="Screenshot of the Azure portal. It shows the SIM policies option in the resource menu of a Mobile Network resource.":::
+    :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policies-resource-menu-option.png" alt-text="Screenshot of the Azure portal. It shows the SIM policies option in the resource menu of a Mobile Network resource.":::
 
 1. Select your new SIM policy from the list.
 
-    :::image type="content" source="media\sim-policies-list.png" alt-text="Screenshot of the Azure portal. It shows a list of currently configured SIM policies for a private mobile network.":::
+    :::image type="content" source="media/sim-policies-list.png" alt-text="Screenshot of the Azure portal. It shows a list of currently configured SIM policies for a private mobile network.":::
 
 1. Check the configuration of your SIM policy to ensure it's correct. 
 
-    :::image type="content" source="media\configure-sim-policy-azure-portal\sim-policy-resource.png" alt-text="Screenshot of the Azure portal showing a SIM policy resource.":::
+    :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policy-resource.png" alt-text="Screenshot of the Azure portal showing a SIM policy resource.":::
 
 ## Next steps
 

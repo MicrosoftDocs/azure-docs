@@ -31,15 +31,15 @@ In this step, you'll configure basic settings for your new service using the Azu
 :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 1. In the resource menu, select **Services**.
 
-    :::image type="content" source="media\configure-service-azure-portal\services-resource-menu-option.png" alt-text="Screenshot of the Azure portal. It shows the Services option in the resource menu of a Mobile Network resource.":::
+    :::image type="content" source="media/configure-service-azure-portal/services-resource-menu-option.png" alt-text="Screenshot of the Azure portal. It shows the Services option in the resource menu of a Mobile Network resource.":::
 
 1. In the command bar, select **Create**.
 
-    :::image type="content" source="media\configure-service-azure-portal\create-command-bar-option.png" alt-text="Screenshot of the Azure portal. It shows the Create option in the command bar.":::
+    :::image type="content" source="media/configure-service-azure-portal/create-command-bar-option.png" alt-text="Screenshot of the Azure portal. It shows the Create option in the command bar.":::
 
 1. On the **Basics** configuration tab, use the information you collected in [Collect top-level setting values](collect-required-information-for-service.md#collect-top-level-setting-values) to fill out each of the fields.
 
-    :::image type="content" source="media\configure-service-azure-portal\create-service-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab for a service.":::
+    :::image type="content" source="media/configure-service-azure-portal/create-service-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab for a service.":::
 
 ## Configure data flow policy rules and data flow templates
 
@@ -47,7 +47,7 @@ Now we'll configure the data flow policy rules you want to use for this service.
 
 1. On the **Basics** configuration tab, select **Add policy rule**.
 
-   :::image type="content" source="media\configure-service-azure-portal\add-policy-rule-button.png" alt-text="Screenshot of the Azure portal. It shows the Add policy rule button on the Basics configuration tab for a service.":::
+   :::image type="content" source="media/configure-service-azure-portal/add-policy-rule-button.png" alt-text="Screenshot of the Azure portal. It shows the Add policy rule button on the Basics configuration tab for a service.":::
 
 1. In **Add policy rule** on the right, use the information you collected in [Data flow policy rule(s)](collect-required-information-for-service.md#data-flow-policy-rules) to fill out the **Rule name**, **Policy rule precedence**, and **Traffic control** fields.
 
@@ -57,17 +57,17 @@ Now we'll configure the data flow policy rules you want to use for this service.
     - Select **Add service data flow template**.
     - Use the information you collected in [Collect service data flow template values](collect-required-information-for-service.md#collect-service-data-flow-template-values) for your chosen template to fill out the fields in the pop-up.
     
-        :::image type="content" source="media\configure-service-azure-portal\add-service-data-flow-template.png" alt-text="Screenshot of the Azure portal showing the Add service data flow template pop-up.":::
+        :::image type="content" source="media/configure-service-azure-portal/add-service-data-flow-template.png" alt-text="Screenshot of the Azure portal showing the Add service data flow template pop-up.":::
 
     - Select **Add**.
 1. Repeat the previous step for any other service data flow templates you want to apply to this data flow policy rule.
 1. In **Add policy rule** on the right, select **Add**.
 
-    :::image type="content" source="media\configure-service-azure-portal\finalise-policy-rule.png" alt-text="Screenshot of the Azure portal showing the Add button for a new data flow policy rule.":::
+    :::image type="content" source="media/configure-service-azure-portal/finalise-policy-rule.png" alt-text="Screenshot of the Azure portal showing the Add button for a new data flow policy rule.":::
 
 1. On the **Basics** configuration tab, confirm that your new rule appears under the **Traffic rules** section.
 
-    :::image type="content" source="media\configure-service-azure-portal\service-with-rules.png" alt-text="Screenshot of the Azure portal. It shows a service with a data flow policy rule configured under the Traffic rules section.":::
+    :::image type="content" source="media/configure-service-azure-portal/service-with-rules.png" alt-text="Screenshot of the Azure portal. It shows a service with a data flow policy rule configured under the Traffic rules section.":::
 
 1. Repeat this entire step for any other data flow policy rules you want to configure for this service.
 
@@ -79,14 +79,14 @@ We'll now create the service so it can be added to your policy control configura
 1. You'll now see the **Review + Create** tab. Azure will attempt to validate the configuration values you've entered. If the configuration values are invalid, the **Create** button at the bottom of the **Review + Create** tab will be grayed out. You'll need to return to the Basics tab and correct any invalid configuration.
 1. When the configuration is valid, the **Create** button will be blue. Select **Create** to create the service.
 
-    :::image type="content" source="media\configure-service-azure-portal\service-review-and-create-tab.png" alt-text="Screenshot of the Azure portal showing the Create button on the Review + create tab for a service.":::
+    :::image type="content" source="media/configure-service-azure-portal/service-review-and-create-tab.png" alt-text="Screenshot of the Azure portal showing the Create button on the Review + create tab for a service.":::
 
 1. The Azure portal will display the following confirmation screen when the service has been created. Select **Go to resource** to see the new service resource.
 
-    :::image type="content" source="media\configure-service-azure-portal\service-resource-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing the successful deployment of a service resource and the Go to resource button.":::
+    :::image type="content" source="media/configure-service-azure-portal/service-resource-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing the successful deployment of a service resource and the Go to resource button.":::
 
 1. Confirm that the data flow policy rules and service data flow templates listed at the bottom of the screen are configured as expected.
-:::image type="content" source="media\configure-service-azure-portal\service-resource.png" alt-text="Screenshot of the Azure portal showing a service resource.":::
+:::image type="content" source="media/configure-service-azure-portal/service-resource.png" alt-text="Screenshot of the Azure portal showing a service resource.":::
 
 ## Next steps
 
