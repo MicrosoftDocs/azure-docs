@@ -113,7 +113,7 @@ One of the properties of this configuration document is `jwks_uri`, whose value 
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/discovery/v2.0/keys
 ```
 
-To determine which user flow was used in signing an ID token (and from where to get the metadata), you have two options. First, the user flow name is included in the `acr` claim in the ID token. Your other option is to encode the user flow in the value of the `state` parameter when you issue the request, and then decode it to determine which user flow was used. Either method is valid.
+To determine which user flow was used in signing an ID token (and from where to get the metadata), you have two options. First, the user flow name is included in the `tfp` claim in the ID token, see [claim representing user flow](configure-tokens.md#token-compatibility-settings). Your other option is to encode the user flow in the value of the `state` parameter when you issue the request, and then decode it to determine which user flow was used. Either method is valid.
 
 After you've acquired the metadata document from the OpenID Connect metadata endpoint, you can use the RSA 256 public keys to validate the signature of the ID token. There might be multiple keys listed at this endpoint, each identified by a `kid` claim. The header of the ID token also contains a `kid` claim, which indicates which of these keys was used to sign the ID token.
 
