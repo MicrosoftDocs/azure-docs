@@ -755,7 +755,7 @@ To execute queries that return multiple entities, bind to a [CloudTable] object.
 # [Functions 1.x](#tab/functionsv1/in-process)
 To return a specific entity by key, use a binding parameter that derives from [TableEntity]. The specific `TableName`, `PartitionKey`, and `RowKey` are used to try and get a specific entity from the table. 
 
-To execute queries that return multiple entities, bind to an [IQueryable<T>] of a type that inherits from [TableEntity]. 
+To execute queries that return multiple entities, bind to an [IQueryable\<T\>] of a type that inherits from [TableEntity]. 
 # [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 To return a specific entity by key, use a plain-old CLR object (POCO). The specific `TableName`, `PartitionKey`, and `RowKey` are used to try and get a specific entity from the table.
 
@@ -769,7 +769,7 @@ To execute queries that return multiple entities, bind to a [CloudTable] object.
 # [Functions 1.x](#tab/functionsv1/csharp-script)
 To return a specific entity by key, use a binding parameter that derives from [TableEntity]. The specific `TableName`, `PartitionKey`, and `RowKey` are used to try and get a specific entity from the table. 
 
-To execute queries that return multiple entities, bind to an [IQueryable<T>] of a type that inherits from [TableEntity]. 
+To execute queries that return multiple entities, bind to an [IQueryable\<T\>] of a type that inherits from [TableEntity]. 
 
 ---
 
@@ -796,5 +796,5 @@ For specific usage details, see [Example](#example).
 [TableInputAttribute]: /dotnet/api/microsoft.azure.webjobs.tableinputattribute
 [CloudTable]: /dotnet/api/microsoft.azure.cosmos.table.cloudtable
 [TableEntity]: /dotnet/api/azure.data.tables.tableentity
-[IQueryable<T>]: /dotnet/api/system.linq.iqueryable-1
+[IQueryable\<T\>]: /dotnet/api/system.linq.iqueryable-1
 [IEnumerable\<T\>]: /dotnet/api/system.collections.generic.ienumerable-1
