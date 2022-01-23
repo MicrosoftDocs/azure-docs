@@ -77,7 +77,7 @@ Configure the Azure Bot we created with its Web App endpoint where the bot logic
 
 
 
-### Configure the Azure Bot
+### Deploy the Azure Bot
 
 The final step would be to deploy the bot logic to the Web App we created. As we mentioned for this tutorial we will be using the Echo Bot. This bot only demonstrates a limited set of capabilities, such echoing the input, typing notification, adaptive cards, and simplified food-ordering scenario. Here is how we deploy it to Azure Web App.
 
