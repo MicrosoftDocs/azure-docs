@@ -1,6 +1,6 @@
 ---
 title: Import document format guidelines - question answering
-description: Use these guidelines for importing documents to get the best results for your content.
+description: Use these guidelines for importing documents to get the best results for your content with question answering.
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.author: mbullwin
@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 01/23/2022
 ---
 
-# Format guidelines for imported documents and URLs
+# Format guidelines for question answering
 
 Review these formatting guidelines to get the best results for your content.
 
@@ -117,7 +117,7 @@ After the file is imported, the question-and-answer pair is in the knowledge bas
 
 ### Structured data format through import
 
-Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured .tsv file that contains data source information. This information helps group the question-answer pairs and attribute them to a particular data source. [Question answer pairs](./How-To/edit-knowledge-base.md#question-and-answer-pairs) have an optional metadata field that can be used to group question answer pairs into categories.
+Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured .tsv file that contains data source information. This information helps group the question-answer pairs and attribute them to a particular data source. Question answer pairs have an optional metadata field that can be used to group question answer pairs into categories.
 
 | Question  | Answer  | Source| Metadata (1 key: 1 value) |
 |-----------|---------|----|---------------------|
