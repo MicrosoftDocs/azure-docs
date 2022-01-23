@@ -369,7 +369,7 @@
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
       - name: Power Query data sources
         href: search-how-to-index-power-query-data-sources.md
-      - name: SharePoint Online
+      - name: SharePoint in Microsoft 365
         href: search-howto-index-sharepoint-online.md
   - name: Skillsets (indexers)
     items:
@@ -515,17 +515,19 @@
       href: /python/api/overview/azure/search-documents-readme
     - name: Management API
       href: /python/api/overview/azure/search/management
-  - name: Azure CLI
-    href: /cli/azure/search
-  - name: Azure PowerShell
-    href: /powershell/module/az.search 
-  - name: Azure Resource Manager template
-    href: /azure/templates/microsoft.search/searchservices
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-reference.md
-  - name: Monitoring data reference
-    href: monitor-azure-cognitive-search-data-reference.md
+  - name: Resource management
+    items:
+    - name: Azure CLI
+      href: /cli/azure/search
+    - name: Azure PowerShell
+      href: /powershell/module/az.search 
+    - name: Azure Resource Manager template
+      href: /azure/templates/microsoft.search/searchservices
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
+    - name: Monitoring data reference
+      href: monitor-azure-cognitive-search-data-reference.md
   - name: OData language reference
     items:
     - name: Overview
@@ -615,16 +617,16 @@
   items:
   - name: Azure Community Support
     href: https://azure.microsoft.com/support/community/?product=search
+  - name: Azure Updates
+    href: https://azure.microsoft.com/updates/?product=search
+  - name: FAQ
+    href: search-faq-frequently-asked-questions.yml
   - name: Partner spotlight
     href: resource-partners-knowledge-mining.md
   - name: Partner data sources (Terms of Use)
     href: search-data-sources-terms-of-use.md
-  - name: Azure Updates
-    href: https://azure.microsoft.com/updates/?product=search
-  - name: Compliance and certifications
-    href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
-  - name: Documentation links (AI enrichment)
-    href: cognitive-search-resources-documentation.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/search/
   - name: Demo sites
     items:
     - name: Financial files demo
@@ -641,9 +643,3 @@
       href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
     - name: Developer course (Pluralsight)
       href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
-  - name: FAQ
-    href: search-faq-frequently-asked-questions.yml
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/search/
-  - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=search
