@@ -26,7 +26,7 @@ In order to use ACS chat as a channel in Azure Bot Service, the first step would
    - Click on create a resource option in Azure portal.<br/><br/>![Create a new resource.png](./media/Create%20a%20new%20resource.png)
 
 
-   - Search Azure Bot in the list of available resource types.<br/><br/>![Search Azure Bot.png](./media/Search%20Azure%20Bot.png.png)
+   - Search Azure Bot in the list of available resource types.<br/><br/>![Search Azure Bot.png](./media/Search%20Azure%20Bot.png)
 
 
 
