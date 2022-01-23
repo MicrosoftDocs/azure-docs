@@ -51,6 +51,8 @@ Before starting the training process, files in your dataset are divided into two
 
 6. You can check the status of the training job in the same page. Only sucessfully completed tasks will generate models.
 
+You can only have one training job running at a time, you cannot create or start oother tasks in the same project. 
+
 ## Next steps
 
 After training is completed, you will be able to use the [model evaluation metrics](view-model-evaluation.md) to optionally [improve your model](improve-model.md). Once you're satisfied with your model, you can deploy it, making it available to use for [extracting entities](call-api.md) from text.
