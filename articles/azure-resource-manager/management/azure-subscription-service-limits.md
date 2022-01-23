@@ -366,7 +366,7 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
 
-## Purview limits
+## Azure Purview limits
 
 The latest values for Azure Purview quotas can be found in the [Azure Purview quota page](../../purview/how-to-manage-quotas.md).
 

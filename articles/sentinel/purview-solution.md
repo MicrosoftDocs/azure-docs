@@ -11,7 +11,7 @@ ms.author: bagol
 
 > [!IMPORTANT]
 >
-> The *Microsoft Sentinel data connector for Azure Purview* and the *Azure Purview* solution are in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The *Azure Purview* solution are in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 [Azure Purview](/azure/purview/) provides organizations with visibility into where on the network sensitive information is stored, helping top prioritize at-risk data for protection.
@@ -28,8 +28,7 @@ In this tutorial, you:
 >
 > * Install the Microsoft Sentinel solution for Azure Purview
 > * Enable your Azure Purview data connector
-> * Use Log Analytics to query for Azure Purview alerts
-> * Learn about the analytics rules, workbooks, and playbooks deployed to your Microsoft Sentinel workspace with the Defender for IoT solution
+> * Learn about the workbook and analytics rules deployed to your Microsoft Sentinel workspace with the Azure Purview solution
 
 ## Prerequisites
 
@@ -41,10 +40,10 @@ Before you start, make sure you have both a [Microsoft Sentinel workspace](quick
 
 ## Install the Azure Purview solution
 
-The **Azure Purview** solution is a set of bundled content, including analytics rules and workbooks configured specifically for Azure Purview data.
+The **Azure Purview** solution is a set of bundled content, including a data connector, workbook, and analytics rules configured specifically for Azure Purview data.
 
 > [!TIP]
-> Microsoft Sentinel [solutions](sentinel-solutions.md) can help you onboard Microsoft Sentinel security content for a specific data connector using a single process. 
+> Microsoft Sentinel [solutions](sentinel-solutions.md) can help you onboard Microsoft Sentinel security content for a specific data connector using a single process.
 
 **To install the solution**
 
@@ -59,7 +58,7 @@ For more information, see [About Microsoft Sentinel content and solutions](senti
 
 ## Start ingesting Azure Purview data in Microsoft Sentinel
 
-Configure a diagnostic settings to have Azure Purview data sensitivity logs flow into Microsoft Sentinel, and then run an Azure Purview scan to start ingesting your data.
+Configure diagnostic settings to have Azure Purview data sensitivity logs flow into Microsoft Sentinel, and then run an Azure Purview scan to start ingesting your data.
 
 Diagnostics settings sends log events only after a full scan is run, or when a change is detected during an incremental scan. It typically takes about 10-15 minutes for the logs to start appearing in Microsoft Sentinel.
 
@@ -91,17 +90,20 @@ For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microso
 
 ## View recent data discovered by Azure Purview
 
-Use this procedure to customize the Azure Purview analytics rules and then view your data in a Microsoft Sentinel workbook.
+The Azure Purview solution provides two analytics rule templates out-of-the-box that you can enable, including a generic rule and a customized rule.
+
+- The generic version, *Sensitive Data Discovered in the Last 24 Hours*, monitors for the detection of any classifications found across your data estate during an Azure Purview scan.
+- The customized version, *Sensitive Data Discovered in the Last 24 Hours - Customized*, monitors and generates alerts each time the specified classification, such as Social Security Number, has been detected.
+
+Use this procedure to customize the Azure Purview analytics rules's queries to detect assets with specific classification, sensitivity label, source region, and more. Combine the data generated with other data in Microsoft Sentinel to enrich your detections and alerts.
 
 > [!NOTE]
 > Microsoft Sentinel analytics rules are KQL queries that trigger alerts when suspicious activity has been detected. Customize and group your rules together to create incidents for your SOC team to investigate.
 >
 
-For example, customize the rule so that alerts are generated each time the specified classification, such as *Social Security Numbers* are detected. Customize the rule's query to detect assets with specific classification, sensitivity label, source region, and more. Combine the data generated with other data in Microsoft Sentinel to enrich your detections and alerts.
+### Modify the Azure Purview analytics rule templates
 
-**To modify the Azure Purview analytics rule templates**:
-
-1. In Microsoft Sentinel, under **Configuration** select **Analytics** > **Active rules**, and search for a rule named **Sensitive Data Discovered in the Last 24 Hours**.
+1. In Microsoft Sentinel, under **Configuration** select **Analytics** > **Active rules**, and search for a rule named **Sensitive Data Discovered in the Last 24 Hours - Customized**.
 
     By default, analytics rules created by Microsoft Sentinel solutions are set to disabled. Make sure to enable the rule for your workspace before continuing:
 
@@ -109,20 +111,36 @@ For example, customize the rule so that alerts are generated each time the speci
 
     1. In the analytics rule wizard, at the bottom of the **General** tab, toggle the **Status** to **Enabled**.
 
-1. If you haven't yet, edit the rule to open the analytics rule wizard, and configure the rule to define the data fields and classifications to query for.
+1. On the **Set rule logic** tab, adjust the **Rule query** to query for the data fields and classifications you want to generate alerts for. For more information on what can be included in your query, see:
 
-    - Supported data fields
+    - Supported data fields are the columns of the [PurviewDataSensitivityLogs](/azure/azure-monitor/reference/tables/purviewdatasensitivitylogs) table
     - [Supported classifications](/azure/purview/supported-classifications)
 
-    On the **Set rule logic** tab, under **Query scheduling**, define settings so that the rules show data discovered in the last 24 hours.
+    Formatted queries have the following syntax: `| where {data-field} contains {specified-string}`.
+
+    For example:
+
+    ```Kusto
+    PurviewDataSensitivityLogs
+    | where Classification contains “Social Security Number”
+	| where SourceRegion contains “westeurope”
+	| where SourceType contains “Amazon”
+	| where TimeGenerated > ago (24h)
+    ```
+
+1. Under **Query scheduling**, define settings so that the rules show data discovered in the last 24 hours. We also recommend that you set **Event grouping** to group all events into a single alert.
 
     :::image type="content" source="media/purview-solution/analytics-rule-wizard.png" alt-text="Screenshot of the analytics rule wizard defined to show data detected in the last 24 hours.":::
 
-    For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
+1. If needed, customize the **Incident settings** and **Automated response**  tabs. For example, in the **Incidents settings** tab, verify that **Create incidents form alerts triggered by this analytics rule** is selected.
 
-**To view Azure Purview data in Microsoft Sentinel workbooks**
+1. On the **Review and update** tab, select **Save**.
 
-In Microsoft Sentinel, under **Threat management**, select **Workbooks**, and locate the **Azure Purview** workbook deployed with the **Azure Purview** solution. Open the workbook and customize any parameters as needed.
+For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
+
+### View Azure Purview data in Microsoft Sentinel workbooks
+
+In Microsoft Sentinel, under **Threat management**, select **Workbooks** > **My workbooks**, and locate the **Azure Purview** workbook deployed with the **Azure Purview** solution. Open the workbook and customize any parameters as needed.
 
 The Azure Purview workbook displays the following tabs:
 
@@ -135,6 +153,14 @@ To drill down in the Azure Purview workbook:
 - Select a specific data source to jump to that resource in Azure.
 - Select an asset path link to show more details, with all the data fields shared in the ingested logs.
 - Select a row in the Data Source, Classification, or Sensitivity Label tables to filter the Asset Level data as configured.
+
+### Investigate incidents triggered by Azure Purview events
+
+When investigating incidents triggered by the Azure Purview analytics rules, find detailed information on the assets and classifications found in the the incident's **Events**.
+
+For example:
+
+
 
 ## Next steps
 

@@ -12,7 +12,7 @@ ms.author: wamota
 
 # Onboard to the Azure Orbital Preview
 
-Azure Orbital is now on preview, to get access an Azure subscription must be onboarded. Without this onboarding process, the Azure Orbital resources won't be available in the Azure portal.
+Azure Orbital is now on preview, to get access an Azure subscription must be onboarded. Without this onboarding process, the Azure Orbital resources won't be available in the portal.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ Azure Orbital is now on preview, to get access an Azure subscription must be onb
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
 ## Register the Resource Provider
 
