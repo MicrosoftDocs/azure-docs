@@ -88,7 +88,7 @@ Each site represents a physical enterprise location (for example, Contoso Corpor
    |The Azure resource group to use to deploy the site resource. We recommend that you use the same resource group you chose for the private mobile network under **Project details: Resource group** in [Collect private mobile network resource configuration values](#collect-private-mobile-network-resource-configuration-values).                |**Project details: Resource group**|
    |The name for the site.           |**Instance details: Name**|
    |The region in which you are deploying the private mobile network. We recommend that you use the East US region.                         |**Instance details: Region**|
-   |The private mobile network resource representing the network to which you are adding the site. This must match the private mobile network name you chose under **Instance details: Mobile network name** in [Collect private mobile network resource configuration values](#collect-private-mobile-network-resource-configuration-values).    |**Network configuration: Mobile network code (MNC)**|
+   |The private mobile network resource representing the network to which you are adding the site. This must match the private mobile network name you chose under **Instance details: Mobile network name** in [Collect private mobile network resource configuration values](#collect-private-mobile-network-resource-configuration-values).    |**Instance details: Mobile network**|
 
 ## Collect access network configuration values
 

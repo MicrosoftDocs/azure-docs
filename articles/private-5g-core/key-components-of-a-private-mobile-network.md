@@ -1,6 +1,6 @@
 ---
 title: Key components of a private mobile network
-titlesuffix: Azure Private 5G Core Preview.
+titlesuffix: Azure Private 5G Core Preview
 description: Learn about the key components of a private mobile network deployed through Azure Private 5G Core Preview.
 author: djrmetaswitch
 ms.author: drichards
@@ -12,13 +12,13 @@ ms.custom: template-concept
 
 # Key components of a private mobile network
 
-Learn about the key components of a private mobile network deployed through Azure Private 5G Core Preview.
+This article introduces the key components of a private mobile network deployed through Azure Private 5G Core Preview.
 
 :::image type="content" source="media/key-components-of-a-private-mobile-network/private-mobile-network-components.png" alt-text="Diagram displaying the key components of a private mobile network, including SIMs, sites and policy control":::
 
 ## SIMs
 
-Each SIM resource represents a physical SIM or eSIM that will be served by the private mobile network.
+Each SIM resource represents a physical SIM or eSIM. The physical SIMs and eSIMs are used by User Equipment (UEs) that will be served by the private mobile network.
 
 ## Sites
 
@@ -26,7 +26,7 @@ Each site resource represents a physical enterprise location (for example, Conto
 
 During the deployment of your private mobile network, you will create a Kubernetes cluster on each Azure Stack Edge device. This serves as the platform for the packet core instance in the site. 
 
-Each packet core instance connects to a Radio Access Network (RAN) to provide coverage for 5G devices. You'll source your RAN from a third party, and you won't manage it using Azure.
+Each packet core instance connects to a Radio Access Network (RAN) to provide coverage for 5G UEs. You'll source your RAN from a third party; it can be managed using Azure.
 
 ## Policy control
 

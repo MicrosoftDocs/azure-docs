@@ -48,13 +48,13 @@ Azure Private 5G Core Preview allows you to deploy a private mobile network on a
 1. Once you have filled out all of the fields, click **Next : SIMs >**.
 1. On the **SIMs** configuration tab, select the **Add SIMs later** radio button, and then click **Review + create**.
 1. The Azure portal will now validate the configuration values you have entered. You should see a message indicating your values have passed validation. Click **Create** to create the private mobile network.
-1. The Azure portal will now deploy your **Mobile Network** resource and default **Service** resource into the new resource group. You will see the following confirmation screen when the deployment is complete.
+1. The Azure portal will now deploy your **Mobile Network** resource into the new resource group. You will see the following confirmation screen when the deployment is complete.
 
-    :::image type="content" source="media\pmn-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of Mobile Network and Service resources.":::
+    :::image type="content" source="media/pmn-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of Mobile Network and Service resources.":::
 
 1. Click on **Go to resource group**, and then check that your new resource group contains the correct **Mobile Network** and **Service** resources. Note that you may need to tick the **Show hidden types** checkbox to display all resources.
 
-    :::image type="content" source="media\pmn-deployment-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing Mobile Network and Service resources.":::
+    :::image type="content" source="media/pmn-deployment-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing Mobile Network and Service resources.":::
 
 1. Click on the name of the **Mobile Network** resource and then move to the next step.
 
@@ -62,7 +62,7 @@ Azure Private 5G Core Preview allows you to deploy a private mobile network on a
 
 1. On the **Get started** tab, click **Create sites**.
 
-    :::image type="content" source="media\create-sites-button.png" alt-text="Screenshot of the Azure portal showing the Get started tab, with the Create sites button highlighted.":::
+    :::image type="content" source="media/create-sites-button.png" alt-text="Screenshot of the Azure portal showing the Get started tab, with the Create sites button highlighted.":::
 
 1. On the **Basics** configuration tab, fill out the fields as follows.
 
@@ -70,7 +70,7 @@ Azure Private 5G Core Preview allows you to deploy a private mobile network on a
    |---------|---------|
    |**Subscription**         |\<your subscription\>|
    |**Resource group**       |*Contoso*|
-   |**Mobile network name**  |*Site1*|
+   |**Site name**  |*Site1*|
    |**Region**               |*East US*|
    |**Mobile network**       |*ContosoPMN*|
 
@@ -103,7 +103,7 @@ Azure Private 5G Core Preview allows you to deploy a private mobile network on a
 1. The Azure portal will now validate the configuration values you have entered. You should see a message indicating your values have passed validation. Click **Create** to create the site.
 1. The Azure portal will now deploy a **Arc for network functions - Packet Core** resource representing the site's packet core instance into the resource group. You will see the following confirmation screen when the deployment is complete.
 
-    :::image type="content" source="media\site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of the Arc for network functions - Packet Core resource.":::
+    :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of the Arc for network functions - Packet Core resource.":::
 
 1. Click on **Go to resource group**, and then check that your new resource group contains the correct **Arc for network functions - Packet Core** resource. Note that you may need to tick the **Show hidden types** checkbox to display all resources. Once you have confirmed this, keep the resource group displayed in the Azure portal and move to the next step.
 
@@ -112,7 +112,7 @@ Azure Private 5G Core Preview allows you to deploy a private mobile network on a
 1. In the resource group, select the **Mobile network site** resource called **Site1 (ContosoPMN/Site1)**. Note that you may need to tick the **Show hidden types** checkbox to display this resource.
 1. Click **Create a custom location**.
 
-    :::image type="content" source="media\create-a-custom-location.png" alt-text="Screenshot of the Azure portal showing the location of the Create a custom location option.":::
+    :::image type="content" source="media/create-a-custom-location.png" alt-text="Screenshot of the Azure portal showing the location of the Create a custom location option.":::
 
 1. Under the **Project details** heading, fill out the fields as follows.
 
@@ -168,15 +168,15 @@ Azure Private 5G Core Preview allows you to deploy a private mobile network on a
 1. Open a web browser and navigate to [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin).
 1. Enter the code you retrieved from the Network Function Service Menu and click **Next**.
 
-    :::image type="content" source="media\azure-cross-platform-cli-enter-code.png" alt-text="Screenshot of the Azure Cross-Platform Command Line Interface prompting for a code.":::
+    :::image type="content" source="media/azure-cross-platform-cli-enter-code.png" alt-text="Screenshot of the Azure Cross-Platform Command Line Interface prompting for a code.":::
 
 1. Use your Azure account credentials to sign in to the Microsoft Azure Cross-platform Command Line Interface.
 
-    :::image type="content" source="media\azure-cross-platform-cli-sign-in.png" alt-text="Screenshot of the Azure Cross-Platform Command Line Interface sign in screen.":::
+    :::image type="content" source="media/azure-cross-platform-cli-sign-in.png" alt-text="Screenshot of the Azure Cross-Platform Command Line Interface sign in screen.":::
 
 1. Click **Continue** to confirm that you want to sign in.
 
-    :::image type="content" source="media\azure-cross-platform-cli-confirmation.png" alt-text="Screenshot of the Azure Cross-Platform Command Line Interface showing a confirmation prompt for sign in.":::
+    :::image type="content" source="media/azure-cross-platform-cli-confirmation.png" alt-text="Screenshot of the Azure Cross-Platform Command Line Interface showing a confirmation prompt for sign in.":::
 
 1. When the Microsoft Azure Cross-platform Command Line Interface confirms that the sign in is complete, you can close your browser.
 1. The Network Function Service Menu will now run through the process of connecting the Kubernetes cluster to Azure Arc. This takes approximately 5 minutes and comprises 7 stages. When this is complete, you will see output resembling the following.
@@ -207,7 +207,7 @@ Product key: **********...
 1. Check the contents of the resource group to confirm that it contains **Custom Location**, **Kubernetes - Azure Arc**, and **Log Analytics workspace** resources.
 1. Select the **Kubernetes - Azure Arc** resource and confirm that the **Status** field is set to **Connected**.
 
-    :::image type="content" source="media\kubernetes-azure-arc-resource.png" alt-text="Screenshot of the Azure portal showing the Status field on a Kubernetes - Azure Arc resource.":::
+    :::image type="content" source="media/kubernetes-azure-arc-resource.png" alt-text="Screenshot of the Azure portal showing the Status field on a Kubernetes - Azure Arc resource.":::
 
 ## Configure the custom location
 
@@ -215,17 +215,17 @@ Product key: **********...
 1. On the left side bar, click **Sites**.
 1. Select **Site1**.
 
-    :::image type="content" source="media\select-site.png" alt-text="Screenshot of the Azure portal showing the available sites in the private mobile network.":::
+    :::image type="content" source="media/select-site.png" alt-text="Screenshot of the Azure portal showing the available sites in the private mobile network.":::
 
 1. Select **Configure a custom location**.
 
-    :::image type="content" source="media\configure-a-custom-location.png" alt-text="Screenshot of the Azure portal showing the Configure a custom location option.":::
+    :::image type="content" source="media/configure-a-custom-location.png" alt-text="Screenshot of the Azure portal showing the Configure a custom location option.":::
 
 1. On the **Configuration** tab, select **contoso-arc-custom-loc** from the **Custom ARC location** drop down menu.
 1. Click **Apply**.
 1. Return to the **Site1** resource and confirm that the **Edge custom location** field is now set to **contoso-arc-custom-loc**.
 
-    :::image type="content" source="media\configured-custom-location.png" alt-text="Screenshot of the Azure portal showing a correctly configured custom location on a site.":::
+    :::image type="content" source="media/configured-custom-location.png" alt-text="Screenshot of the Azure portal showing a correctly configured custom location on a site.":::
 
 You've now fully deployed the example private mobile network.
 
