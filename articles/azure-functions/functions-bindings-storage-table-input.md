@@ -694,7 +694,7 @@ C# script uses a function.json file for configuration instead of attributes.
 The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
 
 |function.json property | Description|
-|---------|---------|----------------------|
+|---------|----------------------|
 |**type** |  Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
 |**direction** |  Must be set to `in`. This property is set automatically when you create the binding in the Azure portal. |
 |**name** |  The name of the variable that represents the table or entity in function code. | 
@@ -703,7 +703,7 @@ The following table explains the binding configuration properties for C# script 
 |**rowKey** |Optional. The row key of the table entity to read. Can't be used with `take` or `filter`.| 
 |**take** | Optional. The maximum number of entities to return. Can't be used with `rowKey`. |
 |**filter** | Optional. An OData filter expression for the entities to return from the table. Can't be used with `rowKey`.| 
-|**connection** |**Connection** |  The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an "AzureWebJobs" prefixed app setting or connection string name. For example, if your setting name is `AzureWebJobsMyStorage`, you can specify `MyStorage` here. The Functions runtime will automatically look for an app setting that named `AzureWebJobsMyStorage`. If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+|**connection** | The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an "AzureWebJobs" prefixed app setting or connection string name. For example, if your setting name is `AzureWebJobsMyStorage`, you can specify `MyStorage` here. The Functions runtime will automatically look for an app setting that named `AzureWebJobsMyStorage`. If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
 ---
 
@@ -729,7 +729,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 The following table explains the binding configuration properties that you set in the *function.json* file and the `Table` attribute.
 
 |function.json property | Description|
-|---------|---------|----------------------|
+|---------|----------------------|
 |**type** |  Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
 |**direction** |  Must be set to `in`. This property is set automatically when you create the binding in the Azure portal. |
 |**name** |  The name of the variable that represents the table or entity in function code. | 
@@ -738,7 +738,7 @@ The following table explains the binding configuration properties that you set i
 |**rowKey** |Optional. The row key of the table entity to read. Can't be used with `take` or `filter`.| 
 |**take** | Optional. The maximum number of entities to return. Can't be used with `rowKey`. |
 |**filter** | Optional. An OData filter expression for the entities to return from the table. Can't be used with `rowKey`.| 
-|**connection** |**Connection** |  The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an "AzureWebJobs" prefixed app setting or connection string name. For example, if your setting name is `AzureWebJobsMyStorage`, you can specify `MyStorage` here. The Functions runtime will automatically look for an app setting that named `AzureWebJobsMyStorage`. If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+|**connection** | The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an "AzureWebJobs" prefixed app setting or connection string name. For example, if your setting name is `AzureWebJobsMyStorage`, you can specify `MyStorage` here. The Functions runtime will automatically look for an app setting that named `AzureWebJobsMyStorage`. If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 ::: zone-end  
@@ -770,7 +770,9 @@ To execute queries that return multiple entities, bind to a [CloudTable] object.
 To return a specific entity by key, use a binding parameter that derives from [TableEntity]. The specific `TableName`, `PartitionKey`, and `RowKey` are used to try and get a specific entity from the table. 
 
 To execute queries that return multiple entities, bind to an [IQueryable<T>] of a type that inherits from [TableEntity]. 
+
 ---
+
 ::: zone-end  
 ::: zone pivot="programming-language-java"
 The [TableInput](/java/api/com.microsoft.azure.functions.annotation.tableinput) attribute gives you access to the table row that triggered the function.
