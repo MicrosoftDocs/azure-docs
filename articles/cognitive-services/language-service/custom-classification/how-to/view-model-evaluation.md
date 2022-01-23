@@ -38,13 +38,9 @@ The evaluation process uses the trained model to predict user-defined classes fo
 
 2. Select **View model details** from the left side menu.
 
-3. View your model training status in the **Status** column, and the F1 score for the model in the **F1 score** column.
+3. In this page you can only view the sucessfuly trained models. You can click on the model name for more details.
 
-    :::image type="content" source="../media/model-details-1.png" alt-text="View model details button" lightbox="../media/model-details-1.png":::
-
-1. Click on the model name for more details.
-
-2. You can find the **model-level** evaluation metrics under the **Overview** section and the **class-level** evaluation metrics  under the **Class performance metrics** section. See [Evaluation metrics](../concepts/evaluation.md#model-level-and-class-level-evaluation-metrics) for more information.
+4. You can find the **model-level** evaluation metrics under the **Overview** section and the **class-level** evaluation metrics  under the **Class performance metrics** section. See [Evaluation metrics](../concepts/evaluation.md#model-level-and-class-level-evaluation-metrics) for more information.
 
     :::image type="content" source="../media/model-details-2.png" alt-text="Model performance metrics" lightbox="../media/model-details-2.png":::
 
