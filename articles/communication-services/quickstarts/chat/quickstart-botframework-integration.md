@@ -23,43 +23,53 @@ In order to use ACS chat as a channel in Azure Bot Service, the first step would
 
 ### Provision a bot service resource in Azure
 
-   - Click on create a resource option in Azure portal.<br/><br/>![Create a new resource.png](/.attachments/Create%20a%20new%20resource-3a7267dc-76d7-4274-a183-b4209dea0b85.png)
+   - Click on create a resource option in Azure portal.<br/><br/>![Items](https://user-images.githubusercontent.com/67171398/150698303-f9a5d562-1bc5-4385-906d-fd98cb38057d.png)
 
-   - Search Azure Bot in the list of available resource types.<br/><br/>![Search Azure Bot.png](/.attachments/Search%20Azure%20Bot-94a393ae-2de5-4fc0-9f64-05b30d6bddce.png =548x264)
 
-   - Choose Azure Bot to create it.<br/><br/> ![Creat Azure Bot.png](/.attachments/Creat%20Azure%20Bot-5af4187a-fe5a-4a7f-a98c-460c52b485ea.png =360x220)
+   - Search Azure Bot in the list of available resource types.<br/><br/>![Items (1)](https://user-images.githubusercontent.com/67171398/150698313-e789a4d4-3992-41b0-b1c6-e4df066f354d.png)
 
-   - Finally create an Azure Bot resource. You might use an existing Microsoft app Id that you must have created or create a new one that gets created automatically. <br/><br/> ![Provision Azure Bot.png](/.attachments/Provision%20Azure%20Bot-cd2d9b60-a55e-4da8-a027-6b37095bae11.png =667x764)
+
+   - Choose Azure Bot to create it.<br/><br/> 
+![Items (2)](https://user-images.githubusercontent.com/67171398/150698321-08219764-4bb2-4f73-925d-b514cfb79701.png)
+
+   - Finally create an Azure Bot resource. You might use an existing Microsoft app Id that you must have created or create a new one that gets created automatically. <br/><br/> 
+![Items (3)](https://user-images.githubusercontent.com/67171398/150698329-816989ad-139a-482a-a4c8-0fe6229032c8.png)
 
 ### Get Bot's MicrosoftAppId and MicrosoftAppPassword
 
 After creating the Azure Bot resource, next step would be to set a password for the App Id we set for the Bot credential if you chose to create one automatically in the first step.
 
  - Go to Azure Active Directory
-![Screenshot 2022-01-19 092709.png](/.attachments/Screenshot%202022-01-19%20092709-a9295ae9-7671-43b6-aab5-c88090124ddf.png)
+![Items (4)](https://user-images.githubusercontent.com/67171398/150698336-a52be23c-9978-4df7-ba74-0b433c3826a8.png)
+
 
 - Find your app in the App Registration blade
-![Screenshot 2022-01-19 093311.png](/.attachments/Screenshot%202022-01-19%20093311-3a340892-cf94-42df-9aae-f87fa301da7f.png)
 
-- Create a new password for your app from the `Certificates and Secrets` blade and copy the password you create as you will not be able to copy it again.. <br/><br/> ![Save password.png](/.attachments/Save%20password-da536704-b291-42b7-a2ab-054aeb76577a.png =875x468)
+![Items (5)](https://user-images.githubusercontent.com/67171398/150698340-b218e7bc-e45a-44bf-ae7f-7e3f81baeed3.png)
 
+- Create a new password for your app from the `Certificates and Secrets` blade and copy the password you create as you will not be able to copy it again.. <br/><br/> 
+![Items (6)](https://user-images.githubusercontent.com/67171398/150698348-0d652396-7d98-48e8-a9ef-574198773bf5.png)
 
 ### Create a Web App where actual bot logic resides
 
 Create a Web App where actual bot logic resides. You could check out some samples here [Bot samples](https://github.com/Microsoft/BotBuilder-Samples) and tweak them or use Bot Builder SDK to create one[Bot Builder documentation](https://docs.microsoft.com/en-in/composer/introduction?tabs=v2x). One of the simplest ones to play around with is Echo Bot located here with steps on how to use it and it is the one we will use in this example [Echo Bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot). Generally, the Bot Service expects the Bot Application Web App Controller to expose an endpoint `/api/messages` which handles all the messages reaching the bot. To create the Bot application, follow these steps.
 
-   - As in previously shown create a resource and choose `Web App` in search. <br/><br/> ![Web app.png](/.attachments/Web%20app-a28f9496-fec1-475a-a370-bf73d9ab3dde.png =357x274)
+   - As in previously shown create a resource and choose `Web App` in search. <br/><br/> 
+![Items (19)](https://user-images.githubusercontent.com/67171398/150698372-91381f24-68be-47fa-b720-d3494d6eba24.png)
 
 
    - Configure the options you want to set including the region you want to deploy it to. <br/><br/> 
-![Web App Create Options.png](/.attachments/Web%20App%20Create%20Options-15a72e24-fe71-4b7c-8de4-84f42f23a509.png =491x494)
+![Items (7)](https://user-images.githubusercontent.com/67171398/150698386-5cdd581c-0b60-41b4-a48a-b9b949137cd7.png)
 
 
-   - Review your options and create the Web App and move to the resource once its been provisioned and copy the hostname URL exposed by the Web App.<br/><br/> ![Web App endpoint.png](/.attachments/Web%20App%20endpoint-0c61975b-1169-474b-8b1d-080514bafd62.png =1082x229)
+
+   - Review your options and create the Web App and move to the resource once its been provisioned and copy the hostname URL exposed by the Web App.<br/><br/> ![Items (8)](https://user-images.githubusercontent.com/67171398/150698391-aa45cad1-025a-4d42-8c48-13e5aee8f9e5.png)
+
 
 ### Configure the Azure Bot
 
-Configure the Azure Bot we created with its Web App endpoint where the bot logic is located. To do this, copy the hostname URL of the Web App and append it with `/api/messages` <br/><br/> ![Bot Configure with Endpoint.png](/.attachments/Bot%20Configure%20with%20Endpoint-e9e08e7e-1ab1-4185-97d9-28979457d902.png =668x503)
+Configure the Azure Bot we created with its Web App endpoint where the bot logic is located. To do this, copy the hostname URL of the Web App and append it with `/api/messages` <br/><br/> ![Items (9)](https://user-images.githubusercontent.com/67171398/150698401-076f03bc-5eb2-40ed-988d-88f24f4ce6f8.png)
+
 
 ### Configure the Azure Bot
 
@@ -80,12 +90,15 @@ The final step would be to deploy the bot logic to the Web App we created. As we
       }
       ```
 
-   - Click on the project to publish the web app code to Azure. Choose the publish option in Visual Studio. <br/><br/>![Publish app.png](/.attachments/Publish%20app-45c3df9c-52fc-47d4-be59-e9fa269c84b9.png =438x150)
+   - Click on the project to publish the web app code to Azure. Choose the publish option in Visual Studio. <br/><br/>![Items (11)](https://user-images.githubusercontent.com/67171398/150698414-5d4f45e9-5bd6-4d59-9e42-8e61c2bcb83c.png)
+
 
    - Click on New to create a new publishing profile, choose Azure as the target, and Azure App Service as the specific target.
-![MicrosoftTeams-image (10).png](/.attachments/MicrosoftTeams-image%20(10)-fa412aa4-a1bf-4386-912b-fb670d67ef84.png)![MicrosoftTeams-image (11).png](/.attachments/MicrosoftTeams-image%20(11)-2bec81ec-fa0c-4b11-9862-ca33a022cd08.png)
 
-   - Lastly, the above option opens the deployment config. Choose the Web App we had provisioned from the list of options it comes up with after signing into your Azure account. Once ready click on `Finish` to start the deployment. <br/><br/> ![Deployment config.png](/.attachments/Deployment%20config-16fdd548-3bdf-43cb-8baa-1c37b6408377.png =850x473)
+![Items (12)](https://user-images.githubusercontent.com/67171398/150698467-0cee0944-c0b6-4c7f-8d37-7e166c0b3d26.png)
+![Items (13)](https://user-images.githubusercontent.com/67171398/150698471-ff9653b0-e2a5-4764-af95-609e4aa1d505.png)
+
+   - Lastly, the above option opens the deployment config. Choose the Web App we had provisioned from the list of options it comes up with after signing into your Azure account. Once ready click on `Finish` to start the deployment. <br/><br/>![Items (14)](https://user-images.githubusercontent.com/67171398/150698478-932113d1-5842-4e91-b0e0-d1fc530143e0.png)
 
 ## Step 2 - Get an Azure Communication Services Resource
 Now that you got the bot part sorted out, we will need to get an ACS resource which we would use for configuring the ACS channel.
@@ -95,16 +108,18 @@ Now that you got the bot part sorted out, we will need to get an ACS resource wh
 ## Step 3 - Enable ACS Chat Channel
 With the ACS resource, we can configure the ACS channel in Azure Bot to bind an ACS user ID with a bot. Note that currently, only the whitelisted azure subscription will be able to see ACS channel option.
 1. Go to your Bot Services resource on Azure portal. Navigate to `Channels` blade and click on `Azure Communications Services - Chat` channel from the list provided. <br/><br/> 
+![Items (15)](https://user-images.githubusercontent.com/67171398/150698488-664e2fc0-7754-45ce-a6c4-391eb6bc67fe.png)
 
-   ![DemoApp-LaunchAcsChat.png](/.attachments/DemoApp-LaunchAcsChat-b47c7b2a-8867-45d5-8316-36bd76bd97f4.png)
-
+   
 2. Provide the resource endpoint and the key belonging to the ACS resource that you want to connect with.
 
-   ![DemoApp-ConnectAcsResource.png](/.attachments/DemoApp-ConnectAcsResource-50bb97fa-2ee5-47e2-b1a3-e3e5e5fbb8f5.png)
+   ![Items (16)](https://user-images.githubusercontent.com/67171398/150698490-b2b0d5bc-d06e-437d-b82a-d93bf962641d.png)
+
 
 3. Once the provided resource details are verified, you will see an **bot's ACS ID** assigned. With this ID, you can add the bot to the conversation at whenever appropriate using Chat's AddParticipant API. Once the bot is added as participant to a chat, it will start receiving chat related activities and can respond back in the chat thread. 
 
-   ![DemoApp-BotDetail.png](/.attachments/DemoApp-BotDetail-973a1dd2-d835-41f7-a886-19eea34f6a15.png)
+ ![Items (17)](https://user-images.githubusercontent.com/67171398/150698492-bfed3336-c92d-40bf-908a-5f998864fe61.png)
+
 
 
 ## Step 4 - Create a chat app and add bot as a participant
@@ -222,7 +237,8 @@ chatClient.on("chatMessageReceived", (e) => {
 If you would like to deploy the chat application, you can follow the steps below:
 - Open the chat project in Visual Studio.
 - Right click on the ChatQuickstart project and click Publish
-![image.png](/.attachments/image-a5bb9011-7edc-4a07-9779-5b6540f4aded.png)
+
+![Items (18)](https://user-images.githubusercontent.com/67171398/150698506-7ecb8023-e935-4066-ab74-b2a33274cc82.png)
 
 
 ## More things you can do with bot
