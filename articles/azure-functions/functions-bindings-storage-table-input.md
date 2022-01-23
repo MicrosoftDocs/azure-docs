@@ -683,7 +683,7 @@ In [C# class libraries](dotnet-isolated-process-guide.md), the `TableInputAttrib
 | **TableName** | The name of the table.| 
 | **PartitionKey** |Optional. The partition key of the table entity to read. | 
 |**RowKey** | Optional. The row key of the table entity to read. | 
-|**Take** | Optional. The maximum number of entities to read into an [IEnumerable<T>]. Can't be used with `RowKey`.| 
+| **Take** | Optional. The maximum number of entities to read into an [IEnumerable<T>]. Can't be used with `RowKey`.| 
 |**Filter** | Optional. An OData filter expression for entities to read into an [IEnumerable<T>]. Can't be used with `RowKey`. | 
 |**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an "AzureWebJobs" prefixed app setting or connection string name. For example, if your setting name is `AzureWebJobsMyStorage`, you can specify `MyStorage` here. The Functions runtime will automatically look for an app setting that named `AzureWebJobsMyStorage`. If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
