@@ -159,7 +159,12 @@ There are currently AWS recommendations in the preview stage. These recommendati
 
 When these recommendations go live, their impact will be included in the calculations of your secure score. Expect changes to your secure score.
 
-See here, to see a full list of the recommendations.
+**To find these recommendations**:
+
+1. Navigate to **Environment settings** > **`AWS connector`** > **Standards (preview)**.
+1. Right click on **AWS Foundational Security Best Practices (preview)**, and select **view assessments**.
+
+:::image type="content" source="media/release-notes/aws-foundational.png" alt-text="Screenshot showing the location of the AWS Foundational Security Best Practices (preview).":::
 
 ### Relocation of custom recommendations
 
