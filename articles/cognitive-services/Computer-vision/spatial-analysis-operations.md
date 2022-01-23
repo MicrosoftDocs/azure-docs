@@ -72,6 +72,7 @@ These are the parameters required by each of these Spatial Analysis operations.
 | CALIBRATION_CONFIG | JSON indicating parameters to control how the camera calibration works. It should be in the following format: `"{\"enable_recalibration\": true, \"quality_check_frequency_seconds\": 86400}",`|
 | SPACEANALYTICS_CONFIG | JSON configuration for zone and line as outlined below.|
 | ENABLE_FACE_MASK_CLASSIFIER | `True` to enable detecting people wearing face masks in the video stream, `False` to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 `"INPUT_VIDEO_WIDTH": 1920`. The face mask attribute will not be returned if detected people are not facing the camera or are too far from it. Refer to the [camera placement](spatial-analysis-camera-placement.md) guide for more information |
+| STATIONARY_TARGET_REMOVER_CONFIG | Json indicating the parameters for stationary target removol which adds the  capability to learn and ignore long term stationary false-positive targets such as mannequins or people in pictures. Configuration should be in the following format: `"{\"enable\": true, \"bbox_dist_threshold-in_pixels\": 5, \"buffer_length_in_seconds\": 3600, \"filter_ratio\": 0.2 }"`|
 
 ### Detector node parameter settings
 This is an example of the DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.
@@ -162,8 +163,7 @@ This is an example of the output from camera calibration if enabled. Ellipses in
         {
           "x": 0.15805946791862285,
           "y": 0.5487465181058496
-        },
-        ...
+        }
       ],
       "name": "optimal_zone_region"
     },
@@ -177,8 +177,7 @@ This is an example of the output from camera calibration if enabled. Ellipses in
         {
           "x": 0.22065727699530516,
           "y": 0.7325905292479109
-        },
-        ...
+        }
       ],
       "name": "fair_zone_region"
     },
@@ -195,15 +194,13 @@ This is an example of the output from camera calibration if enabled. Ellipses in
             "y": 0.2757660167130919
           }
         ]
-      },
-      ...
+      }
     ],
     "personBoundingBoxGroundPoints": [
       {
         "x": -22.944068908691406,
         "y": 31.487680435180664
-      },
-      ...
+      }
     ]
   }
 }
@@ -216,23 +213,31 @@ See [Spatial analysis operation output](#spatial-analysis-operation-output) for 
 | `optimalZonePolygon` | object| A polygon in the camera image where lines or zones for your operations can be placed for optimal results. <br/> Each value pair represents the x,y for vertices of a polygon. The polygon represents the areas in which people are tracked or counted and polygon points are based on normalized coordinates (0-1), where the top left corner is (0.0, 0.0) and the bottom right corner is (1.0, 1.0).|
 | `fairZonePolygon` | object| A polygon in the camera image where lines or zones for your operations can be placed for good, but possibly not optimal, results. <br/> See `optimalZonePolygon` above for an in-depth explanation of the contents. |
 | `uniformlySpacedPersonBoundingBoxes` | list | A list of bounding boxes of people within the camera image distributed uniformly in real space. Values are based on normalized coordinates (0-1).|
-| `personBoundingBoxGroundPoints` | list | A list of coordinates on the floor plane relative to the camera. Each coordinate corresponds to the bottom right of the bounding box in `uniformlySpacedPersonBoundingBoxes` with the same index. <br/> See the `centerGroundPoint` field under the [JSON format for cognitiveservices.vision.spatialanalysis-persondistance AI Insights](#json-format-for-cognitiveservicesvisionspatialanalysis-persondistance-ai-insights) section for more details on how coordinates on the floor plane are calculated. |
+| `personBoundingBoxGroundPoints` | list | A list of coordinates on the floor plane relative to the camera. Each coordinate corresponds to the bottom right of the bounding box in `uniformlySpacedPersonBoundingBoxes` with the same index. <br/> See the `centerGroundPointX/centerGroundPointY` fields under the [JSON format for cognitiveservices.vision.spatialanalysis-persondistance AI Insights](#json-format-for-cognitiveservicesvisionspatialanalysis-persondistance-ai-insights) section for more details on how coordinates on the floor plane are calculated. |
 
 Example of the zone placement info output visualized on a video frame:
 ![Zone placement info visualization](./media/spatial-analysis/zone-placement-info-visualization.png)
 
 The zone placement info provides suggestions for your configurations, but the guidelines in [Camera configuration](#camera-configuration) must still be followed for best results.
 
-### Speed parameter settings
+### Tracker node parameter settings
 You can configure the speed computation through the tracker node parameter settings.
 ```
 {
 "enable_speed": true,
+"remove_stationary_objects": true,
+"stationary_objects_dist_threshold_in_pixels": 5,
+"stationary_objects_buffer_length_in_seconds": 3600,
+"stationary_objects_filter_ratio": 0.2
 }
 ```
 | Name | Type| Description|
 |---------|---------|---------|
 | `enable_speed` | bool | Indicates whether you want to compute the speed for the detected people or not. `enable_speed` is set by default to `True`. It is highly recommended that you enable both speed and orientation to have the best estimated values. |
+| `remove_stationary_objects` | bool | Indicates whether you want to remove stationary objects. `remove_stationary_objects` is set by default to True. |
+| `stationary_objects_dist_threshold_in_pixels` | int | The neighborhood distance threshold to decide whether two detection bboxes can be treated as the same detection. `stationary_objects_dist_threshold_in_pixels` is set by default to 5. |
+| `stationary_objects_buffer_length_in_seconds` | int | The minimum length of time in seconds that the system has to look back to decide whether a target is stationary target or not. `stationary_objects_buffer_length_in_seconds` is set by default to 3600. |
+| `stationary_objects_filter_ratio` | float | If a target is repeatly detected at the one same location (defined in `stationary_objects_dist_threshold_in_pixels`) for greater `stationary_objects_filter_ratio` (0.2 means 20%) of the `stationary_objects_buffer_length_in_seconds` time interval, it will be treated as a stationary target. `stationary_objects_filter_ratio` is set by default to 0.2. |
 
 ## Spatial Analysis operations configuration and output
 
