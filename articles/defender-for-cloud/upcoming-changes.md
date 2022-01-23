@@ -172,7 +172,7 @@ When these recommendations go live, their impact will be included in the calcula
 
 Custom recommendation are those created by a user, and have no impact on the secure score. Therefore, the custom recommendations are being relocated from the Secure score recommendations tab to the All recommendations tab.
 
-When the move occurs, the custom recommendations will be found via a the new "recommendation type" filter.
+When the move occurs, the custom recommendations will be found via a new "recommendation type" filter.
 
 Learn more: 
 - [Create custom security initiatives and policies](custom-security-policies.md).
