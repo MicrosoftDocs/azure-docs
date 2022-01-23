@@ -162,7 +162,7 @@ conceptualContent:
 
     - title: External Identities
       links:
-        - url: ./external-identities/compare-with-b2c.md
+        - url: ./external-identities/external-identities-overview.md
           itemType: overview
           text: Compare solutions for external users
         - url: ../active-directory-b2c/overview.md

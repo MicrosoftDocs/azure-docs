@@ -44,6 +44,6 @@ You can enable this feature by using the setting 'ShowPeoplePickerSuggestionsFor
 
 * [What is Azure AD B2B collaboration?](what-is-b2b.md)
 * [Adding a B2B collaboration user to a role](./add-users-administrator.md)
-* [Delegate B2B collaboration invitations](delegate-invitations.md)
+* [Delegate B2B collaboration invitations](external-collaboration-settings-configure.md)
 * [Dynamic groups and B2B collaboration](use-dynamic-groups.md)
 * [Troubleshooting Azure Active Directory B2B collaboration](troubleshoot.md)

@@ -159,4 +159,4 @@ Remove-AzureADPolicy -Id $currentpolicy.Id
 ## Next steps
 
 - For an overview of Azure AD B2B, see [What is Azure AD B2B collaboration?](what-is-b2b.md)
-- For information about Conditional Access and B2B collaboration, see [Conditional Access for B2B collaboration users](conditional-access.md).
+- For information about Conditional Access and B2B collaboration, see [Conditional Access for B2B collaboration users](authentication-conditional-access.md).

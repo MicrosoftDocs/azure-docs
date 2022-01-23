@@ -52,7 +52,7 @@
 - name: Concepts
   items:
   - name: Compare solutions for External Identities
-    href: ../active-directory/external-identities/compare-with-b2c.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+    href: ../active-directory/external-identities/external-identities-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
   - name: Learn authentication basics
     items:
     - name: Authentication and authorization
