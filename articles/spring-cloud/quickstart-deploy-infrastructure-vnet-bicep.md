@@ -1,11 +1,11 @@
 ---
 title: Quickstart - Provision Azure Spring Cloud using Bicep
 description: This quickstart shows you how to use Bicep to deploy a Spring Cloud cluster into an existing virtual network.
-author: barbkess
+author: KarlErickson
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: devx-track-java, mode-other
-ms.author: barbkess
+ms.author: karler
 ms.date: 11/12/2021
 ---
 

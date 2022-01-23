@@ -24,7 +24,6 @@ H-series VMs are optimized for applications driven by high CPU frequencies or la
 [VM Generation Support](generation-2.md): Generation 1<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
-[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not supported <br>
 <br>
 
 | Size | vCPU | Processor | Memory (GiB) | Memory bandwidth GB/s | Base CPU frequency (GHz) | All-cores frequency (GHz, peak) | Single-core frequency (GHz, peak) | RDMA performance (Gb/s) | MPI support | Temp storage (GiB) | Max data disks | Max disk throughput: IOPS | Max Ethernet vNICs |

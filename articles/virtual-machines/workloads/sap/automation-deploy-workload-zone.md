@@ -112,6 +112,8 @@ export spn_id="<appID>"
 export spn_secret="<password>"
 export tenant_id="<tenant>"
 export region_code="WEEU"
+export storageaccount="<storageaccount>"
+export keyvault="<keyvault>"
 
 export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 export ARM_SUBSCRIPTION_ID="${subscriptionID}"
@@ -125,7 +127,9 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                  
     --subscription "${subscriptionID}"                                                \
     --spn_id "${spn_id}"                                                              \
     --spn_secret "${spn_secret}"                                                      \
-    --tenant_id "${tenant_id}"
+    --tenant_id "${tenant_id}"                                                        \
+    --keyvault "${keyvault}"                                                          \
+    --storageaccountname "${storageaccount}"
 ```
 # [Windows](#tab/windows)
 
@@ -165,6 +169,11 @@ New-SAPWorkloadZone -Parameterfile DEV-$region_code-SAP01-INFRASTRUCTURE.tfvars
 > Replace `<keyvault>` with the deployer key vault name
 > Replace `<storageaccount>` with the name of the storage account containing the Terraform state files
 > Replace `<statefile_subscription>` with the subscription ID for the storage account containing the Terraform state files
+
+---
+
+> [!TIP]
+> If the scripts fail to run, it can sometimes help to clear the local cache files by removing `~/.sap_deployment_automation/` and `~/.terraform.d/` directories before running the scripts again.
 
 ## Next step
 
