@@ -135,59 +135,63 @@ After the ID token is validated, you can begin a session with the user. You can 
 
 ## Get a token
 
-If you need your web application to only run user flows, you can skip the next few sections. These sections are applicable only to web applications that need to make authenticated calls to a web API and are also protected by Azure AD B2C.
+If you need your web application to only run user flows, you can skip the next few sections. These sections are applicable only to web applications that need to make authenticated calls to a web API which is also protected by Azure AD B2C.
 
-You can redeem the authorization code that you acquired (by using `response_type=code+id_token`) for a token to the desired resource by sending a `POST` request to the `/token` endpoint. In Azure AD B2C, you can [request access tokens for other APIs](access-tokens.md#request-a-token) as usual by specifying their scope(s) in the request.
+You can redeem the authorization code that you acquired (by using `response_type=code`) for a token to the desired resource by sending a `POST` request to the `/token` endpoint. In Azure AD B2C, you can [request access tokens for other APIs](access-tokens.md#request-a-token) as usual by specifying their scope(s) in the request.
 
-You can also request an access token for your app's own back-end Web API by convention of using the app's client ID as the requested scope (which will result in an access token with that client ID as the "audience"):
+You can also request an access token for your app's own back-end Web API by convention of using the app's **Application ID URI** plus **Scope** name (`{application-id-uri}/{scope-name}`) as the requested scope (which will result in an access token with the desired resource's client ID as the "audience"):
 
 ```http
-POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
+POST {tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
 Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
+grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope={application-id-uri}/{scope-name} offline_access&code=eyJraWQiOiJBQjk4dkdFRHY2Nl9ScmJEajJmclFFMUFOM1hSX3k4ZVU3...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
 | Parameter | Required | Description |
 | --------- | -------- | ----------- |
-| {tenant} | Yes | Name of your Azure AD B2C tenant |
+| {tenant} | Yes | Name of your Azure AD B2C tenant. If you're using a [custom domain](custom-domain.md), replace `tenant.b2clogin.com` with your domain, such as `fabrikam.com`.  |
 | {policy} | Yes | The user flow that was used to acquire the authorization code. You can't use a different user flow in this request. Add this parameter to the query string, not to the POST body. |
 | client_id | Yes | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application. |
 | client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, therefore not used on this flow. If using a client secret, please change it on a periodic basis. |
 | code | Yes | The authorization code that you acquired in the beginning of the user flow. |
 | grant_type | Yes | The type of grant, which must be `authorization_code` for the authorization code flow. |
-| redirect_uri | Yes | The `redirect_uri` parameter of the application where you received the authorization code. |
-| scope | No | A space-separated list of scopes. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of id_token parameters. It can be used to get tokens to your application's own back-end web API, which is represented by the same application ID as the client. The `offline_access` scope indicates that your application needs a refresh token for extended access to resources. |
+| redirect_uri | No | The `redirect_uri` parameter of the application where you received the authorization code. |
+| scope | No | A space-separated list of scopes. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens. The URI `{application-id-uri}/{scope-name}` is used to get an access token to your application's own back-end web API (which is represented by a token with the same "audience" as the resource API client ID). The `offline_access` scope indicates that your application needs a refresh token for extended access to resources. |
 
 A successful token response looks like:
 
 ```json
 {
-    "not_before": "1442340812",
-    "token_type": "Bearer",
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
-    "scope": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access",
-    "expires_in": "3600",
-    "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
+    "token_type": "Bearer",
+    "not_before": 1642891922,
+    "expires_in": 3600,
+    "expires_on": 1642876768,
+    "scope": "{application-id-uri}/{scope-name} offline_access",
+    "refresh_token": "eyJraWQiOiJBQjk4dkdFRHY2Nl9ScmJEajJmclFFMUFOM1hSX3k4ZVU3X3V5NDBjNX...",
+    "refresh_token_expires_in": 1209600
 }
 ```
 
 | Parameter | Description |
 | --------- | ----------- |
-| not_before | The time at which the token is considered valid, in epoch time. |
-| token_type | The token type value. `Bearer` is the only type that is supported. |
 | access_token | The signed JWT token that you requested. |
-| scope | The scopes for which the token is valid. |
+| token_type | The token type value. `Bearer` is the only type that is supported. |
+| not_before | The time at which the token is considered valid, in epoch time. |
 | expires_in | The length of time that the access token is valid (in seconds). |
+| expires_on | The time at which the access token expires, in epoch time. |
+| scope | The scopes for which the token is valid. |
 | refresh_token | An OAuth 2.0 refresh token. The application can use this token to acquire additional tokens after the current token expires. Refresh tokens can be used to retain access to resources for extended periods of time. The scope `offline_access` must have been used in both the authorization and token requests in order to receive a refresh token. |
+| refresh_token_expires_in | The length of time that the refresh token is valid (in seconds). |
 
 Error responses look like:
 
 ```json
 {
     "error": "access_denied",
-    "error_description": "The user revoked access to the app.",
+    "error_description": "The user revoked access to the app."
 }
 ```
 
@@ -211,52 +215,54 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ID tokens expire in a short period of time. Refresh the tokens after they expire to continue being able to access resources. You can refresh a token by submitting another `POST` request to the `/token` endpoint. This time, provide the `refresh_token` parameter instead of the `code` parameter:
 
 ```http
-POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
+POST {tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
 Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
+grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=eyJraWQiOiJBQjk4dkdFRHY2Nl9ScmJEajJmclFFMUFOM1hSX3k4ZVU3X3V5NDBjNX...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
 | Parameter | Required | Description |
 | --------- | -------- | ----------- |
-| {tenant} | Yes | Name of your Azure AD B2C tenant |
+| {tenant} | Yes | Name of your Azure AD B2C tenant. If you're using a [custom domain](custom-domain.md), replace `tenant.b2clogin.com` with your domain, such as `fabrikam.com`.  |
 | {policy} | Yes | The user flow that was used to acquire the original refresh token. You can't use a different user flow in this request. Add this parameter to the query string, not to the POST body. |
 | client_id | Yes | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application. |
 | client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, therefore not used on this call. If using a client secret, please change it on a periodic basis. |
 | grant_type | Yes | The type of grant, which must be `refresh_token` for this part of the authorization code flow. |
 | refresh_token | Yes | The original refresh token that was acquired in the second part of the flow. The `offline_access` scope must be used in both the authorization and token requests in order to receive a refresh token. |
 | redirect_uri | No | The `redirect_uri` parameter of the application where you received the authorization code. |
-| scope | No | A space-separated list of scopes. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens. It can be used to send tokens to your application's own back-end web API, which is represented by the same application ID as the client. The `offline_access` scope indicates that your application needs a refresh token for extended access to resources. |
+| scope | No | A space-separated list of scopes. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens. The `offline_access` scope indicates that your application needs a refresh token for extended access to resources. |
 
 A successful token response looks like:
 
 ```json
 {
-    "not_before": "1442340812",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IkFCOTh2R0VEdjY2X1JyYkRqMm...",
     "token_type": "Bearer",
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
-    "scope": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access",
-    "expires_in": "3600",
-    "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
+    "not_before": 1642926867,
+    "id_token_expires_in": 3600,
+    "scope": "openid offline_access",
+    "refresh_token": "eyJraWQiOiJBQjk4dkdFRHY2Nl9ScmJEajJmclFFMUFOM1hSX3k4ZVU3X3V5NDBjNXJn...",
+    "refresh_token_expires_in": 1209600
 }
 ```
 
 | Parameter | Description |
 | --------- | ----------- |
-| not_before | The time at which the token is considered valid, in epoch time. |
+| id_token | The signed JWT token that was requested. |
 | token_type | The token type value. `Bearer` is the only type that is supported. |
-| access_token | The signed JWT token that was requested. |
+| not_before | The time at which the token is considered valid, in epoch time. |
+| id_token_expires_in | The length of time that the ID token is valid (in seconds). |
 | scope | The scope for which the token is valid. |
-| expires_in | The length of time that the access token is valid (in seconds). |
 | refresh_token | An OAuth 2.0 refresh token. The application can use this token to acquire additional tokens after the current token expires. Refresh tokens can be used to retain access to resources for extended periods of time. |
+| refresh_token_expires_in | The length of time that the refresh token is valid (in seconds). |
 
 Error responses look like:
 
 ```json
 {
     "error": "access_denied",
-    "error_description": "The user revoked access to the app.",
+    "error_description": "The user revoked access to the app."
 }
 ```
 
