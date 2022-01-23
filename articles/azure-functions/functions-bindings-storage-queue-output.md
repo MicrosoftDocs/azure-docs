@@ -185,70 +185,70 @@ The following code examples demonstrate how to output a queue message from an HT
 
 ```json
 {
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "Request",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "Response"
-    },
-    {
-      "type": "queue",
-      "direction": "out",
-      "name": "Msg",
-      "queueName": "outqueue",
-      "connection": "MyStorageConnectionAppSetting"
-    }
-  ]
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "Msg",
+      "queueName": "outqueue",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
 }
 ```
 
 Using this binding configuration, a PowerShell function can create a queue message using `Push-OutputBinding`. In this example, a message is created from a query string or body parameter.
 
 ```powershell
-using namespace System.Net
+using namespace System.Net
 
-# Input bindings are passed in via param block.
-param($Request, $TriggerMetadata)
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
 
-# Write to the Azure Functions log stream.
-Write-Host "PowerShell HTTP trigger function processed a request."
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
 
-# Interact with query parameters or the body of the request.
-$message = $Request.Query.Message
-Push-OutputBinding -Name Msg -Value $message
-Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
-    StatusCode = 200
-    Body = "OK"
+# Interact with query parameters or the body of the request.
+$message = $Request.Query.Message
+Push-OutputBinding -Name Msg -Value $message
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = 200
+    Body = "OK"
 })
 ```
 
 To send multiple messages at once, define a message array and use `Push-OutputBinding` to send messages to the Queue output binding.
 
 ```powershell
-using namespace System.Net
+using namespace System.Net
 
-# Input bindings are passed in via param block.
-param($Request, $TriggerMetadata)
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
 
-# Write to the Azure Functions log stream.
-Write-Host "PowerShell HTTP trigger function processed a request."
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
 
-# Interact with query parameters or the body of the request.
-$message = @("message1", "message2")
-Push-OutputBinding -Name Msg -Value $message
-Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
-    StatusCode = 200
-    Body = "OK"
+# Interact with query parameters or the body of the request.
+$message = @("message1", "message2")
+Push-OutputBinding -Name Msg -Value $message
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = 200
+    Body = "OK"
 })
 ```
 

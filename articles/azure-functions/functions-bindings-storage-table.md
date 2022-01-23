@@ -3,7 +3,7 @@ title: Azure Table storage bindings for Azure Functions
 description: Understand how to use Azure Table storage bindings in Azure Functions.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 09/03/2018
+ms.date: 01/23/2022
 ms.author: cshoe
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers

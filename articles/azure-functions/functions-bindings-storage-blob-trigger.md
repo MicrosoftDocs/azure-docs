@@ -244,19 +244,7 @@ public static void Run(
 }
 ```
 
-You can set the `Connection` property to specify the storage account to use, as shown in the following example:
-
-```csharp
-[FunctionName("ResizeImage")]
-public static void Run(
-  [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image,
-  [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
-{
-  ....
-}
-```
-
-For a complete example, see [Trigger example](#example).
+[!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
 # [Isolated process](#tab/isolated-process)
 

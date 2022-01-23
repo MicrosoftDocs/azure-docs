@@ -3,11 +3,11 @@ title: Azure Table storage input bindings for Azure Functions
 description: Understand how to use Azure Table storage input bindings in Azure Functions.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 09/03/2018
+ms.date: 01/23/2022
 ms.author: cshoe
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Table storage input bindings for Azure Functions
@@ -177,6 +177,25 @@ The following `MyTableData` class represents a row of data in the table:
 The following function, which is started by a Queue Storage trigger, reads a row key from the queue, which is used to get the row from the input table. The expression `{queueTrigger}` binds the row key to the message metadata, which is the message string.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Table/TableFunction.cs" range="12-29" ::: 
+
+The following Queue-triggered function returns the first 5 entities as an `IEnumerable<T>`, with the partition key value set as the queue message.  
+
+```csharp
+[Function("TestFunction")]
+public static void Run([QueueTrigger("myqueue", Connection = "AzureWebJobsStorage")] string partition,
+    [TableInput("inTable", "{queueTrigger}", Take = 5, Filter = "Text eq 'test'", 
+    Connection = "AzureWebJobsStorage")] IEnumerable<MyTableData> tableInputs,
+    FunctionContext context)
+{
+    var logger = context.GetLogger("TestFunction");
+    logger.LogInformation(partition);
+    foreach (MyTableData tableInput in tableInputs)
+    {
+        logger.LogInformation($"PK={tableInput.PartitionKey}, RK={tableInput.RowKey}, Text={tableInput.Text}");
+    }
+}
+```
+The `Filter` and `Take` properties are used to limit the number of entities returned.
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
@@ -612,59 +631,61 @@ With this simple binding, you can't programmatically handle a case in which no r
 
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [TableInputAttribute] attribute to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
 
-The following table explains the binding configuration properties that you set in the [TableInputAttribute].
+# [In-process](#tab/in-process)
+
+In [C# class libraries](functions-dotnet-class-library.md), the `TableAttribute` supports the following properties:
 
 | Attribute property |Description|
 |---------|---------|
 | **TableName** | The name of the table.| 
 | **PartitionKey** |Optional. The partition key of the table entity to read. See the [usage](#usage) section for guidance on how to use this property.| 
-|**RowKey** | Optional. The row key of the table entity to read. See the [usage](#usage) section for guidance on how to use this property.| 
-|**Take** | Optional. The maximum number of entities to read in JavaScript. See the [usage](#usage) section for guidance on how to use this property.| 
-|**Filter** | Optional. An OData filter expression for table input in JavaScript. See the [usage](#usage) section for guidance on how to use this property.| 
-|**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an "AzureWebJobs" prefixed app setting or connection string name. For example, if your setting name is "AzureWebJobsMyStorage", you can specify "MyStorage" here. The Functions runtime will automatically look for an app setting that named "AzureWebJobsMyStorage". If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+|**RowKey** | Optional. The row key of a single table entity to read. Can't be used with `Take` or `Filter`. | 
+|**Take** | Optional. The maximum number of entities to return. Can't be used with `RowKey`. | 
+|**Filter** | Optional. An OData filter expression for the entities to return from the table. Can't be used with `RowKey`.| 
+|**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an "AzureWebJobs" prefixed app setting or connection string name. For example, if your setting name is `AzureWebJobsMyStorage`, you can specify `MyStorage` here. The Functions runtime will automatically look for an app setting that named `AzureWebJobsMyStorage`. If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
-# [In-process](#tab/in-process)
+The attribute's constructor takes the table name, partition key, and row key. The attribute can be used on an `out` parameter or on the return value of the function, as shown in the following example:
 
- In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a table input binding:
+```csharp
+[FunctionName("TableInput")]
+public static void Run(
+    [QueueTrigger("table-items")] string input, 
+    [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, 
+    ILogger log)
+{
+    ...
+}
+```
 
-* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs)
+You can set the `Connection` property to specify the storage account to use, as shown in the following example:
 
-  The attribute's constructor takes the table name, partition key, and row key. The attribute can be used on an `out` parameter or on the return value of the function, as shown in the following example:
-
-  ```csharp
-  [FunctionName("TableInput")]
-  public static void Run(
-      [QueueTrigger("table-items")] string input, 
-      [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, 
-      ILogger log)
-  {
-      ...
-  }
-  ```
-
-  You can set the `Connection` property to specify the storage account to use, as shown in the following example:
-
-  ```csharp
-  [FunctionName("TableInput")]
-  public static void Run(
-      [QueueTrigger("table-items")] string input, 
-      [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
-      ILogger log)
-  {
-      ...
-  }
-  ```
+```csharp
+[FunctionName("TableInput")]
+public static void Run(
+    [QueueTrigger("table-items")] string input, 
+    [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
+    ILogger log)
+{
+    ...
+}
+```
 
 [!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
-
 # [Isolated process](#tab/isolated-process)
 
-Here's a `TableInput` attribute in a method signature:
+In [C# class libraries](dotnet-isolated-process-guide.md), the `TableInputAttribute` supports the following properties:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Table/TableFunction.cs" range="14-17":::
+| Attribute property |Description|
+|---------|---------|
+| **TableName** | The name of the table.| 
+| **PartitionKey** |Optional. The partition key of the table entity to read. | 
+|**RowKey** | Optional. The row key of the table entity to read. | 
+|**Take** | Optional. The maximum number of entities to read into an [IEnumerable<T>]. Can't be used with `RowKey`.| 
+|**Filter** | Optional. An OData filter expression for entities to read into an [IEnumerable<T>]. Can't be used with `RowKey`. | 
+|**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an "AzureWebJobs" prefixed app setting or connection string name. For example, if your setting name is `AzureWebJobsMyStorage`, you can specify `MyStorage` here. The Functions runtime will automatically look for an app setting that named `AzureWebJobsMyStorage`. If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
 # [C# script](#tab/csharp-script)
 
@@ -672,25 +693,34 @@ C# script uses a function.json file for configuration instead of attributes.
 
 The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
 
-|function.json property | Attribute property |Description|
+|function.json property | Description|
 |---------|---------|----------------------|
-|**type** | n/a | Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
-|**direction** | n/a | Must be set to `in`. This property is set automatically when you create the binding in the Azure portal. |
-|**name** | n/a | The name of the variable that represents the table or entity in function code. | 
-|**tableName** | **TableName** | The name of the table.| 
-|**partitionKey** | **PartitionKey** |Optional. The partition key of the table entity to read. See the [usage](#usage) section for guidance on how to use this property.| 
-|**rowKey** |**RowKey** | Optional. The row key of the table entity to read. See the [usage](#usage) section for guidance on how to use this property.| 
-|**take** |**Take** | Optional. The maximum number of entities to read in JavaScript. See the [usage](#usage) section for guidance on how to use this property.| 
-|**filter** |**Filter** | Optional. An OData filter expression for table input in JavaScript. See the [usage](#usage) section for guidance on how to use this property.| 
-|**connection** |**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an "AzureWebJobs" prefixed app setting or connection string name. For example, if your setting name is "AzureWebJobsMyStorage", you can specify "MyStorage" here. The Functions runtime will automatically look for an app setting that named "AzureWebJobsMyStorage". If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+|**type** |  Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
+|**direction** |  Must be set to `in`. This property is set automatically when you create the binding in the Azure portal. |
+|**name** |  The name of the variable that represents the table or entity in function code. | 
+|**tableName** |  The name of the table.| 
+|**partitionKey** | Optional. The partition key of the table entity to read. | 
+|**rowKey** |Optional. The row key of the table entity to read. Can't be used with `take` or `filter`.| 
+|**take** | Optional. The maximum number of entities to return. Can't be used with `rowKey`. |
+|**filter** | Optional. An OData filter expression for the entities to return from the table. Can't be used with `rowKey`.| 
+|**connection** |**Connection** |  The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an "AzureWebJobs" prefixed app setting or connection string name. For example, if your setting name is `AzureWebJobsMyStorage`, you can specify `MyStorage` here. The Functions runtime will automatically look for an app setting that named `AzureWebJobsMyStorage`. If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
 ---
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-## Attributes and annotations
+## Annotations
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@TableInput` annotation on parameters whose value would come from Table storage.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@TableInput` annotation on parameters whose value would come from Table storage.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`. This annotation supports the following elements:
+
+| Element |Description|
+|---------|---------|
+| **[TableInputName](/java/api/com.microsoft.azure.functions.annotation.tableinput.name)** | The name of the table. | 
+ **[PartitionKey](/java/api/com.microsoft.azure.functions.annotation.tableinput.partitionkey)** |Optional. The partition key of the table entity to read. | 
+|**[RowKey](/java/api/com.microsoft.azure.functions.annotation.tableinput.rowkey)** |**RowKey** | The row key of the table entity to read. | 
+|**[Take](/java/api/com.microsoft.azure.functions.annotation.tableinput.take)** | Optional. The maximum number of entities to read.| 
+|**[Filter](/java/api/com.microsoft.azure.functions.annotation.tableinput.filter)** | Optional. An OData filter expression for table input. | 
+|**[Connection](/java/api/com.microsoft.azure.functions.annotation.tableinput.connection)** | The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an `AzureWebJobs` prefixed app setting or connection string name. For example, if your setting name is `AzureWebJobsMyStorage`, you can specify `MyStorage` here. The Functions runtime will automatically look for an app setting that named `AzureWebJobsMyStorage`. If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
@@ -698,17 +728,17 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `Table` attribute.
 
-|function.json property | Attribute property |Description|
+|function.json property | Description|
 |---------|---------|----------------------|
-|**type** | n/a | Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
-|**direction** | n/a | Must be set to `in`. This property is set automatically when you create the binding in the Azure portal. |
-|**name** | n/a | The name of the variable that represents the table or entity in function code. | 
-|**tableName** | **TableName** | The name of the table.| 
-|**partitionKey** | **PartitionKey** |Optional. The partition key of the table entity to read. See the [usage](#usage) section for guidance on how to use this property.| 
-|**rowKey** |**RowKey** | Optional. The row key of the table entity to read. See the [usage](#usage) section for guidance on how to use this property.| 
-|**take** |**Take** | Optional. The maximum number of entities to read in JavaScript. See the [usage](#usage) section for guidance on how to use this property.| 
-|**filter** |**Filter** | Optional. An OData filter expression for table input in JavaScript. See the [usage](#usage) section for guidance on how to use this property.| 
-|**connection** |**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an "AzureWebJobs" prefixed app setting or connection string name. For example, if your setting name is "AzureWebJobsMyStorage", you can specify "MyStorage" here. The Functions runtime will automatically look for an app setting that named "AzureWebJobsMyStorage". If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+|**type** |  Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
+|**direction** |  Must be set to `in`. This property is set automatically when you create the binding in the Azure portal. |
+|**name** |  The name of the variable that represents the table or entity in function code. | 
+|**tableName** |  The name of the table.| 
+|**partitionKey** | Optional. The partition key of the table entity to read. | 
+|**rowKey** |Optional. The row key of the table entity to read. Can't be used with `take` or `filter`.| 
+|**take** | Optional. The maximum number of entities to return. Can't be used with `rowKey`. |
+|**filter** | Optional. An OData filter expression for the entities to return from the table. Can't be used with `rowKey`.| 
+|**connection** |**Connection** |  The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an "AzureWebJobs" prefixed app setting or connection string name. For example, if your setting name is `AzureWebJobsMyStorage`, you can specify `MyStorage` here. The Functions runtime will automatically look for an app setting that named `AzureWebJobsMyStorage`. If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 ::: zone-end  
@@ -717,34 +747,30 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone pivot="programming-language-csharp"  
 
-# [C#](#tab/csharp)
+# [Functions 2.x and higher](#tab/functionsv2/in-process)
+To return a specific entity by key, use a binding parameter that derives from [TableEntity](/dotnet/api/azure.data.tables.tableentity).  
 
-* **Read one row in**
+To execute queries that return multiple entities, bind to a [CloudTable] object. You can then use this object to create and execute queries against the bound table. Note that [CloudTable] and related APIs belong to the [Microsoft.Azure.Cosmos.Table](/dotnet/api/microsoft.azure.cosmos.table) namespace.  
+ 
+# [Functions 1.x](#tab/functionsv1/in-process)
+To return a specific entity by key, use a binding parameter that derives from [TableEntity]. The specific `TableName`, `PartitionKey`, and `RowKey` are used to try and get a specific entity from the table. 
 
-  Set `partitionKey` and `rowKey`. Access the table data by using a method parameter `T <paramName>`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. `T` is typically a type that implements `ITableEntity` or derives from `TableEntity`. The `filter` and `take` properties are not used in this scenario.
+To execute queries that return multiple entities, bind to an [IQueryable<T>] of a type that inherits from [TableEntity]. 
+# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
+To return a specific entity by key, use a plain-old CLR object (POCO). The specific `TableName`, `PartitionKey`, and `RowKey` are used to try and get a specific entity from the table.
 
-* **Read one or more rows**
+ When returning multiple entities as an [IEnumerable<T>], you can instead use `Take` and `Filter` properties to restrict the result set.
+# [Functions 1.x](#tab/functionsv1/isolated-process)
+Functions version 1.x doesn't support isolated process.
+# [Functions 2.x and higher](#tab/functionsv2/csharp-script)
+To return a specific entity by key, use a binding parameter that derives from [TableEntity](/dotnet/api/azure.data.tables.tableentity).  
 
-  Access the table data by using a method parameter `IQueryable<T> <paramName>`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. `T` must be a type that implements `ITableEntity` or derives from `TableEntity`. You can use `IQueryable` methods to do any filtering required. The `partitionKey`, `rowKey`, `filter`, and `take` properties are not used in this scenario.  
+To execute queries that return multiple entities, bind to a [CloudTable] object. You can then use this object to create and execute queries against the bound table. Note that [CloudTable] and related APIs belong to the [Microsoft.Azure.Cosmos.Table](/dotnet/api/microsoft.azure.cosmos.table) namespace.  
+# [Functions 1.x](#tab/functionsv1/csharp-script)
+To return a specific entity by key, use a binding parameter that derives from [TableEntity]. The specific `TableName`, `PartitionKey`, and `RowKey` are used to try and get a specific entity from the table. 
 
-  > [!NOTE]
-  > `IQueryable` isn't supported in the [Functions v2 runtime](functions-versions.md). An alternative is to [use a CloudTable paramName method parameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) to read the table by using the Azure Storage SDK. If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
-
-# [C# script](#tab/csharp-script)
-
-* **Read one row in**
-
-  Set `partitionKey` and `rowKey`. Access the table data by using a method parameter `T <paramName>`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. `T` is typically a type that implements `ITableEntity` or derives from `TableEntity`. The `filter` and `take` properties are not used in this scenario.
-
-* **Read one or more rows**
-
-  Access the table data by using a method parameter `IQueryable<T> <paramName>`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. `T` must be a type that implements `ITableEntity` or derives from `TableEntity`. You can use `IQueryable` methods to do any filtering required. The `partitionKey`, `rowKey`, `filter`, and `take` properties are not used in this scenario.  
-
-  > [!NOTE]
-  > `IQueryable` isn't supported in the [Functions v2 runtime](functions-versions.md). An alternative is to [use a CloudTable paramName method parameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) to read the table by using the Azure Storage SDK. If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
-
+To execute queries that return multiple entities, bind to an [IQueryable<T>] of a type that inherits from [TableEntity]. 
 ---
-
 ::: zone-end  
 ::: zone pivot="programming-language-java"
 The [TableInput](/java/api/com.microsoft.azure.functions.annotation.tableinput) attribute gives you access to the table row that triggered the function.
@@ -753,14 +779,20 @@ The [TableInput](/java/api/com.microsoft.azure.functions.annotation.tableinput) 
 Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`. Access the input table entity (or entities) using `context.bindings.<BINDING_NAME>`. The deserialized objects have `RowKey` and `PartitionKey` properties.
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-Data is passed to the input parameter as specified by the `name` key in the *function.json* file. Specifying The `partitionKey` and `rowKey` allows you to filter to specific records. See the [PowerShell example](#example) for more detail.
+Data is passed to the input parameter as specified by the `name` key in the *function.json* file. Specifying The `partitionKey` and `rowKey` allows you to filter to specific records. 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 Table data is passed to the function as a JSON string. De-serialize the message by calling `json.loads` as shown in the input [example](#example).
 ::: zone-end  
+
+For specific usage details, see [Example](#example). 
 
 ## Next steps
 
 * [Write table storage data from a function](./functions-bindings-storage-table-output.md)
 
 [TableInputAttribute]: /dotnet/api/microsoft.azure.webjobs.tableinputattribute
+[CloudTable]: /dotnet/api/microsoft.azure.cosmos.table.cloudtable
+[TableEntity]: /dotnet/api/azure.data.tables.tableentity
+[IQueryable<T>]: /dotnet/api/system.linq.iqueryable-1
+[IEnumerable<T>]: /dotnet/api/system.collections.generic.ienumerable-1
