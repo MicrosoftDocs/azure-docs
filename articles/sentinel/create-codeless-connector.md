@@ -14,7 +14,7 @@ ms.date: 01/05/2022
 
 The Codeless Connector Platform (CCP) provides partners, advanced users, and developers with the ability to create custom connectors, connect them, and ingest data to Microsoft Sentinel. Connectors created via the CCP can be deployed via API, an ARM template, or as a solution in the the Microsoft Sentinel [content hub](sentinel-solutions.md).
 
-Connectors created using CCP are fully SaaS, without any requirements for service installations, and also include [health monitor](monitor-data-connector-health.md)ing and full support from Microsoft Sentinel.
+Connectors created using CCP are fully SaaS, without any requirements for service installations, and also include [health monitoring](monitor-data-connector-health.md) and full support from Microsoft Sentinel.
 
 Create your data connector by defining the JSON configuration file, with settings for how the data connector page in Microsoft Sentinel looks and works and polling settings that define how the connection works between Microsoft Sentinel and your data source.
 
@@ -548,7 +548,10 @@ After creating your [JSON configuration file](#connector-json-configuration-synt
 
     The advantage of deploying via an ARM template is that several values are built-in to the template, and you don't need to define them manually in an API call.
 
-    1. Prepare your ARM templates using the following examples: <!--links TBD-->
+    1. Prepare an [ARM template](/azure/templates/microsoft.securityinsights/dataconnectors) for your connector. For example, see the following ARM templates:
+
+        - Data connector in the [Slack solution](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SlackAudit/Data%20Connectors/SlackNativePollerConnector)
+        - [Atlassian Jira Audit data connector](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AtlassianJiraAudit/JiraNativePollerConnector/)
 
         > [!TIP]
         > Make sure to either define the workspace for the ARM template to deploy, or select the workspace when you deploy the ARM template, to make sure that your data connector is deployed in the correct workspace.
