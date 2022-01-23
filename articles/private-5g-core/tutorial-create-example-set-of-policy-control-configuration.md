@@ -130,11 +130,11 @@ Do the following to create the service.
 1. On the **Basics** configuration tab, select **Review + create**.
 1. Select **Create** to create the service.
  
-    :::image type="content" source="media\tutorial-create-example-set-of-policy-control-configuration\create-example-protocol-filtering-service.png" alt-text="Screenshot of the Azure portal. It shows the Review and create tab with complete configuration for a service.":::
+    :::image type="content" source="media\tutorial-create-example-set-of-policy-control-configuration\create-example-protocol-filtering-service.png" alt-text="Screenshot of the Azure portal. It shows the Review and create tab with complete configuration for a service for protocol filtering.":::
 
 1. The Azure portal will display the following confirmation screen when the service has been created. Select **Go to resource** to see the new service resource.
 
-    :::image type="content" source="media\configure-service-azure-portal\service-resource-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing the successful deployment of a service resource and the Go to resource button.":::
+    :::image type="content" source="media\configure-service-azure-portal\service-resource-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing the successful deployment of a service for protocol filtering and the Go to resource button.":::
 
 1. Confirm that the QoS characteristics, data flow policy rules, and service data flow templates listed at the bottom of the screen are configured as expected.
 
@@ -248,15 +248,15 @@ Do the following to create the service.
 1. On the **Basics** configuration tab, select **Review + create**.
 1. Select **Create** to create the service.
 
-    :::image type="content" source="media\tutorial-create-example-set-of-policy-control-configuration\create-example-traffic-blocking-service.png" alt-text="Screenshot of the Azure portal. It shows the Review and create tab with complete configuration for a service.":::
+    :::image type="content" source="media\tutorial-create-example-set-of-policy-control-configuration\create-example-traffic-blocking-service.png" alt-text="Screenshot of the Azure portal. It shows the Review and create tab with complete configuration for a service for traffic blocking.":::
 
 1. The Azure portal will display the following confirmation screen when the service has been created. Select **Go to resource** to see the new service resource.
 
-     :::image type="content" source="media\configure-service-azure-portal\service-resource-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing the successful deployment of a service resource and the Go to resource button.":::
+     :::image type="content" source="media\configure-service-azure-portal\service-resource-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing the successful deployment of a service for traffic blocking and the Go to resource button.":::
 
 1. Confirm that the data flow policy rules and service data flow templates listed at the bottom of the screen are configured as expected.
 
-    :::image type="content" source="media\tutorial-create-example-set-of-policy-control-configuration\example-traffic-blocking-service-complete.png" alt-text="Screenshot of the Azure portal. It shows a service resource. QoS characteristics and data flow policy rules are highlighted." lightbox="media\tutorial-create-example-set-of-policy-control-configuration\example-traffic-blocking-service-complete.png":::
+    :::image type="content" source="media\tutorial-create-example-set-of-policy-control-configuration\example-traffic-blocking-service-complete.png" alt-text="Screenshot showing a service resource with configuration for traffic blocking. QoS characteristics and data flow policy rules are highlighted." lightbox="media\tutorial-create-example-set-of-policy-control-configuration\example-traffic-blocking-service-complete.png":::
 
 ## Create a service for limiting traffic
 
@@ -315,10 +315,10 @@ Do the following to create the service.
     |**Ports**     | Leave blank        |
 
 1. Select **Add**.
-1. We can now finalize the rule. On the **Add a policy rule** blade, select **Add**.
+1. We can now finalize the rule. Under **Add a policy rule**, select **Add**.
 1. We now have a single data flow policy rule configured on the service.
 
-     :::image type="content" source="media\tutorial-create-example-set-of-policy-control-configuration\example-traffic-limiting-service.png" alt-text="Screenshot of the Azure portal showing the successful deployment of a service resource and the Go to resource button.":::
+     :::image type="content" source="media\tutorial-create-example-set-of-policy-control-configuration\example-traffic-limiting-service.png" alt-text="Screenshot of the Azure portal. It shows completed fields for a service to limit traffic, including data flow policy rules.":::
 
 1. On the **Basics** configuration tab, select **Review + create**.
 1. Select **Create** to create the service.
@@ -331,7 +331,7 @@ Do the following to create the service.
 
 1. Confirm that the data flow policy rules and service data flow templates listed at the bottom of the screen are configured as expected.
 
-    :::image type="content" source="media\tutorial-create-example-set-of-policy-control-configuration\example-traffic-limiting-service-complete.png" alt-text="Screenshot of the Azure portal. It shows a service resource. QoS characteristics and data flow policy rules are highlighted." lightbox="media\tutorial-create-example-set-of-policy-control-configuration\example-traffic-limiting-service-complete.png":::
+    :::image type="content" source="media\tutorial-create-example-set-of-policy-control-configuration\example-traffic-limiting-service-complete.png" alt-text="Screenshot showing a service designed for traffic limiting. QoS characteristics and data flow policy rules are highlighted." lightbox="media\tutorial-create-example-set-of-policy-control-configuration\example-traffic-limiting-service-complete.png":::
 
 ## Configure SIM policies
 
@@ -398,7 +398,7 @@ In this step, we will create two SIM policies. The first SIM policy will use the
     - The network scope configuration is shown under the **Network scope** and **Quality of service (QoS)** headings.
     - The configured services are shown under the **Service configuration heading**.
     
-    :::image type="content" source="media\tutorial-create-example-set-of-policy-control-configuration\complete-example-sim-policy-1.png" alt-text="Screenshot of the Azure portal showing a SIM policy resource. Essentials, network scope, and service configuration are highlighted." "lightbox="media\tutorial-create-example-set-of-policy-control-configuration\complete-example-sim-policy-1.png":::
+    :::image type="content" source="media\tutorial-create-example-set-of-policy-control-configuration\complete-example-sim-policy-1.png" alt-text="Screenshot of the Azure portal showing a SIM policy resource. Essentials, network scope, and service configuration are highlighted." lightbox="media\tutorial-create-example-set-of-policy-control-configuration\complete-example-sim-policy-1.png":::
 
 1. We'll now create the other SIM policy. Search for and select the Mobile Network resource representing the private mobile network for which you want to configure a service.
 
@@ -452,7 +452,7 @@ In this step, we will create two SIM policies. The first SIM policy will use the
 
 1. Select **sim-policy-2**.
 
-    :::image type="content" source="media\tutorial-create-example-set-of-policy-control-configuration\sim-policies-list-example-2.png" alt-text="Screenshot of the Azure portal with a list of configured SIM policies for a private mobile network. The sim-policy-2 resource is highlighted.""lightbox="media\tutorial-create-example-set-of-policy-control-configuration\sim-policies-list-example-2.png":::
+    :::image type="content" source="media\tutorial-create-example-set-of-policy-control-configuration\sim-policies-list-example-2.png" alt-text="Screenshot of the Azure portal with a list of configured SIM policies for a private mobile network. The sim-policy-2 resource is highlighted." lightbox="media\tutorial-create-example-set-of-policy-control-configuration\sim-policies-list-example-2.png":::
 
 1. Check that the configuration for the SIM policy is as expected.
 
@@ -460,7 +460,7 @@ In this step, we will create two SIM policies. The first SIM policy will use the
     - The network scope configuration is shown under the **Network scope** and **Quality of service (QoS)** headings.
     - The configured services are shown under the **Service configuration heading**.
     
-    :::image type="content" source="media\tutorial-create-example-set-of-policy-control-configuration\complete-example-sim-policy-2.png" alt-text="Screenshot of the Azure portal showing a SIM policy resource. Essentials, network scope, and service configuration are highlighted." "lightbox="media\tutorial-create-example-set-of-policy-control-configuration\complete-example-sim-policy-2.png":::
+    :::image type="content" source="media\tutorial-create-example-set-of-policy-control-configuration\complete-example-sim-policy-2.png" alt-text="Screenshot of the Azure portal showing a SIM policy resource. Essentials, network scope, and service configuration are highlighted." lightbox="media\tutorial-create-example-set-of-policy-control-configuration\complete-example-sim-policy-2.png":::
 
 ## Provision SIMs
 
