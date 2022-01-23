@@ -49,7 +49,15 @@ SIM policies allow you to define different sets of policies and interoperability
 
     :::image type="content" source="media\configure-sim-policy-azure-portal\sim-policy-deployment-confirmation.png" alt-text="Screenshot of the Azure portal. It shows confirmation of the successful deployment of a SIM policy.":::
 
-1. Select **Go to resource group**, and then select your new SIM policy resource. You may need to tick the **Show hidden types** checkbox to display this resource in the list. 
+1. Select **Go to resource group**. In the resource group that appears, select the **Mobile Network** resource representing your private mobile network. 
+1. In the resource menu, select **SIM policies**.
+
+    :::image type="content" source="media\configure-sim-policy-azure-portal\sim-policies-resource-menu-option.png" alt-text="Screenshot of the Azure portal. It shows the SIM policies option in the resource menu of a Mobile Network resource.":::
+
+1. Select your new SIM policy from the list.
+
+    :::image type="content" source="media\sim-policies-list.png" alt-text="Screenshot of the Azure portal. It shows a list of currently configured SIM policies for a private mobile network.":::
+
 1. Check the configuration of your SIM policy to ensure it's correct. 
 
     :::image type="content" source="media\configure-sim-policy-azure-portal\sim-policy-resource.png" alt-text="Screenshot of the Azure portal showing a SIM policy resource.":::

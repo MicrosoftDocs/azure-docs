@@ -102,11 +102,13 @@ In this step, you'll provision SIMs using a JSON file.
 1. Select **Add**. If the **Add** button is greyed out, check your JSON file to confirm that it's correctly formatted.
 1. The Azure portal will now begin deploying the SIMs. When the deployment is complete, select **Go to resource group**.
 
-    :::image type="content" source="media/provision-sims-azure-portal/multiple-sim-resource-deployment.png" alt-text="Screenshot of the Azure portal. It shows a completed deployment of SIM resources through a J S O N file and the Go to resource button.":::
+    :::image type="content" source="media/provision-sims-azure-portal/multiple-sim-resource-deployment.png" alt-text="Screenshot of the Azure portal. It shows a completed deployment of SIM resources through a J S O N file and the Go to resource group button.":::
 
-1. The Azure portal will display the resource group containing your private mobile network. Select **Show hidden types** and then confirm that your new SIM resources are shown.
+1. The Azure portal will display the resource group containing your private mobile network. Select the **Mobile network** resource.
+1. In the resource menu, select **SIMs**.
+1. Check the list of SIMs to ensure your new SIMs are present and provisioned correctly. 
 
-    :::image type="content" source="media/provision-sims-azure-portal/resource-group-containing-multiple-sims.png" alt-text="Screenshot of the Azure portal. It shows a completed deployment of a SIM resource and the Go to resource button.":::
+    :::image type="content" source="media/provision-sims-azure-portal/sims-list.png" alt-text="Screenshot of the Azure portal. It shows a list of currently provisioned SIMs for a private mobile network.":::
 
 1. If you decided in [Prerequisites](#prerequisites) that you wanted to assign a SIM policy to any of your provisioned SIMs, move to [Optionally, assign a SIM policy](#optionally-assign-a-sim-policy). Otherwise, you've finished your provisioning.
 
@@ -120,7 +122,7 @@ In this step, you'll assign a SIM policy to your SIMs. SIMs need an assigned SIM
 
 1. In the resource menu, select **SIMs**.
 1. You'll see a list of provisioned SIMs in the private mobile network. For each SIM policy you want to assign to one or more SIMs, do the following.
-    - Tick the checkbox next to the name of each SIM you want to assign to this SIM policy.
+    - Tick the checkbox next to the name of each SIM to which you assign the SIM policy.
     - Select **Assign SIM policy**.
     - In **Assign SIM policy** on the right, select your chosen SIM policy from the **SIM policy** drop-down menu.
     - Select the **Assign SIM policy** button.<!-- need a step after this for post deployment -->
