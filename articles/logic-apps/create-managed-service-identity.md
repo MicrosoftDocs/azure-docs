@@ -480,13 +480,6 @@ The `principalId` property value is a unique identifier for the identity that's 
 
 ---
 
-<a name="setup-identity-apihub-authentiation"></a>
-
-## Set up user-assigned managed identity for token authentication (Advanced)
-
-If your scenario requires finer-grained control over how authentication connection authentication for managed connector , you can set up token authentication for those connections. 
-
-
 <a name="access-other-resources"></a>
 
 ## Give identity access to resources
@@ -958,7 +951,7 @@ This example shows what the configuration looks like when the logic app enables 
                 "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/<connection-name>"
             },
             "connectionRuntimeUrl": <connection-URL>,
-            "authentication": { // Authentication with APIHub
+            "authentication": { // Authentication with TokenStore (ApiHub)
                 "type": "ManagedServiceIdentity"
             },
             "connectionProperties": {
@@ -1062,6 +1055,59 @@ Following this `Microsoft.Web/connections` resource definition, make sure that y
 For more information, review the [Microsoft.Web/connections/accesspolicies (ARM template)](/templates/microsoft.web/connections?tabs=json) documentation.
 
 ---
+
+<a name="setup-identity-apihub-authentiation"></a>
+
+## Set up advanced control over managed connection authentication with user-assigned identities
+
+If you have a Standard logic app resource, and your scenario requires finer control over authenticating connections created by [managed connectors](../connectors/managed.md), such as Office 365 Outlook, Azure Key Vault, and so on, you can optionally set up your user-assigned identity to use token store authentication.
+
+### What is token store authentication?
+
+When your workflow uses a managed connection, also known as an *API connection*, the Azure Logic Apps service communicates with the target resource, such as a key vault, email account, and so on, using two connections:
+
+Logic app <-----connection 1-----> internal token store <-------connection 2------> target resource
+
+* Connection #1 is set up with authentication for the internal token store.
+
+* Connection #2 is set up with the authentication for the target resource.
+
+With the Consumption logic app resource type, connection #1 is an abstraction. However, with the Standard logic app resource type, you have more control over your logic app. By default, connection #1 is automatically enabled to use the system-assigned identity. With added user-assigned identity support, you can change the authentication type for the internal token store from the default system-assigned identity and any user-assigned identity that you added to the logic app. This authentication applies to each specific connection, so you can mix system-assigned and user-assigned identities between different connections for the same target resource.
+
+### Why change the authentication for the token store?
+
+In some scenarios, you might want to share and use the same API connection across multiple logic apps, but not add the system-assigned identity for each logic app to the target resource's access policy.
+
+In other scenarios, you might not want to have the system-assigned identity set up on your logic app entirely, so you can change the authentication to a user-assigned identity and disable the system-assigned identity completely.
+
+### Change the authentication for the token store
+
+In your Standard logic app's **connections.json** file, which stores information about each API connection, each connection definition has two `authentication` sections, for example:
+
+```json
+"keyvault": {
+   "api": {
+      "id": "..............."
+   },
+   "authentication": {
+      "type": "ManagedServiceIdentity"
+   },
+   "connection": {
+      "id": ".................."
+   },
+   "connectionProperties": {
+      "authentication": {
+         "audience": "https://vault.azure.net",
+         "type": "ManagedServiceIdentity"
+      }
+   },
+   "connectionRuntimeUrl": "<runtime-URL"
+}
+```
+
+* The first `authentication` section is the authentication used for communicating with the token store. In the past, this section was always set to `ManagedServiceIdentity` for an app that deploys to Azure and had no configurable options.
+
+* The second `authentication` section is the authentication used for communicating with the target resource can vary, based on the authentication type that you select for that connection.
 
 <a name="remove-identity"></a>
 
