@@ -182,7 +182,7 @@ For non-telemetry events like DeviceConnected, DeviceDisconnected, DeviceCreated
 
 When you subscribe to telemetry events via Event Grid, IoT Hub creates a default message route to send data source type device messages to Event Grid. For more information about message routing, see [IoT Hub message routing](iot-hub-devguide-messages-d2c.md). This route will be visible in the portal under IoT Hub > Message Routing. Only one route to Event Grid is created regardless of the number of EG subscriptions created for telemetry events. So, if you need several subscriptions with different filters, you can use the OR operator in these queries on the same route. The creation and deletion of the route is controlled through subscription of telemetry events via Event Grid. You cannot create or delete a route to Event Grid using IoT Hub Message Routing.
 
-To filter messages before telemetry data is sent, you can update your [routing query](iot-hub-devguide-routing-query-syntax.md). Note that routing query can be applied to the message body only if the body is JSON. You must also set the contentType to **application/json** and contentEncoding to **UTF-8** in the message [system properties](./iot-hub-devguide-routing-query-syntax.md#system-properties).
+To filter messages before telemetry data are sent, you can update your [routing query](iot-hub-devguide-routing-query-syntax.md). Note that routing query can be applied to the message body only if the body is JSON. You must also set the contentType to **application/json** and contentEncoding to **UTF-8** in the message [system properties](./iot-hub-devguide-routing-query-syntax.md#system-properties).
 
 ## Limitations for device connected and device disconnected events
 
@@ -198,7 +198,7 @@ Applications that handle IoT Hub events should follow these suggested practices:
 
 * Don't assume that all events you receive are the types that you expect. Always check the eventType before processing the message.
 
-* Messages can arrive out of order or after a delay. Use the etag field to understand if your information about objects is up-to-date for device created or device deleted events.
+* Messages can arrive out of order or after a delay. Use the etag field to understand if your information about objects is up to date for device created or device-deleted events.
 
 ## Next steps
 
