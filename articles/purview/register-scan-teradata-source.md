@@ -114,9 +114,9 @@ Follow the steps below to scan Teradata to automatically identify assets and cla
 
         To understand more on credentials, refer to the link [here](./manage-credentials.md)
 
-    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For Example: `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default.
+    1. **Schema**: List subset of databases to import expressed as a semicolon separated list. For Example: `schema1; schema2`. All user databases are imported if that list is empty. All system databases (for example, SysAdmin) and objects are ignored by default.
 
-        Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: `A%; %B; %C%; D`
+        Acceptable database name patterns using SQL LIKE expressions syntax include using %. For example: `A%; %B; %C%; D`
         * Start with A or
         * End with B or
         * Contain C or
