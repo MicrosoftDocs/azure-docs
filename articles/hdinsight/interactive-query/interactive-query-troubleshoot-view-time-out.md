@@ -15,7 +15,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 When running certain queries from the Apache Hive view, the following error may be encountered:
 
 ```
-ERROR [ambari-client-thread-217] [HIVE 2.0.0 AUTO_HIVE20_INSTANCE] NonPersistentCursor:131 - Result fetch timed out
+ERROR [ambari-client-thread-1] [HIVE 2.0.0 AUTO_HIVE20_INSTANCE] NonPersistentCursor:131 - Result fetch timed out
 java.util.concurrent.TimeoutException: deadline passed
 	at akka.actor.dsl.Inbox$InboxActor$$anonfun$receive$1.applyOrElse(Inbox.scala:117)
 	at scala.PartialFunction$AndThen.applyOrElse(PartialFunction.scala:189)
@@ -30,8 +30,8 @@ java.util.concurrent.TimeoutException: deadline passed
 	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-ERROR [ambari-client-thread-217] [HIVE 2.0.0 AUTO_HIVE20_INSTANCE] ServiceFormattedException:97 - Result fetch timed out
-ERROR [ambari-client-thread-217] [HIVE 2.0.0 AUTO_HIVE20_INSTANCE] ServiceFormattedException:98 - java.util.concurrent.TimeoutException: deadline passed
+ERROR [ambari-client-thread-1] [HIVE 2.0.0 AUTO_HIVE20_INSTANCE] ServiceFormattedException:97 - Result fetch timed out
+ERROR [ambari-client-thread-1] [HIVE 2.0.0 AUTO_HIVE20_INSTANCE] ServiceFormattedException:98 - java.util.concurrent.TimeoutException: deadline passed
 
 java.util.concurrent.TimeoutException: deadline passed
 	at akka.actor.dsl.Inbox$InboxActor$$anonfun$receive$1.applyOrElse(Inbox.scala:117)
