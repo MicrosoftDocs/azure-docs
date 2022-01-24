@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.author: mithigpe
 author: minthigpen
-ms.reviewer: Luis.Quintanilla
+ms.reviewer: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml, mktng-kw-nov2021

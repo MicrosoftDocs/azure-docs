@@ -168,9 +168,9 @@
             href: concept-component.md
           - name: MLflow
             href: concept-mlflow.md
-          - name: Responsible ML
+          - name: Responsible AI
             items:
-              - name: Responsible ML overview
+              - name: Responsible AI overview
                 displayName: responsible,ml
                 href: concept-responsible-ml.md
               - name: Model interpretability

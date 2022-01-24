@@ -50,7 +50,7 @@ To learn how to use Ray RLLib with Azure Machine Learning, see the [how to train
 
 Training a single or multiple models requires the visualization and inspection of desired metrics to make sure the model performs as expected. You can [use TensorBoard in Azure Machine Learning to track and visualize experiment metrics](./how-to-monitor-tensorboard.md)
 
-## Responsible ML: Privacy and fairness
+## Responsible AI: Privacy and fairness
 
 ### Preserve data privacy with differential privacy
 
