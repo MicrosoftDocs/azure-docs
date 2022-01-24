@@ -399,5 +399,4 @@ az group delete --name cogserv-container-rg
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Cognitive Services Containers](../cognitive-services-container-support.md)
+[Cognitive Services Containers](../cognitive-services-container-support.md)
