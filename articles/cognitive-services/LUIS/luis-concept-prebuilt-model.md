@@ -53,9 +53,6 @@ LUIS includes a set of prebuilt entities for recognizing common types of informa
 
 When a prebuilt entity is included in your application, its predictions are included in your published application. The behavior of prebuilt entities is pre-trained and **cannot** be modified. 
 
-> [!NOTE]
-> **builtin.datetime** is deprecated. It is replaced by [**builtin.datetimeV2**](luis-reference-prebuilt-datetimev2.md), which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.
-
 ## Next steps
 
 Learn how to [add prebuilt entities](./howto-add-prebuilt-models.md) to your app.
