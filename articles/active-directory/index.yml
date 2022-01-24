@@ -119,7 +119,7 @@ conceptualContent:
       links:
         - url: ./devices/overview.md
           itemType: overview
-          text:  What is device identity?
+          text:  What is a device identity?
         - url: ./devices/hybrid-azuread-join-plan.md
           itemType: how-to-guide
           text:  Plan a hybrid Azure AD join
