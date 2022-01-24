@@ -133,7 +133,7 @@ In order to import, you have to upload your update files and import manifest to 
 
 > [!TIP]
 > To upload large update files to Azure Storage Blob container, you may use one of the following for better performance:
-> - [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)
+> - [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
 > - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer)
 
 ## Next Steps
