@@ -307,7 +307,7 @@ To configure customer-managed keys for an existing account with automatic updati
 1. Navigate to your storage account.
 1. On the **Settings** blade for the storage account, click **Encryption**. By default, key management is set to **Microsoft Managed Keys**, as shown in the following image.
 
-    :::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png" alt-text="Screenshot showing encryption options in Azure portal":::
+    :::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png" alt-text="Screenshot showing encryption options in Azure portal" lightbox="media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png":::
 
 1. Select the **Customer Managed Keys** option.
 1. Choose the **Select from Key Vault** option.
