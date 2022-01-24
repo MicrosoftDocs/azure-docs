@@ -27,7 +27,7 @@ You can change the associated policy with a backup instance.
 
 ## Stop protection
 
-There are three ways by which you can stop protecting an Azure Database for PostgreSQL server.
+There are three ways to stop protecting an Azure Database for PostgreSQL server.
 
 - **Stop Protection and Retain Data (Retain forever)**: This option helps you stop all future backup jobs from protecting your Azure Database for PostgreSQL server. However, Azure Backup service will retain the recovery points that are backed up forever. You'll need to pay to keep the recovery points in the vault (see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) for details). You'll be able to restore from these recovery points, if needed. To resume protection, use the **Resume backup** option.
 

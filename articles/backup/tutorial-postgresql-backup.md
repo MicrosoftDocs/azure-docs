@@ -68,7 +68,7 @@ You can create a Backup policy on the go during the configure backup flow. Alter
 
    You can add one or more retention rules. Each retention rule assumes inputs for specific backups, and data store and retention duration for those backups.
 
-1. To store your backups in one of the two data stores (or tiers), choose **Backup data store** (standard tier) or **Archive data store**.
+1. To store your backups in one of the two data stores (or tiers), choose **Backup data store** (standard tier) or **Archive data store** (in preview).
 
 1. Choose **On-expiry** to move the backup to archive data store upon its expiry in the backup data store.
 
