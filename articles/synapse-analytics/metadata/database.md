@@ -25,7 +25,7 @@ Since the databases are synchronized to serverless SQL pool asynchronously, ther
 
 ## Manage a Spark created database
 
-To manage Spark created databases you need to use Apache Spark pools. For example, create or delete it through a Spark pool job.
+To manage Spark created databases, you need to use Apache Spark pools. For example, create or delete it through a Spark pool job.
 
 Objects in synchronized databases cannot be modified from serverless SQL pool.
 
@@ -36,13 +36,21 @@ Objects in synchronized databases cannot be modified from serverless SQL pool.
 
 The Spark databases and tables, along with their synchronized representations in the SQL engine will be secured at the underlying storage level.
 
-The security principal who creates a database is considered the owner of that database, and has all the rights to the database and its objects. Synapse Administrator and Synapse SQL Administrator will also have all the permissions on synchronized objects in serverless SQL pool by default. Creating custom objects (including users) in synchronized SQL databases is not allowed. 
+The security principal who creates a database is considered the owner of that database, and has all the rights to the database and its objects. `Synapse Administrator` and `Synapse SQL Administrator` will also have all the permissions on synchronized objects in serverless SQL pool by default. Creating custom objects (including users) in synchronized SQL databases is not allowed. 
 
 To give a security principal, such as a user, Azure AD app or a security group, access to the underlying data used for external tables, you need to give them `read (R)` permissions on files (such as the table's underlying data files) and `execute (X)` on folder where the files are stored + on every parent folder up to the root. You can read more about these permissions on [Access control lists(ACLs)](../../storage/blobs/data-lake-storage-access-control.md) page. 
 
 For example, in `https://<storage-name>.dfs.core.windows.net/<fs>/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/`, security principals need to have `X` permissions on all the folders starting at the `<fs>` to the `myparquettable` and `R` permissions on `myparquettable` and files inside that folder, to be able to read a table in a database (synchronized or original one).
 
 If a security principal requires the ability to create objects or drop objects in a database, additional `W` permissions are required on the folders and files in the `warehouse` folder. Modifying objects in a database is not possible from serverless SQL pool, only from Spark.
+
+### SQL security model
+
+Synapse workspace provides T-SQL endpoint that enables you to query the shared database using the serverless SQL pool. As a prerequisite, you need to enable a user to access shared databases in serverless SQL pool. There are two ways to allow a user to access the shared databases:
+- You can assign a `Synapse SQL Administrator` workspace role or `sysadmin` server-level role in the serverless SQL pool. This role has a full control on all databases (note that the shared databases are still read-only even for the administrator role).
+- You can grant `GRANT CONNECT ANY DATABASE` and `GRANT SELECT ALL USER SECURABLES` server-level permissions on serverless SQL pool to a login that will enable the login to access and read any database. This might be a good choice for assigning reader/non-admin access to a user.
+
+Learn more about setting [access control on shared databases](../sql/shared-databases-access-control.md).
 
 ## Examples
 

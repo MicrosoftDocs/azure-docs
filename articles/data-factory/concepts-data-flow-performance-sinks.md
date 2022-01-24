@@ -21,7 +21,9 @@ With Azure SQL Database, the default partitioning should work in most cases. The
 
 ### Best practice for deleting rows in sink based on missing rows in source
 
-Here is a video walk through of how to use data flows with exits, alter row, and sink transformations to achieve this common pattern: > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWMLr5]
+Here is a video walk through of how to use data flows with exits, alter row, and sink transformations to achieve this common pattern: 
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWMLr5]
 
 ### Impact of error row handling to performance
 
