@@ -24,7 +24,7 @@ Before you can proceed with the tasks in this article you need:
 - To connect and authenticate to a Kubernetes cluster
 - An existing Kubernetes context selected
 
-You need an an indirectly connected data controller with the `imageTag v1.0.0_2021-07-30` or greater.
+You need an indirectly connected data controller with the `imageTag v1.0.0_2021-07-30` or greater.
 
 ## Limitations
 
