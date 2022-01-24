@@ -540,22 +540,20 @@ The `userRequestPlaceHoldersInput` parameter includes the following attributes:
 
 After creating your [JSON configuration file](#connector-json-configuration-syntax), including both the [user interface](#configure-your-connectors-user-interface) and [polling](#configure-your-connectors-polling-settings) configuration, deploy your connector in your Microsoft Sentinel workspace.
 
-1. Use one of the following options to deploy your data connector:
+1. Use one of the following options to deploy your data connector.
+
+    > [!TIP]
+    > The advantage of deploying via an Azure Resource Manager (ARM) template is that several values are built-in to the template, and you don't need to define them manually in an API call.
+    >
 
     # [Deploy via ARM template](#tab/deploy-via-arm-template)
 
-    Use your JSON configuration file to create an Azure Resource Manager (ARM) template to use when deploying your connector.
+    Use a JSON configuration file to create an ARM template to use when deploying your connector. To ensure that your data connector gets deployed to the correct workspace, make sure to either define the workspace for the ARM template to deploy when creating your JSON file, or select the workspace when deploying the ARM template.
 
-    The advantage of deploying via an ARM template is that several values are built-in to the template, and you don't need to define them manually in an API call.
+    1. Prepare an [ARM template JSON file](/azure/templates/microsoft.securityinsights/dataconnectors) for your connector. For example, see the following ARM template JSON files:
 
-    1. Prepare an [ARM template](/azure/templates/microsoft.securityinsights/dataconnectors) for your connector. For example, see the following ARM templates:
-
-        - Data connector in the [Slack solution](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SlackAudit/Data%20Connectors/SlackNativePollerConnector)
-        - [Atlassian Jira Audit data connector](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AtlassianJiraAudit/JiraNativePollerConnector/)
-
-        > [!TIP]
-        > Make sure to either define the workspace for the ARM template to deploy, or select the workspace when you deploy the ARM template, to make sure that your data connector is deployed in the correct workspace.
-        >
+        - Data connector in the [Slack solution](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SlackAudit/Data%20Connectors/SlackNativePollerConnector/azuredeploy_Slack_native_poller_connector.json)
+        - [Atlassian Jira Audit data connector](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AtlassianJiraAudit/JiraNativePollerConnector/azuredeploy_Jira_native_poller_connector.json)
 
     1. In the Azure portal, search for **Deploy a custom template**.
 
