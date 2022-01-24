@@ -23,7 +23,6 @@ NCv3-series VMs are powered by NVIDIA Tesla V100 GPUs. These GPUs can provide 1.
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
-[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not supported <br>
 Nvidia NVLink Interconnect: Not Supported<br>
 
 > [!IMPORTANT]
