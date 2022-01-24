@@ -1115,10 +1115,40 @@ In other scenarios, you might not want to have the system-assigned identity set 
 
 1. On the Connections pane, select **JSON View**.
 
-1. In the first `authentication` section, add a new `identity` property, and set the value to the resource ID for the user-assigned identity.
+   ![Screenshot showing the Azure portal, Standard logic app resource, "Connections" pane with "JSON View" selected.](./media/create-managed-service-identity/connections-json-view.png)
 
-   > [!NOTE]
-   > If no `identity` property exists in this `authentication` section, the logic app implicitly uses the system-assigned identity.
+1. In the JSON editor, find the `managedApiConnections` section, which contains the API connections across all workflows in your logic app resource.
+
+1. Find the connection where you want to add a user-assigned managed identity. For example, suppose your workflow has an Azure Key Vault connection:
+
+   ```json
+   "keyvault": {
+      "api": {
+         "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{region}/managedApis/keyvault"
+      },
+      "authentication": {
+         "type": "ManagedServiceIdentity"
+      },
+      "connection": {
+         "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/<connection-name>"
+      },
+      "connectionProperties": {
+         "authentication": {
+            "audience": "https://vault.azure.net",
+            "type": "ManagedServiceIdentity"
+         }
+      },
+      "connectionRuntimeUrl": "<connection-runtime-URL>"
+   }
+   ```
+
+1. In the connection definition, complete the following steps:
+
+   1. Find the first `authentication` section. If no `identity` property already exists in this `authentication` section, the logic app implicitly uses the system-assigned identity.
+
+   1. Add an `identity` property by using the example in this step.
+
+   1. Set the property value to the resource ID for the user-assigned identity.
 
    ```json
    "keyvault": {
@@ -1128,7 +1158,7 @@ In other scenarios, you might not want to have the system-assigned identity set 
       "authentication": {
          "type": "ManagedServiceIdentity",
          // Add "identity" property here
-         "id": "/subscriptions/{Azure-subscription-ID}/resourcegroups/{resource-group-name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-resource-ID}" 
+         "identity": "/subscriptions/{Azure-subscription-ID}/resourcegroups/{resource-group-name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-resource-ID}" 
       },
       "connection": {
          "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/<connection-name>"
