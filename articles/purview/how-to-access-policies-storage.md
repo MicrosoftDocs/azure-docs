@@ -133,14 +133,17 @@ The steps to publish a policy are as follows
 
     ![Image shows how a data owner can select the data source where the policy will be published.](./media/access-policies-common/select-data-sources-publish-policy.png)
 
->[!Important]
-> - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in the data source.
+>[!Note]
 > - There is no need to publish a policy again for it to take effect if the data resource continues to be the same.
 
 ## Additional information
 
 ### Limits
 The limit for Azure Purview policies that can be enforced by Storage accounts is 100MB per subscription, which roughly equates to 5000 policies.
+
+>[!Important]
+> - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in the data source.
+
 
 ### Policy action mapping
 
@@ -168,3 +171,5 @@ Check the blog and demo related to the capabilities mentioned in this how-to gui
 
 * [What's New in Azure Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
 * [Demo of access policy for Azure Storage](https://www.youtube.com/watch?v=CFE8ltT19Ss)
+* [Enable access policies on all data sources in a subscription or a resource group](./tutorial-access-policies-resource-group.md)
+

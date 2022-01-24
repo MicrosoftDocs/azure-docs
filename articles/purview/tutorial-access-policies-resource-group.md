@@ -130,8 +130,7 @@ The steps to publish a policy are as follows
 
     ![Image shows how a data owner can select the data source where the policy will be published.](./media/access-policies-common/select-data-sources-publish-policy.png)
 
->[!Important]
-> - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in the data source.
+>[!Note]
 > - There is no need to publish a policy again for it to take effect if the data resource continues to be the same.
 
 ## Additional information
@@ -139,29 +138,12 @@ The steps to publish a policy are as follows
 ### Limits
 The limit for Azure Purview policies that can be enforced by Storage accounts is 100MB per subscription, which roughly equates to 5000 policies.
 
-### Policy action mapping
-
-This section contains a reference of how actions in Azure Purview data policies map to specific actions in Azure Storage.
-
-| **Azure Purview policy action** | **Data source specific actions**                                                        |
-|---------------------------|-----------------------------------------------------------------------------------------|
-|||
-| *Read*                    |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/read                      |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                |
-|||
-| *Modify*                  |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write               |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action          |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action         |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete              |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/read                      |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/write                     |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/delete                    |
-|||
-
+>[!Important]
+> - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in the data source.
 
 ## Next steps
 Check the blog and demo related to the capabilities mentioned in this how-to guide
 
 * [What's New in Azure Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
 * [Demo of access policy for Azure Storage](https://www.youtube.com/watch?v=CFE8ltT19Ss)
+* [Enable access policies on an Azure Storage account](./how-to-access-policies-storage.md)

@@ -256,7 +256,7 @@ It is important to give your service principal the permission to scan the ADLS G
 
 Follow these configuration guides to:
 - [Enable access policies on an Azure Storage account](./how-to-access-policies-storage.md)
-- [Enable access policies on all data sources in a subscription or a resource group](./tutorial-access-policies-resource-groups.md)
+- [Enable access policies on all data sources in a subscription or a resource group](./tutorial-access-policies-resource-group.md)
 
 ## Next steps
 
