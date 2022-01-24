@@ -12,9 +12,6 @@ ms.service: iot-hub-device-update
 
 Learn how to obtain a new update and import it into Device Update for IoT Hub.
 
-> [!NOTE]
-> Some data submitted to this service might be processed in a region outside the region Device Update for IoT Hub is created in.
-
 ## Prerequisites
 
 * [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md).
@@ -39,7 +36,7 @@ When creating an update to be deployed using Device Update for IoT Hub, start wi
 Once you have your update files, create an import manifest to describe the update. If you haven't already done so, be sure to familiarize yourself with the basic [import concepts](import-concepts.md). While it is possible to author an import manifest JSON manually using a text editor, this guide will use PowerShell as example.
 
 > [!TIP]
-> Check out existing import manifest files from [image-based](device-update-raspberry-pi.md), [package-based](device-update-ubuntu-agent.md), or [proxy update](device-update-howto-proxy-updates.md) tutorial.
+> Try the [image-based](device-update-raspberry-pi.md), [package-based](device-update-ubuntu-agent.md), or [proxy update](device-update-howto-proxy-updates.md) tutorials if you haven't already done so. You can also just view sample import manifest files from those tutorials for reference.
 
 1. [Clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) `Azure/iot-hub-device-update` [Git repository](https://github.com/Azure/iot-hub-device-update).
 
