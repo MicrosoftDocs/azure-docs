@@ -89,9 +89,6 @@ To upload your data:
 1. After you create a project, go to the **Speech datasets** tab. Select **Upload data** to start the wizard and create your first dataset. 
 1. Select a speech data type for your dataset, and upload your data.
 
-   > [!NOTE]
-   > If your dataset file size exceeds 128 MB, you can upload it by using the **Azure Blob or shared location** option. You can also use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) to upload a dataset of [any allowed size](speech-services-quotas-and-limits.md#model-customization). See [the next section](#upload-data-by-using-speech-to-text-rest-api-v30) for details.
-
 1. Specify whether the dataset will be used for **Training** or **Testing**. 
 
    There are many types of data that can be uploaded and used for **Training** or **Testing**. Each dataset that you upload must be correctly formatted before uploading, and it must meet the requirements for the data type that you choose. Requirements are listed in the following sections.
@@ -103,7 +100,7 @@ To upload your data:
 
 ### Upload data by using Speech-to-text REST API v3.0
 
-You can use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) to automate any operations related to your custom models. In particular, you can use the REST API to upload a dataset. This is particularly useful when your dataset file exceeds 128 MB, because you can't upload files that large by using the **Local file** option in Speech Studio. (You can also use the **Azure Blob or shared location** option in Speech Studio for the same purpose, as described in the previous section.)
+You can use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) to automate any operations related to your custom models. In particular, you can use the REST API to upload a dataset.
 
 To create and upload a dataset, use a [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) request.
 

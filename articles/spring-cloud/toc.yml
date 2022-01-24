@@ -150,6 +150,10 @@
           href: monitor-app-lifecycle-events.md
         - name: Logback with custom persistent storage
           href: how-to-write-log-to-custom-persistent-storage.md
+        - name: Elastic APM Java Agent
+          href: how-to-elastic-apm-java-agent-monitor.md
+        - name: Analyze logs with ELK
+          href: how-to-elastic-diagnostic-settings.md
     - name: Network
       items:
         - name: Deploy Azure Spring Cloud in a virtual network
@@ -192,10 +196,10 @@
           href: how-to-self-diagnose-running-in-vnet.md
         - name: Troubleshooting guide
           href: troubleshoot.md
-        - name: Manually capture heap dump/thread dump/JFR
+        - name: Capture heap/thread dump and use JFR
           href: how-to-capture-dumps.md
-        - name: JVM option based troubleshooting
-          href: tutorial-dump-jvm-options.md
+        - name: Use JVM options for troubleshooting
+          href: how-to-dump-jvm-options.md
     - name: Migrate
       items:
         - name: Spring Cloud

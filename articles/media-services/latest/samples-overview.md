@@ -20,7 +20,7 @@ This article contains a list of all the samples available for Media Services org
 
 You'll find description and links to the samples you may be looking for in each of the tabs.
 
-## [Node.JS (Typescript)](#tab/node/)
+## [Node.JS (TypeScript)](#tab/node/)
 
 |Sample|Description|
 |---|---|
