@@ -177,7 +177,7 @@ By using [Azure role-based access control (RBAC)](../role-based-access-control/o
   - Change the lab plan settings.
   - Create and manage all labs in the lab plan.
 
-  However, the Contributor *can't* grant other users access to either lab plans or labs.
+  However, the Contributor *cannot* grant other users access to either lab plans or labs.
 
 - **Lab Creator**
 
@@ -225,7 +225,7 @@ By default, Azure Lab Services hosts each lab's virtual network within a Microso
 We recommend the second approach, which is to install third-party software on each lab's template VM.  There are a few key points to highlight as part of this solution:
 
 - If you plan to use the [auto-shutdown settings](./cost-management-guide.md#automatic-shutdown-settings-for-cost-control), you will need to unblock several Azure host names with the 3rd party software.  The auto-shutdown settings use a diagnostic extension that must be able to communicate back to Lab Services.  Otherwise, the auto-shutdown settings will fail to enable for the lab.
-- You may also want to have each student use a non-admin account on their VM so that they can't uninstall the content filtering software.  Adding a non-admin account must be done when creating the lab.
+- You may also want to have each student use a non-admin account on their VM so that they cannot uninstall the content filtering software.  Adding a non-admin account must be done when creating the lab.
 
 If your school needs to do content filtering, contact us via the [Azure Lab Services' Q&A](https://aka.ms/azlabs/questions) for more information.
 
@@ -233,7 +233,7 @@ If your school needs to do content filtering, contact us via the [Azure Lab Serv
 
 Many endpoint management tools, such as [Microsoft Endpoint Manager](https://techcommunity.microsoft.com/t5/azure-lab-services/configuration-manager-azure-lab-services/ba-p/1754407), require Windows VMs to have unique machine security identifiers (SIDs).  Using SysPrep to create a *generalized* image typically ensures that each Windows machine will have a new, unique machine SID generated when the VM boots from the image.
 
-With Lab Services, even if you use a *generalized* image to create a lab, the template VM and student VMs will all have the same machine SID.  The VMs have the same SID because the template VM's image is in a *specialized* state when it's published to create the student VMs.
+With Lab Services, even if you use a *generalized* image to create a lab, the template VM and student VMs will all have the same machine SID.  The VMs have the same SID because the template VM's image is in a *specialized* state when it is published to create the student VMs.
 
 For example, the Azure Marketplace images are generalized.  If you create a lab from the Windows 10 marketplace image and publish the template VM, all of the student VMs within a lab will have the same machine SID as the template VM.  The machine SIDs can be verified by using a tool such as [PsGetSid](/sysinternals/downloads/psgetsid).
 
@@ -251,11 +251,11 @@ Billing entries in Azure Cost Management are per lab VM. Tags for lab plan ID an
 
 You also need to consider the pricing for the compute gallery service if you plan to use compute galleries for storing and managing image versions.
 
-Creating a compute gallery and attaching it to your lab plan is free. No cost is incurred until you save an image version to the gallery. The pricing for using a compute gallery is ordinarily fairly negligible, but it's important to understand how it's calculated, because it isn't included in the pricing for Azure Lab Services.  
+Creating a compute gallery and attaching it to your lab plan is free. No cost is incurred until you save an image version to the gallery. The pricing for using a compute gallery is ordinarily fairly negligible, but it is important to understand how it is calculated, because it is not included in the pricing for Azure Lab Services.  
 
 #### Storage charges
 
-To store image versions, a compute gallery uses standard hard disk drive (HDD) managed disks by default.  We recommend using HDD-managed disks when using compute gallery with Lab Services.  The size of the HDD-managed disk that's used depends on the size of the image version that's being stored.  Lab Services supports image and disk sizes up to 128 GB.  To learn about pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+To store image versions, a compute gallery uses standard hard disk drive (HDD) managed disks by default.  We recommend using HDD-managed disks when using compute gallery with Lab Services.  The size of the HDD-managed disk that is used depends on the size of the image version that is being stored.  Lab Services supports image and disk sizes up to 128 GB.  To learn about pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 #### Replication and network egress charges
 
@@ -271,7 +271,7 @@ For information about costs to store images and their replications, see [billing
 
 #### Cost management
 
-It's important for lab plan administrators to manage costs by routinely deleting unneeded image versions from the gallery.
+It is important for lab plan administrators to manage costs by routinely deleting unneeded image versions from the gallery.
 
 Be wary of removing replication to specific regions as a way to reduce the costs.  Replication changes might have adverse effects on the ability of Azure Lab Services to publish VMs from images saved within a compute gallery.
 
