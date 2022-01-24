@@ -251,7 +251,7 @@ You can also configure customer-managed keys with manual updating of the key ver
 
 ### [PowerShell](#tab/powershell)
 
-To configure customer-managed keys for a new storage account with automatic updating of the key version, call [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount), as shown in the following example. Use the variable you created previously for the resource ID for the user-assigned managed identity:
+To configure customer-managed keys for a new storage account with automatic updating of the key version, call [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount), as shown in the following example. Use the variable you created previously for the resource ID for the user-assigned managed identity. You'll also need the key vault URI and key name:
 
 ```azurepowershell
 New-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -268,10 +268,21 @@ New-AzStorageAccount -ResourceGroupName <resource-group> `
 
 ### [Azure CLI](#tab/azure-cli)
 
-To configure customer-managed keys for a new storage account with automatic updating of the key version, call [az storage account create](/cli/azure/storage/account#az-storage-account-create), providing the user-assigned identity and the key vault and key names, as shown in the following example:
+To configure customer-managed keys for a new storage account with automatic updating of the key version, call [az storage account create](/cli/azure/storage/account#az-storage-account-create), as shown in the following example. Use the variable you created previously for the resource ID for the user-assigned managed identity. You'll also need the key vault URI and key name:
 
 ```azurecli
-tbd
+az storage account create \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --location <location> \
+    --sku Standard_LRS \
+    --kind StorageV2 \
+    --identity-type SystemAssigned,UserAssigned \
+    --user-identity-id <user-assigned-managed-identity> \
+    --encryption-key-vault <key-vault-uri> \
+    --encryption-key-name <key-name> \
+    --encryption-key-source Microsoft.Keyvault \
+    --key-vault-user-identity-id <user-assigned-managed-identity>
 ```
 
 ---
