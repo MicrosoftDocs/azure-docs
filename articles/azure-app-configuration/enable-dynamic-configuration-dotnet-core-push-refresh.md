@@ -80,11 +80,16 @@ Once the resources are created, add the following environment variables. These w
 > [!NOTE]
 > When subscribing for configuration changes, one or more filters can be used to reduce the number of events sent to your application. These can be configured either as [Event Grid subscription filters](../event-grid/event-filtering.md) or [Service Bus subscription filters](../service-bus-messaging/topic-filters.md). For example, a subscription filter can be used to only subscribe to events for changes in a key that starts with a specific string.
 
-## Register event handler to reload data from App Configuration
+## Register event handler to reload data from App Configuration using a sync-token
 
+> [!NOTE]
+> Support for using synchronization tokens in push refresh workflow is available in .NET configuration provider version 5.0.0-preview (or later). 
+
+Ensuring that users get their most up to date configurations is nearly impossible as a configuration can change at any moment (even after a request is sent out). To ensure users get their most up to date configurations we integrate a `synchronization token`. This `Synchronization token` guarantees users receive all changes at least up to the point which the notification was triggered. There still is no guarantee that changes occuring after a push notification was triggered will be reflected in the response.
 Open *Program.cs* and update the file with the following code.
 
 ```csharp
+using Azure.Messaging.EventGrid;
 using Microsoft.Azure.ServiceBus;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -140,57 +145,7 @@ namespace TestConsole
             }
         }
 
-        private static void RegisterRefreshEventHandler()
-        {
-            string serviceBusConnectionString = Environment.GetEnvironmentVariable(ServiceBusConnectionStringEnvVarName);
-            string serviceBusTopic = Environment.GetEnvironmentVariable(ServiceBusTopicEnvVarName);
-            string serviceBusSubscription = Environment.GetEnvironmentVariable(ServiceBusSubscriptionEnvVarName);
-            SubscriptionClient serviceBusClient = new SubscriptionClient(serviceBusConnectionString, serviceBusTopic, serviceBusSubscription);
-
-            serviceBusClient.RegisterMessageHandler(
-                handler: (message, cancellationToken) =>
-               {
-                   string messageText = Encoding.UTF8.GetString(message.Body);
-                   JsonElement messageData = JsonDocument.Parse(messageText).RootElement.GetProperty("data");
-                   string key = messageData.GetProperty("key").GetString();
-                   Console.WriteLine($"Event received for Key = {key}");
-
-                   _refresher.SetDirty();
-                   return Task.CompletedTask;
-               },
-                exceptionReceivedHandler: (exceptionargs) =>
-                {
-                    Console.WriteLine($"{exceptionargs.Exception}");
-                    return Task.CompletedTask;
-                });
-        }
-    }
-}
-```
-
-The [SetDirty](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.iconfigurationrefresher.setdirty) method is used to set the cached value for key-values registered for refresh as dirty. This ensures that the next call to `RefreshAsync` or `TryRefreshAsync` re-validates the cached values with App Configuration and updates them if needed.
-
-A random delay is added before the cached value is marked as dirty to reduce potential throttling in case multiple instances refresh at the same time. The default maximum delay before the cached value is marked as dirty is 30 seconds, but can be overridden by passing an optional `TimeSpan` parameter to the `SetDirty` method.
-
-> [!NOTE]
-> To reduce the number of requests to App Configuration when using push refresh, it is important to call `SetCacheExpiration(TimeSpan cacheExpiration)` with an appropriate value of `cacheExpiration` parameter. This controls the cache expiration time for pull refresh and can be used as a safety net in case there is an issue with the Event subscription or the Service Bus subscription. The recommended value is `TimeSpan.FromDays(30)`.
-
-## Optional: Incorporate synchronization tokens to ensure receiving the most up to date configurations
-
-> [!NOTE]
-> Support for using synchronization tokens in push refresh workflow is available in .NET configuration provider version 5.0.0-preview (or later). 
-
-Ensuring that users get their most up to date configurations is nearly impossible as a configuration can change at any moment (even after a request is sent out). To ensure users get their most up to date configurations we integrate a `synchronization token`. This `Synchronization token` guarantees users receive all changes at least up to the point which the notification was triggered. There still is no guarantee that changes occuring after a push notification was triggered will be reflected in the response.
-
-To use a `sync-token` in your push refresh workflow, make the following changes to your **Program.cs** file:
-
-1. Add a dependency on Azure.messaging.EventGrid Package:
-```cs
-using Azure.Messaging.EventGrid;
-```
-2. Make the following changes to the RegisterRefreshEventHandler method:
-```cs
- private static void RegisterRefreshEventHandler()
+         private static void RegisterRefreshEventHandler()
         {
             string serviceBusConnectionString = Environment.GetEnvironmentVariable(ServiceBusConnectionStringEnvVarName);
             string serviceBusTopic = Environment.GetEnvironmentVariable(ServiceBusTopicEnvVarName);
@@ -213,9 +168,14 @@ using Azure.Messaging.EventGrid;
                     return Task.CompletedTask;
                 });
         }
+    }
+}
 ```
 
 The `ProcessPushNotification` method includes the synchronization token into the next request to the `App Configuration` service to guarantee the application will receive the most up to date configuration settings up to the time when the notification was initially triggered. There is no guarantee to retrieve key-values after the `Push Notification` was triggered.
+
+> [!NOTE]
+> To reduce the number of requests to App Configuration when using push refresh, it is important to call `SetCacheExpiration(TimeSpan cacheExpiration)` with an appropriate value of `cacheExpiration` parameter. This controls the cache expiration time for pull refresh and can be used as a safety net in case there is an issue with the Event subscription or the Service Bus subscription. The recommended value is `TimeSpan.FromDays(30)`.
 
 ## Build and run the app locally
 
