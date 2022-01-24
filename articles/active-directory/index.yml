@@ -65,7 +65,7 @@ conceptualContent:
           text: How application provisioning works
         - url: ./app-provisioning/plan-cloud-hr-provision.md
           itemType: how-to-guide
-          text: Plan user provisioning from a cloud HR app
+          text: Plan a cloud HR provisioning deployment
       footerLink:
         url: ./app-provisioning/index.yml
         text: See more
