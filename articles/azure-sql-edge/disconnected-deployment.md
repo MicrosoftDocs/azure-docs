@@ -5,8 +5,8 @@ keywords: SQL Edge, container, docker
 services: sql-edge
 ms.service: sql-edge
 ms.topic: quickstart
-author: SQLSourabh
-ms.author: sourabha
+author: rothja
+ms.author: jroth
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.custom: mode-other
