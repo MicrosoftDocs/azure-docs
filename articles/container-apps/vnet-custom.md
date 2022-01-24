@@ -252,6 +252,8 @@ With your environment created with your custom virtual network, you can create c
 
 If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
 
+::: zone pivot="azure-cli"
+
 # [Bash](#tab/bash)
 
 ```azurecli
@@ -267,6 +269,8 @@ az group delete `
 ```
 
 ---
+
+::: zone-end
 
 ## Restrictions
 
