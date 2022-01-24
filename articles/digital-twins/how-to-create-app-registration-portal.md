@@ -118,7 +118,7 @@ In this section, you'll create a role assignment for the app registration on the
     | --- | --- |
     | Role | Select as appropriate |
     | Assign access to | User, group, or service principal |
-    | Members | Search for the name of the app registration |
+    | Members | Search for the name or [client ID](#collect-client-id-and-tenant-id) of the app registration |
     
     ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
