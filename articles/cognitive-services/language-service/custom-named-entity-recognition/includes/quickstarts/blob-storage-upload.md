@@ -10,7 +10,8 @@ ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-After you have created an Azure storage account and linked it to your Language resource, you will need to upload the example files for this quickstart. These files will later be used to train your model.
+After you have created an Azure storage account and linked it to your Language resource, you will need to upload the example files to the root directory of your container for this quickstart. These files will later be used to train your model.
+
 
 1. [Download the example data](https://go.microsoft.com/fwlink/?linkid=2175226) for this quickstart from GitHub. Open the .zip file, and extract the folder containing text files within it. 
 
@@ -19,6 +20,7 @@ After you have created an Azure storage account and linked it to your Language r
 3. In your storage account, select **Containers** from the left menu, located below **Data storage**. On the screen that appears, select **+ Container**. Give the container the name *example-data* and set the **Public access level** to *Private (no anonymous access)*.
 
     :::image type="content" source="../../media/storage-screen.png" alt-text="A screenshot showing the main page for a storage account." lightbox="../../media/storage-screen.png":::
+
 
 4. After your container has been created, click on it. Then select the **Upload** button to select the .txt and .json files you downloaded earlier. 
 
