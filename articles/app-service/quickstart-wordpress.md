@@ -53,7 +53,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
      :::image type="content" source="./media/quickstart-wordpress/06-wordpress-basics-wordpress-settings.png?text=Azure Portal WordPress settings" alt-text="Screenshot of WordPress settings":::
 
-1. Select the **Review + create** tab. After validation runs, select the **Create** button at the bottom of the page to create the WordPress site. To view Application Settings created by WordPress, see [Environment variables and app settings in Azure App Service](./reference-app-settings#wordpress).
+1. Select the **Review + create** tab. After validation runs, select the **Create** button at the bottom of the page to create the WordPress site. To view Application Settings created by WordPress, see [Environment variables and app settings in Azure App Service](reference-app-settings#wordpress.md).
 
 1. Browse to your site URL and verify the app is running properly.
 
