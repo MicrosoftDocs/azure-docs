@@ -29,16 +29,6 @@ Before you start training your app in the [LUIS portal](https://www.luis.ai/), m
 >[!Note]
 >The training dates and times are in GMT + 2.
 
-### Interactively train using the LUIS portal
-
-Log into the [LUIS portal](https://www.luis.ai/) and click on your app. Select  **Manage**  at the top of the screen, then select  **Settings.** Enable or disable the  **use non-deterministic training**  option. When disabled, training will use all available data. When enabled (by default), training will use a random sample each time the app is trained, to be used as a negative for the intent.
-
-:::image type="content" source="../media/non-determinstic-training.png" alt-text="A button for enabling or disabling non deterministic training" lightbox="../media/non-determinstic-training.png":::
-
-### Interactively train using the version settings API
-
-Use the [Version settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) with the UseAllTrainingData set to *true* to turn off deterministic training.
-
 ## Start the training process
 
 > [!TIP]
@@ -65,20 +55,8 @@ Interactive testing is done from the  **Test**  panel of the LUIS portal. You ca
 
 See [batch testing](/azure/cognitive-services/luis/luis-how-to-batch-test) if you are testing more than one utterance at a time, and the [Prediction scores](/azure/cognitive-services/luis/luis-concept-prediction-score) article to learn more about prediction scores.
 
-You can test using the [endpoint](/azure/cognitive-services/luis/luis-glossary#endpoint) with a maximum of two versions of your app. With your primary (or live) version of your app set as the  **production**  endpoint, add a second version to the  **staging**  endpoint. This approach gives you three versions of an utterance:
-
-* The current model in the Test pane of the [LUIS](/azure/cognitive-services/luis/luis-reference-regions) portal
-* The two versions at the two different endpoints.
-
-All endpoint testing counts toward your usage quota.
 
 ## Test an utterance
-
-> [!NOTE]
-> Remember to train LUIS after you make changes to the model. Changes to the LUIS app are not seen in testing until the app is trained.
-> 1. Sign in to the LUIS portal, and select your subscription and authoring resource to see the apps assigned to that authoring resource.
-> 2. Open your app by selecting its name on My Apps page.
-> 3. In order to test against the most recent version of the active app, select Train from the top menu, before testing.
 
 The test utterance should not be exactly the same as any example utterances in the app. The test utterance should include word choice, phrase length, and entity usage you expect for a user.
 
@@ -104,27 +82,15 @@ Inspect the test result details in the  **Inspect**  panel.
 > [!TIP]
 >From the inspection panel, you can add the test utterance to an intent by selecting  **Add to example utterances**.
 
-## Disable required features
+## Change deterministic training settings using the version settings API
 
-This toggle helps you determine if the trained app is correctly predicting your entities based on required features. The default setting is to flag the feature as required during prediction. Select this toggle to see what the prediction would be if the subentity's feature was not required.
+Use the [Version settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) with the UseAllTrainingData set to *true* to turn off deterministic training.
 
-The trained app may incorrectly predict a machine-learned entity due to:
+## Change deterministic training settings using the LUIS portal
 
-* Incorrect labeling of example utterances.
-* The required feature doesn't match the text.
+Log into the [LUIS portal](https://www.luis.ai/) and click on your app. Select  **Manage**  at the top of the screen, then select  **Settings.** Enable or disable the  **use non-deterministic training**  option. When disabled, training will use all available data. Training will only use a _random_ sample of data from other intents as negative data when training each intent
 
-An example is a machine-learned entity with a subentity of a person's name.
-
-An example utterance for this machine-learned entity is: _Assign Bob Jones to work on the new security feature_.
-
-The extraction should include **security feature** as the **ticket description** and **Bob Jones** as the **engineer**, two subentities of the Assign ticket entity.
-
-In order to help the subentity be predicted successfully, add the prebuilt entity [PersonName](/azure/cognitive-services/luis/luis-reference-prebuilt-person) as a feature to the engineer subentity. If you make the feature required, the subentity will only be extracted if the PersonName prebuilt entity is predicted for the text. Any name in the text that doesn't get predicted with the PersonName subentity will not be labeled with the  engineer subentity.
-
-When you use the interactive test pane, and see a subentity, with a required feature that isn't predicting, toggle this setting to see if the subentity would be predicted without the feature being required. The subentity may be able to be correctly predicted without the feature as required due to correct labeling of example utterances.
-
-:::image type="content" source="../media/luis-how-to-interactive-test/disable-required-feature.png" alt-text="Screenshot of LUIS portal machine-learned entity schema with required feature" lightbox="../media/luis-how-to-interactive-test/disable-required-feature.png":::
-
+:::image type="content" source="../media/non-determinstic-training.png" alt-text="A button for enabling or disabling non deterministic training" lightbox="../media/non-determinstic-training.png":::
 
 ## View sentiment results
 
