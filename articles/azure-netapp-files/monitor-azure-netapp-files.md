@@ -29,7 +29,7 @@ For Activity log warnings for Azure NetApp Files volumes, see [Activity log warn
 
 ## Azure NetApp Files metrics 
 
-Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume IOPS, and latency. By analyzing these metrics, you can gain a better understanding on the usage pattern and volume performance of your NetApp accounts.
+Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume IOPS, and latency. With these metrics, you can gain a better understanding on the usage pattern and volume performance of your NetApp accounts.
 
 You can find metrics for a capacity pool or volume by selecting the **capacity pool** or **volume**. Then click **Metric** to view the available metrics.  
 
@@ -43,7 +43,7 @@ For more information, see [Azure Service Health dashboard](../service-health/ser
 
 ## Capacity utilization monitoring 
 
-It's important to monitor capacity regularly.  You can monitor capacity utilization at the VM level.  You can check the used and available capacity of a volume by using Windows or Linux clients. You can also configure alerts by using `ANFCapacityManager`.  
+It is important to monitor capacity regularly. You can monitor capacity utilization at the VM level.  You can check the used and available capacity of a volume by using Windows or Linux clients. You can also configure alerts by using `ANFCapacityManager`.  
 
 For more information, see [Monitor capacity utilization](volume-hard-quota-guidelines.md#how-to-operationalize-the-volume-hard-quota-change).
 
