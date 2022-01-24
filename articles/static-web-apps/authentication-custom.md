@@ -32,8 +32,8 @@ To create the registration, begin by creating the following [application setting
 
 | Setting Name | Value |
 | --- | --- |
-| `AAD_CLIENT_ID` | The Application (client) ID for the Azure AD app registration. |
-| `AAD_CLIENT_SECRET` | The client secret for the Azure AD app registration. |
+| `AZURE_CLIENT_ID` | The Application (client) ID for the Azure AD app registration. |
+| `AZURE_CLIENT_SECRET` | The client secret for the Azure AD app registration. |
 
 Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
@@ -49,8 +49,8 @@ Azure Active Directory providers are available in two different versions. Versio
         "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
         "registration": {
           "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>",
-          "clientIdSettingName": "AAD_CLIENT_ID",
-          "clientSecretSettingName": "AAD_CLIENT_SECRET"
+          "clientIdSettingName": "AZURE_CLIENT_ID",
+          "clientSecretSettingName": "AZURE_CLIENT_SECRET"
         }
       }
     }
@@ -69,8 +69,8 @@ Make sure to replace `<TENANT_ID>` with your Azure Active Directory tenant ID.
       "azureActiveDirectory": {
         "registration": {
           "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>/v2.0",
-          "clientIdSettingName": "AAD_CLIENT_ID",
-          "clientSecretSettingName": "AAD_CLIENT_SECRET"
+          "clientIdSettingName": "AZURE_CLIENT_ID",
+          "clientSecretSettingName": "AZURE_CLIENT_SECRET"
         }
       }
     }

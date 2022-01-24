@@ -31,7 +31,6 @@ Ev3-series VM’s feature Intel® Hyper-Threading Technology.
 [VM Generation Support](generation-2.md): Generation 1<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
-[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max NICs / Network bandwidth |
@@ -63,7 +62,6 @@ Esv3-series VM’s feature Intel® Hyper-Threading Technology.
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
-[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Burst cached and temp storage throughput: IOPS/MBps<sup>3</sup> | Max uncached disk throughput: IOPS/MBps |  Burst uncached disk throughput: IOPS/MBps<sup>3</sup>| Max NICs/ Expected network bandwidth  (Mbps) |
