@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/12/2022
+ms.date: 01/24/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -186,7 +186,7 @@ In this section, you find documents about Microsoft Power BI integration into SA
 - June 24, 2020: Change in [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to release new improved Azure Fence Agent and more resilient STONITH configuration for devices, based on Azure Fence Agent 
 - June 24, 2020: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to release more resilient STONITH configuration
 - June 23, 2020: Changes to [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md) guide and introduction of [Azure Storage types for SAP workload](./planning-guide-storage.md) guide
-- 06/22/2020: Add installation steps for new VM Extension for SAP to the [Deployment Guide](deployment-guide.md)
+- June 22, 2020: Add installation steps for new VM Extension for SAP to the [Deployment Guide](deployment-guide.md)
 - June 16, 2020: Change in [Public endpoint connectivity for VMs using Azure Standard ILB in SAP HA scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md) to add a link to SUSE Public Cloud Infrastructure 101 documentation 
 - June 10, 2020: Adding new HLI SKUs into [Available SKUs for HLI](./hana-available-skus.md) and [SAP HANA (Large Instances) storage architecture](./hana-storage-architecture.md)
 - May 21, 2020: Change in [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) and [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to add a link to [Public endpoint connectivity for VMs using Azure Standard ILB in SAP HA scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md)  
@@ -208,7 +208,7 @@ In this section, you find documents about Microsoft Power BI integration into SA
 - March 26, 2020: Change in [High availability for SAP NetWeaver on Azure VMs on SLES for SAP applications](./high-availability-guide-suse.md), [High availability for SAP NetWeaver on Azure VMs on SLES with Azure NetApp Files for SAP applications](./high-availability-guide-suse-netapp-files.md), [High availability for NFS on Azure VMs on SLES](./high-availability-guide-suse-nfs.md), [High availability for SAP NetWeaver on Azure VMs on RHEL multi-SID guide](./high-availability-guide-suse-multi-sid.md), [High availability for SAP NetWeaver on Azure VMs on RHEL for SAP applications](./high-availability-guide-rhel.md) and [High availability for SAP NetWeaver on Azure VMs on RHEL with Azure NetApp Files for SAP applications](./high-availability-guide-rhel-netapp-files.md) to update diagrams and clarify instructions for Azure Load Balancer backend pool creation
 - March 19, 2020: Major revision of document [Quickstart: Manual installation of single-instance SAP HANA on Azure Virtual Machines](./hana-get-started.md) to [Installation of SAP HANA on Azure Virtual Machines](./hana-get-started.md)
 - March 17, 2020: Change in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](./high-availability-guide-suse-pacemaker.md) to remove SBD configuration setting that is no longer necessary
-- March 16 2020: Clarification of column certification scenario in SAP HANA IaaS certified platform in [What SAP software is supported for Azure deployments](./sap-supported-product-on-azure.md)
-- 03/11/2020: Change in [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) to clarify multiple databases per DBMS instance support
+- March 16, 2020: Clarification of column certification scenario in SAP HANA IaaS certified platform in [What SAP software is supported for Azure deployments](./sap-supported-product-on-azure.md)
+- March 11, 2020: Change in [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) to clarify multiple databases per DBMS instance support
 - March 11, 2020: Change in [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md) explaining Generation 1 and Generation 2 VMs
 - March 10, 2020: Change in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) to clarify real existing throughput limits of ANF
