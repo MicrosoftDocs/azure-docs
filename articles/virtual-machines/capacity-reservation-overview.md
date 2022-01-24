@@ -1,8 +1,8 @@
 ---
 title: On-demand Capacity Reservation in Azure (preview)
 description: Learn how to reserve compute capacity in an Azure region or an Availability Zone with Capacity Reservation.
-author: vargupt
-ms.author: vargupt
+author: bdeforeest
+ms.author: bidefore
 ms.service: virtual-machines #Required
 ms.topic: how-to
 ms.date: 08/09/2021

@@ -1,8 +1,8 @@
 ---
 title: Modify a Capacity Reservation in Azure (preview)
 description: Learn how to modify a Capacity Reservation.
-author: vargupt
-ms.author: vargupt
+author: bdeforeest
+ms.author: bidefore
 ms.service: virtual-machines #Required
 ms.topic: how-to
 ms.date: 08/09/2021

@@ -1,8 +1,8 @@
 ---
 title: Remove a virtual machine scale set association from a Capacity Reservation group (preview)
 description: Learn how to remove a virtual machine scale set from a Capacity Reservation group.
-author: vargupt
-ms.author: vargupt
+author: bdeforeest
+ms.author: bidefore
 ms.service: virtual-machines #Required
 ms.topic: how-to
 ms.date: 08/09/2021

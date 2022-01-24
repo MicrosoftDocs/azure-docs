@@ -1,8 +1,8 @@
 ---
 title: Overallocating Capacity Reservation in Azure (preview)
 description: Learn how overallocation works when it comes to Capacity Reservation.
-author: vargupt
-ms.author: vargupt
+author: bdeforeest
+ms.author: bidefore
 ms.service: virtual-machines #Required
 ms.topic: how-to
 ms.date: 08/09/2021

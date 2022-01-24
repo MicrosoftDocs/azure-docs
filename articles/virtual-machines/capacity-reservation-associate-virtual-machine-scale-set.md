@@ -1,8 +1,8 @@
 ---
 title: Associate a virtual machine scale set to a Capacity Reservation Group (preview)
 description: Learn how to associate a new or existing virtual machine scale set to a Capacity Reservation group.
-author: vargupt
-ms.author: vargupt
+author: bdeforeest
+ms.author: bidefore
 ms.service: virtual-machines #Required
 ms.topic: how-to
 ms.date: 08/09/2021
