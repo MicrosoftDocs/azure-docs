@@ -344,7 +344,6 @@ sections:
       - question: |
           VM images must have 1-MB free space
         answer: |
-         
           If you are publishing your image to Azure (with **GPT partition**), we *highly recommend* that you keep the first 2,048 sectors (1 MB) of the OS disk empty. This requirement is to allow Azure to add important metadata to the image (examples include metadata to improve boot time for customers, billing, and other details). Note that this is a recommendation for best practice if you are already using [an approved base image](azure-vm-create-using-approved-base.md) and your image has a valid billing tag. However, if your image does not have a valid billing tag, your publishing might fail if the first 1 MB of the OS disk isn't empty.
 
           If you are building your own image that does not have any valid billing tag, ensure the first 2,048 sectors (1 MB) of the OS disk are empty. Otherwise, your publishing will fail. This requirement is applicable to the OS disk only (not data disks). If you are building your image from an approved base, it will already have first 1 MB empty. Hence, you won't need to work on it separately. 
