@@ -23,14 +23,14 @@ Azure ML users can now search for machine learning assets such as jobs, models, 
 
 From this centralized global view, select from recently visited workspaces or browse documentation and tutorial resources.
 
-![global view](./media/how-to-search-cross-workspace/globalhome.png)
+![global view](./media/how-to-search-cross-workspace/global_home.png)
 
 ### Search
 
 Type search text into the global search bar and hit enter to trigger a 'contains' search.
 The search will scan across all metadata fields for the given asset. Results are sorted by relevance as determined by the index service relevancy weightings for the asset columns. 
 
-![search bar](articles/machine-learning/media/how-to-search-cross-workspace/searchbar.png)
+![search bar](articles/machine-learning/media/how-to-search-cross-workspace/search_bar.png)
 
 Use the asset quick links to navigate to search results for jobs, models, and components created by you. 
 
@@ -73,7 +73,7 @@ To add more specificity to the search results, use the column filters sidebar.
 
 Customize the display of columns in the search results table. These views can be saved and shared as well. 
 
-![custom column views](./media/views.jpg)
+![custom column views](./media/how-to-search-cross-workspace/custom_views.jpg)
 
 ## Known Issues
 
