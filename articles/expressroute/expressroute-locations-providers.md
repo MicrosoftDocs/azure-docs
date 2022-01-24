@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/23/2022
+ms.date: 01/24/2022
 ms.author: duau
 ---
 # ExpressRoute partners and peering locations
@@ -16,7 +16,7 @@ ms.author: duau
 > * [Providers By Location](expressroute-locations-providers.md)
 
 
-The tables in this article provide information on ExpressRoute geographical coverage and locations, ExpressRoute connectivity providers,and ExpressRoute System Integrators (SIs).
+The tables in this article provide information on ExpressRoute geographical coverage and locations, ExpressRoute connectivity providers, and ExpressRoute System Integrators (SIs).
 
 > [!Note]
 > Azure regions and ExpressRoute locations are two distinct and different concepts, understanding the difference between the two is critical to exploring Azure hybrid networking connectivity. 
@@ -24,7 +24,7 @@ The tables in this article provide information on ExpressRoute geographical cove
 >
 
 ## Azure regions
-Azure regions are global datacenters where Azure compute, networking and storage resources are located. When creating an Azure resource, a customer needs to select a resource location. The resource location determines which Azure datacenter (or availability zone) the resource is created in.
+Azure regions are global datacenters where Azure compute, networking, and storage resources are located. When creating an Azure resource, a customer needs to select a resource location. The resource location determines which Azure datacenter (or availability zone) the resource is created in.
 
 ## ExpressRoute locations
 ExpressRoute locations (sometimes referred to as peering locations or meet-me-locations) are co-location facilities where Microsoft Enterprise edge (MSEE) devices are located. ExpressRoute locations are the entry point to Microsoft's network – and are globally distributed, providing customers the opportunity to connect to Microsoft's network around the world. These locations are where ExpressRoute partners and ExpressRoute Direct customers issue cross connections to Microsoft's network. In general, the ExpressRoute location does not need to match the Azure region. For example, a customer can create an ExpressRoute circuit with the resource location *East US*, in the *Seattle* Peering location.
@@ -131,7 +131,7 @@ The following table shows connectivity locations and the service providers for e
 
 ### National cloud environments
 
-Azure national clouds are isolated from each other and from global commercial Azure. ExpressRoute for one Azure cloud can't connect to the Azure regions in the others.
+Azure national clouds are isolated from each other and from global commercial Azure. ExpressRoute for one Azure cloud cannot connect to the Azure regions in the others.
 
 ### US Government cloud
 | **Location** | **Address** | **Local Azure regions**| **ER Direct** | **Service providers** |
@@ -184,7 +184,7 @@ If your connectivity provider is not listed in previous sections, you can still 
   * Follow steps in [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) to set up connectivity.
 
 ## Connectivity through satellite operators
-If you are remote and don't have fiber connectivity or you want to explore other connectivity options you can check the following satellite operators. 
+If you are remote and do not have fiber connectivity or want to explore other connectivity options, you can check the following satellite operators. 
 
 * Intelsat
 * [SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
