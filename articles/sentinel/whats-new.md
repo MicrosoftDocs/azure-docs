@@ -29,7 +29,6 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## February 2022
 
-
 [View Azure Purview data in Microsoft Sentinel](#view-azure-purview-data-in-microsoft-sentinel)
 
 ### View Azure Purview data in Microsoft Sentinel
@@ -39,7 +38,6 @@ Microsoft Sentinel now integrates directly with Azure Purview by providing an ou
 For more information, see [Tutorial: Integrate Microsoft Sentinel and Azure Purview](purview-solution.md).
 
 ## January 2022
-
 
 - [SentinelHealth data table (Public preview)](#sentinelhealth-data-table-public-preview)
 - [More workspaces supported for Multiple Workspace View](#more-workspaces-supported-for-multiple-workspace-view)
