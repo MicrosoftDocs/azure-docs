@@ -3,7 +3,7 @@ title: How to enable Microsoft Defender for Containers in Microsoft Defender for
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: overview
 zone_pivot_groups: k8s-host
-ms.date: 01/02/2022
+ms.date: 01/24/2022
 ---
 # Enable Microsoft Defender for Containers
 
@@ -25,6 +25,30 @@ Learn about this plan in [Overview of Microsoft Defender for Containers](defende
 > 
 > [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
 ::: zone-end
+
+## Perquisites 
+
+Validate the following endpoints are configured for outbound access so that the Defender profile/extension can connect to Microsoft Defender for Cloud to send security data and events:
+
+For Azure public cloud deployments:
+
+| Domain                     | Port |
+| -------------------------- | ---- |
+| *.ods.opinsights.azure.com | 443  |
+| *.oms.opinsights.azure.com | 443  |
+| login.microsoftonline.com  | 443  |
+ 
+For Azure Government cloud deployments:
+
+| Domain                    | Port |
+| ------------------------- | ---- |
+| *.ods.opinsights.azure.us | 443  |
+| *.oms.opinsights.azure.us | 443  |
+| login.microsoftonline.us  | 443  |
+
+By default, AKS clusters have unrestricted outbound (egress) internet access. 
+
+for more details you can see Restrict egress traffic in Azure Kubernetes Service (AKS) - Azure Kubernetes Service | Microsoft Docs
 
 ::: zone pivot="defender-for-container-aks"
 [!INCLUDE [Enable plan for AKS](./includes/defender-for-containers-enable-plan-aks.md)]
