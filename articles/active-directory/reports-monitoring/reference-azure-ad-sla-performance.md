@@ -59,7 +59,7 @@ For each month, we truncate the SLA attainment at three places after the decimal
 
 ## Version 2
 
-Test:
+
 
 | Month     | 2021   | 2022 |
 | ---       | ---    | ---  |
