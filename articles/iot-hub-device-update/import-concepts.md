@@ -59,7 +59,7 @@ An import manifest is a JSON file that defines important information about the u
 }
 ```
 
-The import manifest contains several items which represent important Device Update for IoT Hub concepts and they are outlined below. The full schema is documented [here](./import-schema.md).
+The import manifest contains several items which represent important Device Update for IoT Hub concepts. These are outlined in this section. The full schema is documented [here](./import-schema.md).
 
 ### Update identity (updateId)
 
@@ -75,7 +75,7 @@ The import manifest contains several items which represent important Device Upda
 
 *Compatibility* defines the criteria of a device that can install the update. It contains device properties - a set of arbitrary key value pairs that are reported from a device. Only devices with matching properties will be eligible for deployment. An update may be compatible with multiple device classes by having  more than one set of device properties.
 
-Following is an example of update that can only be deployed to a device that reports *Contoso* and *Toaster* as its device manufacturer and model.
+Here is an example of an update that can only be deployed to a device that reports *Contoso* and *Toaster* as its device manufacturer and model.
 
 ```json
 {
@@ -90,7 +90,7 @@ Following is an example of update that can only be deployed to a device that rep
 
 ### Instructions
 
-*Instructions* contains the necessary information or *steps* for device agent to install the update. The simplest update contains single *inline* step which executes the included payload file with the help of a *handler* registered with the device agent:
+The *Instructions* part contains the necessary information or *steps* for device agent to install the update. The simplest update contains a single *inline* step. That step executes the included payload file using a *handler* registered with the device agent:
 
 ```json
 {
@@ -110,7 +110,7 @@ Following is an example of update that can only be deployed to a device that rep
 > [!TIP]
 > `handler` is equivalent to `updateType` in import manifest version 3.0 or older.
 
-An update may contain more than one steps:
+An update may contain more than one step:
 
 ```json
 {
@@ -170,7 +170,7 @@ An update may contain *reference* step which instructs device agent to install a
 
 ### Files
 
-*Files* contains the metadata of update payload files like their names, sizes, and hash. Device Update for IoT Hub uses this metadata for integrity validation during import process. The same information is then forwarded to device agent to repeat the integrity validation prior to installation.
+The *Files* part contains the metadata of update payload files like their names, sizes, and hash. Device Update for IoT Hub uses this metadata for integrity validation during import process. The same information is then forwarded to device agent to repeat the integrity validation prior to installation.
 
 > [!NOTE]
 > An update that contains *reference* steps only will not have any update payload file in the parent update.
@@ -187,7 +187,7 @@ You may use any text editor to create import manifest JSON file. There are also 
 
 ## Limits on importing updates
 
-Certain limits are enforced for each Device Update for IoT Hub instance. If you haven't already reviewed them, please see [Device Update limits](./device-update-limits.md).
+Certain limits are enforced for each Device Update for IoT Hub instance. If you have not already reviewed them, please see [Device Update limits](./device-update-limits.md).
 
 ## Next steps
 
