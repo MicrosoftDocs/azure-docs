@@ -1,30 +1,23 @@
 ---
 title: Pre-load files in Azure HPC Cache (Preview)
-description: Use the cache priming feature to populate or preload cache contents before files are requested 
-author: ekpgh
+description: Use the cache priming feature (preview) to populate or preload cache contents before files are requested 
+author: ronhogue
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 01/24/2022
 ms.author: rohogue
 ---
 
 # Pre-load files in Azure HPC Cache (Preview)
 
-> [!NOTE]
-> This feature is currently in public preview.
-
-<!-- better disclaimer adapted from azure-docs/includes/machine-learning-preview-generic-disclaimer:
- 
-> [!NOTE]
-> This feature is currently in public preview.
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. It might not support all options, and capabilities might be constrained.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).  -->
+> [!IMPORTANT]
+> Cache priming is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Azure HPC Cache’s priming feature (preview) allows customers to pre-load files in the cache.
 
-This feature can be used to fetch your expected working set of files and populate the cache before beginning work. This technique is sometimes called cache warming.
+You can use this feature to fetch your expected working set of files and populate the cache before work begins. This technique is sometimes called cache warming.
 
-Priming the cache improves performance by increasing cache hits. If a client machine requests a resource that must be read from the back-end storage, the response can have significant latency - especially if the storage system is an on-premises NAS. If you prime the cache with the needed files before you start a compute task, requests can be served more efficiently during the job.
+Priming the cache improves performance by increasing cache "hits". If a client machine requests a resource that must be read from the back-end storage, the latency for fetching and returning that file can be significant - especially if the storage system is an on-premises NAS. If you prime the cache with the files it will need before you start a compute task, file requests will be more efficient during the job.
 
 This feature uses a JSON manifest file to specify which files to load. Each priming job takes one manifest file.
 
@@ -44,7 +37,7 @@ Before you can create a priming job, take these steps:
 
 The priming manifest is a JSON file that defines what content will be preloaded in the cache when the priming job runs.
 
-In the manifest, specify the namespace path to the directories or files that you want to pre-load.
+In the manifest, specify the namespace path to the directories or files that you want to pre-load. You also can configure include and exclude rules to customize which content is loaded.
 
 ### Sample priming manifest
 
@@ -109,30 +102,35 @@ Specify files and directories by their cache namespace paths. These are the same
 
 Start paths from the root of the cache namespace.
 
-Items listed in `files` are included even if they match later exclude rules.
+> [!NOTE]
+> Items listed in `files` are included even if they match later exclude rules.
 
 The `directories` value holds a list of paths that are assessed for content to pre-load in the cache. All subtrees are included in the priming job unless they’re specifically excluded.
 
 Directory path values can have their own include and exclude statements, which apply only to the path they’re defined with. For example, the line `"directories": [{"path": "/cache/library1", "exclude": "\\.bak$"}]` would pre-load all files under the namespace path /cache/library1/ except for files in that path that end in `.bak`.
+
+Directory-level include/exclude statements are not the same as the global include and exclude statements described [below](#include-and-exclude-statements). Be careful to read the details about how directory-level statements interact with global include and exclude statements.
 
 > [!NOTE]
 > Because of the way the manifest file is parsed, two escape characters are needed to protect a problematic string character in include and exclude statements. For example, use the expression `\\.txt` to match .txt files. <!-- double-check the \\.txt formatting, some interpretations might drop a \ -->
 
 ### Include and exclude statements
 
-The global `include` and `exclude` settings apply to all directories. They do not apply to files that were specified in a `files` statement.
+After the files and directories, you can specify global `include` and `exclude` statements. These global settings apply to all directories. They do not apply to files that were specified in a `files` statement.
 
-When scanning directories, the priming job ignores any files that **do not match** the regular expressions in the `include` setting.
+* **Include** statements - When scanning directories, the priming job ignores any files that **do not match** the regular expressions in the `include` setting.
 
-When scanning directories, the priming job ignores any file that **matches** the regular expressions in the `exclude` setting. Here is how these global exclude rules interact with other include and exclude rules:
+* **Exclude** statements - When scanning directories, the priming job ignores any file that **matches** the regular expressions in the `exclude` setting.
 
-* Global exclude rules override global include rules. That is, if a file name matches both a global *include* expression and a global *exclude* expression, it will **not** be pre-loaded by the priming job.
+  More about how global exclude rules interact with other rules:
 
-* Directory-level include rules override global exclude rules.
+  * Global exclude rules override global include rules. That is, if a file name matches both a global *include* expression and a global *exclude* expression, it will **not** be pre-loaded by the priming job.
 
-  A file name that matches both a *directory-level* ***include*** expression and a *global* ***exclude*** expression **will** be pre-loaded by the priming job.
+  * Directory-level include rules override global exclude rules.
 
-* File statements override all exclude rules.
+    A file name that matches both a *directory-level* ***include*** expression and a *global* ***exclude*** expression **will** be pre-loaded by the priming job.
+
+  * File statements override all exclude rules.
 
 You can omit include and exclude statements to prime all files in the directories.
 
@@ -144,17 +142,17 @@ More information about include/exclude rules and how they match file names:
 
 * If a name matches an entry in the global exclude list, it is skipped.
 
-* If there is a global include list, the name is included if it appears on that list or excluded if it does not appear on that list.
+* If there is a global include list, the name is included if it appears on that list, or excluded if it does not appear on that list.
 
 * If there is a per-directory include list, the name is excluded. Otherwise, it is included.
 
 * If a directory and an ancestor of that directory both appear in the directories list, the specific rules for the directory are applied along with the global rules and the rules for the ancestor directory are ignored.
 
-* Names and rules are case sensitive. Case-insensitive sources are not supported in the private preview version. <!-- how about public preview??? -->
+* Names and rules are case sensitive. Case-insensitive sources are not supported. <!-- in the private preview version -->
 
 * The total number of file rules plus directory rules may not exceed 4000. The number of regular expression rules for any include/exclude list may not exceed 5.
 
-* When one directory specification overlaps another, the one with the more explicit path takes precedence.
+* If one directory specification overlaps another, the one with the more explicit path takes precedence.
 
 * It is an error for a manifest to specify the same path more than once in the explicit list or directory list.
 
@@ -174,9 +172,6 @@ The cache accesses the manifest file once when the priming job starts. The SAS U
 
 Use the Azure portal to create a priming job. View your Azure HPC Cache in the portal and click the **Prime cache** page under the **Settings** heading.
 
-<!-- >> [!TIP]
-> If you do not see the **Prime cache** option, make sure that your cache used the subscription that was authorized for the private preview. -->
-
 ![screenshot of the Priming page in the portal, with several completed jobs.](media/priming-preview.png)
 <!-- to do: screenshot with 'preview' on GUI heading, screenshot with more diverse jobs and statuses -->
 
@@ -194,7 +189,7 @@ Use the **Priming file** field to select your priming manifest file. Select the 
 
 You can use these REST API endpoints to create an HPC Cache priming job. These are part of the `2021-10-01-preview` version of the REST API, so make sure you use that string in the *api_version* term.
 
-Read the [Azure REST API reference](/rest/api/azure/)to learn how to use this interface.
+Read the [Azure REST API reference](/rest/api/azure/) to learn how to use this interface.
 
 ### Add a priming job
 
@@ -257,4 +252,5 @@ BODY:
 
 ## Next steps
 
-* For help with HPC Cache priming (preview) or to report a problem, contact **???** <!-- to do: find out -->
+* For help with HPC Cache priming (preview) or to report a problem, use the standard Azure support process, described in [Get help with Azure HPC Cache](hpc-cache-support-ticket.md).
+* Learn more about [Azure REST APIs](/rest/api/azure/)
