@@ -11,9 +11,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
 ---
-# How to index JSON blobs using a Blob indexer in Azure Cognitive Search
+# How to index JSON blobs and files in Azure Cognitive Search
 
-This article shows you how to [configure a blob indexer](search-howto-indexing-azure-blob-storage.md) for blobs that consist of JSON documents. JSON blobs in Azure Blob Storage commonly assume any of these forms:
+**Applies to**: [Blob indexers](search-howto-indexing-azure-blob-storage.md), [File indexers](search-file-storage-integration.md)
+
+This article shows you how to set JSON-specific properties for blobs or files that consist of JSON documents. JSON blobs in Azure Blob Storage or Azure File Storage commonly assume any of these forms:
 
 + A single JSON document
 + A JSON document containing an array of well-formed JSON elements

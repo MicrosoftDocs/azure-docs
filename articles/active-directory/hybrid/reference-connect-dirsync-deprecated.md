@@ -45,11 +45,6 @@ If you are running DirSync, there are two ways you can upgrade: In-place upgrade
 | [Upgrade from DirSync](how-to-dirsync-upgrade-get-started.md) |<li>If you have an existing DirSync server already running.</li> |
 | [Upgrade from Azure AD Sync](how-to-upgrade-previous-version.md) |<li>If you are moving from Azure AD Sync.</li> |
 
-If you want to see how to do an in-place upgrade from DirSync to Azure AD Connect, then see this Channel 9 video:
-
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-in-place-upgrade-from-legacy-tools/player]
->
->
 
 ## FAQ
 **Q: I have received an email notification from the Azure Team and/or a message from the Microsoft 365 message center, but I am using Connect.**  

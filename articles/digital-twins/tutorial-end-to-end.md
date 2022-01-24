@@ -30,8 +30,7 @@ In this tutorial, you will...
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-### Set up Cloud Shell session
-[!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
+[!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
 
 [!INCLUDE [Azure Digital Twins tutorial: configure the sample project](../../includes/digital-twins-tutorial-sample-configure.md)]
 
@@ -245,7 +244,7 @@ Here are the actions you'll complete to set up this device connection:
 
 Azure Digital Twins is designed to work alongside [IoT Hub](../iot-hub/about-iot-hub.md), an Azure service for managing devices and their data. In this step, you'll set up an IoT hub that will manage the sample device in this tutorial.
 
-In Azure Cloud Shell, use this command to create a new IoT hub:
+In the Azure CLI, use this command to create a new IoT hub:
 
 ```azurecli-interactive
 az iot hub create --name <name-for-your-IoT-hub> --resource-group <your-resource-group> --sku S1
@@ -285,7 +284,7 @@ Back on the *Create Event Subscription* page, select **Create**.
 
 This section creates a device representation in IoT Hub with the ID thermostat67. The simulated device will connect into this representation, which is how telemetry events will go from the device into IoT Hub. The IoT hub is where the subscribed Azure function from the previous step is listening, ready to pick up the events and continue processing.
 
-In Azure Cloud Shell, create a device in IoT Hub with the following command:
+In the Azure CLI, create a device in IoT Hub with the following command:
 
 ```azurecli-interactive
 az iot hub device-identity create --device-id thermostat67 --hub-name <your-IoT-hub-name> --resource-group <your-resource-group>
@@ -435,7 +434,7 @@ After completing this tutorial, you can choose which resources you want to remov
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-* **If you want to continue using the Azure Digital Twins instance you set up in this article, but clear out some or all of its models, twins, and relationships**, you can use the [az dt](/cli/azure/dt) CLI commands in an [Azure Cloud Shell](https://shell.azure.com) window to delete the elements you want to remove.
+* **If you want to continue using the Azure Digital Twins instance you set up in this article, but clear out some or all of its models, twins, and relationships**, you can use the [az dt](/cli/azure/dt) CLI commands to delete the elements you want to remove.
 
     This option won't remove any of the other Azure resources created in this tutorial (IoT Hub, Azure Functions app, and so on). You can delete these individually using the [dt commands](/cli/azure/reference-index) appropriate for each resource type.
 

@@ -339,7 +339,7 @@ Test your private peering connectivity by **counting** packets arriving and leav
 
     :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/test-private-peering.png" alt-text="Screenshot of troubleshooting connectivity issues options.":::
 
-1. Execute the [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) test from your on-premises IP address to your Azure IP address and keep it running during the connectivity test.
+1. Execute the [PsPing](/sysinternals/downloads/psping) test from your on-premises IP address to your Azure IP address and keep it running during the connectivity test.
 
 1. Fill out the fields of the form, making sure to enter the same on-premises and Azure IP addresses used in Step 5. Then select **Submit** and then wait for your results to load. Once your results are ready, review the information for interpreting them below.
 

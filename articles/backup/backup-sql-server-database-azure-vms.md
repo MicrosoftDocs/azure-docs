@@ -2,7 +2,7 @@
 title: Back up multiple SQL Server VMs from the vault
 description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup from the Recovery Services vault
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 01/14/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -89,6 +89,10 @@ You can also use the following FQDNs to allow access to the required services fr
 | Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` | 443
 | Azure  AD      | Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) | As applicable
 
+#### Allow connectivity for servers behind internal load balancers
+
+When using an internal load balancer, you need to allow the outbound connectivity from virtual machines behind the internal load balancer to perform backups. To do so, you can use a combination of internal and external standard load balancers to create an outbound connectivity. [Learn more](../load-balancer/egress-only.md) about the configuration to create an _egress only_ setup for VMs in the backend pool of the internal load balancer.
+
 #### Use an HTTP proxy server to route traffic
 
 When you back up a SQL Server database on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Azure AD for authentication. Route the backup extension traffic for these three services through the HTTP proxy. Use the list of IPs and FQDNs mentioned above for allowing access to the required services. Authenticated proxy servers aren't supported.
@@ -110,7 +114,7 @@ When you back up a SQL Server database on an Azure VM, the backup extension on t
 
 - Multiple databases on the same SQL instance with casing difference aren't supported.
 
--	Changing the casing of a SQL database isn't supported after configuring protection.
+-	Changing the casing of an SQL database isn't supported after configuring protection.
 
 >[!NOTE]
 >The **Configure Protection** operation for databases with special characters, such as '+' or '&', in their name isn't supported. You can change the database name or enable **Auto Protection**, which can successfully protect these databases.
@@ -144,7 +148,7 @@ How to discover databases running on a VM:
 1. Azure Backup discovers all SQL Server databases on the VM. During discovery, the following elements occur in the background:
 
     * Azure Backup registers the VM with the vault for workload backup. All databases on the registered VM can be backed up to this vault only.
-    * Azure Backup installs the AzureBackupWindowsWorkload extension on the VM. No agent is installed on a SQL database.
+    * Azure Backup installs the AzureBackupWindowsWorkload extension on the VM. No agent is installed on an SQL database.
     * Azure Backup creates the service account NT Service\AzureWLBackupPluginSvc on the VM.
       * All backup and restore operations use the service account.
       * NT Service\AzureWLBackupPluginSvc requires SQL sysadmin permissions. All SQL Server VMs created in the Marketplace come with the SqlIaaSExtension installed. The AzureBackupWindowsWorkload extension uses the SQLIaaSExtension to automatically get the required permissions.

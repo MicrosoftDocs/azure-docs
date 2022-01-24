@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 01/12/2022
+ms.date: 01/21/2022
 ---
 
 # Azure Purview network architecture and best practices
@@ -96,7 +96,7 @@ When you're scanning a data source in Azure Purview, you need to provide a crede
 
 ### Additional considerations  
 
-- If you choose to scan data sources by using public endpoints, your on-premises or VM-based data sources must have outbound connectivity to Azure endpoints. 
+- If you choose to scan data sources using public endpoints, your self-hosted integration runtime VMs must have outbound access to data sources and Azure endpoints. 
 
 - Your self-hosted integration runtime VMs must have [outbound connectivity to Azure endpoints](manage-integration-runtimes.md#networking-requirements). 
 
@@ -195,8 +195,6 @@ You can optionally deploy an additional self-hosted integration runtime in the s
 If your data sources are distributed across multiple Azure regions in one or more Azure subscriptions, you can use this scenario.
 
 For performance and cost optimization, we highly recommended deploying one or more self-hosted integration runtime VMs in each region where data sources are located.   
-
-If you need to register and scan any Azure Data Lake Storage (Gen2) resources from other regions, you need to have a local self-hosted integration runtime VM in the region where the data source is located. 
 
 :::image type="content" source="media/concept-best-practices/network-pe-multi-region.png" alt-text="Screenshot that shows Azure Purview with private endpoints in a scenario of multiple virtual networks and multiple regions."lightbox="media/concept-best-practices/network-pe-multi-region.png":::
 
