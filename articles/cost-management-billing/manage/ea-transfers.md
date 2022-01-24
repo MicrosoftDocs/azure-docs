@@ -91,7 +91,7 @@ Other points to keep in mind before an enrollment transfer:
 - If the source and destination enrollments are on different cloud instances, the transfer will fail. Azure Support can transfer only within the same cloud instance.
 - For reservations (reserved instances):
   - The enrollment or account transfer between different currencies affects monthly reservation purchases.
-  - Whenever there's is a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. This is intentional and affects only the monthly reservation purchases.
+  - Whenever there's is a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment (at the time of next monthly payment). This is intentional and affects only the monthly reservation purchases.
   - You may have to repurchase the canceled monthly reservations from the source enrollment using the new enrollment in the local or new currency.
 
 
