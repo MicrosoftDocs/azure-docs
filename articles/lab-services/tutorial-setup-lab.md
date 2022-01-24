@@ -20,8 +20,8 @@ In this tutorial, you set up a lab with virtual machines that are used by studen
 
 ## Prerequisites
 
-- A lab plan.  To create a lab plan, see [Tutorial: Create a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
-- Permission to create a lab.  Uou must be a member of one of these roles in the lab plan: Owner, Lab Creator, or Contributor.  For more information, see [Azure Lab Services built-in roles](administrator-guide.md#rbac-roles). The user account used to create a lab plan will already have the required permissions to create a lab.
+* A lab plan.  To create a lab plan, see [Tutorial: Create a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
+* Permission to create a lab.  You must be a member of one of these roles in the lab plan: Owner, Lab Creator, or Contributor.  For more information, see [Azure Lab Services built-in roles](administrator-guide.md#rbac-roles). The user account used to create a lab plan will already have the required permissions to create a lab.
 
 Here's the typical workflow when using Azure Lab Services:
 
@@ -130,7 +130,6 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
 
 For more information about creating and managing schedules for a class, see [Create and manage schedule for labs](how-to-create-schedules.md).
 
-
 ## Add users to the lab
 
 In this section, you add students to the lab.  Students can be added to a lab several ways including [manually by entering an email address](how-to-configure-student-usage.md#add-users-by-email-address), [uploading a CSV file with student information](how-to-configure-student-usage.md#add-users-by-uploading-a-csv-file), or [syncing to an Azure AD group](how-to-configure-student-usage.md#sync-users-with-azure-ad-group).
@@ -152,7 +151,6 @@ By default, the **Restrict access** option, found on the **Users** page, is turn
 
     > [!NOTE]
     > After the students are registered with the lab, the list displays their names. The name that's shown in the list is constructed by using the first and last names of the student's information from Azure AD or their Microsoft Account.  For more information on supported account types, see [Student accounts](how-to-configure-student-usage.md#student-accounts).
-
 
 ## Send invitation emails to users
 

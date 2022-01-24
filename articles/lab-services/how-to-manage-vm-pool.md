@@ -5,17 +5,18 @@ ms.topic: how-to
 ms.date: 01/21/2022
 ---
 
-# Manage a VM pool in Lab Services 
+# Manage a VM pool in Lab Services
 
 The **Virtual machine pool** page of a lab allows instructors to set how many VMs are available for use and manage the state of those VMs.
 
-1. Start and stop all the VMs at once.
-1. Start and stop specific VMs.
-1. Redeploy a VM.
-1. Connect to a student's VM.
-1. Change the lab capacity.
+- Start and stop all the VMs at once.
+- Start and stop specific VMs.
+- Redeploy a VM.
+- Connect to a student's VM.
+- Change the lab capacity.
 
 VMs can be in one of a few states.
+
 - **Unassigned**. These VMs aren't assigned to students yet. These VMs won't be started when a schedule runs.
 - **Stopped**. VM is turned off and not available for use.
 - **Starting**.  VM is starting.  It's not yet available for use.
@@ -25,39 +26,39 @@ VMs can be in one of a few states.
 > [!WARNING]
 > Turning on a student VM will not affect the quota for the student. Make sure to stop all VMs manually or using a [schedule](how-to-create-schedules.md) to avoid unexpected costs.
 
-### Manually starting VMs
+## Manually starting VMs
 
 You can start all VMs in a lab by selecting the **Start all** button at the top of the page.
 
-:::image type="content" source="./media/how-to-set-virtual-machine-passwords/start-all-vms-button.png" alt-text="Start your VMs":::
+:::image type="content" source="./media/how-to-set-virtual-machine-passwords/start-all-vms-button.png" alt-text="Screenshot that shows the Virtual machine pool page and the Start all button is highlighted.":::
 
 Individual VMs can be started by clicking the state toggle.  The toggle will read **Starting** as the VM starts up, and then **Running** once the VM has started.  You can also select multiple VMs using the checks to the left of the **Name** column. Once the VMs are checked, select the **Start** button at the top of the screen.
 
-### Manually stopping VMs
+## Manually stopping VMs
 
 You can select the **Stop all** button to stop all of the VMs.
 
-:::image type="content" source="./media/how-to-set-virtual-machine-passwords/stop-all-vms-button.png" alt-text="Stop your VMs":::
+:::image type="content" source="./media/how-to-set-virtual-machine-passwords/stop-all-vms-button.png" alt-text="Screenshot that shows the Virtual machine pool page and the Stop all button is highlighted.":::
 
 Individual VMs can be stopped by clicking the state toggle.  The toggle will read **Stopping** as the VM shuts down, and then **Stopped** once the VM has shutdown.  You can also select multiple VMs using the checks to the left of the **Name** column. Once the VMs are checked, select the **Stop** button at the top of the screen.
 
-### Redeploy VMs
+## Redeploy VMs
 
-If students are facing difficulties accessing their VM, redeploying the VM may provide a resolution for the issue. Redeploying, unlike resetting, doesn't cause the data on the OS to be lost.  When you [redeploy a VM](/azure/virtual-machines/redeploy-to-new-node-windows), Azure Lab Services will shut down the VM, move it to a new host, and restart it.  You can think of it as a refresh of the underlying VM for the student’s machine.  The student doesn’t need to re-register to the lab or do any other action.  Any data you saved in the OS disk (usually C: drive) of the VM will still be available after the redeploy operation.  Anything saved on the temporary disk (usually D: drive) will be lost. 
+If students are facing difficulties accessing their VM, redeploying the VM may provide a resolution for the issue. Redeploying, unlike resetting, doesn't cause the data on the OS to be lost.  When you [redeploy a VM](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows), Azure Lab Services will shut down the VM, move it to a new host, and restart it.  You can think of it as a refresh of the underlying VM for the student’s machine.  The student doesn’t need to re-register to the lab or do any other action.  Any data you saved in the OS disk (usually C: drive) of the VM will still be available after the redeploy operation.  Anything saved on the temporary disk (usually D: drive) will be lost.
 
 Both lab owners and lab users can Redeploy a VM.
 
-### Connect to VMs
+## Connect to VMs
 
 Instructors can connect to a student VM as long as it's turned on. Verify the student is *not* connected to the VM first. By connecting to the VM, you can access local files on the VM and help students troubleshoot issues.
 
 To connect to the student VM, hover the mouse on the VM in the list and select the **Connect** button.  For further instructions based on the operating system you're using, see [Connect to the VM](tutorial-connect-lab-virtual-machine.md).
 
-### Set lab capacity
+## Set lab capacity
 
-To change the lab capacity (number of VMs in the lab), select **Lab capacity** on the toolbar and update number of VMs on the **Lab capacity** window on the right. 
+To change the lab capacity (number of VMs in the lab), select **Lab capacity** on the toolbar and update number of VMs on the **Lab capacity** window on the right.
 
-:::image type="content" source="./media/how-to-manage-vm-pool/virtual-machine-pool-update-lab-capacity.png" alt-text="Set number of VMs available for the lab.":::
+:::image type="content" source="./media/how-to-manage-vm-pool/virtual-machine-pool-update-lab-capacity.png" alt-text="Screenshot of Lab capacity window.":::
 
 If using [Teams](how-to-manage-vm-pool-within-teams.md) or [Canvas](how-to-manage-vm-pool-within-canvas.md) integration, lab capacity will automatically be updated when Azure Lab Services syncs the user list.
 

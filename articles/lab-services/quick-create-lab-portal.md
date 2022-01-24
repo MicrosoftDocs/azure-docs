@@ -22,30 +22,30 @@ The following steps show how to create a lab with Azure Lab Services.
 
 1. Sign into the [Azure Lab Service portal](https://labs.azure.com).
 1. Select **New lab**.  
-    
+
     :::image type="content" source="./media/quick-create-lab-portal/new-lab-button.png" alt-text="Screenshot of Azure Lab Services portal.  New lab button is highlighted.":::
 
 1. In the **New Lab** window, choose the basic settings for the lab.
     1. Set the **Name** to *Lab 101*.
     1. Set the **Virtual machine image** to **Windows 11 Pro**.
     1. Set the **Virtual machine size** to **Medium**. 
-    
-    :::image type="content" source="./media/quick-create-lab-portal/new-lab-window.png" alt-text="Screenshot of the New lab window for Azure Lab Services.":::
+
+        :::image type="content" source="./media/quick-create-lab-portal/new-lab-window.png" alt-text="Screenshot of the New lab window for Azure Lab Services.":::
 
     1. On the **Virtual machine credentials** page, specify default administrator credentials for all VMs in the lab. Specify the **name** and the **password** for the administrator.  By default all the student VMs will have the same password as the one specified here.
-   
-    :::image type="content" source="./media/quick-create-lab-portal/new-lab-credentials.png" alt-text="Screenshot of the Virtual Machine credentials window for Azure Lab Services.":::
+
+        :::image type="content" source="./media/quick-create-lab-portal/new-lab-credentials.png" alt-text="Screenshot of the Virtual Machine credentials window for Azure Lab Services.":::
 
     > [!IMPORTANT]
     > Make a note of user name and password. They won't be shown again.
 
     1. On the **Lab policies** page, leave the default selections and select **Next**.
 
-    :::image type="content" source="./media/quick-create-lab-portal/quota-for-each-user.png" alt-text="Screenshot of the Lab policy window when creating a new Azure Lab Services lab.":::
+        :::image type="content" source="./media/quick-create-lab-portal/quota-for-each-user.png" alt-text="Screenshot of the Lab policy window when creating a new Azure Lab Services lab.":::
 
     1. On the **Template virtual machine settings** window, leave the selection on **Create a template virtual machine**.
 
-    :::image type="content" source="./media/quick-create-lab-portal/template-virtual-machine-settings.png" alt-text="Screenshot of the Template virtual machine settings windows when creating a new Azure Lab Services lab.":::
+        :::image type="content" source="./media/quick-create-lab-portal/template-virtual-machine-settings.png" alt-text="Screenshot of the Template virtual machine settings windows when creating a new Azure Lab Services lab.":::
 
 1. You should see the following screen that shows the status of the template VM creation.
 
@@ -56,15 +56,18 @@ The following steps show how to create a lab with Azure Lab Services.
    :::image type="content" source="./media/quick-create-lab-portal/lab-template-page.png" alt-text="Screenshot of Template page of a lab.":::
 
 ## Clean up resources
+
 When no longer needed, you can delete the lab.  
 
 On the tile for the lab, select three dots (...) in the corner, and then select **Delete**.
 
-![Delete button](./media/how-to-manage-labs/delete-button.png)
+:::image type="content" source="./media/how-to-manage-labs/delete-button.png" alt-text="Screenshot of My labs page with More menu then Delete menu item highlighted.":::
 
 On the **Delete lab** dialog box, select **Delete** to continue with the deletion.
 
 ## Next steps
+
 In this quickstart, you created a lab with Azure Lab Services.  Advance to the next article to learn how to configure the template VM.
+
 > [!div class="nextstepaction"]
 > [Configure a template VM](how-to-create-manage-template.md)
