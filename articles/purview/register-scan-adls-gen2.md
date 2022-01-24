@@ -5,7 +5,7 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 01/24/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 # Connect to Azure Data Lake Gen2 in Azure Purview
@@ -254,7 +254,9 @@ It is important to give your service principal the permission to scan the ADLS G
 ## Access policy
 [!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
 
-Follow this configuration guide to [enable access policies on an Azure Storage account](./how-to-access-policies-storage.md)
+Follow these configuration guides to:
+- [Enable access policies on an Azure Storage account](./how-to-access-policies-storage.md)
+- [Enable access policies on all data sources in a subscription or a resource group](./tutorial-access-policies-resource-groups.md)
 
 ## Next steps
 
