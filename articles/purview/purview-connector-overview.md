@@ -1,6 +1,6 @@
 ---
 title: Azure Purview supported data sources and file types
-description: This article provides details about supported data sources, file types, and functionalities Azure Purview. This article provides conceptual details about supported data sources and file types in Azure Purview.
+description: This article provides details about supported data sources, file types, and functionalities in Azure Purview.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
