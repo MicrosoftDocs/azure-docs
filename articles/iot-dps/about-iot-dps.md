@@ -118,7 +118,7 @@ DPS is available in many regions. The updated list of existing and newly announc
 > [!NOTE]
 > DPS is global and not bound to a location. However, you must specify a region in which the metadata associated with your DPS profile will reside.
 
-## Availability
+## High availability
 
 There is a 99.9% Service Level Agreement for DPS, and you can [read the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
 

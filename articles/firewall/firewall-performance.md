@@ -55,12 +55,7 @@ Azure Firewall Premium’s new performance boost functionality is now in public 
 
 Performance values are calculated with Azure Firewall at full scale and with Premium performance boost enabled. Actual performance may vary depending on your rule complexity and network configuration. These metrics are updated periodically as performance continuously evolves with each release.
 
-## Configure Premium performance boost (preview)
-
-As more applications are moved to the cloud, the network element performance becomes a bottleneck. As a result, Premium performance boost (preview) for Azure Firewall Premium is available to allow more scalability for those deployments.
-
 To enable the Azure Firewall Premium performance boost, see [Azure Firewall preview features](firewall-preview.md#azure-firewall-premium-performance-boost-preview).
-
 
 
 ## Next steps
