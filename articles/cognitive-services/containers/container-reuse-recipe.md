@@ -148,8 +148,7 @@ Follow these steps to use the Dockerfile and place the new image in your private
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Create and use Azure Container Instance](azure-container-instance-recipe.md)
+[Create and use Azure Container Instance](azure-container-instance-recipe.md)
 
 <!--
 ## Store input and output configuration settings
