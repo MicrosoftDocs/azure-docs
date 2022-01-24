@@ -20,8 +20,8 @@ For more information on the column names, attributes, and description, see these
 - [Orders dashboard](orders-dashboard.md#orders-details-table)
 - [Usage dashboard](usage-dashboard.md#usage-details-table)
 - [Marketplace Insights dashboard](insights-dashboard.md#marketplace-insights-details-table)
-- [Revenue details](revenue-dashboard.md)
-- [Quality of service](quality-of-service-dashboard.md)
+- [Revenue dashboard](revenue-dashboard.md)
+- [Quality of Service dashboard](quality-of-service-dashboard.md)
 
 The following sections provide various report queries.
 
