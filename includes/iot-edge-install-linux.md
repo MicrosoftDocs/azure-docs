@@ -15,8 +15,6 @@ You need to complete two steps on your device before it's ready to install the I
 
 ### Access the Microsoft installation packages
 
-# [Ubuntu](#tab/ubuntu)
-
 1. Get the latest repository configuration from Microsoft:
 
 <!-- 1.2 -->
