@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  how-to
-ms.date: 12/16/2021
+ms.date: 1/24/2021
 ms.author: cshoe
 ---
 
@@ -13,14 +13,40 @@ ms.author: cshoe
 
 As you create an Azure Container Apps [environment](environment.md), a virtual network (VNET) is created for you, or you can provide your own. Network addresses are assigned from a subnet range you define as the environment is created.
 
-- You control the subnet range used by the container app.
+- You control the subnet range used by the container app environment.
 - Once the environment is created, the subnet range is immutable.
+- A single load balancer and single Kubernetes service is associated with each container apps environment.
 - Each [revision pod](revisions.md) is assigned an IP address in the subnet.
+- You can restrict inbound requests to the environment exclusively to the vNET by setting the `internalOnly` switch.
 
 > [!NOTE]
 > Current support is for outbound VNET only. Refer to the [project GitHub repository](https://github.com/microsoft/azure-container-apps) for roadmap information.
 
+> [!IMPORTANT]
+> During preview, the VNET dependency policies must be set to "allow all". Refer to the [custom VNET security sample](azurecontainerapps/customvnet) for the latest iteration of the firewall security features.
+
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Azure Container Apps environments use an existing VNET, or you can provide your own.":::
+
+## Subnet types
+
+As a container app environment is created, you provide resource IDs for two different subnets.
+
+- **App subnet**: TODO 👈 need help with description
+- **Control plane subnet**: TODO 👈 need help with description
+
+## Accessibility level
+
+Hou have control over the public accessibility of your container app by selecting to deploy it as an internal or external resource. The accessibility level affects both the IP addresses and the Envoy load balancer.
+
+### External
+
+Container app environments deployed as external resources are available for public requests. External environments have a VIP on an external IP address, often called an External ASE.
+
+### Internal
+
+When set to internal, the environment has no public endpoint. Internal environments have a VIP on an internal IP address, often called an ILB ASE because the internal endpoint is an internal load balancer (ILB). IP addresses are issued from the custom VNET's list of private IP addresses.
+
+If a container app can be set to internal when the container app is only being called by other container apps or via Dapper.
 
 ## Example
 
@@ -212,7 +238,9 @@ Additionally, subnets must have a size between /21 and /12.
 
 ## Additional resources
 
-Refer to [What is Azure Private Endpoint](/azure/private-link/private-endpoint-overview) for more details on configuring your private endpoint.
+- Refer to [What is Azure Private Endpoint](/azure/private-link/private-endpoint-overview) for more details on configuring your private endpoint.
+
+- To set up DNS name resolution for internal services, you must [set up your own DNS server](/azure/dns/).
 
 ## Next steps
 
