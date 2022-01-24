@@ -27,7 +27,7 @@ A search service accepts JSON documents that conform to the index schema.
 
 You can prepare these documents yourself, but if content resides in a [supported data source](search-indexer-overview.md#supported-data-sources), running an [indexer](search-indexer-overview.md) or the Import data wizard can automate document retrieval, JSON serialization, and indexing.
 
-### [**Azure portal**](#tab/import-portal)
+### [**Azure portal**](#tab/portal)
 
 Using Azure portal, the sole means for loading an index is the [Import Data wizard](search-import-data-portal.md). The wizard creates objects. If you want to load an existing index, you will need to use an alternative approach.
 

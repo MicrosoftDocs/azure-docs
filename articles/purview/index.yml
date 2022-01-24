@@ -24,8 +24,6 @@ landingContent:
             url: overview.md
       - linkListType: concept
         links:
-          - text: Deployment best practices
-            url: deployment-best-practices.md
           - text: Use Azure Purview Studio
             url: use-purview-studio.md
           - text: Understand Azure Purview access control
@@ -34,6 +32,8 @@ landingContent:
             url: catalog-permissions.md
           - text: Scan and ingest sources
             url: concept-scans-and-ingestion.md
+          - text: Data classification
+            url: concept-classification.md
       - linkListType: learn
         links:
           - text: Introduction to Azure Purview
@@ -41,7 +41,7 @@ landingContent:
   # Card
   - title: Get started
     linkLists:
-      - linkListType: quickstart
+      - linkListType: get-started
         links:
           - text: Create an Azure Purview account - Portal
             url: create-catalog-portal.md
@@ -53,20 +53,11 @@ landingContent:
             url: how-to-create-and-manage-collections.md
           - text: Connect to sources
             url: manage-credentials.md
-      - linkListType: tutorial
+      - linkListType: deploy
         links:
-          - text: Run starter kit and scan data 
-            url: tutorial-scan-data.md
-          - text: Navigate Azure Purview home page and search
-            url: tutorial-asset-search.md
-          - text: Browse assets and view lineage 
-            url: tutorial-browse-and-view-lineage.md
-          - text: Explore resource sets, assets, schemas, classifications 
-            url: tutorial-schemas-and-classifications.md
-          - text: Create glossary terms
-            url: tutorial-import-create-glossary-terms.md
-          - text: Use the REST APIs
-            url: tutorial-using-rest-apis.md
+          - text: Deployment best practices
+            url: deployment-best-practices.md
+
   # Card
   - title: Register and scan Azure data sources
     linkLists:
