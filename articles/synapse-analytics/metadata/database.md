@@ -12,29 +12,29 @@ ms.reviewer: wiassaf
 ms.custom: devx-track-csharp
 ---
 
-# Azure Synapse Analytics shared database
+# Azure Synapse Analytics shared Lake database
 
-Azure Synapse Analytics allows the different computational workspace engines to share databases and tables. Currently, the databases and the tables (Parquet or CSV backed) that are created on the Apache Spark pools are automatically shared with the serverless SQL pool engine.
+Azure Synapse Analytics allows the different computational workspace engines to share Lake databases and tables. Currently, the Lake databases and the tables (Parquet or CSV backed) that are created on the Apache Spark pools, [Database designer](../database-designer/concepts-lake-database.md) or Datavere are automatically shared with the serverless SQL pool engine.
 
-A database created with a Spark job will become visible with that same name to all current and future Spark pools in the workspace, including the serverless SQL pool engine. You cannot add custom objects (external tables, views, procedures) directly in this synchronized database using the serverless SQL pool.
+A Lake database will become visible with that same name to all current and future Spark pools in the workspace, including the serverless SQL pool engine. You cannot add custom SQL objects (external tables, views, procedures, functions, schema, users) directly in a Lake database using the serverless SQL pool.
 
-The Spark default database, called `default`, will also be visible in the serverless SQL pool context as a database called `default`. 
-You can't create a database in Spark and then create another database with the same name in serverless SQL pool.
+The Spark default database, called `default`, will also be visible in the serverless SQL pool context as a Lake database called `default`. 
+You can't create a Lake database and then create another database with the same name in serverless SQL pool.
 
-Since the databases are synchronized to serverless SQL pool asynchronously, there will be a delay until they appear.
+The Lake databases are created in the serverless SQL pool asynchronously, there will be a delay until they appear.
 
 ## Manage a Spark created database
 
-To manage Spark created databases, you need to use Apache Spark pools. For example, create or delete it through a Spark pool job.
+To manage Spark created Lake databases, you can use Apache Spark pools. For example, create or delete a Lake database through a Spark pool job.
 
-Objects in synchronized databases cannot be modified from serverless SQL pool.
+Objects in the Lake databases cannot be modified from a serverless SQL pool.
 
 >[!NOTE]
->You cannot create multiple databases with the same name from different pools. If a serverless SQL pool database is created, you won't be able to create a Spark database with the same name. Respectively, if database is created in Spark, you won't be able to create a serverless SQL pool database with the same name.
+>You cannot create multiple databases with the same name from different pools. If a SQL database in the serverless SQL pool is created, you won't be able to create a Lake database with the same name. Respectively, if you create a Lake database, you won't be able to create a serverless SQL pool database with the same name.
 
 ## Security model
 
-The Spark databases and tables, along with their synchronized representations in the SQL engine will be secured at the underlying storage level.
+The Lake databases and tables will be secured at the underlying storage level.
 
 The security principal who creates a database is considered the owner of that database, and has all the rights to the database and its objects. `Synapse Administrator` and `Synapse SQL Administrator` will also have all the permissions on synchronized objects in serverless SQL pool by default. Creating custom objects (including users) in synchronized SQL databases is not allowed. 
 
