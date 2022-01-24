@@ -26,7 +26,7 @@ Learn about this plan in [Overview of Microsoft Defender for Containers](defende
 > [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
 ::: zone-end
 
-## Prerequisite
+## Prerequisites
 
 Validate the following endpoints are configured for outbound access so that the Defender profile/extension can connect to Microsoft Defender for Cloud to send security data and events:
 
