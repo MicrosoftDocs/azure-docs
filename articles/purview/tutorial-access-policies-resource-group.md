@@ -1,12 +1,12 @@
 ---
 title: Resource group and subscription provisioning by data owner
-description: Step-by-step guide on how to integrate Azure Storage with Azure Purview to enable data owners to create access policies.
+description: Step-by-step guide showing how a data owner can create policies on resource groups or subscriptions.
 author: ePpnqeqR
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: tutorial
-ms.date: 1/20/2022
+ms.date: 1/24/2022
 ms.custom:
 ---
 
@@ -66,7 +66,7 @@ The subscription or resource group needs to be registered with Azure Purview to 
 >[!Important]
 > Make sure you write down the **Name** you use when registering in Azure Purview. You will need it when you publish a policy. The recommended practice is to make the registered name exactly the same as the endpoint name.
 
-Enable the data source to for access policies in Azure Purview through the **Data use governance** toggle, as shown in the picture.
+Enable the resource group or subscription for access policies in Azure Purview through the **Data use governance** toggle, as shown in the picture.
 
 ![Image shows how to register a data source for policy.](./media/tutorial-access-policies-resource-group/register-resource-group-for-policy.png)
 
