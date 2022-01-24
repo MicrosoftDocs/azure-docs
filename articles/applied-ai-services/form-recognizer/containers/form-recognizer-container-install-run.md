@@ -373,7 +373,7 @@ events { worker_connections 1024; }
 http {
 
     sendfile on;
-
+    client_max_body_size 90M;
     upstream docker-api {
         server azure-cognitive-service-custom-api:5000;
     }
