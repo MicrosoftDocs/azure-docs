@@ -53,7 +53,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
      :::image type="content" source="./media/quickstart-wordpress/06-wordpress-basics-wordpress-settings.png?text=Azure Portal WordPress settings" alt-text="Screenshot of WordPress settings":::
 
-1. Select the **Review + create** tab. After validation runs, select the **Create** button at the bottom of the page to create the WordPress site.
+1. Select the **Review + create** tab. After validation runs, select the **Create** button at the bottom of the page to create the WordPress site. To view Application Settings created by WordPress, see [Environment variables and app settings in Azure App Service](./reference-app-settings#wordpress).
 
 1. Browse to your site URL and verify the app is running properly.
 
@@ -62,28 +62,6 @@ Sign in to the Azure portal at https://portal.azure.com.
 1. To access WordPress Admin page, browse to `/wp-admin` on your site.
 
     :::image type="content" source="./media/quickstart-wordpress/wordpress-admin-login.png?text=WordPress admin login" alt-text="Screenshot of WordPress admin login":::
-
-## WordPress Application Settings
-
-App Service creates the following Application Settings for the WordPress site:
-
-> [!div class="mx-tdCol5BreakAll"]
-> |Application Setting | Scope | Value | Max | Description
-> |-------------|-------------|-------------|---------------|--------------------|
-> |WEBSITES_ENABLE_APP_SERVICE_STORAGE|Web App|true|-|When set to TRUE, file contents are preserved during restarts. |
-> |WP_MEMORY_LIMIT|WordPress|128M|512M|Frontend or general wordpress PHP memory limit (per script). Can't be more than PHP_MEMORY_LIMIT|
-> |WP_MAX_MEMORY_LIMIT|WordPress|256M|512M|Admin dashboard PHP memory limit (per script). Generally Admin dashboard/ backend scripts takes lot of memory compared to frontend scripts. Can't be more than PHP_MEMORY_LIMIT.|
-> |PHP_MEMORY_LIMIT|PHP|512M|512M|Memory limits for general PHP script. It can only be decreased.|
-> |FILE_UPLOADS|PHP|On|-|Can be either On or Off. Note that values are case sensitive. Enables or disables file uploads. |
-> |UPLOAD_MAX_FILESIZE|PHP|50M|256M	Max file upload size limit. Can be increased upto 256M.|
-> |POST_MAX_SIZE|PHP|128M|256M|Can be increased upto 256M. Generally should be more than UPLOAD_MAX_FILESIZE.|
-> |MAX_EXECUTION_TIME|PHP|120|120|Can only be decreased. Please break down the scripts if it is taking more than 120 seconds. Added to avoid bad scripts from slowing the system.|
-> |MAX_INPUT_TIME|PHP|120|120|Max time limit for parsing the input requests. Can only be decreased.|
-> |MAX_INPUT_VARS|PHP|10000|10000|-|
-> |DATABASE_HOST|Database|-|-|Database host used to connect to WordPress.|
-> |DATABASE_NAME|Database|-|-|Database name used to connect to WordPress.|
-> |DATABASE_USERNAME|Database|-|-|Database username used to connect to WordPress.|
-> |DATABASE_PASSWORD|Database|-|-|Database password used to connect to WordPress.|
 
 ## Clean up resources
 
