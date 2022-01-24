@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
 
-# Device Update for IoT Hub Diagnostics Overview
+# Device Update for IoT Hub diagnostics overview
 
 Device Update for IoT Hub has several features focused on making it easier to diagnose and troubleshoot device-side errors. With the release of the v0.8.0 agent, there are two diagnostic features available:
 
@@ -51,3 +51,9 @@ From a high level, the log collection feature works as follows:
 
     > [!NOTE]
     > Since the log operation is carried out in parallel by the targeted devices, it is possible that some targeted devices successfully uploaded logs, but the overall log operation is marked as "Failed." You can see which devices succeeded and which failed by viewing the log operation details through the user interface or APIs.
+## Next steps
+
+Learn how to use Device Update's remote log collection feature:
+
+ - [Remotely collect diagnostic logs from devices using Device Update for IoT Hub](device-update-log-collection.md)
+
