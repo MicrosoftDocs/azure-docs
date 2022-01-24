@@ -283,6 +283,45 @@ Ensure your VM is running. Navigate to the runbook **Stop-AzureVmInResponsetoVMA
 
    :::image type="content" source="./media/automation-create-alert-triggered-runbook/job-result-portal.png" alt-text="Showing output from job.":::
 
+## common Azure VM management operations
+
+Azure Automation provides scripts for common Azure VM management operations like restart VM , stop VM , delete VM , scale up and down scenarios in the Runbook gallery . The scripts can also be found in the Azure Automation [GitHub repository](https://github.com/azureautomation) You can also use these scripts as mentioned in the above steps. 
+
+1. [Stop-Azure-VM-On-Alert](https://github.com/azureautomation/Stop-Azure-VM-On-Alert)
+   - This runbook will stop an ARM VM in response to an Azure alert trigger
+   - Input is alert data with information needed to identify which VM to stop.
+   - The runbook must be called from an Azure alert via a webhook.
+   - Latest version of Az module should be added to the automation account.
+   - Managed Identity should be enabled and contributor access to the automation account should be given.
+
+1. [Restart-Azure-VM-On-Alert](https://github.com/azureautomation/Restart-Azure-VM-On-Alert)
+   - This runbook will restart an ARM VM in response to an Azure alert trigger.
+   - Input is alert data with information needed to identify which VM to stop.
+   - The runbook must be called from an Azure alert via a webhook
+   - Latest version of Az module should be added to the automation account
+   - Managed Identity should be enabled and contributor access to the automation account should be given.
+
+1. [Delete-Azure-VM-On-Alert](https://github.com/azureautomation/Delete-Azure-VM-On-Alert)
+   - This runbook will delete an ARM VM in response to an Azure alert trigger.
+   - Input is alert data with information needed to identify which VM to stop.    
+   - The runbook must be called from an Azure alert via a webhook   
+   - Latest version of Az module should be added to the automation account   
+   - Managed Identity should be enabled and contributor access to the automation account should be given.
+
+1. [ScaleDown-Azure-VM-On-Alert](https://github.com/azureautomation/ScaleDown-Azure-VM-On-Alert)
+   - This runbook will scale down an ARM VM in response to an Azure alert trigger.
+   - Input is alert data with information needed to identify which VM to stop.
+   - The runbook must be called from an Azure alert via a webhook
+   - Latest version of Az module should be added to the automation account
+   - Managed Identity should be enabled and contributor access to the automation account should be given.
+
+1. [ScaleUp-Azure-VM-On-Alert](https://github.com/azureautomation/ScaleUp-Azure-VM-On-Alert)
+   - This runbook will Scale up an ARM VM in response to an Azure alert trigger.
+   - Input is alert data with information needed to identify which VM to stop.
+   - The runbook must be called from an Azure alert via a webhook
+   - Latest version of Az module should be added to the automation account
+   - Managed Identity should be enabled and contributor access to the automation account should be given.
+
 
 ## Next steps
 
