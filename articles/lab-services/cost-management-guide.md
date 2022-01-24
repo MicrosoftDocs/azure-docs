@@ -81,12 +81,7 @@ Depending on the type of class, there are ways to manage costs to reduce instanc
 
 ### Automatic shutdown settings for cost control
 
-Automatic shutdown features enable you to prevent wasted VM usage hours in the labs. The following settings catch most of the cases where users accidentally leave their virtual machines running:
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows the three automatic shutdown settings.](./media/cost-management-guide/auto-shutdown-disconnect.png)
-
-You can configure these settings at both the lab plan/lab account level and the lab level.
+Automatic shutdown features enable you to prevent wasted VM usage hours in the labs. To configure automatic shutdown for a lab plan, see [Configure automatic shutdown of VMs for a lab plan](how-to-configure-auto-shutdown-lab-plans.md).  You can configure these settings at both the lab plan/lab account level and the lab level.
 
 ### Scheduled time and quota time
 

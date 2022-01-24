@@ -61,7 +61,7 @@ Now that Azure Lab Services app is enabled in Canvas, we need to link the lab pl
 1. If you're authenticated in Canvas as an educator, you'll see this sign in screen (shown below) before you can use the service. You'll need to sign in here with an Azure AD account or Microsoft account that has been added as a Lab Creator.
     :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/welcome-to-lab-services.png" alt-text="Canvas -> Welcome":::
 1. Create one or more labs for student. See [Tutorial: Set up a lab](tutorial-setup-lab.md) for further instructions. Make sure to verify the resource group in which to create the lab before creating the lab.
-1. [Publish the lab](tutorial-setup-lab.md#publish-the-lab).
+1. [Publish the lab](tutorial-setup-lab.md#publish-a-lab).
 
 When you create a lab inside a Course in Canvas, the lab will automatically pull the list of students from Canvas’s course roster and add them as users in the lab’s user list. Virtual machines will be added and deleted automatically based on changes to the course roster. You can create multiple labs for a course.
 
@@ -86,7 +86,7 @@ This section outlines common error messages that you may see, along with the ste
 
 - Student sees warning that the lab isn’t available yet.
 
-  In Canvas, you'll see the following message if the instructor hasn't published the lab yet.  Instructors must [publish the lab](how-to-manage-labs.md#publish-the-lab) and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) for students to have access to a lab.
+  In Canvas, you'll see the following message if the instructor hasn't published the lab yet.  Instructors must [publish the lab](tutorial-setup-lab.md#publish-a-lab) and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) for students to have access to a lab.
 
   :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/troubleshooting-lab-isnt-available-yet.png" alt-text="Troubleshooting -> This lab is not available yet":::
 
