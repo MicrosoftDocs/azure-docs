@@ -38,7 +38,7 @@ In order to create and manage collections in Azure Purview, you will need to be 
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/role-assignments.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the role assignments tab highlighted." border="true":::
 
-1. To create a collection, you'll need to be in the collection admin list under role assignments. If you created the Azure Purview resource, you should be listed as a collection admin under the root collection already. If not, you will need to contact the collection admin to grant you permission.
+1. To create a collection, you'll need to be in the collection admin list under role assignments. If you created the Azure Purview resource, you should be listed as a collection admin under the root collection already. If not, you'll need to contact the collection admin to grant you permission.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/collection-admins.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the collection admin section highlighted." border="true":::
 
@@ -46,7 +46,7 @@ In order to create and manage collections in Azure Purview, you will need to be 
 
 ### Create a collection
 
-You will need to be a collection admin in order to create a collection. If you are not sure, follow the [guide above](#check-permissions) to check permissions.
+You'll need to be a collection admin in order to create a collection. If you aren't sure, follow the [guide above](#check-permissions) to check permissions.
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
@@ -95,7 +95,7 @@ You will need to be a collection admin in order to create a collection. If you a
 
 ### Delete a collection
 
-You will need to be a collection admin in order to delete a collection. If you are not sure, follow the guide above to check permissions. Collection can be deleted only if no child collections, assets, data sources or scans are associated with it. 
+You'll need to be a collection admin in order to delete a collection. If you aren't sure, follow the guide above to check permissions. Collection can be deleted only if no child collections, assets, data sources or scans are associated with it. 
 
 1. Select **Delete** from the collection detail page.
    
