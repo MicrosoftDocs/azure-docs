@@ -141,7 +141,7 @@ Choose the steps according to the [domain certificate](#domain-certificate-optio
 1. Select **+Add**, or select an existing [endpoint](#endpoints-for-custom-domains) that you want to update.
 1. In the window on the right, select the **Type** of endpoint for the custom domain.
 1. In the **Hostname** field, specify the name you want to use. For example, `api.contoso.com`.
-1. Under **Certificate**, select **Managed** to enable a free certificate managed by API Management. Te managed certificate is available in preview for the Gateway endpoint only.
+1. Under **Certificate**, select **Managed** to enable a free certificate managed by API Management. The managed certificate is available in preview for the Gateway endpoint only.
 1. Copy the following values and use them to [configure DNS](#dns-configuration):
     * **TXT record**
     * **CNAME record**
