@@ -4,15 +4,14 @@ description: This Azure AD Connect Health article describes agent installation f
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: curtand
 ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e
 ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.date: 10/20/2020
+ms.date: 01/21/2022
 ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management 

@@ -10,7 +10,8 @@ ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-entity-linking, ignite-fall-2021, mode-other
+ms.devlang: csharp, java, javascript, python
+ms.custom: language-service-entity-linking, ignite-fall-2021, mode-api
 keywords: text mining, entity linking
 zone_pivot_groups: programming-languages-text-analytics
 ---

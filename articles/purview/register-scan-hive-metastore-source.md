@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 01/17/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -18,14 +18,25 @@ This article outlines how to register Hive Metastore databases, and how to authe
 
 |**Metadata extraction**|  **Full scan**  |**Incremental scan**|**Scoped scan**|**Classification**|**Access policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes** |
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes*](#lineage) |
 
-\** Lineage is supported if the dataset is used as a source or sink in the [Azure Data Factory Copy activity](how-to-link-azure-data-factory.md).
+\* *Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
 
-> [!Important]
-> The supported platforms are Apache Hadoop, Cloudera, Hortonworks, and Azure Databricks.
-> 
-> Supported Hive versions are 2.x to 3.x. Supported Azure Databricks versions are 8.0 and later.
+ The supported Hive versions are 2.x to 3.x. The supported platforms are Apache Hadoop, Cloudera, Hortonworks, and Azure Databricks (versions 8.0 and later).
+
+When scanning Hive metastore source, Azure Purview supports:
+
+- Extracting technical metadata including:
+
+   - Server
+   - Databases
+   - Tables including the columns, foreign keys, unique constraints, and storage description
+   - Views including the columns and storage description
+   - Processes
+
+- Fetching static lineage on assets relationships among tables and views.
+
+When setting up scan, you can choose to scan an entire Hive metastore database, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
 
 ## Prerequisites
 
@@ -33,9 +44,9 @@ This article outlines how to register Hive Metastore databases, and how to authe
 
 * You must have an active [Azure Purview resource](create-catalog-portal.md).
 
-* You need Data Source Administrator or Data Reader permissions to register a source and manage it in Azure Purview Studio. For more information about permissions, see [Access control in Azure Purview](catalog-permissions.md).
+* You need Data Source Administrator and Data Reader permissions to register a source and manage it in Azure Purview Studio. For more information about permissions, see [Access control in Azure Purview](catalog-permissions.md).
 
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](manage-integration-runtimes.md).
 
 * Ensure that [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the machine where the self-hosted integration runtime is running.
 
@@ -132,7 +143,7 @@ Use the following steps to scan Hive Metastore databases to automatically identi
        > [!NOTE]
        > When you copy the URL from *hive-site.xml*, remove `amp;` from the string or the scan will fail. Then append the path to your SSL certificate to the URL. This will be the path to the SSL certificate's location on your machine. [Download the SSL certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem).
        >
-       > When you enter local file system paths in the Purview Studio scan configuration, remember to change the Windows path separator character from a backslash (`\`) to a forward slash (`/`). For example, if your MariaDB JAR file is *C:\mariadb-jdbc.jar*, change it to *C:/mariadb-jdbc.jar*. Make the same change to the Metastore JDBC URL `sslCA` parameter. For example, if it's placed at local file system path *D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem*, change it to *D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem*.
+       > When you enter local file system paths in the Azure Purview Studio scan configuration, remember to change the Windows path separator character from a backslash (`\`) to a forward slash (`/`). For example, if your MariaDB JAR file is *C:\mariadb-jdbc.jar*, change it to *C:/mariadb-jdbc.jar*. Make the same change to the Metastore JDBC URL `sslCA` parameter. For example, if it's placed at local file system path *D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem*, change it to *D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem*.
 
        The **Metastore JDBC URL** value will look like this example:
 
@@ -150,7 +161,7 @@ Use the following steps to scan Hive Metastore databases to automatically identi
 
         All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default.
 
-        When the list is empty, all available schemas are imported. Acceptable schema name patterns that use SQL `LIKE` expression syntax include the percent sign (%). For example, `A%; %B; %C%; D` means:
+        Acceptable schema name patterns that use SQL `LIKE` expression syntax include the percent sign (%). For example, `A%; %B; %C%; D` means:
 
         * Start with A or
         * End with B or
@@ -168,6 +179,14 @@ Use the following steps to scan Hive Metastore databases to automatically identi
 1. For **Scan trigger**, choose whether to set up a schedule or run the scan once.
 
 1. Review your scan and select **Save and Run**.
+
+[!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
+
+## Lineage
+
+After scanning your Hive Metastore source, you can [browse data catalog](how-to-browse-catalog.md) or [search data catalog](how-to-search-catalog.md) to view the asset details. 
+
+Go to the asset -> lineage tab, you can see the asset relationship when applicable. Refer to the [supported capabilities](#supported-capabilities) section on the supported Hive Metastore lineage scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
 
 ## Next steps
 

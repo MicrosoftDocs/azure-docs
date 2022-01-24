@@ -4,13 +4,21 @@ description: Compares Azure Resource Manager templates developed with JSON and B
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 01/21/2022
 ---
 # Comparing JSON and Bicep for templates
 
 This article compares Bicep syntax with JSON syntax for Azure Resource Manager templates (ARM templates). In most cases, Bicep provides syntax that is less verbose than the equivalent in JSON.
 
 If you're familiar with using JSON to develop ARM templates, use the following examples to learn about the equivalent syntax for Bicep.
+
+## Compare complete files
+
+The [Bicep Playground](https://aka.ms/bicepdemo) lets you view Bicep and equivalent JSON side by side. You can compare the implementations of the same infrastructure.
+
+For example, you can view the file to deploy a [SQL server and database](https://aka.ms/bicepdemo#eJx1kctqwzAQRff+Ci0KsqF+JIvSGgohBLppS8FfMLUnQdSW5JGcLIL/vfJDaRrinebq3tGckQaChhmkI9InNMiMJSEP7JV1UrQdFmMZctPW/JERGtVRiW+kOh1GiaiiQE8d2nq3/d+AF9DoGndbPntqVYIVSv5Zbvt5xxyAqhFSODdYRe/qIHw0CDYGy44wjBatX2DMSVF1ifjHZlrGP0RJyqi9TYq2TifVbNbZ6iXOnuJsFWvCo8ATd5OeA8akw8uvduUkP3B+OTlRk9JIVqDJxxy7M11+R1uwepB7EX/non3QXzMO/7GAmFZg4RsMDrDrLM6eF2H5w3kKJUPdp670H93zJX7z03nwuUthQVZAFR9Ftxm6EYfhfwGNyOE5). The Bicep is about half the size of the ARM template.
+
+:::image type="content" source="./media/compare-template-syntax/side-by-side.png" alt-text="Screenshot of side by side templates" link="https://aka.ms/bicepdemo#eJx1kctqwzAQRff+Ci0KsqF+JIvSGgohBLppS8FfMLUnQdSW5JGcLIL/vfJDaRrinebq3tGckQaChhmkI9InNMiMJSEP7JV1UrQdFmMZctPW/JERGtVRiW+kOh1GiaiiQE8d2nq3/d+AF9DoGndbPntqVYIVSv5Zbvt5xxyAqhFSODdYRe/qIHw0CDYGy44wjBatX2DMSVF1ifjHZlrGP0RJyqi9TYq2TifVbNbZ6iXOnuJsFWvCo8ATd5OeA8akw8uvduUkP3B+OTlRk9JIVqDJxxy7M11+R1uwepB7EX/non3QXzMO/7GAmFZg4RsMDrDrLM6eF2H5w3kKJUPdp670H93zJX7z03nwuUthQVZAFR9Ftxm6EYfhfwGNyOE5":::
 
 ## Expressions
 
@@ -275,6 +283,24 @@ output hostname string = publicIP.properties.dnsSettings.fqdn
   },
 }
 ```
+
+To conditionally output a value:
+
+```bicep
+output hostname string = condition ? publicIP.properties.dnsSettings.fqdn : ''
+```
+
+```json
+"outputs": {
+  "hostname": {
+    "condition": "[variables('condition')]",
+    "type": "string",
+    "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))).dnsSettings.fqdn]"
+  }
+}
+```
+
+The Bicep ternary operator is the equivalent to the [`if` function](../templates/template-functions-logical.md#if) in an ARM template JSON, not the condition property. The ternary syntax has to evaluate to one value or the other. If the condition is false in the preceding samples, Bicep outputs a hostname with an empty string, but JSON outputs no values.
 
 ## Code reuse
 

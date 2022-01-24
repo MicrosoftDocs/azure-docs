@@ -3,11 +3,11 @@ title: How to import and export Azure AD Connect configuration settings
 description: This article describes frequently asked questions for cloud provisioning.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management

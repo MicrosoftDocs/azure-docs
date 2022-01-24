@@ -1,46 +1,77 @@
 ---
-title: "How to manually capture heap dump, thread dump, and JFR in Azure Spring Cloud"
-description: Learn how to manually capture a heap dump, a thread dump or start JFR.
-author: YinglueZhang-MS
+title: Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Cloud
+description: Learn how to manually capture a heap dump, a thread dump, or start Java Flight Recorder.
+author: KarlErickson
 ms.author: yinglzh
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 10/31/2021
+ms.date: 01/21/2022
 ms.custom: devx-track-java
 ---
 
-# How to manually capture heap dump, thread dump, and JFR in Azure Spring Cloud
+# Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ❌ C#
 
-Effective troubleshooting, which is critical for our customers to timely fix issues on their production environment, ensures their business always online. Today in Azure Spring Cloud, we have already provided application log streaming/query, rich metrics emitting, and alerts, distributed tracing, etc. to assist our customers in this field. However, when customers getting alerts about request of high latency, JVM heap leak, or high CPU usage, there is no the last-mile solution for them. Therefore, we enabled manually generate a heap dump, generate a thread dump, or start a JFR.
+This article describes how to manually generate a heap dump or thread dump, and how to start Java Flight Recorder (JFR).
+
+Effective troubleshooting is critical to ensure you can fix issues in production environments and keep your business online. Azure Spring Cloud provides application log streaming and query, rich metrics emitting, alerts, distributed tracing, and so forth. However, when you get alerts about requests with high latency, JVM heap leak, or high CPU usage, there's no last-mile solution. For this reason, we've enabled you to manually generate a heap dump, generate a thread dump, and start JFR.
 
 ## Prerequisites
-To complete this exercise, you need:
 
-* A deployed Azure Spring Cloud service instance. Follow our [quickstart on deploying an app via the Azure CLI](./quickstart.md) to get started.
+* A deployed Azure Spring Cloud service instance. To get started, see [Quickstart: Deploy your first application to Azure Spring Cloud](quickstart.md).
 * At least one application already created in your service instance.
-* At least one [persistent storage already bind on your app](how-to-built-in-persistent-storage.md) to save generated diagnostic files.
-
-**If customers want to use path under mount path, please ensure that the sub-path have already been created.**
+* Your own persistent storage as described in [How to enable your own persistent storage in Azure Spring Cloud](how-to-custom-persistent-storage.md). This storage is used to save generated diagnostic files. The paths you provide in the parameter values below should be under the mount path of the persistent storage bound to your app. If you want to use a path under the mount path, be sure to create the subpath beforehand.
 
 ## Generate a heap dump
-Generate a heap dump of our app in Azure Spring Cloud.
-```heap dump command
-   az spring-cloud app deployment generate-heap-dump -g <resource-group-name> -s <service-instance-name> --app <app-name> --deployment <deployment-name> --app-instance <app-instance name> --file-path <your-target-file-path-in-your-persistent-storage-mount-path>
+
+Use the following command to generate a heap dump of your app in Azure Spring Cloud.
+
+```azurecli
+az spring-cloud app deployment generate-heap-dump \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Cloud-instance-name> \
+    --app <app-name> \
+    --deployment <deployment-name> \
+    --app-instance <app-instance name> \
+    --file-path <your-target-file-path-in-your-persistent-storage-mount-path>
 ```
 
 ## Generate a thread dump
-Generate a thread dump of our app in Azure Spring Cloud.
-```thread dump command
-   az spring-cloud app deployment generate-thread-dump -g <resource-group-name> -s <service-instance-name> --app <app-name> --deployment <deployment-name> --app-instance <app-instance name> --file-path <your-target-file-path-in-your-persistent-storage-mount-path>
+
+Use the following command to generate a thread dump of your app in Azure Spring Cloud.
+
+```azurecli
+az spring-cloud app deployment generate-thread-dump \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Cloud-instance-name> \
+    --app <app-name> \
+    --deployment <deployment-name> \
+    --app-instance <app-instance name> \
+    --file-path <your-target-file-path-in-your-persistent-storage-mount-path>
 ```
 
 ## Start JFR
-Start a JFR of our app in Azure Spring Cloud.
-```JFR command
-   az spring-cloud app deployment start-JFR -g <resource-group-name> -s <service-instance-name> --app <app-name> --deployment <deployment-name> --app-instance <app-instance name> --file-path <your-target-file-path-in-your-persistent-storage-mount-path> --duration <duration-of-JFR>
+
+Use the following command to start JFR for your app in Azure Spring Cloud.
+
+```azurecli
+az spring-cloud app deployment start-jfr \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Cloud-instance-name> \
+    --app <app-name> \
+    --deployment <deployment-name> \
+    --app-instance <app-instance name> \
+    --file-path <your-target-file-path-in-your-persistent-storage-mount-path> \
+    --duration <duration-of-JFR>
 ```
-The default value of duration is 60s.
+
+The default value for `duration` is 60 seconds.
+
 ## Get your diagnostic files
-Go to the target file path in your persistent storage and find your dump/JFR. You can download them to your local machine. The name of the generated file will be like '{appInstance}\_heapdump\_{timeStamp}.hprof' for heap dump, '{appInstance}\_threaddump\_{timeStamp}.txt' for thread dump, and '{appInstance}\_JFR\_{timeStamp}.jfr' for JFR.
+
+Navigate to the target file path in your persistent storage and find your dump/JFR. From there, you can download them to your local machine. The name of the generated file will be similar to *`<app-instance>_heapdump_<time-stamp>.hprof`* for the heap dump, *`<app-instance>_threaddump_<time-stamp>.txt`* for the thread dump, and *`<app-instance>_JFR_<time-stamp>.jfr`* for the JFR file.
+
+## Next steps
+
+- [Use the diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Cloud](how-to-dump-jvm-options.md)

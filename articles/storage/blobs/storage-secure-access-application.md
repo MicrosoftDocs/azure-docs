@@ -11,6 +11,7 @@ ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
+ms.devlang: csharp
 ms.custom: "mvc, devx-track-csharp, devx-track-azurecli"
 ---
 

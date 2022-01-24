@@ -6,7 +6,7 @@ author: eedorenko
 ms.author: iefedore
 ms.service: azure-arc
 ms.topic: tutorial
-ms.date: 12/01/2021
+ms.date: 12/15/2021
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 # Tutorial: Implement CI/CD with GitOps (Flux v2) using Azure Arc-enabled Kubernetes clusters
@@ -23,9 +23,6 @@ In this tutorial, you'll set up a CI/CD solution using GitOps (Flux v2) and Azur
 > * Test the application environments.
 
 General Availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both Azure Arc-enabled Kubernetes and AKS. Flux v2 is the way forward, and Flux v1 will eventually be deprecated.
-
-> [!NOTE]
-> We are currently in the process of making GitOps with Flux v2 experiences available to all users in the Azure portal, so you may not be able to complete all of these steps in Azure portal at this time. We’ll remove this note once the functionality is available to all users.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -506,7 +503,7 @@ For the details on installation, refer to the [GitOps Connector](https://github.
 | AZURE_VOTE_IMAGE_REPO | The full path to the Azure Vote App repository, for example azurearctest.azurecr.io/azvote |
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_FOLDER | `arc-cicd-cluster` |
-| MANIFESTS_REPO | https://github.com/your-organization/arc-cicd-demo-gitops |
+| MANIFESTS_REPO | `https://github.com/your-organization/arc-cicd-demo-gitops` |
 | VOTE_APP_TITLE | Voting Application |
 | AKS_RESOURCE_GROUP | AKS Resource group. Needed for automated testing. |
 | AKS_NAME | AKS Name. Needed for automated testing. |

@@ -21,10 +21,6 @@ Review [Plan an Azure Container offer](marketplace-containers.md). It will expla
 
 ## Create a new offer
 
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
-
-#### [Workspaces view](#tab/workspaces-view)
-
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
 1. On the Home page, select the **Marketplace offers** tile.
@@ -37,19 +33,6 @@ Review [Plan an Azure Container offer](marketplace-containers.md). It will expla
 
 > [!IMPORTANT]
 > After an offer is published, any edits you make to it in Partner Center appear on Azure Marketplace only after you republish the offer. Be sure to always republish an offer after changing it.
-
-#### [Current view](#tab/current-view)
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
-3. On the Overview page, select **+ New offer** > **Azure Container**.
-
-    :::image type="content" source="media/azure-container/new-offer-azure-container.png" alt-text="The left pane menu options and the 'New offer' button.":::
-
-> [!IMPORTANT]
-> After an offer is published, any edits you make to it in Partner Center appear on Azure Marketplace only after you republish the offer. Be sure to always republish an offer after changing it.
-
----
 
 ## New offer
 

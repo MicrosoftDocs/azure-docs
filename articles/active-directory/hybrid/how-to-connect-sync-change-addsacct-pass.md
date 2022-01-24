@@ -5,15 +5,14 @@ services: active-directory
 keywords: AD DS account, Active Directory account, password
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 07/12/2017
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 

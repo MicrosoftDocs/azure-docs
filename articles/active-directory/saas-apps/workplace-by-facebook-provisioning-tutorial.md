@@ -88,11 +88,14 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, click on **Authorize**. You'll be redirected to Workplace by Facebook's authorization page. Input your Workplace by Facebook username and click on the **Continue** button. Click **Test Connection** to ensure Azure AD can connect to Workplace by Facebook. If the connection fails, ensure your Workplace by Facebook account has Admin permissions and try again.
+5. Ensure the "Tenant URL" section is populated with the correct endpoint: https://scim.workplace.com/ .Under the **Admin Credentials** section, click on **Authorize**. You'll be redirected to Workplace by Facebook's authorization page. Input your Workplace by Facebook username and click on the **Continue** button. Click **Test Connection** to ensure Azure AD can connect to Workplace by Facebook. If the connection fails, ensure your Workplace by Facebook account has Admin permissions and try again.
 
- 	![Screenshot shows Admin Credentials dialog box with an Authorize option.](./media/workplace-by-facebook-provisioning-tutorial/provisioning.png)
+ 	![Screenshot shows Admin Credentials dialog box with an Authorize option.](./media/workplace-by-facebook-provisioning-tutorial/provisionings.png)
 
  	![authorize](./media/workplace-by-facebook-provisioning-tutorial/workplace-login.png)
+
+> [!NOTE]
+> Failure to change the URL to https://scim.workplace.com/ will result in a failure when trying to save the configuration 
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
@@ -172,7 +175,8 @@ In December 2021, Facebook released a SCIM 2.0 connector. Completing the steps b
 * Scoping filters
 * Custom attribute mappings
 
-Be sure to note any changes that have been made to the settings listed above before completing the steps below. Failure to do so will result in the loss of customized settings. 
+> [!NOTE]
+> Be sure to note any changes that have been made to the settings listed above before completing the steps below. Failure to do so will result in the loss of customized settings. 
 
 1. Sign into the Azure portal at https://portal.azure.com 
 2. Navigate to your current Workplace by Facebook app under Azure Active Directory > Enterprise Applications
@@ -210,9 +214,12 @@ POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronizat
 9. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with “FacebookWorkplace”. 
 
 10. Update the tenant URL in the Admin Credentials section to the following: https://scim.workplace.com/  
-![Screenshot of Admin Credentials in the Workplace by Facebook app in the Azure portalt](./media/workplace-by-facebook-provisioning-tutorial/credentials.png)
+![Screenshot of Admin Credentials in the Workplace by Facebook app in the Azure portalt](./media/workplace-by-facebook-provisioning-tutorial/provisionings.png)
 
 11. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning. 
+
+> [!NOTE] 
+> Failure to restore the previous settings may results in attributes (name.formatted for example) updating in Workplace unexpectedly. Be sure to check the configuration before enabling  provisioning 
 
 ## Change log
 

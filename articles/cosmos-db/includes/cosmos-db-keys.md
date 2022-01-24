@@ -1,9 +1,9 @@
 ---
-author: SnehaGunda
+author: WilliamDAssafMSFT
 ms.service: cosmos-db
 ms.topic: include
 ms.date: 11/09/2018
-ms.author: sngun
+ms.author: wiassaf
 ---
   Go to the Azure Cosmos DB account page, and select **Keys**. Copy the values to use in the web application you create next.
 

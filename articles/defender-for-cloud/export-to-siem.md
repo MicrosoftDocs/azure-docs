@@ -54,9 +54,26 @@ Another alternative for investigating Defender for Cloud alerts in Microsoft Sen
 > Microsoft Sentinel is billed based on the volume of data ingested for analysis in Microsoft Sentinel and stored in the Azure Monitor Log Analytics workspace. Microsoft Sentinel offers a flexible and predictable pricing model. [Learn more at the Microsoft Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/).
 
 
-## Stream alerts with Microsoft Graph Security API
 
-Defender for Cloud has out-of-the-box integration with Microsoft Graph Security API. No configuration is required and there are no additional costs. 
+## Stream alerts with Azure Monitor 
+
+To stream alerts into **ArcSight**, **Splunk**, **QRadar**, **SumoLogic**, **Syslog servers**, **LogRhythm**, **Logz.io Cloud Observability Platform**, and other monitoring solutions. connect Defender for Cloud with Azure monitor via Azure Event Hubs:
+
+> [!NOTE]
+> To stream alerts at the tenant level, use this Azure policy and set the scope at the root management group (you'll need permissions for the root management group as explained in [Defender for Cloud permissions](permissions.md)): [Deploy export to event hub for Microsoft Defender for Cloud alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb).
+
+1. Enable [continuous export](continuous-export.md) to stream Defender for Cloud alerts into a dedicated event hub at the subscription level. To do this at the Management Group level using Azure Policy, see [Create continuous export automation configurations at scale](continuous-export.md?tabs=azure-policy#configure-continuous-export-at-scale-using-the-supplied-policies)
+
+1. [Connect the event hub to your preferred solution using Azure Monitor's built-in connectors](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
+
+1. Optionally, stream the raw logs to the event hub and connect to your preferred solution. Learn more in [Monitoring data available](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#monitoring-data-available).
+
+To view the event schemas of the exported data types, visit the [Event hub event schemas](https://aka.ms/ASCAutomationSchemas).
+
+
+## Other streaming options 
+
+As an alternative to Sentinel and Azure Monitor, you can use Defender for Cloud's built-in integration with [Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api). No configuration is required and there are no additional costs. 
 
 You can use this API to stream alerts from your **entire tenant** (and data from many other Microsoft Security products) into third-party SIEMs and other popular platforms:
 
@@ -66,23 +83,6 @@ You can use this API to stream alerts from your **entire tenant** (and data from
 - **QRadar** - [IBM's Device Support Module for Microsoft Defender for Cloud via Microsoft Graph API](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html) 
 - **Palo Alto Networks**, **Anomali**, **Lookout**, **InSpark**, and more - [Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)
 
-[Learn more about Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api).
-
-
-## Stream alerts with Azure Monitor 
-
-To stream alerts into **ArcSight**, **Splunk**, **SumoLogic**, Syslog servers, **LogRhythm**, **Logz.io Cloud Observability Platform**, and other monitoring solutions. connect Defender for Cloud with Azure monitor via Azure Event Hubs:
-
-1. Enable [continuous export](continuous-export.md) to stream Defender for Cloud alerts into a dedicated Azure Event Hub at the subscription level. 
-    > [!TIP]
-    > To do this at the Management Group level using Azure Policy, see [Create continuous export automation configurations at scale](continuous-export.md?tabs=azure-policy#configure-continuous-export-at-scale-using-the-supplied-policies)
-
-1. [Connect the Azure Event hub to your preferred solution using Azure Monitor's built-in connectors](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
-
-1. Optionally, stream the raw logs to the Azure Event Hub and connect to your preferred solution. Learn more in [Monitoring data available](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#monitoring-data-available).
-
-> [!TIP]
-> To view the event schemas of the exported data types, visit the [Event Hub event schemas](https://aka.ms/ASCAutomationSchemas).
 
 
 ## Next steps

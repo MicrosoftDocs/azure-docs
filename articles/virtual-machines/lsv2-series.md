@@ -31,6 +31,7 @@ The Lsv2-series features high throughput, low latency, directly mapped local NVM
 Bursting: Supported<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
 | Size | vCPU | Memory (GiB) | Temp disk<sup>1</sup> (GiB) | NVMe Disks<sup>2</sup> | NVMe Disk throughput<sup>3</sup> (Read IOPS/MBps) | Uncached data disk throughput (IOPs/MBps)<sup>4</sup> | Max burst uncached data disk throughput (IOPs/MBps)<sup>5</sup>| Max Data Disks | Max NICs | Expected network bandwidth (Mbps) |

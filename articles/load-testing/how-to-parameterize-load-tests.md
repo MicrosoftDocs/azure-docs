@@ -90,7 +90,7 @@ When you create a load test in the Azure portal, or you use a [YAML test configu
 > [!NOTE]
 > If you run a load test as part of your CI/CD process, you might also use the related secret store. Skip to [Use the CI/CD secret store](#cicd_secrets).
 
-1. [Add the secret to your key vault](/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault), if you haven't already done so.
+1. [Add the secret to your key vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault), if you haven't already done so.
 
 1. Retrieve the key vault secret identifier for your secret. You'll use this secret identifier to configure your load test.
 
@@ -151,7 +151,7 @@ If you're using Azure Load Testing in your CI/CD workflow, you can also use the 
         [
             {
             "name": "appToken",
-            "value": "${{ secrets.MY_SECRET }}",
+            "value": "${{ secrets.MY_SECRET }}"
             }
         ]
     ```
@@ -169,7 +169,7 @@ If you're using Azure Load Testing in your CI/CD workflow, you can also use the 
           [
               {
               "name": "appToken",
-              "value": "$(mySecret)",
+              "value": "$(mySecret)"
               }
           ]
     ```
@@ -255,7 +255,7 @@ The following YAML snippet shows a GitHub Actions example:
     [
         {
         "name": "webapp",
-        "value": "myapplication.contoso.com",
+        "value": "myapplication.contoso.com"
         }
     ]
 ```
@@ -273,7 +273,7 @@ The following YAML snippet shows an Azure Pipelines example:
       [
           {
           "name": "webapp",
-          "value": "myapplication.contoso.com",
+          "value": "myapplication.contoso.com"
           }
       ]
 ```
@@ -291,3 +291,11 @@ If a parameter exists in both the YAML configuration file and the Azure Pipeline
 ### I created and ran a test from my CI/CD workflow by passing parameters using the Azure Load Testing task or action. Can I run this test from the Azure portal with the same parameters?
 
 The values of the parameters aren't stored when they're passed from the CI/CD workflow. You'll have to provide the parameter values again when you run the test from the Azure portal. You'll get a prompt to enter the missing values. For secret values, you'll enter the key vault secret URI. The values that you enter at the test run or rerun page are valid only for that test run. For making changes at the test level, go to **Configure Test** and enter your parameter values.
+
+## Next steps
+
+- For more information about reading CSV files, see [Read CSV files in load tests](./how-to-read-csv-data.md).
+
+- For information about high-scale load tests, see [Set up a high-scale load test](./how-to-high-scale-load.md).
+
+- To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md).

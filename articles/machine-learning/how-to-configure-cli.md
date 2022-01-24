@@ -105,3 +105,4 @@ You can show your current defaults using `--list-defaults/-l`:
 - [Train models using CLI (v2)](how-to-train-cli.md)
 - [Set up the Visual Studio Code Azure Machine Learning extension](how-to-setup-vs-code.md)
 - [Train an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code extension](tutorial-train-deploy-image-classification-model-vscode.md)
+- [Explore Azure Machine Learning with examples](samples-notebooks.md)

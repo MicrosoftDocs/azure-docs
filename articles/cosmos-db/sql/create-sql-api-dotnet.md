@@ -1,14 +1,14 @@
 ---
 title: Quickstart - Build a .NET console app to manage Azure Cosmos DB SQL API resources
 description: Learn how to build a .NET console app to manage Azure Cosmos DB SQL API account resources in this quickstart.
-author: anfeldma-ms
-ms.author: anfeldma
+author: rothja
+ms.author: jroth
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 08/26/2021
-ms.custom: devx-track-dotnet, devx-track-azurecli, mode-other
+ms.custom: devx-track-csharp, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Build a .NET console app to manage Azure Cosmos DB SQL API resources

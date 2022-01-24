@@ -8,7 +8,7 @@ ms.devlang:
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.date: 03/10/2021
 ---
 # Migrate a data warehouse to a dedicated SQL pool in Azure Synapse Analytics

@@ -2,8 +2,11 @@
 title: Tutorial - SAP HANA DB restore on Azure using CLI 
 description: In this tutorial, learn how to restore SAP HANA databases running on an Azure VM from an Azure Backup Recovery Services vault using Azure CLI.
 ms.topic: tutorial
-ms.date: 12/4/2019 
+ms.date: 12/23/2021 
 ms.custom: devx-track-azurecli
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Tutorial: Restore SAP HANA databases in an Azure VM using Azure CLI
@@ -21,11 +24,11 @@ By the end of this tutorial you'll be able to:
 
 This tutorial assumes you have an SAP HANA database running on Azure VM that's backed-up using Azure Backup. If you've used [Back up an SAP HANA database in Azure using CLI](tutorial-sap-hana-backup-cli.md) to back up your SAP HANA database, then you're using the following resources:
 
-* a resource group named *saphanaResourceGroup*
-* a vault named *saphanaVault*
-* protected container named *VMAppContainer;Compute;saphanaResourceGroup;saphanaVM*
-* backed-up database/item named *saphanadatabase;hxe;hxe*
-* resources in the *westus2* region
+* A resource group named *saphanaResourceGroup*
+* A vault named *saphanaVault*
+* Protected container named *VMAppContainer;Compute;saphanaResourceGroup;saphanaVM*
+* Backed-up database/item named *saphanadatabase;hxe;hxe*
+* Resources in the *westus2* region
 
 ## View restore points for a backed-up database
 
@@ -167,6 +170,66 @@ Name                                  Resource
 ```
 
 The response will give you the job name. This job name can be used to track the job status using the [az backup job show](/cli/azure/backup/job#az_backup_job_show) cmdlet.
+
+## Restore to secondary region
+
+To restore a database to the secondary region, specify a target vault and server located in the secondary region, in the restore configuration.
+
+```azurecli-interactive
+az backup recoveryconfig show --resource-group saphanaResourceGroup \
+    --vault-name saphanaVault \
+    --container-name VMAppContainer;compute;hanasnapshotcvtmachines;hanasnapcvt01 \
+    --item-name SAPHanaDatabase;h10;h10 \
+    --restore-mode AlternateWorkloadRestore \
+    --from-full-rp-name 293170069256531 \
+    --rp-name 293170069256531 \
+    --target-server-name targethanaserver \
+    --target-container-name VMAppContainer;compute;saphanaTargetRG;targethanaserver \
+    --target-item-name h10 \
+    --target-server-type HANAInstance \
+    --workload-type SAPHANA \
+    --target-resource-group saphanaTargetRG \
+    --target-vault-name targetVault \
+    --backup-management-type AzureWorkload
+```
+
+Following is the response to the above command that will be a recovery configuration object:
+
+```output
+{
+  "alternate_directory_paths": null,
+  "container_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/saphanaTargetRG/providers/Microsoft.RecoveryServices/vaults/targetVault/backupFabrics/Azure/protectionContainers/vmappcontainer;compute;saphanaTargetRG;targethanaserver",
+  "container_uri": "VMAppContainer;compute;hanasnapshotcvtmachines;hanasnapcvt01",
+  "database_name": "SAPHanaDatabase;h10;h10",
+  "filepath": null,
+  "item_type": "SAPHana",
+  "item_uri": "SAPHanaDatabase;h10;h10",
+  "log_point_in_time": null,
+  "recovery_mode": null,
+  "recovery_point_id": "293170069256531",
+  "restore_mode": "AlternateLocation",
+  "source_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/hanasnapcvt01",
+  "workload_type": "SAPHanaDatabase"
+}
+```
+
+Use this recovery configuration in the [az restore restore-azurewl](/cli/azure/backup/restore#az_backup_restore_restore_azurewl) cmdlet. Select the `--use-secondary-region` flag to restore the database to the secondary region.
+
+```azurecli-interactive
+az backup restore restore-azurewl --resource-group saphanaResourceGroup \
+    --vault-name saphanaVault \
+    --recovery-config recoveryconfig.json \
+    --use-secondary-region \
+    --output table
+```
+
+The output will be as follows:
+
+```output
+Name                                  Operation           Status      Item Name            Backup Management Type    Start Time UTC                    Duration
+------------------------------------  ------------------  ----------  -------------------  ------------------------  --------------------------------  --------------
+00000000-0000-0000-0000-000000000000  CrossRegionRestore  InProgress  H10 [hanasnapcvt01]  AzureWorkload             2021-12-22T05:21:34.165617+00:00  0:00:05.665470
+```
 
 ## Restore as files
 

@@ -69,7 +69,7 @@ After providing your application's Health check path, you can monitor the health
 
 ### What happens if my app is running on a single instance?
 
-If your app is only scaled to one instance and becomes unhealthy, it will not be removed from the load balancer because that would take your application down entirely. Scale out to two or more instances to two or more instances to get the re-routing benefit of Health check. If your app is running on a single instance, you can still use Health check's [monitoring](#monitoring) feature to keep track of your application's health.
+If your app is only scaled to one instance and becomes unhealthy, it will not be removed from the load balancer because that would take your application down entirely. Scale out to two or more instances to get the re-routing benefit of Health check. If your app is running on a single instance, you can still use Health check's [monitoring](#monitoring) feature to keep track of your application's health.
  
 ### Why are the Health check request not showing in my frontend logs?
 

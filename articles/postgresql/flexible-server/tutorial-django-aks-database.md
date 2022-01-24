@@ -108,8 +108,6 @@ The server created has the below attributes:
 
 Create a new [Django application](https://docs.djangoproject.com/en/3.1/intro/) or use your existing Django project. Make sure your code is in this folder structure. 
 
-> [!NOTE] 
-> If you don't have an application you can go directly to [**Create Kubernetes manifest file**](./tutorial-django-aks-database.md#create-kubernetes-manifest-file) to use our sample image, [mksuni/django-aks-app:latest](https://hub.docker.com/r/mksuni/django-aks-app). 
 
 ```
 └───my-djangoapp
@@ -210,7 +208,6 @@ Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#cre
 A Kubernetes manifest file defines a desired state for the cluster, such as what container images to run. Let's create a manifest file named ```djangoapp.yaml``` and copy in the following YAML definition. 
 
 >[!IMPORTANT]
-> - Replace ```[DOCKER-HUB-USER/ACR ACCOUNT]/[YOUR-IMAGE-NAME]:[TAG]``` with your actual Django docker image name and tag, for example ```docker-hub-user/myblog:latest```.  You can use the demo sample app ```mksuni/django-aks-app:latest``` in the manifest file.
 > - Update ```env``` section below with your ```SERVERNAME```, ```YOUR-DATABASE-USERNAME```, ```YOUR-DATABASE-PASSWORD``` of your postgres flexible server.
 
 ```yaml

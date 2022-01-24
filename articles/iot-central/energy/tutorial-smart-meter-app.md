@@ -3,14 +3,14 @@ title: Tutorial - Azure IoT smart meter monitoring | Microsoft Docs
 description: This tutorial shows you how to deploy and use the smart meter monitoring application template for IoT Central.
 author: op-ravi
 ms.author: omravi
-ms.date: 08/02/2021
+ms.date: 12/23/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
 ---
 
-# Tutorial: Deploy and walk through the smart meter monitoring app template 
+# Tutorial: Deploy and walk through the smart meter monitoring app template
 
 Use the IoT Central *smart meter monitoring* application template and the guidance in this article to develop an end-to-end smart meter monitoring solution.
 
@@ -20,7 +20,7 @@ This architecture consists of the following components. Some solutions may not r
 
 ### Smart meters and connectivity
 
-A smart meter is one of the most important devices among all the energy assets. It records and communicates energy consumption data to utilities for monitoring and other use cases, such as billing and demand response. Based on the meter type, it can connect to IoT Central either using gateways or other intermediate devices or systems, such edge devices and head-end systems. Build IoT Central device bridge to connect devices, which can't be connected directly. The IoT Central device bridge is an open-source solution and you can find the complete details [here](../core/howto-build-iotc-device-bridge.md). 
+A smart meter is one of the most important devices among all the energy assets. It records and communicates energy consumption data to utilities for monitoring and other use cases, such as billing and demand response. Typically, a meter uses a gateway or bridge to connect to an IoT Central application. To learn more about bridges, see [Use the IoT Central device bridge to connect other IoT clouds to IoT Central](../core/howto-build-iotc-device-bridge.md).
 
 ### IoT Central platform
 

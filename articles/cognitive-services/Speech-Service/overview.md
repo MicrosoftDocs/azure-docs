@@ -1,7 +1,7 @@
 ---
 title: What is the Speech service?
 titleSuffix: Azure Cognitive Services
-description: The Speech service is the unification of speech-to-text, text-to-speech, and speech translation into a single Azure subscription. Add speech to your applications, tools, and devices with the Speech SDK, Speech Devices SDK, or REST APIs.
+description: The Speech service is the unification of speech-to-text, text-to-speech, and speech translation into a single Azure subscription. Add speech to your applications, tools, and devices with the Speech SDK, Speech Studio, or REST APIs.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: eur
 
 # What is the Speech service?
 
-The Speech service is the unification of Speech-to-Text, Text-to-Speech, and Speech-Translation into a single Azure subscription. It's easy to speech enable your applications, tools, and devices with the [Speech CLI](spx-overview.md), [Speech SDK](./speech-sdk.md), [Speech Devices SDK](./speech-devices-sdk-quickstart.md?pivots=platform-android), [Speech Studio](speech-studio-overview.md), or [REST APIs](#reference-docs).
+The Speech service is the unification of speech-to-text, text-to-speech, and speech-translation into a single Azure subscription. It's easy to speech enable your applications, tools, and devices with the [Speech CLI](spx-overview.md), [Speech SDK](./speech-sdk.md), [Speech Studio](speech-studio-overview.md), or [REST APIs](#reference-docs).
 
 > [!IMPORTANT]
 > The Speech service has replaced Bing Speech API and Translator Speech. See the _Migration_ section for migration instructions.
@@ -68,10 +68,7 @@ To add a Speech service resource (free or paid tier) to your Azure account:
    - Choose either a free (F0) or paid (S0) pricing tier. For complete information about pricing and usage quotas for each tier, select **View full pricing details** or see [speech services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). For limits on resources, see [Azure Cognitive Services Limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
    - Create a new resource group for this Speech subscription or assign the subscription to an existing resource group. Resource groups help you keep your various Azure subscriptions organized.
    - Select **Create**. This will take you to the deployment overview and display deployment progress messages.  
-<!--
-> [!NOTE]
-> You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
--->
+
 It takes a few moments to deploy your new Speech resource. 
 
 ### Find keys and location/region
@@ -140,9 +137,8 @@ Other products offer speech models tuned for specific purposes like healthcare o
 ## Reference docs
 
 - [Speech SDK](./speech-sdk.md)
-- [Speech Devices SDK](speech-devices-sdk.md)
-- [REST API: Speech-to-Text](rest-speech-to-text.md)
-- [REST API: Text-to-Speech](rest-text-to-speech.md)
+- [REST API: Speech-to-text](rest-speech-to-text.md)
+- [REST API: Text-to-speech](rest-text-to-speech.md)
 - [REST API: Batch transcription and customization](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 

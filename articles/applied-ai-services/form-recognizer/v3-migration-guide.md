@@ -2,12 +2,12 @@
 title: "How-to: Migrate your application from Form Recognizer v2.1 to v3.0."
 titleSuffix: Azure Applied AI Services
 description: In this how-to guide, you'll learn the differences between Form Recognizer API v2.1 and v3.0. You'll also learn the changes you need to move to the newer version of the API.
-author: vkurpad
+author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 10/07/2021
+ms.date: 12/13/2021
 ms.author: vikurpad
 recommendations: false
 ms.custom: ignite-fall-2021
@@ -31,7 +31,7 @@ In this article, you'll learn the differences between Form Recognizer v2.1 and v
 
 ## Changes to the REST API endpoints
 
- The v3.0 REST API combines the analysis operations for layout analysis, prebuilt models, and custom models into a single pair of operations by assigning **`documentModels`**  and  **`modelId`** to layout analysis (prebuilt-layout) and prebuilt models.
+ The v3.0 REST API combines the analysis operations for layout analysis, prebuilt models, and custom models into a single pair of operations by assigning **`documentModels`**  and  **`modelId`** to the layout analysis (prebuilt-layout) and prebuilt models.
 
 ### POST request
 
@@ -88,8 +88,8 @@ Base64 encoding is also supported in Form Recognizer v3.0:
 
 Parameters that continue to be supported:
 
-* pages
-* locale
+* `pages`
+* `locale`
 
 Parameters no longer supported: 
 
@@ -99,14 +99,14 @@ The new response format is more compact and the full output is always returned.
 
 ## Changes to analyze result
 
-Analyze response has been refactored to the following top-level results to support multi page elements.
+Analyze response has been refactored to the following top-level results to support multi-page elements.
 
-* pages
-* tables
-* keyValuePairs
-* entities
-* styles
-* documents
+* `pages`
+* `tables`
+* `keyValuePairs`
+* `entities`
+* `styles`
+* `documents`
 
 > [!NOTE]
 >

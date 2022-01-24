@@ -8,35 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 05/08/2020
+ms.date: 01/05/2022
 ms.author: aahi
-ms.custom: seodec2018, devx-track-python, mode-other
+ms.devlang: python
+ms.custom: seodec2018, devx-track-python, mode-api
 ---
 
 # Quickstart: Search for images using the Bing Image Search REST API and Python
 
-> [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
 
 Use this quickstart to learn how to send search requests to the Bing Image Search API. This Python application sends a search query to the API, and displays the URL of the first image in the results. Although this application is written in Python, the API is a RESTful web service compatible with most programming languages.
-
-To run this example as a Jupyter notebook on [MyBinder](https://mybinder.org), select the **launch binder** badge:
-
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingImageSearchAPI.ipynb)
-
-
-The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingImageSearchv7.py) with additional error handling and annotations.
-
 
 ## Prerequisites
 
 * [Python 2.x or 3.x](https://www.python.org/)
 * The [Python Imaging Library (PIL)](https://pillow.readthedocs.io/en/stable/index.html)
 * [matplotlib](https://matplotlib.org/) 
-
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Create and initialize the application
 
