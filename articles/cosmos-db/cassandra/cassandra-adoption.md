@@ -48,11 +48,15 @@ You also can use samples for [Java Spring Boot (v3 driver)](https://github.com/A
 
 ## Storage
 
-The Cassandra API ultimately is backed by Azure Cosmos DB, which is a document-oriented NoSQL database engine. Azure Cosmos DB maintains metadata, which might result in a change in the amount of physical storage required for a specific workload. The difference in storage requirements  between native Apache Cassandra and Azure Cosmos DB is most noticeable in small row sizes. In some cases, the difference might be offset because Azure Cosmos DB doesn't implement compaction or tombstones. However, this factor depends significantly on the workload. If you are uncertain about storage requirements, we recommend that you first create a proof of concept.
+The Cassandra API ultimately is backed by Azure Cosmos DB, which is a document-oriented NoSQL database engine. Azure Cosmos DB maintains metadata, which might result in a change in the amount of physical storage required for a specific workload. 
+
+The difference in storage requirements between native Apache Cassandra and Azure Cosmos DB is most noticeable in small row sizes. In some cases, the difference might be offset because Azure Cosmos DB doesn't implement compaction or tombstones. However, this factor depends significantly on the workload. If you're uncertain about storage requirements, we recommend that you first create a proof of concept.
 
 ## Multi-region deployments
 
-Native Apache Cassandra is a multi-master system by default. Apache Cassandra doesn't have an option for single-master with multi-region replication for reads only. The concept of application-level failover to another region for writes is redundant in Apache Cassandra. All nodes are independent, and there is no single point of failure. However, Azure Cosmos DB provides the out-of-box ability to configure either single-master or multi-master regions for writes. An advantage of having a single-master region for writes is avoiding cross-region conflict scenarios. It gives you the option to maintain strong consistency across multiple regions while maintaining a level of high availability.
+Native Apache Cassandra is a multi-master system by default. Apache Cassandra doesn't have an option for single-master with multi-region replication for reads only. The concept of application-level failover to another region for writes is redundant in Apache Cassandra. All nodes are independent, and there is no single point of failure. However, Azure Cosmos DB provides the out-of-box ability to configure either single-master or multi-master regions for writes. 
+
+An advantage of having a single-master region for writes is avoiding cross-region conflict scenarios. It gives you the option to maintain strong consistency across multiple regions while maintaining a level of high availability.
 
 > [!NOTE]
 > Strong consistency across regions and a Recovery Point Objective (RPO) of zero isn't possible for native Apache Cassandra because all nodes are capable of serving writes. You can configure Azure Cosmos DB for strong consistency across regions in a *single write region* configuration. However, like with native Apache Cassandra, you can't configure an Azure Cosmos DB account that's configured with multiple write regions for strong consistency. A distributed system can't provide an RPO of zero *and* a Recovery Time Objective (RTO) of zero.
@@ -89,7 +93,7 @@ Take steps to ensure that your partition key design will result in a relatively 
 
 ## Scaling
 
-In native Apache Cassandra, increasing capacity and scale involve adding new nodes to a cluster and ensuring that the nodes are properly added to the Cassandra ring. In Azure Cosmos DB, adding nodes is transparent and automatic. Scaling is a function of how many [request units](../request-units.md) are provisioned for your keyspace or table. Scaling in physical machines occurs when either physical storage or required throughput reaches limits allowed for a logical or a physical partition. For more information, see [Partitioning in the Azure Cosmos DB Cassandra API](cassandra-partitioning.md).
+In native Apache Cassandra, increasing capacity and scale involves adding new nodes to a cluster and ensuring that the nodes are properly added to the Cassandra ring. In Azure Cosmos DB, adding nodes is transparent and automatic. Scaling is a function of how many [request units](../request-units.md) are provisioned for your keyspace or table. Scaling in physical machines occurs when either physical storage or required throughput reaches limits allowed for a logical or a physical partition. For more information, see [Partitioning in the Azure Cosmos DB Cassandra API](cassandra-partitioning.md).
 
 ## Rate limiting
 
