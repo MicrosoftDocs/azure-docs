@@ -1,6 +1,6 @@
 ---
 title:  Microsoft CloudKnox Permissions Management - Onboard the Amazon Web Services (AWS) authorization system
-description: How to onboard the Amazon Web Services (AWS) authorization system on Microsoft CloudKnox Permissions Management.
+description: How to onboard an Amazon Web Services (AWS) account on Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,19 +8,18 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 01/24/2022
 ms.author: v-ydequadros
 ---
 
-# Onboard the Amazon Web Services (AWS) authorization system
+# Onboard an Amazon Web Services (AWS) account
 
-This topic describes how to onboard the Amazon Web Services (AWS) authorization system on Microsoft CloudKnox Permissions Management (CloudKnox).
+This topic describes how to onboard an Amazon Web Services (AWS) account on Microsoft CloudKnox Permissions Management (CloudKnox).
 
 > [!NOTE] 
-> To complete this task, you must have Global Administrator permissions.
-> Before beginning this task, make sure you have completed the steps provided in [Enable CloudKnox on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.md).
+> Any group member can perform the tasks in this article after the Global Administrator has initially completed the steps provided in [Enable CloudKnox on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.md).
 
-## Onboard AWS
+## Onboard an AWS account
 
 1. If the **Data Collectors** tab isn't displayed: 
 
@@ -38,7 +37,7 @@ This topic describes how to onboard the Amazon Web Services (AWS) authorization 
 
 1. Select the app name to open the **Expose an API** page.
 
-    The API is displayed in the overview page and the **Application ID URI** box. This API enables the connection with the OIDC account.
+    The API is displayed in the **Overview** page and the **Application ID URI** box. This API enables the connection with the OIDC account.
 
     If you aren't already logged in to AWS, you're prompted to do so. 
 
@@ -58,7 +57,9 @@ This topic describes how to onboard the Amazon Web Services (AWS) authorization 
 
 1. In the **Enter Your AWS Account ID** box, enter your account ID.
 
-1. To avoid rule-naming collisions, in the AWS **Member Account Role** box, enter a new name. Then select **Launch Template**.
+    You can enter up to 10 account IDs. Click the plus icon next to the text box to insert more subscriptions.
+
+1. In the AWS **Member Account Role** box, enter a new name. Then select **Launch Template**.
 
     The **AWS Quick create stack** page opens, displaying the template.
 
@@ -72,6 +73,8 @@ This topic describes how to onboard the Amazon Web Services (AWS) authorization 
     >  A *cloud bucket* collects all the activity in a single account that CloudKnox monitors. Entering the name of a cloud bucket here provides CloudKnox with the access required to collect activity data. 
 
 1. In the **EnableController** box, from the drop-down list, select: 
+
+    <!---Mrudula: Add the procedure "to enable/disable the controller after the onboarding."--->
 
     - **True**, if you want the controller to provide CloudKnox with read and write access so that any remediation you want to do from the CloudKnox platform can be done automatically.
     - **False**, if you want the controller to provide CloudKnox with read-only access.
@@ -112,11 +115,10 @@ This topic describes how to onboard the Amazon Web Services (AWS) authorization 
 
     The **Status** column in the table displays **Collecting Data.**
 
-    The data collection process takes a few minutes, so you may have to refresh your screen a few times to see the data.
+    The data collection process will take some time, depending on the size of the account and how much data is available for collection.
 
 
 ## Next steps
 
-- For information on how to onboard Microsoft Azure, see [Onboard the Azure authorization system](cloudknox-onboard-azure.md).
-- For information on how to onboard Google Cloud Platform (GCP), see [Onboard the GCP authorization system](cloudknox-onboard-gcp.md).
-
+- For information on how to onboard a Microsoft Azure subscription, see [Onboard a Microsoft Azure subscription](cloudknox-onboard-azure.md).
+- For information on how to onboard a Google Cloud Platform (GCP) project, see [Onboard a Google Cloud Platform (GCP) project](cloudknox-onboard-gcp.md).

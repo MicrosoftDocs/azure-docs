@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 01/24/2022
 ms.author: v-ydequadros
 ---
 
@@ -24,16 +24,18 @@ This topic describes how to enable Microsoft CloudKnox Permissions Management (C
 **To enable CloudKnox on your Azure AD tenant:**
 
 1. Log in to your Azure AD tenant and select **Next**.
-1. Open your browser and enter aka.ms/ciem-prod.
+1. Open your browser and enter [aka.ms/ciem-prod](aka.ms/ciem-prod).
 1. In the Azure AD portal, select **CloudKnox Permissions Management**.
 
     The **Welcome to CloudKnox Permissions Management** screen appears. 
 
     This screen provides information on how to enable CloudKnox on your tenant.
 
-1. To provide access to the CloudKnox, create a service principal that points to CloudKnox.
+1. To provide access to the CloudKnox application, create a service principal.
 
-    An Azure service principal is a security identity used by user-created apps, services, and automation tools to access specific Azure resources. 
+    An Azure service principal is a security identity used by user-created apps, services, and automation tools to access specific Azure resources.
+
+    1. To create a service principal that points to the CloudKnox application:
 
     1. Copy the script on the **Welcome** screen:
 
@@ -46,7 +48,7 @@ This topic describes how to enable Microsoft CloudKnox Permissions Management (C
         For information on how to create a service principal through the Azure portal, see [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli). 
 
 
-        For information on how to get an az command and login with the no subscriptions flag, see [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login).
+        For information on the **az** command and how to login with the no subscriptions flag, see [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login).
 
         <!---(/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true)--->
 
@@ -65,11 +67,11 @@ This topic describes how to enable Microsoft CloudKnox Permissions Management (C
 
 1. In the CloudKnox **Data Collectors** settings page, select the authorization system you want.
 
-1. For information on how to  onboard your authorization system, select one of the following topics and follow the instructions:
+1. For information on how to  onboard an AWS account, Azure subscription, or GCP platform on CloudKnox, select one of the following articles and follow the instructions:
 
-    - [Onboard the Amazon Web Services (AWS) authorization system](cloudknox-onboard-aws.md)
-    - [Onboard the Microsoft Azure authorization system](cloudknox-onboard-azure.md)
-    - [Onboard the Google Cloud Platform (GCP) authorization system](cloudknox-onboard-gcp.md)
+    - [Onboard an Amazon Web Services (AWS) account](cloudknox-onboard-aws.md)
+    - [Onboard a Microsoft Azure subscription](cloudknox-onboard-azure.md)
+    - [Onboard a Google Cloud Platform (GCP) project](cloudknox-onboard-gcp.md)
 
 <!---Next Steps--->
 

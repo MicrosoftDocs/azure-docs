@@ -8,11 +8,11 @@
     items:
     - name: Enable CloudKnox on your Azure AD tenant 
       href: cloudknox-onboard-enable-tenant.md
-    - name: Onboard the AWS authorization system
+    - name: Onboard an AWS account
       href: cloudknox-onboard-aws.md
-    - name: Onboard the Azure authorization system
+    - name: Onboard an Azure subscription
       href: cloudknox-onboard-azure.MD
-    - name: Onboard the GCP authorization system
+    - name: Onboard a GCP project
       href: cloudknox-onboard-gcp.md
   #- name: Integration
     #expanded: true
