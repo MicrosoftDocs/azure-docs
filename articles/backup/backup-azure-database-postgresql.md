@@ -81,8 +81,7 @@ You can configure backup on multiple databases across multiple Azure PostgreSQL 
 
    - Backup vault accesses secrets from the key vault and runs a test connection to the database to validate if the credentials have been entered correctly. The privileges of the database user are also checked to see [if the Database user has backup-related permissions on the database](backup-azure-database-postgresql-overview.md#database-users-backup-privileges-on-the-database).
 
-     >[!Note]
-     >- PostgreSQL admin will have all the backup and restore permissions on the database by default. Therefore, validations would succeed.
+   - PostgreSQL admin will have all the backup and restore permissions on the database by default. Therefore, validations would succeed.
    - A low privileged user may not have backup/restore permissions on the database. Therefore, the validations would fail. A PowerShell script is dynamically generated (one per record/selected database). [Run the PowerShell script to grant these privileges to the database user on the database](#create-secrets-in-the-key-vault). Alternatively, you can assign these privileges using PG admin or PSQL tool.
 
    :::image type="content" source="./media/backup-azure-database-postgresql/backup-vault-accesses-secrets-inline.png" alt-text="Screenshot showing the backup vault access secrets from the key vault." lightbox="./media/backup-azure-database-postgresql/backup-vault-accesses-secrets-expanded.png":::      
@@ -101,7 +100,7 @@ You can configure backup on multiple databases across multiple Azure PostgreSQL 
 
    :::image type="content" source="./media/backup-azure-database-postgresql/submit-configure-backup-operation-inline.png" alt-text="Screenshot showing the backup configuration submission and tracking progress." lightbox="./media/backup-azure-database-postgresql/submit-configure-backup-operation-expanded.png":::      
 
-## Create Backup Policy
+## Create Backup policy
 
 You can create a Backup policy on the go during the configure backup flow. Alternatively, go to **Backup center** -> **Backup policies** -> **Add**.
 

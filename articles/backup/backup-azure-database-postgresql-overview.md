@@ -40,7 +40,7 @@ The Azure Backup service needs to connect to the Azure PostgreSQL while taking e
  
 :::image type="content" source="./media/backup-azure-database-postgresql-overview/key-vault-based-authentication-model.png" alt-text="Diagram showing the workload or database flow.":::
 
-#### Set of Permissions needed for Azure PostgreSQL database backup
+#### Set of permissions needed for Azure PostgreSQL database backup
 
 1. Grant the following access permissions to the Backup vault’s MSI:
 
@@ -57,7 +57,7 @@ The Azure Backup service needs to connect to the Azure PostgreSQL while taking e
 >[!Note]
 >You can grant these permissions within the [configure backup](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases) flow with a single click if you (the backup admin) have ‘write’ access on the intended resources, or use an ARM template if you don’t have the required permissions (when multiple personas are involved). 
 
-#### Set of Permissions needed for Azure PostgreSQL database restore
+#### Set of permissions needed for Azure PostgreSQL database restore
 
 Permissions for restore are similar to the ones needed for backup and you need to grant the permissions on the target PostgreSQL server and its corresponding key vault. Unlike in configure backup flow, the experience to grant these permissions inline is currently not available. Therefore, you need to [manually grant the access on the Postgres server and the corresponding key vault](#grant-access-on-the-azure-postgresql-server-and-key-vault-manually).
 
@@ -79,7 +79,7 @@ We had earlier launched a different authentication model that was entirely based
 
 To grant all the access permissions needed by Azure Backup, refer to the following sections:
 
-### Access Permissions on the Azure PostgreSQL server
+### Access permissions on the Azure PostgreSQL server
 
 1. Set Backup vault’s MSI **Reader** access on the Azure PostgreSQL server.
 
@@ -89,7 +89,7 @@ To grant all the access permissions needed by Azure Backup, refer to the followi
 
    :::image type="content" source="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-azure-postgresql-server-inline.png" alt-text="Screenshot showing the option to set network line of sight access on the Azure PostgreSQL server." lightbox="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-azure-postgresql-server-expanded.png":::
 
-### Access Permissions on the Azure Key vault (associated with the PostgreSQL server)
+### Access permissions on the Azure Key vault (associated with the PostgreSQL server)
 
 1. Set Backup vault’s MSI **Key Vault Secrets User** (or **get**, **list** secrets) access on the Azure key vault. To assign permissions, you can use role assignments or access policies. It’s not required to add the permission using both the options as it doesn’t help.
 

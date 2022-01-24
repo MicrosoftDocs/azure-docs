@@ -180,7 +180,7 @@ You can configure backup on multiple databases across multiple Azure PostgreSQL 
 
    :::image type="content" source="./media/backup-azure-database-postgresql/submit-configure-backup-operation-inline.png" alt-text="Screenshot showing the backup configuration submission and tracking progress." lightbox="./media/backup-azure-database-postgresql/submit-configure-backup-operation-expanded.png":::
 
-## Run on-demand backup
+## Run an on-demand backup
 
 To trigger an on-demand backup (that's not in the schedule specified in the policy), follow these steps:
 
