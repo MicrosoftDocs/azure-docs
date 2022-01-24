@@ -9,7 +9,7 @@ ms.custom:
 ---
 
 ### Register Azure Purview as a resource provider in other subscriptions
-Execute this step only if the data sources and Azure Purview account are in different subscriptions. Register Azure Purview as a resource provider in each subscription where data sources reside by following this guide: [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md)
+Execute this step only if the data sources and Azure Purview account are in different subscriptions. Register Azure Purview as a resource provider in each subscription where data sources reside by following this guide: [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md)
 
 ### Configure permissions for policy management actions
 
@@ -18,7 +18,7 @@ User needs to have **either one of these** role combinations in the data source,
 - IAM *Owner* 
 - Both IAM *Contributor* + IAM *User Access Administrator*
  
-You can follow this [guide to configure Azure RBAC permissions](../role-based-access-control/check-access.md)
+You can follow this [guide to configure Azure RBAC permissions](../../role-based-access-control/check-access.md)
 
 #### Azure Purview account permissions
 >[!IMPORTANT]
@@ -28,9 +28,9 @@ You can follow this [guide to configure Azure RBAC permissions](../role-based-ac
   - Publish a policy.
 - User needs Azure Purview *Policy authors* role at root collection level to create or edit policies.
 
-Check the section on managing Azure Purview role assignments in this [guide](how-to-create-and-manage-collections.md).
+Check the section on managing Azure Purview role assignments in this [guide](../how-to-create-and-manage-collections.md).
 
 >[!WARNING]
 > **Known issues** related to permissions
-> - In addition to Azure Purview *Policy authors* role, user requires *Directory Reader* permission in Azure Active Directory to create data owner policy. Learn more about permissions for [Azure AD Directory Reader](../active-directory/roles/permissions-reference.md#directory-readers)
+> - In addition to Azure Purview *Policy authors* role, user requires *Directory Reader* permission in Azure Active Directory to create data owner policy. Learn more about permissions for [Azure AD Directory Reader](../../active-directory/roles/permissions-reference.md#directory-readers)
 > - Azure Purview *Policy author* role is not sufficient to create policies. It also requires Azure Purview *Data source admin* role as well.
