@@ -57,6 +57,33 @@ For each month, we truncate the SLA attainment at three places after the decimal
 
 
 
+## Version 2
+
+Test:
+
+| Month     | 2021   | 2022 |
+| ---       | ---    | ---  |
+| January   | 99.999 |      |
+| February  | 99.999 |      |
+| March     | 99.999 |      |
+| April     | 99.999 |      |
+| May       | 99.999 |      |
+| June      | 99.999 |      |
+| July      | 99.999 |      |
+| August    | 99.999 |      |
+| September | 99.999 |      |
+| October   | 99.999 |      |
+| November  | 99.998 |      |
+| December  | 99.998 |      |
+
+
+
+
+
+
+
+
+
   
 
   
