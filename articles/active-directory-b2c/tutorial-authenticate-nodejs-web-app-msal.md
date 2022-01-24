@@ -214,7 +214,7 @@ Modify the values in the `.env` files as follows:
 
 In your `index.js` file, add the following code to use your app dependencies: 
 
-    :::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/index.js" id="ms_docref_use_app_dependencies":::
+:::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/index.js" id="ms_docref_use_app_dependencies":::
 
 In your `index.js` file, add the following code:
 
