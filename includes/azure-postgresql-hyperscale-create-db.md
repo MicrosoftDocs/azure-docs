@@ -25,7 +25,7 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 3. Select the **Hyperscale (Citus) server group** deployment option.
    ![deployment options](./media/azure-postgresql-hyperscale-create-db/deployment-option.png)
 4. Fill out the **Basics** form with the following information:
-   ![deployment options](./media/azure-postgresql-hyperscale-create-db/basics.png)
+   ![basic info form](./media/azure-postgresql-hyperscale-create-db/basics.png)
 
    | Setting           | Description       |
    |-------------------|-------------------|
@@ -59,7 +59,7 @@ Follow these steps to create an Azure Database for PostgreSQL server:
      increasing the vCores of the nodes. 
    * Best for performance and scale.
 
-   Learn more about [choosing tiers](concepts-server-group.md#tiers).
+   Learn more about [choosing tiers](../articles/postgresql/hyperscale/concepts-server-group.md#tiers).
    
    **High availability**:
 
