@@ -8,6 +8,8 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 01/24/2022
 ms.author: duau
+ms.custom: references_regions
+
 ---
 # ExpressRoute partners and peering locations
 

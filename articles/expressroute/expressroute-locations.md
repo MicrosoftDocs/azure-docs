@@ -3,12 +3,12 @@ title: 'Connectivity providers and locations: Azure ExpressRoute | Microsoft Doc
 description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions. Sorted by connectivity provider.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 01/24/2022
 ms.author: duau
+ms.custom: references_regions
 
 ---
 # ExpressRoute connectivity partners and peering locations
