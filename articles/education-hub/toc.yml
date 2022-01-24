@@ -21,7 +21,7 @@
   - name: Create an assignment and allocate credit
     href: create-assignment-allocate-credit.md
   - name: Support
-  items:
+    items:
   - name: Service desk
     href: educator-service-desk.md
 - name: Azure Dev Tools for Teaching
