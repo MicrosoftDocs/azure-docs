@@ -1,28 +1,27 @@
 ---
-title: Copy and move Custom Vision projects
+title: Copy and back up Custom Vision projects
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the ExportProject and ImportProject APIs to copy and move your Custom Vision projects.
+description: Learn how to use the ExportProject and ImportProject APIs to copy and back up your Custom Vision projects.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 01/20/2022
 ms.author: pafarley
 ---
 
-# Copy and move your Custom Vision projects
+# Copy and back up your Custom Vision projects
 
-After you've created and trained a Custom Vision project, you may want to copy your project to another resource. For example, you might want to move a project from a development to production environment, or back up a project to an account in a different Azure region for increased data security.
+After you've created and trained a Custom Vision project, you may want to copy your project to another resource. If your app or business depends on the use of a Custom Vision project, we recommend you copy your model to another Custom Vision account in another region. Then if a regional outage occurs, you can access your project in the region where it was copied.
+
+As a part of Azure, Custom Vision Service has components that are maintained across multiple regions. Service zones and regions are used by all of our services to provide continued service to our customers. For more information on zones and regions, see [Azure regions](/azure/availability-zones/az-overview). If you need additional information or have any issues, please [contact support](/answers/topics/azure-custom-vision.html).
 
 The **[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)** and **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** APIs enable this scenario by allowing you to copy projects from one Custom Vision account into others. This guide shows you how to use these REST APIs with cURL. You can also use an HTTP request service like Postman to issue the requests.
 
 > [!TIP]
 > For an example of this scenario using the Python client library, see the [Move Custom Vision Project](https://github.com/Azure-Samples/custom-vision-move-project/tree/master/) repository on GitHub.
 
-## Business scenarios
-
-If your app or business depends on the use of a Custom Vision project, we recommend you copy your model to another Custom Vision account in another region. Then if a regional outage occurs, you can access your project in the region where it was copied.
 
 ##  Prerequisites
 
