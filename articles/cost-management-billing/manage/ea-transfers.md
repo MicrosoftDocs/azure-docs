@@ -56,7 +56,7 @@ When you request to transfer an entire enterprise enrollment to an enrollment, t
 
 - Usage transferred may take up to 72 hours to be reflected in the new enrollment.
 - If DA or AO view charges were enabled on the transferred enrollment, they must be enabled on the new enrollment.
-- If you are using API reports or Power BI, please generate a new API key under your new enrollment.
+- If you're using API reports or Power BI, generate a new API key under your new enrollment.
 - All Azure services, subscriptions, accounts, departments, and the entire enrollment structure, including all EA department administrators, transfer to a new target enrollment.
 - The enrollment status is set to _Transferred_. The transferred enrollment is available for historic usage reporting purposes only.
 - You can't add roles or subscriptions to a transferred enrollment. Transferred status prevents more usage against the enrollment.
@@ -91,7 +91,7 @@ Other points to keep in mind before an enrollment transfer:
 - If the source and destination enrollments are on different cloud instances, the transfer will fail. Azure Support can transfer only within the same cloud instance.
 - For reservations (reserved instances):
   - The enrollment or account transfer between different currencies affects monthly reservation purchases.
-  - Whenever there's is a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment at the time of next monthly payment for an individual reservation. This is intentional and affects only the monthly reservation purchases.
+  - Whenever there's is a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment at the time of next monthly payment for an individual reservation. This cancellation is intentional and affects only the monthly reservation purchases.
   - You may have to repurchase the canceled monthly reservations from the source enrollment using the new enrollment in the local or new currency.
 
 
@@ -126,19 +126,19 @@ The Azure EA portal can transfer subscriptions from one account owner to another
 
 When an Azure subscription is transferred to an account in the same Azure Active Directory tenant, then all users, groups, and service principals that had [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) to manage resources keep their access.
 
-To view users with RBAC access to the subscription:
+To view users with Azure RBAC access to the subscription:
 
 1. In the Azure portal, open **Subscriptions**.
 2. Select the subscription you want to view, and then select **Access control (IAM)**.
-3. Select **Role assignments**. The role assignments page lists all users who have RBAC access to the subscription.
+3. Select **Role assignments**. The role assignments page lists all users who have Azure RBAC access to the subscription.
 
-If the subscription is transferred to an account in a different Azure AD tenant, then all users, groups, and service principals that had [RBAC](../../role-based-access-control/overview.md) to manage resources _lose_ their access. Although RBAC access isn't present, access to the subscription might be available through security mechanisms, including:
+If the subscription is transferred to an account in a different Azure AD tenant, then all users, groups, and service principals that had an [Azure RBAC role](../../role-based-access-control/overview.md) to manage resources _lose_ their access. Although Azure RBAC access isn't present, access to the subscription might be available through security mechanisms, including:
 
 - Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and Upload a Management Certificate for Azure](../../cloud-services/cloud-services-certs-create.md).
 - Access keys for services like Storage. For more information, see [Azure storage account overview](../../storage/common/storage-account-overview.md).
 - Remote Access credentials for services like Azure Virtual Machines.
 
-If the recipient needs to restrict,  access to their Azure resources, they should consider updating any secrets associated with the service. Most resources can be updated by using the following steps:
+If the recipient needs to restrict, access to their Azure resources, they should consider updating any secrets associated with the service. Most resources can be updated by using the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. On the Hub menu, select **All resources**.
