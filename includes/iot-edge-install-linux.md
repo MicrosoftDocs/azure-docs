@@ -15,62 +15,52 @@ You need to complete two steps on your device before it's ready to install the I
 
 ### Access the Microsoft installation packages
 
-<!-- 1.1 -->
-::: moniker range="iotedge-2018-06"
+# [Ubuntu](#tab/ubuntu)
 
 1. Get the latest repository configuration from Microsoft:
 
-   # [Ubuntu 18.04](#tab/iotedge-2018-06_ubuntu1804)
+   **18.04**:
 
-   ```bash
-   curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
-   ```
-
-   # [Raspberry Pi OS](#tab/iotedge-2018-06_rpios)
-
-   ```bash
-   curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
-   ```
-
-1. Copy the generated list to the sources.list.d directory.
-
-   ```bash
-   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-   ```
-
-1. Install the Microsoft GPG public key.
-
-   ```bash
-   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-   ```
-
-1. Update package lists on your device.
-
-   ```bash
-   sudo apt-get update
-   ```
-
-<!-- end 1.1 -->
-::: moniker-end
+      ```bash
+      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+      ```
 
 <!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
+   **20.04**:
+
+      ```bash
+      curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > ./microsoft-prod.list
+      ```
+
+<!-- end 1.2 -->
+::: moniker-end
+
+1. Copy the generated list to the sources.list.d directory.
+
+   ```bash
+   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+   ```
+
+1. Install the Microsoft GPG public key.
+
+   ```bash
+   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+   ```
+
+1. Update package lists on your device.
+
+   ```bash
+   sudo apt-get update
+   ```
+
+# [Raspberry Pi OS](#tab/rpios)
+
 1. Get the latest repository configuration from Microsoft:
 
-   # [Ubuntu 20.04](#tab/iotedge-2020-11_ubuntu2004)
-   ```bash
-   curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > ./microsoft-prod.list
-   ```
-
-   # [Ubuntu 18.04](#tab/iotedge-2020-11_ubuntu1804)
-
-   ```bash
-   curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
-   ```
-
-   # [Raspberry Pi OS](#tab/iotedge-2020-11_rpios)
+   **Stretch**:
 
    ```bash
    curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
@@ -94,10 +84,6 @@ You need to complete two steps on your device before it's ready to install the I
    ```bash
    sudo apt-get update
    ```
-
-<!-- end 1.2 -->
-::: moniker-end
-
 
 > [!NOTE]
 > Azure IoT Edge software packages are subject to the license terms located in each package (`usr/share/doc/{package-name}` or the `LICENSE` directory). Read the license terms prior to using a package. Your installation and use of a package constitutes your acceptance of these terms. If you don't agree with the license terms, don't use that package.
