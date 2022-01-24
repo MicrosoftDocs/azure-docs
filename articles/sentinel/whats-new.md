@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 01/13/2022
+ms.date: 01/24/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -38,9 +38,9 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 Microsoft Sentinel now supports a new method for partners, advanced users, and developers to create custom connectors, connect them, and ingest data to Microsoft Sentinel.
 
-CCP provides support either via an ARM template, an API, or as a solution in the the Microsoft Sentinel [content hub](sentinel-solutions.md).
+The Codeless Connector Platform (CCP) provides support for new data connectors via ARM templates, API, or via a solution in the the Microsoft Sentinel [content hub](sentinel-solutions.md).
 
-Connectors created using CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Microsoft Sentinel.
+Connectors created using CCP are fully SaaS, without any requirements for service installations, and also include [health monitoring](monitor-data-connector-health.md) and full support from Microsoft Sentinel.
 
 For more information, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
 

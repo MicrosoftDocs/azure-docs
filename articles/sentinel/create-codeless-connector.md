@@ -4,7 +4,7 @@ description: Learn how to create a codeless connector in Microsoft Sentinel usin
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 01/24/2022
 ---
 # Create a codeless connector for Microsoft Sentinel (Public preview)
 
@@ -16,20 +16,27 @@ The Codeless Connector Platform (CCP) provides partners, advanced users, and dev
 
 Connectors created using CCP are fully SaaS, without any requirements for service installations, and also include [health monitoring](monitor-data-connector-health.md) and full support from Microsoft Sentinel.
 
-Create your data connector by defining the JSON configuration file, with settings for how the data connector page in Microsoft Sentinel looks and works and polling settings that define how the connection works between Microsoft Sentinel and your data source.
+Create your data connector by defining a JSON configuration file, with settings for how the data connector page in Microsoft Sentinel looks and works and polling settings that define how the connection works between Microsoft Sentinel and your data source.
 
-**Use the following steps to create your connector's JSON configuration file**:
+**Use the following steps to create and deploy your CCP connector**:
 
 > [!div class="checklist"]
 > * Configure the connector's user interface
 > * Configure the connector's polling settings
-> * Connect from Microsoft Sentinel to your data source to start ingesting data
+> * Deploy your connector to your Microsoft Sentinel workspace
+> * Connect Microsoft Sentinel to your data source and start ingesting data
 
 This article describes the syntax used in the CCP JSON configuration file and procedures for deploying your connector via API, an ARM template, or a Microsoft Sentinel solution.
 
-## Connector JSON configuration syntax
+## Prerequisites
 
-The following sample shows the basic syntax of the CCP JSON configuration file:
+Before building a connector, we recommend that you learn and understand how your data source behaves and exactly how Microsoft Sentinel will need to connect.
+
+For example, you'll need to understand the types of authentication, pagination, and API endpoints that are required for successful connections.
+
+## Create a connector configuration file
+
+To create your custom, CCP connector, create a JSON file with the following basic syntax:
 
 ```json
 {
@@ -43,29 +50,30 @@ The following sample shows the basic syntax of the CCP JSON configuration file:
 }
 ```
 
-Your connector uses the `connectorUiConfig` section to define the [visual elements and text](#configure-your-connectors-user-interface) displayed on the data connector page in Microsoft Sentinel, and the `pollingConfig` section to define [how Microsoft Sentinel collects data](#configure-your-connectors-polling-settings) from your data source.
+Fill in each of the following area with additional properties that define how your connector connects Microsoft Sentinel to your data source, and is displayed in the Azure portal:
 
-> [!TIP]
-> Before building a connector, we recommend that you learn and understand how the source behaves and exactly what it expects to be connected to. For example, the types of authentication, pagination, and API endpoints are required for successful connections.
->
+- `connectorUiConfig`. Defines the visual elements and text displayed on the data connector page in Microsoft Sentinel. For more information, see [Configure your connector's user interface](#configure-your-connectors-user-interface).
+
+- `pollingConfig`. Defines how Microsoft Sentinel collects data from your data source. For more information, see [Configure your connector's polling settings](#configure-your-connectors-polling-settings).
 
 ## Configure your connector's user interface
 
 This section describes the configuration for how the user interface on the data connector page appears in Microsoft Sentinel.
 
-Each data connector page in Microsoft Sentinel has the following areas, configured using the `connectorUiConfig` section of the [data connector configuration file](#connector-json-configuration-syntax).
+Use the [properties supported](#ui-props) for the `connectorUiConfig` area of the [JSON configuration file](#connector-json-configuration-syntax) to configure the user interface displayed for your data connector in the Azure portal.
 
-|UI area  |Description  |
-|---------|---------|
-|**Title**     |   The title displayed for your data connector.      |
-|**Icon**     |   The icon displayed for your data connector.      |
-|**Status**     |  Describes whether or not your data connector is connected to Microsoft Sentinel.       |
-|**Data charts**     |    Displays relevant queries and the amount of ingested data in the last two weeks.   |
-|**Instructions tab**     | Includes a **Prerequisites** section, with a list of minimal validations before the user can enable the connector, and an **Instructions**, with a list of instructions to guide the user in enabling the connector. <br><br>This section can include text, buttons, forms, tables, and other common widgets to simplify the process.        |
-|**Next steps tab**     |   Includes useful information for understanding how to find data in the event logs, such as sample queries.     |
-|     |         |
+The following image shows a sample data connector page, highlighting the available areas to configure.
 
-The `connectorUiConfig` section of the configuration file includes the following properties:
+:::image type="content" source="media/create-codeless-connector/sample-data-connector-page.png" alt-text="Screenshot of a sample data connector page.":::
+
+1. **Title**.  The title displayed for your data connector.
+1. **Icon**.   The icon displayed for your data connector.
+1. **Status**.  Describes whether or not your data connector is connected to Microsoft Sentinel.
+1. **Data charts**. Displays relevant queries and the amount of ingested data in the last two weeks.
+1. **Instructions tab**. Includes a **Prerequisites** section, with a list of minimal validations before the user can enable the connector, and an **Instructions**, with a list of instructions to guide the user in enabling the connector. This section can include text, buttons, forms, tables, and other common widgets to simplify the process.  
+1. **Next steps tab**.   Includes useful information for understanding how to find data in the event logs, such as sample queries.
+
+<a name="ui-props"></a>The `connectorUiConfig` section of the configuration file includes the following properties:
 
 
 |Name  |Type  |Description  |
