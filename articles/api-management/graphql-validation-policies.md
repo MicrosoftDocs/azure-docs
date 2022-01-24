@@ -53,7 +53,7 @@ The policy for path=`/__*` is the [introspection](https://graphql.org/learn/intr
 ```xml
 <validate-graphql-request error-variable-name="variable name" max-size="size in bytes" max-depth="query depth">
     <authorize>
-        <rule path="query or mutation path, for example: '/Query/listUsers' or '/__*'" action="string or policy expression that evaluates to 'allow|remove|reject|ignore'" />
+        <rule path="query path, for example: '/Query/listUsers' or '/__*'" action="string or policy expression that evaluates to 'allow|remove|reject|ignore'" />
     </authorize>
 </validate-graphql-request>
 ```
@@ -94,7 +94,7 @@ This example applies the following validation and authorization rules to a Graph
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | `validate-graphql-request` | Root element.                                                                                                                               | Yes      |
 | `authorize` | Add this element to provide field-level authorization with both request- and field-level errors.   | No |
-| `rule` | Add one or more of these elements to authorize specific query or mutation paths. Each rule can optionally specify a different [action](#request-actions). | No |
+| `rule` | Add one or more of these elements to authorize specific query paths. Each rule can optionally specify a different [action](#request-actions). | No |
 
 ### Attributes
 
