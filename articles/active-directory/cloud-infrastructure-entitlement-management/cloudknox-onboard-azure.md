@@ -27,11 +27,14 @@ This topic describes how to onboard a Microsoft Azure subscription or subscripti
 
 1. On the **Data Collectors** tab, select **Azure**, and then select **Create Configuration**.
 
-1. To view entitlement data in CloudKnox, in the **Azure Subscription IDs** box, enter your Azure subscription ID.
+1. To view entitlement data in CloudKnox, in the **Azure subscription IDs** box, enter your Azure subscription ID.
 
-    1. To locate the Azure Subscription ID, open the **Subscriptions** page in Azure.
+    > [!NOTE] 
+    > The group administrator must have **Subscription Role Management Access** permissions to perform the tasks in Step 3. If you don’t have this access, skip this step and ask someone who has this permission to get the information for you.
 
-    1. Return to CloudKnox and paste the subscription ID in the **Azure Subscription IDs** box.
+    1. To locate the Azure subscription ID, open the **Subscriptions** page in Azure.
+
+    1. Return to CloudKnox and paste the subscription ID in the **Azure subscription IDs** box.
 
     1. Next, locate your CloudKnox subscription. On the **Overview** page, search for *CloudKnox*.
 

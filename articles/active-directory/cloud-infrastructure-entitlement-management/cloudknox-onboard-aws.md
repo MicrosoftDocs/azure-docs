@@ -29,6 +29,8 @@ This topic describes how to onboard an Amazon Web Services (AWS) account on Micr
 
 1. In **CloudKnox Onboarding – Azure AD OIDC App Creation**, enter the **Azure AD OIDC Azure App Name**.
 
+    OIDC stands for *OpenID Connect*, an authentication protocol which allows you to verify user identity when a user is trying to access a protected HTTPs end point.
+
 1. To create the app registration, copy the script and run it in your Azure command-line app.
 
     You can change the app name, but you can't change the application ID URL.
@@ -49,7 +51,7 @@ This topic describes how to onboard an Amazon Web Services (AWS) account on Micr
 
     The **AWS Quick create stack** page opens. 
 
-1. To create basic entities, for example the OIDC provider, the assumed role policy, or the role the IDC provider requires to connect to Azure AD Security Token Service (Azure AD STS), scroll to the bottom of the page, and in the **Capabilities** box, select **I acknowledge that AWS CloudFormation might create IAM resources with custom names**. Then select **Create stack.**
+1. To create basic entities, for example the OIDC provider, the assumed role policy, or the role the Internet Data Center (IDC) provider requires to connect to Azure AD Security Token Service (Azure AD STS), scroll to the bottom of the page, and in the **Capabilities** box, select **I acknowledge that AWS CloudFormation might create IAM resources with custom names**. Then select **Create stack.**
 
     AWS creates the required IDC entities including the role that the IDC provider needs to connect to Azure AD STS. These entity names are listed on the **Resources** page.
 

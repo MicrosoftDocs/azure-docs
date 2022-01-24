@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - The CloudKnox dashboard
-description: How to use the Microsoft CloudKnox Permissions Management dashboard.
+title: Microsoft CloudKnox Permissions Management - An overview of the information displayed on the CloudKnox dashboard
+description: An overview of the authorization system and account activity displayed in the Microsoft CloudKnox Permissions Management dashboard.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -12,11 +12,13 @@ ms.date: 01/18/2022
 ms.author: v-ydequadros
 ---
 
-# The CloudKnox dashboard
+# An overview of the information displayed on the CloudKnox dashboard
 
-The Microsoft CloudKnox Permissions Management (CloudKnox) dashboard provides an overview of the authorization system and account activity being monitored. 
+Microsoft CloudKnox Permissions Management (CloudKnox) provides a dashboard that summarizes and updates key statistics and data about your authorization system on a regular basis. This dashboard is available for Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).
 
-- **Authorization system types** - A drop-down list of authorization system types you can access. May include Amazon Web Services (AWS), Microsoft Azure (Azure), Google Cloud Platform (GCP), and so on.
+The data collected by CloudKnox shows metrics related to avoidable risk. It allows the CloudKnox administrator to identify high-risk areas and allows them to reduce risks related to the principle of least privilege. 
+
+- **Authorization system types** - A drop-down list of authorization system types you can access. For example, Amazon Web Services (AWS), Microsoft Azure (Azure), nd Google Cloud Platform (GCP).
  
 - **Authorization systems** - Displays a **List** of accounts and **Folders** in the selected authorization system you can access.
 
@@ -52,7 +54,7 @@ The Microsoft CloudKnox Permissions Management (CloudKnox) dashboard provides an
     - **S3 Bucket Accessible Externally** 
 
 
-## View metrics related to avoidable risk
+## Metrics related to avoidable risk
 
 The data provided by the CloudKnox dashboard shows metrics related to avoidable risk. These metrics allow the CloudKnox administrator to quickly and easily identify areas where they can reduce risks related to the principle of least privilege.
 
@@ -67,7 +69,7 @@ The CloudKnox dashboard contains two main components:
 
 ### The Privilege Creep Index heat map
 
-The privilege creep index heat map shows the incurred risk of users with access to high-risk privileges, and is a function of:
+The **Privilege Creep Index**  heat map shows the incurred risk of users with access to high-risk privileges, and is a function of:
 
 - Users who were given access to high-risk privileges but aren't actively using them. High-risk privileges include the ability to modify or delete contents within the authorization system.
 
@@ -79,15 +81,28 @@ The privilege creep index heat map shows the incurred risk of users with access 
     - Medium (yellow) - The score is between 34 and 67. A user has access to some high-risk privileges that they use, or have medium resource reach.
     - Low (green) - The score is between 0 and 33. A user has access to fewer high-risk privileges. They use all of them, and have low resource reach.
 
-- The number displayed on the graph shows how many users contribute to a particular score. 
+- The number displayed on the graph shows how many users contribute to a particular score. To view detailed data about a user, hover over the number. 
 
     The distribution graph displays all the users who contribute to the privilege creep. It displays how many users contribute to a particular score. For example, if the score from the privilege creep index chart is 14, the graph shows how many users have a score of 14.
 
-    - To view detailed data about a user, hover over the number.
+- The Privilege Creep Index Trend graph shows you the historical trend of the privilege creep index score over the last 90 days. To download the Privilege Creep Index History Report, select the **Download** icon.
 
-- The Privilege Creep Index Trend graph shows you the historical trend of the privilege creep index score over the last 90 days. 
+## View information on the heat map
 
-    - To download the Privilege Creep Index History Report, select the **Download** icon.
+To view detailed information about the following, select the number displayed on the heat map:
+
+- **Users** - Displays the total number of users and how many fall into the high, medium, and low categories.
+- **Roles** - Displays the total number of roles and how many fall into the high, medium, and low categories.
+- **Resources** - Displays the total number of resources and how many fall into the high, medium, and low categories.
+- **PCI Trend** - Displays a line graph of the privilege creep index trend over the last several weeks.
+
+- The **Identity** section below the heat map on the left side of the page shows all the relevant findings about identities, including roles that can access secret information, roles that are inactive, over provisioned active roles, and so on. 
+
+    - To expand the full list of identities, select **All Findings**.
+
+- The **Resource** section below the heat map on the right side of the page shows all the relevant findings about resources. It includes unencrypted S3 buckets, open security groups, and so on.
+
+
 
 ### The Usage Analytics Summary
 
@@ -105,20 +120,7 @@ The **Usage Analytics Summary** section provides a snapshot of the following hig
 
 - **Resources that Permit Delete Tasks** - Displays the total number of resources that permit delete tasks (**Total**), how many resources with delete tasks aren't used (**Inactive**), and how many resources with delete tasks are used (**Active**).
 
-## View information on the heat map
 
-To view detailed information about the following, select the number displayed on the heat map:
-
-- **Users** - Displays the total number of users and how many fall into the high, medium, and low categories.
-- **Roles** - Displays the total number of roles and how many fall into the high, medium, and low categories.
-- **Resources** - Displays the total number of resources and how many fall into the high, medium, and low categories.
-- **PCI Trend** - Displays a line graph of the privilege creep index trend over the last several weeks.
-
-- The **Identity** section below the heat map on the left side of the page shows all the relevant findings about identities, including roles that can access secret information, roles that are inactive, over provisioned active roles, and so on. 
-
-    - To expand the full list of identities, select **All Findings**.
-
-- The **Resource** section below the heat map on the right side of the page shows all the relevant findings about resources. It includes unencrypted S3 buckets, open security groups, and so on.
 
 <!---## Next steps--->
 

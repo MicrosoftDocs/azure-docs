@@ -29,6 +29,8 @@ This topic describes how to onboard a Google Cloud Platform (GCP) project on Mic
 
     The **CloudKnox Onboarding – Azure OIDC App Creation** box displays the **OIDC Azure Project Name** box, and the Azure command-line interface (CLI) script.
 
+    OIDC stands for *OpenID Connect*, an authentication protocol which allows you to verify user identity when a user is trying to access a protected HTTPs end point.
+
     <!---1. In the **OIDC Workload Identity Pool Id** box, enter your ID.--->
     <!---1. In the **OIDC Service Account Name** box, enter your account name.--->
 
@@ -54,8 +56,7 @@ This topic describes how to onboard a Google Cloud Platform (GCP) project on Mic
 
     The Cloud Shell provisions the Cloud Shell machine and makes a connection to your Cloud Shell instance.
 
-    The **Welcome to CloudKnox GCP Onboarding** screen appears. 
-1. The pane on the right displays four steps you must complete to onboard your GCP project:
+1. The **Welcome to CloudKnox GCP Onboarding** screen appears, displaying four steps you must complete to onboard your GCP project:
 
     1. **Paste the environment vars from the CloudKnox portal.**
 
