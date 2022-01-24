@@ -342,7 +342,7 @@ sections:
           |
           
       - question: |
-          VM images must have 1-MB free space
+          VM images must have 1 MB of free space
         answer: |
           If you are publishing your image to Azure (with **GPT partition**), we *highly recommend* that you keep the first 2,048 sectors (1 MB) of the OS disk empty. This requirement is to allow Azure to add important metadata to the image (examples include metadata to improve boot time for customers, billing, and other details). Note that this is a recommendation for best practice if you are already using [an approved base image](azure-vm-create-using-approved-base.md) and your image has a valid billing tag. However, if your image does not have a valid billing tag, your publishing might fail if the first 1 MB of the OS disk isn't empty.
 
@@ -350,11 +350,11 @@ sections:
 
           To keep the first 1 MB free in your OS disk, complete the steps in the next section. 
   
-          ### How to keep 1 MB of free space at the start on an empty VHD (2,048 sectors, each sector of 512 bytes)
+          ### How to keep 1 MB of free space at the start on an empty VHD (2,048 sectors, each sector 512 bytes)
 
           These steps apply only to Linux.
           
-          1. Create any kind of Linux VM, such as Ubuntu, CentOS, or other. Fill the required fields and select **Next: Disks >**.
+          1. Create any kind of Linux VM, such as Ubuntu, CentOS, or other. Fill the required fields, and then select **Next: Disks**.
           
               ![Screenshot that shows the Create a virtual machine page with the Next: Disks command button highlighted.](./media/create-vm/vm-certification-issues-solutions-15.png)
           
@@ -362,20 +362,20 @@ sections:
 
               ![Screenshot image of the Data disks page in the Create a virtual machine flow.](./media/create-vm/disks-pane.png)
           
-           1. After you create the VM, select **Disks** in the left pane.
+           1. After you create the VM, in the left pane, select **Disks**.
           
-               ![Screenshot showing how to select disks for a VM.](./media/create-vm/vm-certification-issues-solutions-17.png)
+               ![Screenshot showing how to select disks for a V M.](./media/create-vm/vm-certification-issues-solutions-17.png)
           
            1. Attach your VHD as data disk to your VM for creating a partition table.
           
-              1. Select **Attach existing disk**:
+              1. Select **Attach existing disks**:
 
-                 ![Screenshot showing how to add a data disk to your VHD.](./media/create-vm/existing-data-disk.png)
+                 ![Screenshot showing how to add a data disk to your V H D.](./media/create-vm/existing-data-disk.png)
 
-                 ![Screenshot showing how to select the data disk for your VHD](./media/create-vm/source-data-disk.png)
+                 ![Screenshot showing how to select the data disk for your V H D.](./media/create-vm/source-data-disk.png)
           
               1. Find your VHD storage account.
-              1. Select **Container** and then select your VHD.
+              1. Select **Container**, and then select your VHD.
               1. Select **OK**.
           
                  ![Screenshot of the attach unmanaged disk page.](./media/create-vm/vm-certification-issues-solutions-19.png)
@@ -401,7 +401,7 @@ sections:
              1. Enter 2048 as _first sector_ value. You can leave _last sector_ as the default value.
           
                 >[!IMPORTANT]
-                >Any existing data will be erased until 2048 sectors (each sector of 512 bytes). Backup of the VHD before you create a new partition.
+                >Any existing data will be erased until 2048 sectors (each sector of 512 bytes). Back up the VHD before you create a new partition.
           
                 ![Putty client command-line screenshot showing the commands and output for erased data.](./media/create-vm/vm-certification-issues-solutions-22.png)
           
