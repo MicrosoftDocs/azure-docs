@@ -7,7 +7,7 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 01/23/2022
+ms.date: 01/24/2022
 ms.author: duau
 
 ---
