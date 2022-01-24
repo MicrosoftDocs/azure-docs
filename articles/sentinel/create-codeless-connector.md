@@ -34,7 +34,7 @@ Before building a connector, we recommend that you learn and understand how your
 
 For example, you'll need to understand the types of authentication, pagination, and API endpoints that are required for successful connections.
 
-## Create a connector configuration file
+## Create a connector JSON configuration file
 
 To create your custom, CCP connector, create a JSON file with the following basic syntax:
 
@@ -60,7 +60,7 @@ Fill in each of the following area with additional properties that define how yo
 
 This section describes the configuration for how the user interface on the data connector page appears in Microsoft Sentinel.
 
-Use the [properties supported](#ui-props) for the `connectorUiConfig` area of the [JSON configuration file](#connector-json-configuration-syntax) to configure the user interface displayed for your data connector in the Azure portal.
+Use the [properties supported](#ui-props) for the `connectorUiConfig` area of the [JSON configuration file](#create-a-connector-json-configuration-file) to configure the user interface displayed for your data connector in the Azure portal.
 
 The following image shows a sample data connector page, highlighting the available areas to configure.
 
@@ -346,7 +346,7 @@ For example:
 
 This section describes the configuration for how data is polled from your data source for a codeless data connector.
 
-The following code shows the syntax of the `pollingConfig` section of the [CCP configuration](#connector-json-configuration-syntax) file.
+The following code shows the syntax of the `pollingConfig` section of the [CCP configuration](#create-a-connector-json-configuration-file) file.
 
 ```rest
 "pollingConfig": {
@@ -472,7 +472,7 @@ The `paging` section of the `[pollingConfig](#configure-your-connectors-polling-
 
 ### Sample pollingConfig code
 
-The following code shows an example of the `pollingConfig` section of the [CCP configuration](#connector-json-configuration-syntax) file:
+The following code shows an example of the `pollingConfig` section of the [CCP configuration](#create-a-connector-json-configuration-file) file:
 
 ```rest
 "pollingConfig": {
@@ -509,11 +509,11 @@ The following code shows an example of the `pollingConfig` section of the [CCP c
 }
 ```
 
-## Create a connector configuration template with placeholders
+## Add placeholders to your connector's JSON configuration file
 
 You may want to create a JSON configuration file template, with placeholders parameters, to reuse across multiple connectors, or even to create a connector with data that you don't currently have.
 
-To create placeholder parameters, define an additional array named `userRequestPlaceHoldersInput` in the [Instructions](#instructions) section of your [CCP JSON configuration](#connector-json-configuration-syntax) file, using the following syntax:
+To create placeholder parameters, define an additional array named `userRequestPlaceHoldersInput` in the [Instructions](#instructions) section of your [CCP JSON configuration](#create-a-connector-json-configuration-file) file, using the following syntax:
 
 ```json
 "instructions": [
@@ -546,7 +546,7 @@ The `userRequestPlaceHoldersInput` parameter includes the following attributes:
 
 ## Deploy your connector in Microsoft Sentinel and start ingesting data
 
-After creating your [JSON configuration file](#connector-json-configuration-syntax), including both the [user interface](#configure-your-connectors-user-interface) and [polling](#configure-your-connectors-polling-settings) configuration, deploy your connector in your Microsoft Sentinel workspace.
+After creating your [JSON configuration file](#create-a-connector-json-configuration-file), including both the [user interface](#configure-your-connectors-user-interface) and [polling](#configure-your-connectors-polling-settings) configuration, deploy your connector in your Microsoft Sentinel workspace.
 
 1. Use one of the following options to deploy your data connector.
 
@@ -591,7 +591,7 @@ After creating your [JSON configuration file](#connector-json-configuration-synt
 
     In your Microsoft Sentinel data connector page, follow the instructions you've provided to connect to your data connector.
 
-    The data connector page in Microsoft Sentinel is controlled by the [InstructionStep](#instructionstep) configuration in the `connectorUiConfig` element of the [CCP JSON configuration](#connector-json-configuration-syntax) file.  If you have issues with the user interface connection, make sure that you have the correct configuration for your authentication type.
+    The data connector page in Microsoft Sentinel is controlled by the [InstructionStep](#instructionstep) configuration in the `connectorUiConfig` element of the [CCP JSON configuration](#create-a-connector-json-configuration-file) file.  If you have issues with the user interface connection, make sure that you have the correct configuration for your authentication type.
 
     # [Connect via API](#tab/connect-via-api)
 
@@ -605,7 +605,7 @@ After creating your [JSON configuration file](#connector-json-configuration-synt
     |**APIKey**     |Define: <br>- `kind` as `APIKey` <br>- `APIKey` as your full API key string, in quotes|
     |     |         |
 
-    If you're using a [template configuration file with placeholder data](#create-a-connector-configuration-template-with-placeholders), send the data together with the `placeHolderValue` attributes that hold the user data. For example:
+    If you're using a [template configuration file with placeholder data](#add-placeholders-to-your-connectors-json-configuration-file), send the data together with the `placeHolderValue` attributes that hold the user data. For example:
 
     ```rest
     "requestConfigUserInputValues": [
