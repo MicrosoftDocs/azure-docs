@@ -8,7 +8,7 @@ ms.author: wolfma
 
 ### Prebuilt neural voices
 
-Use this table to determine **availability of neural voices** by region/endpoint:
+Use this table to determine *availability of neural voices* by region or endpoint:
 
 | Region | Endpoint |
 |--------|----------|
@@ -35,11 +35,11 @@ Use this table to determine **availability of neural voices** by region/endpoint
 | West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
 
 > [!TIP]
-> [Voices in preview](../language-support.md#prebuilt-neural-voices-in-preview) are only available in these 3 regions: East US, West Europe and Southeast Asia.
+> [Voices in preview](../language-support.md#prebuilt-neural-voices-in-preview) are available in only these three regions: East US, West Europe, and Southeast Asia.
 
 ### Custom neural voices
 
-If you've created a custom neural voice font, use the endpoint that you've created. You can also use the endpoints listed below, replacing the `{deploymentId}` with the deployment ID for your neural voice model.
+If you've created a custom neural voice font, use the endpoint that you've created. You can also use the following endpoints. Replace `{deploymentId}` with the deployment ID for your neural voice model.
 
 | Region | Endpoint |
 |--------|----------|
@@ -74,11 +74,11 @@ If you've created a custom neural voice font, use the endpoint that you've creat
 | West US 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 
 > [!NOTE]
-> The above regions are available for neural voice model hosting and real-time synthesis. Custom neural voice training is only available in the three regions: East US, Southeast Asia, and UK South. But users can easily copy a neural voice model from the three regions to other different regions listed above.
+> The preceding regions are available for neural voice model hosting and real-time synthesis. Custom neural voice training is available in only these three regions: East US, Southeast Asia, and UK South. But users can easily copy a neural voice model from the three regions to other regions in the preceding list.
 
-### Long audio API
+### Long Audio API
 
-The Long audio API is available in multiple regions with unique endpoints.
+The Long Audio API is available in multiple regions with unique endpoints:
 
 | Region | Endpoint |
 |--------|----------|

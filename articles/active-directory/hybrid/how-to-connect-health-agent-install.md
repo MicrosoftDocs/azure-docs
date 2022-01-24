@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.date: 10/20/2020
+ms.date: 01/21/2022
 ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management 
