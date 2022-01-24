@@ -18,7 +18,7 @@ Connectors created using CCP are fully SaaS, without any requirements for servic
 
 Create your data connector by defining a JSON configuration file, with settings for how the data connector page in Microsoft Sentinel looks and works and polling settings that define how the connection works between Microsoft Sentinel and your data source.
 
-**Use the following steps to create and deploy your CCP connector**:
+**Use the following steps to create your CCP connector and connect to your data source from Microsoft Sentinel**:
 
 > [!div class="checklist"]
 > * Configure the connector's user interface
