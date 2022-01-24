@@ -5,7 +5,7 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 07/19/2021
+ms.date: 01/06/2022
 ms.author: ginle
 ---
 
@@ -35,7 +35,7 @@ In this article, you will learn how to access the Azure Healthcare APIs with cUR
 
 ## Obtain Azure Access Token
 
-Before accessing the Healthcare APIs, you must grant the user or client app with proper permissions. For more information on how to grant permissions, see [Healthcare APIs authorization](authentication-authorization.md).
+Before accessing the Healthcare APIs, you must grant the user or client app with proper permissions. For more information on how to grant permissions, see [Healthcare APIs authorization](../authentication-authorization.md).
 
 There are several different ways to obtain an Azure access token for the Healthcare APIs. 
 
