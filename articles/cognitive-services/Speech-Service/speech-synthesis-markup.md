@@ -53,7 +53,7 @@ The `speak` element is the root element. It's *required* for all SSML documents.
 
 **Attributes**
 
-| Attribute | Description | Required/Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
 | `version` | Indicates the version of the SSML specification used to interpret the document markup. The current version is 1.0. | Required |
 | `xml:lang` | Specifies the language of the root document. The value can contain a lowercase, two-letter language code, for example, `en`. Or the value can contain the language code and uppercase country/region, for example, `en-US`. | Required |
@@ -73,7 +73,7 @@ The `voice` element is required. It's used to specify the voice that's used for 
 
 **Attribute**
 
-| Attribute | Description | Required/Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
 | `name` | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). | Required |
 
@@ -96,7 +96,7 @@ Within the `speak` element, you can specify multiple voices for text-to-speech o
 
 **Attribute**
 
-| Attribute | Description | Required/Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
 | `name` | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). | Required |
 
@@ -123,7 +123,7 @@ Styles, style degree, and roles are supported for a subset of neural voices. If 
 - The [Voice List API](rest-text-to-speech.md#get-a-list-of-voices).
 - The code-free [Audio Content Creation](https://aka.ms/audiocontentcreation) portal.
 
-| Attribute | Description | Required/Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
 | `style` | Specifies the speaking style. Speaking styles are voice specific. | Required if adjusting the speaking style for a neural voice. If you're using `mstts:express-as`, the style must be provided. If an invalid value is provided, this element is ignored. |
 | `styledegree` | Specifies the intensity of the speaking style. **Accepted values**: 0.01 to 2 inclusive. The default value is 1, which means the predefined style intensity. The minimum unit is 0.01, which results in a slight tendency for the target style. A value of 2 results in a doubling of the default style intensity.  | Optional. If you don't set the `style` attribute, the `styledegree` attribute is ignored. Speaking style degree adjustments are supported for Chinese (Mandarin, Simplified) neural voices.|
@@ -271,7 +271,7 @@ Speaking language adjustments are only supported for the `en-US-JennyMultilingua
 
 **Attribute**
 
-| Attribute | Description | Required/Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
 | `lang` | Specifies the speaking languages. Speaking different languages are voice specific. | Required if adjusting the speaking language for a neural voice. If you're using `lang xml:lang`, the locale must be provided. |
 
@@ -329,7 +329,7 @@ Use the `break` element to insert pauses or breaks between words. You can also u
 
 **Attributes**
 
-| Attribute | Description | Required/Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
 | `strength` | Specifies the relative duration of a pause by using one of the following values:<ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul> | Optional |
 | `time` | Specifies the absolute duration of a pause in seconds or milliseconds (ms). This value should be set less than 5,000 ms. Examples of valid values are `2s` and `500ms`. | Optional |
@@ -369,7 +369,7 @@ Use the `mstts:silence` element to insert pauses before or after text, or betwee
 
 **Attributes**
 
-| Attribute | Description | Required/Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
 | `type` | Specifies the location of silence to be added: <ul><li>`Leading` – At the beginning of text </li><li>`Tailing` – At the end of text </li><li>`Sentenceboundary` – Between adjacent sentences </li></ul> | Required |
 | `Value` | Specifies the absolute duration of a pause in seconds or milliseconds. This value should be set less than 5,000 ms. Examples of valid values are `2s` and `500ms`. | Required |
@@ -437,7 +437,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 **Attributes**
 
-| Attribute | Description | Required/Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
 | `alphabet` | Specifies the phonetic alphabet to use when you synthesize the pronunciation of the string in the `ph` attribute. The string that specifies the alphabet must be specified in lowercase letters. The following options are the possible alphabets that you can specify:<ul><li>`ipa` &ndash; [International Phonetic Alphabet (IPA)](speech-ssml-phonetic-sets.md#speech-service-phonetic-alphabet)</li><li>`sapi` &ndash; [Speech service phonetic alphabet ](speech-ssml-phonetic-sets.md#speech-service-phonetic-alphabet)</li><li>`ups` &ndash; [Universal Phone Set](https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm)</li></ul><br>The alphabet applies only to the `phoneme` in the element.| Optional |
 | `ph` | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, text-to-speech rejects the entire SSML document and produces none of the speech output specified in the document. | Required if using phonemes |
@@ -486,7 +486,7 @@ The custom lexicon currently supports UTF-8 encoding.
 
 **Attribute**
 
-| Attribute | Description                               | Required/Optional |
+| Attribute | Description                               | Required or optional |
 |-----------|-------------------------------------------|---------------------|
 | `uri`     | The address of the external PLS document | Required           |
 
@@ -625,7 +625,7 @@ Because prosodic attribute values can vary over a wide range, the speech recogni
 
 **Attributes**
 
-| Attribute | Description | Required/Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
 | `pitch` | Indicates the baseline pitch for the text. You can express the pitch as:<ul><li>An absolute value, expressed as a number followed by "Hz" (Hertz). For example, `<prosody pitch="600Hz">some text</prosody>`.</li><li>A relative value, expressed as a number preceded by "+" or "-" and followed by "Hz" or "st" that specifies an amount to change the pitch. For example: `<prosody pitch="+80Hz">some text</prosody>` or `<prosody pitch="-2st">some text</prosody>`. The "st" indicates the change unit is semitone, which is half of a tone (a half step) on the standard diatonic scale.</li><li>A constant value:<ul><li>x-low</li><li>low</li><li>medium</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul> | Optional |
 | `contour` |Contour now supports neural voice. Contour represents changes in pitch. These changes are represented as an array of targets at specified time positions in the speech output. Each target is defined by sets of parameter pairs. For example: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>The first value in each set of parameters specifies the location of the pitch change as a percentage of the duration of the text. The second value specifies the amount to raise or lower the pitch by using a relative value or an enumeration value for pitch (see `pitch`). | Optional |
@@ -707,7 +707,7 @@ The `say-as` element is optional. It indicates the content type, such as number 
 
 **Attributes**
 
-| Attribute | Description | Required/Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
 | `interpret-as` | Indicates the content type of an element's text. For a list of types, see the following table. | Required |
 | `format` | Provides additional information about the precise formatting of the element's text for content types that might have ambiguous formats. SSML defines formats for content types that use them. See the following table. | Optional |
@@ -766,7 +766,7 @@ Any audio included in the SSML document must meet these requirements:
 
 **Attribute**
 
-| Attribute | Description                                   | Required/Optional                                        |
+| Attribute | Description                                   | Required or optional                                        |
 |-----------|-----------------------------------------------|------------------------------------------------------------|
 | `src`     | Specifies the location/URL of the audio file. | Required if using the audio element in your SSML document. |
 
@@ -802,7 +802,7 @@ Only one background audio file is allowed per SSML document. You can intersperse
 
 **Attributes**
 
-| Attribute | Description | Required/Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
 | `src` | Specifies the location/URL of the background audio file. | Required if using background audio in your SSML document |
 | `volume` | Specifies the volume of the background audio file. **Accepted values**: `0` to `100` inclusive. The default value is `1`. | Optional |
@@ -832,7 +832,7 @@ You can use the `bookmark` element to insert custom markers in SSML to get the o
 
 **Attribute**
 
-| Attribute | Description                                   | Required/Optional                                        |
+| Attribute | Description                                   | Required or optional                                        |
 |-----------|-----------------------------------------------|------------------------------------------------------------|
 |  `mark`   | Specifies the reference text of the `bookmark` element. | Required |
 
