@@ -214,13 +214,7 @@ Modify the values in the `.env` files as follows:
 
 In your `index.js` file, add the following code to use your app dependencies: 
 
-```javascript
-require('dotenv').config();
-const express = require('express');
-const session = require('express-session');
-const {engine}  = require('express-handlebars');
-const msal = require('@azure/msal-node');
-```
+    :::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/index.js" id="ms_docref_use_app dependencies":::
 
 In your `index.js` file, add the following code:
 

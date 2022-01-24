@@ -788,6 +788,12 @@
       "url": "https://github.com/Azure/azure-docs-bicep-samples/",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "active-directory-b2c-msal-node-sign-in-sign-out-webapp",
+      "url": "https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
