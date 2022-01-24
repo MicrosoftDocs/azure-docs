@@ -9,9 +9,7 @@ ms.date: 11/08/2021
 
 # Manage access to VMware resources through Azure Role-Based Access Control
 
-Once your VMware vCenter resources have been enabled for access through Azure, the final step is setting up a self-service experience for your teams. It provides access to the compute, storage, networking, and other vCenter resources to deploy and manage virtual machines (VMs).
-
-This article describes how to use built-in roles to manage granular access to VMware resources through Azure.
+Once your VMware vCenter resources have been enabled in Azure, the final step in setting up a self-service experience for your teams is to provide them access.  This article describes how to use built-in roles to manage granular access to VMware resources through Azure and allow your teams to deploy and manage VMs.
 
 > [!IMPORTANT]
 > In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
@@ -44,21 +42,21 @@ We recommend assigning this role at the subscription or resource group you want 
 
 ## Assigning the roles to users/groups
 
-1. Go to the [Azure portal](https://portal.azure.com)
+1. Go to the [Azure portal](https://portal.azure.com).
 
-2. Search and navigate to the subscription, resource group or the resource at which scope you want to provide this role.
+2. Search and navigate to the subscription, resource group, or the resource at which scope you want to provide this role.
 
-3. To find the Arc-enabled VMware vSphere resources like resource pools, clusters, hosts, datastores, networks or virtual machine templates:
+3. To find the Arc-enabled VMware vSphere resources like resource pools, clusters, hosts, datastores, networks, or virtual machine templates:
      1. navigate to the resource group and select the **Show hidden types** checkbox.
-     2. search for *"VMware"*
+     2. search for *"VMware"*.
 
 4. Click on **Access control (IAM)** in the table of contents on the left.
 
-5. Click on **Add role assignments** on the **Grant access to this resource**
+5. Click on **Add role assignments** on the **Grant access to this resource**.
 
-6. Select the custom role you want to assign (one of **Azure Arc VMware Administrator**, **Azure Arc VMware Private Cloud User** or **Azure Arc VMware VM Contributor**)
+6. Select the custom role you want to assign (one of **Azure Arc VMware Administrator**, **Azure Arc VMware Private Cloud User**, or **Azure Arc VMware VM Contributor**).
 
-7. Search for AAD user or group that you want assign this role to
+7. Search for Azure Active Directory user or group that you want assign this role to.
 
 8. Click on the AAD user or group name to select. Repeat this for each user/group you want to provide this permission.
 

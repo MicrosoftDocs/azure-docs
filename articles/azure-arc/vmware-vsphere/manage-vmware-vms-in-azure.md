@@ -8,7 +8,7 @@ ms.date: 11/10/2021
 
 # Manage VMware VMs in Azure through Arc-enabled VMware vSphere
 
-In this article, you'll learn how to perform various operations on the Azure Arc-enabled VMware vSphere (preview) VMs such as:
+In this article, you will learn how to perform various operations on the Azure Arc-enabled VMware vSphere (preview) VMs such as:
 
 - Start, stop, and restart a VM
 
@@ -24,7 +24,7 @@ In this article, you'll learn how to perform various operations on the Azure Arc
 
 :::image type="content" source="media/browse-virtual-machines.png" alt-text="Screenshot showing the VMware virtual machine operations." lightbox="media/manage-virtual-machines.png":::
 
-To perform guest OS operations on Arc-enabled VMware VMs, you will  need to enable guest management on those VMs. When you enable guest management, the Arc Connected Machine Agent is installed on the VM.
+To perform guest OS operations on Arc-enabled VMs, you must enable guest management on the VMs. When you enable guest management, the Arc Connected Machine Agent is installed on the VM.
 
 > [!IMPORTANT]
 > In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
@@ -53,11 +53,12 @@ Before you can install an extension, you must enable guest management on the VMw
 
    - is running a [supported operating system](../servers/agent-overview.md#supported-operating-systems).
 
-   - is able to connect through the firewall to communicate over the internet and these [URLs](../servers/agent-overview.md#networking-configuration) aren't blocked.
+   - is able to connect through the firewall to communicate over the internet and these [URLs](../servers/agent-overview.md#networking-configuration) are not blocked.
 
-   - has VMware tools installed and running
+   - has VMware tools installed and running.
 
    - is powered on and the resource bridge has network connectivity to the host running the VM.
+
    >[!NOTE]
    >If you're using a Linux VM, the account must not prompt for login on sudo commands. To override the prompt, from a terminal, run `sudo visudo` and add `<username> ALL=(ALL) NOPASSWD:ALL` to the end of the file.  Make sure to replace `<username>`.
    >
@@ -69,7 +70,7 @@ Before you can install an extension, you must enable guest management on the VMw
 
 3. Select **Enable guest management** and provide the administrator username and password to enable guest management.  Then select **Apply**.
 
-   For Linux, use the root account, and for Windows, use an account that is a member of the Local Administrators group. 
+   For Linux, use the root account, and for Windows, use an account that is a member of the Local Administrators group.
 
 ## Install the LogAnalytics extension
 
@@ -87,7 +88,7 @@ The deployment starts the installation of the extension on the selected VM.
 
 If you no longer need the VM, you can delete it.
 
-1. From your browser, go to the [Azure portal](https://portal.azure.com)
+1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
 2. Search for and select the VM you want to delete.
 

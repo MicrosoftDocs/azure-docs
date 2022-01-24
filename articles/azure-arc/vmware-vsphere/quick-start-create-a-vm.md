@@ -42,7 +42,7 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 5. Select the **Resource pool/cluster/host** into which the VM should be deployed.
 
-6. Select the **datastore** that you want to use for storage. 
+6. Select the **datastore** that you want to use for storage.
 
 7. Select the **Template** based on which the VM you'll create.
 

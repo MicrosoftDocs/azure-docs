@@ -13,15 +13,14 @@ After you've connected your VMware vCenter to Azure, you can browse your vCenter
 
 :::image type="content" source="media/browse-vmware-inventory.png" alt-text="Screenshot of where to browse your VMware Inventory from the Azure portal." lightbox="media/browse-vmware-inventory.png":::
 
-You can visit the VMware vCenter blade in Azure Arc center to view all the connected vCenters. From here, you'll browse your virtual machines (VMs), resource pools, templates, and networks. From the inventory of your vCenter resources, you can select and enable one or more resources in Azure. When you enable a vCenter resource in Azure, it creates an Azure resource that represents your vCenter resource. You can use this Azure resource to assign permissions or conduct management operations.
+Visit the VMware vCenter blade in Azure Arc center to view all the connected vCenters. From there, you'll browse your virtual machines (VMs), resource pools, templates, and networks. From the inventory of your vCenter resources, you can select and enable one or more resources in Azure. When you enable a vCenter resource in Azure, it creates an Azure resource that represents your vCenter resource. You can use this Azure resource to assign permissions or conduct management operations.
 
 > [!IMPORTANT]
 > In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
 
+## Enable resource pools, clusters, hosts, datastores, networks, and VM templates in Azure
 
-## Enable resource pools, clusters, hosts, datastores, networks and VM templates in Azure
-
-In this section, you'll enable resource pools, networks, and other non-VM resources in Azure.
+In this section, you will enable resource pools, networks, and other non-VM resources in Azure.
 
 >[!NOTE]
 >Enabling Azure Arc on a VMware vSphere resource is a read-only operation on vCenter. That is, it doesn't make changes to your resource in vCenter.
@@ -48,7 +47,7 @@ In this section, you'll enable resource pools, networks, and other non-VM resour
 
 1. (Optional) Select **Install guest agent** and then provide the Administrator username and password of the guest operating system.
 
-   The [guest agent](../servers/agent-overview.md) is the Azure Arc connected machine agent. You can install this agent later by selecting the VM in the virtual machine inventory resource blade on your vCenter and selecting **Enable guest management**. For information on the prerequisites of enabling guest management, see [Manage VMware VMs through Arc enabled VMware vSphere](manage-vmware-vms-in-azure.md).
+   The guest agent is the [Azure Arc connected machine agent](../servers/agent-overview.md). You can install this agent later by selecting the VM in the VM inventory view on your vCenter and selecting **Enable guest management**. For information on the prerequisites of enabling guest management, see [Manage VMware VMs through Arc enabled VMware vSphere](manage-vmware-vms-in-azure.md).
 
 1. Select **Enable** to start the deployment of the VM represented in Azure.
 

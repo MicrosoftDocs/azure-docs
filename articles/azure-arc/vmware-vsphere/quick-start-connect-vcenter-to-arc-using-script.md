@@ -12,11 +12,10 @@ ms.date: 11/10/2021
 
 To start using the Azure Arc-enabled VMware vSphere (preview) features, you'll need to connect your VMware vCenter Server to Azure Arc. This quickstart shows you how to connect your VMware vCenter Server to Azure Arc using a helper script.
 
-First, the script deploys a virtual appliance, called [Azure Arc resource bridge (preview)](../resource-bridge/overview.md), as a virtual machine running in your vCenter environment. Then, it installs a VMware cluster extension to provide a continuous connection between your vCenter Server and Azure Arc.
+First, the script deploys a virtual appliance, called [Azure Arc resource bridge (preview)](../resource-bridge/overview.md), in your vCenter environment. Then, it installs a VMware cluster extension to provide a continuous connection between your vCenter Server and Azure Arc.
 
 > [!IMPORTANT]
 > In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
-
 
 ## Prerequisites
 
@@ -40,7 +39,11 @@ First, the script deploys a virtual appliance, called [Azure Arc resource bridge
 
 ### vSphere accounts
 
-A vSphere account that can read all inventory, deploy, and update VMs to all the resource pools (or clusters), networks, and virtual machine templates that you want to use with Azure Arc. This account is used for the ongoing operation of Azure Arc-enabled VMware vSphere (preview) and the Azure Arc resource bridge (preview) VM deployment.
+A vSphere account that can:
+- read all inventory 
+- deploy, and update VMs to all the resource pools (or clusters), networks, and virtual machine templates that you want to use with Azure Arc.
+
+This account is used for the ongoing operation of Azure Arc-enabled VMware vSphere (preview) and the Azure Arc resource bridge (preview) VM deployment.
 
 ### Workstation
 
@@ -126,18 +129,18 @@ A typical onboarding using the script  takes about 30-60 minutes and you will be
 
 | **Requirements** | **Details** |
 | --- | --- |
-| **Azure login** | Login to Azure by visiting [this](https://www.microsoft.com/devicelogin) site and using the code when prompted. |
+| **Azure login** | Log in to Azure by visiting [this](https://www.microsoft.com/devicelogin) site and using the code when prompted. |
 | **vCenter FQDN/Address** | FQDN for the vCenter (or an ip address). </br> Eg: `10.160.0.1` or `nyc-vcenter.contoso.com` |
 | **vCenter Username** | Username for the vSphere account. The required permissions for the account are listed in the prerequisites above. |
 | **vCenter password** | Password for the vSphere account |
 | **Data center selection** | Select the name of the datacenter (as shown in vSphere client) where the Arc resource bridge VM should be deployed |
 | **Network selection** | Select the name of the virtual network or segment to which VM must be connected. This network should allow the appliance to talk to the vCenter server and the Azure endpoints (or internet). |
-| **Static IP / DHCP** | If you have DHCP server in your network and want to use it, type ‘y’ else ‘n’. On choosing static IP configuration, you will be asked the following </br> 1. `Static IP address prefix` : Network address in CIDR notation E.g.    `192.168.0.0/24` </br> 2. `Static gateway`: Eg. `192.168.0.0` </br> 3. `DNS servers`: Comma separated list of DNS servers </br> 4. `Start range IP`: Minimum size of 2 available addresses is required, one of the IP is for the VM, and another one is reserved for upgrade scenarios. Provide the start IP of that range </br> 5. `End range IP`: the last IP of the IP range requested in previous field. </br> 6. `VLAN ID` (Optional) |
+| **Static IP / DHCP** | If you have DHCP server in your network and want to use it, type ‘y’ else ‘n’. On choosing static IP configuration, you will be asked the following </br> 1. `Static IP address prefix` : Network address in CIDR notation E.g.    `192.168.0.0/24` </br> 2. `Static gateway`: Eg. `192.168.0.0` </br> 3. `DNS servers`: Comma-separated list of DNS servers </br> 4. `Start range IP`: Minimum size of 2 available addresses is required, one of the IP is for the VM, and another one is reserved for upgrade scenarios. Provide the start IP of that range </br> 5. `End range IP`: the last IP of the IP range requested in previous field. </br> 6. `VLAN ID` (Optional) |
 | **Resource pool** | Select the name of the resource pool to which the Arc resource bridge VM would be deployed |
 | **Data store** | Select the name of the datastore to be used for Arc resource bridge VM |
 | **Folder** | Select the name of the vSphere VM and Template folder where Arc resource bridge VM should be deployed. |
 | **VM template Name** | Provide a name for the VM template that will be created in your vCenter based on the downloaded OVA. Eg: arc-appliance-template |
-| **Control Pane IP** | Provide a reserved IP address (a reserved IP address in your DHCP range or a static IP outside of DHCP range but still available on the network). The key thing is this IP address shouldn't be assigned to any other machine on the network. |
+| **Control Pane IP** | Provide a reserved IP address (a reserved IP address in your DHCP range or a static IP outside of DHCP range but still available on the network). Ensure this IP address isn't assigned to any other machine on the network. |
 | **Appliance proxy settings** | Type ‘y’ if there is proxy in your appliance network, else type ‘n’. </br> You need to populate the following when you have proxy setup: </br> 1. `Http`: Address of http proxy server </br> 2. `Https`: Address of https proxy server </br> 3. `NoProxy`: Addresses to be excluded from proxy </br> 4. `CertificateFilePath`: For ssl based proxies, path to certificate to be used
 
 Once the command execution completed, your setup is complete and you can try out the capabilities of Azure Arc-enabled VMware vSphere. You can proceed to the [next steps.](browse-and-enable-vcenter-resources-in-azure.md).
