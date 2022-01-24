@@ -15,7 +15,7 @@ ms.custom: responsible-ml
 
 # What is responsible AI? (preview)
 
-In this article, you'll learn what responsible AL is and ways you can put it into practice with Azure Machine Learning.
+In this article, you'll learn what responsible AI is and ways you can put it into practice with Azure Machine Learning.
 
 ## Responsible AI principles
 
