@@ -59,5 +59,5 @@ Other errors - if you get an error not covered in the preceding list, let us kno
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Iterative app development for LUIS](./luis-concept-app-iteration.md)
+
+* [Iterative app development for LUIS](./luis-concept-app-iteration.md)
