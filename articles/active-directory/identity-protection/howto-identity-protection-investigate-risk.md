@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 12/16/2021
+ms.date: 01/24/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: sahandle
+ms.reviewer: chuqiaoshi
 
 ms.collection: M365-identity-device-management
 ---
@@ -33,9 +33,9 @@ Selecting individual entries may enable more entries at the top of the report su
 
 Selecting individual entries expands a details window below the detections. The details view allows administrators to investigate and take action on each detection. 
 
-![Example Identity Protection report showing risky sign-ins and details](./media/howto-identity-protection-investigate-risk/identity-protection-risky-sign-ins-report.png)
-
 ## Risky users
+
+:::image type="content" source="media/howto-identity-protection-investigate-risk/risky-users-without-details.png" alt-text="Risky users report in the Azure portal" lightbox="media/howto-identity-protection-investigate-risk/risky-users-with-details.png":::
 
 With the information provided by the risky users report, administrators can find:
 
@@ -53,6 +53,8 @@ Administrators can then choose to take action on these events. Administrators ca
 - Investigate further using Azure ATP
 
 ## Risky sign-ins
+
+:::image type="content" source="media/howto-identity-protection-investigate-risk/risky-sign-ins-without-details.png" alt-text="Risky sign-ins report in the Azure portal" lightbox="media/howto-identity-protection-investigate-risk/risky-sign-ins-with-details.png":::
 
 The risky sign-ins report contains filterable data for up to the past 30 days (one month).
 
@@ -77,6 +79,8 @@ Administrators can then choose to take action on these events. Administrators ca
 
 ## Risk detections
 
+:::image type="content" source="media/howto-identity-protection-investigate-risk/risk-detections-without-details.png" alt-text="Risk detections report in the Azure portal" lightbox="media/howto-identity-protection-investigate-risk/risk-detections-with-details.png":::
+
 The risk detections report contains filterable data for up to the past 90 days (three months).
 
 With the information provided by the risk detections report, administrators can find:
@@ -93,13 +97,13 @@ Administrators can then choose to return to the user's risk or sign-ins report t
 
 ## Investigation framework
 
-Organizations may use the following frameworks to begin their investigation into any detections. Investigations may require having a conversation with the user in question, review of the [sign-in logs]((../reports-monitoring/concept-sign-ins.md)), or review of the [audit logs]((../reports-monitoring/concept-audit-logs.md)) to name a few.
+Organizations may use the following frameworks to begin their investigation into any suspicious activity. Investigations may require having a conversation with the user in question, review of the [sign-in logs](../reports-monitoring/concept-sign-ins.md), or review of the [audit logs](../reports-monitoring/concept-audit-logs.md) to name a few.
 
-1. Check the logs and validate whether the suspicious activity is typical for the given user.
-   1. Look at the following properties to see if they match the ones in the user’s past activities.
+1. Check the logs and validate whether the suspicious activity is normal for the given user.
+   1. Look at the user’s past activities including at least the following properties to see if they are normal for the given user. 
       1. Application
-      1. Device 
-      1. Location – Is the user traveling to a different location or accessing devices from multiple locations. 
+      1. Device - Is the device registered or compliant?
+      1. Location - Is the user traveling to a different location or accessing devices from multiple locations?
       1. IP address 
       1. User agent string
    1. If you have access to other security tools like [Microsoft Sentinel](../../sentinel/overview.md), check for corresponding alerts that might indicate a larger issue.
