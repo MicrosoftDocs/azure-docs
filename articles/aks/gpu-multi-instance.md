@@ -3,7 +3,7 @@ title: Multi-instance GPU Node pool (preview)
 description: Learn how to create a Multi-instance GPU Node pool and schedule tasks on it
 services: container-service
 ms.topic: article
-ms.date: 8/20/2021
+ms.date: 1/24/2022
 ms.author: juda
 ---
 
