@@ -1083,8 +1083,6 @@ To view these In your Standard logic app's **connections.json** file, which stor
    },
    "authentication": {
       "type": "ManagedServiceIdentity",
-      // Add "identity" property here
-      "id": "/subscriptions/{Azure-subscription-ID}/resourcegroups/{resource-group-name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}" 
    },
    "connection": {
       "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/<connection-name>"
@@ -1117,14 +1115,37 @@ In other scenarios, you might not want to have the system-assigned identity set 
 
 1. On the Connections pane, select **JSON View**.
 
-1. Add a new `identity` property and set the value to the resource ID for the user-assigned identity.
+1. In the first `authentication` section, add a new `identity` property, and set the value to the resource ID for the user-assigned identity.
 
    > [!NOTE]
-   > If no `identity` property already exists, the logic app implicitly uses the system-assigned identity.
+   > If no `identity` property exists in this `authentication` section, the logic app implicitly uses the system-assigned identity.
+
+   ```json
+   "keyvault": {
+      "api": {
+         "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{region}/managedApis/keyvault"
+      },
+      "authentication": {
+         "type": "ManagedServiceIdentity",
+         // Add "identity" property here
+         "id": "/subscriptions/{Azure-subscription-ID}/resourcegroups/{resource-group-name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-resource-ID}" 
+      },
+      "connection": {
+         "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/<connection-name>"
+      },
+      "connectionProperties": {
+         "authentication": {
+            "audience": "https://vault.azure.net",
+            "type": "ManagedServiceIdentity"
+         }
+      },
+      "connectionRuntimeUrl": "<connection-runtime-URL>"
+   }
+   ```
 
 1. In the Azure portal, go to the target resource, and [give access to the user-assigned managed identity](#access-other-resources), based on the target resource's needs.
 
-   For example, for Azure Key Vault, add the identity to the key vault's access policies. For Azure Blob Storage, assign the necessary role for the identity to the storage account. For more information, review .
+   For example, for Azure Key Vault, add the identity to the key vault's access policies. For Azure Blob Storage, assign the necessary role for the identity to the storage account.
 
 <a name="remove-identity"></a>
 
