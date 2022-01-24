@@ -756,7 +756,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/active-directory/external-identities/external-collaboration-settings-configure.md",
+            "source_path_from_root": "/articles/active-directory/external-identities/delegate-invitations.md",
             "redirect_url": "/azure/active-directory/external-identities/external-collaboration-settings-configure",
             "redirect_document_id": true
         },
@@ -777,7 +777,7 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-b2b-compare-external-identities.md",
-            "redirect_url": "/azure/active-directory/active-directory-b2b-compare-b2c",
+            "redirect_url": "/azure/active-directory/external-identities/external-identities-overview",
             "redirect_document_id": false
         },
         {
@@ -1842,13 +1842,13 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-b2b-compare-b2c.md",
-            "redirect_url": "/azure/active-directory/b2b/compare-with-b2c",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/external-identities/external-identities-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-b2b-mfa-instructions.md",
             "redirect_url": "/azure/active-directory/b2b/conditional-access",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-b2b-configure-saas-apps.md",
@@ -1867,8 +1867,8 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-b2b-delegate-invitations.md",
-            "redirect_url": "/azure/active-directory/b2b/external-collaboration-settings-configure",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/external-identities/external-collaboration-settings-configure",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-b2b-faq.md",
@@ -3832,13 +3832,13 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/b2b/compare-with-b2c.md",
-            "redirect_url": "/azure/active-directory/external-identities/compare-with-b2c",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/external-identities/external-identities-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/b2b/conditional-access.md",
             "redirect_url": "/azure/active-directory/external-identities/authentication-conditional-access",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/b2b/configure-saas-apps.md",
@@ -3858,7 +3858,7 @@
         {
             "source_path_from_root": "/articles/active-directory/b2b/delegate-invitations.md",
             "redirect_url": "/azure/active-directory/external-identities/external-collaboration-settings-configure",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/b2b/direct-federation.md",
