@@ -15,3 +15,4 @@ Following our principle of giving customers the choice to apply their investment
 You can find more information about their solutions in the links below:
 - [Jetstream](https://www.jetstreamsoft.com/2020/09/28/solution-brief-disaster-recovery-for-avs/)
 - [Zerto](https://www.zerto.com/solutions/use-cases/disaster-recovery/)
+- [RiverMeadow](https://www.rivermeadow.com/disaster-recovery-azure-blob)
