@@ -199,7 +199,7 @@ In this section, you'll create a SQL server in Azure.
 For this scenario, assume you would like to disable all public access to your Azure SQL Logical server, and only allow connections from your virtual network.
  
 1. Ensure your Private endpoint connection(s) are enabled and configured.
-2. Disable public access
+2. Disable public access:
     1. Navigate to the "Firewalls and virtual network" blade of your Azure SQL Logical Server    
     2. Click the box to check mark "Deny public network access"
 
