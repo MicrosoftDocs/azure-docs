@@ -88,10 +88,10 @@ The authentication policy is cached. After a policy update, it may take up to an
 
 ## Next steps 
 
-- [Overview of cloud native certificate-based authentication](concept-cloud-native-certificate-based-authentication.md)
-- [Technical deep dive for cloud-native certificate-based authentication](concept-cloud-native-certificate-based-authentication-technical-deep-dive.md)   
-- [Limitations with cloud native certificate-based authentication](concept-cloud-native-certificate-based-authentication-limitations.md)
-- [Get started with cloud native certificate-based authentication](how-to-certificate-based-authentication.md)
+- [Overview of cloud native CBA](concept-cloud-native-certificate-based-authentication.md)
+- [Technical deep dive for cloud-native CBA](concept-cloud-native-certificate-based-authentication-technical-deep-dive.md)   
+- [Limitations with cloud native CBA](concept-cloud-native-certificate-based-authentication-limitations.md)
+- [How to configure cloud native CBA](how-to-certificate-based-authentication.md)
 - [FAQ](cloud-native-certificate-based-authentication-faq.yml)
 
 

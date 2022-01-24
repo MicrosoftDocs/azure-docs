@@ -61,7 +61,7 @@ The following images show how cloud-native CBA simplifies the customer environme
 
 - [Technical deep dive for cloud-native CBA](concept-cloud-native-certificate-based-authentication-technical-deep-dive.md)   
 - [Limitations with cloud-native CBA](concept-cloud-native-certificate-based-authentication-limitations.md)
-- [Get started with cloud-native CBA](how-to-certificate-based-authentication.md)
+- [How to configure cloud-native CBA](how-to-certificate-based-authentication.md)
 - [FAQ](cloud-native-certificate-based-authentication-faq.yml)
 - [Troubleshoot cloud-native CBA](troubleshoot-cloud-native-certificate-based-authentication.md)
 

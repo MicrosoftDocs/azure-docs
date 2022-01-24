@@ -220,7 +220,7 @@ For the next test scenario, configure the authentication policy where the Issuer
 
 - [Overview of cloud-native CBA](concept-cloud-native-certificate-based-authentication.md)
 - [Limitations with cloud-native CBA](concept-cloud-native-certificate-based-authentication-limitations.md)
-- [Get started with cloud-native CBA](how-to-certificate-based-authentication.md)
+- [How to configure cloud-native CBA](how-to-certificate-based-authentication.md)
 - [FAQ](cloud-native-certificate-based-authentication-faq.yml)
 - [Troubleshoot cloud-native CBA](troubleshoot-cloud-native-certificate-based-authentication.md)
 

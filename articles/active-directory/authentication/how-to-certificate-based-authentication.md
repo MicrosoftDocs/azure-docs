@@ -1,12 +1,12 @@
 ---
-title: Tutorial to configure cloud-native certificate-based authentication without federation (Preview) - Azure Active Directory
-description: Tutorial that shows how to configure cloud-native certificate-based authentication in Azure Active Directory
+title: How to configure cloud-native certificate-based authentication without federation (Preview) - Azure Active Directory
+description: Topic that shows how to configure cloud-native certificate-based authentication in Azure Active Directory
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 01/24/2022
 
 ms.author: justinha
 author: justinha
@@ -16,7 +16,7 @@ ms.reviewer: tommma
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# Tutorial: Configure cloud-native certificate-based authentication in Azure Active Directory (Preview)
+# How to configure cloud-native certificate-based authentication in Azure Active Directory (Preview)
 
 Cloud-native certificate-based authentication (CBA) enables customers to configure their Azure AD tenants to allow or require users to authenticate with X.509 certificates verified against their Enterprise Public Key Infrastructure (PKI) for app and browser sign-in. This feature enables customers to adopt passwordless and authenticate with an x.509 certificate. 
  
@@ -303,9 +303,9 @@ To enable the certificate-based authentication and configure username bindings u
  
 ## Next steps 
 
-- [Overview of cloud-native certificate-based authentication](concept-cloud-native-certificate-based-authentication.md)
-- [Technical deep dive for cloud-native certificate-based authentication](concept-cloud-native-certificate-based-authentication-technical-deep-dive.md)   
-- [Limitations with cloud-native certificate-based authentication](concept-cloud-native-certificate-based-authentication-limitations.md)
+- [Overview of cloud-native CBA](concept-cloud-native-certificate-based-authentication.md)
+- [Technical deep dive for cloud-native CBA](concept-cloud-native-certificate-based-authentication-technical-deep-dive.md)   
+- [Limitations with cloud-native CBA](concept-cloud-native-certificate-based-authentication-limitations.md)
 - [FAQ](cloud-native-certificate-based-authentication-faq.yml)
-- [Troubleshoot cloud-native certificate-based authentication](troubleshoot-cloud-native-certificate-based-authentication.md)
+- [Troubleshoot cloud-native CBA](troubleshoot-cloud-native-certificate-based-authentication.md)
 
