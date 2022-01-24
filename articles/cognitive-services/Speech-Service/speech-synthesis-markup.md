@@ -1,7 +1,7 @@
 ---
 title: Speech Synthesis Markup Language (SSML) - Speech service
 titleSuffix: Azure Cognitive Services
-description: Using the Speech Synthesis Markup Language to control pronunciation and prosody in text-to-speech.
+description: Use the Speech Synthesis Markup Language to control pronunciation and prosody in text-to-speech.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -16,36 +16,34 @@ ms.custom: "devx-track-js, devx-track-csharp"
 
 # Improve synthesis with Speech Synthesis Markup Language (SSML)
 
-Speech Synthesis Markup Language (SSML) is an XML-based markup language that lets developers specify how input text is converted into synthesized speech using the Text-to-Speech service. Compared to plain text, SSML allows developers to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the Text-to-Speech output. Normal punctuation, such as pausing after a period, or using the correct intonation when a sentence ends with a question mark are automatically handled.
+Speech Synthesis Markup Language (SSML) is an XML-based markup language that lets developers specify how input text is converted into synthesized speech by using text-to-speech. Compared to plain text, SSML allows developers to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the text-to-speech output. Normal punctuation, such as pausing after a period, or using the correct intonation when a sentence ends with a question mark are automatically handled.
 
-The Speech service implementation of SSML is based on World Wide Web Consortium's [Speech Synthesis Markup Language Version 1.0](https://www.w3.org/TR/2004/REC-speech-synthesis-20040907/).
+The Speech service implementation of SSML is based on the World Wide Web Consortium's [Speech Synthesis Markup Language Version 1.0](https://www.w3.org/TR/2004/REC-speech-synthesis-20040907/).
 
 > [!IMPORTANT]
-> Each Chinese characters are counted as two characters for billing, including Kanji used in Japanese, Hanja used in Korean, or Hanzi used in other languages. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Chinese characters are counted as two characters for billing, including Kanji used in Japanese, Hanja used in Korean, or Hanzi used in other languages. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-## Prebuilt neural voice and custom neural voice
+## Prebuilt neural voices and custom neural voices
 
-Use a human-like neural voice, or create your own custom neural voice unique to your product or brand. For a complete list of supported languages, locales, and voices, see [language support](language-support.md). To learn more about prebuilt neural voice and custom neural voice, see [Text-to-Speech overview](text-to-speech.md).
-
+Use a humanlike neural voice or create your own custom neural voice unique to your product or brand. For a complete list of supported languages, locales, and voices, see [Language support](language-support.md). To learn more about using a prebuilt neural voice and a custom neural voice, see [Text-to-speech overview](text-to-speech.md).
 
 > [!NOTE]
-> You can hear voices in different styles and pitches reading example text using [the Text to Speech page](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
-
+> You can hear voices in different styles and pitches reading example text by using this [text-to-speech website](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
 
 ## Special characters
 
-While using SSML, keep in mind that special characters, such as quotation marks, apostrophes, and brackets must be escaped. For more information, see [Extensible Markup Language (XML) 1.0: Appendix D](https://www.w3.org/TR/xml/#sec-entexpand).
+When you use SSML, keep in mind that special characters, such as quotation marks, apostrophes, and brackets, must be escaped. For more information, see [Extensible Markup Language (XML) 1.0: Appendix D](https://www.w3.org/TR/xml/#sec-entexpand).
 
 ## Supported SSML elements
 
-Each SSML document is created with SSML elements (or tags). These elements are used to adjust pitch, prosody, volume, and more. The following sections detail how each element is used, and when an element is required or optional.
+Each SSML document is created with SSML elements (or tags). These elements are used to adjust pitch, prosody, volume, and more. The following sections detail how each element is used and when an element is required or optional.
 
 > [!IMPORTANT]
-> Don't forget to use double quotes around attribute values. Standards for well-formed, valid XML requires attribute values to be enclosed in double quotation marks. For example, `<prosody volume="90">` is a well-formed, valid element, but `<prosody volume=90>` is not. SSML might not recognize attribute values that are not in quotes.
+> Don't forget to use double quotation marks around attribute values. Standards for well-formed, valid XML requires attribute values to be enclosed in double quotation marks. For example, `<prosody volume="90">` is a well-formed, valid element, but `<prosody volume=90>` is not. SSML might not recognize attribute values that aren't in double quotation marks. 
 
 ## Create an SSML document
 
-`speak` is the root element, and is **required** for all SSML documents. The `speak` element contains important information, such as version, language, and the markup vocabulary definition.
+The `speak` element is the root element. It's *required* for all SSML documents. The `speak` element contains important information, such as version, language, and the markup vocabulary definition.
 
 **Syntax**
 
@@ -55,15 +53,15 @@ Each SSML document is created with SSML elements (or tags). These elements are u
 
 **Attributes**
 
-| Attribute | Description | Required / Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
 | `version` | Indicates the version of the SSML specification used to interpret the document markup. The current version is 1.0. | Required |
-| `xml:lang` | Specifies the language of the root document. The value can contain a lowercase, two-letter language code (for example, `en`), or the language code and uppercase country/region (for example, `en-US`). | Required |
+| `xml:lang` | Specifies the language of the root document. The value can contain a lowercase, two-letter language code, for example, `en`. Or the value can contain the language code and uppercase country/region, for example, `en-US`. | Required |
 | `xmlns` | Specifies the URI to the document that defines the markup vocabulary (the element types and attribute names) of the SSML document. The current URI is http://www.w3.org/2001/10/synthesis. | Required |
 
-## Choose a voice for Text-to-Speech
+## Choose a voice for text-to-speech
 
-The `voice` element is required. It's used to specify the voice that is used for Text-to-Speech.
+The `voice` element is required. It's used to specify the voice that's used for text-to-speech.
 
 **Syntax**
 
@@ -73,11 +71,11 @@ The `voice` element is required. It's used to specify the voice that is used for
 </voice>
 ```
 
-**Attributes**
+**Attribute**
 
-| Attribute | Description | Required / Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
-| `name` | Identifies the voice used for Text-to-Speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). | Required |
+| `name` | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). | Required |
 
 **Example**
 
@@ -94,13 +92,13 @@ The `voice` element is required. It's used to specify the voice that is used for
 
 ## Use multiple voices
 
-Within the `speak` element, you can specify multiple voices for Text-to-Speech output. These voices can be in different languages. For each voice, the text must be wrapped in a `voice` element.
+Within the `speak` element, you can specify multiple voices for text-to-speech output. These voices can be in different languages. For each voice, the text must be wrapped in a `voice` element.
 
-**Attributes**
+**Attribute**
 
-| Attribute | Description | Required / Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
-| `name` | Identifies the voice used for Text-to-Speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). | Required |
+| `name` | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). | Required |
 
 **Example**
 
@@ -117,23 +115,23 @@ Within the `speak` element, you can specify multiple voices for Text-to-Speech o
 
 ## Adjust speaking styles
 
-By default, the Text-to-Speech service synthesizes text using a neutral speaking style for neural voices. You can adjust the speaking style, style degree, and role at the sentence level.
+By default, text-to-speech synthesizes text by using a neutral speaking style for neural voices. You can adjust the speaking style, style degree, and role at the sentence level.
 
-Styles, style degree, and roles are supported for a subset of neural voices. If a style or role isn't supported, the service will use the default neutral speech. There are multiple ways to determine what styles and roles are supported for each voice.
-- The [Voice styles and roles](language-support.md#voice-styles-and-roles) table
-- The [voice list API](rest-text-to-speech.md#get-a-list-of-voices)
-- The code-free [Audio Content Creation](https://aka.ms/audiocontentcreation) portal
+Styles, style degree, and roles are supported for a subset of neural voices. If a style or role isn't supported, the service uses the default neutral speech. To determine what styles and roles are supported for each voice, use:
 
-| Attribute | Description | Required / Optional |
+- The [Voice styles and roles](language-support.md#voice-styles-and-roles) table.
+- The [Voice List API](rest-text-to-speech.md#get-a-list-of-voices).
+- The code-free [Audio Content Creation](https://aka.ms/audiocontentcreation) portal.
+
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
-| `style` | Specifies the speaking style. Speaking styles are voice-specific. | Required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then style must be provided. If an invalid value is provided, this element will be ignored. |
-| `styledegree` | Specifies the intensity of speaking style. **Accepted values**: 0.01 to 2 inclusive. The default value is 1, which means the predefined style intensity. The minimum unit is 0.01, which results in a slight tendency for the target style. A value of 2 results in a doubling of the default style intensity.  | Optional. If you don't set the `style` attribute the `styledegree` will be ignored. Speaking style degree adjustments are supported for Chinese (Mandarin, Simplified) neural voices.|
-| `role` | Specifies the speaking role-play. The voice will act as a different age and gender, but the voice name won't be changed.  | Optional. Role adjustments are supported for these Chinese (Mandarin, Simplified) neural voices: `zh-CN-XiaomoNeural`, `zh-CN-XiaoxuanNeural`, `zh-CN-YunxiNeural` and `zh-CN-YunyeNeural`.|
-
+| `style` | Specifies the speaking style. Speaking styles are voice specific. | Required if adjusting the speaking style for a neural voice. If you're using `mstts:express-as`, the style must be provided. If an invalid value is provided, this element is ignored. |
+| `styledegree` | Specifies the intensity of the speaking style. **Accepted values**: 0.01 to 2 inclusive. The default value is 1, which means the predefined style intensity. The minimum unit is 0.01, which results in a slight tendency for the target style. A value of 2 results in a doubling of the default style intensity.  | Optional. If you don't set the `style` attribute, the `styledegree` attribute is ignored. Speaking style degree adjustments are supported for Chinese (Mandarin, Simplified) neural voices.|
+| `role` | Specifies the speaking role-play. The voice acts as a different age and gender, but the voice name isn't changed.  | Optional. Role adjustments are supported for these Chinese (Mandarin, Simplified) neural voices: `zh-CN-XiaomoNeural`, `zh-CN-XiaoxuanNeural`, `zh-CN-YunxiNeural`, and `zh-CN-YunyeNeural`.|
 
 ### Style
 
-You use the `mstts:express-as` element to express different emotions like cheerfulness, empathy, and calm, or optimize the voice for different scenarios like customer service, newscast, and voice assistant. 
+You use the `mstts:express-as` element to express emotions like cheerfulness, empathy, and calm. You can also optimize the voice for different scenarios like customer service, newscast, and voice assistant.
 
 **Syntax**
 
@@ -156,14 +154,14 @@ This SSML snippet illustrates how the `<mstts:express-as>` element is used to ch
 </speak>
 ```
 
-The table below has descriptions of each supported style.
+The following table has descriptions of each supported style.
 
 |Style|Description|
 |-----------|-------------|
 |`style="affectionate"`|Expresses a warm and affectionate tone, with higher pitch and vocal energy. The speaker is in a state of attracting the attention of the listener. The personality of the speaker is often endearing in nature.|
 |`style="angry"`|Expresses an angry and annoyed tone.|
 |`style="assistant"`|Expresses a warm and relaxed tone for digital assistants.|
-|`style="calm"`|Expresses a cool, collected, and composed attitude when speaking. Tone, pitch, prosody is much more uniform compared to other types of speech.|
+|`style="calm"`|Expresses a cool, collected, and composed attitude when speaking. Tone, pitch, and prosody are more uniform compared to other types of speech.|
 |`style="chat"`|Expresses a casual and relaxed tone.|
 |`style="cheerful"`|Expresses a positive and happy tone.|
 |`style="customerservice"`|Expresses a friendly and helpful tone for customer support.|
@@ -171,7 +169,7 @@ The table below has descriptions of each supported style.
 |`style="disgruntled"`|Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.|
 |`style="embarrassed"`|Expresses an uncertain and hesitant tone when the speaker is feeling uncomfortable.|
 |`style="empathetic"`|Expresses a sense of caring and understanding.|
-|`style="fearful"`|Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.|
+|`style="fearful"`|Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tension and unease.|
 |`style="gentle"`|Expresses a mild, polite, and pleasant tone, with lower pitch and vocal energy.|
 |`style="lyrical"`|Expresses emotions in a melodic and sentimental way.|
 |`style="narration-professional"`|Expresses a professional, objective tone for content reading.|
@@ -181,10 +179,9 @@ The table below has descriptions of each supported style.
 |`style="sad"`|Expresses a sorrowful tone.|
 |`style="serious"`|Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.|
 
-
 ### Style degree
 
-The intensity of speaking style can be adjusted to better fit your use case. You specify a stronger or softer style with `styledegree` to make the speech more expressive or subdued. Speaking style degree adjustments are supported for Chinese (Mandarin, Simplified) neural voices.
+The intensity of speaking style can be adjusted to better fit your use case. You specify a stronger or softer style with the `styledegree` attribute to make the speech more expressive or subdued. Speaking style degree adjustments are supported for Chinese (Mandarin, Simplified) neural voices.
 
 **Syntax**
 
@@ -209,7 +206,7 @@ This SSML snippet illustrates how the `styledegree` attribute is used to change 
 
 ### Role
 
-Apart from adjusting the speaking styles and style degree, you can also adjust the `role` parameter so that the voice will imitate a different age and gender. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name won't be changed. Role adjustments are supported for these Chinese (Mandarin, Simplified) neural voices:
+Apart from adjusting the speaking styles and style degree, you can also adjust the `role` parameter so that the voice imitates a different age and gender. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name won't be changed. Role adjustments are supported for these Chinese (Mandarin, Simplified) neural voices:
 
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
@@ -242,7 +239,7 @@ This SSML snippet illustrates how the `role` attribute is used to change the rol
 </speak>
 ```
 
-The table below has descriptions of each supported role.
+The following table has descriptions of each supported role.
 
 |Role                     |	Description                |
 |-------------------------|----------------------------|
@@ -255,17 +252,16 @@ The table below has descriptions of each supported role.
 |`role="SeniorFemale"`    |	The voice imitates to a senior female.|
 |`role="SeniorMale"`      |	The voice imitates to a senior male.|
 
-
 ## Adjust speaking languages
 
 You can adjust speaking languages for neural voices at the sentence level and word level.
 
-Enable one voice to speak different languages fluently (like English, Spanish, and Chinese) using the `<lang xml:lang>` element. This is an optional element unique to the Speech service. Without this element, the voice will speak its primary language.
+Enable one voice to speak different languages fluently (like English, Spanish, and Chinese) by using the `<lang xml:lang>` element. This optional element is unique to the Speech service. Without this element, the voice speaks its primary language.
 
-Speaking language adjustments are only supported for the `en-US-JennyMultilingualNeural` neural voice. Above changes are applied at the sentence level and word level. If a language isn't supported, the service will return no audio stream.
+Speaking language adjustments are only supported for the `en-US-JennyMultilingualNeural` neural voice. The preceding changes are applied at the sentence level and word level. If a language isn't supported, the service won't return an audio stream.
 
 > [!NOTE]
-> The `<lang xml:lang>` element is incompatible with `prosody` and `break` element, you cannot adjust pause and prosody like pitch, contour, rate, or volume in this element.
+> The `<lang xml:lang>` element is incompatible with the `prosody` and `break` elements. You can't adjust pause and prosody like pitch, contour, rate, or volume in this element.
 
 **Syntax**
 
@@ -273,13 +269,13 @@ Speaking language adjustments are only supported for the `en-US-JennyMultilingua
 <lang xml:lang="string"></lang>
 ```
 
-**Attributes**
+**Attribute**
 
-| Attribute | Description | Required / Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
-| `lang` | Specifies the speaking languages. Speaking different languages are voice-specific. | Required if adjusting the speaking language for a neural voice. If using `lang xml:lang`, then locale must be provided. |
+| `lang` | Specifies the speaking languages. Speaking different languages are voice specific. | Required if adjusting the speaking language for a neural voice. If you're using `lang xml:lang`, the locale must be provided. |
 
-Use this table to determine which speaking languages are supported for each neural voice. If a language isn't supported, the service will return no audio stream.
+Use this table to determine which speaking languages are supported for each neural voice. If a language isn't supported, the service won't return an audio stream.
 
 | Voice                            | Locale language           | Description                                                 |
 |----------------------------------|---------------------------|-------------------------------------------------------------|
@@ -317,12 +313,12 @@ This SSML snippet shows how to use `<lang xml:lang>` to change the speaking lang
 </speak>
 ```
 
-## Add or remove a break/pause
+## Add or remove a break or pause
 
-Use the `break` element to insert pauses (or breaks) between words, or prevent pauses automatically added by the Text-to-Speech service.
+Use the `break` element to insert pauses or breaks between words. You can also use it to prevent pauses that are automatically added by text-to-speech.
 
 > [!NOTE]
-> Use this element to override the default behavior of Text-to-Speech (TTS) for a word or phrase if the synthesized speech for that word or phrase sounds unnatural. Set `strength` to `none` to prevent a prosodic break, which is automatically inserted by the Text-to-Speech service.
+> Use this element to override the default behavior of text-to-speech for a word or phrase if the synthesized speech for that word or phrase sounds unnatural. Set `strength` to `none` to prevent a prosodic break, which is automatically inserted by text-to-speech.
 
 **Syntax**
 
@@ -333,10 +329,10 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 
 **Attributes**
 
-| Attribute | Description | Required / Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
-| `strength` | Specifies the relative duration of a pause using one of the following values:<ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul> | Optional |
-| `time` | Specifies the absolute duration of a pause in seconds or milliseconds. This value should be set less than 5000 ms. Examples of valid values are `2s` and `500ms` | Optional |
+| `strength` | Specifies the relative duration of a pause by using one of the following values:<ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul> | Optional |
+| `time` | Specifies the absolute duration of a pause in seconds or milliseconds (ms). This value should be set less than 5,000 ms. Examples of valid values are `2s` and `500ms`. | Optional |
 
 | Strength                      | Description |
 |-------------------------------|-------------|
@@ -344,8 +340,8 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 | X-weak                        | 250 ms      |
 | Weak                          | 500 ms      |
 | Medium                        | 750 ms      |
-| Strong                        | 1000 ms     |
-| X-strong                      | 1250 ms     |
+| Strong                        | 1,000 ms     |
+| X-strong                      | 1,250 ms     |
 
 **Example**
 
@@ -356,12 +352,13 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
     </voice>
 </speak>
 ```
+
 ## Add silence
 
-Use the `mstts:silence` element to insert pauses before or after text, or between the 2 adjacent sentences.
+Use the `mstts:silence` element to insert pauses before or after text, or between two adjacent sentences.
 
 > [!NOTE]
->The difference between `mstts:silence` and `break` is that `break` can be added to any place in the text, but silence only works at the beginning or end of input text, or at the boundary of 2 adjacent sentences.
+>The difference between `mstts:silence` and `break` is that `break` can be added any place in the text. Silence only works at the beginning or end of input text or at the boundary of two adjacent sentences.
 
 
 **Syntax**
@@ -372,13 +369,15 @@ Use the `mstts:silence` element to insert pauses before or after text, or betwee
 
 **Attributes**
 
-| Attribute | Description | Required / Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
-| `type` | Specifies the location of silence be added: <ul><li>`Leading` – at the beginning of text </li><li>`Tailing` – in the end of text </li><li>`Sentenceboundary` – between adjacent sentences </li></ul> | Required |
-| `Value` | Specifies the absolute duration of a pause in seconds or milliseconds. This value should be set less than 5000 ms. Examples of valid values are `2s` and `500ms` | Required |
+| `type` | Specifies the location of silence to be added: <ul><li>`Leading` – At the beginning of text </li><li>`Tailing` – At the end of text </li><li>`Sentenceboundary` – Between adjacent sentences </li></ul> | Required |
+| `Value` | Specifies the absolute duration of a pause in seconds or milliseconds. This value should be set less than 5,000 ms. Examples of valid values are `2s` and `500ms`. | Required |
 
 **Example**
+
 In this example, `mtts:silence` is used to add 200 ms of silence between two sentences.
+
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
 <voice name="en-US-JennyNeural">
@@ -391,7 +390,7 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 ## Specify paragraphs and sentences
 
-`p` and `s` elements are used to denote paragraphs and sentences, respectively. In the absence of these elements, the Text-to-Speech service automatically determines the structure of the SSML document.
+The `p` and `s` elements are used to denote paragraphs and sentences, respectively. In the absence of these elements, text-to-speech automatically determines the structure of the SSML document.
 
 The `p` element can contain text and the following elements: `audio`, `break`, `phoneme`, `prosody`, `say-as`, `sub`, `mstts:express-as`, and `s`.
 
@@ -423,12 +422,12 @@ The `s` element can contain text and the following elements: `audio`, `break`, `
 
 ## Use phonemes to improve pronunciation
 
-The `ph` element is used to for phonetic pronunciation in SSML documents. The `ph` element can only contain text, no other elements. Always provide human-readable speech as a fallback.
+The `ph` element is used for phonetic pronunciation in SSML documents. The `ph` element can contain only text but no other elements. Always provide human-readable speech as a fallback.
 
-Phonetic alphabets are composed of phones, which are made up of letters, numbers, or characters, sometimes in combination. Each phone describes a unique sound of speech. This is in contrast to the Latin alphabet, where any letter might represent multiple spoken sounds. Consider the different pronunciations of the letter "c" in the words "candy" and "cease", or the different pronunciations of the letter combination "th" in the words "thing" and "those".
+Phonetic alphabets are composed of phones, which are made up of letters, numbers, or characters, sometimes in combination. Each phone describes a unique sound of speech. This is in contrast to the Latin alphabet, where any letter might represent multiple spoken sounds. Consider the different pronunciations of the letter "c" in the words "candy" and "cease" or the different pronunciations of the letter combination "th" in the words "thing" and "those."
 
 > [!NOTE]
-> Phonemes tag is not supported for these 5 voices (et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, lv-LV-EveritaNeural and mt-MT-GarceNeural) at the moment.
+> At this time, the phonemes tag isn't supported for five voices: et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, lv-LV-EveritaNeural, and mt-MT-GarceNeural.
 
 **Syntax**
 
@@ -438,10 +437,10 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 **Attributes**
 
-| Attribute | Description | Required / Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
-| `alphabet` | Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you can specify.<ul><li>`ipa` &ndash; [International Phonetic Alphabet](speech-ssml-phonetic-sets.md#speech-service-phonetic-alphabet)</li><li>`sapi` &ndash; [Speech service phonetic alphabet](speech-ssml-phonetic-sets.md#speech-service-phonetic-alphabet)</li><li>`ups` &ndash; [Universal Phone Set](https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm)</li></ul><br>The alphabet applies only to the `phoneme` in the element.| Optional |
-| `ph` | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, the Text-to-Speech (TTS) service rejects the entire SSML document and produces none of the speech output specified in the document. | Required if using phonemes. |
+| `alphabet` | Specifies the phonetic alphabet to use when you synthesize the pronunciation of the string in the `ph` attribute. The string that specifies the alphabet must be specified in lowercase letters. The following options are the possible alphabets that you can specify:<ul><li>`ipa` &ndash; [International Phonetic Alphabet (IPA)](speech-ssml-phonetic-sets.md#speech-service-phonetic-alphabet)</li><li>`sapi` &ndash; [Speech service phonetic alphabet ](speech-ssml-phonetic-sets.md#speech-service-phonetic-alphabet)</li><li>`ups` &ndash; [Universal Phone Set](https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm)</li></ul><br>The alphabet applies only to the `phoneme` in the element.| Optional |
+| `ph` | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, text-to-speech rejects the entire SSML document and produces none of the speech output specified in the document. | Required if using phonemes |
 
 **Examples**
 
@@ -471,13 +470,12 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 ## Use custom lexicon to improve pronunciation
 
-Sometimes the Text-to-Speech service can't accurately pronounce a word. For example, the name of a company, a medical term or an emoji. Developers can define how single entities are read in SSML using the `phoneme` and `sub` tags. However, if you need to define how multiple entities are read, you can create a custom lexicon using the `lexicon` tag.
+Sometimes text-to-speech can't accurately pronounce a word. Examples might be the name of a company, a medical term, or an emoji. You can define how single entities are read in SSML by using the `phoneme` and `sub` tags. If you need to define how multiple entities are read, you can create a custom lexicon by using the `lexicon` tag.
+
+The custom lexicon currently supports UTF-8 encoding.
 
 > [!NOTE]
-> Custom lexicon currently supports UTF-8 encoding.
-
-> [!NOTE]
-> Custom lexicon is not supported for these 5 voices (et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, lv-LV-EveritaNeural and mt-MT-GarceNeural) at the moment.
+> At this time, the custom lexicon isn't supported for five voices: et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, lv-LV-EveritaNeural, and mt-MT-GarceNeural.
 
 
 **Syntax**
@@ -486,15 +484,15 @@ Sometimes the Text-to-Speech service can't accurately pronounce a word. For exam
 <lexicon uri="string"/>
 ```
 
-**Attributes**
+**Attribute**
 
-| Attribute | Description                               | Required / Optional |
+| Attribute | Description                               | Required or optional |
 |-----------|-------------------------------------------|---------------------|
-| `uri`     | The address of the external PLS document. | Required.           |
+| `uri`     | The address of the external PLS document | Required           |
 
 **Usage**
 
-To define how multiple entities are read, you can create a custom lexicon, which is stored as an .xml or .pls file. Below is a sample .xml file.
+To define how multiple entities are read, you can create a custom lexicon, which is stored as an .xml or .pls file. The following code is a sample .xml file.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -519,14 +517,14 @@ To define how multiple entities are read, you can create a custom lexicon, which
 </lexicon>
 ```
 
-The `lexicon` element contains at least one `lexeme` element. Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `grapheme` element contains text describing the [orthography](https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography). The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. The `phoneme` element provides text describing how the `lexeme` is pronounced. When `alias` and `phoneme` element are provided with the same `grapheme` element, `alias` has higher priority.
+The `lexicon` element contains at least one `lexeme` element. Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `grapheme` element contains text that describes the [orthography](https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography). The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. The `phoneme` element provides text that describes how the `lexeme` is pronounced. When the `alias` and `phoneme` elements are provided with the same `grapheme` element, `alias` has higher priority.
 
 > [!IMPORTANT]
-> The `lexeme` element is case sensitive in custom lexicon. For example, if you only provide a phoneme for `lexeme` 'Hello', it will not work for `lexeme` 'hello'.
+> The `lexeme` element is case sensitive in the custom lexicon. For example, if you only provide a phoneme for the `lexeme` "Hello," it won't work for the `lexeme` "hello."
 
-Lexicon contains necessary `xml:lang` attribute to indicate which locale it should be applied for. One custom lexicon is limited to one locale by design, so apply it for a different locale it won't work.
+Lexicon contains the necessary `xml:lang` attribute to indicate which locale it should be applied for. One custom lexicon is limited to one locale by design, so if you apply it for a different locale, it won't work.
 
-It's important to note, that you can't directly set the pronunciation of a phrase using the custom lexicon. If you need to set the pronunciation for an acronym or an abbreviated term, first provide an `alias`, then associate the `phoneme` with that `alias`. For example:
+You can't directly set the pronunciation of a phrase by using the custom lexicon. If you need to set the pronunciation for an acronym or an abbreviated term, first provide an `alias`, and then associate the `phoneme` with that `alias`. For example:
 
 ```xml
   <lexeme>
@@ -540,9 +538,10 @@ It's important to note, that you can't directly set the pronunciation of a phras
 ```
 
 > [!NOTE]
-> The syllable boundary is '.' in the International Phonetic Alphabet.
+> The syllable boundary is '.' in the IPA.
 
 You could also directly provide your expected `alias` for the acronym or abbreviated term. For example:
+
 ```xml
   <lexeme>
     <grapheme>Scotland MV</grapheme>
@@ -551,11 +550,11 @@ You could also directly provide your expected `alias` for the acronym or abbrevi
 ```
 
 > [!IMPORTANT]
-> The `phoneme` element cannot contain white spaces when using IPA.
+> The `phoneme` element can't contain white spaces when you use the IPA.
 
-For more information about custom lexicon file, see [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/).
+For more information about the custom lexicon file, see [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/).
 
-Next, publish your custom lexicon file. While we don't have restrictions on where this file can be stored, we do recommend using [Azure Blob Storage](../../storage/blobs/storage-quickstart-blobs-portal.md).
+Next, publish your custom lexicon file. We don't have restrictions on where this file can be stored, but we recommend that you use [Azure Blob Storage](../../storage/blobs/storage-quickstart-blobs-portal.md).
 
 After you've published your custom lexicon, you can reference it from your SSML.
 
@@ -574,21 +573,22 @@ After you've published your custom lexicon, you can reference it from your SSML.
 </speak>
 ```
 
-When using this custom lexicon, "BTW" will be read as "By the way". "Benigni" will be read with the provided IPA "bɛˈniːnji".
+When you use this custom lexicon, "BTW" is read as "By the way." "Benigni" is read with the provided IPA "bɛˈniːnji."
 
-Since it's easy to make mistakes in custom lexicon, Microsoft has provided [validation tool for custom lexicon](https://github.com/jiajzhan/Custom-Lexicon-Validation). It provides detailed error messages that help you find errors. Before you send SSML with custom lexicon to the Speech service, you should check your custom lexicon with this tool. 
+It's easy to make mistakes in the custom lexicon, so Microsoft provides a [validation tool for the custom lexicon](https://github.com/jiajzhan/Custom-Lexicon-Validation). It provides detailed error messages that help you find errors. Before you send SSML with the custom lexicon to the Speech service, check your custom lexicon with this tool.
 
 **Limitations**
-- File size: custom lexicon file size maximum limit is 100 KB, if beyond this size, synthesis request will fail.
-- Lexicon cache refresh: custom lexicon will be cached with URI as key on TTS Service when it's first loaded. Lexicon with same URI won't be reloaded within 15 mins, so custom lexicon change needs to wait at most 15 mins to take effect.
+
+- **File size**: The custom lexicon file size maximum limit is 100 KB. If a file is beyond this size, the synthesis request fails.
+- **Lexicon cache refresh**: The custom lexicon is cached with the URI as the key on text-to-speech when it's first loaded. The lexicon with the same URI won't be reloaded within 15 minutes, so the custom lexicon change needs to wait 15 minutes at the most to take effect.
 
 **Speech service phonetic sets**
 
-In the sample above, we're using the International Phonetic Alphabet, also known as the IPA phone set. We suggest developers use the IPA, because it's the international standard. For some IPA characters, they've the 'precomposed' and 'decomposed' version when being represented with Unicode. Custom lexicon only supports the decomposed Unicode.
+In the preceding sample, we're using the IPA, which is also known as the IPA phone set. We suggest that you use the IPA because it's the international standard. For some IPA characters, they're the "precomposed" and "decomposed" version when they're being represented with Unicode. The custom lexicon only supports the decomposed Unicode.
 
-Considering that the IPA isn't easy to remember, the Speech service defines a phonetic set for seven languages (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`).
+The IPA isn't easy to remember, so the Speech service defines a phonetic set for seven languages: `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`.
 
-You can use the `x-microsoft-sapi` as the value for the `alphabet` attribute with custom lexicons as demonstrated below:
+You can use the `x-microsoft-sapi` as the value for the `alphabet` attribute with custom lexicons as demonstrated here:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -613,9 +613,9 @@ For more information on the detailed Speech service phonetic alphabet, see the [
 
 ## Adjust prosody
 
-The `prosody` element is used to specify changes to pitch, contour, range, rate, and volume for the Text-to-Speech output. The `prosody` element can contain text and the following elements: `audio`, `break`, `p`, `phoneme`, `prosody`, `say-as`, `sub`, and `s`.
+The `prosody` element is used to specify changes to pitch, contour, range, rate, and volume for the text-to-speech output. The `prosody` element can contain text and the following elements: `audio`, `break`, `p`, `phoneme`, `prosody`, `say-as`, `sub`, and `s`.
 
-Because prosodic attribute values can vary over a wide range, the speech recognizer interprets the assigned values as a suggestion of what the actual prosodic values of the selected voice should be. The Text-to-Speech service limits or substitutes values that aren't supported. Examples of unsupported values are a pitch of 1 MHz or a volume of 120.
+Because prosodic attribute values can vary over a wide range, the speech recognizer interprets the assigned values as a suggestion of what the actual prosodic values of the selected voice should be. Text-to-speech limits or substitutes values that aren't supported. Examples of unsupported values are a pitch of 1 MHz or a volume of 120.
 
 **Syntax**
 
@@ -625,17 +625,17 @@ Because prosodic attribute values can vary over a wide range, the speech recogni
 
 **Attributes**
 
-| Attribute | Description | Required / Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
-| `pitch` | Indicates the baseline pitch for the text. You can express the pitch as:<ul><li>An absolute value, expressed as a number followed by "Hz" (Hertz). For example, `<prosody pitch="600Hz">some text</prosody>`.</li><li>A relative value, expressed as a number preceded by "+" or "-" and followed by "Hz" or "st", that specifies an amount to change the pitch. For example: `<prosody pitch="+80Hz">some text</prosody>` or `<prosody pitch="-2st">some text</prosody>`. The "st" indicates the change unit is semitone, which is half of a tone (a half step) on the standard diatonic scale.</li><li>A constant value:<ul><li>x-low</li><li>low</li><li>medium</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul> | Optional |
-| `contour` |Contour now supports neural voice. Contour represents changes in pitch. These changes are represented as an array of targets at specified time positions in the speech output. Each target is defined by sets of parameter pairs. For example: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>The first value in each set of parameters specifies the location of the pitch change as a percentage of the duration of the text. The second value specifies the amount to raise or lower the pitch, using a relative value or an enumeration value for pitch (see `pitch`). | Optional |
-| `range` | A value that represents the range of pitch for the text. You can express `range` using the same absolute values, relative values, or enumeration values used to describe `pitch`. | Optional |
+| `pitch` | Indicates the baseline pitch for the text. You can express the pitch as:<ul><li>An absolute value, expressed as a number followed by "Hz" (Hertz). For example, `<prosody pitch="600Hz">some text</prosody>`.</li><li>A relative value, expressed as a number preceded by "+" or "-" and followed by "Hz" or "st" that specifies an amount to change the pitch. For example: `<prosody pitch="+80Hz">some text</prosody>` or `<prosody pitch="-2st">some text</prosody>`. The "st" indicates the change unit is semitone, which is half of a tone (a half step) on the standard diatonic scale.</li><li>A constant value:<ul><li>x-low</li><li>low</li><li>medium</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul> | Optional |
+| `contour` |Contour now supports neural voice. Contour represents changes in pitch. These changes are represented as an array of targets at specified time positions in the speech output. Each target is defined by sets of parameter pairs. For example: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>The first value in each set of parameters specifies the location of the pitch change as a percentage of the duration of the text. The second value specifies the amount to raise or lower the pitch by using a relative value or an enumeration value for pitch (see `pitch`). | Optional |
+| `range` | A value that represents the range of pitch for the text. You can express `range` by using the same absolute values, relative values, or enumeration values used to describe `pitch`. | Optional |
 | `rate` | Indicates the speaking rate of the text. You can express `rate` as:<ul><li>A relative value, expressed as a number that acts as a multiplier of the default. For example, a value of *1* results in no change in the rate. A value of *0.5* results in a halving of the rate. A value of *3* results in a tripling of the rate.</li><li>A constant value:<ul><li>x-slow</li><li>slow</li><li>medium</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Optional |
-| `volume` | Indicates the volume level of the speaking voice. You can express the volume as:<ul><li>An absolute value, expressed as a number in the range of 0.0 to 100.0, from *quietest* to *loudest*. For example, 75. The default is 100.0.</li><li>A relative value, expressed as a number preceded by "+" or "-" that specifies an amount to change the volume. For example, +10 or -5.5.</li><li>A constant value:<ul><li>silent</li><li>x-soft</li><li>soft</li><li>medium</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul> | Optional |
+| `volume` | Indicates the volume level of the speaking voice. You can express the volume as:<ul><li>An absolute value, expressed as a number in the range of 0.0 to 100.0, from *quietest* to *loudest*. An example is 75. The default is 100.0.</li><li>A relative value, expressed as a number preceded by "+" or "-" that specifies an amount to change the volume. Examples are +10 or -5.5.</li><li>A constant value:<ul><li>silent</li><li>x-soft</li><li>soft</li><li>medium</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul> | Optional |
 
 ### Change speaking rate
 
-Speaking rate can be applied at the word or sentence-level.
+Speaking rate can be applied at the word or sentence level.
 
 **Example**
 
@@ -697,7 +697,7 @@ Pitch changes can be applied at the sentence level.
 ```
 ## say-as element
 
-`say-as` is an optional element that indicates the content type (such as number or date) of the element's text. This provides guidance to the speech synthesis engine about how to pronounce the text.
+The `say-as` element is optional. It indicates the content type, such as number or date, of the element's text. This element provides guidance to the speech synthesis engine about how to pronounce the text.
 
 **Syntax**
 
@@ -707,26 +707,26 @@ Pitch changes can be applied at the sentence level.
 
 **Attributes**
 
-| Attribute | Description | Required / Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
-| `interpret-as` | Indicates the content type of element's text. For a list of types, see the table below. | Required |
-| `format` | Provides additional information about the precise formatting of the element's text for content types that might have ambiguous formats. SSML defines formats for content types that use them (see table below). | Optional |
+| `interpret-as` | Indicates the content type of an element's text. For a list of types, see the following table. | Required |
+| `format` | Provides additional information about the precise formatting of the element's text for content types that might have ambiguous formats. SSML defines formats for content types that use them. See the following table. | Optional |
 | `detail` | Indicates the level of detail to be spoken. For example, this attribute might request that the speech synthesis engine pronounce punctuation marks. There are no standard values defined for `detail`. | Optional |
 
-The following are the supported content types for the `interpret-as` and `format` attributes. Include the `format` attribute only if `interpret-as` is set to date and time.
+The following content types are supported for the `interpret-as` and `format` attributes. Include the `format` attribute only if `interpret-as` is set to date and time.
 
 | interpret-as | format | Interpretation |
 |--------------|--------|----------------|
-| `address` | | The text is spoken as an address. The speech synthesis engine pronounces:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />As "I'm at 150th court north east redmond washington." |
+| `address` | | The text is spoken as an address. The speech synthesis engine pronounces:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />As "I'm at 150th Court Northeast Redmond Washington." |
 | `cardinal`, `number` | | The text is spoken as a cardinal number. The speech synthesis engine pronounces:<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />As "There are three alternatives." |
 | `characters`, `spell-out` | | The text is spoken as individual letters (spelled out). The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />As "T E S T." |
 | `date` | dmy, mdy, ymd, ydm, ym, my, md, dm, d, m, y | The text is spoken as a date. The `format` attribute specifies the date's format (*d=day, m=month, and y=year*). The speech synthesis engine pronounces:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />As "Today is October nineteenth two thousand sixteen." |
 | `digits`, `number_digit` | | The text is spoken as a sequence of individual digits. The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />As "1 2 3 4 5 6 7 8 9." |
 | `fraction` | | The text is spoken as a fractional number. The speech synthesis engine pronounces:<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />As "three eighths of an inch." |
-| `ordinal` | | The text is spoken as an ordinal number. The speech synthesis engine pronounces:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />As "Select the third option". |
-| `telephone` | | The text is spoken as a telephone number. The `format` attribute can contain digits that represent a country code. For example, "1" for the United States or "39" for Italy. The speech synthesis engine can use this information to guide its pronunciation of a phone number. The phone number might also include the country code, and if so, takes precedence over the country code in the `format`. The speech synthesis engine pronounces:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />As "My number is area code eight eight eight five five five one two one two." |
-| `time` | hms12, hms24 | The text is spoken as a time. The `format` attribute specifies whether the time is specified using a 12-hour clock (hms12) or a 24-hour clock (hms24). Use a colon to separate numbers representing hours, minutes, and seconds. The following are valid time examples: 12:35, 1:14:32, 08:15, and 02:50:45. The speech synthesis engine pronounces:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />As "The train departs at four A M." |
-| `name` | | The text is spoken as a person name. The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="name">ED</say-as>`<br /><br />as [æd]. <br />In Chinese names, some characters pronounce differently when they appear in a family name. For example, the speech synthesis engine says 仇 in <br /><br />`<say-as interpret-as="name">仇先生</say-as>`<br /><br /> as [qiú] instead of [chóu]. |
+| `ordinal` | | The text is spoken as an ordinal number. The speech synthesis engine pronounces:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />As "Select the third option." |
+| `telephone` | | The text is spoken as a telephone number. The `format` attribute can contain digits that represent a country code. Examples are "1" for the United States or "39" for Italy. The speech synthesis engine can use this information to guide its pronunciation of a phone number. The phone number might also include the country code, and if so, takes precedence over the country code in the `format` attribute. The speech synthesis engine pronounces:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />As "My number is area code eight eight eight five five five one two one two." |
+| `time` | hms12, hms24 | The text is spoken as a time. The `format` attribute specifies whether the time is specified by using a 12-hour clock (hms12) or a 24-hour clock (hms24). Use a colon to separate numbers representing hours, minutes, and seconds. Here are some valid time examples: 12:35, 1:14:32, 08:15, and 02:50:45. The speech synthesis engine pronounces:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />As "The train departs at four A M." |
+| `name` | | The text is spoken as a person's name. The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="name">ED</say-as>`<br /><br />As [æd]. <br />In Chinese names, some characters pronounce differently when they appear in a family name. For example, the speech synthesis engine says 仇 in <br /><br />`<say-as interpret-as="name">仇先生</say-as>`<br /><br /> As [qiú] instead of [chóu]. |
 
 **Usage**
 
@@ -749,13 +749,13 @@ The speech synthesis engine speaks the following example as "Your first request 
 
 ## Add recorded audio
 
-`audio` is an optional element that allows you to insert pre-recorded audio into an SSML document. The body of the audio element can contain plain text or SSML markup that's spoken if the audio file is unavailable or unplayable. Additionally, the `audio` element can contain text and the following elements: `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as`, and `sub`.
+The `audio` element is optional. You can use it to insert prerecorded audio into an SSML document. The body of the audio element can contain plain text or SSML markup that's spoken if the audio file is unavailable or unplayable. The `audio` element can also contain text and the following elements: `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as`, and `sub`.
 
 Any audio included in the SSML document must meet these requirements:
 
-* The audio must be hosted on an Internet-accessible HTTPS endpoint. HTTPS is required, and the domain hosting the file must present a valid, trusted TLS/SSL certificate. We recommend putting the audio file into a Blob Storage in the same Azure region as the TTS (Text-to-Speech) endpoint for minimizing the latency. 
+* The audio must be hosted on an internet-accessible HTTPS endpoint. HTTPS is required, and the domain hosting the file must present a valid, trusted TLS/SSL certificate. We recommend that you put the audio file into Blob Storage in the same Azure region as the text-to-speech endpoint to minimize the latency.
 * The audio file must be valid *.mp3, *.wav, *.opus, *.ogg, *.flac, or *.wma files.
-* The combined total time for all text and audio files in a single response cannot exceed 600 seconds.
+* The combined total time for all text and audio files in a single response can't exceed 600 seconds.
 * The audio must not contain any customer-specific or other sensitive information.
 
 **Syntax**
@@ -764,9 +764,9 @@ Any audio included in the SSML document must meet these requirements:
 <audio src="string"/></audio>
 ```
 
-**Attributes**
+**Attribute**
 
-| Attribute | Description                                   | Required / Optional                                        |
+| Attribute | Description                                   | Required or optional                                        |
 |-----------|-----------------------------------------------|------------------------------------------------------------|
 | `src`     | Specifies the location/URL of the audio file. | Required if using the audio element in your SSML document. |
 
@@ -788,11 +788,11 @@ Any audio included in the SSML document must meet these requirements:
 
 ## Add background audio
 
-The `mstts:backgroundaudio` element allows you to add background audio to your SSML documents (or mix an audio file with Text-to-Speech). With `mstts:backgroundaudio` you can loop an audio file in the background, fade in at the beginning of Text-to-Speech, and fade out at the end of Text-to-Speech.
+You can use the `mstts:backgroundaudio` element to add background audio to your SSML documents or mix an audio file with text-to-speech. With `mstts:backgroundaudio`, you can loop an audio file in the background, fade in at the beginning of text-to-speech, and fade out at the end of text-to-speech.
 
-If the background audio provided is shorter than the Text-to-Speech or the fade out, it will loop. If it is longer than the Text-to-Speech, it will stop when the fade out has finished.
+If the background audio provided is shorter than the text-to-speech or the fade out, it loops. If it's longer than the text-to-speech, it stops when the fade out has finished.
 
-Only one background audio file is allowed per SSML document. However, you can intersperse `audio` tags within the `voice` element to add additional audio to your SSML document.
+Only one background audio file is allowed per SSML document. You can intersperse `audio` tags within the `voice` element to add more audio to your SSML document.
 
 **Syntax**
 
@@ -802,12 +802,12 @@ Only one background audio file is allowed per SSML document. However, you can in
 
 **Attributes**
 
-| Attribute | Description | Required / Optional |
+| Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
-| `src` | Specifies the location/URL of the background audio file. | Required if using background audio in your SSML document. |
+| `src` | Specifies the location/URL of the background audio file. | Required if using background audio in your SSML document |
 | `volume` | Specifies the volume of the background audio file. **Accepted values**: `0` to `100` inclusive. The default value is `1`. | Optional |
-| `fadein` | Specifies the duration of the background audio "fade in" as milliseconds. The default value is `0`, which is the equivalent to no fade in. **Accepted values**: `0` to `10000` inclusive.  | Optional |
-| `fadeout` | Specifies the duration of the background audio fade out in milliseconds. The default value is `0`, which is the equivalent to no fade out. **Accepted values**: `0` to `10000` inclusive.  | Optional |
+| `fadein` | Specifies the duration of the background audio fade-in as milliseconds. The default value is `0`, which is the equivalent to no fade in. **Accepted values**: `0` to `10000` inclusive.  | Optional |
+| `fadeout` | Specifies the duration of the background audio fade-out in milliseconds. The default value is `0`, which is the equivalent to no fade out. **Accepted values**: `0` to `10000` inclusive.  | Optional |
 
 **Example**
 
@@ -822,7 +822,7 @@ Only one background audio file is allowed per SSML document. However, you can in
 
 ## Bookmark element
 
-The bookmark element allows you to insert custom markers in SSML to get the offset of each marker in the audio stream. We will not read out the bookmark elements. The bookmark element can be used to reference a specific location in the text or tag sequence. Bookmark is available for all languages and voices.
+You can use the `bookmark` element to insert custom markers in SSML to get the offset of each marker in the audio stream. We won't read out the `bookmark` elements. The `bookmark` element can be used to reference a specific location in the text or tag sequence. Bookmark is available for all languages and voices.
 
 **Syntax**
 
@@ -830,15 +830,15 @@ The bookmark element allows you to insert custom markers in SSML to get the offs
 <bookmark mark="string"/>
 ```
 
-**Attributes**
+**Attribute**
 
-| Attribute | Description                                   | Required / Optional                                        |
+| Attribute | Description                                   | Required or optional                                        |
 |-----------|-----------------------------------------------|------------------------------------------------------------|
-|  `mark`   | Specifies the reference text of the `bookmark` element. | Required. |
+|  `mark`   | Specifies the reference text of the `bookmark` element. | Required |
 
 **Example**
 
-As an example, you might want to know the time offset of each flower word as following
+As an example, you might want to know the time offset of each flower word in the following snippet:
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -848,17 +848,17 @@ As an example, you might want to know the time offset of each flower word as fol
 </speak>
 ```
 
-### Get bookmark using Speech SDK
+### Get a bookmark by using the Speech SDK
 
-You can subscribe to the `BookmarkReached` event in Speech SDK to get the bookmark offsets.
+You can subscribe to the `BookmarkReached` event in the Speech SDK to get the bookmark offsets.
 
 > [!NOTE]
-> `BookmarkReached` event is only available since Speech SDK version 1.16.
+> The `BookmarkReached` event is only available since the Speech SDK Version 1.16.
 
-`BookmarkReached` events are raised as the output audio data becomes available, which will be faster than playback to an output device.
+The `BookmarkReached` events are raised as the output audio data becomes available, which will be faster than playback to an output device.
 
-* `AudioOffset` reports the output audio's elapsed time between the beginning of synthesis and the bookmark element. This is measured in hundred-nanosecond units (HNS) with 10,000 HNS equivalent to 1 millisecond.
-* `Text` is the reference text of the bookmark element, which is the string you set in the `mark` attribute.
+* `AudioOffset` reports the output audio's elapsed time between the beginning of synthesis and the `bookmark` element. The time is measured in hundred-nanosecond units (HNS) with 10,000 HNS equivalent to 1 millisecond.
+* `Text` is the reference text of the `bookmark` element, which is the string you set in the `mark` attribute.
 
 # [C#](#tab/csharp)
 
@@ -873,7 +873,8 @@ synthesizer.BookmarkReached += (s, e) =>
 };
 ```
 
-For the example SSML above, the `BookmarkReached` event will be triggered twice, and the console output will be
+For the preceding example SSML, the `BookmarkReached` event will be triggered twice, and the console output will be:
+
 ```text
 Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
 Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
@@ -893,7 +894,8 @@ synthesizer->BookmarkReached += [](const SpeechSynthesisBookmarkEventArgs& e)
 };
 ```
 
-For the example SSML above, the `BookmarkReached` event will be triggered twice, and the console output will be
+For the preceding example SSML, the `BookmarkReached` event will be triggered twice, and the console output will be:
+
 ```text
 Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
 Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
@@ -911,7 +913,8 @@ synthesizer.BookmarkReached.addEventListener((o, e) -> {
 });
 ```
 
-For the example SSML above, the `BookmarkReached` event will be triggered twice, and the console output will be
+For the preceding example SSML, the `BookmarkReached` event will be triggered twice, and the console output will be:
+
 ```text
 Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
 Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
@@ -927,7 +930,8 @@ speech_synthesizer.bookmark_reached.connect(lambda evt: print(
     "Bookmark reached: {}, audio offset: {}ms, bookmark text: {}.".format(evt, evt.audio_offset / 10000, evt.text)))
 ```
 
-For the example SSML above, the `bookmark_reached` event will be triggered twice, and the console output will be
+For the preceding example SSML, the `bookmark_reached` event will be triggered twice, and the console output will be:
+
 ```text
 Bookmark reached, audio offset: 825ms, bookmark text: flower_1.
 Bookmark reached, audio offset: 1462.5ms, bookmark text: flower_2.
@@ -943,7 +947,8 @@ synthesizer.bookmarkReached = function (s, e) {
 }
 ```
 
-For the example SSML above, the `bookmarkReached` event will be triggered twice, and the console output will be
+For the preceding example SSML, the `bookmarkReached` event will be triggered twice, and the console output will be:
+
 ```text
 (Bookmark reached), Audio offset: 825ms, bookmark text: flower_1.
 (Bookmark reached), Audio offset: 1462.5ms, bookmark text: flower_2.
@@ -960,7 +965,8 @@ For more information, see [`addBookmarkReachedEventHandler`](/objectivec/cogniti
 }];
 ```
 
-For the example SSML above, the `BookmarkReached` event will be triggered twice, and the console output will be
+For the preceding example SSML, the `BookmarkReached` event will be triggered twice, and the console output will be:
+
 ```text
 Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
 Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
@@ -974,4 +980,4 @@ For more information, see [`addBookmarkReachedEventHandler`](/objectivec/cogniti
 
 ## Next steps
 
-* [Language support: voices, locales, languages](language-support.md)
+[Language support: Voices, locales, languages](language-support.md)

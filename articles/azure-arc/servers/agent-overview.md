@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 11/03/2021
+ms.date: 01/19/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -88,13 +88,16 @@ Azure Arc-enabled servers *does not* support installing the agent on virtual mac
 
 The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent:
 
-* Windows Server 2008 R2 SP1, Windows Server 2012 R2, 2016, 2019, and 2022 (including Server Core)
+* Windows Server 2008 R2 SP1, 2012 R2, 2016, 2019, and 2022
+  * Both Desktop and Server Core experiences are supported
+  * Azure Editions are supported when running as a virtual machine on Azure Stack HCI
+* Azure Stack HCI
 * Ubuntu 16.04, 18.04, and 20.04 LTS (x64)
 * CentOS Linux 7 and 8  (x64)
 * SUSE Linux Enterprise Server (SLES) 12 and 15 (x64)
 * Red Hat Enterprise Linux (RHEL) 7 and 8 (x64)
 * Amazon Linux 2 (x64)
-* Oracle Linux 7
+* Oracle Linux 7 (x64)
 
 > [!WARNING]
 > The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. See [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md) for a list of the reserved words.

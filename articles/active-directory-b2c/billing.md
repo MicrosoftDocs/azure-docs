@@ -110,9 +110,7 @@ To change your pricing tier, follow these steps:
 1. Select the pricing tier that includes the features you want to enable.
 
    ![Screenshot that shows how to select the pricing tier.](media/billing/select-tier.png)
-
-> [!NOTE]
-> Currently, Azure AD Premium P1 for Azure AD B2C is the default pricing tier, and it's equivalent to Azure AD Free tier, but it costs money. Therefore, in terms of features, Azure AD Premium P1 license applied to Azure AD tenant, is not equivalent to Azure AD B2C Premium P1 license in a B2C tenant, and the same is true for Premium P2. Hence, you expect that some features available in Azure AD tenant may be missing in Azure AD B2C even when the tenants have Azure AD Premium P2 and Azure AD B2C Premium P2 licenses respectively. For instance, Azure AD Premium P2 offers identity protection in Azure AD B2C tenants, but does not offer other Azure AD Premium P2 features that apply to Azure AD tenants.
+ 
 
 ## Switch to MAU billing (pre-November 2019 Azure AD B2C tenants)
 

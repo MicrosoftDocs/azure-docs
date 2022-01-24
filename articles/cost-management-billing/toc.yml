@@ -3,13 +3,14 @@
 - name: Overview
   items:
   - name: What is Cost Management and Billing?
+    displayName: azure cost management, cost management azure, azure cost management and billing
     href: cost-management-billing-overview.md
   - name: What's new?
     href: https://azure.microsoft.com/blog/tag/cost-management/
 - name: Quickstarts
   items:
   - name: Start analyzing costs
-    displayName: Azure CLI, az costmanagement query, az costmanagement export
+    displayName: Azure CLI, az costmanagement query, az costmanagement export, azure amortized cost, azure cost dashboard, azure forecast cost
     href: costs/quick-acm-cost-analysis.md
   - name: Create a budget - ARM template
     displayName: ARM template, resource manager template
@@ -39,6 +40,7 @@
     - name: Cost Management best practices
       href: costs/cost-mgt-best-practices.md
     - name: Understand Cost Management data
+      displayName: Microsoft Azure Sponsorship, sponsorship
       href: costs/understand-cost-mgt-data.md
     - name: Understand and work with scopes
       href: costs/understand-work-scopes.md
@@ -149,14 +151,17 @@
       - name: Edit billing contact information
         href: manage/change-azure-account-profile.md
       - name: Grant access to billing
+        displayName: azure billing administrator, billing administrator azure, billing admin, add billing admin, azure billing administrator role
         href: manage/manage-billing-access.md
       - name: Microsoft Customer Agreements roles in Azure
         href: manage/understand-mca-roles.md
       - name: Link partner ID
+        displayName: partner admin link, azure pal, microsoft pal, azure partner admin link, pal azure
         href: manage/link-partner-id.md
       - name: Link partner ID to Power Apps accounts
         href: manage/link-partner-id-power-apps-accounts.md
       - name: View billing accounts
+        displayName: azure billing account, azure billing, check azure billing, azure billing account id
         href: manage/view-all-accounts.md
       - name: Organize costs with invoice sections
         href: manage/mca-section-invoice.md
@@ -175,6 +180,7 @@
       - name: Subscription states
         href: manage/subscription-states.md
       - name: Reactivate subscription
+        displayName: azure subscription disabled, how to enable azure subscription, enable azure subscription, azure subscription is disabled
         href: manage/subscription-disabled.md
       - name: Reactivate Azure Student subscription
         href: manage/azurestudents-subscription-disabled.md
@@ -187,10 +193,12 @@
       - name: Export subscription information
         href: manage/export-subscriptions.md
       - name: Change administrator
+        displayName: azure subcription owner, add user to azure subscription, azure subscription permissions, azure change account admin
         href: manage/add-change-subscription-administrator.md
       - name: Switch subscription offer
         href: manage/switch-azure-offer.md
       - name: Cancel subscription
+        displayName: delete azure account, delete azure subscription
         href: manage/cancel-azure-subscription.md
       - name: Manage subscription policies
         href: manage/manage-azure-subscription-policy.md
@@ -199,6 +207,7 @@
       - name: Azure subscription transfers
         href: manage/subscription-transfer.md
       - name: Transfer subscription ownership
+        displayName: azure transfer subscription
         href: manage/billing-subscription-transfer.md
       - name: Transfer subscriptions between partners (Preview)
         href: manage/azure-plan-subscription-transfer-partners.md

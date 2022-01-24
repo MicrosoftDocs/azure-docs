@@ -28,6 +28,8 @@ When scanning Salesforce source, Azure Purview supports extracting technical met
 - Organization
 - Objects including the fields, foreign keys, and unique_constraints
 
+When setting up scan, you can choose to scan an entire Salesforce organization, or scope the scan to a subset of objects matching the given name(s) or name pattern(s).
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

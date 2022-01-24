@@ -95,7 +95,7 @@ Once you get a status of "Ready", migration is done and you have an App Service 
 Get the details of your new environment by running the following command or by navigating to the [Azure portal](https://portal.azure.com).
 
 ```azurecli
-az appservice ase show --name $ASE_NAME --resource group $ASE_RG
+az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 ```
 
 ## Next steps
