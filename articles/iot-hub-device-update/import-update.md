@@ -42,7 +42,7 @@ Once you have your update files, create an import manifest to describe the updat
 
 2. Navigate to `Tools/AduCmdlets` in your local clone from PowerShell.
 
-3. Run the following commands after replacing the sample parameter values with your own (see [Import schema and API information](import-schema) for details on what values you can use):
+3. Run the following commands after replacing the sample parameter values with your own (see [Import schema and API information](import-schema.md) for details on what values you can use):
 
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
@@ -98,7 +98,7 @@ Once you have your update files, create an import manifest to describe the updat
 
 9. When you've selected all your update files, select `Upload`.
 
-   :::image type="content" source="media/import-update/container-picker-ppr.png" alt-text="Container Upload" lightbox="media/import-update/container-picker-ppr.png":::
+   :::image type="content" source="media/import-update/container-upload-ppr.png" alt-text="Container Upload" lightbox="media/import-update/container-picker-ppr.png":::
 
 10. Select the files you just uploaded to designate them for importing. Then click the `Select` button to return to the `Import update` page.
 
@@ -112,7 +112,7 @@ Once you have your update files, create an import manifest to describe the updat
 
        :::image type="content" source="media/import-update/update-publishing-sequence-2-ppr.png" alt-text="Update Import Sequencing" lightbox="media/import-update/update-publishing-sequence-2-ppr.png":::
 
-13. When the `Status` column indicates the import has succeeded, select the `Ready to Deploy` header. You should see your imported update in the list now.
+13. When the `Status` column indicates the import has succeeded, select the `Available Updates` header. You should see your imported update in the list now.
 
        :::image type="content" source="media/import-update/update-ready-ppr.png" alt-text="Job Status" lightbox="media/import-update/update-ready-ppr.png":::
 
