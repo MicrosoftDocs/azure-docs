@@ -60,7 +60,7 @@ sections:
           If you have selected the **Stop Protection and Retain data** option while stopping the data backup, you can resume protection for your Azure Database for PostgreSQL server. [Learn](manage-azure-database-postgresql.md#resume-protection) how to resume backup.
 
       - question: How do I delete backup data?
-        answer: To delete the backup data, first, stop the backup and then delete backup data. [Lern more](manage-azure-database-postgresql.md#stop-protection-and-delete-data)
+        answer: To delete the backup data, first, stop the backup and then delete backup data. [Learn more](manage-azure-database-postgresql.md#stop-protection-and-delete-data)
 
 
 

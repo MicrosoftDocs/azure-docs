@@ -28,11 +28,10 @@ East US, East US 2, Central US, South Central US, West US, West US 2, West Centr
 
 ## Feature considerations and limitations
 
-- All operations are supported from the Azure portal only. 
 - Recommended limit for the maximum database size is 400 GB.
 - Cross-region backup isn't supported. Therefore, you can't back up an Azure PostgreSQL server to a vault in another region. Similarly, you can only restore a backup to a server within the same region as the vault. However, we support cross-subscription backup and restore. 
 - Only the data is recovered during restore; "roles" aren't restored.
-- We recommend you to run the solution only on your test environment.
+- We recommend you run the solution only on your test environment.
 
 ## Next steps
 
