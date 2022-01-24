@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Azure Synapse Analytics shared Lake database
 
-Azure Synapse Analytics allows the different computational workspace engines to share [Lake databases] (../database-designer/concepts-lake-database.md) and tables. Currently, the Lake databases and the tables (Parquet or CSV backed) that are created on the Apache Spark pools, [Database templates](../database-designer/concepts-database-templates.md) or Datavere are automatically shared with the serverless SQL pool engine.
+Azure Synapse Analytics allows the different computational workspace engines to share [Lake databases](../database-designer/concepts-lake-database.md) and tables. Currently, the Lake databases and the tables (Parquet or CSV backed) that are created on the Apache Spark pools, [Database templates](../database-designer/concepts-database-templates.md) or Datavere are automatically shared with the serverless SQL pool engine.
 
 A Lake database will become visible with that same name to all current and future Spark pools in the workspace, including the serverless SQL pool engine. You cannot add custom SQL objects (external tables, views, procedures, functions, schema, users) directly in a Lake database using the serverless SQL pool.
 
