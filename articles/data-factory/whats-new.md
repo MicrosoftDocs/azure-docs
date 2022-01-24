@@ -6,7 +6,7 @@ ms.author: xupzhou
 ms.service: data-factory
 ms.subservice: concepts
 ms.topic: overview
-ms.date: 07/14/2021
+ms.date: 01/21/2022
 ---
 
 # What's new in Azure Data Factory
@@ -28,7 +28,7 @@ This page is updated monthly, so revisit it regularly.
 
 
 <tr><td rowspan=9><b>Data Flow</b></td><td>Dynamics connector as native source and sink for mapping data flows</td><td>The Dynamics connector is now supported as both a source and sink for mapping data flows.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/mapping-data-flow-gets-new-native-connectors/ba-p/2866754">Learn more</a></td></tr>
-<tr><td>Native change data capture (CDC) now natively supported</td><td>CDC is now natively supported in Azure Data Factory for CosmosDB, Blob Store, Azure Data Lake Storage Gen1 and Gen2, and CRM.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/cosmosdb-change-feed-is-supported-in-adf-now/ba-p/3037011">Learn more</a></td></tr>
+<tr><td>Native change data capture (CDC) now natively supported</td><td>CDC is now natively supported in Azure Data Factory for CosmosDB, Blob Store, Azure Data Lake Storage Gen1 and Gen2, and common data model (CDM).<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/cosmosdb-change-feed-is-supported-in-adf-now/ba-p/3037011">Learn more</a></td></tr>
 <tr><td>Flowlets public preview</td><td>The flowlets public preview allows data flow developers to build reusable components to easily build composable data transformation logic.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-the-flowlets-preview-for-adf-and-synapse/ba-p/3030699">Learn more</a></td></tr>
   
 <tr><td>Map Data public preview</td><td>The Map Data preview enables business users to define column mapping and transformations to load Synapse Lake Databases<br><a href="../synapse-analytics/database-designer/overview-map-data.md">Learn more</a></td></tr>

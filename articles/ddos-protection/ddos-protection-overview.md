@@ -18,8 +18,6 @@ Distributed denial of service (DDoS) attacks are some of the largest availabilit
 
 Azure DDoS Protection Standard, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It is automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. 
 
-Azure DDoS protection does not store customer data.
-
 ## Features
 
 - **Native platform integration:** Natively integrated into Azure. Includes configuration through the Azure portal. DDoS Protection Standard understands your resources and resource configuration.

@@ -1037,7 +1037,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/retail/architecture-connected-logistics-pnp.md",
-      "redirect_url": "/azure/iot-central/retail/architecture-connected-logistics",
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-connected-logistics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/architecture-connected-logistics.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-connected-logistics",
       "redirect_document_id": true
     },
     {
@@ -1078,7 +1083,7 @@
     {
       "source_path_from_root": "/articles/iot-central/retail/tutorial-iot-central-connected-logistics-pnp.md",
       "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-connected-logistics",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/retail/tutorial-iot-central-digital-distribution-center-pnp.md",
