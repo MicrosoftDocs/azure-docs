@@ -1,7 +1,7 @@
 items:
 - name: Overview
   items:
-  - name: What is Azure Private 5G Core Preview?
+  - name: What is Azure Private 5G Core?
     href: private-5g-core-overview.md
 - name: Quickstarts
   items:

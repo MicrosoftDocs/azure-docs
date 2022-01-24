@@ -27,13 +27,13 @@ Azure Private 5G Core allows you to use Azure to deliver and automate the lifecy
 
 ### Deployment at the enterprise edge
 
-The key component of Azure Private 5G Core is the deployment of packet core instances on an Azure Stack edge infrastructure on the enterprise premises targeted for 5G or 4G coverage.
+The key component of Azure Private 5G Core is the deployment of packet core instances on an Azure Stack edge infrastructure at the enterprise premises targeted for 5G or 4G coverage.
 
 Deploying a packet core instance at the enterprise edge ensures complete ownership of all data by the enterprise. It also positions the packet core instance as close as possible to the devices it serves, removing any reliance on cloud connectivity. This allows it to deliver low latency levels and reduced backhaul through local data processing when combined with application logic in the same location. This provides a number of valuable benefits to enterprises.
 
-- **Machine to machine automation** - Ultra Reliable Low Latency Connectivity (URLLC) for command and control messages from automated systems (like robots or automated guide vehicles) can be processed in real time to prevent stalling, ensuring high productivity.
-- **Massive IoT telemetry** - secure cloud connectivity for data collection from a large density and volume of IoT sensors and devices, ensuring that data for health assessment and the operation of automated systems can be processed in real time to prevent accidents and ensure on-site safety.
-- **Real time analytics** - local processing of real-time operational and diagnostics data such as live video feeds can be AI processed at the edge at minimal expense, ensuring that vital actions are not delayed.
+- **Machine to machine automation** - Ultra Reliable Low Latency Connectivity (URLLC) for command and control messages from automated systems (like robots or automated guide vehicles). These messages can be processed in real time to prevent stalling, enabling high productivity.
+- **Massive IoT telemetry** - secure cloud connectivity for data collection from a large density and volume of IoT sensors and devices. Data for health assessment and automated systems can be processed in real time to prevent accidents and ensure on-site safety.
+- **Real time analytics** - local processing of real-time operational and diagnostics data such as live video feeds can be AI processed at the edge at minimal expense, ensuring vital actions are not delayed.
 
 :::image type="content" source="media/azure-private-5g-core/enterprise-edge-latency.png" alt-text="Diagram showing low latency levels for services deployed on Azure Stack Edge devices compared to the Azure / Network Edge and Azure Hyperscale Cloud.":::
 
@@ -91,7 +91,7 @@ Azure Private 5G Core provides proactive, real-time analysis of all message traf
 |**Supported 5G Network Functions**|<ul><li>Access and Mobility Management Function (AMF)</li><li>Session Management Function (SMF)</li><li>User Plane Function (UPF)</li><li >Policy Control Function (PCF)</li><li>Authentication Server Function (AUSF)</li><li>Unified Data Management (UDM)</li><li>Unified Data Repository (UDR)</li><li>Network Repository Function (NRF)</li>|
 |**Supported 5G procedures**|See [Statement of compliance - Azure Private 5G Core Preview](statement-of-compliance.md) for detailed information on Azure Private 5G Core's support for standards-based 5G procedures.|
 |**UE authentication**|<ul><li>Security Anchor Function (SEAF) support to provide authentication functionality in the serving network.</li><li>Authentication using Subscription Permanent Identifiers (SUPI) and Globally Unique Temporary Identities (5G-GUTI).</li><li>Assignment or reallocation of a 5G-GUTI to a UE.</li><li>5G Authentication and Key Agreement (5G-AKA) for mutual authentication between UEs and the network.</li></ul>|
-|**UE Security Context Management**|The packet core instance performs ciphering and integrity protection of 5G NAS. During UE registration, the UE includes its security capabilities for 5G NAS with 128-bit keys.<br>The algorithms support by Azure Private 5G Core for ciphering and integrity protection include the following.<ul><li>5GS null encryption algorithm</li><li>128-bit Snow3G</li><li>128-bit AES</li></ul>|
+|**UE Security Context Management**|<p>The packet core instance performs ciphering and integrity protection of 5G NAS. During UE registration, the UE includes its security capabilities for 5G NAS with 128-bit keys.</p><p>The algorithms supported by Azure Private 5G Core for ciphering and integrity protection include the following.</p><ul><li>5GS null encryption algorithm</li><li>128-bit Snow3G</li><li>128-bit AES</li></ul>|
 |**UE MTU configuration**|The packet core instance signals the MTU for a data network to UEs on request as part of PDU session Establishment procedures to avoid fragmentation.|
 |**Index to RAT/Frequency Selection Priority (RFSP)**|The packet core instance can provide a RAN with an RFSP Index, which the RAN can match to its local configuration to apply specific Radio Resource Management policies, such as cell reselection or frequency layer redirection.|
 
