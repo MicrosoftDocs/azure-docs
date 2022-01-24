@@ -351,9 +351,11 @@ def main(queuemsg: func.QueueMessage, inputblob: bytes, outputblob: func.Out[byt
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs) attribute to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attribute to define the function. C# script instead uses a function.json configuration file.
 
-The attribute's constructor takes the following parameters:
+# [In-process](#tab/in-process)
+
+The [BlobAttribute](/dotnet/api/microsoft.azure.webjobs.blobattribute) attribute's constructor takes the following parameters:
 
 |Parameter | Description|
 |---------|----------------------|
@@ -361,9 +363,7 @@ The attribute's constructor takes the following parameters:
 |**Connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
 |**Access** | Indicates whether you will be reading or writing.|
 
-# [In-process](#tab/in-process)
-
-The attribute's constructor takes the path to the blob and a `FileAccess` parameter indicating read or write, as shown in the following example:
+The following example sets the path to the blob and a `FileAccess` parameter indicating write for an output binding:
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -375,21 +375,17 @@ public static void Run(
 }
 ```
 
-You can set the `Connection` property to specify the storage account to use, as shown in the following example:
-
-```csharp
-[FunctionName("ResizeImage")]
-public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image,
-    [Blob("sample-images-md/{name}", FileAccess.Write, Connection = "StorageConnectionAppSetting")] Stream imageSmall)
-{
-    ...
-}
-```
+[!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
 # [Isolated process](#tab/isolated-process)
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="9-25":::
+The `BlobOutputAttribute` constructor takes the following parameters:
+
+|Parameter | Description|
+|---------|----------------------|
+|**BlobPath** | The path to the blob.|
+|**Connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
+
 
 # [C# script](#tab/csharp-script)
 

@@ -15,4 +15,4 @@ ms.author: mahender
 [tables]: ../articles/azure-functions/functions-bindings-storage-table.md
 
 [extension-4.x]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/4.0.5
-[bundle-2.x]: ../articles/azure-functions/functions-bindings-register.md#extension-bundles
+[bundle-2.x]: ../articles/azure-functions/functions-bindings-register.md#extension-bundles 

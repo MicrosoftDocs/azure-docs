@@ -294,9 +294,11 @@ def main(queuemsg: func.QueueMessage, inputblob: bytes) -> bytes:
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs) attribute to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
 
-The attribute's constructor takes the following parameters:
+# [In-process](#tab/in-process)
+
+In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](/dotnet/api/microsoft.azure.webjobs.blobattribute), which takes the following parameters:
 
 |Parameter | Description|
 |---------|----------------------|
@@ -304,12 +306,7 @@ The attribute's constructor takes the following parameters:
 |**Connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
 |**Access** | Indicates whether you will be reading or writing.|
 
-
-# [In-process](#tab/in-process)
-
-In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs).
-
-The attribute's constructor takes the path to the blob and a `FileAccess` parameter indicating read or write, as shown in the following example:
+The following example shows how the attribute's constructor takes the path to the blob and a `FileAccess` parameter indicating read for the input binding:
 
 ```csharp
 [FunctionName("BlobInput")]
@@ -323,26 +320,16 @@ public static void Run(
 
 ```
 
-You can set the `Connection` property to specify the storage account to use, as shown in the following example:
-
-```csharp
-[FunctionName("BlobInput")]
-public static void Run(
-    [QueueTrigger("myqueue-items")] string myQueueItem,
-    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read, Connection = "StorageConnectionAppSetting")] Stream myBlob,
-    ILogger log)
-{
-    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
-}
-```
-
-You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - attributes](./functions-bindings-storage-blob-trigger.md#attributes).
+[!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
 # [Isolated process](#tab/isolated-process)
 
-Here's a `BlobInput` attribute in a method signature:
+Isolated process defines an input binding by using a `BlobInputAttribute` attribute, which takes the following parameters:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="11-16":::
+|Parameter | Description|
+|---------|----------------------|
+|**BlobPath** | The path to the blob.|
+|**Connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
 
 # [C# script](#tab/csharp-script)
 

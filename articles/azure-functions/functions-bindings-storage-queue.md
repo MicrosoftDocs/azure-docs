@@ -48,7 +48,7 @@ This extension version is available by installing this [NuGet package](https://w
 # [Functions 2.x and higher](#tab/functionsv2/in-process)
 
 <a name="functions-2x-and-higher"></a>
-Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install the [NuGet package], version 3.x. The package is used for .NET class libraries while the extension bundle is used for all other application types.
+Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install the [NuGet package], version 3.x or 4.x.
 
 # [Functions 1.x](#tab/functionsv1/in-process)
 
@@ -58,11 +58,11 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues), version 5.x.
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages//dotnet/api/microsoft.azure.webjobs.blobattribute.Queues), version 5.x.
 
 # [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage), version 3.x.
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages//dotnet/api/microsoft.azure.webjobs.blobattribute), version 3.x.
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
@@ -81,8 +81,6 @@ This extension version is available from the extension bundle v3 by adding the f
   }
 }
 ```
-
-[!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
 
 To learn more, see [Update your extensions].
 
@@ -133,6 +131,8 @@ Functions 1.x apps automatically have a reference to the extension.
 ---
 
 ::: zone-end
+
+[!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
 
 ## <a name="host-json"></a>host.json settings
 

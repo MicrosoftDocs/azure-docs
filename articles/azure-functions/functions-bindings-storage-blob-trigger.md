@@ -220,7 +220,7 @@ def main(myblob: func.InputStream):
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs) attribute to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [BlobAttribute](/dotnet/api/microsoft.azure.webjobs.blobattribute) attribute to define the function. C# script instead uses a function.json configuration file.
 
 The attribute's constructor takes the following parameters:
 
@@ -244,19 +244,7 @@ public static void Run(
 }
 ```
 
-You can set the `Connection` property to specify the storage account to use, as shown in the following example:
-
-```csharp
-[FunctionName("ResizeImage")]
-public static void Run(
-  [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image,
-  [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
-{
-  ....
-}
-```
-
-For a complete example, see [Trigger example](#example).
+[!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
 # [Isolated process](#tab/isolated-process)
 
