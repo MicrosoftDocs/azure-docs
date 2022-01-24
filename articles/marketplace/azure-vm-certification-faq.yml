@@ -360,11 +360,11 @@ sections:
           
            1. Create an unmanaged disk for your VM. Either use the default values or specify any value for fields like **OS disk size**, **OS disk type**, and **Encryption type**.
 
-             ![Screenshot image of the Data disks page in the Create a virtual machine flow.](./media/create-vm/disks-pane.png)
+              ![Screenshot image of the Data disks page in the Create a virtual machine flow.](./media/create-vm/disks-pane.png)
           
            1. After you create the VM, select **Disks** in the left pane.
           
-              ![Screenshot showing how to select disks for a VM.](./media/create-vm/vm-certification-issues-solutions-17.png)
+               ![Screenshot showing how to select disks for a VM.](./media/create-vm/vm-certification-issues-solutions-17.png)
           
            1. Attach your VHD as data disk to your VM for creating a partition table.
           
@@ -378,15 +378,15 @@ sections:
               1. Select **Container** and then select your VHD.
               1. Select **OK**.
           
-                ![Screenshot of the attach unmanaged disk page.](./media/create-vm/vm-certification-issues-solutions-19.png)
+                 ![Screenshot of the attach unmanaged disk page.](./media/create-vm/vm-certification-issues-solutions-19.png)
           
-                Your VHD will be added as data disk LUN 0.
+                 Your VHD will be added as data disk LUN 0.
           
              1. Restart the VM.
           
           1. After you restart the VM, log in to the VM using Putty or another client and run the `sudo  -i` command to gain root access.
           
-             ![Putty client command-line screenshot showing the sudo -i command.](./media/create-vm/vm-certification-issues-solutions-20.png)
+              ![Putty client command-line screenshot showing the sudo -i command.](./media/create-vm/vm-certification-issues-solutions-20.png)
           
           1. Create a partition on your VHD.
           
@@ -394,7 +394,7 @@ sections:
              1. To view the existing partition list from your VHD, enter `p`.
              1. Enter `d` to delete all existing partitions available in your VHD. You can skip this step, if it's not required.
           
-                ![Putty client command-line screenshot showing the commands for deleting existing partitions.](./media/create-vm/vm-certification-issues-solutions-21.png)
+                 ![Putty client command-line screenshot showing the commands for deleting existing partitions.](./media/create-vm/vm-certification-issues-solutions-21.png)
           
              1. Enter `n` to create new partition and select `p` for (primary partition).
           
@@ -407,11 +407,11 @@ sections:
           
              1. Type `w` to confirm the creation of partition.
           
-                ![Putty client command-line screenshot showing the commands for creating a partition.](./media/create-vm/vm-certification-issues-solutions-23.png)
+                 ![Putty client command-line screenshot showing the commands for creating a partition.](./media/create-vm/vm-certification-issues-solutions-23.png)
           
              1. You can verify the partition table by running the command `n fdisk /dev/sdb` and typing `p`. You'll see that partition is created with 2048 offset value.
           
-                ![Putty client command-line screenshot showing the commands for creating the 2048 offset.](./media/create-vm/vm-certification-issues-solutions-24.png)
+                 ![Putty client command-line screenshot showing the commands for creating the 2048 offset.](./media/create-vm/vm-certification-issues-solutions-24.png)
           
           1. Detach the VHD from VM and delete the VM.
         
