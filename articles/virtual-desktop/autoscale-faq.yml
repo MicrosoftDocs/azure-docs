@@ -79,4 +79,4 @@ sections:
       - question: |
          How many VMs need to be in a host pool for the autoscale feature to work properly?
         answer: |
-         At least 1.
+         At least one.
