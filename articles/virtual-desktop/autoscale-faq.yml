@@ -80,8 +80,3 @@ sections:
          How many VMs need to be in a host pool for the autoscale feature to work properly?
         answer: |
          At least 1.
-      
-      - question: |
-         When would a user be forced to sign out of their session host during the ramp-down period?
-        answer: |
-         Consider a scenario where there are 2 session hosts in a host pool, VM1 and VM2, and each session host has 1 user session on it. The max session limit is 2 and the capacity threshold is 80%. This means that the host pool capacity is currently at 2/4 = 50%. In this case, the autoscale feature would not be able to force logoff any of the users, because doing so would make the host pool capacity 2/2 = 100% which exceeds the threshold of 80%. The autoscale feature looks at whether all existing user sessions can be consolidated into fewer session hosts without exceeding the capacity threshold. To trigger a force logoff, the max session limit would have to be 3 or higher. In the same scenario with a max session limit of 3, the host pool capacity would be 2/6 = 33.33%. If the autoscale feature force logged off a user from VM1 and deallocated that VM, in the event that the user logs back in, the host pool capacity would be 2/3 = 66.66% which is less than 80%.
