@@ -504,6 +504,8 @@ There are two options for outputting a Table storage row message from a function
 |**Imperative**| Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as an Event Hub message.|
 ::: zone-end  
 
+For specific usage details, see [Example](#example). 
+
 ## Exceptions and return codes
 
 | Binding | Reference |
