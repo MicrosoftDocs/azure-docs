@@ -29,7 +29,7 @@ The intent needs [example utterances](../concepts/utterances.md) in order to pre
 
 ## Add an example utterance
 
-Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS) when to predict the intent, you need to add example utterances. LUIS needs 15 to 30 example utterances to begin understanding the intent. Carefully consider each utterance you add. Each utterance should be chosen for how they are different than the examples that are already in the intent.
+Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS) when to predict the intent, you need to add example utterances. Carefully consider each utterance you add. Each utterance added should be different than the examples that are already added to the intent..
 
 On the intent details page, enter a relevant utterance you expect from your users, such as "*I want to change my pizza order to large please*" in the text box below the intent name, and then press Enter.
    
@@ -49,7 +49,7 @@ An intent prediction error is determined when an utterance is not predicted with
 
 When the filters and view are applied and there are example utterances with errors, the example utterance list will show the utterances and the issues.
 
-Each row shows the current training's prediction score for the example utterance, and the nearest rival's score, which is the difference in these two scores.
+Each row shows the current training's prediction score for the example utterance, and the nearest other intent score, which is the difference between these two scores.
 
 > [!Tip]
 > To fix intent prediction errors, use the [Summary dashboard](/azure/cognitive-services/luis/luis-how-to-use-dashboard). The summary dashboard provides analysis for the active version's last training and offers the top suggestions to fix your model.
@@ -63,13 +63,6 @@ Now imagine you want to quickly create a confirmation intent. You can use one of
     :::image type="content" source="../media/luis-prebuilt-domains/add-prebuilt-domain-intents.png" alt-text="A screenshot showing the menu for adding prebuilt intents." lightbox="../media/luis-prebuilt-domains/add-prebuilt-domain-intents.png":::
 
 3. Select the  **Done**  button.
-
-## Get an intent from your LUIS app
-
-To get an intent from your app, you can use either the [REST API](../client-libraries-rest-api.md?pivots=rest-api#get-intent-from-the-prediction-endpoint), or the client libraries in the following languages:
-* [C#](../client-libraries-rest-api.md?pivots=programming-language-csharp#get-prediction-from-runtime)
-* [JavaScript](../client-libraries-rest-api.md?pivots=programming-language-javascript#get-prediction-from-runtime)
-* [Python](../client-libraries-rest-api.md?pivots=programming-language-python#get-prediction-from-runtime)
 
 ## Next steps
 
