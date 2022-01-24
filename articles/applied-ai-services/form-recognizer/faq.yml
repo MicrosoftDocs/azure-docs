@@ -9,39 +9,55 @@ metadata:
   ms.service: applied-ai-services
   ms.subservice: forms-recognizer
   ms.topic: conceptual
-  ms.date: 01/11/2022
+  ms.date: 01/24/2022
   ms.author: lajanuar
-    
+
 title: Form Recognizer frequently asked questions
 summary: |
 
 sections:
-  - name: Overview
+  - name: General
     questions:
       - question: |
-          TODO
+          What are the most common Form Recognizer use cases?
         answer: |
-          TODO
-  - name: Quickstarts
+          Form Recognizer enables users from a variety of industries and domains to extract data from forms and documents. Learn more about [Form Recognizer use cases](/legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context#example-use-cases-for-form-recognizer).
+      - question: |
+          Which Form Recognizer use cases require special consideration?
+        answer: |
+          Give careful consideration to your use cases for financial, protected health, personal identity, and general sensitive data processing with Form Recognizer and make certain to comply with [national, regional, and industry-specific requirements](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/). Learn more about [use case considerations](/legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context#considerations-when-choosing-other-use-cases).
+  - name: App development
     questions:
+      - question: |
+          What are the development options for Form Recognizer
+        answer: |
+          Form Recognizer offers the latest [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) and SDKs for the following programming languages: [C#/.NET](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.3/index.html), [JavaScript/Node](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.2/index.html), and [Python](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b2/index.html).  You can also get started with the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio).
       - question: |
           Where can I find the supported API version for the latest programming language SDK?
         answer:   |
-          "The table below provides links to the latest SDK versions and shows the relationship between supported Form Recognizer SDK and API versions:"
-             
-            | Supported Language | Azure SDK package| Supported API version: 2.0, 2.1, 2021-09-30-preview |
+          The table below provides links to the latest SDK versions and shows the relationship between supported Form Recognizer SDK and API versions:
+
+            | Supported Language | Azure SDK package| Supported API version|
             | ----------- | ----------------|--------------------- |
-            | C#/.NET| [4.0.0-beta.2](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.1/index.html)||
-            | Java | 4.0.0-beta.2](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.2/index.html)||
-            | JavaScript| [4.0.0-beta.2](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.2/index.html)
-            | Python |3.2.0b2](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b2/index.html) ||
- 
-  - name: How-to guides
-    questions: 
+            |             |                 | 2021-09-30-preview, v2.1, v2.0|
+            | C#/.NET| [4.0.0-beta.2](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.1/index.html)| 〃 |
+            | Java | [4.0.0-beta.2](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.2/index.html)| 〃 |
+            | JavaScript| [4.0.0-beta.2](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.2/index.html)| 〃|
+            | Python | [3.2.0b2](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b2/index.html) | 〃 |
       - question: |
-           "Version Migration: How do I migrate to the latest version of Form Recognizer?"
-        answer: It's very easy. Updating the API version using the API URL is sufficient. There is no need to retrain your custom models.
+           What is the difference between Form Recognizer v3.0 and v2.1 and how do I migrate to the latest version?
+        answer:  |
+        For improved usability, Form Recognizer v3.0 introduces a fully redesigned client library. To successfully use features of the newest Form Recognizer service API (version "2021-09-30-preview" and newer), the new SDK is required and application code must be changed to use the new clients. The table below provides links to detailed instructions for migrating to the newest version of Form Recognizer:
+
+        | Language / API | Migration guide|
+            | ----------- | ----------------|
+            | REST API    | v3-migration-guide.md| 
+            | C#/.NET| [4.0.0-beta.2](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.1/index.html)| 〃 |
+            | Java | [4.0.0-beta.2](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.2/index.html)| 〃 |
+            | JavaScript| [4.0.0-beta.2](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.2/index.html)| 〃|
+            | Python | [3.2.0b2](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b2/index.html) | 〃 |
+
+
       - question: |
           "SAS token: I was able to access my storage account a few days ago, but now, I'm receiving the following error: Check if you have unexpired read/write/list/delete permission to blob container/blob. What could this be?"
         answer:  When you create a shared access signature (SAS), the default duration is two days. After two day, you'll need to create a new token. Consider setting a longer duration period for the time you'll be using your storage account with Form Recognizer.
-  
