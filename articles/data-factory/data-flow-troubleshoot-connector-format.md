@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot connector and format issues in mapping data flows
 description: Learn how to troubleshoot data flow problems related to connector and format in Azure Data Factory.
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: jianleishen
 ms.reviewer: wiassaf
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting 
-ms.date: 12/06/2021
+ms.date: 01/21/2022
 ---
 
 
@@ -456,6 +456,27 @@ You use the Azure Blob Storage as the staging linked service to link to a storag
 
 #### Recommendation
 Create an Azure Data Lake Gen2 linked service for the storage, and select the Gen2 storage as the staging linked service in data flow activities.
+
+### Failed with an error: "shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: User does not have permission to perform this action."
+
+#### Symptoms
+
+When you use Azure Synapse Analytics as a source/sink and use PolyBase staging in data flows, you meet the following error: <br/>
+
+`shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: User does not have permission to perform this action.`
+
+#### Cause
+
+PolyBase requires certain permissions in your Synapse SQL server to work. 
+
+#### Recommendation
+
+Grant the permissions below in your Synapse SQL server when you use PolyBase:
+
+**ALTER ANY SCHEMA**<br/>
+**ALTER ANY EXTERNAL DATA SOURCE**<br/>
+**ALTER ANY EXTERNAL FILE FORMAT**<br/>
+**CONTROL DATABASE**<br/>
 
 ## Common Data Model format
 
