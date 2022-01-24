@@ -68,7 +68,7 @@ You can scope access to Azure SignalR resources at the following levels, beginni
 
 ## Azure built-in roles for SignalR resources
 
-- [SignalR App Server](../role-based-access-control/built-in-roles.md#signalr-app-server-preview)
+- [SignalR App Server](../role-based-access-control/built-in-roles.md#signalr-app-server)
 
 	Access to Websocket connection creation API and Auth APIs.
 	

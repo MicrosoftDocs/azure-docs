@@ -13,7 +13,7 @@ manager: peterpr
 
 # Tutorial - Define a new IoT gateway device type in your Azure IoT Central application
 
-This tutorial shows you how to use a gateway device template to define a gateway device in your IoT Central application. You then configure several downstream devices that connect to your IoT Central application through the gateway device. 
+This tutorial shows you how to use a gateway device template to define a gateway device in your IoT Central application. You then configure several downstream devices that connect to your IoT Central application through the gateway device.
 
 In this tutorial, you create a **Smart Building** gateway device template. A **Smart Building** gateway device has relationships with other downstream devices.
 
@@ -48,17 +48,17 @@ To create a device template for an **S1 Sensor** device:
 
 1. In the left pane, select **Device Templates**. Then select **+ New** to start adding the template.
 
-1. Scroll down until you can see the tile for the **Minew S1** device. Select the tile and then select **Next: Customize**.
+1. Scroll down until you can see the tile for the **Minew S1** device. Select the tile and then select **Next: Review**.
 
-1. On the **Review** page, select **Create** to add the device template to your application. 
+1. On the **Review** page, select **Create** to add the device template to your application.
 
 To create a device template for an **RS40 Occupancy Sensor** device:
 
 1. In the left pane, select **Device Templates**. Then select **+ New** to start adding the template.
 
-1. Scroll down until you can see the tile for the ***RS40 Occupancy Sensor** device. Select the tile and then select **Next: Customize**.
+1. Scroll down until you can see the tile for the **Rigado RS40 Occupancy Sensor** device. Select the tile and then select **Next: Review**.
 
-1. On the **Review** page, select **Create** to add the device template to your application. 
+1. On the **Review** page, select **Create** to add the device template to your application.
 
 You now have device templates for the two downstream device types:
 
@@ -79,9 +79,7 @@ To add a new gateway device template to your application:
 
 1. Enter **Smart Building gateway device** as the template name and then select **Next: Review**.
 
-1. On the **Review** page, select **Create**. 
-
-
+1. On the **Review** page, select **Create**.
 
 1. On the **Create a model** page, select the **Custom model** tile.
 
@@ -89,9 +87,7 @@ To add a new gateway device template to your application:
 
 1. Enter **Send Data** as the display name, and then select **Property** as the capability type.
 
-1. Select **+ Add capability** to add another capability. Enter **Boolean Telemetry** as the display name, select **Telemetry** as the capability type, and then select **Boolean** as schema.
-
-1. Select **Save**.
+1. Select **Boolean** as the schema type and then select **Save**.
 
 ### Add relationships
 
@@ -209,20 +205,7 @@ Both your simulated downstream devices are now connected to your simulated gatew
 
 ## Connect real downstream devices
 
-In the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial, the sample code shows how to include the model ID from the device template in the provisioning payload the device sends. The model ID lets IoT Central associate the device with the correct device template. For example:
-
-```python
-async def provision_device(provisioning_host, id_scope, registration_id, symmetric_key, model_id):
-  provisioning_device_client = ProvisioningDeviceClient.create_from_symmetric_key(
-    provisioning_host=provisioning_host,
-    registration_id=registration_id,
-    id_scope=id_scope,
-    symmetric_key=symmetric_key,
-  )
-
-  provisioning_device_client.provisioning_payload = {"modelId": model_id}
-  return await provisioning_device_client.register()
-```
+In the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial, the sample code shows how to include the model ID from the device template in the provisioning payload the device sends.
 
 When you connect a downstream device, you can modify the provisioning payload to include the the ID of the gateway device. The model ID lets IoT Central associate the device with the correct downstream device template. The gateway ID lets IoT Central establish the relationship between the downstream device and its gateway. In this case the provisioning payload the device sends looks like the following JSON:
 
@@ -234,6 +217,99 @@ When you connect a downstream device, you can modify the provisioning payload to
   }
 }
 ```
+
+A gateway can register and provision a downstream device, and associate the downstream device with the gateway as follows:
+
+# [JavaScript](#tab/javascript)
+
+```javascript
+var crypto = require('crypto');
+
+
+var ProvisioningTransport = require('azure-iot-provisioning-device-mqtt').Mqtt;
+var SymmetricKeySecurityClient = require('azure-iot-security-symmetric-key').SymmetricKeySecurityClient;
+var ProvisioningDeviceClient = require('azure-iot-provisioning-device').ProvisioningDeviceClient;
+
+var provisioningHost = "global.azure-devices-provisioning.net";
+var idScope = "<The ID scope from your SAS group enrollment in IoT Central>";
+var groupSymmetricKey = "<The primary key from the SAS group enrollment>";
+var registrationId = "<The device ID for the downstream device you're creating>";
+var modelId = "<The model you're downstream device should use>";
+var gatewayId = "<The device ID of your gateway device>";
+
+// Calculate the device key from the group enrollment key
+function computeDerivedSymmetricKey(deviceId, masterKey) {
+    return crypto.createHmac('SHA256', Buffer.from(masterKey, 'base64'))
+        .update(deviceId, 'utf8')
+        .digest('base64');
+}
+
+var symmetricKey = computeDerivedSymmetricKey(registrationId, groupSymmetricKey);
+
+var provisioningSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
+
+var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
+
+// Use the DPS payload to:
+// - specify the device capability model to use.
+// - associate the device with a gateway.
+var provisioningPayload = {modelId: modelId, iotcGateway: { iotcGatewayId: gatewayId}}
+
+provisioningClient.setProvisioningPayload(provisioningPayload);
+
+provisioningClient.register(function(err, result) {
+  if (err) {
+    console.log("Error registering device: " + err);
+  } else {
+    console.log('The registration status is: ' + result.status)
+   }
+});
+```
+
+# [Python](#tab/python)
+
+```python
+from azure.iot.device import ProvisioningDeviceClient
+import os
+import base64
+import hmac
+import hashlib
+
+provisioning_host = "global.azure-devices-provisioning.net"
+
+id_scope = "<The ID scope from your SAS group enrollment in IoT Central>"
+group_symmetric_key = "<The primary key from the SAS group enrollment>"
+registration_id = "<The device ID for the downstream device you're creating>"
+model_id = "<The model you're downstream device should use>"
+gateway_id = "<The device ID of your gateway device>"
+
+# Calculate the device key from the group enrollment key
+def compute_device_key (device_id, group_key):
+    message = device_id.encode("utf-8")
+    signing_key = base64.b64decode(group_key.encode("utf-8"))
+    signed_hmac = hmac.HMAC(signing_key, message, hashlib.sha256)
+    device_key_encoded = base64.b64encode(signed_hmac.digest())
+    return device_key_encoded.decode("utf-8")
+
+provisioning_device_client = ProvisioningDeviceClient.create_from_symmetric_key(
+    provisioning_host=provisioning_host,
+    registration_id=registration_id,
+    id_scope=id_scope,
+    symmetric_key=compute_device_key(registration_id, group_symmetric_key)
+)
+
+# Use the DPS payload to:
+# - specify the device capability model to use.
+# - associate the device with a gateway.
+provisioning_device_client.provisioning_payload = {"modelId": model_id, "iotcGateway":{"iotcGatewayId": gateway_id}}
+
+registration_result = provisioning_device_client.register()
+
+print("The registration status is:")
+print(registration_result.status)
+```
+
+---
 
 ## Clean up resources
 

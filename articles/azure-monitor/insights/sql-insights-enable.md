@@ -4,7 +4,7 @@ description: Enable SQL insights in Azure Monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 1/6/2022
+ms.date: 1/18/2022
 ---
 
 # Enable SQL insights (preview)
@@ -196,6 +196,8 @@ The connection string specifies the login name that SQL insights should use when
 The connections string will vary for each type of SQL resource:
 
 #### Azure SQL Database
+TCP connections from the monitoring machine to the IP address and port used by the database must be allowed by any firewalls or [network security groups](../../virtual-network/network-security-groups-overview.md) (NSGs) that may exist on the network path. For details on IP addresses and ports, see [Azure SQL Database connectivity architecture](../../azure-sql/database/connectivity-architecture.md).
+
 Enter the connection string in the form:
 
 ```
@@ -208,9 +210,11 @@ Get the details from the **Connection strings** menu item for the database.
 
 :::image type="content" source="media/sql-insights-enable/connection-string-sql-database.png" alt-text="SQL database connection string" lightbox="media/sql-insights-enable/connection-string-sql-database.png":::
 
-To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string. SQL Insights supports monitoring a single secondary. The collected data will be tagged to reflect primary or secondary. 
+To monitor a readable secondary, append `;ApplicationIntent=ReadOnly` to the connection string. SQL Insights supports monitoring a single secondary. The collected data will be tagged to reflect primary or secondary. 
 
 #### Azure SQL Managed Instance
+TCP connections from the monitoring machine to the IP address and port used by the managed instance must be allowed by any firewalls or [network security groups](../../virtual-network/network-security-groups-overview.md) (NSGs) that may exist on the network path. For details on IP addresses and ports, see [Azure SQL Managed Instance connection types](../../azure-sql/managed-instance/connection-types-overview.md).
+
 Enter the connection string in the form:
 
 ```
@@ -218,25 +222,40 @@ Enter the connection string in the form:
    "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;" 
 ] 
 ```
-Get the details from the **Connection strings** menu item for the managed instance.
-
+Get the details from the **Connection strings** menu item for the managed instance. If using managed instance [public endpoint](../../azure-sql/managed-instance/public-endpoint-configure.md), replace port 1433 with 3342.
 
 :::image type="content" source="media/sql-insights-enable/connection-string-sql-managed-instance.png" alt-text="SQL Managed Instance connection string" lightbox="media/sql-insights-enable/connection-string-sql-managed-instance.png":::
 
-To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string. SQL Insights supports monitoring of a single secondary. Collected data will be tagged to reflect Primary or Secondary. 
+To monitor a readable secondary, append `;ApplicationIntent=ReadOnly` to the connection string. SQL Insights supports monitoring of a single secondary. Collected data will be tagged to reflect Primary or Secondary. 
 
 #### SQL Server 
+The TCP/IP protocol must be enabled for the SQL Server instance you want to monitor. TCP connections from the monitoring machine to the IP address and port used by the SQL Server instance must be allowed by any firewalls or [network security groups](../../virtual-network/network-security-groups-overview.md) (NSGs) that may exist on the network path.
+
+If you want to monitor SQL Server configured for high availability (using either availability groups or failover cluster instances), we recommend monitoring each SQL Server instance in the cluster individually rather than connecting via an availability group listener or a failover cluster name. This ensures that monitoring data is collected regardless of the current instance role (primary or secondary).
+
 Enter the connection string in the form:
 
 ```
 "sqlVmConnections": [
-   "Server=MyServerIPAddress;Port=1433;User Id=$username;Password=$password;" 
+   "Server=SQLServerInstanceIPAddress;Port=1433;User Id=$username;Password=$password;" 
 ] 
 ```
 
-If your monitoring virtual machine is in the same VNET, use the private IP address of the Server.  Otherwise, use the public IP address. If you're using Azure SQL virtual machine, you can see which port to use here on the **Security** page for the resource.
+Use the IP address that the SQL Server instance listens on.
+
+If your SQL Server instance is configured to listen on a non-default port, replace 1433 with that port number in the connection string. If you're using Azure SQL virtual machine, you can see which port to use on the **Security** page for the resource.
 
 :::image type="content" source="media/sql-insights-enable/sql-vm-security.png" alt-text="SQL virtual machine security" lightbox="media/sql-insights-enable/sql-vm-security.png":::
+
+For any SQL Server instance, you can determine all IP addresses and ports it is listening on by connecting to the instance and executing the following T-SQL query, as long as there is at least one TCP connection to the instance:
+
+```sql
+SELECT DISTINCT local_net_address, local_tcp_port
+FROM sys.dm_exec_connections
+WHERE net_transport = 'TCP'
+      AND
+      protocol_type = 'TSQL';
+```
 
 ## Monitoring profile created 
 

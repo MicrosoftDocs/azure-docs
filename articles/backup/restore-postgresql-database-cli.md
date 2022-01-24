@@ -8,7 +8,7 @@ ms.service: backup
 ms.author: v-amallick
 ---
 
-# Restore Azure PostgreSQL databases using Azure CLI
+# Restore Azure PostgreSQL databases using Azure CLI (preview)
 
 This article explains how to restore [Azure PostgreSQL databases](../postgresql/overview.md#azure-database-for-postgresql---single-server) to an Azure PostgreSQL server backed-up by Azure Backup.
 
@@ -180,7 +180,7 @@ For an archive-based recovery point, you need to:
 1. Specify the duration for which the rehydrated recovery point should be retained in the vault data store.
 1. Restore as a database from this recovery point.
 
-Use the following command to prepare the request for all the above mentioned operations, at once.
+Use the following command to prepare the request for all the above-mentioned operations, at once.
 
 ```azurecli
 az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureDatabaseForPostgreSQL  --restore-location {location} --source-datastore ArchiveStore --target-resource-id $targetOssId --recovery-point-id 9da55e757af94261afa009b43cd3222a --secret-store-type AzureKeyVault --secret-store-uri "https://restoreoss-test.vault.azure.net/secrets/dbauth3" --rehydration-priority Standard --rehydration-duration 12 > OssRestoreFromArchiveReq.JSON

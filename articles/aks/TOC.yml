@@ -65,6 +65,13 @@
           href: ./security-controls-policy.md
         - name: Security Hardening in host OS
           href: security-hardened-vm-host-image.md
+        - name: Compliance
+          items:
+            - name: CIS Baseline overview
+              href: /compliance/regulatory/offering-CIS-Benchmark
+              maintainContext: True
+            - name: CIS Kubernetes benchmark
+              href: cis-kubernetes.md
     - name: Access and identity
       href: concepts-identity.md
     - name: Networking
