@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell, subject-rbac-steps, ignite-fall-2021
 
 # Authenticate access to Azure resources with managed identities in Azure Logic Apps
 
-In logic app workflows, some triggers and actions support using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md), previously known as a *Managed Service Identity (MSI)*, to authenticate access to resources protected by Azure Active Directory (Azure AD). When you enable your logic app resource to use a managed identity for authentication, you don't have to provide credentials, secrets, or Azure AD tokens. Azure manages this identity and helps keep authentication information secure because you don't have to manage this sensitive information.
+In logic app workflows, some triggers and actions support using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to authenticate access to resources protected by Azure Active Directory (Azure AD). This identity was previously known as a *Managed Service Identity (MSI)*. When you enable your logic app resource to use a managed identity for authentication, you don't have to provide credentials, secrets, or Azure AD tokens. Azure manages this identity and helps keep authentication information secure because you don't have to manage this sensitive information.
 
 Azure Logic Apps supports the [*system-assigned* managed identity](../active-directory/managed-identities-azure-resources/overview.md) and the [*user-assigned* managed identity](../active-directory/managed-identities-azure-resources/overview.md), but the following differences exist between these identity types:
 
@@ -101,7 +101,7 @@ This article shows how to enable and set up the system-assigned identity or user
    > user-assigned identity. Before you can add the system-assigned identity, you have to first *remove* the user-assigned identity 
    > from your logic app resource.
 
-   Your logic app resource can now use the system-assigned identity, which is registered with Azure AD and is represented by an object ID.
+   Your logic app resource can now use the system-assigned identity. This identity is registered with Azure AD and is represented by an object ID.
 
    ![Screenshot showing Consumption logic app's "Identity" pane with the object ID for system-assigned identity.](./media/create-managed-service-identity/object-id-system-assigned-identity.png)
 
