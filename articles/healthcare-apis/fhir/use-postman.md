@@ -18,8 +18,8 @@ In this article, we will walk through the steps of accessing the Healthcare APIs
 
 ## Prerequisites
 
-* The FHIR service deployed in Azure. For information about how to deploy the FHIR service, see [Deploy a FHIR service](fhir/fhir-portal-quickstart.md).
-* A registered client application to access the FHIR service. For information about how to register a client application, see [Register a service client application in Azure Active Directory](register-application.md). 
+* The FHIR service deployed in Azure. For information about how to deploy the FHIR service, see [Deploy a FHIR service](fhir-portal-quickstart.md).
+* A registered client application to access the FHIR service. For information about how to register a client application, see [Register a service client application in Azure Active Directory](./../register-application.md). 
 * Permissions granted to the client application and your user account, for example, "FHIR Data Contributor", to access the FHIR service. 
 * Postman installed locally. For more information about Postman, see [Get Started with Postman](https://www.getpostman.com/).
 
@@ -73,7 +73,7 @@ Enter `{{fhirurl}}/metadata` in the `GET`request, and select `Send`. You should 
 
 ## Get Azure AD access token
 
-The FHIR service is secured by Azure AD. The default authentication can't be disabled. To access the FHIR service, you must get an Azure AD access token first. For more information, see [Microsoft identity platform access tokens](./../active-directory/develop/access-tokens.md).
+The FHIR service is secured by Azure AD. The default authentication can't be disabled. To access the FHIR service, you must get an Azure AD access token first. For more information, see [Microsoft identity platform access tokens](../../active-directory/develop/access-tokens.md).
 
 Create a new `POST` request:
 
