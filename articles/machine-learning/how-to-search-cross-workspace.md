@@ -36,7 +36,7 @@ Use the asset quick links to navigate to search results for jobs, models, and co
 
 Change the scope of applicable subscriptions and workspaces by clicking the 'Change' link. 
 
-![scope change](./media/how-to-search-cross-workspace/settings.jpg)
+![scope change](./media/how-to-search-cross-workspace/settings.png)
 
 ## Structured search 
 
@@ -61,7 +61,7 @@ Note:
 
 Explore the Jobs, Models, and Components tabs to see all search matches. Click on an asset to be directed to the details page in the context of the relevant workspace. Results from workspaces a user does not have access to will not be displayed, click on the 'details' button to view a list of workspaces.
 
-![search results](./media/results.jpg)
+![search results](./media/how-to-search-cross-workspace/results.png)
 
 ## Filters
 
