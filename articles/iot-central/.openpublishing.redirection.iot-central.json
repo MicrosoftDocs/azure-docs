@@ -632,12 +632,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-show-hide-chat.md",
-      "redirect_url": "/azure/iot-central/",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-central/core/overview-iot-central/",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-show-hide-chat.md",
-      "redirect_url": "/azure/iot-central/core/howto-show-hide-chat/",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central/",
       "redirect_document_id": false
     },
     {
@@ -1312,7 +1312,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-show-hide-chat.md",
-      "redirect_url": "/azure/iot-central",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central/",
       "redirect_document_id": false
     }
   ]
