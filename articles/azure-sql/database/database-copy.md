@@ -10,7 +10,7 @@ ms.topic: how-to
 author: LitKnd
 ms.author: kendralittle
 ms.reviewer: mathoma
-ms.date: 03/10/2021
+ms.date: 1/19/2022
 ---
 # Copy a transactionally consistent copy of a database in Azure SQL Database
 
@@ -86,7 +86,7 @@ Start copying the source database with the [CREATE DATABASE ... AS COPY OF](/sql
 > [!NOTE]
 > Terminating the T-SQL statement does not terminate the database copy operation. To terminate the operation, drop the target database.
 >
-> Database copy is not supported when the source and/or destination servers have a [private endpoint](private-endpoint-overview.md) configured and [public network access is denied](connectivity-settings.md#deny-public-network-access). If private endpoint is configured but public network access is allowed, initiating database copy when connected to the destination server from a public IP address is supported. Once the copy operation completes, public access can be denied.
+> Database copy using T-SQL is not supported when connecting to the destination server over a [private endpoint](private-endpoint-overview.md). If a private endpoint is configured but public network access is allowed, database copy is supported when connected to the destination server from a public IP address. Once the copy operation completes, public access can be [denied](connectivity-settings.md#deny-public-network-access).
 
 > [!IMPORTANT]
 > Selecting backup storage redundancy when using T-SQL CREATE DATABASE ... AS COPY OF command is not supported yet. 

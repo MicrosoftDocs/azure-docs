@@ -106,6 +106,7 @@ When you install the extension, you need the *Tenant ID* and admin credentials f
 
 The NPS server must be able to communicate with the following URLs over ports 80 and 443:
 
+* *https:\//strongauthenticationservice.auth.microsoft.com*
 * *https:\//adnotifications.windowsazure.com*
 * *https:\//login.microsoftonline.com*
 * *https:\//credentials.azure.com*

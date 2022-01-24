@@ -206,6 +206,8 @@ The following values are used in subsequent commands to create the database and 
    # Show randomized variables
    Write-host "Resource group name is" $resourceGroupName
    Write-host "Server name is" $serverName
+
+
 ```
 
 ### Create resource group

@@ -31,6 +31,7 @@ LUIS understands utterances in the following languages:
 | *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Dutch |`nl-NL` |✔|-|-|✔|
 | English (United States) |`en-US` | ✔ | ✔  |✔|✔|
+| English (Brtish) |`en-GB` | ✔ | ✔  |✔|✔|
 | French (Canada) |`fr-CA` |-|-|-|✔|
 | French (France) |`fr-FR` |✔| ✔ |✔ |✔|
 | German |`de-DE` |✔| ✔ |✔ |✔|
@@ -85,6 +86,7 @@ To perform machine learning, LUIS breaks an utterance into [tokens](luis-glossar
 |Chinese||✔||
 |Dutch|✔||✔|
 |English (en-us)|✔ |||
+|English (en-GB)|✔ |||
 |French (fr-FR)|✔|||
 |French (fr-CA)|✔|||
 |German|✔||✔|

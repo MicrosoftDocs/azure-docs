@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 01/13/2022
+ms.date: 01/21/2022
 ---
 
 # Azure Purview network architecture and best practices
@@ -96,7 +96,7 @@ When you're scanning a data source in Azure Purview, you need to provide a crede
 
 ### Additional considerations  
 
-- If you choose to scan data sources by using public endpoints, your on-premises or VM-based data sources must have outbound connectivity to Azure endpoints. 
+- If you choose to scan data sources using public endpoints, your self-hosted integration runtime VMs must have outbound access to data sources and Azure endpoints. 
 
 - Your self-hosted integration runtime VMs must have [outbound connectivity to Azure endpoints](manage-integration-runtimes.md#networking-requirements). 
 

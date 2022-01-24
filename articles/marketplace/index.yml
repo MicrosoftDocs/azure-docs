@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: mingshen-ms 
   ms.author: mingshen
-  ms.date: 12/13/2021
+  ms.date: 1/20/2022
 
 landingContent:
   - title: Working in the commercial marketplace
@@ -19,7 +19,7 @@ landingContent:
       links:
       - text: Create a new account
         url: create-account.md
-      - text: Determine your publishing option
+      - text: Introduction to listing options
         url: determine-your-listing-type.md
       - text: Policies and terms
         url: policies-terms.md
@@ -53,7 +53,7 @@ landingContent:
       - text: Participate in the Azure Marketplace and AppSource community forum
         url: https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222
       - text: Register to join webinars for discussion or watch later on demand
-        url: https://microsoftcloudpartner.eventbuilder.com/AllWebinars
+        url: https://go.microsoft.com/fwlink/?linkid=2185526
 
   - title: Analyze your offer and customer data
     linkLists:
@@ -73,6 +73,8 @@ landingContent:
         url: downloads-dashboard.md
       - text: Ratings and reviews dashboard
         url: ratings-reviews.md
+      - text: See more
+        url: analytics.md   
 
   - title: Create an offer
     linkLists:
@@ -128,7 +130,7 @@ landingContent:
     - linkListType: get-started
       links:
       - text: Support options
-        url: ./support.md
+        url: /partner-center/report-problems-with-partner-center?context=/azure/marketplace/context/context
       - text: Troubleshoot authentication errors
         url: cloud-partner-portal-api-troubleshooting-authentication-errors.md
       - text: Geographic availability and currencies
