@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 01/24/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -123,7 +123,7 @@ Both new and existing storage accounts can use a user-assigned identity to autho
 
 #### [Azure portal](#tab/portal)
 
-When you configure customer-managed keys with the Azure portal, you can select an existing user identity through the portal user interface. For details, see one of the following sections:
+When you configure customer-managed keys with the Azure portal, you can select an existing user-assigned identity through the portal user interface. For details, see one of the following sections:
 
 - [Configure customer-managed keys for a new account](#configure-customer-managed-keys-for-a-new-account)
 - [Configure customer-managed keys for an existing account](#configure-customer-managed-keys-for-an-existing-account)
