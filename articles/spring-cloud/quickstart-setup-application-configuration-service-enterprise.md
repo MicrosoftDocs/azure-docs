@@ -29,6 +29,7 @@ This quickstart shows you how to set up Application Configuration Service for us
 ## Use Application Configuration Service
 
 To use Application Configuration Service, follow these steps.
+### Portal
 
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service.
@@ -54,6 +55,23 @@ To use Application Configuration Service, follow these steps.
 A list under **App name** shows the apps bound with Application Configuration Service, as shown in the following screenshot:
 
 ![Bound ACS application list example](./media/enterprise/getting-started-enterprise/config-service-app-bind.png)
+
+### CLI
+
+1. Run the following command to set the Default repository.
+
+```
+az spring-cloud application-configuration-service git repo add \
+--name default \
+--patterns api-gateway,customers-service \
+--uri https://github.com/Azure-Samples/spring-petclinic-microservices-config.git \
+--label master
+```
+
+2. To use Application Configuration Service with applications, use this command:
+```
+az spring-cloud application-configuration-service bind --app <app-name>
+```
 
 ## Next steps
 
