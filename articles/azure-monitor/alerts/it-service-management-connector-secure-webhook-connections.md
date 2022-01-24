@@ -1,7 +1,7 @@
 ---
 title: IT Service Management Connector - Secure Export in Azure Monitor
 description: This article shows you how to connect your ITSM products/services with Secure Export in Azure Monitor to centrally monitor and manage ITSM work items.
-ms.author: v-jysur
+ms.topic: conceptual
 ms.date: 09/08/2020
 
 ---
