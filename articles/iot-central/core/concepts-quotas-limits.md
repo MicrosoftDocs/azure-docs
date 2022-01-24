@@ -92,6 +92,11 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 | ---- | -------------- | ----- |
 | Number of rules in an application | 50 | Contact support to discuss increasing this quota for your application. |
 | Number of actions in a rule | 5 | This quota is fixed and can't be changed. |
+| Number of Alerts for an Email action | 1 alert every minute per Rule | This quota is fixed and can't be changed. |
+| Number of Alerts for a Webhook Action | 1 alert every 10 seconds per Action | This quota is fixed and can't be changed. |
+| Number of Alerts for a Power Automate Action | 1 alert every 10 seconds per Action | This quota is fixed and can't be changed. |
+| Number of Alerts for an Azure Logic App Action | 1 alert every 10 seconds per Action | This quota is fixed and can't be changed. |
+| Number of Alerts for an Azure Monitor Group Action | 1 alert every 10 seconds per Action | This quota is fixed and can't be changed. |
 
 ## Jobs
 
