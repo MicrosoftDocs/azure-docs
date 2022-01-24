@@ -79,7 +79,7 @@ Follow the instructions in the following sections to configure Azure AD authenti
     ```powershell
     Connect-AzAccount -Tenant $tenantId -SubscriptionId $subscriptionId
 
-    $Uri = ('https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Storage/storageAccounts/{2}?api-version=2021-04-01' -f $subscriptionId, $ResourceGroupName, $StorageAccountName);
+    $Uri = ('https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Storage/storageAccounts/{2}?api-version=2021-04-01' -f $subscriptionId, $resourceGroupName, $storageAccountName);
     
     $json = @{properties=@{azureFilesIdentityBasedAuthentication=@{directoryServiceOptions="AADKERB"}}};
     $json = $json | ConvertTo-Json -Depth 99
