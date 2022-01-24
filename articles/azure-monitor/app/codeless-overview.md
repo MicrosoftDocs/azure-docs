@@ -50,7 +50,7 @@ For [Python](./opencensus-python.md), use the SDK.
 
 ## Azure Functions
 
-The basic monitoring for Azure Functions is enabled by default to collects log, performance, error data, and HTTP requests. For Java applications, you can enable richer monitoring with distributed tracing and get the end-to-end transaction details. This functionality for Java is in public preview for Windows and you can [enable it in Azure portal](./monitor-functions.md).
+The basic monitoring for Azure Functions is enabled by default to collect log, performance, error data, and HTTP requests. For Java applications, you can enable richer monitoring with distributed tracing and get the end-to-end transaction details. This functionality for Java is in public preview for Windows and you can [enable it in Azure portal](./monitor-functions.md).
 
 ## Azure Spring Cloud
 
