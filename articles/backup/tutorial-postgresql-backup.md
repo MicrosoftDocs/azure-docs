@@ -25,10 +25,10 @@ Before you back up your Azure database for PostgreSQL server, check the followin
 
 - Identify or create a Backup Vault in the same region where you want to back up the Azure Database for PostgreSQL server instance.
 - Check that Azure Database for PostgreSQL server is named in accordance with naming guidelines for Azure Backup.
-- [Create secrets in the key vault](backup-azure-database-postgresql.md#create-secrets-in-the-key-vault)
-- [Allow access permissions for the relevant key vault](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-key-vault-associated-with-the-postgresql-server)
-- [Provide database user's backup privileges on the database](backup-azure-database-postgresql-overview.md#database-users-backup-privileges-on-the-database)
-- [Allow access permissions for PostgreSQL server](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-postgresql-server)
+- [Create secrets in the key vault](backup-azure-database-postgresql.md#create-secrets-in-the-key-vault).
+- [Allow access permissions for the relevant key vault](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-key-vault-associated-with-the-postgresql-server).
+- [Provide database user's backup privileges on the database](backup-azure-database-postgresql-overview.md#database-users-backup-privileges-on-the-database).
+- [Allow access permissions for PostgreSQL server](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-postgresql-server).
 
 
 ## Create a Backup vault
@@ -40,7 +40,7 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
 1. Under **Services**, select **Backup center**.
 1. On the **Backup center** page, select **Vault**.
 
-   :::image type="content" source="./media/backup-managed-disks/backup-center.png" alt-text="Screenshot showing to select Vault in Backup center.":::]
+   :::image type="content" source="./media/backup-managed-disks/backup-center.png" alt-text="Screenshot showing to select Vault in Backup center.":::
 
 1. In the **Initiate: Create Vault** screen, select **Backup vault**, and **Proceed**.
 
@@ -64,7 +64,7 @@ You can create a Backup policy on the go during the configure backup flow. Alter
 
 1. Define **Retention** settings. You can add one or more retention rules. Each retention rule assumes inputs for specific backups, and data store and retention duration for those backups.
 
-1. To store your backups in one of the two data stores (or tiers), choose **Backup data store** (standard tier) or **Archive data store** (in preview).
+1. To store your backups in one of the two data stores (or tiers), choose **Backup data store** (standard tier) or **Archive data store**.
 
 1. Choose **On-expiry** to move the backup to archive data store upon its expiry in the backup data store.
 

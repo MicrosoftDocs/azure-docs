@@ -78,7 +78,7 @@
       href: active-directory-backup-restore.md
     - name: Supported VM SKUs for Azure Policy
       href: backup-azure-policy-supported-skus.md
-    - name: PostgreSQL database backup support matrix
+    - name: Azure Database for PostgreSQL backup support matrix
       href: backup-azure-database-postgresql-support-matrix.md
     - name: Automation in Azure Backup
       href: backup-support-automation.md

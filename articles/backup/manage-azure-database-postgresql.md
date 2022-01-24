@@ -25,7 +25,7 @@ You can change the associated policy with a backup instance.
 
    :::image type="content" source="./media/manage-azure-database-postgresql/reassign-policy.png" alt-text="Screenshot showing the option to reassign policy.":::
 
-## Stop Protection
+## Stop protection
 
 There are three ways by which you can stop protecting an Azure Database for PostgreSQL server.
 
@@ -35,7 +35,7 @@ There are three ways by which you can stop protecting an Azure Database for Post
 
 - **Stop Protection and Delete Data**: This option helps you stop all future backup jobs from protecting your Azure Database for PostgreSQL server and delete all the recovery points. You won't be able to restore the database or use the **Resume backup** option.
 
-### Stop Protection and Retain Data
+### Stop protection and retain data
 
 1. Go to **Backup center** and select **Azure Database for PostgreSQL server**.
 
@@ -60,7 +60,7 @@ There are three ways by which you can stop protecting an Azure Database for Post
 
    :::image type="content" source="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-inline.png" alt-text="Screenshot for the confirmation for stopping backup." lightbox="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-expanded.png":::
 
-### Stop Protection and Delete Data
+### Stop protection and delete data
 
 1. Go to **Backup center** and select **Azure Database for PostgreSQL server**.
 
@@ -80,14 +80,14 @@ There are three ways by which you can stop protecting an Azure Database for Post
 
    :::image type="content" source="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-inline.png" alt-text="Screenshot for the confirmation for stopping backup." lightbox="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-expanded.png":::
 
-## Resume Protection
+## Resume protection
 
 If you have selected the **Stop Protection and Retain data** option while stopping the data backup, you can resume protection for your Azure Database for PostgreSQL server.
 
 >[!Note]
 >When you start protecting a database, the backup policy is applied to the retained data as well. The recovery points that have expired as per the policy will be cleaned up.
 
-Use the following steps:
+Follow these steps:
 
 1. Go to **Backup center** and select **Azure Database for PostgreSQL server**.
 

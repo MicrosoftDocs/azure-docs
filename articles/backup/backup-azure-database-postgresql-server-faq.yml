@@ -24,10 +24,10 @@ sections:
         answer: |
           Before configuring database backup, you need to:
 
-          - [Create secrets in the key vault](backup-azure-database-postgresql.md#create-secrets-in-the-key-vault)
-          - [Allow access permissions for the relevant key vault](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-key-vault-associated-with-the-postgresql-server)
-          - [Provide database user's backup privileges on the database](backup-azure-database-postgresql-overview.md#database-users-backup-privileges-on-the-database)
-          - [Allow access permissions for PostgreSQL server](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-postgresql-server)
+          - [Create secrets in the key vault](backup-azure-database-postgresql.md#create-secrets-in-the-key-vault).
+          - [Allow access permissions for the relevant key vault](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-key-vault-associated-with-the-postgresql-server).
+          - [Provide database user's backup privileges on the database](backup-azure-database-postgresql-overview.md#database-users-backup-privileges-on-the-database).
+          - [Allow access permissions for PostgreSQL server](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-postgresql-server).
 
       - question: How do I configure backup on Azure PostgreSQL databases?
         answer: You can configure backup on multiple databases across multiple Azure PostgreSQL servers. [Learn more](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases)
