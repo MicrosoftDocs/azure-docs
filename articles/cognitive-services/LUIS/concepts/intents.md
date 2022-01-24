@@ -54,9 +54,6 @@ Create an intent when the user's intention would trigger an action in your clien
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Show me the forecast for `this weekend` |
 ||||
 
-## Prebuilt domain intents
-
-[Prebuilt domains](../howto-add-prebuilt-models.md) provide intents with utterances.
 
 ## None intent
 
@@ -78,7 +75,7 @@ Using a regular expression entity guarantees the data extraction so that the pat
 
 ## Intent balance
 
-The app domain intents should have a balance of utterances across each intent. For example, do not have one intent with 10 utterances and another intent with 500 utterances. This is not balanced. In this situation, you would want to review the intent with 500 utterances to see if many of the intents can be reorganized into a [pattern](../luis-concept-patterns.md).
+The app domain intents should have a balance of utterances across each intent. For example, do not have most of your intents with 10 utterances and another intent with 500 utterances. This is not balanced. In this situation, you would want to review the intent with 500 utterances to see if many of the intents can be reorganized into a [pattern](../luis-concept-patterns.md).
 
 The  **None**  intent is not included in the balance. That intent should contain 10% of the total utterances in the app.
 
@@ -87,7 +84,7 @@ The  **None**  intent is not included in the balance. That intent should contain
 Review the  [limits](../luis-limits.md#model-boundaries) to understand how many intents you can add to a model.
 
 > [!Tip]
-> If you need more than the maximum number of intents, consider whether your system is using too many intents and determine if multiple intents be combined into single intent with entities
+> If you need more than the maximum number of intents, consider whether your system is using too many intents and determine if multiple intents be combined into single intent with entities.
 > Intents that are too similar can make it more difficult for LUIS to distinguish between them. Intents should be varied enough to capture the main tasks that the user is asking for, but they don't need to capture every path your code takes. For example, two intents: BookFlight() and FlightCustomerService() might be separate intents in a travel app, but BookInternationalFlight() and BookDomesticFlight() are too similar. If your system needs to distinguish them, use entities or other logic rather than intents.
 
 
@@ -95,10 +92,6 @@ Review the  [limits](../luis-limits.md#model-boundaries) to understand how many 
 
 If reducing the number of intents or dividing your intents into multiple apps doesn't work for you, contact support. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/support/options/).
 
-
-### Key requirements
-
-You do not need to create a  **Bing Speech API**  key for this integration. A  **Language Understanding**  key created in the Azure portal works for this integration. Do not use the LUIS starter key.
 
 ## Best Practices for Intents:
 
@@ -109,10 +102,9 @@ Make sure the vocabulary for each intent is just for that intent and not overlap
 If the vocabulary between two intents is the same, combine the intent, and use entities.
 
 Consider the following example utterances:
-| **Example utterances** |
-| --- |
-| Book a flight |
-| Book a hotel |
+
+1. Book a flight
+2. Book a hotel
 
 "Book a flight" and "book a hotel" use the same vocabulary of "book a *\<noun\>*". This format is the same so it should be the same intent with the different words of flight and hotel as extracted entities.
 
@@ -124,19 +116,19 @@ Features describe concepts for an intent. A feature can be a phrase list of word
 
 Use prediction data from LUIS to determine if your intents are overlapping. Overlapping intents confuse LUIS. The result is that the top scoring intent is too close to another intent. Because LUIS does not use the exact same path through the data for training each time, an overlapping intent has a chance of being first or second in training. You want the utterance's score for each intention to be farther apart, so this variance doesn't happen. Good distinction for intents should result in the expected top intent every time.
 
-### Balance utterances across intents:
+### Balance utterances across intents
 
 For LUIS predictions to be accurate, the quantity of example utterances in each intent (except for the None intent), must be relatively equal.
 
-If you have an intent with 100 example utterances and an intent with 20 example utterances, the 100-utterance intent will have a higher rate of prediction
+If you have an intent with 500 example utterances and all your other intents with 10 example utterances, the 500-utterance intent will have a higher rate of prediction.
 
-### Add example utterances to none intent:
+### Add example utterances to none intent
 
 This intent is the fallback intent, indicating everything outside your application. Add one example utterance to the None intent for every 10 example utterances in the rest of your LUIS app.
 
 ### Don't add many example utterances to intents
 
-After the app is published, only add utterances from active learning in the development lifecycle process. If utterances are too similar, add a pattern
+After the app is published, only add utterances from active learning in the development lifecycle process. If utterances are too similar, add a pattern.
 
 ### Don't mix the definition of intents and entities
 
