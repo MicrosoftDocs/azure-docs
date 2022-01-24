@@ -80,7 +80,7 @@ conceptualContent:
           text: Enable self-service password reset
         - url: ./authentication/tutorial-enable-azure-mfa.md
           itemType: tutorial
-          text: Secure user sign-in with multifactor authentication
+          text: Enable Azure AD multifactor authentication
       footerLink:
         url: ./authentication/index.yml
         text: See more
