@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 01/24/2022
 ms.author: helohr
 ---
 
