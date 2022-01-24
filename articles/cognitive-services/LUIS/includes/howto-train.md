@@ -16,4 +16,4 @@ ms.topic: include
 
     ![Train button](../media/train-button-preview.png)
 
-1. Training is complete when status indicator on the **Train** button is green.
+2. Training is complete when the Train button is disabled.
