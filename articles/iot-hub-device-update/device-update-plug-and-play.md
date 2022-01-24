@@ -12,8 +12,8 @@ ms.service: iot-hub-device-update
 
 Device Update for IoT Hub uses [IoT Plug and Play](../iot-develop/index.yml) to discover and manage devices that are over-the-air update capable. The Device Update service will send and receive properties and messages to and from devices using IoT Plug and Play interfaces. Device Update for IoT Hub requires IoT devices to implement the following interfaces and model-id as described below.
 
-Concepts: 
-* Understand the [IoT Plug and Play device client](../iot-develop/concepts-developer-guide-device.md?pivots=programming-language-csharp). 
+Concepts:
+* Understand the [IoT Plug and Play device client](../iot-develop/concepts-developer-guide-device.md?pivots=programming-language-csharp).
 * See how the [Device Update agent is implemented](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).
 
 ## ADU Core Interface
@@ -59,25 +59,25 @@ It is the set of properties that contain the manufacturer and model.
 
 IoT Hub Device Twin sample
 ```json
- "azureDeviceUpdateAgent": {
-                           "__t": "c",
-                           "client": {
-                                     "state": 0,
-                                     "resultCode": 200,
-                                     "extendedResultCode": 0,
-                                     "deviceProperties": {
-                                                         "manufacturer": "Contoso",
-                                                         "model": "Video",
-                                                         "aduVer": "DU;agent/0.6.0",
-                                                         "doVer": "DU;lib/v0.4.0,DU;agent/v0.4.0,DU;plugin-apt/v0.2.0"
-                                                         },
-                                     "installedUpdateId": "{\"provider\":\"Contoso\",\"name\":\"SampleUpdate1\",\"version\":\"1.0.4\"}"
-                                     },
-                            }
+"azureDeviceUpdateAgent": {
+  "__t": "c",
+  "client": {
+    "state": 0,
+    "resultCode": 200,
+    "extendedResultCode": 0,
+    "deviceProperties": {
+      "manufacturer": "Contoso",
+      "model": "Video",
+      "aduVer": "DU;agent/0.6.0",
+      "doVer": "DU;lib/v0.4.0,DU;agent/v0.4.0,DU;plugin-apt/v0.2.0"
+    },
+    "installedUpdateId": "{\"provider\":\"Contoso\",\"name\":\"SampleUpdate1\",\"version\":\"1.0.4\"}"
+  },
+}
 ```
 
-Note: 
-The device or module must add the {"__t": "c"} marker to indicate that the element refers to a component, learn more [here](../iot-develop/concepts-convention.md#sample-multiple-components-writable-property).
+>[!NOTE]
+>The device or module must add the `{"__t": "c"}` marker to indicate that the element refers to a component, learn more [here](../iot-develop/concepts-convention.md#sample-multiple-components-writable-property).
 
 ### Service Metadata
 
@@ -118,7 +118,7 @@ The expected component name in your model is **deviceInformation** when implemen
 |totalStorage|Property|string|device to cloud|Total available storage on the device in kilobytes.|2048|
 |totalMemory|Property|string|device to cloud|Total available memory on the device in kilobytes.|256|
 
-## Model ID 
+## Model ID
 
 Model ID is how smart devices advertise their capabilities to Azure IoT applications with IoT Plug and Play.To learn more on how to build smart devices to advertise their capabilities to Azure IoT applications visit [IoT Plug and Play device developer guide](../iot-develop/concepts-developer-guide-device.md).
 
