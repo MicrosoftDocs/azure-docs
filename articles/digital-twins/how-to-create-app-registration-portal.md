@@ -166,7 +166,7 @@ These values are shown in the screenshot below:
 
 :::image type="content" source="media/how-to-create-app-registration/verify-manifest.png" alt-text="Screenshot of the manifest for the Azure AD app registration in the Azure portal.":::
 
-If these values are missing, retry the steps in the [section for adding the API permission](#provide-azure-digital-twins-api-permission).
+If these values are missing, retry the steps in the [section for adding the API permission](#provide-api-permissions).
 
 ## Other possible steps for your organization
 

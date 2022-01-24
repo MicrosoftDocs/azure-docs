@@ -92,7 +92,7 @@ You can confirm that the Azure Digital Twins permissions were granted by looking
 
 :::image type="content" source="media/how-to-create-app-registration/cli-required-resource-access.png" alt-text="Screenshot of Cloud Shell output of the app registration creation command. The items under 'requiredResourceAccess' are highlighted: there's a 'resourceAppId' value of 0b07f429-9f4b-4714-9392-cc5e8e80c8b0, and a 'resourceAccess > id' value of 4589bd03-58cb-4e6c-b17f-b580e39652f8.":::
 
-You can also verify the app registration was successfully created by using the Azure portal. For portal instructions, see [Verify success (portal)](how-to-create-app-registration-portal.md#verify-success).
+You can also verify the app registration was successfully created with the necessary API permissions by using the Azure portal. For portal instructions, see [Verify API permissions (portal)](how-to-create-app-registration-portal.md#verify-api-permissions).
 
 ## Collect important values
 
@@ -141,7 +141,7 @@ The output of this command is information about the client secret that you've cr
 
 In this section, you'll create a role assignment for the app registration to set its permissions on the Azure Digital Twins instance. This role will determine what permissions the app registration holds on the instance, so you should select the role that matches the appropriate level of permission for your situation. One possible role is [Azure Digital Twins Data Owner](../role-based-access-control/built-in-roles.md#azure-digital-twins-data-owner). For a full list of roles and their descriptions, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
-Use the following command to assign the role (must be run by a user with [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription). The command requires you to pass in the *user principal name* on the Azure AD account for the user that should be assigned the role. In most cases, this value will match the user's email on the Azure AD account.
+Use the following command to assign the role (must be run by a user with [sufficient permissions](how-to-set-up-instance-cli.md#prerequisites-permission-requirements) in the Azure subscription). The command requires you to pass in the *user principal name* on the Azure AD account for the user that should be assigned the role. In most cases, this value will match the user's email on the Azure AD account.
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<name-of-app-registration>" --role "<appropriate-role-name>"
