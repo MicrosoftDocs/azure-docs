@@ -76,7 +76,7 @@ Use the following command to assign the role (must be run by a user with [suffic
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Data Owner"
 ```
 
-The result of this command is outputted information about the role assignment that's been created.
+The result of this command is outputted information about the role assignment that's been created for the user.
 
 > [!NOTE]
 > If this command returns an error saying that the CLI **cannot find user or service principal in graph database**:
