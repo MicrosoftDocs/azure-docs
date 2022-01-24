@@ -145,7 +145,7 @@ For an Azure SQL database, use [register_azure_sql_database()](/python/api/azure
 The following code creates and registers the `credentialless_sqldb` datastore to the `ws` workspace and assigns it to the variable, `sqldb_dstore`. This datastore accesses the database `mydb` in the `myserver` SQL DB server.  
 
 ```python
-# createn sqldatabase datastore without credentials
+# Create a sqldatabase datastore without credentials
                                                        
 sqldb_dstore = Datastore.register_azure_sql_database(workspace=ws,
                                                        datastore_name='credentialless_sqldb',
@@ -160,7 +160,7 @@ For an Azure SQL database, use [register_azure_sql_database()](/python/api/azure
 The following code creates and registers the `credentialless_sqldb` datastore to the `ws` workspace and assigns it to the variable, `sqldb_dstore`. This datastore accesses the database `mydb` in the `myserver` SQL DB server.  
 
 ```python
-# createn sqldatabase datastore without credentials
+# Create a sqldatabase datastore without credentials
                                                        
 sqldb_dstore = Datastore.register_azure_sql_database(workspace=ws,
                                                        datastore_name='credentialless_sqldb',
