@@ -14,13 +14,13 @@ ms.subservice: common
 
 # Storage account overview
 
-An Azure storage account contains all of your Azure Storage data objects, including blobs, file shares, queues, tables, and disks. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world, over HTTP or HTTPS. Data in your storage account is durable and highly available, secure, and massively scalable.
+An Azure storage account contains all of your Azure Storage data objects, including blobs, file shares, queues, tables, and disks. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS. Data in your storage account is durable and highly available, secure, and massively scalable.
 
 To learn how to create an Azure Storage account, see [Create a storage account](storage-account-create.md).
 
 ## Types of storage accounts
 
-Azure Storage offers several types of storage accounts. Each type supports different features and has its own pricing model. You should determine the type of account that is best suited for your applications, before creating a storage account.
+Azure Storage offers several types of storage accounts. Each type supports different features and has its own pricing model.
 
 The following table describes the types of storage accounts recommended by Microsoft for most scenarios. All of these use the [Azure Resource Manager](../../azure-resource-manager/management/overview.md) deployment model.
 
@@ -39,7 +39,7 @@ The following table describes the types of storage accounts recommended by Micro
 
 Legacy storage accounts are also supported. For more information, see [Legacy storage account types](#legacy-storage-account-types).
 
-You cannot change a storage account to a different type after it is created. To move your data to a storage account of a different type, you must create a new account and copy the data over to the new account.
+You cannot change a storage account to a different type after it is created. To move your data to a storage account of a different type, you must create a new account and copy the data to the new account.
 
 ## Storage account endpoints
 
