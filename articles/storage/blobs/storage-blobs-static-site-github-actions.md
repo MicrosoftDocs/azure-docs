@@ -25,7 +25,7 @@ Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a
 An Azure subscription and GitHub account.
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A GitHub repository with your static website code. If you don't have a GitHub account, [sign up for free](https://github.com/join).
+- A GitHub repository with your static website code. If you do not have a GitHub account, [sign up for free](https://github.com/join).
 - A working static website hosted in Azure Storage. Learn how to [host a static website in Azure Storage](storage-blob-static-website-how-to.md). To follow this example, you should also deploy [Azure CDN](static-website-content-delivery-network.md).
 
 > [!NOTE]
@@ -44,7 +44,7 @@ Replace the placeholder `myStaticSite` with the name of your site hosted in Azur
    az ad sp create-for-rbac --name {myStaticSite} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
 ```
 
-In the example above, replace the placeholders with your subscription ID and resource group name. The output is a JSON object with the role assignment credentials that provide access to your storage account similar to below. Copy this JSON object for later.
+In the example, replace the placeholders with your subscription ID and resource group name. The output is a JSON object with the role assignment credentials that provide access to your storage account. Copy this JSON object for later.
 
 ```output 
   {
@@ -63,7 +63,7 @@ In the example above, replace the placeholders with your subscription ID and res
 
 OpenID Connect is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is more complex process that offers hardened security. 
 
-1.  If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
+1.  If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
 
     ```azurecli-interactive
     az ad app create --display-name myApp
@@ -71,7 +71,7 @@ OpenID Connect is an authentication method that uses short-lived tokens. Setting
 
     This command will output JSON with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later. 
 
-    You'll use the `objectId` value when creating federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
+    You will use the `objectId` value when creating federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
 
 1. Create a service principal. Replace the `$appID` with the appId from your JSON output. 
 
@@ -126,7 +126,7 @@ To learn how to create a Create an active directory application, service princip
 
 # [OpenID Connect](#tab/openid)
 
-You need to provide your application's **Client ID**, **Tenant ID** and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
+You need to provide your application's **Client ID**, **Tenant ID**, and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
 
 1. Open your GitHub repository and go to **Settings**.
 
@@ -166,7 +166,7 @@ You need to provide your application's **Client ID**, **Tenant ID** and **Subscr
             branches: [ main ]
     ```
 
-1. Rename your workflow `Blob storage website CI` and add the checkout and login actions. These actions will checkout your site code and authenticate with Azure using the `AZURE_CREDENTIALS` GitHub secret you created earlier.
+1. Rename your workflow `Blob storage website CI` and add the checkout and login actions. These actions will check out your site code and authenticate with Azure using the `AZURE_CREDENTIALS` GitHub secret you created earlier.
 
     ```yaml
     name: Blob storage website CI
@@ -269,7 +269,7 @@ You need to provide your application's **Client ID**, **Tenant ID** and **Subscr
           contents: read
     ```
 
-1. Add checkout and login actions. These actions will checkout your site code and authenticate with Azure using the GitHub secrets you created earlier.
+1. Add checkout and login actions. These actions will check out your site code and authenticate with Azure using the GitHub secrets you created earlier.
 
     ```yaml
     name: CI with OpenID Connect
