@@ -354,7 +354,7 @@ az containerapp create \
   --enable-dapr \
   --dapr-app-port 3000 \
   --dapr-app-id nodeapp \
-  --secrets 'storageaccountnamesecret="<YOUR_STORAGE_ACCOUNT_NAME>",storageaccountkeysecret="<YOUR_STORAGE_ACCOUNT_KEY>"' \
+ --secrets "storageaccountnamesecret=${STORAGE_ACCOUNT},storageaccountkeysecret=${STORAGE_ACCOUNT_KEY}" \
   --dapr-components ./components.yaml
 ```
 
