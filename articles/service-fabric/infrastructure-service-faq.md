@@ -44,5 +44,3 @@ All Tenant update operations in a Service fabric clusters are carried out if and
 
 ### I want to bypass Infrastructure Service and perform operations on my cluster. How do I do that?
 Bypassing Infrastructure service for any infrastructure updates is a risky operation and is not recommended. Engage Service Fabric support experts before deciding to perform these steps.
-
-
