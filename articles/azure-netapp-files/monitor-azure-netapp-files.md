@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/06/2022
+ms.date: 01/24/2022
 ms.author: anfdocs
 ---
 # Ways to monitor Azure NetApp Files
@@ -34,6 +34,12 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 You can find metrics for a capacity pool or volume by selecting the **capacity pool** or **volume**. Then click **Metric** to view the available metrics.  
 
 For more information about Azure NetApp Files metrics, see [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md).
+
+## Azure Service Health
+
+The [Azure Service Health dashboard](https://azure.microsoft.com/features/service-health) keeps you informed about the health of your environment. It provides a personalized view of the status of your Azure services in the regions where they are used. The dashboard provides upcoming planned maintenance and relevant health advisories while allowing you to manage service health alerts.
+
+For more information, see [Azure Service Health dashboard](../service-health/service-health-overview.md) documentation.
 
 ## Capacity utilization monitoring 
 
