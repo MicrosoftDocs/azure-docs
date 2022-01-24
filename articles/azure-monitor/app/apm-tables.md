@@ -241,7 +241,7 @@ Legacy table: customMetrics
 |valueCount|int|ValueCount|int|
 |valueMax|real|ValueMax|real|
 |valueMin|real|ValueMin|real|
-|valueStdDev|real|ValueStdDev|real|
+|valueStdDev|real|(removed)||
 |valueSum|real|ValueSum|real|
 
 ### AppPageViews
