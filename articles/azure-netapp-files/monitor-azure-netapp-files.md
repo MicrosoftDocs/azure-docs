@@ -39,7 +39,7 @@ For more information about Azure NetApp Files metrics, see [Metrics for Azure Ne
 
 The [Azure Service Health dashboard](https://azure.microsoft.com/features/service-health) keeps you informed about the health of your environment. It provides a personalized view of the status of your Azure services in the regions where they are used. The dashboard provides upcoming planned maintenance and relevant health advisories while allowing you to manage service health alerts.
 
-For more information, see [Azure Service Health dashboard](../service-health/service-health-overview.md) documentation.
+For more information, see [Azure Service Health dashboard](../service-health/service-health-overview.md) documentation. 
 
 ## Capacity utilization monitoring 
 
