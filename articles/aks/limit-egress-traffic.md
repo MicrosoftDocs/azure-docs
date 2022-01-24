@@ -153,6 +153,18 @@ The following FQDN / application rules are required for using Windows Server bas
 
 ## AKS addons and integrations
 
+### Microsoft Defender for Containers
+
+#### Required FQDN / application rules
+
+The following FQDN / application rules are required for AKS clusters that have Microsoft Defender for Containers enabled.
+
+| FQDN                                          | Port      | Use      |
+|-----------------------------------------------|-----------|----------|
+| **`login.microsoftonline.com`** | **`HTTPS:443`** | Required for Active Directory Authentication. |
+| **`*.ods.opinsights.azure.com`** | **`HTTPS:443`** | Required for Microsoft Defender to upload security events to the cloud.|
+| **`*.oms.opinsights.azure.com`** | **`HTTPS:443`** | Required to Authenticate with LogAnalytics workspaces.|
+
 ### Azure Monitor for containers
 
 There are two options to provide access to Azure Monitor for containers, you may allow the Azure Monitor [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) **or** provide access to the required FQDN/Application Rules.
@@ -171,10 +183,10 @@ The following FQDN / application rules are required for AKS clusters that have t
 
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|
-| dc.services.visualstudio.com | **`HTTPS:443`**    | This endpoint is used for metrics and monitoring telemetry using Azure Monitor. |
-| *.ods.opinsights.azure.com    | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for ingesting log analytics data. |
-| *.oms.opinsights.azure.com | **`HTTPS:443`** | This endpoint is used by omsagent, which is used to authenticate the log analytics service. |
-| *.monitoring.azure.com | **`HTTPS:443`** | This endpoint is used to send metrics data to Azure Monitor. |
+| **`dc.services.visualstudio.com`** | **`HTTPS:443`**    | This endpoint is used for metrics and monitoring telemetry using Azure Monitor. |
+| **`*.ods.opinsights.azure.com`**    | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for ingesting log analytics data. |
+| **`*.oms.opinsights.azure.com`** | **`HTTPS:443`** | This endpoint is used by omsagent, which is used to authenticate the log analytics service. |
+| **`*.monitoring.azure.com`** | **`HTTPS:443`** | This endpoint is used to send metrics data to Azure Monitor. |
 
 ### Azure Policy
 
