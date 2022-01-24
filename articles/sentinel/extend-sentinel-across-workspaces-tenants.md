@@ -120,7 +120,7 @@ Cross-workspace hunting capabilities enable your threat hunters to create new hu
 
 To configure and manage multiple Microsoft Sentinel workspaces, you will need to automate the use of the Microsoft Sentinel management API. For more information on how to automate the deployment of Microsoft Sentinel resources, including alert rules, hunting queries, workbooks and playbooks, see [Extending Microsoft Sentinel: APIs, Integration and management automation](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).
 
-See also [Deploy Custom Content from your Repository](https://aka.ms/repositories) for a consolidated methodology for managing Microsoft Sentinel as code and for deploying and configuring resources from a private Azure DevOps and GitHub repository.
+See also [Deploy Custom Content from your Repository](ci-cd.md) for a consolidated methodology for managing Microsoft Sentinel as code and for deploying and configuring resources from a private Azure DevOps and GitHub repository.
 
 ## Managing workspaces across tenants using Azure Lighthouse
 
