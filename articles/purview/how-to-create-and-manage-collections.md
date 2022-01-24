@@ -24,7 +24,7 @@ Collections in Azure Purview can be used to organize assets and sources by your 
 
 ### Check permissions
 
-In order to create and manage collections in Azure Purview, you will need to be a **Collection Admin** within Azure Purview. We can check these permissions in the [Azure Purview Studio](https://web.purview.azure.com/resource/). You can find the studio by going to your Azure Purview resource in the [Azure portal](https://portal.azure.com), and selecting the Open Azure Purview Studio tile on the overview page.
+In order to create and manage collections in Azure Purview, you will need to be a **Collection Admin** within Azure Purview. We can check these permissions in the [Azure Purview Studio](https://web.purview.azure.com/resource/). You can find Studio in the overview page of the Azure Purview resource in [Azure portal](https://portal.azure.com).
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
@@ -111,7 +111,7 @@ You'll need to be a collection admin in order to delete a collection. If you are
 
 Since permissions are managed through collections in Azure Purview, it is important to understand the roles and what permissions they will give your users. A user granted permissions on a collection will have access to sources and assets associated with that collection, as well as inherit permissions to subcollections. Inheritance [can be restricted](#restrict-inheritance), but is allowed by default.
 
-The guide below will discuss the roles, how to manage them, and permissions inheritance.
+The following guide will discuss the roles, how to manage them, and permissions inheritance.
 
 ### Roles
 
