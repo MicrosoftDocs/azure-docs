@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 Use an Azure Table storage output binding to write entities to a table in an Azure Storage account.
 
 > [!NOTE]
-> This output binding doesn't support updating existing entities. Use the `TableOperation.Replace` operation [from the Azure Storage SDK](../cosmos-db/table/table-support.md) to update an existing entity.
+> This output binding only supports creating new entities in a table. If you need to update an existing entity from your function code, instead use the `TableOperation.Replace` operation [from the Azure Storage SDK](../cosmos-db/table/table-support.md).
 
 ## Example
 
