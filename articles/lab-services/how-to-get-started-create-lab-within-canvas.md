@@ -30,10 +30,11 @@ First, let us turn on Azure Lab Services developer key for Canvas.
 ### Link lab plans to Canvas
 
 Now that Azure Lab Services app is enabled in Canvas, we need to link the lab plans to Canvas.  Linking lab plans to Canvas must be done by a Canvas administrator.  The Canvas administrator must have the following permissions on the lab plan.
+
 - **Reader** role on the subscription.
 - **Contributor** role on the resource group that contains your lab plan.
 
-Only linked lab plans will be available for Canvas educators to use when creating labs. 
+Only linked lab plans will be available for Canvas educators to use when creating labs.
 
 1. [Add Azure Lab Services to a course in Canvas](#add-azure-lab-services-app-to-a-course).  Canvas administrator will need to add Azure Lab Services to the course *only* if there are no other courses with Azure Lab Services.  If there is already a course with the Azure Lab Services app, navigate to that course in Canvas and skip this step.  
 2. [Create a lab plan in Azure](./tutorial-setup-lab-plan.md) if you have not already.
@@ -42,26 +43,26 @@ Only linked lab plans will be available for Canvas educators to use when creatin
 5. Choose which lab plans to link.
 :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/canvas-select-lab-plans.png" alt-text="Screenshot that shows list of lab plans that can be liked to Canvas.":::
 
-1. Select **Save**.
-     
+6. Select **Save**.
+
 If you view the lab plan in the [Azure portal](https://portal.azure.com), the **LMS settings** page will show the lab plan has been successfully linked.
 :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/lab-plan-linked-canvas.png" alt-text="Screenshot of the L M S settings page for a lab plan.":::
 
 ### Add Azure Lab Services app to a course
 
-    1. In Canvas, go to the course that will use Azure Lab Services.
-    1. Choose **Settings**, then select the **Apps** tab.
-    1. Select **View App Configurations** button at the top right of the page.
+1. In Canvas, go to the course that will use Azure Lab Services.
+1. Choose **Settings**, then select the **Apps** tab.
+1. Select **View App Configurations** button at the top right of the page.
     :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/canvas-settings-apps.png" alt-text="Screenshot that shows the App tab of a the settings page for a course in Canvas.":::
 
-    1. Select the blue **+ App** button at the top right of the page.
+1. Select the blue **+ App** button at the top right of the page.
     :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/canvas-add-app.png" alt-text="Screenshot that shows Add app button in Canvas.":::
-    
-    1. On the **Add App** dialog, in the **Configuration Type** dropdown, choose **By Client ID**.  Enter the Azure Lab Services client ID, which is **170000000000711**, into the **Client ID** field. Select the **Submit** button.
+
+1. On the **Add App** dialog, in the **Configuration Type** dropdown, choose **By Client ID**.  Enter the Azure Lab Services client ID, which is **170000000000711**, into the **Client ID** field. Select the **Submit** button.
     :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/enable-lab-services.png" alt-text="Screenshot that shows Add by Client Id dialog in Canvas.":::
 
-    1. When the **Add App** dialog asks *Tool "Azure Lab Services" found for client ID 170000000000711. Would you like to install it?* select **Install**.
-    1. The Azure Lab Services app will take a few moments to show in the course navigation list.
+1. When the **Add App** dialog asks *Tool "Azure Lab Services" found for client ID 170000000000711. Would you like to install it?* select **Install**.
+1. The Azure Lab Services app will take a few moments to show in the course navigation list.
 
 ## Create labs in Canvas
 

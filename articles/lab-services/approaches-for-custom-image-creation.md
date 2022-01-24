@@ -27,15 +27,16 @@ There are a few key points to be aware of with this approach:
 
 - For more advanced scenarios with setting up your image, you might find it helpful to instead create an image outside of labs by using either an Azure VM or a VHD from your physical lab environment. Read the next sections for more information.
 
-### Use a lab's template VM to save a custom image 
+### Use a lab's template VM to save a custom image
 
-You can use a lab's template VM to create either Windows or Linux custom images. For more information, see [Save the image to a compute gallery](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery).
+You can use a lab's template VM to create either Windows or Linux custom images. For more information, see [Save an image a compute gallery](how-to-use-shared-image-gallery.md#save-an-image-a-compute-gallery)
 
 ## Bring a custom image from an Azure VM
 
 Another approach is to use an Azure VM to set up a custom image. After you've finished setting up the image, you can save it to a compute gallery so that you and your colleagues can use the image to create new labs.
 
 Using an Azure VM gives you more flexibility:
+
 - You can create either [generalized or specialized](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) images. Otherwise, if you use a lab's template VM to [export an image](how-to-use-shared-image-gallery.md) the image is always specialized.
 - You have access to more advanced features of an Azure VM that might be helpful for setting up an image. For example, you can use [extensions](../virtual-machines/extensions/overview.md) to do post-deployment configuration and automation. Also, you can access the VM's [boot diagnostics](../virtual-machines/boot-diagnostics.md) and [serial console](/troubleshoot/azure/virtual-machines/serial-console-overview).
 
