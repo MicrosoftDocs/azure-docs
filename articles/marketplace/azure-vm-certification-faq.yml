@@ -344,11 +344,11 @@ sections:
       - question: |
           VM images must have 1MB free space
         answer: |
-          >[!NOTE]
-          >As of **30 September, 2021**, if you are publishing images to Azure (with **GPT partition**), **ensure the first 2048 sectors (1 MB) of the OS disk is empty**. Otherwise, your publishing will fail. This requirement is to allow Azure to add important bits to the image (example include bits to improve boot time for customers, billing and other details).
-
-          If you are [building your own image](azure-vm-create-using-own-image.md), ensure the first 2048 sectors (1 MB) of the OS disk is empty. Otherwise, your publishing will fail. This requirement is applicable to the OS disk only (not data disks). If you are building your image [from an approved base](azure-vm-create-using-approved-base.md), you can skip this requirement.
-          
+         
+      If you are publishing your image to Azure (with **GPT parition**), it is **highly recommended** to keep the first 2048 sectors (1 MB) of the OS disk empty. This requirement is to allow Azure to add important metadata to the image (examples include metadata to improve boot time for customers, billing, and other details). Please note that this is a recommendation for best practice if you are already using [an approved base image] (azure-vm-create-using-approved-base.md) and your image has a valid billing tag. However, if your image does not have a valid billing tag, your publishing might fail in case the first 1MB of the OS disk is not empty. 
+      If you are building your own image that does not have any valid billing tag, ensure the first 2048 sectors (1 MB) of the OS disk are empty. Otherwise, your publishing will fail. This requirement is applicable to the OS disk only (not data disks). If you are building your image from an approved base, it will already have first 1MB empty. Hence you will not need to work on it separately. 
+      Please follow this step-by-step process to keep first 1MB free in your OS disk - How to keep 1 MB free space at the start on an empty VHD (2048 sectors, each sector of 512 bytes) 
+  
           ### How to keep 1 MB free space at the start on an empty VHD (2048 sectors, each sector of 512 bytes)
 
           These steps apply to Linux only.
@@ -357,11 +357,9 @@ sections:
           
              ![Screenshot that shows the Create a virtual machine page with the 'Next: Disks command' button highlighted.](./media/create-vm/vm-certification-issues-solutions-15.png)
           
-          1. Create an unmanaged disk for your VM.
-          
-             Either use the default values or specify any value for fields like NIC, NSG, and public IP.
-          
-             ![Screenshot image of the 'Data disks' page in the Create a virtual machine flow.](./media/create-vm/vm-certification-issues-solutions-16.png)
+          1. Create an unmanaged disk for your VM. Either use the default values or specify any value for fields like OS Disk Size, Type, and encryption type.
+
+            ![Screenshot image of the 'Data disks' page in the Create a virtual machine flow.](media/2nd.png)
           
           1. After you create the VM, select **Disks** in the left pane.
           
@@ -369,9 +367,10 @@ sections:
           
           1. Attach your VHD as data disk to your VM for creating a partition table.
           
-             1. Select **Add DataDisk** > **Existing Blob**.
-          
-                ![Screenshot showing how to add a data disk to your VHD.](./media/create-vm/vm-certification-issues-solutions-18.png)
+            1. Select **Attach Existing Disk**.
+
+                ![Screenshot showing how to add a data disk to your VHD.](media/Data Disk.PNG)
+                ![Screenshot showing how to select the data disk for your VHD](media/Source data disk.PNG)
           
              1. Find your VHD storage account.
              1. Select **Container** and then select your VHD.
@@ -413,56 +412,7 @@ sections:
                 ![Putty client command line screenshot showing the commands for creating the 2048 offset.](./media/create-vm/vm-certification-issues-solutions-24.png)
           
           1. Detach the VHD from VM and delete the VM.
-          
-          ### How to keep 1 MB free space by moving existing data on VHD (2048 sectors, each sector of 512 bytes)
-
-          These steps apply to Linux only.
-          
-          1. Create any kind of Linux VM, such as Ubuntu, Cent OS, or other. Fill the required fields and select **Next: Disks >**.
-          
-             ![Screenshot that shows the Create a virtual machine page with the 'Next: Disks command' button highlighted.](./media/create-vm/vm-certification-issues-solutions-15.png)
-          
-          1. Create an unmanaged disk for your VM.
-          
-             ![Screenshot image of the 'Data disks' page in the Create a virtual machine flow.](./media/create-vm/vm-certification-issues-solutions-16.png)
-          
-             Either use the default values or specify any value for fields like NIC, NSG, and public IP.
-          
-          1. After you create the VM, select **Disks** in the left pane.
-          
-             ![Screenshot showing how to select disks for a VM.](./media/create-vm/vm-certification-issues-solutions-17.png)
-          
-          1. Attach your VHD as data disk to your VM for creating a partition table.
-          
-             1. Attach your VHD as data disk to your VM for creating a partition table.
-          
-             1. Select **Add DataDisk** > **Existing Blob**.
-          
-                ![Screenshot showing how to add a data disk to your VHD.](./media/create-vm/vm-certification-issues-solutions-18.png)
-          
-             1. Find your VHD storage account.
-             1. Select **Container** and then select your VHD.
-             1. Select **OK**.
-          
-                ![Screenshot of the attach unmanaged disk page.](./media/create-vm/vm-certification-issues-solutions-19.png)
-          
-                Your VHD will be added as data disk LUN 0.
-          
-             1. Restart the VM.
-          
-          1. Log in to the VM with Putty or another client and run `sudo  -i` command to gain root access.
-          
-             ![Putty client command line screenshot showing log in and the sudo -i command.](./media/create-vm/vm-certification-issues-solutions-20.png)
-          
-          1. Run the command `echo '+1M,' | sfdisk --move-data /dev/sdc -N 1`.
-          
-             ![Putty client command line screenshot showing the execution of the commands.](./media/create-vm/vm-certification-issues-solutions-25.png)
-          
-             >[!NOTE]
-             >This command may take some time to complete because it depends upon the size of the disk.
-          
-          1. Detach the VHD from VM and delete the VM.
-          
+        
           
       - question: |
           Default credentials
