@@ -88,7 +88,7 @@ For each month, we truncate the SLA attainment at three places after the decimal
 
   
 
-## Root Cause Analysis (RCA) of past incidents 
+## Root cause analysis  
 
 All incidents that cause Azure AD to go below its SLA for a set of customers are documented in the [Azure status history](https://status.azure.com/status/history/). You can view information about the impact of incidents, as well as a root cause analysis of what caused the incident and what steps Microsoft took to prevent future incidents. 
 
