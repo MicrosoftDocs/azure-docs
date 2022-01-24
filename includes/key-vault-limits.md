@@ -73,7 +73,7 @@ Key Vault does not restrict the number of versions on a secret, key or certifica
 
 | Resource | Limit |
 | -------- | -----:|
-| Private endpoints per key vault | 64 |
+| Private endpoints per key vault or managed HSM| 64 |
 | Key vaults with private endpoints per subscription | 400 |
 
 ### Resource type: Managed HSM
@@ -85,9 +85,9 @@ This section describes service limits for resource type `managed HSM`.
 |Item|Limits|
 |----|------:|
 Number of HSM instances per subscription per region|5 
-Number of keys per HSM Pool|5000
+Number of keys per HSM instance |5000
 Number of versions per key|100
-Number of custom role definitions per HSM|50
+Number of custom role definitions per HSM instance|50
 Number of role assignments at HSM scope|50
 Number of role assignment at each individual key scope|10
 |||
