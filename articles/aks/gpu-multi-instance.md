@@ -37,7 +37,7 @@ The available GPU Instance Profiles available for this instance size are `MIG1g`
 
 
 ## Create an AKS cluster
-To get started, create a resource group and a AKS cluster. If you already have a cluster, you can skip this step. Follow the example below to the resource group name `myresourcegroup` in the `southcentralus` region:
+To get started, create a resource group and an AKS cluster. If you already have a cluster, you can skip this step. Follow the example below to the resource group name `myresourcegroup` in the `southcentralus` region:
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location southcentralus
@@ -92,19 +92,19 @@ The two strategies "Single" and "Mixed" won't affect how you execute CPU workloa
 
 - Single Strategy
 
-The single strategy treats every GPU instance as a GPU. If you're using this strategy, the GPU resources will be displayed as:
+  The single strategy treats every GPU instance as a GPU. If you're using this strategy, the GPU resources will be displayed as:
 
-```
-nvidia.com/gpu: 1
-```
+  ```
+  nvidia.com/gpu: 1
+  ```
 
 - Mixed Strategy
 
-The mixed strategy will expose the GPU instances and the GPU instance profile. If you use this strategy, the GPU resource will be displayed as:
+  The mixed strategy will expose the GPU instances and the GPU instance profile. If you use this strategy, the GPU resource will be displayed as:
 
-```
-nvidia.com/mig1g.5gb: 1
-```
+  ```
+  nvidia.com/mig1g.5gb: 1
+  ```
 
 ### Install the NVIDIA device plugin and GPU feature discovery
 
