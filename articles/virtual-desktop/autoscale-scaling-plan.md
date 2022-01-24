@@ -23,7 +23,7 @@ The autoscale feature (preview) lets you scale your Azure Virtual Desktop deploy
 >[!NOTE]
 > - Azure Virtual Desktop (classic) doesn't support the autoscale feature. 
 > - Autoscale doesn't support Azure Virtual Desktop for Azure Stack HCI 
-> - Autsoscale doesn't support scaling of ephemeral disks.
+> - Autoscale doesn't support scaling of ephemeral disks.
 > - Autoscale doesn't support scaling of generalized VMs.
 
 
@@ -124,7 +124,7 @@ To assign the custom role to grant access:
 
 2. Select the role you just created and continue to the next screen.
 
-3. Select **+Select members**. In the search bar, enter and select **Windows Virtual Desktop**, as shown in the following screenshot. When you have a Azure Virtual Desktop (classic) deployment and an Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects, you will see two apps with the same name. Select them both.
+3. Select **+Select members**. In the search bar, enter and select **Windows Virtual Desktop**, as shown in the following screenshot. When you have an Azure Virtual Desktop (classic) deployment and an Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects, you will see two apps with the same name. Select them both.
 
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the add role assignment menu. The Select field is highlighted in red, with the user entering "Windows Virtual Desktop" into the search field.](media/search-for-role.png)
