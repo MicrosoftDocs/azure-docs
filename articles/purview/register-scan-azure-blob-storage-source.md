@@ -283,8 +283,7 @@ Scans can be managed or run again on completion
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-full-inc-scan.png" alt-text="full or incremental scan":::
 
 ## Access policy
-[!INCLUDE [supported regions](./includes/storage-access-policy-regions.md)]
-[!INCLUDE [access policy enablement storage](./includes/storage-access-policy-enable.md)]
+[!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
 
 Follow this configuration guide to [enable access policies on an Azure Storage account](./how-to-access-policies-storage.md)
 
