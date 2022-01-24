@@ -5,8 +5,8 @@ keywords: SQL Edge,sync data from SQL Edge, SQL Edge data factory
 services: sql-edge
 ms.service: sql-edge
 ms.topic: tutorial
-author: SQLSourabh
-ms.author: sourabha
+author: rothja
+ms.author: jroth
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ---
