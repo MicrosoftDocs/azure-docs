@@ -15,7 +15,7 @@ This article will walk you through how to create a multi-instance GPU node pool 
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## GPU Instance Profile
+## GPU Instance Profile 
 
 GPU Instance Profiles define how a GPU will be partitioned. The following table shows the available GPU Instance Profile for the `Standard_ND96asr_v4`, the only instance type that supports the A100 GPU at this time.
 
