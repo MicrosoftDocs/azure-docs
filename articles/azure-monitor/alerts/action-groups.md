@@ -3,8 +3,9 @@ title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 01/15/2022
 ms.author: dukek
+ms.custom: references_regions
 ---
 # Create and manage action groups in the Azure portal
 An action group is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor, Service Health and Azure Advisor alerts use action groups to notify users that an alert has been triggered. Various alerts may use the same action group or different action groups depending on the user's requirements. 
@@ -94,6 +95,33 @@ Under **Instance details**:
 
 > [!NOTE]
 > When you configure an action to notify a person by email or SMS, they receive a confirmation indicating they have been added to the action group.
+### Test an action group in the Azure portal (Preview)
+
+When creating or updating an action group in the Azure portal, you can **test** the action group.
+1. After creating an action rule, click on **Review + create**.  Select *Test action group*.
+
+    ![The Test Action Group](./media/action-groups/test-action-group.png)
+    
+1. Select the *sample type* and select the notification and action types that you want to test and select **Test**.
+    
+    ![Select Sample Type + notification + action type](./media/action-groups/test-sample-action-group.png)
+
+1. If you close the window or select **Back to test setup** while the test is running, the test is stopped, and you will not get test results. 
+
+    ![Stop running test](./media/action-groups/stop-running-test.png)
+
+1. When the test is complete either a **Success** or **Failed** test status is displayed. If the test failed, you could select *View details* to get more information.  
+    ![Test sample failed](./media/action-groups/test-sample-failed.png)
+
+You can use the information in the **Error details section**, to understand the issue so that you can edit and test the action group again.
+To allow you to check the action groups are working as expected before you enable them in a production environment, you will get email and SMS alerts with the subject: Test.
+
+All the details and links in Test email notifications for the alerts fired are a sample set for reference. 
+
+> [!NOTE]
+> You may have a limited number of actions in a test Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
+>
+> You can opt in or opt out to the common alert schema through Action Groups, on the portal. You can [find common schema samples for test action groups for all the sample types](./alerts-common-schema-test-action-definitions.md).
 
 ## Manage your action groups
 
@@ -153,11 +181,11 @@ While setting up *Email ARM Role* you need to make sure below 3 conditions are m
 > [!NOTE]
 > It can take upto **24 hours** for customer to start receiving notifications after they add new ARM Role to their subscription.
 
-### Event Hub (Preview)
+### Event hub (preview)
 > [!NOTE]
-> The Event Hub action type is currently in *Preview*. During the preview there may be bugs and disruptions in availability of the functionality.
+> The event hub action type is currently in *Preview*. During the preview there may be bugs and disruptions in availability of the functionality.
 
-An Event Hub action publishes notifications to an [Azure Event Hub](~/articles/event-hubs/event-hubs-about.md). You may then subscribe to the alert notification stream from your event receiver.
+An event hub action publishes notifications to [Azure Event Hubs](~/articles/event-hubs/event-hubs-about.md). You may then subscribe to the alert notification stream from your event receiver.
 
 ### Function
 Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-get-started.md). To handle a request, your endpoint must handle the HTTP POST verb.

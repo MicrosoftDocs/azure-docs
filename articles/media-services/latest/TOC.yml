@@ -52,9 +52,9 @@
       href: setup-postman-rest-how-to.md
   - name: Try an SDK sample
     items:
-      - name: GitHub code samples
+      - name: GitHub samples by language
         href: samples-overview.md
-        displayName: samples, SDK, Tutorial
+        displayName: samples, SDK, tutorial, GitHub, .NET, Python, Nodejs, Node, Node.JS Java, Typescript, TS, Javascript, JS
   - name: Try Media Services in the portal
     items:
     - name: Live event with portal and Wirecast
@@ -145,12 +145,9 @@
       displayName: events, event grid, log analytics, tutorial, portal, monitoring, monitor
 - name: Samples
   items:
-  - name: GitHub code samples
+  - name: GitHub samples by language
     href: samples-overview.md
-    displayName: samples, SDK, tutorial, GitHub
-  - name: Media Services v3 GitHub samples
-    displayName: .NET, Python, Nodejs, Java, samples, tutorials, SDK, GitHub
-    href: https://github.com/Azure-Samples?q=media-services&type=&language=&sort=
+    displayName: samples, SDK, tutorial, GitHub, .NET, C#, Python, Nodejs, Node, Node.JS Java, Typescript, TS, Javascript, JS
   - name: Media Services v3 GitHub REST samples
     href: https://github.com/Azure-Samples/media-services-v3-rest-postman
 - name: Concepts

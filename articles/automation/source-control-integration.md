@@ -28,7 +28,7 @@ Azure Automation supports three types of source control:
 ## Prerequisites
 
 * A source control repository (GitHub or Azure DevOps)
-* The Automation account requires either a system-assigned or user assigned [managed identity](automation-security-overview.md#managed-identities). If you haven't configured a managed identity with your Automation account, see [Enable system-assigned managed identity](enable-managed-identity-for-automation.md#enable-a-system-assigned-managed-identity-for-an-azure-automation-account) or [enable user-assigned managed identity](/azure/automation/add-user-assigned-identity) to create it.
+* The Automation account requires either a system-assigned or user assigned [managed identity](automation-security-overview.md#managed-identities). If you haven't configured a managed identity with your Automation account, see [Enable system-assigned managed identity](enable-managed-identity-for-automation.md#enable-a-system-assigned-managed-identity-for-an-azure-automation-account) or [enable user-assigned managed identity](./add-user-assigned-identity.md) to create it.
 * Assign the user assigned or system-assigned managed identity to the [Contributor](automation-role-based-access-control.md#contributor) role in the Automation account.
 
 > [!NOTE]

@@ -34,7 +34,6 @@ The voice-enabled chat bot that you make in this tutorial follows these steps:
 1. The recognized text is passed to the echo bot as a Bot Framework activity.
 1. The response text is turned into audio by the text-to-speech service, and streamed back to the client application for playback.
 
-<!-- svg src in User Story 1754106 -->
 ![Diagram that illustrates the flow of the Direct Line Speech channel.](media/tutorial-voice-enable-your-bot-speech-sdk/diagram.png "The Speech Channel flow")
 
 > [!NOTE]

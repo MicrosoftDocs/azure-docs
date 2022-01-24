@@ -44,6 +44,7 @@ Currently we support $export for ADLS Gen2 enabled storage accounts, with the fo
 - User cannot take advantage of [hierarchical namespaces](../../storage/blobs/data-lake-storage-namespace.md), yet there isn't a way to target export to a specific subdirectory within the container. We only provide the ability to target a specific container (where we create a new folder for each export).
 - Once an export is complete, we never export anything to that folder again, since subsequent exports to the same container will be inside a newly created folder.
 
+To export data to storage accounts behind the firewalls, see [Configure settings for export](configure-export-data.md).
 
 ## Settings and parameters
 
@@ -65,78 +66,6 @@ The FHIR service supports the following query parameters. All of these parameter
 
 > [!Note]
 > Only storage accounts in the same subscription as that for FHIR service are allowed to be registered as the destination for $export operations.
-
-## Secure Export to Azure Storage
-
-FHIR service supports a secure export operation. Choose one of the two options below:
-
-* Allowing FHIR service as a Microsoft Trusted Service to access the Azure storage account.
- 
-* Allowing specific IP addresses associated with FHIR service to access the Azure storage account. 
-This option provides two different configurations depending on whether the storage account is in the same location as, or is in a different location from that of the FHIR service.
-
-### Allowing FHIR service as a Microsoft Trusted Service
-
-Select a storage account from the Azure portal, and then select the **Networking** blade. Select **Selected networks** under the **Firewalls and virtual networks** tab.
-
-> [!IMPORTANT]
-> Ensure that you’ve granted access permission to the storage account for FHIR service using its managed identity. For more details, see [Configure export setting and set up the storage account](./configure-export-data.md).
-
-  :::image type="content" source="media/export-data/storage-networking.png" alt-text="Azure Storage Networking Settings." lightbox="media/export-data/storage-networking.png":::
-
-Under the **Exceptions** section, select the box **Allow trusted Microsoft services to access this storage account** and save the setting. 
-
-:::image type="content" source="media/export-data/exceptions.png" alt-text="Allow trusted Microsoft services to access this storage account.":::
-
-You're now ready to export FHIR data to the storage account securely. Note that the storage account is on selected networks and is not publicly accessible. To access the files, you can either enable and use private endpoints for the storage account, or enable all networks for the storage account for a short period of time.
-
-> [!IMPORTANT]
-> The user interface will be updated later to allow you to select the Resource type for FHIR service and a specific service instance.
-
-### Allowing specific IP addresses for the Azure storage account in a different region
-
-Select **Networking** of the Azure storage account from the
-portal. 
-   
-Select **Selected networks**. Under the Firewall section, specify the IP address in the **Address range** box. Add IP ranges to
-allow access from the internet or your on-premises networks. You can
-find the IP address in the table below for the Azure region where the
-FHIR service service is provisioned.
-
-|**Azure Region**         |**Public IP Address** |
-|:----------------------|:-------------------|
-| Australia East       | 20.53.44.80       |
-| Canada Central       | 20.48.192.84      |
-| Central US           | 52.182.208.31     |
-| East US              | 20.62.128.148     |
-| East US 2            | 20.49.102.228     |
-| East US 2 EUAP       | 20.39.26.254      |
-| Germany North        | 51.116.51.33      |
-| Germany West Central | 51.116.146.216    |
-| Japan East           | 20.191.160.26     |
-| Korea Central        | 20.41.69.51       |
-| North Central US     | 20.49.114.188     |
-| North Europe         | 52.146.131.52     |
-| South Africa North   | 102.133.220.197   |
-| South Central US     | 13.73.254.220     |
-| Southeast Asia       | 23.98.108.42      |
-| Switzerland North    | 51.107.60.95      |
-| UK South             | 51.104.30.170     |
-| UK West              | 51.137.164.94     |
-| West Central US      | 52.150.156.44     |
-| West Europe          | 20.61.98.66       |
-| West US 2            | 40.64.135.77      |
-
-> [!NOTE]
-> The above steps are similar to the configuration steps described in the document How to convert data to FHIR (Preview). For more information, see [Host and use templates](./convert-data.md#host-and-use-templates)
-
-### Allowing specific IP addresses for the Azure storage account in the same region
-
-The configuration process is the same as above except a specific IP
-address range in CIDR format is used instead, 100.64.0.0/10. The reason why the IP address range, which includes 100.64.0.0 – 100.127.255.255, must be specified is because the actual IP address used by the service varies, but will be within the range, for each $export request.
-
-> [!Note] 
-> It is possible that a private IP address within the range of 10.0.2.0/24 may be used instead. In that case, the $export operation will not succeed. You can retry the $export request, but there is no guarantee that an IP address within the range of 100.64.0.0/10 will be used next time. That's the known networking behavior by design. The alternative is to configure the storage account in a different region.
     
 ## Next steps
 

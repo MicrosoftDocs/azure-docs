@@ -6,7 +6,7 @@ ms.service: load-testing
 ms.topic: quickstart
 author: ntrogh
 ms.author: nicktrog
-ms.date: 11/30/2021
+ms.date: 01/11/2022
 ms.custom: template-quickstart, mode-other
 adobe-target: true
 ---
@@ -50,7 +50,7 @@ In this section, you'll create a sample Apache JMeter script that you'll use in 
     <?xml version="1.0" encoding="UTF-8"?>
     <jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
       <hashTree>
-        <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+        <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Azure Load Testing Quickstart" enabled="true">
           <stringProp name="TestPlan.comments"></stringProp>
           <boolProp name="TestPlan.functional_mode">false</boolProp>
           <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
@@ -61,30 +61,27 @@ In this section, you'll create a sample Apache JMeter script that you'll use in 
           <stringProp name="TestPlan.user_define_classpath"></stringProp>
         </TestPlan>
         <hashTree>
-          <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group" enabled="true">
-            <collectionProp name="ultimatethreadgroupdata">
-              <collectionProp name="1400604752">
-                <stringProp name="1567">5</stringProp>
-                <stringProp name="0">0</stringProp>
-                <stringProp name="48873">30</stringProp>
-                <stringProp name="49710">60</stringProp>
-                <stringProp name="10">10</stringProp>
-              </collectionProp>
-            </collectionProp>
+          <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+            <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
             <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
               <boolProp name="LoopController.continue_forever">false</boolProp>
               <intProp name="LoopController.loops">-1</intProp>
             </elementProp>
-            <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-          </kg.apc.jmeter.threads.UltimateThreadGroup>
+            <stringProp name="ThreadGroup.num_threads">5</stringProp>
+            <stringProp name="ThreadGroup.ramp_time">10</stringProp>
+            <boolProp name="ThreadGroup.scheduler">true</boolProp>
+            <stringProp name="ThreadGroup.duration">120</stringProp>
+            <stringProp name="ThreadGroup.delay">5</stringProp>
+            <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+          </ThreadGroup>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="homepage" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Homepage" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
               <stringProp name="HTTPSampler.domain">your-endpoint-url</stringProp>
               <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
               <stringProp name="HTTPSampler.contentEncoding"></stringProp>
               <stringProp name="HTTPSampler.path"></stringProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -93,9 +90,8 @@ In this section, you'll create a sample Apache JMeter script that you'll use in 
               <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
               <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
               <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
-              <stringProp name="HTTPSampler.connect_timeout">60000</stringProp>
-              <stringProp name="HTTPSampler.response_timeout">60000</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
           </hashTree>
