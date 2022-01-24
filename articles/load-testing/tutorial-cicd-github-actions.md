@@ -167,7 +167,7 @@ Update the *SampleApp.yaml* GitHub Actions workflow file to configure the parame
 The GitHub Actions workflow executes the following steps for every update to the main branch:
 
 - Deploy the sample Node.js application to an Azure App Service web app. The name of the web app is configured in the workflow file.
-- Create an Azure Load Testing resource using Azure Resource Manager (ARM) template present in the GitHub repository. Learn more about ARM templates [here](/azure/azure-resource-manager/templates/overview).
+- Create an Azure Load Testing resource using the Azure Resource Manager (ARM) template present in the GitHub repository. Learn more about ARM templates [here](/azure/azure-resource-manager/templates/overview).
 - Trigger Azure Load Testing to create and run the load test based on the Apache JMeter script and the test configuration YAML file in the repository.
 
 To view the results of the load test in the GitHub Actions workflow log:
