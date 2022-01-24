@@ -54,7 +54,7 @@ Let's cover each step:
    :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-log.png" alt-text="Screenshot of the Sign-in log in Azure AD.":::
    
    >[!NOTE]
-   >You should allow access to certauth.login.microsoftonline.com in addition to login.microsoftonline.com and disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
+   >The network administrator should allow access to certauth.login.microsoftonline.com in addition to login.microsoftonline.com and disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
 
    Click the log entry to bring up **Activity Details** and click **Authentication Details**. You will see an entry for X.509 certificate.
 

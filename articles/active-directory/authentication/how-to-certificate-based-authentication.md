@@ -154,7 +154,7 @@ To enable the certificate-based authentication in the Azure MyApps portal, compl
 Once certificate-based authentication is enabled on the tenant, all users in the tenant will see the option to sign in with a certificate. Only users who are enabled for certificate-based authentication will be able to authenticate using the X.509 certificate. 
 
 >[!NOTE]
->You should allow access to certauth.login.microsoftonline.com in addition to login.microsoftonline.com and disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
+>The network administrator should allow access to certauth.login.microsoftonline.com in addition to login.microsoftonline.com and disable TLS inspection on the certauth endpoint to make sure the client certificate request succeeds as part of the TLS handshake.
 
 
 ## Step 5: Test your configuration
