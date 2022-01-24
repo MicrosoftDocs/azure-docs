@@ -3,11 +3,11 @@ title: Troubleshoot session affinity issues
 titleSuffix: Azure Application Gateway
 description: This article provides information on how to troubleshoot session affinity issues in Azure Application Gateway
 services: application-gateway
-author: KumudD
+author: vhorne
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 01/21/2022
-ms.author: kumud
+ms.date: 01/24/2022
+ms.author: victorh
 ---
 
 # Troubleshoot Azure Application Gateway session affinity issues
@@ -44,9 +44,9 @@ Sometimes the session affinity issues might occur when you forget to enable “C
 
    ![Screenshot shows SETTINGS with H T T P settings selected.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-1.png)
 
-4. Click **appGatewayBackendHttpSettings** on the right side to check whether you have selected **Enabled** for Cookie based affinity.
+4. Select the HTTP setting, and on the **Add HTTP setting** page, check if **Cookie based affinity** is enabled.
 
-   ![Screenshot shows the gateway settings for an app gateway, inlcuidng whether Cookie based affinity is selected.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-2.jpg)
+   ![Screenshot shows the gateway settings for an app gateway, including whether Cookie based affinity is selected.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-2.png)
 
 
 
@@ -122,33 +122,7 @@ Enable logging using the Azure portal.
 4. Confirm the settings and then select **Save**.
 
 
-#### View and analyze the Application Gateway access logs
 
-1. In the Azure portal under the Application Gateway resource view, select **Diagnostics settings** in the **Monitoring** section.
-
-2. On the right side, select “**ApplicationGatewayAccessLog**“ in the drop-down list under **Log categories.**  
-
-   ![Screenshot shows the Log categories dropdown list with ApplicationGatewayAccessLog selected.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-9.png)
-
-3. In the Application Gateway Access Log list, click the log you want to analyze and export, and then export the JSON file.
-
-4. Convert the JSON file that you exported in step 3 to CSV file and view them in Excel, Power BI, or any other data-visualization tool.
-
-5. Check the following data:
-
-- **ClientIP**– This is the client IP address from the connecting client.
-- **ClientPort** - This is the source port from the connecting client for the request.
-- **RequestQuery** – This indicates the destination server that the request is received.
-- **Server-Routed**: Back-end pool instance that the request is received.
-- **X-AzureApplicationGateway-LOG-ID**: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the back-end servers. For example: X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.0.2.4.
-
-  - **SERVER-STATUS**: HTTP response code that Application Gateway received from the back end.
-
-  ![Screenshot shows server status in plain text, mostly obscured, with clientPort and SERVER-ROUTED highlighted.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-11.png)
-
-If you see two items are coming from the same ClientIP and Client Port, and they are sent to the same back-end server, that means the Application Gateway configured correctly.
-
-If you see two items are coming from the same ClientIP and Client Port, and they are sent to the different back-end servers, that means the request is bouncing between backend servers, select “**Application is using cookie-based affinity but requests still bouncing between back-end servers**” at the bottom to troubleshoot it.
 
 ### Use web debugger to capture and analyze the HTTP or HTTPS traffics
 
