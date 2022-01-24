@@ -89,7 +89,7 @@ conceptualContent:
       links:
         - url: ./cloud-sync/what-is-cloud-sync.md
           itemType: overview
-          text:  What is Azure AD cloud sync?
+          text:  What is Azure AD Connect cloud sync?
         - url: ./cloud-sync/tutorial-single-forest.md
           itemType: tutorial
           text:  Integrate a single forest with a single tenant
