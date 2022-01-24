@@ -21,10 +21,10 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 
 | Specification  | Value                                                                       |
 |----------------|-----------------------------------------------------------------------------|
-| CPU type       | CPU type	Intel® Xeon ® Gold 6209U CPU @ 2.10 GHz (Cascade Lake) CPU|
+| CPU type       | Intel® Xeon ® Gold 6209U CPU @ 2.10 GHz (Cascade Lake) CPU|
 | CPU: raw       | 20 total cores, 40 total vCPUs                                              |
 | CPU: usable    | 32 vCPUs                                                                    |
-| Memory type    | Memory type	64 GB DDR4-2933Mhz 2Rx4 1.2v ECC UDIMM/SODIMM |
+| Memory type    | 64 GB DDR4-2933Mhz 2Rx4 1.2v ECC UDIMM/SODIMM |
 | Memory: raw    | 128 GB RAM (2 x 64 GB)                                                      |
 | Memory: usable | 102 GB RAM                                                                  |
 
@@ -56,21 +56,21 @@ Your Azure Stack Edge Pro 2 device has four network interfaces, Port 1 - Port 4.
 
 | Specification           | Description                 |
 |-------------------------|----------------------------|
-|  Network interfaces    | **2 X 10 GBase-T/1000Base-T(10/1 GbE) interfaces** – 1 management interface Port 1 is used for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP.<br>The other interface Port 2 is user configurable, can be used for data transfer, and is DHCP by default. These 10/1-GbE interfaces can also operate as 10-GbE interfaces.<br>**2 X 100-GbE interfaces** – These data interfaces, Port 3 and Port 4, can be configured by user as DHCP (default) or static. 
+|  Network interfaces    | **2 X 10 GBase-T/1000Base-T(10/1 GbE) interfaces** – Port 1 is used for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP.<br>The other interface Port 2 is user configurable, can be used for data transfer, and is DHCP by default. These 10/1-GbE interfaces can also operate as 10-GbE interfaces.<br>**2 X 100-GbE interfaces** – These data interfaces, Port 3 and Port 4, can be configured by user as DHCP (default) or static. 
   | 
 
 Your Azure Stack Edge Pro 2 device has the following network hardware:
 
-* **Onboard Intel Ethernet network adapter X722** - Port 1 and port 2. [See here for details.](https://www.intel.com/content/www/us/en/ethernet-products/network-adapters/ethernet-x722-brief.html)
-* **Nvidia Mellanox dual port 100-GbE ConnectX-6 Dx network adapter** - Port 3 and port 4. [See here for details.](https://www.nvidia.com/en-us/networking/ethernet/connectx-6-dx/)
+* **Onboard Intel Ethernet network adapter X722** - Port 1 and Port 2. [See here for details.](https://www.intel.com/content/www/us/en/ethernet-products/network-adapters/ethernet-x722-brief.html)
+* **Nvidia Mellanox dual port 100-GbE ConnectX-6 Dx network adapter** - Port 3 and Port 4. [See here for details.](https://www.nvidia.com/en-us/networking/ethernet/connectx-6-dx/)
 
 Here are the details for the Mellanox card:
 
 | Parameter           | Description                 |
 |-------------------------|----------------------------|
 | Model    | ConnectX®-6 Dx network interface card                     |
-| Model Description               | 100 GbE dual-port QSFP56; |
-| Device Part Number (R640) | MCX623106AC-CDAT, with crypto/with secure boot |
+| Model Description               | 100 GbE dual-port QSFP56 |
+| Device Part Number | MCX623106AC-CDAT, with crypto or <!--or or and?--> with secure boot |
 
 ## Storage specifications
 
@@ -78,13 +78,13 @@ The following table lists the storage capacity of the device.
 
 |     Specification                          |     Value             |
 |--------------------------------------------|-----------------------|
-|    Number of data disks                   |    4 Micron 5200 MTFDDAK960TDD SATA SSDs<br>[See for details.](https://www.micron.com/products/ssd/bus-interfaces/sata-ssds/part-catalog/mtfddak960tdd-1at1zab)|
+|    Number of data disks                   |    4 Micron 5200 MTFDDAK960TDD SATA SSDs<br>[See for details.](https://www.micron.com/solutions/technical-briefs/micron-5200-series-of-sata-ssds)|
 |    Single data disk capacity              |    960 GB             |
 |    Boot disk    |    1  NVMe SSD                |
 |    Boot disk capacity                       |    960 GB             |
 |    Total capacity                          |    ~ 4 TB             |
 |    Total usable capacity                   |    ~ 1.67 TB          |
-|    RAID configuration                      |    Storage Spaces Direct with mirroring |
+|    RAID configuration                      |    [Storage Spaces Direct with mirroring](/windows-server/storage/storage-spaces/storage-spaces-fault-tolerance#mirroring) |
 
 
 ## Enclosure dimensions and weight specifications
@@ -116,7 +116,7 @@ The device package weighs 36 lbs. and requires one person to handle it. The weig
 
 |     Enclosure                                 |     Weight (lbs)        |
 |-----------------------------------------------|---------------------|
-|    Total weight of the package (includes device, packaged bezel, packaged 4-post Kingslide, one power cord, box and foam)       |    36.0          |
+|    Total weight of the package (includes device, packaged bezel, packaged 4-post King slide, one power cord, box and foam)       |    36.0          |
 |    Weight of the device without bezel and without Wi-Fi                       |    20.5       |
 |Weight of the device with bezel| 21.7|
 
