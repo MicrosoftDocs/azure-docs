@@ -109,7 +109,7 @@ For new private cloud deployments starting **January 2022**, NSX-T access will b
 > [!NOTE]
 > Admin access to NSX-T will not be provided to users for private cloud deployments created after **January 2022**.
 
-### NSX-T Cloud admin Privileges
+### NSX-T cloud admin permissions
 
 The following permissions are assigned to the **cloudadmin** role in Azure VMware Solution NSX-T.
 
