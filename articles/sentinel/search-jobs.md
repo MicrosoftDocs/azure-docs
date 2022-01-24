@@ -9,7 +9,7 @@ ms.author: cwatson
 
 # Search across long time spans in large datasets (Preview)
 
-Use search jobs when you start an investigation to find specific events in logs within a given time frame. You can search all your logs, filter through them, and look for events that match your criteria.
+Use a search job when you start an investigation to find specific events in logs within a given time frame. You can search all your logs, filter through them, and look for events that match your criteria.
 
 Before you start a search job, see [Start an investigation by searching large datasets (Preview)](investigate-large-datasets.md) and (billing topic around different log types and search charges).
 
@@ -28,7 +28,7 @@ Go to **Search** in Microsoft Sentinel to enter your search criteria.
 
    When the search job starts, a notification and the job status shows on the search page.
 
-1. Wait for your search job to complete. Depending on your dataset and search criteria, the search job may take 10 minutes to 24 hours to complete. If your search job takes longer than 24 hours, it will time out. If that happens, refine your search criteria and try again.
+1. Wait for your search job to complete. Depending on your dataset and search criteria, the search job may take a few minutes or up to 24 hours to complete. If your search job takes longer than 24 hours, it will time out. If that happens, refine your search criteria and try again.
 
 ## View search job results
 
@@ -46,6 +46,10 @@ View the status and results of your search job by going to the **Saved Searches*
 
    :::image type="content" source="media/search-jobs/search-job-results.png" alt-text="Screenshot that shows the logs page with search job results.":::
 
+   In the search query, notice the time columns referenced.
+ 
+   - `TimeGenerated` is the time the data was ingested into the search table.
+   - `_OriginalTimeGenerated` is the time the data was written to the original log.
 1. To refine the list of results returned from the search table, edit the KQL query.
 
 1. As you're reviewing your search job results, bookmark rows that contain information you find interesting so you can attach them to an incident or refer to them later.
@@ -57,5 +61,5 @@ To learn more, see the following topics.
 
 - [Hunt with bookmarks](bookmarks.md)
 - [Restore archived logs](restore.md)
-- [Basic logs (preview)](../azure-monitor/logs/azure-monitor-basic-logs.md)
 - [Archived logs (preview)](../azure-monitor/logs/azure-monitor-archived-logs.md)
+- [Search job](../azure-monitor/logs/azure-monitor-archived-logs#search-job)

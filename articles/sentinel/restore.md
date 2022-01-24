@@ -66,3 +66,4 @@ Restored data tables are deleted automatically after eight days. But you can del
 ## Next steps
 
 - [Hunt with bookmarks](bookmarks.md)
+- [Restore](../azure-monitor/logs/azure-monitor-archived-logs#restore)
