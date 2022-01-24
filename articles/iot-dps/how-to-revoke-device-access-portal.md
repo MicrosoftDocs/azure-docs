@@ -3,16 +3,15 @@ title: Disenroll device from Azure IoT Hub Device Provisioning Service
 description: How to disenroll a device to prevent provisioning through Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/20/2022
+ms.date: 01/24/2022
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ---
 
 # How to disenroll a device from Azure IoT Hub Device Provisioning Service
 
-Proper management of device credentials is crucial for high-profile systems like IoT solutions. A best practice for such systems is to have a clear plan of how to revoke access for devices when their credentials, whether a shared access signatures (SAS) token or an X.509 certificate, might be compromised. 
+Proper management of device credentials is crucial for high-profile systems like IoT solutions. A best practice for such systems is to have a clear plan of how to revoke access for devices when their credentials, whether a shared access signatures (SAS) token or an X.509 certificate, might be compromised.
 
 Enrollment in the Device Provisioning Service enables a device to be [provisioned](about-iot-dps.md#provisioning-process). A provisioned device is one that has been registered with IoT Hub, allowing it to receive its initial [device twin](~/articles/iot-hub/iot-hub-devguide-device-twins.md) state and begin reporting telemetry data. This article describes how to disenroll a device from your provisioning service instance, preventing it from being provisioned again in the future. To learn how to deprovision a device that has already been provisioned to an IoT hub, see [Manage deprovisioning](how-to-unprovision-devices.md).
 
@@ -21,14 +20,14 @@ Enrollment in the Device Provisioning Service enables a device to be [provisione
 
 ## Disallow devices by using an individual enrollment entry
 
-Individual enrollments apply to a single device and can use X.509 certificates, TPM endorsement keys (in a real or virtual TPM), or SAS tokens as the attestation mechanism. To disallow a device that has an individual enrollment, you can either disable or delete its enrollment entry. 
+Individual enrollments apply to a single device and can use X.509 certificates, TPM endorsement keys (in a real or virtual TPM), or SAS tokens as the attestation mechanism. To disallow a device that has an individual enrollment, you can either disable or delete its enrollment entry.
 
-To temporarily disallow the device by disabling its enrollment entry: 
+To temporarily disallow the device by disabling its enrollment entry:
 
 1. Sign in to the Azure portal and select **All resources** from the left menu.
 2. In the list of resources, select the provisioning service that you want to disallow your device from.
 3. In your provisioning service, select **Manage enrollments**, and then select the **Individual Enrollments** tab.
-4. Select the enrollment entry for the device that you want to disallow. 
+4. Select the enrollment entry for the device that you want to disallow.
 
     ![Select your individual enrollment](./media/how-to-revoke-device-access-portal/select-individual-enrollment.png)
 
@@ -41,21 +40,20 @@ To permanently disallow the device by deleting its enrollment entry:
 1. Sign in to the Azure portal and select **All resources** from the left menu.
 2. In the list of resources, select the provisioning service that you want to disallow your device from.
 3. In your provisioning service, select **Manage enrollments**, and then select the **Individual Enrollments** tab.
-4. Select the check box next to the enrollment entry for the device that you want to disallow. 
-5. Select **Delete** at the top of the window, and then select **Yes** to confirm that you want to remove the enrollment. 
+4. Select the check box next to the enrollment entry for the device that you want to disallow.
+5. Select **Delete** at the top of the window, and then select **Yes** to confirm that you want to remove the enrollment.
 
    ![Delete individual enrollment entry in the portal](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
-
 
 After you finish the procedure, you should see your entry removed from the list of individual enrollments.  
 
 ## Disallow an X.509 intermediate or root CA certificate by using an enrollment group
 
-X.509 certificates are typically arranged in a certificate chain of trust. If a certificate at any stage in a chain becomes compromised, trust is broken. The certificate must be disallowed to prevent Device Provisioning Service from provisioning devices downstream in any chain that contains that certificate. To learn more about X.509 certificates and how they are used with the provisioning service, see [X.509 certificates](./concepts-x509-attestation.md#x509-certificates). 
+X.509 certificates are typically arranged in a certificate chain of trust. If a certificate at any stage in a chain becomes compromised, trust is broken. The certificate must be disallowed to prevent Device Provisioning Service from provisioning devices downstream in any chain that contains that certificate. To learn more about X.509 certificates and how they are used with the provisioning service, see [X.509 certificates](./concepts-x509-attestation.md#x509-certificates).
 
 An enrollment group is an entry for devices that share a common attestation mechanism of X.509 certificates signed by the same intermediate or root CA. The enrollment group entry is configured with the X.509 certificate associated with the intermediate or root CA. The entry is also configured with any configuration values, such as twin state and IoT hub connection, that are shared by devices with that certificate in their certificate chain. To disallow the certificate, you can either disable or delete its enrollment group.
 
-To temporarily disallow the certificate by disabling its enrollment group: 
+To temporarily disallow the certificate by disabling its enrollment group:
 
 1. Sign in to the Azure portal and select **All resources** from the left menu.
 2. In the list of resources, select the provisioning service that you want to disallow the signing certificate from.
@@ -65,14 +63,13 @@ To temporarily disallow the certificate by disabling its enrollment group:
 
    ![Disable enrollment group entry in the portal](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
 
-    
 To permanently disallow the certificate by deleting its enrollment group:
 
 1. Sign in to the Azure portal and select **All resources** from the left menu.
 2. In the list of resources, select the provisioning service that you want to disallow your device from.
 3. In your provisioning service, select **Manage enrollments**, and then select the **Enrollment Groups** tab.
-4. Select the check box next to the enrollment group for the certificate that you want to disallow. 
-5. Select **Delete** at the top of the window, and then select **Yes** to confirm that you want to remove the enrollment group. 
+4. Select the check box next to the enrollment group for the certificate that you want to disallow.
+5. Select **Delete** at the top of the window, and then select **Yes** to confirm that you want to remove the enrollment group.
 
    ![Delete enrollment group entry in the portal](./media/how-to-revoke-device-access-portal/delete-enrollment-group.png)
 
@@ -90,7 +87,7 @@ To disallow an individual device in an enrollment group, follow these steps:
 1. Sign in to the Azure portal and select **All resources** from the left menu.
 2. From the list of resources, select the provisioning service that contains the enrollment group for the device that you want to disallow.
 3. In your provisioning service, select **Manage enrollments**, and then select the **Individual Enrollments** tab.
-4. Select the **Add individual enrollment** button at the top. 
+4. Select the **Add individual enrollment** button at the top.
 5. Follow the appropriate step depending on whether you have the device (end-entity) certificate.
 
     - If you have the device certificate, on the **Add Enrollment** page select:
