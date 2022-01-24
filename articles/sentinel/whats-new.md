@@ -38,7 +38,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 Microsoft Sentinel now supports a new method for partners, advanced users, and developers to create custom connectors, connect them, and ingest data to Microsoft Sentinel.
 
-The Codeless Connector Platform (CCP) provides support for new data connectors via ARM templates, API, or via a solution in the the Microsoft Sentinel [content hub](sentinel-solutions.md).
+The Codeless Connector Platform (CCP) provides support for new data connectors via ARM templates, API, or via a solution in the Microsoft Sentinel [content hub](sentinel-solutions.md).
 
 Connectors created using CCP are fully SaaS, without any requirements for service installations, and also include [health monitoring](monitor-data-connector-health.md) and full support from Microsoft Sentinel.
 
