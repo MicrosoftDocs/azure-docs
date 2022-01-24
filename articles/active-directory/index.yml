@@ -59,7 +59,7 @@ conceptualContent:
       links:
         - url: ./app-provisioning/user-provisioning.md
           itemType: overview
-          text: What is app provisioning?
+          text: What is application provisioning?
         - url: ./app-provisioning/how-provisioning-works.md
           itemType: concept
           text: How application provisioning works
