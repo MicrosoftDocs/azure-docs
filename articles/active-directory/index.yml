@@ -167,7 +167,7 @@ conceptualContent:
           text: What are External Identities in Azure AD?
         - url: ../active-directory-b2c/overview.md
           itemType: overview
-          text:  What is Azure AD B2C identity?
+          text:  What is Azure AD B2C?
         - url: ./external-identities/what-is-b2b.md
           itemType: overview
           text: What is guest user access in Azure AD B2B?
