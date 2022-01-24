@@ -59,7 +59,8 @@ items:
     href: device-update-multi-step-updates.md  
   - name: How to use Components Enumerator
     href: components-enumerator.md   
-  
+  - name: Device Update diagnostic features
+    href: device-update-diagnostics.md
 
 - name: How-to guides
   items:
@@ -73,6 +74,8 @@ items:
     href: create-update-group.md
   - name: Deploy a device update
     href: deploy-update.md
+  - name: Create a log collection operation
+    href: device-update-log-collection.md
   - name: Single level Microsoft Connected Cache
     href: connected-cache-single-level.md
   - name: Nested level Microsoft Connected Cache
