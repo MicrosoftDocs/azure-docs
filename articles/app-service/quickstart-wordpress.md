@@ -4,6 +4,7 @@ description: Create your first WordPress site on Azure App Service in minutes.
 ms.topic: quickstart
 ms.date: 01/14/2021
 ms.devlang: wordpress
+ms.author: msangapu
 ms.custom: mvc
 ---
 # Create a WordPress site in Azure
@@ -49,8 +50,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
      :::image type="content" source="./media/quickstart-wordpress/05-wordpress-basics-instance-details.png?text=WordPress basics instance details" alt-text="Screenshot of WordPress instance details":::
 
-<a name="step-6"></a>
-1. Under **WordPress Settings**, type an **Admin Email**, **Admin Username**, and **Admin Password**. The **Admin Email** here is used for WordPress administrative sign-in only.
+1. <a name="wordpress-settings"></a>Under **WordPress Settings**, type an **Admin Email**, **Admin Username**, and **Admin Password**. The **Admin Email** here is used for WordPress administrative sign-in only.
 
      :::image type="content" source="./media/quickstart-wordpress/06-wordpress-basics-wordpress-settings.png?text=Azure Portal WordPress settings" alt-text="Screenshot of WordPress settings":::
 
@@ -60,7 +60,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     :::image type="content" source="./media/quickstart-wordpress/wordpress-sample-site.png?text=WordPress sample site" alt-text="Screenshot of WordPress site":::
 
-1. To access WordPress Admin page, browse to `/wp-admin` and use the WordPress Admin credentials from [step #6](#step-6).
+1. To access the WordPress Admin page, browse to `/wp-admin` and use the credentials you created in the [WordPress settings step](#wordpress-settings).
 
     :::image type="content" source="./media/quickstart-wordpress/wordpress-admin-login.png?text=WordPress admin login" alt-text="Screenshot of WordPress admin login":::
 
