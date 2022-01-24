@@ -42,10 +42,10 @@ Sign in to the Azure portal at https://portal.azure.com.
     > [!div class="mx-tdCol2BreakAll mx-tdCol3BreakAll"]
     > |Hosting Plan | App Service SKU | Database SKU |
     > |-------------|-------------|-------------|
-    >| Basic | B1, 1.75 GB Memory, 10GB Storage A-Series Compute Equivalent | 	Flexi Server - Burstable (1-2 vCores) – Standard B1s(1v Core, 1GB Memory, 32 GB Storage & 400 IOPs)|
-    >|Development |	S1, 1.75 GB Memory, 50 GB Storage A-Series Compute Equivalent |	Flexi Server - Burstable (1-2 vCores) – Standard_B1ms(1v Core, 2 GB Memory, 64 GB Storage and 500 IOPs)|
-    >|Standard |	P1V2, 3.5 GB Memory, 250GB Storage Dv2 Series Compute Equivalent |	Flexi Server - Burstable (1-2 vCores) - Standard_B2s(  2v Core, 4 GB Memory,   128 GB Storage and 700 IOPs) |
-    >|Premium |P1V3, 8 GB Memory, 250GB Storage 2 v CPU	| Flexi Server - General Purpose (2-64 vCores) Standard_D2ds_v4(2v Core, 8 GB Memory, 128 GB Storage and 700 IOPs) |
+    > | Basic | B1, 1.75 GB Memory, 10GB Storage A-Series Compute Equivalent | 	Flexi Server - Burstable (1-2 vCores) – Standard B1s(1v Core, 1GB Memory, 32 GB Storage & 400 IOPs)|
+    > |Development |	S1, 1.75 GB Memory, 50 GB Storage A-Series Compute Equivalent |	Flexi Server - Burstable (1-2 vCores) – Standard_B1ms(1v Core, 2 GB Memory, 64 GB Storage and 500 IOPs)|
+    > |Standard |	P1V2, 3.5 GB Memory, 250GB Storage Dv2 Series Compute Equivalent |	Flexi Server - Burstable (1-2 vCores) - Standard_B2s(  2v Core, 4 GB Memory,   128 GB Storage and 700 IOPs) |
+    > |Premium |P1V3, 8 GB Memory, 250GB Storage 2 v CPU	| Flexi Server - General Purpose (2-64 vCores) Standard_D2ds_v4(2v Core, 8 GB Memory, 128 GB Storage and 700 IOPs) |
 
      :::image type="content" source="./media/quickstart-wordpress/05-wordpress-basics-instance-details.png?text=WordPress basics instance details" alt-text="Screenshot of WordPress instance details":::
 
@@ -65,25 +65,25 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## WordPress Application Settings
 
-    App Service creates the following Application Settings for the WordPress site:
+App Service creates the following Application Settings for the WordPress site:
 
-    > [!div mx-tdCol5BreakAll"]
-    > |Application Setting | Scope | Value | Max | Description
-    > |-------------|-------------|-------------|---------------|--------------------|
-    > |WEBSITES_ENABLE_APP_SERVICE_STORAGE|Web App|true|-|When set to TRUE, file contents are preserved during restarts. |
-    > |WP_MEMORY_LIMIT|WordPress|128M|512M|Frontend or general wordpress PHP memory limit (per script). Can't be more than PHP_MEMORY_LIMIT|
-    > |WP_MAX_MEMORY_LIMIT|WordPress|256M|512M|Admin dashboard PHP memory limit (per script). Generally Admin dashboard/ backend scripts takes lot of memory compared to frontend scripts. Can't be more than PHP_MEMORY_LIMIT.|
-    > |PHP_MEMORY_LIMIT|PHP|512M|512M|Memory limits for general PHP script. It can only be decreased.|
-    > |FILE_UPLOADS|PHP|On|-|Can be either On or Off. Note that values are case sensitive. Enables or disables file uploads. |
-    > |UPLOAD_MAX_FILESIZE|PHP|50M|256M	Max file upload size limit. Can be increased upto 256M.|
-    > |POST_MAX_SIZE|PHP|128M|256M|Can be increased upto 256M. Generally should be more than UPLOAD_MAX_FILESIZE.|
-    > |MAX_EXECUTION_TIME|PHP|120|120|Can only be decreased. Please break down the scripts if it is taking more than 120 seconds. Added to avoid bad scripts from slowing the system.|
-    > |MAX_INPUT_TIME|PHP|120|120|Max time limit for parsing the input requests. Can only be decreased.|
-    > |MAX_INPUT_VARS|PHP|10000|10000|-|
-    > |DATABASE_HOST|Database|-|-|Database host used to connect to WordPress.|
-    > |DATABASE_NAME|Database|-|-|Database name used to connect to WordPress.|
-    > |DATABASE_USERNAME|Database|-|-|Database username used to connect to WordPress.|
-    > |DATABASE_PASSWORD|Database|-|-|Database password used to connect to WordPress.|
+> [!div class="mx-tdCol5BreakAll"]
+> |Application Setting | Scope | Value | Max | Description
+> |-------------|-------------|-------------|---------------|--------------------|
+> |WEBSITES_ENABLE_APP_SERVICE_STORAGE|Web App|true|-|When set to TRUE, file contents are preserved during restarts. |
+> |WP_MEMORY_LIMIT|WordPress|128M|512M|Frontend or general wordpress PHP memory limit (per script). Can't be more than PHP_MEMORY_LIMIT|
+> |WP_MAX_MEMORY_LIMIT|WordPress|256M|512M|Admin dashboard PHP memory limit (per script). Generally Admin dashboard/ backend scripts takes lot of memory compared to frontend scripts. Can't be more than PHP_MEMORY_LIMIT.|
+> |PHP_MEMORY_LIMIT|PHP|512M|512M|Memory limits for general PHP script. It can only be decreased.|
+> |FILE_UPLOADS|PHP|On|-|Can be either On or Off. Note that values are case sensitive. Enables or disables file uploads. |
+> |UPLOAD_MAX_FILESIZE|PHP|50M|256M	Max file upload size limit. Can be increased upto 256M.|
+> |POST_MAX_SIZE|PHP|128M|256M|Can be increased upto 256M. Generally should be more than UPLOAD_MAX_FILESIZE.|
+> |MAX_EXECUTION_TIME|PHP|120|120|Can only be decreased. Please break down the scripts if it is taking more than 120 seconds. Added to avoid bad scripts from slowing the system.|
+> |MAX_INPUT_TIME|PHP|120|120|Max time limit for parsing the input requests. Can only be decreased.|
+> |MAX_INPUT_VARS|PHP|10000|10000|-|
+> |DATABASE_HOST|Database|-|-|Database host used to connect to WordPress.|
+> |DATABASE_NAME|Database|-|-|Database name used to connect to WordPress.|
+> |DATABASE_USERNAME|Database|-|-|Database username used to connect to WordPress.|
+> |DATABASE_PASSWORD|Database|-|-|Database password used to connect to WordPress.|
 
 ## Clean up resources
 
