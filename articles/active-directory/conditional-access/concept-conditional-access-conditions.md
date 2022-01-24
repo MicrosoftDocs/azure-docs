@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 01/11/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -196,8 +196,8 @@ The device state condition can be used to exclude devices that are hybrid Azure 
 For example, *All users* accessing the *Microsoft Azure Management* cloud app including **All device state** excluding **Device Hybrid Azure AD joined** and **Device marked as compliant** and for *Access controls*, **Block**. 
    - This example would create a policy that only allows access to Microsoft Azure Management from devices that are either hybrid Azure AD joined or devices marked as compliant.
 
-The above scenario, can be configured using *All users* accessing the *Microsoft Azure Management* cloud app excluding **Filter for devices** condition with the following rule **device.trustType -ne "ServerAD" -or device.isCompliant -ne True** and for *Access controls*, **Block**.
-- This example would create a policy that only allows access to Microsoft Azure Management from devices that are either hybrid Azure AD joined or devices marked as compliant.
+The above scenario, can be configured using *All users* accessing the *Microsoft Azure Management* cloud app with **Filter for devices** condition in include mode using the following rule **device.trustType -ne "ServerAD" -or device.isCompliant -ne True** and for *Access controls*, **Block**.
+- This example would create a policy that blocks access to Microsoft Azure Management cloud app from unmanaged or non-compliant devices.
 
 > [!IMPORTANT]
 > Device state and filters for devices cannot be used together in Conditional Access policy. Filters for devices provides more granular targeting including support for targeting device state information through the `trustType` and `isCompliant` property.

@@ -11,7 +11,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: 1. Create a new application
+    - name: 1. Connect your first device
       href: core/quick-deploy-iot-central.md
     - name: 2. Configure rules and actions
       href: core/quick-configure-rules.md

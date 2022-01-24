@@ -101,7 +101,7 @@ Managed identities use certificate-based authentication. Each managed identityâ€
 
 ### What identity will IMDS default to if don't specify the identity in the request?
 
-- If system assigned managed identity is enabled and no identity is specified in the request, IMDS defaults to the system assigned managed identity.
+- If system assigned managed identity is enabled and no identity is specified in the request, Azure Instance Metadata Service (IMDS) defaults to the system assigned managed identity.
 - If system assigned managed identity is not enabled, and only one user assigned managed identity exists, IMDS defaults to that single user assigned managed identity.
 - If system assigned managed identity is not enabled, and multiple user assigned managed identities exist, then you are required to specify a managed identity in the request.
 
@@ -142,6 +142,10 @@ Managed identities limits have dependencies on Azure service limits, Azure Insta
 ### Is it possible to move a user-assigned managed identity to a different resource group/subscription?
 
 Moving a user-assigned managed identity to a different resource group is not supported.
+
+### Are tokens cached after they are issued for a managed identity?
+
+Managed identity tokens are cached by the underlying Azure infrastructure for performance and resiliency purposes: the back-end services for managed identities maintain a cache per resource URI for around 24 hours. This means that it can take several hours for changes to a managed identity's permissions to take effect, for example. Today, it is not possible to force a managed identity's token to be refreshed before its expiry. For more information, see [Limitation of using managed identities for authorization](managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization).
 
 ## Next steps
 

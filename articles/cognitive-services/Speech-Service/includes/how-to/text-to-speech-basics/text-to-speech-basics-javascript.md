@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 07/02/2021
+ms.date: 01/15/2022
 ms.author: eur
 ms.custom: devx-track-js
 ---
@@ -135,10 +135,10 @@ For many scenarios in speech application development, you likely need the result
 * Integrate the result with other API's or services.
 * Modify the audio data, write custom `.wav` headers, etc.
 
-It's simple to make this change from the previous example. First, remove the `AudioConfig` block, as you will manage the output behavior manually from this point onward for increased control. Then pass `undefined` for the `AudioConfig` in the `SpeechSynthesizer` constructor.
+It's simple to make this change from the previous example. First, remove the `AudioConfig` block, as you will manage the output behavior manually from this point onward for increased control. Then pass `null` for the `AudioConfig` in the `SpeechSynthesizer` constructor.
 
 > [!NOTE]
-> Passing `undefined` for the `AudioConfig`, rather than omitting it like in the speaker output example above, will not play the audio by default on the current active output device.
+> Passing `null` for the `AudioConfig`, rather than omitting it like in the speaker output example above, will not play the audio by default on the current active output device.
 
 This time, you save the result to a [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult) variable. The `SpeechSynthesisResult.audioData` property returns an `ArrayBuffer` of the output data, the default browser stream type. For server-code, convert the arrayBuffer to a buffer stream.
 
@@ -212,7 +212,7 @@ function synthesizeSpeech() {
     // Set the output format
     speechConfig.speechSynthesisOutputFormat = SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm;
 
-    const synthesizer = new sdk.SpeechSynthesizer(speechConfig, undefined);
+    const synthesizer = new sdk.SpeechSynthesizer(speechConfig, null);
     synthesizer.speakTextAsync(
         "Customizing audio output format.",
         result => {
@@ -258,7 +258,7 @@ For more information on `readFileSync`, see <a href="https://nodejs.org/api/fs.h
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
-    const synthesizer = new sdk.SpeechSynthesizer(speechConfig, undefined);
+    const synthesizer = new sdk.SpeechSynthesizer(speechConfig, null);
 
     const ssml = xmlToString("ssml.xml");
     synthesizer.speakSsmlAsync(

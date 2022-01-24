@@ -27,7 +27,7 @@ You can import a SQL Server database into Azure SQL Database or SQL Managed Inst
 
 Watch this video to see how to import from a BACPAC file in the Azure portal or continue reading below:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Its-just-SQL-Restoring-a-database-to-Azure-SQL-DB-from-backup/player?WT.mc_id=dataexposed-c9-niner]
+> [!VIDEO https://docs.microsoft.com/Shows/Data-Exposed/Its-just-SQL-Restoring-a-database-to-Azure-SQL-DB-from-backup/player?WT.mc_id=dataexposed-c9-niner]
 
 The [Azure portal](https://portal.azure.com) *only* supports creating a single database in Azure SQL Database and *only* from a BACPAC file stored in Azure Blob storage.
 
@@ -154,6 +154,7 @@ Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $Se
 - Importing to a database in elastic pool isn't supported. You can import data into a single database and then move the database to an elastic pool.
 - Import Export Service does not work when Allow access to Azure services is set to OFF. However you can work around the problem by manually running sqlpackage.exe from an Azure VM or performing the export directly in your code by using the DACFx API.
 - Import does not support specifying a backup storage redundancy while creating a new database and creates with the default geo-redundant backup storage redundancy. To workaround, first create an empty database with desired backup storage redundancy using Azure portal or PowerShell and then import the BACPAC into this empty database. 
+- Storage behind a firewall is currently not supported.
 
 > [!NOTE]
 > Azure SQL Database Configurable Backup Storage Redundancy is currently available in public preview in Southeast Asia Azure region only.

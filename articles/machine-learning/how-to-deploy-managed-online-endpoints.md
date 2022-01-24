@@ -79,7 +79,6 @@ The reference for the endpoint YAML format is described in the following table. 
 | --- | --- |
 | `$schema`    | (Optional) The YAML schema. To see all available options in the YAML file, you can view the schema in the preceding example in a browser.|
 | `name`       | The name of the endpoint. It must be unique in the Azure region.|
-| `traffic` | The percentage of traffic from the endpoint to divert to each deployment. The sum of traffic values must be 100. |
 | `auth_mode` | Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. `key` doesn't expire, but `aml_token` does expire. (Get the most recent token by using the `az ml online-endpoint get-credentials` command.) |
 
 The example contains all the files needed to deploy a model on an online endpoint. To deploy a model, you must have:

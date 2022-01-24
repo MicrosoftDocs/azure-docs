@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 07/02/2021
+ms.date: 01/16/2022
 ms.author: eur
 ---
 
@@ -43,7 +43,7 @@ There are a few ways that you can initialize a [`SpeechConfig`](/python/api/azur
 In this example, you create a [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) using a speech key and location/region. Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 ```python
-speech_config = SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
+speech_config = speechsdk.SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
 ```
 
 ## Select synthesis language and voice
@@ -67,13 +67,13 @@ Next, you create a [`SpeechSynthesizer`](/python/api/azure-cognitiveservices-spe
 To start, create an `AudioOutputConfig` to automatically write the output to a `.wav` file, using the `filename` constructor param.
 
 ```python
-audio_config = AudioOutputConfig(filename="path/to/write/file.wav")
+audio_config = speechsdk.audio.AudioOutputConfig(filename="path/to/write/file.wav")
 ```
 
 Next, instantiate a `SpeechSynthesizer` by passing your `speech_config` object and the `audio_config` object as params. Then, executing speech synthesis and writing to a file is as simple as running `speak_text_async()` with a string of text.
 
 ```python
-synthesizer = SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
+synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
 synthesizer.speak_text_async("A simple test to write to a file.")
 ```
 
@@ -84,7 +84,7 @@ Run the program, and a synthesized `.wav` file is written to the location you sp
 In some cases, you may want to directly output synthesized speech directly to a speaker. To do this, use the example in the previous section, but change the `AudioOutputConfig` by removing the `filename` param, and set `use_default_speaker=True`. This outputs to the current active output device.
 
 ```python
-audio_config = AudioOutputConfig(use_default_speaker=True)
+audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
 ```
 
 ## Get result as an in-memory stream
@@ -103,7 +103,7 @@ It's simple to make this change from the previous example. First, remove the `Au
 This time, you save the result to a [`SpeechSynthesisResult`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisresult) variable. The `audio_data` property contains a `bytes` object of the output data. You can work with this object manually, or you can use the [`AudioDataStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audiodatastream) class to manage the in-memory stream. In this example you use the `AudioDataStream` constructor to get a stream from the result.
 
 ```python
-synthesizer = SpeechSynthesizer(speech_config=speech_config, audio_config=None)
+synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
 result = synthesizer.speak_text_async("Getting the response as an in-memory stream.").get()
 stream = AudioDataStream(result)
 ```
@@ -127,10 +127,10 @@ In this example, you specify a high-fidelity RIFF format `Riff24Khz16BitMonoPcm`
 
 ```python
 speech_config.set_speech_synthesis_output_format(SpeechSynthesisOutputFormat["Riff24Khz16BitMonoPcm"])
-synthesizer = SpeechSynthesizer(speech_config=speech_config, audio_config=None)
+synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
 
 result = synthesizer.speak_text_async("Customizing audio output format.").get()
-stream = AudioDataStream(result)
+stream = speechsdk.AudioDataStream(result)
 stream.save_to_wav_file("path/to/write/file.wav")
 ```
 
@@ -158,17 +158,17 @@ Next, you need to change the speech synthesis request to reference your XML file
 > `encoding` parameter as follows: `open("ssml.xml", "r", encoding="utf-8-sig")`.
 
 ```python
-synthesizer = SpeechSynthesizer(speech_config=speech_config, audio_config=None)
+synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
 
 ssml_string = open("ssml.xml", "r").read()
 result = synthesizer.speak_ssml_async(ssml_string).get()
 
-stream = AudioDataStream(result)
+stream = speechsdk.AudioDataStream(result)
 stream.save_to_wav_file("path/to/write/file.wav")
 ```
 
 > [!NOTE]
-> To change the voice without using SSML, you can set the property on the `SpeechConfig` by using `SpeechConfig.speech_synthesis_voice_name = "en-US-JennyNeural"`
+> To change the voice without using SSML, you can set the property on the `SpeechConfig` by using `speech_config.speech_synthesis_voice_name = "en-US-JennyNeural"`
 
 ## Get facial pose events
 

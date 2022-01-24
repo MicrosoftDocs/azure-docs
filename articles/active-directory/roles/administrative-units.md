@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: roles
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 01/14/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -31,6 +31,8 @@ A central administrator could:
 - Populate the administrative unit with only students and staff within the School of Business.
 - Create a role with administrative permissions over only Azure AD users in the School of Business administrative unit.
 - Add the business school IT team to the role, along with its scope.
+
+Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside the administrative unit. In the Microsoft 365 admin center, users outside a scoped admin's administrative units are filtered out. But you can browse other users in the Azure portal, PowerShell, and other Microsoft services.
 
 ## License requirements
 
@@ -95,14 +97,24 @@ The following sections describe current support for administrative unit scenario
 
 | Permissions |   Graph/PowerShell   | Azure portal | Microsoft 365 admin center |
 | --- | --- | --- | --- |
-| Administrative unit-scoped management of group properties and members     |  Supported   |    Supported    |  Not supported |
+| Administrative unit-scoped management of group properties and membership     |  Supported   |    Supported    |  Not supported |
 | Administrative unit-scoped management of group licensing   |    Supported  |    Supported   |   Not supported |
 
-Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside the administrative unit. In the Microsoft 365 admin center, users outside a scoped admin's administrative units are filtered out. But you can browse other users in the Azure portal, PowerShell, and other Microsoft services.
+> [!NOTE]
+> Adding a group to an administrative unit does not grant scoped group administrators the ability to manage properties for individual members of that group. For example, a scoped group administrator can manage group membership, but they can't manage authentication methods of users who are members of the group added to an administrative unit. To manage authentication methods of users who are members of the group that is added to an administrative unit, the individual group members must be directly added as users of the administrative unit, and the group administrator must also be assigned a role that can manage user authentication methods.
+
+## Constraints
+
+Here are some of the constraints for administrative units.
+
+- Administrative units can't be nested.
+- Administrative unit-scoped user account administrators can't create or delete users.
+- A scoped role assignment doesn't apply to members of groups added to an administrative unit, unless the group members are directly added to the administrative unit. For more information, see [Add members to an administrative unit](admin-units-members-add.md).
+- Administrative units are currently not available in [Azure AD Identity Governance](../governance/identity-governance-overview.md).
 
 ## Next steps
 
 - [Create or delete administrative units](admin-units-manage.md)
 - [Add users or groups to an administrative unit](admin-units-members-add.md)
 - [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
-
+- [Administrative unit limits](../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context)

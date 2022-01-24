@@ -66,11 +66,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/machine-learning/classic/deploy-with-resource-manager-template.md",
-      "redirect_url": "/previous-versions/azure/machine-learning/classic/deploy-with-resource-manager-template",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/machine-learning/classic/evaluate-model-performance.md",
       "redirect_url": "/previous-versions/azure/machine-learning/classic/evaluate-model-performance",
       "redirect_document_id": false
@@ -658,12 +653,12 @@
       "redirect_url": "/azure/frontdoor/rules-match-conditions",
       "redirect_document_id": false
     },
-    { 
+    {
       "source_path_from_root": "/articles/frontdoor/standard-premium/geo-filtering.md",
       "redirect_url": "/articles/frontdoor/front-door-geo-filtering",
       "redirect_document_id": false
     },
-    { 
+    {
       "source_path_from_root": "/articles/frontdoor/standard-premium/edge-locations.md",
       "redirect_url": "/azure/frontdoor/edge-locations-by-region",
       "redirect_document_id": false
@@ -7679,8 +7674,8 @@
       "redirect_document_id": false
     },
 
-    
-    
+
+
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-container-instances.md",
       "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
@@ -14388,6 +14383,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/Tutorials/migrate-knowledge-base.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Tutorials/export-knowledge-base",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-data-guidelines.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/",
       "redirect_document_id": false
@@ -15468,6 +15468,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/defender-for-iot/device-builders/quickstart-configure-your-solution.md",
+      "redirect_url": "/azure/defender-for-iot/device-builders/tutorial-configure-your-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/device-builders/quickstart-create-micro-agent-module-twin.md",
+      "redirect_url": "/azure/defender-for-iot/device-builders/tutorial-create-micro-agent-module-twin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/device-builders/quickstart-standalone-agent-binary-installation.md",
+      "redirect_url": "/azure/defender-for-iot/device-builders/tutorial-standalone-agent-binary-installation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/device-builders/how-to-configure-agent-based-solution.md",
+      "redirect_url": "/azure/defender-for-iot/device-builders/tutorial-configure-agent-based-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/device-builders/quickstart-investigate-security-recommendations.md",
+      "redirect_url": "/azure/defender-for-iot/device-builders/tutorial-investigate-security-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/device-builders/quickstart-investigate-security-alerts.md",
+      "redirect_url": "/azure/defender-for-iot/device-builders/tutorial-investigate-security-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/device-builders/tutorial-configure-micro-agent-twin.md",
+      "redirect_url": "/azure/defender-for-iot/device-builders/how-to-configure-micro-agent-twin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/device-builders/quickstart-azure-rtos-security-module.md",
+      "redirect_url": "/azure/defender-for-iot/device-builders/how-to-quickstart-azure-rtos-security-module",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/defender-for-iot/organizations/integration-cisco-ise-pxgrid.md",
       "redirect_url": "/azure/defender-for-iot/organizations/integration-forescout",
       "redirect_document_id": false
@@ -16124,8 +16164,13 @@
     },
     {
       "source_path_from_root": "/articles/lab-services/devtest-lab-add-artifact-repo.md",
-      "redirect_url": "/azure/devtest-labs/devtest-lab-add-artifact-repo",
-      "redirect_document_id": true
+      "redirect_url": "/azure/devtest-labs/add-artifact-repository",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/devtest-labs/devtest-lab-add-artifact-repo.md",
+      "redirect_url": "/azure/devtest-labs/add-artifact-repository",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/lab-services/devtest-lab-add-claimable-vm.md",
@@ -16571,6 +16616,11 @@
       "source_path_from_root": "/articles/lab-services/use-paas-services.md",
       "redirect_url": "/azure/devtest-labs/use-paas-services",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/devtest-labs/devtest-lab-configure-use-public-environments.md",
+      "redirect_url": "/azure/devtest-labs/devtest-lab-create-environment-from-arm",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/dns/dns-getstarted-cli-nodejs.md",
@@ -21002,7 +21052,7 @@
       "redirect_url": "/azure/machine-learning/reference-yaml-job-pipeline",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-precise-answering.md",
       "redirect_url": "/azure/cognitive-services/language/custom-question-answering/concepts/precise-answering",
@@ -22809,6 +22859,16 @@
       "redirect_document_id": ""
     },
     {
+      "source_path_from_root": "/articles/search/cognitive-search-resources-documentation.md",
+      "redirect_url": "/azure/search/cognitive-search-concept-intro",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/search/search-blob-ai-integration.md",
+      "redirect_url": "/azure/search/cognitive-search-concept-intro",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/search/search-monitor-usage.md",
       "redirect_url": "/azure/search/monitor-azure-cognitive-search",
       "redirect_document_id": true
@@ -24039,11 +24099,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/security-center/security-center-policy-definitions.md",
-      "redirect_url": "/azure/security-center/policy-reference",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/operations-management-suite/oms-security-connect-products.md",
       "redirect_url": "/azure/security-center/quick-security-solutions",
       "redirect_document_id": false
@@ -24820,7 +24875,12 @@
     },
     {
       "source_path_from_root": "/articles/sentinel/connect-windows-security-events.md",
-      "redirect_url": "/azure/sentinel/data-connectors-reference#windows-security-events-preview",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#windows-security-events-via-ama",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/data-connectors-reference.md#windows-security-events-preview",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#windows-security-events-via-ama",
       "redirect_document_id": false
     },
     {
@@ -25196,6 +25256,11 @@
     {
       "source_path_from_root": "/articles/spring-cloud/expose-apps-gateway-azure-firewall.md",
       "redirect_url": "/azure/spring-cloud/expose-apps-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/tutorial-dump-jvm-options.md",
+      "redirect_url": "/azure/spring-cloud/how-to-dump-jvm-options",
       "redirect_document_id": false
     },
     {
@@ -34550,7 +34615,7 @@
     },
     {
       "source_path_from_root": "/articles/security/fundamentals/channel-nine.md",
-      "redirect_url": "https://channel9.msdn.com/",
+      "redirect_url": "/teamblog/channel9joinedmicrosoftlearn/",
       "redirect_document_id": false
     },
     {
@@ -39969,6 +40034,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/keyword-recognition-region-support.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/regions",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/entitylinking/GettingStarted.md",
       "redirect_url": "/azure/cognitive-services/text-analytics",
       "redirect_document_id": false
@@ -41770,11 +41840,6 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Content-Moderator/ecommerce-retail-catalog-moderation.md",
-      "redirect_url": "/azure/cognitive-services/Content-Moderator/overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/Content-Moderator/facebook-post-moderation.md",
       "redirect_url": "/azure/cognitive-services/Content-Moderator/overview",
       "redirect_document_id": false
     },
@@ -43963,7 +44028,7 @@
       "redirect_url": "/azure/virtual-network/create-public-ip-prefix-portal",
       "redirect_document_id": true
     },
-    {  
+    {
       "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/add-columns.md",
       "redirect_url": "/azure/machine-learning/component-reference/add-columns",
       "redirect_document_id": true
@@ -44488,11 +44553,11 @@
       "redirect_url": "/azure/communication-services/concepts/telephony/port-phone-number",
       "redirect_document_id": false
     },
-      {
-        "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/pstn-call.md",
-        "redirect_url": "/azure/communication-services/quickstarts/telephony/pstn-call",
-        "redirect_document_id": false
-      },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/pstn-call.md",
+      "redirect_url": "/azure/communication-services/quickstarts/telephony/pstn-call",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/concepts.md",
       "redirect_url": "/azure/communication-services/concepts/sms/concepts",
@@ -45119,7 +45184,7 @@
       "redirect_document_id": false
     },
     {
-    "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-sdk-rest-api.md",
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-sdk-rest-api.md",
       "redirect_url": "/azure/applied-ai-services/form-recognizer/how-to-guides/try-sdk-rest-api",
       "redirect_document_id": false
     },
@@ -45147,6 +45212,16 @@
       "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
       "redirect_url": "/azure/orbital/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure/sentinel/connect-windows-virtual-desktop.md",
+      "redirect_url": "/azure/sentinel/connect-azure-virtual-desktop",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure/cognitive-services/translator/custom-translator/v2-preview/project-overview.md",
+      "redirect_url": "/azure/cognitive-services/translator/custom-translator/v2-preview/beginners-guide",
+      "redirect_document_id": true
     }
   ]
 }

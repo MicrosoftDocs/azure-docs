@@ -4,7 +4,7 @@ description: Learn about security in Azure Kubernetes Service (AKS), including m
 services: container-service
 author: miwithro
 ms.topic: conceptual
-ms.date: 11/11/2021
+ms.date: 01/20/2022
 ms.author: miwithro
 ---
 
@@ -14,7 +14,7 @@ Container security protects the entire end-to-end pipeline from build to the app
 
 The Secure Supply Chain includes the build environment and registry.
 
-Kubernetes includes security components, such as *pod security standards* and *Secrets*. Meanwhile, Azure includes components like Active Directory, Microsoft Defender for Cloud, Azure Policy, Azure Key Vault, network security groups and orchestrated cluster upgrades. AKS combines these security components to:
+Kubernetes includes security components, such as *pod security standards* and *Secrets*. Meanwhile, Azure includes components like Active Directory, Microsoft Defender for Containers, Azure Policy, Azure Key Vault, network security groups and orchestrated cluster upgrades. AKS combines these security components to:
 * Provide a complete Authentication and Authorization story.
 * Leverage AKS Built-in Azure Policy to secure your applications.
 * End-to-End insight from build through your application with Microsoft Defender for Containers.
@@ -130,7 +130,7 @@ To limit network traffic between pods in your cluster, AKS offers support for [K
 
 ## Application Security
 
-To protect pods running on AKS leverage [Microsoft Defender for Kubernetes][azure-defender-for-kubernetes] to detect and restrict cyber attacks against your applications running in your pods.  Run continual scanning to detect drift in the vulnerability state of your application and implement a "blue/green/canary" process to patch and replace the vulnerable images. 
+To protect pods running on AKS leverage [Microsoft Defender for Containers][microsoft-defender-for-containers] to detect and restrict cyber attacks against your applications running in your pods.  Run continual scanning to detect drift in the vulnerability state of your application and implement a "blue/green/canary" process to patch and replace the vulnerable images. 
 
 
 ## Kubernetes Secrets
@@ -171,7 +171,7 @@ For more information on core Kubernetes and AKS concepts, see:
 [encryption-atrest]: ../security/fundamentals/encryption-atrest.md
 
 <!-- LINKS - Internal -->
-[azure-defender-for-kubernetes]: ../defender-for-cloud/container-security.md
+[microsoft-defender-for-containers]: ../defender-for-cloud/defender-for-containers-introduction.md
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
 [aks-aad]: ./managed-aad.md

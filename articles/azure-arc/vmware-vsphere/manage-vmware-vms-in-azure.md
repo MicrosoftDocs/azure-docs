@@ -28,6 +28,9 @@ You can do various operations on the VMware VMs that are enabled by Azure Arc, s
 
 For more information, such as benefits and capabilities, see [VM extension management with Azure Arc-enabled servers](../servers/manage-vm-extensions.md).
 
+> [!IMPORTANT]
+> In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
+
 ## Supported extensions and management services
 
 ### Windows extensions

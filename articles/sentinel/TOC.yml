@@ -172,6 +172,8 @@
         href: connect-azure-functions-template.md
       - name: Custom log sources
         href: connect-custom-logs.md
+      - name: Azure Virtual Desktop
+        href: connect-azure-virtual-desktop.md
     - name: Deploy a log forwarder
       href: connect-log-forwarder.md
     - name: Troubleshoot CEF/Syslog data collection

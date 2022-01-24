@@ -43,7 +43,7 @@ npm init
 Install the NPM packages:
 
 ```console
-nnpm install @azure/ai-text-analytics@5.1.0
+npm install @azure/ai-text-analytics@5.1.0
 ```
 
 ## Code example

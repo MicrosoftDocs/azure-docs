@@ -59,7 +59,7 @@ Exchange Online, SharePoint Online, Teams, and MS Graph can synchronize key Cond
 This process enables the scenario where users lose access to organizational files, email, calendar, or tasks from Microsoft 365 client apps or SharePoint Online immediately after network location changes.
 
 > [!NOTE]
-> Not all app and resource provider combination are supported. See table below. Office refers to Word, Excel, and PowerPoint.
+> Not all client app and resource provider combinations are supported. See table below. The first column of this table refers to web applications launched via web browser (i.e. PowerPoint launched in web browser) while the remaining four columns refer to native applications running on each platform described. Additionally, references to "Office" encompass Word, Excel, and PowerPoint.
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -176,8 +176,7 @@ Your identity provider and resource providers may see different IP addresses. Th
  
 Examples:
 
-- Your identity provider sees one IP address from the client.
-- Your resource provider sees a different IP address from the client after passing through a proxy.
+- Your identity provider sees one IP address from the client while your resource provider sees a different IP address from the client after passing through a proxy.
 - The IP address your identity provider sees is part of an allowed IP range in policy but the IP address from the resource provider isn't.
 
 To avoid infinite loops because of these scenarios, Azure AD issues a one hour CAE token and won't enforce client location change. In this case, security is improved compared to traditional one hour tokens since we're still evaluating the [other events](#critical-event-evaluation) besides client location change events.

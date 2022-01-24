@@ -59,6 +59,46 @@
         "source_path_from_root": "/articles/purview/concept-account-upgrade.md",
         "redirect_url": "/azure/purview/catalog-permissions",
         "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-lineage-cassandra.md",
+        "redirect_url": "/azure/purview/register-scan-cassandra-source",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-lineage-erwin.md",
+        "redirect_url": "/azure/purview/register-scan-erwin-source",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-lineage-looker.md",
+        "redirect_url": "/azure/purview/register-scan-looker-source",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-lineage-google-bigquery.md",
+        "redirect_url": "/azure/purview/register-scan-google-bigquery-source",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-lineage-oracle.md",
+        "redirect_url": "/azure/purview/register-scan-oracle-source",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-lineage-saps4hana.md",
+        "redirect_url": "/azure/purview/register-scan-saps4hana-source",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-lineage-sapecc.md",
+        "redirect_url": "/azure/purview/register-scan-sapecc-source",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-lineage-teradata.md",
+        "redirect_url": "/azure/purview/register-scan-teradata-source",
+        "redirect_document_id": true
       }
 ]
 }
