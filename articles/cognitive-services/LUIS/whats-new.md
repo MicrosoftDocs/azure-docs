@@ -15,7 +15,7 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 ### January 2022
 * [Updated text recognizer](https://github.com/microsoft/Recognizers-Text/releases/tag/dotnet-v1.8.2) to v1.8.2
-* Added [English-British](luis-language-support.md) to supported languages.
+* Added [English (UK)](luis-language-support.md) to supported languages.
 
 ### December 2021
 * [Updated text recognizer](https://github.com/microsoft/Recognizers-Text/releases/tag/dotnet-v1.8.1) to v1.8.1
