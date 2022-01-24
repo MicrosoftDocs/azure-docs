@@ -28,7 +28,7 @@ External collaboration settings let you specify what roles in your organization 
 
 - **Allow or block domains**: You can use collaboration restrictions to allow or deny invitations to the domains you specify. For details, see [Allow or block domains](allow-deny-list.md).
 
-For B2B collaboration with other Azure AD organizations, you should also review your [cross-tenant access settings](cross-tenant-access-settings-configure.md) to ensure your inbound and outbound B2B collaboration and scope access to specific users, groups, and applications.
+For B2B collaboration with other Azure AD organizations, you should also review your [cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md) to ensure your inbound and outbound B2B collaboration and scope access to specific users, groups, and applications.
 
 ### To configure external collaboration settings:
 
