@@ -21052,7 +21052,11 @@
       "redirect_url": "/azure/machine-learning/reference-yaml-job-pipeline",
       "redirect_document_id": false
     },
-
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-pipeline-batch-scoring-classification.md",
+      "redirect_url": "/azure/machine-learning/tutorial-pipeline-python-sdk",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-precise-answering.md",
       "redirect_url": "/azure/cognitive-services/language/custom-question-answering/concepts/precise-answering",
