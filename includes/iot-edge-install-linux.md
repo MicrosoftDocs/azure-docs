@@ -19,52 +19,32 @@ You need to complete two steps on your device before it's ready to install the I
 
 1. Get the latest repository configuration from Microsoft:
 
-   **18.04**:
-
-      ```bash
-      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
-      ```
-
 <!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-   **20.04**:
+   # [Ubuntu 20.04](#tab/ubuntu2004)
 
-      ```bash
-      curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > ./microsoft-prod.list
-      ```
+   ```bash
+   curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > ./microsoft-prod.list
+   ```
 
 <!-- end 1.2 -->
 ::: moniker-end
 
-1. Copy the generated list to the sources.list.d directory.
+
+   # [Ubuntu 18.04](#tab/ubuntu1804)
 
    ```bash
-   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+   curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
    ```
 
-1. Install the Microsoft GPG public key.
-
-   ```bash
-   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-   ```
-
-1. Update package lists on your device.
-
-   ```bash
-   sudo apt-get update
-   ```
-
-# [Raspberry Pi OS](#tab/rpios)
-
-1. Get the latest repository configuration from Microsoft:
-
-   **Stretch**:
+   # [Raspberry Pi OS Stretch](#tab/rpios)
 
    ```bash
    curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
    ```
+
+---
 
 1. Copy the generated list to the sources.list.d directory.
 
