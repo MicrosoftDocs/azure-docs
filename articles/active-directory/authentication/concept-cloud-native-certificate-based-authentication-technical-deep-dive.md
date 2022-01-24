@@ -212,7 +212,7 @@ For the next test scenario, configure the authentication policy where the Issuer
 
 - The Sign-in log shows the user ID GUID instead of the username in one of the log entries.
 
-  :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/username.png" alt-text="Screenshot of username in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/username.png":::
+  :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entries-single.png" alt-text="Screenshot of username in the sign-in logs." lightbox="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/username.png":::
  
 - The **Additional Details** tab shows **User certificate subject name** as the attribute name but it is actually "User certificate binding identifier". It is the value of the certificate field that username binding is configured to use.
 
