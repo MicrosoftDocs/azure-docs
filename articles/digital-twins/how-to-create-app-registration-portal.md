@@ -100,7 +100,7 @@ To set up a **client secret** for your app registration, start on your app regis
 
 ## Provide Azure Digital Twins permissions
 
-Next, configure the app registration you've created with permissions to access Azure Digital Twins. First, assign a role to the app registration within the Azure Digital Twins instance. Then, grant the app read/write permissions to the Azure Digital Twins APIs.
+Next, configure the app registration you've created with permissions to access Azure Digital Twins. First, **create a role assignment** for the app registration within the Azure Digital Twins instance. Then, **provide API permissions** for the app to read and write to the Azure Digital Twins APIs.
 
 ### Create role assignment
 
@@ -124,9 +124,11 @@ In this section, you'll create a role assignment for the app registration on the
 
 #### Verify role assignment
 
-You can view the role assignment you've set up under *Access control (IAM) > Role assignments*. The user should show up in the list with the role you assigned to it. 
+You can view the role assignment you've set up under *Access control (IAM) > Role assignments*.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Screenshot of the role assignments for an Azure Digital Twins instance in the Azure portal.":::
+:::image type="content" source="media/how-to-create-app-registration/verify-role-assignment.png" alt-text="Screenshot of the Role Assignments page for an Azure Digital Twins instance in the Azure portal.":::
+
+The app registration should show up in the list along with the role you assigned to it. 
 
 ### Provide API permissions
 
@@ -166,7 +168,7 @@ These values are shown in the screenshot below:
 
 :::image type="content" source="media/how-to-create-app-registration/verify-manifest.png" alt-text="Screenshot of the manifest for the Azure AD app registration in the Azure portal.":::
 
-If these values are missing, retry the steps in the [section for adding the API permission](#provide-azure-digital-twins-api-permission).
+If these values are missing, retry the steps in the [section for adding the API permission](#provide-api-permissions).
 
 ## Other possible steps for your organization
 
