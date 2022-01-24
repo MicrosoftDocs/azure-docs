@@ -6,7 +6,7 @@ author: StefArroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 01/24/2021
+ms.date: 01/24/2022
 ms.devlang: csharp
 ms.custom: devx-track-dotnet, contperf-fy21q2
 
