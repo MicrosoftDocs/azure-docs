@@ -27,4 +27,4 @@ ms.custom:
     - **Case 2** shows a valid configuration where a Storage account is registered in an Azure Purview account in a different subscription. 
     - **Case 3** shows an invalid configuration arising because Storage accounts S3SA1 and S3SA2 both belong to Subscription 3, but are registered to different Azure Purview accounts. In that case, the *Data use governance* toggle will only work in the Azure Purview account that wins and registers a data source in that subscription first. The toggle will then be greyed out for the other data source.
 
-![Diagram shows valid and invalid configurations when using multiple Azure Purview accounts to manage policies.](../media/access-policies-common/valid-and-invalid-configurations.png)"
+![Diagram shows valid and invalid configurations when using multiple Azure Purview accounts to manage policies.](../media/access-policies-common/valid-and-invalid-configurations.png)
