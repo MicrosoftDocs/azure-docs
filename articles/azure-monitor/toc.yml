@@ -515,6 +515,8 @@ items:
       href: autoscale/autoscale-get-started.md
     - name: Configuration settings
       href: autoscale/autoscale-understanding-settings.md
+    - name: Predictive autoscale
+      href: autoscale/autoscale-predictive.md
     - name: Best practices
       href: autoscale/autoscale-best-practices.md
     - name: Common metrics
