@@ -70,10 +70,9 @@ To enable the **Forced password reset** setting in a sign-up or sign-in user flo
 
 ::: zone pivot="b2c-custom-policy"
 
-## Configure your user flow
+## Configure your custom policy
 
-Get the example of the force password reset policy on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset).
-In each file, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is *contosob2c*, all instances of `yourtenant.onmicrosoft.com` become `contosob2c.onmicrosoft.com`.
+Get the example of the force password reset policy on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset). In each file, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is *contosob2c*, all instances of `yourtenant.onmicrosoft.com` become `contosob2c.onmicrosoft.com`.
 
 ## Upload and test the policy
 
@@ -83,13 +82,13 @@ In each file, replace the string `yourtenant` with the name of your Azure AD B2C
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Identity Experience Framework**.
 1. In **Custom Policies**, select **Upload Policy**.
-1. Select select the *TrustFrameworkExtensionsCustomForcePasswordReset.xml* file.
+1. Select the *TrustFrameworkExtensionsCustomForcePasswordReset.xml* file.
 1. Select **Upload**.
-1. Repeat steps 6 through 7 for the relying party file, such as *TrustFrameworkExtensionsCustomForcePasswordReset.xml*.
+1. Repeat steps 6 through 7 for the relying party file *TrustFrameworkExtensionsCustomForcePasswordReset.xml*.
 
 ## Run the policy
 
-1. Open the policy that you uploaded. For example, *B2C_1A_TrustFrameworkExtensions_custom_ForcePasswordReset*.
+1. Open the policy that you uploaded *B2C_1A_TrustFrameworkExtensions_custom_ForcePasswordReset*.
 1. For **Application**, select the application that you registered earlier. To see the token, the **Reply URL** should show `https://jwt.ms`.
 1. Select **Run now**. 
 1. Sign in with the user account for which you reset the password.
