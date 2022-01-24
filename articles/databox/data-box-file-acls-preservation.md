@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 01/20/2022
 ms.author: alkohli
 ---
 
@@ -74,10 +74,10 @@ To transfer the ACLs, timestamps, and attributes for your data, use the followin
 
 To copy data to your Data Box via SMB, use an SMB-compatible file copy tool such as `robocopy`. The following sample command copies all files and directories, transferring metadata along with the data.
 
-When using the `/copyall` or `/dcopy:DAT` option, make sure the required Backup Operator privileges aren't disabled. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md). 
+When using the `/copyall` or `/dcopy:DAT` option, make sure the required Backup Operator privileges aren't disabled. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md).
 
 ```console
-robocopy <Source> <Target> * /copyall /e /dcopy:DAT /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /log+:<LogFile>
+robocopy <Source> <Target> * /copyall /e /dcopy:DAT /B /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /log+:<LogFile>
 ```
 
 where
@@ -87,6 +87,7 @@ where
 |`/copyall` |Copies all attributes.|
 |`/e`      |Copies subdirectories, including empty directories.         |
 |`/dcopy:DAT`  |Copies data, attributes, and timestamps. Note: The /dcopy:DAT option must be used to transfer `CreationTime` on directories. |
+|`/B`      |Copies files in Backup mode. |
 |`/r:3`    |Specifies 3 retries on failed copies.         |
 |`/w:60`   |Specifies a wait time of 60 seconds between retries.         |
 |`/is`     |Includes the same files.         |

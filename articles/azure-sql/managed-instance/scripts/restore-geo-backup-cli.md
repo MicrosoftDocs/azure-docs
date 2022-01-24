@@ -7,10 +7,10 @@ ms.subservice: backup-restore
 ms.custom: 
 ms.devlang: azurecli
 ms.topic: sample
-author: SQLSourabh
-ms.author: sourabha
+author: rothja
+ms.author: jroth
 ms.reviewer: mathoma
-ms.date: 01/05/2022
+ms.date: 01/18/2022
 ---
 
 # Use CLI to restore a Managed Instance database to another geo-region

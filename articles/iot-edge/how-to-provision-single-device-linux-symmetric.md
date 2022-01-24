@@ -282,7 +282,7 @@ sudo apt-get remove iotedge
 ::: moniker range=">=iotedge-2020-11"
 
 ```bash
-sudo apt-get remove aziot-edge
+sudo apt-get remove --purge aziot-edge
 ```
 
 ::: moniker-end

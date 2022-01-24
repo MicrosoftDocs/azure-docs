@@ -10,7 +10,7 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 07/21/2021
+ms.date: 01/18/2022
 ---
 # Resource limits for single databases using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -59,7 +59,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS <sup>3</sup>|320|640|1280|1920|2560|
 |Max log rate (MBps)|4.5|9|18|27|36|
-|Max concurrent workers (requests)|75|150|300|450|600|
+|Max concurrent workers|75|150|300|450|600|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|
@@ -89,7 +89,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS <sup>2</sup>|3200|3840|4480|5120|
 |Max log rate (MBps)|45|50|50|50|
-|Max concurrent workers (requests)|750|900|1050|1200|
+|Max concurrent workers|750|900|1050|1200|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|
@@ -117,7 +117,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS <sup>2</sup>|5760|6400|7680|10240|12800|
 |Max log rate (MBps)|50|50|50|50|50|
-|Max concurrent workers (requests)|1350|1500|1800|2400|3000|
+|Max concurrent workers|1350|1500|1800|2400|3000|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|
@@ -148,7 +148,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max local SSD IOPS <sup>1</sup>|4000 |8000 |12000 |16000 |20000 |24000 |
 |Max log rate (MBps)|100 |100 |100 |100 |100 |100 |
 |IO latency (approximate)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
-|Max concurrent workers (requests)|200|400|600|800|1000|1200|
+|Max concurrent workers|200|400|600|800|1000|1200|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
 |Secondary replicas|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -175,7 +175,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max local SSD IOPS <sup>1</sup>|28000 |32000 |36000 |40000 |64000 |76800 |
 |Max log rate (MBps)|100 |100 |100 |100 |100 |100 |
 |IO latency (approximate)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
-|Max concurrent workers (requests)|1400|1600|1800|2000|3200|4800|
+|Max concurrent workers|1400|1600|1800|2000|3200|4800|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
 |Secondary replicas|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -204,7 +204,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max local SSD IOPS <sup>1</sup>|8000 |16000 |24000 |32000 |40000 |48000 |56000 |
 |Max log rate (MBps)|100 |100 |100 |100 |100 |100 |100 |
 |IO latency (approximate)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
-|Max concurrent workers (requests)|200|400|600|800|1000|1200|1400|
+|Max concurrent workers|200|400|600|800|1000|1200|1400|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Secondary replicas|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -231,7 +231,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max local SSD IOPS <sup>1</sup>|64000 |72000 |80000 |96000 |128000 |160000 |204800 |
 |Max log rate (MBps)|100 |100 |100 |100 |100 |100 |100 |
 |IO latency (approximate)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
-|Max concurrent workers (requests)|1600|1800|2000|2400|3200|4000|8000|
+|Max concurrent workers|1600|1800|2000|2400|3200|4000|8000|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Secondary replicas|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -264,7 +264,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max local SSD IOPS <sup>1</sup>|14000|28000|42000|44800|
 |Max log rate (MBps)|100 |100 |100 |100 |
 |IO latency (approximate)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
-|Max concurrent workers (requests)|160|320|480|640|
+|Max concurrent workers|160|320|480|640|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|
 |Secondary replicas|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/A|N/A|N/A|N/A|
@@ -301,7 +301,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS <sup>2</sup>|320|640|960|1280|1600|1920|
 |Max log rate (MBps)|4.5|9|13.5|18|22.5|27|
-|Max concurrent workers (requests)|200|400|600|800|1000|1200|
+|Max concurrent workers|200|400|600|800|1000|1200|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -328,7 +328,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)
 |Max data IOPS <sup>2</sup>|2240|2560|2880|3200|5120|7680|
 |Max log rate (MBps)|31.5|36|40.5|45|50|50|
-|Max concurrent workers (requests)|1400|1600|1800|2000|3200|4800|
+|Max concurrent workers|1400|1600|1800|2000|3200|4800|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -357,7 +357,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS <sup>2</sup>|640|1280|1920|2560|3200|3840|4480|
 |Max log rate (MBps)|9|18|27|36|45|50|50|
-|Max concurrent workers (requests)|200|400|600|800|1000|1200|1400|
+|Max concurrent workers|200|400|600|800|1000|1200|1400|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|1|1|1|
 |Multi-AZ|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
@@ -384,7 +384,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS <sup>2</sup>|5120|5760|6400|7680|10240|12800|12800|
 |Max log rate (MBps)|50|50|50|50|50|50|50|
-|Max concurrent workers (requests)|1600|1800|2000|2400|3200|4000|8000|
+|Max concurrent workers|1600|1800|2000|2400|3200|4000|8000|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|1|1|1|
 |Multi-AZ|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
@@ -413,7 +413,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS <sup>2</sup>|2560|3200|3840|4480|5120|
 |Max log rate (MBps)|36|45|50|50|50|
-|Max concurrent workers (requests)|400|500|600|700|800|
+|Max concurrent workers|400|500|600|700|800|
 |Max concurrent logins|800|1000|1200|1400|1600|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|1|
@@ -441,7 +441,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS <sup>2</sup>|5760|6400|7680|10240|11520|12800|
 |Max log rate (MBps)|50|50|50|50|50|50|
-|Max concurrent workers (requests)|900|1000|1200|1600|1800|3600|
+|Max concurrent workers|900|1000|1200|1600|1800|3600|
 |Max concurrent logins|1800|2000|2400|3200|3600|7200|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|1|1|
@@ -469,7 +469,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS <sup>2</sup>|640|1280|1920|2560|
 |Max log rate (MBps)|9|18|27|36|
-|Max concurrent workers (requests)|160|320|480|640|
+|Max concurrent workers|160|320|480|640|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|
 |Number of replicas|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|
@@ -502,7 +502,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS <sup>2</sup>|4,000|8,000|12,000|16,000|20,000|24,000|
 |Max log rate (MBps)|8|16|24|32|40|48|
-|Max concurrent workers (requests)|200|400|600|800|1000|1200|
+|Max concurrent workers|200|400|600|800|1000|1200|
 |Max concurrent logins|200|400|600|800|1000|1200|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|4|4|4|4|4|4|
@@ -531,8 +531,8 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS <sup>2</sup>|28,000|32,000|36,000|40,000|64,000|76,800|
 |Max log rate (MBps)|56|64|64|64|64|64|
-|Max concurrent workers (requests)|1400|1600|1800|2000|3200|4800|
-|Max concurrent logins (requests)|1400|1600|1800|2000|3200|4800|
+|Max concurrent workers|1400|1600|1800|2000|3200|4800|
+|Max concurrent logins|1400|1600|1800|2000|3200|4800|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|4|4|4|4|4|4|
 |Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
@@ -562,7 +562,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS <sup>2</sup>|8000|16,000|24,000|32,000|40,000|48,000|56,000|
 |Max log rate (MBps)|24|48|72|96|96|96|96|
-|Max concurrent workers (requests)|200|400|600|800|1000|1200|1400|
+|Max concurrent workers|200|400|600|800|1000|1200|1400|
 |Max concurrent logins|200|400|600|800|1000|1200|1400|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|4|4|4|4|4|4|4|
@@ -591,7 +591,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS <sup>2</sup>|64,000|72,000|80,000|96,000|128,000|160,000|204,800|
 |Max log rate (MBps)|96|96|96|96|96|96|96|
-|Max concurrent workers (requests)|1600|1800|2000|2400|3200|4000|8000|
+|Max concurrent workers|1600|1800|2000|2400|3200|4000|8000|
 |Max concurrent logins|1600|1800|2000|2400|3200|4000|8000|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Number of replicas|4|4|4|4|4|4|4|
@@ -622,7 +622,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS <sup>2</sup>|12,499|15,624|18,748|21,873|24,998|28,123|
 |Max log rate (MBps)|48|60|72|84|96|108|
-|Max concurrent workers (requests)|800|1,000|1,200|1,400|1,600|1,800|
+|Max concurrent workers|800|1,000|1,200|1,400|1,600|1,800|
 |Max concurrent logins|800|1,000|1,200|1,400|1,600|1,800|
 |Max concurrent sessions|30000|30000|30000|30000|30000|30000|
 |Number of replicas|4|4|4|4|4|4|
@@ -651,7 +651,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS <sup>2</sup>|31,248|37,497|49,996|99,993|160,000|
 |Max log rate (MBps)|120|144|192|264|264|
-|Max concurrent workers (requests)|2,000|2,400|3,200|6,400|12,800|
+|Max concurrent workers|2,000|2,400|3,200|6,400|12,800|
 |Max concurrent logins|2,000|2,400|3,200|6,400|12,800|
 |Max concurrent sessions|30000|30000|30000|30000|30000|
 |Number of replicas|4|4|4|4|4|
@@ -680,7 +680,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS <sup>2</sup>|14000|28000|42000|44800|
 |Max log rate (MBps)|24|48|72|96|
-|Max concurrent workers (requests)|200|400|600|800|
+|Max concurrent workers|200|400|600|800|
 |Max concurrent logins|200|400|600|800|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|
 |Number of replicas|4|4|4|4|

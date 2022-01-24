@@ -89,7 +89,8 @@ The following sections describe current support for administrative unit scenario
 
 | Permissions |   Graph/PowerShell   | Azure portal | Microsoft 365 admin center |
 | --- | --- | --- | --- |
-| Administrative unit-scoped management of user properties, passwords, and licenses   |    Supported     |  Supported   |   Supported |
+| Administrative unit-scoped management of user properties, passwords   |    Supported     |  Supported   |   Supported |
+| Administrative unit-scoped management of user licenses | Supported | Not Supported | Supported |
 | Administrative unit-scoped blocking and unblocking of user sign-ins    |   Supported   |    Supported   |    Supported |
 | Administrative unit-scoped management of user multifactor authentication credentials   |    Supported   |   Supported   |   Not supported |
 

@@ -10,7 +10,7 @@ ms.topic: sample
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 01/05/2022
+ms.date: 01/17/2022
 ---
 
 # Use CLI to configure SQL Database auditing and Advanced Threat Protection

@@ -848,9 +848,11 @@ CORS is fully supported for Python function apps.
 
 ## <a name="shared-memory"></a>Shared memory (preview)
 
-Functions lets your Python worker use shared memory to improve throughput. When your function app is hitting bottlenecks, you can enable shared memory by adding an application setting named [FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED](functions-app-settings.md#functions_worker_shared_memory_data_transfer_enabled) with a value of `1`. With shared memory enabled, you can then use the [DOCKER_SHM_SIZE](functions-app-settings.md#docker_shm_size) setting to set the shared memory to something like `268435456`, which is equivalent to 256 MB. 
+To improve throughput, Functions lets your out-of-process Python language worker share memory with the Functions host process. When your function app is hitting bottlenecks, you can enable shared memory by adding an application setting named [FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED](functions-app-settings.md#functions_worker_shared_memory_data_transfer_enabled) with a value of `1`. With shared memory enabled, you can then use the [DOCKER_SHM_SIZE](functions-app-settings.md#docker_shm_size) setting to set the shared memory to something like `268435456`, which is equivalent to 256 MB.
 
-This functionality is available only for function apps running in Premium and Dedicated (App Service) plans.
+For example, you might enable shared memory to reduce bottlenecks when using Blob storage bindings to transfer payloads larger than 1 MB.
+
+This functionality is available only for function apps running in Premium and Dedicated (App Service) plans. To learn more, see [Shared memory](https://github.com/Azure/azure-functions-python-worker/wiki/Shared-Memory). 
 
 ## Known issues and FAQ
 

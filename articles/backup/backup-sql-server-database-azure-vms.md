@@ -91,7 +91,7 @@ You can also use the following FQDNs to allow access to the required services fr
 
 #### Allow connectivity for servers behind internal load balancers
 
-When using an internal load balancer, you need to allow the outbound connectivity from virtual machines behind the internal load balancer to perform backups. To do so, you can use a combination of internal and external standard load balancers to create an outbound connectivity. [Learn more](/azure/load-balancer/egress-only) about the configuration to create an _egress only_ setup for VMs in the backend pool of the internal load balancer.
+When using an internal load balancer, you need to allow the outbound connectivity from virtual machines behind the internal load balancer to perform backups. To do so, you can use a combination of internal and external standard load balancers to create an outbound connectivity. [Learn more](../load-balancer/egress-only.md) about the configuration to create an _egress only_ setup for VMs in the backend pool of the internal load balancer.
 
 #### Use an HTTP proxy server to route traffic
 

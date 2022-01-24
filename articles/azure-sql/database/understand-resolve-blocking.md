@@ -423,7 +423,7 @@ The Waittype, Open_Tran, and Status columns refer to information returned by [sy
 
 ## Next steps
 
-* [Azure SQL Database: Improving Performance Tuning with Automatic Tuning](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Improving-Performance-Tuning-with-Automatic-Tuning)
+* [Azure SQL Database: Improving Performance Tuning with Automatic Tuning](/Shows/Data-Exposed/Azure-SQL-Database-Improving-Performance-Tuning-with-Automatic-Tuning)
 * [Deliver consistent performance with Azure SQL](/learn/modules/azure-sql-performance/)
 * [Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance](troubleshoot-common-errors-issues.md)
 * [Transient Fault Handling](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)

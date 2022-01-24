@@ -7,10 +7,10 @@ ms.subservice: backup-restore
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: SQLSourabh
-ms.author: sourabha
+author: rothja
+ms.author: jroth
 ms.reviewer: mathoma
-ms.date: 01/05/2022
+ms.date: 01/17/2022
 ---
 
 # Use CLI to backup an Azure SQL single database to an Azure storage container
