@@ -122,8 +122,8 @@ Once you have your update files, create an import manifest to describe the updat
 ## If you're importing via APIs instead
 
 In addition to using Azure Portal, you may also import an update programmatically by:
-* Using `Azure SDK` for [.NET](https://docs.microsoft.com/en-us/dotnet/api/azure.iot.deviceupdate), [Java](https://docs.microsoft.com/en-us/java/api/com.azure.iot.deviceupdate), [JavaScript](https://docs.microsoft.com/en-us/javascript/api/@azure/iot-device-update) or [Python](https://docs.microsoft.com/en-us/python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate)
-* Using [Import Update REST API](https://docs.microsoft.com/en-us/rest/api/deviceupdate/updates/import-update)
+* Using `Azure SDK` for [.NET](https://docs.microsoft.com/dotnet/api/azure.iot.deviceupdate), [Java](https://docs.microsoft.com/java/api/com.azure.iot.deviceupdate), [JavaScript](https://docs.microsoft.com/javascript/api/@azure/iot-device-update) or [Python](https://docs.microsoft.com/python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate)
+* Using [Import Update REST API](https://docs.microsoft.com/rest/api/deviceupdate/updates/import-update)
 * Using [sample PowerShell modules](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets)
 
 > [!NOTE]
@@ -134,7 +134,7 @@ In order to import, you have to upload your update files and import manifest to 
 > [!TIP]
 > To upload large update files to Azure Storage Blob container, you may use one of the following for better performance:
 > - [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)
-> - [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer)
+> - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer)
 
 ## Next Steps
 
