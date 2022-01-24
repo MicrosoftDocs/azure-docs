@@ -85,7 +85,7 @@ As mentioned earlier, Azure Lab VMs have a disk size of 128 GB.  If your student
 
 ### Save template VM image
 
-Consider saving your template VM for future use.  To save the template VM, see[Save an image to a compute gallery](how-to-use-shared-image-gallery.md#save-an-image-to-a-compute-gallery).
+Consider saving your template VM for future use.  To save the template VM, see [Save an image to a compute gallery](how-to-use-shared-image-gallery.md#save-an-image-to-a-compute-gallery).
 
 - When self-service is *enabled*, the template VM’s image will have Creative Cloud desktop installed.  Teachers can then reuse this image to create labs and to choose which Creative Cloud apps to install.  This helps reduce IT overhead since teachers can independently set up labs and have full control over installing the Creative Cloud apps required for their classes.
 - When self-service is *disabled*, the template VM’s image will already have the specified Creative Cloud apps installed.  Teachers can reuse this image to create labs; however, they won’t be able to install additional Creative Cloud apps.

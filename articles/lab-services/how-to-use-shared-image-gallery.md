@@ -30,7 +30,7 @@ Here are the couple of scenarios supported by this feature:
 - You have attached the compute gallery to the lab plan. For step-by-step instructions, see [How to attach or detach compute gallery](how-to-attach-detach-shared-image-gallery.md).
 - Image must be replicated to the same region as the lab plan.
 
-## Save an image a compute gallery
+## Save an image to a compute gallery
 
 After a compute gallery is attached, a lab plan admin or an educator can save an image to the compute gallery so that it can be reused by other educators.
 
@@ -51,7 +51,7 @@ After you save the image to the compute gallery, you can use that image from the
 - [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md)
 
 > [!IMPORTANT]
-> When you [save a template image of a lab](how-to-use-shared-image-gallery.md#save-an-image-to-the-compute-gallery) in Azure Lab Services to a compute gallery, the image is uploaded to the gallery as a **specialized image**. [Specialized images](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) keep machine-specific information and user profiles. You can still directly upload a generalized image to the gallery outside of Azure Lab Services.
+> When you save a template image of a lab in Azure Lab Services to a compute gallery, the image is uploaded to the gallery as a **specialized image**. [Specialized images](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) keep machine-specific information and user profiles. You can still directly upload a generalized image to the gallery outside of Azure Lab Services.
 
 ## Use a custom image from the compute gallery
 
