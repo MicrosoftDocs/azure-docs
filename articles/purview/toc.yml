@@ -35,7 +35,7 @@ items:
   - name: Use REST APIs for collections
     href: tutorial-metadata-policy-collections-apis.md
   - name: Data owner policies on resource groups or subscriptions
-      href: how-to-access-policies-resource-group.md
+    href: how-to-access-policies-resource-group.md
 - name: Concepts
   items:
   - name: Use Azure Purview Studio
