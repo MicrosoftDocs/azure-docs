@@ -3,6 +3,7 @@ title: "Quickstart: Your first Go query"
 description: In this quickstart, you follow the steps to enable the Resource Graph package for Go and run your first query.
 ms.date: 07/09/2021
 ms.topic: quickstart
+ms.devlang: golang
 ---
 # Quickstart: Run your first Resource Graph query using Go
 

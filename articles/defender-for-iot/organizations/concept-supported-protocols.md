@@ -1,17 +1,17 @@
 ---
-title: Protocols supported by Azure Defender for IoT
-description: Learn about protocols that are supported by Azure Defender for IoT.
-ms.date: 09/20/2021
+title: Protocols supported by Microsoft Defender for IoT
+description: Learn about protocols that are supported by Microsoft Defender for IoT.
+ms.date: 11/09/2021
 ms.topic: article
 ---
 
 # Support for IoT, OT, ICS, and SCADA protocols
 
-Azure Defender for IoT provides an open and interoperable Operation Technology (OT) cybersecurity platform. Defender for IoT is deployed in many different locations and reduces IoT, IT, and ICS risk with deployments in demanding, and complex OT environments across all industry verticals and geographies.
+Microsoft Defender for IoT provides an open and interoperable Operation Technology (OT) cybersecurity platform. Defender for IoT is deployed in many different locations and reduces IoT, IT, and ICS risk with deployments in demanding, and complex OT environments across all industry verticals and geographies.
 
 ## Supported protocols
 
-Azure Defender for IoT supports a broad range of protocols across a diverse enterprise, and includes industrial automation equipment across all industrial sectors, enterprise networks, and building management system (BMS) environments. For custom or proprietary protocols, Microsoft offers an SDK that makes it easy to develop, test, and deploy custom protocol dissectors as plugins. The SDK does all this without divulging proprietary information, such as how the protocols are designed, or by sharing PCAPs that may contain sensitive information. Supported protocols are listed below.
+Microsoft Defender for IoT supports a broad range of protocols across a diverse enterprise, and includes industrial automation equipment across all industrial sectors, enterprise networks, and building management system (BMS) environments. For custom or proprietary protocols, Microsoft offers an SDK that makes it easy to develop, test, and deploy custom protocol dissectors as plugins. The SDK does all this without divulging proprietary information, such as how the protocols are designed, or by sharing PCAPs that may contain sensitive information. Supported protocols are listed below.
 
 ### Supported protocols (passive monitoring)
 
@@ -114,4 +114,5 @@ We invite you to join our community here: <horizon-community@microsoft.com>
 ## Next steps
 
 Learn more about the [Horizon proprietary protocol dissector](references-horizon-sdk.md).
+
 Check out our [Horizon API](references-horizon-api.md).

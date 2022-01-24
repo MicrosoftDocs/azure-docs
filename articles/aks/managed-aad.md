@@ -22,7 +22,6 @@ Learn more about the Azure AD integration flow on the [Azure Active Directory in
 * AKS-managed Azure AD integration can't be disabled
 * Changing a AKS-managed Azure AD integrated cluster to legacy AAD is not supported
 * Clusters without Kubernetes RBAC enabled aren't supported for AKS-managed Azure AD integration
-* Changing the Azure AD tenant associated with AKS-managed Azure AD integration isn't supported
 
 ## Prerequisites
 

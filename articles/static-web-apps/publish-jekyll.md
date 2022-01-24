@@ -144,7 +144,7 @@ To configure environment variables, such as `JEKYLL_ENV`, add an `env` section t
    uses: Azure/static-web-apps-deploy@v1
    with:
       azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-      repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+      repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
       action: "upload"
       ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
       # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig

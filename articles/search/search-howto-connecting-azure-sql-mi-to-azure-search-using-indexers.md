@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: Enable public endpoint to allow connections to SQL Managed Instances from an indexer on Azure Cognitive Search.
 
 manager: nitinme
-author: vl8163264128
-ms.author: victliu
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/26/2021

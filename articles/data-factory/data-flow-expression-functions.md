@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/23/2021
+ms.date: 01/12/2022
 ---
 
 # Data transformation expressions in mapping data flow
@@ -179,7 +179,9 @@ The following functions are only available in aggregate, pivot, unpivot, and win
 | [avgIf](data-flow-expression-functions.md#avgIf) | Based on a criteria gets the average of values of a column.  |
 | [collect](data-flow-expression-functions.md#collect) | Collects all values of the expression in the aggregated group into an array. Structures can be collected and transformed to alternate structures during this process. The number of items will be equal to the number of rows in that group and can contain null values. The number of collected items should be small.  |
 | [count](data-flow-expression-functions.md#count) | Gets the aggregate count of values. If the optional column(s) is specified, it ignores NULL values in the count.  |
+| [countAll](data-flow-expression-functions.md#countAll) | Gets the aggregate count of values including NULLs.  |
 | [countDistinct](data-flow-expression-functions.md#countDistinct) | Gets the aggregate count of distinct values of a set of columns.  |
+| [countAllDistinct](data-flow-expression-functions.md#countAllDistinct) | Gets the aggregate count of distinct values of a set of columns including NULLs.  |
 | [countIf](data-flow-expression-functions.md#countIf) | Based on a criteria gets the aggregate count of values. If the optional column is specified, it ignores NULL values in the count.  |
 | [covariancePopulation](data-flow-expression-functions.md#covariancePopulation) | Gets the population covariance between two columns.  |
 | [covariancePopulationIf](data-flow-expression-functions.md#covariancePopulationIf) | Based on a criteria, gets the population covariance of two columns.  |
@@ -787,6 +789,16 @@ Gets the aggregate count of values. If the optional column(s) is specified, it i
 * ``count(iif(isNull(custId), 1, NULL))``  
 ___
 
+<a name="countAll" ></a>
+
+### <code>countAll</code>
+<code><b>countAll([<i>&lt;value1&gt;</i> : any]) => long</b></code><br/><br/>
+Gets the aggregate count of values including nulls.  
+* ``countAll(custId)``  
+* ``countAll()``  
+
+___
+
 
 <a name="countDistinct" ></a>
 
@@ -794,6 +806,15 @@ ___
 <code><b>countDistinct(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : any], ...) => long</b></code><br/><br/>
 Gets the aggregate count of distinct values of a set of columns.  
 * ``countDistinct(custId, custName)``  
+___
+
+
+<a name="countAllDistinct" ></a>
+
+### <code>countAllDistinct</code>
+<code><b>countAllDistinct(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : any], ...) => long</b></code><br/><br/>
+Gets the aggregate count of distinct values of a set of columns including nulls.
+* ``countAllDistinct(custId, custName)``  
 ___
 
 

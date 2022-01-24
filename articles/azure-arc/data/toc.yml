@@ -15,6 +15,10 @@ items:
   items:
     - name: Plan an Azure Arc-enabled data services deployment 
       href: plan-azure-arc-data-services.md
+    - name: Directly connected | Azure portal example
+      href: create-complete-managed-instance-directly-connected.md
+    - name: Indirectly connected | Azure CLI example
+      href: create-complete-managed-instance-indirectly-connected.md
 - name: Concepts
   items:
     - name: Connectivity modes and requirements
@@ -51,8 +55,10 @@ items:
             href: create-data-controller-direct-prerequisites.md
           - name: Azure portal
             href: create-data-controller-direct-azure-portal.md
-          - name: az CLI
+          - name: Azure CLI
             href: create-data-controller-direct-cli.md
+        - name: Configure monitor certificates
+          href: monitor-certificates.md
     - name: Common experiences across Azure Arc-enabled data services
       items:
         - name: Monitor with dashboards (Azure Data Studio)
@@ -81,10 +87,20 @@ items:
               href: upload-usage-data.md
         - name: Inventory database instances
           href: view-arc-data-services-inventory-in-azure-portal.md
-        - name: Get data controller username & password
-          href: retrieve-the-username-password-for-data-controller.md
         - name: Update service principal credentials
           href: update-service-principal-credentials.md
+    - name: Upgrade
+      items:
+        - name: Indirect connectivity mode
+          items:
+            - name: Data controller indirect - CLI
+              href: upgrade-data-controller-indirect-cli.md
+            - name: Data controller indirect - Kubernetes tools
+              href: upgrade-data-controller-indirect-kubernetes-tools.md
+        - name: Direct connectivity mode
+          items:
+            - name: Data controller direct - CLI
+              href: upgrade-data-controller-direct-cli.md
     - name: Troubleshooting
       items:
         - name: Guide
@@ -191,14 +207,38 @@ items:
               href: managed-instance-high-availability.md
             - name: Reserved capacity
               href: reserved-capacity-overview.md
+            - name: Rotate certificates
+              href: rotate-user-tls-certificate.md
             - name: Delete
               href: delete-managed-instance.md
+        - name: Upgrade
+          items:
+            - name: Direct connectivity mode
+              items:
+                - name: SQL Managed Instance direct - CLI
+                  href: upgrade-sql-managed-instance-direct-cli.md
+            - name: Indirect connectivity mode
+              items:
+                - name: SQL Managed Instance indirect - CLI
+                  href: upgrade-sql-managed-instance-cli.md
+                - name: SQL Managed Instance indirect - Kubernetes tools
+                  href: upgrade-sql-managed-instance-indirect-kubernetes-tools.md
         - name: Migrate
           items:
             - name: Migrate to SQL Managed Instance (Azure Arc)
               href: migrate-to-managed-instance.md
             - name: Restore AdventureWorks
               href: restore-adventureworks-sample-db.md
+        - name: Active Directory
+          items:
+            - name: Introduction
+              href: active-directory-introduction.md
+            - name: Deploy connector
+              href: deploy-active-directory-connector.md
+            - name: Deploy SQL Managed Instance
+              href: deploy-active-directory-sql-managed-instance.md
+            - name: Connect SQL Managed Instance
+              href: connect-active-directory-sql-managed-instance.md              
         - name: Configure business continuity
           items:
             - name: Point in time restore
@@ -209,8 +249,8 @@ items:
     href: version-log.md
   - name: az arcdata extension
     items:
-    - name: Overview
-      href: ./reference/overview.md
+    - name: arcdata
+      href: ./reference/reference-az-arcdata.md
     - name: arcdata dc
       href: ./reference/reference-az-arcdata-dc.md
     - name: arcdata dc config
@@ -233,9 +273,9 @@ items:
       href: ./reference/reference-az-sql-mi-arc-config.md
     - name: sql mi-arc dag
       href: ./reference/reference-az-sql-mi-arc-dag.md
+    - name: sql midb-arc 
+      href: ./reference/reference-az-sql-midb-arc.md
 - name: Resources
   items:
-    - name: Plan for deployment
-      href: plan-azure-arc-data-services.md
     - name: Azure Arc jumpstart
       href: https://azurearcjumpstart.io

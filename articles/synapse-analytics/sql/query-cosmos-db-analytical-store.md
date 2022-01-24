@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 03/02/2021
 ms.author: jovanpop
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: cosmos-db
 ---
 

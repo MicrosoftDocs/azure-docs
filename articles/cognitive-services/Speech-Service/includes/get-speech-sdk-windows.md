@@ -1,9 +1,9 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
-ms.author: pafarley
+ms.author: eur
 ms.custom: devx-track-csharp
 ---
 
@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Windows" src="https://docs.microsoft.com/media/logos/logo_Windows.svg" width="60px">
+            <img alt="Windows" src="/media/logos/logo_Windows.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::

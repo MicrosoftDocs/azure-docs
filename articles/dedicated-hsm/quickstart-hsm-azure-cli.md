@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: key-vault
 ms.devlang: azurecli
 ms.date: 01/06/2021
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Create an Azure Dedicated HSM by using the Azure CLI

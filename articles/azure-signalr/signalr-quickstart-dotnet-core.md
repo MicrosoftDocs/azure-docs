@@ -3,9 +3,9 @@ title: Quickstart to learn how to use Azure SignalR Service
 description: A quickstart for using Azure SignalR Service to create a chat room with ASP.NET Core MVC apps.
 author: sffamily
 ms.service: signalr
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 ms.date: 09/28/2020
 ms.author: zhshang
 ---

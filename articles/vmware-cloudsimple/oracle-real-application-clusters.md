@@ -1,4 +1,4 @@
---- 
+---
 title: Azure VMware Solution by CloudSimple - Optimize your CloudSimple Private Cloud for Oracle RAC
 description: Describes how to deploy a new cluster and optimize a VM for Oracle Real Application Clusters (RAC) installation and configuration
 author: suzizuber
@@ -196,7 +196,7 @@ To create a VM for Oracle, clone an existing VM or create a new one.  This secti
 14. Review the settings and click **OK** to create the new VM.
 15. Power on the VM. Install the operating system and any updates required
 
-After the operating system is installed, you can clone a second VM. Right-click the VM entry and select the and clone option.
+After the operating system is installed, you can clone a second VM. Right-click the VM entry and select and clone option.
 
 ### Create shared disks for VMs
 

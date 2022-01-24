@@ -3,11 +3,11 @@ title: Plan a consulting service offer for the commercial marketplace
 description: Plan a consulting service offer for Microsoft AppSource or Azure Marketplace in Partner Center.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.reviewer: anbene
+ms.reviewer: emuench
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 11/30/2021
 ---
 
 # Plan a consulting service offer
@@ -110,7 +110,7 @@ When you create your consulting service offer in Partner Center, you’ll enter 
 7. Offer name
 8. Search result summary
 9. Description
-10. Screenshots/videos
+10. Promotional media
 11. Supporting documents
 
 > [!NOTE]
@@ -163,8 +163,8 @@ You can use HTML tags to format your description. You can enter up to 2,000 char
 
 **Marketplace media – logos**: Provide a PNG file for the large-size logo. Partner Center will use it to create a small logo. You can optionally replace the small logo with a different image later.
 
-* Large (from 216 x 216 to 350 x 350 px, required)
-* Small (48 x 48 px, optional)
+* Large (from 216x216 to 350x350 pixels, required)
+* Small (48x48 pixels, optional)
 
 The large logo appears on your offer listing page in Azure Marketplace or AppSource. The small logo appears in Azure Marketplace search results or on the AppSource main page and search results page.
 
@@ -175,9 +175,9 @@ Follow these guidelines for your logos:
 * If you use a transparent background, make sure that the logo and text aren't white, black, or blue.
 * Avoid gradients in the logo or background. Don't place text on the logo, not even your company or brand name.
 
-**Marketplace media – screenshots**: Add at least one and up to five images that demonstrate your offer. All images must be 1280 x 720 pixels in size and in .PNG format.
+**Marketplace media – promotional images**: Add at least one and up to five images that highlight your service’s value proposition, differentiation, and customer success. This could include snapshots from a slide deck, fact sheet, case study, or marketing one-pager summarizing your service. All images must be 1280x720 pixels in size and in PNG format.
 
-**Marketplace media – videos** (optional): you can add up to four videos that demonstrate your offer. The videos must be hosted on YouTube or Vimeo and have a thumbnail (1280 x 720 PNG file).
+**Marketplace media – videos** (optional): you can add up to four videos that demonstrate your offer. The videos must be hosted on YouTube or Vimeo and have a thumbnail (1280x720 pixel PNG file).
 
 ## Pricing and availability
 

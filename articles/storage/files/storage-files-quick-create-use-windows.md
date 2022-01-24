@@ -7,10 +7,11 @@ ms.topic: quickstart
 ms.date: 07/27/2021
 ms.author: rogarana
 ms.subservice: files
+ms.custom: mode-ui
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share so I can determine whether I want to subscribe to the service.
 ---
 
-# Quickstart: Create and manage Azure file shares with Windows virtual machines
+# Quickstart: Create and manage Azure file shares with Windows virtual machines via the Azure portal
 
 The article demonstrates the basic steps for creating and using an Azure Files share. In this quickstart, the emphasis is on quickly setting up an Azure Files share so you can experience how the service works. If you need more detailed instructions for creating and using Azure file shares in your own environment, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
 

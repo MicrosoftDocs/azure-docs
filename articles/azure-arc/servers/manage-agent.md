@@ -1,13 +1,13 @@
 ---
 title:  Managing the Azure Arc-enabled servers agent
-description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Arc-enabled servers Connected Machine agent.
-ms.date: 10/14/2021
+description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
+ms.date: 10/28/2021
 ms.topic: conceptual
 ---
 
 # Managing and maintaining the Connected Machine agent
 
-After initial deployment of the Azure Arc-enabled servers Connected Machine agent for Windows or Linux, you may need to reconfigure the agent, upgrade it, or remove it from the computer. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
+After initial deployment of the Azure Connected Machine agent for Windows or Linux, you may need to reconfigure the agent, upgrade it, or remove it from the computer. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
 
 ## Before uninstalling agent
 
@@ -45,7 +45,7 @@ For Azure Arc-enabled servers, before you rename the machine, it is necessary to
 
 1. Audit the VM extensions installed on the machine and note their configuration, using the [Azure CLI](manage-vm-extensions-cli.md#list-extensions-installed) or using [Azure PowerShell](manage-vm-extensions-powershell.md#list-extensions-installed).
 
-2. Remove VM extensions installed from the [Azure portal](manage-vm-extensions-portal.md#uninstall-extensions), using the [Azure CLI](manage-vm-extensions-cli.md#remove-an-installed-extension), or using [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension).
+2. Remove VM extensions installed from the [Azure portal](manage-vm-extensions-portal.md#remove-extensions), using the [Azure CLI](manage-vm-extensions-cli.md#remove-extensions), or using [Azure PowerShell](manage-vm-extensions-powershell.md#remove-extensions).
 
 3. Use the **azcmagent** tool with the [Disconnect](manage-agent.md#disconnect) parameter to disconnect the machine from Azure Arc and delete the machine resource from Azure. Disconnecting the machine from Azure Arc-enabled servers does not remove the Connected Machine agent, and you do not need to remove the agent as part of this process. You can run azcmagent manually while logged on interactively, or automate using the same service principal you used to onboard multiple agents, or with a Microsoft identity platform [access token](../../active-directory/develop/access-tokens.md). If you did not use a service principal to register the machine with Azure Arc-enabled servers, see the following [article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) to create a service principal.
 
@@ -165,17 +165,19 @@ Actions of the [zypper](https://en.opensuse.org/Portal:Zypper) command, such as 
 
 ## About the Azcmagent tool
 
-The Azcmagent tool (Azcmagent.exe) is used to configure the Azure Arc-enabled servers Connected Machine agent during installation, or modify the initial configuration of the agent after installation. Azcmagent.exe provides command-line parameters to customize the agent and view its status:
+The Azcmagent tool (Azcmagent.exe) is used to configure the Azure Connected Machine agent during installation, or modify the initial configuration of the agent after installation. Azcmagent.exe provides command-line parameters to customize the agent and view its status:
 
-* **Connect** - To connect the machine to Azure Arc
+* **connect** - To connect the machine to Azure Arc
 
-* **Disconnect** - To disconnect the machine from Azure Arc
+* **disconnect** - To disconnect the machine from Azure Arc
 
-* **Show** - View agent status and its configuration properties (Resource Group name, Subscription ID, version, etc.), which can help when troubleshooting an issue with the agent. Include the `-j` parameter to output the results in JSON format.
+* **show** - View agent status and its configuration properties (Resource Group name, Subscription ID, version, etc.), which can help when troubleshooting an issue with the agent. Include the `-j` parameter to output the results in JSON format.
 
-* **Logs** - Creates a .zip file in the current directory containing logs to assist you while troubleshooting.
+* **config** - View and change settings to enable features and control agent behavior
 
-* **Version** - Shows the Connected Machine agent version.
+* **logs** - Creates a .zip file in the current directory containing logs to assist you while troubleshooting.
+
+* **version** - Shows the Connected Machine agent version.
 
 * **-useStderr** - Directs error and verbose output to stderr. Include the `-json` parameter to output the results in JSON format.
 
@@ -188,7 +190,7 @@ The Azcmagent tool (Azcmagent.exe) is used to configure the Azure Arc-enabled se
 You can perform a **Connect** and **Disconnect** manually while logged on interactively, or automate using the same service principal you used to onboard multiple agents or with a Microsoft identity platform [access token](../../active-directory/develop/access-tokens.md). If you did not use a service principal to register the machine with Azure Arc-enabled servers, see the following [article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) to create a service principal.
 
 >[!NOTE]
->You must have *root* access permissions on Linux machines to run **azcmagent**.
+>You must have *Administrator* permissions on Windows or *root* access permissions on Linux machines to run **azcmagent**.
 
 ### Connect
 
@@ -227,11 +229,31 @@ To disconnect with your elevated logged-on credentials (interactive), run the fo
 
 `azcmagent disconnect`
 
+### Config
+
+This parameter allows you to view and configure settings that control agent behavior.
+
+To view a list of all the configuration properties and their values, run the following command:
+
+`azcmagent config list`
+
+To get the value for a particular configuration property, run the following command:
+
+`azcmagent config get <propertyName>`
+
+To change a configuration property, run the following command:
+
+`azcmagent config set <propertyName> <propertyValue>`
+
+To clear a configuration property's value, run the following command:
+
+`azcmagent config clear <propertyName>`
+
 ## Remove the agent
 
 Perform one of the following methods to uninstall the Windows or Linux Connected Machine agent from the machine. Removing the agent does not unregister the machine with Azure Arc-enabled servers or remove the Azure VM extensions installed. For servers or machines you no longer want to manage with Azure Arc-enabled servers, it is necessary to follow these steps to successfully stop managing it: 
 
-1. Remove VM extensions installed from the [Azure portal](manage-vm-extensions-portal.md#uninstall-extensions), using the [Azure CLI](manage-vm-extensions-cli.md#remove-an-installed-extension), or using [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension) that you don't want to remain on the machine.
+1. Remove VM extensions installed from the [Azure portal](manage-vm-extensions-portal.md#remove-extensions), using the [Azure CLI](manage-vm-extensions-cli.md#remove-extensions), or using [Azure PowerShell](manage-vm-extensions-powershell.md#remove-extensions) that you don't want to remain on the machine.
 1. Unregister the machine by running `azcmagent disconnect` to delete the Azure Arc-enabled servers resource in Azure. If that fails, you can delete the resource manually in Azure. Otherwise, if the resource was deleted in Azure, you'll need to run `azcmagent disconnect --force-local-only` on the server to remove the local configuration.
 
 ### Windows agent
@@ -311,45 +333,85 @@ If you are planning to stop managing the machine with supporting services in Azu
 
 To configure the agent to communicate to the service through a proxy server or remove this configuration after deployment, or use one of the following methods to complete this task. The agent communicates outbound using the HTTP protocol under this scenario.
 
+As of agent version 1.13, proxy settings can be configured using the `azcmagent config` command or system environment variables. If a proxy server is specified in both the agent configuration and system environment variables, the agent configuration will take precedence and become the effective setting. `azcmagent show` returns the effective proxy configuration for the agent.
+
 > [!NOTE]
-> Azure Arc-enabled servers does not support using a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent.
->
+> Azure Arc-enabled servers does not support using proxy servers that require authentication, TLS (HTTPS) connections, or a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent.
 
-### Windows
+### Universal proxy configuration
 
-To set the proxy server environment variable, run the following command:
+Universal proxy configuration is available starting with version 1.13 of the Azure Connected Machine agent and is the preferred way of configuring proxy server settings.
+
+To configure the agent to communicate through a proxy server, run the following command:
+
+```bash
+azcmagent config set proxy.url "http://ProxyServerFQDN:port"
+```
+
+You can use an IP address or simple hostname in place of the FQDN if your network requires it. If your proxy server runs on port 80, you may omit ":80" at the end.
+
+To check if a proxy server URL is configured in the agent settings, run the following command:
+
+```bash
+azcmagent config get proxy.url
+```
+
+To stop the agent from communicating through a proxy server, run the following command:
+
+```bash
+azcmagent config clear proxy.url
+```
+
+You do not need to restart any services when reconfiguring the proxy settings with the `azcmagent config` command.
+
+### Windows environment variables
+
+On Windows, the Azure Connected Machine agent will first check the `proxy.url` agent configuration property (starting with agent version 1.13), then the system-wide `HTTPS_PROXY` environment variable to determine which proxy server to use. If both are empty, no proxy server is used, even if the default Windows system-wide proxy setting is configured.
+
+Microsoft recommends using the agent configuration property instead of the system environment variable.
+
+To set the proxy server environment variable, run the following commands:
 
 ```powershell
 # If a proxy server is needed, execute these commands with the proxy URL and port.
-[Environment]::SetEnvironmentVariable("https_proxy","http://{proxy-url}:{proxy-port}","Machine")
-$env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
-# For the changes to take effect, the agent service needs to be restarted after the proxy environment variable is set.
-Restart-Service -Name himds
+[Environment]::SetEnvironmentVariable("HTTPS_PROXY", "http://ProxyServerFQDN:port", "Machine")
+$env:HTTPS_PROXY = [System.Environment]::GetEnvironmentVariable("HTTPS_PROXY", "Machine")
+# For the changes to take effect, the agent services need to be restarted after the proxy environment variable is set.
+Restart-Service -Name himds, ExtensionService, GCArcService
 ```
 
-To configure the agent to stop communicating through a proxy server, run the following command to remove the proxy server environmental variable and restart the agent service:
+To configure the agent to stop communicating through a proxy server, run the following commands:
 
 ```powershell
-[Environment]::SetEnvironmentVariable("https_proxy",$null,"Machine")
-$env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
-# For the changes to take effect, the agent service needs to be restarted after the proxy environment variable removed.
-Restart-Service -Name himds
+[Environment]::SetEnvironmentVariable("HTTPS_PROXY", $null, "Machine")
+$env:HTTPS_PROXY = [System.Environment]::GetEnvironmentVariable("HTTPS_PROXY", "Machine")
+# For the changes to take effect, the agent services need to be restarted after the proxy environment variable removed.
+Restart-Service -Name himds, ExtensionService, GCArcService
 ```
 
-### Linux
+### Linux environment variables
 
-To set the proxy server, run the following command from the directory you downloaded the agent installation package to:
+On Linux, the Azure Connected Machine agent first checks the `proxy.url` agent configuration property (starting with agent version 1.13), and then the `HTTPS_PROXY` environment variable set for the himds, GC_Ext, and GCArcService daemons. There is an included script that will configure systemd's default proxy settings for the Azure Connected Machine agent and all other services on the machine to use a specified proxy server.
+
+To configure the agent to communicate through a proxy server, run the following command:
 
 ```bash
-# Reconfigure the connected machine agent and set the proxy server.
-bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
+sudo /opt/azcmagent/bin/azcmagent_proxy add "http://ProxyServerFQDN:port"
 ```
 
-To configure the agent to stop communicating through a proxy server, run the following command to remove the proxy configuration:
+To remove the environment variable, run the following command:
 
 ```bash
-sudo azcmagent_proxy remove
+sudo /opt/azcmagent/bin/azcmagent_proxy remove
 ```
+
+### Migrating from environment variables to universal proxy configuration
+
+If you are already using environment variables to configure the proxy server for the Azure Connected Machine agent and want to migrate to the universal proxy configuration based on local agent settings, follow these steps:
+
+1. [Upgrade the Azure Connected Machine agent](#upgrading-agent) to the latest version (starting with version 1.13) to use the new proxy configuration settings
+1. Configure the agent with your proxy server information by running `azcmagent config set proxy.url "http://ProxyServerFQDN:port"`
+1. Remove the unused environment variables by following the steps for [Windows](#windows-environment-variables) or [Linux](#linux-environment-variables)
 
 ## Next steps
 

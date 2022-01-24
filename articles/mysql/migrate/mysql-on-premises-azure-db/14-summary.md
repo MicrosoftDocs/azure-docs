@@ -42,7 +42,7 @@ In addition, consider these points of contact as appropriate:
 
   - To contact Azure Support or fix an issue with your account, [file a ticket from the Azure portal. ](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 
-  - To provide feedback or to request new features, create an entry via [UserVoice.](https://feedback.azure.com/forums/597982-azure-database-for-mysql)
+  - To provide feedback or to request new features, create an entry via [UserVoice.](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0)
 fwill
 ## Find a partner to help migrate
 

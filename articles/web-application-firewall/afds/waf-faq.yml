@@ -5,7 +5,6 @@ metadata:
   services: web-application-firewall
   author: vhorne
   ms.service: web-application-firewall
-  ms.devlang: na
   ms.topic: article
   ms.date: 09/20/2021
   ms.author: victorh

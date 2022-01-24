@@ -7,8 +7,8 @@ author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 11/04/2019
+ms.topic: how-to
+ms.date: 11/12/2021
 ---
 # How to model relational SQL data for import and indexing in Azure Cognitive Search
 
@@ -17,7 +17,6 @@ Azure Cognitive Search accepts a flat rowset as input to the [indexing pipeline]
 As an illustration, we'll refer to a hypothetical hotels database, based on [demo data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels). Assume the database consists of a Hotels$ table with 50 hotels, and a Rooms$ table with rooms of varying types, rates, and amenities, for a total of 750 rooms. There is a one-to-many relationship between the tables. In our approach, a view will provide the query that returns 50 rows, one row per hotel, with associated room detail embedded into each row.
 
    ![Tables and view in the Hotels database](media/index-sql-relational-data/hotels-database-tables-view.png "Tables and view in the Hotels database")
-
 
 ## The problem of denormalized data
 
@@ -35,7 +34,7 @@ Results from this query return all of the Hotel fields, followed by all Room fie
 
 While this query succeeds on the surface (providing all of the data in a flat row set), it fails in delivering the right document structure for the expected search experience. During indexing, Azure Cognitive Search will create one search document for each row ingested. If your search documents looked like the above results, you would have perceived duplicates - seven separate documents for the Twin Dome hotel alone. A query on "hotels in Florida" would return seven results for just the Twin Dome hotel, pushing other relevant hotels deep into the search results.
 
-To get the expected experience of one document per hotel, you should provide a rowset at the right granularity, but with complete information. Fortunately, you can do this easily by adopting the techniques in this article.
+To get the expected experience of one document per hotel, you should provide a rowset at the right granularity, but with complete information. This article explains how.
 
 ## Define a query that returns embedded JSON
 
@@ -79,7 +78,7 @@ The solution is to capture the room detail as nested JSON, and then insert the J
     GO
     ```
 
-2. Create a view composed of all fields in the parent table (`SELECT * from dbo.Hotels$`), with the addition of a new *Rooms* field that contains the output of a nested query. A **FOR JSON AUTO** clause on `SELECT * from dbo.Rooms$` structures the output as JSON. 
+1. Create a view composed of all fields in the parent table (`SELECT * from dbo.Hotels$`), with the addition of a new *Rooms* field that contains the output of a nested query. A **FOR JSON AUTO** clause on `SELECT * from dbo.Rooms$` structures the output as JSON. 
 
      ```sql
    CREATE VIEW [dbo].[HotelRooms]
@@ -108,7 +107,7 @@ This rowset is now ready for import into Azure Cognitive Search.
 
 On the Azure Cognitive Search side, create an index schema that models the one-to-many relationship using nested JSON. The result set you created in the previous section generally corresponds to the index schema provided below (we cut some fields for brevity).
 
-The following example is similar to the example in [How to model complex data types](search-howto-complex-data-types.md#creating-complex-fields). The *Rooms* structure, which has been the focus of this article, is in the fields collection of an index named *hotels*. This example also shows a complex type for *Address*, which differs from *Rooms* in that it is composed of a fixed set of items, as opposed to the multiple, arbitrary number of items allowed in a collection.
+The following example is similar to the example in [How to model complex data types](search-howto-complex-data-types.md#create-complex-fields). The *Rooms* structure, which has been the focus of this article, is in the fields collection of an index named *hotels*. This example also shows a complex type for *Address*, which differs from *Rooms* in that it is composed of a fixed set of items, as opposed to the multiple, arbitrary number of items allowed in a collection.
 
 ```json
 {

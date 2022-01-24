@@ -8,6 +8,7 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 # Tutorial: Add Personalizer to a .NET web app

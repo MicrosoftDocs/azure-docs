@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 03/01/2021
 ms.author: rortloff
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: azure-synapse
 ---
 

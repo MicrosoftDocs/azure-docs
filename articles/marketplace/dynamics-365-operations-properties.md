@@ -1,15 +1,15 @@
 ---
-title: Configure Dynamics 365 for Operations offer properties on Microsoft AppSource (Azure Marketplace)
-description: Configure Dynamics 365 for Operations offer properties on Microsoft AppSource (Azure Marketplace).
+title: Configure Dynamics 365 Operations Apps offer properties on Microsoft AppSource (Azure Marketplace)
+description: Configure Dynamics 365 Operations Apps offer properties on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 07/08/2021
+ms.date: 12/03/2021
 ---
 
-# Configure Dynamics 365 for Operations offer properties
+# Configure Dynamics 365 Operations Apps offer properties
 
 This page lets you define the categories used to group your offer on Microsoft AppSource, your application version, and the legal contracts that support your offer.
 

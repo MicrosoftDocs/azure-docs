@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 12/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
@@ -103,6 +103,27 @@ To specify how to authorize a blob upload operation, follow these steps:
 1. In the **Authentication Type** field, indicate whether you want to authorize the upload operation by using your Azure AD account or with the account access key, as shown in the following image:
 
     :::image type="content" source="media/authorize-data-operations-portal/auth-blob-upload.png" alt-text="Screenshot showing how to change authorization method on blob upload":::
+
+## Default to Azure AD authorization in the Azure portal
+
+When you create a new storage account, you can specify that the Azure portal will default to authorization with Azure AD when a user navigates to blob data. You can also configure this setting for an existing storage account. This setting specifies the default authorization method only, so keep in mind that a user can override this setting and choose to authorize data access with the account key.
+
+To specify that the portal will use Azure AD authorization by default for data access when you create a storage account, follow these steps:
+
+1. Create a new storage account, following the instructions in [Create a storage account](../common/storage-account-create.md).
+1. On the **Advanced** tab, in the **Security** section, check the box next to **Default to Azure Active Directory authorization in the Azure portal**.
+
+    :::image type="content" source="media/authorize-data-operations-portal/default-auth-account-create-portal.png" alt-text="Screenshot showing how to configure default Azure AD authorization in Azure portal for new account":::
+
+1. Select the **Review + create** button to run validation and create the account.
+
+To update this setting for an existing storage account, follow these steps:
+
+1. Navigate to the account overview in the Azure portal.
+1. Under **Settings**, select **Configuration**.
+1. Set **Default to Azure Active Directory authorization in the Azure portal** to **Enabled**.
+
+    :::image type="content" source="media/authorize-data-operations-portal/default-auth-account-update-portal.png" alt-text="Screenshot showing how to configure default Azure AD authorization in Azure portal for existing account":::
 
 ## Next steps
 

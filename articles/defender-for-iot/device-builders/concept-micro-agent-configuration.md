@@ -1,7 +1,7 @@
 ---
 title: Micro agent configurations (Preview)
 description: The collector sends all current data immediately after any configuration change is made. The changes are then applied.
-ms.date: 10/10/2021
+ms.date: 12/22/2021
 ms.topic: conceptual
 ---
 
@@ -27,7 +27,7 @@ These configurations include process, and network activity collectors.
 | **Cache size** | cycle FIFO | The number of events collected in between the data is sent. | 256 |
 | **Disable collector** | True, or False | Whether or not the collector is operational. | False |
 
-## Trigger based collectors configurations
+## Trigger-based collectors configurations
 
 These configurations include system information, and baseline collectors.
 
@@ -35,6 +35,12 @@ These configurations include system information, and baseline collectors.
 |--|--|--|--|
 | **Interval** | High, Medium, or Low | The frequency in which data is sent. | Low |
 | **Disable collector** | True, or False | Whether or not the collector is operational. | False |
+
+## Network activity collector specific settings
+
+| Setting Name | Setting option | Description | Default setting |
+|--|--|--|--|
+| Devices | A list of the network devices separated by a comma. For example, "eth0,eth1" | The list of network devices (interfaces) that the agent will use to monitor the traffic. If a network device is not listed, the Network Raw events will not be recorded for the missing device.| "eth0" |
 
 ## General configuration
 
@@ -47,6 +53,16 @@ Define the frequency in which messages are sent for each priority level. The def
 | High | 30 (.5 hours) |
 
 To reduce the number of messages sent to cloud, each priority should be set as a multiple of the one below it. For example, High: 60 minutes, Medium: 120 minutes, Low: 480 minutes.
+
+The syntax for configuring the frequencies is as follows:
+
+`"CollectorsCore_PriorityIntervals"` : `"<High>,<Medium>,<Low>"`
+
+For example:
+
+`"CollectorsCore_PriorityIntervals"` : `"30,120,1440"`
+
+Please note, that you must specify all 3 values.
 
 ## Next steps
 

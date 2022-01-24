@@ -3,7 +3,7 @@ title: Secure user-based service accounts  | Azure Active Directory
 description: A guide to securing user-based service accounts.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
@@ -76,7 +76,7 @@ Get-ADUser -Filter * -Properties PasswordNeverExpires | where {$_.PasswordNeverE
 
 ```
 
-You can also audit access to sensitive resources, and archive audit logs to a security information and event management (SIEM) system. By using systems such as Azure Log Analytics or Azure Sentinel, you can search for and analyze and service accounts.
+You can also audit access to sensitive resources, and archive audit logs to a security information and event management (SIEM) system. By using systems such as Azure Log Analytics or Microsoft Sentinel, you can search for and analyze and service accounts.
 
 ## Assess the security of on-premises user accounts
 
@@ -94,7 +94,7 @@ Potential security issues and their mitigations for on-premises user accounts ar
 | - | - |
 | Password management.| <li>Ensure that password complexity and password change are governed by a robust process that includes regular updates and strong password requirements.<li>Coordinate password changes with a password update to minimize service downtime. |
 | The account is a member of privileged groups.| <li>Review group memberships.<li>Remove the account from privileged groups.<li>Grant the account only the rights and permissions it requires to run its service (consult with service vendor). For example, you might be able to deny sign-in locally or deny interactive sign-in. |
-| The account has read/write permissions to sensitive resources.| <li>Audit access to sensitive resources.<li>Archive audit logs to a SIEM (Azure Log Analytics or Azure Sentinel) for analysis.<li>Remediate resource permissions if an undesirable level of access is detected. |
+| The account has read/write permissions to sensitive resources.| <li>Audit access to sensitive resources.<li>Archive audit logs to a SIEM (Azure Log Analytics or Microsoft Sentinel) for analysis.<li>Remediate resource permissions if an undesirable level of access is detected. |
 | | |
 
 

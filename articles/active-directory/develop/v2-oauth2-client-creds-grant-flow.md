@@ -231,7 +231,7 @@ A successful response from any method looks like this:
 
 ### Error response
 
-An error response looks like this:
+An error response (400 Bad Request) looks like this:
 
 ```json
 {

@@ -11,7 +11,6 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 09/08/2021
 ms.author: phjensen
@@ -109,7 +108,7 @@ Create RBAC Service Principal
 1. Create a service principal using Azure CLI per the following example
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --sdk-auth
+    az ad sp create-for-rbac --role Contributor --sdk-auth
     ```
 
     1. This should generate an output like the following example:

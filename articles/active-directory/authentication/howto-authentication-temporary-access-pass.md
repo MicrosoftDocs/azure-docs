@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/23/2021
+ms.date: 10/22/2021
 
 ms.author: justinha
-author: justinha
-manager: daveba
-ms.reviewer: inbarckms
+author: inbarckMS 
+manager: karenhoran
+ms.reviewer: inbarc
 
 ms.collection: M365-identity-device-management
 ---
@@ -62,10 +62,10 @@ To configure the Temporary Access Pass authentication method policy:
 After you enable a policy, you can create a Temporary Access Pass for a user in Azure AD. 
 These roles can perform the following actions related to a Temporary Access Pass.
 
-- Global administrator can create, delete, view a Temporary Access Pass on any user (except themselves)
-- Privileged Authentication administrators can create, delete, view a Temporary Access Pass on admins and members (except themselves)
-- Authentication administrators can create, delete, view a Temporary Access Pass on members  (except themselves)
-- Global Administrator can view the Temporary Access Pass details on the user (without reading the code itself).
+- Global Administrator can create, delete, view a Temporary Access Pass on any user (except themselves)
+- Privileged Authentication Administrators can create, delete, view a Temporary Access Pass on admins and members (except themselves)
+- Authentication Administrators can create, delete, view a Temporary Access Pass on members  (except themselves)
+- Global Reader can view the Temporary Access Pass details on the user (without reading the code itself).
 
 1. Sign in to the Azure portal as either a Global administrator, Privileged Authentication administrator, or Authentication administrator. 
 1. Click **Azure Active Directory**, browse to Users, select a user, such as *Chris Green*, then choose **Authentication methods**.

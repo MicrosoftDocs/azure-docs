@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 09/13/2021
+ms.date: 12/06/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps
@@ -143,6 +144,22 @@ With the **Logic App (Standard)** resource type, you can create these workflow t
   > unavailable, or unsupported triggers, actions, and connectors, see 
   > [Changed, limited, unavailable, or unsupported capabilities](#limited-unavailable-unsupported).
 
+### Summary differences between stateful and stateless workflows
+
+<center>
+
+| Stateless                                                    | Stateful                                                    |
+|--------------------------------------------------------------|-------------------------------------------------------------|
+| Doesn't store run history, inputs, or outputs by default     | Stores run history, inputs, and outputs                     |
+| Managed connector triggers are unavailable or not allowed    | Managed connector triggers are available and allowed        |
+| No support for chunking                                      | Supports chunking                                           |
+| No support for asynchronous operations                       | Supports asynchronous operations                            |
+| Best for workflows with max duration under 5 minutes         | Edit default max run duration in host configuration         |
+| Best for handling small message sizes (under 64K)            | Handles large messages                                      |
+|||
+
+</center>
+
 <a name="nested-behavior"></a>
 
 ### Nested behavior differences between stateful and stateless workflows
@@ -267,8 +284,10 @@ For the **Logic App (Standard)** resource, these capabilities have changed, or t
 
     * The built-in action, [Azure Logic Apps - Choose a Logic App workflow](logic-apps-http-endpoint.md) is now **Workflow Operations - Invoke a workflow in this workflow app**.
 
-    * Some [triggers and actions for integration accounts](../connectors/managed.md#integration-account-connectors) are unavailable, for example, the Flat File actions, AS2 (V2) actions, and RosettaNet actions.
+    * Some [triggers and actions for integration accounts](../connectors/managed.md#integration-account-connectors) are unavailable, for example, the AS2 (V2) actions and RosettaNet actions.
 
+    * The Gmail connector currently isn't supported.
+  
     * [Custom managed connectors](../connectors/apis-list.md#custom-apis-and-connectors) currently aren't currently supported. However, you can create *custom built-in operations* when you use Visual Studio Code. For more information, review [Create single-tenant based workflows using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
 
 * **Authentication**: The following authentication types are currently unavailable for the **Logic App (Standard)** resource type:

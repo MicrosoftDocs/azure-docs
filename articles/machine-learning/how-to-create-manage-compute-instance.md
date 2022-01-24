@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli, references_regions
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 09/22/2021
+ms.date: 10/21/2021
 ---
 
 # Create and manage an Azure Machine Learning compute instance
@@ -540,4 +540,5 @@ To create a compute instance you'll need permissions for the following actions:
 
 * [Access the compute instance terminal](how-to-access-terminal.md)
 * [Create and manage files](how-to-manage-files.md)
+* [Update the compute instance to the latest VM image](concept-vulnerability-management.md#compute-instance)
 * [Submit a training run](how-to-set-up-training-targets.md)

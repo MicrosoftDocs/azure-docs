@@ -92,7 +92,7 @@ You can associate the certificate credential with the client application in the 
 ### Uploading the certificate file
 
 In the Azure app registration for the client application:
-1. Select **Certificates & secrets**.
+1. Select **Certificates & secrets** > **Certificates**.
 2. Click on **Upload certificate** and select the certificate file to upload.
 3. Click **Add**.
   Once the certificate is uploaded, the thumbprint, start date, and expiration values are displayed.

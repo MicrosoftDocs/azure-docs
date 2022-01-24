@@ -9,7 +9,7 @@ ms.author: v-amallick
 ms.assetid: 55fa0a81-018f-4843-bef8-609a44c97dcd
 ---
 
-# Back up Azure PostgreSQL databases using Azure data protection via REST API
+# Back up Azure PostgreSQL databases using Azure data protection via REST API (preview)
 
 This article describes how to manage backups for Azure PostgreSQL databases via REST API.
 
@@ -47,7 +47,7 @@ Azure Backup service doesn't store the username and password to connect to the P
 
 Backup vault has to connect to the PostgreSQL server, and then access the database via the keys present in the key vault. So, it requires access to PostgreSQL server and the key vault. Access is granted to the Backup vault's MSI.
 
-[Read about the appropriate permissions](/azure/backup/backup-azure-database-postgresql-overview#set-of-permissions-needed-for-azure-postgresql-database-backup) that you need to grant to back up vault's MSI on the PostgreSQL server and the Azure Key vault, where the keys to the database are stored.
+[Read about the appropriate permissions](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup) that you need to grant to back up vault's MSI on the PostgreSQL server and the Azure Key vault, where the keys to the database are stored.
 
 ### Prepare the request to configure backup
 

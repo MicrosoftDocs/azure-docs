@@ -1037,7 +1037,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/retail/architecture-connected-logistics-pnp.md",
-      "redirect_url": "/azure/iot-central/retail/architecture-connected-logistics",
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-connected-logistics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/architecture-connected-logistics.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-connected-logistics",
       "redirect_document_id": true
     },
     {
@@ -1078,7 +1083,7 @@
     {
       "source_path_from_root": "/articles/iot-central/retail/tutorial-iot-central-connected-logistics-pnp.md",
       "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-connected-logistics",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/retail/tutorial-iot-central-digital-distribution-center-pnp.md",
@@ -1097,13 +1102,13 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/retail/tutorial-video-analytics-create-app.md",
-      "redirect_url": "/azure/iot-central/retail/tutorial-video-analytics-create-app-yolo-v3",
-      "redirect_document_id": true
+      "redirect_url": "https://github.com/iot-for-all/iotc-ava-gateway/blob/main/README.md",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/retail/howto-deploy-video-analytics-template.md",
-      "redirect_url": "/azure/iot-central/retail/tutorial-video-analytics-deploy",
-      "redirect_document_id": true
+      "redirect_url": "https://github.com/iot-for-all/iotc-ava-gateway/blob/main/README.md",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/core/overview-iot-options.md",
@@ -1267,7 +1272,42 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/retail/architecture-video-analytics.md",
-      "redirect_url": "/azure/iot-central/retail/tutorial-video-analytics-deploy",
+      "redirect_url": "https://github.com/iot-for-all/iotc-ava-gateway/blob/main/README.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/tutorial-video-analytics-deploy.md",
+      "redirect_url": "https://github.com/iot-for-all/iotc-ava-gateway/blob/main/README.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/tutorial-video-analytics-create-app-yolo-v3.md",
+      "redirect_url": "https://github.com/iot-for-all/iotc-ava-gateway/blob/main/README.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/tutorial-video-analytics-create-app-openvino.md",
+      "redirect_url": "https://github.com/iot-for-all/iotc-ava-gateway/blob/main/README.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/tutorial-video-analytics-iot-edge-nuc.md",
+      "redirect_url": "https://github.com/iot-for-all/iotc-ava-gateway/blob/main/README.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/tutorial-video-analytics-manage.md",
+      "redirect_url": "https://github.com/iot-for-all/iotc-ava-gateway/blob/main/README.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/tutorial-video-analytics-build-module.md",
+      "redirect_url": "https://github.com/iot-for-all/iotc-ava-gateway/blob/main/README.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/tutorial-video-analytics-iot-edge-vm.md",
+      "redirect_url": "https://github.com/iot-for-all/iotc-ava-gateway/blob/main/README.md",
       "redirect_document_id": false
     },
     {

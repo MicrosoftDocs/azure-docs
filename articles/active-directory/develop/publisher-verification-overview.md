@@ -36,7 +36,8 @@ Publisher verification provides the following benefits:
 - **Smoother enterprise adoption**- admins can configure [user consent policies](../manage-apps/configure-user-consent.md), with publisher verification status as one of the primary policy criteria.
 
 > [!NOTE]
-> Starting in November 2020, end-users will no longer be able to grant consent to most newly registered multi-tenant apps without verified publishers if [risk-based step-up consent](../manage-apps/configure-user-consent.md#risk-based-step-up-consent) is enabled. This will apply to apps that are registered after November 8th 2020, use OAuth2.0 to request permissions beyond basic sign-in and read user profile, and request consent from users in different tenants than the one the app is registered in. A warning will be displayed on the consent screen informing users that these apps are risky and are from unverified publishers.    
+> - Starting in November 2020, end users will no longer be able to grant consent to most newly registered multi-tenant apps without verified publishers if [risk-based step-up consent](../manage-apps/configure-risk-based-step-up-consent.md) is enabled. This will apply to apps that are registered after November 8, 2020, use OAuth2.0 to request permissions beyond basic sign-in and read user profile, and request consent from users in different tenants than the one the app is registered in. A warning will be displayed on the consent screen informing users that these apps are risky and are from unverified publishers.    
+> - Publisher verification is not supported in national clouds. Applications registered in national cloud tenants can't be publisher-verified at this time.
 
 ## Requirements
 There are a few pre-requisites for publisher verification, some of which will have already been completed by many Microsoft partners. They are: 
@@ -53,7 +54,7 @@ There are a few pre-requisites for publisher verification, some of which will ha
 
     -  In Partner Center this user must have of the following [roles](/partner-center/permissions-overview): MPN Admin, Accounts Admin, or a Global Admin (this is a shared role mastered in Azure AD).
     
--  The user performing verification must sign in using [multi-factor authentication](../authentication/howto-mfa-getstarted.md).
+-  The user performing verification must sign in using [multifactor authentication](../authentication/howto-mfa-getstarted.md).
 
 -  The publisher agrees to the [Microsoft identity platform for developers Terms of Use](/legal/microsoft-identity-platform/terms-of-use).
 
