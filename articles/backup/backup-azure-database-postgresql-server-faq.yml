@@ -18,9 +18,9 @@ sections:
     questions:
       - question: What's the backup process of Azure Database for PostgreSQL server?
         answer: |
-          Learn about the complete [backup process](backup-azure-database-postgresql-overview.md#backup-process).
+          Azure Backup and Azure Database Services together help you to build an enterprise-class backup solution for Azure Database for PostgreSQL servers that retains backups for long-term retention. Learn about the complete [backup process](backup-azure-database-postgresql-overview.md#backup-process).
 
-      - question: What are the prerequisites before configuring backup?
+      - question: What are the prerequisites for configuring backup?
         answer: |
           Before configuring database backup, you need to:
 
@@ -34,7 +34,7 @@ sections:
 
       - question: Can I take an on-demand backup of Azure Database for PostgreSQL server?
         answer: |
-          Yes. To trigger an on-demand backup, see [Generate an on-demand backup](backup-azure-database-postgresql.md#generate-an-on-demand-backup).
+          Yes. To trigger an on-demand backup, see [Run on-demand backup](backup-azure-database-postgresql.md#run-on-demand-backup).
 
 
 
@@ -57,10 +57,10 @@ sections:
 
       - question: How do I resume database backup?
         answer: |
-          If you have selected the Stop Protection and Retain data option while stopping the data backup, you can resume protection for your Azure Database for PostgreSQL server. [Learn](manage-azure-database-postgresql.md#resume-protection) how to resume backup.
+          If you have selected the **Stop Protection and Retain data** option while stopping the data backup, you can resume protection for your Azure Database for PostgreSQL server. [Learn](manage-azure-database-postgresql.md#resume-protection) how to resume backup.
 
       - question: How do I delete backup data?
-        answer: To delete the backup data, first, you need to stop backup and then delete backup data. [Lern more](manage-azure-database-postgresql.md#stop-protection-and-delete-data)
+        answer: To delete the backup data, first, stop the backup and then delete backup data. [Lern more](manage-azure-database-postgresql.md#stop-protection-and-delete-data)
 
 
 

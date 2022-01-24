@@ -19,9 +19,9 @@ This tutorial shows you how to back up Azure Database for PostgreSQL server runn
 > - Configure backup on the database.
 > - Run an on-demand backup.
 
-## Prerequisites
+## Before you start
 
-Before you back up your Azure database for PostgreSQL server, check the following conditions:
+Before you back up your Azure Database for PostgreSQL server:
 
 - Identify or create a Backup Vault in the same region where you want to back up the Azure Database for PostgreSQL server instance.
 - Check that Azure Database for PostgreSQL server is named in accordance with naming guidelines for Azure Backup.
@@ -60,18 +60,23 @@ You can create a Backup policy on the go during the configure backup flow. Alter
 
    :::image type="content" source="./media/backup-azure-database-postgresql/enter-name-for-new-policy-inline.png" alt-text="Screenshot showing the process to enter a name for the new policy." lightbox="./media/backup-azure-database-postgresql/enter-name-for-new-policy-expanded.png":::
 
-1. Define the Backup schedule. Currently, only Weekly backup option is available. However, you can schedule the backups on multiple days of the week.
+1. Define the Backup schedule.
 
-1. Define **Retention** settings. You can add one or more retention rules. Each retention rule assumes inputs for specific backups, and data store and retention duration for those backups.
+   Currently, only Weekly backup option is available. However, you can schedule the backups on multiple days of the week.
+
+1. Define **Retention** settings.
+
+   You can add one or more retention rules. Each retention rule assumes inputs for specific backups, and data store and retention duration for those backups.
 
 1. To store your backups in one of the two data stores (or tiers), choose **Backup data store** (standard tier) or **Archive data store**.
 
 1. Choose **On-expiry** to move the backup to archive data store upon its expiry in the backup data store.
 
-   The **default retention rule** is applied in the absence of any other retention rule and has a default value of three months.
-
-   - Retention duration ranges from seven days to 10 years in the **Backup data store**.
-   - Retention duration ranges from six months to 10 years in the **Archive data store**.
+   >[!Note]
+   >The **default retention rule** is applied in the absence of any other retention rule and has a default value of three months.
+   >
+   >- Retention duration ranges from seven days to 10 years in the **Backup data store**.
+   >- Retention duration ranges from six months to 10 years in the **Archive data store**.
 
    :::image type="content" source="./media/backup-azure-database-postgresql/choose-option-to-move-backup-to-archive-data-store-inline.png" alt-text="Screenshot showing to	choose On-expiry to move the backup to archive data store upon its expiry." lightbox="./media/backup-azure-database-postgresql/choose-option-to-move-backup-to-archive-data-store-expanded.png":::
 
@@ -105,7 +110,7 @@ You can configure backup on multiple databases across multiple Azure PostgreSQL 
 1. **Select Azure PostgreSQL databases to back up**: Choose one of the Azure PostgreSQL servers across subscriptions if they're in the same region as that of the vault. Expand the arrow to see the list of databases within a server.
 
    >[!Note]
-   >You can't (and don't need to) back up the databases *azure_maintenance* and *azure_sys*. Additionally, you can't back up a database already backed-up to a Backup vault.
+   >You don't need to back up the databases *azure_maintenance* and *azure_sys*. Additionally, you can't back up a database already backed-up to a Backup vault.
 
    :::image type="content" source="./media/backup-azure-database-postgresql/select-azure-postgresql-databases-to-back-up-inline.png" alt-text="Screenshot showing the option to select an Azure PostgreSQL database." lightbox="./media/backup-azure-database-postgresql/select-azure-postgresql-databases-to-back-up-expanded.png":::
 
@@ -124,23 +129,28 @@ You can configure backup on multiple databases across multiple Azure PostgreSQL 
 
       However, with this option, Azure Backup gets no visibility about the key vault you’ve referenced. Therefore, access permissions on the key vault can’t be granted inline. The backup admin along with the Postgres and/or key vault admin need to ensure that the backup vault’s [access on the key vault is granted manually](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-key-vault-associated-with-the-postgresql-server) outside the configure backup flow for the backup operation to succeed.
 
-   1. **Select the key vault**: Use this option if you know the key vault and secret name. With this option, you (backup admin with write access on the key vault) can grant the access permissions on the key vault inline. The key vault and the secret could pre-exist or be created on the go. Ensure that the secret is the PG server connection string in ADO.net format updated with the credentials of the database user that has been granted with the _backup_ privileges on the server. Learn more about [how to create the [secrets in the key vault](backup-azure-database-postgresql.md#create-secrets-in-the-key-vault).
+   1. **Select the key vault**: Use this option if you know the key vault and secret name. With this option, you (backup admin with write access on the key vault) can grant the access permissions on the key vault inline. The key vault and the secret could pre-exist or be created on the go. Ensure that the secret is the PG server connection string in ADO.net format updated with the credentials of the database user that has been granted with the _backup_ privileges on the server. Learn more about how to [create secrets in the key vault](backup-azure-database-postgresql.md#create-secrets-in-the-key-vault).
 
       :::image type="content" source="./media/backup-azure-database-postgresql/assign-secret-store-inline.png" alt-text="Screenshot showing how to assign secret store." lightbox="./media/backup-azure-database-postgresql/assign-secret-store-expanded.png":::
 
       :::image type="content" source="./media/backup-azure-database-postgresql/select-secret-from-azure-key-vault-inline.png" alt-text="Screenshot showing the selection of secret from Azure Key Vault." lightbox="./media/backup-azure-database-postgresql/select-secret-from-azure-key-vault-expanded.png":::   
 
-1. When the secret information update is complete, the validation starts after the key vault information has been updated. Here, the backup service validates if it has all the necessary [access permissions](backup-azure-database-postgresql-overview.md#key-vault-based-authentication-model)() to read secret details from the key vault and connect to the database. If one or more access permissions are found missing, it will display one of the error messages – _Role assignment not done or User cannot assign roles_.
+1. When the secret information update is complete, the validation starts after the key vault information has been updated.
+
+   >[!Note]
+   >
+   >- Here, the backup service validates if it has all the necessary [access permissions](backup-azure-database-postgresql-overview.md#key-vault-based-authentication-model) to read secret details from the key vault and connect to the database.
+   >- If one or more access permissions are found missing, it'll display one of the error messages – _Role assignment not done or User cannot assign roles_.
 
    :::image type="content" source="./media/backup-azure-database-postgresql/validation-of-secret-inline.png" alt-text="Screenshot showing the validation of secret." lightbox="./media/backup-azure-database-postgresql/validation-of-secret-expanded.png":::   
 
-   1. **User cannot assign roles**: This message displays when you (the backup admin) don’t have the write access on the PostgreSQL server and/or key vault to assign missing permissions as listed under **View details**. Download the assignment template from the action button and have it run by the PostgreSQL and/or key vault admin. It’s an ARM template that helps you assign the necessary permissions on the required resources. Once the template is run successfully, click **Re-validate** on the Configure Backup page.
+   - **User cannot assign roles**: This message displays when you (the backup admin) don’t have the write access on the PostgreSQL server and/or key vault to assign missing permissions as listed under **View details**. Download the assignment template from the action button and have it run by the PostgreSQL and/or key vault admin. It’s an ARM template that helps you assign the necessary permissions on the required resources. Once the template is run successfully, click **Re-validate** on the Configure Backup page.
 
-      :::image type="content" source="./media/backup-azure-database-postgresql/download-role-assignment-template-inline.png" alt-text="Screenshot showing the option to download role assignment template." lightbox="./media/backup-azure-database-postgresql/download-role-assignment-template-expanded.png":::    
+     :::image type="content" source="./media/backup-azure-database-postgresql/download-role-assignment-template-inline.png" alt-text="Screenshot showing the option to download role assignment template." lightbox="./media/backup-azure-database-postgresql/download-role-assignment-template-expanded.png":::    
 
-   1. **Role assignment not done**: This message displays when you (the backup admin) have the write access on the PostgreSQL server and/or key vault to assign missing permissions as listed under **View details**. Use **Assign missing roles** action button in the top action menu to grant permissions on the PostgreSQL server and/or the key vault inline.
+   - **Role assignment not done**: This message displays when you (the backup admin) have the write access on the PostgreSQL server and/or key vault to assign missing permissions as listed under **View details**. Use **Assign missing roles** action button in the top action menu to grant permissions on the PostgreSQL server and/or the key vault inline.
 
-      :::image type="content" source="./media/backup-azure-database-postgresql/role-assignment-not-done-inline.png" alt-text="Screenshot showing the error about the role assignment not done." lightbox="./media/backup-azure-database-postgresql/role-assignment-not-done-expanded.png":::     
+     :::image type="content" source="./media/backup-azure-database-postgresql/role-assignment-not-done-inline.png" alt-text="Screenshot showing the error about the role assignment not done." lightbox="./media/backup-azure-database-postgresql/role-assignment-not-done-expanded.png":::     
 
 1. Select **Assign missing roles** in the top menu and assign roles. Once the process starts, the [missing access permissions](backup-azure-database-postgresql-overview.md#azure-backup-authentication-with-the-postgresql-server) on the KV and/or PG server are granted to the backup vault. You can define the scope at which the access permissions should be granted. When the action is complete, re-validation starts.
 
@@ -148,9 +158,10 @@ You can configure backup on multiple databases across multiple Azure PostgreSQL 
 
    :::image type="content" source="./media/backup-azure-database-postgresql/define-scope-of-access-permission-inline.png" alt-text="Screenshot showing to define the scope of access permission." lightbox="./media/backup-azure-database-postgresql/define-scope-of-access-permission-expanded.png":::     
 
-   - Backup vault accesses secrets from the key vault and runs a test connection to the database to validate if the credentials have been entered correctly. The privileges of the database user are also checked to see [if the Database user has backup-related permissions on the database](backup-azure-database-postgresql-overview.md#database-users-backup-privileges-on-the-database).
+   - Backup vault accesses secrets the key vault and runs a test connection to the database to validate if the credentials have been entered correctly. The privileges of the database user are also checked to see [if the Database user has backup-related permissions on the database](backup-azure-database-postgresql-overview.md#database-users-backup-privileges-on-the-database).
 
-   - PostgreSQL admin will have all the backup and restore permissions on the database by default. Therefore,  validations would succeed.
+   - PostgreSQL admin will have all the backup and restore permissions on the database by default. Therefore, validations would succeed.
+   
    - A low-privileged user may not have backup/restore permissions on the database. Therefore, the validations would fail. A PowerShell script is dynamically generated (one per record/selected database). [Run the PowerShell script to grant these privileges to the database user on the database](backup-azure-database-postgresql.md#create-secrets-in-the-key-vault). Alternatively, you can assign these privileges using PG admin or PSQL tool.
 
    :::image type="content" source="./media/backup-azure-database-postgresql/backup-vault-accesses-secrets-inline.png" alt-text="Screenshot showing the backup vault access secrets from the key vault." lightbox="./media/backup-azure-database-postgresql/backup-vault-accesses-secrets-expanded.png":::      
@@ -169,7 +180,7 @@ You can configure backup on multiple databases across multiple Azure PostgreSQL 
 
    :::image type="content" source="./media/backup-azure-database-postgresql/submit-configure-backup-operation-inline.png" alt-text="Screenshot showing the backup configuration submission and tracking progress." lightbox="./media/backup-azure-database-postgresql/submit-configure-backup-operation-expanded.png":::
 
-## Run an on-demand backup
+## Run on-demand backup
 
 To trigger an on-demand backup (that's not in the schedule specified in the policy), follow these steps:
 
