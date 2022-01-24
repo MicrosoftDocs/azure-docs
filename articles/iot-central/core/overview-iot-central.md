@@ -29,10 +29,10 @@ This article outlines, for IoT Central:
 
 [Quickly deploy a new IoT Central application](quick-deploy-iot-central.md) and then customize it to your specific requirements. Start with a generic _application template_ or with one of the industry-focused application templates:
 
-- [Retail](../retail/overview-iot-central-retail.md)
-- [Energy](../energy/overview-iot-central-energy.md)
-- [Government](../government/overview-iot-central-government.md)
-- [Healthcare](../healthcare/overview-iot-central-healthcare.md).
+- [Retail](concepts-app-templates.md).
+- [Energy](concepts-app-templates.md).
+- [Government](concepts-app-templates.md).
+- [Healthcare](concepts-app-templates.md).
 
 See the [Create a new application](quick-deploy-iot-central.md) quickstart for a walk-through of how to create your first application.
 
