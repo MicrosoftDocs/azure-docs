@@ -950,7 +950,7 @@ This example shows what the configuration looks like when the logic app enables 
             "connection": {
                 "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/<connection-name>"
             },
-            "connectionRuntimeUrl": <connection-URL>,
+            "connectionRuntimeUrl": "<connection-runtime-URL>",
             "authentication": { // Authentication with TokenStore (ApiHub)
                 "type": "ManagedServiceIdentity"
             },
@@ -1079,13 +1079,15 @@ To view these In your Standard logic app's **connections.json** file, which stor
 ```json
 "keyvault": {
    "api": {
-      "id": "..............."
+      "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{region}/managedApis/keyvault"
    },
    "authentication": {
-      "type": "ManagedServiceIdentity"
+      "type": "ManagedServiceIdentity",
+      // Add "identity" property here
+      "id": "/subscriptions/{Azure-subscription-ID}/resourcegroups/{resource-group-name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}" 
    },
    "connection": {
-      "id": ".................."
+      "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/<connection-name>"
    },
    "connectionProperties": {
       "authentication": {
@@ -1093,7 +1095,7 @@ To view these In your Standard logic app's **connections.json** file, which stor
          "type": "ManagedServiceIdentity"
       }
    },
-   "connectionRuntimeUrl": "<runtime-URL"
+   "connectionRuntimeUrl": "<connection-runtime-URL>"
 }
 ```
 
