@@ -74,5 +74,4 @@ Once the first version of your app is published, you should update your test set
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn how LUIS alters your data before prediction](luis-concept-data-alteration.md)
+[Learn how LUIS alters your data before prediction](luis-concept-data-alteration.md)
