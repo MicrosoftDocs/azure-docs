@@ -1,18 +1,18 @@
 ---
-title: Dataset provisioning by data owner for Azure Storage
+title: Resource group and subscription provisioning by data owner
 description: Step-by-step guide on how to integrate Azure Storage with Azure Purview to enable data owners to create access policies.
 author: ePpnqeqR
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
-ms.topic: how-to
-ms.date: 1/21/2022
+ms.topic: tutorial
+ms.date: 1/20/2022
 ms.custom:
 ---
 
-# Dataset provisioning by data owner for Azure Storage (preview)
+# Resource group and subscription provisioning by data owner (preview)
 
-This guide describes how a data owner can enable access to data stored in Azure Storage from Azure Purview. At this point, only the following data sources are supported:
+This guide describes how a data owner can enable access to ALL datasets in a subscription or a resource group from Azure Purview. At this point, only the following data sources are supported:
 - Blob storage
 - Azure Data Lake Storage (ADLS) Gen2
 
@@ -37,7 +37,7 @@ Execute this step only if the data sources and Azure Purview account are in diff
 
 ### Configure permissions for policy management actions
 #### Storage account permissions
-User needs to have **either one of these** role combinations in the Azure Storage account to be able to register it for *Data use Governance* in Azure Purview:
+User needs to have **either one of these** role combinations for the subscription or resource group to be able to register it for *Data use Governance* in Azure Purview:
 - IAM *Owner* 
 - Both IAM *Contributor* + IAM *User Access Administrator*
  
@@ -58,19 +58,17 @@ Check the section on managing Azure Purview role assignments in this [guide](how
 > - In addition to Azure Purview *Policy authors* role, user requires *Directory Reader* permission in Azure Active Directory to create data owner policy. Learn more about permissions for [Azure AD Directory Reader](../active-directory/roles/permissions-reference.md#directory-readers)
 > - Azure Purview *Policy author* role is not sufficient to create policies. It also requires Azure Purview *Data source admin* role as well.
 
-### Register and scan data sources in Azure Purview
-Register and scan each data source with Azure Purview to later define access policies. You can follow these guides:
+### Register the subscription or resource group in Azure Purview
+The subscription or resource group needs to be registered with Azure Purview to later define access policies. You can follow this guide:
 
--   [Register and scan Azure Storage Blob - Azure Purview](register-scan-azure-blob-storage-source.md)
-
--   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](register-scan-adls-gen2.md)
+- [Register multiple sources - Azure Purview](register-scan-azure-multiple-sources.md)
 
 >[!Important]
 > Make sure you write down the **Name** you use when registering in Azure Purview. You will need it when you publish a policy. The recommended practice is to make the registered name exactly the same as the endpoint name.
 
 Enable the data source to for access policies in Azure Purview through the **Data use governance** toggle, as shown in the picture.
 
-![Image shows how to register a data source for policy.](./media/how-to-access-policies-storage/register-data-source-for-policy-storage.png)
+![Image shows how to register a data source for policy.](./media/tutorial-access-policies-resource-group/register-resource-group-for-policy.png)
 
 >[!Note]
 > - To disable a source for *Data use Governance*, remove it first from being bound (i.e. published) in any policy.
