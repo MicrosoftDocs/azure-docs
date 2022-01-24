@@ -2,7 +2,7 @@
 title: Manage Azure Database for PostgreSQL server 
 description: Learn about managing Azure Database for PostgreSQL server.
 ms.topic: conceptual
-ms.date: 01/21/2022
+ms.date: 01/24/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick

@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure Database for PostgreSQL server with the Azure Backup service.
   ms.topic: article
   ms.service: backup
-  ms.date: 01/21/2021
+  ms.date: 01/24/2022
   author: v-amallick
   ms.author: v-amallick
 
@@ -20,18 +20,16 @@ sections:
         answer: |
           Learn about the complete [backup process](backup-azure-database-postgresql-overview.md#backup-process).
 
-      - question: What permissions/privileges I need to perform the PostgreSQL database backup?
+      - question: What are the prerequisites before configuring backup?
         answer: |
-          For PostgreSQL database backup you need:
+          Before configuring database backup, you need to:
 
-          - [Access permissions for PostgreSQL server](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-postgresql-server)
-          - [Access permissions for the relevant key vault](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-key-vault-associated-with-the-postgresql-server)
-          - Access permissions to [create secrets in the key vault](backup-azure-database-postgresql.md#create-secrets-in-the-key-vault)
-          - [Database user's backup privileges on the database](backup-azure-database-postgresql-overview.md#database-users-backup-privileges-on-the-database)
+          - [Create secrets in the key vault](backup-azure-database-postgresql.md#create-secrets-in-the-key-vault)
+          - [Allow access permissions for the relevant key vault](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-key-vault-associated-with-the-postgresql-server)
+          - [Provide database user's backup privileges on the database](backup-azure-database-postgresql-overview.md#database-users-backup-privileges-on-the-database)
+          - [Allow access permissions for PostgreSQL server](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-postgresql-server)
 
-          For more information, see [Grant access on the Azure PostgreSQL server and Key vault manually](backup-azure-database-postgresql-overview.md#grant-access-on-the-azure-postgresql-server-and-key-vault-manually)
-
-      - question: How to configure backup on Azure PostgreSQL databases?
+      - question: How do I configure backup on Azure PostgreSQL databases?
         answer: You can configure backup on multiple databases across multiple Azure PostgreSQL servers. [Learn more](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases)
 
       - question: Can I take an on-demand backup of Azure Database for PostgreSQL server?
@@ -42,7 +40,7 @@ sections:
 
   - name: Restore
     questions:
-      - question: How to restore PostgreSQL database?
+      - question: How do I restore PostgreSQL database?
         answer: |
           You can restore as another PostgreSQL database or as files. [Learn about](restore-azure-database-postgresql.md#restore-azure-postgresql-database) the PostgreSQL database restore process.
 
@@ -57,7 +55,7 @@ sections:
         answer: |
           Yes, to do so, see [Stop Protection and Retain Data](manage-azure-database-postgresql.md#stop-protection-and-retain-data).
 
-      - question: How to resume database backup?
+      - question: How do I resume database backup?
         answer: |
           If you have selected the Stop Protection and Retain data option while stopping the data backup, you can resume protection for your Azure Database for PostgreSQL server. [Learn](manage-azure-database-postgresql.md#resume-protection) how to resume backup.
 

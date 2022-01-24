@@ -2,7 +2,7 @@
 title: Back up Azure Database for PostgreSQL with long-term-retention using Azure PowerShell
 description: Learn how to back up Azure Database for PostgreSQL using Azure PowerShell.
 ms.topic: conceptual
-ms.date: 01/21/2022
+ms.date: 01/24/2022
 ms.custom: devx-track-azurepowershell
 author: v-amallick
 ms.service: backup
