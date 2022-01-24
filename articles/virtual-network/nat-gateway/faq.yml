@@ -83,7 +83,7 @@ sections:
       
       - question: Can I use Virtual Network NAT gateway with Azure App Services? 
         answer: |
-          Yes. For more information about Virtual Network NAT integration with Azure App Services, see [Virtual Network NAT gateway integration](../../app-service/networking/nat-gateway-integration.md).
+          Yes. NAT gateway can be used with Azure App Services in order to allow applications to direct outbound traffic to the internet from a virtual network. To use this integration between NAT gateway and Azure App Services, regional virtual network integration must be enabled. For guidance on how to enable virtual network integration with NAT gateway, see [Virtual Network NAT gateway integration](../../app-service/networking/nat-gateway-integration.md).
       
       - question: Can I use Virtual Network NAT gateway with Azure Kubernetes Service? 
         answer: |
