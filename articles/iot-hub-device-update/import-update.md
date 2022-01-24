@@ -25,7 +25,7 @@ Learn how to obtain a new update and import it into Device Update for IoT Hub.
 
 Now that you've set up Device Update and provisioned your devices, you'll need the update file(s) that you'll be deploying to those devices.
 
-* If you’ve purchased devices from an OEM or solution integrator, that organization will most likely provide update files for you, without you needing to create the updates. Contact the OEM or solution integrator to find out how they make updates available.
+* If you’ve purchased devices from an Original Equipment Manufacturer (OEM) or solution integrator, that organization will most likely provide update files for you, without you needing to create the updates. Contact the OEM or solution integrator to find out how they make updates available.
 
 * If your organization already creates software for the devices you use, that same group will be the ones to create the updates for that software.
 
@@ -42,7 +42,7 @@ Once you have your update files, create an import manifest to describe the updat
 
 2. Navigate to `Tools/AduCmdlets` in your local clone from PowerShell.
 
-3. Run the following commands after replacing the sample parameter values with your own:
+3. Run the following commands after replacing the sample parameter values with your own (see [Import schema and API information](import-schema.md) for details on what values you can use):
 
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
@@ -64,7 +64,7 @@ Once you have your update files, create an import manifest to describe the updat
 ## Import an update
 
 > [!NOTE]
-> The instructions below show how to import an update via the Azure portal UI. You can also use the [Device Update for IoT Hub APIs](#if-youre-importing-via-apis-instead) to import an update instead.
+> The following instructions show how to import an update via the Azure portal UI. You can also use the [Device Update for IoT Hub APIs](#if-youre-importing-via-apis-instead) to import an update instead.
 
 1. Log in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub with Device Update.
 
@@ -98,7 +98,7 @@ Once you have your update files, create an import manifest to describe the updat
 
 9. When you've selected all your update files, select `Upload`.
 
-   :::image type="content" source="media/import-update/container-picker-ppr.png" alt-text="Container Upload" lightbox="media/import-update/container-picker-ppr.png":::
+   :::image type="content" source="media/import-update/container-upload-ppr.png" alt-text="Container Upload" lightbox="media/import-update/container-picker-ppr.png":::
 
 10. Select the files you just uploaded to designate them for importing. Then click the `Select` button to return to the `Import update` page.
 
@@ -112,7 +112,7 @@ Once you have your update files, create an import manifest to describe the updat
 
        :::image type="content" source="media/import-update/update-publishing-sequence-2-ppr.png" alt-text="Update Import Sequencing" lightbox="media/import-update/update-publishing-sequence-2-ppr.png":::
 
-13. When the `Status` column indicates the import has succeeded, select the `Ready to Deploy` header. You should see your imported update in the list now.
+13. When the `Status` column indicates the import has succeeded, select the `Available Updates` header. You should see your imported update in the list now.
 
        :::image type="content" source="media/import-update/update-ready-ppr.png" alt-text="Job Status" lightbox="media/import-update/update-ready-ppr.png":::
 
@@ -126,7 +126,7 @@ In addition to using Azure Portal, you may also import an update programmaticall
 > [!NOTE]
 > Refer to [Device update user roles and access](device-update-control-access.md) for required API permission.
 
-In order to import, you have to upload your update files and import manifest to an Azure Storage Blob container for staging, and provide the blob URL, or shared access signature (SAS) for private blobs, to Device Update API. If using a SAS, be sure to provide at least 3-hour expiration window.
+Update files and import manifest must be uploaded to an Azure Storage Blob container for staging. To import the staged files, provide the blob URL, or shared access signature (SAS) for private blobs, to the Device Update API. If using a SAS, be sure to provide a three hour or greater expiration window.
 
 > [!TIP]
 > To upload large update files to Azure Storage Blob container, you may use one of the following for better performance:
