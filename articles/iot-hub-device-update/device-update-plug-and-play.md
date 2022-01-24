@@ -76,8 +76,8 @@ IoT Hub Device Twin sample
 }
 ```
 
-Note:
-The device or module must add the `{"__t": "c"}` marker to indicate that the element refers to a component, learn more [here](../iot-develop/concepts-convention.md#sample-multiple-components-writable-property).
+>[!NOTE]
+>The device or module must add the `{"__t": "c"}` marker to indicate that the element refers to a component, learn more [here](../iot-develop/concepts-convention.md#sample-multiple-components-writable-property).
 
 ### Service Metadata
 
