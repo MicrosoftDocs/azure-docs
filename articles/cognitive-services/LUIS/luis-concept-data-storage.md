@@ -71,5 +71,4 @@ For the purposes of data retention and deletion, an inactive LUIS app may at _Mi
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn about exporting and deleting an app](luis-how-to-start-new-app.md)
+[Learn about exporting and deleting an app](luis-how-to-start-new-app.md)
