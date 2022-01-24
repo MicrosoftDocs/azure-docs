@@ -6,7 +6,7 @@ author: StefArroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 01/24/2021
 ms.devlang: csharp
 ms.custom: devx-track-dotnet, contperf-fy21q2
 
@@ -103,8 +103,6 @@ Edit your `app.config` or `web.config` files:
 ```
 
 ---
-
-Latest SDK versions (greater than 3.23.0) automatically remove it when they detect it.
 
 ## <a id="networking"></a> Networking
 
