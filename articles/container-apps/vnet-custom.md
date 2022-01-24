@@ -7,6 +7,7 @@ ms.service: container-apps
 ms.topic:  how-to
 ms.date: 1/24/2021
 ms.author: cshoe
+zone_pivot_groups: azure-cli-or-portal
 ---
 
 # Provide a virtual network to an Azure Container Apps Preview environment
@@ -48,9 +49,48 @@ When set to internal, the environment has no public endpoint. Internal environme
 
 If a container app can be set to internal when the container app is only being called by other container apps or via Dapper.
 
+To create an internal only environment provide the `--internal-only` parameter to the `az containerapp env create` command.
+
 ## Example
 
 The following example shows you how to create a Container Apps environment with an existing virtual network.
+
+::: zone pivot="azure-portal"
+
+<!-- Create -->
+[!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
+
+7. Select the **Neworking** tab to create a VNET.
+8. Select **Yes** next to *Use your own virtual network*.
+9. Next to the *Virtual network* box, select the **Create new** link.
+10. Enter **my-custom-vnet** in the name box.
+11. Select the **OK** button.
+12. Next to the *Control plane subnet* box, select the **Create new** link and enter the following values:
+
+    | Setting | Value |
+    |---|---|
+    | Subnet name | Enter **my-control-plane-vnet**. |
+    | Virtual Network Address Block | Keep the default values. |
+    | Subnet Address Block | Keep the default values. |
+
+13. Select the **OK** button.
+14. Next to the *Control plane subnet* box, select the **Create new** link and enter the following values:
+
+    | Setting | Value |
+    |---|---|
+    | Subnet name | Enter **my-apps-vnet**. |
+    | Virtual Network Address Block | Keep the default values. |
+    | Subnet Address Block | Keep the default values. |
+
+15. Under *Virtual IP*, select **External**.
+16. Select **Create**.
+
+<!-- Deploy -->
+[!INCLUDE [container-apps-create-portal-deploy.md](../../includes/container-apps-create-portal-deploy.md)]
+
+::: zone-end
+
+::: zone pivot="azure-cli"
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
@@ -202,8 +242,11 @@ The following table describes the parameters used in for `containerapp env creat
 | `location` | The Azure location where the environment is to deploy.  |
 | `app-subnet-resource-id` | The resource ID of a subnet where containers are injected into the container app. This subnet must be in the same VNET as the subnet defined in `--control-plane-subnet-resource-id`. |
 | `controlplane-subnet-resource-id` | The resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in `--app-subnet-resource-id`. |
+| `--internal-only` | Optional parameter that scopes the environment to IP addresses only available the custom VNET. |
 
 With your environment created with your custom virtual network, you can create container apps into the environment using the `az containerapp create` command.
+
+::: zone-end
 
 ## Clean up resources
 
