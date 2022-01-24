@@ -62,7 +62,7 @@ This section describes the configuration for how the user interface on the data 
 
 Use the [properties supported](#ui-props) for the `connectorUiConfig` area of the [JSON configuration file](#create-a-connector-json-configuration-file) to configure the user interface displayed for your data connector in the Azure portal.
 
-The following image shows a sample data connector page, highlighting the available areas to configure.
+The following image shows a sample data connector page, highlighted with numbers that correspond to configurable areas of the user interface:
 
 :::image type="content" source="media/create-codeless-connector/sample-data-connector-page.png" alt-text="Screenshot of a sample data connector page.":::
 
