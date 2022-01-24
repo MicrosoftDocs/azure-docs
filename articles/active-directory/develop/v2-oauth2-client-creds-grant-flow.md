@@ -67,7 +67,7 @@ Instead of using ACLs, you can use APIs to expose a set of **application permiss
 
 To use application permissions with your own API (as opposed to Microsoft Graph), you must first [expose the API](howto-add-app-roles-in-azure-ad-apps.md) by defining scopes in the API's app registration in the Azure portal. Then, [configure access to the API](howto-add-app-roles-in-azure-ad-apps.md#assign-app-roles-to-applications) by selecting those permissions in your client application's app registration. If you haven't exposed any scopes in your API's app registration, you won't be able to specify application permissions to that API in your client application's app registration in the Azure portal.
 
-When authenticating as an application (as opposed to with a user), you can't use *delegated permissions* - scopes that are granted by a user - because there is no user for you app to act on behalf of. You must use application permissions, also known as roles, that are granted by an admin for the application or via pre-authorization by the web API.
+When authenticating as an application (as opposed to with a user), you can't use *delegated permissions* - scopes that are granted by a user - because there is no user for your app to act on behalf of. You must use application permissions, also known as roles, that are granted by an admin for the application or via pre-authorization by the web API.
 
 For more information about application permissions, see [Permissions and consent](v2-permissions-and-consent.md#permission-types).
 
