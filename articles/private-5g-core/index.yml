@@ -18,7 +18,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: Manage policy control
+  - title: Customize Quality of Service (QoS) and traffic control
     linkLists:
       - linkListType: concept
         links:
