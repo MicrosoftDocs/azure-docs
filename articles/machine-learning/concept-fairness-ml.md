@@ -15,7 +15,7 @@ ms.custom: responsible-ml
 
 # Machine learning fairness (preview)
 
-Learn about machine learning fairness and how the [Fairlearn](https://fairlearn.github.io/) open-source Python package can help you assess and mitigate unfairness issues in machine learning models. 
+Learn about machine learning fairness and how the [Fairlearn](https://fairlearn.github.io/) open-source Python package can help you assess and mitigate unfairness issues in machine learning models.
 
 ## What is machine learning fairness?
 
