@@ -12,7 +12,7 @@ ms.custom:
 
 # Resource group and subscription provisioning by data owner (preview)
 
-This guide describes how a data owner can enable access to ALL datasets in a subscription or a resource group from Azure Purview. At this point, only the following data sources are supported:
+This guide describes how a data owner can enable access from Azure Purview to ALL datasets in a subscription or a resource group. At this point, only the following data sources are supported:
 - Blob storage
 - Azure Data Lake Storage (ADLS) Gen2
 
@@ -21,42 +21,14 @@ This guide describes how a data owner can enable access to ALL datasets in a sub
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
->[!IMPORTANT]
-> The access policy feature is only available on **new** Azure Storage accounts.
-- Create a new or use an existing isolated test subscription. You can [follow this guide to create one](../cost-management-billing/manage/create-subscription.md).
+- Create a new or use an existing isolated test subscription. You can [follow this guide to create a new one](../cost-management-billing/manage/create-subscription.md).
 - Create a new or use an existing Azure Purview account. You can [follow our quick-start guide to create one](create-catalog-portal.md).
-- Create new Azure Storage account(s) in one of the regions listed below. You can [follow this guide to create one](../storage/common/storage-account-create.md). Only Storage account versions >= 81.x.x support policy enforcement.
+- Create a new or use an existing resource group and place new data sources under it. [Follow this guide to create a new resource group](../azure-resource-manager/management/manage-resource-groups-portal.md)
 
-[!INCLUDE [supported regions](./includes/storage-access-policy-regions.md)]
+[!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
 
 ## Configuration
-[!INCLUDE [access policy enablement storage](./includes/storage-access-policy-enable.md)]
 
-### Register Azure Purview as a resource provider in other subscriptions
-Execute this step only if the data sources and Azure Purview account are in different subscriptions. Register Azure Purview as a resource provider in each subscription where data sources reside by following this guide: [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md)
-
-### Configure permissions for policy management actions
-#### Storage account permissions
-User needs to have **either one of these** role combinations for the subscription or resource group to be able to register it for *Data use Governance* in Azure Purview:
-- IAM *Owner* 
-- Both IAM *Contributor* + IAM *User Access Administrator*
- 
-You can follow this [guide to configure Azure RBAC permissions](../role-based-access-control/check-access.md)
-
-#### Azure Purview account permissions
->[!IMPORTANT]
-> - At this point, policy operations are only supported at **root collection level** and not child collection level.
-- User needs Azure Purview *Data source admins* role at the root collection level to:
-  - Register a source for *Data use governance*.
-  - Publish a policy.
-- User needs Azure Purview *Policy authors* role at root collection level to create or edit policies.
-
-Check the section on managing Azure Purview role assignments in this [guide](how-to-create-and-manage-collections.md).
-
->[!WARNING]
-> **Known issues** related to permissions
-> - In addition to Azure Purview *Policy authors* role, user requires *Directory Reader* permission in Azure Active Directory to create data owner policy. Learn more about permissions for [Azure AD Directory Reader](../active-directory/roles/permissions-reference.md#directory-readers)
-> - Azure Purview *Policy author* role is not sufficient to create policies. It also requires Azure Purview *Data source admin* role as well.
 
 ### Register the subscription or resource group in Azure Purview
 The subscription or resource group needs to be registered with Azure Purview to later define access policies. You can follow this guide:
