@@ -313,22 +313,22 @@ The following YAML code snippet describes how to use the task in an Azure Pipeli
       [
           {
           "name": "<Name of the secret>",
-          "value": "$(mySecret1)",
+          "value": "$(mySecret1)"
           },
           {
           "name": "<Name of the secret>",
-          "value": "$(mySecret1)",
+          "value": "$(mySecret1)"
           }
       ]
     env: |
       [
           {
           "name": "<Name of the variable>",
-          "value": "<Value of the variable>",
+          "value": "<Value of the variable>"
           },
           {
           "name": "<Name of the variable>",
-          "value": "<Value of the variable>",
+          "value": "<Value of the variable>"
           }
       ]
 ```
