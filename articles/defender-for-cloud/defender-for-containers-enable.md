@@ -48,7 +48,7 @@ For Azure Government cloud deployments:
 
 By default, AKS clusters have unrestricted outbound (egress) internet access. 
 
-for more details you can see Restrict egress traffic in Azure Kubernetes Service (AKS) - Azure Kubernetes Service | Microsoft Docs
+Lean more about [AKS addons and integrations](../aks/limit-egress-traffic.md#aks-addons-and-integrations).
 
 ::: zone pivot="defender-for-container-aks"
 [!INCLUDE [Enable plan for AKS](./includes/defender-for-containers-enable-plan-aks.md)]
