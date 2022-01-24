@@ -7,8 +7,8 @@ ms.subservice: backup-restore
 ms.custom: sqldbrb=1, devx-track-azurepowershell, mode-api
 ms.devlang: 
 ms.topic: quickstart
-author: SQLSourabh
-ms.author: sourabha
+author: rothja
+ms.author: jroth
 ms.reviewer: kendralittle, mathoma
 ms.date: 10/29/2020
 ---
