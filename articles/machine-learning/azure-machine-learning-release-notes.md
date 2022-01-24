@@ -37,7 +37,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + In azureml-interpret update scoring explainer to support latest version of lightgbm with sparse TreeExplainer
     + Update azureml-interpret to interpret-community 0.23.*
   + **azureml-pipeline-core**
-    + Add `environment_variables` to ParallelRunConfig, runtime environment variables can be passed by this parameter and will be set on the process where the user script is executed.
     + Add note in pipelinedata, recommend user to use pipeline output dataset instead.
   + **azureml-pipeline-steps**
     + Add `environment_variables` to ParallelRunConfig, runtime environment variables can be passed by this parameter and will be set on the process where the user script is executed.
