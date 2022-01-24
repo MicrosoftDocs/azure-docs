@@ -102,9 +102,9 @@ await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 
 ## Scheduling behavior
 
-For text-based indexing, the scheduler can kick off as many indexer jobs as the search service supports, which is determined by the number of search units. For example, if the service has three replicas and four partitions, you should be able to have twelve indexer jobs in active execution, whether initiated on demand or on a schedule.
+For text-based indexing, the scheduler can kick off as many indexer jobs as the search service supports, which is determined by the number of search units. For example, if the service has three replicas and four partitions, you can generally have twelve indexer jobs in active execution, whether initiated on demand or on a schedule.
 
-Skills-based indexers run in a different [execution environment](search-howto-run-reset-indexers.md#indexer-execution) and are independent of the number of service units. Multiple skills-based indexers can run in parallel, but doing so depends on node availability within the cluster.
+Skills-based indexers run in a different [execution environment](search-howto-run-reset-indexers.md#indexer-execution). For this reason, the number of service units has no bearing on the number of skills-based indexer jobs you can run. Multiple skills-based indexers can run in parallel, but doing so depends on node availability within the execution environment.
 
 Although multiple indexers can run simultaneously, a given indexer is single instance. You cannot run two copies of the same indexer concurrently. If an indexer happens to still be running when its next scheduled execution is set to start, the pending execution is postponed until the next scheduled occurrence, allowing the current job to finish.
 
