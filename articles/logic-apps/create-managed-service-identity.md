@@ -1120,9 +1120,9 @@ In other scenarios, you might not want to have the system-assigned identity set 
    > [!NOTE]
    > If no `identity` property already exists, the logic app implicitly uses the system-assigned identity.
 
-1. In the Azure portal, go to the target resource, and provide access to the user-assigned managed identity, based on the target resource's needs.
+1. In the Azure portal, go to the target resource, and [give access to the user-assigned managed identity](#access-other-resources), based on the target resource's needs.
 
-   For example, for Azure Key Vault, add the identity to the key vault's access policies. For Azure Blob Storage, assign the necessary role for the identity to the storage account.
+   For example, for Azure Key Vault, add the identity to the key vault's access policies. For Azure Blob Storage, assign the necessary role for the identity to the storage account. For more information, review .
 
 <a name="remove-identity"></a>
 
