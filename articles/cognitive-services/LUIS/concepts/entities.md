@@ -164,10 +164,6 @@ Machine learned entities can use other entities as features. These other entitie
 
 Learn about [effective machine learned entities](../luis-concept-entity-types.md#machine-learned-ml-entity).
 
-### Don't use few or simple entities
-
-Entities are built for data extraction and prediction. It is important that each intent have machine-learning entities that describe the data in the intent. This helps LUIS predict the intent, even if your client application doesn't need to use the extracted entity.
-
 ## Next steps
 
 * [How to use entities in your LUIS app](../how-to/entities.md)
