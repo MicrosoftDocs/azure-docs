@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 01/24/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -42,13 +42,7 @@ Before you can use custom NER, you will need to create an Azure Language resourc
 
 ## Upload sample data to blob container
 
-After you have created an Azure storage account and linked it to your Language resource, you will need to upload the example files for this quickstart. These files will later be used to train your model.
-
-1. [Download the example data](https://go.microsoft.com/fwlink/?linkid=2175226) for this quickstart from GitHub.
-
-2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com). Navigate to your account, and upload the sample data to it.
-
-The provided sample dataset contains 20 loan agreements, each agreement is two parties a Lender and a Borrower. You can use the provided sample tags file to extract relevant information for both parties, an agreement date, a loan amount, and an interest rate.
+[!INCLUDE [Uploading sample data for custom NER](blob-storage-upload.md)]
 
 ### Get your resource keys endpoint
 
