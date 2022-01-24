@@ -39,8 +39,6 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. Under **Instance details**, type a globally unique name for your web app and choose **Linux** for **Operating System**. Select **Basic** for **Hosting plan**. See the table below for App and DB SKUs. For pricing, visit [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) and [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/). 
 
-     :::image type="content" source="./media/quickstart-wordpress/05-wordpress-basics-instance-details.png?text=WordPress basics instance details" alt-text="Screenshot of WordPress instance details":::
-
     > [!div class="mx-tdCol2BreakAll mx-tdCol3BreakAll"]
     > |Hosting Plan | App Service SKU | Database SKU |
     > |-------------|-------------|-------------|
@@ -49,8 +47,9 @@ Sign in to the Azure portal at https://portal.azure.com.
     >|Standard |	P1V2, 3.5 GB Memory, 250GB Storage Dv2 Series Compute Equivalent |	Flexi Server - Burstable (1-2 vCores) - Standard_B2s(  2v Core, 4 GB Memory,   128 GB Storage and 700 IOPs) |
     >|Premium |P1V3, 8 GB Memory, 250GB Storage 2 v CPU	| Flexi Server - General Purpose (2-64 vCores) Standard_D2ds_v4(2v Core, 8 GB Memory, 128 GB Storage and 700 IOPs) |
 
+     :::image type="content" source="./media/quickstart-wordpress/05-wordpress-basics-instance-details.png?text=WordPress basics instance details" alt-text="Screenshot of WordPress instance details":::
 
-1. Under **WordPress Settings**, type an **Admin Email**, **Admin Username**, and **Admin Password**. The **Admin Email** here is used for log-in purposes only.
+1. Under **WordPress Settings**, type an **Admin Email**, **Admin Username**, and **Admin Password**. The **Admin Email** here is used for WordPress administrative sign-in only.
 
      :::image type="content" source="./media/quickstart-wordpress/06-wordpress-basics-wordpress-settings.png?text=Azure Portal WordPress settings" alt-text="Screenshot of WordPress settings":::
 
@@ -58,6 +57,33 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. Browse to your site URL and verify the app is running properly.
 
+    :::image type="content" source="./media/quickstart-wordpress/wordpress-sample-site.png?text=WordPress sample site" alt-text="Screenshot of WordPress site":::
+
+1. To access WordPress Admin page, browse to `/wp-admin` on your site.
+
+    :::image type="content" source="./media/quickstart-wordpress/wordpress-admin-login.png?text=WordPress admin login" alt-text="Screenshot of WordPress admin login":::
+
+## WordPress Application Settings
+
+    App Service creates the following Application Settings for the WordPress site:
+
+    > [!div mx-tdCol5BreakAll"]
+    > |Application Setting | Scope | Value | Max | Description
+    > |-------------|-------------|-------------|---------------|--------------------|
+    > |WEBSITES_ENABLE_APP_SERVICE_STORAGE|Web App|true|-|When set to TRUE, file contents are preserved during restarts. |
+    > |WP_MEMORY_LIMIT|WordPress|128M|512M|Frontend or general wordpress PHP memory limit (per script). Can't be more than PHP_MEMORY_LIMIT|
+    > |WP_MAX_MEMORY_LIMIT|WordPress|256M|512M|Admin dashboard PHP memory limit (per script). Generally Admin dashboard/ backend scripts takes lot of memory compared to frontend scripts. Can't be more than PHP_MEMORY_LIMIT.|
+    > |PHP_MEMORY_LIMIT|PHP|512M|512M|Memory limits for general PHP script. It can only be decreased.|
+    > |FILE_UPLOADS|PHP|On|-|Can be either On or Off. Note that values are case sensitive. Enables or disables file uploads. |
+    > |UPLOAD_MAX_FILESIZE|PHP|50M|256M	Max file upload size limit. Can be increased upto 256M.|
+    > |POST_MAX_SIZE|PHP|128M|256M|Can be increased upto 256M. Generally should be more than UPLOAD_MAX_FILESIZE.|
+    > |MAX_EXECUTION_TIME|PHP|120|120|Can only be decreased. Please break down the scripts if it is taking more than 120 seconds. Added to avoid bad scripts from slowing the system.|
+    > |MAX_INPUT_TIME|PHP|120|120|Max time limit for parsing the input requests. Can only be decreased.|
+    > |MAX_INPUT_VARS|PHP|10000|10000|-|
+    > |DATABASE_HOST|Database|-|-|Database host used to connect to WordPress.|
+    > |DATABASE_NAME|Database|-|-|Database name used to connect to WordPress.|
+    > |DATABASE_USERNAME|Database|-|-|Database username used to connect to WordPress.|
+    > |DATABASE_PASSWORD|Database|-|-|Database password used to connect to WordPress.|
 
 ## Clean up resources
 
