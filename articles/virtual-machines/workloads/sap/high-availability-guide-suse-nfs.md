@@ -518,8 +518,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      params directory="/srv/nfs/<b>NW1</b>" \
      options="rw,no_root_squash,crossmnt" clientspec="*" fsid=1 wait_for_leasetime_on_stop=true op monitor interval="30s"
    
-   sudo crm configure primitive vip_<b>NW1</b>_nfs \
-     IPaddr2 \
+   sudo crm configure primitive vip_<b>NW1</b>_nfs IPaddr2 \
      params ip=<b>10.0.0.4</b> op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_nfs azure-lb port=<b>61000</b>
@@ -561,8 +560,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      params directory="/srv/nfs/<b>NW2</b>" \
      options="rw,no_root_squash,crossmnt" clientspec="*" fsid=2 wait_for_leasetime_on_stop=true op monitor interval="30s"
    
-   sudo crm configure primitive vip_<b>NW2</b>_nfs \
-     IPaddr2 \
+   sudo crm configure primitive vip_<b>NW2</b>_nfs IPaddr2 \
      params ip=<b>10.0.0.5</b> op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW2</b>_nfs azure-lb port=<b>61001</b>
