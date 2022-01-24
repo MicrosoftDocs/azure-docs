@@ -36,7 +36,7 @@ Use the asset quick links to navigate to search results for jobs, models, and co
 
 Change the scope of applicable subscriptions and workspaces by clicking the 'Change' link. 
 
-![scope change](./media/settings.jpg)
+![scope change](./media/how-to-search-cross-workspace/settings.jpg)
 
 ## Structured search 
 
