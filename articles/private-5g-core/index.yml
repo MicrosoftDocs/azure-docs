@@ -1,3 +1,5 @@
+### YamlMime:Landing
+
 title: Azure Private 5G Core Preview documentation
 summary: Learn how to securely deploy and manage private mobile networks for 5G Internet of Things (IoT) devices using Azure Private 5G Core Preview.
 
@@ -10,7 +12,12 @@ metadata:
   ms.author: drichards
   ms.date: 01/24/2022
 
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
 landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
   - title: Manage policy control
     linkLists:
       - linkListType: concept
@@ -32,6 +39,7 @@ landingContent:
           - text: Configure a SIM policy
             url: configure-sim-policy-azure-portal.md
 
+  # Card
   - title: Provision SIMs
     linkLists:
       - linkListType: how-to-guide
