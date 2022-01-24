@@ -6,12 +6,12 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 11/30/2021
+ms.date: 01/24/2022
 ---
 
 # What is Azure Database for PostgreSQL?
 
-Azure Database for PostgreSQL is a relational database service in the Microsoft cloud based on the [PostgreSQL Community Edition](https://www.postgresql.org/) (available under the GPLv2 license) database engine. Azure Database for PostgreSQL delivers:
+Azure Database for PostgreSQL is a relational database service in the Microsoft cloud based on the [PostgreSQL open source relational database](https://www.postgresql.org/). Azure Database for PostgreSQL delivers:
 
 - Built-in high availability.
 - Data protection using automatic backups and point-in-time-restore for up to 35 days.
