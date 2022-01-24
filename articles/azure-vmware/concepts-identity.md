@@ -109,9 +109,27 @@ For new private cloud deployments starting **January 2022**, NSX-T access will b
 > [!NOTE]
 > Admin access to NSX-T will not be provided to users for private cloud deployments created after **January 2022**.
 
+### NSX-T Cloud admin Privileges
+
 The following permissions are assigned to the **cloudadmin** role in Azure VMware Solution NSX-T.
 
-NSX-T Cloud admin Privileges
+| Category        | Type                  | Operation                                                            | Permission                                                       |
+|-----------------|-----------------------|----------------------------------------------------------------------|------------------------------------------------------------------|
+| Networking      | Connectivity          | Tier-0 Gateways<br>Tier-1 Gateways<br>Segments                       | Read-only<br>Full Access<br>Full Access                          |
+| Networking      | Network Services      | VPN<br>NAT<br>Load Balancing<br>Forwarding Policy<br>Statistics      | Full Access<br>Full Access<br>Full Access<br>None<br>Full Access |
+| Networking      | IP Management         | DNS<br>DHCP<br>IP Address Pools                                      | Full Access<br>Full Access<br>Full Access                        |
+| Networking      | Profiles              |                                                                      | Full Access                                                      |
+| Security        | East West Security    | Distributed Firewall<br>Distributed IDS and IPS<br>Identity Firewall | Full Access<br>Full Access<br>Full Access                        |
+| Security        | North South Security  | Gateway Firewall<br>URL Analysis                                     | Full Access<br>Full Access                                       |
+| Security        | Network Introspection |                                                                      | None                                                             |
+| Security        | Endpoint Protection   |                                                                      | None                                                             |
+| Security        | Settings              |                                                                      | Full Access                                                      |
+| Inventory       |                       |                                                                      | Full Access                                                      |
+| Troubleshooting | IPFIX                 |                                                                      | Full Access                                                      |
+| Troubleshooting | Port Mirroring        |                                                                      | Full Access                                                      |
+| System          | Backup and Restore    |                                                                      | Read-only                                                        |
+| System          | Settings              | Users and Roles<br>License Configuration<br>Certificate Management   | Full Access<br>Read-only<br>Full Access                          |
+
 
 You can view the permissions granted to the Azure VMware Solution CloudAdmin role on your Azure VMware Solution private cloud NSX-T.
 
@@ -120,7 +138,7 @@ You can view the permissions granted to the Azure VMware Solution CloudAdmin rol
 1. Select a category like, Networking, Security, etc. to view the specific permissions.
 
 > [!NOTE]
-> **Private clouds created before January 2022** will switch from **admin** role to **cloudacmin** role. You'll receive a notification through Azure Service Health that includes the timeline of this change so you can change the NSX-T credentials you've used for other integration.
+> **Private clouds created before January 2022** will switch from **admin** role to **cloudadmin** role. You'll receive a notification through Azure Service Health that includes the timeline of this change so you can change the NSX-T credentials you've used for other integration.
 
  
 ## Next steps
