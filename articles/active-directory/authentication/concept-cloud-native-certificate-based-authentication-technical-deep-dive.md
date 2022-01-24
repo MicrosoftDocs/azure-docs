@@ -180,11 +180,11 @@ For the first test scenario, configure the authentication policy where the Issue
 
    These additional entries show that the authentication is complete and a primary refresh token is sent back to the browser and user is given access to the resource.
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/refresh-token.png" alt-text="Screenshot of refresh token details in the sign-in logs." :::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/refresh-token.png" alt-text="Screenshot of refresh token entry in the sign-in logs." :::  
 
    Click **Additional Details** to MFA succeeded. 
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/refresh-token-details.png" alt-text="Screenshot of refresh token details in the sign-in logs." :::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/refresh-token-details.png" alt-text="Screenshot of refresh token authentication details in the sign-in logs." :::  
 
 
 ### Test multifactor authentication
