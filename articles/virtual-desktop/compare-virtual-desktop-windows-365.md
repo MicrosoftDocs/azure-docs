@@ -20,7 +20,7 @@ The following table describes high-level differences in the technical features b
 |-------|--------|--------|--------|--------|
 |Design|Designed to be flexible.|Designed to be flexible.|Designed to be simple and easy to use.|Designed to be simple and easy to use.|
 |Type of desktop|Personal desktop|Pooled (single and multi-session) desktop|Personal desktop|Personal desktop|
-|Pricing model|Based on your own resource usage|Based on your own resource usage|Fixed per-user pricing ([Windows 365 pricing](https://www.microsoft.com/windows-365/enterprise/compare-plans-pricing-b))|Fixed per-user pricing ([Windows 365 pricing](https://www.microsoft.com/windows-365/enterprise/compare-plans-pricing-b))|
+|Pricing model|Based on your own resource usage|Based on your own resource usage|Fixed per-user pricing ([Windows 365 Enterprise pricing](https://www.microsoft.com/windows-365/enterprise/compare-plans-pricing-b))|Fixed per-user pricing ([Windows 365 Business pricing](https://www.microsoft.com/windows-365/business/compare-plans-pricing-b))|
 |Subscription|Customer-managed|Customer-managed|Microsoft-managed (except networking)|Fully Microsoft-managed|
 |VM stock-keeping units (SKUs)|Any Azure virtual machine (VM) including graphics processing unit (GPU)-enabled SKUs|Any Azure VM including GPU-enabled SKUs|Multiple optimized options for a range of use cases|Multiple optimized options for a range of use cases|
 |Backup|Azure backup services|Azure backup services|Local redundant storage for disaster recovery|Local redundant storage for disaster recovery|

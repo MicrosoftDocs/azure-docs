@@ -5,8 +5,8 @@ keywords: SQL Edge, data retention
 services: sql-edge
 ms.service: sql-edge
 ms.topic: conceptual
-author: SQLSourabh
-ms.author: sourabha
+author: rothja
+ms.author: jroth
 ms.reviewer: sstein
 ms.date: 09/04/2020
 ---
