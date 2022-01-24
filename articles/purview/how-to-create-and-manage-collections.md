@@ -30,7 +30,7 @@ In order to create and manage collections in Azure Purview, you will need to be 
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/find-collections.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
 
-1. Select your root collection. This is the top collection in your collection list and will have the same name as your Azure Purview resource. In our example below, it is called Contoso Azure Purview. Alternatively, if collections already exist you can select any collection where you want to create a subcollection.
+1. Select your root collection. This is the top collection in your collection list and will have the same name as your Azure Purview resource. In the following example, it is called Contoso Azure Purview. Alternatively, if collections already exist you can select any collection where you want to create a subcollection.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/select-root-collection.png" alt-text="Screenshot of Azure Purview studio window, opened to the Data Map, with the root collection highlighted." border="true":::
 
