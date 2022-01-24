@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 01/24/2022
 ms.author: eur
 ---
 
 # What is Speech Studio?
 
-[Speech Studio](https://speech.microsoft.com) is a set of UI-based tools for building and integrating features from Azure Speech service in your applications. You create projects in Speech Studio using a no-code approach, and then reference the assets you create in your applications using the [Speech SDK](speech-sdk.md), [Speech CLI](spx-overview.md), or various REST APIs.
+[Speech Studio](https://speech.microsoft.com) is a set of UI-based tools for building and integrating features from Azure Cognitive Services Speech in your applications. You create projects in Speech Studio using a no-code approach, and then reference those assets in your applications using the [Speech SDK](speech-sdk.md), [Speech CLI](spx-overview.md), or REST APIs.
 
 ## Set up your Azure account
 
-You need to have an Azure account and add a Speech service resource before you can use [Speech Studio](https://speech.microsoft.com). If you don't have an account and resource, [try the Speech service for free](overview.md#try-the-speech-service-for-free).
+You need to have an Azure account and add a Speech resource before you can use [Speech Studio](https://speech.microsoft.com). If you don't have an account and resource, [try the Speech service for free](overview.md#try-the-speech-service-for-free).
 
 After you create an Azure account and a Speech service resource:
 
 1. Sign in to the [Speech Studio](https://speech.microsoft.com) with your Azure account.
-1. Select the Speech service resource you need to get started. (You can change the resources anytime in "Settings" in the top menu.)
+1. Select a Speech resource in your subscription. You can change the resources anytime in "Settings" in the top menu.
 
 ## Speech Studio features
 
@@ -40,8 +40,5 @@ The following Speech service features are available as project types in Speech S
 
 ## Next steps
 
-[Explore Speech Studio](https://speech.microsoft.com) and create a project.
-
-
-
-
+> [!div class="nextstepaction"]
+> [Explore Speech Studio](https://speech.microsoft.com)

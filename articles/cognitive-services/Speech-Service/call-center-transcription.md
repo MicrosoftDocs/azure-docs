@@ -5,11 +5,10 @@ description: A common scenario for speech-to-text is transcribing large volumes 
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 01/23/2022
 ms.author: eur
 ---
 
@@ -112,7 +111,7 @@ The Speech service can be easily integrated in any solution by using either the 
 
 Several IVR or telephony service products (such as Genesys or AudioCodes) offer integration capabilities that can be leveraged to enable inbound and outbound audio pass-through to an Azure service. Basically, a custom Azure service might provide a specific interface to define phone call sessions (such as Call Start or Call End) and expose a WebSocket API to receive inbound stream audio that is used with the Speech service. Outbound responses, such as conversation transcription or connections with the Bot Framework, can be synthesized with Microsoft's text-to-speech service and returned to the IVR for playback.
 
-Another scenario is direct integration with Session Initiation Protocol (SIP). An Azure service connects to a SIP Server, thus getting an inbound stream and an outbound stream, which is used for the speech-to-text and text-to-speech phases. To connect to a SIP Server there are commercial software offerings, such as Ozeki SDK, or [the Teams calling and meetings API](/graph/api/resources/communications-api-overview) (currently in beta), that are designed to support this type of scenario for audio calls.
+Another scenario is direct integration with Session Initiation Protocol (SIP). An Azure service connects to a SIP Server, thus getting an inbound stream and an outbound stream, which is used for the speech-to-text and text-to-speech phases. To connect to a SIP Server there are commercial software offerings, such as Ozeki SDK, or the [Microsoft Graph communications API](/graph/api/resources/communications-api-overview), that are designed to support this type of scenario for audio calls.
 
 ## Customize existing experiences
 
