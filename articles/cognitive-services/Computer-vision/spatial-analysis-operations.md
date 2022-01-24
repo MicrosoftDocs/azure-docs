@@ -384,7 +384,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
            "output_frequency":1,
            "minimum_distance_threshold":6.0,
            "maximum_distance_threshold":35.0,
-        "aggregation_method": "average"
+           "aggregation_method": "average"
            "threshold": 16.00,
            "focus": "footprint"
                    }
@@ -543,15 +543,20 @@ Sample JSON for an event output by this operation.
                 ]
             },
             "confidence": 0.9559211134910583,
-            "centerGroundPoint": {
-                "x": 0.0,
-                "y": 0.0
-            },
             "metadata": {
-            "attributes": {
-                "face_mask": 0.99
-            }
-        }
+                "centerGroundPointX": "2.6310102939605713",
+                "centerGroundPointY": "0.0",
+		"groundOrientationAngle": "1.3",
+                "footprintX": "0.7306610584259033",
+                "footprintY": "0.8814966493381893"
+            },
+           "attributes": [
+                {
+                    "label": "face_mask",
+                    "confidence": 0.99,
+                    "task": ""
+                }
+            ]
         },
         {
             "type": "person",
@@ -570,18 +575,23 @@ Sample JSON for an event output by this operation.
                 ]
             },
             "confidence": 0.9389744400978088,
-            "centerGroundPoint": {
-                "x": 0.0,
-                "y": 0.0
+             "metadata": {
+                "centerGroundPointX": "2.6310102939605713",
+                "centerGroundPointY": "18.635927200317383",
+		"groundOrientationAngle": "1.3",
+                "footprintX": "0.7306610584259033",
+                "footprintY": "0.8814966493381893"
             },
-            "metadata":{
-            "attributes": {
-            "face_nomask": 0.99
-            }
-            }
+           "attributes": [
+                {
+                    "label": "face_mask",
+                    "confidence": 0.99,
+                    "task": ""
+                }
+            ]
        }
     ],
-    "schemaVersion": "1.0"
+    "schemaVersion": "2.0"
 }
 ```
 
@@ -603,8 +613,11 @@ Sample JSON for an event output by this operation.
 | `type` | string| Type of region|
 | `points` | collection| Top left and bottom right points when the region type is RECTANGLE |
 | `confidence` | float| Algorithm confidence|
-| `face_mask` | float | The attribute confidence value with range (0-1) indicates the detected person is wearing a face mask |
-| `face_nomask` | float | The attribute confidence value with range (0-1) indicates the detected person is **not** wearing a face mask |
+| `attributes` | array| Array of attributes. Each attribute consist of label, task and confidence |
+| `label` | string| The attribute value (e.g. {label: face_mask} indicates the detected person is wearing a face mask ) |
+| `confidence (attribute)` | float| The attribute confidence value with range (0-1) (e.g. {confidence: 0.9, label: face_nomask} indicates the detected person is **not** wearing a face mask ) |
+| `task` | string | The attribute classification task/class |
+
 
 | SourceInfo Field Name | Type| Description|
 |---------|---------|---------|
@@ -667,13 +680,24 @@ Sample JSON for detections output by this operation.
             },
             "confidence": 0.9005028605461121,
             "metadata": {
-            "attributes": {
-                "face_mask": 0.99
-            }
-        }
+                "centerGroundPointX": "2.6310102939605713",
+                "centerGroundPointY": "18.635927200317383",
+		"groundOrientationAngle": "1.3",
+                "trackingId": "90d55bfc64c54bfd98226697ad8445ca",
+                "speed": "1.2",
+                "footprintX": "0.7306610584259033",
+                "footprintY": "0.8814966493381893"
+            },
+           "attributes": [
+                {
+                    "label": "face_mask",
+                    "confidence": 0.99,
+                    "task": ""
+                }
+            ]
         }
     ],
-    "schemaVersion": "1.0"
+    "schemaVersion": "2.0"
 }
 ```
 | Event Field Name | Type| Description|
@@ -698,8 +722,10 @@ Sample JSON for detections output by this operation.
 | `mappedImageOrientation` | float| The projected clockwise radian angle of the person's orientation on the 2D image space |
 | `speed` | float| The estimated speed of the detected person. The unit is `foot per second (ft/s)`|
 | `confidence` | float| Algorithm confidence|
-| `face_mask` | float | The attribute confidence value with range (0-1) indicates the detected person is wearing a face mask |
-| `face_nomask` | float | The attribute confidence value with range (0-1) indicates the detected person is **not** wearing a face mask |
+| `attributes` | array| Array of attributes. Each attribute consist of label, task and confidence |
+| `label` | string| The attribute value (e.g. {label: face_mask} indicates the detected person is wearing a face mask ) |
+| `confidence (attribute)` | float| The attribute confidence value with range (0-1) (e.g. {confidence: 0.9, label: face_nomask} indicates the detected person is **not** wearing a face mask ) |
+| `task` | string | The attribute classification task/class |
 
 | SourceInfo Field Name | Type| Description|
 |---------|---------|---------|
@@ -760,15 +786,24 @@ Sample JSON for detections output by this operation with `zonecrossing` type SPA
                 ]
             },
             "confidence": 0.6267998814582825,
-        "metadata": {
-        "attributes": {
-        "face_mask": 0.99
-        }
-        }
-           
-        }
+            "metadata": {
+                "centerGroundPointX": "2.6310102939605713",
+                "centerGroundPointY": "18.635927200317383",
+		"groundOrientationAngle": "1.3",
+                "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
+                "speed": "1.2",
+                "footprintX": "0.7306610584259033",
+                "footprintY": "0.8814966493381893"
+            },
+           "attributes": [
+                {
+                    "label": "face_mask",
+                    "confidence": 0.99,
+                    "task": ""
+                }
+            ]
     ],
-    "schemaVersion": "1.0"
+    "schemaVersion": "2.0"
 }
 ```
 
@@ -787,8 +822,8 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
                 "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
                 "status": "Exit",
                 "side": "1",
-		              "dwellTime": 7132.0,
-		              "dwellFrames": 20            
+	        "dwellTime": 7132.0,
+	        "dwellFrames": 20            
             },
             "zone": "queuecamera"
         }
@@ -819,15 +854,19 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
                 ]
             },
             "confidence": 0.6267998814582825,
-            "metadataType": "",
-	         "metadata": { 
-	    	         "groundOrientationAngle": 1.2,
-		             "mappedImageOrientation": 0.3,
-		             "speed": 1.2
-	           },
+	    "metadata": {
+                "centerGroundPointX": "2.6310102939605713",
+                "centerGroundPointY": "18.635927200317383",
+		"groundOrientationAngle": "1.2",
+		"mappedImageOrientation": "0.3",
+		"speed": "1.2",
+		 "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
+                "footprintX": "0.7306610584259033",
+                "footprintY": "0.8814966493381893"
+            }
         }
     ],
-    "schemaVersion": "1.0"
+    "schemaVersion": "2.0"
 }
 ```
 
@@ -858,8 +897,10 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
 | `mappedImageOrientation` | float| The projected clockwise radian angle of the person's orientation on the 2D image space |
 | `speed` | float| The estimated speed of the detected person. The unit is `foot per second (ft/s)`|
 | `confidence` | float| Algorithm confidence|
-| `face_mask` | float | The attribute confidence value with range (0-1) indicates the detected person is wearing a face mask |
-| `face_nomask` | float | The attribute confidence value with range (0-1) indicates the detected person is **not** wearing a face mask |
+| `attributes` | array| Array of attributes. Each attribute consist of label, task and confidence |
+| `label` | string| The attribute value (e.g. {label: face_mask} indicates the detected person is wearing a face mask ) |
+| `confidence (attribute)` | float| The attribute confidence value with range (0-1) (e.g. {confidence: 0.9, label: face_nomask} indicates the detected person is **not** wearing a face mask ) |
+| `task` | string | The attribute classification task/class |
 
 ### JSON format for cognitiveservices.vision.spatialanalysis-persondistance AI Insights
 
@@ -919,11 +960,13 @@ Sample JSON for detections output by this operation.
                 ]
             },
             "confidence": 0.948630690574646,
-            "centerGroundPoint": {
-                "x": -1.4638760089874268,
-                "y": 18.29732322692871
-            },
-            "metadataType": ""
+	    "metadata": {
+                "centerGroundPointX": "-1.4638760089874268",
+                "centerGroundPointY": "18.29732322692871",
+		"groundOrientationAngle": "1.3",
+                "footprintX": "0.7306610584259033",
+                "footprintY": "0.8814966493381893"
+            }
         },
         {
             "type": "person",
@@ -942,14 +985,16 @@ Sample JSON for detections output by this operation.
                 ]
             },
             "confidence": 0.8235412240028381,
-            "centerGroundPoint": {
-                "x": 2.6310102939605713,
-                "y": 18.635927200317383
-            },
-            "metadataType": ""
+            "metadata": {
+                "centerGroundPointX": "2.6310102939605713",
+                "centerGroundPointY": "18.635927200317383",
+		"groundOrientationAngle": "1.3",
+                "footprintX": "0.7306610584259033",
+                "footprintY": "0.8814966493381893"
+            }
         }
     ],
-    "schemaVersion": "1.0"
+    "schemaVersion": "2.0"
 }
 ```
 
@@ -976,13 +1021,13 @@ Sample JSON for detections output by this operation.
 | `type` | string| Type of region|
 | `points` | collection| Top left and bottom right points when the region type is RECTANGLE |
 | `confidence` | float| Algorithm confidence|
-| `centerGroundPoint` | 2 float values| `x`, `y` values with the coordinates of the person's inferred location on the ground in feet. `x` and `y` are coordinates on the floor plane, assuming the floor is level. The camera's location is the origin. |
+| `centerGroundPointX/centerGroundPointY` | 2 float values| `x`, `y` values with the coordinates of the person's inferred location on the ground in feet. `x` and `y` are coordinates on the floor plane, assuming the floor is level. The camera's location is the origin. |
 
 When calculating `centerGroundPoint`, `x` is the distance from the camera to the person along a line perpendicular to the camera image plane. `y` is the distance from the camera to the person along a line parallel to the camera image plane. 
 
 ![Example center ground point](./media/spatial-analysis/x-y-chart.png) 
 
-In this example, `centerGroundPoint` is `{x: 4, y: 5}`. This means there's a person 4 feet away from the camera and 5 feet to the right, looking at the room top-down.
+In this example, `centerGroundPoint` is `{centerGroundPointX: 4, centerGroundPointY: 5}`. This means there's a person 4 feet away from the camera and 5 feet to the right, looking at the room top-down.
 
 
 | SourceInfo Field Name | Type| Description|
