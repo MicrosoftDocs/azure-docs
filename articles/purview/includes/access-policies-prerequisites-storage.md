@@ -22,12 +22,12 @@ Register-AzProviderFeature -FeatureName AllowPurviewPolicyEnforcement -ProviderN
 If the output of the last command shows value of *RegistrationState* as *Registered*, then your subscription is enabled for this functionality. In case the output is *Registering*, retry the last command after waiting at least 10 minutes.
 
 >[!IMPORTANT]
-> The access policy feature is only available on **new** Azure Storage accounts. Only Storage accounts meeting all the requirements below will enforce access policies published from Azure Purview.
+> The access policy feature is only available on **new** Azure Storage accounts. Only Storage accounts meeting all the following requirements will enforce access policies published from Azure Purview.
 > - Storage account versions >= 81.x.x.
 > - Created in the subscription after the feature *AllowPurviewPolicyEnforcement* is registered
 
 ### Create a new Azure Storage account
-- Create new Azure Storage account(s) in one of the regions listed below. You can [follow this guide to create one](../storage/common/storage-account-create.md)
+- Create new Azure Storage account(s) in one of the regions listed in the next section. You can [follow this guide to create one](../storage/common/storage-account-create.md)
 
 ### Supported regions
 
