@@ -141,8 +141,8 @@ This is an example of the output from camera calibration if enabled. Ellipses in
   "sourceInfo": {
     "id": "camera1",
     "timestamp": "2021-04-20T21:15:59.100Z",
-    "width": 640,
-    "height": 360,
+    "width": 512,
+    "height": 288,
     "frameId": 531,
     "cameraCalibrationInfo": {
       "status": "Calibrated",
@@ -387,7 +387,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
            "aggregation_method": "average"
            "threshold": 16.00,
            "focus": "footprint"
-                   }
+          }
           }]
    }]
 }
@@ -796,12 +796,13 @@ Sample JSON for detections output by this operation with `zonecrossing` type SPA
                 "footprintY": "0.8814966493381893"
             },
            "attributes": [
-                {
-                    "label": "face_mask",
-                    "confidence": 0.99,
-                    "task": ""
-                }
+		{
+		    "label": "face_mask",
+		    "confidence": 0.99,
+		    "task": ""
+		}
             ]
+	}
     ],
     "schemaVersion": "2.0"
 }
