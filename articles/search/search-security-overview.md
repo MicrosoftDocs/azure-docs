@@ -76,9 +76,11 @@ Indexers and skillsets are both objects that can make external connections. You'
 
 ## Authentication
 
-For inbound requests to the search service, authentication is on the request (not the calling app or user) through an [API key](search-security-api-keys.md), where the key is a string composed of randomly generated numbers and letters)that proves the request is from a trustworthy source. Alternatively, there is new support for Azure Active Directory authentication and role-based authorization, [currently in preview](search-security-rbac.md).
+For inbound requests to the search service, authentication is on the request (not the calling app or user) through an [API key](search-security-api-keys.md), where the key is a string composed of randomly generated numbers and letters)that proves the request is from a trustworthy source. 
 
-Outbound requests made by an indexer are subject to authentication by the external service. The indexer subservice in Cognitive Search can be made a trusted service on Azure, connecting to other services using a managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
+Alternatively, there is new support for Azure Active Directory authentication and role-based authorization, [currently in preview](search-security-rbac.md), that establishes the caller (and not the request) as the authenticated identity.
+
+Outbound requests made by an indexer are subject to the authentication protocols supported by the external service. The indexer subservice in Cognitive Search can be made a trusted service on Azure, connecting to other services using a managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
 
 ## Authorization
 
