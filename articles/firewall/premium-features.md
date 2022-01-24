@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 12/09/2021
+ms.date: 01/19/2022
 ms.author: victorh
 ms.custom: references_regions
 ---
@@ -130,72 +130,10 @@ Under the **Web Categories** tab in **Firewall Policy Settings**, you can reques
 
 :::image type="content" source="media/premium-features/firewall-category-change.png" alt-text="Firewall category report dialog":::
 
- ## Supported regions
+## Supported regions
 
-Azure Firewall Premium is supported in the following regions:
+For the supported regions for Azure Firewall, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-firewall).
 
-- Australia Central (Public / Australia)
-- Australia Central 2 (Public / Australia)
-- Australia East (Public / Australia)
-- Australia Southeast (Public / Australia)
-- Brazil South (Public / Brazil)
-- Brazil Southeast (Public / Brazil)
-- Canada Central (Public / Canada)
-- Canada East (Public / Canada)
-- Central India (Public / India)
-- Central US (Public / United States)
-- Central US EUAP (Public / Canary (US))
-- China North 2 (Mooncake / China)
-- China East 2 (Mooncake / China)
-- East Asia (Public / Asia Pacific)
-- East US (Public / United States)
-- East US 2 (Public / United States)
-- France Central (Public / France)
-- France South (Public / France)
-- Germany West Central (Public / Germany)
-- Japan East (Public / Japan)
-- Japan West (Public / Japan)
-- Korea Central (Public / Korea)
-- Korea South (Public / Korea)
-- North Central US (Public / United States)
-- North Europe (Public / Europe)
-- Norway East (Public / Norway)
-- South Africa North (Public / South Africa)
-- South Central US (Public / United States)
-- South India (Public / India)
-- Southeast Asia (Public / Asia Pacific)
-- Switzerland North (Public / Switzerland)
-- UAE Central (Public / UAE)
-- UAE North (Public / UAE)
-- UK South (Public / United Kingdom)
-- UK West (Public / United Kingdom)
-- USGov Arizona (Fairfax / USGov)
-- USGov Texas (Fairfax / USGov)
-- USGov Virginia (Fairfax / USGov)
-- West Central US (Public / United States)
-- West Europe (Public / Europe)
-- West India (Public / India)
-- West US (Public / United States)
-- West US 2 (Public / United States)
-- West US 3 (Public / United States)
-
-
-## Known issues
-
-Azure Firewall Premium has the following known issues:
-
-
-|Issue  |Description  |Mitigation  |
-|---------|---------|---------|
-|ESNI support for FQDN resolution in HTTPS|Encrypted SNI isn't supported in HTTPS handshake.|Today only Firefox supports ESNI through custom configuration. Suggested workaround is to disable this feature.|
-|Client Certificates (TLS)|Client certificates are used to build a mutual identity trust between the client and the server. Client certificates are used during a TLS negotiation. Azure firewall renegotiates a connection with the server and has no access to the private key of the client certificates.|None|
-|QUIC/HTTP3|QUIC is the new major version of HTTP. It's a UDP-based protocol over 80 (PLAN) and 443 (SSL). FQDN/URL/TLS inspection won't be supported.|Configure passing UDP 80/443 as network rules.|
-Untrusted customer signed certificates|Customer signed certificates are not trusted by the firewall once received from an intranet-based web server.|A fix is being investigated.
-|Wrong source IP address in Alerts with IDPS for HTTP (without TLS inspection).|When plain text HTTP traffic is in use, and IDPS issues a new alert, and the destination is a public IP address, the displayed source IP address is wrong (the internal IP address is displayed instead of the original IP address).|A fix is being investigated.|
-|Certificate Propagation|After a CA certificate is applied on the firewall, it may take between 5-10 minutes for the certificate to take effect.|A fix is being investigated.|
-|TLS 1.3 support|TLS 1.3 is partially supported. The TLS tunnel from client to the firewall is based on TLS 1.2, and from the firewall to the external Web server is based on TLS 1.3.|Updates are being investigated.|
-|KeyVault Private Endpoint|KeyVault supports Private Endpoint access to limit its network exposure. Trusted Azure Services can bypass this limitation if an exception is configured as described in the [KeyVault documentation](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Firewall is not currently listed as a trusted service and can't access the Key Vault.|A fix is being investigated.|
-|IDPS Bypass list|IDPS Bypass list doesn't support IP Groups.|A fix is being investigated.|
 
 ## Next steps
 

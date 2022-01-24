@@ -10681,6 +10681,12 @@
             "redirect_url": "/azure/active-directory/reports-monitoring/reference-basic-info-sign-in-logs",
             "redirect_document_id": false
         }
+        ,
+        {
+            "source_path": "articles/active-directory/managed-identities-azure-resources/services-support-managed-identities.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/managed-identities-status",
+            "redirect_document_id": false
+        }
          
     ]
 }

@@ -123,10 +123,10 @@ Configure backup as follows:
    To optimize backup loads, Azure Backup sets a maximum number of databases in one backup job to 50.
 
      * To protect more than 50 databases, configure multiple backups.
-     * To [enable](/azure/backup/backup-sql-server-database-azure-vms#enable-auto-protection) the entire instance or the Always On availability group, in the **AUTOPROTECT** drop-down list, select  **ON**, and then select **OK**.
+     * To [enable](./backup-sql-server-database-azure-vms.md#enable-auto-protection) the entire instance or the Always On availability group, in the **AUTOPROTECT** drop-down list, select  **ON**, and then select **OK**.
 
          > [!NOTE]
-         > The [auto-protection](/azure/backup/backup-sql-server-database-azure-vms#enable-auto-protection) feature not only enables protection on all the existing databases at once, but also automatically protects any new databases added to that instance or the availability group.  
+         > The [auto-protection](./backup-sql-server-database-azure-vms.md#enable-auto-protection) feature not only enables protection on all the existing databases at once, but also automatically protects any new databases added to that instance or the availability group.  
 
 1. Define the **Backup policy**. You can do one of the following:
 

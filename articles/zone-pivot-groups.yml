@@ -463,7 +463,7 @@ groups:
 # Service:       Active Directory (active-directory)
 # Sub-service:   Microsoft identity platform (develop)
 # Referenced by: /articles/active-directory/develop/*
-# Owner(s):      marsma, dmwendia, celested, ryanwi, cchiedo,henrymbugua
+# Owner(s):      marsma, dmwendia, celested, ryanwi, cchiedo, henrymbugua
 ## SPA ##
 - id: single-page-app-quickstart
   title: single-page-app-quickstart
@@ -492,6 +492,48 @@ groups:
     title: Java
   - id: devlang-python
     title: Python
+## WEB API ##  
+- id: web-api-quickstart
+  title: web-api-quickstart
+  prompt: Choose a language or framework
+  pivots:
+  - id: devlang-aspnet
+    title: ASP.NET
+  - id: devlang-aspnet-core
+    title: ASP.NET Core
+## Mobile app ##  
+- id: mobile-app-quickstart
+  title: desktop-app-quickstart
+  prompt: Choose a language or framework
+  pivots:
+  - id: devlang-android
+    title: Android
+  - id: devlang-ios
+    title: iOS and macOS 
+## Desktop app##  
+- id: desktop-app-quickstart
+  title: desktop-app-quickstart
+  prompt: Choose a language or framework
+  pivots:
+  - id: devlang-uwp
+    title: Universal Windows Platform
+  - id: devlang-windows-desktop
+    title: Windows Desktop .NET
+  - id: devlang-nodejs-electron
+    title: Node.js Electron
+## Console app ##
+- id: console-app-quickstart
+  title: console-app-quickstart
+  prompt: Choose a language or framework
+  pivots:
+  - id: devlang-dotnet-core
+    title: ASP.NET Core
+  - id: devlang-python
+    title: Python
+  - id: devlang-nodejs
+    title: Node.js
+  - id: devlang-java
+    title: Java
 ############ END MICROSOFT IDENTITY PLATFORM
 #Owner: antchu
 - id: runtime-version-programming-functions

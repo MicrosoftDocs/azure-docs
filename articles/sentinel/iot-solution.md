@@ -14,7 +14,7 @@ ms.author: bagol
 > The *Microsoft Sentinel Data connector for Microsoft Defender for IoT* and the *IoT OT Threat Monitoring with Defender for IoT* solution are in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-​[Microsoft Defender for IoT](/azure/defender-for-iot/) enables you to secure your entire OT environment, whether you need to protect existing OT devices or build security into new OT innovations.
+​[Microsoft Defender for IoT](../defender-for-iot/index.yml) enables you to secure your entire OT environment, whether you need to protect existing OT devices or build security into new OT innovations.
 
 Microsoft Sentinel and Microsoft Defender for IoT help to bridge the gap between IT and OT security challenges, and to empower SOC teams with out-of-the-box capabilities to efficiently and effectively detect and respond to OT threats. The integration between Microsoft Defender for IoT and Microsoft Sentinel helps organizations to quickly detect multistage attacks, which often cross IT and OT boundaries.
 
@@ -46,7 +46,7 @@ Before you start, make sure you have the following requirements on your workspac
 
     1. Under **Microsoft Defender for IoT**, select **Enable Microsoft Defender for IoT**.
 
-For more information, see [Permissions in Microsoft Sentinel](roles.md) and [Quickstart: Get started with Defender for IoT](/azure/defender-for-iot/organizations/getting-started).
+For more information, see [Permissions in Microsoft Sentinel](roles.md) and [Quickstart: Get started with Defender for IoT](../defender-for-iot/organizations/getting-started.md).
 
 > [!IMPORTANT]
 > Currently, having both the Microsoft Defender for IoT and the [Microsoft Defender for Cloud](data-connectors-reference.md#microsoft-defender-for-cloud) data connectors enabled on the same Microsoft Sentinel workspace simultaneously may result in duplicate alerts in Microsoft Sentinel. We recommend that you disconnect the Microsoft Defender for Cloud data connector before connecting to Microsoft Defender for IoT.
@@ -139,7 +139,7 @@ View Defender for IoT alerts in the Microsoft Sentinel **Logs** area.
 > [!NOTE]
 > The **Logs** page in Microsoft Sentinel is based on Azure Monitor's Log Analytics. 
 >
-> For more information, see [Log queries overview](/azure/azure-monitor/logs/log-query-overview) in the Azure Monitor documentation and the [Write your first KQL query](/learn/modules/write-first-query-kusto-query-language/) Learn module.
+> For more information, see [Log queries overview](../azure-monitor/logs/log-query-overview.md) in the Azure Monitor documentation and the [Write your first KQL query](/learn/modules/write-first-query-kusto-query-language/) Learn module.
 >
 ## Install the Defender for IoT solution
 
@@ -278,6 +278,6 @@ This playbook opens a ticket in SerivceNow each time a new Engineering Workstati
 
 For more information, see:
 
-- [Microsoft Defender for IoT documentation](/azure/defender-for-iot/)
+- [Microsoft Defender for IoT documentation](../defender-for-iot/index.yml)
 - [Microsoft Defender for IoT solution](sentinel-solutions-catalog.md#microsoft)
 - [Microsoft Defender for IoT data connector](data-connectors-reference.md#microsoft-defender-for-iot)

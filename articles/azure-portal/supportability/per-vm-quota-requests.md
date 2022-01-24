@@ -74,5 +74,5 @@ To request multiple increases together, first go to the **Usage + quotas** page 
 
 ## Next steps
 
-- Learn more about [vCPU quotas](/azure/virtual-machines/windows/quotas).
-- Learn about [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- Learn more about [vCPU quotas](../../virtual-machines/windows/quotas.md).
+- Learn about [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).

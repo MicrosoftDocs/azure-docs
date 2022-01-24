@@ -48,7 +48,7 @@ The Azure platform provides role-based access (Azure RBAC) to control access to 
 
 To set up a service principal, [create a registered application from the Azure CLI](../quickstarts/identity/service-principal-from-cli.md). Then, the endpoint and credentials can be used to authenticate the SDKs. See examples of how [service principal](../quickstarts/identity/service-principal.md) is used.
 
-Communication services support Azure AD authentication but do not support managed identity for Communication services resources. You can find more details, about the managed identity support in the [Azure Active Directory documentation](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
+Communication services support Azure AD authentication but do not support managed identity for Communication services resources. You can find more details, about the managed identity support in the [Azure Active Directory documentation](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 ### User Access Tokens
 

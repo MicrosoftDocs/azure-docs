@@ -376,11 +376,11 @@ Validation|Device to be validated through toolset to ensure the device supports 
 
 |Name|SecuredCore.Protection.CodeIntegrity|
 |:---|:---|
-|Status|Required[Need confirmation from Deepak and EnS on details of validation and description]|
+|Status|Required|
 |Description|The purpose of this test is to validate that code integrity is available on this device.|
 |Target Availability|2022|
 |Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that code integrity is enabled. </br> Windows: HVCI </br> Linux: dm-verity and IMA|
+|Validation|Device to be validated through toolset to ensure that code integrity is enabled by validating dm-verity and IMA|
 |Resources||
 
 ---
