@@ -34,7 +34,7 @@ items:
     href: tutorial-using-rest-apis.md
   - name: Use REST APIs for collections
     href: tutorial-metadata-policy-collections-apis.md
-  - name: Data access policies on resource groups or subscriptions
+  - name: Data owner policies on resource groups or subscriptions
       href: how-to-access-policies-resource-group.md
 - name: Concepts
   items:
@@ -286,7 +286,7 @@ items:
     href: how-to-integrate-with-azure-security-products.md
   - name: Data owner access policies
     items:
-    - name: Data access policies Azure Storage
+    - name: Data owner policies on Azure Storage
       href: how-to-access-policies-storage.md
 - name: Reference
   items:
