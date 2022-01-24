@@ -44,7 +44,6 @@ Base All-Core Frequency: 2.8 GHz<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 [Dedicated Host](dedicated-hosts.md): Coming Soon<br>
-[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not supported <br>
 
 ## DCsv3-series Technical specifications
 
