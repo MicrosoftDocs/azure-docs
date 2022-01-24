@@ -970,9 +970,11 @@ This example shows what the configuration looks like when the logic app enables 
 
 <a name="arm-templates-connection-resource-managed-identity"></a>
 
-## ARM template for managed connections and managed identities
+## ARM template for API connections and managed identities
 
-If you automate deployment with an ARM template, and your logic app workflow includes a managed connector trigger or action that uses a managed identity, confirm that the underlying connection resource definition includes the `parameterValueSet` object, which includes the `name` property set to `managedIdentityAuth` and the `values` property set to an empty object. Otherwise, your ARM deployment won't set up the connection to use the managed identity for authentication, and the connection won't work in your logic app's workflow. This requirement applies only to [specific managed connector triggers and actions](#triggers-actions-managed-identity) where you selected the [**Connect with managed identity** option](#authenticate-managed-connector-managed-identity).
+If you use an ARM template to automate deployment, and your workflow includes an *API connection*, which is created by a [managed connector](../connectors/managed.md) such as Office 365 Outlook, Azure Key Vault, and so on that uses a managed identity, you have an extra step to take.
+
+In this scenario, check that the underlying connection resource definition includes the `parameterValueSet` object, which includes the `name` property set to `managedIdentityAuth` and the `values` property set to an empty object. Otherwise, your ARM deployment won't set up the connection to use the managed identity for authentication, and the connection won't work in your workflow. This requirement applies only to [specific managed connector triggers and actions](#triggers-actions-managed-identity) where you selected the [**Connect with managed identity** option](#authenticate-managed-connector-managed-identity).
 
 ### [Consumption](#tab/consumption)
 
@@ -1022,11 +1024,11 @@ For example, here's the underlying connection resource definition for an Azure A
 },
 ```
 
-Following this `Microsoft.Web/connections` resource definition, make sure that you add an access policy that specifies a resource definition for each managed API connection and provide the following information:
+Following this `Microsoft.Web/connections` resource definition, make sure that you add an access policy that specifies a resource definition for each API connection and provide the following information:
 
 | Parameter | Description |
 |-----------|-------------|
-| <*connection-name*> | The name for your managed API connection, for example, `office365` |
+| <*connection-name*> | The name for your API connection, for example, `office365` |
 | <*object-ID*> | The object ID for your Azure AD identity, previously saved from your app registration |
 | <*tenant-ID*> | The tenant ID for your Azure AD identity, previously saved from your app registration |
 |||
@@ -1058,13 +1060,9 @@ For more information, review the [Microsoft.Web/connections/accesspolicies (ARM 
 
 <a name="setup-identity-apihub-authentiation"></a>
 
-## Set up advanced control over managed connection authentication with user-assigned identities
+## Set up advanced control over API connection authentication
 
-If you have a Standard logic app resource, and your scenario requires finer control over authenticating connections created by [managed connectors](../connectors/managed.md), such as Office 365 Outlook, Azure Key Vault, and so on, you can optionally set up your user-assigned identity to use token store authentication.
-
-### What is token store authentication?
-
-When your workflow uses a managed connection, also known as an *API connection*, the Azure Logic Apps service communicates with the target resource, such as a key vault, email account, and so on, using two connections:
+When your workflow uses an *API connection*, which is created by a [managed connector](../connectors/managed.md) such as Office 365 Outlook, Azure Key Vault, and so on, the Azure Logic Apps service communicates with the target resource, such as your email account, key vault, and so on, using two connections:
 
 Logic app <-----connection 1-----> internal token store <-------connection 2------> target resource
 
@@ -1072,17 +1070,11 @@ Logic app <-----connection 1-----> internal token store <-------connection 2----
 
 * Connection #2 is set up with the authentication for the target resource.
 
-With the Consumption logic app resource type, connection #1 is an abstraction. However, with the Standard logic app resource type, you have more control over your logic app. By default, connection #1 is automatically enabled to use the system-assigned identity. With added user-assigned identity support, you can change the authentication type for the internal token store from the default system-assigned identity and any user-assigned identity that you added to the logic app. This authentication applies to each specific connection, so you can mix system-assigned and user-assigned identities between different connections for the same target resource.
+With the Consumption logic app resource type, connection #1 is an abstraction. However, with the Standard logic app resource type, you have more control over your logic app. So, if your scenario requires finer control over authenticating API connections, you can optionally configure up your user-assigned identity to use token store authentication.
 
-### Why change the authentication for the token store?
+By default, connection #1 is automatically enabled to use the system-assigned identity. With added user-assigned identity support, you can change the authentication type for the internal token store from the default system-assigned identity and any user-assigned identity that you added to the logic app. This authentication applies to each specific API connection, so you can mix system-assigned and user-assigned identities between different connections for the same target resource.
 
-In some scenarios, you might want to share and use the same API connection across multiple logic apps, but not add the system-assigned identity for each logic app to the target resource's access policy.
-
-In other scenarios, you might not want to have the system-assigned identity set up on your logic app entirely, so you can change the authentication to a user-assigned identity and disable the system-assigned identity completely.
-
-### Change the authentication for the token store
-
-In your Standard logic app's **connections.json** file, which stores information about each API connection, each connection definition has two `authentication` sections, for example:
+To view these In your Standard logic app's **connections.json** file, which stores information about each API connection, each connection definition has two `authentication` sections, for example:
 
 ```json
 "keyvault": {
@@ -1105,9 +1097,32 @@ In your Standard logic app's **connections.json** file, which stores information
 }
 ```
 
-* The first `authentication` section is the authentication used for communicating with the token store. In the past, this section was always set to `ManagedServiceIdentity` for an app that deploys to Azure and had no configurable options.
+* Mapped to connection #1, the first `authentication` section is the authentication used for communicating with the token store. In the past, this section was always set to `ManagedServiceIdentity` for an app that deploys to Azure and had no configurable options.
 
-* The second `authentication` section is the authentication used for communicating with the target resource can vary, based on the authentication type that you select for that connection.
+* Mapped to connection #2, the second `authentication` section is the authentication used for communicating with the target resource can vary, based on the authentication type that you select for that connection.
+
+### Why change the authentication for the token store?
+
+In some scenarios, you might want to share and use the same API connection across multiple logic apps, but not add the system-assigned identity for each logic app to the target resource's access policy.
+
+In other scenarios, you might not want to have the system-assigned identity set up on your logic app entirely, so you can change the authentication to a user-assigned identity and disable the system-assigned identity completely.
+
+### Change the authentication for the token store
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the resource menu, under **Workflows**, select **Connections**.
+
+1. On the Connections pane, select **JSON View**.
+
+1. Add a new `identity` property and set the value to the resource ID for the user-assigned identity.
+
+   > [!NOTE]
+   > If no `identity` property already exists, the logic app implicitly uses the system-assigned identity.
+
+1. In the Azure portal, go to the target resource, and provide access to the user-assigned managed identity, based on the target resource's needs.
+
+   For example, for Azure Key Vault, add the identity to the key vault's access policies. For Azure Blob Storage, assign the necessary role for the identity to the storage account.
 
 <a name="remove-identity"></a>
 
