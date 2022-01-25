@@ -12,25 +12,33 @@ ms.date: 01/11/2022
 
 ## Standalone UI
 
-Change Analysis lives in a standalone pane under Azure Monitor, where you can view all changes and application dependency/resource insights.
+Change Analysis lives in a standalone pane under Azure Monitor, where you can view all changes and application dependency/resource insights. You can access Change Analysis through a couple of entry points:
 
-In the Azure portal, search for Change Analysis to launch the experience.
+- In the Azure portal, search for Change Analysis to launch the experience.
 
-:::image type="content" source="./media/change-analysis/search-change-analysis.png" alt-text="Screenshot of searching Change Analysis in Azure portal":::
+  :::image type="content" source="./media/change-analysis/search-change-analysis.png" alt-text="Screenshot of searching Change Analysis in Azure portal":::
+  
+  Select one or more subscriptions to view:
+  - All of its resources' changes from the past 24 hours. 
+  - Old and new values to provide insights at one glance.
+  
+  :::image type="content" source="./media/change-analysis/change-analysis-standalone-blade.png" alt-text="Screenshot of Change Analysis blade in Azure portal":::
+  
+  Click into a change to view full Resource Manager snippet and other properties.
+  
+  :::image type="content" source="./media/change-analysis/change-details.png" alt-text="Screenshot of change details":::
+  
+- You can access Change Analysis through a custom metric chart you've created and pinned to your resource's **Monitoring** tab. From the chart, select **Drill into logs** and choose **Change Analysis** to view it.
 
-Select one or more subscriptions to view:
-- All of its resources' changes from the past 24 hours. 
-- Old and new values to provide insights at one glance.
+  :::image type="content" source="./media/change-analysis/view-change-analysis-1.png" alt-text="Chart from the Monitoring tab of the resource.":::
 
-:::image type="content" source="./media/change-analysis/change-analysis-standalone-blade.png" alt-text="Screenshot of Change Analysis blade in Azure portal":::
+  :::image type="content" source="./media/change-analysis/view-change-analysis-2.png" alt-text="Drill into logs and select to view Change Analysis.":::
 
-Click into a change to view full Resource Manager snippet and other properties.
-
-:::image type="content" source="./media/change-analysis/change-details.png" alt-text="Screenshot of change details":::
 
 Send any feedback to the [Change Analysis team](mailto:changeanalysisteam@microsoft.com) from the Change Analysis blade:
 
 :::image type="content" source="./media/change-analysis/change-analysis-feedback.png" alt-text="Screenshot of feedback button in Change Analysis tab":::
+
 
 ### Multiple subscription support
 
@@ -124,6 +132,56 @@ If you've enabled [VM Insights](../vm/vminsights-overview.md), you can view chan
 1. Select the **Investigate Changes** button to view change details in the Application Change Analysis standalone UI.
 
     :::image type="content" source="./media/change-analysis/vm-insights-2.png" alt-text="View of the property panel, selecting Investigate Changes button.":::   
+
+## Custom Change Analysis charts
+
+Create custom charts and pin them to your dashboard for easy access.
+
+1. From the Azure portal home page, select the menu in the top left corner.
+1. Select **Monitor**.
+
+   :::image type="content" source="./media/change-analysis/monitor-menu-2.png" alt-text="Select Monitor from the Azure portal home menu.":::   
+ 
+1. On the Monitor overview page, select **Metrics** from the left menu.
+
+   :::image type="content" source="./media/change-analysis/monitor-metrics-menu.png" alt-text="Select Metrics from the Monitor overview menu.":::   
+
+1. In the **Select a scope** pane, select the subscription and resource for which you'd like to view metrics.
+
+   :::image type="content" source="./media/change-analysis/select-scope-pane.png" alt-text="Select scope from the metric pane.":::   
+
+1. Select **Apply**.
+
+   :::image type="content" source="./media/change-analysis/save-scope-selection.png" alt-text="Apply the scope to the metric filter.":::   
+
+1. In the **Metric** drop-down menu, select the metric you'd like to view.
+
+   :::image type="content" source="./media/change-analysis/select-metric.png" alt-text="Select a metric from the drop-down to visualize your resource metrics.":::   
+
+1. Select outside the metric dialog to save it.
+1. If you'd like to add more metrics, select **Add metric** from the top left menu.
+
+   :::image type="content" source="./media/change-analysis/add-extra-metric.png" alt-text="Drill down more by adding more metrics.":::   
+
+1. Once you've created the chart you want, select **Pin to dashboard**.
+
+   :::image type="content" source="./media/change-analysis/pin-dashboard.png" alt-text="Pin your chart to the dashboard.":::   
+
+    1. If you haven't created a dashboard yet:
+        1. Select **Create new**.
+        1. Select the **Type**.
+        1. Enter a dashboard name.
+        1. Select **Create and pin**.
+        
+           :::image type="content" source="./media/change-analysis/create-new-dashboard.png" alt-text="Create new dashboard to pin your chart.":::   
+        
+    1. If you have existing dashboards:
+        1. Select **Existing**.
+        1. Select the **Type**.
+        1. Choose the dashboard to which you'd like to pin the chart.
+        1. Select **Pin**.
+
+           :::image type="content" source="./media/change-analysis/existing-dashboard.png" alt-text="Select existing dashboard to pin your chart.":::   
 
 ## Next steps
 
