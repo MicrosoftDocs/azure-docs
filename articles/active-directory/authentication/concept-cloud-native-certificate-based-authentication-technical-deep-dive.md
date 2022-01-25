@@ -203,13 +203,9 @@ For the next test scenario, configure the authentication policy where the Issuer
 
    The entry with **Interrupted** status provides has more diagnostic info in the **Additional Details** tab. 
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/interrupted-user.png" alt-text="Screenshot of additional details for interrupted entry in the sign-in logs." :::  
-
-   **Additional Details**:
-
    :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/interrupted-user-details.png" alt-text="Screenshot of interrupted attempt details in the sign-in logs." :::  
 
-   The following table explains some details.
+   The following table has a description of each field.
 
    | Field   | Description  |
    |---------|--------------|
