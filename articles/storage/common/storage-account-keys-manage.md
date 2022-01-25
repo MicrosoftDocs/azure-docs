@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/04/2022
+ms.date: 01/25/2022
 ms.author: tamram 
 ms.custom: devx-track-azurepowershell
 ---
@@ -57,7 +57,7 @@ $storageAccountKey = `
 
 To list your account access keys with Azure CLI, call the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values.
 
-```azurecli-interactive
+```azurecli
 az storage account keys list \
   --resource-group <resource-group> \
   --account-name <storage-account>
@@ -125,7 +125,7 @@ To rotate your storage account access keys with Azure CLI:
 1. Update the connection strings in your application code to reference the secondary access key for the storage account.
 1. Call the [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) command to regenerate the primary access key, as shown in the following example:
 
-    ```azurecli-interactive
+    ```azurecli
     az storage account keys renew \
       --resource-group <resource-group> \
       --account-name <storage-account> \
@@ -197,19 +197,37 @@ $account.KeyPolicy
 
 ### [Azure CLI](#tab/azure-cli)
 
-To create a key expiration policy with Azure CLI, use the [az storage account update](/cli/azure/storage/account#az_storage_account_update) command and set the `--key-exp-days` parameter to the number of days an access key can be active before it should be rotated.
+To create a key expiration policy with Azure CLI, use the [az storage account update](/cli/azure/storage/account#az_storage_account_update) command and set the `--key-exp-days` parameter to the interval in days until the access key should be rotated.
 
-```azurecli-interactive
-az storage account update \
-  -n <storage-account-name> \
-  -g <resource-group> --key-exp-days <period-in-days>
+The `keyCreationTime` property indicates when the account access keys were created or last rotated. Older accounts may have a null value for the `keyCreationTime` property because it has not yet been set. If the `keyCreationTime` property is null, you cannot create a key expiration policy until you rotate the keys. For this reason, it's a good idea to check the `keyCreationTime` property for the storage account before you attempt to set the key expiration policy.
+
+The following example checks whether the `keyCreationTime` property has been set for each key. If the `keyCreationTime` property has a value, then a key expiration policy is created for the storage account. Remember to replace the placeholder values in brackets with your own values.
+
+```azurecli
+key1_create_time=$(az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --query 'keyCreationTime.key1' \
+    --output tsv)
+key2_create_time=$(az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --query 'keyCreationTime.key2' \
+    --output tsv)
+
+if [ -z "$key1_create_time" ] || [ -z "$key2_create_time" ]; 
+then
+    echo "You must regenerate both keys at least once before setting key expiration policy"
+else
+    az storage account update --name <storage-account> --resource-group <resource-group> --key-exp-days 60
+fi
 ```
 
 You can also set the key expiration policy as you create a storage account by setting the `--key-exp-days` parameter of the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 To verify that the policy has been applied, call the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command, and use the string `{KeyPolicy:keyPolicy}` for the `-query` parameter.
 
-```azurecli-interactive
+```azurecli
 az storage account show \
   -n <storage-account-name> \
   -g <resource-group-name> \
@@ -221,18 +239,10 @@ The key expiration period appears in the console output.
 ```json
 {
   "KeyPolicy": {
-    "keyExpirationPeriodInDays": 5
+    "enableAutoRotation": false,
+    "keyExpirationPeriodInDays": 60
   }
 }
-```
-
-To find out when a key was created or last rotated, use the  [az storage account show](/cli/azure/storage/account#az_storage_account_show) command, and then use the string `keyCreationTime` for the `-query` parameter.
-
-```azurecli-interactive
-az storage account show \
-  -n <storage-account-name> \
-  -g <resource-group-name> \
-  --query "keyCreationTime"
 ```
 
 ---
