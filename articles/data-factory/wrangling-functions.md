@@ -117,7 +117,6 @@ Keep and Remove Top, Keep Range (corresponding M functions,
 | Table.CombineColumns | This is a common scenario that isn't directly supported but can be achieved by adding a new column that concatenates two given columns.  For example, Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName]) |
 | Table.TransformColumnTypes | This is supported in most cases. The following scenarios are unsupported: transforming string to currency type, transforming string to time type, transforming string to Percentage type. |
 | Table.NestedJoin | Just doing a join will result in a validation error. The columns must be expanded for it to work. |
-| Table.Distinct | Remove duplicate rows isn't supported. |
 | Table.RemoveLastN | Remove bottom rows isn't supported. |
 | Table.RowCount | Not supported, but can be achieved by adding a custom column containing the value 1, then aggregating that column with List.Sum. Table.Group is supported. | 
 | Row level error handling | Row level error handling is currently not supported. For example, to filter out non-numeric values from a column, one approach would be to transform the text column to a number. Every cell which fails to transform will be in an error state and need to be filtered. This scenario isn't possible in scaled-out M. |
