@@ -1,20 +1,16 @@
 ﻿---
-title: Troubleshoot Dedicated HSM - Azure Dedicated HSM | Microsoft Docs
-description: Overview of Azure Dedicated HSM provides key storage capabilities within Azure that meets FIPS 140-2 Level 3 certification
-services: dedicated-hsm
+title: Azure Payment HSM deployment scenarios
+description: Azure Payment HSM deployment scenarios for high availability deployment and disaster recovery deployment
+services: payment-hsm
 author: msmbaldwin
-manager: rkarlin
+
 tags: azure-resource-manager
+ms.service: payment-hsm
+ms.workload: security
+ms.topic: concepts
+ms.date: 01/25/2022
+ms.author: mbaldwin
 
-ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: how-to
-ms.custom: "mvc, seodec18"
-ms.date: 03/25/2021
-ms.author: keithp
-
-#Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
 ---
 # Deployment scenarios

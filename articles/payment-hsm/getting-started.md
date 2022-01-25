@@ -1,14 +1,15 @@
 ---
-title: 'Quickstart: Create Azure Dedicated HSM with the Azure CLI'
-description: Create, show, list, update, and delete Azure Dedicated HSMs by using the Azure CLI.
-services: dedicated-hsm
+title: Getting started with Azure Payment HSM
+description: Information to begin using Azure Payment HSM
+services: payment-hsm
 author: msmbaldwin
+
+tags: azure-resource-manager
+ms.service: payment-hsm
+ms.workload: security
+ms.topic: concepts
+ms.date: 01/25/2022
 ms.author: mbaldwin
-ms.topic: quickstart
-ms.service: key-vault
-ms.devlang: azurecli
-ms.date: 01/06/2021
-ms.custom: devx-track-azurecli, mode-api
 ---
 
 # Getting started with Azure Payment HSM
