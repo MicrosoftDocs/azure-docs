@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 07/02/2019
+ms.date: 01/25/2022
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell, mode-api
 ---
@@ -31,35 +31,25 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name MyResourceGroup -Location 'EastUS'
+New-AzResourceGroup -Name myResourceGroup -Location 'EastUS'
 ```
 
 ## Create virtual machine
 
 Create a VM with [New-AzVM](/powershell/module/az.compute/new-azvm). Provide names for each of the resources and the `New-AzVM` cmdlet creates if they don't already exist.
 
-Update the user name and password below, then create the VM like this:
+When prompted, provide a username and password to be used as the sign-in credentials for the VM:
 
 ```azurepowershell-interactive
-# Create Credential for user
-$User     = 'User42'
-$Password = 'VeryL0ngSt!ng'
-$PWSS   = ConvertTo-SecureString -String $Password -AsPlainText -Force
-$Cred  = [System.Management.Automation.PSCredential]::New(
-           $User, $PWSS)
-# Create Azure VM
-$VMHT = @{
-  ResourceGroupName    = 'MyResourceGroup'
-  Name                 = 'MyVM'
-  Location             = 'East US'
-  VirtualNetworkName   = 'MyVnet'
-  SubnetName           = 'MySubnet'
-  SecurityGroupName    = 'MyNetworkSecurityGroup'
-  PublicIpAddressName  = 'MyPublicIpAddress'
-  OpenPorts            = @(80,3389)
-  Credential           = $Cred
-}
-New-AzVm @VMHT
+New-AzVm `
+    -ResourceGroupName 'myResourceGroup' `
+    -Name 'myVM' `
+    -Location 'East US' `
+    -VirtualNetworkName 'myVnet' `
+    -SubnetName 'mySubnet' `
+    -SecurityGroupName 'myNetworkSecurityGroup' `
+    -PublicIpAddressName 'myPublicIpAddress' `
+    -OpenPorts 80,3389
 ```
 
 [!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
@@ -71,16 +61,14 @@ After the deployment has completed, RDP to the VM. To see your VM in action, the
 To see the public IP address of the VM, use the [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) cmdlet:
 
 ```azurepowershell-interactive
-Get-AzPublicIpAddress -ResourceGroupName "MyResourceGroup" | 
+Get-AzPublicIpAddress -ResourceGroupName 'myResourceGroup' | 
   Select-Object -Property  'IpAddress'
 ```
 
-Use the following command to create a remote desktop session from your local computer.
+Use the following command to create a remote desktop session from your local computer. Replace the IP address with the public IP address of your VM. 
 
 ```powershell
-$IP  = Get-AzPublicIpAddress -ResourceGroupName "MyResourceGroup" | 
-  Select-Object -ExpandProperty  'IpAddress'  
-mstsc /v:$IP
+mstsc /v:publicIpAddress
 ```
 
 In the **Windows Security** window, select **More choices**, and then select **Use a different account**. Type the username as **localhost**\\*username*, enter password you created for the virtual machine, and then click **OK**.
@@ -99,13 +87,7 @@ When done, close the RDP connection to the VM.
 
 ## View the web server in action
 
-With IIS installed and port 80 now open on your VM from the Internet, use a web browser of your choice to view the default IIS welcome page. Use the public IP address of your VM obtained in a previous step. Like this:
-
-```azurepowershell-interactive
-Start-Process "http://$IP"
-```
-
-Running this command shows the default IIS web site:
+With IIS installed and port 80 now open on your VM from the Internet, use a web browser of your choice to view the default IIS welcome page. Use the public IP address of your VM obtained in a previous step. The following example shows the default IIS web site:
 
 ![IIS default site](./media/quick-create-powershell/default-iis-website.png)
 
@@ -114,7 +96,7 @@ Running this command shows the default IIS web site:
 When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to remove the resource group, VM, and all related resources:
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name MyResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## Next steps
