@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/14/2021
+ms.date: 01/25/2022
 
 ms.author: justinha
 author: justinha
@@ -26,56 +26,56 @@ This topic covers Azure AD feature availability in Azure Government.
 | Feature | Availability |
 |---------|:------------:|
 | **Authentication, single sign-on and multifactor authentication (MFA)** |   | 
-| - Cloud authentication (Pass-through authentication, password hash synchronization) | ● |
-| - Federated authentication (Active Directory Federation Services or federation with other identity providers) | ● |
-| - Single sign-on (SSO) unlimited | ● | 
+| - Cloud authentication (Pass-through authentication, password hash synchronization) | &#x2705; |
+| - Federated authentication (Active Directory Federation Services or federation with other identity providers) | &#x2705; |
+| - Single sign-on (SSO) unlimited | &#x2705; | 
 | - Multifactor authentication (MFA) | Hardware OATH tokens are not available. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and should not be required based off the user's current IP address. Authenticator app only shows GUID and not UPN for compliance reasons. | 
-| - Passwordless (Windows Hello for Business, Microsoft Authenticator, FIDO2 security key integrations) | ● | 
-| - Service-level agreement | ● | 
+| - Passwordless (Windows Hello for Business, Microsoft Authenticator, FIDO2 security key integrations) | &#x2705; | 
+| - Service-level agreement | &#x2705; | 
 | **Applications Access** |   |
-| - SaaS apps with modern authentication (Azure AD application gallery apps, SAML, and OAUTH 2.0) | ● | 
-| - Group assignment to applications | ● | 
-| - Cloud app discovery (Microsoft Cloud App Security) | ● | 
-| - Application Proxy for on-premises, header-based, and Integrated Windows Authentication | ● | 
-| - Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication) | ● | 
+| - SaaS apps with modern authentication (Azure AD application gallery apps, SAML, and OAUTH 2.0) | &#x2705; | 
+| - Group assignment to applications | &#x2705; | 
+| - Cloud app discovery (Microsoft Cloud App Security) | &#x2705; | 
+| - Application Proxy for on-premises, header-based, and Integrated Windows Authentication | &#x2705; | 
+| - Secure hybrid access partnerships (Kerberos, NTLM, LDAP, RDP, and SSH authentication) | &#x2705; | 
 | **Authorization and Conditional Access)** |   |
-| - Role-based access control (RBAC) | ● | 
-| - Conditional Access  | ● | 
-| - SharePoint limited access | ● | 
-| - Session lifetime management | ● | 
+| - Role-based access control (RBAC) | &#x2705; | 
+| - Conditional Access  | &#x2705; | 
+| - SharePoint limited access | &#x2705; | 
+| - Session lifetime management | &#x2705; | 
 | - Identity Protection (vulnerabilities and risky accounts) | See [Identity protection](#identity-protection) below. | 
 | - Identity Protection (risk events investigation, SIEM connectivity) | See [Identity protection](#identity-protection) below. | 
 | **Administration and hybrid identity** |   |
-| - User and group management | ● | 
-| - Advanced group management (Dynamic groups, naming policies, expiration, default classification) | ● | 
-| - Directory synchronization—Azure AD Connect (sync and cloud sync) | ● | 
-| - Azure AD Connect Health reporting | ● | 
-| - Delegated administration—built-in roles  | ● | 
-| - Global password protection and management – cloud-only users | ● | 
-| - Global password protection and management – custom banned passwords, users synchronized from on-premises Active Directory | ● | 
-| - Microsoft Identity Manager user client access license (CAL) | ● | 
+| - User and group management | &#x2705; | 
+| - Advanced group management (Dynamic groups, naming policies, expiration, default classification) | &#x2705; | 
+| - Directory synchronization—Azure AD Connect (sync and cloud sync) | &#x2705; | 
+| - Azure AD Connect Health reporting | &#x2705; | 
+| - Delegated administration—built-in roles  | &#x2705; | 
+| - Global password protection and management – cloud-only users | &#x2705; | 
+| - Global password protection and management – custom banned passwords, users synchronized from on-premises Active Directory | &#x2705; | 
+| - Microsoft Identity Manager user client access license (CAL) | &#x2705; | 
 | **End-user self-service** |  |
-| - Application launch portal (My Apps) | ● | 
-| - User application collections in My Apps | ● |
-| - Self-service account management portal (My Account) | ● |
-| - Self-service password change for cloud users | ● |
-| - Self-service password reset/change/unlock with on-premises write-back | ● |
-| - Self-service sign-in activity search and reporting |  ● |
-| - Self-service group management (My Groups) | ● |
-| - Self-service entitlement management (My Access) | ● |
+| - Application launch portal (My Apps) | &#x2705; | 
+| - User application collections in My Apps | &#x2705; |
+| - Self-service account management portal (My Account) | &#x2705; |
+| - Self-service password change for cloud users | &#x2705; |
+| - Self-service password reset/change/unlock with on-premises write-back | &#x2705; |
+| - Self-service sign-in activity search and reporting | &#x2705; |
+| - Self-service group management (My Groups) | &#x2705; |
+| - Self-service entitlement management (My Access) | &#x2705; |
 | **Identity Governance** |  |
-| - Automated user provisioning to apps | ● |
-| - Automated group provisioning to apps | ● |
+| - Automated user provisioning to apps | &#x2705; |
+| - Automated group provisioning to apps | &#x2705; |
 | - HR-driven provisioning | Partial. See [HR-provisioning apps](#hr-provisioning-apps). |
-| - Terms of use attestation | ● |
-| - Access certifications and reviews | ● |
-| - Entitlements management | ● |
-| - Privileged Identity Management (PIM), just-in-time access |  ● |
+| - Terms of use attestation | &#x2705; |
+| - Access certifications and reviews | &#x2705; |
+| - Entitlements management | &#x2705; |
+| - Privileged Identity Management (PIM), just-in-time access |  &#x2705; |
 | **Event logging and reporting**|   |
-| - Basic security and usage reports | ● |
-| - Advanced security and usage reports | ● |
-| - Identity Protection: vulnerabilities and risky accounts | ● |
-| - Identity Protection: risk events investigation, SIEM connectivity | ● |
+| - Basic security and usage reports | &#x2705; |
+| - Advanced security and usage reports | &#x2705; |
+| - Identity Protection: vulnerabilities and risky accounts | &#x2705; |
+| - Identity Protection: risk events investigation, SIEM connectivity | &#x2705; |
 | **Frontline workers** |  |
 | - SMS sign-in |  |
 | - Shared device sign-out | Enterprise state roaming for Windows 10 devices is not available. |
@@ -90,25 +90,25 @@ The following table shows the available risk detections.
 
 | Risk Detection | Availability |
 |----------------|:--------------------:|
-|Leaked credentials (MACE) | ● |
+|Leaked credentials (MACE) | &#x2705; |
 |Azure AD threat intelligence |  |
-|Anonymous IP address | ● | 
-|Atypical travel | ● |
+|Anonymous IP address | &#x2705; | 
+|Atypical travel | &#x2705; |
 |Anomalous Token |  |
 |Token Issuer Anomaly|  |
-|Malware linked IP address | ● |
-|Suspicious browser | ● |
-|Unfamiliar sign-in properties | ● |
-|Admin confirmed user compromised | ● |
-|Malicious IP address | ● |
-|Suspicious inbox manipulation rules | ● |
-|Password spray | ● |
-|Impossible travel | ● |
-|New country | ● |
-|Activity from anonymous IP address | ● |
-|Suspicious inbox forwarding | ● |
+|Malware linked IP address | &#x2705; |
+|Suspicious browser | &#x2705; |
+|Unfamiliar sign-in properties | &#x2705; |
+|Admin confirmed user compromised | &#x2705; |
+|Malicious IP address | &#x2705; |
+|Suspicious inbox manipulation rules | &#x2705; |
+|Password spray | &#x2705; |
+|Impossible travel | &#x2705; |
+|New country | &#x2705; |
+|Activity from anonymous IP address | &#x2705; |
+|Suspicious inbox forwarding | &#x2705; |
 |Azure AD threat intelligence |  |
-|Additional risk detected | ● |
+|Additional risk detected | &#x2705; |
 
 
 ## HR-provisioning apps
@@ -117,10 +117,10 @@ The following table shows the available HR-provisioning apps.
 
 | HR-provisioning app | Availability |
 |----------------|:--------------------:|
-|Workday to Azure AD User Provisioning | ● |
-|Workday Writeback | ● |
-|SuccessFactors to Azure AD User Provisioning | ● | 
-|SuccessFactors to Writeback | ● |
+|Workday to Azure AD User Provisioning | &#x2705; |
+|Workday Writeback | &#x2705; |
+|SuccessFactors to Azure AD User Provisioning | &#x2705; | 
+|SuccessFactors to Writeback | &#x2705; |
 |Provisioning agent configuration and registration with Gov cloud tenant| Works with special undocumented command-line invocation:<br> AADConnectProvisioningAgent.Installer.exe ENVIRONMENTNAME=AzureUSGovernment |
 
 
