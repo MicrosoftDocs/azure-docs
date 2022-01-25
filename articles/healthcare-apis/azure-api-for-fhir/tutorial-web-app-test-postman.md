@@ -18,11 +18,11 @@ In the previous two steps, you deployed the Azure API for FHIR and registered yo
 ## Retrieve capability statement
 First we will get the capability statement for your Azure API for FHIR. 
 1. Open Postman
-1. Retrieve the capability statement by doing GET https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com/metadata. In the image below the FHIR server name is **fhirserver**.
+1. Retrieve the capability statement by doing `GET https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com/metadata`. In the image below the FHIR server name is **fhirserver**.
 
 ![Capability Statement](media/tutorial-web-app/postman-capability-statement.png)
 
-Next we will attempt to retrieve a patient. To retrieve a patient, enter GET https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com/Patient. You will receive a 401 Unauthorized error. This error is because you haven't proven that you should have access to patient data.
+Next we will attempt to retrieve a patient. To retrieve a patient, enter `GET https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com/Patient`. You will receive a 401 Unauthorized error. This error is because you haven't proven that you should have access to patient data.
 
 ## Get patient from FHIR server
 ![Failed Patient](media/tutorial-web-app/postman-patient-authorization-failed.png)
@@ -81,6 +81,9 @@ This POST will create a new patient in your FHIR server with the name James Tibe
 ![Post Patient](media/tutorial-web-app/postman-post-patient.png)
 
 If you do the GET step above to retrieve a patient again, you will see James Tiberious Kirk listed in the output.
+
+> [!NOTE]
+> When sending requests to the Azure API for FHIR, you need to ensure that you've set the content-type header to `application/json`
 
 ## Troubleshooting access issues
 If you ran into issues during any of these steps, review the documents we have put together on Azure Active Directory and the Azure API for FHIR. 
