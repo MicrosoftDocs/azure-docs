@@ -28,12 +28,13 @@ Change Analysis lives in a standalone pane under Azure Monitor, where you can vi
   
   :::image type="content" source="./media/change-analysis/change-details.png" alt-text="Screenshot of change details":::
   
-- You can access Change Analysis through a custom metric chart you've created and pinned to your resource's **Monitoring** tab. From the chart, select **Drill into logs** and choose **Change Analysis** to view it.
+- You can access Change Analysis through a [custom metric chart you've created and pinned to your resource's **Monitoring** dashboard](#custom-change-analysis-charts). 
 
   :::image type="content" source="./media/change-analysis/view-change-analysis-1.png" alt-text="Chart from the Monitoring tab of the resource.":::
 
-  :::image type="content" source="./media/change-analysis/view-change-analysis-2.png" alt-text="Drill into logs and select to view Change Analysis.":::
+  From the chart, select **Drill into logs** and choose **Change Analysis** to view it.
 
+  :::image type="content" source="./media/change-analysis/view-change-analysis-2.png" alt-text="Drill into logs and select to view Change Analysis.":::
 
 Send any feedback to the [Change Analysis team](mailto:changeanalysisteam@microsoft.com) from the Change Analysis blade:
 
