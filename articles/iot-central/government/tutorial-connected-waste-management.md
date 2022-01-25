@@ -139,7 +139,7 @@ To view the device template:
 
 ### Customize the device template
 
-Try to customize the following:
+Try to customize the following features:
 
 1. From the device template menu, select **Customize**.
 1. Find the **Odor meter** telemetry type.

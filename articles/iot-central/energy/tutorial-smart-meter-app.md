@@ -35,7 +35,7 @@ A smart meter is one of the most important devices among all the energy assets. 
 
 ### IoT Central platform
 
-Azure IoT Central is a platform that simplifies building your IoT solution and helps reduce the burden and costs of IoT management, operations, and development. With IoT Central, you can easily connect, monitor, and manage your Internet of Things (IoT) assets at scale. After you connect your smart meters to IoT Central, the app template uses built-in features such as device models, commands, and dashboards. The app template also uses the IoT Central storage for warm path scenarios such as near real-time meter data monitoring, analytics, rules, and visualization. 
+When you build an IoT solution, Azure IoT Central simplifies the build process and helps to reduce the burden and costs of IoT management, operations, and development. With IoT Central, you can easily connect, monitor, and manage your Internet of Things (IoT) assets at scale. After you connect your smart meters to IoT Central, the app template uses built-in features such as device models, commands, and dashboards. The app template also uses the IoT Central storage for warm path scenarios such as near real-time meter data monitoring, analytics, rules, and visualization.
 
 ### Extensibility options to build with IoT Central
 
@@ -68,15 +68,16 @@ The following sections walk you through the key features of the application:
 
 ### Dashboard
 
-After you deploy the application template, it comes with sample smart meter device, device model, and a dashboard. 
+After you deploy the application template, it comes with sample smart meter device, device model, and a dashboard.
 
-Adatum is a fictitious energy company, who monitors and manages smart meters. On the smart meter monitoring dashboard, you see smart meter properties, data, and sample commands. It enables operators and support teams to proactively perform the following activities before it turns into support incidents: 
-* Review the latest meter info and its installed [location](../core/howto-use-location-data.md) on the map
-* Proactively check the meter network and connection status 
-* Monitor Min and Max voltage readings for network health 
-* Review the energy, power, and voltage trends to catch any anomalous patterns 
-* Track the total energy consumption for planning and billing purposes
-* Command and control operations such as reconnect meter and update firmware version. In the template, the command buttons show the possible functionalities and don't send real commands. 
+Adatum is a fictitious energy company, who monitors and manages smart meters. On the smart meter monitoring dashboard, you see smart meter properties, data, and sample commands. It enables operators and support teams to proactively perform the following activities before it turns into support incidents:
+
+* Review the latest meter info and its installed [location](../core/howto-use-location-data.md) on the map.
+* Proactively check the meter network and connection status.
+* Monitor Min and Max voltage readings for network health.
+* Review the energy, power, and voltage trends to catch any anomalous patterns.
+* Track the total energy consumption for planning and billing purposes.
+* Command and control operations such as reconnect meter and update firmware version. In the template, the command buttons show the possible functionalities and don't send real commands.
 
 :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png" alt-text="Smart meter monitoring dashboard.":::
 
@@ -100,12 +101,11 @@ Click on the **Device templates** tab to see the smart meter device model. The m
 
 If you decide to not continue using this application, delete your application with the following these steps:
 
-1. From the left pane, open Administration tab
-1. Select Application settings and click Delete button at the bottom of the page. 
+1. From the left pane, open the **Administration** tab.
+1. Select **Application settings** and then the **Delete** button.
 
     :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png" alt-text="Delete application.":::
 
 ## Next steps
 
 > [Tutorial: Deploy and walk through a Solar panel application template](tutorial-solar-panel-app.md)
-
