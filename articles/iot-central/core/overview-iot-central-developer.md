@@ -42,7 +42,7 @@ An IoT Edge device connects directly to IoT Central. An IoT Edge device can send
 
 IoT Central only sees the IoT Edge device, not the downstream devices connected to the IoT Edge device.
 
-To learn more, see [Add an Azure IoT Edge device to your Azure IoT Central application](./tutorial-add-edge-as-leaf-device.md).
+To learn more, see [Add an Azure IoT Edge device to your Azure IoT Central application](/learn/modules/connect-iot-edge-device-to-iot-central/).
 
 ### Gateways
 
