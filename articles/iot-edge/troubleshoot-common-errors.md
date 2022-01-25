@@ -130,7 +130,8 @@ You can set DNS server for each module's *createOptions* in the IoT Edge deploym
 }
 ```
 
-Warning: If you use this method and specify the wrong DNS address, EdgeAgent will lose connection with iothub and won't be able to receive new deployments to fix the issue. In order to resolve this, you can reinstall the iotedge runtime, making sure to remove any EdgeAgent containers after uninstall.
+> [!WARNING]
+> If you use this method and specify the wrong DNS address, *edgeAgent* loses connection with IoT Hub and can't receive new deployments to fix the issue. To resolve this issue, you can reinstall the IoT Edge runtime. Before you install a new instance of IoT Edge, be sure to remove any *edgeAgent* containers from the previous installation.
 
 Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as well.
 
