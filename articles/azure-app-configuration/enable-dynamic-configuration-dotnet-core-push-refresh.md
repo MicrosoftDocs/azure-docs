@@ -39,7 +39,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* Install [.NET Core SDK](https://dotnet.microsoft.com/download).
+* Tutorial: [Use dynamic configuration in a .NET Core app](./enable-dynamic-configuration-dotnet-core.md)
+* Nuget package `Microsoft.Extensions.Configuration.AzureAppConfiguration` version 5.0.0 or later
 
 ## Set up Azure Service Bus topic and subscription
 
@@ -145,6 +147,8 @@ namespace TestConsole
             serviceBusClient.RegisterMessageHandler(
                 handler: (message, cancellationToken) =>
                 {
+                    //
+                    // Attempts to build an EventGridEvent from the returned message in the handler
                     EventGridEvent eventGridEvent = EventGridEvent.Parse(BinaryData.FromBytes(message.Body));
 
                     //
@@ -167,10 +171,14 @@ namespace TestConsole
 }
 ```
 
-Ensuring that users get their most up to date configurations is nearly impossible as a configuration can change at any moment (even after a request is sent out). The `ProcessPushNotification` method incorporates a synchronization token into the next request to the `App Configuration`. This `Synchronization token` guarantees users receive all changes at least up to the point which the notification was triggered. There still is no guarantee that changes occuring after a push notification was triggered will be reflected in the response.
+The `ProcessPushNotification` method resets the cache expiration to a short random delay. This causes future calls to `RefreshAsync` or `TryRefreshAsync` to re-validate the cached values against App Configuration and update them as necessary. In this example you register to monitor changes to the key: *TestApp:Settings:Message* with a cache expiration of one day. This means no request to App Configuration will be made before a day has passed since the last check. By calling  `ProcessPushNotification` your application will send requests to App Configuration in the next few seconds. Loading new configuration values shortly after changes occur in App Configuration without constantly polling for updates. In case your application misses the change notification for any reason, it will still check for configuration changes once a day.
+
+The combination of this push model setup and the short random delay for cache expiration is helpful if you have many instances of your application or microservices connecting to the same App Configuration store. Without it, all instances of your application could send requests to your App Configuration store simultaneously as soon as a change notification is received which could throttle your store. This delay is a random number between 0 and a maximum of 30 seconds by default. This default value can be changed through the optional parameter `maxDelay` to the `ProcessPushNotification` method.
+
+The `ProcessPushNotification` method takes in a `PushNotification` object containing information about which change in App Configuration triggered the push notfication. This helps ensure all configuration changes up to the triggering event are loaded in the following configuration refresh. The `SetDirty` method does not gurarantee the change that triggers the push notification to be loaded in an immediate configuration refresh. If you are using the `SetDirty` method for the push model, we recommend using the `ProcessPushNotification` method instead.
 
 > [!NOTE]
-> To reduce the number of requests to App Configuration when using push refresh, it is important to call `SetCacheExpiration(TimeSpan cacheExpiration)` with an appropriate value of `cacheExpiration` parameter. This controls the cache expiration time for pull refresh and can be used as a safety net in case there is an issue with the Event subscription or the Service Bus subscription. The recommended value is `TimeSpan.FromDays(30)`.
+> To reduce the number of requests to App Configuration when using push refresh, it is important to call `SetCacheExpiration(TimeSpan cacheExpiration)` with an appropriate value of `cacheExpiration` parameter. This controls the cache expiration time for pull refresh and can be used as a safety net in case there is an issue with the Event subscription or the Service Bus subscription.
 
 ## Build and run the app locally
 
