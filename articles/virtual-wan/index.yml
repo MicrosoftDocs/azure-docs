@@ -80,7 +80,7 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Disaster recovery design
-            url: designing-for-disaster-recovery-with-virtual-wan.md
+            url: disaster-recovery-design.md
           - text: Global transit network architecture
             url: virtual-wan-global-transit-network-architecture.md
           - text: SD-WAN connectivity architecture
