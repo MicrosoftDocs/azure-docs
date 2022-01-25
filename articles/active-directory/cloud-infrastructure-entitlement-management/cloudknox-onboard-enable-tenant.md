@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 01/25/2022
 ms.author: v-ydequadros
 ---
 
 # Enable CloudKnox on your Azure Active Directory tenant
 
-This topic describes how to enable Microsoft CloudKnox Permissions Management (CloudKnox) on your Azure Active Directory (Azure AD) tenant.
+This article describes how to enable Microsoft CloudKnox Permissions Management (CloudKnox) on your Azure Active Directory (Azure AD) tenant.
 
 > [!NOTE] 
 > To complete this task, you must have Global Administrator permissions.
@@ -25,7 +25,7 @@ This topic describes how to enable Microsoft CloudKnox Permissions Management (C
 
 To add CloudKnox to your Azure AD tenant, you must have:
 
-- An Azure AD user account. If you don't already have one, you can [Create a free account](https://azure.microsoft.com/free/).
+- An Azure AD user account. If you don't already have one, [Create a free account](https://azure.microsoft.com/free/).
 - A global administrator role
 
 ## Enable CloudKnox on your Azure AD tenant
@@ -62,17 +62,17 @@ To add CloudKnox to your Azure AD tenant, you must have:
 
         <!---(/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true)--->
 
-    1. After the script runs successfully, the service application attributes for CloudKnox display. Confirm the **Cloud Infrastructure Entitlement Management** application displays in the Azure AD portal under **Enterprise Applications**.
+    1. After the script runs successfully, the service application attributes for CloudKnox display. Confirm the **Cloud Infrastructure Entitlement Management** application displays in the Azure AD portal under **Enterprise applications**.
 
 1. Return to the **Welcome to CloudKnox** screen and select **Enable CloudKnox Permissions Management**.
 
-    The tenant completes enabling CloudKnox on your tenant and launches the CloudKnox **Data Collectors** settings page.
+    The tenant completes enabling CloudKnox on your tenant and launches the CloudKnox **Data collectors** settings page.
 
-    :::image type="content" source="media/cloudknox-onboard-enable-tenant/data-collectors-tab.png" alt-text="Data Collectors settings page.":::
+    :::image type="content" source="media/cloudknox-onboard-enable-tenant/data-collectors-tab.png" alt-text="Data collectors settings page.":::
 
-    You use the **Data Collectors** page to configure data collection settings for your authorization system. 
+    You use the **Data collectors** page to configure data collection settings for your authorization system. 
 
-1. In the CloudKnox **Data Collectors** settings page, select the authorization system you want.
+1. In the CloudKnox **Data collectors** settings page, select the authorization system you want.
 
 1. For information on how to  onboard an authorization system account, subscription, or platform on CloudKnox, select one of the following articles and follow the instructions:
 

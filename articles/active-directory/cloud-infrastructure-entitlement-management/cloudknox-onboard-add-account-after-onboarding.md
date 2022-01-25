@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 01/25/2022
 ms.author: v-ydequadros
 ---
 
 # Add an account, subscription, or project after onboarding is complete
 
-This topic describes how to add an account, subscription, or project in Microsoft CloudKnox Permissions Management (CloudKnox) after onboarding is complete.
+This article describes how to add an account, subscription, or project in Microsoft CloudKnox Permissions Management (CloudKnox) after onboarding is complete.
 
 
 

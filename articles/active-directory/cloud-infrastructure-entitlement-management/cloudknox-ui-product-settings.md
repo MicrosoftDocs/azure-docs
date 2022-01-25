@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/24/2022
+ms.date: 01/25/2022
 ms.author: v-ydequadros
 ---
 
@@ -43,14 +43,14 @@ When you first open Microsoft CloudKnox Permissions Management (CloudKnox) after
     - The **Tenant ID** - The ID for your Azure AD tenant.
     - The **Tenant name** - The name for your Azure AD tenant. 
     - The ellipses **(...)** menu 
-        - To view details about the **Sentry Appliance Configuration**, select **Configure**.
-        - To delete the corresponding **Authorization Systems**, select **Delete**.
+        - To view details about the **Sentry appliance configuration**, select **Configure**.
+        - To delete the corresponding **Authorization systems**, select **Delete**.
 
 1. You can also use the following options:
 
     - **Search** - Enter an ID or IP address to display specific authorization systems.
     - **Filters** - Select the uploaded and transformed systems you want to display: **All** or **Online** . 
-    - **||| Columns** - Select the columns you want to display: **Recently Uploaded On** and **Recently Transformed On**.
+    - **||| Columns** - Select the columns you want to display: **Recently uploaded on** and **Recently transformed on**.
     - To return to the system default settings, Select **Reset to default**.
     - **Deploy** - Select to deploy the Sentry Appliance. 
 
@@ -69,22 +69,22 @@ When you first open Microsoft CloudKnox Permissions Management (CloudKnox) after
 
 1. In the **List** tab, select settings to display information you want to about the account you've selected:
 
-    - **Controller Status** - From the drop-down list, select **All**, **Enabled**, or **Disabled**.
-    - **Benchmark Status** - From the drop-down list, select **All**, **Online**, or **Offline**.
-    - **Entitlement Status** - From the drop-down list, select **All**, **Online**, or **Offline**.
+    - **Controller status** - From the drop-down list, select **All**, **Enabled**, or **Disabled**.
+    - **Benchmark status** - From the drop-down list, select **All**, **Online**, or **Offline**.
+    - **Entitlement status** - From the drop-down list, select **All**, **Online**, or **Offline**.
     - **Search** - Enter an account name or ID.
     - **Apply** - Select **Apply** to apply your settings.
-    - **Reset Filter** - Select **Reset Filter** to discard your settings.
-    - The ellipses **(...)** menu - Select **Collect Data** or **Delete**.
+    - **Reset filter** - Select **Reset Filter** to discard your settings.
+    - The ellipses **(...)** menu - Select **Collect data** or **Delete**.
 
 1. The authorization systems table displays following information about the authorization system you've selected:
 
     - **Name** - The name of the authorization system.
     - **ID number** - The identification number of the authorization system.
-    - **Controller Status** - The controller status: **All**, **Enabled**, or **Disabled**.
+    - **Controller status** - The controller status: **All**, **Enabled**, or **Disabled**.
     - **Benchmark status** - The benchmark status: **All**, **Online**, or **Offline**.
     - **Entitlements Status** - The entitlement status: **All**, **Online**, or **Offline**.
-    - **||| Columns** - Select the columns you want to display: **Controller Status**, **Benchmark status**, and **Entitlements Status**.
+    - **||| Columns** - Select the columns you want to display: **Controller status**, **Benchmark status**, and **Entitlements status**.
 
 1. To return to the system default settings, select **Reset to default**.
 
@@ -94,14 +94,14 @@ When you first open Microsoft CloudKnox Permissions Management (CloudKnox) after
 
 1. In the **Folders** subtab, select settings to display information you want to about the folders you've selected:
 
-    - **Folder Name** - The name of the folder.
-    - **Created On** - The date the folder was created.
-    - **Created By** - The name of the person who created the folder.
-    - **Last Modified On** - The date the folder was last modified.
-    - **Last Modified By** - The name of the person who last modified the folder.
-    - The ellipses **(...)** menu - From the menu, select **Copy Folder Id**, **Edit**, or **Delete**.
+    - **Folder name** - The name of the folder.
+    - **Created on** - The date the folder was created.
+    - **Created by** - The name of the person who created the folder.
+    - **Last modified on** - The date the folder was last modified.
+    - **Last modified by** - The name of the person who last modified the folder.
+    - The ellipses **(...)** menu - From the menu, select **Copy folder ID**, **Edit**, or **Delete**.
     - **Search** - Enter a folder name.
-    - **||| Columns** - Select the columns you want to display: **Created On**, **Created By**, **Last Modified On**, and **Last Modified By**.
+    - **||| Columns** - Select the columns you want to display: **Created on**, **Created by**, **Last modified on**, and **Last modified by**.
     - **Create Folder** - Create a new folder. 
 
 1. To return to the system default settings, select **Reset to default**.
@@ -109,7 +109,7 @@ When you first open Microsoft CloudKnox Permissions Management (CloudKnox) after
 
 ## View configuration settings for inventory
 
-1. Select the **Inventory** tab.
+- Select the **Inventory** tab.
 
     The **Inventory** tab has two subtabs:
 
@@ -122,14 +122,14 @@ When you first open Microsoft CloudKnox Permissions Management (CloudKnox) after
 
 1. In the **Inventory** subtab, select settings to display information about the authorization system you've selected:
 
-    - **Authorization System Name** - The name of the authorization system.
-    - **Dynamodb Table**
-    - **EC2 Instance**
-    - **VPC Internet Gateway**
-    - **Elasticache Cluster**
-    - **Lambda Function**
+    - **Authorization system name** - The name of the authorization system.
+    - **Dynamodb table**
+    - **EC2 instance**
+    - **VPC internet gateway**
+    - **Elasticache cluster**
+    - **Lambda function**
     - **Search** - Enter a name.
-    - **||| Columns** - Select the columns you want to display: **Dynamodb Table**, **EC2 Instance**, **VPC Internet Gateway**, **Elasticache Cluster**, and **Lambda Function**.
+    - **||| Columns** - Select the columns you want to display: **Dynamodb table**, **EC2 instance**, **VPC internet gateway**, **Elasticache cluster**, and **Lambda function**.
 
 1. To return to the system default settings, select **Reset to default**.
 
@@ -139,8 +139,8 @@ When you first open Microsoft CloudKnox Permissions Management (CloudKnox) after
 
 1. In the **Licensing** subtab, select settings to display information about the authorization system you've selected:
 
-    - **Authorization System** - A list of accounts.
-    - **Total Number of Licenses** - The number of licenses.
+    - **Authorization system** - A list of accounts.
+    - **Total number of licenses** - The number of licenses.
     - **Search** - Enter a name.
 
 <!---## Next steps--->

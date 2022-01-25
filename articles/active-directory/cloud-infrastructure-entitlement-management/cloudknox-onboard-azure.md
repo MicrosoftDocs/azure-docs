@@ -8,29 +8,35 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 01/25/2022
 ms.author: v-ydequadros
 ---
 
 # Onboard a Microsoft Azure subscription
 
-This topic describes how to onboard a Microsoft Azure subscription or subscriptions on Microsoft CloudKnox Permissions Management (CloudKnox). This creates a new authorization system representing the Azure subscriptions' roles in CloudKnox. 
+This article describes how to onboard a Microsoft Azure subscription or subscriptions on Microsoft CloudKnox Permissions Management (CloudKnox). This creates a new authorization system representing the Azure subscriptions' roles in CloudKnox. 
 
 > [!NOTE] 
 > Any group member can perform the tasks in this article after the Global Administrator has initially completed the steps provided in [Enable CloudKnox on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.md).
 
+## Prerequisites
+
+To add CloudKnox to your Azure AD tenant:
+- You must have an Azure AD user account, Azure CLI on your system, or an Azure subscription. If you don't already have one, [Create a free account](https://azure.microsoft.com/free/).
+- The group administrator must have **Subscription role management access** permissions to perform the tasks in Step 3. If they don’t have these permissions, they can ask someone who does to get the information for them.
+
 ## Onboard an Azure subscription
 
-1. If the **Data Collectors** tab isn't displayed: 
+1. If the **Data collectors** tab isn't displayed: 
 
-    - In the CloudKnox homepage, select **Settings** (the gear icon), and then select the **Data Collectors** tab.
+    - In the CloudKnox homepage, select **Settings** (the gear icon), and then select the **Data collectors** tab.
 
-1. On the **Data Collectors** tab, select **Azure**, and then select **Create Configuration**.
+1. On the **Data collectors** tab, select **Azure**, and then select **Create configuration**.
 
 1. To view entitlement data in CloudKnox, in the **Azure subscription IDs** box, enter your Azure subscription ID.
 
     > [!NOTE] 
-    > The group administrator must have **Subscription Role Management Access** permissions to perform the tasks in Step 3. If you don’t have this access, skip this step and ask someone who has this permission to get the information for you.
+    > The group administrator must have **Subscription role management access** permissions to perform the tasks in Step 3. If you don’t have this access, skip this step and ask someone who has this permission to get the information for you.
 
     1. To locate the Azure subscription ID, open the **Subscriptions** page in Azure.
 
@@ -40,15 +46,15 @@ This topic describes how to onboard a Microsoft Azure subscription or subscripti
 
         The **Subscriptions** page opens. The **Subscription name** section of the page displays a list of Azure subscriptions available to you. 
 
-    1. From the **Subscription Id** column, copy the subscription ID you want.
+    1. From the **Subscription ID** column, copy the subscription ID you want.
 
     1. Return to CloudKnox and paste the subscription ID in the **Subscription IDs** box.
 
 	    You can enter up to 10 subscriptions IDs. Click the plus icon next to the text box to insert more subscriptions and repeat Step 3.
 
-1. From the **Permission Level** drop-down list, select the required **Subscription Level**.
+1. From the **Permission level** drop-down list, select the required **Subscription level**.
 
-1. From the **Controller Status** drop-down menu: 
+1. From the **Controller status** drop-down menu: 
 
     - To assign the **Reader** role, select **Disabled** for read-only permissions.
     - To assign the **Owner** role, select **Enabled** for read and write permissions.
@@ -61,17 +67,17 @@ This topic describes how to onboard a Microsoft Azure subscription or subscripti
 
 1. Return to CloudKnox and select **Next**.
 
-1. In **CloudKnox Onboarding – Summary**, review the information you’ve added, and then select **View Now & Save**.
+1. In **CloudKnox onboarding – Summary**, review the information you’ve added, and then select **View now & save**.
 
     The following message appears: **Successfully created configuration.**
 
-    On the **Data Collectors** tab, the **Recently Uploaded On** column displays **Collecting** and the **Recently Transformed On** column displays **Processing.** 
+    On the **Data Collectors** tab, the **Recently uploaded on** column displays **Collecting** and the **Recently transformed on** column displays **Processing.** 
 
     This step confirms that CloudKnox has started collecting and processing your Azure data.
 
-1. To view your data, select the **Authorization Systems** tab.
+1. To view your data, select the **Authorization systems** tab.
 
-    The **Status** column in the table displays **Collecting Data.**
+    The **Status** column in the table displays **Collecting data.**
 
     The data collection process will take some time, depending on the size of the account and how much data is available for collection.
 
@@ -80,3 +86,5 @@ This topic describes how to onboard a Microsoft Azure subscription or subscripti
 
 - For information on how to onboard an Amazon Web Services (AWS) account, see [Onboard an Amazon Web Services (AWS) account](cloudknox-onboard-aws.md).
 - For information on how to onboard a Google Cloud Platform (GCP) project, see [Onboard a Google Cloud Platform (GCP) project](cloudknox-onboard-gcp.md).
+- For information on how to enable or disable the controller, see [Enable or disable the controller](cloudknox-onboard-enable-controller.md).
+- For information on how to add an account/subscription/project after onboarding, see [Add an account/subscription/project after onboarding is complete](cloudknox-onboard-add-account-after-onboarding.md)

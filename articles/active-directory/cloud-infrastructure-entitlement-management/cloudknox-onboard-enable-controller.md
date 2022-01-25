@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 01/25/2022
 ms.author: v-ydequadros
 ---
 
 # Enable or disable the controller
 
-This topic describes how to enable or disable the controller in Microsoft CloudKnox Permissions Management (CloudKnox).
+This article describes how to enable or disable the controller in Microsoft CloudKnox Permissions Management (CloudKnox).
 
 
 
