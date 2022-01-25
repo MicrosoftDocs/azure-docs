@@ -42,9 +42,9 @@ To complete this tutorial, you need the following resources and privileges:
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An account with *global administrator* privileges. Some settings for multifactor authentication can also be managed by an Authentication Policy Administrator. For more information, see [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
 * A non-administrator user with a password that you know, such as *testuser*. You test the experience of using Azure AD multifactor authentication as an end user by using this account in this tutorial.
-    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+    * If you need to create a user, see [Add or delete users using Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * A group that the non-administrator user is a member of, such as *MFA-Test-Group*. You enable Azure AD multifactor authentication for this group in this tutorial.
-    * If you need to create a group, see how to [Create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
+    * If you need to create a group, see how to [Create a basic group and add members using Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## Create a Conditional Access policy
 
