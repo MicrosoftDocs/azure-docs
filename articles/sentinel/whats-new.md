@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel.
 
-If you are looking for items older than six months, you will find them in the [Archive for What's new in Sentinel](whats-new-archive.md). For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
+If you're looking for items older than six months, you'll find them in the [Archive for What's new in Sentinel](whats-new-archive.md). For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
 > [!IMPORTANT]
 > Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -79,14 +79,14 @@ Accompanying the new workbook is an explanatory [blog post](https://techcommunit
 
 ## December 2021
 
-- [IoT OT Threat Monitoring with Defender for IoT solution](#iot-ot-threat-monitoring-with-defender-for-iot-solution-public-preview)
-- [Ingest GitHub logs into your Microsoft Sentinel workspace](#ingest-github-logs-into-your-microsoft-sentinel-workspace-public-preview)
 - [Apache Log4j Vulnerability Detection solution](#apache-log4j-vulnerability-detection-solution-public-preview)
+- [IoT OT Threat Monitoring with Defender for IoT solution](#iot-ot-threat-monitoring-with-defender-for-iot-solution-public-preview)
+- [Continuous Threat Monitoring for GitHub solution](#ingest-github-logs-into-your-microsoft-sentinel-workspace-public-preview)
 
 
 ### Apache Log4j Vulnerability Detection solution
 
-Remote code execution vulnerabilities related to Apache Log4j were disclosed on 9 December 2021. The vulnerability allows for unauthenticated remote code execution, and it is triggered when a specially crafted string, provided by the attacker through a variety of different input vectors, is parsed and processed by the Log4j 2 vulnerable component.
+Remote code execution vulnerabilities related to Apache Log4j were disclosed on 9 December 2021. The vulnerability allows for unauthenticated remote code execution, and it's triggered when a specially crafted string, provided by the attacker through a variety of different input vectors, is parsed and processed by the Log4j 2 vulnerable component.
 
 The [Apache Log4J Vulnerability Detection](sentinel-solutions-catalog.md#domain-solutions) solution was added to the Microsoft Sentinel content hub to help customers monitor, detect, and investigate signals related to the exploitation of this vulnerability, using Microsoft Sentinel.
 
@@ -115,7 +115,7 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 ### Apache Log4j Vulnerability Detection solution (Public preview)
 
-Remote code execution vulnerabilities related to Apache Log4j were disclosed on 9 December 2021. The vulnerability allows for unauthenticated remote code execution, and it is triggered when a specially crafted string, provided by the attacker through a variety of different input vectors, is parsed and processed by the Log4j 2 vulnerable component. 
+Remote code execution vulnerabilities related to Apache Log4j were disclosed on 9 December 2021. The vulnerability allows for unauthenticated remote code execution, and it's triggered when a specially crafted string, provided by the attacker through a variety of different input vectors, is parsed and processed by the Log4j 2 vulnerable component. 
 
 The [Apache Log4J Vulnerability Detection](sentinel-solutions-catalog.md#domain-solutions) solution was added to the Microsoft Sentinel content hub to help customers monitor, detect, and investigate signals related to the exploitation of this vulnerability, using Microsoft Sentinel.
 
@@ -128,10 +128,10 @@ For more information, see the [Microsoft Security Response Center blog](https://
 - [Windows Forwarded Events connector now available (Public preview)](#windows-forwarded-events-connector-now-available-public-preview)
 - [Near-real-time (NRT) threat detection rules now available (Public preview)](#near-real-time-nrt-threat-detection-rules-now-available-public-preview)
 - [Fusion engine now detects emerging and unknown threats (Public preview)](#fusion-engine-now-detects-emerging-and-unknown-threats-public-preview)
-- [Get fine-tuning recommendations for your analytics rules (Public preview)](#get-fine-tuning-recommendations-for-your-analytics-rules-public-preview)
+- [Fine-tuning recommendations for your analytics rules (Public preview)](#get-fine-tuning-recommendations-for-your-analytics-rules-public-preview)
 - [Free trial updates](#free-trial-updates)
 - [Content hub and new solutions (Public preview)](#content-hub-and-new-solutions-public-preview)
-- [Enable continuous deployment from your content repositories (Public preview)](#enable-continuous-deployment-from-your-content-repositories-public-preview)
+- [Continuous deployment from your content repositories (Public preview)](#enable-continuous-deployment-from-your-content-repositories-public-preview)
 - [Enriched threat intelligence with Geolocation and WhoIs data (Public preview)](#enriched-threat-intelligence-with-geolocation-and-whois-data-public-preview)
 - [Use notebooks with Azure Synapse Analytics in Microsoft Sentinel (Public preview)](#use-notebooks-with-azure-synapse-analytics-in-microsoft-sentinel-public-preview)
 - [Enhanced Notebooks area in Microsoft Sentinel](#enhanced-notebooks-area-in-microsoft-sentinel)
@@ -158,7 +158,7 @@ For more information, see [Connect Microsoft Sentinel to S3 Buckets to get Amazo
 
 You can now stream event logs from Windows Servers connected to your Microsoft Sentinel workspace using Windows Event Collection / Windows Event Forwarding (WEC / WEF), thanks to this new data connector. The connector uses the new Azure Monitor Agent (AMA), which provides a number of advantages over the legacy Log Analytics agent (also known as the MMA):
 
-- **Scalability:** If you have enabled Windows Event Collection (WEC), you can install the Azure Monitor Agent (AMA) on the WEC machine to collect logs from many servers with a single connection point.
+- **Scalability:** If you've enabled Windows Event Collection (WEC), you can install the Azure Monitor Agent (AMA) on the WEC machine to collect logs from many servers with a single connection point.
 
 - **Speed:** The AMA can send data at an improved rate of 5 K EPS, allowing for faster data refresh.
 
@@ -172,7 +172,7 @@ Learn more about the [Windows Forwarded Events connector](data-connectors-refere
 
 ### Near-real-time (NRT) threat detection rules now available (Public preview)
 
-When you are faced with security threats, time and speed are of the essence. You need to be aware of threats as they materialize so you can analyze and respond quickly to contain them. Microsoft Sentinel's near-real-time (NRT) analytics rules offer you faster threat detection - closer to that of an on-premises SIEM - and the ability to shorten response times in specific scenarios.
+When you're faced with security threats, time and speed are of the essence. You need to be aware of threats as they materialize so you can analyze and respond quickly to contain them. Microsoft Sentinel's near-real-time (NRT) analytics rules offer you faster threat detection - closer to that of an on-premises SIEM - and the ability to shorten response times in specific scenarios.
 
 Microsoft Sentinel’s [near-real-time analytics rules](detect-threats-built-in.md#nrt) provide up-to-the-minute threat detection out-of-the-box. This type of rule was designed to be highly responsive by running its query at intervals just one minute apart.
 
@@ -198,7 +198,7 @@ Fine-tuning threat detection rules in your SIEM can be a difficult, delicate, an
 
 Microsoft Sentinel's free trial continues to support new or existing Log Analytics workspaces at no additional cost for the first 31 days.
 
-We are evolving our free trial experience to include the following updates:
+We're evolving our free trial experience to include the following updates:
 
 - **New Log Analytics workspaces** can ingest up to 10 GB / day of log data for the first 31-days at no cost. New workspaces include workspaces that are less than three days old.
 
@@ -211,7 +211,7 @@ We are evolving our free trial experience to include the following updates:
 Usage beyond these limits will be charged per the pricing listed on the [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page. Charges related to additional capabilities for [automation](automation.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial.
 
 > [!TIP]
-> During your free trial, find resources for cost management, training, and more on the **News & guides > Free trial** tab in Microsoft Sentinel. This tab also displays details about the dates of your free trial, and how many days you have left until it expires.
+> During your free trial, find resources for cost management, training, and more on the **News & guides > Free trial** tab in Microsoft Sentinel. This tab also displays details about the dates of your free trial, and how many days you've left until it expires.
 >
 
 For more information, see [Plan and manage costs for Microsoft Sentinel](billing.md).
@@ -288,7 +288,7 @@ GeoLocation and WhoIs data can provide more context for investigations where the
 
 For example, use GeoLocation data to find details like *Organization* or *Country* for the indicator, and WhoIs data to find data like *Registrar* and *Record creation* data.
 
-You can view GeoLocation and WhoIs data on the **Threat Intelligence** pane for each indicator of compromise that you have imported into Microsoft Sentinel. Details for the indicator are shown on the right, including any Geolocation and WhoIs data available.
+You can view GeoLocation and WhoIs data on the **Threat Intelligence** pane for each indicator of compromise that you've imported into Microsoft Sentinel. Details for the indicator are shown on the right, including any Geolocation and WhoIs data available.
 
 For example:
 
@@ -319,7 +319,7 @@ The new Azure Synapse integration provides extra analytic horsepower, such as:
 
 - **Flexibility to integrate data sources** into security operation workflows from multiple sources and formats.
 
-- **PySpark, a Python-based API** for using the Spark framework in combination with Python, reducing the need to learn a new programming language if you are already familiar with Python.
+- **PySpark, a Python-based API** for using the Spark framework in combination with Python, reducing the need to learn a new programming language if you're already familiar with Python.
 
 To support this integration, we added the ability to create and launch an Azure Synapse workspace directly from Microsoft Sentinel. We also added new, sample notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline from Log Analytics into Azure Data Lake Storage, and then hunting on that data at scale.
 
@@ -337,7 +337,7 @@ For more information, see [Use Jupyter notebooks to hunt for security threats](n
 
 ### Microsoft Sentinel renaming
 
-Starting in November 2021, Azure Sentinel is being renamed to Microsoft Sentinel, and you will see upcoming updates in the portal, documentation, and other resources in parallel.
+Starting in November 2021, Azure Sentinel is being renamed to Microsoft Sentinel, and you'll see upcoming updates in the portal, documentation, and other resources in parallel.
 
 Earlier entries in this article and the older [Archive for What's new in Sentinel](whats-new-archive.md) continue to use the name *Azure* Sentinel, as that was the service name when those features were new.
 
@@ -349,7 +349,7 @@ The new **Microsoft Sentinel Deception** solution helps you watch for malicious 
 
 Once deployed, any access or operation with the honeytoken keys and secrets generate incidents that you can investigate in Microsoft Sentinel.
 
-Since there is no reason to actually use honeytoken keys and secrets, any similar activity in your workspace may be malicious and should be investigated.
+Since there's no reason to actually use honeytoken keys and secrets, any similar activity in your workspace may be malicious and should be investigated.
 
 The **Microsoft Sentinel Deception** solution includes a workbook to help you deploy the honeytokens, either at scale or one at a time, watchlists to track the honeytokens created, and analytics rules to generate incidents as needed.
 
@@ -360,7 +360,7 @@ For more information, see [Deploy and monitor Azure Key Vault honeytokens with M
 - [Windows Security Events connector using Azure Monitor Agent now in GA](#windows-security-events-connector-using-azure-monitor-agent-now-in-ga)
 - [Defender for Office 365 events now available in the Microsoft 365 Defender connector (Public preview)](#defender-for-office-365-events-now-available-in-the-microsoft-365-defender-connector-public-preview)
 - [Playbook templates and gallery now available (Public preview)](#playbook-templates-and-gallery-now-available-public-preview)
-- [Manage template versions for your scheduled analytics rules (Public preview)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
+- [Template versioning for your scheduled analytics rules (Public preview)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
 - [DHCP normalization schema (Public preview)](#dhcp-normalization-schema-public-preview)
 
 ### Windows Security Events connector using Azure Monitor Agent now in GA
@@ -387,7 +387,7 @@ However, rules created from templates ***do*** remember which templates they cam
 
 - If you made changes to a rule when creating it from a template (or at any time after that), you can always revert the rule back to its original version (as a copy of the template).
 
-- You can get notified when a template is updated, and you will have the choice to update your rules to the new version of their templates or leave them as they are.
+- If a template is updated, you'll be notified and you can choose to update your rules to the new version of their templates, or leave them as they are.
 
 [Learn how to manage these tasks](manage-analytics-rule-templates.md), and what to keep in mind. These procedures apply to any [Scheduled](detect-threats-built-in.md#scheduled) analytics rules created from templates.
 
@@ -451,7 +451,7 @@ When configuring diagnostics for a storage account, you must select and configur
 - The parent account resource, exporting the **Transaction** metric.
 - Each of the child storage-type resources, exporting all the logs and metrics (see the table above).
 
-You will only see the storage types that you actually have defined resources for.
+You'll only see the storage types that you actually have defined resources for.
 
 :::image type="content" source="media/whats-new/storage-diagnostics.png" alt-text="Screenshot of Azure Storage diagnostics configuration.":::
 
@@ -538,8 +538,8 @@ For more information, see:
 ## July 2021
 
 - [Microsoft Threat Intelligence Matching Analytics (Public preview)](#microsoft-threat-intelligence-matching-analytics-public-preview)
-- [Use Azure AD data with Azure Sentinel's IdentityInfo table (Public preview)](#use-azure-ad-data-with-azure-sentinels-identityinfo-table-public-preview)
-- [Enrich Entities with geolocation data via API (Public preview)](#enrich-entities-with-geolocation-data-via-api-public-preview)
+- [Azure AD data and Azure Sentinel's IdentityInfo table (Public preview)](#use-azure-ad-data-with-azure-sentinels-identityinfo-table-public-preview)
+- [Entities enrichment with geolocation data via API (Public preview)](#enrich-entities-with-geolocation-data-via-api-public-preview)
 - [Support for ADX cross-resource queries (Public preview)](#support-for-adx-cross-resource-queries-public-preview)
 - [Watchlists are in general availability](#watchlists-are-in-general-availability)
 - [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
