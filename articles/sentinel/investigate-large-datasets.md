@@ -17,7 +17,7 @@ In Microsoft Sentinel, you can search across long time periods in extremely larg
 
 Use a search job when you start an investigation to find specific events in logs within a given time frame. You can search all your logs to find events that match your criteria and filter through the results.
 
-Search in Microsoft Sentinel is built on top of search jobs. Search job are asynchronous queries that fetch records. The results are returned to a search table that's created in your workspace after you start the search job. The search job uses parallel processing to run the search across long time spans, in extremely large datasets. So the search job doesn't impact the workspace's performance or availability.
+Search in Microsoft Sentinel is built on top of search jobs. Search jobs are asynchronous queries that fetch records. The results are returned to a search table that's created in your workspace after you start the search job. The search job uses parallel processing to run the search across long time spans, in extremely large datasets. So search jobs don't impact the workspace's performance or availability.
 
 Search results remain in a search results table that has a *_SRCH suffix.
 
@@ -48,7 +48,7 @@ To learn more, see [Search job](../azure-monitor/logs/azure-monitor-archived-log
 
 ## Restore historical data from archived logs
 
-When you need to do a full investigation on data stored in archived logs, restore a table from the **Search** page in Microsoft Sentinel. Specify a target table and time range for the data you want to restore. Within a few minutes, the log data is restored and available within the Log Analytics workspace. Then you can run high-performance queries by using full KQL.
+When you need to do a full investigation on data stored in archived logs, restore a table from the **Search** page in Microsoft Sentinel. Specify a target table and time range for the data you want to restore. Within a few minutes, the log data is restored and available within the Log Analytics workspace. Then you can use the data in high-performance queries that support full KQL
 
 A restored log table is available in new table that has a *_RST suffix. The restored data is available as long as the underlying source data is available. But you can delete restored tables at any time.
 

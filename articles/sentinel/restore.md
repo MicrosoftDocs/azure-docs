@@ -9,13 +9,13 @@ ms.author: cwatson
 
 # Restore archived logs from search (Preview)
 
-Restore historical data you've stored in archived logs to run high performing queries and analytics.
+Restore data from an archived log to use in high performing queries and analytics.
 
-Before you restore an archived log, see [Start an investigation by searching large datasets (Preview)](investigate-large-datasets.md) and (billing topic around archive > unarchived).
+Before you restore data in an archived log, see [Start an investigation by searching large datasets (Preview)](investigate-large-datasets.md) and (billing topic around archive > unarchived).
 
 ## Restore archived log data
 
-To restore an archived log in Microsoft Sentinel, specify a target table and a specific time range for the data you want to restore. Within a few minutes, the log data is available within the workspace. Then you can run high-performance queries by using full KQL.
+To restore archived log data in Microsoft Sentinel, specify  the table and time range for the data you want to restore. Within a few minutes, the log data is available within the Log Analytics workspace. Then you can use the data in high-performance queries that support full KQL.
 
 You can restore archived data directly from the **Search (preview)** page or from a saved search.
 
@@ -55,7 +55,7 @@ View the status and results of the log data restore by going to the **Restoratio
 
 ## Delete restored data tables
 
-The restored data is available as long as the underlying source data is available. But you can delete restored data tables at any time.
+The restored data is available as long as the underlying source data is available. You can delete restored data tables at any time.
 
 1. In your Microsoft Sentinel workspace, select **Search** > **Restoration**.
 1. Identify the table you want to delete.
