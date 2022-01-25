@@ -31,9 +31,6 @@ The following diagram illustrates the routing architecture:
 
 ::: zone-end
 
-> [!IMPORTANT]
-> Note to reviewers: This diagram will be redrawn by a designer. Please review the content/layout but not the style.
-
 The rest of this article describes these steps in detail.
 
 ## Select and connect to the Front Door edge location

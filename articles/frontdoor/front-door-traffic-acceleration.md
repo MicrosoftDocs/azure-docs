@@ -49,9 +49,6 @@ The diagram below illustrates how three users, in different geographical locatio
 
 ![Diagram illustrating how Front Door uses a short TCP connection to the closest Front Door edge location to the user, and a longer TCP connection to the origin.](media/front-door-traffic-acceleration/split-tcp-standard-premium.png)
 
-> [!IMPORTANT]
-> Note to reviewers: This diagram will be redrawn by a designer. Please review the content/layout but not the style.
-
 Establishing a TCP connection requires 3-5 roundtrips from the client to the server. Front Door's architecture improves the performance of establishing the connection. The "short connection" between the end user and the Front Door edge location means the connection gets established over 3-5 short roundtrips instead of 3-5 long round trips, which results in saving latency. The "long connection" between the Front Door edge location and the origin can be pre-established and then reused across other end users requests save connectivity time. The effect of Split TCP is multiplied when establishing a SSL/TLS (Transport Layer Security) connection, because there are more round trips to secure a connection.
 
 ::: zone-end
@@ -63,9 +60,6 @@ Split TCP enables the client's TCP connection to terminate inside a Front Door e
 The diagram below illustrates how three users, in different geographical locations, connect to a Front Door edge location close to their location. Front Door then maintains the longer-lived connection to the backend in Europe:
 
 ![Diagram illustrating how Front Door uses a short TCP connection to the closest Front Door edge location to the user, and a longer TCP connection to the backend.](media/front-door-traffic-acceleration/split-tcp-classic.png)
-
-> [!IMPORTANT]
-> Note to reviewers: This diagram will be redrawn by a designer. Please review the content/layout but not the style.
 
 Establishing a TCP connection requires 3-5 roundtrips from the client to the server. Front Door's architecture improves the performance of establishing the connection. The "short connection" between the end user and the Front Door edge location means the connection gets established over 3-5 short roundtrips instead of 3-5 long round trips, which results in saving latency. The "long connection" between the Front Door edge location and the backend can be pre-established and then reused across other end users requests save connectivity time. The effect of Split TCP is multiplied when establishing a SSL/TLS (Transport Layer Security) connection, because there are more round trips to secure a connection.
 
