@@ -5,7 +5,7 @@ author: nkhuyent
 ms.author: keithke
 ms.service: azure-percept
 ms.topic: how-to 
-ms.date: 01/03/2022
+ms.date: 01/25/2022
 ms.custom: template-how-to 
 ---
 
