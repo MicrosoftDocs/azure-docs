@@ -10,7 +10,7 @@ ms.subservice: service-overview
 ms.custom: references_regions
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/24/2021
+ms.date: 01/25/2022
 ---
 # Known issues with Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -22,6 +22,7 @@ This article lists the currently known issues with [Azure SQL Managed Instance](
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
+|[Querying external table fails with 'not supported' error message](#querying-external-table-fails-with-not-supported-error-message)|Jan 2022|Has Workaround||
 |[When using SQL Server authentication, usernames with '@' are not supported](#when-using-sql-server-authentication-usernames-with--are-not-supported)|Oct 2021|||
 |[Misleading error message on Azure portal suggesting recreation of the Service Principal](#misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal)|Sep 2021|||
 |[Changing the connection type does not affect connections through the failover group endpoint](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|Jan 2021|Has Workaround||
@@ -85,6 +86,20 @@ When the SQL Managed Instance Contributor Azure role is applied to a resource gr
 The `@query` parameter in the [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedure doesn't work.
 
 ## Has workaround
+
+### Querying external table fails with not supported error message
+Querying external table may fail with generic error message "_Queries over external tables are not supported with the current service tier or performance level of this database. Consider upgrading the service tier or performance level of the database_". The only type of external table supported in Azure SQL Managed Instance are PolyBase external tables (in preview). To allow queries on PolyBase external tables you need to enable PolyBase on managed instance by running sp_configure command. 
+External tables related to [Elastic Query](https://docs.microsoft.com/azure/azure-sql/database/elastic-query-overview) feature of Azure SQL Database are [not supported](https://docs.microsoft.com/azure/azure-sql/database/features-comparison#features-of-sql-database-and-sql-managed-instance) in SQL Managed Instance, but creating and querying them was not explicitly blocked. With support for PolyBase external tables, new checks have been introduced, effectively blocking querying of _any_ type of external table in managed instance unless PolyBase is enabled.
+If you are using unsupported Elastic Query external tables to query data in Azure SQL Database or Azure Synapse from your managed instance, you should use Linked Server feature instead. To establish Linked Server connection from SQL Managed Instance to SQL Database, please follow instructions from [this article](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-63-it-is-possible-to-create-linked-server-in/ba-p/369168). To establish Linked Server connection from SQL Managed Instance to SQL Synapse, check [step-by-step instructions](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/#how-to-use-linked-servers). Since configuring and testing Linked Server conenction takes some time, you can use workaround described below as a temporary solution to enable querying external tables related to Elastic Query feature.
+
+**Workaround**: Execute the following commands (once per instance) that will enable queries on external tables:
+
+```sql
+sp_configure 'polybase enabled', 1
+go
+reconfigure
+go
+```
 
 ### Changing the connection type does not affect connections through the failover group endpoint
 
