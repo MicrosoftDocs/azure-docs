@@ -1,7 +1,7 @@
 ---
-title: "Create a Custom Voice - Speech service"
+title: Create a custom voice - Speech service
 titleSuffix: Azure Cognitive Services
-description: "When you're ready to upload your data, go to the Custom Voice portal. Create or select a Custom Voice project. The project must share the right language, locale, and gender properties as the data you intend to use for your voice training."
+description: When you're ready to upload your data, go to the Custom Voice portal. Create or select a Custom Voice project. The project must share the right language, locale, and gender properties as the data you intend to use for your voice training.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -32,7 +32,7 @@ Upload this audio file to the Speech Studio as shown in the following screenshot
  :::image type="content" source="media/custom-voice/upload-verbal-statement.png" alt-text="Screenshot that shows the upload voice talent statement.":::
  
 > [!NOTE]
-> Custom neural voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext), and then [apply for access](https://aka.ms/customneural). 
+> Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext), and then [apply for access](https://aka.ms/customneural). 
 
 The following steps assume that you've prepared the voice talent verbal consent files. Go to [Speech Studio](https://aka.ms/custom-voice-portal) to select a Custom Neural Voice project, and then follow these steps to create a voice talent profile.
 
@@ -128,9 +128,9 @@ Unresolved errors listed in the next table affect the quality of training, but d
 | Mismatch | Low signal-noise ratio | Audio SNR level is lower than 20 dB. At least 35 dB is recommended.|
 | Mismatch | No score available |Failed to recognize speech content in this audio. Check the audio and the script content to make sure the audio is valid, and matches the script.|
 
-## Train your custom neural voice model
+## Train your Custom Neural Voice model
 
-After you validate your data files, you can use them to build your custom neural voice model.
+After you validate your data files, you can use them to build your Custom Neural Voice model.
 
 1. On the **Train model** tab, select **Train model** to create a voice model with the data you've uploaded.
 
@@ -192,13 +192,13 @@ The quality of the voice depends on many factors, such as:
 For more information, [learn more about the capabilities and limits of this feature, and the best practice to improve your model quality](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 
 > [!NOTE]
-> Custom neural voice training is only available in the three regions: East US, Southeast Asia, and UK South. But you can easily copy a neural voice model from the three regions to other regions. For more information,see the [regions for Custom Neural Voice](regions.md#text-to-speech).
+> Custom Neural Voice training is only available in the three regions: East US, Southeast Asia, and UK South. But you can easily copy a neural voice model from the three regions to other regions. For more information, see the [regions for Custom Neural Voice](regions.md#text-to-speech).
 
-## Create and use a custom neural voice endpoint
+## Create and use a Custom Neural Voice endpoint
 
 After you've successfully created and tested your voice model, you deploy it in a custom text-to-speech endpoint. Use this endpoint instead of the usual endpoint when you're making text-to-speech requests through the REST API. The subscription that you've used to deploy the model is the only one that can call your custom endpoint.
 
-To create a custom neural voice endpoint:
+To create a Custom Neural Voice endpoint:
 
 1. On the **Deploy model** tab, select **Deploy model**. 
 1. Enter a **Name** and **Description** for your custom endpoint.
