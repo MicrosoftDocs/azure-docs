@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 01/25/2022
 ---
 
-# Copy data from SAP Cloud for Customer (C4C) using Azure Data Factory or Synapse Analytics
+# Copy data from or to SAP Cloud for Customer (C4C) using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
