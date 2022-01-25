@@ -33,16 +33,6 @@
     href: tenant-management.md
   - name: 5 - Clean up and delete tenant
     href: tutorial-delete-tenant.md
-  - name: App integration
-    items: 
-    - name: Web app
-      items: 
-      - name: Sign in and sign out user Nodejs tutorial
-        href: tutorial-authenticate-nodejs-web-app-msal.md
-      - name: Acquire access token Nodejs tutorial
-        href: tutorial-acquire-access-token.md
-      - name: Call a protected API Nodejs tutorial
-        href: tutorial-call-api-with-access-token.md
 - name: Samples
   items:
   - name: Integrate Azure AD B2C with your applications
@@ -139,6 +129,14 @@
         href: enable-authentication-spa-app.md
       - name: Authentication options
         href: enable-authentication-spa-app-options.md
+    - name: Node web app/web api
+      items:
+      - name: Configure a sample Node web app
+        href: configure-a-sample-node-web-app.md
+      - name: Enable authentication in Node web app
+        href: enable-authentication-in-node-web-app.md
+      - name: Enable authentication in node web API
+        href: enable-authentication-in-node-web-api.md
     - name: Angular single-page application
       items:
       - name: Configure a sample Angular app
