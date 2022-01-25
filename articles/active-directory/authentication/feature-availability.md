@@ -29,7 +29,7 @@ This topic covers Azure AD feature availability in Azure Government.
 | - Cloud authentication (Pass-through authentication, password hash synchronization) | &#x2705; |
 | - Federated authentication (Active Directory Federation Services or federation with other identity providers) | &#x2705; |
 | - Single sign-on (SSO) unlimited | &#x2705; | 
-| - Multifactor authentication (MFA) | Hardware OATH tokens are not available. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and should not be required based off the user's current IP address. Authenticator app only shows GUID and not UPN for compliance reasons. | 
+| - Multifactor authentication (MFA) | Hardware OATH tokens are not available. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and should not be required based off the user's current IP address. Microsoft Authenticator only shows GUID and not UPN for compliance reasons. | 
 | - Passwordless (Windows Hello for Business, Microsoft Authenticator, FIDO2 security key integrations) | &#x2705; | 
 | - Service-level agreement | &#x2705; | 
 | **Applications Access** |   |
