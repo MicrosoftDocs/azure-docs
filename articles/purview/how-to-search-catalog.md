@@ -6,7 +6,7 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 01/25/2022
 ---
 
 # Search the Azure Purview Data Catalog
@@ -48,6 +48,11 @@ Once you find the asset you are looking for, you can select it to view details s
 
 :::image type="content" source="./media/how-to-search-catalog/search-view-asset.png" alt-text="Screenshot showing the asset details page" border="true":::
 
+## Searching Azure Purview in connected services
+
+Once you register your Azure Purview instance to an Azure Data Factory or an Azure Synapse Analytics workspace, you can search the Azure Purview data catalog directly from those services. To learn more see, [Discover data in ADF using Azure Purview](../data-factory/how-to-discover-explore-purview-data.md) and [Discover data in Synapse using Azure Purview](../synapse-analytics/catalog-and-governance/how-to-discover-connect-analyze-azure-purview.md).
+
+:::image type="content" source="./media/how-to-search-catalog/search-azure-data-factory.png" alt-text="Screenshot showing how to use Azure Purview search in Azure Data Factory" border="true":::
 ## Bulk edit search results
 
 If you are looking to make changes to multiple assets returned by search, Azure Purview lets you modify glossary terms, classifications, and contacts in bulk. To learn more, see the [bulk edit assets](how-to-bulk-edit-assets.md) guide.
@@ -68,14 +73,18 @@ Below are the operators that can be used to compose a search query. Operators ca
 | -------- | ---------- | ------- |
 | OR | Specifies that an asset must have at least one of the two keywords. Must be in all caps. A white space is also an OR operator.  | The query `hive OR database` returns assets that contain 'hive' or 'database' or both. |
 | AND | Specifies that an asset must have both keywords. Must be in all caps | The query `hive AND database` returns assets that contain both 'hive' and 'database'. |
-| NOT | Specifies that an asset can't contain the keyword to the right of the NOT clause | The query `hive NOT database` returns assets that contain 'hive', but not 'database'. |
+| NOT | Specifies that an asset can't contain the keyword to the right of the NOT clause. Must be in all caps  | The query `hive NOT database` returns assets that contain 'hive', but not 'database'. |
 | () | Groups a set of keywords and operators together. When combining multiple operators, parentheses specify the order of operations. | The query `hive AND (database OR warehouse)` returns assets that contain 'hive' and either 'database' or 'warehouse', or both. |
 | "" | Specifies exact content in a phrase that the query must match to. | The query `"hive database"` returns assets that contain the phrase "hive database" in their properties |
-| * | A wildcard that matches on one to many characters. Can't be the first character in a keyword. | The query `dat*` returns assets that have properties that start with 'dat' such as 'data' or 'database'. |
-| ? | A wildcard that matches on a single character. Can't be the first character in a keyword | The query `dat?` returns assets that have properties that start with 'dat' and are four letters such as 'date' or 'data'. |
+| field:keyword | Searches the keyword in a specific attribute of an asset. Field search is case insensitive and is limited to the following fields at this time: <ul><li>name</li><li>description</li><li>entityType</li><li>assetType</li><li>classification</li><li>term</li><li>contact</li></ul> | The query `description: German` returns all assets that contain the word "German" in the description.<br><br>The query `term:Customer` will return all assets with glossary terms that include "Customer". |
 
-> [!Note]
-> Always specify Boolean operators (**AND**, **OR**, **NOT**) in all caps. Otherwise, case doesn't matter, nor do extra spaces.
+> [!TIP]
+> Searching "*" will return all the assets in the catalog.
+
+### Known limitations
+
+* Searching for classifications only matches on the formal classification name. For example, the keywords "World Cities" don't match classification "MICROSOFT.GOVERNMENT.CITY_NAME".
+*  Grouping isn't supported within a field search. Customers should use operators to connect field searches. For example,`name:(alice AND bob)` is invalid search syntax, but `name:alice AND name:bob` is supported.
 
 ## Next steps
 

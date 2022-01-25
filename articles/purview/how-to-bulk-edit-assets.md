@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.date: 01/25/2022
 ---
 
 # How to bulk edit assets to annotate classifications, glossary terms and modify contacts
@@ -29,7 +29,7 @@ This article describes how to tag multiple glossary terms, classifications, owne
 
 ## Add Assets to View selected list from asset detail page
 
-You can also add an asset to the bulk edit list in the asset detail page. Select the checkbox at the top right corner to add the asset to the bulk edit list.
+You can add an asset to the bulk edit list in the asset detail page. Select **Select for bulk edit** to add the asset to the bulk edit list.
 
    :::image type="content" source="media/how-to-bulk-edit-assets/asset-list.png" alt-text="Screenshot of the asset.":::
 
