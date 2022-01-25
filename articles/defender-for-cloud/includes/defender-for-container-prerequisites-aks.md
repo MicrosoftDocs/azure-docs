@@ -15,14 +15,6 @@ For Azure public cloud deployments:
 | *.ods.opinsights.azure.com | 443  |
 | *.oms.opinsights.azure.com | 443  |
 | login.microsoftonline.com  | 443  |
- 
-For Azure Government cloud deployments:
-
-| Domain                    | Port |
-| ------------------------- | ---- |
-| *.ods.opinsights.azure.us | 443  |
-| *.oms.opinsights.azure.us | 443  |
-| login.microsoftonline.us  | 443  |
 
 By default, AKS clusters have unrestricted outbound (egress) internet access. 
 

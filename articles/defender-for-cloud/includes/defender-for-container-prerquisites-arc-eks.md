@@ -15,11 +15,3 @@ For Azure public cloud deployments:
 | data.policy.core.windows.net | 443 |
 | store.policy.core.windows.net | 443 |
 | login.microsoftonline.com | 443 |
- 
-For Azure Government cloud deployments:
-
-| Domain                    | Port |
-| ------------------------- | ---- |
-| *.ods.opinsights.azure.us | 443  |
-| *.oms.opinsights.azure.us | 443  |
-| login.microsoftonline.us  | 443  |
