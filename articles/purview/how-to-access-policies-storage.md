@@ -21,12 +21,12 @@ This guide describes how a data owner can enable access to data stored in Azure 
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
-[!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-generic-prerequisites.md)]
+[!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
 
 [!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
 
 ## Configuration
-[!INCLUDE [Access policies generic configuration](./includes/access-policies-generic-configuration.md)]
+[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### Register and scan data sources in Azure Purview
 Register and scan each data source with Azure Purview to later define access policies. You can follow these guides:
@@ -39,7 +39,7 @@ Enable the data source for access policies in Azure Purview by setting the **Dat
 
 ![Image shows how to register a data source for policy.](./media/how-to-access-policies-storage/register-data-source-for-policy-storage.png)
 
-[!INCLUDE [Access policies generic registration](./includes/access-policies-generic-registration.md)]
+[!INCLUDE [Access policies generic registration](./includes/access-policies-registration-generic.md)]
 
 
 ## Policy authoring
@@ -123,7 +123,7 @@ The steps to publish a policy are as follows
     ![Image shows how a data owner can select the data source where the policy will be published.](./media/access-policies-common/select-data-sources-publish-policy.png)
 
 >[!Note]
-> - There is no need to publish a policy again for it to take effect if the data resource continues to be the same.
+> - After making changes to a policy, there is no need to publish it again for it to take effect if the data source(s) continues to be the same.
 
 ## Additional information
 >[!Important]

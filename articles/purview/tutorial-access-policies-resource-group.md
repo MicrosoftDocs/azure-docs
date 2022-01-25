@@ -21,12 +21,12 @@ This guide describes how a data owner can enable access from Azure Purview to AL
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
-[!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-generic-prerequisites.md)]
+[!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
 
 [!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
 
 ## Configuration
-[!INCLUDE [Access policies generic configuration](./includes/access-policies-generic-configuration.md)]
+[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### Register the subscription or resource group in Azure Purview
 The subscription or resource group needs to be registered with Azure Purview to later define access policies. You can follow this guide:
@@ -37,7 +37,7 @@ Enable the resource group or subscription for access policies in Azure Purview b
 
 ![Image shows how to register a data source for policy.](./media/tutorial-access-policies-resource-group/register-resource-group-for-policy.png)
 
-[!INCLUDE [Access policies generic registration](./includes/access-policies-generic-registration.md)]
+[!INCLUDE [Access policies generic registration](./includes/access-policies-registration-generic.md)]
 
 ## Policy authoring
 
