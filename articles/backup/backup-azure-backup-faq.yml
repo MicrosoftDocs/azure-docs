@@ -195,6 +195,11 @@ sections:
           
           If you cancel a backup job for an Azure VM, any transferred data is ignored. The next backup job transfers incremental data from the last successful backup job.
           
+      - question: |
+          Can backup items in a vault be deleted if its Resource Group has a delete lock?
+        answer: |
+          No, backup items in a vault cannot be deleted if the corresponding Resource Group has a delete lock.     
+          
   - name: Retention and recovery
     questions:
       - question: |

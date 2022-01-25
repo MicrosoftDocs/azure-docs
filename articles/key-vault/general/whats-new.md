@@ -29,7 +29,7 @@ For more information, see [Configure key auto-rotation in Key Vault](../keys/how
 
 Integration of Azure Key Vault with Azure Policy has reached general availability and is now ready for production use. This capability is a step towards our commitment to simplifying secure secrets management in Azure, while also enhancing policy enforcements that you can define on Key Vault, keys, secrets and certificates. Azure Policy provides the ability to place guardrails on Key Vault and its objects to ensure they are compliant with your organizations security recommendations and compliance regulations. It allows you to perform real time policy-based enforcement and on-demand compliance assessment of existing secrets in your Azure environment. The results of audits performed by policy will be available to you in a compliance dashboard where you will be able to see a drill down of which resources and components are compliant and which are not. Azure policy for Key Vault will provide you with a full suite of built-in policies offering governance of your keys, secrets, and certificates.  
 
-You can learn more about how to [Integrate Azure Key Vault with Azure Policy](https://docs.microsoft.com/azure/key-vault/general/azure-policy?tabs=certificates) and assign a new policy. Announcement is linked [here](https://azure.microsoft.com/updates/gaazurepolicyforkeyvault).
+You can learn more about how to [Integrate Azure Key Vault with Azure Policy](./azure-policy.md?tabs=certificates) and assign a new policy. Announcement is linked [here](https://azure.microsoft.com/updates/gaazurepolicyforkeyvault).
 
 ## June 2021
 

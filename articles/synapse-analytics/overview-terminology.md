@@ -6,7 +6,7 @@ author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 11/02/2021
+ms.date: 01/13/2022
 ms.author: saveenr
 ms.reviewer: sngun
 ms.custom: ignite-fall-2021
@@ -31,6 +31,9 @@ A workspace can contain any number of **Linked service**, essentially connection
 **Synapse SQL** is the ability to do T-SQL based analytics in Synapse workspace. Synapse SQL has two consumption models: dedicated and serverless.  For the dedicated model, use **dedicated SQL pools**. A workspace can have any number of these pools. To use the serverless model, use the **serverless SQL pools**. Every workspace has one of these pools.
 
 Inside Synapse Studio, you can work with SQL pools by running **SQL scripts**.
+
+> [!NOTE]
+> Dedicated SQL pools in Azure Synapse is different from the dedicated SQL pool (formerly SQL DW). Not all features of the dedicated SQL pool in Azure Synapse workspaces apply to dedicated SQL pool (formerly SQL DW), and vice versa. To enable workspace features for an existing dedicated SQL pool (formerly SQL DW), see [How to enable a workspace for your dedicated SQL pool (formerly SQL DW)](sql-data-warehouse/workspace-connected-create.md).
 
 ## Apache Spark for Synapse
 

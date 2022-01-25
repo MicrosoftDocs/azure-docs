@@ -19,13 +19,13 @@ As we're adding new integrations, the auto-instrumentation capability matrix bec
 |Environment/Resource Provider          | .NET            | .NET Core       | Java            | Node.js         | Python          |
 |---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
 |Azure App Service on Windows           | GA, OnBD*       | GA, opt-in      | Public Preview  | Public Preview  | Not supported   |
-|Azure App Service on Linux             | N/A             | Not supported   | GA              | GA              | Not supported   |
+|Azure App Service on Linux             | N/A             | Public Preview  | GA              | GA              | Not supported   |
 |Azure Functions - basic                | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       |
 |Azure Functions - dependencies         | Not supported   | Not supported   | Public Preview  | Not supported   | Through [extension](monitor-functions.md#distributed-tracing-for-python-function-apps)   |
 |Azure Spring Cloud                     | Not supported   | Not supported   | Public Preview  | Not supported   | Not supported   |
 |Azure Kubernetes Service               | N/A             | Not supported   | Through agent   | Not supported   | Not supported   |
-|Azure VMs Windows                      | Public Preview  | Not supported   | Through agent   | Not supported   | Not supported   |
-|On-Premises VMs Windows                | GA, opt-in      | Not supported   | Through agent   | Not supported   | Not supported   |
+|Azure VMs Windows                      | Public Preview  | Public Preview  | Through agent   | Not supported   | Not supported   |
+|On-Premises VMs Windows                | GA, opt-in      | Public Preview  | Through agent   | Not supported   | Not supported   |
 |Standalone agent - any env.            | Not supported   | Not supported   | GA              | Not supported   | Not supported   |
 
 *OnBD is short for On by Default - the Application Insights will be enabled automatically once you deploy your app in supported environments. 

@@ -27,7 +27,7 @@ An [application](app-objects-and-service-principals.md#application-object) is an
 
 A [service principal](app-objects-and-service-principals.md#service-principal-object) is the *local* representation, or application instance, of a global application object in a specific tenant. An application object is used as a template to create a service principal object in every tenant where the application is used.  The service principal object defines what the app can actually do in a specific tenant, who can access the app, and what resources the app can access.
 
-A [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) is a special type of service principal that eliminates the need for developers to manage credentials.
+A [managed identity](../managed-identities-azure-resources/overview.md) is a special type of service principal that eliminates the need for developers to manage credentials.
 
 Here are some ways that workload identities in Azure AD are used:
 
@@ -44,10 +44,10 @@ At a high level, there are two types of identities: human and machine/non-human 
 ## Supported scenarios
 
 Here are some ways you can use workload identities:
-- Review service principals and applications that are assigned to privileged directory roles in Azure AD using [access reviews for service principals](/azure/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review).
+- Review service principals and applications that are assigned to privileged directory roles in Azure AD using [access reviews for service principals](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md).
 - Access Azure AD protected resources without needing to manage secrets (for supported scenarios) using [workload identity federation](workload-identity-federation.md).
-- Apply Conditional Access policies to service principals owned by your organization using [Conditional Access for workload identities](/azure/active-directory/conditional-access/workload-identity).
+- Apply Conditional Access policies to service principals owned by your organization using [Conditional Access for workload identities](../conditional-access/workload-identity.md).
 
 ## Next steps
 
-Learn how to [secure access of workload identities](/azure/active-directory/conditional-access/workload-identity) with adaptive policies.
+Learn how to [secure access of workload identities](../conditional-access/workload-identity.md) with adaptive policies.

@@ -102,4 +102,4 @@ To learn more about permissions when using dynamic data masking with T-SQL comma
 ## See also
 
 - [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking) for SQL Server.
-- Data Exposed episode about [Granular Permissions for Azure SQL Dynamic Data Masking](https://channel9.msdn.com/Shows/Data-Exposed/Granular-Permissions-for-Azure-SQL-Dynamic-Data-Masking) on Channel 9.
+- Data Exposed episode about [Granular Permissions for Azure SQL Dynamic Data Masking](/Shows/Data-Exposed/Granular-Permissions-for-Azure-SQL-Dynamic-Data-Masking) on Channel 9.

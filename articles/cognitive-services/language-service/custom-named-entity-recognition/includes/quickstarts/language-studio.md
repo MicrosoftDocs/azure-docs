@@ -44,7 +44,6 @@ Before you can use custom NER, you will need to create an Azure Language resourc
 
 [!INCLUDE [Uploading sample data for custom NER](blob-storage-upload.md)]
 
-
 ## Create a custom named entity recognition project
 
 Once your resource and storage container are configured, create a new conversational NER project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.

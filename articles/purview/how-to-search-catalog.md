@@ -17,7 +17,7 @@ The goal of search in Azure Purview is to speed up the process of data discovery
 
 ## Search the catalog for assets
 
-The search bar can be quickly accessed from the top bar of the Purview Studio UX. In the data catalog home page, the search bar is in the center of the screen.
+The search bar can be quickly accessed from the top bar of the Azure Purview Studio UX. In the data catalog home page, the search bar is in the center of the screen.
 
 :::image type="content" source="./media/how-to-search-catalog/purview-search-bar.png" alt-text="Screenshot showing the location of the Azure Purview search bar" border="true":::
 
@@ -25,13 +25,13 @@ Once you click on the search bar, you will be presented with your search history
 
 :::image type="content" source="./media/how-to-search-catalog/search-no-keywords.png" alt-text="Screenshot showing the search bar before any keywords have been entered" border="true":::
 
-Enter in keywords that help identify your asset such as its name, data type, classifications, and glossary terms. As you enter in search keywords, Purview dynamically suggests assets and searches that may fit your needs. To complete your search, click on "View search results" or press "Enter".
+Enter in keywords that help identify your asset such as its name, data type, classifications, and glossary terms. As you enter in search keywords, Azure Purview dynamically suggests assets and searches that may fit your needs. To complete your search, click on "View search results" or press "Enter".
 
 :::image type="content" source="./media/how-to-search-catalog/search-keywords.png" alt-text="Screenshot showing the search bar as a user enters in keywords" border="true":::
 
-Once you enter in your search, Purview returns a list of data assets a user is a data reader for to that matched to the keywords entered in.
+Once you enter in your search, Azure Purview returns a list of data assets a user is a data reader for to that matched to the keywords entered in.
 
-The Purview relevance engine sorts through all the matches and ranks them based on what it believes their usefulness is to a user. For example, a table that matches on multiple keywords that a data steward has assigned glossary terms and given a description is likely going to be more interesting to a data consumer than a folder which has been unannotated. A large set of factors determine an asset’s relevance score and the Purview search team is constantly tuning the relevance engine to ensure the top search results have value to you.
+The Azure Purview relevance engine sorts through all the matches and ranks them based on what it believes their usefulness is to a user. For example, a table that matches on multiple keywords that a data steward has assigned glossary terms and given a description is likely going to be more interesting to a data consumer than a folder which has been unannotated. A large set of factors determine an asset’s relevance score and the Azure Purview search team is constantly tuning the relevance engine to ensure the top search results have value to you.
 
 If the top results don’t include the assets you are looking for, you can use the facets on the left-hand side to filter down by business metadata such glossary terms, classifications and the containing collection. If you are interested in a particular data source type such as Azure Data Lake Storage Gen2 or Azure SQL Database, you can use the source type pill filter to narrow down your search.
 
