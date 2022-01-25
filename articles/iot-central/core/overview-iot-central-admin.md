@@ -42,7 +42,7 @@ To learn more, see [Create an IoT Central organization](howto-create-organizatio
 
 Devices that connect to your IoT Central application typically use X.509 certificates or shared access signatures (SAS) as credentials. The administrator manages the group certificates or keys that the device credentials are derived from.
 
-To learn more, see [X.509 group enrollment](concepts-get-connected.md#x509-group-enrollment), [SAS group enrollment](concepts-get-connected.md#sas-group-enrollment), and [How to roll X.509 device certificates](how-to-roll-x509-certificates.md).
+To learn more, see [X.509 group enrollment](concepts-get-connected.md#x509-group-enrollment), [SAS group enrollment](concepts-get-connected.md#sas-group-enrollment), and [How to roll X.509 device certificates](how-to-connect-devices-x509.md).
 
 The administrator can also create and manage the API tokens that a client application uses to authenticate with your IoT Central application. Client applications use the REST API to interact with IoT Central.
 

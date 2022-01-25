@@ -7,8 +7,8 @@ ms.subservice: backup-restore
 ms.custom: load & move data, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: SQLSourabh
-ms.author: sourabha
+author: SudhirRaparla 
+ms.author: nvraparl 
 ms.reviewer: mathoma
 ms.date: 01/18/2022
 ---

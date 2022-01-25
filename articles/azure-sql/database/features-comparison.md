@@ -64,7 +64,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Distributed transactions - MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No - see [Elastic transactions](elastic-transactions-overview.md) | No - see [Elastic transactions](elastic-transactions-overview.md) |
 | [DML triggers](/sql/relational-databases/triggers/create-dml-triggers) | Most - see individual statements |  Yes |
 | [DMVs](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Most - see individual DMVs |  Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
-| [Elastic query](elastic-query-overview.md) (in public preview) | Yes, with required RDBMS type. | No |
+| [Elastic query](elastic-query-overview.md) (in public preview) | Yes, with required RDBMS type. | No, use native cross-DB queries and Linked Server instead|
 | [Event notifications](/sql/relational-databases/service-broker/event-notifications) | No - see [Alerts](alerts-insights-configure-portal.md) | No |
 | [Expressions](/sql/t-sql/language-elements/expressions-transact-sql) |Yes | Yes |
 | [Extended events (XEvent)](/sql/relational-databases/extended-events/extended-events) | Some - see [Extended events in SQL Database](xevent-db-diff-from-svr.md) | Yes - see [Extended events differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) |
@@ -148,7 +148,7 @@ The Azure platform provides a number of PaaS capabilities that are added as an a
 | [SQL Server Reporting Services (SSRS)](/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | No - [see Power BI](/power-bi/) | No - use [Power BI paginated reports](/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) instead or host SSRS on an Azure VM. While SQL Managed Instance cannot run SSRS as a service, it can host [SSRS catalog databases](/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) for a reporting server installed on Azure Virtual Machine, using SQL Server authentication. |
 | [Query Performance Insights (QPI)](query-performance-insight-use.md) | Yes | No. Use built-in reports in SQL Server Management Studio and Azure Data Studio. |
 | [VNet](../../virtual-network/virtual-networks-overview.md) | Partial, it enables restricted access using [VNet Endpoints](vnet-service-endpoint-rule-overview.md) | Yes, SQL Managed Instance is injected in customer's VNet. See [subnet](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) and [VNet](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
-| VNet Service endpoint | [Yes](vnet-service-endpoint-rule-overview.md) | No |
+| VNet Service endpoint | [Yes](vnet-service-endpoint-rule-overview.md) | Yes |
 | VNet Global peering | Yes, using [Private IP and service endpoints](vnet-service-endpoint-rule-overview.md) | Yes, using [Virtual network peering](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913). |
 | [Private connectivity](../../private-link/private-link-overview.md) | Yes, using [Private Link](../../private-link/private-endpoint-overview.md) | Yes, using VNet. | 
 

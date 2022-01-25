@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 01/24/2022
 ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -30,7 +30,7 @@ Use REST API v3.0 to:
 - Request the manifest of the models that you create, to set up on-premises containers.
 
 REST API v3.0 includes such features as:
-- **Webhook notifications**: All running processes of the service now support webhook notifications. REST API v3.0 provides the calls to enable you to register your webhooks where notifications are sent.
+- **Webhook notifications**: All running processes of the service support webhook notifications. REST API v3.0 provides the calls to enable you to register your webhooks where notifications are sent.
 - **Updating models behind endpoints** 
 - **Model adaptation with multiple datasets**: Adapt a model by using multiple dataset combinations of acoustic, language, and pronunciation data.
 - **Bring your own storage**: Use your own storage accounts for logs, transcription files, and other data.
@@ -108,7 +108,7 @@ Audio is sent in the body of the HTTP `POST` request. It must be in one of the f
 | OGG    | OPUS  | 256 kpbs | 16 kHz, mono |
 
 >[!NOTE]
->The preceding formats are supported through the REST API for short audio and WebSocket in the Speech service. The [Speech SDK](speech-sdk.md) currently supports the WAV format with PCM codec as well as [other formats](how-to-use-codec-compressed-audio-input-streams.md).
+>The preceding formats are supported through the REST API for short audio and WebSocket in the Speech service. The [Speech SDK](speech-sdk.md) supports the WAV format with PCM codec as well as [other formats](how-to-use-codec-compressed-audio-input-streams.md).
 
 ### Pronunciation assessment parameters
 
@@ -145,7 +145,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 We strongly recommend streaming (chunked) uploading while you're posting the audio data, which can significantly reduce the latency. To learn how to enable streaming, see the [sample code in various programming languages](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment).
 
 >[!NOTE]
-> The pronunciation assessment feature currently supports the `en-US` language, which is available on all [speech-to-text regions](regions.md#speech-to-text). Support for `en-GB` and `zh-CN` languages is under preview.
+> For more For more information, see [pronunciation assessment](how-to-pronunciation-assessment.md). 
 
 ### Sample request
 

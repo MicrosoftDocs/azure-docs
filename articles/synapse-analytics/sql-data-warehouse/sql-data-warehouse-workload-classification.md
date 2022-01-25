@@ -50,7 +50,7 @@ The `membername` parameter is mandatory.  However, if the membername specified i
 If a user is a member of multiple roles with different resource classes assigned or matched in multiple classifiers, the user is given the highest resource class assignment.  This behavior is consistent with existing resource class assignment behavior.
 
 > [!NOTE]
-> Classifying managed identities (MI) behavior differs between the dedicated SQL pool in Azure Synapse workspaces and the standalone dedicated SQL pool (formerly SQL DW).  While the standalone dedicated SQL pool MI maintains the assigned identity, Azure Synapse workspaces adds MI to the dbo role.  This cannot be changed.  The dbo role, by default, is classified  to smallrc.  Creating a classifier for the dbo role will allows for assigning a workload group other than smallrc.  If dbo is too generic of a role, consider using label, session or  time-based classification in conjunction with the dbo role classification.
+> Classifying managed identities (MI) behavior differs between the dedicated SQL pool in Azure Synapse workspaces and the standalone dedicated SQL pool (formerly SQL DW). While the standalone dedicated SQL pool MI maintains the assigned identity, Azure Synapse workspaces adds MI to the **dbo** role. This cannot be changed. The dbo role, by default, is classified to smallrc. Creating a classifier for the dbo role allows for assigning requests to a workload group other than smallrc. If dbo alone is too generic for classification and has broader impacts, consider using label, session or time-based classification in conjunction with the dbo role classification.
 
 
 ## System classifiers
