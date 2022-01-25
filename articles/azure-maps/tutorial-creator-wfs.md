@@ -23,7 +23,7 @@ First you'll query all collections, and then you'll query for the `unit` collect
 
 ## Prerequisites
 
-* Successful completion of [Tutorial: Use Creator to create indoor maps](tutorial-creator-indoor-maps).
+* Successful completion of [Tutorial: Use Creator to create indoor maps](tutorial-creator-indoor-maps.md).
 * The `datasetId` obtained in [Check dataset creation status](tutorial-creator-indoor-maps.md#check-the-dataset-creation-status) section of the previous tutorial.
 
 This tutorial uses the [Postman](https://www.postman.com/) application, but you can use a different API development environment.
@@ -85,7 +85,7 @@ To query the unit collection in your dataset:
 
 2. Select the **GET** HTTP method.
 
-3. Enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{datasetId`} with the `datasetId` obtained in [Check dataset creation status](#check-the-dataset-creation-status)):
+3. Enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{datasetId`} with the `datasetId` obtained in [Check dataset creation status](tutorial-creator-indoor-maps.md#check-the-dataset-creation-status)):
 
     ```http
     https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=2.0
