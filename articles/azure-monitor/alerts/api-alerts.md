@@ -9,7 +9,7 @@ ms.date: 09/22/2020
 # Create and manage alert rules in Log Analytics with REST API 
 
 > [!IMPORTANT]
-> As [announced](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), log analytics workspace(s) created after *June 1, 2019* manage alert rules using the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-02-01-preview/scheduled-query-rules). Customers are encouraged to [switch to the current API](./alerts-log-api-switch.md) in older workspaces to leverage Azure Monitor scheduledQueryRules [benefits](./alerts-log-api-switch.md#benefits). This article describes management of alert rules using the legacy API.
+> As [announced](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), log analytics workspace(s) created after *June 1, 2019* manage alert rules using the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules). Customers are encouraged to [switch to the current API](./alerts-log-api-switch.md) in older workspaces to leverage Azure Monitor scheduledQueryRules [benefits](./alerts-log-api-switch.md#benefits). This article describes management of alert rules using the legacy API.
 
 The Log Analytics Alert REST API allows you to create and manage alerts in Log Analytics.  This article provides details of the API and several examples for performing different operations.
 
