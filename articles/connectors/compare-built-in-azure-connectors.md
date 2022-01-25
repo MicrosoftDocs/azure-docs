@@ -46,7 +46,7 @@ You can also find these IP addresses by using the following steps:
 
 1. Under **Connector outgoing IP addresses**, copy all the IP addresses, and set your backend service to allow traffic through those IP addresses.
 
-<a name="consideration-with-vnet"></a>
+<a name="considerations-vnet"></a>
 
 ## Considerations for virtual network integration
 
