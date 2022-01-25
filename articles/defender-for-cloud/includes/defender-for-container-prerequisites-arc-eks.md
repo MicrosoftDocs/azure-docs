@@ -6,7 +6,7 @@ ms.date: 01/25/2022
 
 ## Prerequisites
 
-Validate the following endpoints are configured for outbound access so that the Defender profile can connect to Microsoft Defender for Cloud to send security data and events:
+Validate the following endpoints are configured for outbound access so that the Defender extension can connect to Microsoft Defender for Cloud to send security data and events:
 
 For Azure public cloud deployments:
 
