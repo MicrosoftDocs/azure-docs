@@ -171,29 +171,29 @@ With the VNET established, you can now query for the VNET, control plane, and ap
 # [Bash](#tab/bash)
 
 ```bash
-VNET_RESOURCE_ID=`az network vnet show -g ${RESOURCE_GROUP} -n ${VNET_NAME} --query "id" -o tsv | tr -d '[:space:]'`
+VNET_RESOURCE_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name ${VNET_NAME} --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
 ```bash
-CONTROL_PLANE_SUBNET=`az network vnet subnet show -g ${RESOURCE_GROUP} --vnet-name $VNET_NAME -n control-plane --query "id" -o tsv | tr -d '[:space:]'`
+CONTROL_PLANE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name control-plane --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
 ```bash
-APP_SUBNET=`az network vnet subnet show -g ${RESOURCE_GROUP} --vnet-name ${VNET_NAME} -n applications --query "id" -o tsv | tr -d '[:space:]'`
+APP_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name ${VNET_NAME} --name applications --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$VNET_RESOURCE_ID=(az network vnet show -g $RESOURCE_GROUP -n $VNET_NAME --query "id" -o tsv)
+$VNET_RESOURCE_ID=(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
 ```
 
 ```powershell
-$CONTROL_PLANE_SUBNET=(az network vnet subnet show -g $RESOURCE_GROUP --vnet-name $VNET_NAME -n control-plane --query "id" -o tsv)
+$CONTROL_PLANE_SUBNET=(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name control-plane --query "id" -o tsv)
 ```
 
 ```powershell
-$APP_SUBNET=(az network vnet subnet show -g $RESOURCE_GROUP --vnet-name $VNET_NAME -n applications --query "id" -o tsv)
+$APP_SUBNET=(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name applications --query "id" -o tsv)
 ```
 
 ---
@@ -243,31 +243,53 @@ The following table describes the parameters used in for `containerapp env creat
 
 With your environment created with your custom virtual network, you can create container apps into the environment using the `az containerapp create` command.
 
-### Optional: Deploy with a private DNS 
+### Optional: Deploy with a private DNS
+
+If you want to deploy your container app with a private DNS, run the following commands.
 
 ```bash
-export ENVIRONMENT_DEFAULT_DOMAIN=`az containerapp env show -n $CONTAINERAPPS_ENVIRONMENT -g $RESOURCE_GROUP --query defaultDomain --out json | tr -d '"'`
-export ENVIRONMENT_STATIC_IP=`az containerapp env show -n $CONTAINERAPPS_ENVIRONMENT -g $RESOURCE_GROUP --query staticIp --out json | tr -d '"'`
+export ENVIRONMENT_DEFAULT_DOMAIN=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query defaultDomain --out json | tr -d '"'`
+export ENVIRONMENT_STATIC_IP=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query staticIp --out json | tr -d '"'`
 ```
 
 ```bash
-export VNET_ID=`az network vnet show -g $RG -n $VNET_NAME --query id --out json | tr -d '"'`
+export VNET_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name ${VNET_NAME} --query id --out json | tr -d '"'`
 ```
 
 ```azurecli
-az network private-dns zone create -g $RESOURCE_GROUP -n $ENVIRONMENT_DEFAULT_DOMAIN
+az network private-dns zone create \
+  --resource-group $RESOURCE_GROUP \
+  --name $ENVIRONMENT_DEFAULT_DOMAIN
 ```
 
 ```azurecli
-az network private-dns link vnet create -g $RESOURCE_GROUP -n $VNET_NAME -v $VNET_ID --zone-name $ENVIRONMENT_DEFAULT_DOMAIN -e true
+az network private-dns link vnet create \
+  --resource-group $RESOURCE_GROUP \
+  --name $VNET_NAME \
+  --virtual-network $VNET_ID \
+  --zone-name $ENVIRONMENT_DEFAULT_DOMAIN -e true
 ```
 
 ```azurecli
-az network private-dns record-set a add-record -g $RESOURCE_GROUP -n "*" --ipv4-address $ENVIRONMENT_STATIC_IP --zone-name $ENVIRONMENT_DEFAULT_DOMAIN
+az network private-dns record-set a add-record \
+  --resource-group $RESOURCE_GROUP \
+  --name "*" \
+  --ipv4-address $ENVIRONMENT_STATIC_IP \
+  --zone-name $ENVIRONMENT_DEFAULT_DOMAIN
 ```
 
 ```azurecli
-az vm create -n acabugbashvm -g $RESOURCE_GROUP --image UbuntuLTS --size Standard_D2_v3 --vnet-name $VNET_NAME --subnet VMs --public-ip-address-allocation static --public-ip-address-dns-name acabugbashvm --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub
+az vm create \
+  --name acabugbashvm \
+  --resource-group $RESOURCE_GROUP \
+  --image UbuntuLTS \
+  --size Standard_D2_v3 \
+  --vnet-name $VNET_NAME \
+  --subnet VMs \
+  --public-ip-address-allocation static \
+  --public-ip-address-dns-name acabugbashvm \
+  --admin-username azureuser \
+  --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 ::: zone-end
