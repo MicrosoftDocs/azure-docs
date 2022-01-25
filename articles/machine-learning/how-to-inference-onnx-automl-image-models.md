@@ -118,7 +118,7 @@ best_child_run.download_file(name='train_artifacts/model.onnx', output_file_path
 
 - While exporting ONNX models, height and width of the images can be set by the user (choose values closer to training images for better predictions) to generate ONNX models. For making inference using generated ONNX model, input images have to be scaled to height and width values used to generate the ONNX model.
 
-- Use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) to submit the script `ONNX_batch_model_generator_faster_rcnn.py` available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection), to generate an ONNX model of a specific batch size. Here, we utilize the trained model environment to submit the above script to generate and save the ONNX model to outputs directory
+- Use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) to submit the script `ONNX_batch_model_generator_automl_for_images.py` available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml), to generate an ONNX model of a specific batch size. Here, we utilize the trained model environment to submit the above script to generate and save the ONNX model to outputs directory
 
 ```python
 from azureml.core.script_run_config import ScriptRunConfig
@@ -178,7 +178,7 @@ remote_run.wait_for_completion(wait_post_processing=True)
 
 - While exporting ONNX models, height and width of the images can be set by the user (choose values closer to training images for better predictions) to generate ONNX models. For making inference using generated ONNX model, input images have to be scaled to height and width values used to generate the ONNX model.
 
-- Use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) to submit the script `ONNX_batch_model_generator_yolo.py` available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection), to generate an ONNX model of a specific batch size. Here, we utilize the trained model environment to submit the above script to generate and save the ONNX model to outputs directory
+- Use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) to submit the script `ONNX_batch_model_generator_automl_for_images.py` available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml), to generate an ONNX model of a specific batch size. Here, we utilize the trained model environment to submit the above script to generate and save the ONNX model to outputs directory
 
 ```python
 from azureml.core.script_run_config import ScriptRunConfig
@@ -237,7 +237,7 @@ remote_run.wait_for_completion(wait_post_processing=True)
 
 - While exporting ONNX models, height and width of the images can be set by the user (choose values closer to training images for better predictions) to generate ONNX models. For making inference using generated ONNX model, input images have to be scaled to height and width values used to generate the ONNX model.
 
-- Use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) to submit the script `ONNX_batch_model_generator_mask_rcnn.py` available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation), to generate an ONNX model of a specific batch size. Here, we utilize the trained model environment to submit the above script to generate and save the ONNX model to outputs directory
+- Use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) to submit the script `ONNX_batch_model_generator_automl_for_images.py` available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml), to generate an ONNX model of a specific batch size. Here, we utilize the trained model environment to submit the above script to generate and save the ONNX model to outputs directory
 
 ```python
 from azureml.core.script_run_config import ScriptRunConfig
@@ -270,7 +270,7 @@ arguments = ['--batch_size', 5,  # enter the batch size of your choice
              '--resource_group', resource_group,
              '--workspace_name', workspace_name,
              '--run_id', run_id,
-             '--task_type', 'image-object-detection',
+             '--task_type', 'image-instance-segmentation',
              '--min_size', 600,  # minimum size of the image to be rescaled before feeding it to the backbone
              '--max_size', 1333,  # maximum size of the image to be rescaled before feeding it to the backbone
              '--box_score_thresh', 0.3,  # threshold to return proposals with a classification score > box_score_thresh
