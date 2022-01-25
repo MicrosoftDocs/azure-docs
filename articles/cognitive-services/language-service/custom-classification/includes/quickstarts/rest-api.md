@@ -36,7 +36,7 @@ Before you can use custom text classification, you will need to create a Languag
     | Name | Any name |
     | Performance | Standard | 
     | Account kind| Storage (general purpose v1) |
-    | Replication | Locally-redundant storage (LRS)
+    | Replication | Locally redundant storage (LRS)
     |Location | Any location closest to you, for best latency.        |
 
 
