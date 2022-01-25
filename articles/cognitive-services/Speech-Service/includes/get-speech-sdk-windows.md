@@ -9,7 +9,7 @@ ms.custom: devx-track-csharp
 
 :::row:::
     :::column span="3":::
-        The Speech SDK supports Windows 10 and Windows Server 2016, or later versions. Earlier versions are **not** officially supported. It is possible to use parts of the Speech SDK with earlier versions of Windows, although it's not advised.
+        The Speech SDK supports Windows 10 and Windows Server 2016, or later versions. Earlier versions are *not* officially supported. It's possible to use parts of the Speech SDK with earlier versions of Windows, although it's not advised.
     :::column-end:::
     :::column:::
         <br>
@@ -31,20 +31,19 @@ The Speech SDK on Windows requires the <a href="https://support.microsoft.com/he
 
 [!INCLUDE [Get .NET Speech SDK](get-speech-sdk-dotnet.md)]
 
-For microphone input, the Media Foundation libraries must be installed. These libraries are part of Windows 10 and Windows Server 2016. It's possible to use the Speech SDK without these libraries, as long as a microphone isn't used as the audio input device.
+For microphone input, the Media Foundation libraries must be installed. These libraries are part of Windows 10 and Windows Server 2016. It's possible to use the Speech SDK without these libraries, if a microphone isn't used as the audio input device.
 
 The required Speech SDK files can be deployed in the same directory as your application. This way your application can directly access the libraries. Make sure you select the correct version (x86/x64) that matches your application.
 
 | Name                                            | Function                                             |
 |-------------------------------------------------|------------------------------------------------------|
-| `Microsoft.CognitiveServices.Speech.core.dll`   | Core SDK, required for native and managed deployment |
-| `Microsoft.CognitiveServices.Speech.csharp.dll` | Required for managed deployment                      |
+| *Microsoft.CognitiveServices.Speech.core.dll*   | Core SDK, required for native and managed deployment |
+| *Microsoft.CognitiveServices.Speech.csharp.dll* | Required for managed deployment                      |
 
-> [!NOTE]
-> Starting with the release 1.3.0 the file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (shipped in previous releases) isn't needed anymore. The functionality is now integrated in the core SDK.
+Starting with the release 1.3.0, the *Microsoft.CognitiveServices.Speech.csharp.bindings.dll* file that shipped in previous releases isn't needed anymore. The functionality is now integrated in the core SDK.
 
 > [!IMPORTANT]
-> For the Windows Forms App (.NET Framework) C# project, make sure the libraries are included in your project's deployment settings. You can check this under `Properties -> Publish Section`. Click the `Application Files` button and find corresponding libraries from the scroll down list. Make sure the value is set to `Included`. Visual Studio will include the file when project is published/deployed.
+> For the Windows Forms App (.NET Framework) C# project, make sure the libraries are included in your project's deployment settings. You can check this under **Properties** > **Publish Section**. Select the **Application Files** button and find corresponding libraries from the dropdown list. Make sure the value is set to **Included**. Visual Studio includes the file when the project is published or deployed.
 
 ### C++
 

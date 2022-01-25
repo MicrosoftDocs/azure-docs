@@ -29,12 +29,12 @@ Communication Services APIs are documented alongside other Azure REST APIs in [d
 | Azure Resource Manager | [REST](/rest/api/communication/communicationservice)| Service| Provision and manage Communication Services resources|
 | Common | N/A | Client & Service | Provides base types for other SDKs |
 | Identity | [REST](/rest/api/communication/communicationidentity/communication-identity) | Service| Manage users, access tokens|
-| Phone numbers| [REST](/rest/api/communication/phonenumbers)| Service| Acquire and manage phone numbers |
-| SMS| [REST](/rest/api/communication/sms) | Service| Send and receive SMS messages|
+| Phone numbers| [REST](/rest/api/communication/phonenumbers) | Service| Acquire and manage phone numbers |
+| SMS | [REST](/rest/api/communication/sms) | Service| Send and receive SMS messages|
 | Chat | [REST](/rest/api/communication/) with proprietary signaling | Client & Service | Add real-time text chat to your applications |
-| Calling| Proprietary transport | Client | Voice, video, screen-sharing, and other real-time communication |
-| Calling Server | REST| Service| Make and manage calls, play audio, and configure recording |
-| Network Traversal| REST| Service| Access TURN servers for low-level data transport |
+| Calling | Proprietary transport | Client | Voice, video, screen-sharing, and other real-time communication |
+| Calling Server | [REST](/rest/api/communication/callautomation/server-calls) | Service| Make and manage calls, play audio, and configure recording |
+| Network Traversal | [REST](/api/communication/communication-network-traversal)| Service| Access TURN servers for low-level data transport |
 | UI Library | N/A | Client | Production-ready UI components for chat and calling apps |
 
 ### Languages and publishing locations
