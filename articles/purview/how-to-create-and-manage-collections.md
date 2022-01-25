@@ -117,11 +117,11 @@ The following guide will discuss the roles, how to manage them, and permissions 
 
 All assigned roles apply to sources, assets, and other objects within the collection where the role is applied.
 
-* **Collection admins** - can edit the collection, its details, and add subcollections. They can also add data curators, data readers, and other Azure Purview roles to a collection scope. Collection admins that are automatically inherited from a parent collection can't be removed.
-* **Data source admins** - can manage data sources and data scans. They can also enter the policy management app to view and publish policies.
-* **Data curators** - can perform create, read, modify, and delete actions on catalog data objects and establish relationships between objects. They can also enter the policy management app to view policies.
-* **Data readers** - can access but not modify catalog data objects.
-* **Policy Authors** - can enter the policy management app and create/edit policy statements.
+* **Collection admins** can edit the collection, its details, and add subcollections. They can also add data curators, data readers, and other Azure Purview roles to a collection scope. Collection admins that are automatically inherited from a parent collection can't be removed.
+* **Data source admins** can manage data sources and data scans. They can also enter the policy management app to view and publish policies.
+* **Data curators** can perform create, read, modify, and delete actions on catalog data objects and establish relationships between objects. They can also enter the policy management app to view policies.
+* **Data readers** can access but not modify catalog data objects.
+* **Policy Authors** can enter the policy management app and create/edit policy statements.
 
 ### Add role assignments
 
