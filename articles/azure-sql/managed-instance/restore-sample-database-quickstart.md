@@ -8,7 +8,7 @@ ms.subservice: backup-restore
 ms.custom: mode-other
 ms.devlang: 
 ms.topic: quickstart
-author: misliplavo
+author: MilanMSFT
 ms.author: mlazic
 ms.reviewer: mathoma, nvraparl 
 ms.date: 09/13/2021
