@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/12/2022
+ms.date: 01/22/2022
 ---
 
 # Data transformation expressions in mapping data flow
@@ -33,6 +33,7 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [addMonths](data-flow-expression-functions.md#addMonths) | Add months to a date or timestamp. You can optionally pass a timezone.  |
 | [and](data-flow-expression-functions.md#and) | Logical AND operator. Same as &&.  |
 | [asin](data-flow-expression-functions.md#asin) | Calculates an inverse sine value.  |
+| [assertErrorMessages](data-flow-expression-functions.md#assertErrorMessages) | Returns map of all assert messages. |
 | [atan](data-flow-expression-functions.md#atan) | Calculates a inverse tangent value.  |
 | [atan2](data-flow-expression-functions.md#atan2) | Returns the angle in radians between the positive x-axis of a plane and the point given by the coordinates.  |
 | [between](data-flow-expression-functions.md#between) | Checks if the first value is in between two other values inclusively. Numeric, string and datetime values can be compared  |
@@ -79,6 +80,7 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [greatest](data-flow-expression-functions.md#greatest) | Returns the greatest value among the list of values as input skipping null values. Returns null if all inputs are null.  |
 | [hasColumn](data-flow-expression-functions.md#hasColumn) | Checks for a column value by name in the stream. You can pass a optional stream name as the second argument. Column names known at design time should be addressed just by their name. Computed inputs are not supported but you can use parameter substitutions.  |
 | [hour](data-flow-expression-functions.md#hour) | Gets the hour value of a timestamp. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default. Refer Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html.  |
+| [hasError](data-flow-expression-functions.md#hasError) | Checks if the assert with provided ID is marked as error. |
 | [hours](data-flow-expression-functions.md#hours) | Duration in milliseconds for number of hours.  |
 | [iif](data-flow-expression-functions.md#iif) | Based on a condition applies one value or the other. If other is unspecified it is considered NULL. Both the values must be compatible(numeric, string...).  |
 | [iifNull](data-flow-expression-functions.md#iifNull) | Checks if the first parameter is null. If not null, the first parameter is returned. If null, the second parameter is returned. If three parameters are specified, the behavior is the same as iif(isNull(value1), value2, value3) and the third parameter is returned if the first value is not null.  |
@@ -427,6 +429,17 @@ Creates an array of items. All items should be of the same type. If no items are
 * ``['Seattle', 'Washington']``
 * ``['Seattle', 'Washington'][1]``
 * ``'Washington'``
+___
+
+<a name="assertErrorMessages" ></a>
+
+### <code>assertErrorMessages</code>
+<code><b>assertErrorMessages() => map</b></code><br/><br/>
+Returns a map of all error messages for the row with assert ID as the key.
+
+Examples
+* ``assertErrorMessages() => ['assert1': 'This row failed on assert1.', 'assert2': 'This row failed on assert2.']. In this example, at(assertErrorMessages(), 'assert1') would return 'This row failed on assert1.'``
+
 ___
 
 
@@ -1221,6 +1234,18 @@ Checks for a column value by name in the stream. You can pass a optional stream 
 ___
 
 
+<a name="hasError" ></a>
+
+### <code>hasError</code>
+<code><b>hasError([<i>&lt;value1&gt;</i> : string]) => boolean</b></code><br/><br/>
+Checks if the assert with provided ID is marked as error.
+
+Examples
+* ``hasError('assert1')``
+* ``hasError('assert2')``
+
+___
+
 <a name="hasPath" ></a>
 
 ### <code>hasPath</code>
@@ -1400,7 +1425,6 @@ Checks of the string value is a double value given an optional format according 
 * ``isDouble('icecream') -> false``
 ___
 
-
 <a name="isError" ></a>
 
 ### <code>isError</code>
@@ -1409,8 +1433,7 @@ Checks if the row is marked as error. For transformations taking more than one i
 * ``isError()``  
 * ``isError(1)``  
 ___
-
-
+  
 <a name="isFloat" ></a>
 
 ### <code>isFloat</code>
@@ -1734,7 +1757,7 @@ ___
 Left pads the string by the supplied padding until it is of a certain length. If the string is equal to or greater than the length, then it is trimmed to the length.  
 * ``lpad('dumbo', 10, '-') -> '-----dumbo'``  
 * ``lpad('dumbo', 4, '-') -> 'dumb'``  
-* ``lpad('dumbo', 8, '<>') -> '<><dumbo'``  
+
 ___
 
 

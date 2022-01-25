@@ -14,7 +14,7 @@ ms.author: bagol
 > The *Azure Purview* solution is in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-[Azure Purview](/azure/purview/) provides organizations with visibility into where on the network sensitive information is stored, helping top prioritize at-risk data for protection.
+[Azure Purview](/azure/purview/) provides organizations with visibility into where sensitive information is stored, helping top prioritize at-risk data for protection.
 
 Integrate Azure Purview with Microsoft Sentinel to help narrow down the high volume of incidents and threats surfaced in Microsoft Sentinel, and understand the most critical areas to start.
 
@@ -123,9 +123,9 @@ Use this procedure to customize the Azure Purview analytics rules's queries to d
     ```Kusto
     PurviewDataSensitivityLogs
     | where Classification contains “Social Security Number”
-	| where SourceRegion contains “westeurope”
-	| where SourceType contains “Amazon”
-	| where TimeGenerated > ago (24h)
+    | where SourceRegion contains “westeurope”
+    | where SourceType contains “Amazon”
+    | where TimeGenerated > ago (24h)
     ```
 
 1. Under **Query scheduling**, define settings so that the rules show data discovered in the last 24 hours. We also recommend that you set **Event grouping** to group all events into a single alert.

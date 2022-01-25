@@ -41,11 +41,11 @@ items:
     expanded: true
     items:
     - name: Access using Postman
-      href: ../use-postman.md  
+      href: use-postman.md  
     - name: Access using cURL
-      href: ../using-curl.md
+      href: using-curl.md
     - name: Access using REST Client
-      href: ../using-rest-client.md
+      href: using-rest-client.md
     - name: Bulk import data into the FHIR service
       href: bulk-importing-fhir-data.md  
   - name: Configure settings
@@ -109,7 +109,7 @@ items:
 - name: Resources
   expanded: true
   items:
-  - name: FAQs
+  - name: FAQs - FHIR service
     href: fhir-faq.md
   - name: Supported features
     href: fhir-features-supported.md

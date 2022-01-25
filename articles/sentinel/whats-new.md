@@ -40,7 +40,6 @@ For more information, see [Tutorial: Integrate Microsoft Sentinel and Azure Purv
 
 ## January 2022
 
-
 - [SentinelHealth data table (Public preview)](#sentinelhealth-data-table-public-preview)
 - [More workspaces supported for Multiple Workspace View](#more-workspaces-supported-for-multiple-workspace-view)
 - [Kusto Query Language workbook and tutorial](#kusto-query-language-workbook-and-tutorial)
