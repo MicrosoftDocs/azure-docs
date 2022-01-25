@@ -1,29 +1,43 @@
 ---
 title: Stream codec-compressed audio with the Speech SDK - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to stream compressed audio to the Speech service with the Speech SDK. Available for C++, C#, and Java for Linux, Java in Android and Objective-C in iOS.
+description: Learn how to stream compressed audio to the Speech service with the Speech SDK. 
 services: cognitive-services
+author: eric-urban
+ms.author: eur
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 01/13/2022
 ms.devlang: cpp, csharp, golang, java, python
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-eight
 ---
 
-# Use codec-compressed audio input
+# Stream codec-compressed audio
 
-The Speech SDK and Speech CLI can accept compressed audio formats using GStreamer. GStreamer decompresses the audio before it's sent over the wire to the Speech service as raw PCM.
+The Speech SDK and Speech CLI use GStreamer to support different kinds of input audio formats. GStreamer decompresses the audio before it's sent over the wire to the Speech service as raw PCM.
+
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
+
+## Installing GStreamer
+
+Choose a platform for installation instructions. 
 
 Platform | Languages | Supported GStreamer version
 | :--- | ---: | :---:
+Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.18.3/) 
 Linux  | C++, C#, Java, Python, Go | [Supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md) 
 Windows (excluding UWP) | C++, C#, Java, Python | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/msvc/gstreamer-1.0-msvc-x86_64-1.18.3.msi) 
-Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.18.3/) 
 
-## Installing GStreamer on Linux
+### [Android](#tab/android)
+
+See [GStreamer configuration by programming language](#gstreamer-configuration) for the details about building libgstreamer_android.so.
+
+For more information, see [Android installation instructions](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c). 
+
+### [Linux](#tab/linux)
 
 For more information, see [Linux installation instructions](https://gstreamer.freedesktop.org/documentation/installing/on-linux.html?gi-language=c).  
 
@@ -34,7 +48,7 @@ gstreamer1.0-plugins-good \
 gstreamer1.0-plugins-bad \
 gstreamer1.0-plugins-ugly
 ```
-## Installing GStreamer on Windows
+### [Windows](#tab/windows)
 
 Make sure that packages of the same platform (x64 or x86) are installed. For example, if you installed the x64 package for Python, then you need to install the x64 GStreamer package. The instructions below are for the x64 packages. 
 
@@ -56,19 +70,12 @@ Make sure that packages of the same platform (x64 or x86) are installed. For exa
 
 For more information about GStreamer, see [Windows installation instructions](https://gstreamer.freedesktop.org/documentation/installing/on-windows.html?gi-language=c). 
 
-## Using GStreamer in Android
-Look at the Java tab above for the details about building libgstreamer_android.so 
+***
 
-For more information see [Android installation instructions](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c). 
+## GStreamer configuration
 
-## Speech SDK version required for compressed audio input
-* Speech SDK version 1.10.0 or later is required for RHEL 8 and CentOS 8
-* Speech SDK version 1.11.0 or later is required for Windows.
-* Speech SDK version 1.16.0 or later for the latest GStreamer on Windows and Android.
-
-[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
-
-## GStreamer required to handle compressed audio
+> [!NOTE]
+> GStreamer configuration requirements vary by programming language. For details, choose your programming language at the top of this page. The contents of this section will be updated. 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/prerequisites.md)]
@@ -90,7 +97,7 @@ For more information see [Android installation instructions](https://gstreamer.f
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/go/prerequisites.md)]
 ::: zone-end
 
-## Example code using codec compressed audio input
+## Example
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/examples.md)]

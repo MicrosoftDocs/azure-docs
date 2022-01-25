@@ -645,8 +645,8 @@
           displayName: hyperscale, tutorial, private
   - name: Concepts
     items:
-    - name: Basic tier
-      href: hyperscale/concepts-tiers.md
+    - name: Server group
+      href: hyperscale/concepts-server-group.md
     - name: Distributed data
       items:
       - name: Nodes and tables

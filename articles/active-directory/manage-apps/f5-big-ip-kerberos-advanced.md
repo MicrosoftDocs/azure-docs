@@ -90,7 +90,7 @@ Prior BIG-IP experience isn't necessary, but you will need:
 
 * An existing Kerberos application, or [set up an Internet Information Services (IIS) app](https://active-directory-wp.com/docs/Networking/Single_Sign_On/SSO_with_IIS_on_Windows.html) for KCD SSO.
 
-## Configuration methods
+## BIG-IP configuration methods
 
 There are many methods to configure BIG-IP for this scenario, including two template-based options and an advanced configuration. This article covers the advanced approach, which provides a more flexible way of implementing SHA by manually creating all BIG-IP configuration objects. You would also use this approach for scenarios that the guided configuration templates don't cover.
 

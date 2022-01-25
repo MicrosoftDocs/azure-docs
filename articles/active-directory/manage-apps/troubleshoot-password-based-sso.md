@@ -153,13 +153,18 @@ If you experience any of these problems, do the following things:
 - Try the manual capture process again. Make sure that the red markers are over the correct fields.
 - If the manual capture process seems to stop responding or the sign-in page doesn’t respond, try the manual capture process again. But this time, after completing the process, press the F12 key to open your browser’s developer console. Select the **console** tab. Type **window.location="*&lt;the sign-in URL that you specified when configuring the app&gt;*"**, and then press Enter. This forces a page redirect that ends the capture process and stores the fields that were captured.
 
-### I can't add another user to my Password-based SSO app
+### I can't add another user to my password-based SSO app
 
-Password-based SSO app has a limit of 48 users. Thus, it has a limit of 48 keys for username/password pairs per app.
-If you want to add additional users you can either:
+A user cannot have more than 48 credentials configured across all password SSO apps where the user is directly assigned.
+
+If you want to add more apps with password-based SSO to a user, consider assigning the app to a group the user is a direct member of, and configuring the credential for the group. Note that the credentials configured for the group will be available for all members of the group.
+
+### I can't add another group to my password-based SSO app
+
+Each password-based SSO app has a limit of 48 groups which are assigned and have had credentials configured for them. If you want to add additional groups, you can either:
 
 - Add additional instance of the app
-- Remove users who are no longer using the app first
+- Remove groups who are no longer using the app
 
 ## Request support
 

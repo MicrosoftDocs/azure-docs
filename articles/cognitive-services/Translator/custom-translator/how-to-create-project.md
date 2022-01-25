@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 # Create a project
 
-A project is a container for models, documents, and tests. Each project automatically includes all documents that are uploaded into that workspace that have the correct language pair.
+A project contains translation models for one language pair. Each includes all documents that are uploaded into that workspace that have the correct language pair.
 
 Creating project is the first step toward building a model.
 

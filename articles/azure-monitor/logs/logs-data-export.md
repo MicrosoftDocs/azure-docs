@@ -33,11 +33,11 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 
 ## Limitations
 
-- All tables will be supported in export, but support is currently limited to those specified in the [supported tables](#supported-tables) section below. 
-- The current custom log tables won’t be supported in export. A new version of custom log preview available February 2022, will be supported in export.
+- All tables will be supported in export, but currently limited to those specified in the [supported tables](#supported-tables) section below.
+- The legacy custom log won’t be supported in export. The next generation of custom log available in preview early 2022 can be exported.
 - You can define up to 10 enabled rules in your workspace. More rules are allowed when disabled. 
-- Storage account must be unique across all export rules in your workspace.
 - Destinations must be in the same region as the Log Analytics workspace.
+- Storage account must be unique across rules in workspace.
 - Tables names can be no longer than 60 characters when exporting to storage account and 47 characters to event hub. Tables with longer names will not be exported.
 - Data export isn't supported in these regions currently: 
 	- Korea South
@@ -116,7 +116,7 @@ If you have configured your storage account to allow access from selected networ
 ### Destinations monitoring
 
 > [!IMPORTANT]
-> Export destinations have limits and should be monitored to minimize throttling, failures, and latency. See [storage accounts scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) and [event hub namespace quota](../../event-hubs/event-hubs-quotas.md).
+> Export destinations have limits and should be monitored to minimize throttling, failures, and latency. See [storage accounts scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) and [event hub namespace quota](../../event-hubs/event-hubs-quotas.md). 
 
 **Monitoring storage account**
 
@@ -150,11 +150,11 @@ If you have configured your storage account to allow access from selected networ
    - Use 'Premium' or 'Dedicated' tiers for higher throughput
 
 ### Create or update data export rule
-Data export rule defines the destination and tables for which data is exported. You can create 10 rules in 'enable' state in your workspace, more rules are allowed in 'disable' state. Storage account destination must be unique across all export rules in workspace, but multiple rules can export to the same event hub namespace in separate event hubs.
+Data export rule defines the destination and tables for which data is exported. You can create 10 rules in 'enable' state in your workspace, more rules are allowed in 'disable' state. Storage account must be unique across rules in workspace. Multiple rules can use the same event hub namespace when sending to separate event hubs.
 
 > [!NOTE]
 > - You can include tables that aren't yet supported in export, and no data will be exported for these until the tables are supported.
-> - The current custom log tables won’t be supported in export. The next generation of custom log available early 2022 in preview is supported.
+> - The legacy custom log won’t be supported in export. The next generation of custom log available in preview early 2022 can be exported.
 > - Export to storage account - a separate container is created in storage account for each table.
 > - Export to event hub - if event hub name isn't provided, a separate event hub is created for each table. The [number of supported event hubs in 'Basic' and 'Standard' namespaces tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). When exporting more than 10 tables to these tiers, either split the tables between several export rules to different event hub namespaces, or provide an event hub name in the rule to export all tables to that event hub.
 
@@ -637,9 +637,6 @@ N/A
 
 ## Unsupported tables
 If the data export rule includes an unsupported table, the configuration will succeed, but no data will be exported for that table. If the table is later supported, then its data will be exported at that time.
-
-If the data export rule includes a table that doesn't exist, it will fail with the error "Table \<tableName\> does not exist in the workspace".
-
 
 ## Supported tables
 Supported tables are currently limited to those specified below. All data from the table will be exported unless limitations are specified. This list is updated as more tables are added.

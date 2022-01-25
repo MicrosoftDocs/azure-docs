@@ -32,7 +32,8 @@ Easv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 [Memory Preserving Updates](maintenance-and-updates.md): Supported <br>
 [VM Generation Support](generation-2.md): Generation 1 and 2 <br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br><br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+<br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
@@ -63,7 +64,8 @@ Eadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium S
 [Memory Preserving Updates](maintenance-and-updates.md): Supported <br>
 [VM Generation Support](generation-2.md): Generation 1 and 2 <br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br><br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+<br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|

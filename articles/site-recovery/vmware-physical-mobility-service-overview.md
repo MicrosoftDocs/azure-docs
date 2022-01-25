@@ -116,7 +116,7 @@ During a push installation of the Mobility service, the following steps are perf
 - Run this command to install the agent.
 
   ```cmd
-  UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
+  UnifiedAgent.exe /Role "Agent" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
   ```
 
 - Run these commands to register the agent with the configuration server.
@@ -130,7 +130,7 @@ During a push installation of the Mobility service, the following steps are perf
 
 Setting | Details
 --- | ---
-Syntax | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
+Syntax | `UnifiedAgent.exe /Role \<Agent/MasterTarget> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
 Setup logs | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 `/Role` | Mandatory installation parameter. Specifies whether the Mobility service (Agent) or master target (MasterTarget) should be installed.  Note: in prior versions, the correct switches were Mobility Service (MS)  or master target (MT)
 `/InstallLocation`| Optional parameter. Specifies the Mobility service installation location (any folder).
@@ -170,8 +170,8 @@ Agent configuration logs | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurat
 
 Setting | Details
 --- | ---
-Syntax | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
-`-r` | Mandatory installation parameter. Specifies whether the Mobility service (MS) or master target (MT) should be installed.
+Syntax | `./install -d \<Install Location> -r \<Agent/MasterTarget> -v VmWare -q`
+`-r` | Mandatory installation parameter. Specifies whether the Mobility service (Agent) or master target (MasterTarget) should be installed.
 `-d` | Optional parameter. Specifies the Mobility service installation location: `/usr/local/ASR`.
 `-v` | Mandatory. Specifies the platform on which Mobility service is installed. <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.
 `-q` | Optional. Specifies whether to run the installer in silent mode.

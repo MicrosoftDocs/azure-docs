@@ -81,7 +81,7 @@ Prior BIG-IP experience is not necessary, but you'll need:
 
 - An existing form-based authentication application, or [set up an IIS FBA app](/troubleshoot/aspnet/forms-based-authentication) for testing.
 
-## BIG-IP deployment methods
+## BIG-IP configuration methods
 
 There are many methods to configure BIG-IP for this scenario, including a template-driven guided configuration. This article covers the advanced approach, which provides a more flexible way of implementing SHA by manually creating all BIG-IP configuration objects. You would also use this approach for more complex scenarios that the guided configuration templates don't cover.
 

@@ -84,7 +84,7 @@ Prior BIG-IP experience isn’t necessary, but you’ll need:
 
 * An existing header-based application or [setup a simple IIS header app](/previous-versions/iis/6.0-sdk/ms525396(v=vs.90)) for testing
 
-## Big-IP deployment methods
+## Big-IP configuration methods
 
 There are many methods to deploy BIG-IP for this scenario including a template-driven Guided Configuration, or an advanced configuration. This tutorial covers the Easy Button templates offered by the Guided Configuration 16.1 and upwards.
 

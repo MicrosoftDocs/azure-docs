@@ -3,7 +3,7 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: service-overview
 ms.topic: include
-ms.date: 01/05/2022
+ms.date: 01/17/2022
 ms.author: mathoma
 ms.reviewer: vanto
 ---
