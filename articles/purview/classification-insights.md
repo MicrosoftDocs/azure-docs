@@ -1,18 +1,18 @@
 ---
-title: Classification reporting on your data in Azure Purview using Purview Insights
-description: This how-to guide describes how to view and use Purview classification reporting on your data.
+title: Classification reporting on your data in Azure Purview using Azure Purview Insights
+description: This how-to guide describes how to view and use Azure Purview classification reporting on your data.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.topic: how-to
 ms.date: 09/27/2021
-# Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about sensitive data identified and classified and labeled during scanning.
+# Customer intent: As a security officer, I need to understand how to use Azure Purview Insights to learn about sensitive data identified and classified and labeled during scanning.
 ms.custom: ignite-fall-2021
 ---
 
 # Classification insights about your data from Azure Purview
 
-This how-to guide describes how to access, view, and filter Purview Classification insight reports for your data.
+This how-to guide describes how to access, view, and filter Azure Purview Classification insight reports for your data.
 
 > [!IMPORTANT]
 > Azure Purview Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -22,40 +22,40 @@ Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADL
 In this how-to guide, you'll learn how to:
 
 > [!div class="checklist"]
-> - Launch your Purview account from Azure
+> - Launch your Azure Purview account from Azure
 > - View classification insights on your data
 > - Drill down for more classification details on your data
 
 ## Prerequisites
 
-Before getting started with Purview insights, make sure that you've completed the following steps:
+Before getting started with Azure Purview insights, make sure that you've completed the following steps:
 
 - Set up your Azure resources and populated the relevant accounts with test data
 
 - Set up and completed a scan on the test data in each data source. For more information, see [Manage data sources in Azure Purview](manage-data-sources.md) and [Create a scan rule set](create-a-scan-rule-set.md).
 
-- Signed in to Purview with account with a [Data Reader or Data Curator role](catalog-permissions.md#roles).
+- Signed in to Azure Purview with account with a [Data Reader or Data Curator role](catalog-permissions.md#roles).
 
 For more information, see [Manage data sources in Azure Purview](manage-data-sources.md).
 
-## Use Purview classification insights
+## Use Azure Purview classification insights
 
 In Azure Purview, classifications are similar to subject tags, and are used to mark and identify data of a specific type that's found within your data estate during scanning.
 
-Purview uses the same sensitive information types as Microsoft 365, allowing you to stretch your existing security policies and protection across your entire data estate.
+Azure Purview uses the same sensitive information types as Microsoft 365, allowing you to stretch your existing security policies and protection across your entire data estate.
 
 > [!NOTE]
 > After you have scanned your source types, give **Classification** Insights a couple of hours to reflect the new assets.
 
 **To view classification insights:**
 
-1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/purviewportal) and select your Purview account.
+1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/purviewportal) and select your Azure Purview account.
 
-1. On the **Overview** page, in the **Get Started** section, select the **Purview Studio** tile.
+1. On the **Overview** page, in the **Get Started** section, select the **Azure Purview Studio** tile.
 
-1. In Purview, select the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: menu item on the left to access your **Insights** area.
+1. In Azure Purview, select the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: menu item on the left to access your **Insights** area.
 
-1. In the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Classification** to display the Purview **Classification insights** report.
+1. In the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Classification** to display the Azure Purview **Classification insights** report.
 
    :::image type="content" source="./media/insights/select-classification-labeling.png" alt-text="Classification insights report" lightbox="media/insights/select-classification-labeling.png":::
 

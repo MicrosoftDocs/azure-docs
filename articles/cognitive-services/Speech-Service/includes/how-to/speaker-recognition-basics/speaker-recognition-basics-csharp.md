@@ -2,7 +2,7 @@
 author: v-jaswel
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 01/08/2022
 ms.author: v-jawe
 ms.custom: references_regions, ignite-fall-2021
 ---

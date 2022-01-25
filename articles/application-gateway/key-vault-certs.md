@@ -136,19 +136,20 @@ Add-AzApplicationGatewaySslCertificate -KeyVaultSecretId $secretId -ApplicationG
 Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 
-> [!Note]
-> If you require Application Gateway to sync the last version of the certificate with the KeyVault, provide the version-less secretId (no hash).  To do so, replace the following line in the previous example:
+> [!NOTE]
+> If you require Application Gateway to sync the last version of the certificate with the key vault, provide the versionless `secretId` value (no hash). To do this, in the preceding example, replace the following line:
 >
 > ```
 > $secretId = $secret.Id # https://<keyvaultname>.vault.azure.net/secrets/<hash>
 > ```
-> with
+> 
+> With this line:
 >
 > ```
 > $secretId = $secret.Id.Replace($secret.Version, "") # https://<keyvaultname>.vault.azure.net/secrets/
 > ```
 
-Once the commands have been executed, you can navigate to your Application Gateway in the Azure portal and select the Listeners tab.  Click Add Lister (or select an existing) and specify the Protocol to HTTPS.
+Once the commands have been executed, you can navigate to your Application Gateway in the Azure portal and select the Listeners tab.  Click Add Listener (or select an existing) and specify the Protocol to HTTPS.
 
 Under *Choose a certificate* select the certificate named in the previous steps.  Once selected, select  *Add* (if creating) or *Save* (if editing) to apply the referenced Key Vault certificate to the listener.
 

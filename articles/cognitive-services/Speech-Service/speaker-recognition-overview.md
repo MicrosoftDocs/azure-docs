@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 01/08/2022
 ms.author: eur
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 keywords: speaker recognition, voice biometry
@@ -65,8 +65,8 @@ As with all of the Cognitive Services resources, developers who use the Speaker 
 | What scenarios can Speaker Recognition be used for? | Call center customer verification, voice-based patient check-in, meeting transcription, multi-user device personalization|
 | What is the difference between Identification and Verification? | Identification is the process of detecting which member from a group of speakers is speaking. Verification is the act of confirming that a speaker matches a known, or **enrolled** voice.|
 | What's the difference between text-dependent and text-independent verification? | Text-dependent verification requires a specific pass-phrase for both enrollment and recognition. Text-independent verification requires a longer voice sample that must start with a particular activation phrase for enrollment, but anything can be spoken, including during recognition.|
-| What languages are supported? | English, French, Spanish, Chinese, German, Italian, Japanese, and Portuguese |
-| What Azure regions are supported? | Speaker Recognition is a preview service, and currently only available in the West US region.|
+| What languages are supported? | See [Speaker recognition language support](language-support.md#speaker-recognition) |
+| What Azure regions are supported? | See [Speaker recognition region support](regions.md#speaker-recognition)|
 | What audio formats are supported? | Mono 16 bit, 16 kHz PCM-encoded WAV |
 | **Accept** and **Reject** responses aren't accurate, how do you tune the threshold? | Since the optimal threshold varies highly with scenarios, the service decides whether to accept or reject based on a default threshold of 0.5. You should override the default decision and fine tune the result based on your own scenario. |
 | Can you enroll one speaker multiple times? | Yes, for text-dependent verification, you can enroll a speaker up to 50 times. For text-independent verification or speaker identification, you can enroll with up to 300 seconds of audio. |

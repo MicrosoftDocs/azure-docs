@@ -6,9 +6,9 @@ services: sql-edge
 ms.service: sql-edge
 ms.topic: conceptual
 ms.subservice:
-author: VasiyaKrishnan
-ms.author: vakrishn
-ms.reviewer: sstein
+author: kendalvandyke
+ms.author: kendalv 
+ms.reviewer: jroth
 ms.date: 10/09/2020
 ---
 # Azure SQL Edge security partners

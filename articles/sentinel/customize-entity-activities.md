@@ -88,6 +88,11 @@ The **Activity wizard - Create new activity** will open, with its fields blank.
 
 Here you will write or paste the KQL query that will be used to detect the activity for the chosen entity, and determine how it will be represented in the timeline.
 
+> [!IMPORTANT]
+>
+> We recommend that your query uses an [Advanced SIEM Information model (ASIM) parser](normalization-about-parsers.md) and not a built-in table. This ensures that the query will support any current or future relevant data source rather than a single data source.
+>
+
 In order to correlate events and detect the custom activity, the KQL requires an input of several parameters, depending on the entity type. The parameters are the various identifiers of the entity in question.
 
 Selecting a strong identifier is better in order to have one-to-one mapping between the query results and the entity. Selecting a weak identifier may yield inaccurate results. [Learn more about entities and strong vs. weak identifiers](entities.md).

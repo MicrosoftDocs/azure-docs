@@ -91,7 +91,7 @@ As your schema evolves, and new properties are added over time, the analytical s
 
 The following constraints are applicable on the operational data in Azure Cosmos DB when you enable analytical store to automatically infer and represent the schema correctly:
 
-* You can have a maximum of 1000 properties at any nesting level in the schema and a maximum nesting depth of 127.
+* You can have a maximum of 1000 properties across all nested levels in the document schema and a maximum nesting depth of 127.
   * Only the first 1000 properties are represented in the analytical store.
   * Only the first 127 nested levels are represented in the analytical store.
   * The first level of a JSON document is its `/` root level.

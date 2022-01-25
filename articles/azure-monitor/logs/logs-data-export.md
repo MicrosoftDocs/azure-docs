@@ -33,11 +33,11 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 
 ## Limitations
 
-- All tables will be supported in export, but support is currently limited to those specified in the [supported tables](#supported-tables) section below. 
-- The current custom log tables won’t be supported in export. A new version of custom log preview available February 2022, will be supported in export.
+- All tables will be supported in export, but currently limited to those specified in the [supported tables](#supported-tables) section below.
+- The legacy custom log won’t be supported in export. The next generation of custom log available in preview early 2022 can be exported.
 - You can define up to 10 enabled rules in your workspace. More rules are allowed when disabled. 
-- Storage account must be unique across all export rules in your workspace.
 - Destinations must be in the same region as the Log Analytics workspace.
+- Storage account must be unique across rules in workspace.
 - Tables names can be no longer than 60 characters when exporting to storage account and 47 characters to event hub. Tables with longer names will not be exported.
 - Data export isn't supported in these regions currently: 
 	- Korea South
@@ -78,10 +78,10 @@ You need to have 'write' permissions to both workspace and destination to config
 
 Don't use an existing event hub that has other, non-monitoring data stored in it to better control access to the data and prevent reaching event hub namespace ingress rate limit, failures, and latency.
 
-Data is sent to your event hub as it reaches Azure Monitor and exported to destinations located in workspace region. When specific event hub isn't provided in rule, an event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. The [number of supported event hubs in 'Basic' and 'Standard' namespaces tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). When exporting more than 10 tables to these tiers, either split the tables between several export rules to different event hub namespaces, or provide an event hub name in the rule to export all tables to that event hub.
+Data is sent to your event hub as it reaches Azure Monitor and exported to destinations located in workspace region. You can create multiple export rules to the same event hub namespace by providing different `event hub name` in rule.When `event hub name` isn't provided, a default event hub is created for each table that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. The [number of supported event hubs in 'Basic' and 'Standard' namespaces tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). When exporting more than 10 tables to these tiers, either split the tables between several export rules to different event hub namespaces, or provide an event hub name in the rule to export all tables to that event hub.
 
 > [!NOTE]
-> - 'Basic' event hub tier is limited--it supports lower event size [limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) and no the is no [Auto-inflate](../../event-hubs/event-hubs-auto-inflate.md) option. Since data volume to your workspace increases over time and consequence event hub scaling is required, use 'Standard', 'Premium' or 'Dedicated' event hub tiers with **Auto-inflate** feature enabled to automatically scale up and increase the number of throughput units. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md).
+> - 'Basic' event hub tier is limited--it supports [lower event size](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) and no [Auto-inflate](../../event-hubs/event-hubs-auto-inflate.md) option to automatically scale up and increase the number of throughput units. Since data volume to your workspace increases over time and consequence event hub scaling is required, use 'Standard', 'Premium' or 'Dedicated' event hub tiers with **Auto-inflate** feature enabled. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md).
 > - Data export can't reach event hub resources when virtual networks are enabled. You have to enable the **Allow trusted Microsoft services** to bypass this firewall setting in event hub, to grant access to your Event Hubs resources.
 
 ## Enable data export
@@ -116,7 +116,7 @@ If you have configured your storage account to allow access from selected networ
 ### Destinations monitoring
 
 > [!IMPORTANT]
-> Export destinations have limits and should be monitored to minimize throttling, failures, and latency. See [storage accounts scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) and [event hub namespace quota](../../event-hubs/event-hubs-quotas.md).
+> Export destinations have limits and should be monitored to minimize throttling, failures, and latency. See [storage accounts scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) and [event hub namespace quota](../../event-hubs/event-hubs-quotas.md). 
 
 **Monitoring storage account**
 
@@ -150,11 +150,11 @@ If you have configured your storage account to allow access from selected networ
    - Use 'Premium' or 'Dedicated' tiers for higher throughput
 
 ### Create or update data export rule
-Data export rule defines the destination and tables for which data is exported. You can create 10 rules in 'enable' state in your workspace, more rules are allowed in 'disable' state. Storage account destination must be unique across all export rules in workspace, but multiple rules can export to the same event hub namespace in separate event hubs.
+Data export rule defines the destination and tables for which data is exported. You can create 10 rules in 'enable' state in your workspace, more rules are allowed in 'disable' state. Storage account must be unique across rules in workspace. Multiple rules can use the same event hub namespace when sending to separate event hubs.
 
 > [!NOTE]
 > - You can include tables that aren't yet supported in export, and no data will be exported for these until the tables are supported.
-> - The current custom log tables won’t be supported in export. The next generation of custom log available early 2022 in preview is supported.
+> - The legacy custom log won’t be supported in export. The next generation of custom log available in preview early 2022 can be exported.
 > - Export to storage account - a separate container is created in storage account for each table.
 > - Export to event hub - if event hub name isn't provided, a separate event hub is created for each table. The [number of supported event hubs in 'Basic' and 'Standard' namespaces tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). When exporting more than 10 tables to these tiers, either split the tables between several export rules to different event hub namespaces, or provide an event hub name in the rule to export all tables to that event hub.
 
@@ -637,9 +637,6 @@ N/A
 
 ## Unsupported tables
 If the data export rule includes an unsupported table, the configuration will succeed, but no data will be exported for that table. If the table is later supported, then its data will be exported at that time.
-
-If the data export rule includes a table that doesn't exist, it will fail with the error "Table \<tableName\> does not exist in the workspace".
-
 
 ## Supported tables
 Supported tables are currently limited to those specified below. All data from the table will be exported unless limitations are specified. This list is updated as more tables are added.

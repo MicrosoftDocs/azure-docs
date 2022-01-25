@@ -26,7 +26,7 @@ It is recommended that you use a non-production environment to test the steps in
 
 To delete an enterprise application, you need:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 - Completion of the steps in [Quickstart: Add an enterprise application](add-application-portal.md).
 

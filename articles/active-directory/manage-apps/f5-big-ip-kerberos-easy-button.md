@@ -15,15 +15,15 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure F5 BIG-IP Easy Button for Kerberos SSO
 
-In this tutorial, you’ll implement Secure Hybrid Access (SHA) with Single Sign-on (SSO) to Kerberos applications using F5’s BIG-IP Easy Button guided configuration.
+In this article, you'll learn to implement Secure Hybrid Access (SHA) with single sign-on (SSO) to Kerberos applications using F5’s BIG-IP Easy Button guided configuration.
 
 Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefits, including:
 
-* Improved zero-trust governance through Azure AD pre-authentication and authorization
+* Improved Zero Trust governance through Azure AD pre-authentication and authorization
 
-* End-to-end SSO between Azure AD and BIG-IP published services
+* Full SSO between Azure AD and BIG-IP published services
 
-* Manage identities and access from a single control plane - [The Azure portal](https://portal.azure.com/)
+* Manage identities and access from a single control plane, [The Azure portal](https://portal.azure.com/)
 
 To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -39,7 +39,7 @@ Having a BIG-IP in front of the application enables us to overlay the service wi
 
 ## Scenario architecture
 
-The secure hybrid access solution for this scenario is made up of the following:
+The SHA solution for this scenario is made up of the following:
 
 **Application:** BIG-IP published service to be protected by and Azure AD SHA. The application host is domain-joined and so is integrated with Active Directory (AD).
 
@@ -49,7 +49,7 @@ The secure hybrid access solution for this scenario is made up of the following:
 
 **BIG-IP:** Reverse proxy functionality enables publishing backend applications. The APM then overlays published applications with SAML Service Provider (SP) and SSO functionality.
 
-Secure hybrid access for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
+SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
 ![Scenario architecture](./media/f5-big-ip-kerberos-easy-button/scenario-architecture.png)
 
@@ -88,7 +88,7 @@ Prior BIG-IP experience isn’t necessary, but you will need:
 
 * An existing Kerberos application or [setup an IIS (Internet Information Services) app](https://active-directory-wp.com/docs/Networking/Single_Sign_On/SSO_with_IIS_on_Windows.html) for KCD SSO
 
-## BIG-IP deployment methods
+## BIG-IP configuration methods
 
 There are many methods to configure BIG-IP for this scenario, including two template-based options and an advanced configuration. This tutorial covers latest Guided Configuration 16.1 offering an Easy button template.
 
@@ -436,12 +436,14 @@ There may be cases where the Guided Configuration templates lack the flexibility
 
 For those scenarios, go ahead and deploy using the Guided Configuration. Then navigate to **Access > Guided Configuration** and select the small padlock icon on the far right of the row for your applications’ configs. At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
 
+For more information, see [Advanced Configuration for kerberos-based SSO](./f5-big-ip-kerberos-advanced.md).
+
 >[!NOTE]
 >Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, therefore we recommend the manual approach for production services. 
 
 ## Troubleshooting
 
-You can fail to access the secure hybrid access protected application due to any number of factors, including a misconfiguration. 
+You can fail to access the SHA protected application due to any number of factors, including a misconfiguration. 
 
 Consider the following points while troubleshooting any issue.
 

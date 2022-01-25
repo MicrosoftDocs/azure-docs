@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/01/2021
+ms.date: 01/12/2022
 ms.author: radeltch
 
 ---
@@ -137,11 +137,8 @@ Perform the following steps, as preparation for using Azure NetApp Files.
 
 You need the following software from SAP:
    * SAP Software Provisioning Manager (SWPM) installation tool version SPS25 or later.
-   * SAP Kernel 7.49 or later
+   * SAP Kernel 7.22 or later
    * Create a virtual host name (cluster network name)  for the clustered SAP ASCS/SCS instance, as described in [Create a virtual host name for the clustered SAP ASCS/SCS instance](./sap-high-availability-installation-wsfc-shared-disk.md#a97ad604-9094-44fe-a364-f89cb39bf097).
-
-> [!NOTE]
-> Clustering SAP ASCS/SCS instances by using a file share is supported for SAP NetWeaver 7.40 (and later), with SAP Kernel 7.49 (and later).  
 
 ### Install an ASCS/SCS instance on the first ASCS/SCS cluster node
 
