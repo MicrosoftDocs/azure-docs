@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Configure authentication in a sample Node.js web application by using Azure AD B2C
 
-This sample article uses a sample Node.js applications to show how to add Azure Active Directory B2C (Azure AD B2C) authentication to your Node.js web applications. The sample application enables users to sign in, sign out, update profile and reset password using Azure AD B2C user flows. The sample web applications uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to handle authentication and authorization. 
+This sample article uses a sample Node.js applications to show how to add Azure Active Directory B2C (Azure AD B2C) authentication to a Node.js web applications. The sample application enables users to sign in, sign out, update profile and reset password using Azure AD B2C user flows. The sample web applications uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to handle authentication and authorization. 
 
 In this article, you will accomplish the following: 
 - Register a web application in the Azure portal.
@@ -79,12 +79,12 @@ Azure AD B2C prepends `B2C_1_` to the user flow name. For example, `susi_node_ap
     ```
 1. Open your web app in a code editor such as Visual Studio Code and update the `.env` file as follows: 
     1. **SERVER_PORT**: The HTTP port on which the Node server runs. Leave the value as is.
-    1. **APP_CLIENT_ID**: The application ID for the web app you registered in Azure portal. 
+    1. **APP_CLIENT_ID**: The **Application (client) ID** for the web app you registered in Azure portal. 
     1. **SESSION_SECRET**: The express session secret. Leave the value as is or use a random string. 
     1. **APP_CLIENT_SECRET**: The client secret for the web app you registered in Azure portal.
-    1. **SIGN_UP_SIGN_IN_POLICY_AUTHORITY**: The Sign in and Sign up user flow authority such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi_node_app`.
-    1. **RESET_PASSWORD_POLICY_AUTHORITY**: The Reset password user flow authority such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<reset-password-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<reset-password-user-flow-name>` with the name of your Reset password user flow such as `B2C_1_reset_password_node_app`.
-    1. **EDIT_PROFILE_POLICY_AUTHORITY**: The Profile edit user flow authority such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<profile-edit-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<reset-password-user-flow-name>` with the name of your reset password user flow such as `B2C_1_edit_profile_node_app`.
+    1. **SIGN_UP_SIGN_IN_POLICY_AUTHORITY**: The **Sign in and sign up** user flow authority such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi_node_app`. Learn how to [Get your tenant name](tenant-management.md#get-your-tenant-name). If you're using a custom domain, replace `<tenant-name>.b2clogin.com` with your domain, such as `contoso.com`.
+    1. **RESET_PASSWORD_POLICY_AUTHORITY**: The **Reset password **user flow authority such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<reset-password-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<reset-password-user-flow-name>` with the name of your Reset password user flow such as `B2C_1_reset_password_node_app`.
+    1. **EDIT_PROFILE_POLICY_AUTHORITY**: The **Profile editing** user flow authority such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<profile-edit-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<reset-password-user-flow-name>` with the name of your reset password user flow such as `B2C_1_edit_profile_node_app`.
     1. **AUTHORITY_DOMAIN**: The Azure AD B2C authority domain such as `https://<your-tenant-name>.b2clogin.com`. Replace `<your-tenant-name>` with the name of your tenant. 
     1. **APP_REDIRECT_URI**: The application redirect URI where Azure AD B2C will return authentication responses (tokens). It matches the **Redirect URI** you set while registering your app in Azure portal, and it must be publicly accessible. Leave the value as is.
     1. **LOGOUT_ENDPOINT**: The Azure AD B2C logout endpoint such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:3000`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi_node_app`.
@@ -105,13 +105,13 @@ You can now test the sample app. You need to start the Node server and access it
 
 2. In your browser, go to `http://localhost:3000` or `http://localhost:port`, where `port` is the port that your web server is listening on. You should see the page with a **Sign in** button.
 
-   :::image type="content" source="./media/tutorial-authenticate-nodejs-webapp-msal/tutorial-login-page.png" alt-text="Screenshot that shows a Node web app sign-in page.":::
+   :::image type="content" source="./media/configure-a-sample-node-web-app/tutorial-login-page.png" alt-text="Screenshot that shows a Node web app sign-in page.":::
 
 ### Test sign in
 1. After the page with the **Sign in** button finishes loading, select **Sign in**. You're prompted to sign in.
 1. Enter your sign-in credentials, such as email address and password. If you don't have an account, select **Sign up now** to create an account. If you have an account but have forgotten your password, select **Forgot your password?** to recover your password. After you successfully sign in or sign up, you should see the following page that shows sign-in status.
 
-   :::image type="content" source="./media/tutorial-authenticate-nodejs-webapp-msal/tutorial-dashboard-page.png" alt-text="Screenshot that shows Node web app sign-in status.":::
+   :::image type="content" source="./media/configure-a-sample-node-web-app/tutorial-dashboard-page.png" alt-text="Screenshot that shows Node web app sign-in status.":::
 
 ### Test profile editing
 1. After you sign in, select **Edit profile**. 
