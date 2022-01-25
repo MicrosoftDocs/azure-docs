@@ -92,7 +92,7 @@ Do the following to create the service.
 
     :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/add-a-data-flow-template.png" alt-text="Screenshot of the Azure portal. The Add a data flow template pop-up is shown and the Add button is highlighted.":::
 
-1. We'll now create another data flow template for the same rule that matches on UDP packets flowing away UEs on port 11. 
+1. We'll now create another data flow template for the same rule that matches on UDP packets flowing away from UEs on port 11. 
 
     Under **Data flow templates**, select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
 
@@ -133,7 +133,9 @@ Do the following to create the service.
 
 1. Select **Add**.
 1. We can now finalize the rule. Under **Add a policy rule**, select **Add**.
-1. We now have two configured data flow policy rules on the service, which are displayed under the **Data flow policy rules** heading. Note that the `rule_block_icmp_and_udp_uplink_traffic` rule has a lower precedence value than the `rule_allow_other_icmp_and_udp_traffic` rule (10 and 15 respectively). This ensures that the `rule_block_icmp_and_udp_uplink_traffic` rule to block packets is applied first, before the wider `rule_allow_other_icmp_and_udp_traffic` is applied to all remaining packets.
+1. We now have two configured data flow policy rules on the service, which are displayed under the **Data flow policy rules** heading. 
+
+    Note that the `rule_block_icmp_and_udp_uplink_traffic` rule has a lower value for the **Policy rule** precedence field than the `rule_allow_other_icmp_and_udp_traffic` rule (10 and 15 respectively). Rules with lower values are given higher priority. This ensures that the `rule_block_icmp_and_udp_uplink_traffic` rule to block packets is applied first, before the wider `rule_allow_other_icmp_and_udp_traffic` is applied to all remaining packets.
 
     :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/example-protocol-filtering-service.png" alt-text="Screenshot of the Azure portal. It shows the create a service screen with all fields correctly filled out and two data flow policy rules.":::
 
@@ -187,7 +189,7 @@ Do the following to create the service.
     |**Policy rule precedence**     | Select **11**.        |
     |**Allow traffic**     | Select **Blocked**.        |
 
-1. We'll now create a data flow template that matches on UDP packets flowing towards UEs from 10.204.141.200 on port 12, so that they can be blocked by the `rule_block_udp_from_specific_sources` rule.
+1. Next, we'll create a data flow template that matches on UDP packets flowing towards UEs from 10.204.141.200 on port 12, so that they can be blocked by the `rule_block_udp_from_specific_sources` rule.
 
     Under **Data flow templates**, select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
 
@@ -200,7 +202,7 @@ Do the following to create the service.
     |**Ports**     | `12`        |
 
 1. Select **Add**.
-1. We'll now create another data flow template for the same rule that matches on UDP packets flowing in either direction that are labelled with any remote address in the range 10.204.141.0/24 and port 15.
+1. Finally, we'll create another data flow template for the same rule that matches on UDP packets flowing in either direction that are labelled with any remote address in the range 10.204.141.0/24 and port 15.
 
     Under **Data flow templates**, select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
 
@@ -387,7 +389,7 @@ Let's create the SIM policies.
 1. We'll now create the other SIM policy. Search for and select the Mobile Network resource representing the private mobile network for which you want to configure a service.
 1. In the resource menu, select **SIM policies**.
 1. In the command bar, select **Create**.
-1. On the **Create a SIM policy** blade that appears, fill out the fields as follows.
+1. Under **Create a SIM policy** on the right, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|

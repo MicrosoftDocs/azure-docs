@@ -53,17 +53,17 @@ Now we'll configure the data flow policy rules you want to use for this service.
 
     :::image type="content" source="media\configure-service-azure-portal\add-policy-rule.png" alt-text="Screenshot of the Azure portal showing the Add policy rule fields.":::
 
-1. Do the following for one of the service data flow templates you want to apply to this data flow policy rule.
-    - Select **Add service data flow template**.
-    - Use the information you collected in [Collect service data flow template values](collect-required-information-for-service.md#collect-service-data-flow-template-values) for your chosen template to fill out the fields in the pop-up.
+1. Do the following for one of the data flow templates you want to apply to this data flow policy rule.
+    - Select **Add data flow template**.
+    - Use the information you collected in [Collect data flow template values](collect-required-information-for-service.md#collect-data-flow-template-values) for your chosen template to fill out the fields in the pop-up.
     
-        :::image type="content" source="media/configure-service-azure-portal/add-service-data-flow-template.png" alt-text="Screenshot of the Azure portal showing the Add service data flow template pop-up.":::
+        :::image type="content" source="media/configure-service-azure-portal/add-service-data-flow-template.png" alt-text="Screenshot of the Azure portal showing the Add data flow template pop-up.":::
 
     - Select **Add**.
-1. Repeat the previous step for any other service data flow templates you want to apply to this data flow policy rule.
+1. Repeat the previous step for any other data flow templates you want to apply to this data flow policy rule.
 1. In **Add policy rule** on the right, select **Add**.
 
-    :::image type="content" source="media/configure-service-azure-portal/finalise-policy-rule.png" alt-text="Screenshot of the Azure portal showing the Add button for a new data flow policy rule.":::
+    :::image type="content" source="media/configure-service-azure-portal/finalize-policy-rule.png" alt-text="Screenshot of the Azure portal showing the Add button for a new data flow policy rule.":::
 
 1. On the **Basics** configuration tab, confirm that your new rule appears under the **Traffic rules** section.
 
@@ -85,8 +85,8 @@ We'll now create the service so it can be added to your policy control configura
 
     :::image type="content" source="media/configure-service-azure-portal/service-resource-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing the successful deployment of a service resource and the Go to resource button.":::
 
-1. Confirm that the data flow policy rules and service data flow templates listed at the bottom of the screen are configured as expected.
-:::image type="content" source="media/configure-service-azure-portal/service-resource.png" alt-text="Screenshot of the Azure portal showing a service resource. The data flow policy rules and service data flow templates are highlighted." lightbox="media/configure-service-azure-portal/service-resource.png":::
+1. Confirm that the data flow policy rules and data flow templates listed at the bottom of the screen are configured as expected.
+:::image type="content" source="media/configure-service-azure-portal/service-resource.png" alt-text="Screenshot of the Azure portal showing a service resource. The data flow policy rules and data flow templates are highlighted." lightbox="media/configure-service-azure-portal/service-resource.png":::
 
 ## Next steps
 

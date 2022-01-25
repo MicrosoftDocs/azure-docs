@@ -58,7 +58,7 @@ Each service includes the following.
 
 - One or more **data flow policy rules**, which identify the SDFs to which the service should be applied. You can configure each rule with the following to determine when it's applied and the effect it will have.
 
-  - One or more **service data flow templates**, which provide the packet filters that identify the SDFs on which to match. You can match on an SDF's direction, protocol, target IP address and / or target port. The target IP address and port refer to the component on the data network's end of the connection.
+  - One or more **data flow templates**, which provide the packet filters that identify the SDFs on which to match. You can match on an SDF's direction, protocol, target IP address and / or target port. The target IP address and port refer to the component on the data network's end of the connection.
   - A traffic control setting, which determines whether the packet core instance should allow or block traffic matching the SDF(s).
   - A precedence value, which the packet core instance can use to rank data flow policy rules by importance. 
 
@@ -91,7 +91,7 @@ During PDU session establishment, the packet core instance takes the following s
    - Identifies the QoS Flow to which each SDF should be bound.
    - Marks packets with the appropriate QFI. The QFI ensures packets receive the correct QoS handling between the UE and the packet core instance without further inspection.
 
-1. Inspects downlink packets to check their properties against the service data flow templates of the associated services, and then takes the following steps based on this matching.
+1. Inspects downlink packets to check their properties against the data flow templates of the associated services, and then takes the following steps based on this matching.
 
    - Applies any necessary traffic control.
    - Identifies the QoS Flow to which each SDF should be bound.

@@ -131,9 +131,9 @@ In this step, you'll assign a SIM policy to your SIMs. SIMs need an assigned SIM
     - Tick the checkbox next to the name of each SIM to which you assign the SIM policy.
     - Select **Assign SIM policy**.
     - In **Assign SIM policy** on the right, select your chosen SIM policy from the **SIM policy** drop-down menu.
-    - Select the **Assign SIM policy** button.<!-- need a step after this for post deployment -->
+    - Select the **Assign SIM policy** button.
     
-        :::image type="content" source="media/provision-sims-azure-portal/assign-sim-policy.png" alt-text="Screenshot of the Azure portal. It shows a list of provisioned SIMs and fields to assign a SIM policy." lightbox="media/provision-sims-azure-portal/assign-sim-policy.png"::: 
+        :::image type="content" source="media/provision-sims-azure-portal/assign-sim-policy.png" alt-text="Screenshot of the Azure portal. It shows a list of provisioned SIMs and fields to assign a SIM policy." lightbox="media/provision-sims-azure-portal/assign-sim-policy.png":::
 
 1. The Azure portal will now begin deploying the configuration change. When the deployment is complete, select **Go to resource** (if you have assigned a SIM policy to a single SIM) or **Go to resource group** (if you have assigned a SIM policy to multiple SIMs).
 
