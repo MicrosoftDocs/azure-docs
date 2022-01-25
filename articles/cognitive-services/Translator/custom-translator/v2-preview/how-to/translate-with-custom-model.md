@@ -15,9 +15,7 @@ ms.topic: conceptual
 > [!IMPORTANT]
 > Custom Translator v2.0 is currently in public preview. Some features may not be supported or have constrained capabilities.
 
-After you publish your custom model you can access it with the Translator API by using the `Category ID` parameter. To retrieve, choose the copy icon:
-
-   :::image type="content" source="../media/how-to/publish-model.png" alt-text="{alt-text}":::
+After you publish your custom model, you can access it with the Translator API by using the `Category ID` parameter. 
 
 ## How to translate
 

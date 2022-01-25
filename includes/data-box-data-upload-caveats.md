@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox  
 ms.subservice: heavy
 ms.topic: include
-ms.date: 01/13/2022
+ms.date: 01/21/2022
 ms.author: alkohli
 ---
 
@@ -15,6 +15,7 @@ ms.author: alkohli
 - Merging folder contents:
   - Every file written into *StorageAccount_BlockBlob* and *StorageAccount_PageBlob* shares is uploaded as a block blob and page blob respectively.
   - If a folder has the same name as an existing container, the folder's contents are merged with the container's contents. Files or blobs that aren't already in the cloud are added to the container. If a file or blob has the same name as a file or blob that's already in the container, the existing file or blob is overwritten.
+  - An upload to a blob in the Archive tier will fail if the container has an existing blob with the same name. While a blob is in the Archive tier, it can't be read or modified. If you need to overwrite a blob, make sure the blob isn't set to archive. For more information, see [Archive access tier](../articles/storage/blobs/access-tiers-overview.md#archive-access-tier).
   - Any empty directory hierarchy (without any files) created under *StorageAccount_BlockBlob* and *StorageAccount_PageBlob* folders isn't uploaded.
 - If you use both the SMB and NFS protocols for data copies, we recommend that you:
   - Use different storage accounts for SMB and NFS.
