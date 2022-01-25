@@ -21,7 +21,7 @@ You can create an Azure Arc-enabled PostgreSQL Hyperscale server group from the 
 
 ## Get started
 
-There are important topics you might want read before you proceed (if you're already familiar with these topics, you can skip):
+You might want read the following important topics before you proceed. (If you're already familiar with these topics, you can skip.)
 
 - [Overview of Azure Arc-enabled data services](overview.md)
 - [Connectivity modes and requirements](connectivity.md)
@@ -60,20 +60,20 @@ Next, you choose one the options in the following sections.
 ### Deploy from Azure Marketplace
 
 1. Go to [the Azure portal](https://portal.azure.com).
-2. In Azure Marketplace, search for *azure arc postgres*, and select **Azure Arc-enabled PostgreSQL Hyperscale server groups**.
-3. Select **+ Create** (located at the top left corner of the page). 
+2. In Azure Marketplace, search for **azure arc postgres**, and select **Azure Arc-enabled PostgreSQL Hyperscale server groups**.
+3. Select **+ Create** (located at the upper-left corner of the page). 
 4. Fill in the form, like you deploy any other Azure resource.
 
 ### Deploy from Azure Database for PostgreSQL deployment option page
 
 1. Go to the following URL: `https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer`.
-1. Select **Azure Arc-enabled PostgreSQL Hyperscale (Preview)** (located at the bottom right of the page).
+1. Select **Azure Arc-enabled PostgreSQL Hyperscale (Preview)** in the lower right of the page.
 1. Fill in the form, like you deploy any other Azure resource.
 
 ### Deploy from the Azure Arc center
 
 1. Go to the following URL: `https://ms.portal.azure.com/#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/overview`.
-1. From the **Deploy Azure services** tile, select **Deploy**. Then, from the **PostgreSQL Hyperscale (Preview)** tile, select **Deploy**. Alternatively, from the navigation pane on the left of the page, in the **Services** section, select **PostgreSQL Hyperscale (Preview)**. Then select **+ Create** (located at the top left of the pane).
+1. From the **Deploy Azure services** tile, select **Deploy**. Then, from the **PostgreSQL Hyperscale (Preview)** tile, select **Deploy**. Alternatively, from the left pane, in the **Services** section, select **PostgreSQL Hyperscale (Preview)**. Then select **+ Create** (in the upper left of the pane).
 
 ### Important considerations
 
@@ -85,7 +85,7 @@ Be aware of the following considerations when you're deploying:
 
   |You need   |Shape of the server group you will deploy   |Number of worker nodes to indicate   |Note   |
   |---|---|---|---|
-  |A scaled out form of Azure Arc-enabled PostgreSQL Hyperscale to satisfy the scalability needs of your applications.   |Three or more instances of Azure Arc-enabled PostgreSQL Hyperscale. One is the coordinator, and *n* are workers, with *n >=2*.   |*n*, with *n>=2*.   |The Citus extension that provides the Hyperscale capability is loaded.   |
+  |A scaled-out form of Azure Arc-enabled PostgreSQL Hyperscale to satisfy the scalability needs of your applications.   |Three or more instances of Azure Arc-enabled PostgreSQL Hyperscale. One is the coordinator, and *n* are workers, with *n >=2*.   |*n*, with *n>=2*.   |The Citus extension that provides the Hyperscale capability is loaded.   |
   |A basic form of Azure Arc-enabled PostgreSQL Hyperscale. You want to do functional validation of your application, at minimum cost. You don't need performance and scalability validation.   |One instance of Azure Arc-enabled PostgreSQL Hyperscale. The instance serves as both coordinator and worker.   |*0*, and add Citus to the list of extensions to load.   |The Citus extension that provides the Hyperscale capability is loaded.   |
   |A simple instance of Azure Arc-enabled PostgreSQL Hyperscale that is ready to scale out when you need it.   |One instance of Azure Arc-enabled PostgreSQL Hyperscale. It isn't yet aware of the semantic for coordinator and worker. To scale it out after deployment, edit the configuration, increase the number of worker nodes, and distribute the data.   |*0*.   |The Citus extension that provides the Hyperscale capability is present on your deployment, but isn't yet loaded.   |
   |   |   |   |   |
