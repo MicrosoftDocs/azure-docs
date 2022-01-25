@@ -61,19 +61,9 @@ A Windows device with the following minimum requirements:
    <sub><sup>1</sup> Windows 10 and Windows Server 2019 minimum build 17763 with all current cumulative updates installed.</sub>
 
 * Hardware requirements
-  <!-- 1.1 -->
-  :::moniker range="iotedge-2018-06"
   * Minimum Free Memory: 1 GB
   * Minimum Free Disk Space: 10 GB
-  :::moniker-end
-  <!-- end 1.1 -->
- 
-  <!-- 1.2 -->
-  :::moniker range=">=iotedge-2020-11"
-  * Minimum Free Memory: 1 GB
-  * Minimum Free Disk Space: 20 GB
-  :::moniker-end
-  <!-- end 1.2 -->
+
 
 ## Samples
 
