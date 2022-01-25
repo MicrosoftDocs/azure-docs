@@ -65,8 +65,13 @@ The Hive View default timeout value may not be suitable for the query you are ru
 
 2. Restart the active Ambari server by running the following. If you get an error message saying it's not the active Ambari server, just ssh into the next headnode and repeat this step.
   ```
+  sudo ambari-server status 
   sudo systemctl restart ambari-server
   ```
+3. Confirm Ambari server actually restarted. If you followed the steps, you will notice the PID has changed.
+   ```
+   sudo ambari-server status
+   ```
 
 ## Next steps
 
