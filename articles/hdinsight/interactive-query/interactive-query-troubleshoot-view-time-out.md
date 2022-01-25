@@ -13,7 +13,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 ## Issue
 
 When running certain queries from the Apache Hive view, the following error may be encountered:
--
+
 ```
 ERROR [ambari-client-thread-1] [HIVE 2.0.0 AUTO_HIVE20_INSTANCE] NonPersistentCursor:131 - Result fetch timed out
 java.util.concurrent.TimeoutException: deadline passed
