@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to create an Azure AD app registration, as an authentication option for client apps, using the CLI.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/5/2022
+ms.date: 1/24/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -92,7 +92,7 @@ You can confirm that the Azure Digital Twins permissions were granted by looking
 
 :::image type="content" source="media/how-to-create-app-registration/cli-required-resource-access.png" alt-text="Screenshot of Cloud Shell output of the app registration creation command. The items under 'requiredResourceAccess' are highlighted: there's a 'resourceAppId' value of 0b07f429-9f4b-4714-9392-cc5e8e80c8b0, and a 'resourceAccess > id' value of 4589bd03-58cb-4e6c-b17f-b580e39652f8.":::
 
-You can also verify the app registration was successfully created by using the Azure portal. For portal instructions, see [Verify success (portal)](how-to-create-app-registration-portal.md#verify-success).
+You can also verify the app registration was successfully created with the necessary API permissions by using the Azure portal. For portal instructions, see [Verify API permissions (portal)](how-to-create-app-registration-portal.md#verify-api-permissions).
 
 ## Collect important values
 
@@ -136,6 +136,22 @@ The output of this command is information about the client secret that you've cr
 
 >[!IMPORTANT]
 >Make sure to copy the value now and store it in a safe place, as it cannot be retrieved again. If you can't find the value later, you'll have to create a new secret.
+
+## Create Azure Digital Twins role assignment
+
+In this section, you'll create a role assignment for the app registration to set its permissions on the Azure Digital Twins instance. This role will determine what permissions the app registration holds on the instance, so you should select the role that matches the appropriate level of permission for your situation. One possible role is [Azure Digital Twins Data Owner](../role-based-access-control/built-in-roles.md#azure-digital-twins-data-owner). For a full list of roles and their descriptions, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
+
+Use the following command to assign the role (must be run by a user with [sufficient permissions](how-to-set-up-instance-cli.md#prerequisites-permission-requirements) in the Azure subscription). The command requires you to pass in the name of the app registration.
+
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<name-of-app-registration>" --role "<appropriate-role-name>"
+```
+
+The result of this command is outputted information about the role assignment that's been created for the app registration.
+
+### Verify role assignment
+
+To further verify the role assignment, you can look for it in the Azure portal. Follow the instructions in [Verify role assignment (portal)](how-to-create-app-registration-portal.md#verify-role-assignment).
 
 ## Other possible steps for your organization
 
