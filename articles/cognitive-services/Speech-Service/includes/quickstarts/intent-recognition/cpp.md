@@ -9,7 +9,7 @@ ms.author: eur
 
 ## Create a LUIS app for intent recognition
 
-[!INCLUDE [Create a LUIS app for intent recognition](../luis-sign-up.md)]
+[!INCLUDE [Create a LUIS app for intent recognition](luis-sign-up.md)]
 
 ## Open your project in Visual Studio
 
@@ -35,7 +35,7 @@ Before you can initialize an `IntentRecognizer` object, you need to create a con
 Insert this code in the `recognizeIntent()` method. Make sure you update these values:
 
 * Replace `"YourLanguageUnderstandingSubscriptionKey"` with your LUIS prediction key.
-* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location.  Use **Region identifier** from [region](../../../../regions.md).
+* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location.  Use **Region identifier** from [region](../../../regions.md).
 
 >[!TIP]
 > If you need help finding these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
@@ -44,7 +44,7 @@ Insert this code in the `recognizeIntent()` method. Make sure you update these v
 
 This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](/cpp/cognitive-services/speech/speechconfig).
 
-The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
+The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../how-to-specify-source-language.md) for information on choosing the source language.
 
 ## Initialize an IntentRecognizer
 
