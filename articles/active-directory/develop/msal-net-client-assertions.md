@@ -130,11 +130,12 @@ static string GetSignedClientAssertion(X509Certificate2 certificate, string tena
     var rsa = certificate.GetRSAPrivateKey();
 
     //alg represents the desired signing algorithm, which is SHA-256 in this case
-    //kid represents the certificate thumbprint
+    //x5t represents the certificate thumbprint base64 url encoded
     var header = new Dictionary<string, string>()
     {
         { "alg", "RS256"},
-        { "kid", Encode(certificate.GetCertHash()) }
+        { "typ", "JWT" },
+        { "x5t", Base64UrlEncode(certificate.GetCertHash()) }
     };
 
     //Please see the previous code snippet on how to craft claims for the GetClaims() method
@@ -155,7 +156,7 @@ static string GetSignedClientAssertion(X509Certificate2 certificate, string tena
 You also have the option of using [Microsoft.IdentityModel.JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) to create the assertion for you. The code will be a more elegant as shown in the example below:
 
 ```csharp
-        string GetSignedClientAssertion(X509Certificate2 certificate)
+        string GetSignedClientAssertionAlt(X509Certificate2 certificate)
         {
             //aud = https://login.microsoftonline.com/ + Tenant ID + /v2.0
             string aud = $"https://login.microsoftonline.com/{tenantID}/v2.0";
@@ -187,9 +188,9 @@ Once you have your signed client assertion, you can use it with the MSAL apis as
 
 ```csharp
             X509Certificate2 certificate = ReadCertificate(config.CertificateName);
-            string signedClientAssertion = GetSignedClientAssertion(certificate);
+            string signedClientAssertion = GetSignedClientAssertion(certificate, tenantId, ConfidentialClientID)
             // OR
-            //string signedClientAssertion = GetSignedClientAssertion(certificate, tenantId, ConfidentialClientID);
+            //string signedClientAssertion = GetSignedClientAssertionAlt(certificate);
 
             var confidentialApp = ConfidentialClientApplicationBuilder
                 .Create(ConfidentialClientID)
