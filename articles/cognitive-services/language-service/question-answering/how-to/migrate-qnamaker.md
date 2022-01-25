@@ -6,7 +6,7 @@ ms.subservice: language-service
 ms.topic: how-to
 ms.author: mbullwin
 author: mrbullwinkle
-ms.date: 01/24/2022
+ms.date: 01/23/2022
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
