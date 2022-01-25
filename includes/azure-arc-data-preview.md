@@ -10,4 +10,4 @@ ms.author: mikeray
 >
 > The latest updates are available in the [release notes](../articles/azure-arc/data/release-notes.md).
 >
-> For the current update, deployment of Arc data controller in direct connectivity mode is only supported from Azure portal.
+> For the current update, deployment of the Azure Arc data controller in direct connectivity mode is only supported from the Azure portal.

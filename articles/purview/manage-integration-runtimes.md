@@ -1,8 +1,8 @@
 ---
 title: Create and manage Integration Runtimes
 description: This article explains the steps to create and manage Integration Runtimes in Azure Purview.
-author: viseshag
-ms.author: viseshag
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
@@ -89,16 +89,25 @@ If you select the **Use system proxy** option for the HTTP proxy, the self-hoste
     </system.net>
     ```
 
-    You can then add proxy server details as shown in the following example:
+      You can then add proxy server details as shown in the following example and include Azure Purview, data sources and other relevant services endpoints in the bypass list:
 
     ```xml
     <system.net>
-        <defaultProxy enabled="true">
-              <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
-        </defaultProxy>
+      <defaultProxy>
+        <bypasslist>
+    <add address="scaneastus2test.blob.core.windows.net" />
+          <add address="scaneastus2test.queue.core.windows.net" />
+          <add address="Atlas-abcd1234-1234-abcd-abcd-1234567890ab.servicebus.windows.net" />
+          <add address="contosopurview1.purview.azure.com" />
+          <add address="contososqlsrv1.database.windows.net" />
+    <add address="contosoadls1.dfs.core.windows.net" />
+    <add address="contosoakv1.vault.azure.net" />
+    <add address="contosoblob11.blob.core.windows.net" />
+        </bypasslist>
+        <proxy proxyaddress="http://10.1.0.1:3128" bypassonlocal="True" />
+      </defaultProxy>
     </system.net>
     ```
-
     The proxy tag allows additional properties to specify required settings like `scriptLocation`. See [\<proxy\> Element (Network Settings)](/dotnet/framework/configure-apps/file-schema/network/proxy-element-network-settings) for syntax.
 
     ```xml
@@ -192,7 +201,7 @@ When scanning Parquet files using the Self-hosted IR, the service locates the Ja
 
 ## Proxy server considerations
 
-If your corporate network environment uses a proxy server to access the internet, configure the self-hosted integration runtime to use appropriate proxy settings. You can set the proxy during the initial registration phase.
+If your corporate network environment uses a proxy server to access the internet, configure the self-hosted integration runtime to use appropriate proxy settings. You can set the proxy during the initial registration phase or after it is being registered.
 
 :::image type="content" source="media/manage-integration-runtimes/self-hosted-proxy.png" alt-text="Specify the proxy":::
 
@@ -206,6 +215,9 @@ There are three configuration options:
 - **Use system proxy**: The self-hosted integration runtime uses the proxy setting that is configured in diahost.exe.config and diawp.exe.config. If these files specify no proxy configuration, the self-hosted integration runtime connects to the cloud service directly without going through a proxy.
 - **Use custom proxy**: Configure the HTTP proxy setting to use for the self-hosted integration runtime, instead of using configurations in diahost.exe.config and diawp.exe.config. **Address** and **Port** values are required. **User Name** and **Password** values are optional, depending on your proxy's authentication setting. All settings are encrypted with Windows DPAPI on the self-hosted integration runtime and stored locally on the machine.
 
+> [!IMPORTANT]
+> Currently, **custom proxy** is not supported in Azure Purview. 
+
 The integration runtime host service restarts automatically after you save the updated proxy settings.
 
 After you register the self-hosted integration runtime, if you want to view or update proxy settings, use Microsoft Integration Runtime Configuration Manager.
@@ -218,6 +230,8 @@ You can use the configuration manager tool to view and update the HTTP proxy.
 
 > [!NOTE]
 > If you set up a proxy server with NTLM authentication, the integration runtime host service runs under the domain account. If you later change the password for the domain account, remember to update the configuration settings for the service and restart the service. Because of this requirement, we suggest that you access the proxy server by using a dedicated domain account that doesn't require you to update the password frequently.
+
+If using system proxy, configure the outbound [network rules](#networking-requirements) from self-hosted integration runtime virtual machine to required endpoints. 
 
 ## Installation best practices
 

@@ -597,10 +597,8 @@
     href: marketplace-faq-publisher-guide.yml
   - name: Cloud Partner Portal migration FAQ
     href: cloud-partner-portal-migration-faq.yml
-  - name: Business opportunity office hours
-    href: https://aka.ms/marketplaceofficehours
-  - name: Technical and publishing office hours
-    href: https://aka.ms/marketplacepublishingofficehours   
+  - name: Marketplace Office Hours
+    href: https://go.microsoft.com/fwlink/?linkid=2185526
   - name: Partner Center support options
     href: support.md
   - name: Partner Center announcements

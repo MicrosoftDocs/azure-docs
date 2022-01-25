@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/22/2021
+ms.date: 01/17/2022
 author: chez-charlie
 ms.author: chez
 ---
@@ -57,6 +57,8 @@ All the linked service types are supported for parameterization.
 - MySQL
 - Oracle
 - Oracle Cloud Storage
+- Salesforce
+- Salesforce Service Cloud
 - SFTP
 - SQL Server
 
