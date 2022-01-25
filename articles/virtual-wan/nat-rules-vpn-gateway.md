@@ -25,6 +25,16 @@ In order to use NAT, VPN devices need to use any-to-any (wildcard) traffic selec
 
 You can configure and view NAT rules on your VPN gateway settings at any time.
 
+## <a name="type"></a>NAT type: static & dynamic
+
+NAT on a gateway device translates the source and/or destination IP addresses, based on the NAT policies or rules to avoid address conflict. There are different types of NAT translation rules:
+
+* **Static NAT**: Static rules define a fixed address mapping relationship. For a given IP address, it will be mapped to the same address from the target pool. The mappings for static rules are stateless because the mapping is fixed.
+
+* **Dynamic NAT**: For dynamic NAT, an IP address can be translated to different target IP addresses based on availability, or with a different combination of IP address and TCP/UDP port. The latter is also called NAPT, Network Address and Port Translation. Dynamic rules will result in stateful translation mappings depending on the traffic flows at any given time. Due to the nature of Dynamic NAT and the ever changing IP/Port combinations, traffic has to be initiated from the Internal Mapping (Pre-NAT) IP Range. The dynamic mapping is released once the connection is disconnected or gracefully closed.
+
+Another consideration is the address pool size for translation. If the target address pool size is the same as the original address pool, use static NAT rule to define a 1:1 mapping in a sequential order. If the target address pool is smaller than the original address pool, use dynamic NAT rule to accommodate the differences.
+
 > [!NOTE]
 > Site-to-site NAT is not supported with Site-to-site VPN connections where policy based traffic selectors are used.
 
@@ -35,7 +45,8 @@ You can configure and view NAT rules on your VPN gateway settings at any time.
 1. On the **Edit NAT Rule** page, you can **Add/Edit/Delete** a NAT rule using the following values:
 
    * **Name:** A unique name for your NAT rule.
-   * **Type:** Static. Static one-to-one NAT establishes a one-to-one relationship between an internal address and an external address.
+   * **Type:** Static or Dynamic. Static one-to-one NAT establishes a one-to-one relationship between an internal address and an external address while Dynamic NAT assigns an IP and port based on availability. 
+   * **IP Configuration ID:** A NAT rule can be configured to a specific VPN Gateway instance. This is applicable to Dynamic NAT only.
    * **Mode:** IngressSnat or EgressSnat.  
       * IngressSnat mode (also known as Ingress Source NAT) is applicable to traffic entering the Azure hub’s Site-to-site VPN gateway. 
       * EgressSnat mode (also known as Egress Source NAT) is applicable to traffic leaving the Azure hub’s Site-to-site VPN gateway. 
@@ -44,7 +55,7 @@ You can configure and view NAT rules on your VPN gateway settings at any time.
    * **Link Connection:** Connection resource that virtually connects a VPN site to the Azure Virtual WAN Hub's Site-to-site VPN gateway.
  
 > [!NOTE]
-> If you want the Site-to-site VPN Gateway to advertise translated (**ExternalMapping**) address prefixes via BGP, click the **Enable BGP Translation** button, due to which on-premises will automatically learn the post-NAT range of Egress Rules and Azure (Virtual WAN Hub, connected Virtual Networks, VPN and ExpressRoute branches) will automatically learn the post-NAT range of Ingress rules. 
+> If you want the Site-to-site VPN Gateway to advertise translated (**ExternalMapping**) address prefixes via BGP, click the **Enable BGP Translation** button, due to which on-premises will automatically learn the post-NAT range of Egress Rules and Azure (Virtual WAN Hub, connected Virtual Networks, VPN and ExpressRoute branches) will automatically learn the post-NAT range of Ingress rules. The new POST NAT ranges will be shown in the Effective Routes table in a Virtual Hub. 
 > Please note that the **Enable Bgp Translation** setting is applied to all NAT rules on the Virtual WAN Hub Site-to-site VPN Gateway. 
 
 ## <a name="examples"></a>Example configurations
@@ -91,6 +102,7 @@ The following diagram shows the projected end result:
 * The Site-to-site VPN Gateway automatically translates the on-premises BGP peer IP address **if** the on-premises BGP peer IP address is contained within the **Internal Mapping** of an **Ingress NAT Rule**. As a result, the VPN site's **Link Connection BGP address** must reflect the NAT-translated address (part of the External Mapping). 
 
     For instance, if the on-premises BGP IP address is 10.30.0.133 and there is an **Ingress NAT Rule** that translates 10.30.0.0/24 to 127.30.0.0/24, the VPN Site's **Link Connection BGP Address** must be configured to be the translated address (127.30.0.133).
+* In Dynamic NAT, on-premises BGP peer IP cannot overlap with pre-NAT (**Interal Mapping**) in a NAT rule as IP and port are not fixed. Please specify a /32 **Static NAT rule** instead.
 
  
 ### Ingress SNAT (VPN site with statically configured routes)
