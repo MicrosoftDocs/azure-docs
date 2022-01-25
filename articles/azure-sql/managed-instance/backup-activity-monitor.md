@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: quickstart
 author: Misliplavo
 ms.author: mlazic
-ms.reviewer: mathoma
+ms.reviewer: mathoma, nvraparl 
 ms.date: 12/14/2018
 ---
 # Monitor backup activity for Azure SQL Managed Instance

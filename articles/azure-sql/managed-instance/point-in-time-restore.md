@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: how-to
 author: Misliplavo
 ms.author: mlazic
-ms.reviewer: mathoma
+ms.reviewer: mathoma, nvraparl 
 ms.date: 08/25/2019
 ---
 # Restore a database in Azure SQL Managed Instance to a previous point in time

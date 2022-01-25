@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: quickstart
 author: misliplavo
 ms.author: mlazic
-ms.reviewer: mathoma
+ms.reviewer: mathoma, nvraparl 
 ms.date: 09/13/2021
 ---
 # Quickstart: Restore a database to Azure SQL Managed Instance with SSMS
