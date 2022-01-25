@@ -281,6 +281,19 @@ The configuration is specific to Python function apps. It defines the prioritiza
 |PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`0`| Prioritize loading the Python libraries from internal Python worker's dependencies. Third-party libraries defined in requirements.txt may be shadowed. |
 |PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`1`| Prioritize loading the Python libraries from application's package defined in requirements.txt. This prevents your libraries from colliding with internal Python worker's libraries. |
 
+## PYTHON_ENABLE_DEBUG_LOGGING
+Optional flag to turn on debug level logging in the function app. Setting to '1' will enable debug level logging; setting to '0' or not setting will set the function app log level to INFO.
+
+|Key|Sample value|
+|---|------------|
+|PYTHON_ENABLE_DEBUG_LOGGING|`1`|
+
+> [!NOTE]
+> Please ensure your host.json [log levels](functions-host-json#logging.md) are consistent with this flag.
+> 
+> When the flag is '1', host.json log level for all categories must be set to DEBUG or lower levels to see debug logs for all functions inside the function app. For more information, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
+
+
 ## PYTHON\_ENABLE\_WORKER\_EXTENSIONS
 
 The configuration is specific to Python function apps. Setting this to `1` allows the worker to load in [Python worker extensions](functions-reference-python.md#python-worker-extensions) defined in requirements.txt. It enables your function app to access new features provided by third-party packages. It may also change the behavior of function load and invocation in your app. Please ensure the extension you choose is trustworthy as you bear the risk of using it. Azure Functions gives no express warranties to any extensions. For how to use an extension, please visit the extension's manual page or readme doc. By default, this value sets to `0`.
