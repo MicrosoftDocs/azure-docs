@@ -208,10 +208,6 @@ Modify the values in the `.env` files as follows:
 - `reset-password-flow`: The **Password reset** user flow, such as `b2c_1_reset_password_node_app`. 
 - `edit-profile-flow`: The **Profile editing** user flow, such as `b2c_1_edit_profile_node_app`.
 
-
->[!WARNING]
-> Any plaintext secret in source code poses an increased security risk. This tutorial uses a plaintext client secret for simplicity. Use a certificate credential instead of client secrets in your confidential client applications, especially for the apps that you intend to deploy to production.
-
 In your `index.js` file, add the following code to use your app dependencies: 
 
 :::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/index.js" id="ms_docref_use_app_dependencies":::
