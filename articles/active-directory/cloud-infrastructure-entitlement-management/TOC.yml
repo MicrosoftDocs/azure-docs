@@ -51,13 +51,11 @@
     - name: View task information
       expanded: true
       items:
-      - name: The Tasks pane
+      - name: View information about active and completed tasks
         href: cloudknox-ui-tasks.md
-    - name: View roles and identities that access specified accounts
+    - name: View roles and identities that access account information
       expanded: true
       items:
-      - name: The Account Explorer
-        href: cloudknox-product-account-explorer.md
       - name: Set personal information and preferences
         href: cloudknox-product-account-settings.md
     - name: Manage organizational and personal information
@@ -90,6 +88,8 @@
         href: cloudknox-usage-analytics-access-keys.md
       - name: View usage analytics information about serverless functions
         href: cloudknox-usage-analytics-serverless-functions.md
+      #- name: View roles and identities that can access account information from external accounts
+        #href: cloudknox-product-account-explorer.md
     - name: Manage roles/policies and permission requests
       expanded: true
       items:
