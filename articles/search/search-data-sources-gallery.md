@@ -107,7 +107,7 @@ Extract rows from an Azure Table, serialized into JSON documents, and imported i
 
 by [Cognitive Search](search-what-is-azure-search.md)
 
-Connect to Azure Storage through Azure Data Lake Storage Gen2 to extract content from a hierarchy of directories and nested subdirectories.
+Connect to Azure Storage through Azure Data Laker Storage Gen2 to extract content from a hierarchy of directories and nested subdirectories.
 
 [More details](search-howto-index-azure-data-lake-storage.md)
 
@@ -168,21 +168,6 @@ Connect to Cosmos DB through the Mongo API to extract items from a container, se
 :::image type="icon" source="media/search-data-sources-gallery/azure_cosmos_db_logo_small.png":::
 
 :::column-end:::
-:::column span="":::
-
----
-
-### SharePoint
-
-by [Cognitive Search](search-what-is-azure-search.md)
-
-Connect to a SharePoint site and index documents from one or more Document Libraries, for accounts and search services in the same tenant. Text and normalized images will be extracted by default. Optionally, you can configure a skillset for more content transformation and enrichment, or configure change tracking to refresh a search index with new or changed content in SharePoint.
-
-[More details](search-howto-index-sharepoint-online.md)
-
-:::image type="icon" source="media/search-data-sources-gallery/sharepoint_online_logo.png":::
-
-:::column-end:::
 :::row-end:::
 :::row:::
 :::column span="":::
@@ -198,6 +183,21 @@ Connect to a SharePoint site and index documents from one or more Document Libra
 
 ---
 
+### SharePoint
+
+by [Cognitive Search](search-what-is-azure-search.md)
+
+Connect to a SharePoint site and index documents from one or more Document Libraries, for accounts and search services in the same tenant. Text and normalized images will be extracted by default. Optionally, you can configure a skillset for more content transformation and enrichment, or configure change tracking to refresh a search index with new or changed content in SharePoint.
+
+[More details](search-howto-index-sharepoint-online.md)
+
+:::image type="icon" source="media/search-data-sources-gallery/sharepoint_online_logo.png":::
+
+:::column-end:::
+:::column span="":::
+
+---
+
 ### Azure MySQL
 
 by [Cognitive Search](search-what-is-azure-search.md)
@@ -207,21 +207,6 @@ Connect to MySQL database on Azure to extract rows in a table, serialized into J
 [More details](search-howto-index-mysql.md)
 
 :::image type="icon" source="media/search-data-sources-gallery/azure_mysql.png":::
-
-:::column-end:::
-:::column span="":::
-
----
-
-### Azure Files
-
-by [Cognitive Search](search-what-is-azure-search.md)
-
-Connect to Azure Storage through Azure Files share to extract content serialized into JSON documents, and imported into a search index as search documents.
-
-[More details](search-file-storage-integration.md)
-
-:::image type="icon" source="media/search-data-sources-gallery/azure_storage.png":::
 
 :::column-end:::
 :::column span="":::
@@ -596,7 +581,7 @@ The BA Insight Azure Active Directory Connector makes it possible to surface con
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from Microsoft Azure Active Directory (Azure AD) and intelligently searching it with Azure Cognitive Search. It indexes objects from Azure AD via the Microsoft Graph API. The connector can be used for ingesting principals into Cognitive Search in near real time to implement use cases like expert search, equipment search, and location search or to provide early-binding security trimming in conjunction with custom data sources. The connector supports federated authentication against Microsoft 365.
+Secure enterprise search connector for reliably indexing content from Microsoft Azure Active Directory (Azure AD) and intelligently searching it with Azure Cognitive Search. It indexes objects from Azure AD via the Microsoft Graph API. The connector can be used for ingesting principals into Cognitive Search in near real time to implement use cases like expert search, equipment search, and location search or to provide early-binding security trimming in conjunction with custom data sources. The connector supports federated authentication against Microsoft 365.
 
 [More details](https://www.raytion.com/connectors/raytion-azure-ad-connector)
 
@@ -1920,7 +1905,7 @@ BA Insight's OpenText Documentum Cloud Connector securely indexes both the full 
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from OpenText Documentum eRoom and intelligently searching it with Azure Cognitive Search. It robustly indexes repositories, folders and files together with their meta data and properties from Documentum eRoom in near real time. The connector fully supports OpenText Documentum eRoom’s built-in user and group management.
+Secure enterprise search connector for reliably indexing content from OpenText Documentum eRoom and intelligently searching it with Azure Cognitive Search. It robustly indexes repositories, folders and files together with their meta data and properties from Documentum eRoom in near real time. The connector fully supports OpenText Documentum eRoom’s built-in user and group management.
 
 [More details](https://www.raytion.com/connectors/raytion-opentext-documentum-eroom-connector)
 
