@@ -10,7 +10,7 @@ ms.topic: tutorial
 author: emlisa
 ms.author: emlisa
 ms.reviewer: kendralittle, mathoma
-ms.date: 01/17/2022
+ms.date: 01/24/2022
 ---
 # Tutorial: Add an Azure SQL Database elastic pool to a failover group
 
@@ -42,10 +42,13 @@ To complete the tutorial, make sure you have the following items:
 
 # [Azure CLI](#tab/azure-cli)
 
-To complete the tutorial, make sure you have the following items:
+In this step, you create a resource group, server, single database, and server-level IP firewall rule for access to the server.
 
-- An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
-- The latest version of [the Azure CLI](/cli/azure/install-azure-cli).
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
 ---
 
