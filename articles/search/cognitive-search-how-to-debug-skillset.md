@@ -24,7 +24,7 @@ A debug session is a cached indexer and skillset execution, scoped to a single d
 
 + An existing enrichment pipeline, including a data source, a skillset, an indexer, and an index.
 
-  Debug sessions work with all generally available data sources and most preview data sources. The MongoDB API (preview) of Cosmos DB is currently not supported.
+  A debug session works with all generally available [indexer data sources](search-data-sources-gallery.md) and most preview data sources. The MongoDB API (preview) of Cosmos DB is currently not supported.
 
 + Azure Storage, used to save session state.
 
@@ -42,7 +42,7 @@ A debug session is a cached indexer and skillset execution, scoped to a single d
 
 1. Select the indexer that drives the skillset you want to debug. Copies of both the indexer and skillset are used to create the session.
 
-1. Choose a document. The session will default to the first document in the data source, but you can also choose which document to step through. 
+1. Choose a document. The session will default to the first document in the data source, but you can also choose which document to step through by providing its URL.
 
    If your document resides in a blob container in the same storage account used to cache your debug session, you can copy the document URL from the blob property page in the portal.
 
