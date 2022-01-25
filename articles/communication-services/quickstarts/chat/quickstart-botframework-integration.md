@@ -16,10 +16,10 @@ In this quickstart, we'll use the Azure Communication Services Chat SDK to creat
 You will learn how to:
 
 - [Create and deploy a bot](#step-1---create-and-deploy-a-bot)
-- [Get an Azure Communication Services Resource](#step-2---Get-an-Azure-Communication-Services-Resource)
-- [Enable ACS Chat Channel](#step-3---Enable-ACS-Chat-Channel)
-- [Create a chat app and add bot as a participant](#step-4---Create-a-chat-app-and-add-bot-as-a-participant)
-- [More things you can do with bot](#More-things-you-can-do-with-bot)
+- [Get an Azure Communication Services Resource](#step-2---get-an-azure-communication-services-resource)
+- [Enable ACS Chat Channel](#step-3---enable-acs-chat-channel)
+- [Create a chat app and add bot as a participant](#step-4---create-a-chat-app-and-add-bot-as-a-participant)
+- [More things you can do with bot](#more-things-you-can-do-with-bot)
 
 ## Prerequisites
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
