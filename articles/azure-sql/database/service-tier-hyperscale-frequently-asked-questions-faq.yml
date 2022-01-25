@@ -244,7 +244,7 @@ sections:
       - question: |
           Can I move my Hyperscale databases to other service tiers?
         answer: |
-          No. At this time, you can’t move a Hyperscale database to another service tier.
+          If you previously migrated an existing Azure SQL Database to the Hyperscale service tier, you can reverse migrate a Hyperscale database to the General Purpose service tier within 45 days of the original migration to Hyperscale. Learn more in the [How to reverse migrate a Hyperscale database to the General Purpose service tier](reverse-migrate-hyperscale-general-purpose.md) article.
 
       - question: |
           Do I lose any functionality or capabilities after migration to the Hyperscale service tier?
