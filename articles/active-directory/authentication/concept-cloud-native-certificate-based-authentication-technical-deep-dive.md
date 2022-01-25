@@ -38,7 +38,7 @@ Let's cover each step:
    
    :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in.png" alt-text="Screenshot of the Sign-in for MyApps portal.":::
   
-1. Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled for the tenant, the user sees a link to **Sign in with a certificate** on the password page. If you do not see the sign-in link, make sure CBA is enabled on the tenant. For more information, see [How do I enable native CBA?](cloud-native-certificate-based-authentication-faq.md#how-do-i-enable-cloud-native-cba-).
+1. Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled for the tenant, the user sees a link to **Sign in with a certificate** on the password page. If you do not see the sign-in link, make sure CBA is enabled on the tenant. For more information, see [How do I enable native CBA?](cloud-native-certificate-based-authentication-faq.yml#how-do-i-enable-cloud-native-cba-).
    
    >[!NOTE]
    > If CBA is enabled on the tenant, all users will see the link to **Sign in with a certificate** on the password page. However, only the users in scope for CBA will be able to authenticate successfully against an application that uses Azure Active Directory as their Identity provider.
@@ -199,11 +199,11 @@ For the next test scenario, configure the authentication policy where the Issuer
 
    You will see several entries in the Sign-in logs. 
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/several-entries.png" alt-text="Screenshot of details in the sign-in logs." :::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/several-entries.png" alt-text="Screenshot of several entries in the sign-in logs." :::  
 
    The entry with **Interrupted** status provides has more diagnostic info in the **Additional Details** tab. 
 
-   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/interrupted-user.png" alt-text="Screenshot of details in the sign-in logs." :::  
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/interrupted-user.png" alt-text="Screenshot of additional details for interrupted entry in the sign-in logs." :::  
 
    **Additional Details**:
 
