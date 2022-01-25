@@ -12,7 +12,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # How to deploy non-Java applications in Azure Spring Cloud
 
-**This article applies to:** ✔️ Enterprise tier
+**This article applies to:** ✔️ Enterprise tier ❌ Basic/Standard tier
 
 This article shows you how to deploy your non-java application to Azure Spring Cloud Enterprise tier.
 
@@ -51,32 +51,32 @@ The following table indicates the features supported for each language.
 
 | Feature                                                         | Java | Python | Node | .NET Core | Go |
 |-----------------------------------------------------------------|------|--------|------|-----------|----|
-| App lifecycle management                                        | Y    | Y      | Y    | Y         | Y  |
-| Assign endpoint                                                 | Y    | Y      | Y    | Y         | Y  |
-| Azure Monitor                                                   | Y    | Y      | Y    | Y         | Y  |
-| Out of box APM integration                                      | Y    | N      | N    | N         | N  |
-| Blue/green deployment                                           | Y    | Y      | Y    | Y         | Y  |
-| Custom domain                                                   | Y    | Y      | Y    | Y         | Y  |
-| Scaling - auto scaling                                          | Y    | Y      | Y    | Y         | Y  |
-| Scaling - manual scaling (In/out, up/down)                      | Y    | Y      | Y    | Y         | Y  |
-| Managed Identity                                                | Y    | Y      | Y    | Y         | Y  |
-| API portal                                                      | Y    | Y      | Y    | Y         | Y  |
-| Spring Cloud Gateway                                            | Y    | Y      | Y    | Y         | Y  |
-| Application Configuration Service                               | Y    | N      | N    | N         | N  |
-| Service Registry                                                | Y    | N      | N    | N         | N  |
-| VNET                                                            | Y    | Y      | Y    | Y         | Y  |
-| Outgoing IP Address                                             | Y    | Y      | Y    | Y         | Y  |
-| e2e TLS                                                         | Y    | Y      | Y    | Y         | Y  |
-| advanced troubleshooting - thread/heap/JFR dump                 | Y    | N      | N    | N         | N  |
-| Bring your own storage                                          | Y    | Y      | Y    | Y         | Y  |
-| Integrate service binding with Resource Connector               | Y    | N      | N    | N         | N  |
-| Availability Zone                                               | Y    | Y      | Y    | Y         | Y  |
-| App Lifecycle events                                            | Y    | Y      | Y    | Y         | Y  |
-| Reduced app size - 0.5 vCPU and 512 MB                          | Y    | Y      | Y    | Y         | Y  |
-| Automate app deployments with Terraform and Azure Pipeline Task | Y    | Y      | Y    | Y         | Y  |
-| Soft Deletion                                                   | Y    | Y      | Y    | Y         | Y  |
-| interactive diagnostic experience(AppLens-based)                | Y    | Y      | Y    | Y         | Y  |
-| SLA                                                             | Y    | Y      | Y    | Y         | Y  |
+| App lifecycle management                                        | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| Assign endpoint                                                 | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| Azure Monitor                                                   | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| Out of box APM integration                                      | ✔️   | ❌    | ❌   | ❌       | ❌ |
+| Blue/green deployment                                           | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| Custom domain                                                   | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| Scaling - auto scaling                                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| Scaling - manual scaling (in/out, up/down)                      | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| Managed Identity                                                | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| API portal                                                      | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| Spring Cloud Gateway                                            | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| Application Configuration Service                               | ✔️   | ❌    | ❌   | ❌       | ❌ |
+| Service Registry                                                | ✔️   | ❌    | ❌   | ❌       | ❌ |
+| VNET                                                            | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| Outgoing IP Address                                             | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| E2E TLS                                                         | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| Advanced troubleshooting - thread/heap/JFR dump                 | ✔️   | ❌    | ❌   | ❌       | ❌ |
+| Bring your own storage                                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| Integrate service binding with Resource Connector               | ✔️   | ❌    | ❌   | ❌       | ❌ |
+| Availability Zone                                               | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| App Lifecycle events                                            | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| Reduced app size - 0.5 vCPU and 512 MB                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| Automate app deployments with Terraform and Azure Pipeline Task | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| Soft Deletion                                                   | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| Interactive diagnostic experience (AppLens-based)               | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| SLA                                                             | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
 
 ## Next steps
 

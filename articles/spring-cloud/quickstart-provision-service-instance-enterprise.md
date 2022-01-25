@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Quickstart: Provision an Azure Spring Cloud service using the Enterprise tier
 
-**This article applies to:** ✔️ Enterprise tier
+**This article applies to:** ✔️ Enterprise tier ❌ Basic/Standard tier
 
 This quickstart shows you how to create an Azure Spring Cloud service instance using the Enterprise tier.
 

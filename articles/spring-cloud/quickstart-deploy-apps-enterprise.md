@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Quickstart: Build and deploy apps to Azure Spring Cloud using the Enterprise tier
 
-**This article applies to:** ✔️ Enterprise tier
+**This article applies to:** ✔️ Enterprise tier ❌ Basic/Standard tier
 
 This quickstart shows you how to build and deploy applications to Azure Spring Cloud using the Enterprise tier.
 

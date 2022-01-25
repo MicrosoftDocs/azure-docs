@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # View Azure Spring Cloud Enterprise Tier offering in Azure Marketplace
 
-**This article applies to:** ✔️ Enterprise tier
+**This article applies to:** ✔️ Enterprise tier ❌ Basic/Standard tier
 
 This article shows you how to view the Azure Spring Cloud Enterprise Tier with VMware Tanzu offering through Azure Marketplace and how to redirect to the Azure Spring Cloud Enterprise tier creation page from Azure Marketplace.
 
