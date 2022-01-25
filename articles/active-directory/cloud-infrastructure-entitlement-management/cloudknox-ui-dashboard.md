@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - An overview of the information displayed on the CloudKnox dashboard
-description: An overview of the authorization system and account activity displayed in the Microsoft CloudKnox Permissions Management dashboard.
+title: Microsoft CloudKnox Permissions Management - View key statistics and data about your authorization system on the CloudKnox dashboard
+description: How to view View  statistics and data about your authorization system in the Microsoft CloudKnox Permissions Management dashboard.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,15 +8,17 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/18/2022
+ms.date: 01/24/2022
 ms.author: v-ydequadros
 ---
 
-# An overview of the information displayed on the CloudKnox dashboard
+# View key statistics and data about your authorization system
 
 Microsoft CloudKnox Permissions Management (CloudKnox) provides a dashboard that summarizes and updates key statistics and data about your authorization system on a regular basis. This dashboard is available for Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).
 
-The data collected by CloudKnox shows metrics related to avoidable risk. It allows the CloudKnox administrator to identify high-risk areas and allows them to reduce risks related to the principle of least privilege. 
+## Components of the dashboard
+
+When you launch CloudKnox, select **Dashboard** to displays the following information:
 
 - **Authorization system types** - A drop-down list of authorization system types you can access. For example, Amazon Web Services (AWS), Microsoft Azure (Azure), nd Google Cloud Platform (GCP).
  
@@ -24,7 +26,7 @@ The data collected by CloudKnox shows metrics related to avoidable risk. It allo
 
 - **Privilege Creep Index (PCI)** - A graph displaying the **# of Identities contributing to PCI** and the related PRIVILEGE CREEP INDEX.
 
-    The Privilege creep index graph displays a bubble in the upper right corner. The bubble displays the number of identities that are considered high risk. *High risk* refers to the number of users who have permissions that exceed their normal or required usage.
+    The PCI graph displays a bubble in the upper right corner. The bubble displays the number of identities that are considered high risk. *High risk* refers to the number of users who have permissions that exceed their normal or required usage.
     - To display a list of the number of identities contributing to the **Low PCI**, **Medium PCI**, and **High PCI**, select the list icon in the upper right of the graph.
     - To display the privilege creep index graph again, select the graph icon in the upper right of the list box. 
 
@@ -53,21 +55,21 @@ The data collected by CloudKnox shows metrics related to avoidable risk. It allo
     - **SSE-S3 Encrypted buckets**
     - **S3 Bucket Accessible Externally** 
 
-
 ## Metrics related to avoidable risk
 
 The data provided by the CloudKnox dashboard shows metrics related to avoidable risk. These metrics allow the CloudKnox administrator to quickly and easily identify areas where they can reduce risks related to the principle of least privilege.
 
 The CloudKnox dashboard contains two main components:
 
-- The Privilege Creep Index heat map, which identifies: 
+- The PCI heat map, which identifies: 
     - How many users who have been granted high-risk privileges aren't using them. 
     - How many users contribute to the privilege creep index and where they're on the scale.
 
 - The Usage analytics summary, which provides a snapshot of permission metrics within the last 90 days.
 
 
-### The Privilege Creep Index heat map
+
+## The PCI heat map
 
 The **Privilege Creep Index**  heat map shows the incurred risk of users with access to high-risk privileges, and is a function of:
 
@@ -85,9 +87,9 @@ The **Privilege Creep Index**  heat map shows the incurred risk of users with ac
 
     The distribution graph displays all the users who contribute to the privilege creep. It displays how many users contribute to a particular score. For example, if the score from the privilege creep index chart is 14, the graph shows how many users have a score of 14.
 
-- The Privilege Creep Index Trend graph shows you the historical trend of the privilege creep index score over the last 90 days. To download the Privilege Creep Index History Report, select the **Download** icon.
+- The PCI Trend graph shows you the historical trend of the privilege creep index score over the last 90 days. To download the **PCI history report**, select the **Download** icon.
 
-## View information on the heat map
+### View information on the heat map
 
 To view detailed information about the following, select the number displayed on the heat map:
 
@@ -104,27 +106,13 @@ To view detailed information about the following, select the number displayed on
 
 
 
-### The Usage Analytics Summary
 
-The **Usage Analytics Summary** section provides a snapshot of the following high-risk tasks or actions users have accessed, and displays the total number of users with the high-risk access, how many users are inactive or have unexecuted tasks, and how many users are active or have executed tasks:
+## Next steps
 
-- **Users with Access to High Risk Tasks** - Displays the total number of users with access to a high risk task (**Total**), how many users have access but haven't used the task (**Inactive**), and how many users are actively using the task (**Active**).
-
-- **Users with Access to Delete Tasks** - A subset of high-risk tasks, which displays the number of users with access to delete tasks (**Total**), how many users have the delete privilege but haven't used the privilege (**Inactive**), and how many users are actively executing the delete capability (**Active**).
-
-- **High Risk Tasks Accessible by Users** - Displays all available high-risk tasks in the authorization system (**Granted**), how many high-risk tasks aren't used (**Unexecuted**), and how many high-risk tasks are used (**Executed**).
-
-- **Delete Tasks Accessible by Users** - Displays all available delete tasks in the authorization system (**Granted**), how many delete tasks aren't used (**Unexecuted**), and how many delete tasks are used (**Executed**).
-
-- **Resources that Permit High Risk Tasks** - Displays the total number of resources a user has access to (**Total**), how many resources are available but not used (**Inactive**), and how many resources are used (**Active**).
-
-- **Resources that Permit Delete Tasks** - Displays the total number of resources that permit delete tasks (**Total**), how many resources with delete tasks aren't used (**Inactive**), and how many resources with delete tasks are used (**Active**).
+- For information on how to view authorization system and account activity data on the CloudKnox dashboard, see [View authorization system and account activity on the CloudKnox dashboard](cloudknox-product-dashboard.md).
+- For an overview of the Usage Analytics dashboard, see [An overview of the CloudKnox dashboard](cloudknox-ui-usage-analytics.html).
 
 
-
-<!---## Next steps--->
-
-<!---For an overview of the The Usage Analytics dashboard, see [The CloudKnox dashboard](cloudknox-ui-usage-analytics.html).--->
 <!---For an overview of the The Audit Trail dashboard, see [The CloudKnox dashboard](cloudknox-audit-trail-dashboard.html).--->
 <!---For an overview of the JEP Controller dashboard, see [The JEP Controller dashboard](cloudknox-ui-jep-controller.html).--->
 <!---For an overview of the The Compliance dashboard, see [The Compliance dashboard](cloudknox-ui-compliance.html).--->

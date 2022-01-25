@@ -21,7 +21,7 @@ This topic describes how to enable Microsoft CloudKnox Permissions Management (C
 
 <!---Context: to collect data from your clouds, we need to…  @Mrudula to help fill in context--->
 
-## Pre-requisites
+## Prerequisites
 
 To add CloudKnox to your Azure AD tenant, you must have:
 

@@ -1,6 +1,6 @@
 ---
 title: Microsoft CloudKnox Permissions Management - Enable or disable the controller
-description: How to enable or disable the controller in Microsoft CloudKnox Permissions Management .
+description: How to enable or disable the controller in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
