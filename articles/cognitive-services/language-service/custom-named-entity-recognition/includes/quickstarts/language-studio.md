@@ -16,10 +16,10 @@ ms.custom: ignite-fall-2021
 
 ## Create a new Azure resource and Azure Blob Storage account
 
-Before you can use custom NER, you will need to create an Azure Language resource, which will give you the credentials needed to create a project and start training a model. You will also need an Azure storage account, where you can upload your dataset that will be used to building your model.
+Before you can use custom NER, you’ll need to create an Azure Language resource, which will give you the credentials that you need to create a project and start training a model. You’ll also need an Azure storage account, where you can upload your dataset that will be used to building your model.
 
 > [!IMPORTANT]
-> To get started quickly, we recommend creating a new Azure Language resource using the steps provided below, which will let you create the resource, and configure a storage account at the same time, which is easier than doing it later.
+> To get started quickly, we recommend creating a new Azure Language resource using the steps provided in this article, which will let you create the resource, and configure a storage account at the same time, which is easier than doing it later.
 >
 > If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See [create project](../../how-to/create-project.md#using-a-pre-existing-azure-resource)  for information.
 
@@ -30,7 +30,7 @@ Before you can use custom NER, you will need to create an Azure Language resourc
     |Location | "West US 2" or "West Europe"         |
     |Pricing tier     | Standard (**S**) pricing tier        |
 
-2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select an existing storage account or select **Create a new storage account**. Note that these values are for this quickstart, and not necessarily the [storage account values](../../../../../storage/common/storage-account-overview.md) you will want to use in production environments.
+2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select an existing storage account or select **Create a new storage account**. Note that these values are for this quickstart, and not necessarily the [storage account values](../../../../../storage/common/storage-account-overview.md) you’ll want to use in production environments.
 
     |Storage account value  |Recommended value  |
     |---------|---------|
@@ -60,7 +60,7 @@ Once your resource and storage container are configured, create a new conversati
     :::image type="content" source="../../media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="../../media/create-project.png":::
 
 
-4.  After you click, **Create new project**, a screen will appear to let you connect your storage account. If you cannot find your storage account, make sure you created a resource using the steps above. 
+4.  After you click, **Create new project**, a screen will appear to let you connect your storage account. If you can’t find your storage account, make sure you created a resource using the steps above. 
 
     >[!NOTE]
     > * You only need to do this step once for each new resource you use. 
@@ -72,15 +72,15 @@ Once your resource and storage container are configured, create a new conversati
 
 <!--If you're using a preexisting resource, see [creating Azure resources](../concepts/use-azure-resources.md). When you are done, select **Next**.--> 
 
-5. Enter the project information, including a name, description, and the language of the files in your project. You will not be able to change the name of your project later. 
+5. Enter the project information, including a name, description, and the language of the files in your project. You won’t be able to change the name of your project later. 
 
-6. Select the container where you have uploaded your data. For this quickstart, we will use the existing tags file available in the container. Then click **Next**.
+6. Select the container where you’ve uploaded your data. For this quickstart, we’ll use the existing tags file available in the container. Then click **Next**.
 
 7. Review the data you entered and select **Create Project**.
 
 ## Train your model
 
-Typically after you create a project, you would import your data and begin [tagging the entities](../../how-to/tag-data.md) within it to train the classification model. For this quickstart, you will use the example tagged data file you downloaded earlier, and stored in your Azure storage account.
+Typically after you create a project, you would import your data and begin [tagging the entities](../../how-to/tag-data.md) within it to train the classification model. For this quickstart, you’ll use the example tagged data file you downloaded earlier, and stored in your Azure storage account.
 
 A model is the machine learning object that will be trained to classify text. Your model will learn from the example data, and be able to classify loan agreements afterwards.
 
@@ -100,7 +100,7 @@ To start training your model:
 
 ## Deploy your model
 
-Generally after training a model you would review it's [evaluation details](../../how-to/view-model-evaluation.md) and [make improvements](../../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try.
+Generally after training a model you would review it's [evaluation details](../../how-to/view-model-evaluation.md) and [make improvements](../../how-to/improve-model.md) if necessary. In this quickstart, you’ll just deploy your model, and make it available for you to try.
 
 After your model is trained, you can deploy it. Deploying your model lets you start using it to extract named entities, using [Analyze API](https://aka.ms/ct-runtime-swagger).
 

@@ -16,7 +16,7 @@ zone_pivot_groups: usage-custom-language-features
 
 # Quickstart: Custom Named Entity Recognition (preview)
 
-In this article, we use the Language studio to demonstrate key concepts of custom name entity recognition (NER). As an example we will build a custom NER model to extract relevant entities from loan agreements.
+In this article, we use the Language studio to demonstrate key concepts of custom Named Entity Recognition (NER). As an example we’ll build a custom NER model to extract relevant entities from loan agreements.
 
 ::: zone pivot="language-studio"
 
