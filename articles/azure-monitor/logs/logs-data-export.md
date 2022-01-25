@@ -34,7 +34,7 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 ## Limitations
 
 - All tables will be supported in export, but support is currently limited to those specified in the [supported tables](#supported-tables) section below. 
-- The current custom log tables won’t be supported in export. A new version of custom log preview available February 2022, will be supported in export.
+- The legacy custom log won’t be supported in export. The next generation of custom log available in preview early 2022 can be exported.
 - You can define up to 10 enabled rules in your workspace. More rules are allowed when disabled. 
 - Destinations must be in the same region as the Log Analytics workspace.
 - Tables names can be no longer than 60 characters when exporting to storage account and 47 characters to event hub. Tables with longer names will not be exported.
@@ -153,7 +153,7 @@ Data export rule defines the destination and tables for which data is exported. 
 
 > [!NOTE]
 > - You can include tables that aren't yet supported in export, and no data will be exported for these until the tables are supported.
-> - The current custom log tables won’t be supported in export. The next generation of custom log available early 2022 in preview is supported.
+> - The legacy custom log won’t be supported in export. The next generation of custom log available in preview early 2022 can be exported.
 > - Export to storage account - a separate container is created in storage account for each table.
 > - Export to event hub - if event hub name isn't provided, a separate event hub is created for each table. The [number of supported event hubs in 'Basic' and 'Standard' namespaces tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). When exporting more than 10 tables to these tiers, either split the tables between several export rules to different event hub namespaces, or provide an event hub name in the rule to export all tables to that event hub.
 
