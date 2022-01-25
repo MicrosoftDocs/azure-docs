@@ -23,7 +23,7 @@ The process of reviewing endpoint utterances for correct predictions is called A
 To enable active learning, you must log user queries. This is accomplished by calling the [endpoint query](/azure/cognitive-services/luis/luis-get-started-create-app#query-the-v3-api-prediction-endpoint) with the `log=true` query string parameter and value.
 
 > [!Note]
-> To disable active learning, don't log user queries. You can change the query parameters, set the log=false parameter in the endpoint query, or omit the log parameter because the default value is false.
+> To disable active learning, don't log user queries. You can change the query parameters by setting log=false in the endpoint query or omit the log parameter because the default value is false for the V3 endpoint.
 
 Use the LUIS portal to construct the correct endpoint query.
 
@@ -48,9 +48,6 @@ Each utterance has a suggested intent displayed in the  **Predicted Intent**  co
 
 If you agree with the predicted intent and entities, select the check mark next to the utterance. If the check mark is disabled, this means that there is nothing to confirm.
 If you disagree with the suggested intent, select the correct intent from the predicted intent's drop-down list. If you disagree with the suggested entities, start labeling them. After you are done, select the check mark next to the utterance to confirm what you labeled. Select  **save utterance**  to move it from the review list and add it its respective intent.
-
-> [!TIP]
-> It is important to go to the Intent details page to review and correct the entity predictions from all example utterances from the **Review Endpoint Utterances** list.
 
 If you are unsure if you should delete the utterance, either move it to the "*None*" intent, or create a new intent such as *miscellaneous* and move the utterance it.
 

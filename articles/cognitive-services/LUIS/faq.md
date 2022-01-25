@@ -21,10 +21,6 @@ LUIS has several limit areas. The first is the model limit, which controls inten
 
 An authoring resource lets you create, manage, train, test, and publish your applications. A prediction resource lets you query your prediction endpoint beyond the 1,000 requests provided by the authoring resource. See [Authoring and query prediction endpoint keys in LUIS](luis-how-to-azure-subscription.md) to learn about the differences between the authoring key and the prediction runtime key.
 
-## How can I do intent conversion?
-
-Conversion of speech to text in LUIS allows you to send spoken utterances to an endpoint and receive a LUIS prediction response. The process is an integration of the [Speech](../Speech-Service/overview.md) service with LUIS. Learn more about Speech to Intent with a [tutorial](../Speech-Service/how-to-recognize-intents-from-speech-csharp.md).
-
 ## Does LUIS support speech to text?
 
 Yes, [Speech](../speech-service/how-to-recognize-intents-from-speech-csharp.md#luis-and-speech) to text is provided as an integration with LUIS.
@@ -72,7 +68,7 @@ Use one of the following solutions:
 
 ## Why is my app is getting different scores every time I train?
 
-Enable or disable the use non-deterministic training option. When disabled, training will use all available data. When enabled (by default), training will use a random sample each time the app is trained, to be used as a negative for the intent. To make sure that you are getting same scores every time, make sure you train your LUIS app with all your data. See the [training article](how-to/train-test.md#interactively-train-using-the-luis-portal) for more information.
+Enable or disable the use non-deterministic training option. When disabled, training will use all available data. When enabled (by default), training will use a random sample each time the app is trained, to be used as a negative for the intent. To make sure that you are getting same scores every time, make sure you train your LUIS app with all your data. See the [training article](how-to/train-test.md#change-deterministic-training-settings-using-the-version-settings-api) for more information.
 
 ## I received an HTTP 403 error status code. How do I fix it? Can I handle more requests per second?
 

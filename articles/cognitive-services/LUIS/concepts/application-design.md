@@ -16,7 +16,7 @@ ms.date: 01/10/2022
 
 # Plan your LUIS app
 
-A Language Understanding (LUIS) app schema contains intents and [entities](../luis-glossary.md#entity) relevant to your subject [domain](../luis-glossary.md#domain). The intents classify user [utterances](../luis-glossary.md#utterance), and the entities extract data from the user utterances. Intents and [entities](../luis-glossary.md#entity) relevant to your subject [domain](/azure/cognitive-services/luis/luis-glossary#domain). The intents classify user [utterances](../luis-glossary.md#utterance), and the entities extract data from the user utterances.
+A Language Understanding (LUIS) app schema contains [intents](../luis-glossary.md#intent) and [entities](../luis-glossary.md#entity) relevant to your subject [domain](../luis-glossary.md#domain). The intents classify user [utterances](../luis-glossary.md#utterance), and the entities extract data from the user utterances. Intents and entities relevant to your subject domain. The intents classify user utterances.
 
 A LUIS app learns and performs most efficiently when you iteratively develop it. Here's a typical iteration cycle:
 
@@ -148,4 +148,4 @@ Keep a separate set of utterances that aren't used as [example utterances](utter
 Provide a few examples in the [phrase lists](patterns-features.md#create-a-phrase-list-for-a-concept) but not every word or phrase. LUIS generalizes and takes context into account.
 
 ## Next steps
-[Intents](https://microsoft-my.sharepoint.com/personal/v-babdullah_microsoft_com/Documents/Documents/work/LUIS%20Documentation/intents%20concepts.docx)
+[Intents](intents.md)

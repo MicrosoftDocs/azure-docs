@@ -37,12 +37,9 @@ By using both publishing slots, you can have two different versions of your app 
 
 ## Publish in more than one region
 
-The app is published to all regions associated with the LUIS prediction resources.You can find your LUIS prediction resources in the LUIS portal by clicking **Manage** from the top navigation menu, and selecting  [Azure Resources](../luis-how-to-azure-subscription.md#assign-luis-resources).
+The app is published to all regions associated with the LUIS prediction resources. You can find your LUIS prediction resources in the LUIS portal by clicking **Manage** from the top navigation menu, and selecting  [Azure Resources](../luis-how-to-azure-subscription.md#assign-luis-resources).
 
-For example, for an app created on [www.luis.ai](https://www.luis.ai/), if you create a LUIS resource in two regions,  **westus**  and  **eastus** , and add these to the app as resources, the app is published in both regions. For more information about LUIS regions, see [Regions](../luis-reference-regions.md).
-
-> [!TIP]
-> There are 3 authoring regions. You must author in the region you intend to publish to. If you need to publish to all regions, you need to manage your authoring process and the resulting trained model in all 3 authoring regions.
+For example, if you add 2 prediction resources to an application in two regions, **westus**  and  **eastus** , and add these to the app as resources, the app is published in both regions. For more information about LUIS regions, see [Regions](../luis-reference-regions.md).
 
 ## Configure publish settings
 
@@ -52,7 +49,7 @@ After you select the slot, configure the publish settings for:
 Sentiment analysis allows LUIS to integrate with the Language service to provide sentiment and key phrase analysis. You do not have to provide a Language service key and there is no billing charge for this service to your Azure account. See [Sentiment analysis](../luis-reference-prebuilt-sentiment.md) for more information about the sentiment analysis JSON endpoint response.
 
 * Speech priming:
-Speech priming is the process of using sending the LUIS model output to the Speech service prior to converting the text to speech. This allows the speech service to provide speech conversion more accurately for your model. This allows for Speech and LUIS requests and responses in one call by making one speech call and getting back a LUIS response. It provides less latency overall.
+Speech priming is the process of sending the LUIS model output to the Speech service prior to converting the text to speech. This allows the speech service to provide speech conversion more accurately for your model. This allows for Speech and LUIS requests and responses in one call by making one speech call and getting back a LUIS response. It provides less latency overall.
 
 After you publish, these settings are available for review from the  **Manage**  section's  **Publish settings**  page. You can change the settings with every publish. If you cancel a publish, any changes you made during the publish are also canceled.
 

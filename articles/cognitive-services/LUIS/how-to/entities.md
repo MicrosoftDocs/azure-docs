@@ -14,22 +14,7 @@ ms.date: 01/05/2022
 
 Create entities to extract key data from user utterances in Language Understanding (LUIS) apps. Extracted entity data is used by your client application to fulfill customer requests.
 
-The entity represents a word or phrase inside the utterance that you want extracted. Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. You can create entities when you add example utterances to an intent, or apart from (before or after) adding an example utterance to an intent.
-
-## Plan, create, and label entities
-
-Machine-learning entities can be created from example utterances, or the  **Entities**  page.
-
-In general, you should spend time planning the entities before creating a machine-learning entity in the portal. Then create the machine-learning entity from example utterances with as much detail in the sub-entities and features you know at the time. 
-
-The [decomposable entity tutorial](../tutorial/build-decomposable-application.md) demonstrates how to use this method.
-
-As part of planning the entities, you may know you need text-matching entities (such as prebuilt entities, regular expression entities, or list entities). You can create these from the  **Entities**  page before they are labeled in example utterances.
-
-When labeling, you can either label individual entities before creating a parent machine-learning entity, or you can start with a parent machine-learning entity and decompose it into child entities.
-
-> [!TIP]
->Label all words that may indicate an entity, even if the words are not used when extracted in the client application.
+The entity represents a word or phrase inside the utterance that you want extracted. Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task.
 
 ## How to create a new entity
 
@@ -94,6 +79,23 @@ When you are done with a group of changes to the app, remember to  **Train**  th
 > [!NOTE]
 > This procedure demonstrates creating and labeling a list entity from an example utterance in the **Intent detail** page. You can also create the same entity from the **Entities** page.
 
+## Add a prebuilt domain entity
+
+1. Select  **Entities**  in the left side.
+2. On the  **Entities**  page, select  **Add prebuilt domain entity**.
+3. In  **Add prebuilt domain models**  dialog box, select the prebuilt domain entity.
+4. Select  **Done**. After the entity is added, you do not need to train the app.
+
+## Add a prebuilt entity
+To recognize common types of information, add a [prebuilt entity](../concepts/entities.md#prebuilt-entities)
+1. Select  **Entities**  in the left side.
+2. On the  **Entities**  page, select  **Add prebuilt entity**.
+3. In  **Add prebuilt entities**  dialog box, select the prebuilt entity.
+
+    :::image type="content" source="../media/luis-prebuilt-domains/add-prebuilt-entity.png" alt-text="A screenshot showing the dialog box for a prebuilt entity." lightbox="../media/luis-prebuilt-domains/add-prebuilt-entity.png":::
+
+4. Select  **Done**. After the entity is added, you do not need to train the app.
+
 ## Add a role to distinguish different contexts
 A role is a named subtype of an entity, based on context. In the following utterance, there are two locations, and each is specified semantically by the words around it such as to and from:
 
@@ -114,26 +116,8 @@ If you find that your pattern, when it includes a Pattern.any, extracts entities
 
 The role is added to the prebuilt entity but isn't added to any utterances using that entity.
 
-## Add a prebuilt domain entity
-
-1. Select  **Entities**  in the left side.
-2. On the  **Entities**  page, select  **Add prebuilt domain entity**.
-3. In  **Add prebuilt domain models**  dialog box, select the prebuilt domain entity.
-4. Select  **Done**. After the entity is added, you do not need to train the app.
-
-## Add a prebuilt entity
-To recognize common types of information, add a [prebuilt entity](../concepts/entities.md#prebuilt-entities)
-1. Select  **Entities**  in the left side.
-2. On the  **Entities**  page, select  **Add prebuilt entity**.
-3. In  **Add prebuilt entities**  dialog box, select the prebuilt entity.
-
-    :::image type="content" source="../media/luis-prebuilt-domains/add-prebuilt-entity.png" alt-text="A screenshot showing the dialog box for a prebuilt entity." lightbox="../media/luis-prebuilt-domains/add-prebuilt-entity.png":::
-
-4. Select  **Done**. After the entity is added, you do not need to train the app.
-
 ## Create a pattern.any entity
-
-The  [**Pattern.any**](../concepts/entities.md#patternany-entity) entity is only available with patterns. See the [patterns article](../concepts/patterns-features.md) for more information. 
+Patterns are designed to improve accuracy when multiple utterances are very similar. A pattern allows you to gain more accuracy for an intent without providing several more utterances. The  [**Pattern.any**](../concepts/entities.md#patternany-entity) entity is only available with patterns. See the [patterns article](../concepts/patterns-features.md) for more information. 
 
 ## Next steps
 

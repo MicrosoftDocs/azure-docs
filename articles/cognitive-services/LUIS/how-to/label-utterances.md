@@ -14,7 +14,7 @@ ms.date: 01/05/2022
 
 Labeling an entity in an example utterance gives LUIS an example of what the entity is and where the entity can appear in the utterance. You can label machine-learned entities and subentities.
 
-Because you can't label regular expression, list, or prebuilt entities, create an entity or subentity, then add these entities as features, when applicable, to the entity or subentity.
+You only label machine-learned entities and sub-entities. Other entity types can be added as features to them when applicable.
 
 ## Label example utterances from the Intent detail page
 
@@ -72,20 +72,12 @@ The Entity Palette's lower section allows you to add features to the currently s
  
     :::image type="content" source="../media/add-entities/select-role-in-entity-palette.png" alt-text="A screenshot showing where to select a role." lightbox="../media/add-entities/select-role-in-entity-palette.png":::
 
-### Labeling entity roles
-
-Entity roles are labeled using the  **Entity palette**.
-
-1. In the Intent detail page, select the  **Entity palette**  from the context toolbar.
-2. After the Entity palette opens, select the entity from the list of entity.
-3. Below the list of entities, select an existing role.
-4. In the example utterance text, label the text with the entity role.
 
 ## Label entity from in-place menu
 
 Labeling in-place allows you to quickly select the text within the utterance and label it. You can also create a machine learning entity or list entity from the labeled text.
 
-Consider the example utterance: "Hi, I want a cheese pizza in 20 minutes please".
+Consider the example utterance: "hi, please i want a cheese pizza in 20 minutes".
 
 Select the left-most text, then select the right-most text of the entity. In the menu that appears, pick the entity you want to label.
 
@@ -101,6 +93,8 @@ After labeling, review the example utterance and ensure the selected span of tex
 
 If there is a dotted-lined box around the span of text, it indicates the text is predicted but _not labeled yet_. To turn the prediction into a label, select the utterance row, then select  **Confirm entities**  from the contextual toolbar.
 
+<!--:::image type="content" source="../media/add-entities/prediction-confirm.png" alt-text="A screenshot showing confirming prediction." lightbox="../media/add-entities/prediction-confirm.png":::-->
+
 > [!Note]
 > You do not need to label for punctuation. Use [application settings](../luis-reference-application-settings.md) to control how punctuation impacts utterance predictions.
 
@@ -115,8 +109,6 @@ To unlabel an entity, select the entity and select  **Unlabel**  from the in-pla
 :::image type="content" source="../media/label-utterances/unlabel-entity-using-in-place-menu.png" alt-text="A screenshot showing how to unlabel an entity." lightbox="../media/label-utterances/unlabel-entity-using-in-place-menu.png":::
 
 ## Automatic labeling for parent and child entities
-
-If you are labeling a parent entity, any subentity that can be predicted based on the currently trained version, will be labeled.
 
 If you are labeling for a subentity, the parent will be labeled automatically.
 
