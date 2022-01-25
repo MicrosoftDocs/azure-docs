@@ -23,7 +23,7 @@ You will learn how to:
 
 ## Prerequisites
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Reach out to the Chat team (TODO: insert contact info here) to get your azure subscription and azure account allowlisted, currently for private preview, only allowlisted azure subscription will be able to see ACS channel option.
+- Get your azure subscription and azure account allowlisted, currently for private preview, only allowlisted azure subscription will be able to see ACS channel option.
 - [Visual Studio (2019 and above)](https://visualstudio.microsoft.com/vs/)
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
 
