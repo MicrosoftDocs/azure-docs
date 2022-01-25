@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 10/29/2021
+ms.date: 01/25/2022
 author: kgremban
 ms.author: kgremban
 ms.service: iot-edge
@@ -163,11 +163,19 @@ Install Azure IoT Edge for Linux on Windows on your device.
 
 1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
 
-   ```powershell
-   $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
-   $ProgressPreference = 'SilentlyContinue'
-   Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
-   ```
+      * **X64/AMD64**
+         ```powershell
+         $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+         $ProgressPreference = 'SilentlyContinue'
+         Invoke-WebRequest "https://aka.ms/AzEFLOWMSI-CR-X64" -OutFile $msiPath
+         ```
+
+      * **ARM64**
+         ```powershell
+         $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+         $ProgressPreference = 'SilentlyContinue'
+         Invoke-WebRequest "https://aka.ms/AzEFLOWMSI-CR-ARM64" -OutFile $msiPath
+         ```
 
 1. Install IoT Edge for Linux on Windows on your device.
 
