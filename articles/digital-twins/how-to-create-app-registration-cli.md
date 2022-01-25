@@ -34,7 +34,7 @@ This app registration is where you configure access permissions to the [Azure Di
 >[!TIP]
 > You may prefer to set up a new app registration every time you need one, *or* to do this only once, establishing a single app registration that will be shared among all scenarios that require it.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Create manifest
 
@@ -60,9 +60,9 @@ The static value `0b07f429-9f4b-4714-9392-cc5e8e80c8b0` is the resource ID for t
  
 Save the finished file.
 
-### Upload to Cloud Shell
+### Cloud Shell users: Upload manifest
 
-Next, upload the manifest file you created to the Cloud Shell, so that you can access it in Cloud Shell commands when configuring the app registration.
+If you're using Cloud Shell for this tutorial, you'll need to upload the manifest file you created to the Cloud Shell, so that you can access it in Cloud Shell commands when configuring the app registration. If you're using a local installation of the Azure CLI, you can skip this step.
 
 To upload the file, go to the Cloud Shell window in your browser. Select the "Upload/Download files" icon and choose "Upload".
 
@@ -72,16 +72,16 @@ Navigate to the **manifest.json** file on your machine and select "Open." Doing 
 
 ## Create the registration
 
-In this section, you'll run a Cloud Shell command to create an app registration with the following settings:
+In this section, you'll run a CLI command to create an app registration with the following settings:
 * Name of your choice
 * Available only to accounts in the default directory (single tenant)
 * A web reply URL of `http://localhost`
 * Read/write permissions to the Azure Digital Twins APIs
 
-Run the following command to create the registration:
+Run the following command to create the registration. If you're using Cloud Shell, the path to the manifest.json file is `@manifest.json`.
 
 ```azurecli-interactive
-az ad app create --display-name <app-registration-name> --available-to-other-tenants false --reply-urls http://localhost --native-app --required-resource-accesses "@manifest.json"
+az ad app create --display-name <app-registration-name> --available-to-other-tenants false --reply-urls http://localhost --native-app --required-resource-accesses "<path-to-manifest.json>"
 ```
 
 The output of the command is information about the app registration you've created. 
