@@ -37,7 +37,7 @@ The following example shows how to manually create real-time inference pipeline 
 
 ![Example](media/module/web-service-input-output-example.png)
    
-After you submit the pipeline and the run finishes successfully, you can deploy the real-time endpoint.
+After you submit the pipeline and the run finishes successfully, you can [deploy the real-time endpoint](../tutorial-designer-automobile-price-deploy.md#deploy-the-real-time-endpoint).
    
 > [!NOTE]
 >  In the preceding example, **Enter Data Manually** provides the data schema for web service input and is necessary for deploying the real-time endpoint. Generally, you should always connect a component or dataset to the port where **Web Service Input** is connected to provide the data schema.
