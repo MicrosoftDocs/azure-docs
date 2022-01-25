@@ -15,7 +15,11 @@ ms.author: mbaldwin
 ---
 # What is Azure Payment HSM?
 
-Azure Payment HSM Service is a "Bare Metal" service delivered using Thales payShield 10K payment HSMs to provide cryptographic key operations for real-time, critical payment transactions in the Azure cloud. Azure Payment HSM is designed specifically to help a service provider and an individual financial institution accelerate their payment system’s digital transformation strategy and adopt the public cloud. It meets the most stringent security, audit compliance, low latency and high-performance requirements by the Payment Card Industry (PCI). Users of the service utilize Thales payShield Manager for secure remote access to the HSMs as part of their OPEX-based subscription. Multiple subscription options are available to satisfy a broad range of performance and multiple application requirements that can be upgraded quickly in line with end user business growth.
+Azure Payment HSM  is a "Bare Metal" service delivered using Thales payShield 10K payment HSMs to provide cryptographic key operations for real-time, critical payment transactions in the Azure cloud. Azure Payment HSM is designed specifically to help a service provider and an individual financial institution accelerate their payment system’s digital transformation strategy and adopt the public cloud. It meets the most stringent security, audit compliance, low latency and high-performance requirements by the Payment Card Industry (PCI). Users of the service utilize Thales payShield Manager for secure remote access to the HSMs as part of their OPEX-based subscription. Multiple subscription options are available to satisfy a broad range of performance and multiple application requirements that can be upgraded quickly in line with end user business growth.
+
+Azure Payment HSM a highly specialized service. Therefore, we recommend that you fully understand the key concepts, including [pricing](https://azure.microsoft.com/services/azure-payment-hsm/), [support](getting-started.md#support), and service-level agreements. 
+
+The [Thales integration guides](https://cpl.thalesgroup.com/partners/overview) help you facilitate the provisioning of HSMs into an existing virtual network environment. There are also how-to guides for helping you determine how to set up your deployment architecture.
 
 ## Why use Azure Payment HSM?
 
@@ -28,7 +32,6 @@ Cloud ultimately offers significant benefits, but challenges when migrating a le
 - Security certifications and audit compliance – how will current stringent requirements be fulfilled?
 
 Azure Payment HSM addresses these challenges and deliver a compelling value proposition to users of the service through the following features.
-
 
 ### Enhanced security and compliance
 
@@ -104,6 +107,7 @@ Benefits for new payment participants
 
 ## Next steps
 
-This is a highly specialized service. Therefore, we recommend that you fully understand the key concepts in this documentation set, including pricing, support, and service-level agreements. 
-
-The [Thales integration guides](https://cpl.thalesgroup.com/partners/overview) help you facilitate the provisioning of HSMs into an existing virtual network environment. There are also how-to guides for helping you determine how to set up your deployment architecture.
+- Learn more about [Azure Payment HSM](overview.md)
+- Find out how to [get started with Azure Payment HSM](getting-started.md)
+- See some common [deployment scenarios](deployment-scenarios.md)
+- Read the [frequently asked questions](faq.yml)

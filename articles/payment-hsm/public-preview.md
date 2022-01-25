@@ -32,16 +32,6 @@ Azure Payment HSM customers must have the following:
 
 The HSM devices will be charged based on the above service pricing table. All other Azure resources for networking and virtual machines will incur regular Azure costs too.
 
-## Support
-
-Microsoft will provide support for hardware issues, networking issues and provisioning through standard support. Support ticket can be created from Azure portal use Service Type -> Dedicated HSM (under Security category) and mention “payment HSM” in the summary field.  All support cases in public preview will be severity 3 only.
-
-:::image type="content" source="./media/support.png" alt-text="Output after Key Vault creation completes":::
- 
- For application-level support (client software, HSM configuration, backup etc.) contact Thales support.
-
-Customers are responsible to apply payShield security patches and upgrade payShield firmware for the allocated HSMs.
-
 ## payShield customization considerations
 
 If you are using payShield on-prem today with a custom firmware a porting exercise is required to update the firmware to a version compatible with the Azure deployment. Please contact your Thales account manager to request a quote.
@@ -64,4 +54,9 @@ Please ensure that the following information is provided:
 - Customer can allocate max 2 HSMs from each stamp in one region.
 - Customer can keep the allocated HSM till GA if needed
 
-- ## Next steps
+## Next steps
+
+- Learn more about [Azure Payment HSM](overview.md)
+- [Get started with Azure Payment HSM](getting-started.md)
+- See some common [deployment scenarios](deployment-scenarios.md)
+- Read the [frequently asked questions](faq.yml)

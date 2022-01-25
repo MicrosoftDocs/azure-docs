@@ -34,3 +34,9 @@ For High Availability, customer must allocate HSM between stamp 1 and stamp 2 (i
 :::image type="content" source="./media/deployment2.png" alt-text="Output after Key Vault creation completes":::
 
 This scenario caters to regional level failure (i.e., DR scenario), the usual strategy is to switch entirely the application stack (and its HSMs), rather than trying to reach an HSM in Region 2 from application in Region 1 due to latency. 
+
+## Next steps
+
+- Learn more about [Azure Payment HSM](overview.md)
+- Find out how to [get started with Azure Payment HSM](getting-started.md)
+- Read the [frequently asked questions](faq.yml)
