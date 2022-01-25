@@ -276,8 +276,9 @@ To assign a role to a system-assigned managed identity of the Automation account
 
     :::image type="content" source="media/managed-identity/system-assigned-main-screen-inline.png" alt-text="Assigning role in system-assigned identity in Azure portal." lightbox="media/managed-identity/system-assigned-main-screen-expanded.png":::
 
-1. Under **Permissions**, click **Azure role assignments**.</br>
-If the roles are already assigned to the selected system-assigned managed identity, you can see a list of role assignments. This list includes all the role-assignments you have permission to read.
+1. Under **Permissions**, click **Azure role assignments**.
+
+   If the roles are already assigned to the selected system-assigned managed identity, you can see a list of role assignments. This list includes all the role-assignments you have permission to read.
 
     :::image type="content" source="media/managed-identity/role-assignments-view-inline.png" alt-text="View role-assignments that you have permission in Azure portal." lightbox="media/managed-identity/role-assignments-view-expanded.png":::
 
