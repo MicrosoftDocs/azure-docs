@@ -109,6 +109,8 @@
         href: core/concepts-faq-extend.md
       - name: What are IoT Central's scale limits?
         href: core/concepts-quotas-limits.md
+      - name: How do I move between aPaaS and PaaS solution approaches?
+        href: core/overview-iot-central.md
 - name: How-to guides
   items:
     - name: Create an application
