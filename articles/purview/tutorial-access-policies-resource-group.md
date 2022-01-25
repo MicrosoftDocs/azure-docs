@@ -33,7 +33,7 @@ The subscription or resource group needs to be registered with Azure Purview to 
 
 - [Register multiple sources - Azure Purview](register-scan-azure-multiple-sources.md)
 
-Enable the resource group or subscription for access policies in Azure Purview through the **Data use governance** toggle, as shown in the picture.
+Enable the resource group or subscription for access policies in Azure Purview by setting the the **Data use governance** toggle to enable, as shown in the picture.
 
 ![Image shows how to register a data source for policy.](./media/tutorial-access-policies-resource-group/register-resource-group-for-policy.png)
 
@@ -59,7 +59,7 @@ This section describes the steps to create a new policy in Azure Purview.
 
 1. To add policy statements to the new policy, select the **New policy statement** button. This will bring up the policy statement builder.
 
-    ![Image shows how a data owner can create a new policy statement.](./media/access-policies-common/create-new-policy.png)"
+    ![Image shows how a data owner can create a new policy statement.](./media/access-policies-common/create-new-policy.png)
 
 1. Select the **Effect** button and choose *Allow* from the drop-down list.
 
@@ -73,7 +73,7 @@ This section describes the steps to create a new policy in Azure Purview.
 
 1. Select the **Continue** button and transverse the hierarchy to select the folder or file. Then select the **Add** button. This will take you back to the policy editor.
 
-    ![Image shows how a data owner can select the asset when creating or editing a policy statement.](./media/access-policies-common/select-asset.png)"
+    ![Image shows how a data owner can select the asset when creating or editing a policy statement.](./media/access-policies-common/select-asset.png)
 
 1. Select the **Subjects** button and enter the subject identity as a principal, group, or MSI. Then select the **OK** button. This will take you back to the policy editor
 

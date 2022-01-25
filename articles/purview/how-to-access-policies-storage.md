@@ -35,7 +35,7 @@ Register and scan each data source with Azure Purview to later define access pol
 
 -   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](register-scan-adls-gen2.md)
 
-Enable the data source to for access policies in Azure Purview through the **Data use governance** toggle, as shown in the picture.
+Enable the data source for access policies in Azure Purview by setting the **Data use governance** toggle to enable, as shown in the picture.
 
 ![Image shows how to register a data source for policy.](./media/how-to-access-policies-storage/register-data-source-for-policy-storage.png)
 
@@ -50,9 +50,9 @@ This section describes the steps for creating, updating, and publishing Azure Pu
 
 This section describes the steps to create a new policy in Azure Purview.
 
-1. Log in to Azure Purview portal.
+1. Log in to Azure Purview Studio.
 
-1. Navigate to **Policy management** app using the left side panel.
+1. Navigate to the **Policy management** app using the left side panel.
 
 1. Select the **New Policy** button in the policy page.
 
@@ -62,21 +62,21 @@ This section describes the steps to create a new policy in Azure Purview.
 
 1. To add policy statements to the new policy, select the **New policy statement** button. This will bring up the policy statement builder.
 
-    ![Image shows how a data owner can create a new policy statement.](./media/access-policies-common/create-new-policy.png)"
+    ![Image shows how a data owner can create a new policy statement.](./media/access-policies-common/create-new-policy.png)
 
 1. Select the **Effect** button and choose *Allow* from the drop-down list.
 
 1. Select the **Action** button and choose *Read* or *Modify* from the drop-down list.
 
-1. Select the **Data Resources** button to bring up the options to provide the data asset path, which will open on the right.
+1. Select the **Data Resources** button to bring up the window to enter Data resource information, which will open on the right.
 
-1. Use the **Assets** box if you scanned the data source, otherwise use the **Data sources** box above. Assuming the first, in the **Assets** box, enter the **Data Source Type** and select the **Name** of a previously registered data source.
+1. If you want to create a broad policy statement that covers an entire data source, resource group or subscription, select its **Type** using the **Data sources** box. Use the **Assets** box instead if you want to create a more granular policy on a previously scanned data source. Enter the **Data Source Type**. If on the **Assets** box, select the **Name** of a previously registered data source.
 
     ![Image shows how a data owner can select a Data Resource when editing a policy statement.](./media/access-policies-common/select-data-source-type.png)
 
 1. Select the **Continue** button and transverse the hierarchy to select the folder or file. Then select the **Add** button. This will take you back to the policy editor.
 
-    ![Image shows how a data owner can select the asset when creating or editing a policy statement.](./media/access-policies-common/select-asset.png)"
+    ![Image shows how a data owner can select the asset when creating or editing a policy statement.](./media/access-policies-common/select-asset.png)
 
 1. Select the **Subjects** button and enter the subject identity as a principal, group, or MSI. Then select the **OK** button. This will take you back to the policy editor
 
@@ -86,30 +86,19 @@ This section describes the steps to create a new policy in Azure Purview.
 
 1. Select the **Save** button to save the policy
 
-> [!Note]
-> - Policy statements set below container level on a Storage account are supported. If no access has been provided at Storage account level or container level, then the App that will execute the access will need to provide a fully qualified name (i.e., a direct absolute path) to the data object. The following documents show examples of how to do that:
->   - [*abfs* for ADLS Gen2](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md#access-files-from-the-cluster)
->   - [*az storage blob download* for Blob Storage](../storage/blobs/storage-quickstart-blobs-cli.md#download-a-blob)
-> - Creating a policy at Storage account level will enable the Subjects to access system containers e.g., *$logs*. If this is undesired, first scan the data source and then create the policy at container or sub-container level.
-
-> [!Warning]
-> **Known issues** related to Policy creation
-> - Do not create policy statements based on Azure Purview resource sets. Even if displayed in Azure Purview policy authoring UI, they are not yet enforced. Learn more about [resource sets](concept-resource-sets.md).
-> - Once subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets will still be allowed after that.
-
 ### Update or delete a policy
 
 Steps to create a new policy in Azure Purview are as follows.
 
-1. Log in to Azure Purview portal.
+1. Log in to Azure Purview Studio.
 
-1. Navigate to Azure Purview Policy management app using the left side panel.
+1. Navigate to the Policy management app using the left side panel.
 
     ![Image shows how a data owner can access the Policy functionality in Azure Purview when it wants to update a policy.](./media/access-policies-common/policy-onboard-guide-2.png)
 
 1. The Policy portal will present the list of existing policies in Azure Purview. Select the policy that needs to be updated.
 
-1. The policy details page will appear, including Edit and Delete options. Select the **Edit** button, which brings up the policy statement builder for the statements in this policy. Now, any parts of the statements in this policy can be updated. To delete the policy, use the **Delete** button.
+1. The policy details page will appear, including Edit and Delete options. Select the **Edit** button, which brings up the policy statement builder. Now, any parts of the statements in this policy can be updated. To delete the policy, use the **Delete** button.
 
     ![Image shows how a data owner can edit or delete a policy statement.](./media/access-policies-common/edit-policy.png)
 
@@ -119,9 +108,9 @@ A newly created policy is in the draft state. The process of publishing associat
 
 The steps to publish a policy are as follows
 
-1. Log in to Azure Purview portal.
+1. Log in to Azure Purview Studio.
 
-1. Navigate to the Azure Purview Policy management app using the left side panel.
+1. Navigate to the Policy management app using the left side panel.
 
     ![Image shows how a data owner can access the Policy functionality in Azure Purview when it wants to publish a policy.](./media/access-policies-common/policy-onboard-guide-2.png)
 
@@ -137,13 +126,21 @@ The steps to publish a policy are as follows
 > - There is no need to publish a policy again for it to take effect if the data resource continues to be the same.
 
 ## Additional information
-
-### Limits
-The limit for Azure Purview policies that can be enforced by Storage accounts is 100MB per subscription, which roughly equates to 5000 policies.
-
 >[!Important]
-> - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in the data source.
+> - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in Storage account(s).
 
+- Policy statements set below container level on a Storage account are supported. If no access has been provided at Storage account level or container level, then the App that will execute the access will need to provide a fully qualified name (i.e., a direct absolute path) to the data object. The following documents show examples of how to do that:
+  - [*abfs* for ADLS Gen2](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md#access-files-from-the-cluster)
+  - [*az storage blob download* for Blob Storage](../storage/blobs/storage-quickstart-blobs-cli.md#download-a-blob)
+ - Creating a policy at Storage account level will enable the Subjects to access system containers e.g., *$logs*. If this is undesired, first scan the data source and then create the policy at container or sub-container level.
+- The limit for Azure Purview policies that can be enforced by Storage accounts is 100MB per subscription, which roughly equates to 5000 policies.
+
+### Known issues
+
+> [!Warning]
+> **Known issues** related to Policy creation
+> - Do not create policy statements based on Azure Purview resource sets. Even if displayed in Azure Purview policy authoring UI, they are not yet enforced. Learn more about [resource sets](concept-resource-sets.md).
+> - Once subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets will still be allowed after that.
 
 ### Policy action mapping
 
