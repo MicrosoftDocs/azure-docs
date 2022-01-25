@@ -20,7 +20,7 @@ When Azure Front Door receives your client requests, it will do one of two thing
 
 Traffic routed to the Azure Front Door environments uses [Anycast](https://en.wikipedia.org/wiki/Anycast) for both DNS (Domain Name System) and HTTP (Hypertext Transfer Protocol) traffic, which allows for user requests to reach the closest environment in the fewest network hops. This architecture offers better round-trip times for end users by maximizing the benefits of Split TCP. Front Door organizes its environments into primary and fallback "rings". The outer ring has environments that are closer to users, offering lower latencies.  The inner ring has environments that can handle the failover for the outer ring environment in case any issues happen. The outer ring is the preferred target for all traffic and the inner ring is to handle traffic overflow from the outer ring. Each frontend host or domain served by Front Door gets assigned a primary VIP (Virtual Internet Protocol addresses), which gets announced by environments in both the inner and outer ring. A fallback VIP is only announced by environments in the inner ring. 
 
-This architecture ensures that requests from your end users always reach the closest Front Door environment. If the preferred Front Door environment is unhealthy all traffic automatically moves to the next closest environment.
+This architecture ensures that requests from your end users always reach the closest Front Door environment. If the preferred Front Door environment is unhealthy, all traffic automatically moves to the next closest environment.
 
 ## <a name = "splittcp"></a>Connecting to Front Door environment (Split TCP)
 
