@@ -77,7 +77,7 @@ You provide either a `ClientSecret` or a `CertificateName`. These settings are e
 
 Configuration parameters for the [Node.js daemon sample](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-console/) are located in an *.env* file:
 
-```Javascript 
+```JavaScript 
 # Credentials
 TENANT_ID=Enter_the_Tenant_Info_Here
 CLIENT_ID=Enter_the_Application_Id_Here
