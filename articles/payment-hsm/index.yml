@@ -19,18 +19,12 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Payment HSM
+  - title: About Azure Payment HSM
     linkLists:
       - linkListType: overview
         links:
           - text: What is Payment HSM?
             url: overview.md
-      - linkListType: concept
-        links:
-          - text: XXX
-            url: xxx.md
-          - text: XXX
-            url: xxx.md
 
 
   # Card
@@ -38,10 +32,16 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: Powershell quickstart
-            url: quickstart-powershell.md
-          - text: CLI quickstart
-            url: quickstart-cli.md
+          - text: Get started with Azure Payment HSM
+            url: getting-started.md
+
+  # Card
+  - title: Concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Deployment scenarios
+            url: deployment-scenarios.md
 
   # Card
   - title: References
