@@ -50,7 +50,7 @@ To complete this tutorial, you need the following resources and privileges:
 
 The recommended way to enable and use Azure AD multifactor authentication is with Conditional Access policies. Conditional Access lets you create and define policies that react to sign-in events and request additional actions before a user is granted access to an application or service.
 
-![Overview diagram of how Conditional Access works to secure the sign-in process](media/tutorial-enable-azure-mfa/conditional-access-overview.png)
+:::image type="content" alt-text="Overview diagram of how Conditional Access works to secure the sign-in process" source="media/tutorial-enable-azure-mfa/conditional-access-overview.png" lightbox="media/tutorial-enable-azure-mfa/conditional-access-overview.png":::
 
 Conditional Access policies can be granular and specific, with the goal to empower users to be productive anywhere at anytime, but also to protect your organization. In this tutorial, we create a basic Conditional Access policy to prompt for multifactor authentication when a user signs in to the Azure portal. In a later tutorial in this series, you configure Azure AD multifactor authentication by using a risk-based Conditional Access policy.
 
@@ -84,7 +84,7 @@ For this tutorial, configure the Conditional Access policy to require multifacto
 
 1. To apply the select apps, choose **Select**, then **Done**.
 
-    ![Select the Microsoft Azure Management app to include in the Conditional Access policy](media/tutorial-enable-azure-mfa/select-azure-management-app.png)
+:::image type="content" alt-text="Select the Microsoft Azure Management app to include in the Conditional Access policy" source="media/tutorial-enable-azure-mfa/select-azure-management-app.png" lightbox="media/tutorial-enable-azure-mfa/select-azure-management-app.png":::
 
 Access controls let you define the requirements for a user to be granted access, such as needing an approved client app or using a device that's Hybrid Azure AD joined. In this tutorial, configure the access controls to require multifactor authentication during a sign-in event to the Azure portal.
 
