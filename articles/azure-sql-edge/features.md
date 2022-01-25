@@ -5,8 +5,8 @@ keywords: introduction to SQL Edge, what is SQL Edge, SQL Edge overview
 services: sql-edge
 ms.service: sql-edge
 ms.topic: conceptual
-author: SQLSourabh
-ms.author: sourabha
+author: rothja
+ms.author: jroth
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ---
