@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 
 # What is Conversation Transcription (Preview)?
 
-Conversation Transcription is a [speech-to-text](speech-to-text.md) solution that provide real-time or asynchronous transcription of any conversation. Conversation Transcription combines speech recognition, speaker identification, and sentence attribution to determine who said what and when in a conversation. 
+Conversation Transcription is a [speech-to-text](speech-to-text.md) solution that provides real-time or asynchronous transcription of any conversation. Conversation Transcription combines speech recognition, speaker identification, and sentence attribution to determine who said what and when in a conversation. 
 
 ## Key features
 
