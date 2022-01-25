@@ -56,7 +56,7 @@
     items:
     - name: Azure Backup support matrix
       href: backup-support-matrix.md
-    - name: Backup Center support matrix
+    - name: Backup center support matrix
       href: backup-center-support-matrix.md
     - name: Azure VM backup support matrix
       href: backup-support-matrix-iaas.md
@@ -86,7 +86,7 @@
     items:
     - name: FAQ-Recovery Services vaults
       href: backup-azure-backup-faq.yml
-    - name: FAQ-Backup Center
+    - name: FAQ-Backup center
       href: backup-center-faq.yml
     - name: FAQ-Azure VM backup
       href: backup-azure-vm-backup-faq.yml
@@ -132,7 +132,7 @@
       items:
       - name: Overview
         href: backup-vault-overview.md
-  - name: Backup Center
+  - name: Backup center
     items:
     - name: Overview
       href: backup-center-overview.md

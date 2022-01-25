@@ -344,7 +344,7 @@ We have constructed a section of the same in the [above section](#create-a-reque
 
 The _validate restore request_ is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that you need to track separately.
 
-It returns two responses: 202 (Accepted) when another operation is created, and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created. Then 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -541,7 +541,7 @@ The only change from the _validate restore request_ body is to remove the _resto
 
 The _trigger restore request_ is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created, and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created. Then 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|

@@ -1,5 +1,5 @@
 ---
-title: Azure Database for PostgreSQL server backup support matrix
+title: Azure Database for PostgreSQL server support matrix
 description: Provides a summary of support settings and limitations of Azure Database for PostgreSQL server backup.
 ms.topic: conceptual
 ms.date: 01/24/2022
@@ -9,7 +9,7 @@ ms.service: backup
 ms.author: v-amallick
 ---
 
-# Azure Database for PostgreSQL server backup support matrix
+# Azure Database for PostgreSQL server support matrix
 
 You can use [Azure Backup](./backup-overview.md) to protect Azure Database for PostgreSQL server. This article summarizes supported regions, scenarios, and the limitations.
 
