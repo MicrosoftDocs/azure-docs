@@ -76,7 +76,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 } 
 ```
 
-Lets say we create another virtual machine named *myVM2* and associate it with the above Capacity Reservation group. 
+Let's say we create another virtual machine named *myVM2* and associate it with the above Capacity Reservation group. 
 
 The Instance View for the Capacity Reservation group will now look like this: 
 
