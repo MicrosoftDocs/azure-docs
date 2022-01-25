@@ -43,7 +43,7 @@ Many applications are already pre-integrated (shown as “Cloud applications” 
 
 If you develop your own business application, you can register it with Azure AD to take advantage of the security features that the tenant provides. You can register your application in **App Registrations**, or you can register it using the **Create your own application** link when adding a new application in **Enterprise applications**. Consider how [authentication](../develop/authentication-vs-authorization.md) is implemented in your application for integration with Azure AD. 
 
-If you want to make your application available through the gallery, you can [submit a request to have it added](../develop/v2-howto-app-gallery-listing.md).
+If you want to make your application available through the gallery, you can [submit a request to have it added](../manage-apps/v2-howto-app-gallery-listing.md).
 
 
 ### On-premises applications

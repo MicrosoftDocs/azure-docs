@@ -29,7 +29,10 @@ The FHIR service validates that it can find the patient matching the provided pa
 * Resources that are directly referenced by the patient resource, except [link](https://www.hl7.org/fhir/patient-definitions.html#Patient.link) references that are not of [seealso](https://www.hl7.org/fhir/codesystem-link-type.html#content) or if the `seealso` link references a `RelatedPerson`.
 * If there are `seealso` link reference(s) to other patient(s), the results will include Patient-everything operation against the `seealso` patient(s) listed.
 * Resources in the [Patient Compartment](https://www.hl7.org/fhir/compartmentdefinition-patient.html)
-* [Device resources](https://www.hl7.org/fhir/device.html) that reference the patient resource. This resource is limited to 100 devices. If the patient has more than 100 devices linked to them, only 100 will be returned. 
+* [Device resources](https://www.hl7.org/fhir/device.html) that reference the patient resource. 
+
+> [!Note]
+> If the patient has more than 100 devices linked to them, only 100 will be returned. 
 
 
 ## Patient-everything parameters
@@ -56,7 +59,7 @@ The FHIR specification has a detailed overview of the different types of [patien
 * [seealso](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-seealso) - Patient contains a link to another patient that's equally valid. 
 * [replaced-by](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-replaced-by) - The Patient resource replaces a different Patient.
  
-### Patient-everything patient links details:
+### Patient-everything patient links details
 
 The Patient-everything operation in the FHIR service processes patient links in different ways to give you the most holistic view of the patient.
 
@@ -70,7 +73,7 @@ As described above, [seealso](https://www.hl7.org/fhir/codesystem-link-type.html
 > [!Note]
 > This is set up to only follow `seealso` links one **layer deep**. It doesn't process a `seealso` link's `seealso` links.
 
-[ ![See also flow diagram.](media/patient-everything/see-also-flow.png) ](media/patient-everything/see-also-flow.png#lightbox) 
+[![See also flow diagram.](media/patient-everything/see-also-flow.png)](media/patient-everything/see-also-flow.png#lightbox) 
 
 The final link type is [replaced-by](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-replaced-by). In this case, the original patient resource is no longer being used and the `replaced-by` link points to the patient that should be used. This implementation of `Patient-everything` will include by default an operation outcome at the start of the bundle with a warning that the patient is no longer valid. This will also be the behavior when the `Prefer` header is set to `handling=lenient`.
 
@@ -78,6 +81,17 @@ In addition, you can set the `Prefer` header to `handling=strict` to throw an er
 
 > [!Note]
 > If a `replaced-by` link is present, `Prefer: handling=lenient` and results are returned asynchronously in multiple bundles, only an operation outcome is returned in one bundle.
+
+## Patient-everything response order
+
+This implementation of Patient-everything does not support the _count parameter. Patient-everything returns the results by executing several phases. After each phase, the results from the next phase will start on a new page by following the next link in the bundle. The phases are outlined below: 
+
+1. Phase 1 returns the `Patient` resource and any `generalPractitioner` and `managingOrganization` resources linked to the patient.
+1. Phase 2 will return resources from the patient compartment that can be filtered by their clinical date if start or end are specified. If no start or end date is passed in, this phase is skipped.
+1. Phase 3 will return resources from the patient compartment that cannot be filtered by their clinical data **or** will return all patient-compartment resources if no start or end date was specified.
+1. Phase 4 will return any devices that reference the patient.
+
+If the original patient has any `seealso` links, phases 1 through 4 will be repeated for each of those patients. 
 
 ## Examples of Patient-everything 
 
