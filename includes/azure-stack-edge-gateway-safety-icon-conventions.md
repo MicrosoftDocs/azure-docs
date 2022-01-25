@@ -12,8 +12,9 @@ The signal words for hazard alerting signs are:
 
 | Icon | Description |
 |:--- |:--- |
-| ![Hazard Symbol](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-safety-warning.png)| **DANGER:** Indicates a hazardous situation that, if not avoided, will result in death or serious injury. <br> **WARNING:** Indicates a hazardous situation that, if not avoided, could result in death or serious injury. <br> **CAUTION:** Indicates a hazardous situation that, if not avoided, could result in minor or moderate injury.|
-|
+| ![Hazard Symbol](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-safety-warning.png)| **DANGER:** Indicates a hazardous situation that, if not avoided, will result in death or serious injury. |
+| ![Hazard Symbol 2](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-safety-warning.png) | **WARNING:** Indicates a hazardous situation that, if not avoided, could result in death or serious injury.|
+| ![Hazard Symbol 3](./media/azure-stack-edge-gateway-safety-icon-conventions/icon-safety-warning.png) | **CAUTION:** Indicates a hazardous situation that, if not avoided, could result in minor or moderate injury.
 
 Hazard symbols identified in the manual are:
 
