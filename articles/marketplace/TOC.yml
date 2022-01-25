@@ -324,7 +324,7 @@
         - name: Plan technical configuration
           href: iot-edge-plan-technical-configuration.md
     - name: Pre-configuration checklist
-    - href: iot-edge-checklist.md    
+    - href: iot-edge-checklist.md
   - name: Managed Service offer
     items:
     - name: Plan the offer
