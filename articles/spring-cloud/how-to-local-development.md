@@ -9,10 +9,15 @@ ms.author: xiading
 ms.custom: devx-track-java
 ---
 
-This article explains how to run Spring Boot apps locally using local Config Server and local eureka.
+# How to run Spring Boot apps locally using local Config Server and local eureka
 
-# Using local Config Server
-## Set up local Config Server service
+This article describes how to run Spring Boot apps locally using local Config Server and local eureka.
+
+## Using local Config Server
+
+The section describes how to setup local Config Server environment with both server side and client side.
+
+### Set up local Config Server service
 Pull the official Config Server code from Github.
 ```
 git clone https://github.com/spring-cloud/spring-cloud-config.git
@@ -37,7 +42,7 @@ cd spring-cloud-config-server
 ```
 The Config Server will start at localhost:8888 now.
 
-## Client side preparation 
+### Client side preparation 
 Please include the Config Server starter in your spring boot app.
 ``` xml
 <dependency>
@@ -48,8 +53,11 @@ Please include the Config Server starter in your spring boot app.
 
 Run your application locally and it will by default connect to localhost:8888 to fetch the configurations.
 
-# Using local eureka
-## Set up local eureka service
+## Using local eureka
+
+The section describes how to setup local eureka environment with both server side and client side.
+
+### Set up local eureka service
 Pull the official eureka code from Github.
 ```
 git clone https://github.com/spring-cloud/spring-cloud-netflix.git
@@ -64,7 +72,7 @@ cd spring-cloud-netflix-eureka-server
 
 The eureka server should start at localhost:8761 now.
 
-## Client side preparation 
+### Client side preparation 
 Please include the eureka client starter in your spring boot app.
 ``` xml
 <dependency>
