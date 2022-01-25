@@ -44,7 +44,7 @@ Hybrid Azure AD join requires devices to have access to the following Microsoft 
 
 If your organization requires access to the internet via an outbound proxy, you can use [Web Proxy Auto-Discovery (WPAD)](/previous-versions/tn-archive/cc995261(v=technet.10)) to enable Windows 10 computers for device registration with Azure AD. To address issues configuring and managing WPAD, see [Troubleshooting Automatic Detection](/previous-versions/tn-archive/cc302643(v=technet.10)).
 
-If you don't use WPAD, you can configure WinHTTP proxy settings on your computer beginning with Windows 10 1709. For more information, see [WinHTTP Proxy Settings deployed by GPO](/archive/blogs/netgeeks/winhttp-proxy-settings-deployed-by-gpo).
+If you don't use WPAD, you can configure WinHTTP proxy settings on your computer with a Group Policy Object (GPO) beginning with Windows 10 1709. For more information, see [WinHTTP Proxy Settings deployed by GPO](/archive/blogs/netgeeks/winhttp-proxy-settings-deployed-by-gpo).
 
 > [!NOTE]
 > If you configure proxy settings on your computer by using WinHTTP settings, any computers that can't connect to the configured proxy will fail to connect to the internet.
@@ -119,7 +119,7 @@ With Windows 10 1803 or newer, if instantaneous hybrid Azure AD join for a feder
 
 ## Other scenarios
 
-Organizations who may wish to test hybrid Azure AD join on a subset of their environment before a full rollout, the steps to complete a targeted deployment can be found in the article [Hybrid Azure AD join targeted deployment](hybrid-azuread-join-control.md).
+Organizations can test hybrid Azure AD join on a subset of their environment before a full rollout. The steps to complete a targeted deployment can be found in the article [Hybrid Azure AD join targeted deployment](hybrid-azuread-join-control.md). Organizations should include a sample of users from varying roles and profiles in this pilot group. A targeted rollout will help identify any issues your plan may not have addressed before you enable for the entire organization.
 
 Some organizations may not be able to use Azure AD Connect to configure AD FS, the steps to configure the claims manually can be found in the article [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual.md).
 

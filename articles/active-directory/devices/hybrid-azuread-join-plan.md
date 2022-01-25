@@ -65,10 +65,10 @@ For devices running the Windows desktop operating system, supported versions are
 ### Windows down-level devices
 
 - Windows 8.1
-- Windows 7 support ended on January 14, 2020. For more information, see [Support for Windows 7 has ended](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).
+- Windows 7 support ended on January 14, 2020. For more information, see [Support for Windows 7 has ended](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020)
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2. For support information on Windows Server 2008 and 2008 R2, see [Prepare for Windows Server 2008 end of support](https://www.microsoft.com/cloud-platform/windows-server-2008).
+- Windows Server 2008 R2 for support information on Windows Server 2008 and 2008 R2, see [Prepare for Windows Server 2008 end of support](https://www.microsoft.com/cloud-platform/windows-server-2008)
 
 As a first planning step, you should review your environment and determine whether you need to support Windows down-level devices.
 
@@ -87,16 +87,16 @@ As a first planning step, you should review your environment and determine wheth
 
 - If you're relying on a Virtual Machine (VM) snapshot to create more VMs, make sure that snapshot isn't from a VM that is already registered with Azure AD as hybrid Azure AD joined.
 
-- If you're using [Unified Write Filter](/windows-hardware/customize/enterprise/unified-write-filter) and similar technologies that clear changes to the disk at reboot, they must be applied after the device is hybrid Azure AD joined. Enabling such technologies before completion of hybrid Azure AD join will result in the device getting unjoined on every reboot
+- If you're using [Unified Write Filter](/windows-hardware/customize/enterprise/unified-write-filter) and similar technologies that clear changes to the disk at reboot, they must be applied after the device is hybrid Azure AD joined. Enabling such technologies before completion of hybrid Azure AD join will result in the device getting unjoined on every reboot.
 
 ### Handling devices with Azure AD registered state
 
-If your Windows 10 domain joined devices are [Azure AD registered](concept-azure-ad-register.md) to your tenant, it could lead to a dual state of hybrid Azure AD joined and Azure AD registered device. We recommend upgrading to Windows 10 1803 (with KB4489894 applied) or above to automatically address this scenario. In pre-1803 releases, you'll need to remove the Azure AD registered state manually before enabling hybrid Azure AD join. In 1803 and above releases, the following changes have been made to avoid this dual state:
+If your Windows 10 domain joined devices are [Azure AD registered](concept-azure-ad-register.md) to your tenant, it could lead to a dual state of hybrid Azure AD joined and Azure AD registered device. We recommend upgrading to Windows 10 1803 (with KB4489894 applied) or newer to automatically address this scenario. In pre-1803 releases, you'll need to remove the Azure AD registered state manually before enabling hybrid Azure AD join. In 1803 and above releases, the following changes have been made to avoid this dual state:
 
 - Any existing Azure AD registered state for a user would be automatically removed <i>after the device is hybrid Azure AD joined and the same user logs in</i>. For example, if User A had an Azure AD registered state on the device, the dual state for User A is cleaned up only when User A logs in to the device. If there are multiple users on the same device, the dual state is cleaned up individually when those users log in. After removing the Azure AD registered state, Windows 10 will unenroll the device from Intune or other MDM, if the enrollment happened as part of the Azure AD registration via auto-enrollment.
-- Azure AD registered state on any local accounts on the device is not impacted by this change. Only applicable to domain accounts. Azure AD registered state on local accounts isn't removed automatically even after user logon, since the user isn't a domain user. 
+- Azure AD registered state on any local accounts on the device isn’t impacted by this change. Only applicable to domain accounts. Azure AD registered state on local accounts isn't removed automatically even after user logon, since the user isn't a domain user. 
 - You can prevent your domain joined device from being Azure AD registered by adding the following registry value to HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001.
-- In Windows 10 1803, if you have Windows Hello for Business configured, the user needs to reconfigure Windows Hello for Business after the dual state cleanup. This issue has been addressed with KB4512509
+- In Windows 10 1803, if you have Windows Hello for Business configured, the user needs to reconfigure Windows Hello for Business after the dual state cleanup. This issue has been addressed with KB4512509.
 
 > [!NOTE]
 > Even though Windows 10 automatically removes the Azure AD registered state locally, the device object in Azure AD is not immediately deleted if it is managed by Intune. You can validate the removal of Azure AD registered state by running dsregcmd /status and consider the device not to be Azure AD registered based on that.
@@ -139,9 +139,8 @@ A managed environment can be deployed either through [Password Hash Sync (PHS)](
 These scenarios don't require you to configure a federation server for authentication.
 
 > [!NOTE]
-> [Cloud authentication using Staged rollout](../hybrid/how-to-connect-staged-rollout.md) is only supported starting Windows 10 1903 update
-
-> [!NOTE]
+> [Cloud authentication using Staged rollout](../hybrid/how-to-connect-staged-rollout.md) is only supported starting at the Windows 10 1903 update.
+> 
 > Azure AD doesn't support smartcards or certificates in managed domains.
 
 ### Federated environment
@@ -167,13 +166,13 @@ Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to
 
 Sometimes, on-premises AD users UPNs are different from your Azure AD UPNs. In these cases, Windows 10 hybrid Azure AD join provides limited support for on-premises AD UPNs based on the [authentication method](../hybrid/choose-ad-authn.md), domain type, and Windows 10 version. There are two types of on-premises AD UPNs that can exist in your environment:
 
-- Routable users UPN: A routable UPN has a valid verified domain, that is registered with a domain registrar. For example, if contoso.com is the primary domain in Azure AD, contoso.org is the primary domain in on-premises AD owned by Contoso and [verified in Azure AD](../fundamentals/add-custom-domain.md)
+- Routable users UPN: A routable UPN has a valid verified domain, that is registered with a domain registrar. For example, if contoso.com is the primary domain in Azure AD, contoso.org is the primary domain in on-premises AD owned by Contoso and [verified in Azure AD](../fundamentals/add-custom-domain.md).
 - Non-routable users UPN: A non-routable UPN doesn't have a verified domain and is applicable only within your organization's private network. For example, if contoso.com is the primary domain in Azure AD and contoso.local is the primary domain in on-premises AD but isn't a verifiable domain in the internet and only used within Contoso's network.
 
 > [!NOTE]
 > The information in this section applies only to an on-premises users UPN. It isn't applicable to an on-premises computer domain suffix (example: computer1.contoso.local).
 
-The table below provides details on support for these on-premises AD UPNs in Windows 10 hybrid Azure AD join
+The following table provides details on support for these on-premises AD UPNs in Windows 10 hybrid Azure AD join
 
 | Type of on-premises AD UPN | Domain type | Windows 10 version | Description |
 | ----- | ----- | ----- | ----- |

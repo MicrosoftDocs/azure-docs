@@ -190,7 +190,7 @@ Starting Windows 10 2004 update, users can also use remote desktop from an Azure
 Currently, Azure AD joined devices don't support RADIUS authentication for connecting to Wi-Fi access points, since RADIUS relies on presence of an on-premises computer object. As an alternative, you can use certificates pushed via Intune or user credentials to authenticate to Wi-Fi. 
 
 ## Understand your provisioning options
-**Note**: Azure AD joined devices cannot be deployed using  System Preparation Tool (Sysprep) or similar imaging tools
+**Note**: Azure AD joined devices can’t be deployed using  System Preparation Tool (Sysprep) or similar imaging tools
 
 You can provision Azure AD joined devices using the following approaches:
 
@@ -209,7 +209,7 @@ Here’s a comparison of these three approaches
 | Require device OEM support | No | Yes | No |
 | Supported versions | 1511+ | 1709+ | 1703+ |
  
-Choose your deployment approach or approaches by reviewing the table above and reviewing the following considerations for adopting either approach:  
+Choose your deployment approach or approaches by reviewing the previous table and reviewing the following considerations for adopting either approach:  
 
 - Are your users tech savvy to go through the setup themselves? 
    - Self-service can work best for these users. Consider Windows Autopilot to enhance the user experience.  

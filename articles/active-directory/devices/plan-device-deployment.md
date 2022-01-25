@@ -27,8 +27,8 @@ Azure Active Directory (Azure AD) enables your organization to meet these goals 
 
 There are multiple methods to integrate your devices into Azure AD, they can work separately or together based on the operating system and your requirements:
 
-* You can [register devices](concept-azure-ad-register.md) with Azure AD
-* [Join devices](concept-azure-ad-join.md) to Azure AD (cloud-only)
+* You can [register devices](concept-azure-ad-register.md) with Azure AD.
+* [Join devices](concept-azure-ad-join.md) to Azure AD (cloud-only).
 * [Hybrid Azure AD join](concept-azure-ad-join-hybrid.md) devices to your on-premises Active Directory domain and Azure AD. 
 
 ## Learn
@@ -210,7 +210,7 @@ You may determine that hybrid Azure AD join is the best solution for a device in
 
 Once you've registered or joined your devices to Azure AD, use the [Azure portal](https://portal.azure.com/) as a central place to manage your device identities. The Azure Active Directory devices page enables you to:
 
-* [Configure your device settings](device-management-azure-portal.md#configure-device-settings)
+* [Configure your device settings](device-management-azure-portal.md#configure-device-settings).
 * You need to be a local administrator to manage Windows devices. [Azure AD updates this membership for Azure AD joined devices](assign-local-admin.md), automatically adding users with the device manager role as administrators to all joined devices.
 
 Make sure that you keep the environment clean by [managing stale devices](manage-stale-devices.md), and focus your resources on managing current devices.
@@ -226,7 +226,7 @@ Review supported and unsupported platforms for integrated devices:
 | Device management tools | Azure AD registered | Azure AD joined | Hybrid Azure AD joined |
 | --- | :---: | :---: | :---: |
 | [Mobile Device Management (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Example: Microsoft Intune | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
-| [Co management with Microsoft Intune and Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 and later) | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
+| [Co-management with Microsoft Intune and Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 and later) | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
 | [Group policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Windows only) | | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
 
 We recommend that you consider [Microsoft Intune Mobile Application management (MAM)](/mem/intune/apps/app-management) with or without device management for registered iOS or Android devices.
