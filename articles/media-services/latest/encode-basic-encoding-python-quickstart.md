@@ -27,7 +27,7 @@ This quickstart shows you how to do basic encoding with Python and Azure Media S
 - [Create a resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) to use with this quickstart.
 
 > [!IMPORTANT]
-> When you create your storage account for your media services account, change the storage authentication type to *System authentication*. Otherwise, you will get authentication errors for this example.
+> When you create the storage account for your media services account, change the storage authentication type to *System authentication*. Otherwise, you will get authentication errors for this example.
 
 
 - [Create a Media Services v3 account](account-create-how-to.md).
