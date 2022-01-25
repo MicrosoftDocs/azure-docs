@@ -68,6 +68,11 @@ az spring-cloud app deployment start-jfr \
 
 The default value for `duration` is 60 seconds.
 
+## Generate Dump on The Portal
+Go to the tab of your target app. Click the troubleshooting button. There will appear a tab on the right side. Choose the app instance and dump type you would like to collect. Fill your target file path(It should be a mount path of your persistent storage). Click the collect button.
+
+![ASC icon start](media/find-spring-cloud-start.png)
+
 ## Get your diagnostic files
 
 Navigate to the target file path in your persistent storage and find your dump/JFR. From there, you can download them to your local machine. The name of the generated file will be similar to *`<app-instance>_heapdump_<time-stamp>.hprof`* for the heap dump, *`<app-instance>_threaddump_<time-stamp>.txt`* for the thread dump, and *`<app-instance>_JFR_<time-stamp>.jfr`* for the JFR file.
