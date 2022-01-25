@@ -148,4 +148,4 @@ Keep a separate set of utterances that aren't used as [example utterances](utter
 Provide a few examples in the [phrase lists](patterns-features.md#create-a-phrase-list-for-a-concept) but not every word or phrase. LUIS generalizes and takes context into account.
 
 ## Next steps
-[Intents](https://microsoft-my.sharepoint.com/personal/v-babdullah_microsoft_com/Documents/Documents/work/LUIS%20Documentation/intents%20concepts.docx)
+[Intents](intents.md)
