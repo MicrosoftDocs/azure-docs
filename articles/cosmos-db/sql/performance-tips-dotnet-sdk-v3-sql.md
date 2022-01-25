@@ -61,8 +61,7 @@ If you're testing at high throughput levels, or at rates that are greater than 5
 > [!NOTE] 
 > High CPU usage can cause increased latency and request timeout exceptions.
 
-## Logging and tracing
-<a id="logging-and-tracing"></a>
+<a id="logging-and-tracing"></a> Logging and tracing
 
 Some environments have the [.NET DefaultTraceListener](/dotnet/api/system.diagnostics.defaulttracelistener) enabled. The DefaultTraceListener poses performance issues on production environments causing high CPU and I/O bottlenecks. Check and make sure that the DefaultTraceListener is disabled for your application by removing it from the [TraceListeners](/dotnet/framework/debug-trace-profile/how-to-create-and-initialize-trace-listeners) on production environments.
 
