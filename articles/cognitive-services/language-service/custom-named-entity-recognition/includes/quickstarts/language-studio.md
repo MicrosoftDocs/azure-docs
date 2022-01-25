@@ -37,7 +37,7 @@ Before you can use custom NER, you’ll need to create an Azure Language resourc
     | Name | Any name |
     | Performance | Standard |
     | Account kind| Storage (general purpose v1) |
-    | Replication | Locally-redundant storage (LRS)
+    | Replication | Locally redundant storage (LRS)
     |Location | Any location closest to you, for best latency.        |
 
 ## Upload sample data to blob container
