@@ -87,9 +87,9 @@ Since multiple authentication binding policy rules can be created with different
 
 ## Understanding the username binding policy
 
-The username binding policy helps locate the user in the tenant. By default, SAN Principal Name in the certificate is mapped to onPremisesUserPrincipalName attribute of the user object to determine the user.
+The username binding policy helps locate the user in the tenant. By default, Subject Alternate Name (SAN) Principal Name in the certificate is mapped to onPremisesUserPrincipalName attribute of the user object to determine the user.
 
-An administrator can override the default and create a custom mapping. Currently, we support two certificate fields SAN (Subject Alternate Name) Principal Name and SAN RFC822Name to map against the user object attribute userPrincipalName and onPremisesUserPrincipalName.
+An administrator can override the default and create a custom mapping. Currently, we support two certificate fields SAN Principal Name and SAN RFC822Name to map against the user object attribute userPrincipalName and onPremisesUserPrincipalName.
 
 **Rules applied for user bindings:**
 
