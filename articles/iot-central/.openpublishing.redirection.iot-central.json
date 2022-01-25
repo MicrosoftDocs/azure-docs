@@ -472,7 +472,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-export-data.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-event-hubs-service-bus",
+      "redirect_url": "/azure/iot-central/core/howto-export-data/",
       "redirect_document_id": false
     },
     {
@@ -632,12 +632,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-show-hide-chat.md",
-      "redirect_url": "/azure/iot-central/core/howto-show-hide-chat",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-central/core/overview-iot-central/",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-show-hide-chat.md",
-      "redirect_url": "/azure/iot-central/core/howto-show-hide-chat/",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central/",
       "redirect_document_id": false
     },
     {
@@ -1047,22 +1047,22 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/retail/architecture-digital-distribution-center-pnp.md",
-      "redirect_url": "/azure/iot-central/retail/architecture-digital-distribution-center",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-digital-distribution-center",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/retail/architecture-micro-fulfillment-center-pnp.md",
-      "redirect_url": "/azure/iot-central/retail/architecture-micro-fulfillment-center",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-central/retail/tutorial-micro-fulfillment-center",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/retail/architecture-smart-inventory-management-pnp.md",
-      "redirect_url": "/azure/iot-central/retail/architecture-smart-inventory-management",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-smart-inventory-management",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/retail/overview-iot-central-retail-pnp.md",
-      "redirect_url": "/azure/iot-central/retail/overview-iot-central-retail",
+      "redirect_url": "/azure/iot-central/core/concepts-app-templates",
       "redirect_document_id": true
     },
     {
@@ -1312,7 +1312,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-show-hide-chat.md",
-      "redirect_url": "/azure/iot-central",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central/",
       "redirect_document_id": false
     }
   ]

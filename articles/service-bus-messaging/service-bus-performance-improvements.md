@@ -2,7 +2,7 @@
 title: Best practices for improving performance using Azure Service Bus
 description: Describes how to use Service Bus to optimize performance when exchanging brokered messages.
 ms.topic: article
-ms.date: 08/30/2021
+ms.date: 01/24/2021
 ms.devlang: csharp
 ---
 
@@ -278,47 +278,6 @@ When creating a queue or subscription client, you can specify a receive mode: *P
 When setting the receive mode to `ReceiveAndDelete`, both steps are combined in a single request. These steps reduce the overall number of operations, and can improve the overall message throughput. This performance gain comes at the risk of losing messages.
 
 Service Bus doesn't support transactions for receive-and-delete operations. Also, peek-lock semantics are required for any scenarios in which the client wants to defer or [dead-letter](service-bus-dead-letter-queues.md) a message.
-
-## Client-side batching
-
-Client-side batching enables a queue or topic client to delay the sending of a message for a certain period of time. If the client sends additional messages during this time period, it transmits the messages in a single batch. Client-side batching also causes a queue or subscription client to batch multiple **Complete** requests into a single request. Batching is only available for asynchronous **Send** and **Complete** operations. Synchronous operations are immediately sent to the Service Bus service. Batching doesn't occur for peek or receive operations, nor does batching occur across clients.
-
-# [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
-Batching functionality for the .NET Standard SDK doesn't yet expose a property to manipulate.
-
-# [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
-
-Batching functionality for the .NET Standard SDK doesn't yet expose a property to manipulate.
-
-# [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
-
-By default, a client uses a batch interval of 20 ms. You can change the batch interval by setting the [BatchFlushInterval][BatchFlushInterval] property before creating the messaging factory. This setting affects all clients that are created by this factory.
-
-To disable batching, set the [BatchFlushInterval][BatchFlushInterval] property to **TimeSpan.Zero**. For example:
-
-```csharp
-var settings = new MessagingFactorySettings
-{
-    NetMessagingTransportSettings =
-    {
-        BatchFlushInterval = TimeSpan.Zero
-    }
-};
-var factory = MessagingFactory.Create(namespaceUri, settings);
-```
-
-Batching doesn't affect the number of billable messaging operations, and is available only for the Service Bus client protocol using the [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) library. The HTTP protocol doesn't support batching.
-
-> [!NOTE]
-> Setting `BatchFlushInterval` ensures that the batching is implicit from the application's perspective. i.e.; the application makes `SendAsync` and `CompleteAsync` calls and doesn't make specific Batch calls.
->
-> Explicit client side batching can be implemented by utilizing the below method call:
-> ```csharp
-> Task SendBatchAsync(IEnumerable<BrokeredMessage> messages);
-> ```
-> Here the combined size of the messages must be less than the maximum size supported by the pricing tier.
-
----
 
 ## Batching store access
 
