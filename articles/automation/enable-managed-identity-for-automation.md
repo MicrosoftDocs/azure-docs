@@ -277,7 +277,7 @@ Follow the steps to assign a role to a system-assigned managed identity of the A
 1. Under **Permissions**, click **Azure role assignments**.
 If the roles are already assigned to the selected system-assigned managed identity, you can see a list of role assignments. This list includes all the role-assignments you have permission to read.
 
-    :::image type="content" source="media/managed-identity/role-assignments-view-inline.png" alt-text="View role-assignments that you have permission" in Azure portal." lightbox="media/managed-identity/role-assignments-view-expanded.png":::
+    :::image type="content" source="media/managed-identity/role-assignments-view-inline.png" alt-text="View role-assignments that you have permission in Azure portal." lightbox="media/managed-identity/role-assignments-view-expanded.png":::
 
 1. To change the subscription, click the **Subscription** drop-down list to select the appropriate option.
 1. Click **Add role assignment (Preview)**
@@ -285,9 +285,8 @@ If the roles are already assigned to the selected system-assigned managed identi
 1. In the **Role** drop-down list, select a role such as *Virtual Machine Contributor*.
 1. Click **Save**
 
-    :::image type="content" source="media/managed-identity/add-role-assignment-inline.png" alt-text="Add a role assignment" in Azure portal." lightbox="media/managed-identity/add-role-assignment-expanded.png":::
+    :::image type="content" source="media/managed-identity/add-role-assignment-inline.png" alt-text="Add a role assignment in Azure portal." lightbox="media/managed-identity/add-role-assignment-expanded.png":::
 After a few minutes, the managed identity is assigned the role at the selected scope
-
 
 
 ## Authenticate access with system-assigned managed identity
