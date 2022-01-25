@@ -25,7 +25,10 @@ highlightedContent:
         url: whats-new.md
       - title: Vision studio
         itemType: get-started
-        url: https://vision.cognitive.azure.com/
+        url: overview-vision-studio.md
+      - title: Language support
+        itemType: reference
+        url: language-support.md
 
 conceptualContent:
   items:
