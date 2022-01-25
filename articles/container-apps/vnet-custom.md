@@ -247,14 +247,21 @@ With your environment created with your custom virtual network, you can create c
 
 If you want to deploy your container app with a private DNS, run the following commands.
 
+First, extract identifiable information from the environment.
+
 ```bash
 export ENVIRONMENT_DEFAULT_DOMAIN=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query defaultDomain --out json | tr -d '"'`
+```
+
+```bash
 export ENVIRONMENT_STATIC_IP=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query staticIp --out json | tr -d '"'`
 ```
 
 ```bash
 export VNET_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name ${VNET_NAME} --query id --out json | tr -d '"'`
 ```
+
+Next, set up the private DNS.
 
 ```azurecli
 az network private-dns zone create \
@@ -276,20 +283,6 @@ az network private-dns record-set a add-record \
   --name "*" \
   --ipv4-address $ENVIRONMENT_STATIC_IP \
   --zone-name $ENVIRONMENT_DEFAULT_DOMAIN
-```
-
-```azurecli
-az vm create \
-  --name acabugbashvm \
-  --resource-group $RESOURCE_GROUP \
-  --image UbuntuLTS \
-  --size Standard_D2_v3 \
-  --vnet-name $VNET_NAME \
-  --subnet VMs \
-  --public-ip-address-allocation static \
-  --public-ip-address-dns-name acabugbashvm \
-  --admin-username azureuser \
-  --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 ::: zone-end
