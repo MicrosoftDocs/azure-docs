@@ -14,7 +14,7 @@ ms.custom: mvc, devx-track-azurecli, mode-api
 This quickstart shows how to use [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create a single Azure Database for PostgreSQL server in five minutes.
 
 > [!TIP]
->  Consider using the simpler [az postgres up](/cli/azure/postgres#az_postgres_up) Azure CLI command that's currently in preview. Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
+> Consider using the simpler [az postgres up](/cli/azure/postgres#az_postgres_up) Azure CLI command that's currently in preview. Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -52,7 +52,7 @@ Create a server with the [az postgres server create](/cli/azure/postgres/server#
 
 ### Configure a server-based firewall rule
 
-Create a firewall rule with the [az postgres server firewall-rule create](/cli/azure/sql/server/firewall-rule) command to give your local environment access to connect to the server.
+Create a firewall rule with the [az postgres server firewall-rule create](/cli/azure/postgre/server/firewall-rule) command to give your local environment access to connect to the server.
 
 :::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" range="25-27":::
 
