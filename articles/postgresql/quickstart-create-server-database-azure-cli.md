@@ -14,7 +14,7 @@ ms.custom: mvc, devx-track-azurecli, mode-api
 This quickstart shows how to use [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create a single Azure Database for PostgreSQL server in five minutes.
 
 > [!TIP]
-> Consider using the simpler [az postgres up](/cli/azure/postgres#az_postgres_up) Azure CLI command that's currently in preview. Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
+> Consider using the simpler [az postgres up](/cli/azure/postgres#az_postgres_up) Azure CLI command. Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +43,11 @@ Create a server with the [az postgres server create](/cli/azure/postgres/server#
 :::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" range="22-24":::
 
 > [!NOTE]
-> The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain 3 to 63 characters. For more information, see [Azure Database for PostgreSQL Naming Rules](../azure-resource-manager/management/resource-name-rules.md#microsoftdbforpostgresql). THe user name for the admin user can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**. The password must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
+>
+>- The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain 3 to 63 characters. For more information, see [Azure Database for PostgreSQL Naming Rules](../azure-resource-manager/management/resource-name-rules.md#microsoftdbforpostgresql).
+>- The user name for the admin user can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
+>- The password must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
+>- For information about SKUs, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
 
 >[!IMPORTANT]
 >
@@ -62,6 +66,14 @@ Create a firewall rule with the [az postgres server firewall-rule create](/cli/a
 > [!NOTE]
 > To avoid connectivity issues, make sure your network's firewall allows port 5432. Azure Database for PostgreSQL servers use that port.
 
+## List server-based firewall rules
+
+To list the existing server firewall rules, run the [az postgres server firewall-rule list](/cli/azure/postgres/server/firewall-rule) command.
+
+:::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" range="32-36":::
+
+The output lists the firewall rules, if any, by default in JSON format. You may use the switch `--output table` for a more readable table format as the output.
+
 ## Get the connection information
 
 To connect to your server, provide host information and access credentials.
@@ -77,14 +89,14 @@ Make a note of the **administratorLogin** and **fullyQualifiedDomainName** value
 The [psql](https://www.postgresql.org/docs/current/static/app-psql.html) client is a popular choice for connecting to PostgreSQL servers. You can connect to your server by using `psql` with [Azure Cloud Shell](../cloud-shell/overview.md). You can also use `psql` on your local environment if you have it available. An empty database, **postgres**, is automatically created with a new PostgreSQL server. You can use that database to connect with `psql`, as shown in the following code.
 
 ```bash
-psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
+psql --host=<server_name>.postgres.database.azure.com --port=5432 --username=<admin_user>@<server_name> --dbname=postgres
 ```
 
 > [!TIP]
 > If you prefer to use a URL path to connect to Postgres, URL encode the @ sign in the username with `%40`. For example, the connection string for psql would be:
 >
 > ```bash
-> psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
+> psql postgresql://<admin_user>%40<server_name>@<server_name>.postgres.database.azure.com:5432/postgres
 > ```
 
 ## Clean up resources
@@ -98,4 +110,4 @@ az group delete --name $resourceGroup
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Migrate your database using export and import](./howto-migrate-using-export-and-import.md)
+> [Design your first Azure Database for PostgreSQL using the Azure CLI](tutorial-design-database-using-azure-cli.md)

@@ -26,9 +26,6 @@ This sample CLI script scales compute and storage for a single Azure Database fo
 
 ### Run the script
 
-> [!IMPORTANT]
-> Update the script with your subscription ID.
-
 :::code language="azurecli" source="~/azure_cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh" range="4-39":::
 
 ## Clean up deployment
