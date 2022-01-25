@@ -17,7 +17,7 @@ This article includes the following samples:
 
 - [Add an external user to a lab](#add-an-external-user-to-a-lab)
 - [Add marketplace images to a lab](#add-a-marketplace-image-to-a-lab)
-- [Create a custom image from a VHD](#create-a-custom-image-from-a-vhd-file)
+- [Create a custom image from a virtual hard drive (VHD)](#create-a-custom-image-from-a-vhd-file)
 - [Create a custom role in a lab](#create-a-custom-role-in-a-lab)
 - [Set allowed VM sizes in a lab](#set-allowed-virtual-machine-sizes)
 
@@ -44,7 +44,7 @@ This script uses the following commands:
 
 This sample PowerShell script adds a marketplace image to a lab in Azure DevTest Labs. 
 
-[!code-powershell[main](../../powershell_scripts/devtest-lab/add-marketplace-images-to-lab/add-marketplace-images-to-lab.ps1 "Add marketplace images to a lab")]
+:::code language="powershell" source="../../powershell_scripts/devtest-lab/add-marketplace-images-to-lab/add-marketplace-images-to-lab.ps1":::
 
 This script uses the following commands:
 
@@ -59,7 +59,7 @@ This script uses the following commands:
 
 This sample PowerShell script creates a custom image from a VHD file in Azure Lab Services
 
-[!code-powershell[main](../../powershell_scripts/devtest-lab/create-custom-image-from-vhd/create-custom-image-from-vhd.ps1 "Add external user to a lab")]
+:::code language="powershell" source="../../powershell_scripts/devtest-lab/create-custom-image-from-vhd/create-custom-image-from-vhd.ps1":::
 
 This script uses the following commands:
 
@@ -73,13 +73,13 @@ This script uses the following commands:
 
 This sample PowerShell script creates a custom role to use in a lab in Azure DevTest Labs. 
 
-[!code-powershell[main](../../powershell_scripts/devtest-lab/create-custom-role-in-lab/create-custom-role-in-lab.ps1 "Add external user to a lab")]
+:::code language="powershell" source="../../powershell_scripts/devtest-lab/create-custom-role-in-lab/create-custom-role-in-lab.ps1":::
 
 This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) | Gets the operations for an Azure resource provider that are securable using Azure RBAC. |
+| [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) | Gets the operations for an Azure resource provider that are securable using Azure role-based access control. |
 | [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Lists all Azure roles that are available for assignment. |
 | [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) | Creates a custom role. |
 
@@ -87,7 +87,7 @@ This script uses the following commands:
 
 This sample PowerShell script sets allowed virtual machine (VM) sizes in Azure Lab Services.
 
-[!code-powershell[main](../../powershell_scripts/devtest-lab/set-allowed-vm-sizes-in-lab/set-allowed-vm-sizes-in-lab.ps1 "Add external user to a lab")]
+:::code language="powershell" source="../../powershell_scripts/devtest-lab/set-allowed-vm-sizes-in-lab/set-allowed-vm-sizes-in-lab.ps1":::
 
 | Command | Notes |
 |---|---|
