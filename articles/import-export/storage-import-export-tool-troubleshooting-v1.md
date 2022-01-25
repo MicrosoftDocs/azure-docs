@@ -17,9 +17,9 @@ This article describes how to troubleshoot common issues when importing and expo
 
 When a copy session fails, you have two options:  
 * If the error can be retried - for example, if the network share was offline for a short period and now is back online - you can resume the copy session.
-* If the error can't be retried - for example, if you specified the wrong source file directory in the command-line parameters - you need to abort the copy session. 
+* If the error can't be retried - for example, if you specified the wrong source file directory in the command-line parameters - you need to abort the copy session.
 
-## My copy session failed with an UnsupportedDrive error. What should I do?
+## I got an UnsupportedDrive error. What should I do?
 
 You'll need to create a new order and use a disk with a supported drive format. An UnsupportedDrive error happens when you use a hard disk drive (HDD) with 4096-byte (4K) sectors. Only 512-byte sectors are supported for HDDs. Create a new order and use a supported HDD with 512-byte sectors. For more information, see [Supported disks](storage-import-export-requirements.md#supported-disks).
 
