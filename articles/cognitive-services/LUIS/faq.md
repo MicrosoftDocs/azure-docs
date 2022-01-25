@@ -68,7 +68,7 @@ Use one of the following solutions:
 
 ## Why is my app is getting different scores every time I train?
 
-Enable or disable the use non-deterministic training option. When disabled, training will use all available data. When enabled (by default), training will use a random sample each time the app is trained, to be used as a negative for the intent. To make sure that you are getting same scores every time, make sure you train your LUIS app with all your data. See the [training article](how-to/train-test.md#interactively-train-using-the-luis-portal) for more information.
+Enable or disable the use non-deterministic training option. When disabled, training will use all available data. When enabled (by default), training will use a random sample each time the app is trained, to be used as a negative for the intent. To make sure that you are getting same scores every time, make sure you train your LUIS app with all your data. See the [training article](how-to/train-test.md#change-deterministic-training-settings-using-the-version-settings-api) for more information.
 
 ## I received an HTTP 403 error status code. How do I fix it? Can I handle more requests per second?
 
