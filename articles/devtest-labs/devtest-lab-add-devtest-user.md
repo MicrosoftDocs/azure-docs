@@ -8,7 +8,7 @@ ms.custom: devx-track-azurepowershell
 
 # Azure DevTest Labs owners, contributors, and users
 
-This article describes the three built-in Azure DevTest Labs roles: *Owner*, *Contributor*, and *DevTest Labs User*, and how to add users with those roles to labs. DevTest Labs uses Azure [role-based access control](../role-based-access-control/overview.md) (Azure RBAC) to define roles that have only the necessary access to do certain lab tasks. This article describes the tasks each role can do, and how to add users to lab roles by using the Azure portal or an Azure PowerShell script.
+This article describes the three built-in Azure DevTest Labs roles: *Owner*, *Contributor*, and *DevTest Labs User*, and how to add users with these roles to labs. DevTest Labs uses Azure [role-based access control](../role-based-access-control/overview.md) (Azure RBAC) to define roles that have only the necessary access to do certain lab tasks. This article describes the tasks each role can do, and how to add users to lab roles by using the Azure portal or an Azure PowerShell script.
 
 ## Actions each role can take
 
