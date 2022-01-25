@@ -31,7 +31,7 @@ All of these scripts have the following prerequisite:
 
 This sample PowerShell script adds an external user to a lab in Azure DevTest Labs. 
 
-[!code-powershell[main](../../powershell_scripts/devtest-lab/add-external-user-to-lab/add-external-user-to-custom-lab.ps1 "Add external user to a lab")]
+:::code language="powershell" source="../../powershell_scripts/devtest-lab/add-external-user-to-lab/add-external-user-to-custom-lab.ps1":::
 
 This script uses the following commands:
 
