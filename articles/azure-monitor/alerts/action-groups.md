@@ -122,6 +122,7 @@ All the details and links in Test email notifications for the alerts fired are a
 > You may have a limited number of actions in a test Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
 >
 > You can opt in or opt out to the common alert schema through Action Groups, on the portal. You can [find common schema samples for test action groups for all the sample types](./alerts-common-schema-test-action-definitions.md).
+> You can opt in or opt out to the non-common alert schema through Action Groups, on the portal. You can [find non-common schema alert definitions](./alerts-non-common-schema-definitions.md).
 
 ## Manage your action groups
 
