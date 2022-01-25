@@ -73,4 +73,4 @@ Application Gateway uses a secret identifier in Key Vault to reference the certi
 
 ## Next steps
 
-To learn how to configure TLS Offloading with Azure Application Gateway, see [Configure TLS Offload](./create-ssl-portal.md)
+To learn how to configure TLS Offloading with Azure Application Gateway, see [Configure TLS Offload](./create-ssl-portal.md).
