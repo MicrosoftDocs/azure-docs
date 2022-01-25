@@ -16,7 +16,7 @@ summary: This article covers questions about configuring Independent Software Ve
 sections:
   - name: Setting up a private offer
     questions:
-      - question: For what offer types can ISVs extend a private offer?
+      - question: For what offer types can ISVs create a private offer?
         answer: |
           The offer must be transactable and opted in for selling through the Cloud Solution Provider (CSP) channel. This applies to both license-based and consumption-based offer types.
 
@@ -78,7 +78,7 @@ sections:
     questions:
       - question: What if an ISV wants to change the term of a private offer?
         answer: |
-          Once an ISV has extended a private offer, they can't alter the term of the private offer prior to the end date, nor change the end date. Once the CSP Partner receives a private offer, it is locked in until its end date.
+          Once an ISV has created a private offer, they can't alter the term of the private offer prior to the end date, nor change the end date. Once the CSP Partner receives a private offer, it is locked in until its end date.
 
           If the ISV adds a new private offer providing the CSP Partner a greater margin percentage and the timeline overlaps the current offer, the higher margin percentage will apply.
 
