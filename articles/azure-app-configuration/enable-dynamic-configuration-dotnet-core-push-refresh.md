@@ -41,7 +41,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/download).
+* Install [.NET Core SDK](https://dotnet.microsoft.com/download).
+* Quickstart: [Create a .NET Core app with App Configuration](./quickstart-dotnet-core-app.md)
+* Nuget package `Microsoft.Extensions.Configuration.AzureAppConfiguration` version 5.0.0 or later
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -80,10 +82,7 @@ Once the resources are created, add the following environment variables. These w
 > [!NOTE]
 > When subscribing for configuration changes, one or more filters can be used to reduce the number of events sent to your application. These can be configured either as [Event Grid subscription filters](../event-grid/event-filtering.md) or [Service Bus subscription filters](../service-bus-messaging/topic-filters.md). For example, a subscription filter can be used to only subscribe to events for changes in a key that starts with a specific string.
 
-## Register event handler to reload data from App Configuration using a sync-token
-
-> [!NOTE]
-> Support for using synchronization tokens in push refresh workflow is available in .NET configuration provider version 5.0.0-preview (or later). 
+## Register event handler to reload data from App Configuration
 
 Ensuring that users get their most up to date configurations is nearly impossible as a configuration can change at any moment (even after a request is sent out). To ensure users get their most up to date configurations we integrate a `synchronization token`. This `Synchronization token` guarantees users receive all changes at least up to the point which the notification was triggered. There still is no guarantee that changes occuring after a push notification was triggered will be reflected in the response.
 Open *Program.cs* and update the file with the following code.
@@ -145,7 +144,7 @@ namespace TestConsole
             }
         }
 
-         private static void RegisterRefreshEventHandler()
+        private static void RegisterRefreshEventHandler()
         {
             string serviceBusConnectionString = Environment.GetEnvironmentVariable(ServiceBusConnectionStringEnvVarName);
             string serviceBusTopic = Environment.GetEnvironmentVariable(ServiceBusTopicEnvVarName);
