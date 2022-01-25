@@ -6,6 +6,53 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
+### 2022-January release
+
+#### New features
+
+- CLI console output expectation checking/authoring:
+    - `--expect PATTERN` and `--not expect PATTERN` support on all commands
+    - `--auto expect` to assist authoring patterns for above
+- SDK logging output expectation checking/authoring
+    - `--log expect PATTERN` and `--not log expect PATTERN` support on all commands
+    - `--log auto expect [FILTER]` support on all commands
+    - `--log FILE` support on `spx profile` and `spx speaker`
+- Audio file input
+    - `--format ANY` support on all commands
+    - `--file -` support (reading from standard input, enabling pipe scenarios)
+- Audio file output
+    - `--audio output -` Writing to standard output, enabling pipe scenarios
+- Output files
+    - `--output all/each file -` Write to standard output
+    - `--output batch file -` Write to standard output
+    - `--output vtt file -` Write to standard output
+    - `--output json file -` Write to standard output, for `spx csr` and `spx batch` commands
+- Output properties
+    - `--output […] result XXX property` (PropertyId or string)
+    - `--output […] connection message received XXX property` (PropertyId or string)
+    - `--output […] recognizer XXX property` (PropertyId or string)
+- Intent recognition (`spx intent`)
+    - `--keyword FILE.table`
+    - `--pattern` and `--patterns`
+    - `--output all/each intentid`
+    - `--output all/each entity json`
+    - `--output all/each ENTITY entity`
+    - `--once`, `--once+`, `--continuous` (continuous now default)
+    - `--output all/each connection EVENT`
+    - `--output all/each connection message` (e.g. `text`, `path`)
+- Azure WebJob integration
+    - `spx webjob` now follows sub-command pattern
+    - Updated WebJob help to reflect above (see `spx help webjob`)
+- Speaker recognition
+    - `spx profile enroll` and `spx speaker [identify/verify]` now support microphone input
+
+#### Bug fixes
+
+- Fixed bug when both `--output vtt FILE` and `--output batch FILE` are used at the same time
+- `spx [...] --zip ZIPFILENAME` now includes all binaries required for all scenarios (if present)
+- `spx profile` and `spx speaker` commands now return detailed error information on cancellation
+
+
 ### 2021-May release
 
 #### New features
