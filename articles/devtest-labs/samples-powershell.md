@@ -9,9 +9,9 @@ ms.date: 01/28/2022
 
 This article includes the sample Azure PowerShell scripts for Azure Lab Services.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
 
 This article includes the following samples:
 
@@ -31,7 +31,7 @@ All of these scripts have the following prerequisite:
 
 This sample PowerShell script adds an external user to a lab in Azure DevTest Labs. 
 
-[!code-powershell[main](../../../powershell_scripts/devtest-lab/add-external-user-to-lab/add-external-user-to-custom-lab.ps1 "Add external user to a lab")]
+[!code-powershell[main](../../powershell_scripts/devtest-lab/add-external-user-to-lab/add-external-user-to-custom-lab.ps1 "Add external user to a lab")]
 
 This script uses the following commands:
 
@@ -44,7 +44,7 @@ This script uses the following commands:
 
 This sample PowerShell script adds a marketplace image to a lab in Azure DevTest Labs. 
 
-[!code-powershell[main](../../../powershell_scripts/devtest-lab/add-marketplace-images-to-lab/add-marketplace-images-to-lab.ps1 "Add marketplace images to a lab")]
+[!code-powershell[main](../../powershell_scripts/devtest-lab/add-marketplace-images-to-lab/add-marketplace-images-to-lab.ps1 "Add marketplace images to a lab")]
 
 This script uses the following commands:
 
@@ -59,7 +59,7 @@ This script uses the following commands:
 
 This sample PowerShell script creates a custom image from a VHD file in Azure Lab Services
 
-[!code-powershell[main](../../../powershell_scripts/devtest-lab/create-custom-image-from-vhd/create-custom-image-from-vhd.ps1 "Add external user to a lab")]
+[!code-powershell[main](../../powershell_scripts/devtest-lab/create-custom-image-from-vhd/create-custom-image-from-vhd.ps1 "Add external user to a lab")]
 
 This script uses the following commands:
 
@@ -73,7 +73,7 @@ This script uses the following commands:
 
 This sample PowerShell script creates a custom role to use in a lab in Azure DevTest Labs. 
 
-[!code-powershell[main](../../../powershell_scripts/devtest-lab/create-custom-role-in-lab/create-custom-role-in-lab.ps1 "Add external user to a lab")]
+[!code-powershell[main](../../powershell_scripts/devtest-lab/create-custom-role-in-lab/create-custom-role-in-lab.ps1 "Add external user to a lab")]
 
 This script uses the following commands:
 
@@ -87,7 +87,7 @@ This script uses the following commands:
 
 This sample PowerShell script sets allowed virtual machine (VM) sizes in Azure Lab Services.
 
-[!code-powershell[main](../../../powershell_scripts/devtest-lab/set-allowed-vm-sizes-in-lab/set-allowed-vm-sizes-in-lab.ps1 "Add external user to a lab")]
+[!code-powershell[main](../../powershell_scripts/devtest-lab/set-allowed-vm-sizes-in-lab/set-allowed-vm-sizes-in-lab.ps1 "Add external user to a lab")]
 
 | Command | Notes |
 |---|---|
