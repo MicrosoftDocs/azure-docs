@@ -44,7 +44,7 @@ IoT Edge for Linux on Windows uses the following components to enable Linux and 
 
 * **Microsoft Update**: Integration with Microsoft Update keeps the Windows runtime components, the CBL-Mariner Linux VM, and IoT Edge up to date.
 
-![Windows and the Linux VM run in parallel, while the Windows Admin Center controls both components](./media/iot-edge-for-linux-on-windows/architecture-eflow1.2.png)
+![Windows and the Linux VM run in parallel, while the Windows Admin Center controls both components](./media/iot-edge-for-linux-on-windows/architecture-eflow1-2.png)
 :::moniker-end
 <!-- end 1.2 -->
 

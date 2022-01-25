@@ -317,7 +317,7 @@ Use the dashboard extension in Windows Admin Center to uninstall Azure IoT Edge 
 
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
-1. On the Winodws host OS, select **Start** > **Settings** > **Apps** > **Apps & featues**.
+1. On the Windows host OS, select **Start** > **Settings** > **Apps** > **Apps & features**.
 
 1. Then select **Azure IoT Edge** > **Uninstall**
 :::moniker-end
