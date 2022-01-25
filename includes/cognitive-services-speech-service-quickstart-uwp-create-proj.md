@@ -90,11 +90,11 @@ Allow the project to capture audio input:
 
 Finally, install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), and reference the Speech SDK in your project:
 
-1. In **Solution Explorer**, right-click your solution, and select **Manage NuGet Packages for Solution** to go to the **NuGet - Solution** window.
+1. In Solution Explorer, right-click your solution, and select **Manage NuGet Packages for Solution** to go to the **NuGet - Solution** window.
 
 1. Select **Browse**.  
 
-1. In **Package source**, choose **nuget.org**.
+1. In **Package source**, select **nuget.org**.
 
    ![Screenshot that shows the Manage Packages for Solution dialog, with the Browse tab, search box, and package source highlighted.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
 
