@@ -19,9 +19,9 @@ ms.custom: [amqp, mqtt]
 
 ## Charges per operation
 
-| Operation | Billing information | 
+| Operation category | Billing information | 
 | --------- | ------------------- |
-| Identity registry operations <br/> (create, retrieve, list, update, delete, statistics) | Not charged. |
+| Identity registry operations <br/> (create, retrieve, list, update, delete, bulk update, statistics) | Not charged. |
 | Device-to-cloud messages | Successfully sent messages are charged in 4-KB chunks on ingress into IoT Hub. For example, a 6-KB message is charged 2 messages. |
 | Cloud-to-device messages | Successfully sent messages are charged in 4-KB chunks, for example a 6-KB message is charged 2 messages. |
 | File uploads | File transfer to Azure Storage is not metered by IoT Hub. File transfer initiation and completion messages are charged as messaged metered in 4-KB increments. For example, transferring a 10-MB file is charged as two messages in addition to the Azure Storage cost. |
@@ -35,7 +35,7 @@ ms.custom: [amqp, mqtt]
 | Jobs operations <br/> (create, update, list, delete) | Not charged. |
 | Jobs per-device operations | Jobs operations (such as twin updates, and methods) are charged as normal. For example, a job resulting in 1000 method calls with 1-KB requests and empty-body responses is charged 1000 messages. |
 | Configuration operations <br/> (create, update, list, delete, test query) | Not charged. |
-| Configuration per-device operations | Configuration operations (such as twin updates, and methods) are charged as normal. For example, a job resulting in 1000 method calls with 1-KB requests and empty-body responses is charged 1000 messages. |
+| Configuration per-device operations | Configuration operations are charged as messages in 4-KB chunks. For example, an apply configuration operation with a 6-KB body and an empty-body response is charged as two messages. |
 | Keep-alive messages | When using AMQP or MQTT protocols, messages exchanged to establish the connection and messages exchanged in the negotiation are not charged. |
 
 > [!NOTE]
