@@ -6,6 +6,41 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
+### Speech SDK 1.20.0: 2022-January release
+
+**Note**: Get started with the Speech SDK [here](../../speech-sdk.md#get-the-speech-sdk).
+
+#### New features
+
+- **Objective-C, Swift and Python**: Support for DialogServiceConnector has been extended to these programming languages. DialogServiceConnector is used for [Voice-Assistant scenarios](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-voice-assistants).
+- **Python**: Support for Python 3.10 was added. Support for Python 3.6 was removed, per Python's [end-of-life for 3.6](https://devguide.python.org/devcycle/#end-of-life-branches).
+- **Unity**: SpeechSDK is now supported for Unity applications on Linux.
+- **C++,C#**: IntentRecognizer using pattern matching is now supported in C#. In addition, scenarios with custom entities, optional groups, and entity roles are now supported in C++ and C#.
+- **C++,C#**: Improved diagnostics trace logging using new classes FileLogger, MemoryLogger and EventLogger. SDK logs are an important tool for Microsoft to diagnose customer-reported issues. These new classes make it easier for customers to integrate Speech SDK logs into their own logging system.
+- **All programming languages**: PronunciationAssessmentConfig now has properties to set the desired phoneme alphabet (IPA or SAPI) and N-Best Phoneme Count (avoiding the need to author a configuration JSON as per [GitHub issue 1284](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1284)). Also, syllable level output is now supported.
+- **Android, iOS and MacOS (all programing languages)**: GStreamer is no longer needed to support [limited-bandwidth networks](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-lower-speech-synthesis-latency?pivots=programming-language-csharp#transmit-compressed-audio-over-the-network). SpeechSynthesizer now uses the operating system's audio decoding capabilities to decode compressed audio streamed from the text-to-speech service.
+- **All programing languages**: SpeechSynthesizer now supports three new raw output Opus formats (without container), which are widely used in live streaming scenarios.
+- **JavaScript**: Added GetVoicesAsync() API to SpeechSynthesizer to retrieve the list of supported synthesis voices ([GitHub issue 1350](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1350))
+- **JavaScript**: Added getWaveFormat() API to AudioStreamFormat to support non-PCM wav formats ([GitHub issue 452](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/452))
+- **JavaScript**: Added volume getter/setter and mute()/unmute() APIs to SpeakerAudioDestination ([GitHub issue 463](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/463))
+
+#### Bug fixes
+- **All programming languages**: StopContinuousRecognitionAsync() and implicit stop behavior has been improved to not inappropriately wait up to 10 seconds for new data when the underlying audio source is closed or unavailable [link to customer issue]
+- **Unity on Android**: Unity meta files were fixed for Android ARM64 and Windows Subsystem for Android (WSA) ARM64 ([GitHub issue 1360](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1360))
+- **iOS**: Compiling your Speech SDK application on any iOS Device when using CocoaPods is now fixed ([GitHub issue 1320](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1320))
+- **iOS**: When SpeechSynthesizer is configured to output audio directly to a speaker, playback stopped at the beginning in rare conditions. This was fixed.
+- **JavaScript**: Use script processor fallback for microphone input if no audio worklet is found ([GitHub issue 455](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/455))
+- **JavaScript**: Add protocol to agent to mitigate bug found with Sentry integration ([GitHub issue 465](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/465))
+
+#### Samples [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+
+- **C++, C#, Python & Java samples** showing how to get detailed recognition results. The details include alternative recognition results, confidence score, Lexical form, Normalized form, Masked Normalized form, with word-level timing for each.
+- **iOS sample** added using AVFoundation as external audio source.
+- **Java sample** added to show how to get SRT (SubRip File Format) subtitle using WordBoundary event.
+- **Android samples** for Pronunciation Assessment.
+
+
+
 ### Speech SDK 1.19.0: 2021-Nov release 
 
 #### Highlights
