@@ -261,11 +261,11 @@ tenantid=$(az account show --subscription $subscriptionid --query tenantId --out
 az deployment group create --resource-group $resourcegroupname --template-file $bicepfilename --parameters workspaceName=$workspacename fhirName=$fhirname dicomName=$dicomname iotName=$iotname tenantId=$tenantid
 ```
 
-# Debugging Bicep templates
+## Debugging Bicep templates
 
 You can debug Bicep templates in Visual Studio Code, or in other environments and troubleshoot issues based on the response. Also, you can review the activity log for a specific resource in the resource group while debugging.
 
-In addition, you can use the **output** value for debugging or as part of the deployment response. For example, you can define two output values to display the values of authority and audience for the FHIR service in the response. For more information, see [Outputs in Bicep](../azure-resource-manager/bicep/outputs).
+In addition, you can use the **output** value for debugging or as part of the deployment response. For example, you can define two output values to display the values of authority and audience for the FHIR service in the response. For more information, see [Outputs in Bicep](../azure-resource-manager/bicep/outputs.md).
 
 ```
 output stringOutput1 string = authority
