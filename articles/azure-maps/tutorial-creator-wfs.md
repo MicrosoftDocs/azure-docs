@@ -19,12 +19,12 @@ This tutorial describes how to query Azure Maps Creator [datasets](/rest/api/map
 > * Query the Azure Maps Web Feature Service (WFS) API to query for all feature collections.
 > * Query the Azure Maps Web Feature Service (WFS) API to query for a specific collection.
 
-First you'll query all collections, and then you will query for the `unit` collection.
+First you'll query all collections, and then you'll query for the `unit` collection.
 
 ## Prerequisites
 
 * Successful completion of [Tutorial: Use Creator to create indoor maps](tutorial-creator-indoor-maps).
-* The `datasetId` obtained in [Check dataset creation status](tutorial-creator-indoor-maps#check-the-dataset-creation-status) section of the previous tutorial.
+* The `datasetId` obtained in [Check dataset creation status](tutorial-creator-indoor-maps.md#check-the-dataset-creation-status) section of the previous tutorial.
 
 This tutorial uses the [Postman](https://www.postman.com/) application, but you can use a different API development environment.
 
@@ -39,7 +39,7 @@ To query all collections in your dataset:
 
 2. Select the **GET** HTTP method.
 
-3. Enter the following URL to [WFS API](/rest/api/maps/v2/wfs). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{datasetId`} with the `datasetId` obtained in [Check dataset creation status](tutorial-creator-indoor-maps#check-the-dataset-creation-status) section of the *Use Creator to create indoor maps* tutorial:
+3. Enter the following URL to [WFS API](/rest/api/maps/v2/wfs). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{datasetId`} with the `datasetId` obtained in the [Check the dataset creation status](tutorial-creator-indoor-maps.md#check-the-dataset-creation-status) section of the *Use Creator to create indoor maps* tutorial:
 
     ```http
     https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=2.0
@@ -93,7 +93,7 @@ To query the unit collection in your dataset:
 
 4. Select **Send**.
 
-5. After the response returns, copy the feature `id` for one of the `unit` features. In the following example, the feature `id` is "UNIT26". You'll use "UNIT26" as your feature `id` when you [Update a feature state](tutorial-creator-feature-stateset#update-a-feature-state) in the next tutorial.
+5. After the response returns, copy the feature `id` for one of the `unit` features. In the following example, the feature `id` is "UNIT26". You'll use "UNIT26" as your feature `id` when you [Update a feature state](tutorial-creator-feature-stateset.md#update-a-feature-state) in the next tutorial.
 
     ```json
     {

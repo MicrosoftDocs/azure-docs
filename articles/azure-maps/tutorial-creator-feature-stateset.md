@@ -12,7 +12,23 @@ services: azure-maps
 
 # Tutorial: Create a feature stateset
 
-Feature statesets define dynamic properties and values on specific features that support them. In this section, you'll create a stateset that defines boolean values and corresponding styles for the **occupancy** property.
+[Feature statesets](/rest/api/maps/v2/feature-state) define dynamic properties and values on specific features that support them. In this Tutorial, you'll:
+
+> [!div class="checklist"]
+>
+> * Create a stateset that defines boolean values and corresponding styles for the **occupancy** property.
+
+## Prerequisites
+
+* Successful completion of [Tutorial: Query datasets with WFS API](tutorial-creator-wfs.md).
+* The `datasetId` obtained in the [Check the dataset creation status](tutorial-creator-indoor-maps.md#check-the-dataset-creation-status) section of the *Use Creator to create indoor maps* tutorial.
+
+This tutorial uses the [Postman](https://www.postman.com/) application, but you can use a different API development environment.
+
+>[!IMPORTANT]
+> This tutorial uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
+
+## Create a feature stateset
 
 To create a stateset:
 
@@ -20,7 +36,7 @@ To create a stateset:
 
 2. Select the **POST** HTTP method.
 
-3. Enter the following URL to the [Stateset API](/rest/api/maps/v2/feature-state/create-stateset). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{datasetId`} with the `datasetId` obtained in [Check the dataset creation status](#check-the-dataset-creation-status)):
+3. Enter the following URL to the [Stateset API](/rest/api/maps/v2/feature-state/create-stateset). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{datasetId`} with the `datasetId` obtained in the [Check the dataset creation status](tutorial-creator-indoor-maps.md#check-the-dataset-creation-status) section of the *Use Creator to create indoor maps* tutorial):
 
     ```http
     https://us.atlas.microsoft.com/featurestatesets?api-version=2.0&datasetId={datasetId}&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
