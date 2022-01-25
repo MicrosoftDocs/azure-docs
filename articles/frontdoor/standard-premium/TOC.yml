@@ -13,12 +13,16 @@
   items:
   - name: Create a Front Door Standard/Premium - Portal
     href: create-front-door-portal.md
+  - name: Create a Front Door Standard/Premium - CLI
+    href: create-front-door-cli.md  
 - name: Samples
   items:
   - name: Resource Manager templates
     href: ../front-door-quickstart-template-samples.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
 - name: Tutorials
   items:
+  - name: Add delivery rules with the Azure CLI
+    href: front-door-add-rules-cli.md
   - name: Configure security headers with Rules engine 
     href: ../front-door-security-headers.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
 - name: Concepts

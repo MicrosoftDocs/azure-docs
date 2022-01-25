@@ -10,12 +10,12 @@ ms.author: v-amallick
 ---
 # Back up an Azure VM using Enhanced policy (in preview)
 
-This article explains how to use _Enhanced policy_ to configure _Multiple Backups Per Day_ and back up [Trusted Launch VMs](/azure/virtual-machines/trusted-launch) with the Azure Backup service. _Enhanced policy_ for backup of VMs is in preview.
+This article explains how to use _Enhanced policy_ to configure _Multiple Backups Per Day_ and back up [Trusted Launch VMs](../virtual-machines/trusted-launch.md) with the Azure Backup service. _Enhanced policy_ for backup of VMs is in preview.
 
-Azure Backup now supports _Enhanced policy_ that's needed to support new Azure offerings. For example, [Trusted Launch VM](/azure/virtual-machines/trusted-launch) is supported with _Enhanced policy_ only. To enroll your subscription for backup of Trusted Launch VM, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
+Azure Backup now supports _Enhanced policy_ that's needed to support new Azure offerings. For example, [Trusted Launch VM](../virtual-machines/trusted-launch.md) is supported with _Enhanced policy_ only. To enroll your subscription for backup of Trusted Launch VM, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
 
 >[!Important]
->The existing [default policy](/azure/backup/backup-during-vm-creation#create-a-vm-with-backup-configured) won’t support protecting newer Azure offerings, such as Trusted Launch VM, UltraSSD, Shared disk, and Confidential Azure VMs.
+>The existing [default policy](./backup-during-vm-creation.md#create-a-vm-with-backup-configured) won’t support protecting newer Azure offerings, such as Trusted Launch VM, UltraSSD, Shared disk, and Confidential Azure VMs.
 
 You must enable backup for Trusted Launch VM through enhanced policy only. The Enhanced policy provides the following features:
 
@@ -67,13 +67,12 @@ Follow these steps:
 6. Click **Create**.
 
 >[!Note]
->- We support the Enhanced policy configuration through [Recovery Services vault](/azure/backup/backup-azure-arm-vms-prepare) and [VM Manage blade](/azure/backup/backup-during-vm-creation#start-a-backup-after-creating-the-vm) only. Configuration through Backup center is currently not supported.
+>- We support the Enhanced policy configuration through [Recovery Services vault](./backup-azure-arm-vms-prepare.md) and [VM Manage blade](./backup-during-vm-creation.md#start-a-backup-after-creating-the-vm) only. Configuration through Backup center is currently not supported.
 >- For hourly backups, the last backup of the day is transferred to the vault. If the backup fails, the first backup of the next day is transferred to the vault.
 >- Enhanced policy can be only availed for unprotected VMs that are new to Azure Backup. Note that Azure VMs that are protected with existing policy can't be moved to Enhanced policy.
 
 ## Next steps
 
-- [Run a backup immediately](/azure/backup/backup-azure-vms-first-look-arm#run-a-backup-immediately)
-- [Verify Backup job status](/azure/backup/backup-azure-arm-vms-prepare#verify-backup-job-status)
-- [Restore Azure virtual machines](/azure/backup/backup-azure-arm-restore-vms#restore-disks)
-
+- [Run a backup immediately](./backup-azure-vms-first-look-arm.md#run-a-backup-immediately)
+- [Verify Backup job status](./backup-azure-arm-vms-prepare.md#verify-backup-job-status)
+- [Restore Azure virtual machines](./backup-azure-arm-restore-vms.md#restore-disks)

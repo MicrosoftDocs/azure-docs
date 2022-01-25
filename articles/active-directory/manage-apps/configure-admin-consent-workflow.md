@@ -41,7 +41,7 @@ To enable the admin consent workflow and choose reviewers:
 1. Select **Enterprise applications**.
 1. Under **Manage**, select **User settings**.
 Under **Admin consent requests**,  select **Yes** for **Users can request admin consent to apps they are unable to consent to** .
-   :::image type="content" source="media/configure-admin-consent-workflow/admin-consent-requests-settings.png" alt-text="Configure admin consent workflow settings":::
+   :::image type="content" source="media/configure-admin-consent-workflow/enable-admin-consent-workflow.png" alt-text="Configure admin consent workflow settings":::
 1. Configure the following settings:
 
    - **Select users to review admin consent requests** - Select reviewers for this workflow from a set of users that have the global administrator, cloud application administrator, or application administrator roles. You can also add groups and roles that can configure an admin consent workflow. You must designate at least one reviewer before the workflow can be enabled.

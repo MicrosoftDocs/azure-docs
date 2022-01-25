@@ -1,6 +1,6 @@
 ---
 title: 'Connect to and manage Azure Database for MySQL'
-description: This guide describes how to connect to Azure Database for MySQL in Azure Purview, and use Purview's features to scan and manage your Azure Database for MySQL source.
+description: This guide describes how to connect to Azure Database for MySQL in Azure Purview, and use Azure Purview's features to scan and manage your Azure Database for MySQL source.
 author: evwhite
 ms.author: evwhite
 ms.service: purview
@@ -20,24 +20,24 @@ This article outlines how to register a database in Azure Database for MySQL, an
 |---|---|---|---|---|---|---|
 | [Yes](#register) | [Yes](#scan)| [Yes*](#scan) | [Yes](#scan) | [Yes](#scan) | No | No** |
 
-\* Purview relies on UPDATE_TIME metadata from Azure Database for MySQL for incremental scans. In some cases, this field might not persist in the database and a full scan is performed. For more information, see [The INFORMATION_SCHEMA TABLES Table](https://dev.mysql.com/doc/refman/5.7/en/information-schema-tables-table.html) for MySQL.
+\* Azure Purview relies on UPDATE_TIME metadata from Azure Database for MySQL for incremental scans. In some cases, this field might not persist in the database and a full scan is performed. For more information, see [The INFORMATION_SCHEMA TABLES Table](https://dev.mysql.com/doc/refman/5.7/en/information-schema-tables-table.html) for MySQL.
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
 > [!Important]
->  Purview only supports single server deployment option for Azure Database for MySQL. 
+>  Azure Purview only supports single server deployment option for Azure Database for MySQL. 
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Purview resource](create-catalog-portal.md).
+* An active [Azure Purview resource](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
-This section describes how to register an Azure Database for MySQL in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
+This section describes how to register an Azure Database for MySQL in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
 
 ### Authentication for registration
 
@@ -49,14 +49,14 @@ Follow the instructions in [CREATE DATABASES AND USERS](../mysql/howto-create-us
 1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your Azure SQL Database
 1. Select **Create** to complete
-1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. If your key vault is not connected to Azure Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) of type SQL authentication using the **username** and **password** to set up your scan.
 
 ### Steps to register
 
 To register a new Azure Database for MySQL in your data catalog, do the following:
 
-1. Navigate to your Purview account.
+1. Navigate to your Azure Purview account.
 
 1. Select **Data Map** on the left navigation.
 
@@ -82,7 +82,7 @@ Follow the steps below to scan Azure Database for MySQL to automatically identif
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://web.purview.azure.com/resource/).
+1. Select the **Data Map** tab on the left pane in the [Azure Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Select the Azure Database for MySQL source that you registered.
 
@@ -112,7 +112,7 @@ To create and run a new scan, do the following:
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

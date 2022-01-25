@@ -2,8 +2,6 @@
 title: IT Service Management Connector - Secure Export in Azure Monitor - Configuration with ServiceNow
 description: This article shows you how to connect your ITSM products/services with ServiceNow on Secure Export in Azure Monitor.
 ms.topic: conceptual
-author: nolavime
-ms.author: v-jysur
 ms.date: 12/31/2020
 
 ---

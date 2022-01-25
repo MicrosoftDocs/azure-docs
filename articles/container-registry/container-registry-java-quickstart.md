@@ -1,30 +1,30 @@
 ---
-title: Quickstart - Build and push Java container images to Azure Container Registry using Maven and Jib
-description: Build a containerized Java app and push it to Azure Container Registry using the Maven Jib plugin.
+title: Quickstart - Build and push container images of the Java Spring Boot App to Azure Container Registry 
+description: Learn to build and push a containerized Java Spring Boot app to the Azure Container Registry using Maven and Jib plugin.
 author: KarlErickson
 ms.author: karler
-ms.date: 02/26/2020
+ms.date: 01/18/2022
 ms.topic: quickstart
 ms.custom: devx-track-java, devx-track-azurecli, mode-api
 ---
 
-# Quickstart: Build and push Java container images to Azure Container Registry
+# Quickstart: Build and push container images of the Java Spring Boot app to Azure Container Registry
 
-This quickstart shows you how to build a containerized Java app and push it to Azure Container Registry using the Maven Jib plugin. The use of Maven and Jib is one example of using developer tooling to interact with an Azure container registry.
+You can use this Quickstart to build container images of Java Spring Boot app and push it to Azure Container Registry using Maven and Jib. Maven and Jib are one way of using developer tooling to interact with an Azure container registry.
 
 ## Prerequisites
 
-* An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial).
+* An Azure subscription; Sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial) or activate [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) if you don't already have an Azure subscription.
+* A supported Java Development Kit (JDK); For more information on available JDKs when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 * The [Azure CLI](/cli/azure/overview).
-* A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
-* Apache's [Maven](http://maven.apache.org) build tool (Version 3 or above).
+* The Apache's [Maven](http://maven.apache.org) build tool (Version 3 or above).
 * A [Git](https://git-scm.com) client.
 * A [Docker](https://www.docker.com) client.
 * The [ACR Docker credential helper](https://github.com/Azure/acr-docker-credential-helper).
 
-## Create the Spring Boot on Docker Getting Started web app
+## Create and build a Spring Boot application on Docker
 
-The following steps walk you through building a Spring Boot web application and testing it locally.
+The following steps walk you through building a containerized Java Spring Boot web application and testing it locally.
 
 1. From the command prompt, use the following command to clone the [Spring Boot on Docker Getting Started](https://github.com/spring-guides/gs-spring-boot-docker) sample project.
 
@@ -32,7 +32,7 @@ The following steps walk you through building a Spring Boot web application and 
    git clone https://github.com/spring-guides/gs-spring-boot-docker.git
    ```
 
-1. Change directory to the completed project.
+1. Change directory to the complete project.
 
    ```bash
    cd gs-spring-boot-docker/complete
@@ -114,7 +114,7 @@ Finally, you'll update your project configuration and use the command prompt to 
    </properties>
    ```
 
-1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` element contains and entry for the `jib-maven-plugin`, as shown in the following example. Note that we are using a base image from the Microsoft Container Registry (MCR): `mcr.microsoft.com/java/jdk:8-zulu-alpine`, which contains an officially supported JDK for Azure. For other MCR base images with officially supported JDKs, see [Java SE JDK](https://hub.docker.com/_/microsoft-java-jdk), [Java SE JRE](https://hub.docker.com/_/microsoft-java-jre), [Java SE Headless JRE](https://hub.docker.com/_/microsoft-java-jre-headless), and [Java SE JDK and Maven](https://hub.docker.com/_/microsoft-java-maven).
+1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` element contains and an entry for the `jib-maven-plugin`, as shown in the following example. Note that we are using a base image from the Microsoft Container Registry (MCR): `mcr.microsoft.com/java/jdk:8-zulu-alpine`, which contains an officially supported JDK for Azure. For other MCR base images with officially supported JDKs, see [Java SE JDK](https://hub.docker.com/_/microsoft-java-jdk), [Java SE JRE](https://hub.docker.com/_/microsoft-java-jre), [Java SE Headless JRE](https://hub.docker.com/_/microsoft-java-jre-headless), and [Java SE JDK and Maven](https://hub.docker.com/_/microsoft-java-maven).
 
    ```xml
    <plugin>
@@ -132,7 +132,7 @@ Finally, you'll update your project configuration and use the command prompt to 
    </plugin>
    ```
 
-1. Navigate to the completed project directory for your Spring Boot application and run the following command to build the image and push the image to the registry:
+1. Navigate to the complete project directory for your Spring Boot application and run the following command to build the image and push the image to the registry:
 
    ```bash
    az acr login && mvn compile jib:build

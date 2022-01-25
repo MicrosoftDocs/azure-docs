@@ -53,7 +53,7 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
    | Direction | Select Uplink or Downlink |
    | Center Frequency | Enter the center frequency in Mhz |
    | Bandwidth | Enter the bandwidth in Mhz |
-   | Polarization | Select RHCP, LHCP, Dual, or Linear Vertical |
+   | Polarization | Select RHCP, LHCP, or Linear Vertical |
 
    :::image type="content" source="media/orbital-eos-register-links.png" alt-text="Spacecraft Links Resource Page" lightbox="media/orbital-eos-register-links.png":::
 

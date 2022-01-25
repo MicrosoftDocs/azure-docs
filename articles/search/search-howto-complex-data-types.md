@@ -71,7 +71,9 @@ As with any index definition, you can use the portal, [REST API](/rest/api/searc
 
 Other Azure SDKs provide samples in [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py), [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/indexes/CreateIndexExample.java), and [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/search/search-documents/samples/v11/javascript/indexOperations.js).
 
-### [**Azure portal**](#tab/complex-type-portal)
+### [**Azure portal**](#tab/portal)
+
+1. [Sign in to Azure portal](https://portal.azure.com).
 
 1. On the search service **Overview** page, select the **Indexes** tab.
 

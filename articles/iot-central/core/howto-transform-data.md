@@ -134,21 +134,9 @@ To build the custom module in the [Azure Cloud Shell](https://shell.azure.com/):
 
 ### Set up an IoT Edge device
 
-This scenario uses an IoT Edge gateway device to transform the data from any downstream devices. This section describes how to create IoT Central device templates for the gateway and downstream devices in your IoT Central application. IoT Edge devices use a deployment manifest to configure their modules.
+This scenario uses an IoT Edge gateway device to transform the data from any downstream devices. This section describes how to create IoT Central device template for the gateway device in your IoT Central application. IoT Edge devices use a deployment manifest to configure their modules.
 
-To create a device template for the downstream device, this scenario uses a simple thermostat device model:
-
-1. Download the [device model for the thermostat](https://raw.githubusercontent.com/Azure/iot-plugandplay-models/main/dtmi/com/example/thermostat-2.json) device to your local machine.
-
-1. Sign in to your IoT Central application and navigate to the **Device templates** page.
-
-1. Select **+ New**, select **IoT Device**, and select **Next: Customize**.
-
-1. Enter *Thermostat* as the template name and select **Next: Review**. Then select **Create**.
-
-1. Select **Import a model** and import the *thermostat-2.json* file you downloaded previously.
-
-1. Select **Publish** to publish the new device template.
+In this example, the downstream device doesn't need a device template. The downstream device is registered in IoT Central so you can generate the credentials it needs to connect the IoT Edge device. Because the IoT Edge module transforms the data, all the downstream device telemetry arrives in IoT Central as if it was sent by the IoT Edge device.
 
 To create a device template for the IoT Edge gateway device:
 
@@ -164,15 +152,54 @@ To create a device template for the IoT Edge gateway device:
 
 1. Select **+ New**, select **Azure IoT Edge**, and then select **Next: Customize**.
 
-1. Enter *IoT Edge gateway device* as the device template name. Select **This is a gateway device**. Select **Browse** to upload the *moduledeployment.json* deployment manifest file you edited previously.
+1. Enter *IoT Edge gateway device* as the device template name. Don't select **This is a gateway device**. Select **Browse** to upload the *moduledeployment.json* deployment manifest file you edited previously.
 
 1. When the deployment manifest is validated, select **Next: Review**, then select **Create**.
 
-1. Under **Model**, select **Relationships**. Select **+ Add relationship**. Enter *Downstream device* as the display name, and select **Thermostat** as the target. Select **Save**.
+The deployment manifest doesn't specify the telemetry the module sends. To add the telemetry definitions to the device template:
+
+1. Select **Module transformmodule** in the **Modules** section of the **IoT Edge gateway device** template.
+
+1. Select **Add capability** and use the information in the following tables to add a new telemetry type:
+
+    | Setting      | Value  |
+    | ------------ | ------ |
+    | Display name | Device |
+    | Name         | device |
+    | Capability type | Telemetry |
+    | Semantic type   | None      |
+    | Schema          | Object    |
+
+    Object definition:
+
+    | Display name | Name     | Schema |
+    | ------------ | -------- | ------ |
+    | Device ID    | deviceId | String |
+
+    Save your changes.
+
+1. Select **Add capability** and use the information in the following tables to add a new telemetry type:
+
+    | Setting      | Value        |
+    | ------------ | ------------ |
+    | Display name | Measurements |
+    | Name         | measurements |
+    | Capability type | Telemetry |
+    | Semantic type   | None      |
+    | Schema          | Object    |
+
+    Object definition:
+
+    | Display name | Name        | Schema |
+    | ------------ | ----------- | ------ |
+    | Temperature  | temperature | Double |
+    | Pressure     | pressure    | Double |
+    | Humidity     | humidity    | Double |
+    | Scale        | scale       | String |
+
+    Save your changes.
 
 1. Select **Publish** to publish the device template.
-
-You now have two device templates in your IoT Central application. The **IoT Edge gateway device** template, and the **Thermostat** template as the downstream device.
 
 To register a gateway device in IoT Central:
 
@@ -188,13 +215,11 @@ To register a downstream device in IoT Central:
 
 1. In your IoT Central application, navigate to the **Devices** page.
 
-1. Select **Thermostat** and select **Create a device**. Enter *Thermostat* as the device name, enter *downstream-01* as the device ID, make sure **Thermostat** is selected as the device template. Select **Create**.
+1. Don't select a device template. Select **+ New**. Enter *Downstream 01* as the device name, enter *downstream-01* as the device ID, make sure that the device template is **Unassigned**. Select **Create**.
 
-1. In the list of devices, select the **Thermostat** and then select **Attach to Gateway**. Select the **IoT Edge gateway device** template and the **IoT Edge gateway device** instance. Select **Attach**.
+1. In the list of devices, click on the **Downstream 01**, and then select **Connect**.
 
-1. In the list of devices, click on the **Thermostat**, and then select **Connect**.
-
-1. Make a note of the **ID scope**, **Device ID**, and **Primary key** values for the **Thermostat** device. You use them later.
+1. Make a note of the **ID scope**, **Device ID**, and **Primary key** values for the **Downstream 01** device. You use them later.
 
 ### Deploy the gateway and downstream devices
 
@@ -211,9 +236,7 @@ For convenience, this article uses Azure virtual machines to run the gateway and
 | Authentication Type | Password |
 | Admin Password Or Key | Your choice of password for the **AzureUser** account on both virtual machines. |
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fiot-central-docs-samples%2Fmaster%2Ftransparent-gateway%2FDeployGatewayVMs.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure button" />
-</a>
+[![Deploy to Azure Button](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fiot-central-docs-samples%2Fmaster%2Ftransparent-gateway%2FDeployGatewayVMs.json)
 
 Select **Review + Create**, and then **Create**. It takes a couple of minutes to create the virtual machines in the **ingress-scenario** resource group.
 
@@ -332,6 +355,8 @@ To connect a downstream device to the IoT Edge gateway device:
     Sent telemetry for device downstream-01
     ```
 
+For simplicity, the code for the downstream device provisions the device in IoT Central. Typically, downstream devices connect through a gateway because they can't connect to the internet and so can't connect to the Device Provisioning Service endpoint. To learn more, see [How to connect devices through an IoT Edge transparent gateway](how-to-connect-iot-edge-transparent-gateway.md).
+
 ### Verify
 
 To verify the scenario is running, navigate to your **IoT Edge gateway device** in IoT Central:
@@ -339,14 +364,19 @@ To verify the scenario is running, navigate to your **IoT Edge gateway device** 
 :::image type="content" source="media/howto-transform-data/transformed-data.png" alt-text="Screenshot that shows transformed data on devices page.":::
 
 - Select **Modules**. Verify that the three IoT Edge modules **$edgeAgent**, **$edgeHub** and **transformmodule** are running.
-- Select the **Downstream Devices** and verify that the downstream device is provisioned.
-- Select **Raw data**. The telemetry data in the **Unmodeled data** column looks like:
+- Select **Raw data**. The telemetry data in the **Device** column looks like:
 
     ```json
-    {"device":{"deviceId":"downstream-01"},"measurements":{"temperature":85.21208,"pressure":59.97321,"humidity":77.718124,"scale":"farenheit"}}
+    {"deviceId":"downstream-01"}
     ```
 
-Because the IoT Edge device is transforming the data from the downstream device, the telemetry is associated with the gateway device in IoT Central. To visualize the telemetry, create a new version of the **IoT Edge gateway device** template with definitions for the telemetry types.
+    The telemetry data in the **Measurements** column looks like:
+
+    ```json
+    {"temperature":85.21208,"pressure":59.97321,"humidity":77.718124,"scale":"farenheit"}
+    ```
+
+Because the IoT Edge device is transforming the data from the downstream device, the telemetry is associated with the gateway device in IoT Central. To visualize the transformed telemetry, create a view in the **IoT Edge gateway device** template and republish it.
 
 ## Data transformation at egress
 

@@ -316,7 +316,7 @@
 					<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#ffffff)"/>
 				</v:userDefs>
 				<title>Sheet.1071</title>
-				<desc>Windows Virtual Desktop Infrastructure</desc>
+				<desc>Azure Virtual Desktop Infrastructure</desc>
 				<g id="shape1072-17" v:mID="1072" v:groupContext="shape" v:layerMember="2">
 					<title>Sheet.1072</title>
 					<v:userDefs>
@@ -348,7 +348,7 @@
 					<path d="M44.44 612 L215.44 612" class="st5"/>
 					<path d="" class="st5"/>
 					<path d="M210.94 616.5 L210.94 571.5" class="st5"/>
-					<text x="57.93" y="588.15" class="st6" v:langID="1033"><v:paragraph v:horizAlign="2"/><v:tabList/>Windows Virtual Desktop <tspan
+					<text x="57.93" y="588.15" class="st6" v:langID="1033"><v:paragraph v:horizAlign="2"/><v:tabList/>Azure Virtual Desktop <tspan
 								x="126.85" dy="1.2em" class="st7">Infrastructure</tspan></text>				</g>
 			</g>
 		</g>
