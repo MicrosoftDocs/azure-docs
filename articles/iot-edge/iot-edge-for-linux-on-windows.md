@@ -26,7 +26,8 @@ IoT Edge for Linux on Windows works by running a Linux virtual machine on a Wind
 
 IoT Edge for Linux on Windows uses the following components to enable Linux and Windows workloads to run alongside each other and communicate seamlessly:
 
-:::version 1.1
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 * **A Linux virtual machine running Azure IoT Edge**: A Linux virtual machine, based on Microsoft's first party [CBL-Mariner](https://github.com/microsoft/CBL-Mariner) operating system, is built with the IoT Edge runtime and validated as a tier 1 supported environment for IoT Edge workloads.
 
 * **Windows Admin Center**: An IoT Edge extension for Windows Admin Center facilitates installation, configuration, and diagnostics of IoT Edge on the Linux virtual machine. Windows Admin Center can deploy IoT Edge for Linux on Windows on the local device, or can connect to target devices and manage them remotely.
@@ -34,15 +35,18 @@ IoT Edge for Linux on Windows uses the following components to enable Linux and 
 * **Microsoft Update**: Integration with Microsoft Update keeps the Windows runtime components, the CBL-Mariner Linux VM, and IoT Edge up to date.
 
 ![Windows and the Linux VM run in parallel, while the Windows Admin Center controls both components](./media/iot-edge-for-linux-on-windows/architecture-and-communication.png)
-:::end
+:::moniker-end
+<!-- end 1.1 -->
 
-:::version 1.2
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
 * **A Linux virtual machine running Azure IoT Edge**: A Linux virtual machine, based on Microsoft's first party [CBL-Mariner](https://github.com/microsoft/CBL-Mariner) operating system, is built with the IoT Edge runtime and validated as a tier 1 supported environment for IoT Edge workloads.
 
 * **Microsoft Update**: Integration with Microsoft Update keeps the Windows runtime components, the CBL-Mariner Linux VM, and IoT Edge up to date.
 
 ![Windows and the Linux VM run in parallel, while the Windows Admin Center controls both components](./media/iot-edge-for-linux-on-windows/architecture-eflow1.2.png)
-:::end
+:::moniker-end
+<!-- end 1.2 -->
 
 Bi-directional communication between Windows process and the Linux virtual machine means that Windows processes can provide user interfaces or hardware proxies for workloads run in the Linux containers.
 
@@ -57,13 +61,19 @@ A Windows device with the following minimum requirements:
    <sub><sup>1</sup> Windows 10 and Windows Server 2019 minimum build 17763 with all current cumulative updates installed.</sub>
 
 * Hardware requirements
+  <!-- 1.1 -->
+  :::moniker range="iotedge-2018-06"
   * Minimum Free Memory: 1 GB
-  :::version 1.1
   * Minimum Free Disk Space: 10 GB
-  :::end
-  :::version 1.2
+  :::moniker-end
+  <!-- end 1.1 -->
+ 
+  <!-- 1.2 -->
+  :::moniker range=">=iotedge-2020-11"
+  * Minimum Free Memory: 1 GB
   * Minimum Free Disk Space: 20 GB
-  :::end
+  :::moniker-end
+  <!-- end 1.2 -->
 
 ## Samples
 
