@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli, mode-api
 
 # Getting started with Azure Payment HSM
 
-To get started with Azure Payment PSH (preview), request access [via email](mailto:paymentHSMRequest@microsoft.com). Upon approval, you willbe provided with onboarding instructions 
+To get started with Azure Payment PSH (preview), request access [via email](mailto:paymentHSMRequest@microsoft.com). Upon approval, you will be provided with onboarding instructions 
 
 ## Support
 
