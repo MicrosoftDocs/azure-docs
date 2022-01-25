@@ -4,6 +4,8 @@
   items:
   - name: Payment HSM overview
     href: overview.md
+  - name: Public preview details
+    href: public-preview.md
 - name: Get started
   items:
   - name: Getting started with Azure Payment HSM
