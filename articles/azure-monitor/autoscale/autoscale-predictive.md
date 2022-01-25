@@ -261,16 +261,16 @@ PS G:\works\kusto_onboard\test_arm_template> new-azurermresourcegroupdeployment 
     "contentVersion": "1.0.0.0",
 	"parameters": {
 		"targetVmssResourceId": {
-			"value":  "/subscriptions/e954e48d-03b1-4711-b252-3e0353cb45ae/resourceGroups/patest2/providers/Microsoft.Compute/virtualMachineScaleSets/patest2"
+			"value": "/subscriptions/e954e48d-b252-b252-b252-3e0353cb45ae/resourceGroups/patest2/providers/Microsoft.Compute/virtualMachineScaleSets/patest2"
 		},
 		"location": {
-			"value":  "East US"
+			"value": "East US"
 		},
 		"minimumCapacity": {
-			"value":  1
+			"value": 1
 		},
 		"maximumCapacity": {
-			"value":  4
+			"value": 4
 		},
 		"defaultCapacity": {
 		  "value": 4
