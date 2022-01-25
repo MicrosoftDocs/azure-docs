@@ -36,7 +36,7 @@ If you are looking for items older than six months, you will find them in the [A
 
 ### Codeless data connectors (Public preview)
 
-Microsoft Sentinel now supports a new method for partners, advanced users, and developers to create custom connectors, connect them, and ingest data to Microsoft Sentinel.
+Partners, advanced users, and developers can now use the new Codeless Connector Platform (CCP) to create custom connectors, connect their data sources, and ingest data to Microsoft Sentinel.
 
 The Codeless Connector Platform (CCP) provides support for new data connectors via ARM templates, API, or via a solution in the Microsoft Sentinel [content hub](sentinel-solutions.md).
 
@@ -60,7 +60,7 @@ While we often recommend a single-workspace environment, some use cases require 
 
 For more information, see:
 
-- [The need to use multiple Microsoft Sentinel workspaces](extend-sentinel-across-workspaces-tenants.md#the-need-to-use-multiple-microsoft-sentinel-workspaces)
+- [Use multiple Microsoft Sentinel workspaces](extend-sentinel-across-workspaces-tenants.md#the-need-to-use-multiple-microsoft-sentinel-workspaces)
 - [Work with incidents in many workspaces at once](multiple-workspace-view.md)
 - [Manage multiple tenants in Microsoft Sentinel as an MSSP](multiple-tenants-service-providers.md)
 
@@ -70,7 +70,7 @@ Kusto Query Language is used in Microsoft Sentinel to search, analyze, and visua
 
 The new **Advanced KQL for Microsoft Sentinel** interactive workbook is designed to help you improve your Kusto Query Language proficiency by taking a use case-driven approach based on:
 
-- Grouping Kusto Query Language operators/commands by category for easy navigation.
+- Grouping Kusto Query Language operators / commands by category for easy navigation.
 - Listing the possible tasks a user would perform with Kusto Query Language in Microsoft Sentinel. Each task includes operators used, sample queries and use cases.
 - Compiling a list of existing content found in Microsoft Sentinel (analytics rules, hunting queries, workbooks and so on) to provide additional references specific to the operators you want to learn.
 - Allowing you to execute sample queries on-the-fly, within your own environment or in "LA Demo" - a public [Log Analytics demo environment](https://aka.ms/lademo). Try the sample Kusto Query Language statements in real time without the need to navigate away from the workbook.
@@ -156,7 +156,7 @@ For more information, see [Connect Microsoft Sentinel to S3 Buckets to get Amazo
 
 ### Windows Forwarded Events connector now available (Public preview)
 
-You can now stream event logs from Windows Servers connected to your Microsoft Sentinel workspace using Windows Event Collection/Windows Event Forwarding (WEC/WEF), thanks to this new data connector. The connector uses the new Azure Monitor Agent (AMA), which provides a number of advantages over the legacy Log Analytics agent (also known as the MMA):
+You can now stream event logs from Windows Servers connected to your Microsoft Sentinel workspace using Windows Event Collection / Windows Event Forwarding (WEC / WEF), thanks to this new data connector. The connector uses the new Azure Monitor Agent (AMA), which provides a number of advantages over the legacy Log Analytics agent (also known as the MMA):
 
 - **Scalability:** If you have enabled Windows Event Collection (WEC), you can install the Azure Monitor Agent (AMA) on the WEC machine to collect logs from many servers with a single connection point.
 
@@ -164,7 +164,7 @@ You can now stream event logs from Windows Servers connected to your Microsoft S
 
 - **Efficiency:** The AMA allows you to design complex Data Collection Rules (DCR) to filter the logs at their source, choosing the exact events to stream to your workspace. DCRs help lower your network traffic and your ingestion costs by leaving out undesired events.
 
-- **Coverage:** WEC/WEF enables the collection of Windows Event logs from legacy (on-premises and physical) servers and also from high-usage or sensitive machines, such as domain controllers, where installing an agent is undesired.
+- **Coverage:** WEC / WEF enables the collection of Windows Event logs from legacy (on-premises and physical) servers and also from high-usage or sensitive machines, such as domain controllers, where installing an agent is undesired.
 
 We recommend using this connector with the [Microsoft Sentinel Information Model (ASIM)](normalization.md) parsers installed to ensure full support for data normalization.
 
@@ -200,7 +200,7 @@ Microsoft Sentinel's free trial continues to support new or existing Log Analyti
 
 We are evolving our free trial experience to include the following updates:
 
-- **New Log Analytics workspaces** can ingest up to 10 GB/day of log data for the first 31-days at no cost. New workspaces include workspaces that are less than three days old.
+- **New Log Analytics workspaces** can ingest up to 10 GB / day of log data for the first 31-days at no cost. New workspaces include workspaces that are less than three days old.
 
    Both Log Analytics data ingestion and Microsoft Sentinel charges are waived during the 31-day trial period. This free trial is subject to a 20-workspace limit per Azure tenant.
 
@@ -477,7 +477,7 @@ For more information, see [Search for incidents](investigate-cases.md#search-for
 
 Azure Sentinel now provides new Fusion detections for possible Ransomware activities, generating incidents titled as **Multiple alerts possibly related to Ransomware activity detected**.
 
-Incidents are generated for alerts that are possibly associated with Ransomware activities, when they occur during a specific time-frame, and are associated with the Execution and Defense Evasion stages of an attack. You can use the alerts listed in the incident to analyze the techniques possibly used by attackers to compromise a host/device and to evade detection.
+Incidents are generated for alerts that are possibly associated with Ransomware activities, when they occur during a specific time-frame, and are associated with the Execution and Defense Evasion stages of an attack. You can use the alerts listed in the incident to analyze the techniques possibly used by attackers to compromise a host / device and to evade detection.
 
 Supported data connectors include:
 
