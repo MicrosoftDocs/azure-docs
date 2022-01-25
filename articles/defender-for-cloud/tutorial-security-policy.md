@@ -79,7 +79,7 @@ For more information about recommendations, see [Managing security recommendatio
 
 1. Open the **Security policy** page.
 
-1. From the **Default initiative**, **Industry & regulatory standards**, or **Your custom initiatives** sections, select the relevant initiative containing the policy you want to disable.
+1. From the **Default initiative** or **Your custom initiatives** sections, select the relevant initiative containing the policy you want to disable.
 
 1. Open the **Parameters** section and search for the policy that invokes the recommendation that you want to disable.
 
