@@ -48,8 +48,8 @@ View the status and results of your search job by going to the **Saved Searches*
 
    In the search query, notice the time columns referenced.
  
-   - `TimeGenerated` is the time the data was ingested into the search table.
-   - `_OriginalTimeGenerated` is the time the data was written to the original log.
+   - `TimeGenerated` is the date and time the data was ingested into the search table.
+   - `_OriginalTimeGenerated` is the date and time the record was created.
 1. To refine the list of results returned from the search table, edit the KQL query.
 
 1. As you're reviewing your search job results, bookmark rows that contain information you find interesting so you can attach them to an incident or refer to them later.

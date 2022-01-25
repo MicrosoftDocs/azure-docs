@@ -9,7 +9,7 @@ ms.author: cwatson
 
 # Restore archived logs from search (Preview)
 
-Restore historical logs you've stored in a log data archive to run high performing queries and analytics. After you restore the data in Microsoft Sentinel, it's available within your workspace for eight days.
+Restore historical data you've stored in archived logs to run high performing queries and analytics.
 
 Before you restore an archived log, see [Start an investigation by searching large datasets (Preview)](investigate-large-datasets.md) and (billing topic around archive > unarchived).
 
@@ -55,7 +55,7 @@ View the status and results of the log data restore by going to the **Restoratio
 
 ## Delete restored data tables
 
-Restored data tables are deleted automatically after eight days. But you can delete restored data tables at any time.
+The restored data is available as long as the underlying source data is available. But you can delete restored data tables at any time.
 
 1. In your Microsoft Sentinel workspace, select **Search** > **Restoration**.
 1. Identify the table you want to delete.
