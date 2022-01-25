@@ -6,7 +6,7 @@ ms.service: api-management
 author: martinpankraz
 ms.author: mapankra
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 01/25/2022
 ms.custom: 
 ---
 
@@ -28,18 +28,30 @@ In this article, you'll:
 
 ## Convert OData metadata to OpenAPI JSON
 
-1. Retrieve metadata XML from your SAP service. You can retrieve it using the SAP Gateway Client (transaction `/IWFND/GW_CLIENT`). Alternatively, make a direct HTTP call to retrieve the XML: `http://<OData server>:<port>/<path>/$metadata`.
+1. Retrieve metadata XML from your SAP service. Use one of these methods: 
 
-1. Convert the OData XML to OpenAPI JSON format using the OASIS [open-source tool](https://github.com/oasis-tcs/odata-openapi).
-    
-    * For test purposes with a single XML file, you can use a [web-based converter](https://convert.odata-openapi.net/) based on the open-source tool.
-    * With the tool or the web-based converter, make sure that you configure the IP address:port of your SAP OData server and the base path of your service.
+   * Use the SAP Gateway Client (transaction `/IWFND/GW_CLIENT`), or 
+   * Make a direct HTTP call to retrieve the XML:
+   `http://<OData server URL>:<port>/<path>/$metadata`.
+
+1. Convert the OData XML to OpenAPI JSON format. Use an OASIS open-source tool for [OData v2](https://github.com/oasis-tcs/odata-openapi/tree/main/tools) or [OData v4](https://github.com/oasis-tcs/odata-openapi/tree/main/lib), depending on your metadata XML. 
+
+   The following is an example command to convert OData v2 XML for the test service `epm_ref_apps_prod_man_srv`:
+
+   ```console
+   odata-openapi -p --basePath '/sap/opu/odata/sap/epm_ref_apps_prod_man_srv' \
+    --scheme https --host <your IP address>:<your SSL port> \
+    ./epm_ref_apps_prod_man_srv.xml
+   ```
+    > [!NOTE]
+    > * For test purposes with a single XML file, you can use a [web-based converter](https://convert.odata-openapi.net/) based on the open-source tool.
+    > * With the tool or the web-based converter, specifying the \<IP address>:\<port> of your SAP OData server is optional. Alternatively, add this information later in your generated OpenAPI specification or after importing to API Management.
 
 1. Save the `openapi-spec.json` file locally for import to API Management.
 
 [!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
 
-## Import and publish back-end API 
+## Import and publish backend API 
 
 1. From the side navigation menu, under the **APIs** section, select **APIs**.
 1. Under **Create a new definition**, select **OpenAPI specification**.
@@ -61,15 +73,31 @@ In this article, you'll:
 
 ## Complete API configuration
 
-* [Add](add-api-manually.md#add-and-test-an-operation) the following three operations to the API that you imported.
+[Add](add-api-manually.md#add-and-test-an-operation) the following three operations to the API that you imported.
 
+1. `GET /$metadata`
     |Operation  |Description  |Further configuration for operation  |
     |---------|---------|---------|
-    |`GET $metadata`     |   Metadata operation      |  Add a `200 OK` response.       |
-    |`HEAD /`     | Operation at root to fetch tokens        |         |
-    |`GET /`     |   GET operation for service root      |    Configure the following [rewrite-uri](api-management-transformation-policies.md#RewriteURL) inbound policy:<br/><br>    `<rewrite-uri template="/" copy-unmatched-params="true" />`|
+    |`GET /$metadata`     |   Metadata operation      |  Add a `200 OK` response.       |
 
-* Configure authentication to your backend using an appropriate method for your environment. For examples, see [API Management authentication policies](api-management-authentication-policies.md).
+    :::image type="content" source="media/sap-api/get-metadata-operation.png" alt-text="Get metadata operation":::
+
+1. `HEAD /` 
+    |Operation  |Description  |Further configuration for operation  |
+    |---------|---------|---------|
+    |`HEAD /`     | Operation at root for X-CSRF-Token retrieval        |     N/A    |
+
+    :::image type="content" source="media/sap-api/head-root-operation.png" alt-text="Operation to fetch tokens":::
+
+1. `GET /`
+
+    Operation  |Description  |Further configuration for operation  |
+    |---------|---------|---------|
+    |`GET /`     |   GET operation at service root      |    Configure the following [rewrite-uri](api-management-transformation-policies.md#RewriteURL) inbound policy:<br/><br>    `<rewrite-uri template="/" copy-unmatched-params="true" />`|
+
+    :::image type="content" source="media/sap-api/get-root-operation.png" alt-text="Get operation for service root":::
+
+Also, configure authentication to your backend using an appropriate method for your environment. For examples, see [API Management authentication policies](api-management-authentication-policies.md).
 
 ## Test your API
 
@@ -77,7 +105,9 @@ In this article, you'll:
 1. From the side navigation menu, under the **APIs** section, select **APIs**.
 1. Under **All APIs**, select your imported API.
 1. Select the **Test** tab to access the test console. 
-1. Select an operation, enter any required values, and select **Send**.
+1. Select an operation, enter any required values, and select **Send**. 
+
+    For example, test the `GET /$metadata` call to verify connectivity to the SAP backend
 1. View the response. To troubleshoot, [trace](api-management-howto-api-inspector.md) the call.
 1. When testing is complete, exit the test console.
 
