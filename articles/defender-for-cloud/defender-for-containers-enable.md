@@ -3,7 +3,7 @@ title: How to enable Microsoft Defender for Containers in Microsoft Defender for
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: overview
 zone_pivot_groups: k8s-host
-ms.date: 01/24/2022
+ms.date: 01/25/2022
 ---
 # Enable Microsoft Defender for Containers
 
@@ -28,7 +28,10 @@ Learn about this plan in [Overview of Microsoft Defender for Containers](defende
 
 ## Prerequisites
 
-Validate the following endpoints are configured for outbound access so that the Defender profile/extension can connect to Microsoft Defender for Cloud to send security data and events:
+Validate the following endpoints are configured for outbound access, and should be updated based on the cluster selected.
+
+- AKS: profile
+- On-prem, IaaS, and AWS: extension
 
 For Azure public cloud deployments:
 
