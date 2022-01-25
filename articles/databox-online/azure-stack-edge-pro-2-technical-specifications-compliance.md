@@ -46,18 +46,20 @@ This device has one power supply unit (PSU) with high-performance fans. The foll
 |-------------------------|----------------------------|
 | Maximum output power    | 550 W                      |
 | Heat dissipation (maximum)    | 550 W                  |
-| Voltage range selection | 100-127 V AC, 47-63 Hz, 7.1 A <br> 200-240V AC, 47-63 Hz, 3.4 A |
+| Voltage range selection | 100-127 V AC, 47-63 Hz, 7.1 A |
+Voltage range selection | 200-240V AC, 47-63 Hz, 3.4 A |
 | Hot pluggable           | No                   |
 
 
 ## Network interface specifications
 
 Your Azure Stack Edge Pro 2 device has four network interfaces, Port 1 - Port 4.
+* **2 X 10 GBase-T/1000Base-T(10/1 GbE) interfaces** 
+    * Port 1 is used for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP. The other interface 
+    * Port 2 is user configurable, can be used for data transfer, and is DHCP by default. These 10/1-GbE interfaces can also operate as 10-GbE interfaces.
+* **2 X 100-GbE interfaces** 
+    * These data interfaces, Port 3 and Port 4, can be configured by user as DHCP (default) or static. 
 
-| Specification           | Description                 |
-|-------------------------|----------------------------|
-|  Network interfaces    | **2 X 10 GBase-T/1000Base-T(10/1 GbE) interfaces** – Port 1 is used for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP.<br>The other interface Port 2 is user configurable, can be used for data transfer, and is DHCP by default. These 10/1-GbE interfaces can also operate as 10-GbE interfaces.<br>**2 X 100-GbE interfaces** – These data interfaces, Port 3 and Port 4, can be configured by user as DHCP (default) or static. 
-  | 
 
 Your Azure Stack Edge Pro 2 device has the following network hardware:
 
@@ -78,7 +80,7 @@ The following table lists the storage capacity of the device.
 
 |     Specification                          |     Value             |
 |--------------------------------------------|-----------------------|
-|    Number of data disks                   |    4 Micron 5200 MTFDDAK960TDD SATA SSDs<br>[See for details.](https://www.micron.com/solutions/technical-briefs/micron-5200-series-of-sata-ssds)|
+|    Number of data disks                   |    4 Micron 5200 MTFDDAK960TDD SATA SSDs [See for details.](https://www.micron.com/solutions/technical-briefs/micron-5200-series-of-sata-ssds)|
 |    Single data disk capacity              |    960 GB             |
 |    Boot disk    |    1  NVMe SSD                |
 |    Boot disk capacity                       |    960 GB             |
