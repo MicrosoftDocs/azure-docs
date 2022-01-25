@@ -1,5 +1,5 @@
 ---
-title: Non-Common Alert schema
+title: Non-Common Alert schema definitions
 description: Understanding the non-common alert schema definitions for Azure Monitor for Test Action group
 author: issahn
 ms.topic: conceptual
