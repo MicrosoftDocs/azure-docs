@@ -63,7 +63,7 @@ For differences between this trigger and the Sliding Window trigger or for more 
    >
    > Otherwise, the workflow might skip the first recurrence.
    >
-   > If a recurrence doesn't specify a specific [start date and time](#start-time), the first recurrence runs immediately 
+   > If a recurrence doesn't specify a specific [start date and time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time), the first recurrence runs immediately 
    > when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, provide a start 
    > date and time for when you want the first recurrence to run.
    >
