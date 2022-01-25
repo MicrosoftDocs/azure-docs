@@ -183,11 +183,11 @@ Connect to Cosmos DB through the Mongo API to extract items from a container, se
 
 ---
 
-### SharePoint Online
+### SharePoint
 
 by [Cognitive Search](search-what-is-azure-search.md)
 
-Connect to a SharePoint Online site and index documents from one or more Document Libraries, for accounts and search services in the same tenant. Text and normalized images will be extracted by default. Optionally, you can configure a skillset for more content transformation and enrichment, or configure change tracking to refresh a search index with new or changed content in SharePoint.
+Connect to a SharePoint site and index documents from one or more Document Libraries, for accounts and search services in the same tenant. Text and normalized images will be extracted by default. Optionally, you can configure a skillset for more content transformation and enrichment, or configure change tracking to refresh a search index with new or changed content in SharePoint.
 
 [More details](search-howto-index-sharepoint-online.md)
 
@@ -831,7 +831,7 @@ The Database Server connector will crawl content from a Relational Database serv
 
 by [BA Insight](https://www.bainsight.com/)
 
-The Deltek Vision Connector honors the security of the source system and provides both full and incremental crawls, so users always have the latest information available to them. It indexes content from Deltek Vision into Azure, SharePoint Online, or SharePoint 2016/2013, surfacing it through BA Insight's SmartHub to provide users with integrated search results.
+The Deltek Vision Connector honors the security of the source system and provides both full and incremental crawls, so users always have the latest information available to them. It indexes content from Deltek Vision into Azure, SharePoint in Microsoft 365, or SharePoint 2016/2013, surfacing it through BA Insight's SmartHub to provide users with integrated search results.
 
 [More details](https://www.bainsight.com/connectors/deltek-connector-sharepoint-azure-elasticsearch/)
 
@@ -2451,11 +2451,11 @@ BA Insight's SharePoint Connector allows you to connect to SharePoint 2019, fetc
 
 ---
 
-### SharePoint Online
+### SharePoint in Microsoft 365
 
 by [Accenture](https://www.accenture.com)
 
-The SharePoint Online connector will crawl content from any SharePoint Online site collection URL. The connector will retrieve Sites, Lists, Folders, List Items and Attachments, as well as other pages (in .aspx format). Supports SharePoint running in the Microsoft O365 offering.
+The SharePoint connector will crawl content from any SharePoint site collection URL. The connector will retrieve Sites, Lists, Folders, List Items and Attachments, as well as other pages (in .aspx format). Supports SharePoint running in the Microsoft O365 offering.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/SharePoint+Online+Connector)
 
@@ -2475,11 +2475,11 @@ The SharePoint Online connector will crawl content from any SharePoint Online si
 
 ---
 
-### SharePoint Online
+### SharePoint in Microsoft 365
 
 by [BA Insight](https://www.bainsight.com/)
 
-BA Insight's SharePoint Online Connector allows you to connect to SharePoint Online, fetch data from any site, document library, or list; and index this content securely.
+BA Insight's SharePoint Connector allows you to connect to SharePoint in Microsoft 365, fetch data from any site, document library, or list; and index this content securely.
 
 [More details](https://www.bainsight.com/connectors/sharepoint-online-connector/)
 

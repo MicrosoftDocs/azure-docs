@@ -198,6 +198,21 @@ Write-Host "Press [ENTER] to continue..."
 
 ---
 
+## Creating key using ARM template is different from creating key via data plane
+
+### Creating a key via ARM
+- It is only possible to create *new* keys. It is not possible to update existing keys, and it is not possible to create new versions of existing keys. If the key already exists, then the existing key is retrieved from storage and used (no write operations will occur).
+- To be authorized to use this API, the caller needs to have the **"Microsoft.KeyVault/vaults/keys/write"** RBAC Action. The built-in "Key Vault Contributor" role is sufficient, since it authorizes all RBAC Actions which match the pattern "Microsoft.KeyVault/*". See the below screenshots for more information.
+
+:::image type="content" source="../media/keys-quick-template-1.png" alt-text="Create a key via ARM 1":::
+:::image type="content" source="../media/keys-quick-template-2.png" alt-text="Create a key via ARM 2":::
+
+
+### Existing API (creating key via data plane)
+- It is possible to create new keys, update existing keys, and create new versions of existing keys.
+- To be authorized to use this API, the caller either needs to have the "create" key permission (if the vault uses access policies) or the "Microsoft.KeyVault/vaults/keys/create/action" RBAC DataAction (if the vault is enabled for RBAC).
+
+
 ## Clean up resources
 
 Other Key Vault quickstarts and tutorials build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
