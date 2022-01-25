@@ -14,7 +14,7 @@ ms.author: cshoe
 
 ## Setup
 
-Begin by signing in to Azure from the CLI. Run the following command, and follow the prompts to complete the authentication process.
+Begin by signing in to Azure. Run the following command, and follow the prompts to complete the authentication process.
 
 # [Bash](#tab/bash)
 
@@ -30,7 +30,7 @@ Connect-AzAccount
 
 ---
 
-Ensure that your azure CLI is up-to-date:
+Ensure that the azure CLI is up-to-date:
 
 # [Bash](#tab/bash)
 
@@ -119,7 +119,7 @@ New-AzResourceGroup -Name $RESOURCE_GROUP -Location $LOCATION
 
 ---
 
-With the CLI upgraded and a new resource group available, you can create a Container Apps environment and deploy your container app.
+With the CLI upgraded and a new resource group available, you can create a Container Apps environment.
 
 ## Create an environment
 
