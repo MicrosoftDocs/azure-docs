@@ -79,7 +79,7 @@ The resources grouped by workspace appear in the **Connection Center**.
 3. Select **Next**.
 4. Sign in with your user account when prompted.
 
-The resources grouped by workspace appears in the **Connection Center**.
+The resources grouped by workspace appear in the **Connection Center**.
 
 ## Next steps
 
