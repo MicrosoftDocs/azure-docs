@@ -8,7 +8,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 layout: LandingPage
-ms.date: 06/23/2021
+ms.date: 01/25/2022
 
 ---
 
@@ -176,7 +176,7 @@ Connect to Cosmos DB through the Mongo API to extract items from a container, se
 
 by [Cognitive Search](search-what-is-azure-search.md)
 
-Connect to a SharePoint site and index documents from one or more Document Libraries, for accounts and search services in the same tenant. Text and normalized images will be extracted by default. Optionally, you can configure a skillset for more content transformation and enrichment, or configure change tracking to refresh a search index with new or changed content in SharePoint.
+Connect to a SharePoint site and index documents from one or more document libraries, for accounts and search services in the same tenant. Text and normalized images will be extracted by default. Optionally, you can configure a skillset for more content transformation and enrichment, or configure change tracking to refresh a search index with new or changed content in SharePoint.
 
 [More details](search-howto-index-sharepoint-online.md)
 
@@ -202,7 +202,7 @@ Connect to a SharePoint site and index documents from one or more Document Libra
 
 by [Cognitive Search](search-what-is-azure-search.md)
 
-Connect to MySQL database on Azure to extract rows in a table, serialized into JSON documents, and imported into a search index as search documents. On subsequent runs, the indexer will take all changes, uploads, and deletes for your MySQL database and reflect these changes in your search index.
+Connect to MySQL database on Azure to extract rows in a table, serialized into JSON documents, and imported into a search index as search documents. On subsequent runs, assuming High Water Mark change detection policy is configured, the indexer will take all changes, uploads, and delete and reflect those changes in your search index.
 
 [More details](search-howto-index-mysql.md)
 
