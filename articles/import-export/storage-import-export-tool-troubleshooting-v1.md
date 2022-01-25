@@ -5,7 +5,7 @@ author: v-dalc
 services: storage
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 01/19/2021
+ms.date: 01/24/2022
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -17,7 +17,7 @@ This article describes how to troubleshoot common issues when importing and expo
 
 When a copy session fails, you have two options:  
 * If the error can be retried - for example, if the network share was offline for a short period and now is back online - you can resume the copy session.
-* If the error can't be retried - for example, if you specified the wrong source file directory in the command-line parameters - you need to abort the copy session.
+* If the error can't be retried - for example, if you specified the wrong source file directory in the command-line parameters - you need to abort the copy session. A copy session will fail if you used an HDD with 4096-byte (4K) sectors; only 512-byte sectors are supported on HDDs.
  
 <!--For information about resuming and aborting copy sessions, see [Preparing Hard Drives for an Import Job](../storage-import-export-tool-preparing-hard-drives-import-v1.md  - Article we removed from TOC. File remains.-->
 
