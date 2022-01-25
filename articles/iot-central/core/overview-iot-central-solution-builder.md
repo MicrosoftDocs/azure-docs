@@ -50,7 +50,7 @@ Built-in features of IoT Central you can use to extract business value include:
 
   An IoT Central application can have one or more dashboards that operators use to view and interact with the application. You can customize the default dashboard and create specialized dashboards:
 
-  - To view some examples of customized dashboards, see [Industry focused templates](concepts-app-templates.md#industry-focused-templates).
+  - To view some examples of customized dashboards, see [Industry focused templates](../retail/tutorial-in-store-analytics-create-app.md).
   
   - To learn more about dashboards, see [Create and manage multiple dashboards](howto-manage-dashboards.md) and [Configure the application dashboard](howto-manage-dashboards.md).
   

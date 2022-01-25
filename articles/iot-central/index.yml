@@ -51,7 +51,7 @@ landingContent:
           - text: How can I try out a detailed end-to-end scenario?
             url: /learn/modules/create-your-first-iot-central-app/
           - text: Where can I find demo IoT Central applications?
-            url: core/concepts-app-templates.md
+            url: retail/tutorial-in-store-analytics-create-app.md
 
   - title: Connect your devices
     linkLists:
@@ -84,7 +84,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Dashboard examples
-            url: core/concepts-app-templates.md
+            url: retail/tutorial-in-store-analytics-create-app.md
       - linkListType: learn
         links:
           - text: Manage devices in bulk with jobs
