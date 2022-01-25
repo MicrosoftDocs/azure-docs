@@ -51,7 +51,7 @@ Click on any number of filters to create more specific search queries.  The foll
 
 If an asset filter (job, model, component) is present, results will be scoped to those tabs. Other filters will apply to all assets unless an asset filter is also present in the query. Similarly, free text search can be provided alongside filters but will be scoped to the tabs chosen by asset filters if present. 
 
-> [Note:] 
+> [!TIP] 
 > * Filters search for exact matches of text. Use free text queries for a contains search.
 
 > * Quotations are required around values that include spaces or other special characters.  
@@ -77,7 +77,7 @@ To add more specificity to the search results, use the column filters sidebar.
 
 Customize the display of columns in the search results table. These views can be saved and shared as well. 
 
-![Screenshot showing how to create custom column views on the search results page.](./media/how-to-search-cross-workspace/custom_views.jpg)
+![Screenshot showing how to create custom column views on the search results page.](./media/how-to-search-cross-workspace/custom-views.jpg)
 
 
 ### Known issues
