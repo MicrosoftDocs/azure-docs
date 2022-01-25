@@ -161,7 +161,7 @@ In the extreme event of any Azure region being affected by a disaster, the Data 
 
 For regions paired with a region within the same country or commerce boundary, no action is required. Microsoft is responsible for recovery, which could take up to 72 ours.
 
-For regions that don’t have a paired region within the same geographic or commerce boundary, the customer will be notified to create a new Data Box order from a different, available region and copy their data to Azure in the new region. The Brazil South and Southeast Asia regions are paired with regions outside the country or commerce boundary, and customers will need to create new orders.
+For regions that don’t have a paired region within the same geographic or commerce boundary, the customer will be notified to create a new Data Box order from a different, available region and copy their data to Azure in the new region. New orders would be required for the Brazil South and Southeast Asia regions.
 
 For more information, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
 
