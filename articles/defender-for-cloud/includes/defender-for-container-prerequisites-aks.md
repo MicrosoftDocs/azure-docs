@@ -26,4 +26,4 @@ For Azure Government cloud deployments:
 
 By default, AKS clusters have unrestricted outbound (egress) internet access. 
 
-Lean more about [AKS addons and integrations](../aks/limit-egress-traffic.md#aks-addons-and-integrations).
+[AKS addons and integrations](../../aks/limit-egress-traffic.md#aks-addons-and-integrations)
