@@ -77,16 +77,16 @@ You provide either a `ClientSecret` or a `CertificateName`. These settings are e
 
 Configuration parameters for the [Node.js daemon sample](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-console/) are located in an *.env* file:
 
-```Text 
+```Javascript 
 # Credentials
 TENANT_ID=Enter_the_Tenant_Info_Here
 CLIENT_ID=Enter_the_Application_Id_Here
 CLIENT_SECRET=Enter_the_Client_Secret_Here
 
 # Endpoints
-// the AAD endpoint is the authority endpoint for token issuance
+// the Azure AD endpoint is the authority endpoint for token issuance
 AAD_ENDPOINT=Enter_the_Cloud_Instance_Id_Here // https://login.microsoftonline.com/
-// the graph endpoint is the application ID URI of Microsoft graph
+// the graph endpoint is the application ID URI of Microsoft Graph
 GRAPH_ENDPOINT=Enter_the_Graph_Endpoint_Here // https://graph.microsoft.com/
 ```
 
