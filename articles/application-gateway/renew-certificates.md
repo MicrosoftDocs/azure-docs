@@ -6,7 +6,7 @@ author: vhorne
 
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 01/20/2021
+ms.date: 01/25/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -15,9 +15,13 @@ ms.custom: devx-track-azurepowershell
 
 At some point, you'll need to renew your certificates if you configured your application gateway for TLS/SSL encryption.
 
+There are two locations where certificates may exist: certificates uploaded to an application gateway, or certificates stored in Azure Key Vault.
+
+## Certificates on an application gateway
+
 You can renew a certificate associated with a listener using either the Azure portal, Azure PowerShell, or Azure CLI:
 
-## Azure portal
+### Azure portal
 
 To renew a listener certificate from the portal, navigate to your application gateway listeners. 
 Select the listener that has a certificate that needs to be renewed, and then select **Renew or edit selected certificate**.
@@ -26,7 +30,7 @@ Select the listener that has a certificate that needs to be renewed, and then se
 
 Upload your new PFX certificate, give it a name, type the password, and then select **Save**.
 
-## Azure PowerShell
+### Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -47,7 +51,7 @@ set-AzApplicationGatewaySSLCertificate -Name <oldcertname> `
 
 Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
-## Azure CLI
+### Azure CLI
 
 ```azurecli-interactive
 az network application-gateway ssl-cert update \
@@ -57,6 +61,15 @@ az network application-gateway ssl-cert update \
   --cert-file <PathToCerFile> \
   --cert-password "<password>"
 ```
+## Certificates on Azure Key Vault
+
+When Application Gateway is configured to use Key Vault certificates, its instances retrieve the certificate from Key Vault and install them locally for TLS termination. The instances poll Key Vault at four-hour intervals to retrieve a renewed version of the certificate if it exists. If an updated certificate is found, the TLS/SSL certificate that's currently associated with the HTTPS listener is automatically rotated.
+
+> [!TIP]
+> Any change to Application Gateway will force a check against Key Vault to see if any new versions of certificates are available. This includes, but not limited to, changes to Frontend IP Configurations, Listeners, Rules, Backend Pools, Resource Tags, and more. If an updated certificate is found, the new certificate will immediately be presented.
+
+Application Gateway uses a secret identifier in Key Vault to reference the certificates. For Azure PowerShell, the Azure CLI, or Azure Resource Manager, we strongly recommend that you use a secret identifier that doesn't specify a version. This way, Application Gateway will automatically rotate the certificate if a newer version is available in your key vault. An example of a secret URI without a version is `https://myvault.vault.azure.net/secrets/mysecret/`.
+
 
 ## Next steps
 
