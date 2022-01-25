@@ -5,11 +5,11 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 10/18/2021
+ms.date: 1/25/2022
 ms.author: duau
 ---
 
-# Configure custom BGP communities for Azure ExpressRoute private peering using the Azure portal(Preview)
+# Configure custom BGP communities for Azure ExpressRoute private peering using the Azure portal (Preview)
 
 BGP communities are groupings of IP prefixes tagged with a community value. This value can be used to make routing decisions on the router's infrastructure. You can apply filters or specify routing preferences for traffic sent to your on-premises from Azure with BGP community tags. This article explains how to apply a custom BGP community value for your virtual networks using the Azure portal. Once configured, you can view the regional BGP community value and the custom community value of your virtual network. This value will be used for outbound traffic sent over ExpressRoute when originating from that virtual network.
 
@@ -22,81 +22,21 @@ BGP communities are groupings of IP prefixes tagged with a community value. This
   * Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-arm.md) article for routing instructions. 
   * Ensure that Azure private peering gets configured and establishes BGP peering between your network and Microsoft for end-to-end connectivity.
   
-## Apply a custom BGP community value for a new virtual network
-
-1. To start the configuration, sign in to your Azure account and select the subscription that you want to use.
-
-   [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-
-1. Create a resource group to store the new virtual network.
-
-    ```azurepowershell-interactive
-    $rg = @{
-        Name = 'myERRG'
-        Location = 'WestUS'
-    }
-    New-AzResourceGroup @rg
-    ```
-
-1. Create a new virtual network with the `-BgpCommunity` flag to apply a BGP community value.
-
-    ```azurepowershell-interactive
-    $vnet = @{
-        Name = 'myVirtualNetwork'
-        ResourceGroupName = 'myERRG'
-        Location = 'WestUS'
-        AddressPrefix = '10.0.0.0/16'
-        BgpCommunity = '12076:20001'    
-    }
-    New-AzVirtualNetwork @vnet
-    ```
-    
-    > [!NOTE]
-    > The `12076:` is required before your custom community value.
-    >
-
-1. Retrieve your virtual network and review its properties. You'll notice a *BgpCommunities* section that contains a **RegionalCommunity** value and a **VirtualNetworkCommunity** value. The *RegionalCommunity* value is predefined based on the Azure region of the virtual network. The *VirtualNetworkCommunity* value should match your custom definition.
-
-    ```azurepowershell-interactive
-    $virtualnetwork = @{
-        Name = 'myVirtualNetwork'
-        ResourceGroupName = 'myERRG'
-    } 
-    Get-AzVirtualNewtork @virtualnetwork
-    ```
-
 ## Applying or updating the custom BGP value for an existing virtual network
 
-1. Get the virtual network you want to apply or update the BGP community value and store it to a variable.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-    ```azurepowershell-interactive
-    $virtualnetwork = @{
-        Name = 'myVirtualNetwork'
-        ResourceGroupName = 'myERRG'
-    } 
-    $vnet = Get-AzVirtualNetwork @virtualnetwork
-    ```
+1. Select the virtual network that you want to update the BGP community value for.
 
-1. Update the `VirtualNetworkCommunity` value for your virtual network.
+    :::image type="content" source="./media/how-to-configure-custom-bgp-communities-portal/virtual-network-list.png" alt-text="Screenshot of the list of virtual networks.":::
 
-    ```azurepowershell-interactive
-    $vnet.BgpCommunities = @{VirtualNetworkCommunity = '12076:20002'}
-    $vnet | Set-AzVirtualNetwork
-    ```
+1. Select the **configure** link below the *BGP community string*.
 
-    > [!NOTE]
-    > The `12076:` is required before your custom community value.
-    >
+    :::image type="content" source="./media/how-to-configure-custom-bgp-communities-portal/vnet-overview.png" alt-text="Screenshot of the overview page of a virtual networks.":::
 
-1. Retrieve your virtual network and review its updated properties. The **RegionalCommunity** value is predefined based on the Azure region of the virtual network; to view the regional BGP community values for private peering, see [ExpressRoute routing requirements](./expressroute-routing.md#bgp). The **VirtualNetworkCommunity** value should match your custom definition.
+1. On the *BGP community string* page, enter the BGP value you would like to configure this virtual network and then select **Save**.
 
-    ```azurepowershell-interactive
-    $virtualnetwork = @{
-        Name = 'myVirtualNetwork'
-        ResourceGroupName = 'myERRG'
-    } 
-    Get-AzVirtualNetwork @virtualnetwork
-    ```
+    :::image type="content" source="./media/how-to-configure-custom-bgp-communities-portal/bgp-community-value.png" alt-text="Screenshot of the BGP community string page.":::
 
 > [!IMPORTANT]
 >  If your existing virtual network is already connected to an ExpressRoute circuit, you'll need to delete and recreate the ExpressRoute connection after applying the custom BGP community value. See [link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md), to learn how.
