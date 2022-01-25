@@ -1,24 +1,19 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions - Azure Dedicated HSM | Microsoft Docs
-  description: Find answers to common questions about Azure Dedicated Hardware Security Module, such as basic information, interoperability, high availability, and support.
-  services: dedicated-hsm
-  author: keithp
-  manager: rkarlin
+  title: Frequently asked questions - Azure Payment HSM
+  description: Find answers to common questions about Azure Payment Hardware Security Module, such as basic information, getting started, and support.
+  services: payment-hsm
+  author: msmbaldwin
   tags: azure-resource-manager
-  ms.custom: "mvc, seodec18"
-  ms.service: key-vault
-  ms.workload: identity
-  ms.tgt_pltfrm: na
+  ms.service: payment-hsm
+  ms.workload: security
   ms.topic: conceptual
-  ms.date: 03/25/2021
-  ms.author: keithp
-  #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
+  ms.date: 01/25/2022
+  ms.author: mbaldwin
   
     
 title: Frequently asked questions (FAQ)
-summary: Find answers to common questions about Microsoft Azure Dedicated HSM.
-
+summary: Find answers to common questions about Microsoft Azure Payment HSM.
 
 sections:
   - name: The Basics
@@ -32,11 +27,6 @@ sections:
           How does Azure Payment HSM work? 
         answer: |
           After HSMs are provisioned, they’re connected directly to a user’s virtual network, and HSMs are under users’ sole administrative control. HSMs can be provisioned as a pair of devices and configured for high availability. The service uses Thales payShield Manager for secure remote access to the HSM. 
-          
-      - question: |
-          What hardware is used for Dedicated HSM?
-        answer: |
-          Microsoft has partnered with Thales to deliver the Azure Dedicated HSM service. The specific device used is the [Thales Luna 7 HSM model A790](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms). This device not only provides [FIPS 140-2 Level-3](https://csrc.nist.gov/publications/detail/fips/140/2/final) validated firmware, but also offers low-latency, high performance, and high capacity via 10 partitions. 
           
       - question: |
           Which industries might use Azure Payment HSM? 

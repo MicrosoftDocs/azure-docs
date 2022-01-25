@@ -40,7 +40,7 @@ Please ensure that the following information is provided:
 
 ## Support
 
-Microsoft will provide support for hardware issues, networking issues and provisioning through standard support. Support ticket can be created from Azure portal use Service Type -> Dedicated HSM (under Security category) and mention "payment HSM" in the summary field.  All support cases in public preview will be severity 3 only.
+Microsoft will provide support for hardware issues, networking issues and provisioning through standard support. Support ticket can be created from Azure portal use Service Type -> Dedicated HSM (under Security category) and mention "Payment HSM" in the summary field.  All support cases in public preview will be severity 3 only.
 
 :::image type="content" source="./media/support.png" alt-text="Screenshot of filing a support ticket for Payment HSM":::
  
