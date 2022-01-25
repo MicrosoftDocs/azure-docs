@@ -22,7 +22,7 @@ LUIS has a variety of features within the service. Not all features are at the s
 If you need a multilingual LUIS client application such as a chatbot, you have a few options. If LUIS supports all the languages, you develop a LUIS app for each language. Each LUIS app has a unique app ID, and endpoint log. If you need to provide language understanding for a language LUIS does not support, you can use the [Translator service](../translator/translator-overview.md) to translate the utterance into a supported language, submit the utterance to the LUIS endpoint, and receive the resulting scores.
 
 > [!NOTE]
-> A newer version of Language Understanding capabilities is now available as part of Azure Cognitive Service for Language. For more information, see [Azure Cognitive Service for Language Documentation](../language-service/index.yml). For language understanding capabilities that support multilingual within the Language Service, see [Conversational Language Understanding](../language-service/conversational-language-understanding/concepts/multiple-languages).
+> A newer version of Language Understanding capabilities is now available as part of Azure Cognitive Service for Language. For more information, see [Azure Cognitive Service for Language Documentation](../language-service/index.yml). For language understanding capabilities that support multiple languages within the Language Service, see [Conversational Language Understanding](../language-service/conversational-language-understanding/concepts/multiple-languages).
 
 ## Languages supported
 
