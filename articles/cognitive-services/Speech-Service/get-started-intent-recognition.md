@@ -18,16 +18,18 @@ keywords: intent recognition
 
 # Get started with intent recognition
 
+In this quickstart, you'll use the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) and the Language Understanding (LUIS) service to recognize intents from audio data captured from a microphone. Specifically, you'll use the Speech SDK to capture speech, and a prebuilt domain from LUIS to identify intents for home automation, like turning on and off a light. 
+
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Header](includes/quickstarts/intent-recognition/header.md)]
-[!INCLUDE [Header](includes/quickstarts/intent-recognition/csharp/header.md)]
-[!INCLUDE [chsarp](includes/quickstarts/intent-recognition/csharp/csharp.md)]
+[!INCLUDE [Header](includes/quickstarts/common/csharp.md)]
+[!INCLUDE [Header](includes/quickstarts/common/azure-prerequisites.md)]
+[!INCLUDE [chsarp](includes/quickstarts/intent-recognition/csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-[!INCLUDE [Header](includes/quickstarts/intent-recognition/header.md)]
-[!INCLUDE [Header](includes/quickstarts/intent-recognition/cpp/header.md)]
-[!INCLUDE [cpp](includes/quickstarts/intent-recognition/cpp/cpp.md)]
+[!INCLUDE [Header](includes/quickstarts/common/cpp.md)]
+[!INCLUDE [Header](includes/quickstarts/common/azure-prerequisites.md)]
+[!INCLUDE [cpp](includes/quickstarts/intent-recognition/cpp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -47,3 +49,7 @@ keywords: intent recognition
 [!INCLUDE [Header](includes/quickstarts/intent-recognition/javascript/header.md)]
 [!INCLUDE [javascript](includes/quickstarts/intent-recognition/javascript/javascript.md)]
 ::: zone-end
+
+
+> [!div class="nextstepaction"]
+> [See the advanced LUIS sample on GitHub](https://github.com/Azure/pizza_luis_bot)

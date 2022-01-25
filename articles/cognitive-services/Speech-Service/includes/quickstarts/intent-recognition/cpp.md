@@ -2,17 +2,10 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 04/04/2020
+ms.date: 01/25/2022
 ms.topic: include
 ms.author: eur
-zone_pivot_groups: programming-languages-set-two
 ---
-
-## Prerequisites
-
-Before you get started:
-
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp" target="_blank">Install the Speech SDK for your development environment and create an empty sample project</a>.
 
 ## Create a LUIS app for intent recognition
 
@@ -111,7 +104,3 @@ Now you're ready to build your app and test our speech recognition using the Spe
 1. **Compile the code** - From the menu bar of Visual Studio, choose **Build** > **Build Solution**.
 2. **Start your app** - From the menu bar, choose **Debug** > **Start Debugging** or press <kbd>F5</kbd>.
 3. **Start recognition** - It'll prompt you to speak a phrase in English. Your speech is sent to the Speech service, transcribed as text, and rendered in the console.
-
-## Next steps
-
-[!INCLUDE [footer](./footer.md)]
