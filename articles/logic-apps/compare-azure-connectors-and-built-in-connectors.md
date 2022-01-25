@@ -1,18 +1,18 @@
 ---
-title: Compare Azure connectors and Built-in connectors
-description: Understand the difference between Azure connectors and Built-in connectors.
+title: Built-in operations versus Azure connectors in Standard
+description: Learn the differences between built-in operations and Azure connectors for Standard logic apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 01/20/2022
 
-# As a developer, I want to Understand the difference between Azure connectors and Built-in connectors
+# As a developer, I want to understand the differences between built-in and Azure connectors in Azure Logic Apps (Standard).
 ---
 
-# Azure connectors versus Built-in connectors
+# Differences between built-in operations and Azure connectors in Azure Logic Apps (Standard)
 
-Azure connectors are also called managed connectors. They run in the shared connector clusters in Azure cloud and they are managed by Microsoft. The logic app engine runs in a different cluster from the managed connector clusters. When there is a need to invoke a managed connector, the logic app engine will make a call to the connector in the connector clusters, and the connector in turn may call the backend service such as Azure SQL, Salesforce etc. 
+When you create a **Logic App (Standard)** resource and a stateful workflow, the designer groups available triggers and actions into categories named **Built-in** and **Azure**. For stateless workflows, only the **Built-in** category is available. Azure connectors are the same category as the [*managed connectors*](managed.md) that you can use in **Logic App (Consumption)** workflows. These connectors run in shared connector clusters in the Azure cloud and are managed by Microsoft. The Azure Logic Apps engine runs in a different cluster that's separate from the managed connector clusters. If your workflow has to invoke a managed connector operation, the Azure Logic Apps engine makes a call to the connector in the connector clusters. In turn, the connector might call the backend target service, which can be Office 365, Salesforce, and so on.
 
 Built-in connectors are also called service provider connectors. They are implemented as custom extensions of Azure Functions. Customers can create their own service provider connectors as well.  One crucial difference from Azure connectors, is that the Built-in connectors run in the same cluster as the logic app engine.  
 
