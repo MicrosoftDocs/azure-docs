@@ -44,7 +44,6 @@ Before you can use custom NER, you’ll need to create an Azure Language resourc
 
 [!INCLUDE [Uploading sample data for custom NER](blob-storage-upload.md)]
 
-
 ### Get your resource keys endpoint
 
 * Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
