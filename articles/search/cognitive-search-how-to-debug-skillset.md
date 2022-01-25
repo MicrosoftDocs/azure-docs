@@ -24,9 +24,9 @@ A debug session is a cached indexer and skillset execution, scoped to a single d
 
 + An existing enrichment pipeline, including a data source, a skillset, an indexer, and an index.
 
-+ Azure Storage, used to save session state.
+  Debug sessions work with all generally available data sources and most preview data sources. The MongoDB API (preview) of Cosmos DB is currently not supported.
 
-Debug sessions work with all generally available data sources and most preview data sources. The MongoDB API (preview) of Cosmos DB is currently not supported.
++ Azure Storage, used to save session state.
 
 ## Create a debug session
 
@@ -36,7 +36,9 @@ Debug sessions work with all generally available data sources and most preview d
 
 1. Select **+ New Debug Session**.
 
-1. Provide a name for the session and specify a general-purpose storage account that will be used to cache the skill executions.
+1. Provide a name for the session, for example *cog-search-debug-sessions*.
+
+1. Specify a general-purpose storage account that will be used to cache the skill executions. You'll be prompted to select and optionally create a blob container in Blob Storage or Azure Data Lake Storage Gen2. You can reuse the same container for all subsequent debug sessions you create.
 
 1. Select the indexer that drives the skillset you want to debug. Copies of both the indexer and skillset are used to create the session.
 
@@ -46,7 +48,7 @@ Debug sessions work with all generally available data sources and most preview d
 
    :::image type="content" source="media/cognitive-search-debug/copy-blob-url.png" alt-text="Screenshot of the URI property in blob storage." border="true":::
 
-1. Optionally, specify any indexer execution settings that should be used to create the session. Any indexer options that you specify in a debug session have no effect on the indexer itself.
+1. Optionally, specify any indexer execution settings that should be used to create the session. The settings should mimic the settings used by the actual indexer. Any indexer options that you specify in a debug session have no effect on the indexer itself.
 
 1. Select **Save Session** to get started.
 
@@ -72,7 +74,7 @@ To prove whether a modification resolves an error, follow these steps:
 
 ## View content of enrichment nodes
 
-AI enrichment pipelines extract or infer information and structure from source documents, creating an enriched document in the process. An enriched document is first created during document cracking and populated with a root node (`/document`) plus nodes for any content that is directly ported from the data source (such as a document key) and metadata. Additional nodes are created by skills during skill execution, where each skill output adds a new node to the enrichment tree. 
+AI enrichment pipelines extract or infer information and structure from source documents, creating an enriched document in the process. An enriched document is first created during document cracking and populated with a root node (`/document`), plus nodes for any content that is lifted directly from the data source, such as metadata and the document key. Additional nodes are created by skills during skill execution, where each skill output adds a new node to the enrichment tree. 
 
 Enriched documents are internal, but a debug session gives you access to the content produced during skill execution. To view the content or output of each skill, follow these steps:
 
