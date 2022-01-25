@@ -333,9 +333,9 @@ Standard autoscaling is a necessary fallback if the predictive model does not wo
 
 ### Did not enable standard autoscale
  
-If you receive the error message as seen below:
+You receive the error message as seen below:
 
-    Predictive autoscale is based on the metric percentage CPU of the current resource.  Please choose this metric in the scale up trigger rules*. 
+   *Predictive autoscale is based on the metric percentage CPU of the current resource.  Please choose this metric in the scale up trigger rules*. 
 
 :::image type="content" source="media/autoscale-predictive/error-not-enabled-10.png" alt-text="Error message predictive autoscale is based on the metric percentage CPU of the current resource":::
 
