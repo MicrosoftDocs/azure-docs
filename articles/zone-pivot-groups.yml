@@ -518,7 +518,7 @@ groups:
   - id: devlang-uwp
     title: Universal Windows Platform
   - id: devlang-windows-desktop
-    title: Windows Desktop .NET
+    title: Windows Presentation Foundation
   - id: devlang-nodejs-electron
     title: Node.js Electron
 ## Console app ##
