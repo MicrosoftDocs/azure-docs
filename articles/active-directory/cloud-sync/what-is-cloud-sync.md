@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/07/2021
+ms.date: 01/25/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -66,13 +66,14 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Support for password writeback |● |● |
 | Support for device writeback|● | |
 | Support for group writeback|● | |
+| Support for merging user attributes from multiple domains|● | |
 | Azure AD Domain Services support|● | |
 | [Exchange hybrid writeback](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
 | Unlimited number of objects per AD domain |● | |
 | Support for up to 150,000 objects per AD domain |● |● |
 | Groups with up to 50,000 members |● |● |
 | Large groups with up to 250,000 members |● |  |
-| Cross domain references|● | |
+| Cross domain references|● |● |
 | On-demand provisioning|● |● |
 | Support for US Government|● |● |
 
