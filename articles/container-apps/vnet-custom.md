@@ -33,7 +33,7 @@ As you create an Azure Container Apps [environment](environment.md), a virtual n
 As a container app environment is created, you provide resource IDs for two different subnets. Both subnets must be defined in the same VNET.
 
 - **App subnet**: Subnet for user app containers. Subnet that contains IP ranges mapped to applications deployed as containers in a container app.
-- **Control plane subnet**: Subnet for control plane infrastructure components and user app containers.
+- **Control plane subnet**: Subnet for [control plane infrastructure](/azure/azure-resource-manager/management/control-plane-and-data-plane) components and user app containers.
 
 If the `platformReservedCidr` is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
 
