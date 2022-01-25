@@ -137,12 +137,12 @@ When moving from test scenarios to production scenarios, remember to remove debu
 
 ### Be mindful of twin size limits when using custom modules
 
-The deployment manifest containing custom modules is part of the EdgeAgent twin. The size limitation on properties of this twin are [described here](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-module-twins#module-twin-size).
+The deployment manifest that contains custom modules is part of the EdgeAgent twin. Review the [limitation on module twin size](../iot-hub/iot-hub-devguide-module-twins.md#module-twin-size).
 
-When deploying many modules it is possible to exhaust this twin size limit. There are a few common mitigations to this hard limit:
-1. Store any configuration in the custom module twin, which has its own limit
-2. Store some configuration that points to a non-space-limited location (i.e. blob store)
+If you deploy a large number of modules, you might exhaust this twin size limit. Consider some common mitigations to this hard limit:
 
+- Store any configuration in the custom module twin, which has its own limit.
+- Store some configuration that points to a non-space-limited location (that is, to a blob store).
 
 ## Container management
 
