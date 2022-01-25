@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Edge Pro 2 Safety guide | Microsoft Docs
+title: Safety instructions for Azure Stack Edge Pro 2 device | Microsoft Docs
 description: Describes safety conventions, guidelines, considerations, and explains how to safely install and operate your Azure Stack Edge Pro 2 device.
 services: databox
 author:   sipastak
@@ -11,7 +11,7 @@ ms.date: 01/14/2022
 ms.author: sipastak
 ---
 
-# Azure Stack Edge Pro 2 safety instructions
+# Safety instructions for your Azure Stack Edge Pro 2
 
 
 :::image type="icon" source="media/azure-stack-edge-pro-2-safety/icon-safety-warning.png" border="false"::: :::image type="icon" source="media/azure-stack-edge-pro-2-safety/icon-safety-read-all-instructions.png" border="false":::
