@@ -33,13 +33,13 @@ Example output: 2021.111.124.109
 If you have a device already created, you can skip to the [Manually deploy the deployment.json to the device](#manually-deploy-the-deploymentjson-to-the-azure-percept-device) section. 
 1. Go to [Azure portal](https://portal.azure.com) and select the **IoT Hub** where you will create the device. 
 2. Navigate to **IoT Edge** and select **Add an IoT Edge device**
-3. On the **Create a Device** screen, name your device in the **Device ID** section and leave all other fields as default, then click the **Save** button. <br />
+3. On the **Create a Device** screen, name your device in the **Device ID** section and leave all other fields as default, then click the **Save** button.  
 ![create new device](./media/manually-deploy-azure-precept-devkit-images/create-device.png)
 
-1. Select your newly created device. <br />
+1. Select your newly created device.  
 ![select new device.](./media/manually-deploy-azure-precept-devkit-images/select-new-device.png)
 
-2. Copy the **Primary Connection String**. We will use this copied text in the Azure Percept Onboarding/setup web pages. <br />
+2. Copy the **Primary Connection String**. We will use this copied text in the Azure Percept Onboarding/setup web pages.  
 ![Primary Connection String](./media/manually-deploy-azure-precept-devkit-images/primary-connection-string.png)   
 
 
@@ -61,12 +61,12 @@ The deployment.json files are a representation of all default modules necessary 
    2. For 2021.109.129.xxx and lower use ----> use [default-deployment-2108.json](https://github.com/microsoft/azure-percept-advanced-development/blob/main/default-configuration/default-deployment-2108.json)
 2. Launch VSCode and Sign into Azure. Be sure you have installed the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) Extension 
 3. Connect to your subscription and select your IoTHub 
-4. Locate your IoT Edge Device then right click it and choose **Create deployment for a Single Device**. <br />
+4. Locate your IoT Edge Device then right click it and choose **Create deployment for a Single Device**.  
 ![find edge device](./media/manually-deploy-azure-precept-devkit-images/iot-edge-device.png) ![create deployment for edge device](./media/manually-deploy-azure-precept-devkit-images/create-deployment.png)
 
 5. Navigate to the "Deployment.json" you saved from step 1 and use this. 
 6. Deployment will take 1-5 mins to fully complete. 
-   1. For those interested in watching the IoT Edge log as this deployment is going on, you can SSH into your Azure Percept devkit and watch the iotedge logs by issuing the command below. <br/>
+   1. For those interested in watching the IoT Edge log as this deployment is going on, you can SSH into your Azure Percept devkit and watch the iotedge logs by issuing the command below.  
     `sudo journalctl -u iotedge -f` 
 7. Your Devkit is now ready to use!
 
