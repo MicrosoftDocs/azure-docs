@@ -2,8 +2,8 @@
 title: Differential privacy in machine learning (preview)
 titleSuffix: Azure Machine Learning
 description: Learn what differential privacy is and how differentially private systems preserve data privacy. 
-author: luisquintanilla
-ms.author: luquinta 
+author: ssalgadodev
+ms.author: ssalgado 
 ms.date: 10/21/2021
 services: machine-learning
 ms.service: machine-learning
