@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 01/25/2022
 
 ms.author: justinha
 author: justinha
@@ -26,7 +26,7 @@ This article explains how cloud-native certificate-based authentication (CBA) ag
 
 ## How does Azure Active Directory certificate-based authentication work?
 
-THis diagram shows what happens when a user tries to sign into an application secured by Azure AD and cloud-native CBA is enabled on the tenant:
+This diagram shows what happens when a user tries to sign into an application secured by Azure AD and cloud-native CBA is enabled on the tenant:
 
 :::image type="content" border="false" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/how-it-works.png" alt-text="Illustration with steps about how cloud-native certificate-based authentication works in Azure AD." :::
 
@@ -38,10 +38,10 @@ Let's cover each step:
    
    :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in.png" alt-text="Screenshot of the Sign-in for MyApps portal.":::
   
-1. If Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled for the tenant, the user sees a link to **Sign in with a certificate** on the password page. If you do not see the sign-in link, make sure CBA is enabled on the tenant. For more information, see [How do I enable native CBA?](cloud-native-certificate-based-authentication-faq.md#how-do-i-enable-cloud-native-cba-).
+1. Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled for the tenant, the user sees a link to **Sign in with a certificate** on the password page. If you do not see the sign-in link, make sure CBA is enabled on the tenant. For more information, see [How do I enable native CBA?](cloud-native-certificate-based-authentication-faq.md#how-do-i-enable-cloud-native-cba-).
    
    >[!NOTE]
-   > If CBA is enabled, all users see the link to **Sign in with a certificate** on the password page. CBA cannot be enabled for specific users. 
+   > If CBA is enabled on the tenant, all users will see the link to **Sign in with a certificate** on the password page. However, only the users in scope for CBA will be able to authenticate successfully against an application that uses Azure Active Directory as their Identity provider.
 
    :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in-cert.png" alt-text="Screenshot of the Sign-in with a certificate.":::
 
@@ -63,18 +63,18 @@ Let's cover each step:
 1. Azure AD will request a client certificate and the user picks the client certificate and clicks **Ok**.
 
    >[!NOTE] 
-   >Certificate authority (CA) hints are not supported so the list of certificates can't be further scoped.
+   >Username hints are not supported so the list of certificates can't be further scoped.
 
    :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/cert-picker.png" alt-text="Screenshot of the certificate picker.":::
 
-1. Azure AD does the certificate revocation to make sure the certificate is valid. Azure AD identifies the user in the tenant by using the [username binding configured](how-to-certificate-based-authentication.md) on the tenant by mapping the certificate field value to user attribute value.
-1. If a unique user is found and the user has a conditional access policy and needs multifactor authentication (MFA) and the [certificate authentication binding rule](how-to-certificate-based-authentication.md) satisfies MFA, then Azure AD signs the user in immediately. If the certificate satisfies only a single factor, then it requests the user for a second factor to complete Azure AD MFA.
+1. Azure AD verifies the certificate revocation list to make sure the certificate is not revoked and is valid. Azure AD identifies the user in the tenant by using the [username binding configured](how-to-certificate-based-authentication.md#step-3-configure-username-binding-policy) on the tenant by mapping the certificate field value to user attribute value.
+1. If a unique user is found and the user has a conditional access policy and needs multifactor authentication (MFA) and the [certificate authentication binding rule](how-to-certificate-based-authentication.md#step-2-configure-authentication-binding-policy) satisfies MFA, then Azure AD signs the user in immediately. If the certificate satisfies only a single factor, then it requests the user for a second factor to complete Azure AD MFA.
 1. Azure AD completes the sign-in process by sending a primary refresh token back to indicate successful sign-in.
 1. If the user sign-in is successful, the user can access the application.
-l
+
 ## Understanding the authentication binding policy
 
-The authentication binding policy helps determine the strength of authentication as either single-factor or multifactor. An administrator can change the default value from single factor to multifactor or set up custom policy configurations either by issuer subject or policy OID fields in the certificate.
+The authentication binding policy helps determine the strength of authentication as either single-factor or multi-factor. An administrator can change the default value from single factor to multifactor or set up custom policy configurations either by issuer subject or policy OID fields in the certificate.
 
 Since multiple authentication binding policy rules can be created with different certificate fields, there are some rules that determine the authentication protection level. They are as follows:
 
@@ -87,7 +87,7 @@ Since multiple authentication binding policy rules can be created with different
 
 ## Understanding the username binding policy
 
-The username binding policy helps locate the user in the tenant. By default, Principal Name in the certificate is mapped to onPremisesUserPrincipalName attribute of the user object to determine the user.
+The username binding policy helps locate the user in the tenant. By default, SAN Principal Name in the certificate is mapped to onPremisesUserPrincipalName attribute of the user object to determine the user.
 
 An administrator can override the default and create a custom mapping. Currently, we support two certificate fields SAN (Subject Alternate Name) Principal Name and SAN RFC822Name to map against the user object attribute userPrincipalName and onPremisesUserPrincipalName.
 
@@ -110,11 +110,12 @@ Azure AD downloads and caches the customers certificate revocation list (CRL) fr
 An admin can configure the CRL distribution point during the setup process of the trusted issuers in the Azure AD tenant. Each trusted issuer should have a CRL that can be referenced via an internet-facing URL.
  
 >[!IMPORTANT]
->The maximum size of a CRL for Azure Active Directory to successfully download and cache is 20MB, and the time required to download the CRL must not exceed 10 seconds. If Azure Active Directory can't download a CRL, certificate-based authentications using certificates issued by the corresponding CA will fail. Best practices to ensure CRL files are within size constraints are to keep certificate lifetimes to within reasonable limits and to clean up expired certificates. 
+>The maximum size of a CRL for Azure Active Directory to successfully download and cache is 20MB in Azure Global and 45MB in Azure US Government clouds, and the time required to download the CRL must not exceed 10 seconds. If Azure Active Directory can't download a CRL, certificate-based authentications using certificates issued by the corresponding CA will fail. Best practices to ensure CRL files are within size constraints are to keep certificate lifetimes to within reasonable limits and to clean up expired certificates. For more information, see [Is there a limit for CRL size?](cloud-native-certificate-based-authentication-faq.yml#is-there-a-limit-for-crl-size-).
 
 >[!IMPORTANT]
 >If the admin skips the configuration of the CRL, Azure AD will not perform any CRL checks during the certificate-based authentication of the user. This can be helpful for initial troubleshooting but should not be considered for production use.
 
+As of now, we do not support online certificate status protocol (OCSP) because of performance and reliability reasons. Instead of downloading the CRL at every connection by the client browser for OCSP, Azure AD downloads once at the first sign in and caches it, thereby improving the performance and reliability of CRL verification. We also index the cache so the search is must faster every time. Customers must publish CRLs for certificate revocation.
 
 **Typical flow of the CRL check:**
 
@@ -198,9 +199,13 @@ For the next test scenario, configure the authentication policy where the Issuer
 
    You will see several entries in the Sign-in logs. 
 
+   :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/several-entries.png" alt-text="Screenshot of details in the sign-in logs." :::  
+
+   The entry with **Interrupted** status provides has more diagnostic info in the **Additional Details** tab. 
+
    :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/interrupted-user.png" alt-text="Screenshot of details in the sign-in logs." :::  
 
-   The entry  has diagnostic info in the **Additional Details** tab.
+   **Additional Details**:
 
    :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/interrupted-user-details.png" alt-text="Screenshot of interrupted attempt details in the sign-in logs." :::  
 
@@ -216,9 +221,9 @@ For the next test scenario, configure the authentication policy where the Issuer
 
 ## Known issues
 
-- The Sign-in log shows the user ID GUID instead of the username in one of the log entries.
+- The Sign-in log shows the User ID instead of the username in one of the log entries.
 
-  :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/entries-single.png" alt-text="Screenshot of username in the sign-in logs." :::
+  :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/known-issue.png" alt-text="Screenshot of username in the sign-in logs." :::
  
 - The **Additional Details** tab shows **User certificate subject name** as the attribute name but it is actually "User certificate binding identifier". It is the value of the certificate field that username binding is configured to use.
 
