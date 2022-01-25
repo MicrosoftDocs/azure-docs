@@ -19,7 +19,7 @@
       href: core/quick-export-data.md
 - name: Tutorials
   items:
-    - name: Develop and connect devices
+    - name: Connect devices
       items:
       - name: Create and connect a device
         href: core/tutorial-connect-device.md
@@ -27,15 +27,15 @@
         href: core/tutorial-define-gateway-device-type.md
       - name: Connect an IoT Edge device
         href: /learn/modules/connect-iot-edge-device-to-iot-central
-    - name: Build integrated solutions
-      items:
       - name: Create a device group
         href: core/tutorial-use-device-groups.md
+    - name: Extend your application
+      items:
       - name: Create a rule
         href: core/tutorial-create-telemetry-rules.md
       - name: Explore the IoT Central APIs
         href: /learn/modules/manage-iot-central-apps-with-rest-api/
-    - name: Industry specific solutions
+    - name: Create industry specific demo applications
       items:
       - name: Retail
         items:
