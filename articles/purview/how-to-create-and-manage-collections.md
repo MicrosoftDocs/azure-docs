@@ -67,7 +67,7 @@ You'll need to be a collection admin in order to create a collection. If you are
 
 ### Edit a collection
 
-1. Select **Edit** either from the collection detail page, or from the collection's drop down menu.
+1. Select **Edit** either from the collection detail page, or from the collection's dropdown menu.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/edit-collection.png" alt-text="Screenshot of Azure Purview studio window, open to collection window, with the 'edit' button highlighted both in the selected collection window, and under the ellipsis button next to the name of the collection." border="true":::
 
@@ -121,7 +121,7 @@ All assigned roles apply to sources, assets, and other objects within the collec
 * **Data source admins** - can manage data sources and data scans. They can also enter the policy management app to view and publish policies.
 * **Data curators** - can perform create, read, modify, and delete actions on catalog data objects and establish relationships between objects. They can also enter the policy management app to view policies.
 * **Data readers** - can access but not modify catalog data objects.
-* **Policy Authors** - can create enter the policy management app and create/edit policy statements.
+* **Policy Authors** - can enter the policy management app and create/edit policy statements.
 
 ### Add role assignments
 
