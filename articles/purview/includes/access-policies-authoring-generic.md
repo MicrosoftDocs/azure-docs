@@ -14,7 +14,7 @@ This section describes the steps for creating, updating, and publishing Azure Pu
 
 This section describes the steps to create a new policy in Azure Purview.
 
-1. Log in to Azure Purview Studio.
+1. Sign in to Azure Purview Studio.
 
 1. Navigate to the **Policy management** app using the left side panel.
 
@@ -34,7 +34,7 @@ This section describes the steps to create a new policy in Azure Purview.
 
 1. Select the **Data Resources** button to bring up the window to enter Data resource information, which will open on the right.
 
-1. If you want to create a broad policy statement that covers an entire data source, resource group or subscription, select its **Type** using the **Data sources** box. Use the **Assets** box instead if you want to create a more granular policy on a previously scanned data source. Enter the **Data Source Type**. If on the **Assets** box, select the **Name** of a previously registered data source.
+1. If you want to create a broad policy statement that covers an entire data source, resource group, or subscription, select its **Type** using the **Data sources** box. Use the **Assets** box instead if you want to create a more granular policy on a previously scanned data source. Enter the **Data Source Type**. If on the **Assets** box, select the **Name** of a previously registered data source.
 
     ![Image shows how a data owner can select a Data Resource when editing a policy statement.](./media/access-policies-common/select-data-source-type.png)
 
@@ -54,7 +54,7 @@ This section describes the steps to create a new policy in Azure Purview.
 
 Steps to create a new policy in Azure Purview are as follows.
 
-1. Log in to Azure Purview Studio.
+1. Sign in to Azure Purview Studio.
 
 1. Navigate to the Policy management app using the left side panel.
 
@@ -72,7 +72,7 @@ A newly created policy is in the draft state. The process of publishing associat
 
 The steps to publish a policy are as follows
 
-1. Log in to Azure Purview Studio.
+1. Sign in to Azure Purview Studio.
 
 1. Navigate to the Policy management app using the left side panel.
 
