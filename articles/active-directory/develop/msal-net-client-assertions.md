@@ -71,9 +71,9 @@ jti | (a Guid) | The "jti" (JWT ID) claim provides a unique identifier for the J
 nbf | 1601519114 | The "nbf" (not before) claim identifies the time before which the JWT MUST NOT be accepted for processing. [RFC 7519, Section 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).  Using the current time is appropriate. 
 sub | {ClientID} | The "sub" (subject) claim identifies the subject of the JWT, in this case also your application. Use the same value as `iss`. 
 
-Using a certificate as a client secret, requires you to keep a certificate save. We recommend to store it a secure spot supported by the platform. Like the certificate store on Windows.
+If you use a certificate as a client secret, the certificate must be deployed safely. We recommend that you store the certificate in a secure spot supported by the platform, such as in the certificate store on Windows or by using Azure Key Vault.
 
-Here is an example of how to craft these claims:
+Here's an example of how to craft these claims:
 
 ```csharp
 using System.Collections.Generic;
@@ -99,7 +99,7 @@ private static IDictionary<string, object> GetClaims(string tenantId, string cli
 }
 ```
 
-Here is how to craft a signed client assertion:
+Here's how to craft a signed client assertion:
 
 ```csharp
 using System.Collections.Generic;
