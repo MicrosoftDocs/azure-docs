@@ -68,7 +68,7 @@ Enable replication. This procedure assumes that the primary Azure region is East
 
    - **Replication Policy**: It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, Azure Site Recovery creates a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’4 hours’ for app consistent snapshot frequency.
 
-     ![Enable replication](./media/azure-to-azure-how-to-enable-replication/enabledrwizard3.PNG)
+     ![Screenshot that displays the enable replication parameters.](./media/azure-to-azure-how-to-enable-replication/enabledrwizard3.PNG)
 
 ### Enable replication for added disks
 
@@ -78,7 +78,7 @@ If you add disks to an Azure VM for which replication is enabled, the following 
 -	If you choose not to enable replication for the disk, you can select to dismiss the warning.
 
 
-    ![New disk added](./media/azure-to-azure-how-to-enable-replication/newdisk.png)
+    ![Screenshot that displays how to enable replication for an added disk.](./media/azure-to-azure-how-to-enable-replication/newdisk.png)
 
 To enable replication for an added disk, do the following:
 
@@ -86,7 +86,7 @@ To enable replication for an added disk, do the following:
 2.	Click **Disks**, and then select the data disk for which you want to enable replication (these disks have a **Not protected** status).
 3.	In **Disk Details**, click **Enable replication**.
 
-    ![Enable replication for added disk](./media/azure-to-azure-how-to-enable-replication/enabled-added.png)
+    ![Screenshot that displays replication enabled for a newly added disk.](./media/azure-to-azure-how-to-enable-replication/enabled-added.png)
 
 After the enable replication job runs, and the initial replication finishes, the replication health warning for the disk issue is removed.
 
