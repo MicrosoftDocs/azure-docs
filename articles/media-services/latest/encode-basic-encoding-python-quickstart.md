@@ -8,7 +8,7 @@ ms.service: media-services
 ms.workload: 
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 1/10/2022
+ms.date: 1/24/2022
 ms.author: inhenkel
 ms.custom: mode-api
 ---
@@ -25,6 +25,11 @@ This quickstart shows you how to do basic encoding with Python and Azure Media S
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Create a resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) to use with this quickstart.
+
+> [!IMPORTANT]
+> When you create the storage account for your media services account, change the storage authentication type to *System authentication*. Otherwise, you will get authentication errors for this example.
+
+
 - [Create a Media Services v3 account](account-create-how-to.md).
 - [Get your storage account key](../../storage/common/storage-account-keys-manage.md#view-account-access-keys).
 - [Create a service principal and key](../../purview/create-service-principal-azure.md).
@@ -63,13 +68,19 @@ For samples, we recommend you always create and activate a Python virtual enviro
 
 1. Set up and [configure your local Python dev environment for Azure](/azure/developer/python/configure-local-development-environment).
 
-2. Install the azure-identity library for Python. This module is needed for Azure Active Directory authentication. See the details at [Azure Identity client library for Python](/python/api/overview/azure/identity-readme#environment-variables).
+1. Install the python-dotenv library. This will enable you to load the environment variables quickly and easily.
+
+```bash
+pip install python-dotenv
+```
+
+1. Install the azure-identity library for Python. This module is needed for Azure Active Directory authentication. See the details at [Azure Identity client library for Python](/python/api/overview/azure/identity-readme#environment-variables).
 
       ``` bash
       pip install azure-identity
       ```
 
-3. Install the Python SDK for [Azure Media Services](/python/api/overview/azure/media-services).
+1. Install the Python SDK for [Azure Media Services](/python/api/overview/azure/media-services).
 
     The Pypi page for the Media Services Python SDK with latest version details is located at - [azure-mgmt-media](https://pypi.org/project/azure-mgmt-media/).
 
@@ -77,7 +88,7 @@ For samples, we recommend you always create and activate a Python virtual enviro
       pip install azure-mgmt-media
       ```
 
-4. Install the [Azure Storage SDK for Python](https://pypi.org/project/azure-storage-blob/).
+1. Install the [Azure Storage SDK for Python](https://pypi.org/project/azure-storage-blob/).
 
       ``` bash
       pip install azure-storage-blob

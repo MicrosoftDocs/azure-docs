@@ -10,7 +10,7 @@ ms.topic: how-to
 author: LitKnd
 ms.author: kendralittle
 ms.reviewer: mathoma
-ms.date: 03/10/2021
+ms.date: 1/19/2022
 ---
 # Copy a transactionally consistent copy of a database in Azure SQL Database
 
@@ -21,9 +21,6 @@ Azure SQL Database provides several methods for creating a copy of an existing [
 ## Overview
 
 A database copy is a transactionally consistent snapshot of the source database as of a point in time after the copy request is initiated. You can select the same server or a different server for the copy. Also you can choose to keep the backup redundancy, service tier and compute size of the source database, or use a different backup storage redundancy and/or compute size within the same or a different service tier. After the copy is complete, it becomes a fully functional, independent database. The logins, users, and permissions in the copied database are  managed independently from the source database. The copy is created using the geo-replication technology. Once replica seeding is complete, the geo-replication link is automatically terminated. All the requirements for using geo-replication apply to the database copy operation. See [Active geo-replication overview](active-geo-replication-overview.md) for details.
-
-> [!NOTE]
-> Azure SQL Database Configurable Backup Storage Redundancy is currently available in public preview in Brazil South and generally available in Southeast Asia Azure region only. In the preview, if the source database is created with locally-redundant or zone-redundant backup storage redundancy, database copy to a server in a different Azure region is not supported. 
 
 ## Database Copy for Azure SQL Hyperscale
 
@@ -89,7 +86,7 @@ Start copying the source database with the [CREATE DATABASE ... AS COPY OF](/sql
 > [!NOTE]
 > Terminating the T-SQL statement does not terminate the database copy operation. To terminate the operation, drop the target database.
 >
-> Database copy is not supported when the source and/or destination servers have a [private endpoint](private-endpoint-overview.md) configured and [public network access is denied](connectivity-settings.md#deny-public-network-access). If private endpoint is configured but public network access is allowed, initiating database copy when connected to the destination server from a public IP address is supported. Once the copy operation completes, public access can be denied.
+> Database copy using T-SQL is not supported when connecting to the destination server over a [private endpoint](private-endpoint-overview.md). If a private endpoint is configured but public network access is allowed, database copy is supported when connected to the destination server from a public IP address. Once the copy operation completes, public access can be [denied](connectivity-settings.md#deny-public-network-access).
 
 > [!IMPORTANT]
 > Selecting backup storage redundancy when using T-SQL CREATE DATABASE ... AS COPY OF command is not supported yet. 

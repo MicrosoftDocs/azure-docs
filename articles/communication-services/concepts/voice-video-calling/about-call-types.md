@@ -14,8 +14,6 @@ ms.subservice: calling
 ---
 # Voice and video concepts
 
-[!INCLUDE [SDP Plan B Deprecation Notice](../../includes/plan-b-sdp-deprecation.md)]
-
 You can use Azure Communication Services to make and receive one to one or group voice and video calls. Your calls can be made to other Internet-connected devices and to plain-old telephones. You can use the Communication Services JavaScript, Android, or iOS SDKs to build applications that allow your users to speak to one another in private conversations or in group discussions. Azure Communication Services supports calls to and from services or Bots.
 
 ## Call types in Azure Communication Services
