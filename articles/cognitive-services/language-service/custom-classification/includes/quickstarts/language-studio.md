@@ -36,7 +36,7 @@ Before you can use custom text classification, you will need to create an Azure 
     | Name | Any name |
     | Performance | Standard |
     | Account kind| Storage (general purpose v1) |
-    | Replication | Locally-redundant storage (LRS)
+    | Replication | Locally redundant storage (LRS)
     |Location | Any location closest to you, for best latency.        |
 
 
@@ -58,7 +58,7 @@ Before you can use custom text classification, you will need to create an Azure 
 
 4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. If not, you need to assign [roles for your storage account](../../how-to/create-project.md#roles-for-your-storage-account) before connecting it to your resource
 
-5. Select your project type. For this quickstart, we will create a multi label classification project where you can assign multiple classes to the same file. Then click **Next**. Learn more about [project types](../../glossary.md#project-types)
+5. Select your project type. For this quickstart, we will create a multilabel classification project where you can assign multiple classes to the same file. Then click **Next**. Learn more about [project types](../../glossary.md#project-types)
 
 6. Enter project information, including a name, description, and the language of the files in your project. You will not be able to change the name of your project later.
     >[!TIP]
