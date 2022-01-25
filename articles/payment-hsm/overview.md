@@ -21,8 +21,6 @@ Payment HSMs are provisioned and connected directly to users' virtual network, a
 
 Azure Payment HSM a highly specialized service. Therefore, we recommend that you fully understand the key concepts, including [pricing](https://azure.microsoft.com/services/azure-payment-hsm/) and [support](getting-started.md#support). 
 
-The [Thales integration guides](https://cpl.thalesgroup.com/partners/overview) help you facilitate the provisioning of HSMs into an existing virtual network environment. There are also how-to guides for helping you determine how to set up your deployment architecture.
-
 ## Why use Azure Payment HSM?
 
 Momentum is building as financial institutions move some or all of their payment applications to the cloud. This entails a migration from the legacy on-premises (on-prem) applications and HSMs to a cloud-based infrastructure that is not generally under their direct control. Often it means a subscription service rather than perpetual ownership of physical equipment and software. Corporate initiatives for efficiency and a scaled-down physical presence are the drivers for this. Conversely, with cloud-native organizations, the adoption of cloud-first without any on-prem presence is their fundamental business model. Whatever the reason, end users of a cloud-based payment infrastructure expect reduced IT complexity, streamlined security compliance and flexibility to scale their solution seamlessly as their business grows.
