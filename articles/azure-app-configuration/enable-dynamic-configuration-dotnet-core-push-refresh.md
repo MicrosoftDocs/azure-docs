@@ -26,7 +26,7 @@ The App Configuration .NET Core client library supports updating configuration o
 
 1. Push Model: This uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in configuration. Once App Configuration is set up to send key value change events to Azure Event Grid, the application can use these events to optimize the total number of requests needed to keep the configuration updated. Applications can choose to subscribe to these either directly from Event Grid, or though one of the [supported event handlers](../event-grid/event-handlers.md) such as a webhook, an Azure function or a Service Bus topic.
 
-This tutorial shows how you can implement dynamic configuration updates in your code using push refresh. It builds on the app introduced in the quickstarts. Before you continue, finish [Create a .NET Core app with App Configuration](./quickstart-dotnet-core-app.md) first.
+This tutorial shows how you can implement dynamic configuration updates in your code using push refresh. It builds on the app introduced in the quickstarts. Before you continue, finish Tutorial: [Use dynamic configuration in a .NET Core app](./enable-dynamic-configuration-dotnet-core.md) first.
 
 You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option that's available on the Windows, macOS, and Linux platforms.
 
@@ -39,7 +39,6 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Install [.NET Core SDK](https://dotnet.microsoft.com/download).
 * Tutorial: [Use dynamic configuration in a .NET Core app](./enable-dynamic-configuration-dotnet-core.md)
 * Nuget package `Microsoft.Extensions.Configuration.AzureAppConfiguration` version 5.0.0 or later
 
@@ -95,8 +94,12 @@ namespace TestConsole
 {
     class Program
     {
-        private const string AppConfigurationConnectionStringEnvVarName = "AppConfigurationConnectionString"; // e.g. Endpoint=https://{store_name}.azconfig.io;Id={id};Secret={secret}
-        private const string ServiceBusConnectionStringEnvVarName = "ServiceBusConnectionString"; // e.g. Endpoint=sb://{service_bus_name}.servicebus.windows.net/;SharedAccessKeyName={key_name};SharedAccessKey={key}
+        private const string AppConfigurationConnectionStringEnvVarName = "AppConfigurationConnectionString";
+        // e.g. Endpoint=https://{store_name}.azconfig.io;Id={id};Secret={secret}
+        
+        private const string ServiceBusConnectionStringEnvVarName = "ServiceBusConnectionString";
+        // e.g. Endpoint=sb://{service_bus_name}.servicebus.windows.net/;SharedAccessKeyName={key_name};SharedAccessKey={key}
+        
         private const string ServiceBusTopicEnvVarName = "ServiceBusTopic";
         private const string ServiceBusSubscriptionEnvVarName = "ServiceBusSubscription";
 
@@ -147,16 +150,13 @@ namespace TestConsole
             serviceBusClient.RegisterMessageHandler(
                 handler: (message, cancellationToken) =>
                 {
-                    //
-                    // Attempts to build an EventGridEvent from the returned message in the handler
+                    // Build EventGridEvent from notification message
                     EventGridEvent eventGridEvent = EventGridEvent.Parse(BinaryData.FromBytes(message.Body));
 
-                    //
-                    // Tries to produce an out PushNotification variable from the eventGridEvent
+                    // Create PushNotification from eventGridEvent
                     eventGridEvent.TryCreatePushNotification(out PushNotification pushNotification);
 
-                    //
-                    // Processes the details of the pushNotification
+                    // Prompt Configuration Refresh based on the PushNotification
                     _refresher.ProcessPushNotification(pushNotification);
 
                     return Task.CompletedTask;
@@ -173,12 +173,9 @@ namespace TestConsole
 
 The `ProcessPushNotification` method resets the cache expiration to a short random delay. This causes future calls to `RefreshAsync` or `TryRefreshAsync` to re-validate the cached values against App Configuration and update them as necessary. In this example you register to monitor changes to the key: *TestApp:Settings:Message* with a cache expiration of one day. This means no request to App Configuration will be made before a day has passed since the last check. By calling  `ProcessPushNotification` your application will send requests to App Configuration in the next few seconds. Loading new configuration values shortly after changes occur in App Configuration without constantly polling for updates. In case your application misses the change notification for any reason, it will still check for configuration changes once a day.
 
-The combination of this push model setup and the short random delay for cache expiration is helpful if you have many instances of your application or microservices connecting to the same App Configuration store. Without it, all instances of your application could send requests to your App Configuration store simultaneously as soon as a change notification is received which could throttle your store. This delay is a random number between 0 and a maximum of 30 seconds by default. This default value can be changed through the optional parameter `maxDelay` to the `ProcessPushNotification` method.
+The short random delay for cache expiration is helpful if you have many instances of your application or microservices connecting to the same App Configuration store with the push model. Without this delay, all instances of your application could send requests to your App Configuration store simultaneously as soon as they receive a change notification. This can cause the App Configuration Service to throttle your store. Cache expiration delay is set to a random number between 0 and a maximum of 30 seconds by default, but you can change the maximum value through the optional parameter `maxDelay` to the `ProcessPushNotification` method.
 
 The `ProcessPushNotification` method takes in a `PushNotification` object containing information about which change in App Configuration triggered the push notfication. This helps ensure all configuration changes up to the triggering event are loaded in the following configuration refresh. The `SetDirty` method does not gurarantee the change that triggers the push notification to be loaded in an immediate configuration refresh. If you are using the `SetDirty` method for the push model, we recommend using the `ProcessPushNotification` method instead.
-
-> [!NOTE]
-> To reduce the number of requests to App Configuration when using push refresh, it is important to call `SetCacheExpiration(TimeSpan cacheExpiration)` with an appropriate value of `cacheExpiration` parameter. This controls the cache expiration time for pull refresh and can be used as a safety net in case there is an issue with the Event subscription or the Service Bus subscription.
 
 ## Build and run the app locally
 
