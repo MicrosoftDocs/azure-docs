@@ -23,7 +23,7 @@ Refer to your class's learning objectives as you decide which operating system, 
 
 - **Create a new custom image**: You can create your own custom image by using an Azure Marketplace image as a starting point. You can then customize it by installing additional software and making configuration changes.
 
-- **Use an existing custom image**: You can reuse custom images that you previously created, or images that were created by other administrators or faculty at your school. To use custom images, your administrators need to set up a Shared Image Gallery.  A Shared Image Gallery is a repository that is used for saving custom images.
+- **Use an existing custom image**: You can reuse custom images that you previously created, or images that were created by other administrators or faculty at your school. To use custom images, your administrators need to set up an Azure Compute Gallery.  A compute gallery is a repository that is used for saving custom images.
 
 > [!NOTE]
 > Your administrators are responsible for enabling Azure Marketplace images and custom images so that you can use them. Coordinate with your IT department to ensure that the images that you need are enabled. Custom images that you create are automatically enabled for use within labs that you own.
@@ -97,7 +97,7 @@ After you understand the requirements for your class's lab, you're ready to set 
 
 1. **Customize images and publish lab VMs**. To connect to a special VM called the template VM, see:
     - [Create and manage a template VM](./tutorial-setup-lab.md#publish-a-lab)
-    - [Use a shared image gallery](./how-to-use-shared-image-gallery.md)
+    - [Use a compute gallery](./how-to-use-shared-image-gallery.md)
 
     > [!NOTE]
     > If your class requires nested virtualization, see [Enable nested virtualization](./how-to-enable-nested-virtualization-template-vm.md).
@@ -139,7 +139,7 @@ After you understand the requirements for your class's lab, you're ready to set 
 1. **Use the dashboard**. For instructions, see [Use the lab dashboard](./use-dashboard.md).
 
     > [!NOTE]
-    > The estimated cost shown on the dashboard is the maximum cost that you can expect to incur for student lab usage. For example, you will *not* be charged for unused quota hours by your students. The estimated costs do *not* reflect any charges for using the template VM, the shared image gallery, or when the lab creator starts a user machine.
+    > The estimated cost shown on the dashboard is the maximum cost that you can expect to incur for student lab usage. For example, you will *not* be charged for unused quota hours by your students. The estimated costs do *not* reflect any charges for using the template VM, the compute gallery, or when the lab creator starts a user machine.
 
 ## Next steps
 

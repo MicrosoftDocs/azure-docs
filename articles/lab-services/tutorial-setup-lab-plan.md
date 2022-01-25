@@ -55,4 +55,4 @@ The following steps illustrate how to use the Azure portal to create a lab plan 
 In this tutorial, you created a lab plan and gave lab creation permissions to an educator. To learn about how to create a lab as an educator, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Set up a lab](tutorial-setup-lab.md)
+> [Create a lab](tutorial-setup-lab.md)

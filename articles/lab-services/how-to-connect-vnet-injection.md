@@ -79,6 +79,6 @@ So, if you need to make changes to the subnet, first delete the lab, then delete
 
 See the following articles:
 
-- [Attach a shared image gallery to a lab](how-to-attach-detach-shared-image-gallery.md)
+- [Attach a compute gallery to a lab](how-to-attach-detach-shared-image-gallery.md)
 - [View firewall settings for a lab](how-to-configure-firewall-settings.md)
 - [Configure other settings for a lab](how-to-configure-auto-shutdown-lab-plans.md)

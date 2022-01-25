@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Bring a Linux custom image from your physical lab environment
 
-The steps in this article show how to import a Linux custom image that starts from your physical lab environment. With this approach, you create a VHD from your physical environment and import the VHD into a shared image gallery so that it can be used within Azure Lab Services. Before you use this approach for creating a custom image, read [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md) to decide which approach is best for your scenario.
+The steps in this article show how to import a Linux custom image that starts from your physical lab environment. With this approach, you create a VHD from your physical environment and import the VHD into a compute gallery so that it can be used within Azure Lab Services. Before you use this approach for creating a custom image, read [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md) to decide which approach is best for your scenario.
 
 Azure endorses a variety of [distributions and versions](../virtual-machines/linux/endorsed-distros.md#supported-distributions-and-versions). The steps to bring a custom Linux image from a VHD varies for each distribution. Every distribution is different because each one has unique prerequisites that must be set up to run on Azure.
 
@@ -61,7 +61,7 @@ To help with resizing the VHD and converting to a VHDX, you can also use the fol
 - [Resize-VHD](/powershell/module/hyper-v/resize-vhd)
 - [Convert-VHD](/powershell/module/hyper-v/convert-vhd)
 
-## Upload the custom image to a shared image gallery
+## Upload the custom image to a compute gallery
 
 1. Upload the VHD to Azure to create a managed disk.
     1. You can use either Azure Storage Explorer or AzCopy from the command line, as shown in [Upload a VHD to Azure or copy a managed disk to another region](../virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).
@@ -73,7 +73,7 @@ To help with resizing the VHD and converting to a VHDX, you can also use the fol
 
         You can use the Azure portal's **Size+Performance** tab for the managed disk to change your disk size. As mentioned before, the size must *not* be greater than 128 GB.
 
-1. In a shared image gallery, create an image definition and version:
+1. In a compute gallery, create an image definition and version:
     1. [Create an image definition](../virtual-machines/image-version.md):
         - Choose **Gen 1** for the **VM generation**.
         - Choose **Linux** for the **Operating system**.
@@ -92,7 +92,7 @@ To help with resizing the VHD and converting to a VHDX, you can also use the fol
 
 ## Create a lab
 
-[Create the lab](tutorial-setup-lab.md) in Lab Services and select the custom image from the shared image gallery.
+[Create the lab](tutorial-setup-lab.md) in Lab Services and select the custom image from the compute gallery.
 
 If you expanded the disk *after* the OS was installed on the original Hyper-V VM, you might also need to extend the partition in Linux's filesystem to use the unallocated disk space.  Log in to the lab's template VM and follow steps similar to what is shown in [Expand a disk partition and filesystem](../virtual-machines/linux/expand-disks.md#expand-a-disk-partition-and-filesystem).
 
@@ -100,6 +100,6 @@ The OS disk typically exists on the **/dev/sad2** partition. To view the current
 
 ## Next steps
 
-- [Shared image gallery overview](../virtual-machines/shared-image-galleries.md)
-- [Attach or detach a shared image gallery](how-to-attach-detach-shared-image-gallery.md)
-- [Use a shared image gallery](how-to-use-shared-image-gallery.md)
+- [Azure Compute Gallery overview](../virtual-machines/shared-image-galleries.md)
+- [Attach or detach a compute gallery](how-to-attach-detach-shared-image-gallery.md)
+- [Use a compute gallery](how-to-use-shared-image-gallery.md)
