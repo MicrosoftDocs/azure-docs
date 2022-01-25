@@ -12,7 +12,7 @@ ms.topic: include
 
 ---
 
-In order to receive a LUIS prediction in a chat bot or other client application, you need to publish the app to the prediction endpoint.
+In order to receive a LUIS prediction in a chat bot or other client applications, you need to publish the app to the prediction endpoint.
 
 1. Select **Publish** in the top-right navigation.
     
