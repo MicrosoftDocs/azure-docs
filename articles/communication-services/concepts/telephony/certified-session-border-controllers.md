@@ -53,4 +53,4 @@ Note the certification granted to a major version. That means that firmware with
 
 ### Quickstarts
 
-- [Call to Phone](../../quickstarts/voice-video-calling/pstn-call.md)
+- [Call to Phone](../../quickstarts/telephony/pstn-call.md)

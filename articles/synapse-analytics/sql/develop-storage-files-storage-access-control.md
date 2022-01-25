@@ -8,7 +8,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick  
+ms.reviewer: sngun  
 ms.custom: devx-track-azurepowershell
 ---
 

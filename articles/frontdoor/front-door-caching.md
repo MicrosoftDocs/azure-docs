@@ -5,7 +5,6 @@ services: frontdoor
 documentationcenter: ''
 author: duongau
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -91,6 +90,8 @@ Front Door caches assets until the asset's time-to-live (TTL) expires. Whenever 
 
 The best practice to make sure your users always obtain the latest copy of your assets is to version your assets for each update and publish them as new URLs. Front Door will immediately retrieve the new assets for the next client requests. Sometimes you may wish to purge cached content from all edge nodes and force them all to retrieve new updated assets. The reason could be because of updates to your web application, or to quickly update assets that contain incorrect information.
 
+:::image type="content" source=".\media\front-door-caching\cache-purge.png" alt-text="Screenshot of the cache purge button and page." lightbox=".\media\front-door-caching\cache-purge-expanded.png":::
+
 Select the assets you want to purge from the edge nodes. To clear all assets, select **Purge all**. Otherwise, in **Path**, enter the path of each asset you want to purge.
 
 These formats are supported in the lists of paths to purge:
@@ -112,6 +113,10 @@ The following order of headers is used to determine how long an item will be sto
 3. Expires: \<http-date>
 
 Cache-Control response headers that indicate that the response won't be cached such as Cache-Control: private, Cache-Control: no-cache, and Cache-Control: no-store are honored.  If no Cache-Control is present, the default behavior is that Front Door will cache the resource for X amount of time where X gets randomly picked between 1 to 3 days.
+
+> [!NOTE]
+> Cache expiration can't be greater than **366 days**.
+> 
 
 ## Request headers
 

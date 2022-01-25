@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 11/10/2021
 ms.author: normesta
 ms.reviewer: fryu
+ms.devlang: csharp
 ms.custom: "subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
 ---
 
@@ -104,7 +105,7 @@ If you choose to archive your logs to a storage account, you'll pay for the volu
    > [!div class="mx-imgBorder"]
    > ![Diagnostic settings page archive storage](media/monitor-blob-storage/diagnostic-logs-settings-pane-archive-storage.png)
 
-2. In the **Storage account** drop-down list, select the storage account that you want to archive your logs to, click the **OK** button, and then select the **Save** button.
+2. In the **Storage account** drop-down list, select the storage account that you want to archive your logs to, and then select the **Save** button.
 
    [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 

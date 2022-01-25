@@ -12,7 +12,7 @@ ms.assetid: ad4801e9-d09a-49bf-b35c-efdc4e6034e8
 ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: multiple
+ms.devlang: csharp
 ms.topic: how-to
 ms.date: 02/1/2018
 ms.author: mazha 

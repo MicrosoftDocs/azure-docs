@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/12/2021
+ms.date: 12/15/2021
 
 ms.author: justinha
 author: mjsantani
-manager: daveba
+manager: karenhoran
 
 ms.collection: M365-identity-device-management
 
@@ -78,7 +78,7 @@ To enable a registration campaign in the Azure AD portal, complete the following
 
 ## Enable the registration campaign policy using Graph Explorer
 
-To enable the the registration campaign policy, you must use the Authentication Methods Policy using Graph APIs. **Global administrators** and **Authentication Method Policy administrators** can update the policy. 
+In addition to using the Azure portal, you can also enable the registration campaign policy using Graph Explorer. To enable the the registration campaign policy, you must use the Authentication Methods Policy using Graph APIs. **Global administrators** and **Authentication Method Policy administrators** can update the policy. 
 
 To configure the policy using Graph Explorer:
 

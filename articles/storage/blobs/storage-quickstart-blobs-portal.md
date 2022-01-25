@@ -9,7 +9,7 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 10/25/2021
 ms.author: tamram
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
 # Quickstart: Upload, download, and list blobs with the Azure portal

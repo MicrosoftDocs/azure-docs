@@ -45,7 +45,7 @@ You can configure storage redundancy for periodic backup mode at the time of acc
 * **Locally-redundant backup storage:** This option copies your data synchronously three times within a single physical location in the primary region. For more information, see [locally-redundant storage.](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region)
 
 > [!NOTE]
-> Zone-redundant storage is currently available only in [specific regions](high-availability.md#availability-zone-support). Depending on the region you select for a new account or the region you have for an existing account; the zone-redundant option will not be available.
+> Zone-redundant storage is currently available only in [specific regions](../availability-zones/az-region.md). Depending on the region you select for a new account or the region you have for an existing account; the zone-redundant option will not be available.
 >
 > Updating backup storage redundancy will not have any impact on backup storage pricing.
 
@@ -180,6 +180,34 @@ Principals who are part of the role [CosmosdbBackupOperator](../role-based-acces
 
 ## Understanding Costs of extra backups
 Two backups are provided free and extra backups are charged according to the region-based  pricing for backup storage described in [backup storage pricing](https://azure.microsoft.com/pricing/details/cosmos-db/). For example if Backup Retention is configured  to  240 hrs that is, 10 days and Backup Interval to 24 hrs. This implies 10 copies of the backup data. Assuming  1 TB of data in West US 2, the cost would be  will be 0.12 * 1000 * 8  for backup storage in given month.
+
+## Get the restore details from the restored account
+
+After the restore operation completes, you may want to know the source account details from which you restored or the restore time. You can get these details from the Azure portal, PowerShell, or CLI.
+
+### Use Azure portal
+
+Use the following steps to get the restore details from Azure portal:
+
+1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to the restored account.
+
+1. Open the **Tags** blade. This blade should have the tags **restoredAtTimestamp** and **restoredSourceDatabaseAccountName**. These tags describe the timestamp and the source account name that were used for the periodic restore.
+
+### Use Azure CLI
+
+Run the following command to get the restore details. The `restoreSourceAccountName` and the `restoreTimestamp` will be under the `tags` property:
+
+```azurecli-interactive
+az cosmosdb show --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup
+```
+
+### Use PowerShell
+
+Import the Az.CosmosDB module and run the following command to get the restore details. The `restoreSourceAccountName` and the `restoreTimestamp` will be under the `tags` property:
+
+```powershell-interactive
+Get-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount
+```
 
 ## Options to manage your own backups
 

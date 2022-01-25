@@ -11,7 +11,7 @@ This article shows you how to use the `for` syntax to iterate over items in a co
 
 ### Microsoft Learn
 
-To learn more about loops, and for hands-on guidance, see [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/) on **Microsoft Learn**.
+If you would rather learn about loops through step-by-step guidance, see [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/) on **Microsoft Learn**.
 
 ## Loop syntax
 

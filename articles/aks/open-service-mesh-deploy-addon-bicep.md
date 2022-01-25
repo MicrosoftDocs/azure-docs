@@ -11,6 +11,9 @@ ms.author: pgibson
 
 This article will discuss how to deploy the OSM add-on to AKS using a [Bicep](../azure-resource-manager/bicep/index.yml) template.
 
+> [!IMPORTANT]
+> The OSM add-on installs version *0.11.1* of OSM on your cluster.
+
 [Bicep](../azure-resource-manager/bicep/overview.md) is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. Bicep can be used in place of creating Azure [ARM](../azure-resource-manager/templates/overview.md) templates for deploying your infrastructure-as-code Azure resources.
 
 ## Prerequisites

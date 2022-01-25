@@ -3,12 +3,12 @@ title: 'About VPN devices for connections'
 titleSuffix: Azure VPN Gateway
 description: Learn about VPN devices and IPsec parameters for Site-to-Site cross-premises connections. Links are provided to configuration instructions and samples.
 services: vpn-gateway
-author: yushwang
+author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 11/22/2021
-ms.author: yushwang
+ms.date: 12/10/2021
+ms.author: cherylmc
 
 ---
 # About VPN devices and IPsec/IKE parameters for Site-to-Site VPN Gateway connections
@@ -35,7 +35,7 @@ To help configure your VPN device, refer to the links that correspond to the app
 |**Vendor**          |**Device family**     |**Minimum OS version** |**PolicyBased configuration instructions** |**RouteBased configuration instructions** |
 | ---                | ---                  | ---                   | ---            | ---           |
 | A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |Not compatible  |[Configuration guide](https://www.a10networks.com/wp-content/uploads/A10-DG-16161-EN.pdf)|
-| Ahnlab | TrusGuard | TG 2.7.6<br>TG 3.5.x | Not tested | [Configuration guide](https://help.ahnlab.com/trusguard/cloud/azure/install/en_us/start.htm)
+| AhnLab | TrusGuard | TG 2.7.6<br>TG 3.5.x | Not tested | [Configuration guide](https://help.ahnlab.com/trusguard/cloud/azure/install/en_us/start.htm)
 | Allied Telesis     |AR Series VPN Routers |AR-Series 5.4.7+               | [Configuration guide](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router) |[Configuration guide](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
 | Arista | CloudEOS Router | vEOS 4.24.0FX | Not tested | [Configuration guide](https://www.arista.com/en/cg-veos-router/veos-router-cloudeos-ipsec-connectivity-to-azure-virtual-network-gateway) |
 | Barracuda Networks, Inc. |Barracuda CloudGen Firewall |PolicyBased: 5.4.3<br>RouteBased: 6.2.0 |[Configuration guide](https://campus.barracuda.com/product/cloudgenfirewall/doc/79462887/how-to-configure-an-ikev1-ipsec-site-to-site-vpn-to-the-static-microsoft-azure-vpn-gateway/) |[Configuration guide](https://campus.barracuda.com/product/cloudgenfirewall/doc/79462889/how-to-configure-bgp-over-ikev2-ipsec-site-to-site-vpn-to-an-azure-vpn-gateway/) |

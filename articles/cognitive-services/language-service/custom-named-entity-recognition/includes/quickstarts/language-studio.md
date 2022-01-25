@@ -42,7 +42,7 @@ Before you can use custom NER, you will need to create an Azure Language resourc
 
 ## Upload sample data to blob container
 
-After you have created an Azure storage account and linked it to your Language resource, you will need to upload the example files for this quickstart. These files will later be used to train your model.
+After you have created an Azure storage account and linked it to your Language resource, you will need to upload the example files to the root directory of your container for this quickstart. These files will later be used to train your model.
 
 1. [Download the example data](https://go.microsoft.com/fwlink/?linkid=2175226) for this quickstart from GitHub.
 
@@ -88,7 +88,7 @@ Once your resource and storage container are configured, create a new conversati
 
 Typically after you create a project, you would import your data and begin [tagging the entities](../../how-to/tag-data.md) within it to train the classification model. For this quickstart, you will use the example tagged data file you downloaded earlier, and stored in your Azure storage account.
 
-A model is the machine learning object that will be trained to classify text. Your model will learn from the example data, and be able to classify technical support tickets afterwards.
+A model is the machine learning object that will be trained to classify text. Your model will learn from the example data, and be able to classify loan agreements afterwards.
 
 To start training your model:
 

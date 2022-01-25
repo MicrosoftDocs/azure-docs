@@ -3,7 +3,8 @@ title: Send or receive events from Azure Event Hubs using Java (legacy)
 description: This article provides a walkthrough of creating a Java application that sends/receives events to/from Azure Event Hubs using the old azure-eventhubs package.
 ms.topic: quickstart
 ms.date: 09/28/2021
-ms.custom: devx-track-java, mode-other
+ms.devlang: java
+ms.custom: devx-track-java, mode-api
 ---
 
 # Use Java to send events to or receive events from Azure Event Hubs (azure-eventhubs)
@@ -21,7 +22,7 @@ To complete this quickstart, you need the following prerequisites:
 
 - **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription.  If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
 - A Java development environment. This quickstart uses [Eclipse](https://www.eclipse.org/).
-- **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). Then, get the value of access key for the event hub by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). You use the access key in the code you write later in this quickstart. The default key name is: **RootManageSharedAccessKey**.
+- **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). Then, get the value of access key for the event hub by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#azure-portal). You use the access key in the code you write later in this quickstart. The default key name is: **RootManageSharedAccessKey**.
 
 ## Send events 
 This section shows you how to create a Java application to send events an event hub. 

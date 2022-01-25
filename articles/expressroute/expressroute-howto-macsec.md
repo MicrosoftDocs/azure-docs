@@ -99,6 +99,15 @@ To start the configuration, sign in to your Azure account and select the subscri
 
 Each ExpressRoute Direct instance has two physical ports. You can choose to enable MACsec on both ports at the same time or enable MACsec on one port at a time. Doing it one port at time (by switching traffic to an active port while servicing the other port) can help minimize the interruption if your ExpressRoute Direct is already in service.
 
+   > [!NOTE]
+   > You can configure both XPN and Non-XPN ciphers:
+   > * GcmAes128
+   > * GcmAes256
+   > * GcmAesXpn128
+   > * GcmAesXpn256
+   >
+   > 
+
 1. Set MACsec secrets and cipher and associate the user identity with the port so that the ExpressRoute management code can access the MACsec secrets if needed.
 
     ```azurepowershell-interactive

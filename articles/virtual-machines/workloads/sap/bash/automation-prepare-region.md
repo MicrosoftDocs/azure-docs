@@ -97,7 +97,7 @@ Aliases: `-s`
 Required: False
 ```
 
-### `-spn_id`
+### `--spn_id`
 Sets the service principal's app ID. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials).
 
 ```yaml
@@ -129,7 +129,7 @@ Required: False
 
 
 ### `--storageaccountname`
-Sets the name of the storage account that contains the Terraform state files.
+Sets the name of the storage account that contains the Terraform state files.  
 
 ```yaml
 Type: String
@@ -158,6 +158,16 @@ Aliases: `-i`
 Required: False
 ```
 
+### `--recover`
+Recreates the local configuration files.
+
+```yaml
+Type: SwitchParameter
+Aliases: `-h`
+
+Required: False
+```
+
 ### `--help`
 Shows help for the script.
 
@@ -167,6 +177,7 @@ Aliases: `-h`
 
 Required: False
 ```
+
 
 ## Notes
 v0.9 - Initial version

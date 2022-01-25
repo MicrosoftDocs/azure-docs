@@ -1,19 +1,19 @@
 ---
 title: Entity Recognition (V3) cognitive skill
 titleSuffix: Azure Cognitive Search
-description: Extract different types of entities from text  using Text Analytics V3 in an enrichment pipeline in Azure Cognitive Search.
+description: Extract different types of entities using the machine learning models of Azure Cognitive Services for Language in an AI enrichment pipeline in Azure Cognitive Search.
 
 manager: jennmar
 author: ayokande
 ms.author: aakande
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 08/12/2021
+ms.date: 12/09/2021
 ---
 
 # Entity Recognition cognitive skill (V3)
 
-The **Entity Recognition** skill extracts entities of different types from text. These entities fall under 14 distinct categories, ranging from people and organizations to URLs and phone numbers. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
+The **Entity Recognition** skill extracts entities of different types from text. These entities fall under 14 distinct categories, ranging from people and organizations to URLs and phone numbers. This skill uses the [Named Entity Recognition](../cognitive-services/language-service/named-entity-recognition/overview.md) machine learning models provided by [Azure Cognitive Services for Language](../cognitive-services/language-service/overview.md).
 
 > [!NOTE]
 > This skill is bound to Cognitive Services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
@@ -32,22 +32,21 @@ Parameters are case-sensitive and are all optional.
 | Parameter name     | Description |
 |--------------------|-------------|
 | `categories`    | Array of categories that should be extracted.  Possible category types: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"DateTime"`, `"URL"`, `"Email"`, `"personType"`, `"Event"`, `"Product"`, `"Skill"`, `"Address"`, `"phoneNumber"`, `"ipAddress"`. If no category is provided, all types are returned.|
-| `defaultLanguageCode` |    Language code of the input text. If the default language code is not specified,  English (en) will be used as the default language code. <br/> See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md). Not all entity categories are supported for all languages; see note below.|
+| `defaultLanguageCode` |    Language code of the input text. If the default language code is not specified,  English (en) will be used as the default language code. <br/> See the [full list of supported languages](../cognitive-services/language-service/named-entity-recognition/language-support.md). Not all entity categories are supported for all languages; see note below.|
 | `minimumPrecision` | A value between 0 and 1. If the confidence score (in the `namedEntities` output) is lower than this value, the entity is not returned. The default is 0. |
-| `modelVersion` | (Optional) The version of the model to use when calling the Text Analytics service. It will default to the latest available when not specified. We recommend you do not specify this value unless absolutely necessary. See [Model versioning in the Text Analytics API](../cognitive-services/text-analytics/concepts/model-versioning.md) for more details.|
-
+| `modelVersion` | (Optional) Specifies the [version of the model](../cognitive-services/language-service/named-entity-recognition/how-to-call.md#determine-how-to-process-the-data-optional) to use when calling the entity recognition API. It will default to the latest available when not specified. We recommend you do not specify this value unless it's necessary. |
 
 ## Skill inputs
 
 | Input name      | Description                   |
 |---------------|-------------------------------|
-| `languageCode`    | A string indicating the language of the records. If this parameter is not specified, the default language code will be used to analyze the records. <br/>See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md). |
-| `text`          | The text to analyze.          |
+| `languageCode`    | A string indicating the language of the records. If this parameter is not specified, the default language code will be used to analyze the records. <br/>See the [full list of supported languages](../cognitive-services/language-service/named-entity-recognition/language-support.md). |
+| `text`          | The text to analyze. |
 
 ## Skill outputs
 
 > [!NOTE]
->Not all entity categories are supported for all languages. Please refer to [Supported entity categories in the Text Analytics API v3](../cognitive-services/text-analytics/named-entity-types.md) to know which entity categories are supported for the language you will be using.
+> Not all entity categories are supported for all languages. See [Supported Named Entity Recognition (NER) entity categories](../cognitive-services/language-service/named-entity-recognition/concepts/named-entity-categories.md) to know which entity categories are supported for the language you will be using.
 
 | Output name      | Description                   |
 |---------------|-------------------------------|
@@ -67,8 +66,7 @@ Parameters are case-sensitive and are all optional.
 | `ipAddresses` | An array of strings where each string represents an IP Address |
 | `namedEntities` | An array of complex types that contains the following fields: <ul><li>category</li> <li>subcategory</li> <li>confidenceScore (Higher value means it's more to be a real entity)</li> <li>length (The length(number of characters) of this entity)</li> <li>offset (The location where it was found in the text)</li> <li>text (The actual entity name as it appears in the text)</li></ul> |
 
-
-##    Sample definition
+## Sample definition
 
 ```json
   {
@@ -103,7 +101,8 @@ Parameters are case-sensitive and are all optional.
     ]
   }
 ```
-##    Sample input
+
+## Sample input
 
 ```json
 {
@@ -120,7 +119,7 @@ Parameters are case-sensitive and are all optional.
 }
 ```
 
-##    Sample output
+## Sample output
 
 ```json
 {
@@ -156,9 +155,10 @@ Parameters are case-sensitive and are all optional.
 }
 ```
 
-Note that the offsets returned for entities in the output of this skill are directly returned from the [Text Analytics API](../cognitive-services/text-analytics/overview.md), which means if you are using them to index into the original string, you should use the [StringInfo](/dotnet/api/system.globalization.stringinfo) class in .NET in order to extract the correct content.  [More details can be found here.](../cognitive-services/text-analytics/concepts/text-offsets.md)
+The offsets returned for entities in the output of this skill are directly returned from the [Language Service APIs](../cognitive-services/language-service/overview.md), which means if you are using them to index into the original string, you should use the [StringInfo](/dotnet/api/system.globalization.stringinfo) class in .NET in order to extract the correct content. For more information, see [Multilingual and emoji support in Language service features](../cognitive-services/language-service/concepts/multilingual-emoji-support.md).
 
 ## Warning cases
+
 If the language code for the document is unsupported, a warning is returned and no entities are extracted.
 
 ## See also

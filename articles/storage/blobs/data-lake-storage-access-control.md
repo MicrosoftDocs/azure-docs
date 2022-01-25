@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
+ms.devlang: python
 ---
 
 # Access control lists (ACLs) in Azure Data Lake Storage Gen2

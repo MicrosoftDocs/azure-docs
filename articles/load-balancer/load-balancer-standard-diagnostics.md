@@ -6,11 +6,10 @@ documentationcenter: na
 author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/25/2021
+ms.date: 12/14/2021
 ms.author: allensu
 ---
 
@@ -275,6 +274,7 @@ Generic resource health status description are available in the [RHC documentati
 
 ## Next steps
 
+- Learn about [Network Analytics](../azure-monitor/insights/azure-networking-analytics.md)
 - Learn about using [Insights](./load-balancer-insights.md) to view these metrics preconfigured for your Load Balancer
 - Learn more about [Standard Load Balancer](./load-balancer-overview.md).
 - Learn more about your [Load balancer outbound connectivity](./load-balancer-outbound-connections.md).

@@ -8,8 +8,8 @@ ms.subservice: sql
 ms.topic: quickstart
 ms.date: 12/11/2020
 ms.author: wiassaf
-ms.reviewer: jrasnick
-ms.custom: mode-other
+ms.reviewer: sngun
+ms.custom: mode-ui
 ---
 
 # Quickstart: Bulk loading with Synapse Studio

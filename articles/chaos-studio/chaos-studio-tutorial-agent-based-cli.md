@@ -96,7 +96,7 @@ Next, set up a Microsoft-Agent target on each virtual machine or virtual machine
 
 3. Copy down the GUID for the **agentProfileId** returned by this command for use in a later step.
 
-4. Create the capabilities on the target by creating a capability.json file as shown below. Save the JSON file in the same location where you are running the Azure CLI. Replace `$RESOURCE_ID` with the resource ID of the target virtual machine or virtual machine scale set and `$CAPABILITY` with the [name of the fault capability you are enabling](chaos-studio-fault-library.md).
+4. Create the capabilities by replacing `$RESOURCE_ID` with the resource ID of the target virtual machine or virtual machine scale set and `$CAPABILITY` with the [name of the fault capability you are enabling](chaos-studio-fault-library.md).
     
     ```azurecli-interactive
     az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-Agent/capabilities/$CAPABILITY?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
