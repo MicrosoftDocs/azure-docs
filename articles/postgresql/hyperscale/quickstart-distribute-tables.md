@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 01/19/2022
+ms.date: 01/24/2022
 ---
 
 # Create and distribute tables
@@ -16,15 +16,20 @@ Once connected to the hyperscale coordinator node using psql, you can complete s
 
 Within Hyperscale (Citus) servers there are three types of tables:
 
-- Distributed or sharded tables (spread out to help scaling for performance and parallelization)
-- Reference tables (multiple copies maintained)
-- Local tables (often used for internal admin tables)
+* **Distributed Tables** - Distributed across worker nodes (scaled out).
+  Generally large tables should be distributed tables to improve performance.
+* **Reference tables** - Replicated to all nodes. Enables joins with
+  distributed tables. Typically used for small tables like countries or product
+  categories.
+* **Local tables** - Tables that reside on coordinator node. Administration
+  tables are good examples of local tables.
 
-## Create PostgreSQL tables
-
-In this quickstart, we'll primarily focus on distributed tables and getting familiar with them.
+In this quickstart, we'll primarily focus on distributed tables, and getting
+familiar with them.
 
 The data model we're going to work with is simple: user and event data from GitHub. Events include fork creation, git commits related to an organization, and more.
+
+## Create tables
 
 Once you've connected via psql, let's create our tables. In the psql console run:
 
@@ -73,7 +78,7 @@ SELECT create_distributed_table('github_users', 'user_id');
 
 [!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../../includes/azure-postgresql-hyperscale-dist-alert.md)]
 
-## Load data into distributed table
+## Load data into distributed tables
 
 We're ready to load data. In psql still, shell out to download the files:
 
