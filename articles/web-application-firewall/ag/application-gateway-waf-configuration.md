@@ -94,7 +94,7 @@ Web Application Firewall allows you to configure request size limits within lowe
 
 The default value for file upload limit is 100 MB.
 
-For CRS 3.2 (on the WAF_v2 SKU) and newer, these limits are as follows:
+For CRS 3.2 (on the WAF_v2 SKU) and newer, these limits are as follows when using a WAF Policy for Appplication Gateway:
    
    - 2MB request body size limit
    - 4GB file upload limit 

@@ -325,7 +325,7 @@ Your signing certificates are now trusted on the Windows-based device and the fu
 
     | Field        | Value           |
     | :----------- | :-------------- |
-    | **Group name** | For this tutorial, enter **custom-hsm-x509-devices** |
+    | **Group name** | For this tutorial, enter **custom-hsm-x509-devices**. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). |
     | **Attestation Type** | Select **Certificate** |
     | **IoT Edge device** | Select **False** |
     | **Certificate Type** | Select **Intermediate Certificate** |

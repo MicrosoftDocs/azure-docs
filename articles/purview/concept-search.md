@@ -11,13 +11,13 @@ ms.date: 09/27/2021
 
 # Understand search features in Azure Purview
 
-This article provides an overview of the search experience in Azure Purview. Search is a core platform capability of Purview, that powers the data discovery and data use governance experiences in an organization.
+This article provides an overview of the search experience in Azure Purview. Search is a core platform capability of Azure Purview, that powers the data discovery and data use governance experiences in an organization.
 
 ## Search
 
-The Purview search experience is powered by a managed search index. After a data source is registered with Purview, its metadata is indexed by the search service to allow easy discovery. The index provides search relevance capabilities and completes search requests by querying millions of metadata assets. Search helps you to discover, understand, and use the data to get the most value out of it.
+The Azure Purview search experience is powered by a managed search index. After a data source is registered with Azure Purview, its metadata is indexed by the search service to allow easy discovery. The index provides search relevance capabilities and completes search requests by querying millions of metadata assets. Search helps you to discover, understand, and use the data to get the most value out of it.
 
-The search experience in Purview is a three stage process:
+The search experience in Azure Purview is a three stage process:
 
 1. The search box shows the history containing recently used keywords and assets.
 1. When you begin typing the keystrokes, the search suggests the matching keywords and assets. 
@@ -31,7 +31,7 @@ The goal of search in Azure Purview is to speed up the process of data discovery
 
 ## Recent search and suggestions
 
-Many times, you may be working on multiple projects at the same time. To make it easier to resume previous projects, Purview search provides the ability to see recent search keywords and suggestions. Also, you can manage the recent search history by selecting **View all** from the search box drop-down.
+Many times, you may be working on multiple projects at the same time. To make it easier to resume previous projects, Azure Purview search provides the ability to see recent search keywords and suggestions. Also, you can manage the recent search history by selecting **View all** from the search box drop-down.
 
 ## Filters
 
@@ -55,4 +55,4 @@ Relevance is the default sort order in the search result page. The search releva
 
 * [Quickstart: Create an Azure Purview account in the Azure portal](create-catalog-portal.md)
 * [Quickstart: Create an Azure Purview account using Azure PowerShell/Azure CLI](create-catalog-powershell.md)
-* [Use the Purview Studio](use-purview-studio.md)
+* [Use the Azure Purview Studio](use-purview-studio.md)

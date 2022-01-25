@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/04/2021
+ms.date: 01/08/2022
 ms.author: eur
+ms.devlang: cpp, csharp, java, javascript, python
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
 zone_pivot_groups: programming-languages-speech-services-one-nomore-no-go
 keywords: intent recognition

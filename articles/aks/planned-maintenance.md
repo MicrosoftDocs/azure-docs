@@ -56,7 +56,7 @@ az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSClust
 The following example output shows the maintenance window from 1:00am to 2:00am every Monday.
 
 ```json
-{- Finished ..
+{
   "id": "/subscriptions/<subscriptionID>/resourcegroups/MyResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/maintenanceConfigurations/default",
   "name": "default",
   "notAllowedTime": null,

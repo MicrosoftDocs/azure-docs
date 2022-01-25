@@ -5,7 +5,7 @@ author: spelluru
 ms.author: spelluru
 ms.date: 11/09/2020
 ms.topic: quickstart
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.custom: devx-track-js, mode-api
 ---
 

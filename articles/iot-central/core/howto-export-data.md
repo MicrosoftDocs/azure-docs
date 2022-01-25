@@ -91,7 +91,7 @@ If you don't have an existing Azure Data Explorer database to export to, follow 
 1. You have two choices to create an Azure Data Explorer database:
 
     - Create a new Azure Data Explorer cluster and database. To learn more, see the [Azure Data Explorer quickstart](/azure/data-explorer/create-cluster-database-portal). Make a note of the cluster URI and the name of the database you create, you need these values in the following steps.
-    - Create a new Azure Synapse Data Explorer pool and database. To learn more, see the [Azure Data Explorer quickstart](../../synapse-analytics/get-started-analyze-data-explorer.md). Make a note of the pool URI the name of the database you create, you need these values in the following steps.
+    - Create a new Azure Synapse Data Explorer pool and database. To learn more, see the [Azure Data Explorer quickstart](../../synapse-analytics/get-started-analyze-data-explorer.md). Make a note of the pool URI and the name of the database you create, you need these values in the following steps.
 
 1. Create a service principal that you can use to connect your IoT Central application to Azure Data Explorer. Use the Azure Cloud Shell to run the following command:
 

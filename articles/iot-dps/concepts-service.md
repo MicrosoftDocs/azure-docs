@@ -55,14 +55,14 @@ There are two types of enrollments supported by Device Provisioning Service:
 
 ### Enrollment group
 
-An enrollment group is a group of devices that share a specific attestation mechanism. Enrollment groups support both X.509 as well as symmetric. All devices in the X.509 enrollment group present X.509 certificates that have been signed by the same root or intermediate Certificate Authority (CA). Each device in the symmetric key enrollment group present SAS tokens derived from the group symmetric key. The enrollment group name and certificate name must be alphanumeric, lowercase, and may contain hyphens.
+An enrollment group is a group of devices that share a specific attestation mechanism. Enrollment groups support X.509 certificate or symmetric key attestation. Devices in an X.509 enrollment group present X.509 certificates that have been signed by the same root or intermediate Certificate Authority (CA). The common name (CN) of each device's end-entity (leaf) certificate becomes the registration ID for that device. Devices in a symmetric key enrollment group present SAS tokens derived from the group symmetric key. The name of the enrollment group as well as the registration IDs presented by devices must be case-insensitive strings (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). For devices in an enrollment group, the registration ID is also used as the device ID that is registered to IoT Hub.
 
 > [!TIP]
 > We recommend using an enrollment group for a large number of devices that share a desired initial configuration, or for devices all going to the same tenant.
 
 ### Individual enrollment
 
-An individual enrollment is an entry for a single device that may register. Individual enrollments may use either X.509 leaf certificates or SAS tokens (from a physical or virtual TPM) as attestation mechanisms. The registration ID in an individual enrollment is alphanumeric, lowercase, and may contain hyphens. Individual enrollments may have the desired IoT hub device ID specified.
+An individual enrollment is an entry for a single device that may register. Individual enrollments may use either X.509 leaf certificates or SAS tokens (from a physical or virtual TPM) as the attestation mechanisms. The registration ID in an individual enrollment is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). For X.509 individual enrollments, the certificate common name (CN) becomes the registration ID, so the common name must adhere to the registration ID string format. Individual enrollments may have the desired IoT hub device ID specified in the enrollment entry. If it's not specified, the registration ID becomes the device ID that's registered to IoT Hub.
 
 > [!TIP]
 > We recommend using individual enrollments for devices that require unique initial configurations, or for devices that can only authenticate using SAS tokens via TPM attestation.
@@ -103,10 +103,10 @@ A registration is the record of a device successfully registering/provisioning t
 
 ## Registration ID
 
-The registration ID is used to uniquely identify a device registration with the Device Provisioning Service. The device ID must be unique in the provisioning service [ID scope](#id-scope). Each device must have a registration ID. The registration ID is alphanumeric, case insensitive, and may contain special characters including colon, period, underscore and hyphen.
+The registration ID is used to uniquely identify a device registration with the Device Provisioning Service. The registration ID must be unique in the provisioning service [ID scope](#id-scope). Each device must have a registration ID. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
 
 * In the case of TPM, the registration ID is provided by the TPM itself.
-* In the case of X.509-based attestation, the registration ID is provided as the subject name of the certificate.
+* In the case of X.509-based attestation, the registration ID is set to the common name (CN) of the device certificate. For this reason, the common name must adhere to the registration ID string format.
 
 ## Device ID
 

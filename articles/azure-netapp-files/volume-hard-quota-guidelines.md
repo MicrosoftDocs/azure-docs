@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/29/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # What changing to volume hard quota means for your Azure NetApp Files service
 

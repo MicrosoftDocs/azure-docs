@@ -4,10 +4,13 @@ titleSuffix: Azure Cognitive Services
 description: Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure Blobs. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcriptions.
 services: cognitive-services
 manager: nitinme
+author: eric-urban
+ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 01/23/2022
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -423,4 +426,5 @@ This sample code doesn't specify a custom model. The service uses the baseline m
 
 ## Next steps
 
-- [Speech to text v3 API reference](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription)
+> [!div class="nextstepaction"]
+> [Speech to text v3.0 API reference](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription)

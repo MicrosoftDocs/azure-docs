@@ -6,6 +6,7 @@ author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
+ms.devlang: python
 ms.topic: quickstart
 ms.date: 06/11/2021
 ms.custom: devx-track-python, mode-api

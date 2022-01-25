@@ -15,7 +15,7 @@ ms.custom:
 
 # VM Applications overview (preview)
 
-VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management,sharing and global distribution of applications for your virtual machines.
+VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management, sharing, and global distribution of applications for your virtual machines.
 
 > [!IMPORTANT]
 > **VM applications in Azure Compute Gallery** are currently in public preview.

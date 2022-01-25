@@ -10,6 +10,7 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
+ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api
 ---
 

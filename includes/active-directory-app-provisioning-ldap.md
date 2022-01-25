@@ -24,7 +24,6 @@ Depending on the options you select, some of the wizard screens might not be ava
 * Novell eDirectory
 * Open DJ
 * Open DS
-* Open LDAP (openldap.org)
 * Oracle (previously Sun) Directory Server Enterprise Edition
 * RadiantOne Virtual Directory Server (VDS)
 * Sun One Directory Server

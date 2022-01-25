@@ -163,8 +163,42 @@ spec:
         image: oeciteam/sgx-test:1.0
         resources:
           limits:
-            sgx.intel.com/epc: 5Mi # This limit will automatically place the job into a confidential computing node and mount the required driver volumes. Alternatively, you can target deployment to node pools with node selector.
+            sgx.intel.com/epc: 5Mi # This limit will automatically place the job into a confidential computing node and mount the required driver volumes. sgx limit setting needs "confcom" AKS Addon as referenced above. 
       restartPolicy: Never
+  backoffLimit: 0
+  ```
+Alternatively you can also do a node pool selection deployment for your container deployments as shown below
+
+```yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sgx-test
+spec:
+  template:
+    metadata:
+      labels:
+        app: sgx-test
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: agentpool
+                operator: In
+                values:
+                - acc # this is the name of your confidential computing nodel pool
+                - acc_second # this is the name of your confidential computing nodel pool
+      containers:
+      - name: sgx-test
+        image: oeciteam/oe-helloworld:1.0
+        resources:
+          limits:
+            kubernetes.azure.com/sgx_epc_mem_in_MiB: 10
+          requests:
+            kubernetes.azure.com/sgx_epc_mem_in_MiB: 10
+      restartPolicy: "Never"
   backoffLimit: 0
   ```
 
@@ -215,7 +249,7 @@ az aks delete --resource-group myResourceGroup --cluster-name myAKSCluster
 
 ## Next steps
 
-* Run Python, Node, or other applications through confidential containers by using the [confidential container samples in GitHub](https://github.com/Azure-Samples/confidential-container-samples).
+* Run Python, Node, or other applications through confidential containers using ISV/OSS SGX wrapper software. Review [confidential container samples in GitHub](https://github.com/Azure-Samples/confidential-container-samples).
 
 * Run enclave-aware applications by using the [enclave-aware Azure container samples in GitHub](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/).
 

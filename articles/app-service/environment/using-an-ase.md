@@ -8,7 +8,7 @@ ms.date: 8/5/2021
 ms.author: madsd
 ms.custom: seodec18
 ---
-# Use an App Service Environment
+# Manage an App Service Environment
 > [!NOTE]
 > This article is about the App Service Environment v2 which is used with Isolated App Service plans
 > 
@@ -161,6 +161,14 @@ The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE 
 ## Storage
 
 An ASE has 1 TB of storage for all the apps in the ASE. An App Service plan in the Isolated pricing SKU has a limit of 250 GB. In an ASE, 250 GB of storage is added per App Service plan up to the 1 TB limit. You can have more App Service plans than just four, but there is no more storage added beyond the 1 TB limit.
+
+## Monitoring
+
+As a customer, you should monitor the App Service plans and the individual apps running and take appropriate actions. For App Service Environment v2, you should also pay attention to the metrics around the platform infrastructure. These metrics will give you insights into how the platform infrastructure and frontend servers are doing, and you can take action if they are heavily utilized and you are not getting maximum throughput.
+
+Through CLI you can configure the scale ratio of your frontend servers between 5 and 15 (default 15) App Service plan instances per frontend server. An App Service Environment will always have a minimum of two frontend servers. You can also increase the size of the frontend servers through CLI.
+
+You will see some metrics called Small/Medium/Large App Service Plan Workers and a sub-scope called multiRolePools/default. These are applicable to App Service Environment v1 only.
 
 ## Logging
 

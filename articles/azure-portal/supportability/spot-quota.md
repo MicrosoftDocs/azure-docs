@@ -62,4 +62,4 @@ From there, follow the steps as described above to complete your spot quota incr
 ## Next steps
 
 - Learn more about [Azure spot virtual machines](../../virtual-machines/spot-vms.md).
-- Learn about [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- Learn about [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).

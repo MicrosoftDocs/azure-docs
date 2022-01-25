@@ -3,13 +3,13 @@ title: Network planning and connections for Azure AD Domain Services | Microsoft
 description: Learn about some of the virtual network design considerations and resources used for connectivity when you run Azure Active Directory Domain Services.
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/12/2021
+ms.date: 01/06/2022
 ms.author: justinha
 
 ---
@@ -85,7 +85,9 @@ You can enable name resolution using conditional DNS forwarders on the DNS serve
 
 ## Network resources used by Azure AD DS
 
-A managed domain creates some networking resources during deployment. These resources are needed for successful operation and management of the managed domain, and shouldn't be manually configured.
+A managed domain creates some networking resources during deployment. These resources are needed for successful operation and management of the managed domain, and shouldn't be manually configured. 
+
+Don't lock the networking resources used by Azure AD DS. If networking resources get locked, they can't be deleted. When domain controllers need to be rebuilt in that case, new networking resources with different IP addresses need to be created. 
 
 | Azure resource                          | Description |
 |:----------------------------------------|:---|

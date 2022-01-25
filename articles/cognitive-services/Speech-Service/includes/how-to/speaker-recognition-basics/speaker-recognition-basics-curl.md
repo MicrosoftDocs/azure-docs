@@ -2,7 +2,7 @@
 author: v-jaswel
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 01/08/2022
 ms.author: v-jawe
 ms.custom: references_regions, ignite-fall-2021
 ---
@@ -20,7 +20,7 @@ For a high-level look at Speaker Recognition concepts, see the [overview](../../
 This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 > [!IMPORTANT]
-> Speaker Recognition is currently *only* supported in Azure Speech resources created in the `westus` region.
+> Microsoft limits access to Speaker Recognition. Apply to use it through the [Azure Cognitive Services Speaker Recognition Limited Access Review](https://aka.ms/azure-speaker-recognition). After approval, you can access the Speaker Recognition APIs. 
 
 ## Text-dependent verification
 

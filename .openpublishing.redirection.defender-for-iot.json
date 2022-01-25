@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-configure-with-sentinel.md",
+            "redirect_url": "/azure/sentinel/iot-solution",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/defender-for-iot/device-builders/quickstart-building-the-defender-micro-agent-from-source.md",
             "redirect_url": "/azure/defender-for-iot/device-builders/overview",
             "redirect_document_id": false
@@ -538,6 +543,16 @@
         {
             "source_path_from_root": "/articles/defender-for-iot/troubleshoot-defender-micro-agent.md",
             "redirect_url": "/azure/defender-for-iot/device-builders/troubleshoot-defender-micro-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/concept-security-posture.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/architecture-agent-based.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/overview",
             "redirect_document_id": false
         }
     ]

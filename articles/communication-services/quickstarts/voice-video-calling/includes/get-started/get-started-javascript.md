@@ -12,7 +12,7 @@ In this quickstart, you'll learn how start a call using the Azure Communication 
 
 ## Sample code
 
-You can download the sample app from [Github](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling).
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling).
 
 ## Prerequisites
 

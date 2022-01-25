@@ -196,7 +196,7 @@ The following limitations exist for certain fields:
 ## Video overview
 
 The following overview of Azure Blueprints is from Azure Fridays. For video download, visit
-[Azure Fridays - An overview of Azure Blueprints](https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints)
+[Azure Fridays - An overview of Azure Blueprints](/Shows/Azure-Friday/An-overview-of-Azure-Blueprints)
 on Channel 9.
 
 > [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]
