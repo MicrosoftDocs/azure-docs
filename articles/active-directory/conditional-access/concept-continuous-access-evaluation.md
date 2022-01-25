@@ -126,7 +126,7 @@ In the following example, a Conditional Access administrator has configured a lo
 1. A CAE-capable client presents credentials or a refresh token to Azure AD asking for an access token for some resource.
 1. Azure AD evaluates all Conditional Access policies to see whether the user and client meet the conditions.
 1. An access token is returned along with other artifacts to the client.
-1. User moves out of an allowed IP .
+1. User moves out of an allowed IP range.
 1. The client presents an access token to the resource provider from outside of an allowed IP range.
 1. The resource provider evaluates the validity of the token and checks the location policy synced from Azure AD.
 1. In this case, the resource provider denies access, and sends a 401+ claim challenge back to the client. The client is challenged because it isn't coming from an allowed IP range.
