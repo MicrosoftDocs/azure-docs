@@ -38,7 +38,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 Microsoft Sentinel now supports a new method for partners, advanced users, and developers to create custom connectors, connect them, and ingest data to Microsoft Sentinel.
 
-The Codeless Connector Platform (CCP) provides support for new data connectors via ARM templates, API, or via a solution in the the Microsoft Sentinel [content hub](sentinel-solutions.md).
+The Codeless Connector Platform (CCP) provides support for new data connectors via ARM templates, API, or via a solution in the Microsoft Sentinel [content hub](sentinel-solutions.md).
 
 Connectors created using CCP are fully SaaS, without any requirements for service installations, and also include [health monitoring](monitor-data-connector-health.md) and full support from Microsoft Sentinel.
 
@@ -197,11 +197,12 @@ Fine-tuning threat detection rules in your SIEM can be a difficult, delicate, an
 ### Free trial updates
 
 Microsoft Sentinel's free trial continues to support new or existing Log Analytics workspaces at no additional cost for the first 31 days.
-We are evolving our current free trial experience to include the following updates:
+
+We are evolving our free trial experience to include the following updates:
 
 - **New Log Analytics workspaces** can ingest up to 10 GB/day of log data for the first 31-days at no cost. New workspaces include workspaces that are less than three days old.
 
-   Both Log Analytics data ingestion and Microsoft Sentinel charges are waived during the 31-day trial period. This free trial is subject to a 20 workspace limit per Azure tenant.
+   Both Log Analytics data ingestion and Microsoft Sentinel charges are waived during the 31-day trial period. This free trial is subject to a 20-workspace limit per Azure tenant.
 
 - **Existing Log Analytics workspaces** can enable Microsoft Sentinel at no additional cost. Existing workspaces include any workspaces created more than three days ago.
 
@@ -312,7 +313,7 @@ Until now, Jupyter notebooks in Microsoft Sentinel have been integrated with Azu
 
 The new Azure Synapse integration provides extra analytic horsepower, such as:
 
-- **Security big data analytics**, using cost-optimized, fully-managed Azure Synapse Apache Spark compute pool.
+- **Security big data analytics**, using cost-optimized, fully managed Azure Synapse Apache Spark compute pool.
 
 - **Cost-effective Data Lake access** to build analytics on historical data via Azure Data Lake Storage Gen2, which is a set of capabilities dedicated to big data analytics, built on top of Azure Blob Storage.
 
