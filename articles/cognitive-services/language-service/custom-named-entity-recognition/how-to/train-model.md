@@ -41,7 +41,7 @@ Before starting the training process, files in your dataset are divided into two
 
 2. Select **Train** from the left side menu.
 
-3. Click on **Start a training jon** from the top menu.
+3. Select **Start a training job** from the top menu.
 
 4. To train a new model, select **Train a new model** and type in the model name in the text box below. You can **overwrite an existing model** by selecting this option and select the model you want from the dropdown below.
 
@@ -49,9 +49,9 @@ Before starting the training process, files in your dataset are divided into two
 
 5. Click on the **Train** button.
 
-6. You can check the status of the training job in the same page. Only sucessfully completed tasks will generate models.
+6. You can check the status of the training job in the same page. Only successfully completed tasks will generate models.
 
-You can only have one training job running at a time, you cannot create or start oother tasks in the same project. 
+You can only have one training job running at a time. You cannot create or start other tasks in the same project. 
 
 ## Next steps
 

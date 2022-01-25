@@ -38,7 +38,7 @@ The evaluation process uses the trained model to predict user-defined classes fo
 
 2. Select **View model details** from the left side menu.
 
-3. In this page you can only view the sucessfuly trained models. You can click on the model name for more details.
+3. In this page you can only view the successfully trained models. You can select the model name for more details.
 
 4. You can find the **model-level** evaluation metrics under the **Overview** section and the **class-level** evaluation metrics  under the **Class performance metrics** section. See [Evaluation metrics](../concepts/evaluation.md#model-level-and-class-level-evaluation-metrics) for more information.
 
