@@ -28,7 +28,7 @@ Application Gateway uses a secret identifier in Key Vault to reference the certi
 
 ## Certificates on an application gateway
 
-You can directly upload certificates for Application Gateway to the gateway without configuring Azure Key Vault.  For certificates that are uploaded directly to the gateway, you can renew the certificate using the Azure portal, Azure PowerShell, or Azure CLI.
+Application Gateway supports certificate upload without the need to configure Azure Key Vault. To renew the uploaded certificates, use the following steps for the Azure portal, Azure PowerShell, or Azure CLI. 
 
 ### Azure portal
 
