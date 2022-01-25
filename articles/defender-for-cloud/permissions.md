@@ -2,7 +2,7 @@
 title: Permissions in Microsoft Defender for Cloud | Microsoft Docs
 description: This article explains how Microsoft Defender for Cloud uses role-based access control to assign permissions to users and identify the permitted actions for each role.
 ms.topic: overview
-ms.date: 01/12/2022
+ms.date: 01/25/2022
 ---
 
 # Permissions in Microsoft Defender for Cloud
@@ -25,16 +25,16 @@ In addition to the built-in roles, there are two roles specific to Defender for 
 
 The following table displays roles and allowed actions in Defender for Cloud.
 
-| **Action**                                                                                                                      | [Security Reader](../role-based-access-control/built-in-roles.md#security-reader) / <br> [Reader](../role-based-access-control/built-in-roles.md#reader) | [Security Admin](../role-based-access-control/built-in-roles.md#security-admin) | [Contributor](../role-based-access-control/built-in-roles.md#contributor) / [Owner](../role-based-access-control/built-in-roles.md#owner)| [Contributor](../role-based-access-control/built-in-roles.md#contributor)| [Owner](../role-based-access-control/built-in-roles.md#owner)|
-|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------------:|:--------------:|:------------------------------------------------------:|:------------------------:|:------------------:|
-||||**(Resource group level)**|**(Subscription level)**|**(Subscription level)**|
-| Add/assign initiatives (including) regulatory compliance standards)                                                         | -                             | -              | -                                                      | -                        | ✔                 |
-| Edit security policy                                                                                                        | -                             | ✔             | -                                                      | -                        | ✔                 |
-| Enable / disable Microsoft Defender plans                                                                                             | -                             | ✔             | -                                                      | -                        | ✔                 |
-| Dismiss alerts                                                                                                              | -                             | ✔             | -                                                      | ✔                       | ✔                  |
-| Apply security recommendations for a resource</br> (and use [Fix](implement-security-recommendations.md#fix-button)) | -                             | -              | ✔                                                     | ✔                        | ✔                 |
-| View alerts and recommendations                                                                                             | ✔                            | ✔              | ✔                                                     | ✔                        | ✔                 |
-||||||
+| **Action**                                                                                                                     | **Action** | [Security Reader](../role-based-access-control/built-in-roles.md#security-reader) / <br> [Reader](../role-based-access-control/built-in-roles.md#reader) | [Security Admin](../role-based-access-control/built-in-roles.md#security-admin) | [Contributor](../role-based-access-control/built-in-roles.md#contributor) / [Owner](../role-based-access-control/built-in-roles.md#owner) | [Contributor](../role-based-access-control/built-in-roles.md#contributor) | [Owner](../role-based-access-control/built-in-roles.md#owner) |
+|:-|:-:|:-:|:-:|:-:|:-:|
+|  |  |  | **(Resource group level)** | **(Subscription level)** | **(Subscription level)** |
+| Add/assign initiatives (including) regulatory compliance standards) | - | - | - | ✔ | ✔ |
+| Edit security policy | - | ✔ | - | ✔ | ✔ |
+| Enable / disable Microsoft Defender plans | - | ✔ | - | ✔ | ✔ |
+| Dismiss alerts | - | ✔ | - | ✔ | ✔ |
+| Apply security recommendations for a resource</br> (and use [Fix](implement-security-recommendations.md#fix-button)) | - | - | ✔ | ✔ | ✔ |
+| View alerts and recommendations | ✔ | ✔ | ✔ | ✔ | ✔ |
+|  |  |  |  |  |
 
 For **auto provisioning**, the specific role required depends on the extension you're deploying. For full details, check the tab for the specific extension in the [availability table on the auto provisioning quick start page](enable-data-collection.md#availability).
 
