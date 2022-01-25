@@ -16,7 +16,7 @@ Use the IoT Central *connected waste management* application template and the gu
 
 ### Devices and connectivity
 
-Devices such as waste bins that are used in open environments may connect through low-power wide area networks (LPWAN) or through a third-party network operator. For these types of devices, use the [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT application in Azure IoT Central. You can also use device gateways that are IP capable and that can connect directly to IoT Central.
+Devices such as waste bins that are used in open environments may connect through low-power wide area networks (LPWAN) or through a third-party network operator. For these types of devices, use the [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT Central application. You can also use an IP capable device gateway that connects directly to your IoT Central application.
 
 ### IoT Central
 
@@ -157,7 +157,7 @@ Here's how:
 
 The connected waste bin device template comes with predefined views. Explore the views, and update them if you want to. The views define how operators see the device data and input cloud properties. 
 
-:::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-device-template-views.png" alt-text="Screenshot of Connected Waste Management Template Device templates views..":::
+:::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-device-template-views.png" alt-text="Screenshot of Connected Waste Management Template Device templates views.":::
 
 
 ### Publish 
@@ -256,7 +256,7 @@ Here's how:
 1. Select **Change** to choose an image to upload for the **Browser icon** (an image that will appear on browser tabs).
 1. You can also replace the default browser colors by adding HTML hexadecimal color codes. Use the **Header** and **Accent** fields for this purpose.
 
-    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-customize-your-application.png" alt-text="Screenshot of Connected Wast Management Template Customize your application.":::
+    :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-customize-your-application.png" alt-text="Screenshot of Connected Waste Management Template Customize your application.":::
 
 
 1. You can also change application images. Select **Administration** > **Application settings** > **Select image** to choose an image to upload as the application image.
