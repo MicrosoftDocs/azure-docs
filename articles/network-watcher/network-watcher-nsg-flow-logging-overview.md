@@ -7,7 +7,6 @@ documentationcenter: na
 author: damendo
 
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
@@ -75,20 +74,20 @@ Flow logs include the following properties:
 * **resourceid** - The resource ID of the NSG
 * **operationName** - Always NetworkSecurityGroupFlowEvents
 * **properties** - A collection of properties of the flow
-	* **Version** - Version number of the Flow Log event schema
-	* **flows** - A collection of flows. This property has multiple entries for different rules
-		* **rule** - Rule for which the flows are listed
-			* **flows** - a collection of flows
-				* **mac** - The MAC address of the NIC for the VM where the flow was collected
-				* **flowTuples** - A string that contains multiple properties for the flow tuple in comma-separated format
-					* **Time Stamp** - This value is the time stamp of when the flow occurred in UNIX epoch format
-					* **Source IP** - The source IP
-					* **Destination IP** - The destination IP
-					* **Source Port** - The source port
-					* **Destination Port** - The destination Port
-					* **Protocol** - The protocol of the flow. Valid values are **T** for TCP and **U** for UDP
-					* **Traffic Flow** - The direction of the traffic flow. Valid values are **I** for inbound and **O** for outbound.
-					* **Traffic Decision** - Whether traffic was allowed or denied. Valid values are **A** for allowed and **D** for denied.
+    * **Version** - Version number of the Flow Log event schema
+    * **flows** - A collection of flows. This property has multiple entries for different rules
+        * **rule** - Rule for which the flows are listed
+            * **flows** - a collection of flows
+                * **mac** - The MAC address of the NIC for the VM where the flow was collected
+                * **flowTuples** - A string that contains multiple properties for the flow tuple in comma-separated format
+                    * **Time Stamp** - This value is the time stamp of when the flow occurred in UNIX epoch format
+                    * **Source IP** - The source IP
+                    * **Destination IP** - The destination IP
+                    * **Source Port** - The source port
+                    * **Destination Port** - The destination Port
+                    * **Protocol** - The protocol of the flow. Valid values are **T** for TCP and **U** for UDP
+                    * **Traffic Flow** - The direction of the traffic flow. Valid values are **I** for inbound and **O** for outbound.
+                    * **Traffic Decision** - Whether traffic was allowed or denied. Valid values are **A** for allowed and **D** for denied.
                     * **Flow State - Version 2 Only** - Captures the state of the flow. Possible states are **B**: Begin, when a flow is created. Statistics aren't provided. **C**: Continuing for an ongoing flow. Statistics are provided at 5-minute intervals. **E**: End, when a flow is terminated. Statistics are provided.
                     * **Packets - Source to destination - Version 2 Only** The total number of TCP packets sent from source to destination since last update.
                     * **Bytes sent - Source to destination - Version 2 Only** The total number of TCP packet bytes sent from source to destination since last update. Packet bytes include the packet header and payload.
@@ -186,37 +185,37 @@ The text that follows is an example of a flow log. As you can see, there are mul
                 ]
             }
         },
-	"records":
-	[
-		
-		{
-			 "time": "2017-02-16T22:00:32.8950000Z",
-			 "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
-			 "category": "NetworkSecurityGroupFlowEvent",
-			 "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
-			 "operationName": "NetworkSecurityGroupFlowEvents",
-			 "properties": {"Version":1,"flows":[{"rule":"DefaultRule_DenyAllInBound","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282421,42.119.146.95,10.1.0.4,51529,5358,T,I,D"]}]},{"rule":"UserRule_default-allow-rdp","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282370,163.28.66.17,10.1.0.4,61771,3389,T,I,A","1487282393,5.39.218.34,10.1.0.4,58596,3389,T,I,A","1487282393,91.224.160.154,10.1.0.4,61540,3389,T,I,A","1487282423,13.76.89.229,10.1.0.4,53163,3389,T,I,A"]}]}]}
-		}
-		,
-		{
-			 "time": "2017-02-16T22:01:32.8960000Z",
-			 "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
-			 "category": "NetworkSecurityGroupFlowEvent",
-			 "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
-			 "operationName": "NetworkSecurityGroupFlowEvents",
-			 "properties": {"Version":1,"flows":[{"rule":"DefaultRule_DenyAllInBound","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282481,195.78.210.194,10.1.0.4,53,1732,U,I,D"]}]},{"rule":"UserRule_default-allow-rdp","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282435,61.129.251.68,10.1.0.4,57776,3389,T,I,A","1487282454,84.25.174.170,10.1.0.4,59085,3389,T,I,A","1487282477,77.68.9.50,10.1.0.4,65078,3389,T,I,A"]}]}]}
-		}
-		,
-		{
-			 "time": "2017-02-16T22:02:32.9040000Z",
-			 "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
-			 "category": "NetworkSecurityGroupFlowEvent",
-			 "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
-			 "operationName": "NetworkSecurityGroupFlowEvents",
-			 "properties": {"Version":1,"flows":[{"rule":"DefaultRule_DenyAllInBound","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282492,175.182.69.29,10.1.0.4,28918,5358,T,I,D","1487282505,71.6.216.55,10.1.0.4,8080,8080,T,I,D"]}]},{"rule":"UserRule_default-allow-rdp","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282512,91.224.160.154,10.1.0.4,59046,3389,T,I,A"]}]}]}
-		}
-		
-		
+    "records":
+    [
+        
+        {
+             "time": "2017-02-16T22:00:32.8950000Z",
+             "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
+             "category": "NetworkSecurityGroupFlowEvent",
+             "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+             "operationName": "NetworkSecurityGroupFlowEvents",
+             "properties": {"Version":1,"flows":[{"rule":"DefaultRule_DenyAllInBound","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282421,42.119.146.95,10.1.0.4,51529,5358,T,I,D"]}]},{"rule":"UserRule_default-allow-rdp","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282370,163.28.66.17,10.1.0.4,61771,3389,T,I,A","1487282393,5.39.218.34,10.1.0.4,58596,3389,T,I,A","1487282393,91.224.160.154,10.1.0.4,61540,3389,T,I,A","1487282423,13.76.89.229,10.1.0.4,53163,3389,T,I,A"]}]}]}
+        }
+        ,
+        {
+             "time": "2017-02-16T22:01:32.8960000Z",
+             "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
+             "category": "NetworkSecurityGroupFlowEvent",
+             "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+             "operationName": "NetworkSecurityGroupFlowEvents",
+             "properties": {"Version":1,"flows":[{"rule":"DefaultRule_DenyAllInBound","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282481,195.78.210.194,10.1.0.4,53,1732,U,I,D"]}]},{"rule":"UserRule_default-allow-rdp","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282435,61.129.251.68,10.1.0.4,57776,3389,T,I,A","1487282454,84.25.174.170,10.1.0.4,59085,3389,T,I,A","1487282477,77.68.9.50,10.1.0.4,65078,3389,T,I,A"]}]}]}
+        }
+        ,
+        {
+             "time": "2017-02-16T22:02:32.9040000Z",
+             "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
+             "category": "NetworkSecurityGroupFlowEvent",
+             "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+             "operationName": "NetworkSecurityGroupFlowEvents",
+             "properties": {"Version":1,"flows":[{"rule":"DefaultRule_DenyAllInBound","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282492,175.182.69.29,10.1.0.4,28918,5358,T,I,D","1487282505,71.6.216.55,10.1.0.4,8080,8080,T,I,D"]}]},{"rule":"UserRule_default-allow-rdp","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282512,91.224.160.154,10.1.0.4,59046,3389,T,I,A"]}]}]}
+        }
+        
+        
 ```
 **Version 2 NSG flow log format sample**
 ```json
@@ -369,11 +368,13 @@ Also, when a NSG is deleted, by default the associated flow log resource is dele
 
 **Flow Logging Costs**: NSG flow logging is billed on the volume of logs produced. High traffic volume can result in large flow log volume and the associated costs. NSG Flow log pricing does not include the underlying costs of storage. Using the retention policy feature with NSG Flow Logging means incurring separate storage costs for extended periods of time. If you want to retain data forever and do not want to apply any retention policy, set retention (days) to 0. For more information, see [Network Watcher Pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for additional details.
 
-**Issues with User-defined Inbound TCP rules**: [Network Security Groups (NSGs)](../virtual-network/network-security-groups-overview.md) are implemented as a [Stateful firewall](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). However, due to current platform limitations, user-defined rules that affect inbound TCP flows are implemented in a stateless fashion. Due to this, flows affected by user-defined inbound rules become non-terminating. Additionally byte and packet counts are not recorded for these flows. Consequently the number of bytes and packets reported in NSG Flow Logs (and Traffic Analytics) could be different from actual numbers. An opt-in flag that fixes these issues is scheduled to be available by June 2021 latest. In the interim, customers facing severe issues due to this behavior can request opting-in via Support, please raise a support request under Network Watcher -> NSG Flow Logs.  
+**Issues with User-defined Inbound TCP rules**: [Network Security Groups (NSGs)](../virtual-network/network-security-groups-overview.md) are implemented as a [Stateful firewall](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). However, due to current platform limitations, user-defined rules that affect inbound TCP flows are implemented in a stateless fashion. Due to this, flows affected by user-defined inbound rules become non-terminating. Additionally byte and packet counts are not recorded for these flows. Consequently the number of bytes and packets reported in NSG Flow Logs (and Traffic Analytics) could be different from actual numbers. This can be resolved by setting the [FlowTimeoutInMinutes](/powershell/module/az.network/set-azvirtualnetwork) property on the associated virtual networks to a non-null value. 
 
 **Inbound flows logged from internet IPs to VMs without public IPs**: VMs that don't have a public IP address assigned via a public IP address associated with the NIC as an instance-level public IP, or that are part of a basic load balancer back-end pool, use [default SNAT](../load-balancer/load-balancer-outbound-connections.md) and have an IP address assigned by Azure to facilitate outbound connectivity. As a result, you might see flow log entries for flows from internet IP addresses, if the flow is destined to a port in the range of ports assigned for SNAT. While Azure won't allow these flows to the VM, the attempt is logged and appears in Network Watcher's NSG flow log by design. We recommend that unwanted inbound internet traffic be explicitly blocked with NSG.
 
 **NSG on ExpressRoute gateway subnet** – It is not recommended to log flows on ExpressRoute gateway subnet because traffic can bypass the express route gateway (example: [FastPath](../expressroute/about-fastpath.md)). Thus, if an NSG is linked to an ExpressRoute Gateway subnet and NSG flow logs are enabled, then outbound flows to virtual machines may not get captured. Such flows must be captured at the subnet or NIC of the VM. 
+
+**Traffic across private link** - To log traffic while accessing PaaS resources via private link, enable NSG flow logs on a subnet NSG containing the private link. Due to platform limitations, the traffic at all the source VMs only can be captured whereas that at the destination PaaS resource cannot be captured.
 
 **Issue with Application Gateway V2 Subnet NSG**: Flow logging on the application gateway V2 subnet NSG is [not supported](../application-gateway/application-gateway-faq.yml#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) currently. This issue does not affect Application Gateway V1.
 

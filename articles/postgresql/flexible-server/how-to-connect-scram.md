@@ -5,13 +5,12 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 10/01/2021
+ms.date: 11/30/2021
 ---
 
 # SCRAM authentication in Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 Salted Challenge Response Authentication Mechanism (SCRAM) is a password-based mutual authentication protocol. It is a challenge-response scheme that adds several levels of security and prevents password sniffing on untrusted connections. SCRAM supports storing passwords on the server in a cryptographically hashed form which provides advanced security. 
 

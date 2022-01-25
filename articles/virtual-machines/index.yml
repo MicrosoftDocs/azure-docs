@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page # Required
   author: cynthn #Required; your GitHub user alias, with correct capitalization.
   ms.author: cynthn #Required; microsoft alias of author; optional team alias.
-  ms.date: 11/05/2020 #Required; mm/dd/yyyy format.
+  ms.date: 12/13/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -23,16 +23,12 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Spot VMs
-            url: spot-vms.md
-          - text: Dedicated hosts
-            url: dedicated-hosts.md
-          - text: Proximity placement groups
-            url: co-location.md
-          - text: Virtual Machine Scale Sets Orchestration modes 
-            url: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
-          - text: Flexible orchestration for virtual machine scale sets 
+          - text: Flexible Virtual Machine Scale Sets Orchestration
             url: flexible-virtual-machine-scale-sets.md
+          - text: Trusted Launch
+            url: trusted-launch.md
+          - text: VM applications in Azure Compute Gallery 
+            url: vm-applications.md
 
   # Card (optional)
   - title: Linux quickstarts
@@ -63,9 +59,9 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text:  Create a Linux virtual machine in Azure
+          - text:  Create a Linux virtual machine in Azure
             url: /learn/modules/create-linux-virtual-machine-in-azure/
-          - text:  Create a Windows virtual machine in Azure
+          - text:  Create a Windows virtual machine in Azure
             url: /learn/modules/create-windows-virtual-machine-in-azure/         
 
   # Card
@@ -73,14 +69,14 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Troubleshoot SSH issues
-            url: /troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection
-          - text: Troubleshoot RDP issues
-            url: /troubleshoot/azure/virtual-machines/rdp
-          - text: Linux VM not booting 
-            url: /troubleshoot/azure/virtual-machines/boot-error-troubleshoot-linux
-          - text: Windows VM not booting
-            url: /troubleshoot/azure/virtual-machines/boot-error-troubleshoot
+          - text: Troubleshooting Guides 
+            url: /troubleshoot/azure/virtual-machines/welcome-virtual-machines
+          - text: Troubleshoot deployment issues
+            url: /troubleshoot/azure/virtual-machines/welcome-deployment-troubleshooting
+          - text: Troubleshoot allocation failures
+            url: /troubleshoot/azure/virtual-machines/allocation-failure
+          - text: Troubleshoot unexpected reboots
+            url: /troubleshoot/azure/virtual-machines/understand-vm-reboot
           - text: Microsoft Q&A
             url: /answers/topics/azure-virtual-machines.html
 

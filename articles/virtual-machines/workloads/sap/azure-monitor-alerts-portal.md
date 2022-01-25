@@ -7,8 +7,7 @@ ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.date: 08/30/2021
-
----	
+---
 
 # Configure Alerts in Azure Monitor for SAP Solutions by using the Azure portal
 

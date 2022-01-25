@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: keli19
 author: likebupt
-ms.date: 03/06/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: designer
 ---
@@ -36,24 +36,24 @@ This article also assumes that you have some knowledge of building pipelines in 
 
 ### Sample pipeline
 
-The pipeline used in this article is an altered version of a sample pipeline [Income prediction](samples-designer.md#classification) in the designer homepage. The pipeline uses the [Import Data](algorithm-module-reference/import-data.md) module instead of the sample dataset to show you how to train models using your own data.
+The pipeline used in this article is an altered version of a sample pipeline [Income prediction](samples-designer.md#classification) in the designer homepage. The pipeline uses the [Import Data](algorithm-module-reference/import-data.md) component instead of the sample dataset to show you how to train models using your own data.
 
-![Screenshot that shows the modified sample pipeline with a box highlighting the Import Data module](./media/how-to-retrain-designer/modified-sample-pipeline.png)
+![Screenshot that shows the modified sample pipeline with a box highlighting the Import Data component](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
 ## Create a pipeline parameter
 
 Pipeline parameters are used to build versatile pipelines which can be resubmitted later with varying parameter values. Some common scenarios are updating datasets or some hyper-parameters for retraining. Create pipeline parameters to dynamically set variables at runtime. 
 
-Pipeline parameters can be added to data source or module parameters in a pipeline. When the pipeline is resubmitted, the values of these parameters can be specified.
+Pipeline parameters can be added to data source or component parameters in a pipeline. When the pipeline is resubmitted, the values of these parameters can be specified.
 
-For this example, you will change the training data path from a fixed value to a parameter, so that you can retrain your model on different data. You can also add other module parameters as pipeline parameters according to your use case.
+For this example, you will change the training data path from a fixed value to a parameter, so that you can retrain your model on different data. You can also add other component parameters as pipeline parameters according to your use case.
 
-1. Select the **Import Data** module.
+1. Select the **Import Data** component.
 
     > [!NOTE]
-    > This example uses the Import Data module to access data in a registered datastore. However, you can follow similar steps if you use alternative data access patterns.
+    > This example uses the Import Data component to access data in a registered datastore. However, you can follow similar steps if you use alternative data access patterns.
 
-1. In the module detail pane, to the right of the canvas, select your data source.
+1. In the component detail pane, to the right of the canvas, select your data source.
 
 1. Enter the path to your data. You can also select **Browse path** to browse your file tree. 
 
@@ -68,11 +68,11 @@ For this example, you will change the training data path from a fixed value to a
 1. Select **Save**.
 
    > [!NOTE]
-   > You can also detach a module parameter from pipeline parameter in the module detail pane, similar to adding pipeline parameters.
+   > You can also detach a component parameter from pipeline parameter in the component detail pane, similar to adding pipeline parameters.
    >
    > You can inspect and edit your pipeline parameters by selecting the **Settings** gear icon next to the title of your pipeline draft. 
    >    - After detaching, you can delete the pipeline parameter in the **Setings** pane.
-   >    - You can also add a pipeline parameter in the **Settings** pane, and then apply it on some module parameter.
+   >    - You can also add a pipeline parameter in the **Settings** pane, and then apply it on some component parameter.
 
 1. Submit the pipeline run.
 

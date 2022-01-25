@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure Virtual Desktop Windows 10 or 7 - Azure
+title: Connect to Azure Virtual Desktop with the Windows Desktop client - Azure
 description: How to connect to Azure Virtual Desktop using the Windows Desktop client.
 author: Heidilohr
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Connect with the Windows Desktop client
 
-You can access Azure Virtual Desktop resources on devices with Windows 10, Windows 10 IoT Enterprise, and Windows 7 using the Windows Desktop client. 
+You can access Azure Virtual Desktop resources on devices with Windows 11, Windows 10, Windows 10 IoT Enterprise, and Windows 7 using the Windows Desktop client. 
 
 > [!IMPORTANT]
 > This method doesn't support Windows 8 or Windows 8.1.

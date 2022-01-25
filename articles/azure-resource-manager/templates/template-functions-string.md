@@ -2,7 +2,7 @@
 title: Template functions - string
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with strings.
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/29/2021
 ---
 
 # String functions for ARM templates
@@ -816,7 +816,7 @@ Returns a substring that starts at the specified character position and contains
 |:--- |:--- |:--- |:--- |
 | stringToParse |Yes |string |The original string from which the substring is extracted. |
 | startIndex |No |int |The zero-based starting character position for the substring. |
-| length |No |int |The number of characters for the substring. Must refer to a location within the string. Must be zero or greater. |
+| length |No |int |The number of characters for the substring. Must refer to a location within the string. Must be zero or greater. If omitted, the remainder of the string from the start position will be returned.|
 
 ### Return value
 

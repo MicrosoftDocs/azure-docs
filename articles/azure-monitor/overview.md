@@ -4,7 +4,7 @@ description: Overview of Microsoft services and functionalities that contribute 
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 11/17/2019
+ms.date: 11/01/2021
 
 ---
 
@@ -47,12 +47,11 @@ Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) 
 ![Diagram shows Logs data flowing into Log Analytics for analysis.](media/overview/logs.png)
 
 ## What data does Azure Monitor collect?
-
 Azure Monitor can collect data from a [variety of sources](monitor-reference.md). This ranges from your application, any operating system and services it relies on, down to the platform itself. Azure Monitor collects data from each of the following tiers:
 
 - **Application monitoring data**: Data about the performance and functionality of the code you have written, regardless of its platform.
 - **Guest OS monitoring data**: Data about the operating system on which your application is running. This could be running in Azure, another cloud, or on-premises. 
-- **Azure resource monitoring data**: Data about the operation of an Azure resource.
+- **Azure resource monitoring data**: Data about the operation of an Azure resource. For a complete list of the resources that have metrics or logs, see [What can you monitor with Azure Monitor?](monitor-reference.md#azure-supported-services).
 - **Azure subscription monitoring data**: Data about the operation and management of an Azure subscription, as well as data about the health and operation of Azure itself. 
 - **Azure tenant monitoring data**: Data about the operation of tenant-level Azure services, such as Azure Active Directory.
 
@@ -63,11 +62,12 @@ As soon as you create an Azure subscription and start adding resources such as v
 Enable monitoring for your application with [Application Insights](app/app-insights-overview.md) to collect detailed information including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](app/monitor-web-app-availability.md) to simulate user traffic.
 
 ### Custom sources
-
 Azure Monitor can collect log data from any REST client using the [Data Collector API](logs/data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
 
-## Insights
-Monitoring data is only useful if it can increase your visibility into the operation of your computing environment. [Insights](monitor-reference.md#insights-and-core-solutions) provide a customized monitoring experience for particular Azure services. They require minimal configuration and increase your visibility into the operation of critical resources.
+## Insights and curated visualizations
+Monitoring data is only useful if it can increase your visibility into the operation of your computing environment. Some Azure resource providers have a "curated visualization" which gives you a customized monitoring experience for that particular service or set of services. They generally require minimal configuration. Larger scalable curated visualizations are known as "insights" and marked with that name in the documentation and Azure portal.  
+
+For more information, see [List of insights and curated visualizations using Azure Monitor](monitor-reference.md#insights-and-curated-visualizations). Some of the larger insights are also described below.
 
 ### Application Insights
 [Application Insights](app/app-insights-overview.md) monitors the availability, performance, and usage of your web applications whether they're hosted in the cloud or on-premises. It leverages the powerful data analysis platform in Azure Monitor to provide you with deep insights into your application's operations. It enables you to diagnose errors without waiting for a user to report them. Application Insights includes connection points to a variety of development tools and integrates with Visual Studio to support your DevOps processes.
@@ -86,9 +86,9 @@ Monitoring data is only useful if it can increase your visibility into the opera
 ![VM Insights](media/overview/vm-insights.png)
 
 
+
 ## Responding to critical situations
 In addition to allowing you to interactively analyze monitoring data, an effective monitoring solution must be able to proactively respond to critical conditions identified in the data that it collects. This could be sending a text or mail to an administrator responsible for investigating an issue. Or you could launch an automated process that attempts to correct an error condition.
-
 
 ### Alerts
 [Alerts in Azure Monitor](alerts/alerts-overview.md) proactively notify you of critical conditions and potentially attempt to take corrective action. Alert rules based on metrics provide near real time alerts based on numeric values. Rules based on logs allow for complex logic across data from multiple sources.
@@ -117,7 +117,7 @@ Autoscale allows you to have the right amount of resources running to handle the
 ![Workbooks example](media/overview/workbooks.png)
 
 ### Power BI
-[Power BI](https://powerbi.microsoft.com) is a business analytics service that provides interactive visualizations across a variety of data sources. It's an effective means of making data available to others within and outside your organization. You can configure Power BI to [automatically import log data from Azure Monitor](./visualize/powerbi.md) to take advantage of these additional visualizations.
+[Power BI](https://powerbi.microsoft.com) is a business analytics service that provides interactive visualizations across a variety of data sources. It's an effective means of making data available to others within and outside your organization. You can configure Power BI to [automatically import log data from Azure Monitor](./logs/log-powerbi.md) to take advantage of these additional visualizations.
 
 
 ![Power BI](media/overview/power-bi.png)

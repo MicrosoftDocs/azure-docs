@@ -54,6 +54,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Application Gateway |[Logging for Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics for Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch logging](../../batch/batch-diagnostics.md) |
+| Azure Cognitive Search | [Cognitive Search monitoring data reference (schemas)](../../search/monitor-azure-cognitive-search-data-reference.md#schemas) |
 | Azure Cognitive Services | [Logging for Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Azure Container Instances | [Logging for Azure Container Instances](../../container-instances/container-instances-log-analytics.md#log-schema) |
 | Azure Container Registry | [Logging for Azure Container Registry](../../container-registry/monitor-service.md) |
@@ -82,7 +83,6 @@ The schema for resource logs varies depending on the resource and log category. 
 | Network security groups |[Log Analytics for network security groups (NSGs)](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | Azure Power BI Embedded | [Logging for Power BI Embedded in Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Data model for Azure Backup](../../backup/backup-azure-reports-data-model.md)|
-| Search traffic analytics |[Enabling and using search traffic analytics](../../search/search-traffic-analytics.md) |
 | Azure Service Bus |[Azure Service Bus logs](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | Azure SQL Database | [Azure SQL Database logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Azure Storage | [Blobs](../../storage/blobs/monitor-blob-storage-reference.md#resource-logs-preview), [Files](../../storage/files/storage-files-monitoring-reference.md#resource-logs-preview), [Queues](../../storage/queues/monitor-queue-storage-reference.md#resource-logs-preview),  [Tables](../../storage/tables/monitor-table-storage-reference.md#resource-logs-preview) |

@@ -29,8 +29,10 @@
       href: understand-reservation-charges-mariadb.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Database for MySQL
       href: understand-reservation-charges-mysql.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Database for PostgreSQL
+    - name: Database for PostgreSQL - Single Server
       href: understand-reservation-charges-postgresql.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Database for PostgreSQL - Hyperscale (Citus)
+      href: ../../postgresql/hyperscale/concepts-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Databricks
       href: reservation-discount-databricks.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Data Explorer
@@ -70,6 +72,8 @@
       href: prepare-buy-reservation.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: App Service
       href: prepay-app-service.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: JBoss EAP Integrated Support (App Service)
+      href: prepay-jboss-eap-integrated-support-app-service.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cache for Redis reservation
       href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Data Factory

@@ -7,52 +7,73 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/05/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
+ms.custom: ignite-fall-2021
 ---
 <!-- markdownlint-disable MD033 -->
 
 # Form Recognizer business card model
 
-## Overview
-
 The business card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from business card images. The API analyzes printed business cards; extracts key information such as first name, last name, company name, email address, and phone number;  and returns a structured JSON data representation.
 
-***Sample business card processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/):***
+***Sample business card processed with Form Recognizer Studio***
 
-:::image type="content" source="./media/overview-business-card.jpg" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
+:::image type="content" source="./media/studio/overview-business-card-studio.png" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
 
-## Try Form Recognizer Studio (Preview)
+## Development options
 
-* Form Recognizer studio is available with the preview (v3.0) API.
+The following resources are supported by Form Recognizer v2.1:
 
-* Extract name, job title, address, email, company name, and more with our Form Recognizer Studio Business Card feature:
+| Feature | Resources |
+|----------|-------------------------|
+|**Business card model**|  <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-business-cards)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=business-card#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
-> [!div class="nextstepaction"]
-> [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)
+The following resources are supported by Form Recognizer v3.0:
 
-## Try it: Sample labeling tool
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**Business card model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md)</li><li>[**JavaScript SDK**](quickstarts/try-v3-javascript-sdk.md)</li></ul>|**prebuilt-businessCard**|
 
-You can see how business card data is extracted by trying our Sample Labeling tool. You'll need the following:
+### Try Form Recognizer
+
+See how data, including name, job title, address, email, and company name, is extracted from business cards using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) ) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, click **Go to resource** to get your API key and endpoint.
+* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-* A business card document. You can use our [sample business card document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/businessCard.png).
+#### Form Recognizer Studio (preview)
 
-> [!div class="nextstepaction"]
-  > [Try it](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
+> [!NOTE]
+> Form Recognizer studio is available with the preview (v3.0) API.
 
-  In the Form Recognizer UI:
+1. On the Form Recognizer Studio home page, select **Business cards**
 
-  1. Select **Use prebuilt model to get data**.
+1. You can analyze the sample business card or select the **+ Add** button to upload your own sample.
+
+1. Select the **Analyze** button:
+
+    :::image type="content" source="media/studio/business-card-analyze.png" alt-text="Screenshot: analyze business card menu.":::
+
+    > [!div class="nextstepaction"]
+    > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)
+
+#### Sample Labeling tool
+
+You will need a business card document. You can use our [sample business card document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/businessCard.png).
+
+  1. On the Sample Labeling tool home page, select **Use prebuilt model to get data**.
+
   1. Select **Business card** from the **Form Type** dropdown menu:
 
-  :::image type="content" source="media/try-business-card.png" alt-text="Screenshot: sample labeling tool dropdown prebuilt model selection menu.":::
+      :::image type="content" source="media/try-business-card.png" alt-text="Screenshot: Sample Labeling tool dropdown prebuilt model selection menu.":::
+
+      > [!div class="nextstepaction"]
+      > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
 
 ## Input requirements
 
@@ -65,11 +86,11 @@ You can see how business card data is extracted by trying our Sample Labeling to
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
 * For unsupervised learning (without labeled data):
-  * data must contain keys and values.
-  * keys must appear above or to the left of the values; they can't appear below or to the right.
+  * Data must contain keys and values.
+  * Keys must appear above or to the left of the values; they can't appear below or to the right.
 
 > [!NOTE]
-> The [sample labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
 
 ## Supported languages and locales
 
@@ -80,29 +101,29 @@ You can see how business card data is extracted by trying our Sample Labeling to
 |--------|:----------------------|:---------|
 |Business card| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li></ul>  | Autodetected |
 
-## Key-value pair extraction
+## Field extraction
 
 |Name| Type | Description |Standardized output |
 |:-----|:----|:----|:----:|
-| ContactNames | array of objects | Contact name |  |
-| FirstName | string | First (given) name of contact |  |
-| LastName | string | Last (family) name of contact |  |
-| CompanyNames | array of strings | Company name(s)|  |
-| Departments | array of strings | Department(s) or organization(s) of contact |  |
-| JobTitles | array of strings | Listed Job title(s) of contact |  |
-| Emails | array of strings | Contact email address(es) |  |
-| Websites | array of strings | Company website(s) |  |
-| Addresses | array of strings | Address(es) extracted from business card | |
-| MobilePhones | array of phone numbers | Mobile phone number(s) from business card |+1 xxx xxx xxxx |
-| Faxes | array of phone numbers | Fax phone number(s) from business card | +1 xxx xxx xxxx |
-| WorkPhones | array of phone numbers | Work phone number(s) from business card | +1 xxx xxx xxxx | 
-| OtherPhones     | array of phone numbers | Other phone number(s) from business card | +1 xxx xxx xxxx |
+| ContactNames | Array of objects | Contact name |  |
+| FirstName | String | First (given) name of contact |  |
+| LastName | String | Last (family) name of contact |  |
+| CompanyNames | Array of strings | Company name(s)|  |
+| Departments | Array of strings | Department(s) or organization(s) of contact |  |
+| JobTitles | Array of strings | Listed Job title(s) of contact |  |
+| Emails | Array of strings | Contact email address(es) |  |
+| Websites | Array of strings | Company website(s) |  |
+| Addresses | Array of strings | Address(es) extracted from business card | |
+| MobilePhones | Array of phone numbers | Mobile phone number(s) from business card |+1 xxx xxx xxxx |
+| Faxes | Array of phone numbers | Fax phone number(s) from business card | +1 xxx xxx xxxx |
+| WorkPhones | Array of phone numbers | Work phone number(s) from business card | +1 xxx xxx xxxx |
+| OtherPhones     | Array of phone numbers | Other phone number(s) from business card | +1 xxx xxx xxxx |
 
 ## Form Recognizer preview v3.0
 
  The Form Recognizer preview introduces several new features and capabilities.
 
-* Following our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
+* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
 
 * Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
 

@@ -17,7 +17,7 @@ This article show different ways you can declare a child resource.
 
 ### Microsoft Learn
 
-To learn more about child resources, and for hands-on guidance, see [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates) on **Microsoft Learn**.
+If you would rather learn about about child resources through step-by-step guidance, see [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates) on **Microsoft Learn**.
 
 ## Name and type pattern
 
@@ -83,7 +83,7 @@ output childAddressPrefix string = VNet1::VNet1_Subnet1.properties.addressPrefix
 
 ## Outside parent resource
 
-The following example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if want to use [a loop](loop-resources.md) to create more than one child resource. Specify the parent property on the child with the value set to the symbolic name of the parent. With this syntax you still need to declare the full resource type, but the name of the child resource is only the name of the child.
+The following example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if want to use [a loop](loops.md) to create more than one child resource. Specify the parent property on the child with the value set to the symbolic name of the parent. With this syntax you still need to declare the full resource type, but the name of the child resource is only the name of the child.
 
 ```bicep
 resource <parent-resource-symbolic-name> '<resource-type>@<api-version>' = {

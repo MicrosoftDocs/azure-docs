@@ -112,6 +112,31 @@ Name          Location    ResourceGroup    KubernetesVersion    ProvisioningStat
 myAKSCluster  eastus      myResourceGroup  1.18.10              Succeeded            myakscluster-dns-379cbbb9.hcp.eastus.azmk8s.io
 ```
 
+## View the upgrade events
+
+When you upgrade your cluster, the following Kubenetes events may occur on each node:
+
+- Surge – Create surge node.
+- Drain – Pods are being evicted from the node. Each pod has a 30 minute timeout to complete the eviction.
+- Update – Update of a node has succeeded or failed.
+- Delete – Deleted a surge node.
+
+Use `kubectl get events` to show events in the default namespaces while running an upgrade. For example:
+
+```azurecli-interactive
+kubectl get events 
+```
+
+The following example output shows some of the above events listed during an upgrade.
+
+```output
+...
+default 2m1s Normal Drain node/aks-nodepool1-96663640-vmss000001 Draining node: [aks-nodepool1-96663640-vmss000001]
+...
+default 9m22s Normal Surge node/aks-nodepool1-96663640-vmss000002 Created a surge node [aks-nodepool1-96663640-vmss000002 nodepool1] for agentpool %!s(MISSING)
+...
+```
+
 ## Set auto-upgrade channel
 
 In addition to manually upgrading a cluster, you can set an auto-upgrade channel on your cluster. The following upgrade channels are available:
@@ -128,34 +153,6 @@ In addition to manually upgrading a cluster, you can set an auto-upgrade channel
 > Cluster auto-upgrade only updates to GA versions of Kubernetes and will not update to preview versions.
 
 Automatically upgrading a cluster follows the same process as manually upgrading a cluster. For more details, see [Upgrade an AKS cluster][upgrade-cluster].
-
-The cluster auto-upgrade for AKS clusters is a preview feature.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-Add the following extension, for `az cli`.
-
-```azurecli-interactive
-az extension add --name aks-preview
-```
-
-Register the `AutoUpgradePreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace Microsoft.ContainerService -n AutoUpgradePreview
-```
-
-It can take several minutes for the status to show *Registered*. Please wait for the registration to finish. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AutoUpgradePreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 To set the auto-upgrade channel when creating a cluster, use the *auto-upgrade-channel* parameter, similar to the following example.
 
@@ -175,7 +172,7 @@ If you are using Planned Maintenance as well as Auto-Upgrade, your upgrade will 
 
 ## Special considerations for node pools that span multiple Availability Zones
 
-AKS uses best-effort zone balancing in node groups. During an Upgrade surge, zone(s) for the surge node(s) in VMSS is unknown ahead of time. This can temporarily cause an unbalanced zone configuration during an upgrade. However, AKS deletes the surge node(s) once the upgrade has been completed and preserves the original zone balance. If you desire to keep your zones balanced during upgrade, increase the surge to a multiple of 3 nodes. VMSS will then balance your nodes across Availability Zones with best-effort zone balancing.
+AKS uses best-effort zone balancing in node groups. During an Upgrade surge, zone(s) for the surge node(s) in virtual machine scale sets is unknown ahead of time. This can temporarily cause an unbalanced zone configuration during an upgrade. However, AKS deletes the surge node(s) once the upgrade has been completed and preserves the original zone balance. If you desire to keep your zones balanced during upgrade, increase the surge to a multiple of 3 nodes. Virtual machine scale sets will then balance your nodes across Availability Zones with best-effort zone balancing.
 
 If you have PVCs backed by Azure LRS Disks, they will be bound to a particular zone and may fail to recover immediately if the surge node does not match the zone of the PVC. This could cause downtime on your application when the Upgrade operation continues to drain nodes but the PVs are bound to a zone. To handle this case and maintain high availability, configure a [Pod Disruption Budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) on your application. This allows Kubernetes to respect your availability requirements during Upgrade's drain operation. 
 

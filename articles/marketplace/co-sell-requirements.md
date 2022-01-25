@@ -4,10 +4,10 @@ description: Learn about the requirements an offer in the Microsoft commercial m
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: vamahtan
-ms.author: vamahtan
+author: vikrambmsft
+ms.author: vikramb
 ms.reviewer: stmummer
-ms.date: 07/13/2021
+ms.date: 12/03/2021
 ---
 
 # Co-sell requirements
@@ -21,7 +21,7 @@ This table shows all possible co-sell statuses:
 | Not co-sell ready | The minimum [requirements for Co-sell ready status](#requirements-for-co-sell-ready-status) have not been met. |
 | Co-sell ready | All [requirements for Co-sell ready status](#requirements-for-co-sell-ready-status) have been met. |
 | Azure IP Co-sell incentive | Co-sell ready requirements have been met in addition to [these additional requirements](#requirements-for-azure-ip-co-sell-incentive-status). |
-| Business Applications Co-sell incentive | This status applies to Dynamics 365 and Power Apps offers in the [Microsoft Business Applications ISV Connect Program](business-applications-isv-program.md) and indicates that all [requirements for this status](#requirements-for-business-applications-co-sell-incentive-status) have been met. |
+| Business Applications Co-sell incentive | This status applies to _Dynamics 365 apps on Dataverse and Power Apps_ offers in the [Microsoft Business Applications ISV Connect Program](business-applications-isv-program.md) and indicates that all [requirements for this status](#requirements-for-business-applications-co-sell-incentive-status) have been met. |
 |||
 
 ## Requirements for Co-sell ready status
@@ -44,7 +44,7 @@ For an offer to achieve co-sell ready status, you must meet the following requir
 
 **Business Applications ISVs**:
 
-- Dynamics 365 & Power Apps (except Dynamics 365 Business Central) solutions require ISV Connect enrollment.
+- Dynamics 365 apps on Dataverse and Power Apps and Dynamics 365 Operations Apps solutions require ISV Connect enrollment.
 
 ### Complete the Co-sell with Microsoft tab
 
@@ -73,7 +73,7 @@ After achieving Co-sell ready status, there are three additional requirements to
 
 Requirement 1- achieve the following:
 
-- At the _organization level_, generate at least $100,000 USD of Azure Consumed Revenue threshold over the trailing 12-month period. This can be obtained through a combination of Azure solutions. If the offer is transactable in the commercial marketplace, you can meet this requirement by meeting a billed revenue threshold of $100,000 USD.
+- At the _organization level_, generate at least $100,000 USD of Azure Consumed Revenue threshold over the trailing 12-month period. This can be obtained through a combination of Azure solutions. If the offer is transactable in the commercial marketplace, you can meet this requirement by meeting a billed revenue threshold of $100,000 USD over the trailing 12-month period.
 
 Requirement 2 - Pass the Microsoft technical validation for an Azure-based solution:
 - The technical validation must confirm that more than 50% of your offer’s infrastructure uses repeatable IP code on Azure. Note that transactable Azure VMs and Azure Application solutions on the commercial marketplace will meet this requirement by default.
@@ -83,7 +83,7 @@ Requirement 3 – Provide a reference architecture diagram:
 
 ## Requirements for Business Applications Co-sell incentive status
 
-This status applies to IP-based solutions built on Dynamics 365 or Power Apps (except for Dynamics 365 Business Central) that are enrolled in the ISV Connect program. However, offers must also complete the requirements for Co-sell ready status (described above) in order for Microsoft sellers to be able to Co-sell the offer with you.
+This status applies to IP-based solutions built on Dynamics 365 apps on Dataverse and Power Apps and Dynamics 365 Operations Apps that are enrolled in the ISV Connect program. However, offers must also complete the requirements for Co-sell ready status (described above) in order for Microsoft sellers to be able to Co-sell the offer with you.
 
 ## Next steps
 

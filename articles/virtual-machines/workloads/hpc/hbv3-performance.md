@@ -1,4 +1,4 @@
---- 
+---
 title: HBv3-series VM sizes performance and scalability
 description: Learn about performance and scalability of HBv3-series VM sizes in Azure.  
 services: virtual-machines 
@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 03/25/2021 
 ms.author: amverma 
 ms.reviewer: cynthn
---- 
+---
 
 # HBv3-series virtual machine performance
 
@@ -33,9 +33,10 @@ Performance expectations using common HPC microbenchmarks are as follows:
 
 The MPI latency test from the OSU microbenchmark suite can be executed per below. Sample scripts are on [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh).
 
-```bash 
+```bash
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency
-``` 
+```
+
 ## MPI bandwidth
 The MPI bandwidth test from the OSU microbenchmark suite can be executed per below. Sample scripts are on [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh).
 ```bash

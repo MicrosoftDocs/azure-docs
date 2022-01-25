@@ -1,15 +1,15 @@
 ---
 title: Defender for IoT installation
-description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 10/09/2021
+description: Learn how to install a sensor and the on-premises management console for Microsoft Defender for IoT.
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
 # Defender for IoT installation
 
-This article describes how to install the following Azure Defender for IoT components:
+This article describes how to install the following Microsoft Defender for IoT components:
 
-- **Sensor**: Defender for IoT sensors collects ICS network traffic by using passive (agentless) monitoring. Passive and nonintrusive, the sensors have zero impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections appear in the sensor console. There, you can view, investigate, and analyze them in a network map, device inventory, and an extensive range of reports. Examples include risk assessment reports, data mining queries, and attack vectors. Read more about sensor capabilities in the [Defender for IoT Sensor User Guide (direct download)](./getting-started.md).
+- **Sensor**: Defender for IoT sensors collects ICS network traffic by using passive (agentless) monitoring. Passive and nonintrusive, the sensors have zero impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections appear in the sensor console. There, you can view, investigate, and analyze them in a network map, device inventory, and an extensive range of reports. Examples include risk assessment reports, data mining queries, and attack vectors.
 
 - **On-premises management console**: The on-premises management console lets you carry out device management, risk management, and vulnerability management. You can also use it to carry out threat monitoring and incident response across your enterprise. It provides a unified view of all network devices, key IoT, and OT risk indicators and alerts detected in facilities where sensors are deployed. Use the on-premises management console to view and manage sensors in air-gapped networks.
 
@@ -68,7 +68,7 @@ The following virtual appliances are available:
 
 ### Access the ISO installation image
 
-The installation image is accessible from the Defender for IoT portal.
+The installation image is accessible from Defender for IoT in the Azure portal.
 
 To access the file:
 
@@ -403,7 +403,7 @@ To install the software:
 
 1. Connect the screen and keyboard to the appliance, and then connect to the CLI.
 
-1. Connect an external CD or disk on the key with the ISO image that you downloaded from the **Updates** page in the Defender for IoT portal.
+1. Connect an external CD or disk on the key with the ISO image that you downloaded from the **Updates** page of Defender for IoT in the Azure portal.
 
 1. Start the appliance.
 
@@ -489,7 +489,7 @@ To install:
 
 1. Connect the screen and keyboard to the appliance, and then connect to the CLI.
 
-1. Connect an external CD or disk on a key with the ISO image that you downloaded from the **Updates** page in the Defender for IoT portal.
+1. Connect an external CD or disk on a key with the ISO image that you downloaded from the **Updates** page of Defender for IoT in the Azure portal.
 
 1. Start the appliance.
 
@@ -626,7 +626,7 @@ The on-premises management console supports both VMware and Hyper-V deployment o
 
 - Available hardware resources for the virtual machine
 
-- ISO installation file for the Azure Defender for IoT sensor
+- ISO installation file for the Microsoft Defender for IoT sensor
 
 Make sure the hypervisor is running.
 
@@ -807,8 +807,7 @@ You can enhance security to your on-premises management console by adding a seco
 
 :::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="The overall architecture of the secondary NIC.":::
 
-Both NICs will support the user interface (UI).
-If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC.
+Both NICs will support the user interface (UI). If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC.
 
 If you have already configured your on-premises management console, and would like to add a secondary NIC to your on-premises management console, use the following steps:
 

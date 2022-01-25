@@ -211,7 +211,7 @@ To understand the limit of 50,000 on time series, consider the following metric:
 
 > *Server response time* with Dimensions: *Region*, *Department*, *CustomerID*
 
-With this metric, if you have 10 regions, 20 departments, and 100 customers, that gives you 10 x 20 x 100 = 2,000 time series. 
+With this metric, if you have 10 regions, 20 departments, and 100 customers, that gives you 10 x 20 x 100 = 20,000 time series. 
 
 If you have 100 regions, 200 departments, and 2,000 customers, that gives you 100 x 200 x 2,000 = 40 million time series, which is far over the limit just for this metric alone. 
 
@@ -235,7 +235,7 @@ If you have a variable in the name or a high-cardinality dimension, the followin
 
 If the metric name or dimension value is populated with an identifier or high cardinality dimension by mistake, you can easily fix it by removing the variable part.
 
-But if high cardinality is essential for your scenario, the aggregated metrics are probably not the right choice. Switch to using custom logs (that is, trackMetric API calls with [trackEvent](/azure/azure-monitor/app/api-custom-events-metrics#trackevent)). However, consider that logs do not aggregate values so every single entry will be stored. As a result, if you have a large volume of logs in a small time period (1 million a second for example), it can cause throttling and ingestion delays. 
+But if high cardinality is essential for your scenario, the aggregated metrics are probably not the right choice. Switch to using custom logs (that is, trackMetric API calls with [trackEvent](../app/api-custom-events-metrics.md#trackevent)). However, consider that logs do not aggregate values so every single entry will be stored. As a result, if you have a large volume of logs in a small time period (1 million a second for example), it can cause throttling and ingestion delays. 
 
 ## Next steps
 Use custom metrics from various services: 

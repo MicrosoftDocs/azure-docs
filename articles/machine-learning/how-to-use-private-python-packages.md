@@ -9,7 +9,7 @@ ms.reviewer: laobri
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 10/21/2021
 
 ## As a developer, I need to use private Python packages securely when training machine learning models.
 

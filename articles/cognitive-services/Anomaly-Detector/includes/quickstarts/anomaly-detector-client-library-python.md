@@ -113,6 +113,14 @@ Create a `DetectRequest` object with your time series, and the `TimeGranularity`
 request = DetectRequest(series=series, granularity=TimeGranularity.daily)
 ```
 
+Input argument descriptions:
+'series': required in request. must be array/list type, and have more than 12 points and no more than 8640 points. must sorted by timestamp in ascending order and cannot have duplicated timestamp. 
+'granularity': required in request. can only be one of the following: ['daily', 'minutely', 'hourly', 'weekly', 'monthly', 'yearly', 'secondly'].
+'customInterval': must be an integer > 0.
+'period': must be an integer >= 0.
+'maxAnomalyRatio': must be less than 50% of the series points (0 < maxAnomalyRatio < 0.5).
+'sensitivity': must be an integer between 0 and 99.
+
 ## Detect anomalies in the entire data set
 
 Call the API to detect anomalies through the entire time series data using the client's `detect_entire_series` method. Store the returned [EntireDetectResponse](/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse) object. Iterate through the response's `is_anomaly` list, and print the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.

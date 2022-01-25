@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/15/2021
+ms.date: 10/26/2021
 
 ms.author: mimart
 author: msmimart
@@ -26,7 +26,8 @@ You can enable this feature at any time in the Azure portal by configuring the E
 ![Email one-time passcode overview diagram](media/one-time-passcode/email-otp.png)
 
 > [!IMPORTANT]
-> - **Starting November 1, 2021**, we'll begin rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. If you don't want to allow this feature to turn on automatically, you can [disable it](one-time-passcode.md#disable-email-one-time-passcode).
+>
+> - **Starting November 1, 2021**, we'll begin rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. As part of this change, Microsoft will stop creating new, unmanaged ("viral") Azure AD accounts and tenants during B2B collaboration invitation redemption. To minimize disruptions during the holidays and deployment lockdowns, the majority of tenants will see changes rolled out in January 2022. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, if you don't want to allow this feature to turn on automatically, you can [disable it](one-time-passcode.md#disable-email-one-time-passcode).
 > - Email one-time passcode settings have moved in the Azure portal from **External collaboration settings** to **All identity providers**.
 
 > [!NOTE]
@@ -153,7 +154,11 @@ For more information about current limitations, see [Azure US Government clouds]
 
 **Why do I still see “Automatically enable email one-time passcode for guests starting October 2021” selected in my email one-time passcode settings?**
 
-Due to our deployment schedules, we will start rolling out the change to enable email one-time passcode by default globally on November 1, 2021. Until then, you might still see “Automatically enable email one-time passcode for guests starting October 2021” selected in my email one-time passcode settings.
+Due to our deployment schedules, we will start rolling out the change to enable email one-time passcode by default globally on November 1, 2021. Until then, you might still see “Automatically enable email one-time passcode for guests starting October 2021” selected in your email one-time passcode settings.
+
+**What happens to my existing guest users if I enable email one-time passcode?**
+
+Your existing guest users will not be affected if you enable email one-time passcode, as your existing users are already past the point of redemption. Enabling email one-time passcode will only affect future redemption activities where new guest users are redeeming into the tenant.
 
 **What is the user experience for guests during global rollout?**
 
@@ -171,20 +176,20 @@ Before the change is rolled out to your region, guests will see the following be
 
   - If a guest has an existing unmanaged Azure AD account, they'll continue signing in with their unmanaged Azure AD account.
   - If a guest previously redeemed an invitation to your tenant using an unmanaged Azure AD account, and you reset their redemption status and reinvite them, they'll continue signing in with their unmanaged Azure AD account.
-  - If a guest doesn't have an existing unmanaged Azure AD account, they'll redeem using an email one-time passcode link, but they may get a sign-in error if they're not added to the Azure portal in advance.
+  - If a guest doesn't have an existing unmanaged Azure AD account, they'll redeem using an unmanaged Azure AD account, but they may get a sign-in error if they're not added to the Azure portal in advance if redeeming on a direct application link.
 
 After the change is rolled out to your region, guests will see the following behavior.
 
 - With email one-time passcode enabled:
 
-  - If a guest has an existing unmanaged Azure AD account, they'll use email one-time passcode to redeem and sign in going forward.
+  - If a guest has an existing unmanaged Azure AD account, they'll continue signing in with their unmanaged Azure AD account.
   - If a guest previously redeemed an invitation to your tenant using an unmanaged Azure AD account, and you reset their redemption status and reinvite them, they'll use email one-time passcode to redeem and sign in going forward.
   - If a guest doesn't have an unmanaged Azure AD account, they'll use email one-time passcode to redeem and sign in going forward.
 
 - With email one-time passcode disabled:
 
-  - If a guest has an existing unmanaged Azure AD account, they'll use a Microsoft account to redeem. They'll end up with two accounts (the unmanaged Azure AD account and the Microsoft account). To prevent this from happening, we strongly encourage you to enable email one-time passcode.
-  - If a guest previously redeemed an invitation to your tenant using an unmanaged Azure AD account, and you reset their redemption status and reinvite them, they'll use a Microsoft account to redeem. They'll end up with two accounts (the unmanaged Azure AD account and the Microsoft account). To prevent this from happening, we strongly encourage you to enable email one-time passcode.
+  - If a guest has an existing unmanaged Azure AD account, they'll continue signing in with their unmanaged Azure AD account.
+  - If a guest previously redeemed an invitation to your tenant using an unmanaged Azure AD account, and you reset their redemption status and reinvite them, they'll use a Microsoft account to redeem and sign in going forward.
   - If a guest doesn't have an unmanaged Azure AD account, they'll use a Microsoft account to redeem and sign in going forward.
 
 For more information about the different redemption pathways, see [B2B collaboration invitation redemption](redemption-experience.md).

@@ -4,15 +4,14 @@ description: This quickstart will show you how to use Azure Front Door to create
 services: front-door
 author: duongau
 manager: KumudD
-# Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
-ms.assetid:
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/19/2021
 ms.author: duau
+ms.custom: mode-api
+#Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
 # Quickstart: Create a Front Door for a highly available global web application using Azure CLI
@@ -107,7 +106,7 @@ Create Front Door with [az network front-door create](/cli/azure/network/front-d
 az network front-door create \
 --resource-group myRGFDCentral \
 --name contoso-frontend \
---accepted-protocols http https \
+--accepted-protocols Http Https \
 --backend-address webappcontoso-1.azurewebsites.net webappcontoso-2.azurewebsites.net 
 ```
 
@@ -115,7 +114,7 @@ az network front-door create \
 
 **--name:** Specify a globally unique name for your Azure Front Door. 
 
-**--accepted-protocols:** Accepted values are **http** and **https**. If you want to use both, specific both separated by a space.
+**--accepted-protocols:** Accepted values are **Http** and **Https**. If you want to use both, specific both separated by a space.
 
 **--backend-address:** Define both web apps host name here separated by a space.
 

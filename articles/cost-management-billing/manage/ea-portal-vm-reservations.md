@@ -3,11 +3,11 @@ title: Azure EA VM reserved instances
 description: This article summaries how Azure reservations for VM reserved instances can help you save you money with your enterprise enrollment.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2021
+ms.date: 10/22/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: sapnakeshari
 ---
 
 # Azure EA VM reserved instances
@@ -23,6 +23,8 @@ You can exchange a reservation for another reservation of the same type. It's al
 We’ll issue a partial refund when EA customers return reservations that were purchased using overage and not Azure Prepayment (previously called monetary commitment).
 
 The refund will be displayed in the EA portal as a negative adjustment in the previous month and a positive adjustment in the current month. It will show up similarly to a reservations exchange. The credit memo will reference the original invoice number; therefore, to reconcile the initial purchase with the credit memo, please refer to the original invoice number.
+
+Direct Enterprise customer can view the refund details in Azure portal. Navigate to **Reservation transactions** menu to view reservation refund.
 
 ## Reservation costs and usage
 

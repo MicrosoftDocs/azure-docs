@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/03/2021
+ms.date: 11/12/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: librown, aakapo
 
 ms.collection: M365-identity-device-management
@@ -51,6 +51,9 @@ Registration features for passwordless authentication methods rely on the combin
    1. **Enable** - Yes or No
    1. **Target** - All users or Select users
 1. **Save** the configuration.
+
+   >[!NOTE]
+   >If you see an error when you try to save, the cause might be due to the number of users or groups being added. As a workaround, replace the users and groups you are trying to add with a single group, in the same operation, and then click **Save** again.
 
 
 ### FIDO Security Key optional settings 

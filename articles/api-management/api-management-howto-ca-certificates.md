@@ -37,7 +37,6 @@ Follow the steps below to upload a new CA certificate. If you have not created a
 1. Browse for the certificate .cer file and decide on the certificate store. Only the public key is needed, so the password is optional.
 
     :::image type="content" source="media/api-management-howto-ca-certificates/02.png" alt-text="Add CA certificate in the Azure portal"::: 
-
 1. Select **Save**. This operation may take a few minutes.
 
 > [!NOTE]
@@ -51,10 +50,10 @@ Select the certificate, and select **Delete** in the context menu (**...**).
 
 If you use a [self-hosted gateway](self-hosted-gateway-overview.md), validation of server and client certificates using CA root certificates uploaded to API Management service is not supported. To establish trust, configure a specific client certificate so that it's trusted by the gateway as a custom certificate authority.
 
-Use the [Gateway Certificate Authority](/rest/api/apimanagement/2021-01-01-preview/gateway-certificate-authority) REST APIs to create and manage custom CAs for a self-hosted gateway. To create a custom CA:
+Use the [Gateway Certificate Authority](/rest/api/apimanagement/current-ga/gateway-certificate-authority) REST APIs to create and manage custom CAs for a self-hosted gateway. To create a custom CA:
 
 1. [Add a certificate](api-management-howto-mutual-certificates.md) .pfx file to your API Management instance.
-1. Use the [Gateway Certificate Authority - Create Or Update](/rest/api/apimanagement/2021-01-01-preview/gateway-certificate-authority/create-or-update) REST API to associate the certificate with the self-managed gateway.
+1. Use the [Gateway Certificate Authority - Create Or Update](/rest/api/apimanagement/current-ga/gateway-certificate-authority/create-or-update) REST API to associate the certificate with the self-managed gateway.
 
 [Upload a CA certificate]: #step1
 [Delete a CA certificate]: #step1a

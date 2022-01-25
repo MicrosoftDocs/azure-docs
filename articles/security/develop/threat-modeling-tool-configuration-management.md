@@ -13,7 +13,6 @@ ms.service: security
 ms.subservice: security-develop
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
@@ -146,7 +145,7 @@ Web.config code for sites that should only be framed by pages in the same domain
 
 ### Example
 If access to Web.config is available, then CORS can be added through the following code: 
-```XML
+```xml
 <system.webServer>
     <httpProtocol>
       <customHeaders>
@@ -177,11 +176,11 @@ Note that it is critical to ensure that the list of origins in "Access-Control-A
 
 ### Example
 However, this feature can be disabled at page level: 
-```XML
+```xml
 <%@ Page validateRequest="false" %> 
 ```
 or, at application level 
-```XML
+```xml
 <configuration>
    <system.web>
       <pages validateRequest="false" />
@@ -214,7 +213,7 @@ Note that Request Validation feature is not supported, and is not part of MVC6 p
 
 ### Example
 Add the header in the web.config file if the application is hosted by Internet Information Services (IIS) 7 onwards. 
-```XML
+```xml
 <system.webServer>
 <httpProtocol>
 <customHeaders>

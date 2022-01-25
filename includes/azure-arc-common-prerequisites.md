@@ -18,4 +18,4 @@ Before you can proceed with the tasks in this article you need to have:
    
    For Azure CLI, install extension `arcdata`.
 
-- [An Azure Arc data controller installed](../articles/azure-arc/data/create-data-controller.md)
+- [An Azure Arc data controller installed](../articles/azure-arc/data/plan-azure-arc-data-services.md)

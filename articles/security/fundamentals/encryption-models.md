@@ -8,11 +8,10 @@ author: msmbaldwin
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2021
+ms.date: 10/26/2021
 ms.author: mbaldwin
 ---
 # Data encryption models
@@ -143,7 +142,6 @@ The Azure services that support each encryption model:
 | Azure Cognitive Search           | Yes                | Yes                | -                  |
 | Azure Cognitive Services         | Yes                | Yes                | -                  |
 | Azure Machine Learning           | Yes                | Yes                | -                  |
-| Azure Machine Learning Studio (classic) | Yes         | Preview, RSA 2048-bit | -               |
 | Content Moderator                | Yes                | Yes                | -                  |
 | Face                             | Yes                | Yes                | -                  |
 | Language Understanding           | Yes                | Yes                | -                  |
@@ -189,7 +187,7 @@ The Azure services that support each encryption model:
 | Azure Synapse Analytics          | Yes                | Yes, RSA 3072-bit  | -                  |
 | SQL Server Stretch Database      | Yes                | Yes, RSA 3072-bit  | Yes                |
 | Table Storage                    | Yes                | Yes                | Yes                |
-| Azure Cosmos DB                  | Yes                | Yes                | -                  |
+| Azure Cosmos DB                  | Yes  ([learn more](../../cosmos-db/database-security.md?tabs=sql-api))              | Yes ([learn more](../../cosmos-db/how-to-setup-cmk.md))                | -                  |
 | Azure Databricks                 | Yes                | Yes                | -                  |
 | Azure Database Migration Service | Yes                | N/A\*              | -                  |
 | **Identity**                     |                    |                    |                    |
@@ -208,8 +206,8 @@ The Azure services that support each encryption model:
 | **Media**                        |                    |                    |                    |
 | Media Services                   | Yes                | Yes                | Yes                |
 | **Security**                     |                    |                    |                    |
-| Azure Security Center for IoT    | Yes                | Yes                | -                  |
-| Azure Sentinel                   | Yes                | Yes                | -                  |
+| Microsoft Defender for IoT    | Yes                | Yes                | -                  |
+| Microsoft Sentinel                   | Yes                | Yes                | -                  |
 | **Storage**                      |                    |                    |                    |
 | Blob Storage                     | Yes                | Yes                | Yes                |
 | Premium Blob Storage             | Yes                | Yes                | Yes                |

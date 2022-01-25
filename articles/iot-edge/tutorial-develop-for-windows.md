@@ -45,7 +45,7 @@ A development machine:
 
 An Azure IoT Edge device on Windows:
 
-* [Install and manage Azure IoT Edge with Windows containers](how-to-install-iot-edge-windows-on-windows.md).
+* [Install and manage Azure IoT Edge with Windows containers](how-to-provision-single-device-windows-symmetric.md).
 * We recommend that you don't run IoT Edge on your development machine, but instead use a separate device if possible. This distinction between development machine and IoT Edge device more accurately mirrors a true deployment scenario, and helps to keep the different concepts straight.
 
 Cloud resources:

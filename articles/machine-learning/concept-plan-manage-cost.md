@@ -9,7 +9,7 @@ ms.reviewer: nigup
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 10/21/2021
 ---
 
 # Plan to manage costs for Azure Machine Learning
@@ -130,7 +130,7 @@ Actual monthly costs are shown when you initially open cost analysis. Here's an 
 :::image type="content" source="media/concept-plan-manage-cost/all-costs.png" alt-text="Example showing accumulated costs for a subscription." lightbox="media/concept-plan-manage-cost/all-costs.png" :::
 
 
-To narrow costs for a single service, like Azure Machine Learning, select **Add filter** and then select **Service name**. Then, select **Azure Machine Learning**.
+To narrow costs for a single service, like Azure Machine Learning, select **Add filter** and then select **Service name**. Then, select **virtual machines**.
 
 Here's an example showing costs for just Azure Machine Learning.
 

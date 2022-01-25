@@ -2,11 +2,11 @@
 title: Buy an Azure reservation
 description: Learn about important points to help you buy an Azure reservation.
 author: bandersmsft
-ms.reviewer: primattal
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 10/21/2021
 ms.author: banders
 ---
 
@@ -18,7 +18,9 @@ Azure Reservations help you save money by committing to one-year or three-years 
 
 To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription that's of type Enterprise (MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go (MS-AZR-0003P or MS-AZR-0023P) or Microsoft Customer Agreement. Cloud solution providers can use the Azure portal or [Partner Center](/partner-center/azure-reservations) to purchase Azure Reservations.
 
-Enterprise Agreement (EA) customers can limit purchases to EA admins by disabling the **Add Reserved Instances** option in the EA Portal. EA admins must have owner or reservation purchaser access on at least one EA subscription to purchase a reservation. The option is useful for enterprises that want a centralized team to purchase reservations.
+Enterprise Agreement (EA) customers can limit purchases to EA admins by disabling the **Add Reserved Instances** option in the EA Portal. Direct EA customers can now disable Reserved Instance setting in [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to Policies menu to change settings.
+
+EA admins must have owner or reservation purchaser access on at least one EA subscription to purchase a reservation. The option is useful for enterprises that want a centralized team to purchase reservations.
 
 A reservation discount only applies to resources associated with subscriptions purchased through Enterprise, Cloud Solution Provider (CSP), Microsoft Customer Agreement and individual plans with pay-as-you-go rates.
 

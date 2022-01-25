@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
-ms.date: 08/03/2021
+ms.date: 10/21/2021
 ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
@@ -34,11 +34,11 @@ The designer uses your Azure Machine Learning [workspace](concept-workspace.md) 
 
 Use a visual canvas to build an end-to-end machine learning workflow. Train, test, and deploy models all in the designer:
 
-1. Drag-and-drop [datasets](#datasets) and [modules](#module) onto the canvas.
-1. Connect the modules to create a [pipeline draft](#pipeline-draft).
-1. Submit a [pipeline run](#pipeline-run) using the compute resources in your Azure Machine Learning workspace.
-1. Convert your **training pipelines** to **inference pipelines**.
-1. [Publish](#publish) your pipelines to a REST **pipeline endpoint** to submit a new pipeline that runs with different parameters and datasets.
++ Drag-and-drop [datasets](#datasets) and [components](#component) onto the canvas.
++ Connect the components to create a [pipeline draft](#pipeline-draft).
++ Submit a [pipeline run](#pipeline-run) using the compute resources in your Azure Machine Learning workspace.
++ Convert your **training pipelines** to **inference pipelines**.
++ [Publish](#publish) your pipelines to a REST **pipeline endpoint** to submit a new pipeline that runs with different parameters and datasets.
     + Publish a **training pipeline** to reuse a single pipeline to train multiple models while changing parameters and datasets.
     + Publish a **batch inference pipeline** to make predictions on new data by using a previously trained model.
 1. [Deploy](#deploy) a **real-time inference pipeline** to a real-time endpoint to make predictions on new data in real time.
@@ -47,18 +47,18 @@ Use a visual canvas to build an end-to-end machine learning workflow. Train, tes
 
 ## Pipeline
 
-A [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) consists of datasets and algorithmic modules, which you connect. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
+A [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) consists of datasets and analytical components, which you connect. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
 
 ### Pipeline draft
 
-As you edit a pipeline in the designer, your progress is saved as a **pipeline draft**. You can edit a pipeline draft at any point by adding or removing modules, configuring compute targets, creating parameters, and so on.
+As you edit a pipeline in the designer, your progress is saved as a **pipeline draft**. You can edit a pipeline draft at any point by adding or removing components, configuring compute targets, creating parameters, and so on.
 
 A valid pipeline has these characteristics:
 
-* Datasets can only connect to modules.
-* Modules can only connect to either datasets or other modules.
-* All input ports for modules must have some connection to the data flow.
-* All required parameters for each module must be set.
+* Datasets can only connect to components.
+* components can only connect to either datasets or other components.
+* All input ports for components must have some connection to the data flow.
+* All required parameters for each component must be set.
 
 When you're ready to run your pipeline draft, you submit a pipeline run.
 
@@ -72,16 +72,16 @@ Pipeline runs are grouped into [experiments](concept-azure-machine-learning-arch
 
 A machine learning dataset makes it easy to access and work with your data. Several [sample datasets](samples-designer.md#datasets) are included in the designer for you to experiment with. You can [register](how-to-create-register-datasets.md) more datasets as you need them.
 
-## Module
+## Component
 
-A module is an algorithm that you can perform on your data. The designer has several modules ranging from data ingress functions to training, scoring, and validation processes.
+A component is an algorithm that you can perform on your data. The designer has several components ranging from data ingress functions to training, scoring, and validation processes.
 
-A module may have a set of parameters that you can use to configure the module's internal algorithms. When you select a module on the canvas, the module's parameters are displayed in the Properties pane to the right of the canvas. You can modify the parameters in that pane to tune your pipeline. You can set the compute resources for individual modules in the designer. 
+A component may have a set of parameters that you can use to configure the component's internal algorithms. When you select a component on the canvas, the component's parameters are displayed in the Properties pane to the right of the canvas. You can modify the parameters in that pane to tune your model. You can set the compute resources for individual components in the designer. 
 
-:::image type="content" source="./media/concept-designer/properties.png" alt-text="Module properties":::
+:::image type="content" source="./media/concept-designer/properties.png" alt-text="Component properties":::
 
 
-For some help navigating through the library of machine learning algorithms available, see [Algorithm & module reference overview](algorithm-module-reference/module-reference.md). For help with choosing an algorithm, see the [Azure Machine Learning Algorithm Cheat Sheet](algorithm-cheat-sheet.md).
+For some help navigating through the library of machine learning algorithms available, see [Algorithm & component reference overview](component-reference/component-reference.md). For help with choosing an algorithm, see the [Azure Machine Learning Algorithm Cheat Sheet](algorithm-cheat-sheet.md).
 
 ## <a name="compute"></a> Compute resources
 
@@ -110,7 +110,7 @@ You can also publish a pipeline to a **pipeline endpoint**. Similar to a real-ti
 
 Published pipelines are flexible, they can be used to train or retrain models, [perform batch inferencing](how-to-run-batch-predictions-designer.md), process new data, and much more. You can publish multiple pipelines to a single pipeline endpoint and specify which pipeline version to run.
 
-A published pipeline runs on the compute resources you define in the pipeline draft for each module.
+A published pipeline runs on the compute resources you define in the pipeline draft for each component.
 
 The designer creates the same [PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline) object as the SDK.
 

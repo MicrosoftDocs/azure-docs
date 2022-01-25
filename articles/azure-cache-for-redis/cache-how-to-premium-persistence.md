@@ -1,9 +1,9 @@
 ---
 title: Configure data persistence - Premium Azure Cache for Redis
 description: Learn how to configure and manage data persistence your Premium tier Azure Cache for Redis instances
-author: curib
+author: flang-msft
 
-ms.author: cauribeg
+ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/13/2021
@@ -58,7 +58,7 @@ Persistence writes Redis data into an Azure Storage account that you own and man
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Backup Frequency** | Drop-down and select a backup interval. Choices include **15 Minutes**, **30 minutes**, **60 minutes**, **6 hours**, **12 hours**, and **24 hours**. | This interval starts counting down after the previous backup operation successfully completes. When it elapses, a new backup starts. |
-   | **Storage Account** | Drop-down and select your storage account. | Choose a storage account in the same region and subscription as the cache. A **Premium Storage** account is recommended because it has higher throughput. Also, using the soft delete feature on the storage account could lead to increased storage costs. For more information, see [Pricing and billing](/azure/storage/blobs/soft-delete-blob-overview). |
+   | **Storage Account** | Drop-down and select your storage account. | Choose a storage account in the same region and subscription as the cache. A **Premium Storage** account is recommended because it has higher throughput. Also, using the soft delete feature on the storage account could lead to increased storage costs. For more information, see [Pricing and billing](../storage/blobs/soft-delete-blob-overview.md). |
    | **Storage Key** | Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the key from the **Storage Key** drop-down. |
 
     The first backup starts once the backup frequency interval elapses.
@@ -70,7 +70,7 @@ Persistence writes Redis data into an Azure Storage account that you own and man
 
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **First Storage Account** | Drop-down and select your storage account. | Choose a storage account in the same region and subscription as the cache. A **Premium Storage** account is recommended because it has higher throughput. Also, using the soft delete feature on the storage account could lead to increased storage costs. For more information, see [Pricing and billing](/azure/storage/blobs/soft-delete-blob-overview). |
+   | **First Storage Account** | Drop-down and select your storage account. | Choose a storage account in the same region and subscription as the cache. A **Premium Storage** account is recommended because it has higher throughput. Also, using the soft delete feature on the storage account could lead to increased storage costs. For more information, see [Pricing and billing](../storage/blobs/soft-delete-blob-overview.md). |
    | **First Storage Key** | Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the key from the **Storage Key** drop-down. |
    | **Second Storage Account** | (Optional) Drop-down and select your secondary storage account. | You can optionally configure another storage account. If a second storage account is configured, the writes to the replica cache are written to this second storage account. |
    | **Second Storage Key** | (Optional) Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the key from the **Storage Key** drop-down. |
@@ -93,6 +93,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 
 - [Can I enable persistence on a previously created cache?](#can-i-enable-persistence-on-a-previously-created-cache)
 - [Can I enable AOF and RDB persistence at the same time?](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
+- [How does persistence work with geo-replication?](#how-does-persistence-work-with-geo-replication)
 - [Which persistence model should I choose?](#which-persistence-model-should-i-choose)
 - [What happens if I've scaled to a different size and a backup is restored that was made before the scaling operation?](#what-happens-if-ive-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
 - [Can I use the same storage account for persistence across two different caches?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
@@ -122,6 +123,10 @@ Yes, Redis persistence can be configured both at cache creation and on existing 
 
 No, you can enable RDB or AOF, but not both at the same time.
 
+### How does persistence work with geo-replication?
+
+If you enable data persistence, geo-replication cannot be enabled for your premium cache.
+
 ### Which persistence model should I choose?
 
 AOF persistence saves every write to a log, which has a significant effect on throughput. Compared AOF with RDB persistence, which saves backups based on the configured backup interval with minimal effect to performance. Choose AOF persistence if your primary goal is to minimize data loss, and you can handle a lower throughput for your cache. Choose RDB persistence if you wish to maintain optimal throughput on your cache, but still want a mechanism for data recovery.
@@ -149,7 +154,7 @@ Yes, you'll be charged for the storage being used as per the pricing model of th
 
 ### How frequently does RDB and AOF persistence write to my blobs, and should I enable soft delete?
 
-Soft delete isn't recommended. RDB and AOF persistence can write to your blobs as frequently as every hour, every few minutes, or every second. Also, enabling soft delete on a storage account means Azure Cache for Redis can't minimize storage costs by deleting the old backup data. Soft delete can quickly become expensive with the typical data sizes of a cache and write operations every second. For more information on soft delete costs, see [Pricing and billing](/azure/storage/blobs/soft-delete-blob-overview).
+Soft delete isn't recommended. RDB and AOF persistence can write to your blobs as frequently as every hour, every few minutes, or every second. Also, enabling soft delete on a storage account means Azure Cache for Redis can't minimize storage costs by deleting the old backup data. Soft delete can quickly become expensive with the typical data sizes of a cache and write operations every second. For more information on soft delete costs, see [Pricing and billing](../storage/blobs/soft-delete-blob-overview.md).
 
 ### Can I change the RDB backup frequency after I create the cache?
 

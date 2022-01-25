@@ -35,4 +35,4 @@ To solve this issue, before signing in to the Azure portal, the admin first need
 
 ## Next steps
 
-To review common error scenarios that the diagnostics feature can identify for you, see [Identify and diagnose issues](diagnostics-role-service.md#common-error-scenarios).
+To review common error scenarios that the diagnostics feature can identify for you, see [Identify and diagnose issues](./troubleshoot-set-up-overview.md).

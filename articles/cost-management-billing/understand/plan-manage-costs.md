@@ -2,12 +2,12 @@
 title: Plan to manage Azure costs
 description: Learn how to plan to manage Azure costs and use cost-tracking and management features for your Azure account.
 author: bandersmsft
-ms.reviewer: amberb
+ms.reviewer: sapnakeshari
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 10/20/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -147,6 +147,7 @@ Enterprise cost views are currently in Public Preview. Items to note:
     - You're a Department Administrator and your Enrollment Administrator has disabled the **DA view charges** setting.  Contact your Enrollment Administrator to get access.
     - You bought Azure through a channel partner, and the partner didn't release pricing information.  
 - If you update settings related to cost,  access in the Enterprise portal, there's a delay of a few minutes before the changes are shown in the Azure portal.
+- Direct EA customers can update cost-related settings in the [Azure portal](https://portal.azure.com/). Navigate to the Policies menu to change settings.
 - Spending limit, and invoice guidance don't apply to EA Subscriptions.
 
 ### Check your subscription and access

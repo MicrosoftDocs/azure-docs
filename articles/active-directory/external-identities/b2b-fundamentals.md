@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 10/13/2021
+ms.date: 10/21/2021
 
 ms.author: mimart
 author: msmimart
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 This article contains recommendations and best practices for business-to-business (B2B) collaboration in Azure Active Directory (Azure AD).
 
 > [!IMPORTANT]
-> **Starting November 1, 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged ("viral" or "just-in-time") Azure AD accounts and tenants for B2B collaboration scenarios. At that time, we'll begin rolling out a change to turn on the email one-time passcode feature for all existing tenants and and enable it by default for new tenants. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, if you don't want to allow this feature to turn on automatically, you can you can [disable it](one-time-passcode.md#disable-email-one-time-passcode).
+> **Starting November 1, 2021**, we'll begin rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. As part of this change, Microsoft will stop creating new, unmanaged ("viral") Azure AD accounts and tenants during B2B collaboration invitation redemption. To minimize disruptions during the holidays and deployment lockdowns, the majority of tenants will see changes rolled out in January 2022. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, if you don't want to allow this feature to turn on automatically, you can [disable it](one-time-passcode.md#disable-email-one-time-passcode).
 
 
 ## B2B recommendations

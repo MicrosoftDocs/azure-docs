@@ -74,7 +74,7 @@ For examples that include Azure DevOps, review [CI/CD for Containers](https://az
 
 ### App settings and parameters
 
-In multi-tenant Azure Logic Apps, ARM templates pose a challenge when you have to maintain environment variables for logic apps across across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
+In multi-tenant Azure Logic Apps, ARM templates pose a challenge when you have to maintain environment variables for logic apps across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
 
 In single-tenant Azure Logic Apps, you can call and reference your environment variables at runtime by using app settings and parameters, so you don't have to redeploy as often.
 

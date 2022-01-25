@@ -4,7 +4,7 @@ description: How manage the settings for groups using Azure Active Directory cmd
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
@@ -157,7 +157,7 @@ Here are the settings defined in the Group.Unified SettingsTemplate. Unless othe
 | <ul><li>EnableMSStandardBlockedWords<li>Type: Boolean<li>Default: "False" | Deprecated. Do not use.
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Type: Boolean<li>Default: False | Boolean indicating whether or not a guest user can be an owner of groups. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Type: Boolean<li>Default: True | Boolean indicating whether or not a guest user can have access to Microsoft 365 groups content.  This setting does not require an Azure Active Directory Premium P1 license.|
-|  <ul><li>GuestUsageGuidelinesUrl<li>Type: String<li>Default: "" | The url of a link to the guest usage guidelines. |
+|  <ul><li>GuestUsageGuidelinesUrl<li>Type: String<li>Default: "" | The URL of a link to the guest usage guidelines. |
 |  <ul><li>AllowToAddGuests<li>Type: Boolean<li>Default: True | A boolean indicating whether or not is allowed to add guests to this directory. <br>This setting may be overridden and become read-only if *EnableMIPLabels* is set to *True* and a guest policy is associated with the sensitivity label assigned to the group.<br>If the AllowToAddGuests setting is set to False at the organization level, any AllowToAddGuests setting at the group level is ignored. If you want to enable guest access for only a few groups, you must set AllowToAddGuests to be true at the organization level, and then selectively disable it for specific groups. |
 |  <ul><li>ClassificationList<li>Type: String<li>Default: "" | A comma-delimited list of valid classification values that can be applied to Microsoft 365 groups. <br>This setting does not apply when EnableMIPLabels == True.|
 |  <ul><li>EnableMIPLabels<li>Type: Boolean<li>Default: "False" |The flag indicating whether sensitivity labels published in Microsoft 365 Compliance Center can be applied to Microsoft 365 groups. For more information, see [Assign Sensitivity Labels for Microsoft 365 groups](groups-assign-sensitivity-labels.md). |

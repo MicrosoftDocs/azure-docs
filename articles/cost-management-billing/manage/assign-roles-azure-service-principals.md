@@ -2,18 +2,19 @@
 title: Assign roles to Azure Enterprise Agreement service principal names
 description: This article helps you assign roles to service principal names by using PowerShell and REST APIs.
 author: bandersmsft
-ms.reviewer: ruturajd
+ms.reviewer: sapnakeshari
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/12/2021
+ms.date: 10/22/2021
 ms.author: banders
 ---
 
 # Assign roles to Azure Enterprise Agreement service principal names
 
-You can manage your Enterprise Agreement (EA) enrollment in the [Azure Enterprise portal](https://ea.azure.com/). You can create different roles to manage your organization, view costs, and create subscriptions. This article helps you automate some of those tasks by using Azure PowerShell and REST APIs with Azure service principal names (SPNs).
+You can manage your Enterprise Agreement (EA) enrollment in the [Azure Enterprise portal](https://ea.azure.com/). Direct Enterprise customer can now manage Enterprise Agreement(EA) enrollment in [Azure portal](https://portal.azure.com/).
+You can create different roles to manage your organization, view costs, and create subscriptions. This article helps you automate some of those tasks by using Azure PowerShell and REST APIs with Azure service principal names (SPNs).
 
 Before you begin, ensure that you're familiar with the following articles:
 

@@ -244,6 +244,6 @@ The Azure Key Vault Secret client library allows you to securely store and contr
 ## Next steps
 
 * [How to access Storage blob with managed identity in Azure Spring Cloud](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/managed-identity-storage-blob)
-* [How to enable system-assigned managed identity for Azure Spring Cloud application](./how-to-enable-system-assigned-managed-identity.md)
+* [How to enable system-assigned managed identity for applications in Azure Spring Cloud](./how-to-enable-system-assigned-managed-identity.md)
 * [Learn more about managed identities for Azure resources](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
 * [Authenticate Azure Spring Cloud with Key Vault in GitHub Actions](./github-actions-key-vault.md)

@@ -136,7 +136,7 @@ You must have the Azure CLI, version 2.15.1 or later installed.
 ### Limitations
 * USDOD Central, USDOD East, USGov Iowa in Azure Government aren't currently supported.
 
-If you don't have a managed identity yet, you should go ahead and create one for example by using [az identity CLI][az-identity-create].
+If you don't have a managed identity yet, you should go ahead and create one for example by using the [az identity][az-identity-create] command.
 
 ```azurecli-interactive
 az identity create --name myIdentity --resource-group myResourceGroup

@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/19/2021
+ms.date: 10/21/2021
 
 ms.author: justinha
-author: justinha
-manager: daveba
+author: rckyplln
+manager: karenhoran
 ms.reviewer: ripull
 
 ms.collection: M365-identity-device-management

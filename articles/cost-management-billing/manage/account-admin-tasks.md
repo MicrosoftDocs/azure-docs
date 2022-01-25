@@ -2,12 +2,12 @@
 title: Account Administrator tasks in the Azure portal
 description: Describes how to perform payment operations in Azure portal
 author: bandersmsft
-ms.reviewer: judupont
+ms.reviewer: lishepar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 12/10/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
 ---
@@ -21,12 +21,15 @@ This article explains how to perform the following tasks in the Azure portal:
 
 You must be the Account Administrator to perform any of these tasks.
 
-## Accounts portal is retiring
+## Accounts portal is retired
 
-Accounts portal will retire and customers will be redirected to the Azure portal by December 31, 2021. The features supported in the Accounts portal will be migrated to the Azure portal. This article explains how to perform some of the most common operations in the Azure portal.
+Accounts portal was retired December 31, 2021. The features supported in the Accounts portal were migrated to the Azure portal. This article explains how to perform some of the most common operations in the Azure portal.
 
 
 ## Navigate to your subscription's payment methods
+
+> [!NOTE]
+> The Reserve Bank of India has new regulations for storing credit card information that may impact credit card users in India. For more information, see [Reserve Bank of India](../understand/pay-bill.md#reserve-bank-of-india).
 
 1. Sign in to the Azure portal as the Account Administrator.
 
@@ -179,6 +182,58 @@ If you have an Azure in Open Licensing subscription, you can add credits to your
     - Specify the amount of credits you want to add.
 
 1. Click **Apply**
+
+## Usage details files comparison
+
+Use the following information to find the mapping between the fields available in the v1 and v2 versions of the files from the Accounts portal and the latest version of the usage details file in the Azure portal.
+
+| V1 | V2 | Azure portal |
+| --- | --- | --- |
+| Additional Info | Additional Info | AdditionalInfo |
+| Currency | Currency | BillingCurrency |
+| Billing Period | Billing Period | BillingPeriodEndDate |
+| Billing Period | Billing Period | BillingPeriodStartDate |
+| Service | Consumed Service | ConsumedService |
+| Value | Value | Cost |
+| Usage Date | Usage Date | Date |
+| Name | Meter Category | MeterCategory |
+| ResourceGuid | Meter Id | MeterId |
+| Region | Meter Region | MeterRegion |
+| Resource | Meter Name | MeterName  |
+| Type | Meter Sub-category | MeterSubcategory |
+| Consumed | Consumed Quantity | Quantity |
+| Component | Resource Group | ResourceGroup |
+|   | Instance Id | ResourceId |
+| Sub Region | Resource Location | ResourceLocation |
+| Service Info 1 | Service Info 1 | ServiceInfo1 |
+| Service Info 2 | Service Info 2 | ServiceInfo2 |
+| Subscription ID | Subscription ID | SubscriptionId |
+| Subscription Name | Subscription Name | SubscriptionName |
+|   | Tags | Tags |
+| Unit | Unit | UnitOfMeasure |
+| | Rate | UnitPrice |
+
+For more information about the fields available in the latest usage details file, see [Understand the terms in your Azure usage and charges file](../understand/understand-usage.md).
+
+The following fields are from v1 and v2 versions of the files from the Accounts portal. They are no longer available in the latest usage details file.
+
+| V1 | V2 |
+| --- | --- |
+| Order Id | Order Id |
+| Description | Description |
+| Billing Date(Anniversary Date) | Billing Date(Anniversary Date) |
+| Offer Name | Offer Name |
+| Service Name | Service Name |
+| Subs Status | Subs Status |
+| Subs Extra Status | Subs Extra Status |
+| Provisioning Status | Provisioning Status |
+| SKU | SKU |
+| Included | Included Quantity |
+| Billable | Overage Quantity |
+| Within Commitment | Within Commitment |
+| Commitment Rate | Commitment Rate |
+| Overage | Overage |
+| Component |  |
 
 ## Troubleshooting
 We do not support virtual or prepaid cards. If you are getting errors when adding or updating a valid credit card, try opening your browser in private mode.

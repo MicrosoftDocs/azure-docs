@@ -1,3 +1,4 @@
+items:
 - name: Spatial Anchors Documentation
   href: index.yml
 - name: Overview
@@ -54,6 +55,8 @@
     displayName: Azure CLI, az spatial-anchors-account
 - name: How-to
   items:
+  - name: Create an Azure Spatial Anchors account
+    href: how-tos/create-asa-account.md
   - name: Create and locate anchors
     href: create-locate-anchors-overview.md
     items:
@@ -95,6 +98,10 @@
   items:
   - name: Azure Spatial Anchors samples (GitHub)
     href: https://github.com/Azure/azure-spatial-anchors-samples
+  - name: MROpenXR Azure Spatial Anchors sample (GitHub)
+    href: https://github.com/microsoft/OpenXR-Unity-MixedReality-Samples
+  - name: MRTK Azure Spatial Anchors learning module
+    href: /learn/modules/azure-spatial-anchors-tutorials/
 - name: Concepts
   items:
   - name: Authentication
@@ -134,7 +141,7 @@
   - name: FAQ
     href: spatial-anchor-faq.yml
   - name: Provide Product Feedback
-    href: https://feedback.azure.com/forums/919252-azure-spatial-anchors
+    href: https://feedback.azure.com/d365community/forum/f47d9b25-0725-ec11-b6e6-000d3a4f07b8
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-spatial-anchors
   - name: Support

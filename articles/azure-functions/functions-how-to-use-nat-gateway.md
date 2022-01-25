@@ -27,7 +27,7 @@ The following diagram shows the architecture of the solution that you create:
 
 ![UI for NAT gateway integration](./media/functions-how-to-use-nat-gateway/topology.png)
 
-Functions running in the Premium plan have the same hosting capabilities as web apps in Azure App Service, which includes the VNet Integration feature. To learn more about VNet Integration, including troubleshooting and advanced configuration, see [Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md).
+Functions running in the Premium plan have the same hosting capabilities as web apps in Azure App Service, which includes the VNet Integration feature. To learn more about VNet Integration, including troubleshooting and advanced configuration, see [Integrate your app with an Azure virtual network](../app-service/overview-vnet-integration.md).
 
 ## Prerequisites
 

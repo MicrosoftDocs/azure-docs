@@ -2,6 +2,7 @@
 title: Profile ASP.NET Core Azure Linux web apps with Application Insights Profiler | Microsoft Docs
 description: A conceptual overview and step-by-step tutorial on how to use Application Insights Profiler.
 ms.topic: conceptual
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 author: cweining
 ms.author: cweining

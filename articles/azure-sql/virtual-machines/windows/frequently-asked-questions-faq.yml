@@ -199,7 +199,7 @@ sections:
       - question: |
           Can I use the Azure portal to manage multiple instances on the same VM?
         answer: |
-             No. Portal management is provided by the SQL IaaS Agent extension, which relies on the SQL Server IaaS Agent extension. As such, the same limitations apply to the extension as the extension. The portal can either only manage one default instance, or one named instance as long as its configured correctly. For more information, see [SQL Server IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) 
+             No. Portal management is provided by the SQL IaaS Agent extension, which relies on the SQL Server IaaS Agent extension. As such, the same limitations apply to the portal as the extension. The portal can either only manage one default instance, or one named instance as long as its configured correctly. For more information, see [SQL Server IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) 
           
           
   - name: Updating and patching
@@ -261,7 +261,7 @@ sections:
         
       - question: |
           What Azure Load Balancer SKU should be used for a cross-cluster migration of an availability group? 
-        answer:    To perform a [cross-cluster migration of an availability group](http://download.microsoft.com/download/d/2/0/d20e1c5f-72ea-4505-9f26-fef9550efd44/alwayson%20ag%20os%20upgrade.docx) on SQL Server on Azure VMs, use the standard [Azure Load Balancer SKU](/azure/load-balancer/skus). 
+        answer:    To perform a [cross-cluster migration of an availability group](http://download.microsoft.com/download/d/2/0/d20e1c5f-72ea-4505-9f26-fef9550efd44/alwayson%20ag%20os%20upgrade.docx) on SQL Server on Azure VMs, use the standard [Azure Load Balancer SKU](../../../load-balancer/skus.md). 
 
       - question: |
           Can I use Azure premium file share to host my database files on a standalone instance of SQL Server?  

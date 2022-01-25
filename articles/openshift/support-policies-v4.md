@@ -35,6 +35,14 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 
 Azure Red Hat OpenShift 4 supports worker node instances on the following virtual machine sizes:
 
+### Master nodes
+
+|Series|Size|vCPU|Memory: GiB|
+|-|-|-|-|
+|Dsv3|Standard_D8s_v3|8|32|
+|Dsv3|Standard_D16s_v3|16|64|
+|Dsv3|Standard_D32s_v3|32|128|
+
 ### General purpose
 
 |Series|Size|vCPU|Memory: GiB|
@@ -66,10 +74,18 @@ Azure Red Hat OpenShift 4 supports worker node instances on the following virtua
 |Fsv2|Standard_F16s_v2|16|32|
 |Fsv2|Standard_F32s_v2|32|64|
 
-### Master nodes
+### Day 2 worker node
+The following instance types are supported as a day 2 operation by configuring machinesets. For information on how to create a machineset, see [Creating a machineset in Azure](https://docs.openshift.com/container-platform/4.8/machine_management/creating_machinesets/creating-machineset-azure.html).
+
 
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
-|Dsv3|Standard_D8s_v3|8|32|
-|Dsv3|Standard_D16s_v3|16|64|
-|Dsv3|Standard_D32s_v3|32|128|
+|L4s|Standard_L4s|4|32|
+|L8s|Standard_L8s|8|64|
+|L16s|Standard_L16s|16|128|
+|L32s|Standard_L32s|32|256|
+|L8s_v2|Standard_L8s_v2|8|64|
+|L16s_v2|Standard_L16s_v2|16|128|
+|L32s_v2|Standard_L32s_v2|32|256|
+|L48s_v2|Standard_L48s_v2|32|384|
+|L64s_v2|Standard_L48s_v2|64|512|

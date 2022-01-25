@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 11/24/2021
 ---
 
 # Add a preview audience for a SaaS offer

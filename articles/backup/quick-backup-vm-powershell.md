@@ -4,7 +4,7 @@ description: In this Quickstart, learn how to back up your Azure virtual machine
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
-ms.custom: mvc, devx-track-azurepowershell
+ms.custom: mvc, devx-track-azurepowershell, mode-api
 ---
 
 # Back up a virtual machine in Azure with PowerShell

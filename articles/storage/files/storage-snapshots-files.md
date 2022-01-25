@@ -97,7 +97,7 @@ Share snapshots provide only file-level protection. Share snapshots don't preven
 ## Next steps
 - Working with share snapshots in:
     - [Azure file share backup](../../backup/azure-file-share-backup-overview.md)
-    - [PowerShell](storage-how-to-use-files-powershell.md)
-    - [CLI](storage-how-to-use-files-cli.md)
+    - [PowerShell](./storage-how-to-use-files-portal.md)
+    - [CLI](./storage-how-to-use-files-portal.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
     - [Share snapshot FAQ](storage-files-faq.md#share-snapshots)

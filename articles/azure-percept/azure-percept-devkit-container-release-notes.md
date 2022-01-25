@@ -1,7 +1,7 @@
 ---
 title: Azure Percept DK Container release notes
 description: Information of changes and fixes for Azure Percept DK Container releases.
-author: amiyouss
+author: nkhuyent
 ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
@@ -13,6 +13,11 @@ ms.date: 09/17/2021
 This page provides information of changes and fixes for Azure Percept DK Container releases.
 
 To download the container updates, go to [Azure Percept Studio](https://ms.portal.azure.com/#blade/AzureEdgeDevices/main/overview), select Devices from the left navigation pane, choose the specific device, and then select Vision and Speech tabs to initiate container downloads. 
+
+## December (2112) Release
+
+- Removed lines in the image frames using automatic image capture in Azure Percept Studio. This issue was introduced in the 2108 module release.  
+- Security fixes for docker services running as root in azureeyemodule, azureearspeechclientmodule, and webstreammodule. 
 
 ## August (2108) Release
 

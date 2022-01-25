@@ -319,8 +319,8 @@ If you scan App Service, you'll find several ports that are exposed for inbound 
 [iprestrictions]: ./app-service-ip-restrictions.md
 [serviceendpoints]: ./app-service-ip-restrictions.md
 [hybridconn]: ./app-service-hybrid-connections.md
-[vnetintegrationp2s]: ./web-sites-integrate-with-vnet.md
-[vnetintegration]: ./web-sites-integrate-with-vnet.md
+[vnetintegrationp2s]: ./overview-vnet-integration.md
+[vnetintegration]: ./overview-vnet-integration.md
 [networkinfo]: ./environment/network-info.md
 [appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
 [privateendpoints]: ./networking/private-endpoint.md

@@ -5,14 +5,13 @@ services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 04/16/2019
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -96,4 +95,4 @@ The following diagram illustrates all the components and the steps involved.
 - [**Quick Start**](how-to-connect-sso-quick-start.md) - Get up and running Azure AD Seamless SSO.
 - [**Frequently Asked Questions**](how-to-connect-sso-faq.yml) - Answers to frequently asked questions.
 - [**Troubleshoot**](tshoot-connect-sso.md) - Learn how to resolve common issues with the feature.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.
+- [**UserVoice**](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) - For filing new feature requests.

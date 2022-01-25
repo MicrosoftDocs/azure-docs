@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 11/30/2021
 
 ms.author: mimart
 author: msmimart
@@ -69,18 +69,6 @@ The resource tenant is always responsible for Azure AD Multi-Factor Authenticati
 >[!NOTE]
 >Azure AD Multi-Factor Authentication is done at resource tenancy to ensure predictability. When the guest user signs in, they'll see the resource tenant sign-in page displayed in the background, and their own home tenant sign-in page and company logo in the foreground.
 
-### Set up Azure AD Multi-Factor Authentication for B2B users
-
-To set up Azure AD Multi-Factor Authentication for B2B collaboration users, watch this video:
-
->[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
-
-### B2B users Azure AD Multi-Factor Authentication for offer redemption
-
-To learn more about the Azure AD Multi-Factor Authentication redemption experience, watch this video:
-
->[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
-
 ### Azure AD Multi-Factor Authentication reset for B2B users
 
 Now, the following PowerShell cmdlets are available to proof up B2B guest users:
@@ -118,7 +106,8 @@ There are various factors that influence CA policies for B2B guest users.
 In CA, there's an option to require a user’s [device to be Compliant or Hybrid Azure AD joined](../conditional-access/concept-conditional-access-conditions.md#device-state-preview). B2B guest users can only satisfy compliance if the resource tenant can manage their device. Devices cannot be managed by more than one organization at a time. B2B guest users can't satisfy the Hybrid Azure AD join because they don't have an on-premises AD account. 
 
 >[!Note]
->It is not recommended to require a managed device for external users.
+>- It is not recommended to require a managed device for external users.
+>- When guest users try to access a resource protected by Conditional Access, they'll no longer be asked to re-register their devices in your tenant. Previously, guest users would be able to start the re-registration process. However, this would remove their existing device registration, and they'd be unable to complete registration. Now, they'll see a Conditional Access blocking page to prevent them from trying to re-register their devices.
 
 ### Mobile application management policies
 

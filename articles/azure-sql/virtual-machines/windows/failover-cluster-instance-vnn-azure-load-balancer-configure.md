@@ -4,21 +4,22 @@ description: Learn to configure an Azure Load Balancer to route traffic to the v
 services: virtual-machines-windows
 documentationcenter: na
 author: rajeshsetlem
-manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: hadr
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/02/2020
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
 
 ---
 # Configure Azure Load Balancer for an FCI VNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
+> [!TIP]
+> Eliminate the need for an Azure Load Balancer for failover cluster instance by creating your SQL Server VMs in multiple subnets within the same Azure virtual network.
 
 On Azure Virtual Machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the virtual network name (VNN) used by the clustered resource in Azure. 
 

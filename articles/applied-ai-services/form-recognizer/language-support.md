@@ -27,7 +27,7 @@ The following lists cover the currently GA languages in the the 2.1 version and 
 >
 > Form Recognizer's deep learning based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
 
-To use the preview languages in Layout and custom models, refer to the [v3.0 REST API migration guide](/v3-migration-guide.md#changes-to-the-rest-api-endpoints) to understand the differences from the v2.1 GA API and explore the [v3.0 preview SDK quickstarts](quickstarts/try-v3-python-sdk.md) and the [preview REST API quickstart](quickstarts/try-v3-rest-api.md).
+To use the preview languages in Layout and custom models, refer to the [v3.0 REST API migration guide](/rest/api/media/#changes-to-the-rest-api-endpoints) to understand the differences from the v2.1 GA API and explore the [v3.0 preview SDK quickstarts](quickstarts/try-v3-python-sdk.md) and the [preview REST API quickstart](quickstarts/try-v3-rest-api.md).
 
 ### Handwritten languages
 The following table lists the handwritten languages supported by Form Recognizer's Layout and Custom model features.
@@ -113,7 +113,7 @@ The following table lists the print languages supported by Form Recognizer's Lay
 |Koryak |`kpy`| preview |
 |Kosraean |`kos`| preview |
 |Kumyk (Cyrillic) |`kum`| preview |
-|Kurdish (Latin)| `kur` | |
+|Kurdish (Latin)| `ku` | |
 |Kyrgyz (Cyrillic) |`ky`| preview |
 |Lakota |`lkt`| preview |
 |Latin|`la`| preview |
@@ -147,13 +147,13 @@ The following table lists the print languages supported by Form Recognizer's Lay
 |Serbian (Latin) | `sr-latn` | preview |
 |Skolt Sami|`sms`| preview |
 |Slovak | `sk` | preview |
-|Slovenian  | `slv` | |
+|Slovenian  | `sl` | |
 |Southern Sami|`sma`| preview |
 |Spanish | `es` | |
 |Swahili (Latin)  | `sw` | |
 |Swedish | `sv` | |
 |Tajik (Cyrillic)|`tg`| preview |
-|Tatar (Latin)  | `tat` | |
+|Tatar (Latin)  | `tt` | |
 |Tetum    | `tet` |  |
 |Tongan|`to`|(preview) |
 |Turkish | `tr` | |

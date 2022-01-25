@@ -6,8 +6,8 @@ ms.author: jingwang
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: quickstart
-ms.date: 08/27/2021
-ms.custom: template-quickstart, devx-track-azurecli
+ms.date: 10/14/2021
+ms.custom: template-quickstart, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Create an Azure Data Factory using Azure CLI
@@ -139,7 +139,7 @@ Next, create a linked service and two datasets.
 
    ```azurecli
    az datafactory dataset create --resource-group ADFQuickStartRG \
-       --dataset-name InputDataset --factory-name ADFQuickStartFactory \
+       --dataset-name InputDataset --factory-name ADFTutorialFactory \
        --properties @InputDataset.json
    ```
 
@@ -167,7 +167,7 @@ Next, create a linked service and two datasets.
 
    ```azurecli
    az datafactory dataset create --resource-group ADFQuickStartRG \
-       --dataset-name OutputDataset --factory-name ADFQuickStartFactory \
+       --dataset-name OutputDataset --factory-name ADFTutorialFactory \
        --properties @OutputDataset.json
    ```
 

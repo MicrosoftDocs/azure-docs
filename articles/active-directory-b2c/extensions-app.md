@@ -1,5 +1,6 @@
 ---
 title: Extensions app in Azure Active Directory B2C  
+titleSuffix: Azure AD B2C
 description: Restoring the b2c-extensions-app.
 services: active-directory-b2c
 author: kengaderdus
@@ -8,17 +9,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/06/2017
+ms.date: 11/02/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Azure AD B2C: Extensions app
+# Extensions app in Azure AD B2C
 
-When an Azure AD B2C directory is created, an app called `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` is automatically created inside the new directory. This app, referred to as the **b2c-extensions-app**, is visible in *App registrations*. It is used by the Azure AD B2C service to store information about users and custom attributes. If the app is deleted, Azure AD B2C will not function correctly and your production environment will be affected.
+When an Azure AD B2C directory is created, an app called **b2c-extensions-app** is automatically created inside the new directory. This app is visible in *App registrations*. It is used by the Azure AD B2C service to store information about users and custom attributes. If the app is deleted, Azure AD B2C will not function correctly and your production environment will be affected.
 
 > [!IMPORTANT]
-> Do not delete the b2c-extensions-app unless you are planning to immediately delete your tenant. If the app remains deleted for more than 30 days, user information will be permanently lost.
+> Do not delete the **b2c-extensions-app** unless you are planning to immediately delete your tenant. If the app remains deleted for more than 30 days, user information will be permanently lost.
 
 ## Verifying that the extensions app is present
 

@@ -289,6 +289,10 @@ DerivedColumn1 window(over(dummy),
 		nextAndCurr = lead(title,1)+'-'+last(title)) ~> leadAndLag
 ```
 
+### How many columns are in my data?
+
+```size(array(columns()))```
+
 ## Next steps
 
 Explore Data Flows by starting with the [data flows overview article](concepts-data-flow-overview.md)

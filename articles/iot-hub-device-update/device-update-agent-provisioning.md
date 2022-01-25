@@ -25,7 +25,7 @@ The following IoT device types are currently supported with Device Update:
 
 * Linux devices (IoT Edge and Non-IoT Edge devices):
     * Image A/B update:
-        - Yocto - ARM64 (reference image), extensible via open source to [build you own images](device-update-agent-provisioning.md#how-to-build-and-run-device-update-agent) for other architecture as needed.
+        - Yocto - ARM64 (reference image), extensible via open source to [build your own images](device-update-agent-provisioning.md#how-to-build-and-run-device-update-agent) for other architecture as needed.
         - Ubuntu 18.04 simulator
        
     * Package Agent supported builds for the following platforms/architectures:
@@ -82,7 +82,7 @@ Follow all or any of the below sections to add the Device update agent based on 
 
 Follow these instructions to provision the Device Update agent on [IoT Edge enabled devices](../iot-edge/index.yml).
 
-1. Follow the instructions to [Install and provision the Azure IoT Edge runtime](../iot-edge/how-to-install-iot-edge.md?preserve-view=true&view=iotedge-2020-11).
+1. Follow the instructions to [Manually provision a single Linux IoT Edge device](../iot-edge/how-to-provision-single-device-linux-symmetric.md?preserve-view=true&view=iotedge-2020-11).
 
 1. Install the Device Update image update agent.
 
@@ -118,7 +118,6 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
     1.	Install the latest [IoT Identity Service](https://github.com/Azure/iot-identity-service/blob/main/docs-dev/packaging.md#installing-and-configuring-the-package) on your IoT device using this command:
     > [!Note]
     > The IoT Identity service registers module identities with IoT Hub by using symmetric keys currently.
-
     ```shell
    	sudo apt-get install aziot-identity-service
     ```
@@ -157,7 +156,7 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
     sudo aziotctl config apply
     ```
     
-1. Finally install the Device Update agent. We provide sample images in [Artifacts](https://github.com/Azure/iot-hub-device-update/releases), the swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board, and the .gz file is the update you would import through Device Update for IoT Hub. See example of [how to flash the image to your IoT Hub device](./device-update-raspberry-pi.md#flash-sd-card-with-image).
+1. Finally install the Device Update agent. We provide sample images in [Artifacts](https://github.com/Azure/iot-hub-device-update/releases). The swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board, and the .gz file is the update you would import through Device Update for IoT Hub. See example of [how to flash the image to your IoT Hub device](./device-update-raspberry-pi.md#flash-sd-card-with-image).
 
 1. You are now ready to start the Device Update agent on your IoT device. 
 
@@ -178,9 +177,9 @@ The Device Update agent can also be configured without the IoT Identity service 
         - [For Package updates](device-update-ubuntu-agent.md) use: sudo nano /etc/adu/adu-conf.txt
         - [For Image updates](device-update-raspberry-pi.md) use: sudo nano /adu/adu-conf.txt
        
-    1. You should see a window open with some text in it. Delete the entire string following 'connection_String=' the first-time you provision the Device Update agent on the IoT device. It is just place holder text.
+    1. You should see a window open with some text in it. Delete the entire string following 'connection_String=' the first time you provision the Device Update agent on the IoT device. It is just place holder text.
     
-    1. In the terminal, replace \<your-connection-string\> with the connection string of the device for your instance of Device Update agent. Select Enter and then **Save.** It should look this example:
+    1. In the terminal, replace \<your-connection-string\> with the connection string of the device for your instance of Device Update agent. Select Enter and then **Save.** It should look like this example:
 	
         ```text
         connection_string=<ADD CONNECTION STRING HERE>
@@ -190,7 +189,6 @@ The Device Update agent can also be configured without the IoT Identity service 
     > Do not add quotes around the connection string.
 	
 1. Now you are now ready to start the Device Update agent on your IoT device. 
-
 
 ## How to start the Device Update Agent
 
@@ -244,6 +242,6 @@ You can use the following pre-built images and binaries for a simple demonstrati
 
 - [Getting Started Using Ubuntu (18.04 x64) Simulator Reference Agent](device-update-simulator.md)
 
-- [Package Update:Getting Started using Ubuntu Server 18.04 x64 Package agent](device-update-ubuntu-agent.md)
+- [Package Update: Getting Started using Ubuntu Server 18.04 x64 Package agent](device-update-ubuntu-agent.md)
 
 - [Device Update for Azure IoT Hub tutorial for Azure-Real-Time-Operating-System](device-update-azure-real-time-operating-system.md)

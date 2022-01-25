@@ -7,9 +7,7 @@ ms.date: 06/09/2021
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: python
-ms.custom:
-  - devx-track-python
-  - mode-api
+ms.custom: devx-track-python, mode-api
 ---
 # Quickstart: Create an App showing GitHub star count with Azure Functions and SignalR Service using Python
 
@@ -99,7 +97,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     2. Create a `negotiate` function for clients to get access token.
     
         ```bash
-        func new -n negotiate -t SignalRNegotiateHTTPTrigger
+        func new -n negotiate -t HttpTrigger
         ```
         
         Open `negotiate/function.json` and copy the following json codes:

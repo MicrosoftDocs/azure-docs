@@ -9,15 +9,15 @@ ms.date: 10/19/2021
 
 Getting [automatic OS image upgrades on your Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) is the best practice for keeping your operating system patched in Azure. Virtual Machine Scale Set based automatic OS image upgrades will require silver or greater durability on a scale set.
 
-### Requirements for automatic OS image upgrades by Virtual Machine Scale Sets
+## Requirements for automatic OS image upgrades by Virtual Machine Scale Sets
 
--	Service Fabric [durability level](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) is Silver or Gold, and not Bronze.
--	The Service Fabric extension on the scale set model definition must have TypeHandlerVersion 1.1 or above.
--	Durability level should be the same at the Service Fabric cluster and Service Fabric extension on the scale set model definition.
--	An additional health probe or use of application health extension for Virtual Machine Scale Sets is not required.
--	Stateless nodetypes are the only exception, which have durability as Bronze, but automatic OS image upgrades can still be configured on them. Read more [here](https://docs.microsoft.com/azure/service-fabric/service-fabric-stateless-node-types).
+- Service Fabric [durability level](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) is Silver or Gold, and not Bronze.
+- The Service Fabric extension on the scale set model definition must have TypeHandlerVersion 1.1 or above.
+- Durability level should be the same at the Service Fabric cluster and Service Fabric extension on the scale set model definition.
+- An additional health probe or use of application health extension for Virtual Machine Scale Sets is not required.
+- Stateless nodetypes are the only exception, which have durability as Bronze, but automatic OS image upgrades can still be configured on them. For more information, see [Deploy an Azure Service Fabric cluster with stateless-only node types](service-fabric-stateless-node-types.md).
 
-Ensure that durability settings are not mismatched on the Service Fabric cluster and Service Fabric extension, as a mismatch will result in upgrade errors. Durability levels can be modified per the guidelines outlined on [this page](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
+Ensure that durability settings are not mismatched on the Service Fabric cluster and Service Fabric extension, as a mismatch will result in upgrade errors. Durability levels can be modified per the guidelines outlined on [this page](service-fabric-cluster-capacity.md#changing-durability-levels).
 
 With Bronze durability, automatic OS image upgrade isn't available. While [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) (intended only for non-Azure hosted clusters) is *not recommended* for Silver or greater durability levels, it is your only option to automate Windows updates with respect to Service Fabric upgrade domains.
 

@@ -84,35 +84,9 @@ Next, you'll need to create a private endpoint and configure it for disk access.
 
 You've now configured a private link that you can use to import and export your managed disk.
 
-## Frequently asked questions
-
-**Q: What is the benefit of using Private Links for exporting and importing Managed Disks?**
-
-**A:** You can use Private Links to restrict the export and import process to Managed Disks only from your Azure virtual network.
-
-**Q: How can I make sure that a disk can be exported or imported only through Private Links?**
-
-**A:** You must set the **DiskAccessId** property to an instance of a disk access object. Additionally, you can set the **NetworkAccessPolicy** property to **AllowPrivate**.
-
-**Q: Can I link multiple virtual networks to the same disk access object?**
-
-**A:** No. Currently, you can link a disk access object to only one virtual network.
-
-**Q: Can I link a virtual network to a disk access object in another subscription?**
-
-**A:** No. Currently, you can link a disk access object to only a virtual network in the same subscription.
-
-**Q: How many exports or imports that use the same disk access object can occur at the same time?**
-
-**A:** You can have five simultaneous exports or imports.
-
-**Q: Can I use an SAS URI of a disk or snapshot to download the underlying VHD of a VM that's not in the same subnet as the subnet of the private endpoint that's associated with the disk?**
-
-**A:** No. You can do this only for a VM that's in the same subnet as the subnet of the private endpoint that's associated with the disk.
-
 ## Next steps
 
 - Upload a VHD to Azure or copy a managed disk to another region - [Azure CLI](linux/disks-upload-vhd-to-managed-disk-cli.md) or [Azure PowerShell module](windows/disks-upload-vhd-to-managed-disk-powershell.md)
 - Download a VHD - [Windows](windows/download-vhd.md) or [Linux](linux/download-vhd.md)
-- [FAQ for private links and managed disks](/azure/virtual-machines/faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
+- [FAQ for private links and managed disks](./faq-for-disks.yml)
 - [Export/Copy managed snapshots as VHD to a storage account in different region with PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account)

@@ -8,6 +8,9 @@ ms.date: 07/27/2021
 # Back up Azure Stack HCI virtual machines with Azure Backup Server
 
 This article explains how to back up virtual machines on Azure Stack HCI using Microsoft Azure Backup Server (MABS).
+ 
+> [!NOTE]
+> This support applies to Azure Stack HCI version 20H2. Backup of virtual machines on Azure Stack HCI version 21H2 is not supported.
 
 ## Supported scenarios
 

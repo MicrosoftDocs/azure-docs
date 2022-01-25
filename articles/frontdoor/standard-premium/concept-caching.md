@@ -60,6 +60,10 @@ The following order of headers is used to determine how long an item will be sto
 
 Cache-Control response headers that indicate that the response won't be cached such as Cache-Control: private, Cache-Control: no-cache, and Cache-Control: no-store are honored.  If no Cache-Control is present, the default behavior is that Front Door will cache the resource for X amount of time. Where X gets randomly picked between 1 to 3 days.
 
+> [!NOTE]
+> Cache expiration can't be greater than **366 days**.
+> 
+
 ## Request headers
 
 The following request headers won't be forwarded to an origin when using caching.
@@ -78,7 +82,7 @@ Cache behavior and duration can be configured in both the Front Door designer ro
 
 > [!NOTE]
 > * The *cache duration* set in the Front Door designer routing rule is the **minimum cache duration**. This override won't work if the cache control header from the origin has a greater TTL than the override value.
-> * Cached contents may be evicted from the Azure Front Door before they are expired if the contents are not requested as frequently to make room for more frequently requested contents.
+> * Azure Front Door makes no guarantees about the amount of time that the content is stored in the cache. Cached content may be removed from the edge cache before the content expiration if the content is not frequently used. Front Door might be able to serve data from the cache even if the cached data has expired. This behavior can help your site to remain partially available when your origins are offline.
 >
 
 ## Next steps

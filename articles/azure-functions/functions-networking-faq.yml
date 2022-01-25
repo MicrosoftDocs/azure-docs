@@ -73,6 +73,6 @@ additionalContent: |
           
   * [Follow the tutorial about getting started with virtual network integration](./functions-create-vnet.md)
   * [Learn more about the networking options in Azure Functions](./functions-networking-options.md)
-  * [Learn more about virtual network integration with App Service and Functions](../app-service/web-sites-integrate-with-vnet.md)
+  * [Learn more about virtual network integration with App Service and Functions](../app-service/overview-vnet-integration.md)
   * [Learn more about virtual networks in Azure](../virtual-network/virtual-networks-overview.md)
   * [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)

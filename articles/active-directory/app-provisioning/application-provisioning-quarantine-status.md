@@ -3,7 +3,7 @@ title: Quarantine status in Azure Active Directory Application Provisioning
 description: When you've configured an application for automatic user provisioning, learn what a provisioning status of Quarantine means and how to clear it.
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -25,7 +25,7 @@ While in quarantine:
 ## How do I know if my application is in quarantine?
 
 There are three ways to check whether an application is in quarantine:
-  
+
 - In the Azure portal, navigate to **Azure Active Directory** > **Enterprise applications** > &lt;*application name*&gt; > **Provisioning** and review the progress bar for a quarantine message.   
 
   ![Provisioning status bar showing quarantine status](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
@@ -83,7 +83,7 @@ After you've resolved the issue, restart the provisioning job. Certain changes t
 - Use the Azure portal to restart the provisioning job. On the application's **Provisioning** page, select **Restart provisioning**. This action fully restarts the provisioning service, which can take some time. A full initial cycle will run again, which clears escrows, removes the app from quarantine, and clears any watermarks. The service will then evaluate all the users in the source system again and determine if they are in scope for provisioning. This can be useful when your application is currently in quarantine, as this article discusses, or you need to make a change to your attribute mappings. Note that the initial cycle takes longer to complete than the typical incremental cycle due to the number of objects that need to be evaluated. You can learn more about the performance of initial and incremental cycles [here](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 - Use Microsoft Graph to [restart the provisioning job](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). You'll have full control over what you restart. You can choose to clear escrows (to restart the escrow counter that accrues toward quarantine status), clear quarantine (to remove the application from quarantine), or clear watermarks. Use the following request:
- 
+
 ```microsoft-graph
         POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
 ```

@@ -4,10 +4,10 @@ description: Overview of Azure SQL Database ledger auditing capabilities
 ms.date: "09/09/2021"
 ms.service: sql-database
 ms.subservice: security
-ms.reviewer: vanto
+ms.reviewer: kendralittle, mathoma
 ms.topic: conceptual
-author: JasonMAnderson
-ms.author: janders
+author: VanMSFT
+ms.author: vanto
 ---
 
 # Azure SQL Database audit events with ledger-enabled tables

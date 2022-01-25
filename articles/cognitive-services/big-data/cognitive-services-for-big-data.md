@@ -6,7 +6,7 @@ author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: overview
-ms.date: 07/09/2020
+ms.date: 10/28/2021
 ms.author: marhamil
 ---
 
@@ -49,7 +49,7 @@ Cognitive Services for Big Data can use services from any region in the world, a
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[Text Analytics](../text-analytics/index.yml "Text Analytics")| The Text Analytics service provides natural language processing over raw text for sentiment analysis, key-phrase extraction, and language detection.|
+|[Language service](../language-service/index.yml "Language service")| The Language service provides natural language processing over raw text for sentiment analysis, key-phrase extraction, and language detection.|
 
 ### Search
 

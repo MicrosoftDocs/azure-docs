@@ -293,7 +293,7 @@ If you make changes to `script.py` that require additional dependencies, or you 
 
 For more information about AzureML environments, see [the Environment class documentation](/python/api/azureml-core/azureml.core.environment.environment).
 
-### Submitting the experiment
+### Submit the experiment
 
 Since the generated code is not driven by automated ML anymore, instead of creating an `AutoMLConfig` and then passing it to `experiment.submit()`, you need to create a [`ScriptRunConfig`](/python/api/azureml-core/azureml.core.scriptrunconfig) and provide the generated code (script.py) to it, like in the following example.
 
@@ -355,7 +355,7 @@ test_data_df = pd.read_csv(filepath)
 print(test_data_df.shape)
 test_data_df.head(5)
 
-#test_data_df is a Pandas Dataframe with test data
+#test_data_df is a Pandas dataframe with test data
 y_predictions = model.predict(test_data_df)
 ```
 

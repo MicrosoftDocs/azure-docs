@@ -5,11 +5,11 @@ description: In this quickstart, you'll learn how to create a Job Router client,
 author: jasonshave
 manager: phans
 services: azure-communication-services
-
 ms.author: jassha
 ms.date: 10/18/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.custom: mode-other
 ---
 # Quickstart: Submit a job for queuing and routing
 
