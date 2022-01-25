@@ -10,7 +10,7 @@ ms.date: 01/14/2022
 
 In this article, you'll learn how to deploy Arc for Azure VMware Solution. Once you've set up the components needed for this public preview, you'll be ready to execute operations in Azure VMware Solution vCenter from the Azure portal. Operations are related to Create, Read, Update, and Delete (CRUD) virtual machines (VM) in an Arc enabled Azure VMware Solution private cloud. User can also enable guest management and install Azure extensions once the private cloud is Arc enabled.
 
-Before you begin checking off the prerequisites below, verify the following actions have been done:
+Before you begin checking off the prerequisites, verify the following actions have been done:
  
 - You deployed an Azure VMware Solution private cluster. 
 - You have a connection to the Azure VMware Solution private cloud through your on-prem environment or your native Azure Virtual Network. 
@@ -87,10 +87,10 @@ Use the following steps to guide you through the process to onboard in Arc for A
     
     - Populate the `subscriptionId`, `resourceGroup`, and `privateCloud` names respectively.  
     - `isStatic` and `isAVS` are always true. 
-    - `networkForApplianceVM` is the name for the segment for Arc appliance VM. One will be created if it does not already exist.  
+    - `networkForApplianceVM` is the name for the segment for Arc appliance VM. One will be created if it doesn't already exist.  
     - `networkCIDRForApplianceVM` is the IP CIDR of the segment for Arc appliance VM. It should be unique and not affect other networks of Azure VMware Solution management IP CIDR. 
     - `GatewayIPAddress` is the gateway for the segment for Arc appliance VM. 
-    - `applianceControlPlaneIpAddress` is the IP address for the Kubernetes API server that should be part of the segment IP CIDR provided. It should not be part of the k8s node pool IP range.  
+    - `applianceControlPlaneIpAddress` is the IP address for the Kubernetes API server that should be part of the segment IP CIDR provided. It shouldn't be part of the k8s node pool IP range.  
     - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd` are the starting and ending IP of the pool of IPs to assign to the appliance VM. Both need to be within the `networkCIDRForApplianceVM`. 
 
     **Json example**
@@ -215,7 +215,7 @@ We recommend assigning this role at the subscription level or resource group you
 
 ## Create Arc enabled Azure VMware Solution virtual machine
 
-This section shows users how to create a virtual machine (VM) on VMware vCenter using Azure Arc. Before you begin, check the prerequisite list below to ensure you're set up and ready to create an Arc enabled Azure VMware Solution VM. 
+This section shows users how to create a virtual machine (VM) on VMware vCenter using Azure Arc. Before you begin, check the following prerequisite list to ensure you're set up and ready to create an Arc enabled Azure VMware Solution VM. 
 
 ### Prerequisites
 
@@ -231,7 +231,7 @@ This section shows users how to create a virtual machine (VM) on VMware vCenter 
     :::image type="content" source="media/deploy-arc-for-avs/deploy-vm-arc-avs-1.2.png" alt-text="Image showing the location of the plus Create drop down menu and Azure VMware Solution virtual machine selection option."lightbox="media/deploy-arc-for-avs/deploy-vm-arc-avs-1.2.png"::: 
 
 Near the top of the **Virtual machines** page, you'll find five tabs labeled: **Basics**, **Disks**, **Networking**, **Tags**, and **Review + create**. Follow the steps or options provided in each tab to create your Azure VMware Solution virtual machine.
-:::image type="content" source="media/deploy-arc-for-avs/deploy-vm-arc-avs-tabs.png" alt-text="Image showing the five tabs used in the walk-through steps listed below."lightbox="media/deploy-arc-for-avs/deploy-vm-arc-avs-tabs.png":::
+:::image type="content" source="media/deploy-arc-for-avs/deploy-vm-arc-avs-tabs.png" alt-text="Image showing the five tabs used in the walk-through steps listed."lightbox="media/deploy-arc-for-avs/deploy-vm-arc-avs-tabs.png":::
 
 **Basics**
 1. In **Project details**, select the **Subscription** and **Resource group** where you want to deploy your VM.
