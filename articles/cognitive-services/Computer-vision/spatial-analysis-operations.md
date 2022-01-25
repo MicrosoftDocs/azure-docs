@@ -72,7 +72,7 @@ These are the parameters required by each of these Spatial Analysis operations.
 | CALIBRATION_CONFIG | JSON indicating parameters to control how the camera calibration works. It should be in the following format: `"{\"enable_recalibration\": true, \"quality_check_frequency_seconds\": 86400}",`|
 | SPACEANALYTICS_CONFIG | JSON configuration for zone and line as outlined below.|
 | ENABLE_FACE_MASK_CLASSIFIER | `True` to enable detecting people wearing face masks in the video stream, `False` to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 `"INPUT_VIDEO_WIDTH": 1920`. The face mask attribute will not be returned if detected people are not facing the camera or are too far from it. Refer to the [camera placement](spatial-analysis-camera-placement.md) guide for more information |
-| STATIONARY_TARGET_REMOVER_CONFIG | Json indicating the parameters for stationary target removol which adds the  capability to learn and ignore long term stationary false-positive targets such as mannequins or people in pictures. Configuration should be in the following format: `"{\"enable\": true, \"bbox_dist_threshold-in_pixels\": 5, \"buffer_length_in_seconds\": 3600, \"filter_ratio\": 0.2 }"`|
+| STATIONARY_TARGET_REMOVER_CONFIG | JSON indicating the parameters for stationary target removal, which adds the capability to learn and ignore long-term stationary false positive targets such as mannequins or people in pictures. Configuration should be in the following format: `"{\"enable\": true, \"bbox_dist_threshold-in_pixels\": 5, \"buffer_length_in_seconds\": 3600, \"filter_ratio\": 0.2 }"`|
 
 ### Detector node parameter settings
 This is an example of the DETECTOR_NODE_CONFIG parameters for all Spatial Analysis operations.
@@ -235,9 +235,9 @@ You can configure the speed computation through the tracker node parameter setti
 |---------|---------|---------|
 | `enable_speed` | bool | Indicates whether you want to compute the speed for the detected people or not. `enable_speed` is set by default to `True`. It is highly recommended that you enable both speed and orientation to have the best estimated values. |
 | `remove_stationary_objects` | bool | Indicates whether you want to remove stationary objects. `remove_stationary_objects` is set by default to True. |
-| `stationary_objects_dist_threshold_in_pixels` | int | The neighborhood distance threshold to decide whether two detection bboxes can be treated as the same detection. `stationary_objects_dist_threshold_in_pixels` is set by default to 5. |
-| `stationary_objects_buffer_length_in_seconds` | int | The minimum length of time in seconds that the system has to look back to decide whether a target is stationary target or not. `stationary_objects_buffer_length_in_seconds` is set by default to 3600. |
-| `stationary_objects_filter_ratio` | float | If a target is repeatly detected at the one same location (defined in `stationary_objects_dist_threshold_in_pixels`) for greater `stationary_objects_filter_ratio` (0.2 means 20%) of the `stationary_objects_buffer_length_in_seconds` time interval, it will be treated as a stationary target. `stationary_objects_filter_ratio` is set by default to 0.2. |
+| `stationary_objects_dist_threshold_in_pixels` | int | The neighborhood distance threshold to decide whether two detection boxes can be treated as the same detection. `stationary_objects_dist_threshold_in_pixels` is set by default to 5. |
+| `stationary_objects_buffer_length_in_seconds` | int | The minimum length of time in seconds that the system has to look back to decide whether a target is a stationary target or not. `stationary_objects_buffer_length_in_seconds` is set by default to 3600. |
+| `stationary_objects_filter_ratio` | float | If a target is repeatedly detected at the same location (defined in `stationary_objects_dist_threshold_in_pixels`) for greater `stationary_objects_filter_ratio` (0.2 means 20%) of the `stationary_objects_buffer_length_in_seconds` time interval, it will be treated as a stationary target. `stationary_objects_filter_ratio` is set by default to 0.2. |
 
 ## Spatial Analysis operations configuration and output
 
@@ -613,9 +613,9 @@ Sample JSON for an event output by this operation.
 | `type` | string| Type of region|
 | `points` | collection| Top left and bottom right points when the region type is RECTANGLE |
 | `confidence` | float| Algorithm confidence|
-| `attributes` | array| Array of attributes. Each attribute consist of label, task and confidence |
-| `label` | string| The attribute value (e.g. {label: face_mask} indicates the detected person is wearing a face mask ) |
-| `confidence (attribute)` | float| The attribute confidence value with range (0-1) (e.g. {confidence: 0.9, label: face_nomask} indicates the detected person is **not** wearing a face mask ) |
+| `attributes` | array| Array of attributes. Each attribute consist of label, task, and confidence |
+| `label` | string| The attribute value (for example, `{label: face_mask}` indicates the detected person is wearing a face mask ) |
+| `confidence (attribute)` | float| The attribute confidence value with range of 0 to 1 (for example, `{confidence: 0.9, label: face_nomask}` indicates the detected person is *not* wearing a face mask ) |
 | `task` | string | The attribute classification task/class |
 
 
@@ -722,9 +722,9 @@ Sample JSON for detections output by this operation.
 | `mappedImageOrientation` | float| The projected clockwise radian angle of the person's orientation on the 2D image space |
 | `speed` | float| The estimated speed of the detected person. The unit is `foot per second (ft/s)`|
 | `confidence` | float| Algorithm confidence|
-| `attributes` | array| Array of attributes. Each attribute consist of label, task and confidence |
-| `label` | string| The attribute value (e.g. {label: face_mask} indicates the detected person is wearing a face mask ) |
-| `confidence (attribute)` | float| The attribute confidence value with range (0-1) (e.g. {confidence: 0.9, label: face_nomask} indicates the detected person is **not** wearing a face mask ) |
+| `attributes` | array| Array of attributes. Each attribute consist of label, task, and confidence |
+| `label` | string| The attribute value (for example, `{label: face_mask}` indicates the detected person is wearing a face mask ) |
+| `confidence (attribute)` | float| The attribute confidence value with range of 0 to 1 (for example, `{confidence: 0.9, label: face_nomask}` indicates the detected person is *not* wearing a face mask ) |
 | `task` | string | The attribute classification task/class |
 
 | SourceInfo Field Name | Type| Description|
@@ -898,9 +898,9 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
 | `mappedImageOrientation` | float| The projected clockwise radian angle of the person's orientation on the 2D image space |
 | `speed` | float| The estimated speed of the detected person. The unit is `foot per second (ft/s)`|
 | `confidence` | float| Algorithm confidence|
-| `attributes` | array| Array of attributes. Each attribute consist of label, task and confidence |
-| `label` | string| The attribute value (e.g. {label: face_mask} indicates the detected person is wearing a face mask ) |
-| `confidence (attribute)` | float| The attribute confidence value with range (0-1) (e.g. {confidence: 0.9, label: face_nomask} indicates the detected person is **not** wearing a face mask ) |
+| `attributes` | array| Array of attributes. Each attribute consist of label, task, and confidence |
+| `label` | string| The attribute value (for example, `{label: face_mask}` indicates the detected person is wearing a face mask ) |
+| `confidence (attribute)` | float| The attribute confidence value with range of 0 to 1 (for example, `{confidence: 0.9, label: face_nomask}` indicates the detected person is *not* wearing a face mask ) |
 | `task` | string | The attribute classification task/class |
 
 ### JSON format for cognitiveservices.vision.spatialanalysis-persondistance AI Insights
@@ -1028,7 +1028,7 @@ When calculating `centerGroundPoint`, `x` is the distance from the camera to the
 
 ![Example center ground point](./media/spatial-analysis/x-y-chart.png) 
 
-In this example, `centerGroundPoint` is `{centerGroundPointX: 4, centerGroundPointY: 5}`. This means there's a person 4 feet away from the camera and 5 feet to the right, looking at the room top-down.
+In this example, `centerGroundPoint` is `{centerGroundPointX: 4, centerGroundPointY: 5}`. This means there's a person four feet away from the camera and five feet to the right, looking at the room top-down.
 
 
 | SourceInfo Field Name | Type| Description|
