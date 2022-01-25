@@ -38,7 +38,9 @@ In this step, you create a lab for your class in Azure Lab Services portal.
 3. Select **New lab**.  
     <br>:::image type="content" source="./media/tutorial-setup-lab/new-lab-button.png" alt-text="Screenshot of Azure Lab Services portal.  New lab button is highlighted.":::
 4. In the **New Lab** window, do the following actions:
-    1. Specify a **name**, **virtual machine image**, **size**, and **region** for your lab, and select **Next**.  Possibly, you'll need to choose a **lab plan**.  If more than one lab plan is in the resource group, you'll see a dropdown to choose a lab plan.  If there's only one lab plan in the resource group, this option will be hidden.
+    1. Specify a **name**, **virtual machine image**, **size**, and **region** for your lab, and select **Next**.  For more information about naming restrictions, see [Microsoft.LabServices resource name rules](../azure-resource-manager/management/resource-name-rules.md#microsoftlabservices).
+    
+        Possibly, you'll need to choose a **lab plan**.  If more than one lab plan is in the resource group, you'll see a dropdown to choose a lab plan.  If there's only one lab plan in the resource group, this option will be hidden.
         :::image type="content" source="./media/tutorial-setup-lab/new-lab-window.png" alt-text="Screenshot of the New lab window for Azure Lab Services.":::
     1. On the **Virtual machine credentials** page, specify default administrator credentials for all VMs in the lab. Specify the **name** and the **password** for the administrator.  By default all the student VMs will have the same password as the one specified here.
 
