@@ -54,5 +54,5 @@ The limit for Azure Purview policies that can be enforced by Storage accounts is
 Check the blog and demo related to the capabilities mentioned in this how-to guide
 
 * [What's New in Azure Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
-* [Demo of access policy for Azure Storage](https://www.youtube.com/watch?v=CFE8ltT19Ss)
-* [Enable access policies on an Azure Storage account](./how-to-access-policies-storage.md)
+* [Demo of access policy for Azure Storage](https://docs.microsoft.com/en-us/shows/azure-videos/azure-purview-data-owner-provisioning-for-azure-storage)
+* [Enable Azure Purview data owner policies on an Azure Storage account](./how-to-access-policies-storage.md)
