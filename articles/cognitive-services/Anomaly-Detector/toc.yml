@@ -89,11 +89,11 @@
     - name: .NET 
       href: https://www.nuget.org/packages/Azure.AI.AnomalyDetector
     - name: Java
-      href: https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector/3.0.0-beta.3/
+      href: https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector
     - name: Python
-      href: https://pypi.org/project/azure-ai-anomalydetector/
+      href: https://pypi.org/project/azure-ai-anomalydetector
     - name: Node.js
-      href: https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.4
+      href: https://www.npmjs.com/package/@azure/ai-anomaly-detector
 - name: Resources
   items:
     - name: Enterprise readiness

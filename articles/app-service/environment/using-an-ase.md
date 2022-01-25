@@ -162,6 +162,14 @@ The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE 
 
 An ASE has 1 TB of storage for all the apps in the ASE. An App Service plan in the Isolated pricing SKU has a limit of 250 GB. In an ASE, 250 GB of storage is added per App Service plan up to the 1 TB limit. You can have more App Service plans than just four, but there is no more storage added beyond the 1 TB limit.
 
+## Monitoring
+
+As a customer, you should monitor the App Service plans and the individual apps running and take appropriate actions. For App Service Environment v2, you should also pay attention to the metrics around the platform infrastructure. These metrics will give you insights into how the platform infrastructure and frontend servers are doing, and you can take action if they are heavily utilized and you are not getting maximum throughput.
+
+Through CLI you can configure the scale ratio of your frontend servers between 5 and 15 (default 15) App Service plan instances per frontend server. An App Service Environment will always have a minimum of two frontend servers. You can also increase the size of the frontend servers through CLI.
+
+You will see some metrics called Small/Medium/Large App Service Plan Workers and a sub-scope called multiRolePools/default. These are applicable to App Service Environment v1 only.
+
 ## Logging
 
 You can integrate your ASE with Azure Monitor to send logs about the ASE to Azure Storage, Azure Event Hubs, or Log Analytics. These items are logged today:

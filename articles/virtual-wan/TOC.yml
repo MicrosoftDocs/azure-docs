@@ -128,7 +128,11 @@
     - name: Configure custom IPsec policy
       href: virtual-wan-custom-ipsec-portal.md
     - name: Configure NAT rules
-      href: nat-rules-vpn-gateway.md
+      items:
+      - name: Azure portal
+        href: nat-rules-vpn-gateway.md
+      - name: Azure PowerShell
+        href: nat-rules-vpn-gateway-powershell.md
   - name: User VPN (point-to-site)
     items:
     - name: Create User VPN

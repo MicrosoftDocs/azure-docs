@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/08/2021
+ms.date: 01/23/2022
 ms.author: eur
 ms.custom: contperf-fy21q2, references_regions
 ---
@@ -75,6 +75,5 @@ Older models typically become less useful over time because the newest model usu
 ## Next steps
 
 * [Prepare and test your data](./how-to-custom-speech-test-and-train.md)
-* [Inspect your data](how-to-custom-speech-inspect-data.md)
 * [Evaluate and improve model accuracy](how-to-custom-speech-evaluate-data.md)
 * [Train and deploy a model](how-to-custom-speech-train-model.md)

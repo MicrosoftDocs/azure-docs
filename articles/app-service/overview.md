@@ -18,7 +18,7 @@ With App Service, you pay for the Azure compute resources you use. The compute r
 
 ## Why use App Service?
 
-Here are some key features of App Service:
+Azure App Service is a fully managed platform as a service (PaaS) offering for developers. Here are some key features of App Service:
 
 * **Multiple languages and frameworks** - App Service has first-class support for ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP, or Python. You can also run [PowerShell and other scripts or executables](webjobs-create.md) as background services.
 * **Managed production environment** - App Service automatically [patches and maintains the OS and language frameworks](overview-patch-os-runtime.md) for you. Spend time writing great apps and let Azure worry about the platform.
