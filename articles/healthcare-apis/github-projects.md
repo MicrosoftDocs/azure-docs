@@ -10,7 +10,7 @@ ms.author: ginle
 ---
 # GitHub Projects
 
-We have many open-source projects on GitHub that provide you the source code and instructions to deploy services for various uses. You are always welcome to visit our GitHub repositories to learn and experiment with our features and products. 
+We have many open-source projects on GitHub that provide you the source code and instructions to deploy services for various uses. You’re always welcome to visit our GitHub repositories to learn and experiment with our features and products. 
 
 ## Healthcare APIs samples
 
@@ -71,6 +71,12 @@ This solution enables you to transform the data into tabular format as it gets w
 #### HealthKit and FHIR Integration
 
 * [microsoft/healthkit-on-fhir](https://github.com/microsoft/healthkit-on-fhir): a Swift library that automates the export of Apple HealthKit Data to a FHIR Server.
+
+
+## Next steps
+
+In this article, you learned about some of the Healthcare APIs open-source GitHub projects that provide source code and instructions to let you experiment and deploy services for various uses. For more information about Healthcare APIs, see 
+
 
 >[!div class="nextstepaction"]
 >[Overview of Azure Healthcare APIs](healthcare-apis-overview.md)
