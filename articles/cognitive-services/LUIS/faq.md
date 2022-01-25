@@ -21,10 +21,6 @@ LUIS has several limit areas. The first is the model limit, which controls inten
 
 An authoring resource lets you create, manage, train, test, and publish your applications. A prediction resource lets you query your prediction endpoint beyond the 1,000 requests provided by the authoring resource. See [Authoring and query prediction endpoint keys in LUIS](luis-how-to-azure-subscription.md) to learn about the differences between the authoring key and the prediction runtime key.
 
-## How can I do intent conversion?
-
-Conversion of speech to text in LUIS allows you to send spoken utterances to an endpoint and receive a LUIS prediction response. The process is an integration of the [Speech](../Speech-Service/overview.md) service with LUIS. Learn more about Speech to Intent with a [tutorial](../Speech-Service/how-to-recognize-intents-from-speech-csharp.md).
-
 ## Does LUIS support speech to text?
 
 Yes, [Speech](../speech-service/how-to-recognize-intents-from-speech-csharp.md#luis-and-speech) to text is provided as an integration with LUIS.
