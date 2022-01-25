@@ -38,7 +38,10 @@ This is the basic template format:
           "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
         },
 	"userAssignedIdentities": [
-          "/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName>"
+          "/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName1>",
+	  "/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName2>",
+	  "/subscriptions/<subscriptionID>/resourceGroups/<identityRgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identityName3>",
+	  ...
       ]
       },
       "source": {}, 
@@ -152,7 +155,7 @@ For more information on deploying this feature, see [Configure managed identitie
 
 This field is only available in API versions 2021-10-01 and newer.
 
-Optional - The Image Builder Build VM, that is created by the Image Builder service in your subscription, is used to build and customize the image. For the Image Builder Build VM to have permissions to authenticate with other services like Azure Key Vault in your subscription, you must create a Azure User Assigned Identity that has permissions to the individual resources. The user assigned identity for Azure Image Builder should have the "Managed Identity Operator" role assignment on all the user assigned identities for the Image Builder Build VM.
+Optional - The Image Builder Build VM, that is created by the Image Builder service in your subscription, is used to build and customize the image. For the Image Builder Build VM to have permissions to authenticate with other services like Azure Key Vault in your subscription, you must create one or more Azure User Assigned Identities that have permissions to the individual resources. Azure Image Builder can then associate these User Assigned Identities with the Build VM. Customizer scripts running inside the Build VM can then fetch tokens for these identities and interact with other Azure resources as needed. Please be aware, the user assigned identity for Azure Image Builder must have the "Managed Identity Operator" role assignment on all the user assigned identities for Azure Image Builder to be able to associate them to the build VM.
 
 > [!NOTE]
 > Please be aware that multiple identities can be specified for the Image Builder Build VM, including the identity you created for the [image template resource](#user-assigned-identity-for-azure-image-builder-image-template-resource). By default, the identity you created for the image template resource will not automatically be added to the build VM.
