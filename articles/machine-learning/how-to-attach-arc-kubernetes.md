@@ -2,8 +2,8 @@
 title: Azure Arc-enabled machine learning (preview)
 description: Configure Azure Kubernetes Service and Azure Arc-enabled Kubernetes clusters to train and inference machine learning models in Azure Machine Learning
 titleSuffix: Azure Machine Learning
-author: luisquintanilla
-ms.author: luquinta
+author: ssalgadodev
+ms.author: ssalgado
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/23/2021
