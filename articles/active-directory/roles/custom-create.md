@@ -152,7 +152,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $resourceScope -
     {
         "principalId":"<GUID OF USER>",
         "roleDefinitionId":"<GUID OF ROLE DEFINITION>",
-        "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
+        "directoryScopeId":"/<GUID OF APPLICATION REGISTRATION>"
     }
     ```
 
