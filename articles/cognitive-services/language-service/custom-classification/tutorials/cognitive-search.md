@@ -15,7 +15,7 @@ ms.custom:
 
 # Tutorial: Enrich Cognitive search index with custom classifications from your data
 
-With the abundance of electronic documents within the enterprise, the problem of search through them becomes a tiring and expensive task. [Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-create-service-portal) helps with searching through your files based on their indices. Custom classification helps in enriching the indexing of these files by classifying them into your custom classes.
+With the abundance of electronic documents within the enterprise, the problem of search through them becomes a tiring and expensive task. [Azure Cognitive Search](../../../../search/search-create-service-portal.md) helps with searching through your files based on their indices. Custom classification helps in enriching the indexing of these files by classifying them into your custom classes.
 
 In this tutorial, you will learn how to:
 
@@ -43,9 +43,9 @@ In this tutorial, you will learn how to:
        
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
-4. If you’ve created your resource using the steps above in this [guide](..//how-to/create-project.md#azure-resources), the **Connect storage** step will be completed already. If not, you need to assign [roles for your storage account](../../how-to/create-project.md#roles-for-your-storage-account) before connecting it to your resource.
+4. If you’ve created your resource using the steps in [Create a project](../how-to/create-project.md#azure-resources), the **Connect storage** step will be completed already. If not, you need to assign [roles for your storage account](../../how-to/create-project.md#roles-for-your-storage-account) before connecting it to your resource.
 
-5. Select your project type. For this quickstart, we will create a multi-label classification project where you can assign multiple classes to the same file. Then click **Next**. Learn more about [project types](../../glossary.md#project-types)
+5. Select your project type. For this tutorial, we will create a multi-label classification project where you can assign multiple classes to the same file. Then click **Next**. See [project types](../../glossary.md#project-types) in the FAQ for more information.
 
 6. Enter project information, including a name, description, and the language of the files in your project. You won’t be able to change the name of your project later.
     >[!TIP]

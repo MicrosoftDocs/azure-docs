@@ -72,7 +72,7 @@ items:
   - name: Tutorials
     items:
     - name: Enrich a Cognitive Search index 
-      href: tutorials/cognitive-search.md
+      href: custom-classification/tutorials/cognitive-search.md
   - name: Reference
     items:
     - name: Glossary
