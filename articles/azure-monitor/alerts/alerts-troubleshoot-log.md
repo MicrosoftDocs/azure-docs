@@ -114,7 +114,7 @@ The total number of log search alert rules is displayed above the rules list.
 #### From API
 
 - PowerShell - [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule)
-- CLI: [az monitor scheduled-query list](/cli/azure/monitor/scheduled-query?view=azure-cli-latest#az-monitor-scheduled-query-list)
+- CLI: [az monitor scheduled-query list](/cli/azure/monitor/scheduled-query#az-monitor-scheduled-query-list)
 - REST API - [List by subscription](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/list-by-subscription)
 
 ## Activity log example when rule is disabled

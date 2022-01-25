@@ -22,7 +22,7 @@ In the past, users used the [legacy Log Analytics Alert API](./api-alerts.md) to
 - Single template for creation of alert rules (previously needed three separate templates).
 - Single API for all Azure resources log alerting.
 - Support for stateful and 1-minute log alert previews for legacy rules.
-- [PowerShell cmdlets](./alerts-manage-alerts-previous-version.md#manage-log-alerts-using-powershell) and [Azure CLI](./alerts-log.md#manage-log-alerts-using-CLI) support for switched rules.
+- [PowerShell cmdlets](./alerts-manage-alerts-previous-version.md#manage-log-alerts-using-powershell) and [Azure CLI](./alerts-log.md#manage-log-alerts-using-cli) support for switched rules.
 - Alignment of severities with all other alert types and newer rules.
 - Ability to create [cross workspace log alert](../logs/cross-workspace-query.md) that span several external resources like Log Analytics workspaces or Application Insights resources for switched rules.
 - Users can specify dimensions to split the alerts for switched rules.
