@@ -83,7 +83,7 @@ When you configure application routing, you can either route all traffic or only
 > [!NOTE]
 > * When **Route All** is enabled, all traffic is subject to the NSGs and UDRs that are applied to your integration subnet. When all traffic routing is enabled, outbound traffic is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
 > * Windows containers don't support routing App Service Key Vault references or pulling custom container images over virtual network integration.
-> * Regional virtual network integration can't use port 25.
+> * Regional virtual network integration can't use port 25 when **Route All** is enabled.
 
 Learn [how to configure application routing](./configure-vnet-integration-routing.md).
 
