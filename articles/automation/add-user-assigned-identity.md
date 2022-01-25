@@ -324,8 +324,7 @@ To assign a role to a user-assigned managed identity of the Automation account, 
 
 If the roles are already assigned to the selected user-assigned managed identity, you can see a list of role assignments. This list includes all the role-assignments you have permission to read.
 
-
-  :::image type="content" source="media/add-user-assigned-identity/user-assigned-role-assignments-inline.png" alt-text="View role-assignments that you have permission in Azure portal." lightbox="media/add-user-assigned-identity/user-assigned-role-assignments-expanded.png":::
+    :::image type="content" source="media/add-user-assigned-identity/user-assigned-role-assignments-inline.png" alt-text="View role-assignments that you have permission in Azure portal." lightbox="media/add-user-assigned-identity/user-assigned-role-assignments-expanded.png":::
 
 1. To change the subscription, click the **Subscription** drop-down list and select the appropriate subscription.
 1. Click **Add role assignment (Preview)**
