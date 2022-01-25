@@ -20,7 +20,7 @@ Azure SQL Database [elastic pools](./elastic-pool-overview.md) is a cost-effecti
 
 ## Resource governance
 
-Resource sharing requires the system to carefully control resource usage to minimize the "noisy neighbor" effect, where a database with high resource consumption affects other databases in the same elastic pool. At the same time, the system must provide sufficient resources for features such as high availability and disaster recovery (HADR), backup and restore, monitoring, Query Store, Automatic tuning, etc. to function reliably.
+Resource sharing requires the system to carefully control resource usage to minimize the "noisy neighbor" effect, where a database with high resource consumption affects other databases in the same elastic pool. Azure SQL Database achieves these goals by implementing [resource governance](resource-limits-logical-server.md#resource-governance). At the same time, the system must provide sufficient resources for features such as high availability and disaster recovery (HADR), backup and restore, monitoring, Query Store, Automatic tuning, etc. to function reliably. 
 
 The primary design goal of elastic pools is to be cost-effective. For this reason, the system intentionally allows customers to create _dense_ pools, that is pools with the number of databases approaching or at the maximum allowed, but with a moderate allocation of compute resources. For the same reason, the system doesn't reserve all potentially needed resources for its internal processes, but allows resource sharing between internal processes and user workloads.
 
