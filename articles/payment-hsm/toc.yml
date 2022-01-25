@@ -12,16 +12,8 @@
     href: quickstart-cli.md
 - name: Concepts
   items:
-  - name: High availability
-    href: high-availability.md
-  - name: Monitoring
-    href: monitoring.md
-  - name: Networking
-    href: Networking.md
-  - name: Physical security
-    href: physical-security.md
-  - name: Supportability
-    href: supportability.md
+  - name: Deployment scenarios
+    href: deployment-scenarios.md
 - name: Reference
   items:
   - name: Azure CLI
