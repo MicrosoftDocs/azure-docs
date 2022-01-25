@@ -14,7 +14,7 @@ ms.author: eur
 
 # Improve synthesis with the Audio Content Creation tool
 
-[Audio Content Creation](https://aka.ms/audiocontentcreation) is an easy-to-use and powerful tool that lets you build highly natural audio content for a variety of scenarios, like audiobooks, news broadcasts, video narrations, and chat bots. With Audio Content Creation, you can fine-tune Text-to-Speech voices and design customized audio experiences in an efficient and low-cost way.
+[Audio Content Creation](https://aka.ms/audiocontentcreation) is an easy-to-use and powerful tool that lets you build highly natural audio content for a variety of scenarios, like audiobooks, news broadcasts, video narrations, and chat bots. With Audio Content Creation, you can fine-tune Text-to-Speech voices and design-customized audio experiences in an efficient and low-cost way.
 
 The tool is based on [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). It allows you to adjust Text-to-Speech output attributes in real time or batch synthesis, such as voice characters, voice styles, speaking speed, pronunciation, and prosody.
 
