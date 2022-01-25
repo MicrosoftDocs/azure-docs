@@ -10,52 +10,47 @@ ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
 
-# Provide a virtual network to an Azure Container Apps Preview environment
+# Provide a virtual network to an Azure Container Apps (Preview) environment
 
 As you create an Azure Container Apps [environment](environment.md), a virtual network (VNET) is created for you, or you can provide your own. Network addresses are assigned from a subnet range you define as the environment is created.
 
-- You control the subnet range used by the container app environment.
+- You control the subnet range used by the Container Apps environment.
 - Once the environment is created, the subnet range is immutable.
 - A single load balancer and single Kubernetes service is associated with each container apps environment.
 - Each [revision pod](revisions.md) is assigned an IP address in the subnet.
-- You can restrict inbound requests to the environment exclusively to the vNET by setting the `internalOnly` switch.
-
-> [!NOTE]
-> Current support is for outbound VNET only. Refer to the [project GitHub repository](https://github.com/microsoft/azure-container-apps) for roadmap information.
+- You can restrict inbound requests to the environment exclusively to the VNET by deploying the environment as internal.
 
 > [!IMPORTANT]
-> During preview, the VNET dependency policies must be set to "allow all". Refer to the [custom VNET security sample](azurecontainerapps/customvnet) for the latest iteration of the firewall security features.
+> In order to ensure the environment deployment within your custom VNET is successful, configure your VNET with an "allow-all" configuration by default. The full list of traffic dependencies required to configure the VNET as "deny-all" is not yet available. Refer to the [custom VNET security sample (https://aka.ms/azurecontainerapps/customvnet) for additional details.
 
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Azure Container Apps environments use an existing VNET, or you can provide your own.":::
 
 ## Subnet types
 
-As a container app environment is created, you provide resource IDs for two different subnets. Both subnets must be defined in the same VNET.
+As a Container Apps environment is created, you provide resource IDs for two different subnets. Both subnets must be defined in the same container apps.
 
-- **App subnet**: Subnet for user app containers. Subnet that contains IP ranges mapped to applications deployed as containers in a container app.
+- **App subnet**: Subnet for user app containers. Subnet that contains IP ranges mapped to applications deployed as containers.
 - **Control plane subnet**: Subnet for [control plane infrastructure](/azure/azure-resource-manager/management/control-plane-and-data-plane) components and user app containers.
 
 If the `platformReservedCidr` is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
 
 ## Accessibility level
 
-Hou have control over the public accessibility of your container app by selecting to deploy it as an internal or external resource. The accessibility level affects both the IP addresses and the Envoy load balancer.
+You can deploy your Container Apps environment with an internet-accessible endpoint or with an IP address in your VNET. The accessibility level determines the type of load balancer used with your Container Apps instance.
 
 ### External
 
-Container app environments deployed as external resources are available for public requests. External environments have a VIP on an external IP address, often called an External ASE.
+Container Apps environments deployed as external resources are available for public requests. External environments are deployed with a virtual IP on an external, public facing IP address. (make sure to remove app service environment)
 
 ### Internal
 
-When set to internal, the environment has no public endpoint. Internal environments have a VIP on an internal IP address, often called an ILB ASE because the internal endpoint is an internal load balancer (ILB). IP addresses are issued from the custom VNET's list of private IP addresses.
-
-If a container app can be set to internal when the container app is only being called by other container apps or via Dapper.
+When set to internal, the environment has no public endpoint. Internal environments are deployed with a virtual IP (VIP) mapped to an internal IP address. The internal endpoint is an Azure internal load balancer (ILB) and IP addresses are issued from the custom VNET's list of private IP addresses.
 
 To create an internal only environment provide the `--internal-only` parameter to the `az containerapp env create` command.
 
 ## Example
 
-The following example shows you how to create a Container Apps environment with an existing virtual network.
+The following example shows you how to create a Container Apps environment in an existing virtual network.
 
 ::: zone pivot="azure-portal"
 
@@ -244,9 +239,36 @@ The following table describes the parameters used in for `containerapp env creat
 | `location` | The Azure location where the environment is to deploy.  |
 | `app-subnet-resource-id` | The resource ID of a subnet where containers are injected into the container app. This subnet must be in the same VNET as the subnet defined in `--control-plane-subnet-resource-id`. |
 | `controlplane-subnet-resource-id` | The resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in `--app-subnet-resource-id`. |
-| `--internal-only` | Optional parameter that scopes the environment to IP addresses only available the custom VNET. |
+| `internal-only` | Optional parameter that scopes the environment to IP addresses only available the custom VNET. |
 
 With your environment created with your custom virtual network, you can create container apps into the environment using the `az containerapp create` command.
+
+### Optional: Deploy with a private DNS 
+
+```bash
+export ENVIRONMENT_DEFAULT_DOMAIN=`az containerapp env show -n $CONTAINERAPPS_ENVIRONMENT -g $RESOURCE_GROUP --query defaultDomain --out json | tr -d '"'`
+export ENVIRONMENT_STATIC_IP=`az containerapp env show -n $CONTAINERAPPS_ENVIRONMENT -g $RESOURCE_GROUP --query staticIp --out json | tr -d '"'`
+```
+
+```bash
+export VNET_ID=`az network vnet show -g $RG -n $VNET_NAME --query id --out json | tr -d '"'`
+```
+
+```azurecli
+az network private-dns zone create -g $RESOURCE_GROUP -n $ENVIRONMENT_DEFAULT_DOMAIN
+```
+
+```azurecli
+az network private-dns link vnet create -g $RESOURCE_GROUP -n $VNET_NAME -v $VNET_ID --zone-name $ENVIRONMENT_DEFAULT_DOMAIN -e true
+```
+
+```azurecli
+az network private-dns record-set a add-record -g $RESOURCE_GROUP -n "*" --ipv4-address $ENVIRONMENT_STATIC_IP --zone-name $ENVIRONMENT_DEFAULT_DOMAIN
+```
+
+```azurecli
+az vm create -n acabugbashvm -g $RESOURCE_GROUP --image UbuntuLTS --size Standard_D2_v3 --vnet-name $VNET_NAME --subnet VMs --public-ip-address-allocation static --public-ip-address-dns-name acabugbashvm --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub
+```
 
 ::: zone-end
 
