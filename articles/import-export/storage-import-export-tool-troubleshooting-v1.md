@@ -17,7 +17,7 @@ This article describes how to troubleshoot common issues when importing and expo
 
 When a copy session fails, you have two options:  
 * If the error can be retried - for example, if the network share was offline for a short period and now is back online - you can resume the copy session.
-* If the error can't be retried - for example, if you specified the wrong source file directory in the command-line parameters - you need to abort the copy session. A copy session will fail if you used an HDD with 4096-byte (4K) sectors; only 512-byte sectors are supported on HDDs.
+* If the error can't be retried - for example, if you specified the wrong source file directory in the command-line parameters - you need to abort the copy session. A copy session will fail if you used a hard disk drive (HDD) with 4096-byte (4K) sectors; only 512-byte sectors are supported on HDDs.
  
 <!--For information about resuming and aborting copy sessions, see [Preparing Hard Drives for an Import Job](../storage-import-export-tool-preparing-hard-drives-import-v1.md  - Article we removed from TOC. File remains.-->
 
@@ -25,7 +25,7 @@ When a copy session fails, you have two options:
 
 If the copy session is the first copy session for a drive, then the error message should state: "The first copy session cannot be resumed or aborted." In this case, you can delete the old journal file and rerun the command.  
 
-If a copy session is not the first one for a drive, the session can always be resumed or aborted.  
+If a copy session isn't the first one for a drive, the session can always be resumed or aborted.  
 
 ## I lost the journal file. Can I still create the job?
 
