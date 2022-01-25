@@ -1,19 +1,19 @@
 ---
-title:  "Tutorial: Managed identity to connect MySQL"
-description: Set up managed identity to connect MySQL to an Azure Spring Cloud app
-author:
-ms.author:
+title:  "Tutorial: Managed identity to connect Azure Database for MySQL"
+description: Set up managed identity to connect Azure Database for MySQL to an Azure Spring Cloud app
+author: xiading
+ms.author: xiading
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.date:
+ms.date: 01/25/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Tutorial: Use a managed identity to connect MySQL to an Azure Spring Cloud app
+# Tutorial: Use a managed identity to connect Azure Database for MySQL to an Azure Spring Cloud app
 
 **This article applies to:** ✔️ Java
 
-This article shows you how to create a managed identity for an Azure Spring Cloud app and use it to access Azure MySQL while store the MySQL password in Key Vault for security consideration.
+This article shows you how to create a managed identity for an Azure Spring Cloud app and use it to access Azure Database for MySQL while store the MySQL password in Key Vault for security consideration.
 
 The following video describes how to manage secrets using Azure Key Vault.
 
@@ -23,11 +23,11 @@ The following video describes how to manage secrets using Azure Key Vault.
 
 ## Prerequisites
 
-* [JDK 8](https://docs.microsoft.com/en-us/azure/java/jdk/java-jdk-install)
+* [JDK 8](/azure/java/jdk/java-jdk-install)
 * [Maven 3.0 and above](http://maven.apache.org/install.html)
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
-* An existing Key Vault. If you need to create a Key Vault, you can use the [Azure Portal](https://docs.microsoft.com/en-us/azure/key-vault/secrets/quick-create-portal) or [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
-* An existing MySQL instance with a database with name `demo`. If you need to create MySQL, you can use the [Azure Portal](https://docs.microsoft.com/en-us/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal) or [Azure CLI](https://docs.microsoft.com/en-us/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
+* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure Cloud Shell](/azure/cloud-shell/overview)
+* An existing Key Vault. If you need to create a Key Vault, you can use the [Azure Portal](/azure/key-vault/secrets/quick-create-portal) or [Azure CLI](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
+* An existing Azure Database for MySQL instance with a database with name `demo`. If you need to create Azure Database for MySQL, you can use the [Azure Portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal) or [Azure CLI](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
 
 ## Create a resource group
 
@@ -57,16 +57,16 @@ az keyvault secret set --vault-name "<your-keyvault-name>" \
     --value "<MySQL-PASSWORD>"
 ```
 
-## Set up your MySQL
+## Set up your Azure Database for MySQL
 
-To create a MySQL, use [Azure Portal](https://docs.microsoft.com/en-us/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal) or [Azure CLI](https://docs.microsoft.com/en-us/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
+To create a Azure Database for MySQL, use [Azure Portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal) or [Azure CLI](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
 
 Please create a database named `demo` for later use.
 ```azurecli
 az mysql db create \
     --resource-group "myResourceGroup" \
     --name demo \
-    --server-name "<MySQL-name>"
+    --server-name "<mysql-name>"
 ```
 
 ## Create Azure Spring Cloud service and app
@@ -108,7 +108,7 @@ This [sample](https://github.com/leonard520/Azure-Spring-Cloud-Samples/managed-i
     git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples.git
     ```
 
-2. Specify your Key Vault and MySQL information in your app's `application.properties`.
+2. Specify your Key Vault and Azure Database for MySQL information in your app's `application.properties`.
     ```
     spring.datasource.url=jdbc:mysql://<mysql-instance-name>.mysql.database.azure.com:3306/demo?serverTimezone=UTC
     spring.datasource.username=<mysql-username>@<mysql-instance-name>
