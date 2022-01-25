@@ -66,7 +66,7 @@ can sign in to the database.
 New user roles are commonly used to provide database access with restricted
 privileges. To modify user privileges, use standard PostgreSQL commands, using
 a tool such as PgAdmin or psql. (See [Connect to a Hyperscale (Citus) server
-group](quickstart-connect.md).)
+group](quickstart-connect-psql.md).)
 
 For example, to allow `db_user` to read `mytable`, grant the permission:
 
