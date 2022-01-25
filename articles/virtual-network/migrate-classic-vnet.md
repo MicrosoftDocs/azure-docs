@@ -1,7 +1,7 @@
 ---
 title: Migrate a virtual network from classic to Resource Manager
 titlesuffix: Azure Virtual Network
-description: Learn about migrating Virtual Network from the classic deployment model to the Resource Manager deployment model.
+description: Learn about migrating a virtual network from the classic deployment model to the Resource Manager model.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
@@ -14,18 +14,18 @@ ms.custom: template-how-to
 
 In this article, you'll learn how to migrate from the classic deployment model to the newer Resource Manager deployment model.
 
-Migration from classic to Resource Manager is completed one virtual network at a time. There isn't an additional requirement for tools or prerequisites to migration, other than the Azure PowerShell requirements. The migration is a control plane migration of virtual network resource. There isn't a  data path downtime during migration and existing workloads will continue to function without loss of connectivity during the migration. Any public IP addresses associated with the virtual network don't change during the migration process. 
+Migration from classic to Resource Manager is completed one virtual network at a time. There isn't an additional requirement for tools or prerequisites to migration, other than the Azure PowerShell requirements. The migration is a control plane migration of virtual network resource. There isn't a data path downtime during migration. Existing workloads will continue to function without loss of connectivity during the migration. Any public IP addresses associated with the virtual network don't change during the migration process. 
 
-Once the virtual mnetwork migration is completed, all management operations must be performed using the Resource Manager model. Operations for managing a virtual network, updating subnets or deleting virtual network resources are only accessible via the Resource Manager deployment model.
+When the migration is completed, all management operations must be performed using the Resource Manager model. Management operations are only accessible via the Resource Manager deployment model. Subnet or virtual network resource changes will no longer be available via the old deployment model.
 
 When you migrate the virtual network from the classic to Resource Manager model, the supported resources within the virtual network are automatically migrated to the new model.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- The steps and examples in this article use Azure PowerShell Az modules. To install the Az modules locally on your computer, see [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). To learn more about the new Az module, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az). PowerShell cmdlets are updated frequently. If you are not running the latest version, the values specified in the instructions may fail. To find the installed versions of PowerShell on your system, use the cmdlet Get-Module -ListAvailable Az cmdlet.
+- The steps and examples in this article use Azure PowerShell Az module. To install the Az modules locally on your computer, see [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). To learn more about the new Az module, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az). PowerShell cmdlets are updated frequently. If you aren’t running the latest version, the values specified in the instructions may fail. To find the installed versions of PowerShell on your system, use the cmdlet Get-Module -ListAvailable Az cmdlet.
 - To migrate a virtual network with an application gateway, remove the gateway before you run a prepare operation to move the network. After you complete the migration, reconnect the gateway in Azure Resource Manager.
-- Verify that you have installed both the classic and Az Azure PowerShell modules locally on your computer. For more information, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+- Verify that you’ve installed both the classic and Az Azure PowerShell modules locally on your computer. For more information, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 - Azure ExpressRoute gateways that connect to ExpressRoute circuits in another subscription can't be migrated automatically. In these cases, remove the ExpressRoute gateway, migrate the virtual network, and re-create the gateway.
 
 ## Supported scenarios
@@ -44,9 +44,9 @@ The following scenarios are supported for a classic to Resource Manager migratio
 
 The following scenarios are unsupported for migration:
 
-* Managing the life cycle of a Virtual Network from the classic deployment model.
+* Managing the life cycle of a virtual network from the classic deployment model.
 
-* Azure role-based access control (Azure RBAC) support for the classic deployment model. 
+* Azure role-based access control support for the classic deployment model. 
 
 * Virtual Network migration with both ExpressRoute gateway and VPN gateway.
 
@@ -56,9 +56,9 @@ The following scenarios are unsupported for migration:
 
 * Application gateway migration from classic to Resource Manager. 
 
-## Register migration resource provider
+## Register resource provider
 
-In this section, you'll sign in to your subscription using the resource manager cmdlets and register the migration resource provider.
+In this section, you'll sign in to your subscription using the Resource Manager cmdlets and register the migration resource provider.
 
 1. Sign in to Azure PowerShell:
 
@@ -90,7 +90,7 @@ In this section, you'll sign in to your subscription using the resource manager 
 
 ## Retrieve the virtual network name to be migrated
 
-In this section, you'll sign in to the classic deployment model PowerShell and retrieve the name of the virtual network you wish to migrate to Resource Manager.
+In this section, you'll sign in to the classic deployment model PowerShell and retrieve the name of the virtual network to be migrated.
 
 1. Sign in to the classic deployment PowerShell:
 
@@ -154,9 +154,9 @@ Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 
 ## Next steps
 
-For more information on migrating resources in Azure from the classic to resource manager model, see:
+For more information on migrating resources in Azure from classic to Resource Manager, see:
 
 - [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-overview.md).
 - [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.yml).
-- [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md)
+- [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md).
 
