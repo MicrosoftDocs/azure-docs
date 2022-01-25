@@ -63,7 +63,7 @@ Once the recordings are ready, follow [Prepare training data](how-to-custom-voic
 
 ### Training
 
-Once you have prepared the training data, go to [Speech Studio](https://aka.ms/custom-voice) to create your custom neural voice. You need to select at least 300 utterances to create a custom neural voice. A series of data quality checks are automatically performed when you upload them. To build high quality voice models, you should fix the errors and submit again.
+Once you have prepared the training data, go to [Speech Studio](https://aka.ms/custom-voice) to create your custom neural voice. You need to select at least 300 utterances to create a custom neural voice. A series of data quality checks are automatically performed when you upload them. To build high-quality voice models, you should fix the errors and submit again.
 
 ### Testing
 
