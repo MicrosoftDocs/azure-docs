@@ -15,7 +15,7 @@ ms.date: 12/31/2021
 
 Start a debug session to identify and resolve errors, validate changes, and push changes to a published skillset in your Azure Cognitive Search service.
 
-A debug session is a cached indexer and skillset execution, scoped to a single document, that you can use to edit and test your changes interactively. If you are unfamiliar with how a debug session works, see [Debug sessions in Azure Cognitive Search](cognitive-search-debug-session.md). To practice a debug workflow with a sample document, see [Tutorial: Debug sessions](cognitive-search-tutorial-debug-sessions.md).
+A debug session is a cached indexer and skillset execution, scoped to a single document, that you can use to edit and test your changes interactively. If you're unfamiliar with how a debug session works, see [Debug sessions in Azure Cognitive Search](cognitive-search-debug-session.md). To practice a debug workflow with a sample document, see [Tutorial: Debug sessions](cognitive-search-tutorial-debug-sessions.md).
 
 > [!Important]
 > Debug sessions is a preview portal feature, provided under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -70,7 +70,7 @@ To prove whether a modification resolves an error, follow these steps:
 
 1. Select **Run** in the session window to invoke skillset execution using the modified definition.
 
-1. Return to **Errors/Warnings** to see if the count is reduced. The list will not be refreshed until you open the tab.
+1. Return to **Errors/Warnings** to see if the count is reduced. The list won't be refreshed until you open the tab.
 
 ## View content of enrichment nodes
 
@@ -82,7 +82,7 @@ Enriched documents are internal, but a debug session gives you access to the con
 
 1. Select a skill.
 
-1. In the details pane to the right, select **Executions**, select an OUTPUT, and then open the Expression Evaluator (**`</>`**) to view the expression and it's result.
+1. In the details pane to the right, select **Executions**, select an OUTPUT, and then open the Expression Evaluator (**`</>`**) to view the expression and its result.
 
    :::image type="content" source="media/cognitive-search-debug/enriched-doc-output-expression.png" alt-text="Screenshot of a skill execution showing output values." border="true":::
 
@@ -119,9 +119,9 @@ If skills produce output but the search index is empty, check the field mappings
 
 1. Select **Field Mappings** near the top. You should find at least the document key that uniquely identifies and associates each search document in the search index with it's source document in the data source. 
 
-   If you are importing raw content straight from the data source, bypassing enrichment, you should find those fields in **Field Mappings**.
+   If you're importing raw content straight from the data source, bypassing enrichment, you should find those fields in **Field Mappings**.
 
-1. Select **Output Field Mappings** at the bottom of the graph. Here you will find mappings from skill outputs to target fields in the search index. Unless you used the Import Data wizard, output field mappings are defined manually and could be incomplete or mistyped. 
+1. Select **Output Field Mappings** at the bottom of the graph. Here you'll find mappings from skill outputs to target fields in the search index. Unless you used the Import Data wizard, output field mappings are defined manually and could be incomplete or mistyped. 
 
    Verify that the fields in **Output Field Mappings** exist in the search index as specified, checking for spelling and [enrichment node path syntax](cognitive-search-concept-annotations-syntax.md). 
 
