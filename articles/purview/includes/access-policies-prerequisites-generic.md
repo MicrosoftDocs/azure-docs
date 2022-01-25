@@ -4,7 +4,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 02/24/2022
+ms.date: 01/24/2022
 ms.custom:
 ---
 - Create a new, or use an existing isolated test subscription. You can [follow this guide to create a new one](../../cost-management-billing/manage/create-subscription.md).
