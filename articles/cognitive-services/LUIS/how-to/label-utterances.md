@@ -93,7 +93,7 @@ After labeling, review the example utterance and ensure the selected span of tex
 
 If there is a dotted-lined box around the span of text, it indicates the text is predicted but _not labeled yet_. To turn the prediction into a label, select the utterance row, then select  **Confirm entities**  from the contextual toolbar.
 
-<!--:::image type="content" source="../media/add-entities/prediction-confirm.png" alt-text="A screenshot showing confirming preditcion" lightbox="../media/add-entities/prediction-confirm.png":::-->
+<!--:::image type="content" source="../media/add-entities/prediction-confirm.png" alt-text="A screenshot showing confirming prediction." lightbox="../media/add-entities/prediction-confirm.png":::-->
 
 > [!Note]
 > You do not need to label for punctuation. Use [application settings](../luis-reference-application-settings.md) to control how punctuation impacts utterance predictions.
