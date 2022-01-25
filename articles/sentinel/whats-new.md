@@ -29,7 +29,6 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## February 2022
 
-
 [View Azure Purview data in Microsoft Sentinel](#view-azure-purview-data-in-microsoft-sentinel)
 
 ### View Azure Purview data in Microsoft Sentinel
