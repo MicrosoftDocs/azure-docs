@@ -1,9 +1,10 @@
 ---
 title: 'Tutorial: Use Microsoft Azure Maps Creator to create indoor maps'
+titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to use Microsoft Azure Maps Creator to create indoor maps
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 10/28/2021
+ms.date: 01/24/2022
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -20,8 +21,8 @@ This tutorial describes how to create indoor maps. In this tutorial, you'll lear
 > * Create a dataset from your map data.
 > * Create a tileset from the data in your dataset.
 > * Query the Azure Maps Web Feature Service (WFS) API to learn about your map features.
-> * Create a feature stateset by using your map features and the data in your dataset.
-> * Update your feature stateset.
+> * Create a feature stateset that can be used to set the states of features in your dataset.
+> * Update the state of a given map feature.
 
 ## Prerequisites
 
@@ -33,7 +34,7 @@ This tutorial describes how to create indoor maps. In this tutorial, you'll lear
 This tutorial uses the [Postman](https://www.postman.com/) application, but you can use a different API development environment.
 
 >[!IMPORTANT]
-> This tutorial uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services). To view mappings of region to geographical location, [see Creator service geographic scope](creator-geographic-scope.md).
+> This tutorial uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
 
 ## Upload a Drawing package
 
@@ -71,15 +72,15 @@ To upload the Drawing package:
 
 11. Select **Select File**, and then select a Drawing package.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-body.png" alt-text="Select a Drawing package.":::
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-body.png" alt-text="A screenshot of Postman showing the body tab in the POST window, with Select File highlighted, this is used to select the Drawing package to import into Creator.":::
 
 12. Select **Send**.
 
 13. In the response window, select the **Headers** tab.
 
-14. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` to check the status of the Drawing package upload.
+14. Copy the value of the **Operation-Location** key. The Operation-Location key is also known as the `status URL` and is required to check the status of the Drawing package upload, which is explained in the next section.
 
-     :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-response-header.png" alt-text="Copy the status URL in the Location key.":::
+     :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-response-header.png" alt-text="A screenshot of Postman showing the header tab in the response window, with the Operation Location key highlighted.":::
 
 ### Check the Drawing package upload status
 
@@ -93,7 +94,7 @@ To check the status of the drawing package and retrieve its unique ID (`udid`):
 
 4. Select the **GET** HTTP method.
 
-5. Enter the `status URL` you copied in [Upload a Drawing package](#upload-a-drawing-package). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+5. Enter the `status URL` you copied as the last step in the previous section of this article. You will need to append your subscription key to the end of the URL `&subscription-key={Your-Azure-Maps-Primary-Subscription-key}` (replace `{Azure-Maps-Primary-Subscription-key}` with your Azure Maps primary subscription key). The request should look like the following URL:
 
     ```http
     https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
@@ -121,7 +122,7 @@ To retrieve content metadata:
 
 4. . Select the **GET** HTTP method.
 
-5. Enter the `resource Location URL` you copied in [Check Drawing package upload status](#check-the-drawing-package-upload-status). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+5. Enter the `resource Location URL` you copied as the last step in the previous section of this article. You will need to append your subscription key to the end of the URL `&subscription-key={Your-Azure-Maps-Primary-Subscription-key}` (replace `{Azure-Maps-Primary-Subscription-key}` with your Azure Maps primary subscription key). The request should look like the following URL:
 
     ```http
     https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
@@ -144,7 +145,7 @@ To retrieve content metadata:
 
 ## Convert a Drawing package
 
-Now that the Drawing package is uploaded, we'll use the `udid` for the uploaded package to convert the package into map data. The Conversion API uses a long-running transaction that implements the pattern defined [here](creator-long-running-operation-v2.md).
+Now that the Drawing package is uploaded, we'll use the `udid` for the uploaded package to convert the package into map data. The Conversion API uses a long-running transaction that implements the pattern defined in the [Creator Long-Running Operation](creator-long-running-operation-v2.md) article.
 
 To convert a Drawing package:
 
@@ -311,7 +312,7 @@ To create a tileset:
 
 ### Check the tileset creation status
 
-To check the status of the dataset creation process and retrieve the `tilesetId`:
+To check the status of the tileset creation process and retrieve the `tilesetId`:
 
 1. In the Postman app, select **New**.
 
@@ -407,7 +408,7 @@ To query the unit collection in your dataset:
 
 6. Select **Send**.
 
-7. After the response returns, copy the feature `id` for one of the `unit` features. In the following example, the feature `id` is "UNIT26". In this tutorial, we'll use "UNIT26" as our feature `id` in the next section.
+7. After the response returns, copy the feature `id` for one of the `unit` features. In the following example, the feature `id` is "UNIT26". In this tutorial, you'll use "UNIT26" as your feature `id` when you [Update a feature state](#update-a-feature-state).
 
     ```json
     {
@@ -453,7 +454,7 @@ To create a stateset:
 
 4. Select the **POST** HTTP method.
 
-5. Enter the following URL to the [Stateset API](/rest/api/maps/v2/feature-state/create-stateset). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{datasetId`} with the `datasetId` obtained in [Check dataset creation status](#check-the-dataset-creation-status)):
+5. Enter the following URL to the [Stateset API](/rest/api/maps/v2/feature-state/create-stateset). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{datasetId`} with the `datasetId` obtained in [Check the dataset creation status](#check-the-dataset-creation-status)):
 
     ```http
     https://us.atlas.microsoft.com/featurestatesets?api-version=2.0&datasetId={datasetId}&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
@@ -461,11 +462,11 @@ To create a stateset:
 
 6. Select the **Headers** tab.
 
-7. In the **KEY** field, select `Content-Type`. 
+7. In the **KEY** field, select `Content-Type`.
 
 8. In the **VALUE** field, select `application/json`.
 
-     :::image type="content" source="./media/tutorial-creator-indoor-maps/stateset-header.png"alt-text="Header tab information for stateset creation.":::
+     :::image type="content" source="./media/tutorial-creator-indoor-maps/stateset-header.png"alt-text="A screenshot of Postman showing the Header tab of the POST request that shows the Content Type Key with a value of application forward slash json.":::
 
 9. Select the **Body** tab.
 

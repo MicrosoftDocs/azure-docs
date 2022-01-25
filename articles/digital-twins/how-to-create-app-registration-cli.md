@@ -141,7 +141,7 @@ The output of this command is information about the client secret that you've cr
 
 In this section, you'll create a role assignment for the app registration to set its permissions on the Azure Digital Twins instance. This role will determine what permissions the app registration holds on the instance, so you should select the role that matches the appropriate level of permission for your situation. One possible role is [Azure Digital Twins Data Owner](../role-based-access-control/built-in-roles.md#azure-digital-twins-data-owner). For a full list of roles and their descriptions, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
-Use the following command to assign the role (must be run by a user with [sufficient permissions](how-to-set-up-instance-cli.md#prerequisites-permission-requirements) in the Azure subscription). The command requires you to pass in the *user principal name* on the Azure AD account for the user that should be assigned the role. In most cases, this value will match the user's email on the Azure AD account.
+Use the following command to assign the role (must be run by a user with [sufficient permissions](how-to-set-up-instance-cli.md#prerequisites-permission-requirements) in the Azure subscription). The command requires you to pass in the name of the app registration.
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<name-of-app-registration>" --role "<appropriate-role-name>"
@@ -151,7 +151,7 @@ The result of this command is outputted information about the role assignment th
 
 ### Verify role assignment
 
-[!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
+To further verify the role assignment, you can look for it in the Azure portal. Follow the instructions in [Verify role assignment (portal)](how-to-create-app-registration-portal.md#verify-role-assignment).
 
 ## Other possible steps for your organization
 

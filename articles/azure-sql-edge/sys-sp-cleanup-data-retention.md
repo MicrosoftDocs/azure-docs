@@ -5,8 +5,8 @@ keywords: sys.sp_cleanup_data_retention (Transact-SQL), SQL Edge
 services: sql-edge
 ms.service: sql-edge
 ms.topic: reference
-author: SQLSourabh
-ms.author: sourabha
+author: rothja
+ms.author: jroth
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ---

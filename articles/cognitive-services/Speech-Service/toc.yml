@@ -109,12 +109,14 @@ items:
       items:
         - name: Improve synthesis with SSML
           href: speech-synthesis-markup.md
+          displayName: ipa, phoneme, phonetic, prosody
         - name: Lower speech synthesis latency using Speech SDK
           href: how-to-lower-speech-synthesis-latency.md
         - name: Synthesize speech with Long Audio API
           href: long-audio-api.md
         - name: Get facial pose events for lip-sync
           href: how-to-speech-synthesis-viseme.md
+          displayName: viseme, phoneme, phonetic
         - name: Customization
           items:
             - name: Custom Neural Voice
@@ -268,7 +270,7 @@ items:
               href: direct-line-speech.md
             - name: 'Create a custom voice assistant'
               href: quickstarts/voice-assistants.md
-            - name: Voice enable your bot with Speech SDK
+            - name: Voice enable your bot
               href: tutorial-voice-enable-your-bot-speech-sdk.md
         - name: Voice assistants on Windows
           items:
