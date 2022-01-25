@@ -68,6 +68,25 @@ allowed server group has one coordinator node and two workers. You can choose
 to use more nodes based on your use-case, as described in our [initial
 sizing](howto-scale-initial.md) how-to.
 
+#### Tier summary
+
+**Basic tier**
+
+* 2 to 8 vCores, 8 to 32 GiB memory.
+* Consists of a single database node which can be scaled vertically.
+* Supports sharding on a single node and can be easily upgraded to a Standard Tier.
+* Economical deployment option for initial development, testing.
+
+**Standard tier**
+
+* 8 to 1000+ vCores, up to 8+ TiB memory
+* Distributed Postgres cluster which consists of a dedicated coordinator
+  node and at least two worker nodes.
+* Supports Sharding on multiple worker nodes. The cluster can be scaled
+  horizontally by adding new worker nodes and scaled vertically by
+  increasing the vCores of the nodes.
+* Best for performance and scale.
+
 ## Next steps
 
 * Learn to [provision the basic tier](quickstart-create-basic-tier.md)

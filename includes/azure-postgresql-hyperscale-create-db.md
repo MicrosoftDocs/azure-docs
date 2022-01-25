@@ -40,34 +40,10 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 
    ![compute and storage](./media/azure-postgresql-hyperscale-create-db/compute.png)
 
-   Hyperscale Citus has two deployment options for Tiers:
-
-   **Basic tier**
-
-   * 2 to 8 vCores, 8 to 32 GiB memory.
-   * Consists of a single database node which can be scaled vertically.
-   * Supports sharding on a single node and can be easily upgraded to a Standard Tier.
-   * Economical deployment option for initial development, testing.
-
-   **Standard tier**
-
-   * 8 to 1000+ vCores, up to 8+ TiB memory
-   * Distributed Postgres cluster which consists of a dedicated coordinator
-     node and at least two worker nodes. 
-   * Supports Sharding on multiple worker nodes. The cluster can be scaled
-     horizontally by adding new worker nodes and scaled vertically by
-     increasing the vCores of the nodes. 
-   * Best for performance and scale.
-
-   Learn more about [choosing tiers](../articles/postgresql/hyperscale/concepts-server-group.md#tiers).
-   
-   **High availability**:
-
-   Enable high availability to have standby replicas of every node with
-   automatic failover in your server group.
-
-5. Click **Next : Networking >** at the bottom of the screen.
-6. In the **Networking** tab, select **Allow public access from Azure services
+5. For the purpose of this quickstart, you can accept the default values of
+   compute and storage. Click **Save**.
+6. Click **Next : Networking >** at the bottom of the screen.
+7. In the **Networking** tab, select **Allow public access from Azure services
    and resources within Azure to this server group**. Then select **+ Add
    current client IP address**. 
 
@@ -80,11 +56,11 @@ Follow these steps to create an Azure Database for PostgreSQL server:
    > to your Hyperscale (Citus) cluster unless your IT department opens port
    > 5432.
 
-7. Select **Review + create** and then **Create** to provision the server.
+8. Select **Review + create** and then **Create** to provision the server.
    Provisioning takes a few minutes.
-8. The page will redirect to monitor deployment. When the live status changes
+9. The page will redirect to monitor deployment. When the live status changes
    from **Your deployment is underway** to **Your deployment is complete**,
    click the **Outputs** menu item on the left of the page.
-9. The outputs page will contain a coordinator hostname with a button next to
+10. The outputs page will contain a coordinator hostname with a button next to
    it to copy the value to the clipboard. Record this information for later
    use.
