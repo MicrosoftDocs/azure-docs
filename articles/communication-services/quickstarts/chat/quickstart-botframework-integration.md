@@ -1,3 +1,15 @@
+---
+title: Quickstart: Integrate bot to your chat app
+description: This quickstart shows you how to use the Azure Communication Services Chat SDK to create a chat app, the BotFramework SDK to create a bot, then integrate the bot into the chat app
+services: azure-communication-services
+author: gelli
+manager: juramir
+ms.service: azure-communication-service
+ms.date: 01/24/2022
+ms.topic: quickstart
+ms.custom: include file
+---
+
 # Quickstart: Integrate bot to your chat app
 In this quickstart, we'll use the Azure Communication Services Chat SDK to create a chat app, the BotFramework SDK to create a bot, then integrate the bot into the chat app.
 
