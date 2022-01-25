@@ -185,7 +185,7 @@ A random delay is added before the cached value is marked as dirty to reduce pot
     To build and run the app locally using the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```console
-        setx AppConfigurationConnectionString "connection-string-of-your-app-configuration-store"
+    setx AppConfigurationConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
     ### [PowerShell](#tab/powershell)
@@ -198,7 +198,7 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 
     ### [macOS](#tab/unix)
 
-    If you use macOS or Linux, run the following command:
+    If you use macOS, run the following command:
 
     ```console
     export AppConfigurationConnectionString='connection-string-of-your-app-configuration-store'
@@ -206,7 +206,7 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 
     ### [Linux](#tab/linux)
 
-    If you use macOS or Linux, run the following command:
+    If you use Linux, run the following command:
 
     ```console
     export AppConfigurationConnectionString='connection-string-of-your-app-configuration-store'
@@ -214,13 +214,13 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 
     ---
 
-2. Run the following command to build the console app:
+1. Run the following command to build the console app:
 
     ```console
     dotnet build
     ```
 
-3. After the build successfully completes, run the following command to run the app locally:
+1. After the build successfully completes, run the following command to run the app locally:
 
     ```console
     dotnet run
@@ -228,15 +228,15 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 
     ![Push refresh run before update](./media/dotnet-core-app-pushrefresh-initial.png)
 
-4. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
 
-5. Select **Configuration Explorer**, and update the values of the following keys:
+1. Select **Configuration Explorer**, and update the values of the following keys:
 
     | Key | Value |
     |---|---|
     | TestApp:Settings:Message | Data from Azure App Configuration - Updated |
 
-6. Wait for 30 seconds to allow the event to be processed and configuration to be updated.
+1. Wait for 30 seconds to allow the event to be processed and configuration to be updated.
 
     ![Push refresh run after updated](./media/dotnet-core-app-pushrefresh-final.png)
 
