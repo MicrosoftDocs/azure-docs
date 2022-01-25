@@ -190,7 +190,7 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
     1. Retrieve the service logs.
 
        ```bash
-       sudo journalctl -u iotedge
+       sudo iotedge system logs
        ```
 
     2. Use the `check` tool to verify configuration and connection status of the device.

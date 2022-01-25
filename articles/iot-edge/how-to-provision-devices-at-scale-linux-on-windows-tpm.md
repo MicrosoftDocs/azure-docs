@@ -246,7 +246,7 @@ Use the following commands on your device to verify that the IoT Edge installed 
     1. If you need to troubleshoot the service, retrieve the service logs.
 
        ```bash
-       sudo journalctl -u iotedge
+       sudo iotedge system logs
        ```
 
     2. Use the `check` tool to verify configuration and connection status of the device.
