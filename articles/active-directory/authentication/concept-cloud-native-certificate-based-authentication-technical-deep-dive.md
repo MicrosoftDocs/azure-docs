@@ -115,7 +115,7 @@ An admin can configure the CRL distribution point during the setup process of th
 >[!IMPORTANT]
 >If the admin skips the configuration of the CRL, Azure AD will not perform any CRL checks during the certificate-based authentication of the user. This can be helpful for initial troubleshooting but should not be considered for production use.
 
-As of now, we do not support online certificate status protocol (OCSP) because of performance and reliability reasons. Instead of downloading the CRL at every connection by the client browser for OCSP, Azure AD downloads once at the first sign in and caches it, thereby improving the performance and reliability of CRL verification. We also index the cache so the search is must faster every time. Customers must publish CRLs for certificate revocation.
+As of now, we don't support online certificate status protocol (OCSP) because of performance and reliability reasons. Instead of downloading the CRL at every connection by the client browser for OCSP, Azure AD downloads once at the first sign in and caches it, thereby improving the performance and reliability of CRL verification. We also index the cache so the search is must faster every time. Customers must publish CRLs for certificate revocation.
 
 **Typical flow of the CRL check:**
 
