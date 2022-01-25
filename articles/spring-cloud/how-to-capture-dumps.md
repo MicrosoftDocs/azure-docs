@@ -71,7 +71,7 @@ The default value for `duration` is 60 seconds.
 ## Generate Dump on The Portal
 Go to the tab of your target app. Click the troubleshooting button. There will appear a tab on the right side. Choose the app instance and dump type you would like to collect. Fill your target file path(It should be a mount path of your persistent storage). Click the collect button.
 
-![ASC icon start](media/find-spring-cloud-start.png)
+![ASC icon start](media/spring-cloud-start-dump.png)
 
 ## Get your diagnostic files
 
