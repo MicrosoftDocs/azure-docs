@@ -47,7 +47,7 @@ There are some configuration steps to complete before enabling cloud-native CBA.
 
 Optionally, you can also configure authentication bindings to map certificates to single-factor or multifactor and configure username bindings to map certificate field to a user object attribute. Configuring user-related settings can be done by [Authentication Policy Administrators](../roles/permissions-reference.md#authentication-policy-administrator). Once all the configurations are complete, enable cloud-native CBA on the tenant. 
 
-:::image type="content" border="false" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/steps.png" alt-text="steps to enable cloud-native certificate-based authentication works in Azure AD.":::
+:::image type="content" border="false" source="./media/how-to-certificate-based-authentication/steps.png" alt-text="steps to enable cloud-native certificate-based authentication works in Azure AD.":::
 
 ## Step 1: Configure the certificate authorities
 
@@ -68,7 +68,7 @@ To enable the certificate-based authentication and configure user bindings in th
 1. Click **Authentication methods** > **Policies**.
 1. Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/policy.png" alt-text="Screenshot of Authentication policy.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/policy.png" alt-text="Screenshot of Authentication policy.":::
 
 
 1. Click **Configure** to set up authentication binding and username binding.
@@ -77,7 +77,7 @@ To enable the certificate-based authentication and configure user bindings in th
    >[!NOTE] 
    >The default protection level value will be in effect if no custom rules are added. If custom rules are added, the protection level defined at the rule level will be honored instead.
 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/change-default.png" alt-text="Screenshot of how to change the default policy to MFA.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/change-default.png" alt-text="Screenshot of how to change the default policy to MFA.":::
 
 1. You can also set up custom authentication binding rules to help determine the protection level for client certificates. It can be configured using either the issuer Subject or Policy OID fields in the certificate.
 
@@ -85,14 +85,14 @@ To enable the certificate-based authentication and configure user bindings in th
 
    To add custom rules, click on **Add rule**.
 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/add-rule.png" alt-text="Screenshot of how to add a rule.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/add-rule.png" alt-text="Screenshot of how to add a rule.":::
 
    To create a rule by certificate issuer, click **Certificate issuer**.
 
    1. Select a **Certificate issuer identifier** from the list box.
    1. Click **Multi-factor authentication**.
 
-      :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/multifactor-issuer.png" alt-text="Screenshot of multifactor authentication policy.":::
+      :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/multifactor-issuer.png" alt-text="Screenshot of multifactor authentication policy.":::
 
 
    To create a rule by Policy OID, click **Policy OID**.
@@ -100,7 +100,7 @@ To enable the certificate-based authentication and configure user bindings in th
    1. Enter a value for **Policy OID**.
    1. Click **Multi-factor authentication**.
 
-      :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/multifactor-policy-oid.png" alt-text="Screenshot of mapping to Policy OID.":::
+      :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/multifactor-policy-oid.png" alt-text="Screenshot of mapping to Policy OID.":::
 
 1. Click **Ok** to save any custom rule.
 
@@ -112,7 +112,7 @@ An admin can override the default and create a custom mapping. Currently, we sup
 
 1. Create the username binding by selecting one of the X.509 certificate fields to bind with one of the user attributes. The username binding order represents the priority level of the binding. The first one has the highest priority and so on.
 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/username-binding-policy.png" alt-text="Screenshot of a username binding policy.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/username-binding-policy.png" alt-text="Screenshot of a username binding policy.":::
 
    If the specified X.509 certificate field is found on the certificate, but Azure AD doesn’t find a user object using that value, the authentication fails. Azure AD doesn’t try the next binding in the list.
 
@@ -132,7 +132,7 @@ Currently supported set of username bindings:
 
 The final configuration will look like this image:
 
-:::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/final.png" alt-text="Screenshot of the final configuration.":::
+:::image type="content" border="true" source="./media/how-to-certificate-based-authentication/final.png" alt-text="Screenshot of the final configuration.":::
 
 ## Step 4: Enable CBA on the tenant
 
@@ -148,7 +148,7 @@ To enable the certificate-based authentication in the Azure MyApps portal, compl
    1. Click **+ Add users**, select specific users and groups.
    1. Click **Select** to add them.
 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/enable.png" alt-text="Screenshot of how to enable CBA.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/enable.png" alt-text="Screenshot of how to enable CBA.":::
  
 Once certificate-based authentication is enabled on the tenant, all users in the tenant will see the option to sign in with a certificate. Only users who are enabled for certificate-based authentication will be able to authenticate using the X.509 certificate. 
 
@@ -166,20 +166,20 @@ As a first configuration test, you should try to sign in to the [MyApps portal](
 
 1. Enter your User Principal Name (UPN).
 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/name.png" alt-text="Screenshot of the User Principal Name.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/name.png" alt-text="Screenshot of the User Principal Name.":::
 
 1. Click **Next**.
 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/certificate.png" alt-text="Screenshot of sign in with certificate.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/certificate.png" alt-text="Screenshot of sign in with certificate.":::
 
    If you have enabled other authentication methods like Phone sign-in or FIDO2, users may see a different sign-in screen.
 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/alternative.png" alt-text="Screenshot of the alternative sign in.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/alternative.png" alt-text="Screenshot of the alternative sign in.":::
 
 1. Select **Sign in with a certificate**.
 
 1.	Pick the correct user certificate in the client certificate picker UI and click **OK**.
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/picker.png" alt-text="Screenshot of the certificate picker UI.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/picker.png" alt-text="Screenshot of the certificate picker UI.":::
 
 1. Users should be signed into [MyApps portal](https://myapps.microsoft.com/). 
 
@@ -199,31 +199,31 @@ Let's walk through a scenario where we will validate strong authentication by cr
 
 1. Create a policy OID rule, with protection level as multi-factor authentication and value set to one of the policy OID’s in your certificate. For example, 1.2.3.4.
 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/policy-oid-rule.png" alt-text="Screenshot of the Policy OID rule.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/policy-oid-rule.png" alt-text="Screenshot of the Policy OID rule.":::
 
 1. Create a conditional access policy for the user to require multi-factor authentication by following steps at [Conditional Access - Require MFA](../conditional-access/howto-conditional-access-policy-all-users-mfa.md#create-a-conditional-access-policy).
 1. Navigate to [MyApps portal](https://myapps.microsoft.com/). Enter your UPN and click **Next**.
 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/name.png" alt-text="Screenshot of the User Principal Name.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/name.png" alt-text="Screenshot of the User Principal Name.":::
 
 1. Select **Sign in with a certificate**.
 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/certificate.png" alt-text="Screenshot of sign in with certificate.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/certificate.png" alt-text="Screenshot of sign in with certificate.":::
 
    If you have enabled other authentication methods like Phone sign-in or FIDO2, users may see a different sign-in screen.
 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/alternative.png" alt-text="Screenshot of the alternative sign in.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/alternative.png" alt-text="Screenshot of the alternative sign in.":::
 
 1. Select the client certificate and click **Certificate Information**.
 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/client-picker.png" alt-text="Screenshot of the client picker.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/client-picker.png" alt-text="Screenshot of the client picker.":::
 
 1. The certificate will be shown, and you can verify the issuer and policy OID values. 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/issuer.png" alt-text="Screenshot of the issuer.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/issuer.png" alt-text="Screenshot of the issuer.":::
 
 1. To see Policy OID values, click **Details**.
 
-   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/authentication-details.png" alt-text="Screenshot of the authentication details.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/authentication-details.png" alt-text="Screenshot of the authentication details.":::
 
 1. Select the client certificate and click **OK**.
 
