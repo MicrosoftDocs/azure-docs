@@ -7,9 +7,9 @@ ms.subservice: backup-restore
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: rothja
-ms.author: jroth
-ms.reviewer: carlrab
+author: SudhirRaparla 
+ms.author: nvraparl 
+ms.reviewer: carlrab, kendralittle, mathoma
 ms.date: 01/18/2022
 ---
 
