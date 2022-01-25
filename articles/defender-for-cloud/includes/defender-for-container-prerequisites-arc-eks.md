@@ -10,8 +10,8 @@ Validate the following endpoints are configured for outbound access so that the 
 
 For Azure public cloud deployments:
 
-| Domain | Port |
-|--|--|
-| data.policy.core.windows.net | 443 |
-| store.policy.core.windows.net | 443 |
-| login.microsoftonline.com | 443 |
+| Domain                     | Port |
+| -------------------------- | ---- |
+| *.ods.opinsights.azure.com | 443  |
+| *.oms.opinsights.azure.com | 443  |
+| login.microsoftonline.com  | 443  |
