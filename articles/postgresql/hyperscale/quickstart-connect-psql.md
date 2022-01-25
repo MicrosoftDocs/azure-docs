@@ -12,6 +12,14 @@ ms.date: 01/24/2022
 
 # Connect to a Hyperscale (Citus) server group with psql
 
+## Prerequisites
+
+To follow this quickstart, you'll first need to:
+
+* [Create a server group](quickstart-create-portal.md) in the Azure portal.
+
+## Connect
+
 When you create your Azure Database for PostgreSQL server, a default database named **citus** is created. To connect to your database server, you need a connection string and the admin password.
 
 1. Obtain the connection string. In the server group page click the **Connection strings** menu item. (It's under **Settings**.) Find the string marked **psql**. It will be of the form:
@@ -35,7 +43,7 @@ When you create your Azure Database for PostgreSQL server, a default database na
    psql "host=mydemoserver-c.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"
    ```
 
-**Next steps**
+## Next steps
 
 * [Troubleshoot connection problems](howto-troubleshoot-common-connection-issues.md).
 * Learn to [create and distribute tables](quickstart-distribute-tables.md).

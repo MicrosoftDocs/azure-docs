@@ -12,8 +12,6 @@ ms.date: 01/24/2022
 
 # Create and distribute tables
 
-Once connected to the hyperscale coordinator node using psql, you can complete some basic tasks.
-
 Within Hyperscale (Citus) servers there are three types of tables:
 
 * **Distributed Tables** - Distributed across worker nodes (scaled out).
@@ -28,6 +26,14 @@ In this quickstart, we'll primarily focus on distributed tables, and getting
 familiar with them.
 
 The data model we're going to work with is simple: user and event data from GitHub. Events include fork creation, git commits related to an organization, and more.
+
+## Prerequisites
+
+To follow this quickstart, you'll first need to:
+
+1. [Create a server group](quickstart-create-portal.md) in the Azure portal.
+2. [Connect to the server group](quickstart-connect-psql.md) with psql to
+   run SQL commands.
 
 ## Create tables
 

@@ -7,17 +7,25 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 01/19/2022
+ms.date: 01/24/2022
 ---
 
 # Run queries
 
-After [creating and distributing data](quickstart-distribute-tables.md), we can
-now run queries that execute in parallel across worker nodes.
+## Prerequisites
+
+To follow this quickstart, you'll first need to:
+
+1. [Create a server group](quickstart-create-portal.md) in the Azure portal.
+2. [Connect to the server group](quickstart-connect-psql.md) with psql to
+   run SQL commands.
+3. [Create and distribute tables](quickstart-distribute-tables.md) with our
+   example dataset.
 
 ## Aggregate queries
 
-Let's start with a simple `count (*)` to see how much data we loaded:
+Now it's time for the fun part in our quickstart series: actually running some
+queries. Let's start with a simple `count (*)` to see how much data we loaded:
 
 ```sql
 SELECT count(*) from github_events;
@@ -48,10 +56,6 @@ SELECT gu.login, count(*)
  GROUP BY gu.login
  ORDER BY count(*) DESC;
 ```
-
-## Clean up resources
-
-If you don't expect to need these resources in the future, delete the server group. Press the **Delete** button in the **Overview** page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final **Delete** button.
 
 ## Next steps
 
