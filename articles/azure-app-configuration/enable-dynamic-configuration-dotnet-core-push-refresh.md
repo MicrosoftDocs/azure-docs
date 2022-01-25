@@ -26,8 +26,6 @@ The App Configuration .NET Core client library supports updating configuration o
 
 1. Push Model: This uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in configuration. Once App Configuration is set up to send key value change events to Azure Event Grid, the application can use these events to optimize the total number of requests needed to keep the configuration updated. Applications can choose to subscribe to these either directly from Event Grid, or though one of the [supported event handlers](../event-grid/event-handlers.md) such as a webhook, an Azure function or a Service Bus topic.
 
-Applications can choose to subscribe to these events either directly from Event Grid, or through a web hook, or by forwarding events to Azure Service Bus. The Azure Service Bus SDK provides an API to register a message handler that simplifies this process for applications that either do not have an HTTP endpoint or do not wish to poll the event grid for changes continuously.
-
 This tutorial shows how you can implement dynamic configuration updates in your code using push refresh. It builds on the app introduced in the quickstarts. Before you continue, finish [Create a .NET Core app with App Configuration](./quickstart-dotnet-core-app.md) first.
 
 You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option that's available on the Windows, macOS, and Linux platforms.
@@ -40,10 +38,6 @@ In this tutorial, you learn how to:
 > * Consume the latest configuration in your application.
 
 ## Prerequisites
-
-* Install [.NET Core SDK](https://dotnet.microsoft.com/download).
-* Quickstart: [Create a .NET Core app with App Configuration](./quickstart-dotnet-core-app.md)
-* Nuget package `Microsoft.Extensions.Configuration.AzureAppConfiguration` version 5.0.0 or later
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -84,7 +78,6 @@ Once the resources are created, add the following environment variables. These w
 
 ## Register event handler to reload data from App Configuration
 
-Ensuring that users get their most up to date configurations is nearly impossible as a configuration can change at any moment (even after a request is sent out). To ensure users get their most up to date configurations we integrate a `synchronization token`. This `Synchronization token` guarantees users receive all changes at least up to the point which the notification was triggered. There still is no guarantee that changes occuring after a push notification was triggered will be reflected in the response.
 Open *Program.cs* and update the file with the following code.
 
 ```csharp
@@ -171,7 +164,7 @@ namespace TestConsole
 }
 ```
 
-The `ProcessPushNotification` method includes the synchronization token into the next request to the `App Configuration` service to guarantee the application will receive the most up to date configuration settings up to the time when the notification was initially triggered. There is no guarantee to retrieve key-values after the `Push Notification` was triggered.
+Ensuring that users get their most up to date configurations is nearly impossible as a configuration can change at any moment (even after a request is sent out). The `ProcessPushNotification` method incorporates a synchronization token into the next request to the `App Configuration`. This `Synchronization token` guarantees users receive all changes at least up to the point which the notification was triggered. There still is no guarantee that changes occuring after a push notification was triggered will be reflected in the response.
 
 > [!NOTE]
 > To reduce the number of requests to App Configuration when using push refresh, it is important to call `SetCacheExpiration(TimeSpan cacheExpiration)` with an appropriate value of `cacheExpiration` parameter. This controls the cache expiration time for pull refresh and can be used as a safety net in case there is an issue with the Event subscription or the Service Bus subscription. The recommended value is `TimeSpan.FromDays(30)`.
