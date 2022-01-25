@@ -574,11 +574,6 @@ To use a managed identity for authentication, some Azure resources, such as Azur
 
 1. Skip the optional **Application** step, select **Next**, and finish creating the access policy.
 
-   > [!NOTE]
-   > Before you can use the identity with the Azure Key Vault connector's **List operations**, 
-   > make sure that your key vault contains at least one secret, if none exist. For more information, 
-   > review [Add a secret to Key Vault](../key-vault/secrets/quick-create-portal.md).
-
 In the next section about using a managed identity to authenticate access for a trigger or action, the example continues with the steps from an an earlier section where you set up access for a managed identity using RBAC and doesn't use Azure Key Vault as the example, However, the general steps to use a managed identity for authentication are the same.
 
 <a name="authenticate-access-with-identity"></a>
@@ -891,7 +886,7 @@ A connection that enables and uses a managed identity are a special connection t
 
 In a **Logic App (Consumption)** resource, the connection configuration is saved in the logic app resource definition's `parameters` object, which contains the `$connections` object that includes pointers to the connection's resource ID along with the identity's resource ID, if the user-assigned identity is enabled.
 
-This example shows what the configuration looks like when the logic app enables the system-assigned managed identity:
+This example shows what the configuration looks like when the logic app enables the *system-assigned* managed identity:
 
 ```json
 "parameters": {
@@ -912,7 +907,7 @@ This example shows what the configuration looks like when the logic app enables 
 }
 ```
 
-This example shows what the configuration looks like when the logic app enables a user-assigned managed identity:
+This example shows what the configuration looks like when the logic app enables a *user-assigned* managed identity:
 
 ```json
 "parameters": {
@@ -923,8 +918,8 @@ This example shows what the configuration looks like when the logic app enables 
             "connectionName": "{connection-name}",
             "connectionProperties": {
                "authentication": {
-                  "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
-                  "type": "ManagedServiceIdentity"
+                  "type": "ManagedServiceIdentity",
+                  "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}"
                }
             },
             "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
@@ -938,7 +933,7 @@ This example shows what the configuration looks like when the logic app enables 
 
 In a **Logic App (Standard)** resource, the connection configuration is saved in the logic app resource or project's `connections.json` file, which contains a `managedApiConnections` JSON object that includes connection configuration information for each managed connector used in a workflow. For example, this connection information includes pointers to the connection's resource ID along with the managed identity properties, such as the resource ID, if the user-assigned identity is enabled.
 
-This example shows what the configuration looks like when the logic app enables the user-assigned managed identity:
+This example shows what the configuration looks like when the logic app enables the *system-assigned* managed identity:
 
 ```json
 {
@@ -947,20 +942,47 @@ This example shows what the configuration looks like when the logic app enables 
             "api": {
                 "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{region}/managedApis/<connector-name>"
             },
+            "authentication": { // Authentication for the internal token store
+                "type": "ManagedServiceIdentity"
+            },
             "connection": {
                 "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/<connection-name>"
             },
-            "connectionRuntimeUrl": "<connection-runtime-URL>",
-            "authentication": { // Authentication with TokenStore (ApiHub)
+            "connectionProperties": {
+                "authentication": { // Authentication for the target resource
+                    "audience": "<resource-URL>",
+                    "type": "ManagedServiceIdentity"
+                }
+            },
+            "connectionRuntimeUrl": "<connection-runtime-URL>"
+        }
+    }
+}
+```
+     
+This example shows what the configuration looks like when the logic app enables a *user-assigned* managed identity:
+
+```json
+{
+    "managedApiConnections": {
+        "<connector-name>": {
+            "api": {
+                "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{region}/managedApis/<connector-name>"
+            },
+            "authentication": { // Authentication for the internal token store
                 "type": "ManagedServiceIdentity"
             },
+            "connection": {
+                "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/connections/<connection-name>"
+            },
             "connectionProperties": {
-                "authentication": { //Authentication with the target resource
+                "authentication": { // Authentication for the target resource
+                    "audience": "<resource-URL>",     
                     "type": "ManagedServiceIdentity",
-                    "identity": "<user-assigned-identity>", // Optional
-                    "audience": "<resource-URL>"
+                    "identity": "<user-assigned-identity>" // Optional
                 }
-            }
+            },
+            "connectionRuntimeUrl": "<connection-runtime-URL>"
         }
     }
 }
