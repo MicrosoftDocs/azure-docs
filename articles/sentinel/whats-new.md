@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel.
 
-If you're looking for items older than six months, you'll find them in the [Archive for What's new in Sentinel](whats-new-archive.md). For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
+If you are looking for items older than six months, you will find them in the [Archive for What's new in Sentinel](whats-new-archive.md). For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
 > [!IMPORTANT]
 > Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -172,7 +172,7 @@ Learn more about the [Windows Forwarded Events connector](data-connectors-refere
 
 ### Near-real-time (NRT) threat detection rules now available (Public preview)
 
-When you're faced with security threats, time and speed are of the essence. You need to be aware of threats as they materialize so you can analyze and respond quickly to contain them. Microsoft Sentinel's near-real-time (NRT) analytics rules offer you faster threat detection - closer to that of an on-premises SIEM - and the ability to shorten response times in specific scenarios.
+When you are faced with security threats, time and speed are of the essence. You need to be aware of threats as they materialize so you can analyze and respond quickly to contain them. Microsoft Sentinel's near-real-time (NRT) analytics rules offer you faster threat detection - closer to that of an on-premises SIEM - and the ability to shorten response times in specific scenarios.
 
 Microsoft Sentinel’s [near-real-time analytics rules](detect-threats-built-in.md#nrt) provide up-to-the-minute threat detection out-of-the-box. This type of rule was designed to be highly responsive by running its query at intervals just one minute apart.
 
@@ -288,7 +288,7 @@ GeoLocation and WhoIs data can provide more context for investigations where the
 
 For example, use GeoLocation data to find details like *Organization* or *Country* for the indicator, and WhoIs data to find data like *Registrar* and *Record creation* data.
 
-You can view GeoLocation and WhoIs data on the **Threat Intelligence** pane for each indicator of compromise that you've imported into Microsoft Sentinel. Details for the indicator are shown on the right, including any Geolocation and WhoIs data available.
+You can view GeoLocation and WhoIs data on the **Threat Intelligence** pane for each indicator of compromise that you have imported into Microsoft Sentinel. Details for the indicator are shown on the right, including any Geolocation and WhoIs data available.
 
 For example:
 
@@ -319,9 +319,9 @@ The new Azure Synapse integration provides extra analytic horsepower, such as:
 
 - **Flexibility to integrate data sources** into security operation workflows from multiple sources and formats.
 
-- **PySpark, a Python-based API** for using the Spark framework in combination with Python, reducing the need to learn a new programming language if you're already familiar with Python.
+- **PySpark, a Python-based API** for using the Spark framework in combination with Python, reducing the need to learn a new programming language if you are already familiar with Python.
 
-To support this integration, we've added the ability to create and launch an Azure Synapse workspace directly from Microsoft Sentinel. We also added new, sample notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline from Log Analytics into Azure Data Lake Storage, and then hunting on that data at scale.
+To support this integration, we added the ability to create and launch an Azure Synapse workspace directly from Microsoft Sentinel. We also added new, sample notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline from Log Analytics into Azure Data Lake Storage, and then hunting on that data at scale.
 
 For more information, see [Integrate notebooks with Azure Synapse](notebooks-with-synapse.md).
 
@@ -337,7 +337,7 @@ For more information, see [Use Jupyter notebooks to hunt for security threats](n
 
 ### Microsoft Sentinel renaming
 
-Starting in November 2021, Azure Sentinel is being renamed to Microsoft Sentinel, and you'll see upcoming updates in the portal, documentation, and other resources in parallel.
+Starting in November 2021, Azure Sentinel is being renamed to Microsoft Sentinel, and you will see upcoming updates in the portal, documentation, and other resources in parallel.
 
 Earlier entries in this article and the older [Archive for What's new in Sentinel](whats-new-archive.md) continue to use the name *Azure* Sentinel, as that was the service name when those features were new.
 
@@ -349,7 +349,7 @@ The new **Microsoft Sentinel Deception** solution helps you watch for malicious 
 
 Once deployed, any access or operation with the honeytoken keys and secrets generate incidents that you can investigate in Microsoft Sentinel.
 
-Since there's no reason to actually use honeytoken keys and secrets, any similar activity in your workspace may be malicious and should be investigated.
+Since there is no reason to actually use honeytoken keys and secrets, any similar activity in your workspace may be malicious and should be investigated.
 
 The **Microsoft Sentinel Deception** solution includes a workbook to help you deploy the honeytokens, either at scale or one at a time, watchlists to track the honeytokens created, and analytics rules to generate incidents as needed.
 
@@ -365,7 +365,7 @@ For more information, see [Deploy and monitor Azure Key Vault honeytokens with M
 
 ### Windows Security Events connector using Azure Monitor Agent now in GA
 
-The new version of the Windows Security Events connector, based on the Azure Monitor Agent, is now generally available! See [Connect to Windows servers to collect security events](connect-windows-security-events.md?tabs=AMA) for more information.
+The new version of the Windows Security Events connector, based on the Azure Monitor Agent, is now generally available. See [Connect to Windows servers to collect security events](connect-windows-security-events.md?tabs=AMA) for more information.
 
 ### Defender for Office 365 events now available in the Microsoft 365 Defender connector (Public preview)
 
@@ -387,7 +387,7 @@ However, rules created from templates ***do*** remember which templates they cam
 
 - If you made changes to a rule when creating it from a template (or at any time after that), you can always revert the rule back to its original version (as a copy of the template).
 
-- You can get notified when a template is updated, and you'll have the choice to update your rules to the new version of their templates or leave them as they are.
+- You can get notified when a template is updated, and you will have the choice to update your rules to the new version of their templates or leave them as they are.
 
 [Learn how to manage these tasks](manage-analytics-rule-templates.md), and what to keep in mind. These procedures apply to any [Scheduled](detect-threats-built-in.md#scheduled) analytics rules created from templates.
 
@@ -411,7 +411,7 @@ For more information, see:
 
 ### Data connector health enhancements (Public preview)
 
-Azure Sentinel now provides the ability to enhance your data connector health monitoring with a new *SentinelHealth* table. The *SentinelHealth* table is created after you've [turned on the Azure Sentinel health feature](monitor-data-connector-health.md#turn-on-microsoft-sentinel-health-for-your-workspace) in your Azure Sentinel workspace, at the first success or failure health event that's generated.
+Azure Sentinel now provides the ability to enhance your data connector health monitoring with a new *SentinelHealth* table. The *SentinelHealth* table is created after you [turn on the Azure Sentinel health feature](monitor-data-connector-health.md#turn-on-microsoft-sentinel-health-for-your-workspace) in your Azure Sentinel workspace, at the first success or failure health event generated.
 
 For more information, see [Monitor the health of your data connectors with this Azure Sentinel workbook](monitor-data-connector-health.md).
 
@@ -422,9 +422,9 @@ For more information, see [Monitor the health of your data connectors with this 
 
 ### New in docs: scaling data connector documentation
 
-As we continue to add more and more built-in data connectors for Azure Sentinel, we've reorganized our data connector documentation to reflect this scaling.
+As we continue to add more and more built-in data connectors for Azure Sentinel, we reorganized our data connector documentation to reflect this scaling.
 
-For most data connectors, we've replaced full articles that describe an individual connector with a series of generic procedures and a full reference of all currently supported connectors.
+For most data connectors, we replaced full articles that describe an individual connector with a series of generic procedures and a full reference of all currently supported connectors.
 
 Check the [Azure Sentinel data connectors reference](data-connectors-reference.md) for details about your connector, including references to the relevant generic procedure, as well as extra information and configurations required.
 
@@ -520,7 +520,7 @@ For more information, see:
 
 ### New in docs: Best practice guidance
 
-In response to multiple requests from customers and our support teams, we've added a series of best practice guidance to our documentation.
+In response to multiple requests from customers and our support teams, we added a series of best practice guidance to our documentation.
 
 For more information, see:
 
