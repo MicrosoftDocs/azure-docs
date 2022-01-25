@@ -26,32 +26,13 @@ Learn about this plan in [Overview of Microsoft Defender for Containers](defende
 > [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
 ::: zone-end
 
-## Prerequisites
+::: zone pivot="defender-for-container-aks"
+[!INCLUDE [Prerequisites](includes/defender-for-container-prerequisites-aks.md)]
+::: zone-end
 
-Validate the following endpoints are configured for outbound access, and should be updated based on the cluster selected.
-
-- AKS: profile
-- On-prem, IaaS, and AWS: extension
-
-For Azure public cloud deployments:
-
-| Domain                     | Port |
-| -------------------------- | ---- |
-| *.ods.opinsights.azure.com | 443  |
-| *.oms.opinsights.azure.com | 443  |
-| login.microsoftonline.com  | 443  |
- 
-For Azure Government cloud deployments:
-
-| Domain                    | Port |
-| ------------------------- | ---- |
-| *.ods.opinsights.azure.us | 443  |
-| *.oms.opinsights.azure.us | 443  |
-| login.microsoftonline.us  | 443  |
-
-By default, AKS clusters have unrestricted outbound (egress) internet access. 
-
-Lean more about [AKS addons and integrations](../aks/limit-egress-traffic.md#aks-addons-and-integrations).
+::: zone pivot="defender-for-container-arc,defender-for-container-eks"
+[!INCLUDE [Prerequisites](includes/defender-for-container-prerquisites-arc-eks.md) ]
+::: zone-end
 
 ::: zone pivot="defender-for-container-aks"
 [!INCLUDE [Enable plan for AKS](./includes/defender-for-containers-enable-plan-aks.md)]
