@@ -107,7 +107,7 @@ Extract rows from an Azure Table, serialized into JSON documents, and imported i
 
 by [Cognitive Search](search-what-is-azure-search.md)
 
-Connect to Azure Storage through Azure Data Laker Storage Gen2 to extract content from a hierarchy of directories and nested subdirectories.
+Connect to Azure Storage through Azure Data Lake Storage Gen2 to extract content from a hierarchy of directories and nested subdirectories.
 
 [More details](search-howto-index-azure-data-lake-storage.md)
 
@@ -168,17 +168,6 @@ Connect to Cosmos DB through the Mongo API to extract items from a container, se
 :::image type="icon" source="media/search-data-sources-gallery/azure_cosmos_db_logo_small.png":::
 
 :::column-end:::
-:::row-end:::
-:::row:::
-:::column span="":::
-
-   :::column-end:::
-   :::column span="":::
-   :::column-end:::
-
-:::row-end:::
-
-:::row:::
 :::column span="":::
 
 ---
@@ -194,6 +183,17 @@ Connect to a SharePoint site and index documents from one or more Document Libra
 :::image type="icon" source="media/search-data-sources-gallery/sharepoint_online_logo.png":::
 
 :::column-end:::
+:::row-end:::
+:::row:::
+:::column span="":::
+
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
 :::column span="":::
 
 ---
@@ -207,6 +207,21 @@ Connect to MySQL database on Azure to extract rows in a table, serialized into J
 [More details](search-howto-index-mysql.md)
 
 :::image type="icon" source="media/search-data-sources-gallery/azure_mysql.png":::
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### Azure Files
+
+by [Cognitive Search](search-what-is-azure-search.md)
+
+Connect to Azure Storage through Azure Files share to extract content serialized into JSON documents, and imported into a search index as search documents.
+
+[More details](search-file-storage-integration.md)
+
+:::image type="icon" source="media/search-data-sources-gallery/azure_storage.png":::
 
 :::column-end:::
 :::column span="":::
