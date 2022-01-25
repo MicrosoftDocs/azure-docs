@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/15/2021
+ms.date: 01/24/2022
 ms.custom: references_regions
 ---
 
@@ -16,9 +16,9 @@ ms.custom: references_regions
 
 This article describes the security features in Azure Cognitive Search that protect data and operations.
 
-## Network traffic patterns
+## Data flow and points of entry
 
-A search service is hosted on Azure and typically accessed over public network connections. Understanding the service's access patterns can help you design a security strategy that effectively deters unauthorized access to searchable content.
+A search service is hosted on Azure and is typically accessed by client applications using public network connections. Understanding the search service's points of entry and network traffic patterns is useful background for setting up development and production environments.
 
 Cognitive Search has three basic network traffic patterns:
 
@@ -26,7 +26,7 @@ Cognitive Search has three basic network traffic patterns:
 + Outbound requests issued by the search service to other services on Azure and elsewhere
 + Internal service-to-service requests over the secure Microsoft backbone network
 
-Inbound requests range from creating objects, loading data, and querying. For inbound access to data and operations, you can implement a progression of security measures, starting with API keys on the request. You can then supplement with either inbound rules in an IP firewall, or create private endpoints that fully shield your service from the public internet.
+Inbound requests range from creating objects, loading data, and querying. For inbound access to data and operations, you can implement a progression of security measures, starting with API keys on the request. You can then supplement with either inbound rules in an IP firewall, or create private endpoints that fully shield your service from the public internet. You can also use Azure Active Directory and role-based access control for data plane operations (currently in preview).
 
 Outbound requests can include both read and write operations. The primary agent of an outbound call is an indexer and constituent skillsets. For indexers, read operations include [document cracking](search-indexer-overview.md#document-cracking) and data ingestion. An indexer can also write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions. Finally, a skillset can also include custom skills that run external code, for example in Azure Functions or in a web app.
 
@@ -40,11 +40,11 @@ Inbound security features protect the search service endpoint through increasing
 
 Optionally, you can implement additional layers of control by setting firewall rules that limit access to specific IP addresses. For advanced protection, you can enable Azure Private Link to shield your service endpoint from all internet traffic.
 
-### Connect over the public internet
+### Inbound connection over the public internet
 
 By default, a search service endpoint is accessed through the public cloud, using key-based authentication for admin or query access to the search service endpoint. Keys are required. Submission of a valid key is considered proof the request originates from a trusted entity. Key-based authentication is covered in the next section. Without API keys, you'll get 401 and 404 responses on the request.
 
-### Connect through IP firewalls
+### Inbound connection through IP firewalls
 
 To further control access to your search service, you can create inbound firewall rules that allow access to specific IP address or a range of IP addresses. All client connections must be made through an allowed IP address, or the connection is denied.
 
@@ -54,7 +54,7 @@ You can use the portal to [configure inbound access](service-configure-firewall.
 
 Alternatively, you can use the management REST APIs. Starting with API version 2020-03-13, with the [IpRule](/rest/api/searchmanagement/2020-08-01/services/create-or-update#iprule) parameter, you can restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.
 
-### Connect to a private endpoint (network isolation, no Internet traffic)
+### Inbound connection to a private endpoint (network isolation, no Internet traffic)
 
 You can establish a [private endpoint](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allows a client on a [virtual network](../virtual-network/virtual-networks-overview.md) to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md).
 
@@ -62,7 +62,7 @@ The private endpoint uses an IP address from the virtual network address space f
 
 :::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="sample architecture diagram for private endpoint access":::
 
-While this solution is the most secure, using additional services is an added cost so be sure you have a clear understanding of the benefits before diving in. or more information about costs, see the [pricing page](https://azure.microsoft.com/pricing/details/private-link/). For more information about how these components work together, watch the video at the top of this article. Coverage of the private endpoint option starts at 5:48 into the video. For instructions on how to set up the endpoint, see [Create a Private Endpoint for Azure Cognitive Search](service-create-private-endpoint.md).
+While this solution is the most secure, using additional services is an added cost so be sure you have a clear understanding of the benefits before diving in. For more information about costs, see the [pricing page](https://azure.microsoft.com/pricing/details/private-link/). For more information about how these components work together, [watch this video](#watch-this-video). Coverage of the private endpoint option starts at 5:48 into the video. For instructions on how to set up the endpoint, see [Create a Private Endpoint for Azure Cognitive Search](service-create-private-endpoint.md).
 
 ### Outbound connections to external services
 
@@ -72,13 +72,15 @@ Indexers and skillsets are both objects that can make external connections. You'
 
 + Managed identity in the connection string
 
-  You can set up a managed identity to make search a trusted service when accessing data from Azure Storage, Azure SQL, Cosmos DB, or other Azure data sources. A managed identity is a substitute for credentials or access keys on the connection. For more information about this capability, see [Connect to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
+  You can [set up a managed identity](search-howto-managed-identities-data-sources.md) to make search a trusted service when accessing data from Azure Storage, Azure SQL, Cosmos DB, or other Azure data sources. A managed identity is a substitute for credentials or access keys on the connection.
 
 ## Authentication
 
-For inbound requests to the search service, authentication is through an [API key](search-security-api-keys.md) (a string composed of randomly generated numbers and letters) that proves the request is from a trustworthy source. Alternatively, there is new support for Azure Active Directory authentication and role-based authorization, [currently in preview](search-security-rbac.md).
+For inbound requests to the search service, authentication is on the request (not the calling app or user) through an [API key](search-security-api-keys.md), where the key is a string composed of randomly generated numbers and letters)that proves the request is from a trustworthy source. 
 
-Outbound requests made by an indexer are subject to authentication by the external service. The indexer subservice in Cognitive Search can be made a trusted service on Azure, connecting to other services using a managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
+Alternatively, there is new support for Azure Active Directory authentication and role-based authorization, [currently in preview](search-security-rbac.md), that establishes the caller (and not the request) as the authenticated identity.
+
+Outbound requests made by an indexer are subject to the authentication protocols supported by the external service. The indexer subservice in Cognitive Search can be made a trusted service on Azure, connecting to other services using a managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
 
 ## Authorization
 

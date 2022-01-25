@@ -59,7 +59,7 @@ For other user initiated operations such as scale-compute or scale-storage, the 
 
 ### Reducing planned downtime with managed maintenance window
 
-With flexible server, you can optionally schedule Azure initiated maintenance activities by choosing a 30-minute window in a day of your preference where the activities on the databases are expected to be low. Azure maintenance tasks such as patching or minor version upgrades would happen during that maintenance window. If you do not choose a custom window, a system allocated 1-hr window between 11pm-7am local time is chosen for your server. 
+With flexible server, you can optionally schedule Azure initiated maintenance activities by choosing a 60-minute window in a day of your preference where the activities on the databases are expected to be low. Azure maintenance tasks such as patching or minor version upgrades would happen during that maintenance window. If you do not choose a custom window, a system allocated 1-hr window between 11pm-7am local time is chosen for your server. 
  
 For flexible servers configured with high availability, these maintenance activities are performed on the standby replica first and the service is failed over to the standby to which applications can reconnect.
 

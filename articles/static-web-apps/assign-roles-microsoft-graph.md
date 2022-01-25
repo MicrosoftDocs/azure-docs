@@ -149,8 +149,8 @@ In this tutorial, you learn to:
           "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
           "registration": {
             "openIdIssuer": "https://login.microsoftonline.com/<YOUR_AAD_TENANT_ID>",
-            "clientIdSettingName": "AAD_CLIENT_ID",
-            "clientSecretSettingName": "AAD_CLIENT_SECRET"
+            "clientIdSettingName": "AZURE_CLIENT_ID",
+            "clientSecretSettingName": "AZURE_CLIENT_SECRET"
           },
           "login": {
             "loginParameters": [
@@ -167,7 +167,7 @@ In this tutorial, you learn to:
 
 1. Select the **Edit** button to update the file.
 
-1. Update the *openIdIssuer* value of `https://login.microsoftonline.com/<YOUR_AAD_TENANT_ID>` by replacing `<YOUR_AAD_TENANT_ID>` with the directory (tenant) ID of your Azure Active Directory.
+1. Update the *openIdIssuer* value of `https://login.microsoftonline.com/<YOUR_TENANT_ID>` by replacing `<YOUR_AAD_TENANT_ID>` with the directory (tenant) ID of your Azure Active Directory.
 
 1. Select **Commit directly to the main branch** and select **Commit changes**.
 
@@ -181,8 +181,8 @@ In this tutorial, you learn to:
 
     | Name | Value |
     |------|-------|
-    | `AAD_CLIENT_ID` | *Your Active Directory application (client) ID* |
-    | `AAD_CLIENT_SECRET` | *Your Active Directory application client secret value* |
+    | `AZURE_CLIENT_ID` | *Your Active Directory application (client) ID* |
+    | `AZURE_CLIENT_SECRET` | *Your Active Directory application client secret value* |
 
 1. Select **Save**.
 
