@@ -42,8 +42,6 @@ To complete the tutorial, make sure you have the following items:
 
 # [Azure CLI](#tab/azure-cli)
 
-In this step, you create a resource group, server, single database, and server-level IP firewall rule for access to the server.
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
@@ -53,6 +51,8 @@ In this step, you create a resource group, server, single database, and server-l
 ---
 
 ## 1 - Create a single database
+
+In this step, you create a resource group, server, single database, and server-level IP firewall rule for access to the server.
 
 [!INCLUDE [sql-database-create-single-database](../includes/sql-database-create-single-database.md)]
 
