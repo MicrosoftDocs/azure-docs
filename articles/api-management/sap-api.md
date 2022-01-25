@@ -76,6 +76,7 @@ In this article, you'll:
 [Add](add-api-manually.md#add-and-test-an-operation) the following three operations to the API that you imported.
 
 1. `GET /$metadata`
+
     |Operation  |Description  |Further configuration for operation  |
     |---------|---------|---------|
     |`GET /$metadata`     |   Metadata operation      |  Add a `200 OK` response.       |
@@ -83,6 +84,7 @@ In this article, you'll:
     :::image type="content" source="media/sap-api/get-metadata-operation.png" alt-text="Get metadata operation":::
 
 1. `HEAD /` 
+
     |Operation  |Description  |Further configuration for operation  |
     |---------|---------|---------|
     |`HEAD /`     | Operation at root for X-CSRF-Token retrieval        |     N/A    |
