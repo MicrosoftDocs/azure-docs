@@ -585,6 +585,12 @@ items:
       href: question-answering/tutorials/multiple-domains.md
   - name: Reference
     items: 
+    - name: General
+      items:
+      - name: Markdown format
+        href: question-answering/reference/markdown-format.md
+      - name: Format guidelines
+        href: question-answering/reference/document-format-guidelines.md
     - name: REST API
       items:
       - name: Prebuilt
