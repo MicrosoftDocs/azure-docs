@@ -20,10 +20,14 @@ To call Patient-everything, use the following command:
 ```json
 GET {FHIRURL}/Patient/{ID}/$everything
 ```
+
+> [!Note]
+> You must specify an ID for a specific patient. If you need all data for all patients, see [$export](../data-transformation/export-data.md). 
+
 The Azure API for FHIR validates that it can find the patient matching the provided patient ID. If a result is found, the response will be a bundle of type `searchset` with the following information:
  
 * [Patient resource](https://www.hl7.org/fhir/patient.html) 
-* Resources that are directly referenced by the patient resource, except [link](https://www.hl7.org/fhir/patient-definitions.html#Patient.link) references that are not of [seealso](https://www.hl7.org/fhir/codesystem-link-type.html#content) or if the `seealso` link references a `RelatedPerson`.
+* Resources that are directly referenced by the patient resource, except [link](https://www.hl7.org/fhir/patient-definitions.html#Patient.link) references that aren't of [seealso](https://www.hl7.org/fhir/codesystem-link-type.html#content) or if the `seealso` link references a `RelatedPerson`.
 * If there are `seealso` link reference(s) to other patient(s), the results will include Patient-everything operation against the `seealso` patient(s) listed.
 * Resources in the [Patient Compartment](https://www.hl7.org/fhir/compartmentdefinition-patient.html)
 * [Device resources](https://www.hl7.org/fhir/device.html) that reference the patient resource. 
@@ -42,14 +46,14 @@ The Azure API for FHIR supports the following query parameters. All of these par
 | end | Specifying the end date will pull in resources where their clinical date is before the specified end date. If no end date is provided, all records after the start date are in scope. |
 
 > [!Note]
-> You must specify an ID for a specific patient. If you need all data for all patients, see [$export](../data-transformation/export-data.md). 
+> This implementation of Patient-everything does not support the _count parameter.
 
 
 ## Processing patient links
 
 On a patient resource, there's an element called link, which links a patient to other patients or related persons. These linked patients help give a holistic view of the original patient. The link reference can be used when a patient is replacing another patient or when two patient resources have complementary information. One use case for links is when an ADT 38 or 39 HL7v2 message comes. The ADT38/39 describe an update to a patient. This update can be stored as a reference between two patients in the link element.
 
-The FHIR specification has a detailed overview of the different types of [patient links](https://www.hl7.org/fhir/valueset-link-type.html#expansion), but below is a high-level summary:
+The FHIR specification has a detailed overview of the different types of [patient links](https://www.hl7.org/fhir/valueset-link-type.html#expansion), but here's a high-level summary:
 
 * [replaces](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-replaces) - The Patient resource replaces a different Patient.
 * [refer](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-refer) - Patient is valid, but it's not considered the main source of information. Points to another patient to retrieve additional information.
@@ -63,9 +67,9 @@ The Patient-everything operation in Azure API for FHIR processes patient links i
 > [!Note]
 > A link can also reference a `RelatedPerson`. Right now, `RelatedPerson` resources are not processed in Patient-everything and are not returned in the bundle.
 
-Right now, [replaces](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-replaces) and [refer](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-refer) links are ignored by the Patient-everything operation, and the linked patient is not returned in the bundle. 
+Right now, [replaces](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-replaces) and [refer](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-refer) links are ignored by the Patient-everything operation, and the linked patient isn't returned in the bundle. 
 
-As described above, [seealso](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-seealso) links reference another patient that's considered equally valid to the original. After the Patient-everything operation is run, if the patient has `seealso` links to other patients, the operation runs Patient-everything on each `seealso` link. This means if a patient links to five other patients with a type `seealso` link, we'll run Patient-everything on each of those five patients.
+As described, [seealso](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-seealso) links reference another patient that's considered equally valid to the original. After the Patient-everything operation is run, if the patient has `seealso` links to other patients, the operation runs Patient-everything on each `seealso` link. This means if a patient links to five other patients with a type `seealso` link, we'll run Patient-everything on each of those five patients.
 
 > [!Note]
 > This is set up to only follow `seealso` links one layer deep. It doesn't process a `seealso` link's `seealso` links.
@@ -81,20 +85,21 @@ In addition, you can set the `Prefer` header to `handling=strict` to throw an er
 
 ## Patient-everything response order
 
-This implementation of Patient-everything does not support the _count parameter. Patient-everything returns the results by executing several phases. After each phase, the results from the next phase will start on a new page by following the next link in the bundle. The phases are outlined below: 
+The Patient-everything operation returns results in phases:
 
-1. Phase 1 returns the `Patient` resource and any `generalPractitioner` and `managingOrganization` resources linked to the patient.
-1. Phase 2 will return resources from the patient compartment that can be filtered by their clinical date if start or end are specified. If no start or end date is passed in, this phase is skipped.
-1. Phase 3 will return resources from the patient compartment that cannot be filtered by their clinical data **or** will return all patient-compartment resources if no start or end date was specified.
+1. Phase 1 returns the `Patient` resource itself in addition to any `generalPractitioner` and `managingOrganization` resources ir references.
+1. Phase 2 and 3 both return resources in the patient compartment. If the start or end query parameters are specified, Phase 2 returns resources from the compartment that can be filtered by their clinical date, and Phase 3 returns resources from the compartment that can't be filtered by their clinical date. If neither of these parameters are specified, Phase 2 is skipped and Phase 3 returns all patient-compartment resources.
 1. Phase 4 will return any devices that reference the patient.
+
+Each phase will return results in a bundle. If the results span multiple pages, the next link in the bundle will point to the next page of results for that phase. After all results from a phase are returned, the next link in the bundle will point to the call to initiate the next phase.
 
 If the original patient has any `seealso` links, phases 1 through 4 will be repeated for each of those patients. 
 
 ## Examples of Patient-everything 
 
-Below are some examples of using the Patient-everything operation. In addition to the examples below, we have a [sample REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PatientEverythingLinks.http) that illustrates how the `seealso` and `replaced-by` behavior works.
+Here are some examples of using the Patient-everything operation. In addition to the examples, we have a [sample REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PatientEverythingLinks.http) that illustrates how the `seealso` and `replaced-by` behavior works.
 
-To use Patient-everything to query a patient's "everything" between 2010 and 2020, use the following call: 
+To use Patient-everything to query between 2010 and 2020, use the following call: 
 
 ```json
 GET {FHIRURL}/Patient/{ID}/$everything?start=2010&end=2020
@@ -115,7 +120,7 @@ If a patient is found for each of these calls, you'll get back a 200 response wi
 
 ## Next steps
 
-Now that you know how to use the Patient-everything operation, you can learn about the search options. For more information, see
+Now that you know how to use the Patient-everything operation, you can learn about the search options.
 
 >[!div class="nextstepaction"]
 >[Overview of search in Azure API for FHIR](overview-of-search.md)
