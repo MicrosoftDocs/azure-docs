@@ -12,7 +12,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Create an example policy control configuration set for Azure Private 5G Core
 
-Azure Private 5G Core Preview provides flexible traffic handling, allowing you to customize how your packet core instance applies Quality of Service (QoS) characteristics to traffic to meet its needs, as well as block or limit certain flows. The following tutorial takes you through the steps of creating services and SIM policies for common use cases, and then provisioning SIMs to use the new policy control configuration.
+Azure Private 5G Core Preview provides flexible traffic handling. You can customize how your packet core instance applies Quality of Service (QoS) characteristics to traffic to meet its needs. You can also block or limit certain flows. The following tutorial takes you through the steps of creating services and SIM policies for common use cases, and then provisioning SIMs to use the new policy control configuration.
 
 In this tutorial, you'll learn how to:
 
@@ -52,21 +52,24 @@ Do the following to create the service.
 
     :::image type="content" source="media/configure-service-azure-portal/create-command-bar-option.png" alt-text="Screenshot of the Azure portal showing the Create option in the command bar.":::
 
-1. We'll now enter values to define the QoS characteristics that will be applied to Service Data Flows that match this service. On the Basics tab, fill out the fields as follows.
+1. We'll now enter values to define the QoS characteristics that will be applied to Service Data Flows that match this service. On the **Basics** tab, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|
     |**Service name**     |`service_restricted_udp_and_icmp`         |
     |**Service precedence**     | `100`        |
-    |**Maximum Bit Rate (MBR) - Uplink**     | `10 Mbps`        |
-    |**Maximum Bit Rate (MBR) - Downlink**     | `10 Mbps`        |
+    |**Maximum Bit Rate (MBR) - Uplink**     | `2 Gbps`        |
+    |**Maximum Bit Rate (MBR) - Downlink**     | `2 Gbps`        |
     |**Allocation and Retention Priority level**     | `2`        |
     |**5G QoS Indicator (5QI)**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
     |**Preemption vulnerability**     | Select **Not preemptable**.        |
 
-1. Select **Add a policy rule**.
-1. We'll now create a data flow policy rule that blocks any packets that match the data flow template we'll configure in the next step. On the **Add a policy rule** blade, fill out the fields as follows.
+1. Under **Data flow policy rules**, select **Add a policy rule**.
+
+    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/example-protocol-filtering-service-without-rules.png" alt-text="Screenshot of the Azure portal showing the Create a service screen with protocol filtering configuration. The Add a policy rule button is highlighted.":::
+
+1. We'll now create a data flow policy rule that blocks any packets that match the data flow template we'll configure in the next step. Under **Add a policy rule** on the right, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|
@@ -75,7 +78,7 @@ Do the following to create the service.
     |**Allow traffic**     | Select **Blocked**.        |
 
 1. We'll now create a data flow template that matches on ICMP packets flowing away from UEs, so that they can be blocked by the `rule_block_icmp_uplink_traffic` rule.
-    Select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
+    Under **Data flow templates**, select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|
@@ -86,9 +89,12 @@ Do the following to create the service.
     |**Ports**     | Leave blank.        |
 
 1. Select **Add**.
+
+    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/add-a-data-flow-template.png" alt-text="Screenshot of the Azure portal. The Add a data flow template pop-up is shown and the Add button is highlighted.":::
+
 1. We'll now create another data flow template for the same rule that matches on UDP packets flowing away UEs on port 11. 
 
-    Select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
+    Under **Data flow templates**, select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|
@@ -98,10 +104,14 @@ Do the following to create the service.
     |**Remote IPs**     | `any`        |
     |**Ports**     | `11`        |
 
-1. We can now finalize the rule. On the **Add a policy rule** blade, select **Add**.
+1. Select **Add**.
+1. We can now finalize the rule. Under **Add a policy rule**, select **Add**.
+
+    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/protocol-filtering-rule-configuration.png" alt-text="Screenshot of the Azure portal. The Add a policy rule screen is shown with protocol filtering configuration and the Add button is highlighted.":::
+
 1. Finally, we'll create a data policy flow rule that allows all other ICMP and UDP traffic.
 
-    Select **Add a policy rule** and then fill out the fields on the **Add a policy rule** blade as follows.
+    Select **Add a policy rule** and then fill out the fields under **Add a policy rule** on the right as follows.
 
     |Field  |Value  |
     |---------|---------|
@@ -109,20 +119,20 @@ Do the following to create the service.
     |**Policy rule precedence**     | Select **15**.        |
     |**Allow traffic**     | Select **Enabled**.        |
 
-1. We'll now create a data flow template that matches on all ICMP and UDP in both directions.
+1. We're now back at the **Create a service** screen. We'll now create a data flow template that matches on all ICMP and UDP in both directions.
 
-    Select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
+    Under **Data flow policy rules**, select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|
-    |**Template name**     |`icmp_and udp_traffic`         |
+    |**Template name**     |`icmp_and_udp_traffic`         |
     |**Protocols**     | Tick both the **UDP** and **ICMP** checkboxes.        |
     |**Direction**     | Select **Bidirectional**.        |
     |**Remote IPs**     | `any`        |
     |**Ports**     | Leave blank.        |
 
 1. Select **Add**.
-1. We can now finalize the rule. On the **Add a policy rule** blade, select **Add**.
+1. We can now finalize the rule. Under **Add a policy rule**, select **Add**.
 1. We now have two configured data flow policy rules on the service, which are displayed under the **Data flow policy rules** heading. Note that the `rule_block_icmp_and_udp_uplink_traffic` rule has a lower precedence value than the `rule_allow_other_icmp_and_udp_traffic` rule (10 and 15 respectively). This ensures that the `rule_block_icmp_and_udp_uplink_traffic` rule to block packets is applied first, before the wider `rule_allow_other_icmp_and_udp_traffic` is applied to all remaining packets.
 
     :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/example-protocol-filtering-service.png" alt-text="Screenshot of the Azure portal. It shows the create a service screen with all fields correctly filled out and two data flow policy rules.":::
@@ -146,37 +156,30 @@ In this step, we'll create a service that blocks traffic from specific sources. 
 
 * Block UDP packets labeled with the remote address 10.204.141.200 and port 12 flowing towards UEs.
 * Block UDP packets labeled with any remote address in the range 10.204.141.0/24 and port 15 flowing in both directions
-* Allow all other IP traffic in both directions.
 
 Do the following to create the service.
 
 1. Search for and select the Mobile Network resource representing your private mobile network.
-
-    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
-
 1. In the resource menu, select **Services**.
-
-     :::image type="content" source="media/configure-service-azure-portal/services-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the Services option in the resource menu of a Mobile Network resource.":::
-
 1. In the command bar, select **Create**.
-
-    :::image type="content" source="media/configure-service-azure-portal/create-command-bar-option.png" alt-text="Screenshot of the Azure portal showing the Create option in the command bar.":::
-
 1. We'll now enter values to define the QoS characteristics that will be applied to Service Data Flows that match this service. On the **Basics** tab, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|
     |**Service name**     |`service_blocking_udp_from_specific_sources`         |
-    |**Service precedence**     | `253`        |
-    |**Maximum Bit Rate (MBR) - Uplink**     | `10 Mbps`        |
-    |**Maximum Bit Rate (MBR) - Downlink**     | `10 Mbps`        |
+    |**Service precedence**     | `150`        |
+    |**Maximum Bit Rate (MBR) - Uplink**     | `2 Gbps`        |
+    |**Maximum Bit Rate (MBR) - Downlink**     | `2 Gbps`        |
     |**Allocation and Retention Priority level**     | `2`        |
     |**5G QoS Indicator (5QI)**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
     |**Preemption vulnerability**     | Select **Not preemptable**.        |
 
-1. Select **Add a policy rule**.
-1. We'll now create a data flow policy rule that blocks any packets that match the data flow template we'll configure in the next step. On the **Add a policy rule** blade, fill out the fields as follows.
+1. Under **Data flow policy rules**, select **Add a policy rule**.
+
+    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/example-traffic-blocking-service-without-rules.png" alt-text="Screenshot of the Azure portal showing the Create a service screen with traffic blocking configuration. The Add a policy rule button is highlighted.":::
+
+1. We'll now create a data flow policy rule that blocks any packets that match the data flow template we'll configure in the next step. Under **Add a policy rule** on the right, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|
@@ -186,7 +189,7 @@ Do the following to create the service.
 
 1. We'll now create a data flow template that matches on UDP packets flowing towards UEs from 10.204.141.200 on port 12, so that they can be blocked by the `rule_block_udp_from_specific_sources` rule.
 
-    Select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
+    Under **Data flow templates**, select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|
@@ -199,7 +202,7 @@ Do the following to create the service.
 1. Select **Add**.
 1. We'll now create another data flow template for the same rule that matches on UDP packets flowing in either direction that are labelled with any remote address in the range 10.204.141.0/24 and port 15.
 
-    Select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
+    Under **Data flow templates**, select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|
@@ -217,31 +220,7 @@ Do the following to create the service.
     Screenshot of the Azure portal. It shows the Add a policy rule screen with all fields correctly filled out for a rule to block certain UDP traffic. It includes two configured data flow templates. The first matches on UDP packets flowing towards UEs from 10.204.141.200 on port 12. The second matches on UDP packets flowing in either direction that are labelled with any remote address in the range 10.204.141.0/24 and port 15. The Add button is highlighted.
     :::image-end:::
 
-1. Finally, we'll create a data policy flow rule that allows all other IP traffic.
-
-    Select **Add a policy rule** and then fill out the fields on the **Add a policy rule** blade as follows.
-
-    |Field  |Value  |
-    |---------|---------|
-    |**Rule name**     |`rule_allow_other_ip_traffic`         |
-    |**Policy rule precedence**     | Select **20**.        |
-    |**Allow traffic**     | Select **Enabled**.        |
-
-1. We'll now create a data flow template that matches on all IP traffic in both directions.
-
-    Select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
-
-    |Field  |Value  |
-    |---------|---------|
-    |**Template name**     |`ip_traffic`         |
-    |**Protocols**     | Select **All**.        |
-    |**Direction**     | Select **Bidirectional**.        |
-    |**Remote IPs**     | `any`        |
-    |**Ports**     | Leave blank        |
-
-1. Select **Add**.
-1. We can now finalize the rule. Under **Add a policy rule**, select **Add**.
-1. We now have two configured data flow policy rules on the service, which are displayed under the **Data flow policy rules** heading. Note that the `rule_block_udp_from_specific_sources` rule has a lower precedence value than the `rule_allow_other_ip_traffic` rule (11 and 20 respectively). This ensures that the `rule_block_udp_from_specific_sources` rule to block packets is applied first, before the wider `rule_allow_other_ip_traffic` is applied to all remaining packets.
+1. We now have a single data flow policy rule on the service for blocking UDP traffic. This is displayed under the **Data flow policy rules** heading.
 
     :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/example-traffic-blocking-service.png" alt-text="Screenshot of the Azure portal. It shows completed fields for a service to block UDP from specific sources, including data flow policy rules.":::  
 
@@ -262,44 +241,37 @@ Do the following to create the service.
 
 In this step, we'll create a service that limits the bandwidth of traffic on matching flows. Specifically, it'll do the following.
 
-* Limit the Maximum Bit Rate (MBR) for packets flowing away from UEs to 2 Gbps.
-* Limit the Maximum Bit Rate (MBR) for packets flowing towards UEs to 1 Gbps.
+* Limit the Maximum Bit Rate (MBR) for packets flowing away from UEs to 10 Mbps.
+* Limit the Maximum Bit Rate (MBR) for packets flowing towards UEs to 15 Mbps.
 
 Do the following to create the service.
 
 1. Search for and select the Mobile Network resource representing your private mobile network.
-
-    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
-
 1. In the resource menu, select **Services**.
-
-    :::image type="content" source="media/configure-service-azure-portal/services-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the Services option in the resource menu of a Mobile Network resource.":::
-
 1. In the command bar, select **Create**.
-
-    :::image type="content" source="media/configure-service-azure-portal/create-command-bar-option.png" alt-text="Screenshot of the Azure portal showing the Create option in the command bar.":::
-
 1. We'll now enter values to define the QoS characteristics that will be applied to Service Data Flows that match this service. We'll use the **Maximum Bit Rate (MBR) - Uplink** and **Maximum Bit Rate (MBR) - Downlink** fields to set our bandwidth limits. On the **Basics** tab, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|
     |**Service name**     |`service_traffic_limits`         |
-    |**Service precedence**     | `150`        |
-    |**Maximum Bit Rate (MBR) - Uplink**     | `2 Gbps`        |
-    |**Maximum Bit Rate (MBR) - Downlink**     | `1 Gbps`        |
+    |**Service precedence**     | `253`        |
+    |**Maximum Bit Rate (MBR) - Uplink**     | `10 Mbps`        |
+    |**Maximum Bit Rate (MBR) - Downlink**     | `15 Mbps`        |
     |**Allocation and Retention Priority level**     | `2`        |
     |**5G QoS Indicator (5QI)**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
-    |**Preemption vulnerability**     | Select **Not preemptable**.        |
+    |**Preemption vulnerability**     | Select **Preemptable**.        |
 
-1. Select **Add a policy rule**.
+1. Under **Data flow policy rules**, select **Add a policy rule**.
 
-1. Select **Add a policy rule** and then fill out the fields on the **Add a policy rule** blade as follows.
+    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/example-traffic-limiting-service-without-rules.png" alt-text="Screenshot of the Azure portal showing the Create a service screen with traffic limiting configuration. The Add a policy rule button is highlighted.":::
+
+1. Under **Add a policy rule** on the right, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|
     |**Rule name**     |`rule_bidirectional_limits`         |
-    |**Policy rule precedence**     | Select **12**.        |
+    |**Policy rule precedence**     | Select **22**.        |
     |**Allow traffic**     | Select **Enabled**.        |
 
 1. We'll now create a data flow template that matches on all IP traffic in both directions.
@@ -315,6 +287,9 @@ Do the following to create the service.
     |**Ports**     | Leave blank        |
 
 1. Select **Add**.
+
+    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/traffic-limiting-rule-configuration.png" alt-text="Screenshot of the Azure portal. The Add a policy rule screen is shown with traffic limiting configuration and the Add button is highlighted.":::
+
 1. We can now finalize the rule. Under **Add a policy rule**, select **Add**.
 1. We now have a single data flow policy rule configured on the service.
 
@@ -335,7 +310,16 @@ Do the following to create the service.
 
 ## Configure SIM policies
 
-In this step, we will create two SIM policies. The first SIM policy will use the service we created in [Create a service for protocol filtering](#create-a-service-for-protocol-filtering), and the second will use the service we created in [Create a service for blocking traffic from specific sources](#create-a-service-for-blocking-traffic-from-specific-sources). Both SIM policies will use the third service we created in [Create a service for limiting traffic](#create-a-service-for-limiting-traffic).
+In this step, we'll create two SIM policies. The first SIM policy will use the service we created in [Create a service for protocol filtering](#create-a-service-for-protocol-filtering), and the second will use the service we created in [Create a service for blocking traffic from specific sources](#create-a-service-for-blocking-traffic-from-specific-sources). Both SIM policies will use the third service we created in [Create a service for limiting traffic](#create-a-service-for-limiting-traffic).
+
+> [!NOTE]
+> As each SIM policy will have multiple services, there will be packets that match more than one rule across these services. For example, downlink ICMP packets will match on the following rules. 
+> - The `rule_allow_other_icmp_and_udp_traffic` rule on the `service_restricted_udp_and_icmp` service.
+> - The `rule_bidirectional_limits` rule on the `service_traffic_limits` service. 
+>
+> In this case, the packet core instance will prioritize the service with the lowest value for the **Service precedence** field. It will then apply the QoS characteristics from this service to the packets. In the example above, the `service_restricted_udp_and_icmp` service has a lower value (100) than the `service_traffic_limits` service (253). The packet core instance will therefore apply the QoS characteristics given on the `service_restricted_udp_and_icmp` service to downlink ICMP packets. 
+
+Let's create the SIM policies.
 
 1. Search for and select the Mobile Network resource representing your private mobile network.
 
@@ -401,13 +385,7 @@ In this step, we will create two SIM policies. The first SIM policy will use the
     :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/complete-example-sim-policy-1.png" alt-text="Screenshot of the Azure portal showing the first SIM policy resource. Essentials, network scope, and service configuration are highlighted." lightbox="media/tutorial-create-example-set-of-policy-control-configuration/complete-example-sim-policy-1.png":::
 
 1. We'll now create the other SIM policy. Search for and select the Mobile Network resource representing the private mobile network for which you want to configure a service.
-
-    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
-
 1. In the resource menu, select **SIM policies**.
-
-    :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policies-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the SIM policies option in the resource menu of a Mobile Network resource.":::
-
 1. In the command bar, select **Create**.
 1. On the **Create a SIM policy** blade that appears, fill out the fields as follows.
 
@@ -447,9 +425,6 @@ In this step, we will create two SIM policies. The first SIM policy will use the
 1. Select **Go to resource group**.
 1. In the resource group that appears, select the **Mobile network** resource representing your private mobile network.
 1. In the resource menu, select **SIM policies**.
-
-    :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policies-resource-menu-option.png" alt-text="Screenshot of the Azure portal showing the SIM policies option in the resource menu of a Mobile Network resource.":::
-
 1. Select **sim-policy-2**.
 
     :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sim-policies-list-example-2.png" alt-text="Screenshot of the Azure portal with a list of configured SIM policies for a private mobile network. The sim-policy-2 resource is highlighted." lightbox="media/tutorial-create-example-set-of-policy-control-configuration/sim-policies-list-example-2.png":::
@@ -522,13 +497,7 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
 1. Once the deployment is complete, select **Go to Resource**.
 1. Check the **SIM policy** field in the **Management** section to confirm **sim-policy-1** has been successfully assigned.
 1. Search for and select the Mobile Network resource representing your private mobile network.
-
-    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
-
 1. In the resource menu, select **SIMs**.
-
-    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sims-resource-menu-option.png" alt-text="Screenshot of the Azure portal. The SIMs option in the resource menu for a private mobile network is highlighted.":::
-
 1. Tick the checkbox next to **SIM2**.
 1. In the command bar, select **Assign SIM policy**.
 1. Under **Assign SIM policy** on the right, set the **SIM policy** field to **sim-policy-2**.

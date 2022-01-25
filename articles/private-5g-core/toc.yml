@@ -1,5 +1,5 @@
 items:
-- name: Azure Private 5G Core Preview documentation
+- name: Azure Private 5G Core documentation
   href: index.yml
 - name: Tutorials
   items:

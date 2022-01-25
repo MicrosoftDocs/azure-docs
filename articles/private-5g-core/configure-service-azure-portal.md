@@ -86,7 +86,7 @@ We'll now create the service so it can be added to your policy control configura
     :::image type="content" source="media/configure-service-azure-portal/service-resource-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing the successful deployment of a service resource and the Go to resource button.":::
 
 1. Confirm that the data flow policy rules and service data flow templates listed at the bottom of the screen are configured as expected.
-:::image type="content" source="media/configure-service-azure-portal/service-resource.png" alt-text="Screenshot of the Azure portal showing a service resource.":::
+:::image type="content" source="media/configure-service-azure-portal/service-resource.png" alt-text="Screenshot of the Azure portal showing a service resource. The data flow policy rules and service data flow templates are highlighted." lightbox="media/configure-service-azure-portal/service-resource.png":::
 
 ## Next steps
 
