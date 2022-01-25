@@ -175,10 +175,11 @@ $accountName = "<account-name>"
 
 $account = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
 
-# Check whether the KeyCreationTime property has a value for each key before creating policy.
+# Check whether the KeyCreationTime property has a value for each key 
+# before creating the key expiration policy.
 if ($account.KeyCreationTime.Key1 -eq $null -or $account.KeyCreationTime.Key2 -eq $null)
 {
-    Write-Host("You must regenerate both keys at least once before setting key expiration policy")
+    Write-Host("You must regenerate both keys at least once before setting expiration policy")
 }
 else
 {
@@ -217,9 +218,12 @@ key2_create_time=$(az storage account show \
 
 if [ -z "$key1_create_time" ] || [ -z "$key2_create_time" ]; 
 then
-    echo "You must regenerate both keys at least once before setting key expiration policy"
+    echo "You must regenerate both keys at least once before setting expiration policy"
 else
-    az storage account update --name <storage-account> --resource-group <resource-group> --key-exp-days 60
+    az storage account update \
+        --name <storage-account> \
+        --resource-group <resource-group> \
+        --key-exp-days 60
 fi
 ```
 
