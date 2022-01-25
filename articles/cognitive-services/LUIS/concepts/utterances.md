@@ -34,11 +34,11 @@ Your app may need to process sentences, like "Book a ticket to Paris for me", or
 
 If you do not spell check user utterances, you should train LUIS on utterances that include typos and misspellings.
 
-## Use the representative language of the user
+### Use the representative language of the user
 
 When choosing utterances, be aware that what you think are common terms or phrases might not be common for the typical user of your client application. They may not have domain experience or use different terminology. Be careful when using terms or phrases that a user would only say if they were an expert.
 
-## Choose varied terminology and phrasing
+### Choose varied terminology and phrasing
 
 You will find that even if you make efforts to create varied sentence patterns, you will still repeat some vocabulary. For example, the following utterances have similar meaning, but different terminology and phrasing:
 
