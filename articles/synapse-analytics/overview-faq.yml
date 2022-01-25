@@ -27,11 +27,11 @@ sections:
           * Synapse Administrator
           * Synapse SQL Administrator
           * Synapse Spark Administrator
-          * Synapse Contributor (preview)
-          * Synapse Artifact Publisher (preview)
-          * Synapse Artifact User (preview)
-          * Synapse Compute Operator (preview)
-          * Synapse Credential User (preview)
+          * Synapse Contributor
+          * Synapse Artifact Publisher
+          * Synapse Artifact User
+          * Synapse Compute Operator
+          * Synapse Credential User
           
           To secure your Synapse workspace, assign the RBAC Roles to these RBAC scopes:
           * Workspaces
