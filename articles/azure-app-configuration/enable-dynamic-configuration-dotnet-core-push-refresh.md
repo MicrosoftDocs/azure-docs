@@ -85,10 +85,8 @@ using Azure.Messaging.EventGrid;
 using Microsoft.Azure.ServiceBus;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+using Microsoft.Extensions.Configuration.AzureAppConfiguration.Extensions;
 using System;
-using System.Diagnostics;
-using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace TestConsole
@@ -113,7 +111,7 @@ namespace TestConsole
                     options.ConfigureRefresh(refresh =>
                         refresh
                             .Register("TestApp:Settings:Message")
-                            .SetCacheExpiration(TimeSpan.FromDays(30))  // Important: Reduce poll frequency
+                            .SetCacheExpiration(TimeSpan.FromDays(1))  // Important: Reduce poll frequency
                     );
 
                     _refresher = options.GetRefresher();
@@ -132,7 +130,7 @@ namespace TestConsole
                     Console.WriteLine($"New value: {configuration["TestApp:Settings:Message"]}");
                     message = configuration["TestApp:Settings:Message"];
                 }
-                
+
                 await Task.Delay(TimeSpan.FromSeconds(1));
             }
         }
@@ -143,13 +141,18 @@ namespace TestConsole
             string serviceBusTopic = Environment.GetEnvironmentVariable(ServiceBusTopicEnvVarName);
             string serviceBusSubscription = Environment.GetEnvironmentVariable(ServiceBusSubscriptionEnvVarName);
             SubscriptionClient serviceBusClient = new SubscriptionClient(serviceBusConnectionString, serviceBusTopic, serviceBusSubscription);
+
             serviceBusClient.RegisterMessageHandler(
                 handler: (message, cancellationToken) =>
                 {
                     EventGridEvent eventGridEvent = EventGridEvent.Parse(BinaryData.FromBytes(message.Body));
 
+                    //
+                    // Tries to produce an out PushNotification variable from the eventGridEvent
                     eventGridEvent.TryCreatePushNotification(out PushNotification pushNotification);
 
+                    //
+                    // Processes the details of the pushNotification
                     _refresher.ProcessPushNotification(pushNotification);
 
                     return Task.CompletedTask;
