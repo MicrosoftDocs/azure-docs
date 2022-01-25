@@ -75,7 +75,11 @@ Using a regular expression entity guarantees the data extraction so that the pat
 
 ## Intent balance
 
+<<<<<<< HEAD
 The app domain intents should have a balance of utterances across each intent. For example, do not have most of your intents with 10 utterances and another intent with 500 utterances.. This is not balanced. In this situation, you would want to review the intent with 500 utterances to see if many of the intents can be reorganized into a [pattern](../luis-concept-patterns.md).
+=======
+The app domain intents should have a balance of utterances across each intent. For example, do not have most of your intents with 10 utterances and another intent with 500 utterances. This is not balanced. In this situation, you would want to review the intent with 500 utterances to see if many of the intents can be reorganized into a [pattern](../luis-concept-patterns.md).
+>>>>>>> BaherAbdullah/patch-43
 
 The  **None**  intent is not included in the balance. That intent should contain 10% of the total utterances in the app.
 
@@ -120,9 +124,13 @@ Use prediction data from LUIS to determine if your intents are overlapping. Over
 
 For LUIS predictions to be accurate, the quantity of example utterances in each intent (except for the None intent), must be relatively equal.
 
+<<<<<<< HEAD
 If you have an intent with 100 example utterances and an intent with 20 example utterances, the 100-utterance intent will have a higher rate of prediction.
+=======
+If you have an intent with 500 example utterances and all your other intents with 10 example utterances, the 500-utterance intent will have a higher rate of prediction.
+>>>>>>> BaherAbdullah/patch-43
 
-### Add example utterances to none intent:
+### Add example utterances to none intent
 
 This intent is the fallback intent, indicating everything outside your application. Add one example utterance to the None intent for every 10 example utterances in the rest of your LUIS app.
 
