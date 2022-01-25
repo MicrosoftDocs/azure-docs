@@ -240,13 +240,13 @@ $config = New-AzPrivateDnsZoneConfig -Name "test-vault-azure-com" -PrivateDnsZon
 New-AzPrivateDnsZoneGroup -ResourceGroupName "rg" -PrivateEndpointName "test-pr-endpoint" -name "dnsgroup1" -PrivateDnsZoneConfig $config -Force
 ```
 
-For more details about Powershell commands for DNS zone groups, see [DNS Powershell Cmdlet](https://docs.microsoft.com/en-us/powershell/module/az.network/?view=azps-7.1.0#dns).
+For more details about Powershell commands for DNS zone groups, see [DNS Powershell Cmdlet](https://docs.microsoft.com/powershell/module/az.network/?view=azps-7.1.0#dns&preserve-view=true).
 
-See also [Azure CLI for DNS zone group](https://docs.microsoft.com/en-us/cli/azure/network/private-endpoint/dns-zone-group?view=azure-cli-latest). 
+See also [Azure CLI for DNS zone group](https://docs.microsoft.com/cli/azure/network/private-endpoint/dns-zone-group?view=azure-cli-latest&preserve-view=true). 
 
-See also [REST API for DNS zone group](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/private-dns-zone-groups).
+See also [REST API for DNS zone group](https://docs.microsoft.com/rest/api/virtualnetwork/private-dns-zone-groups).
 
-See also [Bicep and ARM template for DNS zone group](https://docs.microsoft.com/en-us/azure/templates/microsoft.network/privateendpoints/privatednszonegroups?tabs=bicep).
+See also [Bicep and ARM template for DNS zone group](https://docs.microsoft.com/azure/templates/microsoft.network/privateendpoints/privatednszonegroups?tabs=bicep).
 
 ## Next steps
 - [Learn about private endpoints](private-endpoint-overview.md)
