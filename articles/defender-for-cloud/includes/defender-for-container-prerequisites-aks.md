@@ -8,14 +8,6 @@ ms.date: 01/25/2022
 
 Validate the following endpoints are configured for outbound access so that the Defender profile can connect to Microsoft Defender for Cloud to send security data and events:
 
-For Azure public cloud deployments:
-
-| Domain                     | Port |
-| -------------------------- | ---- |
-| *.ods.opinsights.azure.com | 443  |
-| *.oms.opinsights.azure.com | 443  |
-| login.microsoftonline.com  | 443  |
+See the [required FQDN/application rules for Azure policy](../../aks/limit-egress-traffic.md#microsoft-defender-for-containers) for Microsoft Defender for Containers.
 
 By default, AKS clusters have unrestricted outbound (egress) internet access. 
-
-Learn more about [AKS addons and integrations](../../aks/limit-egress-traffic.md#aks-addons-and-integrations)
