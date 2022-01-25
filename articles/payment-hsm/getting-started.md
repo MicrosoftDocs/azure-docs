@@ -17,14 +17,13 @@ To get started with Azure Payment PSH (preview), request access [via email](mail
 
 ## Support
 
-Microsoft will provide support for hardware issues, networking issues and provisioning through standard support. Support ticket can be created from Azure portal use Service Type -> Dedicated HSM (under Security category) and mention “payment HSM” in the summary field.  All support cases in public preview will be severity 3 only.
+Microsoft will provide support for hardware issues, networking issues and provisioning through standard support. Support ticket can be created from Azure portal use Service Type -> Dedicated HSM (under Security category) and mention "payment HSM"”" in the summary field.  All support cases in public preview will be severity 3 only.
 
 :::image type="content" source="./media/support.png" alt-text="Output after Key Vault creation completes":::
  
- For application-level support (client software, HSM configuration, backup etc.) contact Thales support.
+For application-level support (client software, HSM configuration, backup etc.), contact Thales support.
 
-Customers are responsible to apply payShield security patches and upgrade payShield firmware for the allocated HSMs.
-
+Customers are responsible for applying payShield security patches and upgrading payShield firmware for the allocated HSMs.
 
 ## Next steps
 
