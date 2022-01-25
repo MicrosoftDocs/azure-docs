@@ -71,7 +71,7 @@ Kusto Query Language is used in Microsoft Sentinel to search, analyze, and visua
 The new **Advanced KQL for Microsoft Sentinel** interactive workbook is designed to help you improve your Kusto Query Language proficiency by taking a use case-driven approach based on:
 
 - Grouping Kusto Query Language operators / commands by category for easy navigation.
-- Listing the possible tasks a user would perform with Kusto Query Language in Microsoft Sentinel. Each task includes operators used, sample queries and use cases.
+- Listing the possible tasks a user would perform with Kusto Query Language in Microsoft Sentinel. Each task includes operators used, sample queries, and use cases.
 - Compiling a list of existing content found in Microsoft Sentinel (analytics rules, hunting queries, workbooks and so on) to provide additional references specific to the operators you want to learn.
 - Allowing you to execute sample queries on-the-fly, within your own environment or in "LA Demo" - a public [Log Analytics demo environment](https://aka.ms/lademo). Try the sample Kusto Query Language statements in real time without the need to navigate away from the workbook.
 
@@ -86,7 +86,7 @@ Accompanying the new workbook is an explanatory [blog post](https://techcommunit
 
 ### Apache Log4j Vulnerability Detection solution
 
-Remote code execution vulnerabilities related to Apache Log4j were disclosed on 9 Dec 2021. The vulnerability allows for unauthenticated remote code execution, and it is triggered when a specially crafted string, provided by the attacker through a variety of different input vectors, is parsed and processed by the Log4j 2 vulnerable component.
+Remote code execution vulnerabilities related to Apache Log4j were disclosed on 9 December 2021. The vulnerability allows for unauthenticated remote code execution, and it is triggered when a specially crafted string, provided by the attacker through a variety of different input vectors, is parsed and processed by the Log4j 2 vulnerable component.
 
 The [Apache Log4J Vulnerability Detection](sentinel-solutions-catalog.md#domain-solutions) solution was added to the Microsoft Sentinel content hub to help customers monitor, detect, and investigate signals related to the exploitation of this vulnerability, using Microsoft Sentinel.
 
@@ -115,7 +115,7 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 ### Apache Log4j Vulnerability Detection solution (Public preview)
 
-Remote code execution vulnerabilities related to Apache Log4j were disclosed on 9 Dec 2021. The vulnerability allows for unauthenticated remote code execution, and it is triggered when a specially crafted string, provided by the attacker through a variety of different input vectors, is parsed and processed by the Log4j 2 vulnerable component. 
+Remote code execution vulnerabilities related to Apache Log4j were disclosed on 9 December 2021. The vulnerability allows for unauthenticated remote code execution, and it is triggered when a specially crafted string, provided by the attacker through a variety of different input vectors, is parsed and processed by the Log4j 2 vulnerable component. 
 
 The [Apache Log4J Vulnerability Detection](sentinel-solutions-catalog.md#domain-solutions) solution was added to the Microsoft Sentinel content hub to help customers monitor, detect, and investigate signals related to the exploitation of this vulnerability, using Microsoft Sentinel.
 
@@ -140,7 +140,7 @@ For more information, see the [Microsoft Security Response Center blog](https://
 
 ### Incident advanced search now available in GA
 
-Searching for incidents using the advanced search functionality is now Generally Available.
+Searching for incidents using the advanced search functionality is now generally available.
 
 The advanced incident search provides the ability to search across more data, including alert details, descriptions, entities, tactics, and more.
 
@@ -160,7 +160,7 @@ You can now stream event logs from Windows Servers connected to your Microsoft S
 
 - **Scalability:** If you have enabled Windows Event Collection (WEC), you can install the Azure Monitor Agent (AMA) on the WEC machine to collect logs from many servers with a single connection point.
 
-- **Speed:** The AMA can send data at an improved rate of 5K EPS, allowing for faster data refresh.
+- **Speed:** The AMA can send data at an improved rate of 5 K EPS, allowing for faster data refresh.
 
 - **Efficiency:** The AMA allows you to design complex Data Collection Rules (DCR) to filter the logs at their source, choosing the exact events to stream to your workspace. DCRs help lower your network traffic and your ingestion costs by leaving out undesired events.
 
@@ -268,7 +268,7 @@ The following list includes highlights of new, out-of-the-box solutions added to
 
 For more information, see:
 
-- [About Microsoft Sentinel solutions](sentinel-solutions.md)
+- [Learn about Microsoft Sentinel solutions](sentinel-solutions.md)
 - [Discover and deploy Microsoft Sentinel solutions](sentinel-solutions-deploy.md)
 - [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md)
 
@@ -301,7 +301,7 @@ For example:
 For more information, see:
 
 - [Understand threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md)
-- [Threat intelligence integrations](threat-intelligence-integration.md)
+- [Understand threat intelligence integrations](threat-intelligence-integration.md)
 - [Work with threat indicators in Microsoft Sentinel](work-with-threat-indicators.md)
 - [Connect threat intelligence platforms](connect-threat-intelligence-tip.md)
 
@@ -365,7 +365,7 @@ For more information, see [Deploy and monitor Azure Key Vault honeytokens with M
 
 ### Windows Security Events connector using Azure Monitor Agent now in GA
 
-The new version of the Windows Security Events connector, based on the Azure Monitor Agent, is now generally available. See [Connect to Windows servers to collect security events](connect-windows-security-events.md?tabs=AMA) for more information.
+The new version of the Windows Security Events connector, based on the Azure Monitor Agent, is now generally available. For more information, see [Connect to Windows servers to collect security events](connect-windows-security-events.md?tabs=AMA).
 
 ### Defender for Office 365 events now available in the Microsoft 365 Defender connector (Public preview)
 
