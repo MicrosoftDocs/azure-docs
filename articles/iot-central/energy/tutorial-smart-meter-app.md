@@ -12,6 +12,17 @@ manager: abjork
 
 # Tutorial: Deploy and walk through the smart meter monitoring app template
 
+The smart meters not only enable automated billing, but also advanced metering use cases such as real-time readings and bi-directional communication. The smart meter app template enables utilities and partners to monitor smart meters status and data, define alarms and notifications. It provides sample commands, such as disconnect meter and update software. The meter data can be set up to egress to other business applications and to develop custom solutions.
+
+App's key functionalities:
+
+- Meter sample device model
+- Meter info and live status
+- Meter readings such as energy, power, and voltages
+- Meter command samples
+- Built-in visualization and dashboards
+- Extensibility for custom solution development
+
 Use the IoT Central *smart meter monitoring* application template and the guidance in this article to develop an end-to-end smart meter monitoring solution.
 
   :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-app-architecture.png" alt-text="smart meter architecture.":::

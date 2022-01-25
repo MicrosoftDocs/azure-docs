@@ -10,7 +10,18 @@ services: iot-central
 manager: abjork
 ---
 
-# Tutorial: Deploy and walk through the solar panel monitoring app template 
+# Tutorial: Deploy and walk through the solar panel monitoring app template
+
+The solar panel monitoring app enables utilities and partners to monitor solar panels, such as their energy generation and connection status in near real time. It can send notifications based on defined threshold criteria. It provides sample commands, such as update firmware and other properties. The solar panel data can be set up to egress to other business applications and to develop custom solutions.
+
+App's key functionalities:
+
+- Solar panel sample device model
+- Solar Panel info and live status
+- Solar energy generation and other readings
+- Command and control samples
+- Built-in visualization and dashboards
+- Extensibility for custom solution development
 
 Use the IoT Central *solar panel monitoring* application template and the guidance in this article to develop an end-to-end solar panel monitoring solution.
 

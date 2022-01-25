@@ -13,8 +13,11 @@ manager: abjork
 
 # Tutorial: Deploy and walk through the water quality monitoring application
 
-Use the IoT Central *water quality monitoring* application template and the guidance in this article to develop an end-to-end water quality monitoring solution.
+Traditional water quality monitoring relies on manual sampling techniques and field laboratory analysis, which is time consuming and costly. By remotely monitoring water quality in real-time, water quality issues can be managed before citizens are affected. Moreover, with advanced analytics, water utilities, and environmental agencies can act on early warnings on potential water quality issues and plan on water treatment in advance.  
 
+Water Quality Monitoring app is an IoT Central app template to help you kickstart your IoT solution development and enable water utilities to digitally monitor water quality in smart cities.
+
+Use the IoT Central *water quality monitoring* application template and the guidance in this article to develop an end-to-end water quality monitoring solution.
 
 ![Water quality monitoring architecture](./media/tutorial-waterqualitymonitoring/concepts-water-quality-monitoring-architecture1.png)
 

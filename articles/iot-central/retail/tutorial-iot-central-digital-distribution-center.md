@@ -11,6 +11,19 @@ ms.date: 01/06/2022
 
 # Tutorial: Deploy and walk through the digital distribution center application template
 
+As manufacturers and retailers establish worldwide presences, their supply chains branch out and become more complex. Consumers now expect large selections of products to be available, and for those goods to arrive within one or two days of purchase. Distribution centers must adapt to these trends while overcoming existing inefficiencies.
+
+Today, reliance on manual labor means that picking and packing accounts for 55-65% of distribution center costs. Manual picking and packing are also typically slower than automated systems, and rapidly fluctuating staffing needs make it even harder to meet shipping volumes. This seasonal fluctuation results in high staff turnover and increase the likelihood of costly errors.
+
+Solutions based on IoT enabled cameras can deliver transformational benefits by enabling a digital feedback loop. Data from across the distribution center leads to actionable insights that, in turn, results in better data.
+
+The benefits of a digital distribution center include:
+
+- Cameras monitor goods as they arrive and move through the conveyor system.
+- Automatic identification of faulty goods.
+- Efficient order tracking.
+- Reduced costs, improved productivity, and optimized usage.
+
 Use the IoT Central *digital distribution center* application template and the guidance in this article to develop an end-to-end digital distribution center solution.
 
    :::image type="content" source="media/tutorial-iot-central-ddc/digital-distribution-center-architecture.png" alt-text="digital distribution center.":::

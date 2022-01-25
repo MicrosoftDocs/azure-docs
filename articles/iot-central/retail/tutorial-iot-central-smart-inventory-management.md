@@ -11,6 +11,18 @@ ms.date: 12/20/2021
 
 # Tutorial: Deploy and walk through the smart inventory management application template
 
+Inventory is the stock of goods a retailer holds. Inventory management is critical to ensure the right product is in the right place at the right time. A retailer must balance the costs of storing too much inventory against the costs of not having sufficient items in stock to meet demand.
+
+IoT data generated from radio-frequency identification (RFID) tags, beacons, and cameras provide opportunities to improve inventory management processes. You can combine telemetry gathered from IoT sensors and devices with other data sources such as weather and traffic information in cloud-based business intelligence systems.
+
+The benefits of smart inventory management include:
+
+- Reducing the risk of items being out of stock and ensuring the desired customer service level.
+- In-depth analysis and insights into inventory accuracy in near real time.
+- Tools to help decide on the right amount of inventory to hold to meet customer orders.
+
+This application template focuses on device connectivity, and the configuration and management of RFID and Bluetooth low energy (BLE) reader devices.
+
 Use the IoT Central *smart inventory management* application template and the guidance in this article to develop an end-to-end smart inventory management solution.
 
    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-architecture.png" alt-text="smart inventory management.":::

@@ -10,6 +10,8 @@ services: iot-central
 ---
 # Tutorial: Deploy and walk through the connected waste management application template
 
+Connected Waste Management app is an IoT Central app template to help you kickstart your IoT solution development to enable smart cities to remotely monitor to maximize efficient waste collection.
+
 Use the IoT Central *connected waste management* application template and the guidance in this article to develop an end-to-end connected waste management solution.
 
 :::image type="content" source="media/tutorial-connectedwastemanagement/concepts-connected-waste-management-architecture-1.png" alt-text="Connected waste management architecture.":::
