@@ -16,7 +16,7 @@ ms.subservice: blobs
 
 Azure blob storage allows you to store large amounts of unstructured object data. You can use blob storage to gather or expose media, content, or application data to users. Because all blob data is stored within containers, you must create a storage container before you can begin to upload data. To learn more about blob storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
 
-The Azure CLI is Azure's cross-service command-line experience for managing Azure resources. You can use it in your browser with Azure Cloud Shell. You can also install it on macOS, Linux, or Windows and run it locally from the command line.
+The Azure CLI is Azure's cross-platform command-line experience for managing Azure resources. You can use it in your browser with Azure Cloud Shell. You can also install it on macOS, Linux, or Windows and run it locally from the command line.
 
 In this how-to article, you learn to use the Azure CLI to work with container objects.
 
@@ -44,7 +44,7 @@ az login
 
 To create a container with Azure CLI, call the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command.The following example illustrates three options for the creation of blob containers with the `az storage container create` command. The first approach creates a single container, while the remaining two approaches use Bash scripting operations to automate container creation.
 
-To use this example, supply values for the variables and ensure that you've created a connection to your Azure subscription. Remember to replace the placeholder values in brackets with your own values.
+To use this example, supply values for the variables and ensure that you've logged in. Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli
 #!/bin/bash
@@ -257,7 +257,7 @@ Azure Storage supports three types of shared access signatures: user delegation,
 
 The following example illustrates the process of configuring a service SAS for a specific container using the `az storage container generate-sas` command. Because it is generating a service SAS, the example first retrieves the storage account key to pass as the `--account-key` value.
 
-The example will configure the SAS with start and expiry times and a protocol. It will also specify the **delete**, **read**, **write**, and **list** permissions in the SAS using the `-Permission` parameter. You can reference the full table of permissions in the [Create a service SAS](/rest/api/storageservices/create-service-sas) article.
+The example will configure the SAS with start and expiry times and a protocol. It will also specify the **delete**, **read**, **write**, and **list** permissions in the SAS using the `--permissions` parameter. You can reference the full table of permissions in the [Create a service SAS](/rest/api/storageservices/create-service-sas) article.
 
 ```azurecli-interactive
 #!/bin/bash
