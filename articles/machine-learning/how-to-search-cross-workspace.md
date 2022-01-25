@@ -15,7 +15,7 @@ ms.date: 1/19/2022
 
 ## Overview 
 
-Azure ML users can now search for machine learning assets such as jobs, models, and components across all workspaces, resource groups, and subscriptions in their organization through a unified global view. 
+Users can now search for machine learning assets such as jobs, models, and components across all workspaces, resource groups, and subscriptions in their organization through a unified global view. 
 
 
 ## Get started 
@@ -42,7 +42,7 @@ Change the scope of applicable subscriptions and workspaces by clicking the 'Cha
 
 ### Structured search 
 
-Click on any number of filters to create more specific search queries.  The following filters are supported:
+Click on any number of filters to create more specific search queries. The following filters are supported:
 * Job: 
 * Model:
 * Component:
@@ -65,7 +65,7 @@ If an asset filter (job, model, component) is present, results will be scoped to
 
 ### Results
 
-Explore the Jobs, Models, and Components tabs to see all search matches. Click on an asset to be directed to the details page in the context of the relevant workspace. Results from workspaces a user doesn't have access to will not be displayed, click on the 'details' button to view the list of workspaces.
+Explore the Jobs, Models, and Components tabs to view all search results. Click on an asset to be directed to the details page in the context of the relevant workspace. Results from workspaces a user doesn't have access to won't be displayed, click on the 'details' button to view the list of workspaces.
 
 ![Screenshot showing search results of query.](./media/how-to-search-cross-workspace/results.png)
 
