@@ -1,5 +1,5 @@
 ---
-title: 'What is Azure AD Connect cloud sync. | Microsoft Docs'
+title: 'What is Azure AD Connect cloud sync? | Microsoft Docs'
 description: Describes Azure AD Connect cloud sync.
 services: active-directory
 author: billmath
@@ -14,12 +14,12 @@ ms.collection: M365-identity-device-management
 ---
 
 # What is Azure AD Connect cloud sync?
-Azure AD Connect cloud sync is new offering from Microsoft designed to meet and accomplish your hybrid identity goals for synchronization of users, groups and contacts to Azure AD.  It accomplishes this by using the Azure AD cloud provisioning agent instead of the Azure AD Connect application.  However, it can be used alongside Azure AD Connect sync and it provides the following benefits:
+Azure AD Connect cloud sync is new offering from Microsoft designed to meet and accomplish your hybrid identity goals for synchronization of users, groups, and contacts to Azure AD.  It accomplishes this by using the Azure AD cloud provisioning agent instead of the Azure AD Connect application.  However, it can be used alongside Azure AD Connect sync and it provides the following benefits:
     
 - Support for synchronizing to an Azure AD tenant from a multi-forest disconnected Active Directory forest environment: The common scenarios include merger & acquisition (where the acquired company's AD forests are isolated from the parent company's AD forests), and companies that have historically had multiple AD forests.
 - Simplified installation with light-weight provisioning agents: The agents act as a bridge from AD to Azure AD, with all the sync configuration managed in the cloud. 
 - Multiple provisioning agents can be used to simplify high availability deployments, particularly critical for organizations relying upon password hash synchronization from AD to Azure AD.
-- Support for large groups with up to 50K members. It is recommended to use only the OU scoping filter when synchronizing large groups.
+- Support for large groups with up to 50,000 members. It's recommended to use only the OU scoping filter when synchronizing large groups.
 
 ![What is Azure AD Connect](media/what-is-cloud-sync/architecture-1.png)
 
