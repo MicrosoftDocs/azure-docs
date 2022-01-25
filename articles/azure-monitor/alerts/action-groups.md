@@ -219,6 +219,9 @@ The Action Groups Secure Webhook action enables you to take advantage of Azure A
     - Modify the PowerShell script's Connect-AzureAD call to use your Azure AD Tenant ID.
     - Modify the PowerShell script's variable $myAzureADApplicationObjectId to use the Object ID of your Azure AD Application.
     - Run the modified script.
+
+    > [!NOTE]
+    > Service principle need to be a member of **owner role** of Azure AD application to be able to create or modify the Secure Webhook action in the action group.
     
 3. Configure the Action Group Secure Webhook action.
     - Copy the value $myApp.ObjectId from the script and enter it in the Application Object ID field in the Webhook action definition.
