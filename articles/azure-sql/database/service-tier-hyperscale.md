@@ -125,22 +125,18 @@ GO
 
 This will create a Hyperscale database on Gen5 hardware with four cores.
 
-## Upgrade existing database to Hyperscale
+## Upgrade an existing database to Hyperscale
 
-You can move your existing databases in Azure SQL Database to Hyperscale using the [Azure portal](https://portal.azure.com), [T-SQL](/sql/t-sql/statements/alter-database-transact-sql), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), or [CLI](/cli/azure/sql/db#az_sql_db_update). At this time, this is a one-way migration. You can't move databases from Hyperscale to another service tier, other than by exporting and importing data. For proofs of concept (POCs), we recommend making a copy of your production databases, and migrating the copy to Hyperscale. Migrating an existing database in Azure SQL Database to the Hyperscale tier is a size of data operation.
+You can migrate your existing databases in Azure SQL Database to Hyperscale using the [Azure portal](https://portal.azure.com), [T-SQL](/sql/t-sql/statements/alter-database-transact-sql), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), or [CLI](/cli/azure/sql/db#az_sql_db_update). Migrating an existing database in Azure SQL Database to the Hyperscale tier is a size of data operation.
 
-The following T-SQL command moves a database into the Hyperscale service tier. You must specify both the edition and service objective in the `ALTER DATABASE` statement.
+To migrate a database to Hyperscale, see the article [How to migrate an existing database to Hyperscale](migrate-database-to-hyperscale.md).
 
-```sql
--- Alter a database to make it a Hyperscale Database
-ALTER DATABASE [DB2] MODIFY (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
-GO
-```
+## Reverse migrate a Hyperscale database back to the General Purpose service tier
 
-> [!NOTE]
-> To move a database that is a part of a [geo-replication](active-geo-replication-overview.md) relationship, either as the primary or as a secondary, to Hyperscale, you have to stop replication. Databases in a [failover group](auto-failover-group-overview.md) must be removed from the group first.
->
-> Once a database has been moved to Hyperscale, you can create a new Hyperscale geo-replica for that database. Geo-replication for Hyperscale is in preview with certain [limitations](active-geo-replication-overview.md).
+If you previous migrated an existing Azure SQL Database into Hyperscale, it is possible to [reverse migrate a Hyperscale database to the General Purpose service tier](reverse-migrate-hyperscale-general-purpose.md) within 45 days of the original migration to Hyperscale. If you wish to reverse migrate the database to another service tier, such as Business Critical, first reverse migrate to the General Purpose service tier, then perform a further migration.
+
+Reverse migration may result in dropping of some backup snapshots. Learn more in the [How to reverse migrate a Hyperscale database to the General Purpose service tier](reverse-migrate-hyperscale-general-purpose.md) article.
+
 
 ## Database high availability in Hyperscale
 
