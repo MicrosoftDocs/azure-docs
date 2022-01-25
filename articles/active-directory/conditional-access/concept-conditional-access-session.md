@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/10/2022
+ms.date: 01/25/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb, tunag
+ms.reviewer: calebb, vmahtani
 
 ms.collection: M365-identity-device-management
 ---
