@@ -26,7 +26,6 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 > This article describes creating alert rules using the new alert rule wizard. Please note these changes in the new alert rule experience:
 > - Search results are not included with the triggered alert and its associated notifications. The alert contains a link to the search results in Logs.
 > - The new alert rule wizard does not include the option to customize the triggered alert's email or to include a custom JSON payload.
-> - The new alert rule wizard does not currently support a frequency of 1 minute. 1 minute alert frequency will be supported soon.
 
 1. In the [portal](https://portal.azure.com/), select the relevant resource.
 1. In the Resource menu, under **Monitoring**, select **Alerts**.
