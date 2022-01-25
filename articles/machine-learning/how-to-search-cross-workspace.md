@@ -29,7 +29,7 @@ From this centralized global view, select from recently visited workspaces or br
 ### Search
 
 Type search text into the global search bar and hit enter to trigger a 'contains' search.
-The search will scan across all metadata fields for the given asset. Results are sorted by relevance as determined by the index service relevancy weightings for the asset columns. 
+The search will scan across all metadata fields for the given asset. Results are sorted by relevance as determined by the relevance weightings for the asset columns. 
 
 ![search bar](./media/how-to-search-cross-workspace/search_bar.png)
 
@@ -58,14 +58,14 @@ Note:
 
 * If duplicate filters are provided, only the first will be recognized in search results. 
 
-* While filter strings must match the provided options (ex. job:), input text of any language is supported. 
+* Input text of any language is supported but filter strings must match the provided options (ex. submittedBy:).
 
 * The tags filter can accept multiple key:value pairs separated by a comma (ex. tags:"key1:value1, key2:value2").
 
 
 ### Results
 
-Explore the Jobs, Models, and Components tabs to see all search matches. Click on an asset to be directed to the details page in the context of the relevant workspace. Results from workspaces a user does not have access to will not be displayed, click on the 'details' button to view the list of workspaces.
+Explore the Jobs, Models, and Components tabs to see all search matches. Click on an asset to be directed to the details page in the context of the relevant workspace. Results from workspaces a user doesn't have access to will not be displayed, click on the 'details' button to view the list of workspaces.
 
 ![search results](./media/how-to-search-cross-workspace/results.png)
 
@@ -82,4 +82,4 @@ Customize the display of columns in the search results table. These views can be
 
 ### Known Issues
 
-If you have previously used this feature, a search result error may occur. Reselect your preferred workspaces in the Directory + Subscription + Workspace tab.
+If you've previously used this feature, a search result error may occur. Reselect your preferred workspaces in the Directory + Subscription + Workspace tab.
