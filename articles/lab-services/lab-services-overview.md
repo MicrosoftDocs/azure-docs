@@ -1,6 +1,6 @@
 ---
 title: About Azure Lab Services | Microsoft Docs
-description: Learn how Lab Services can make it easy to create, manage, and secure labs with virtual machines that can be used by educators and students. 
+description: Learn how Lab Services can make it easy to create, manage, and secure labs with VMs for educators and students. 
 ms.topic: overview
 ms.date: 01/04/2022
 ---
@@ -9,7 +9,7 @@ ms.date: 01/04/2022
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
 
-**Azure Lab Services** lets you create labs whose infrastructure is managed by Azure. The service itself handles all the infrastructure management, from spinning up VMs to handling errors and scaling the infrastructure. After an IT admin creates a lab plan in Azure Lab Services, an instructor can quickly set up a lab for the class.  Instructors specify the number and type of VMs that are needed for exercises in the class, configures the template VM, and add users to the class. Once a user registers to the class, the user can access the VM to do exercises for the class.
+**Azure Lab Services** lets you create labs whose infrastructure is managed by Azure. The service itself handles all the infrastructure management, from spinning up VMs to handling errors and scaling the infrastructure. After an IT admin creates a lab plan in Azure Lab Services, an instructor can quickly set up a lab for the class.  Instructors specify the number and type of VMs needed, configures the template VM, and adds users to the class. Once a user registers to the class, the user can access the VM to do exercises for the class.
 
 To [create a lab](tutorial-setup-lab.md), you need to [create a lab plan](tutorial-setup-lab-plan.md) for your organization first. The lab plan serves as a collection of configurations and settings that apply to the labs created from it.
 
@@ -37,6 +37,15 @@ Here are some of the **use cases for managed labs**:
 ## Example class types
 
 You can set up labs for several types of classes with Azure Lab Services. See the [Example class types on Azure Lab Services](class-types.md) article for a few example types of classes for which you can set up labs with Azure Lab Services.
+
+## Region availability
+
+Visit the [Azure Global Infrastructure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=lab-services) page to learn where Azure Lab Services is available.
+
+[Azure Lab Services January 2022 Update (preview](lab-services-whats-new.md)) doesn’t move or store customer data outside the region it’s deployed in.  However, accessing Azure Lab Services resources through the Azure Lab Services portal may cause customer data to cross regions.
+
+There are no guarantees customer data will stay in the region it’s deployed to when using Azure Lab Services previous to the January 2022 Update (preview). 
+
 
 ## Next steps
 
