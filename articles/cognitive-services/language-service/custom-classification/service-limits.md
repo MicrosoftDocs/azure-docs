@@ -5,6 +5,7 @@ description: Learn about the data and rate limits when using custom text classif
 services: cognitive-services
 author: aahill
 manager: nitinme
+ms.date: 01/25/2022
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
