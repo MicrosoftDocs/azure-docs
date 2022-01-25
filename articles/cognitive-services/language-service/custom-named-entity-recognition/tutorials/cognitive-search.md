@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
     
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
-4. If you’ve created your resource using the steps above in this [guide](..//how-to/create-project.md#azure-resources), the **Connect storage** step will be completed already. If not, you need to assign [roles for your storage account](../../how-to/create-project.md#roles-for-your-storage-account) before connecting it to your resource
+4. If you’ve created your resource using the steps above in this [guide](../how-to/create-project.md#azure-resources), the **Connect storage** step will be completed already. If not, you need to assign [roles for your storage account](../../how-to/create-project.md#roles-for-your-storage-account) before connecting it to your resource
 
 5. Enter project information, including a name, description, and the language of the files in your project. You won’t be able to change the name of your project later.
     >[!TIP]
@@ -120,104 +120,6 @@ After training is completed, you can [view the model's evaluation details](../ho
 After you’ve published your Azure function and prepared your configs file, you can run the indexer command.
 ```cli
     indexer index --index-name <name-your-index-here> --configs <absolute-path-to-configs-file>
-```
-
-Replace `name-your-index-here` with the index name that appears in your Cognitive Search instance.
-
-## Next steps
-
-* [Search your app with with the Cognitive Search SDK](../../../../search/search-howto-dotnet-sdk.md#run-queries)
-
-
-
-
-## Train your model
-
-1. Select **Train** from the left side menu.
-
-2. To train a new model, select **Train a new model** and type in the model name in the text box below.
-
-    :::image type="content" source="../media/train-model.png" alt-text="Create a new model" lightbox="../media/train-model.png":::
-
-3. Select the **Train** button at the bottom of the page.
-
-4. After training is completed, you can [view the model's evaluation details](../how-to/view-model-evaluation.md) and [improve the model](../how-to/improve-model.md)
-
-## Deploy your model
-
-1. Select **Deploy model** from the left side menu.
-
-2. Select the model you want to deploy and from the top menu select **Deploy model**. You can only see models that have completed training successfully.
-
-## Prepare your secrets for the Azure function
-
-Next you’ll need to prepare your secrets for your Azure function. Your project secrets are your: 
-* Endpoint
-* Resource key
-* Deployment name
-
-### Get your custom NER project secrets
-
-* You’ll need your **Project name**, Project names are case-sensitive.
-
-* You will also need the deployment name. 
-   * If you’ve deployed your model via Language Studio, your deployment slot will be `prod` by default. 
-   * If you’ve deployed your model programmatically, using the API, this is the deployment name you assigned in your request.
-
-### Get your resource keys endpoint
-
-1. Navigate to your resource in the [Azure portal](https://ms.portal.azure.com/#home).
-
-2. From the menu on the left side, select **Keys and Endpoint**. You will need the endpoint and one of the keys for the API requests.
-
-    :::image type="content" source="../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen in the Azure portal" lightbox="../../media/azure-portal-resource-credentials.png":::
-   
-## Edit and deploy your Azure Function
-
-1. Download and use the [provided sample function](https://aka.ms/ct-cognitive-search-integration-tool).
-
-2. After you download the sample function, open the *program.cs* file and enter your app secrets.
-
-3. [Publish the function to Azure](../../../../azure-functions/functions-develop-vs.md?tabs=in-process#publish-to-azure).
-
-## Use the integration tool
-
-In the following sections, you’ll use the [Cognitive Search Integration tool](https://aka.ms/ct-cognitive-search-integration-tool) to integrate your project with Azure Cognitive Search. Download this repo now. 
-
-### Prepare configuration file
-
-1. In the folder you just download, and find the [sample configuration file](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Samples/configs.json). Open it in a text editor. 
-
-2. Get your storage account connection string by:
-    1. Navigating to your storage account overview page in the [Azure portal](https://ms.portal.azure.com/#home).
-    2. In the top section of the screen, copy your container name to the `containerName` field in the configuration file, under `blobStorage`.  
-    3. In the **Access Keys** section in the menu to the left of the screen, copy your **Connection string** to the `connectionString` field in the configuration file, under `blobStorage`.
-
-1. Get your cognitive search endpoint and keys by:
-    1. Navigating to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home).
-    2. Copy the **Url** at the top-right section of the page to the `endpointUrl` field within `cognitiveSearch`.
-    3. Go to the **Keys** section in the menu to the left of the screen. Copy your **Primary admin key** to the `apiKey` field within `cognitiveSearch`.
-
-3. Get Azure Function endpoint and keys
-    
-    1. To get your Azure Function endpoint and keys, go to your function overview page in the [Azure portal](https://ms.portal.azure.com/#home).
-    2. Go to **Functions** menu on the left of the screen, and click on the function you created.
-    3. From the top menu, click **Get Function Url**. The URL will be formatted like this: `YOUR-ENDPOINT-URL?code=YOUR-API-KEY`. 
-    4. Copy `YOUR-ENDPOINT-URL` to the `endpointUrl` field in the configuration file, under `azureFunction`. 
-    5. Copy `YOUR-API-KEY` to the `apiKey` field in the configuration file, under `azureFunction`. 
-
-### Prepare schema file
-
-In the folder you downloaded earlier, find the [sample schema file](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Samples/app-schema.json). Open it in a text editor. 
-
-The entries in the `entityNames` array will be the entity names you’ve assigned while creating your project. You can copy and paste them from your project in [Language Studio](https://aka.ms/custom-extraction), or 
-
-### Run the `Index` command
-
-After you’ve completed your configuration and schema file, you can index your project. Place your configuration file in the same path of the CLI tool, and run the following command:
-
-```cli
-    indexer index --schema <path/to/your/schema> --index-name <name-your-index-here>
 ```
 
 Replace `name-your-index-here` with the index name that appears in your Cognitive Search instance.
