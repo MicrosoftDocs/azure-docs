@@ -52,9 +52,10 @@ You must also meet the following system requirements:
 - Your Windows Server domain controllers must have patches installed for the following servers:
     - [Windows Server 2016](https://support.microsoft.com/help/4534307/windows-10-update-kb4534307)
     - [Windows Server 2019](https://support.microsoft.com/help/4534321/windows-10-update-kb4534321)
-- Credentials required to complete this :
-    - Active Directory User who is a member of the "Domain Admins" group for a domain and a member member of the "Enterprise Admins" group for a forest. Referred to as **$domainCred**.
-    - Azure Active Directory User who is a member of the Global Administrators role. Referred to as **$cloudCred**.
+
+- Have the credentials required to complete the steps in the scenario:
+    - An Active Directory user who is a member of the Domain Admins group for a domain and a member of the Enterprise Admins group for a forest. Referred to as **$domainCred**.
+    - An Azure Active Directory user who is a member of the Global Administrators role. Referred to as **$cloudCred**.
  
 ### Supported scenarios
 
@@ -111,10 +112,10 @@ Run the following steps in each domain and forest in your organization that cont
    $domain = "contoso.corp.com"
 
    # Enter an Azure Active Directory global administrator username and password.
-   $cloudCred = Get-Credential -Message 'Active Directory User who is a member of the "Domain Admins" group for a domain and a member member of the "Enterprise Admins" group for a forest.'
+   $cloudCred = Get-Credential -Message 'An Active Directory user who is a member of the Domain Admins group for a domain and a member of the Enterprise Admins group for a forest.'
 
    # Enter a domain administrator username and password.
-   $domainCred = Get-Credential -Message 'Active Directory User who is a member of the "Domain Admins" group.'
+   $domainCred = Get-Credential -Message 'An Active Directory user who is a member of the Domain Admins group.'
 
    # Create the new Azure AD Kerberos Server object in Active Directory
    # and then publish it to Azure Active Directory.
