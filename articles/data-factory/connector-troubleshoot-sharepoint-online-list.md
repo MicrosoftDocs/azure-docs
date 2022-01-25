@@ -25,7 +25,7 @@ This article provides suggestions to troubleshoot common problems with the Share
 
 - **Recommendation**:  Check your registered application (service principal ID) and key to see whether they're set correctly.
 
-## Connection fail after granting permission in SharePoint Online List 
+## Connection failed after granting permission in SharePoint Online List 
 
 ### Symptoms 
 
