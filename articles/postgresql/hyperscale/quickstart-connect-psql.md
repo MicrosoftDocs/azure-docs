@@ -37,4 +37,5 @@ When you create your Azure Database for PostgreSQL server, a default database na
 
 **Next steps**
 
-* [Troubleshoot connection problems](howto-troubleshoot-common-connection-issues.md)
+* [Troubleshoot connection problems](howto-troubleshoot-common-connection-issues.md).
+* Learn to [create and distribute tables](quickstart-distribute-tables.md).

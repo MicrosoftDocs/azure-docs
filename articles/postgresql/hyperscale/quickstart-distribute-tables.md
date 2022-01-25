@@ -98,5 +98,6 @@ SET CLIENT_ENCODING TO 'utf8';
 
 ## Next steps
 
-* Foo
-* Bar
+* [Run queries](quickstart-run-queries.md) on the distributed tables you
+  created in this quickstart.
+* Learn more about [sharding data](tutorial-shard.md).

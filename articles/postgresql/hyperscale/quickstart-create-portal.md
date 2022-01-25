@@ -26,3 +26,7 @@ group using the Azure portal. You'll provision the server group and verify that
 you can connect to it to run queries.
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../../includes/azure-postgresql-hyperscale-create-db.md)]
+
+**Next steps**
+
+* [Connect to your server group](quickstart-connect-psql.md) with psql.
