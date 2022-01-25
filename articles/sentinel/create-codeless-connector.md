@@ -378,7 +378,7 @@ For more information, see [Sample pollingConfig code](#sample-pollingconfig-code
 
 ### auth configuration
 
-The `auth` section of the `[pollingConfig](#configure-your-connectors-polling-settings)` configuration includes the following parameters, depending on the type defined in the [authType](#authtype) element:
+The `auth` section of the [pollingConfig](#configure-your-connectors-polling-settings) configuration includes the following parameters, depending on the type defined in the [authType](#authtype) element:
 
 #### APIKey authType parameters
 
@@ -406,7 +406,7 @@ The `auth` section of the `[pollingConfig](#configure-your-connectors-polling-se
 
 ### request configuration
 
-The `request` section of the `[pollingConfig](#configure-your-connectors-polling-settings)` configuration includes the following parameters:
+The `request` section of the [pollingConfig](#configure-your-connectors-polling-settings) configuration includes the following parameters:
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -430,7 +430,7 @@ The `request` section of the `[pollingConfig](#configure-your-connectors-polling
 
 ### response configuration
 
-The `response` section of the `[pollingConfig](#configure-your-connectors-polling-settings)` configuration includes the following parameters:
+The `response` section of the [pollingConfig](#configure-your-connectors-polling-settings) configuration includes the following parameters:
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -451,7 +451,7 @@ The following code shows an example of the [eventsJsonPaths](#eventsjsonpaths) v
 
 ### paging configuration
 
-The `paging` section of the `[pollingConfig](#configure-your-connectors-polling-settings)` configuration includes the following parameters:
+The `paging` section of the [pollingConfig](#configure-your-connectors-polling-settings) configuration includes the following parameters:
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
