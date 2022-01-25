@@ -16,9 +16,9 @@ ms.author: jodowns
 
 Azure Front Door has several features and characteristics that can help to prevent distributed denial of service (DDoS) attacks. These features can prevent attackers from reaching your application and affecting your application's availability and performance.
 
-## Integration with Azure DDoS Protection Basic
+## Infrastructure DDoS protection
 
-Front Door is protected by Azure DDoS Protection Basic. It is integrated into the Front Door platform by default and at no additional cost. The full scale and capacity of Front Door's globally deployed network provides defense against common network layer attacks through always-on traffic monitoring and real-time mitigation. Basic DDoS protection also defends against the most common, frequently occurring layer 7 DNS query floods and layer 3 and 4 volumetric attacks that target public endpoints. This service also has a proven track record in protecting Microsoft's enterprise and consumer services from large-scale attacks. For more information, see [Azure DDoS Protection](../security/fundamentals/ddos-best-practices.md).
+Front Door is protected by the default Azure infrastructure DDoS protection. The full scale and capacity of Front Door's globally deployed network provides defense against common network layer attacks through always-on traffic monitoring and real-time mitigation. This infrastructure DDoS protection has a proven track record in protecting Microsoft's enterprise and consumer services from large-scale attacks.
 
 ## Protocol blocking
 

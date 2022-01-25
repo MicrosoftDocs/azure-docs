@@ -32,7 +32,7 @@ The encryption method used in this sample is [homomorphic encryption](https://gi
 
 ## Prerequisites
 
-This guide assumes that you have an image classification model registered in Azure Machine Learning. If not, register the model using a [pretrained model](https://github.com/Azure/MachineLearningNotebooks/raw/master/tutorials/image-classification-mnist-data/sklearn_mnist_model.pkl) or create your own by completing the [train an image classification model with Azure Machine Learning tutorial](tutorial-train-models-with-aml.md).
+This guide assumes that you have an image classification model registered in Azure Machine Learning. If not, register the model using a [pretrained model](https://github.com/Azure/MachineLearningNotebooks/raw/master/tutorials/image-classification-mnist-data/sklearn_mnist_model.pkl) or create your own by completing the [train an image classification model with Azure Machine Learning tutorial](tutorial-train-deploy-notebook.md).
 
 ## Configure local environment
 

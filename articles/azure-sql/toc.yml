@@ -1233,6 +1233,8 @@
       items:
       - name: What is a SQL Server VM?
         href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+      - name: SQL IaaS Agent extension
+        href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
     - name: Quickstarts
       items:
       - name: Portal
@@ -1279,8 +1281,6 @@
           href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
       - name: Management
         items:
-        - name: SQL IaaS Agent extension
-          href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
         - name: Dedicated host
           href: virtual-machines/windows/dedicated-host.md
         - name: Extend support for SQL 2008 & R2
@@ -1511,6 +1511,16 @@
           href: migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md
         - name: Failover cluster instance (FCI)
           href: migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md
+        - name: Using distributed AG
+          items: 
+          - name: Prerequisites
+            href: migration-guides/virtual-machines/sql-server-distributed-availability-group-migrate-prerequisites.md
+          - name: Standalone instance
+            href: migration-guides/virtual-machines/sql-server-distributed-availability-group-migrate-standalone-instance.md
+          - name: Availability group
+            href: migration-guides/virtual-machines/sql-server-distributed-availability-group-migrate-ag.md
+          - name: Complete migration 
+            href: migration-guides/virtual-machines/sql-server-distributed-availability-group-complete-migration.md
          
         
 - name: Reference

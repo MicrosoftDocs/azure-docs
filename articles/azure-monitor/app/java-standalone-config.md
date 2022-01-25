@@ -228,6 +228,18 @@ Instrumentation key overrides allow you to override the [default instrumentation
 }
 ```
 
+## Autocollect InProc dependencies (preview)
+
+Starting from 3.2.0, if you want to capture controller "InProc" dependencies, please use the following configuration:
+
+```json
+{
+  "preview": {
+    "captureControllerSpans": true
+  }
+}
+```
+
 ## Telemetry processors (preview)
 
 It allows you to configure rules that will be applied to request, dependency and trace telemetry, for example:
@@ -308,6 +320,64 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
     "micrometer": {
       "enabled": false
     }
+  }
+}
+```
+
+## HTTP headers
+
+Starting from 3.2.5-BETA, you can capture request and response headers on your server (request) telemetry:
+
+```json
+{
+  "preview": {
+    "captureHttpServerHeaders": {
+      "requestHeaders": [
+        "My-Header-A"
+      ],
+      "responseHeaders": [
+        "My-Header-B"
+      ]
+    }
+  }
+}
+```
+
+The header names are case-insensitive.
+
+The examples above will be captured under property names `http.request.header.my_header_a` and
+`http.response.header.my_header_b`.
+
+Similarly, you can capture request and response headers on your client (dependency) telemetry:
+
+```json
+{
+  "preview": {
+    "captureHttpClientHeaders": {
+      "requestHeaders": [
+        "My-Header-C"
+      ],
+      "responseHeaders": [
+        "My-Header-D"
+      ]
+    }
+  }
+}
+```
+
+Again, the header names are case-insensitive, and the examples above will be captured under property names
+`http.request.header.my_header_c` and `http.response.header.my_header_d`.
+
+## Http server 4xx response codes
+
+By default, http server requests that result in 4xx response codes are captured as errors.
+
+Starting from version 3.2.5-BETA, you can change this behavior to capture them as success if you prefer:
+
+```json
+{
+  "preview": {
+    "captureHttpServer4xxAsError": false
   }
 }
 ```
@@ -466,6 +536,10 @@ you can configure Application Insights Java 3.x to use an HTTP proxy:
 
 Application Insights Java 3.x also respects the global `https.proxyHost` and `https.proxyPort` system properties
 if those are set (and `http.nonProxyHosts` if needed).
+
+Starting from 3.2.5-BETA, authenticated proxies are supported. You can add `"user"` and `"password"` under `"proxy"` in
+the json above (or if you are using the system properties above, you can add `https.proxyUser` and `https.proxyPassword`
+system properties).
 
 ## Self-diagnostics
 

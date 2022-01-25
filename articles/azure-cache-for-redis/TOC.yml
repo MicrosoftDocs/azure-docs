@@ -106,6 +106,8 @@
       href: cache-how-to-version.md
     - name: Distribute your cache with clustering
       href: cache-how-to-premium-clustering.md
+    - name: Managed identity with Azure Cache for Redis
+      href: cache-managed-identity.md
     - name: Persist your cache with Redis data persistence
       href: cache-how-to-premium-persistence.md
     - name: Add more replicas

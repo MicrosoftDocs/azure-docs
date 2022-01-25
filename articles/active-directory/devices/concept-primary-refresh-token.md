@@ -202,7 +202,7 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 | F | Azure AD validates the Session key signature on the PRT cookie, validates the nonce, verifies that the device is valid in the tenant, and issues an ID token for the web page and an encrypted session cookie for the browser. |
 
 > [!NOTE]
-> The Browser SSO flow described in the steps above does not apply for sessions in private modes such as InPrivate in Microsoft Edge, Incognito in Google Chrome (when using the Microsoft Accounts extension) or in private mode in Mozilla Firefox v91+
+> The Browser SSO flow described in the steps above does not apply for sessions in private modes such as InPrivate in Microsoft Edge, Incognito in Google Chrome (when using the Microsoft Accounts or Office Online extensions) or in private mode in Mozilla Firefox v91+
 
 ## Next steps
 

@@ -36,7 +36,7 @@ In this how-to, you learn how to:
 
 - If you use FQDN, enable DNS resolution on your on-premises AD.
 
- - Enable DNS Forwarder from Azure portal Ref: [Configure DNS forwarder for Azure VMware Solution - Azure VMware Solution | Microsoft Docs](/azure/azure-vmware/configure-identity-source-vcenter)
+ - Enable DNS Forwarder from Azure portal Ref: Configure DNS forwarder for Azure VMware Solution - Azure VMware Solution | Microsoft Docs
 
 ## List external identity
 
@@ -193,4 +193,3 @@ Now that you've learned about how to configure LDAP and LDAPS, you can learn mor
 
 - [Azure VMware Solution identity concepts](concepts-identity.md) - Use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter and restricted administrator rights for NSX-T Manager. 
 
- 
