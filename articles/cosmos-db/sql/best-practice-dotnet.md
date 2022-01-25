@@ -5,7 +5,7 @@ author: StefArroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 01/25/2022
 ms.author: esarroyo
 
 ---
