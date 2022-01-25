@@ -34,17 +34,17 @@ Authentication considerations for built-in and Azure connectors differ based on 
 
 <a name="considerations-backend-communication"></a>
 
-## Consideration for backend communication
+## Considerations for backend communication
 
-For Azure connector to work, your backend service, such as Office 365 or SQL Server, has to allow traffic through the [outbound IP addresses for managed connectors](/connectors/common/outbound-ip-addresses) in the region where you created your logic app.
+For an Azure connector to work, your backend service, such as Office 365 or SQL Server, has to allow traffic through the [outbound IP addresses for managed connectors](/connectors/common/outbound-ip-addresses) in the region where you created your logic app.
 
-For Built-in connector to work, your backend service will instead need to allow traffics from logic app engine.  You can find these logic app engine outgoing IP addresses by using the following steps:
+For a built-in connector to work, your backend service has to allow traffic from the Azure Logic Apps engine instead. You can find the outbound IP addresses for the Azure Logic Apps enine by using the following steps:
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app (standard) resource.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
 1. On the logic app resource menu, under **Settings**, select **Properties**.
 
-1. Under **Outgoing IP addresses** and **Additional Outgoing IP addresses** , copy all the IP addresses, and set your backend service to allow traffic through those IP addresses.
+1. Under **Outgoing IP addresses** and **Additional Outgoing IP addresses**, copy all the IP addresses, and set your backend service to allow traffic through these IP addresses.
 
 <a name="considerations-vnet"></a>
 
@@ -52,7 +52,7 @@ For Built-in connector to work, your backend service will instead need to allow 
 
 Built-in connectors run in the same cluster as the Azure Logic Apps host runtime and can use virtual network (VNet) integration capabilities to access resources over a private network. However, Azure connectors run in shared managed connector environment and can't benefit from these VNET integration capabilities.
 
-Instead, for Azure connectors to work when VNET integration is enabled on a Standard logic app, you have to allow traffic through the [outbound IP addresses for managed connectors](/connectors/common/outbound-ip-addresses) in the region where you created your logic app. For example, if the subnet that's used in the VNet integration has a network security group (NSG) policy or firewall, that subnet has to allow outbound traffic to the outbound IP addresses for managed connectors.
+Instead, for Azure connectors to work when VNet integration is enabled on a Standard logic app, you have to allow traffic through the [outbound IP addresses for managed connectors](/connectors/common/outbound-ip-addresses) in the region where you created your logic app. For example, if the subnet that's used in the VNet integration has a network security group (NSG) policy or firewall, that subnet has to allow outbound traffic to the outbound IP addresses for managed connectors.
 
 ## Next steps
 
