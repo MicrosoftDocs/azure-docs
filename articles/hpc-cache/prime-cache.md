@@ -4,7 +4,7 @@ description: Use the cache priming feature (preview) to populate or preload cach
 author: ronhogue
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 01/25/2022
 ms.author: rohogue
 ---
 
@@ -179,11 +179,25 @@ Click the **Add priming job** text at the top of the table to define a new job.
 
 In the **Job name** field, type a unique name for the priming job.
 
-Use the **Priming file** field to select your priming manifest file. Select the storage account, container, and file where your priming manifest is stored. If you can’t find the manifest file, your cache might not have the correct permissions to access the manifest file.
+Use the **Priming file** field to select your priming manifest file. Select the storage account, container, and file where your priming manifest is stored.
 
-<!-- to do: add screenshots of the create UI -->
+![screenshot of the Add priming job page, with a job name and priming file path filled in. Below the Priming file field is a link labeled "Select from existing blob location".](media/create-priming-job.png)
 
-<!-- to do: more about managing priming jobs, deleting and such -->
+To select the priming manifest file, click the link to select a storage target. Then select the container where your .json manifest file is stored.
+
+If you can’t find the manifest file, your cache might not have the correct permissions to access the file's container.
+
+## Manage priming jobs
+
+Priming jobs are listed in the **Prime cache** page in the Azure portal.
+
+![screenshot of the priming jobs list in the portal, with jobs in various states (running, paused, and success). The cursor has clicked the ... symbol at the right side of one job's row, and a context menu shows options to pause or resume.](media/prime-cache-list.png)
+
+This page shows each job's name, its current status, and summary statistics about the priming progress. The summary in the **Details** column updates periodically as the job progresses.
+
+Click the **...** section at the right of the table to pause or resume a priming job.
+
+To delete a priming job, use the button at the top of the table.
 
 ## Azure REST APIs
 
