@@ -24,7 +24,7 @@ zone_pivot_groups: desktop-app-quickstart
 ::: zone-end
 
 ::: zone pivot="devlang-windows-desktop"
-[!INCLUDE [Windows Desktop .NET](./includes/desktop-app/quickstart-windows-desktop.md)]
+[!INCLUDE [Windows Presentation Foundation](./includes/desktop-app/quickstart-windows-desktop.md)]
 ::: zone-end
 
 ::: zone pivot="devlang-nodejs-electron"
