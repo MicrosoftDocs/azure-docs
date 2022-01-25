@@ -46,7 +46,7 @@ If no upgrade is available, you will get the message:
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 > [!NOTE]
-> If there is no upgrade available, that means that we will attempt to upgrade your cluster to a newer, supported version, but this action is unsupported by AKS and contains risk due to possible deprecation of Kubernetes objects. A safer route to upgrading the cluster would be to create a new cluster directly on a newer, supported version and migrate workloads from the old cluster.
+> If there is no upgrade available, that means that we can attempt to upgrade your cluster to a newer, supported version, but this action is unsupported by AKS and contains risk due to possible deprecation of Kubernetes objects. A safer route to upgrading the cluster would be to create a new cluster directly on a newer, supported version and migrate workloads from the old cluster.
 
 ## Customize node surge upgrade
 
