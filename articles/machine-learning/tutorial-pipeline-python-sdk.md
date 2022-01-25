@@ -166,7 +166,7 @@ The above code specifies a dataset that is based on the output of a pipeline ste
 
 ### Create the pipeline step's source
 
-The code that you've executed so far has create and controlled Azure resources. Now it is time to write code that does the first step in the domain. 
+The code that you've executed so far has create and controlled Azure resources. Now it's time to write code that does the first step in the domain. 
 
 If you're following along with the example in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/using-pipelines), the source file is already available as `keras-mnist-fashion/prepare.py`. 
 
@@ -406,7 +406,7 @@ In this tutorial, you used the following types:
     * The `Pipeline` that composes the `PythonScriptStep` steps into a whole
     * The `Model` that you registered after being satisfied with the training process
     
-The `Workspace` object contains references to other resources (notebooks, endpoints, and so on) that were not used in this tutorial. For more, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
+The `Workspace` object contains references to other resources (notebooks, endpoints, and so on) that weren't used in this tutorial. For more, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
 
 The `OutputFileDatasetConfig` promotes the output of a run to a file-based dataset. For more information on datasets and working with data, see [How to access data](./how-to-access-data.md).
 
