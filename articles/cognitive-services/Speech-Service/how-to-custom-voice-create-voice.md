@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 01/23/2022
 ms.author: eur
 ---
 
@@ -18,8 +18,8 @@ In [Prepare training data](how-to-custom-voice-prepare-data.md), you learned abo
 
 ## Prerequisites
 
-* Complete [get started with Custom Neural Voice](how-to-custom-voice.md).
-* [Prepare training data](how-to-custom-voice-prepare-data.md).
+* [Create a custom voice project](how-to-custom-voice.md)
+* [Prepare training data](how-to-custom-voice-prepare-data.md)
 
 ## Set up voice talent
 
@@ -32,7 +32,7 @@ Upload this audio file to the Speech Studio as shown in the following screenshot
  :::image type="content" source="media/custom-voice/upload-verbal-statement.png" alt-text="Screenshot that shows the upload voice talent statement.":::
  
 > [!NOTE]
-> Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext), and then [apply for access](https://aka.ms/customneural). 
+> Custom neural voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext), and then [apply for access](https://aka.ms/customneural). 
 
 The following steps assume that you've prepared the voice talent verbal consent files. Go to [Speech Studio](https://aka.ms/custom-voice-portal) to select a Custom Neural Voice project, and then follow these steps to create a voice talent profile.
 
@@ -58,15 +58,19 @@ When you're ready to upload your data, go to the **Prepare training data** tab t
 
 You can do the following to create and review your training data:
 
-1. On the **Prepare training data** tab, select **Add training set**, and enter the name. Select **Description** > **Create** to add a new training set. When the training set is successfully created, you can start to upload your data. 
+1. Select **Prepare training data** > **Add training set**.
+1. Enter **Name** and **Description**, and then select **Create** to add a new training set.
 
-1. To upload data, select **Upload data** > **Choose data type** > **Upload data**. Specify the target training set, and enter the name and description for your data. Review the settings, and select **Submit**.
+   When the training set is successfully created, you can start to upload your data. 
+
+1. Select **Upload data** > **Choose data type** > **Upload data**. Then select **Specify the target training set**.
+1. Enter the name and description for your data, review the settings, and select **Submit**.
 
 > [!NOTE]
 >- Duplicate audio names are removed from the training. Make sure the data you select don't contain the same audio names within the .zip file or across multiple .zip files. If utterance IDs (either in audio or script files) are duplicates, they're rejected.
 >- If you've created data files in the previous version of Speech Studio, you must specify a training set for your data in advance to use them. If you haven't, an exclamation mark is appended to the data name, and the data can't be used.
 
-Each data file you upload must meet the requirements for the data type that you choose. It's important to correctly format your data before it's uploaded, which ensures that Custom Neural Voice processes the data accurately. Go to [Prepare training data](how-to-custom-voice-prepare-data.md), and confirm that your data is correctly formatted.
+All data you upload must meet the requirements for the data type that you choose. It's important to correctly format your data before it's uploaded, which ensures the data will be accurately processed by the Speech service. Go to [Prepare training data](how-to-custom-voice-prepare-data.md), and confirm that your data is correctly formatted.
 
 > [!NOTE]
 > - Standard subscription (S0) users can upload five data files simultaneously. If you reach the limit, wait until at least one of your data files finishes importing. Then try again.
@@ -74,7 +78,7 @@ Each data file you upload must meet the requirements for the data type that you 
 
 Data files are automatically validated when you select **Submit**. Data validation includes series of checks on the audio files to verify their file format, size, and sampling rate. If there are any errors, fix them and submit again. 
 
-After the data is uploaded, you can check the details in the training set detail view. On the **Overview** tab, you can further check the pronunciation scores and the noise level for each of your data files. The pronunciation score ranges from 0 to 100. A score below 70 normally indicates a speech error or script mismatch. A heavy accent can reduce your pronunciation score and affect the generated digital voice.
+After you upload the data, you can check the details in the training set detail view. On the **Overview** tab, you can further check the pronunciation scores and the noise level for each of your data. The pronunciation score ranges from 0-100. A score below 70 normally indicates a speech error or script mismatch. A heavy accent can reduce your pronunciation score and affect the generated digital voice.
 
 A higher signal-to-noise ratio (SNR) indicates lower noise in your audio. You can typically reach a 35+ SNR by recording at professional studios. Audio with an SNR below 20 can result in obvious noise in your generated voice.
 
@@ -82,9 +86,7 @@ Consider re-recording any utterances with low pronunciation scores or poor signa
 
 On **Data details**, you can check the data details of the training set. If there are any typical issues with the data, follow the instructions in the message that appears, to fix them before training.
 
-The issues are divided into three types. Refer to the following three tables to check the respective types of errors.
-
-Manually fix the first type of errors listed in the following table. Otherwise, the data with these errors will be excluded during training.
+The issues are divided into three types. Refer to the following tables to check the respective types of errors. Data with these errors will be excluded during training.
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
@@ -107,19 +109,19 @@ The following errors are fixed automatically, but you should confirm that the fi
 | Mismatch |Silence auto fixed |The start silence is detected to be shorter than 100 ms, and has been extended to 100 ms automatically. Download the normalized dataset and review it. |
 | Mismatch |Silence auto fixed | The end silence is detected to be shorter than 100 ms, and has been extended to 100 ms automatically. Download the normalized dataset and review it.|
 
-If the following errors aren't fixed, the data with these errors isn't excluded during training, but they affect the quality of training. For higher-quality training, it's a good idea to fix these errors manually. 
+Unresolved errors listed in the next table affect the quality of training, but data with these errors won't be excluded during training. For higher-quality training, it's a good idea to fix these errors manually. 
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
-| Script | Non-normalized text|This script contains one or more digits. Expand them to normalized words, and match with the audio. For example, normalize *123* to *one hundred and twenty-three*.|
+| Script | Non-normalized text|This script contains digits. Expand them to normalized words, and match with the audio. For example, normalize *123* to *one hundred and twenty-three*.|
 | Script | Non-normalized text|This script contains symbols. Normalize the symbols to match the audio. For example, normalize *50%* to *fifty percent*.|
 | Script | Not enough question utterances| At least 10 percent of the total utterances should be question sentences. This helps the voice model properly express a questioning tone.|
-| Script |Not enough exclamation utterances| At least 10 percent of the total utterances should be exclamation sentences. This helps the voice model properly express an excited tone.|
-| Audio| Low sampling rate for neural voice | It's recommended that the sampling rate of your .wav files should be 24 KHz or higher for creating neural voices. It will be automatically raised to 24 KHz if it's lower.|
+| Script | Not enough exclamation utterances| At least 10 percent of the total utterances should be exclamation sentences. This helps the voice model properly express an excited tone.|
+| Audio| Low sampling rate for neural voice | It's recommended that the sampling rate of your .wav files should be 24 KHz or higher for creating neural voices. If it's lower, it will be automatically raised to 24 KHz.|
 | Volume |Overall volume too low|Volume shouldn't be lower than -18 dB (10 percent of max volume). Control the volume average level within proper range during the sample recording or data preparation.|
 | Volume | Volume overflow| Overflowing volume is detected at {}s. Adjust the recording equipment to avoid the volume overflow at its peak value.|
 | Volume | Start silence issue | The first 100 ms of silence isn't clean. Reduce the recording noise floor level, and leave the first 100 ms at the start silent.|
-| Volume| End silence issue| The last 100 ms of silence  isn't clean. Reduce the recording noise floor level, and leave the last 100 ms at the end silent.|
+| Volume| End silence issue| The last 100 ms of silence isn't clean. Reduce the recording noise floor level, and leave the last 100 ms at the end silent.|
 | Mismatch | Low scored words|Review the script and the audio content to make sure they match, and control the noise floor level. Reduce the length of long silence, or split the audio into multiple utterances if it's too long.|
 | Mismatch | Start silence issue |Extra audio was heard before the first word. Review the script and the audio content to make sure they match, control the noise floor level, and make the first 100 ms silent.|
 | Mismatch | End silence issue| Extra audio was heard after the last word. Review the script and the audio content to make sure they match, control the noise floor level, and make the last 100 ms silent.|
@@ -222,5 +224,4 @@ The custom endpoint is functionally identical to the standard endpoint that's us
 ## Next steps
 
 - [How to record voice samples](record-custom-voice-samples.md)
-- [Text-to-speech API reference](rest-text-to-speech.md)
 - [Long Audio API](long-audio-api.md)
