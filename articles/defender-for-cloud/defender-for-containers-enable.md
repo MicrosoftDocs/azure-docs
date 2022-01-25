@@ -31,7 +31,7 @@ Learn about this plan in [Overview of Microsoft Defender for Containers](defende
 ::: zone-end
 
 ::: zone pivot="defender-for-container-arc,defender-for-container-eks"
-[!INCLUDE [Prerequisites](./includes/defender-for-container-prerequisites-arc-eks.md) ]
+[!INCLUDE [Prerequisites](./includes/defender-for-container-prerequisites-arc-eks.md)]
 ::: zone-end
 
 ::: zone pivot="defender-for-container-aks"
