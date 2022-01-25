@@ -84,7 +84,7 @@ Get the example of the force password reset policy on [GitHub](https://github.co
 1. In **Custom Policies**, select **Upload Policy**.
 1. Select the *TrustFrameworkExtensionsCustomForcePasswordReset.xml* file.
 1. Select **Upload**.
-1. Repeat steps 6 through 7 for the relying party file *TrustFrameworkExtensionsCustomForcePasswordReset.xml*.
+1. Repeat steps 6 through 8 for the relying party file *TrustFrameworkExtensionsCustomForcePasswordReset.xml*.
 
 ## Run the policy
 
