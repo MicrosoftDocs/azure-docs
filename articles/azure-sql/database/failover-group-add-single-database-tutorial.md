@@ -184,7 +184,7 @@ Change the failover location as appropriate for your environment.
 
 ### Create the secondary server
 
-Use this script to create a secondary server with the [az sql server create](/cli/azure/sql/server#az_sql_server_create) command.
+Use the [az sql server create](/cli/azure/sql/server#az_sql_server_create) command to create a secondary server with .
 > [!NOTE]
 > The server login and firewall settings must match that of your primary server.
 
@@ -192,7 +192,7 @@ Use this script to create a secondary server with the [az sql server create](/cl
 
 ### Create the failover group
 
-Use this script to create a failover group with the [az sql failover-group create](/cli/azure/sql/failover-group#az_sql_failover_group_create) command.
+Use the [az sql failover-group create](/cli/azure/sql/failover-group#az_sql_failover_group_create) command to create a failover group.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="30-32":::
 
@@ -302,19 +302,19 @@ Test failover using the Azure CLI.
 
 ### Verify the roles of each server
 
-Use this script to confirm the roles of each server with the [az sql failover-group show](/cli/azure/sql/failover-group#az_sql_failover_group_show) command.
+Use the [az sql failover-group show](/cli/azure/sql/failover-group#az_sql_failover_group_show) command to confirm the roles of each server.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="33-35":::
 
 ### Fail over to the secondary server
 
-Use this script to failover to the secondary server and verify a successful failover with the [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) and [az sql failover-group show](/cli/azure/sql/failover-group#az_sql_failover_group_show) commands.
+Use the [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) to fail over to the secondary server. Use the [az sql failover-group show](/cli/azure/sql/failover-group#az_sql_failover_group_show) command to verify a successful failover.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="36-41":::
 
 ### Revert failover group back to the primary server
 
-Use this script to fail back to the primary server with the [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) command.
+Use the [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) command to fail back to the primary server.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="42-44":::
 
