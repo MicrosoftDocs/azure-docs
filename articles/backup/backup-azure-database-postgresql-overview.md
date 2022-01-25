@@ -116,7 +116,7 @@ To grant all the access permissions needed by Azure Backup, refer to the followi
 
 ### Database user’s backup privileges on the database
 
-Run the following query in [PG admin](#using-the-pg-admin-tool) tool (replace _username_ with the database user ID):
+Run the following query in [PG admin](#use-the-pg-admin-tool) tool (replace _username_ with the database user ID):
 
 ```
 DO $do$

@@ -18,7 +18,7 @@ sections:
     questions:
       - question: What's the backup process of Azure Database for PostgreSQL server?
         answer: |
-          Azure Backup and Azure Database Services together help you to build an enterprise-class backup solution for Azure Database for PostgreSQL servers that retains backups for long-term. Learn about the complete [backup process](backup-azure-database-postgresql-overview.md#backup-process).
+          Azure Backup and Azure Database Services together help you to build an enterprise-class backup solution for Azure Database for PostgreSQL servers that retains backups for long term. Learn about the complete [backup process](backup-azure-database-postgresql-overview.md#backup-process).
 
       - question: What are the prerequisites for configuring backup?
         answer: |
