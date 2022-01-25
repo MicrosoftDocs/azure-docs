@@ -120,7 +120,7 @@ Consider these details:
 * Custom Speech can only capture word context to reduce substitution errors, not insertion, or deletion errors.
 * Avoid samples that include transcription errors, but do include a diversity of audio quality.
 * Avoid sentences that are not related to your problem domain. Unrelated sentences can harm your model.
-* When the quality of transcripts vary, you can duplicate exceptionally good sentences (like excellent transcriptions that include key phrases) to increase their weight.
+* When the quality of transcripts varies, you can duplicate exceptionally good sentences (like excellent transcriptions that include key phrases) to increase their weight.
 * The Speech service will automatically use the transcripts to improve the recognition of domain-specific words and phrases, as if they were added as related text.
 * It can take several days for a training operation to complete. To improve the speed of training, make sure to create your Speech service subscription in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
 
