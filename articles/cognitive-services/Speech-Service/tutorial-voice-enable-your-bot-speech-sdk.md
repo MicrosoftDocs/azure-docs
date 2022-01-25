@@ -60,7 +60,7 @@ Here's what you'll need to complete this tutorial:
 
 ## Create a resource group
 
-The client app that you'll create in this tutorial uses a handful of Azure services. To reduce the round-trip time for responses from your bot, you'll want to make sure that these services are in the same Azure region. 
+The client app that you'll create in this tutorial uses a handful of Azure services. To reduce the round-trip time for responses from your bot, you'll want to make sure that these services are in the same Azure region.
 
 This section walks you through creating a resource group in the West US region. You'll use this resource group when you're creating individual resources for the Bot Framework, the Direct Line Speech channel, and the Speech service.
 
@@ -154,7 +154,7 @@ Now that you've created resources, start with the echo bot sample, which echoes 
 
 ### Test the bot sample with the Bot Framework Emulator
 
-The [Bot Framework Emulator](https://github.com/microsoft/botframework-emulator) is a desktop app that lets bot developers test and debug their bots locally (or remotely through a tunnel). The emulator accepts typed text as the input (not voice). The bot will also respond with text. 
+The [Bot Framework Emulator](https://github.com/microsoft/botframework-emulator) is a desktop app that lets bot developers test and debug their bots locally (or remotely through a tunnel). The emulator accepts typed text as the input (not voice). The bot will also respond with text.
 
 Follow these steps to use the Bot Framework Emulator to test your echo bot running locally, with text input and text output. After you deploy the bot to Azure, you'll test it with voice input and voice output.
 
@@ -267,7 +267,7 @@ At this point, check your resource group (**SpeechEchoBotTutorial-ResourceGroup*
 
 The **Azure Bot** page has a **Test in Web Chat** option under **Settings**. It won't work by default with your bot because the web chat needs to authenticate against your bot. 
 
-If you want to test your deployed bot with text input, use the following steps. Note that these steps are optional and are not required for you to continue with the tutorial. 
+If you want to test your deployed bot with text input, use the following steps. Note that these steps are optional and aren't required for you to continue with the tutorial. 
 
 1. In the [Azure portal](https://portal.azure.com), find and open your **EchoBotTutorial-BotRegistration-####** resource.
 1. From the **Settings** area, select **Configuration**. Copy the value under **Microsoft App ID**.
@@ -334,13 +334,13 @@ If you get an error message in your main app window, use this table to identify 
 |Error (AuthenticationFailure) : WebSocket Upgrade failed with an authentication error (401). Check for correct subscription key (or authorization token) and region name| On the **Settings** page of the app, make sure that you entered the subscription key and its region correctly. |
 |Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1011. Error details: We could not connect to the bot before sending a message | Make sure that you [selected the Enable Streaming Endpoint checkbox](#register-the-direct-line-speech-channel) and/or [turned on web sockets](#enable-web-sockets).<br>Make sure that Azure App Service is running. If it is, try restarting it.|
 |Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1002. Error details: The server returned status code '503' when status code '101' was expected | Make sure that you [selected the Enable Streaming Endpoint checkbox](#register-the-direct-line-speech-channel) box and/or [turned on web sockets](#enable-web-sockets).<br>Make sure that Azure App Service is running. If it is, try restarting it.|
-|Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1011. Error details: Response status code does not indicate success: 500 (InternalServerError)| Your bot specified a neural voice in the [speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) field of its output activity, but the Azure region associated with your subscription key does not support neural voices. See [neural voices](./regions.md#prebuilt-neural-voices) and [standard voices](how-to-migrate-to-prebuilt-neural-voice.md).|
+|Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1011. Error details: Response status code does not indicate success: 500 (InternalServerError)| Your bot specified a neural voice in the [speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) field of its output activity, but the Azure region associated with your subscription key doesn't support neural voices. See [neural voices](./regions.md#prebuilt-neural-voices) and [standard voices](how-to-migrate-to-prebuilt-neural-voice.md).|
 
 If the actions in the table don't address your problem, see [Voice assistants: Frequently asked questions](faq-voice-assistants.yml). If you still can't resolve your problem after following all the steps in this tutorial, please enter a new issue on the [Voice Assistant GitHub page](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/issues).
 
 #### A note on connection timeout
 
-If you're connected to a bot and no activity has happened in the last five minutes, the service automatically closes the web socket connection with the client and with the bot. This is by design. A message appears on the bottom bar: "Active connection timed out but ready to reconnect on demand." 
+If you're connected to a bot and no activity has happened in the last five minutes, the service automatically closes the web socket connection with the client and with the bot. This is by design. A message appears on the bottom bar: "Active connection timed out but ready to reconnect on demand."
 
 You don't need to select the **Reconnect** button. Press the microphone button and start talking, enter a text message, or say the keyword (if one is enabled). The connection is automatically reestablished.  
 
