@@ -136,7 +136,7 @@ END;
 $do$
 ```
 
-## Using the PG admin tool
+## Use the PG admin tool
 
 [Download PG admin tool](https://www.pgadmin.org/download/) if you don’t have it already. You can connect to the Azure PostgreSQL server through this tool. Also, you can add databases and new users to this server.
 

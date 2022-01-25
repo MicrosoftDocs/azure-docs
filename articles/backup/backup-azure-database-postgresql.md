@@ -154,7 +154,7 @@ The dynamically generate PowerShell script during configure backup accepts the d
 
 Ensure that **Connection Security settings** in the Azure PostgreSQL instance allowlist the IP address of the machine to allow network connectivity.
 
-## Run on-demand backup
+## Run an on-demand backup
 
 To trigger a backup not in the schedule specified in the policy, go to **Backup instances** -> **Backup Now**.
 Choose from the list of retention rules that were defined in the associated Backup policy.

@@ -34,7 +34,7 @@ sections:
 
       - question: Can I take an on-demand backup of Azure Database for PostgreSQL server?
         answer: |
-          Yes. To trigger an on-demand backup, see [Run on-demand backup](backup-azure-database-postgresql.md#run-on-demand-backup).
+          Yes. To trigger an on-demand backup, see [Run on-demand backup](backup-azure-database-postgresql.md#run-an-on-demand-backup).
 
 
 
