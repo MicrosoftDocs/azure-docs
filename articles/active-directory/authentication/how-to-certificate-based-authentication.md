@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 01/25/2022
 
 ms.author: justinha
 author: justinha
@@ -18,7 +18,7 @@ ms.custom: has-adal-ref
 ---
 # How to configure cloud-native certificate-based authentication in Azure Active Directory (Preview)
 
-Cloud-native certificate-based authentication (CBA) enables customers to configure their Azure AD tenants to allow or require users to authenticate with X.509 certificates verified against their Enterprise Public Key Infrastructure (PKI) for app and browser sign-in. This feature enables customers to adopt passwordless and authenticate with an x.509 certificate. 
+Cloud-native certificate-based authentication (CBA) enables customers to configure their Azure AD tenants to allow or require users to authenticate with X.509 certificates verified against their Enterprise Public Key Infrastructure (PKI) for app and browser sign-in. This feature enables customers to adopt phishing resistant authentication by using an x.509 certificate.
  
 During sign-in, users will see an option to authenticate with a certificate instead of entering a password. 
 If multiple matching certificates are present on the device, the user can pick which one to use. The certificate is validated, the binding to the user account is checked, and if successful, they are signed in.
@@ -148,6 +148,8 @@ To enable the certificate-based authentication in the Azure MyApps portal, compl
    1. Click **+ Add users**, select specific users and groups.
    1. Click **Select** to add them.
 
+   :::image type="content" border="true" source="./media/tutorial-enable-cloud-native-certificate-based-authentication/enable.png" alt-text="Screenshot of how to enable CBA.":::
+
 1. Select **Sign in with a certificate**.
 1. Pick the correct user certificate in the client certificate picker UI and click **OK**.
  
@@ -241,15 +243,14 @@ To enable the certificate-based authentication and configure username bindings u
 
 1. Go to [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 1. Click **Sign into Graph Explorer** and sign in to your tenant.
-1. Click **Settings** > **Select permission**.
-1. Enter "auth" in the search bar and consent all related permissions.
-1. GET all authentication methods
+1. Follow the steps to consent to permissions.
+1. GET all authentication methods:
 
    ```http
    GET  https://graph.microsoft.com/beta/policies/authenticationmethodspolicy
    ```
 
-1. GET X509Certificate authentication method
+1. GET X509Certificate authentication method:
 
    ```http
    GET https://graph.microsoft.com/beta/policies/authenticationmethodspolicy/authenticationMetHodConfigurations/X509Certificate
@@ -257,7 +258,7 @@ To enable the certificate-based authentication and configure username bindings u
 
 1. To update policy run a PATCH command.
 
-   PATCH X509Certificate strong auth with sample authentication rules with certificate user bindings and certificate rules.
+   PATCH X509Certificate strong auth with sample authentication rules with certificate user bindings and certificate rules:
     
     Request body:
 

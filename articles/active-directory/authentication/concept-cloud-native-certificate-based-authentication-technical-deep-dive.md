@@ -38,7 +38,7 @@ Let's cover each step:
    
    :::image type="content" border="true" source="./media/concept-cloud-native-certificate-based-authentication-technical-deep-dive/sign-in.png" alt-text="Screenshot of the Sign-in for MyApps portal.":::
   
-1. If Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled for the tenant, the user sees a link to **Sign in with a certificate** on the password page. If you do not see the sign-in link, make sure CBA is enabled on the tenant. For more information, see [Frequently asked questions about Cloud native certificate authentication](cloud-native-certificate-based-authentication-faq.yml).
+1. If Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled for the tenant, the user sees a link to **Sign in with a certificate** on the password page. If you do not see the sign-in link, make sure CBA is enabled on the tenant. For more information, see [How do I enable native CBA?](cloud-native-certificate-based-authentication-faq.md#how-do-i-enable-cloud-native-cba-).
    
    >[!NOTE]
    > If CBA is enabled, all users see the link to **Sign in with a certificate** on the password page. CBA cannot be enabled for specific users. 
