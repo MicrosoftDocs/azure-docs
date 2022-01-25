@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
   - Windows Hybrid Runbook Worker: version 7.3.1125.0
   - Linux Hybrid Runbook Worker: version 1.7.4.0
 
-- To assign Azure role, you must have ```Microsoft.Authorization/roleAssignments/write``` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner)
+- To assign an Azure role, you must have ```Microsoft.Authorization/roleAssignments/write``` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
 
  
 ## Enable a system-assigned managed identity for an Azure Automation account
@@ -266,27 +266,30 @@ New-AzRoleAssignment `
     -RoleDefinitionName "Contributor"
 ```
 
-## Assign role to a system-assigned managed identity of an Azure Automation account
-Follow the steps to assign a role to a system-assigned managed identity of the Automation account
+## Assign role to a system-assigned managed identity
 
-1. Sign in to Azure portal, go to your Automation account.
+To assign a role to a system-assigned managed identity of the Automation account, follow these steps:
+
+1. Sign in to Azure portal
+1. Go to your Automation account.
 1. Under **Account Settings**, select **Identity**.
 
     :::image type="content" source="media/managed-identity/system-assigned-main-screen-inline.png" alt-text="Assigning role in system-assigned identity in Azure portal." lightbox="media/managed-identity/system-assigned-main-screen-expanded.png":::
 
-1. Under **Permissions**, click **Azure role assignments**.
+1. Under **Permissions**, click **Azure role assignments**.</br>
 If the roles are already assigned to the selected system-assigned managed identity, you can see a list of role assignments. This list includes all the role-assignments you have permission to read.
 
     :::image type="content" source="media/managed-identity/role-assignments-view-inline.png" alt-text="View role-assignments that you have permission in Azure portal." lightbox="media/managed-identity/role-assignments-view-expanded.png":::
 
-1. To change the subscription, click the **Subscription** drop-down list to select the appropriate option.
+1. To change the subscription, click the **Subscription** drop-down list and select the appropriate subscription.
 1. Click **Add role assignment (Preview)**
-1. In the drop-down list, select the set of resources that the role assignment applies to such as: **Subscription**, **Resource group**. If you don't have role assignment, write permissions for the selected scope, an inline message is displayed. 
-1. In the **Role** drop-down list, select a role such as *Virtual Machine Contributor*.
-1. Click **Save**
+1. In the drop-down list, select the set of resources that the role assignment applies - **Subscription**, **Resource group**, **Role**, and **Scope**. </br> If you don't have the role assignment, you can view the write permissions for the selected scope as an inline message.
+1. In the **Role** drop-down list, select a role as *Virtual Machine Contributor*.
+1. Click **Save**.
 
     :::image type="content" source="media/managed-identity/add-role-assignment-inline.png" alt-text="Add a role assignment in Azure portal." lightbox="media/managed-identity/add-role-assignment-expanded.png":::
-After a few minutes, the managed identity is assigned the role at the selected scope
+
+After a few minutes, the managed identity is assigned the role at the selected scope.
 
 
 ## Authenticate access with system-assigned managed identity

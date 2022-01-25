@@ -35,6 +35,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
   - Windows Hybrid Runbook Worker: version 7.3.1125.0
   - Linux Hybrid Runbook Worker: version 1.7.4.0
 
+- To assign an Azure role, you must have ```Microsoft.Authorization/roleAssignments/write``` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+
 ## Add user-assigned managed identity for Azure Automation account
 
 You can add a user-assigned managed identity for an Azure Automation account using the Azure portal, PowerShell, the Azure REST API, or ARM template. For the examples involving PowerShell, first sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and follow the instructions.
@@ -308,6 +310,33 @@ New-AzRoleAssignment `
     -Scope "/subscriptions/<subscription-id>" `
     -RoleDefinitionName "Contributor"
 ```
+
+## Assign a role to a user-assigned managed identity
+
+To assign a role to a user-assigned managed identity of the Automation account, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Go to your Automation account.
+1. Under **Account Settings**, select **Identity**, **User assigned**.
+1. Click **User assigned identity name**.
+
+    :::image type="content" source="media/add-user-assigned-identity/user-assigned-main-screen-inline.png" alt-text="Assigning role in user-assigned identity in Azure portal." lightbox="media/add-user-assigned-identity/user-assigned-main-screen-expanded.png":::
+
+If the roles are already assigned to the selected system-assigned managed identity, you can see a list of role assignments. This list includes all the role-assignments you have permission to read.
+
+
+  :::image type="content" source="media/add-user-assigned-identity/user-assigned-role-assignments-inline.png" alt-text="View role-assignments that you have permission in Azure portal." lightbox="media/add-user-assigned-identity/user-assigned-role-assignments-expanded.png":::
+
+1. To change the subscription, click the **Subscription** drop-down list and select the appropriate subscription.
+1. Click **Add role assignment (Preview)**
+1. In the drop-down list, select the set of resources that the role assignment applies - **Subscription**, **Resource group**, **Role**, and **Scope**. </br> If you don't have the role assignment, you can view the write permissions for the selected scope as an inline message.
+1. In the **Role** drop-down list, select a role as *Virtual Machine Contributor*.
+1. Click **Save**.
+
+    :::image type="content" source="media/managed-identity/add-role-assignment-inline.png" alt-text="Add a role assignment in Azure portal." lightbox="media/managed-identity/add-role-assignment-expanded.png":::
+
+After a few minutes, the managed identity is assigned the role at the selected scope.
+
 
 ## Authenticate access with user-assigned managed identity
 
