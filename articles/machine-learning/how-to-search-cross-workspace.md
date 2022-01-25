@@ -52,11 +52,15 @@ Click on any number of filters to create more specific search queries.  The foll
 If an asset filter (job, model, component) is present, results will be scoped to those tabs. Other filters will apply to all assets unless an asset filter is also present in the query. Similarly, free text search can be provided alongside filters but will be scoped to the tabs chosen by asset filters if present. 
 
 Note: 
-* Filters search for exact matches of text. Use free text queries for 'contains' search.
+* Filters search for exact matches of text. Use free text queries for a contains search.
+
 * Quotations are required around values that include spaces or other special characters.  
+
 * If duplicate filters are provided, only the first will be recognized in search results. 
+
 * While filter strings must match the provided options (ex. job:), input text of any language is supported. 
-* The tags filter can accept multiple key:value pairs separated by a comma (ex. tags:"key1:value1, key2:value2")
+
+* The tags filter can accept multiple key:value pairs separated by a comma (ex. tags:"key1:value1, key2:value2").
 
 
 ### Results
