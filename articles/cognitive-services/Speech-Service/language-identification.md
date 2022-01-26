@@ -8,20 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/09/2022
+ms.date: 01/25/2022
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
 
 # Language identification
 
-Language identification is used to identify natural languages spoken in audio when compared against a list of [supported languages](language-support.md). 
+Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md). 
 
 Language identification (LID) use cases include:
 
-* [Standalone language identification](#standalone-language-identification) when you only need to detect the natural language in an audio source.
-* [Speech-to-text language identification](#speech-to-text) when you need to detect the natural language in an audio source and then transcribe it to text. 
-* [Speech translation language identification](#speech-translation) when you need to detect the natural language in an audio source and then translate it to another language. 
+* [Standalone language identification](#standalone-language-identification) when you only need to identify the language in an audio source.
+* [Speech-to-text recognition](#speech-to-text) when you need to identify the language in an audio source and then transcribe it to text. 
+* [Speech translation](#speech-translation) when you need to identify the language in an audio source and then translate it to another language. 
+
+Note that for speech recognition, the initial latency is higher with language identification. You should only include this optional feature as needed.   
 
 ## Setup configurations
 
@@ -128,10 +130,10 @@ For continuous LID using `Latency` as the priority, the Speech service returns o
 
 ### Recognize once or continuous
 
-Language identification is completed during a process called recognition. You will make a request to the Speech service for recognition of audio. 
+Language identification is completed with recognition objects and operations. You will make a request to the Speech service for recognition of audio. 
 
 > [!IMPORTANT]
-> Don't confuse recognition with identification. Recognition can be used with or without language identification, but language identification requires recognition.
+> Don't confuse recognition with identification. Recognition can be used with or without language identification.
 
 Let's map these concepts to the code. You will either call the recognize once method, or the start and stop continuous recognition methods. You choose from:
 - Recognize once with at-start LID
@@ -189,7 +191,7 @@ source_language_recognizer.stop_continuous_recognition()
 
 ## Standalone language identification
 
-You use standalone language identification when you only need to detect the natural language in an audio source. 
+You use standalone language identification when you only need to identify the language in an audio source. 
 
 > [!NOTE]
 > Standalone source language recognition is only supported with the Speech SDKs for C#, C++, and Python.
@@ -314,7 +316,7 @@ See more examples of standalone language identification on [GitHub](https://gith
 
 ## Speech-to-text
 
-You use Speech-to-text language identification when you need to detect the natural language in an audio source and then transcribe it to text. 
+You use Speech-to-text recognition when you need to identify the language in an audio source and then transcribe it to text. 
 
 > [!NOTE]
 > Speech-to-text recognition with at-start language identification is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Speech-to-text recognition with continuous language identification is only supported with Speech SDKs in C#, C++, and Python.
@@ -435,7 +437,7 @@ using (var audioInput = AudioConfig.FromWavFileInput(@"path-to-your-audio-file.w
 }
 ```
 
-See more examples of speech-to-text language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/translation_samples.cs).
+See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/translation_samples.cs).
 
 ::: zone-end
 
@@ -540,7 +542,7 @@ recognitionEnd.get_future().get();
 recognizer->StopContinuousRecognitionAsync().get();
 ```
 
-See more examples of speech-to-text language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_with_language_id_samples.cs).
+See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_with_language_id_samples.cs).
 
 
 ::: zone-end
@@ -569,7 +571,7 @@ audioConfig.close();
 result.close();
 ```
 
-See more examples of speech-to-text language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java).
+See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java).
 
 ::: zone-end
 
@@ -629,7 +631,7 @@ def speech_recognize_continuous_from_file():
     speech_recognizer.stop_continuous_recognition()
 ```
 
-See more examples of speech-to-text language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py).
+See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py).
 
 ::: zone-end
 
@@ -755,10 +757,10 @@ var autoDetectSourceLanguageConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fr
 
 ## Speech translation
 
-You use Speech translation language identification when you need to detect the natural language in an audio source and then translate it to another language. 
+You use Speech translation when you need to identify the language in an audio source and then translate it to another language. 
 
 > [!NOTE]
-> Translation recognition with language identification is only supported with Speech SDKs in C#, C++, and Python. 
+> Speech translation with language identification is only supported with Speech SDKs in C#, C++, and Python. 
 
 
 ::: zone pivot="programming-language-csharp"
@@ -919,7 +921,7 @@ public static async Task MultiLingualTranslation()
 }
 ```
 
-See more examples of speech translation language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/translation_samples.cs).
+See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/translation_samples.cs).
 
 ::: zone-end
 
@@ -1024,7 +1026,7 @@ void MultiLingualTranslation()
 }
 ```
 
-See more examples of speech translation language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/translation_samples.cpp).
+See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/translation_samples.cpp).
 
 ::: zone-end
 
@@ -1041,6 +1043,6 @@ See more examples of speech translation language identification on [GitHub](http
 
 ---
 
-See more examples of speech translation language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/translation_sample.py).
+See more examples of speech translation with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/translation_sample.py).
 
 ::: zone-end
