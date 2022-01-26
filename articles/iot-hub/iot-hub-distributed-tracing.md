@@ -6,7 +6,7 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 01/26/2022
 ms.author: jlian
 ms.custom: [amqp, mqtt, fasttrack-edit, iot]
 ---
@@ -270,17 +270,6 @@ Example logs as shown by Log Analytics:
 | 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | Informational | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
 
 To understand the different types of logs, see [Azure IoT Hub distributed tracing logs](monitor-iot-hub-reference.md#distributed-tracing-preview).
-
-### Application Map
-
-To visualize the flow of IoT messages, set up the Application Map sample app. The sample app sends the distributed tracing logs to [Application Map](../azure-monitor/app/app-map.md) using an Azure Function and an Event Hub.
-
-> [!div class="button"]
-> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Get the sample on GitHub</a>
-
-This image below shows distributed tracing in App Map with three routing endpoints:
-
-![IoT distributed tracing in App Map](./media/iot-hub-distributed-tracing/app-map.png)
 
 ## Understand Azure IoT distributed tracing
 
