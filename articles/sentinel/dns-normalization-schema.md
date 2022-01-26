@@ -24,7 +24,7 @@ For more information, see [Normalization and the Advanced SIEM Information Model
 
 ## Schema overview
 
-The ASIM DNS schema represents DNS protocol activity, which may be logged either by a DNS server or by a device sending DNS requests to a DNS server. The DNS protocol activity includes DNS queries, DNS server updates, and DNS bulk data transfers. Since the schema represents protocol activity, it is governed by RFCs and officially assigned parameter lists, which are referenced in this article when appropriate. The DNS schema does not represent DNS server audit events. 
+The ASIM DNS schema represents DNS protocol activity, which may be logged either by a DNS server or by a device sending DNS requests to a DNS server. The DNS protocol activity includes DNS queries, DNS server updates, and DNS bulk data transfers. Since the schema represents protocol activity, it's governed by RFCs and officially assigned parameter lists, which are referenced in this article when appropriate. The DNS schema doesn't represent DNS server audit events. 
 
 The most important activity reported by DNS servers is a DNS query, for which the `EventType` field is set to `Query`.   
 
@@ -32,11 +32,11 @@ The most important fields in a DNS event are:
 
 - [DnsQuery](#query), which reports the domain name for which the query was issued.
 
-- The [SrcIpAddr](#srcipaddr) (aliased to [IpAddr](#ipaddr)), which represents the IP address from which the request was generated. DNS servers typically provide the SrcIpAddr field, but DNS clients sometimes do not provide this field and only provide the [SrcHostname](#srchostname) field. 
+- The [SrcIpAddr](#srcipaddr) (aliased to [IpAddr](#ipaddr)), which represents the IP address from which the request was generated. DNS servers typically provide the SrcIpAddr field, but DNS clients sometimes don't provide this field and only provide the [SrcHostname](#srchostname) field. 
 
 - [EventResultDetails](#eventresultdetails), which reports as to whether the request was successful and if not, why.
 
-- When available, [DnsResponseName](#responsename), which holds the answer provided by the server to the query. ASIM does not require parsing the response, and its format varies between sources. 
+- When available, [DnsResponseName](#responsename), which holds the answer provided by the server to the query. ASIM doesn't require parsing the response, and its format varies between sources. 
 
     To use this field in source-agnostic content, search the content using the `has` or `contains` operators.
 
@@ -109,8 +109,8 @@ The following filtering parameters are available:
 | **srcipaddr** | string | Filter only DNS queries from this source IP address. |
 | **domain_has_any**| dynamic | Filter only DNS queries where the `domain` (or `query`) has any of the listed domain names, including as part of the event domain.
 | **responsecodename** | string | Filter only DNS queries for which the response code name matches the provided value. <br>For example: `NXDOMAIN` |
-| **response_has_ipv4** | string | Filter only DNS queries in which the response field includes the provided IP address or IP address prefix. Use this parameter when you want to filter on a single IP address or prefix. <br><br>Results are not returned for sources that do not provide a response.|
-| **response_has_any_prefix** | dynamic| Filter only DNS queries in which the response field includes any of the listed IP addresses or IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. <br><br>Use this parameter when you want to filter on a list of IP addresses or prefixes. <br><br>Results are not returned for sources that do not provide a response. |
+| **response_has_ipv4** | string | Filter only DNS queries in which the response field includes the provided IP address or IP address prefix. Use this parameter when you want to filter on a single IP address or prefix. <br><br>Results are not returned for sources that don't provide a response.|
+| **response_has_any_prefix** | dynamic| Filter only DNS queries in which the response field includes any of the listed IP addresses or IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. <br><br>Use this parameter when you want to filter on a list of IP addresses or prefixes. <br><br>Results are not returned for sources that don't provide a response. |
 | **eventtype**| string | Filter only DNS queries of the specified type. If no value is specified, only lookup queries are returned. |
 | | | |
 
@@ -207,9 +207,9 @@ The fields below are specific to DNS events, although many are similar to fields
 | <a name=query></a>**DnsQuery** | Mandatory | FQDN | The domain that needs to be resolved. <br><br>**Note**: Some sources send this query in different formats. For example, in the DNS protocol itself, the query includes a dot (**.**)at the end, which must be removed.<br><br>While the DNS protocol allows for multiple queries in a single request, this scenario is rare, if it's found at all. If the request has multiple queries, store the first one in this field, and then and optionally keep the rest in the [AdditionalFields](normalization-about-schemas.md#additionalfields) field.<br><br>Example: `www.malicious.com` |
 | **Domain** | Alias | | Alias to [DnsQuery](#query). |
 | **DnsQueryType** | Optional | Integer | This field may contain [DNS Resource Record Type codes](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Example: `28`|
-| **DnsQueryTypeName** | Recommended | Enumerated | The field may contain [DNS Resource Record Type](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml) names. <br><br>**Note**: IANA does not define the case for the values, so analytics must normalize the case as needed. If the source provides only a numerical query type code and not a query type name, the parser must include a lookup table to enrich with this value.<br><br>Example: `AAAA`|
-| <a name=responsename></a>**DnsResponseName** | Optional | String | The content of the response, as included in the record.<br> <br> The DNS response data is inconsistent across reporting devices, is complex to parse, and has less value for source-agnostic analytics. Therefore the information model does not require parsing and normalization, and Microsoft Sentinel uses an auxiliary function to provide response information. For more information, see [Handling DNS response](#handling-dns-response).|
-| <a name=responsecodename></a>**DnsResponseCodeName** |  Mandatory | Enumerated | The [DNS response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Note**: IANA does not define the case for the values, so analytics must normalize the case. If the source provides only a numerical response code and not a response code name, the parser must include a lookup table to enrich with this value. <br><br> If this record represents a request and not a response, set to **NA**. <br><br>Example: `NXDOMAIN` |
+| **DnsQueryTypeName** | Recommended | Enumerated | The field may contain [DNS Resource Record Type](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml) names. <br><br>**Note**: IANA doesn't define the case for the values, so analytics must normalize the case as needed. If the source provides only a numerical query type code and not a query type name, the parser must include a lookup table to enrich with this value.<br><br>Example: `AAAA`|
+| <a name=responsename></a>**DnsResponseName** | Optional | String | The content of the response, as included in the record.<br> <br> The DNS response data is inconsistent across reporting devices, is complex to parse, and has less value for source-agnostic analytics. Therefore the information model doesn't require parsing and normalization, and Microsoft Sentinel uses an auxiliary function to provide response information. For more information, see [Handling DNS response](#handling-dns-response).|
+| <a name=responsecodename></a>**DnsResponseCodeName** |  Mandatory | Enumerated | The [DNS response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Note**: IANA doesn't define the case for the values, so analytics must normalize the case. If the source provides only a numerical response code and not a response code name, the parser must include a lookup table to enrich with this value. <br><br> If this record represents a request and not a response, set to **NA**. <br><br>Example: `NXDOMAIN` |
 | **DnsResponseCode** | Optional | Integer | The [DNS numerical response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Example: `3`|
 | **TransactionIdHex** | Recommended | String | The DNS unique hex transaction ID. |
 | **NetworkProtocol** | Optional | Enumerated | The transport protocol used by the network resolution event. The value can be **UDP** or **TCP**, and is most commonly set to **UDP** for DNS. <br><br>Example: `UDP`|
@@ -261,17 +261,17 @@ These are the changes in version 0.1.3 of the schema:
 
 ## Source-specific discrepancies 
 
-The goal of normalizing is to ensure that all sources provide consistent telemetry. A source that does not provide required telemetry, for example, mandatory schema fields, cannot be normalized. That said, a source that typically provides all required telemetry, apart from specific situations, can be normalized. The descrepencies may affect the completness of query results and therefore known descrepencies are listed here:
+The goal of normalizing is to ensure that all sources provide consistent telemetry. A source that doesn't provide required telemetry, for example, mandatory schema fields, cannot be normalized. That said, a source that typically provides all required telemetry, apart from specific situations, can be normalized. The descrepencies may affect the completness of query results and therefore known descrepencies are listed here:
 
 | Source | Descrepencies |
 | ------ | ------------- |
-| Microsoft DNS Server Collected using the DNS connector and the Log Analytics Agent | THe connector does not provide the mandatory DnsQuery field for original event ID 264 (Response to a dybamic update). The data is avaiable at the source, but not forwarded by the connector. |
+| Microsoft DNS Server Collected using the DNS connector and the Log Analytics Agent | THe connector doesn't provide the mandatory DnsQuery field for original event ID 264 (Response to a dybamic update). The data is avaiable at the source, but not forwarded by the connector. |
 | Corelight Zeek | Corelight Zeek may not provide the mandatory DnsQuery field. We have observered such behoavior in certain cases in which the original event type is `dns_unmatched_msg` or when the DNS response code name is `NXDOMAIN`. |
 |||
 
 ## Handling DNS response
 
-In most cases, logged DNS events do not include response information, which may be large and detailed. If your record includes more response information, store it in the [ResponseName](#responsename) field as it appears in the record.
+In most cases, logged DNS events don't include response information, which may be large and detailed. If your record includes more response information, store it in the [ResponseName](#responsename) field as it appears in the record.
 
 You can also provide an extra KQL function called `_imDNS<vendor>Response_`, which takes the unparsed response as input and returns dynamic value with the following structure:
 
