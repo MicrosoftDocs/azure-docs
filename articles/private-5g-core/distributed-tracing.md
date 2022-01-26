@@ -17,7 +17,7 @@ Azure Private 5G Core Preview offers a distributed tracing web GUI, which you ca
 
 The distributed tracing web GUI provides the following search tabs to allow you to search for diagnostics.
 
-If you can't see the **Search** heading, click on the **Search** button in the top-level menu.
+If you can't see the **Search** heading, select on the **Search** button in the top-level menu.
 
 - **SUPI** - Allows you to search for activity involving a particular subscriber using their Subscription Permanent Identifier (SUPI). This tab also provides an Errors panel, which allows you to filter the results by error condition. To search for activity for a particular subscriber, enter all of the initial digits of the subscriber's SUPI into the text box on the **SUPI search** panel.
 - **Errors** - Allows you to search for error condition occurrences across all subscribers. To search for occurrences of error conditions across all subscribers, select the **Errors** tab and then use the drop-down menus on the **Error** panel to select an error category and, optionally, a specific error.
@@ -35,15 +35,15 @@ Long search ranges result in slower searches, so it's recommended that you keep 
 > [!TIP] 
 > You can click the cog icon next to the **Date/time range** heading to customize the date and time format, default search period, and time zone according to your preferences.
 
-Once you have entered your chosen search parameters, click **Search** to begin your search. The following image shows an example of the results returned for a search on a particular SUPI.
+Once you’ve entered your chosen search parameters, select **Search** to begin your search. The following image shows an example of the results returned for a search on a particular SUPI.
 
-:::image type="content" source="media\distributed-tracing\distributed-tracing-search-results.png" alt-text="Screenshot of search results on a specific SUPI in the distributed tracing web GUI. It shows several matching Successful PDU Session Establishment records.":::
+:::image type="content" source="media\distributed-tracing\distributed-tracing-search-results.png" alt-text="Screenshot of search results on a specific SUPI in the distributed tracing web GUI. It shows matching Successful PDU Session Establishment records.":::
 
 You can view more information on any result by clicking on it.
 
 ## Viewing diagnostics details
 
-When you click on a specific result, the display shows the following tabs containing different categories of information.
+When you select on a specific result, the display shows the following tabs containing different categories of information.
 
 > [!NOTE] 
 > In addition to the tabs described below, the distributed tracing web GUI also includes a **User Experience** tab. This tab is not used by Azure Private 5G Core Preview and will not display any information.
@@ -63,18 +63,18 @@ The **Events to be viewed** drop-down list allows you to control the level of ev
 - **High level events** - the lowest level of detail, with a one-line summary of each event.
 - **High level events and protocol flows** - includes the same information as for **High level events**, but adds details of the contents of network protocol messages involved at each stage.
 - **Detailed events** - includes the network protocol messages and more fine-grained detail of events.
-- **Engineer level events** - provides a detailed listing of internal events, typically for use by Microsoft personnel.
+- **Engineering level events** - provides a detailed listing of internal events, typically for use by Microsoft personnel.
 
 The **Call Flow** view shows the sequence of messages flowing between components during the course of the flow or error.
 
-:::image type="content" source="media\distributed-tracing\distributed-tracing-call-flow.png" alt-text="The Call Flow view of the distributed tracing web GUI, showing the flow of messages exchanged during a Successful PDU Session Establishment.":::
+:::image type="content" source="media\distributed-tracing\distributed-tracing-call-flow.png" alt-text="Screenshot of the Call Flow view of the distributed tracing web GUI. It shows the messages exchanged during a Successful PDU Session Establishment.":::
 
 The vertical lines in the diagram show the network components involved in the flow.
 
 - Black lines indicate packet core Network Functions that have logged sending or receiving messages for this flow.
 - Grey lines indicate other components that don't log messages.
 
-You can customize the view by showing or hiding individual columns and giving them more descriptive display names. To view these options, click on the current column name and then click the **+** (plus) sign that appears to the right of it to open a dropdown menu. Additionally, you can select multiple columns by holding down the Ctrl key as you click on each column; the **+** symbol remains next to the latest column that you selected.
+You can customize the view by showing or hiding individual columns and giving them more descriptive display names. To view these options, select on the current column name and then select the **+** (plus) sign that appears to the right of it to open a dropdown menu. Additionally, you can select multiple columns by holding down the Ctrl key as you select on each column; the **+** symbol remains next to the latest column that you selected.
 
 - The **Remove this column** option hides the currently select column from view.
 - The **Remove other columns** option hides all columns that don't include messages flowing to or from the selected column.
@@ -83,9 +83,9 @@ You can customize the view by showing or hiding individual columns and giving th
 - The **Show messages within group** option shows any messages between group members as arrows that loop back on themselves to their originating column.
 - The **Set annotation** option allows you to enter a new display name for the column.
 
-You can revert to the default display options using the **Options** menu (click on a white cogwheel on a blue background at the top-right-hand corner of the view window). Choose **Colors, styles and annotations -> Revert to default** to clear your custom display names, choose **Visibility -> Show all** to restore columns you've previously hidden from view, and choose **Column grouping -> Ungroup all** to separate columns you've previously grouped.
+You can revert to the default display options using the **Options** menu (select the white cogwheel on a blue background at the top-right-hand corner of the view window). Choose **Colors, styles and annotations -> Revert to default** to clear your custom display names, choose **Visibility -> Show all** to restore columns you've previously hidden from view, and choose **Column grouping -> Ungroup all** to separate columns you've previously grouped.
 
-A horizontal line in the diagram shows each individual signaling message flowing between two network components, with an arrow indicating the direction of flow from the sending to the receiving component.
+A horizontal line in the diagram shows each individual signaling message flowing between two network components. An arrow indicates the direction of flow from the sending to the receiving component.
 
 - A double line indicates that the message was logged by both the sending and receiving components.
 - A single line indicates that the message was logged by only one of these components, because the other component doesn't log messages.
@@ -102,7 +102,7 @@ The messages appear in the diagram in the order in which they occurred. An axis 
 
 If the call flow diagram is too large to fit in the browser window, you can use the vertical and horizontal scrollbars to move around the display.
 
-To view help information, click on the **Options** symbol in the top-right corner and choose **Help**. The help information appears in a panel at the bottom of the display. To hide this panel, click on the **X** symbol at the top-right corner of the panel.
+To view help information, select on the **Options** symbol in the top-right corner and choose **Help**. The help information appears in a panel at the bottom of the display. To hide this panel, select on the **X** symbol at the top-right corner of the panel.
 
 ## Next steps
 
