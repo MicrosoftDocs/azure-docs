@@ -64,7 +64,7 @@ Azure IoT Edge relies on an OCI-compatible container runtime. For production sce
 
 # [Ubuntu](#tab/ubuntu)
 
-1. Install the Moby engine.
+Install the Moby engine.
 
    ```bash
    sudo apt-get update; \
@@ -73,7 +73,7 @@ Azure IoT Edge relies on an OCI-compatible container runtime. For production sce
 
 # [Raspberry Pi OS](#tab/rpios)
 
-1. Install the Moby engine.
+Install the Moby engine.
 
    ```bash
    sudo apt-get update; \
