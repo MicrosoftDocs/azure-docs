@@ -53,13 +53,9 @@ If an asset filter (job, model, component) is present, results will be scoped to
 
 > [!TIP] 
 > * Filters search for exact matches of text. Use free text queries for a contains search.
-
 > * Quotations are required around values that include spaces or other special characters.  
-
 > * If duplicate filters are provided, only the first will be recognized in search results. 
-
 > * Input text of any language is supported but filter strings must match the provided options (ex. submittedBy:).
-
 > * The tags filter can accept multiple key:value pairs separated by a comma (ex. tags:"key1:value1, key2:value2").
 
 
