@@ -93,11 +93,6 @@ Any destinations for the diagnostic setting must be created before creating the 
 | Event Hubs | The shared access policy for the namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. To update the diagnostic setting to include streaming, you must have the ListKey permission on that Event Hubs authorization rule.<br><br>The event hub namespace needs to be in the same region as the resource being monitored if the resource is regional. <br><br> Diagnostic settings can't access Event Hubs resources when virtual networks are enabled. You have to enable the *Allow trusted Microsoft services* to bypass this firewall setting in Event Hub, so that Azure Monitor (Diagnostic Settings) service is granted access to your Event Hubs resources.|
 | Partner integrations | Varies by partner.  Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview.md) for details.  
 
-### Azure Data Lake Storage Gen2 as a destination
-
-> [!NOTE]
-> Azure Data Lake Storage Gen2 accounts are not currently supported as a destination for diagnostic settings even though they may be listed as a valid option in the Azure portal.
-
 ## Create in Azure portal
 
 You can configure diagnostic settings in the Azure portal either from the Azure Monitor menu or from the menu for the resource.

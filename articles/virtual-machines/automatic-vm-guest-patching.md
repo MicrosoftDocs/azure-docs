@@ -98,7 +98,7 @@ The following platform SKUs are currently supported (and more are added periodic
 ## Patch orchestration modes
 VMs on Azure now support the following patch orchestration modes:
 
-**AutomaticByPlatform:**
+**AutomaticByPlatform (Azure-orchestrated patching):**
 - This mode is supported for both Linux and Windows VMs.
 - This mode enables automatic VM guest patching for the virtual machine and subsequent patch installation is orchestrated by Azure.
 - This mode is required for availability-first patching.

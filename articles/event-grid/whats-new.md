@@ -12,13 +12,13 @@ ms.date: 01/13/2022
 Azure Event Grid receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the features that are added or updated in a release. 
 
 
-## .NET 6.2.0-preview (2021-06)
-This release corresponds to api-version 2021-06-01-preview which includes the following new features:
+## .NET 6.2.0-preview (REST API version 2021-06)
+This release corresponds to REST API version 2021-06-01-preview, which includes the following new features:
 
 - [Azure Active Directory authentication for topics and domains, and partner namespaces](authenticate-with-active-directory.md)
-- Private link support for partner namespaces. Azure portal doesn't support it yet. 
-- IP Filtering for partner namespaces. Azure portal doesn't support it yet. 
-- System Identity for partner topics. Azure portal doesn't support it yet.
+- [Private link support for partner namespaces](/rest/api/eventgrid/controlplane-version2021-06-01-preview/partner-namespaces/create-or-update#privateendpoint). Azure portal doesn't support it yet. 
+- [IP Filtering for partner namespaces](/rest/api/eventgrid/controlplane-version2021-06-01-preview/partner-namespaces/create-or-update#inboundiprule). Azure portal doesn't support it yet. 
+- [System Identity for partner topics](/rest/api/eventgrid/controlplane-version2021-06-01-preview/partner-topics/update#request-body). Azure portal doesn't support it yet.
 - [User Identity for system topics, custom topics and domains](enable-identity-custom-topics-domains.md)
 
 ## 6.1.0-preview (2020-10)

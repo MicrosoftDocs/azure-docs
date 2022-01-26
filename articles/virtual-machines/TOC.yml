@@ -161,8 +161,6 @@
         href: av2-series.md
       - name: B-series burstable
         href: sizes-b-series-burstable.md
-      - name: DCasv5 and DCadsv5-series
-        href: dcasv5-dcadsv5-series.md
       - name: DCsv2-series
         href: dcv2-series.md
       - name: DCsv3 and DCdsv3-series
@@ -427,10 +425,10 @@
         displayName: Images, imaging, marketplace, URN, purchase plan, terms
         href: ./windows/cli-ps-findimage.md
       - name: Windows client images
-        displayName: Images, imaging, marketplace, Windows, Client
+        displayName: Windows, Client
         href: ./windows/client-images.md
-      - name: Multitenant Hosting Rights for Windows 10
-        displayName: MTHR, multi-tenant, multitenant, hosting, rights
+      - name: Windows 10 images
+        displayName: MTHR, multi-tenant, multitenant, hosting, rights, windows 10, windows
         href: ./windows/windows-desktop-multitenant-hosting-deployment.md
     - name: Linux custom images
       items:

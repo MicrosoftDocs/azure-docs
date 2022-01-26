@@ -7,6 +7,8 @@
     displayName: benefits,faq,playground
   - name: Compare JSON and Bicep
     href: compare-template-syntax.md
+  - name: Frequently asked questions
+    href: frequently-asked-questions.yml
 - name: Install
   items:
   - name: Install Bicep tools

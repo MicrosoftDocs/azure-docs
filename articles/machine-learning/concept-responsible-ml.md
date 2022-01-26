@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.author: luquinta
-author: luisquintanilla
+ms.author: ssalgado
+author: ssalgadodev
 ms.date: 10/21/2021
 ms.custom: responsible-ml
 #Customer intent: As a data scientist, I want to know learn what responsible machine learning is and how I can use it in Azure Machine Learning.

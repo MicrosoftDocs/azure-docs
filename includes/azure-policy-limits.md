@@ -22,4 +22,6 @@ There's a maximum count for each object type for Azure Policy. For definitions, 
 | Initiative definition | Parameters | 300 |
 | Policy or initiative assignments | Exclusions (notScopes) | 400 |
 | Policy rule | Nested conditionals | 512 |
-| Remediation task | Resources | 10,000 |
+| Remediation task | Resources | 50,000 |
+
+Policy rules have additional limits to the number of conditions and their complexity. See [Policy rule limits](../articles/governance/policy/concepts/definition-structure.md#policy-rule-limits) for more details.
