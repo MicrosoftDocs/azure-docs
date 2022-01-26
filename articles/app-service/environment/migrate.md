@@ -32,15 +32,15 @@ You can find the version of your App Service Environment by navigating to your A
 
 ## Migration feature limitations
 
-With the current version of the migration feature, your new App Service Environment will be placed in the existing subnet that was used for your old environment. Internet facing App Service Environment cannot be migrated to ILB App Service Environment v3 and vice versa.
+With the current version of the migration feature, your new App Service Environment will be placed in the existing subnet that was used for your old environment. Internet facing App Service Environment can’t be migrated to ILB App Service Environment v3 and vice versa.
 
 Note that App Service Environment v3 doesn't currently support the following features that you may be using with your current App Service Environment. If you require any of these features, don't migrate until they're supported.
 
 - Sending SMTP traffic. You can still have email triggered alerts but your app can't send outbound traffic on port 25.
-- Deploying your apps with FTP
-- Using remote debug with your apps
-- Monitoring your traffic with Network Watcher or NSG Flow
-- Configuring an IP-based TLS/SSL binding with your apps
+- Deploying your apps with FTP.
+- Using remote debug with your apps.
+- Monitoring your traffic with Network Watcher or NSG Flow.
+- Configuring an IP-based TLS/SSL binding with your apps.
 
 The following scenarios aren't supported in this version of the feature:
 
@@ -60,7 +60,7 @@ The App Service platform will review your App Service Environment to confirm mig
 
 ## Overview of the migration process
 
-Migration consists of a series of steps that must be followed in order. Key points are given below for a subset of the steps. It's important to understand what will happen during these steps and how your environment and apps will be impacted. After reviewing the following information and when you're ready to migrate, follow the [step-by-step guide](how-to-migrate.md).
+Migration consists of a series of steps that must be followed in order. Key points are given for a subset of the steps. It's important to understand what will happen during these steps and how your environment and apps will be impacted. After reviewing the following information and when you're ready to migrate, follow the [step-by-step guide](how-to-migrate.md).
 
 ### Generate IP addresses for your new App Service Environment v3
 
@@ -82,11 +82,11 @@ After updating all dependent resources with your new IPs and properly delegating
 
 During migration, the following events will occur:
 
-- The existing App Service Environment is shut down and replaced by the new App Service Environment v3
-- All App Service plans in the App Service Environment are converted from Isolated to Isolated v2
+- The existing App Service Environment is shut down and replaced by the new App Service Environment v3.
+- All App Service plans in the App Service Environment are converted from Isolated to Isolated v2.
 - All of the apps that are on your App Service Environment are temporarily down. You should expect about one hour of downtime.
-  - If you can't support downtime, see [migration-alternatives](migration-alternatives.md#guidance-for-manual-migration)
-- The public addresses that are used by the App Service Environment will change to the IPs identified during the previous step
+  - If you can't support downtime, see [migration-alternatives](migration-alternatives.md#guidance-for-manual-migration).
+- The public addresses that are used by the App Service Environment will change to the IPs identified during the previous step.
 
 As in the IP generation step, you won't be able to scale or modify your App Service Environment or deploy apps to it during this process. When migration is complete, the apps that were on the old App Service Environment will be running on the new App Service Environment v3.
 

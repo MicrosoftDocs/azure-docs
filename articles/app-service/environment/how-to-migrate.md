@@ -81,7 +81,7 @@ az network vnet subnet update -g $ASE_RG -n <subnet-name> --vnet-name <vnet-name
 
 ## 6. Migrate to App Service Environment v3
 
-Only start this step once you've completed all pre-migration actions that are listed above and understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what will happen during this time. There will be about one hour of downtime. Scaling and modifications to your existing App Service Environment will be blocked during this step.
+Only start this step once you've completed all pre-migration actions listed previously and understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what will happen during this time. There will be about one hour of downtime. Scaling and modifications to your existing App Service Environment will be blocked during this step.
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=fullmigration"
@@ -123,7 +123,7 @@ The migration page will guide you through the series of steps to complete the mi
 
 ## 2. Generate IP addresses for your new App Service Environment v3
 
-Under **Generate new IP addresses**, confirm you understand the implications and start the process. This step will take about 15 minutes to complete. Don't scale or make changes to your existing App Service Environment during this time. If you may see a message a few minutes after starting this step asking you to refresh the page, select refresh as shown below to allow your new IP addresses to appear.
+Under **Generate new IP addresses**, confirm you understand the implications and start the process. This step will take about 15 minutes to complete. Don't scale or make changes to your existing App Service Environment during this time. If you may see a message a few minutes after starting this step asking you to refresh the page, select refresh as shown in the sample to allow your new IP addresses to appear.
 
 ![pre-migration request to refresh](./media/migration/pre-migration-refresh.png)
 
