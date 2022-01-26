@@ -158,46 +158,75 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 1. SSH into every master node of the cluster and take the following steps:
 
-    1. Open the `apiserver` manifest in edit mode:
+    **If your `kube-apiserver` is a [static pod](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/):**
+
+        1. The `azure-arc-guard-manifests` secret in the `kube-system` namespace contains two files `guard-authn-webhook.yaml` and `guard-authz-webhook.yaml`. Copy these files to the `/etc/guard` directory of the node.
+
+        1. Open the `apiserver` manifest in edit mode:
+            
+            ```console
+            sudo vi /etc/kubernetes/manifests/kube-apiserver.yaml
+            ```
+
+        1. Add the following specification under `volumes`:
         
-        ```console
-        sudo vi /etc/kubernetes/manifests/kube-apiserver.yaml
-        ```
+            ```yml
+            - name: azure-rbac
+              hostPath:
+                path: /etc/guard
+                type: Directory
+            ```
 
-    1. Add the following specification under `volumes`:
-        
-        ```yml
-        - name: azure-rbac
-          secret:
-            secretName: azure-arc-guard-manifests
-        ```
-
-    1. Add the following specification under `volumeMounts`:
-
-        ```yml
-        - mountPath: /etc/guard
-          name: azure-rbac
-          readOnly: true
-        ```
-
-    1. Add the following `apiserver` arguments:
-
-        ```yml
-        - --authentication-token-webhook-config-file=/etc/guard/guard-authn-webhook.yaml
-        - --authentication-token-webhook-cache-ttl=5m0s
-        - --authorization-webhook-cache-authorized-ttl=5m0s
-        - --authorization-webhook-config-file=/etc/guard/guard-authz-webhook.yaml
-        - --authorization-webhook-version=v1
-        - --authorization-mode=Node,Webhook,RBAC
-        ```
+        1. Add the following specification under `volumeMounts`:
     
-        If the Kubernetes cluster is version 1.19.0 or later, you also need to set the following `apiserver` argument:
+            ```yml
+            - mountPath: /etc/guard
+              name: azure-rbac
+              readOnly: true
+            ```
 
-        ```yml
-        - --authentication-token-webhook-version=v1
-        ```
+    **If your `kube-apiserver` is a not a static pod:**
 
-    1. Save and close the editor to update the `apiserver` pod.
+        1. Open the `apiserver` manifest in edit mode:
+            
+            ```console
+            sudo vi /etc/kubernetes/manifests/kube-apiserver.yaml
+            ```
+
+        1. Add the following specification under `volumes`:
+        
+            ```yml
+            - name: azure-rbac
+              secret:
+                secretName: azure-arc-guard-manifests
+            ```
+
+        1. Add the following specification under `volumeMounts`:
+    
+            ```yml
+            - mountPath: /etc/guard
+              name: azure-rbac
+              readOnly: true
+            ```
+
+    Add the following `apiserver` arguments:
+
+    ```yml
+    - --authentication-token-webhook-config-file=/etc/guard/guard-authn-webhook.yaml
+    - --authentication-token-webhook-cache-ttl=5m0s
+    - --authorization-webhook-cache-authorized-ttl=5m0s
+    - --authorization-webhook-config-file=/etc/guard/guard-authz-webhook.yaml
+    - --authorization-webhook-version=v1
+    - --authorization-mode=Node,RBAC,Webhook
+    ```
+
+    If the Kubernetes cluster is version 1.19.0 or later, you also need to set the following `apiserver` argument:
+
+    ```yml
+    - --authentication-token-webhook-version=v1
+    ```
+
+    Save and close the editor to update the `apiserver` pod.
 
 
 ### Cluster created by using Cluster API
