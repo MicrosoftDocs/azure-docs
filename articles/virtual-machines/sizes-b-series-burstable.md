@@ -26,6 +26,7 @@ The B-series comes in the following VM sizes:
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported**<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 
 *B-series VMs are burstable and thus ACU numbers will vary depending on workloads and core usage.<br>
 **Accelerated Networking is only supported for *Standard_B12ms*, *Standard_B16ms* and *Standard_B20ms*.

@@ -334,8 +334,9 @@ Source storage account can support up to 20 targets, and target storage account 
 [!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
 
 Follow these configuration guides to:
-- [Enable access policies on an Azure Storage account](./how-to-access-policies-storage.md)
-- [Enable access policies on all data sources in a subscription or a resource group](./tutorial-access-policies-resource-group.md)
+- [Configure from Azure Purview data owner access policies on an Azure Storage account](./tutorial-data-owner-policies-storage.md)
+- [Configure from Azure Purview data owner access policies on all data sources in a subscription or a resource group](./tutorial-data-owner-policies-resource-group.md)
+
 
 ## Next steps
 
