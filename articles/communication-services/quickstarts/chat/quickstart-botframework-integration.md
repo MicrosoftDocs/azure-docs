@@ -93,7 +93,7 @@ Configure the Azure Bot we created with its Web App endpoint where the bot logic
 
 ### Deploy the Azure Bot
 
-The final step would be to deploy the bot logic to the Web App we created. As we mentioned for this tutorial we will be using the Echo Bot. This bot only demonstrates a limited set of capabilities, such echoing the input, typing notification, adaptive cards, and simplified food-ordering scenario. Here is how we deploy it to Azure Web App.
+The final step would be to deploy the bot logic to the Web App we created. As we mentioned for this tutorial we will be using the Echo Bot. This bot only demonstrates a limited set of capabilities, such as echoing the user input. Here is how we deploy it to Azure Web App.
 
    - To use the samples, clone this Github repository using Git.
 
@@ -136,7 +136,7 @@ With the ACS resource, we can configure the ACS channel in Azure Bot to bind an 
    ![DemoApp Connect Acs Resource.png](./media/DemoApp-ConnectAcsResource.png)
 
 
-3. Once the provided resource details are verified, you will see an **bot's ACS ID** assigned. With this ID, you can add the bot to the conversation at whenever appropriate using Chat's AddParticipant API. Once the bot is added as participant to a chat, it will start receiving chat related activities and can respond back in the chat thread. 
+3. Once the provided resource details are verified, you will see the **bot's ACS ID** assigned. With this ID, you can add the bot to the conversation at whenever appropriate using Chat's AddParticipant API. Once the bot is added as participant to a chat, it will start receiving chat related activities and can respond back in the chat thread. 
 
  ![DemoApp Bot Detail.png](./media/DemoApp-BotDetail.png)
 
