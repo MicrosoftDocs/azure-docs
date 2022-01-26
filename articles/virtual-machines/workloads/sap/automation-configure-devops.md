@@ -159,6 +159,10 @@ The pipelines uses a custom task to perform cleanup activities post deployment. 
 
 ## Variable definitions
 
+The deployment pipelines require some parameter values, these are defined using variable groups.
+
+### Common variables
+
 Create a new variable group "sap-deployment-variables-general" using the Library page in the Pipelines section. Add the following variables:
 
 | Variable                           | Value                                   | Notes               |
@@ -175,6 +179,8 @@ Create a new variable group "sap-deployment-variables-general" using the Library
 | `tf_version`                       | 1.1.4                                   | Terraform version   |
 
 Save the variables and assign permissions for all pipelines using _Pipeline permissions_.
+
+### Environment specific variables
 
 For each environment create a variable group for example 'DEV' and add the following variables:
 
