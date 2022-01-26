@@ -215,7 +215,7 @@ Some features are not exported to the template, or cannot be imported with a tem
   - For Monitoring -> Diagnostic settings and Logs, follow [Analyze logs and metrics in Azure Spring Cloud](./diagnostic-services.md).
   - For Monitoring -> Application Insights, follow [How to use Application Insights Java In-Process Agent in Azure Spring Cloud](./how-to-application-insights.md).
 
-  ## Next steps
+## Next steps
 
 * [Quickstart - Build and deploy apps to Azure Spring Cloud](./quickstart-deploy-apps.md)
 * [Quickstart - Set up Azure Spring Cloud Config Server](./quickstart-setup-config-server.md)
