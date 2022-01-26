@@ -12,7 +12,7 @@ This article describes the non common alert schema definitions for Azure Monitor
 
 ## What is the non-common alert schema?
 
-The non-common alert schema lets you customize the consumption experience for alert notifications in Azure today. Historically, the three alert types in Azure today (metric, log, and activity log) have had their own email templates, webhook schemas, etc. With the non-common alert schema, you can now receive alert notifications with a customized schema.
+The non-common alert schema lets you customize the consumption experience for alert notifications in Azure today. Historically, the three alert types in Azure today (metric, log, and activity log) have had their own email templates, webhook schemas, etc. 
 
 ## Alert context
 
