@@ -104,7 +104,9 @@ It’s also possible to export/import a specific knowledge base of question and 
 
 4. Select **Edit knowledge base**.
 
-5. To the right of show columns are `...` an ellipsis button. > Select the `...` > a dropdown for Enable rich text will appear with another ellipsis button underneath it. Selecting the second `...` button will reveal the option to export/import questions and answers.
+5. To the right of show columns are `...` an ellipsis button. > Select the `...` > a dropdown will reveal the option to export/import questions and answers.
+
+Depending on the size of your web browser, you may experience the UI differently. Smaller browsers will see two separate ellipsis buttons.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of selecting multiple UI ellipsis buttons to get to import/export question and answer pair option](../media/export-import-refresh/export-questions.png)
@@ -121,7 +123,9 @@ It’s also possible to export/import a specific knowledge base of question and 
 
 4. Select **Edit knowledge base**.
 
-5. To the right of show columns are `...` an ellipsis button. > Select the `...` > a dropdown for Enable rich text will appear with another ellipsis button underneath it. Selecting the second `...` button will reveal the option to export/import questions and answers.
+5. To the right of show columns are `...` an ellipsis button. > Select the `...` > a dropdown will reveal the option to export/import questions and answers.
+
+Depending on the size of your web browser, you may experience the UI differently. Smaller browsers will see two separate ellipsis buttons.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of selecting multiple UI ellipsis buttons to get to import/export question and answer pair option](../media/export-import-refresh/export-questions.png)
