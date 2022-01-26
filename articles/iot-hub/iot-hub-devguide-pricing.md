@@ -37,6 +37,7 @@ ms.custom: [amqp, mqtt]
 | Configuration operations <br/> (create, update, list, delete, test query) | Not charged. |
 | Configuration per-device operations | Configuration operations are charged as messages in 4-KB chunks. For example, an apply configuration operation with a 6-KB body and an empty-body response is charged as two messages. |
 | Keep-alive messages | When using AMQP or MQTT protocols, messages exchanged to establish the connection and messages exchanged in the negotiation are not charged. |
+| Device streams (preview) | Device stream operations are charged as messages in 4-KB chunks. PRODUCT TEAM PLEASE PROVIDE AN EXAMPLE PER THE OTHER OPERATION CATEGORIES. |
 
 > [!NOTE]
 > All sizes are computed considering the payload size in bytes (protocol framing is ignored). For messages, which have properties and body, the size is computed in a protocol-agnostic way. For more information, see [IoT Hub message format](iot-hub-devguide-messages-construct.md).
