@@ -93,7 +93,7 @@ You can modify the default target settings used by Site Recovery.
 2. Click **Customize:** to modify default settings:
 	- In **Target resource group**, select the resource group from the list of all the resource groups in the target location of the subscription.
 	- In **Target virtual network**, select the network from a list of all the virtual network in the target location.
-  - In **Cache storage**, select the cache storage you want from the list of available storage.
+    - In **Cache storage**, select the storage you want from the list of available cache storage.
 	- In **Target availability type**, select the availability type from a list of all the availability type in the target location.
 	- In **Target proximity placement group**, select the proximity placement group from a list of all the proximity placement group in the target location.
 
