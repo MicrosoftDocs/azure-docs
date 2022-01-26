@@ -267,15 +267,15 @@ conceptualContent:
 
     - title: Reports and monitoring
       links:
+        - url: ./reports-monitoring/overview-reports.md
+          itemType: reference
+          text:  What are Azure AD reports?
         - url: ./reports-monitoring/concept-audit-logs.md
           itemType: concept
           text:  Audit logs in Azure AD
         - url: ./reports-monitoring/concept-sign-ins.md
           itemType: concept
           text:  Sign-in logs in Azure AD
-        - url: https://login.microsoftonline.com/error
-          itemType: reference
-          text:  Look up sign-in error codes
       footerLink:
         url: ./reports-monitoring/index.yml
         text: See more
