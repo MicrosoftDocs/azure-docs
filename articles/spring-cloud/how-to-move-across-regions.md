@@ -58,6 +58,7 @@ az group export --resource-group <resource-group> --resource-ids <resource-id>
 ---
 
 ### Modify the template
+
 Before deploying the template, the template.json file needs to be modified using the following steps.
 
 In the example below, the new service name for Azure Spring Cloud is *new-service-name*, and the previous service name is *old-service-name*.
