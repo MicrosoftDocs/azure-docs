@@ -51,6 +51,11 @@
         "redirect_document_id": true
       },
       {
+        "source_path_from_root": "/articles/purview/tutorial-access-policies-resource-group.md",
+        "redirect_url": "/azure/purview/tutorial-data-owner-policies-resource-group",
+        "redirect_document_id": true
+      },
+      {
         "source_path_from_root": "/articles/purview/concept-account-upgrade.md",
         "redirect_url": "/azure/purview/catalog-permissions",
         "redirect_document_id": true
