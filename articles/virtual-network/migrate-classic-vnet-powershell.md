@@ -1,5 +1,5 @@
 ---
-title: Migrate a virtual network from classic to Resource Manager
+title: Migrate a virtual network from classic to Resource Manager - Azure PowerShell
 titlesuffix: Azure Virtual Network
 description: Learn about migrating a virtual network from the classic deployment model to the Resource Manager model.
 author: asudbring
@@ -10,7 +10,7 @@ ms.date: 01/25/2022
 ms.custom: template-how-to
 ---
 
-# Migrate an Azure Virtual Network from classic to Resource Manager
+# Migrate an Azure Virtual Network from classic to Resource Manager using Azure PowerShell
 
 In this article, you'll learn how to migrate from the classic deployment model to the newer Resource Manager deployment model.
 
