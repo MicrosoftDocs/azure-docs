@@ -11,57 +11,49 @@ services: iot-edge
 
 In this section, you prepare your Linux VM or physical device for IoT Edge. Then, you install IoT Edge.
 
-You need to complete two steps on your device before it's ready to install the IoT Edge runtime. Your device needs access to the Microsoft installation packages, and it needs a container engine installed.
+First, run the following commands to add the package repository and then add the Microsoft package signing key to your list of trusted keys.
 
-### Access the Microsoft installation packages
+# [Ubuntu](#tab/ubuntu)
 
-1. Get the latest repository configuration from Microsoft:
+Installing with APT can be done with a few commands.  Open a terminal and run the following commands:
 
 <!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-   # [Ubuntu 20.04](#tab/ubuntu2004)
+* On **20.04**:
 
    ```bash
-   curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > ./microsoft-prod.list
+   wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+   sudo dpkg -i packages-microsoft-prod.deb
+   rm packages-microsoft-prod.deb
    ```
 
 <!-- end 1.2 -->
 ::: moniker-end
 
-
-   # [Ubuntu 18.04](#tab/ubuntu1804)
+* On **18.04**:
 
    ```bash
-   curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+   wget https://packages.microsoft.com/config/ubuntu/18.04/multiarch/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+   sudo dpkg -i packages-microsoft-prod.deb
+   rm packages-microsoft-prod.deb
    ```
 
-   # [Raspberry Pi OS Stretch](#tab/rpios)
+# [Raspberry Pi OS](#tab/rpios)
+
+Installing with APT can be done with a few commands.  Open a terminal and run the following commands:
+
+* On **Stretch**:
 
    ```bash
    curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
-   ```
-
----
-
-1. Copy the generated list to the sources.list.d directory.
-
-   ```bash
    sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-   ```
 
-1. Install the Microsoft GPG public key.
-
-   ```bash
    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
    ```
 
-1. Update package lists on your device.
-
-   ```bash
-   sudo apt-get update
-   ```
+---
 
 > [!NOTE]
 > Azure IoT Edge software packages are subject to the license terms located in each package (`usr/share/doc/{package-name}` or the `LICENSE` directory). Read the license terms prior to using a package. Your installation and use of a package constitutes your acceptance of these terms. If you don't agree with the license terms, don't use that package.
@@ -70,11 +62,22 @@ You need to complete two steps on your device before it's ready to install the I
 
 Azure IoT Edge relies on an OCI-compatible container runtime. For production scenarios, we recommend that you use the Moby engine. The Moby engine is the only container engine officially supported with IoT Edge. Docker CE/EE container images are compatible with the Moby runtime.
 
+# [Ubuntu](#tab/ubuntu)
+
 1. Install the Moby engine.
 
    ```bash
-   sudo apt-get install moby-engine
+   sudo apt-get update; \
+     sudo apt-get install moby-engine
    ```
+
+# [Raspberry Pi OS](#tab/rpios)
+
+   ```bash
+   sudo apt-get update; \
+     sudo apt-get install moby-engine
+   ```
+---
 
    > [!TIP]
    > If you get errors when you install the Moby container engine, verify your Linux kernel for Moby compatibility. Some embedded device manufacturers ship device images that contain custom Linux kernels without the features required for container engine compatibility. Run the following command, which uses the [check-config script](https://github.com/moby/moby/blob/master/contrib/check-config.sh) provided by Moby, to check your kernel configuration:
@@ -96,17 +99,23 @@ The IoT Edge security daemon provides and maintains security standards on the Io
 
 The steps in this section represent the typical process to install the latest version on a device that has internet connection. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the **Offline or specific version installation** steps later in this article.
 
-Update package lists on your device.
-
-   ```bash
-   sudo apt-get update
-   ```
-
 Install IoT Edge version 1.1.* along with the **libiothsm-std** package:
 
+# [Ubuntu](#tab/ubuntu)
+
    ```bash
-   sudo apt-get install iotedge
+   sudo apt-get update; \
+     sudo apt-get install iotedge
    ```
+
+# [Raspberry Pi OS](#tab/rpios)
+
+   ```bash
+   sudo apt-get update; \
+     sudo apt-get install iotedge
+   ```
+
+---
 
 >[!NOTE]
 >IoT Edge version 1.1 is the long-term support branch of IoT Edge. If you are running an older version, we recommend installing or updating to the latest patch as older versions are no longer supported.
@@ -128,16 +137,13 @@ The steps in this section represent the typical process to install the latest ve
 >
 >If you already have an IoT Edge device running an older version and want to upgrade to 1.2, use the steps in [Update the IoT Edge security daemon and runtime](../articles/iot-edge/how-to-update-iot-edge.md). Version 1.2 is sufficiently different from previous versions of IoT Edge that specific steps are necessary to upgrade.
 
-Update package lists on your device.
-
-   ```bash
-   sudo apt-get update
-   ```
+# [Ubuntu](#tab/ubuntu)
 
 Check to see which versions of IoT Edge and the IoT identity service are available.
 
    ```bash
-   apt list -a aziot-edge aziot-identity-service
+   sudo apt-get update; \
+     apt list -a aziot-edge aziot-identity-service
    ```
 
 To install the latest version of IoT Edge and the IoT identity service package, use the following command:
@@ -145,6 +151,22 @@ To install the latest version of IoT Edge and the IoT identity service package, 
    ```bash
    sudo apt-get install aziot-edge
    ```
+
+# [Raspberry Pi OS](#tab/rpios)
+
+Check to see which versions of IoT Edge and the IoT identity service are available.
+
+   ```bash
+   sudo apt-get update; \
+     apt list -a aziot-edge aziot-identity-service
+   ```
+
+To install the latest version of IoT Edge and the IoT identity service package, use the following command:
+
+   ```bash
+   sudo apt-get install aziot-edge
+   ```
+---
 
 <!-- end 1.2 -->
 ::: moniker-end
