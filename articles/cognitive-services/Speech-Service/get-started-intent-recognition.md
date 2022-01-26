@@ -29,7 +29,7 @@ keywords: intent recognition
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [java](includes/quickstarts/intent-recognition/java/java.md)]
+[!INCLUDE [java](includes/quickstarts/intent-recognition/java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"

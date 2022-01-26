@@ -105,6 +105,3 @@ At this point, your code should look like this:
 Press <kbd>F11</kbd>, or select **Run** > **Debug**.
 The next 15 seconds of speech input from your microphone will be recognized and logged in the console window.
 
-## Next steps
-
-[!INCLUDE [footer](./footer.md)]
