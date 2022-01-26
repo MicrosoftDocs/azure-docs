@@ -7,7 +7,7 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 12/07/2021
+ms.date: 01/19/2022
 ---
 
 # Compare Azure Government and global Azure
@@ -213,6 +213,14 @@ The following Azure Database for PostgreSQL **features are not currently availab
 The following Azure SQL Managed Instance **features are not currently available** in Azure Government:
 
 - Long-term retention
+
+## Developer tools
+
+This section outlines variations and considerations when using Developer tools in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=load-testing,app-configuration,devtest-lab,lab-services,azure-devops&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
+
+### [Enterprise Dev/Test subscription offer](https://azure.microsoft.com/offers/ms-azr-0148p/)
+
+- Enterprise Dev/Test subscription offer in existing or separate tenant is currently available only in Azure public as documented in [Azure EA portal administration](../cost-management-billing/manage/ea-portal-administration.md#enterprise-devtest-offer).
 
 ## Identity
 
