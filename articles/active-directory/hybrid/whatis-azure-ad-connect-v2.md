@@ -3,7 +3,7 @@ title: 'What is Azure AD Connect v2.0? | Microsoft Docs'
 description: Learn about the next version of Azure AD Connect.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
@@ -98,14 +98,14 @@ We expect TLS 1.0/1.1 to be deprecated in January 2022, and you need to make sur
 In June 2022, ADAL will go out of support. When ADAL goes out of support authentication may stop working unexpectedly and this will block the Azure AD Connect server from working properly. We strongly advise you to upgrade to Azure AD Connect V2.0 before June 2022. You cannot upgrade to a supported authentication library with your current Azure AD Connect version. 
 
 **After upgrading to 2.0 the ADSync PowerShell cmdlets do not work?** </br>
-This is a known issue.  To resolve this, restart your PowerShell session after installing or upgrading to version 2.0 and then re-import the module.  Use the following instructions to import the module.
+This is a known issue. To resolve this, restart your PowerShell session after installing or upgrading to version 2.0 and then re-import the module. Use the following instructions to import the module.
  
- 1.  Open Windows PowerShell with administrative privileges
- 2.  Type or copy and paste the following: 
-    ``` powershell
-              Import-module -Name "C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync"
-    ```
+ 1.  Open Windows PowerShell with administrative privileges.
+ 1.  Type or copy and paste the following code: 
  
+     ```powershell
+     Import-module -Name "C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync"
+     ```
 
 ## License requirements for using Azure AD Connect V2.0
 

@@ -8,9 +8,10 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 01/28/2021
+ms.date: 01/21/2022
 ms.author: ryanwi
 ms.reviewer: stsoneff
+ms.devlang: csharp, javascript
 ms.custom: azureday1, devx-track-azurepowershell
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph by using managed identities.
 ---
@@ -104,9 +105,9 @@ az rest --method post --uri $uri --body $body --headers "Content-Type=applicatio
 
 After executing the script, you can verify in the [Azure portal](https://portal.azure.com) that the requested API permissions are assigned to the managed identity.
 
-Go to **Azure Active Directory**, and then select **Enterprise applications**. This pane displays all the service principals in your tenant. In **All Applications**, select the service principal for the managed identity. 
+Go to **Azure Active Directory**, and then select **Enterprise applications**. This pane displays all the service principals in your tenant. In **Managed Identities**, select the service principal for the managed identity.
 
-If you're following this tutorial, there are two service principals with the same display name (SecureWebApp2020094113531, for example). The service principal that has a **Homepage URL** represents the web app in your tenant. The service principal without the **Homepage URL** represents the system-assigned managed identity for your web app. The **Object ID** value for the managed identity matches the object ID of the managed identity that you previously created.
+If you're following this tutorial, there are two service principals with the same display name (SecureWebApp2020094113531, for example). The service principal that has a **Homepage URL** represents the web app in your tenant. The service principal that appears in **Managed Identities** should *not* have a **Homepage URL** listed and the **Object ID** should match the object ID value of the managed identity in the [previous step](#enable-managed-identity-on-app).
 
 Select the service principal for the managed identity.
 
@@ -116,9 +117,11 @@ In **Overview**, select **Permissions**, and you'll see the added permissions fo
 
 :::image type="content" alt-text="Screenshot that shows the Permissions pane." source="./media/scenario-secure-app-access-microsoft-graph/enterprise-apps-permissions.png":::
 
-## Call Microsoft Graph (.NET)
+## Call Microsoft Graph
 
-The [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class is used to get a token credential for your code to authorize requests to Microsoft Graph. Create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class, which uses the managed identity to fetch tokens and attach them to the service client. The following code example gets the authenticated token credential and uses it to create a service client object, which gets the users in the group.
+# [C#](#tab/programming-language-csharp)
+
+The [ChainedTokenCredential](/dotnet/api/azure.identity.chainedtokencredential), [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential), and [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) classes are used to get a token credential for your code to authorize requests to Microsoft Graph. Create an instance of the [ChainedTokenCredential](/dotnet/api/azure.identity.chainedtokencredential) class, which uses the managed identity in the App Service environment or the development environment variables to fetch tokens and attach them to the service client. The following code example gets the authenticated token credential and uses it to create a service client object, which gets the users in the group.
 
 To see this code as part of a sample application, see the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity).
 
@@ -126,7 +129,7 @@ To see this code as part of a sample application, see the [sample on GitHub](htt
 
 Install the [Microsoft.Identity.Web.MicrosoftGraph NuGet package](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) in your project by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
 
-# [Command line](#tab/command-line)
+#### .NET Core command-line
 
 Open a command line, and switch to the directory that contains your project file.
 
@@ -136,7 +139,7 @@ Run the install commands.
 dotnet add package Microsoft.Identity.Web.MicrosoftGraph
 ```
 
-# [Package Manager](#tab/package-manager)
+#### Package Manager Console
 
 Open the project/solution in Visual Studio, and open the console by using the **Tools** > **NuGet Package Manager** > **Package Manager Console** command.
 
@@ -144,8 +147,6 @@ Run the install commands.
 ```powershell
 Install-Package Microsoft.Identity.Web.MicrosoftGraph
 ```
-
----
 
 ### Example
 
@@ -164,8 +165,12 @@ public IList<MSGraphUser> Users { get; set; }
 
 public async Task OnGetAsync()
 {
-    // Create the Microsoft Graph service client with a DefaultAzureCredential class, which gets an access token by using the available Managed Identity.
-    var credential = new DefaultAzureCredential();
+    // Create the Graph service client with a ChainedTokenCredential which gets an access
+    // token using the available Managed Identity or environment variables if running
+    // in development.
+    var credential = new ChainedTokenCredential(
+        new ManagedIdentityCredential(),
+        new EnvironmentCredential());
     var token = credential.GetToken(
         new Azure.Core.TokenRequestContext(
             new[] { "https://graph.microsoft.com/.default" }));
@@ -181,6 +186,7 @@ public async Task OnGetAsync()
             return Task.CompletedTask;
         }));
 
+    // MSGraphUser is a DTO class being used to hold User information from the graph service client call
     List<MSGraphUser> msGraphUsers = new List<MSGraphUser>();
     try
     {
@@ -204,6 +210,55 @@ public async Task OnGetAsync()
     Users = msGraphUsers;
 }
 ```
+
+# [Node.js](#tab/programming-language-nodejs)
+
+The `DefaultAzureCredential` class from [@azure/identity](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md) package is used to get a token credential for your code to authorize requests to Azure Storage. Create an instance of the `DefaultAzureCredential` class, which uses the managed identity to fetch tokens and attach them to the service client. The following code example gets the authenticated token credential and uses it to create a service client object, which gets the users in the group.
+
+To see this code as part of a sample application, see the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity).
+
+### Example
+
+```nodejs
+const graphHelper = require('../utils/graphHelper');
+const { DefaultAzureCredential } = require("@azure/identity");
+
+exports.getUsersPage = async(req, res, next) => {
+
+    const defaultAzureCredential = new DefaultAzureCredential();
+    
+    try {
+        const tokenResponse = await defaultAzureCredential.getToken("https://graph.microsoft.com/.default");
+
+        const graphClient = graphHelper.getAuthenticatedClient(tokenResponse.token);
+
+        const users = await graphClient
+            .api('/users')
+            .get();
+
+        res.render('users', { user: req.session.user, users: users });   
+    } catch (error) {
+        next(error);
+    }
+}
+```
+
+To query Microsoft Graph, the sample uses the [Microsoft Graph JavaScript SDK](https://github.com/microsoftgraph/msgraph-sdk-javascript). The code for this is located in [utils/graphHelper.js](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/blob/main/3-WebApp-graphapi-managed-identity/controllers/graphController.js) of the full sample:
+
+```nodejs
+getAuthenticatedClient = (accessToken) => {
+    // Initialize Graph client
+    const client = graph.Client.init({
+        // Use the provided access token to authenticate requests
+        authProvider: (done) => {
+            done(null, accessToken);
+        }
+    });
+
+    return client;
+}
+```
+---
 
 ## Clean up resources
 

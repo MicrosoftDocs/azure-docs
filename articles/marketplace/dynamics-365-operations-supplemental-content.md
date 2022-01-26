@@ -1,15 +1,15 @@
 ---
-title: Set up Dynamics 365 for Operations offer supplemental content on Microsoft AppSource (Azure Marketplace)
-description: Set up Dynamics 365 for Operations offer supplemental content on Microsoft AppSource (Azure Marketplace).
+title: Set up Dynamics 365 Operations Apps offer supplemental content on Microsoft AppSource (Azure Marketplace)
+description: Set up Dynamics 365 Operations Apps offer supplemental content on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/20/2021
+ms.date: 12/03/2021
 ---
 
-# Set up Dynamics 365 for Operations offer supplemental content
+# Set up Dynamics 365 Operations Apps offer supplemental content
 
 This page lets you provide additional information to help us validate your offer. This information is not shown to customers or published to the marketplace.
 

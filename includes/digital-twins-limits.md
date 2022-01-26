@@ -22,6 +22,8 @@ The following table lists the functional limits of Azure Digital Twins.
 | Digital twins | Number of outgoing relationships from a single twin | 5,000 | No |
 | Digital twins | Maximum size (of JSON body in a PUT or PATCH request) of a single twin | 32 KB | No |
 | Digital twins | Maximum request payload size | 32 KB | No | 
+| Digital twins | Maximum size of a string property value (UTF-8) | 4 KB | No|
+| Digital twins | Maximum size of a propery name | 1 KB | No| 
 | Routing | Number of endpoints for a single Azure Digital Twins instance | 6 | No |
 | Routing | Number of routes for a single Azure Digital Twins instance | 6 | Yes |
 | Models | Number of models within a single Azure Digital Twins instance | 10,000 | Yes |

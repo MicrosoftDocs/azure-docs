@@ -7,9 +7,8 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.author: yogipandey
 author: ynpandey
-manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 07/31/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
 

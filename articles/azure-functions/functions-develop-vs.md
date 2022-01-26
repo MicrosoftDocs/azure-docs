@@ -1,6 +1,7 @@
 ---
 title: Develop Azure Functions using Visual Studio  
 description: Learn how to develop and test Azure Functions by using Azure Functions Tools for Visual Studio 2019.
+ms.devlang: csharp
 ms.custom: "vs-azure, devx-track-csharp"
 ms.topic: conceptual
 ms.date: 12/10/2020
@@ -179,6 +180,7 @@ As with triggers, input and output bindings are added to your function as bindin
         }
     }
     ```
+
    The connection to Queue storage is obtained from the `AzureWebJobsStorage` setting. For more information, see the reference article for the specific binding. 
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]

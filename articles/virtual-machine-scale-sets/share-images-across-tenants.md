@@ -11,7 +11,7 @@ ms.reviewer: akjosh
 ms.custom: akjosh, devx-track-azurecli
 
 ---
-# Share images across tenants with Shared Image Gallery
+# Share images across tenants with Azure Compute Gallery
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 

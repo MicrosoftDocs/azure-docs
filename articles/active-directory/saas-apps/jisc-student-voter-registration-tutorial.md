@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Jisc Student Voter Registration | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Jisc Student Voter Registration'
 description: Learn how to configure single sign-on between Azure Active Directory and Jisc Student Voter Registration.
 services: active-directory
 author: jeevansd
@@ -9,19 +9,17 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/26/2019
+ms.date: 10/18/2021
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Jisc Student Voter Registration
+# Tutorial: Azure AD SSO integration with Jisc Student Voter Registration
 
 In this tutorial, you'll learn how to integrate Jisc Student Voter Registration with Azure Active Directory (Azure AD). When you integrate Jisc Student Voter Registration with Azure AD, you can:
 
 * Control in Azure AD who has access to Jisc Student Voter Registration.
 * Enable your users to be automatically signed-in to Jisc Student Voter Registration with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -34,46 +32,49 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Jisc Student Voter Registration supports **SP** initiated SSO
-* Jisc Student Voter Registration supports **Just In Time** user provisioning
+* Jisc Student Voter Registration supports **SP** initiated SSO.
+* Jisc Student Voter Registration supports **Just In Time** user provisioning.
 
-## Adding Jisc Student Voter Registration from the gallery
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
+## Add Jisc Student Voter Registration from the gallery
 
 To configure the integration of Jisc Student Voter Registration into Azure AD, you need to add Jisc Student Voter Registration from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Jisc Student Voter Registration** in the search box.
 1. Select **Jisc Student Voter Registration** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for Jisc Student Voter Registration
+## Configure and test Azure AD SSO for Jisc Student Voter Registration
 
 Configure and test Azure AD SSO with Jisc Student Voter Registration using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Jisc Student Voter Registration.
 
-To configure and test Azure AD SSO with Jisc Student Voter Registration, complete the following building blocks:
+To configure and test Azure AD SSO with Jisc Student Voter Registration, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Jisc Student Voter Registration SSO](#configure-jisc-student-voter-registration-sso)** - to configure the single sign-on settings on application side.
-    * **[Create Jisc Student Voter Registration test user](#create-jisc-student-voter-registration-test-user)** - to have a counterpart of B.Simon in Jisc Student Voter Registration that is linked to the Azure AD representation of user.
+    1. **[Create Jisc Student Voter Registration test user](#create-jisc-student-voter-registration-test-user)** - to have a counterpart of B.Simon in Jisc Student Voter Registration that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Jisc Student Voter Registration** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **Jisc Student Voter Registration** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following field:
+1. On the **Basic SAML Configuration** section, perform the following step:
 
-    In the **Sign-on URL** text box, type a URL:
+    In the **Sign-on URL** text box, type the URL:
     `https://www.studentvoterregistration.ac.uk/consent`
 
 1. Jisc Student Voter Registration application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
@@ -114,13 +115,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Jisc Student Voter Registration**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
@@ -135,16 +130,14 @@ In this section, a user called B.Simon is created in Jisc Student Voter Registra
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you click the Jisc Student Voter Registration tile in the Access Panel, you should be automatically signed in to the Jisc Student Voter Registration for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+* Click on **Test this application** in Azure portal. This will redirect to Jisc Student Voter Registration Sign-on URL where you can initiate the login flow. 
 
-## Additional resources
+* Go to Jisc Student Voter Registration Sign-on URL directly and initiate the login flow from there.
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+* You can use Microsoft My Apps. When you click the Jisc Student Voter Registration tile in the My Apps, this will redirect to Jisc Student Voter Registration Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## Next steps
 
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Jisc Student Voter Registration with Azure AD](https://aad.portal.azure.com/)
+Once you configure Jisc Student Voter Registration you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

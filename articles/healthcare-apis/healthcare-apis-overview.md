@@ -14,7 +14,7 @@ ms.author: ginle
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The health data you work with is fragmented across multiple systems and formats. Managing this data is hard enough, trying to gain insight from it seems impossible. You need to find a way to bring all these disparate systems and data together. A unified approach to health data would enable you to discover operational and clinical insights, connect new end-user applications, or enable new research projects. Azure Healthcare APIs is a set of tools and connectors that enable you to improve healthcare through insights discovered by bringing disparate sets of PHI together and connecting it end-to-end with tools for machine learning, analytics, and AI.
+Azure Healthcare APIs is a set of managed API services based on open standards and frameworks that enable workflows to improve healthcare and offer scalable and secure healthcare solutions. Using a set of managed API services and frameworks that’s dedicated to the healthcare industry is important and beneficial because health data collected from patients and healthcare consumers can be fragmented from across multiple systems, device types, and data formats. Gaining insights from health data is one of the biggest barriers to sustaining population and personal health and overall wellness understanding. Bringing disparate systems, workflows, and health data together is more important today. A unified and aligned approach to health data access, standardization, and trend capturing would enable the discovery of operational and clinical insights. We can streamline the process of connecting new device applications and enable new research projects. Using Azure Healthcare APIs as a scalable and secure healthcare solution can enable workflows to improve healthcare through insights discovered by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. 
 
 Azure Healthcare APIs provides the following benefits:
 * Empower new workloads to leverage PHI by enabling the data to be collected and accessed in one place, in a consistent way.
@@ -42,7 +42,7 @@ Azure Healthcare APIs now includes support for DICOM services. DICOM enables the
 
 **Incremental changes to the FHIR Service**
 
-For the secure exchange of FHIR data, Healthcare APIs offers a few incremental capabilities that available in the Azure API for FHIR. 
+For the secure exchange of FHIR data, Healthcare APIs offers a few incremental capabilities that are not available in the Azure API for FHIR. 
 * Support for Transactions: In Healthcare APIs, the FHIR service supports transaction bundles. For more information about transaction bundles, visit HL7.org and refer to batch/transaction interactions.
 * Chained Search Improvements: Chained Search & Reserve Chained Search are no longer limited by 100 items per sub query.
 

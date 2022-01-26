@@ -297,12 +297,12 @@ Get-AzStorageContainer -Context $ctx | Select Name, PublicAccess
 
 This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
 
-| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png)| ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png) |
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png)| ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png) |
 
-<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
+<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
 
 ## Next steps
 

@@ -21,7 +21,7 @@ To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Az
 ## Azure Disk CSI driver new features
 Besides original in-tree driver features, Azure Disk CSI driver already provides following new features:
 - performance improvement when attach or detach disks in parallel
-  - in-tree driver attaches or detaches disks in serial while CSI driver would attach or detach disks in batch, there would be magnificent improvement when there are multiple disks attaching to one node.
+  - in-tree driver attaches or detaches disks in serial while CSI driver would attach or detach disks in batch, there would be significant improvement when there are multiple disks attaching to one node.
 - ZRS disk support
   - `Premium_ZRS`, `StandardSSD_ZRS` disk types are supported, check more details about [Zone-redundant storage for managed disks](../virtual-machines/disks-redundancy.md)
 - [Snapshot](#volume-snapshots)
@@ -135,7 +135,7 @@ $ kubectl describe volumesnapshot azuredisk-volume-snapshot
 Name:         azuredisk-volume-snapshot
 Namespace:    default
 Labels:       <none>
-Annotations:  API Version:  snapshot.storage.k8s.io/v1beta1
+Annotations:  API Version:  snapshot.storage.k8s.io/v1
 Kind:         VolumeSnapshot
 Metadata:
   Creation Timestamp:  2020-08-27T05:27:58Z
@@ -144,7 +144,7 @@ Metadata:
     snapshot.storage.kubernetes.io/volumesnapshot-bound-protection
   Generation:        1
   Resource Version:  714582
-  Self Link:         /apis/snapshot.storage.k8s.io/v1beta1/namespaces/default/volumesnapshots/azuredisk-volume-snapshot
+  Self Link:         /apis/snapshot.storage.k8s.io/v1/namespaces/default/volumesnapshots/azuredisk-volume-snapshot
   UID:               dd953ab5-6c24-42d4-ad4a-f33180e0ef87
 Spec:
   Source:
@@ -292,7 +292,7 @@ metadata:
   name: managed-csi-shared
 provisioner: disk.csi.azure.com
 parameters:
-  skuname: Premium_LRS  # Currently shared disk is only available with premium SSD
+  skuname: Premium_LRS
   maxShares: "2"
   cachingMode: None  # ReadOnly cache is not available for premium SSD with maxShares>1
 reclaimPolicy: Delete

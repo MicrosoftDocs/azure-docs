@@ -3,6 +3,7 @@ title: Application Insights logging with .NET
 description: Learn how to use Application Insights with the ILogger interface in .NET.
 ms.topic: conceptual
 ms.date: 05/20/2021
+ms.devlang: csharp
 ---
 
 # Application Insights logging with .NET
@@ -149,7 +150,7 @@ namespace WebApplication
                     // or when you need to capture logs during application startup, such as
                     // in Program.cs or Startup.cs itself.
                     builder.AddApplicationInsights(
-                        context.Configuration["APPINSIGHTS_CONNECTIONSTRING"]);
+                        context.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]);
 
                     // Capture all log-level entries from Program
                     builder.AddFilter<ApplicationInsightsLoggerProvider>(
@@ -163,7 +164,7 @@ namespace WebApplication
 }
 ```
 
-In the preceding code, `ApplicationInsightsLoggerProvider` is configured with your `"APPINSIGHTS_CONNECTIONSTRING"` connection string. Filters are applied, setting the log level to <xref:Microsoft.Extensions.Logging.LogLevel.Trace?displayProperty=nameWithType>.
+In the preceding code, `ApplicationInsightsLoggerProvider` is configured with your `"APPLICATIONINSIGHTS_CONNECTION_STRING"` connection string. Filters are applied, setting the log level to <xref:Microsoft.Extensions.Logging.LogLevel.Trace?displayProperty=nameWithType>.
 
 > [!IMPORTANT]
 > We recommend [connection strings](./sdk-connection-string.md?tabs=net) over instrumentation keys. New Azure regions *require* the use of connection strings instead of instrumentation keys. 

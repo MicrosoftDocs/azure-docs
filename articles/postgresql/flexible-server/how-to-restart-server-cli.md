@@ -5,13 +5,12 @@ author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 05/29/2021
+ms.date: 11/30/2021
 ---
 
-# Restart an Azure Database for PostgreSQL - Flexible Server (Preview)
+# Restart an Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is currently in public preview.
+
 
 This article shows you how to perform restart, start and stop flexible server using Azure CLI.
 

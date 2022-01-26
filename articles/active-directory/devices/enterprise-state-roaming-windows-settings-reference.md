@@ -99,7 +99,7 @@ Settings that don't roam or sync will not belong to a group.
 | **Microsoft Edge browser**: typed URLs <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
 | **Microsoft Edge browser**: favorites bar settings <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
 | **Microsoft Edge browser**: show the home button <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
-| **Microsoft Edge browser**: block pop-ups <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Microsoft Edge browser**: block pop-up windows <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
 | **Microsoft Edge browser**: ask me what to do with each download <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
 | **Microsoft Edge browser**: offer to save passwords <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
 | **Microsoft Edge browser**: send do not track requests <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |

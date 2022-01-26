@@ -5,8 +5,9 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 11/03/2021
 ms.author: tisande
+ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ---
 
@@ -372,6 +373,7 @@ The following code shows how to register a pre-trigger using the Python SDK:
 
 ```python
 import azure.cosmos.cosmos_client as cosmos_client
+from azure.cosmos import documents
 
 url = "your_cosmos_db_account_URI"
 key = "your_cosmos_db_account_key"
@@ -527,6 +529,7 @@ The following code shows how to register a post-trigger using the Python SDK:
 
 ```python
 import azure.cosmos.cosmos_client as cosmos_client
+from azure.cosmos import documents
 
 url = "your_cosmos_db_account_URI"
 key = "your_cosmos_db_account_key"

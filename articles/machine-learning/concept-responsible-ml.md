@@ -1,25 +1,25 @@
 ---
-title: What is responsible machine learning (preview)
+title: What is responsible AI (preview)
 titleSuffix: Azure Machine Learning
-description: Learn what responsible machine learning is and how to use it with Azure Machine Learning to understand models, protect data and control the model lifecycle.
+description: Learn what responsible AI is and how to use it with Azure Machine Learning to understand models, protect data and control the model lifecycle.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.author: luquinta
-author: luisquintanilla
-ms.date: 02/25/2021
+ms.author: lagayhar
+author: lgayhardt
+ms.date: 10/21/2021
 ms.custom: responsible-ml
-#Customer intent: As a data scientist, I want to know learn what responsible machine learning is and how I can use it in Azure Machine Learning.
+#Customer intent: As a data scientist, I want to know learn what responsible AI is and how I can use it in Azure Machine Learning.
 ---
 
-# What is responsible machine learning? (preview)
+# What is responsible AI? (preview)
 
-In this article, you'll learn what responsible machine learning (ML) is and ways you can put it into practice with Azure Machine Learning.
+In this article, you'll learn what responsible AI is and ways you can put it into practice with Azure Machine Learning.
 
-## Responsible machine learning principles
+## Responsible AI principles
 
-Throughout the development and use of AI systems, trust must be at the core. Trust in the platform, process, and models. At Microsoft, responsible machine learning encompasses the following values and principles:
+Throughout the development and use of AI systems, trust must be at the core. Trust in the platform, process, and models. At Microsoft, responsible AI with regards tomachine learning encompasses the following values and principles:
 
 - Understand machine learning models
   - Interpret and explain model behavior
@@ -30,7 +30,7 @@ Throughout the development and use of AI systems, trust must be at the core. Tru
 - Control the end-to-end machine learning process
   - Document the machine learning lifecycle with datasheets
 
-:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="Responsible ML pillars - interpretability, differential privacy, homomorphic encryption, audit trail - Azure Machine Learning":::
+:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="Responsible AI pillars - interpretability, differential privacy, homomorphic encryption, audit trail - Azure Machine Learning":::
 
 As artificial intelligence and autonomous systems integrate more into the fabric of society, it's important to proactively make an effort to anticipate and mitigate the unintended consequences of these technologies.
 

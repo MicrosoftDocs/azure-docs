@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/15/2021
+ms.date: 11/09/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -66,6 +66,7 @@ The **TrustFrameworkPolicy** element contains the following elements:
 | [BuildingBlocks](buildingblocks.md) | 0:1 | The building blocks of your policy. |
 | [ClaimsProviders](claimsproviders.md) | 0:1 | A collection of claims providers. |
 | [UserJourneys](userjourneys.md) | 0:1 | A collection of user journeys. |
+| [SubJourneys](subjourneys.md) | 0:1 | A collection of sub journeys. |
 | [RelyingParty](relyingparty.md) | 0:1 | A definition of a relying party policy. |
 
 To inherit a policy from another policy, a **BasePolicy** element must be declared under the **TrustFrameworkPolicy** element of the policy file. The **BasePolicy** element is a reference to the base policy from which this policy is derived.

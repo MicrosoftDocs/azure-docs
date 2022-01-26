@@ -1,4 +1,4 @@
---- 
+---
 title: Azure VMware Solution by CloudSimple - Set up workload DNS and DHCP for Private Cloud
 description: Describes how to set up DNS and DHCP for applications and workloads running in your CloudSimple Private Cloud environment
 author: suzizuber 

@@ -7,6 +7,7 @@ ms.author: tilee
 ms.date: 4/23/2019
 
 ms.reviewer: mbullwin
+ms.devlang: csharp
 ---
 
 # Application Insights for Azure Functions supported features

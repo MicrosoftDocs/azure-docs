@@ -28,7 +28,7 @@ To start managing your Azure VM as an Azure Arc-enabled server, you need to make
 
 1. Remove any VM extensions deployed to the Azure VM, such as the Log Analytics agent. While Azure Arc-enabled servers support many of the same extensions as Azure VMs, the Azure Arc-enabled servers agent can't manage VM extensions already deployed to the VM.
 
-2. Disable the Azure Windows or Linux Guest Agent. The Azure VM guest agent serves a similar purpose to the Azure Arc-enabled servers Connected Machine agent. To avoid conflicts between the two, the Azure VM Agent needs to be disabled. Once it is disabled, you cannot use VM extensions or some Azure services.
+2. Disable the Azure Windows or Linux Guest Agent. The Azure VM guest agent serves a similar purpose to the Azure Connected Machine agent. To avoid conflicts between the two, the Azure VM Agent needs to be disabled. Once it is disabled, you cannot use VM extensions or some Azure services.
 
 3. Create a security rule to deny access to the Azure Instance Metadata Service (IMDS). IMDS is a REST API that applications can call to get information about the VM's representation in Azure, including its resource ID and location. IMDS also provides access to any managed identities assigned to the machine. Azure Arc-enabled servers provides its own IMDS implementation and returns information about the Azure Arc representation of the VM. To avoid situations where both IMDS endpoints are available and apps have to choose between the two, you block access to the Azure VM IMDS so that the Azure Arc-enabled server IMDS implementation is the only one available.
 

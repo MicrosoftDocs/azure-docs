@@ -67,6 +67,9 @@ If you choose to create a Batch account in user subscription mode, perform the f
 > [!IMPORTANT]
 > The user creating the Batch account in user subscription mode needs to have Contributor or Owner role assignment for the subscription in which the Batch account will be created.
 
+>[!IMPORTANT]
+> In user subscription mode, you have to accept the legal terms for the image before using the subscription. If you haven’t done this action before, you might get the error **Allocation failed due to marketplace purchase eligibility** when trying to allocate Batch nodes. For more information, see [Accept legal terms](#accept-legal-terms).
+
 ### Allow Azure Batch to access the subscription (one-time operation)
 
 When creating your first Batch account in user subscription mode, you need to register your subscription with Batch. (If you already did this, skip to the next section.)
@@ -109,6 +112,24 @@ For user subscription Batch accounts, [core quotas](batch-quota-limit.md) must b
 
 1. In the [Azure portal](https://portal.azure.com), select your user subscription mode Batch account to display its settings and properties.
 1. From the left menu, select **Quotas** to view and configure the core quotas associated with your Batch account.
+
+### Accept legal terms
+
+In user subscription mode, you need to accept the legal terms for the image before using the subscription. To accept these legal terms, run the commands [Get-AzMarketplaceTerms](/powershell/module/az.marketplaceordering/get-azmarketplaceterms) and [Set-AzMarketplaceTerms](/powershell/module/az.marketplaceordering/set-azmarketplaceterms) in PowerShell.
+
+Make sure to set the following parameters based on your Batch pool's configuration:
+
+- `Publisher`: the image's publisher
+- `Product`: the image offer
+- `Name`: the offer SKU
+
+
+For example:
+
+```powershell
+Get-AzMarketplaceTerms -Publisher 'microsoft-azure-batch' -Product 'ubuntu-server-container' -Name '20-04-lts' | Set-AzMarketplaceTerms -Accept 
+```
+
 
 ## Other Batch account management options
 

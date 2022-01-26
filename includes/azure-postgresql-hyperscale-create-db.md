@@ -35,19 +35,15 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 
 5. Click **Configure server group**. Leave the settings in that section unchanged and click **Save**.
 6. Click **Next : Networking >** at the bottom of the screen.
-
-7. In the **Networking** tab, click the **Public endpoint** radio button.
+7. In the **Networking** tab, select **Allow public access from Azure services and resources within Azure to this server group**. Then select **+ Add current client IP address**.
    ![Public endpoint selected](./media/azure-postgresql-hyperscale-create-db/network-public-endpoint.png)
-8. Click the link **+ Add current client IP address**.
-   ![Added client IP](./media/azure-postgresql-hyperscale-create-db/network-add-client-ip.png)
-
    > [!NOTE]
    > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you cannot connect to your Hyperscale (Citus) cluster unless your IT department opens port 5432.
    >
 
-9. Click **Review + create** and then **Create** to provision the server. Provisioning takes a few minutes.
-10. The page will redirect to monitor deployment. When the live status changes from **Your deployment is underway** to **Your deployment is complete**, click the **Outputs** menu item on the left of the page.
-11. The outputs page will contain a coordinator hostname with a button next to it to copy the value to the clipboard. Record this information for later use.
+8. Click **Review + create** and then **Create** to provision the server. Provisioning takes a few minutes.
+9. The page will redirect to monitor deployment. When the live status changes from **Your deployment is underway** to **Your deployment is complete**, click the **Outputs** menu item on the left of the page.
+10. The outputs page will contain a coordinator hostname with a button next to it to copy the value to the clipboard. Record this information for later use.
 
 ### Connect to the database using psql
 

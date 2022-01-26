@@ -33,6 +33,7 @@ The following providers and their corresponding Kubernetes distributions have su
 | SUSE Rancher      | [Rancher Kubernetes Engine](https://rancher.com/products/rke/) | RKE CLI version: [v1.2.4](https://github.com/rancher/rke/releases/tag/v1.2.4); Kubernetes versions: [1.19.6](https://github.com/kubernetes/kubernetes/releases/tag/v1.19.6)), [1.18.14](https://github.com/kubernetes/kubernetes/releases/tag/v1.18.14)), [1.17.16](https://github.com/kubernetes/kubernetes/releases/tag/v1.17.16))  |
 | Nutanix      | [Karbon](https://www.nutanix.com/products/karbon)    | Version 2.2.1 |
 | Platform9      | [Platform9 Managed Kubernetes (PMK)](https://platform9.com/managed-kubernetes/)    | PMK Version [5.3.0](https://platform9.com/docs/kubernetes/release-notes#platform9-managed-kubernetes-version-53-release-notes); Kubernetes versions: v1.20.5, v1.19.6, v1.18.10 |
+| Cisco	| [Intersight Kubernetes Service (IKS)](https://www.cisco.com/c/en/us/products/cloud-systems-management/cloud-operations/intersight-kubernetes-service.html) Distribution | Upstream K8s version: 1.19.5 |
 
 The Azure Arc team also ran the conformance tests and validated Azure Arc-enabled Kubernetes scenarios on the following public cloud providers:
 
@@ -47,7 +48,6 @@ The conformance tests run as part of the Azure Arc-enabled Kubernetes validation
 
 1. Connect Kubernetes clusters to Azure Arc: 
     * Deploy Azure Arc-enabled Kubernetes agent Helm chart on cluster.
-    * Set up Managed System Identity (MSI) certificate on cluster.
     * Agents send cluster metadata to Azure.
 
 2. Configuration: 
@@ -57,6 +57,6 @@ The conformance tests run as part of the Azure Arc-enabled Kubernetes validation
 
 ## Next steps
 
-Learn how to connect a cluster to Azure Arc.
+Learn how to connect your existing Kubernetes cluster to Azure Arc.
 > [!div class="nextstepaction"]
-> [Connect a cluster to Azure Arc](./quickstart-connect-cluster.md)
+> [Connect an existing Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md)

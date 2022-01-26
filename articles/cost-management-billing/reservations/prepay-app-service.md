@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 10/27/2021
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -27,7 +27,7 @@ Before you buy a reservation, you should determine the size of the Premium v3 re
 
 You can use reservation recommendations to help determine the reservations you should purchase.
 
-- Purchase recommendations and recommended quantity are show when you purchase a Premium v3 reserved instance in the Azure portal.
+- Purchase recommendations and recommended quantities are shown when you purchase a Premium v3 reserved instance in the Azure portal.
 - Azure Advisor provides purchase recommendations for individual subscriptions.
 - You can use the APIs to get purchase recommendations for both shared scope and single subscription scope. For more information, see [Reserved instance purchase recommendation APIs for enterprise customers](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - For Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) customers, purchase recommendations for shared and single subscription scopes are available with the [Azure Consumption Insights Power BI content pack](/power-bi/service-connect-to-azure-consumption-insights).

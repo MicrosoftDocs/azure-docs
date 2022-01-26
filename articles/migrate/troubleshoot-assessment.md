@@ -12,7 +12,7 @@ ms.date: 07/28/2021
 
 This article helps you troubleshoot issues with assessment and dependency visualization with [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
 
-## Assessment readiness issues
+## Azure VM assessment readiness issues
 
 This table lists help for fixing the following assessment readiness issues.
 
@@ -41,7 +41,16 @@ Couldn't determine VM suitability because of an internal error | Try creating a 
 Couldn't determine suitability for one or more disks because of an internal error | Try creating a new assessment for the group.
 Couldn't determine suitability for one or more network adapters because of an internal error | Try creating a new assessment for the group.
 No VM size found for offer currency Reserved Instance (RI) | Server marked "not suitable" because the VM size wasn't found for the selected combination of RI, offer, and currency. Edit the assessment properties to choose the valid combinations and recalculate the assessment. 
-Conditionally ready Internet Protocol | Only applicable to Azure VMware Solution assessments. Azure VMware Solution doesn't support IPv6 internet addresses. Contact the Azure VMware Solution team for remediation guidance if your server is detected with IPv6.
+
+## Azure VMware Solution (AVS) assessment readiness issues
+
+This table lists help for fixing the following assessment readiness issues.
+
+**Issue** | **Fix**
+--- | ---
+Unsupported IPv6 | Only applicable to Azure VMware Solution assessments. Azure VMware Solution doesn't support IPv6 internet addresses.Contact the Azure VMware Solution team for remediation guidance if your server is detected with IPv6.
+Unsupported OS | Support for certain Operating System versions have been deprecated by VMware and the assessment recommends you to upgrade the operating system before migrating to Azure VMware Solution. [Learn more](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software)
+
 
 ## Suggested migration tool in an import-based Azure VMware Solution assessment is unknown
 

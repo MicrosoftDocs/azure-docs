@@ -60,11 +60,11 @@ If the **response_type** parameter in an `/authorize` request includes `token`, 
 
 ## Request a token
 
-To request an access token, you need an authorization code. Below is an example of a request to the `/authorize` endpoint for an authorization code. Custom domains are not supported for use with access tokens. Use your tenant-name.onmicrosoft.com domain in the request URL.
+To request an access token, you need an authorization code. Below is an example of a request to the `/authorize` endpoint for an authorization code.
 
-In the following example, you replace these values:
+In the following example, you replace these values in the query string:
 
-- `<tenant-name>` - The name of your Azure AD B2C tenant.
+- `<tenant-name>` - The name of your [Azure AD B2C tenant](tenant-management.md#get-your-tenant-name). If you're using a custom domain, replace `tenant-name.b2clogin.com` with your domain, such as `contoso.com`. 
 - `<policy-name>` - The name of your custom policy or user flow.
 - `<application-ID>` - The application identifier of the web application that you registered to support the user flow.
 - `<application-ID-URI>` - The application identifier URI that you set under **Expose an API** blade of the client application.
@@ -86,7 +86,7 @@ The response with the authorization code should be similar to this example:
 https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 ```
 
-After successfully receiving the authorization code, you can use it to request an access token:
+After successfully receiving the authorization code, you can use it to request an access token. Note that the parameters are in the body of the HTTP POST request:
 
 ```http
 POST <tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
@@ -100,7 +100,7 @@ grant_type=authorization_code
 &redirect_uri=https://jwt.ms
 &client_secret=2hMG2-_:y12n10vwH...
 ```
-
+ 
 You should see something similar to the following response:
 
 ```json

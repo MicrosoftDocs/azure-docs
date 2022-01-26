@@ -14,7 +14,7 @@ ms.custom: seodec18, devx-track-azurepowershell
 
 By setting up access restrictions, you can define a priority-ordered allow/deny list that controls network access to your app. The list can include IP addresses or Azure Virtual Network subnets. When there are one or more entries, an implicit *deny all* exists at the end of the list.
 
-The access restriction capability works with all Azure App Service-hosted workloads. The workloads can include web apps, API apps, Linux apps, Linux container apps, and Functions.
+The access restriction capability works with all Azure App Service-hosted workloads. The workloads can include web apps, API apps, Linux apps, Linux custom containers and Functions.
 
 When a request is made to your app, the FROM address is evaluated against the rules in your access restriction list. If the FROM address is in a subnet that's configured with service endpoints to Microsoft.Web, the source subnet is compared against the virtual network rules in your access restriction list. If the address isn't allowed access based on the rules in the list, the service replies with an [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) status code.
 
@@ -99,19 +99,7 @@ With service endpoints, you can configure your app with application gateways or 
 
    :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png?v2" alt-text="Screenshot of the 'Add Restriction' pane with the Service Tag type selected.":::
 
-Each service tag represents a list of IP ranges from Azure services. A list of these services and links to the specific ranges can be found in the [service tag documentation][servicetags].
-
-All available service tags are supported in access restriction rules. For simplicity, only a list of the most common tags are available through the Azure portal. Use Azure Resource Manager templates or scripting to configure more advanced rules like regional scoped rules. These are the tags available through Azure portal:
-
-* ActionGroup
-* ApplicationInsightsAvailability
-* AzureCloud
-* AzureCognitiveSearch
-* AzureEventGrid
-* AzureFrontDoor.Backend
-* AzureMachineLearning
-* AzureTrafficManager
-* LogicApps
+All available service tags are supported in access restriction rules. Each service tag represents a list of IP ranges from Azure services. A list of these services and links to the specific ranges can be found in the [service tag documentation][servicetags]. Use Azure Resource Manager templates or scripting to configure more advanced rules like regional scoped rules.
 
 ### Edit a rule
 

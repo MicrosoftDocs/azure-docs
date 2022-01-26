@@ -43,6 +43,7 @@ To alert on what matters, Container insights includes the following metric alert
 |**(New)Average container CPU %** |Calculates average CPU used per container.|When average CPU usage per container is greater than 95%.| 
 |**(New)Average container working set memory %** |Calculates average working set memory used per container.|When average working set memory usage per container is greater than 95%. |
 |Average CPU % |Calculates average CPU used per node. |When average node CPU utilization is greater than 80% |
+| Daily Data Cap Breach | When data cap is breached| When the total data ingestion to your Log Analytics workspace exceeds the [designated quota](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume) |
 |Average Disk Usage % |Calculates average disk usage for a node.|When disk usage for a node is greater than 80%. |
 |**(New)Average Persistent Volume Usage %** |Calculates average PV usage per pod. |When average PV usage per pod is greater than 80%.|
 |Average Working set memory % |Calculates average Working set memory for a node. |When average Working set memory for a node is greater than 80%. |
@@ -84,11 +85,11 @@ The following metrics are enabled and collected, unless otherwise specified, as 
 |Metric namespace |Metric |Description |
 |---------|----|------------|
 |Insights.container/nodes |cpuUsageMillicores |CPU utilization in millicores by host.|
-|Insights.container/nodes |cpuUsagePercentage |CPU usage percentage by node.|
+|Insights.container/nodes |cpuUsagePercentage, cpuUsageAllocatablePercentage (preview) |CPU usage percentage by node and allocatable respectively.|
 |Insights.container/nodes |memoryRssBytes |Memory RSS utilization in bytes by host.|
-|Insights.container/nodes |memoryRssPercentage |Memory RSS usage percentage by host.|
+|Insights.container/nodes |memoryRssPercentage, memoryRssAllocatablePercentage (preview) |Memory RSS usage percentage by host and allocatable respectively.|
 |Insights.container/nodes |memoryWorkingSetBytes |Memory Working Set utilization in bytes by host.|
-|Insights.container/nodes |memoryWorkingSetPercentage |Memory Working Set usage percentage by host.|
+|Insights.container/nodes |memoryWorkingSetPercentage, memoryRssAllocatablePercentage (preview) |Memory Working Set usage percentage by host and allocatable respectively.|
 |Insights.container/nodes |nodesCount |Count of nodes by status.|
 |Insights.container/nodes |diskUsedPercentage |Percentage of disk used on the node by device.|
 |Insights.container/pods |podCount |Count of pods by controller, namespace, node, and phase.|

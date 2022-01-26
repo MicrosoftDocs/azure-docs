@@ -49,10 +49,10 @@ A read replica server can be created using the following command:
 
 ```azurepowershell-interactive
 Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
-  New-AzPostgreSqlServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
+  New-AzPostgreSqlReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
 ```
 
-The `New-AzPostgreSqlServerReplica` command requires the following parameters:
+The `New-AzPostgreSqlReplica` command requires the following parameters:
 
 | Setting | Example value | Description  |
 | --- | --- | --- |
@@ -64,7 +64,7 @@ a replica in the **West US** region.
 
 ```azurepowershell-interactive
 Get-AzPostgreSqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
-  New-AzPostgreSQLServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
+  New-AzPostgreSqlReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
 ```
 
 To learn more about which regions you can create a replica in, visit the

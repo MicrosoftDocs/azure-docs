@@ -3,9 +3,7 @@ title: 'Quickstart: Your first Python query'
 description: In this quickstart, you follow the steps to enable the Resource Graph library for Python and run your first query.
 ms.date: 10/01/2021
 ms.topic: quickstart
-ms.custom:
-  - devx-track-python
-  - mode-api
+ms.custom: devx-track-python, mode-api
 ---
 # Quickstart: Run your first Resource Graph query using Python
 

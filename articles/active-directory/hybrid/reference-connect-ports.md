@@ -4,13 +4,12 @@ description: This page is a technical reference page for ports that are required
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: curtand
 ms.assetid: de97b225-ae06-4afc-b2ef-a72a3643255b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 03/04/2020
 ms.subservice: hybrid
@@ -32,11 +31,12 @@ This table describes the ports and protocols that are required for communication
 | Kerberos |88 (TCP/UDP) |Kerberos authentication to the AD forest. |
 | MS-RPC |135 (TCP) |Used during the initial configuration of the Azure AD Connect wizard when it binds to the AD forest, and also during Password synchronization. |
 | LDAP |389 (TCP/UDP) |Used for data import from AD. Data is encrypted with Kerberos Sign & Seal. |
-| SMB | 445 (TCP) |Used by Seamless SSO to create a computer account in the AD forest. |
+| SMB | 445 (TCP) |Used by Seamless SSO to create a computer account in the AD forest and during password writeback. For more information, see [Change a user account's password](/openspecs/windows_protocols/ms-adod/d211aaba-d188-4836-8007-8c62f7c9402d). |
 | LDAP/SSL |636 (TCP/UDP) |Used for data import from AD. The data transfer is signed and encrypted. Only used if you are using TLS. |
 | RPC |49152- 65535 (Random high RPC Port)(TCP) |Used during the initial configuration of Azure AD Connect when it binds to the AD forests, and during Password synchronization. If the dynamic port has been changed, you need to open that port. See [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017), and [KB224196](https://support.microsoft.com/kb/224196) for more information. |
 |WinRM  | 5985 (TCP) |Only used if you are installing AD FS with gMSA by Azure AD Connect Wizard|
 |AD DS Web Services | 9389 (TCP) |Only used if you are installing AD FS with gMSA by Azure AD Connect Wizard |
+| Global Catalog | 3268 (TCP) | Used by Seamless SSO to query the global catalog in the forest before creating a computer account in the domain. |
 
 ## Table 2 - Azure AD Connect and Azure AD
 This table describes the ports and protocols that are required for communication between the Azure AD Connect server and Azure AD.

@@ -3,7 +3,7 @@ title: Azure IoT Central administrator guide
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This article provides an overview of the administrator role in IoT Central. 
 author: dominicbetts 
 ms.author: dobett 
-ms.date: 03/25/2021
+ms.date: 12/22/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -42,9 +42,15 @@ To learn more, see [Create an IoT Central organization](howto-create-organizatio
 
 Devices that connect to your IoT Central application typically use X.509 certificates or shared access signatures (SAS) as credentials. The administrator manages the group certificates or keys that the device credentials are derived from.
 
-To learn more, see [X.509 group enrollment](concepts-get-connected.md#x509-group-enrollment), [SAS group enrollment](concepts-get-connected.md#sas-group-enrollment), and [How to roll X.509 device certificates](how-to-roll-x509-certificates.md).
+To learn more, see [X.509 group enrollment](concepts-get-connected.md#x509-group-enrollment), [SAS group enrollment](concepts-get-connected.md#sas-group-enrollment), and [How to roll X.509 device certificates](how-to-connect-devices-x509.md).
 
 The administrator can also create and manage the API tokens that a client application uses to authenticate with your IoT Central application. Client applications use the REST API to interact with IoT Central.
+
+For data exports, the administrator can configure [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to secure the connections to the [export destinations](howto-export-data.md). To learn more, see:
+
+- [Configure a managed identity (Azure portal)](howto-manage-iot-central-from-portal.md#configure-a-managed-identity)
+- [Configure a managed identity (REST API)](howto-manage-iot-central-with-rest-api.md)
+- [Configure a managed identity (Azure CLI)](howto-manage-iot-central-from-cli.md#configure-a-managed-identity)
 
 ## Configure an application
 

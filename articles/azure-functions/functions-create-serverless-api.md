@@ -34,7 +34,7 @@ By default, your HTTP trigger function is configured to accept any HTTP method. 
 
     | Field | Sample value | Description |
     |---|---|---|
-    | Route template | /hello | Determines what route is used to invoke this function |
+    | Route template | hello | Determines what route is used to invoke this function |
     | Authorization level | Anonymous | Optional: Makes your function accessible without an API key |
     | Selected HTTP methods | GET | Allows only selected HTTP methods to be used to invoke this function |
 
@@ -74,6 +74,9 @@ A proxy can point to any HTTP resource, such as:
 - Any other hosted API
 
 To learn more about proxies, see [Working with Azure Functions Proxies].
+
+> [!NOTE]
+> Proxies is available in Azure Functions versions 1.x to 3.x.
 
 ## Create your first proxy
 

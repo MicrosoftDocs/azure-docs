@@ -3,18 +3,19 @@ title: "Evaluate and improve Custom Speech accuracy - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "In this document you learn how to quantitatively measure and improve the quality of our speech-to-text model or your custom model. Audio + human-labeled transcription data is required to test accuracy, and 30 minutes to 5 hours of representative audio should be provided."
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.author: pafarley
+ms.date: 01/23/2022
+ms.author: eur
+ms.custom: ignite-fall-2021
 ---
 
 # Evaluate and improve Custom Speech accuracy
 
-In this article, you learn how to quantitatively measure and improve the accuracy of Microsoft's speech-to-text models or your own custom models. Audio + human-labeled transcription data is required to test accuracy, and 30 minutes to 5 hours of representative audio should be provided.
+In this article, you learn how to quantitatively measure and improve the accuracy of Microsoft speech-to-text models or your own custom models. Audio + human-labeled transcription data is required to test accuracy, and 30 minutes to 5 hours of representative audio should be provided.
 
 ## Evaluate Custom Speech accuracy
 
@@ -33,7 +34,7 @@ Here's an example:
 
 ![Example of incorrectly identified words](./media/custom-speech/custom-speech-dis-words.png)
 
-If you want to replicate WER measurements locally, you can use sclite from [SCTK](https://github.com/usnistgov/SCTK).
+If you want to replicate WER measurements locally, you can use `sclite` from the [NIST Scoring Toolkit (SCTK)](https://github.com/usnistgov/SCTK).
 
 ## Resolve errors and improve WER
 
@@ -50,17 +51,17 @@ If you'd like to test the quality of Microsoft's speech-to-text baseline model o
 To evaluate models side by side:
 
 1. Sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech).
-2. Navigate to **Speech-to-text > Custom Speech > [name of project] > Testing**.
-3. Click **Add Test**.
+2. Navigate to **Speech-to-text** > **Custom Speech** > [Project Name] > **Testing**.
+3. Select **Add Test**.
 4. Select **Evaluate accuracy**. Give the test a name, description, and select your audio + human-labeled transcription dataset.
 5. Select up to two models that you'd like to test.
-6. Click **Create**.
+6. Select **Create**.
 
 After your test has been successfully created, you can compare the results side by side.
 
 ### Side-by-side comparison
 
-Once the test is complete, indicated by the status change to *Succeeded*, you'll find a WER number for both models included in your test. Click on the test name to view the testing detail page. This detail page lists all the utterances in your dataset, indicating the recognition results of the two models alongside the transcription from the submitted dataset. To help inspect the side-by-side comparison, you can toggle various error types including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column, which shows the human-labeled transcription and the results for two speech-to-text models, you can decide which model meets your needs and where additional training and improvements are required.
+Once the test is complete, indicated by the status change to *Succeeded*, you'll find a WER number for both models included in your test. Select on the test name to view the testing detail page. This detail page lists all the utterances in your dataset, indicating the recognition results of the two models alongside the transcription from the submitted dataset. To help inspect the side-by-side comparison, you can toggle various error types including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column, which shows the human-labeled transcription and the results for two speech-to-text models, you can decide which model meets your needs and where additional training and improvements are required.
 
 ## Improve Custom Speech accuracy
 
@@ -68,7 +69,7 @@ Speech recognition scenarios vary by audio quality and language (vocabulary and 
 
 | Scenario | Audio Quality | Vocabulary | Speaking Style |
 |----------|---------------|------------|----------------|
-| Call center | Low, 8 kHz, could be 2 humans on 1 audio channel, could be compressed | Narrow, unique to domain and products | Conversational, loosely structured |
+| Call center | Low, 8 kHz, could be two people on one audio channel, could be compressed | Narrow, unique to domain and products | Conversational, loosely structured |
 | Voice assistant (such as Cortana, or a drive-through window) | High, 16 kHz | Entity heavy (song titles, products, locations) | Clearly stated words and phrases |
 | Dictation (instant message, notes, search) | High, 16 kHz | Varied | Note-taking |
 | Video closed captioning | Varied, including varied microphone use, added music | Varied, from meetings, recited speech, musical lyrics | Read, prepared, or loosely structured |
@@ -92,12 +93,21 @@ Plan to maintain your custom model by adding source materials periodically. Your
 
 The following sections describe how each kind of additional training data can reduce errors.
 
-### Add related text sentences
+### Add plain text data
 
-When you train a new custom model, start by adding related text to improve the recognition of domain-specific words and phrases. Related text sentences can primarily reduce substitution errors related to misrecognition of common words and domain-specific words by showing them in context. Domain-specific words can be uncommon or made-up words, but their pronunciation must be straightforward to be recognized.
+When you train a new custom model, start by adding plain text sentences of related text to improve the recognition of domain-specific words and phrases. Related text sentences can primarily reduce substitution errors related to misrecognition of common words and domain-specific words by showing them in context. Domain-specific words can be uncommon or made-up words, but their pronunciation must be straightforward to be recognized.
 
 > [!NOTE]
 > Avoid related text sentences that include noise such as unrecognizable characters or words.
+
+### Add structured text data
+
+You can use structured text data in markdown format similarly to plain text sentences, but you would use structured text data when your data follows a particular pattern in particular utterances that only differ by words or phrases from a list. For more information, see [Structured text data for training](how-to-custom-speech-test-and-train.md#structured-text-data-for-training-public-preview). 
+
+> [!NOTE]
+> Training with structured text is only supported for these locales: `en-US`, `de-DE`, `en-UK`, `en-IN`, `fr-FR`, `fr-CA`, `es-ES`, `es-MX` and you must use the latest base model for these locales. See [Language support](language-support.md) for a list of base models that support training with structured text data.
+> 
+> For locales that don’t support training with structured text, the service will take any training sentences that don’t reference any classes as part of training with plain text data.
 
 ### Add audio with human-labeled transcripts
 
@@ -110,7 +120,7 @@ Consider these details:
 * Custom Speech can only capture word context to reduce substitution errors, not insertion, or deletion errors.
 * Avoid samples that include transcription errors, but do include a diversity of audio quality.
 * Avoid sentences that are not related to your problem domain. Unrelated sentences can harm your model.
-* When the quality of transcripts vary, you can duplicate exceptionally good sentences (like excellent transcriptions that include key phrases) to increase their weight.
+* When the quality of transcripts varies, you can duplicate exceptionally good sentences (like excellent transcriptions that include key phrases) to increase their weight.
 * The Speech service will automatically use the transcripts to improve the recognition of domain-specific words and phrases, as if they were added as related text.
 * It can take several days for a training operation to complete. To improve the speed of training, make sure to create your Speech service subscription in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
 
@@ -133,7 +143,7 @@ Words that are made-up or highly specialized may have unique pronunciations. The
 
 The following table shows voice recognition scenarios and lists source materials to consider within the three training content categories listed above.
 
-| Scenario | Related text sentences | Audio + human-labeled transcripts | New words with pronunciation |
+| Scenario | Plain text data and <br> structured text data | Audio + human-labeled transcripts | New words with pronunciation |
 |----------|------------------------|------------------------------|------------------------------|
 | Call center             | marketing documents, website, product reviews related to call center activity | call center calls transcribed by humans | terms that have ambiguous pronunciations (see Xbox above) |
 | Voice assistant         | list sentences using all combinations of commands and entities | record voices speaking commands into device, and transcribe into text | names (movies, songs, products) that have unique pronunciations |

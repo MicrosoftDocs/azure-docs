@@ -1,9 +1,9 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
-ms.author: pafarley
+ms.author: eur
 ---
 
 To configure Speech SDK to accept compressed audio input, create a `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream. Find related sample code in [Speech SDK samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/WavStream.java).
@@ -15,7 +15,7 @@ import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
 import com.microsoft.cognitiveservices.speech.audio.AudioInputStream;
 import com.microsoft.cognitiveservices.speech.audio.AudioStreamFormat;
 import com.microsoft.cognitiveservices.speech.audio.PullAudioInputStream;
-import com.microsoft.cognitiveservices.speech.internal.AudioStreamContainerFormat;
+import com.microsoft.cognitiveservices.speech.audio.AudioStreamContainerFormat;
 
 // ... omitted for brevity
 

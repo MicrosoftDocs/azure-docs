@@ -51,7 +51,7 @@ Virtual machine scale sets in Flexible Orchestration mode manages standard Azure
 You can choose the number of fault domains for the Flexible orchestration scale set. By default, when you add a VM to a Flexible scale set, Azure evenly spreads instances across fault domains. While it is recommended to let Azure assign the fault domain, for advanced or troubleshooting scenarios you can override this default behavior and specify the fault domain where the instance will land.
 
 ```azurecli-interactive
-az vm create –vmss "myVMSS"  –-platform_fault_domain 1
+az vm create –vmss "myVMSS"  –-platform-fault-domain 1
 ```
 
 ### Instance naming
@@ -110,7 +110,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Managed Identity  | User Assigned Identity Only  | System Assigned or User Assigned  | N/A (can specify Managed Identity on individual instances) |
 | Add/remove existing VM to the group  | No  | No  | No |
 | Service Fabric  | No  | Yes  | No |
-| Azure Kubernetes Service (AKS) / AKE / k8s node pool  | No  | Yes  | No |
+| Azure Kubernetes Service (AKS) / AKE  | No  | Yes  | No |
 | UserData  | Partial, UserData can be specified for individual VMs | Yes  | UserData can be specified for individual VMs |
 
 

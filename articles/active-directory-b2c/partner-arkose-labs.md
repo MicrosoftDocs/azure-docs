@@ -145,7 +145,7 @@ Install the [Azure Functions extension](https://marketplace.visualstudio.com/ite
 
 3. The Azure Function extension will automatically generate a few files for local development, install dependencies, and install the Function Core tools if not already present. These tools help with the debugging experience.
 
-4. Output from the Function Core tool appears in the Visual Studio Code **Terminal** panel. Once the host has started, **Alt+click** the local URL shown in the output to open the browser and run the function. In the Azure Functions explorer, right-click on the function to see the url of the locally hosted function.
+4. Output from the Function Core tool appears in the Visual Studio Code **Terminal** panel. Once the host has started, **Alt+click** the local URL shown in the output to open the browser and run the function. In the Azure Functions explorer, right-click on the function to see the URL of the locally hosted function.
 
 To redeploy the local instance during testing, repeat steps 1 to 4.
 

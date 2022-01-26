@@ -64,6 +64,7 @@ Hybrid Azure AD join supports a broad range of Windows devices. Because the conf
 ### Windows current devices
 
 - Windows 10
+- Windows 11
 - Windows Server 2016
   - **Note**: Azure National cloud customers require version 1803
 - Windows Server 2019

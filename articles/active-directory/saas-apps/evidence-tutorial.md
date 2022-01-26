@@ -70,25 +70,25 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, perform the following steps:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    1. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<yourtenant>.evidence.com`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    1. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<yourtenant>.evidence.com`
 
-    c. In the **Reply URL** textbox, type a URL using the following pattern: 
+    1. In the **Reply URL** textbox, type a URL using the following pattern: 
     `https://<your tenant>.evidence.com/?class=UIX&proc=Login`
-	
+
     > [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [Evidence.com Client support team](https://communities.taser.com/support/SupportContactUs?typ=LE) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [Evidence.com Client support team](https://communities.taser.com/support/SupportContactUs?typ=LE) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+    ![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set up Evidence.com** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -156,4 +156,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Evidence.com you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Evidence.com you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

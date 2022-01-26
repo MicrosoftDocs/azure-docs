@@ -9,7 +9,7 @@ manager: cnovak
 ms.reviewer: orspodek
 ms.topic: quickstart
 ms.workload: big-data
-ms.custom: mvc seodec18
+ms.custom: mvc seodec18, mode-other
 ms.date: 03/01/2021
 ---
 

@@ -24,16 +24,16 @@ Azure Static Web Apps provides [managed authentication](authentication-authoriza
 
 Custom identity providers are configured in the `auth` section of the [configuration file](configuration.md).
 
-To avoid putting secrets in source control, the configuration looks into [application settings](application-settings.md) for a matching name in the configuration file. You may also choose to store your secrets in [Azure Key Vault](./key-vault-secrets.md).
+To avoid putting secrets in source control, the configuration looks into [application settings](application-settings.md#configure-application-settings) for a matching name in the configuration file. You may also choose to store your secrets in [Azure Key Vault](./key-vault-secrets.md).
 
 # [Azure Active Directory](#tab/aad)
 
-To create the registration, begin by creating the following [application settings](application-settings.md):
+To create the registration, begin by creating the following [application settings](application-settings.md#configure-application-settings):
 
 | Setting Name | Value |
 | --- | --- |
-| `AAD_CLIENT_ID` | The Application (client) ID for the Azure AD app registration. |
-| `AAD_CLIENT_SECRET` | The client secret for the Azure AD app registration. |
+| `AZURE_CLIENT_ID` | The Application (client) ID for the Azure AD app registration. |
+| `AZURE_CLIENT_SECRET` | The client secret for the Azure AD app registration. |
 
 Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
@@ -49,8 +49,8 @@ Azure Active Directory providers are available in two different versions. Versio
         "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
         "registration": {
           "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>",
-          "clientIdSettingName": "AAD_CLIENT_ID",
-          "clientSecretSettingName": "AAD_CLIENT_SECRET"
+          "clientIdSettingName": "AZURE_CLIENT_ID",
+          "clientSecretSettingName": "AZURE_CLIENT_SECRET"
         }
       }
     }
@@ -69,8 +69,8 @@ Make sure to replace `<TENANT_ID>` with your Azure Active Directory tenant ID.
       "azureActiveDirectory": {
         "registration": {
           "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>/v2.0",
-          "clientIdSettingName": "AAD_CLIENT_ID",
-          "clientSecretSettingName": "AAD_CLIENT_SECRET"
+          "clientIdSettingName": "AZURE_CLIENT_ID",
+          "clientSecretSettingName": "AZURE_CLIENT_SECRET"
         }
       }
     }
@@ -302,7 +302,7 @@ If you are using Azure Active Directory, use `aad` as the value for the `<PROVID
 > [!Note]
 > These URLs are provided by Azure Static Web Apps to receive the response from the authentication provider, you don't need to create pages at these routes.
 
-## Login, logout, and purging user details
+## Login, logout, and user details
 
 To use a custom identity provider, use the following URL patterns.
 
@@ -310,6 +310,7 @@ To use a custom identity provider, use the following URL patterns.
 | ------------------ | ---------------------------------------- |
 | Login              | `/.auth/login/<PROVIDER_NAME_IN_CONFIG>` |
 | Logout             | `/.auth/logout`                          |
+| User details       | `/.auth/me`                              |
 | Purge user details | `/.auth/purge/<PROVIDER_NAME_IN_CONFIG>` |
 
 If you are using Azure Active Directory, use `aad` as the value for the `<PROVIDER_NAME_IN_CONFIG>` placeholder.
@@ -317,4 +318,4 @@ If you are using Azure Active Directory, use `aad` as the value for the `<PROVID
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Securing authentication secrets in Azure Key Vault](./key-vault-secrets.md)
+> [Set user roles programmatically](./assign-roles-microsoft-graph.md)
