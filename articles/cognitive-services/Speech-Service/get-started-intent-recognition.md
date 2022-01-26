@@ -20,37 +20,45 @@ keywords: intent recognition
 
 [!INCLUDE [Header](includes/quickstarts/common/csharp.md)]
 
-In this quickstart, you'll use the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) and the Language Understanding (LUIS) service to recognize intents from audio data captured from a microphone. Specifically, you'll use the Speech SDK to capture speech, and a prebuilt domain from LUIS to identify intents for home automation, like turning on and off a light. 
-
 ::: zone pivot="programming-language-csharp"
-## Prerequisites
-[!INCLUDE [Header](includes/quickstarts/common/azure-prerequisites.md)]
-[!INCLUDE [chsarp](includes/quickstarts/intent-recognition/csharp.md)]
+[!INCLUDE [csharp](includes/quickstarts/intent-recognition/csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-## Prerequisites
-[!INCLUDE [Header](includes/quickstarts/common/azure-prerequisites.md)]
 [!INCLUDE [cpp](includes/quickstarts/intent-recognition/cpp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Header](includes/quickstarts/intent-recognition/header.md)]
+[!INCLUDE [Header](includes/quickstarts/intent-recognition/intro.md)]
 [!INCLUDE [Header](includes/quickstarts/intent-recognition/java/header.md)]
 [!INCLUDE [java](includes/quickstarts/intent-recognition/java/java.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Header](includes/quickstarts/intent-recognition/intro.md)]
+[!INCLUDE [Header](includes/quickstarts/intent-recognition/javascript/header.md)]
+[!INCLUDE [javascript](includes/quickstarts/intent-recognition/javascript/javascript.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Header](includes/quickstarts/intent-recognition/header.md)]
+[!INCLUDE [Header](includes/quickstarts/intent-recognition/intro.md)]
 [!INCLUDE [Header](includes/quickstarts/intent-recognition/python/header.md)]
 [!INCLUDE [python](includes/quickstarts/intent-recognition/python/python.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
-[!INCLUDE [Header](includes/quickstarts/intent-recognition/header.md)]
-[!INCLUDE [Header](includes/quickstarts/intent-recognition/javascript/header.md)]
-[!INCLUDE [javascript](includes/quickstarts/intent-recognition/javascript/javascript.md)]
+
+::: zone pivot="programming-language-objectivec"
+TBD
 ::: zone-end
+
+::: zone pivot="programming-language-curl"
+TBD
+::: zone-end
+
+::: zone pivot="programming-language-cli"
+TBD
+::: zone-end
+
 
 
 > [!div class="nextstepaction"]

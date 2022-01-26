@@ -9,6 +9,7 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/25/2022
 ms.author: eur
+zone_pivot_groups: programming-languages-speech-services
 ---
 
 ::: zone pivot="programming-language-cpp"
@@ -40,7 +41,9 @@ ms.author: eur
 ::: zone-end
 
 ::: zone pivot="programming-language-curl"
+TBD
 ::: zone-end
 
 ::: zone pivot="programming-language-cli"
+TBD
 ::: zone-end
