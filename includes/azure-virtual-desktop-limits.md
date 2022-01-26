@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Desktop limititations
+title: Azure Virtual Desktop limitations
 description: Azure Virtual Desktop limitations.
 ms.topic: include
 ms.date: 01/25/2021
