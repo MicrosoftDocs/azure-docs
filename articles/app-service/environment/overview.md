@@ -50,7 +50,6 @@ Applications are hosted in App Service plans, which are created in an App Servic
 
 When you're deploying on dedicated hardware (hosts), you're limited in scaling across all App Service plans to the amount of cores in this type of environment. An App Service Environment deployed on dedicated hosts has 132 vCores available. I1v2 uses 2 vCores, I2v2 uses 4 vCores, and I3v2 uses 8 vCores per instance.
 
-
 ## Virtual network support
 
 The App Service Environment feature is a deployment of the Azure App Service into a single subnet in a customer's virtual network. When you deploy an app into an App Service Environment, the app will be exposed on the inbound address assigned to the App Service Environment. If your App Service Environment is deployed with an internal virtual IP (VIP), then the inbound address for all of the apps will be an address in the App Service Environment subnet. If your App Service Environment is deployed with an external VIP, then the inbound address will be an internet-addressable address and your apps will be in public DNS.
