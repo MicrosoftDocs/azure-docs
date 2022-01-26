@@ -13,7 +13,8 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 # Media Streaming and Composition
-[!INCLUDE Private Preview Disclaimer]
+[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+
 Azure Communication Services Media Streaming and Composition enables you to build dynamic voice and video calling experiences at large scales, suitable for interactive streaming, virtual events, and broadcast scenarios. In a common video calling scenario, each participant is uploading several media streams captured from:
 
 1. Cameras
