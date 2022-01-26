@@ -6,7 +6,7 @@ ms.service: sql-edge
 ms.topic: conceptual
 author: rothja
 ms.author: jroth
-ms.reviewer: sstein
+ms.reviewer: jroth
 ms.date: 08/04/2020
 ---
 
