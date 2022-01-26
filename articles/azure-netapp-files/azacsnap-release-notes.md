@@ -20,6 +20,19 @@ ms.author: phjensen
 
 This page lists major changes made to AzAcSnap to provide new functionality or resolve defects.
 
+## Jan-2022
+
+### AzAcSnap v5.1 Preview (Build_20220125.85030)
+
+AzAcSnap v5.1 Preview (Build_20220125.85030) has been released with the following new features:
+
+- Oracle Database support
+- Backint Co-existence
+- Azure Managed Disk
+- RunBefore and RunAfter capability
+
+For details on the preview features and how to use them go to [AzAcSnap Preview](azacsnap-preview.md).
+
 ## Aug-2021
 
 ### AzAcSnap v5.0.2 (Build_20210827.19086) - Patch update to v5.0.1
