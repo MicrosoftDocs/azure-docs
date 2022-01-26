@@ -28,7 +28,7 @@ You may want to create a copy of your question answering project or related ques
 
 2. Scroll down to the **Answer questions** section and select **Open custom question answering**.
 
-3. Select the project you wish to export > Select Export > You’ll have the option to export as an Excel or TSV file.
+3. Select the project you wish to export > Select **Export** > You’ll have the option to export as an **Excel** or **TSV** file.
 
 4. You’ll be prompted to save your exported file locally as a zip file.
 
@@ -42,7 +42,7 @@ To automate the export process, use the [export functionality of the authoring A
 
 2. Scroll down to the **Answer questions** section and select **Open custom question answering**.
 
-3. Select **Import** and specify the file type you selected for the export process. Either Excel, or TSV.
+3. Select **Import** and specify the file type you selected for the export process. Either **Excel**, or **TSV**.
 
 4. Select Choose File and browse to the local zipped copy of your project that you exported previously.
 
