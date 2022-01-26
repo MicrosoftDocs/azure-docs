@@ -93,7 +93,7 @@ Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant 
  
 ## vmProfile
 ## buildVM
-By default Image Builder will use a "Standard_D1_v2" build VM for Gen1 images and a "Standard_D2ds_v4" build VM for Gen2 images, this is built from the image you specify in the `source`. You can override this and may wish to do this for these reasons:
+Image Builder will use a "Standard_D1_v2" build VM for Gen1 images and a "Standard_D2ds_v4" build VM for Gen2 images by default. The generation is defined by the image you specify in the `source`. You can override this and may wish to do this for these reasons:
 1. Performing customizations that require increased memory, CPU and handling large files (GBs).
 2. Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
 3. Require [VM isolation](../isolation.md).
@@ -113,7 +113,7 @@ By default, Image Builder will not change the size of the image, it will use the
 ```
 
 ## vnetConfig
-If you do not specify any VNET properties, then Image Builder will create its own VNET, Public IP, and NSG. The Public IP is used for the service to communicate with the build VM, however if you do not want a Public IP or want Image Builder to have access to your existing VNET resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares etc., then you can specify a VNET. For more information, review the [networking documentation](image-builder-networking.md), this is optional.
+If you do not specify any VNET properties, then Image Builder will create its own VNET, Public IP, and NSG. The Public IP is used for the service to communicate with the build VM, however if you do not want a Public IP or want Image Builder to have access to your existing VNET resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares, then you can specify a VNET. For more information, review the [networking documentation](image-builder-networking.md), this is optional.
 
 ```json
     "vnetConfig": {
@@ -175,7 +175,7 @@ The Image Builder Build VM User Assigned Identity:
 * Supports cross subscription scenarios (identity created in one subscription while the image template is created in another subscription under the same tenant)
 * Does not support cross tenant scenarios (identity created in one tenant while the image template is created in another tenant)
 
-To learn more, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) and [How to use managed identities for Azure resources on an Azure VM for sign-in](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).
+To learn more, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](/active-directory/managed-identities-azure-resources/how-to-use-vm-token) and [How to use managed identities for Azure resources on an Azure VM for sign-in](/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).
 
 ## Properties: source
 
@@ -184,7 +184,7 @@ The `source` section contains information about the source image that will be us
 The API requires a 'SourceType' that defines the source for the image build, currently there are three types:
 - PlatformImage - indicated the source image is a Marketplace image.
 - ManagedImage - use this when starting from a regular managed image.
-- SharedImageVersion - this is used when you are using an image version in an Azure Compute Gallery as the source.
+- SharedImageVersion - this is used when you're using an image version in an Azure Compute Gallery as the source.
 
 
 > [!NOTE]
@@ -270,7 +270,7 @@ By default, the Image Builder will run for 240 minutes. After that, it will time
 [ERROR] complete: 'context deadline exceeded'
 ```
 
-If you do not specify a buildTimeoutInMinutes value, or set it to 0, this will use the default value. You can increase or decrease the value, up to the maximum of 960mins (16hrs). For Windows, we do not recommend setting this below 60 minutes. If you find you are hitting the timeout, review the [logs](image-builder-troubleshoot.md#customization-log), to see if the customization step is waiting on something like user input. 
+If you do not specify a buildTimeoutInMinutes value, or set it to 0, this will use the default value. You can increase or decrease the value, up to the maximum of 960mins (16hrs). For Windows, we do not recommend setting this below 60 minutes. If you find you're hitting the timeout, review the [logs](image-builder-troubleshoot.md#customization-log), to see if the customization step is waiting on something like user input. 
 
 If you find you need more time for customizations to complete, set this to what you think you need, with a little overhead. But, do not set it too high because you might have to wait for it to timeout before seeing an error. 
 
@@ -287,7 +287,7 @@ When using `customize`:
 - If one customizer fails, then the whole customization component will fail and report back an error.
 - It is strongly advised you test the script thoroughly before using it in a template. Debugging the script on your own VM will be easier.
 - Do not put sensitive data in the scripts. 
-- The script locations need to be publicly accessible, unless you are using [MSI](./image-builder-user-assigned-identity.md).
+- The script locations need to be publicly accessible, unless you're using [MSI](./image-builder-user-assigned-identity.md).
 
 ```json
         "customize": [
@@ -395,7 +395,7 @@ Customize properties:
 - **restartTimeout** - Restart timeout specified as a string of magnitude and unit. For example, `5m` (5 minutes) or `2h` (2 hours). The default is: '5m'
 
 ### Linux restart  
-There is no Linux Restart customizer, however, if you are installing drivers, or components that require a restart, you can install them and invoke a restart using the Shell customizer, there is a 20min SSH timeout to the build VM.
+There is no Linux Restart customizer, however, if you're installing drivers, or components that require a restart, you can install them and invoke a restart using the Shell customizer, there is a 20min SSH timeout to the build VM.
 
 ### PowerShell customizer 
 The shell customizer supports running PowerShell scripts and inline command, the scripts must be publicly accessible for the IB to access them.
@@ -490,7 +490,7 @@ OS support: Windows
 
 Customizer properties:
 - **type**  – WindowsUpdate.
-- **searchCriteria** - Optional, defines which type of updates are installed (Recommended, Important etc.), BrowseOnly=0 and IsInstalled=0 (Recommended) is the default.
+- **searchCriteria** - Optional, defines which type of updates are installed (like Recommended or Important), BrowseOnly=0 and IsInstalled=0 (Recommended) is the default.
 - **filters** – Optional, allows you to specify a filter to include or exclude updates.
 - **updateLimit** – Optional, defines how many updates can be installed, default 1000.
  
@@ -502,7 +502,7 @@ By default, Azure Image Builder will also run ‘deprovision’ code at the end 
 
 The commands Image Builder users to generalize may not be suitable for every situation, so Azure Image Builder will allow you to customize this command, if needed. 
 
-If you are migrating existing customization, and you are using different Sysprep/waagent commands, you can use the Image Builder generic commands, and if the VM creation fails, use your own Sysprep or waagent commands.
+If you're migrating existing customization, and you're using different Sysprep/waagent commands, you can use the Image Builder generic commands, and if the VM creation fails, use your own Sysprep or waagent commands.
 
 If Azure Image Builder creates a Windows custom image successfully, and you create a VM from it, then find that the VM creation fails or does not complete successfully, you will need to review the Windows Server Sysprep documentation or raise a support request with the Windows Server Sysprep Customer Services Support team, who can troubleshoot and advise on the correct Sysprep usage.
 
@@ -650,7 +650,7 @@ Distribute properties for galleries:
 - **galleryImageId** – ID of the Azure Compute Gallery, this can specified in two formats:
     * Automatic versioning - Image Builder will generate a monotonic version number for you, this is useful for when you want to keep rebuilding images from the same template: The format is: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>`.
     * Explicit versioning - You can pass in the version number you want image builder to use. The format is:
-    `/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`
+    `/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version - for example: 1.1.1>`
 
 - **runOutputName** – unique name for identifying the distribution.  
 - **artifactTags** - Optional user specified key value pair tags.
@@ -716,7 +716,7 @@ az resource invoke-action \
 ```
 
 ### Cancelling an Image Build
-If you are running an image build that you believe is incorrect, waiting for user input, or you feel will never complete successfully, then you can cancel the build.
+If you're running an image build that you believe is incorrect, waiting for user input, or you feel will never complete successfully, then you can cancel the build.
 
 The build can be canceled any time. If the distribution phase has started you can still cancel, but you will need to clean up any images that may not be completed. The cancel command does not wait for cancel to complete, please monitor `lastrunstatus.runstate` for canceling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
 
