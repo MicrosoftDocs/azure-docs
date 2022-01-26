@@ -14,15 +14,15 @@ ms.author: aahi
 
 Three primary parameters for all Cognitive Services containers are required. The Microsoft Software License Terms must be present with a value of **accept**. An Endpoint URI and API key are also needed.
 
-### Endpoint URI `{ENDPOINT_URI}`
+### Endpoint URI
 
-The **Endpoint** URI value is available on the Azure portal **Overview** page of the corresponding Cognitive Services resource. Go to the **Overview** page, hover over the endpoint, and a **Copy to clipboard** <span class="docon docon-edit-copy x-hidden-focus"></span> icon appears. Copy and use the endpoint where needed.
+The `{ENDPOINT_URI}` value is available on the Azure portal **Overview** page of the corresponding Cognitive Services resource. Go to the **Overview** page, hover over the endpoint, and a **Copy to clipboard** <span class="docon docon-edit-copy x-hidden-focus"></span> icon appears. Copy and use the endpoint where needed.
 
 ![Screenshot that shows gathering the endpoint URI for later use.](../media/overview-endpoint-uri.png)
 
-### Keys `{API_KEY}`
+### Keys
 
-This key is used to start the container and is available on the Azure portal's **Keys** page of the corresponding Cognitive Services resource. Go to the **Keys** page, and select the **Copy to clipboard** <span class="docon docon-edit-copy x-hidden-focus"></span> icon.
+The `{API_KEY}` value is used to start the container and is available on the Azure portal's **Keys** page of the corresponding Cognitive Services resource. Go to the **Keys** page, and select the **Copy to clipboard** <span class="docon docon-edit-copy x-hidden-focus"></span> icon.
 
 ![Screenshot that shows getting one of the two keys for later use.](../media/keys-copy-api-key.png)
 
