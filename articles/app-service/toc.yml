@@ -66,7 +66,7 @@
       href: tutorial-auth-aad.md
     - name: Securely connect to Azure resources
       items:
-        - name: Overview (MI, connection strings, key vault)
+        - name: Overview
           href: tutorial-connect-overview.md
         - name: Access SQL DB with managed identity
           href: tutorial-connect-msi-sql-database.md

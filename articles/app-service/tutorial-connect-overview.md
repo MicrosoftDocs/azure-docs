@@ -29,6 +29,11 @@ Learn which [services](/azure/active-directory/managed-identities-azure-resource
 
 When managed identity isn't supported for your app's dependent services, use Key Vault to store your secrets, and connect your app to Key Vault with a managed identity.
 
+Secrets include:
+
+* Service keys
+* Service connection strings
+
 :::image type="content" source="media/tutorial-connect-msi-key-vault/architecture.png" alt-text="Image showing app service using a secret stored in Key vault and managed with Managed identity to connect to Cognitive Services"::: 
 
 Benefits of managed identity integrated with Key vault include:
