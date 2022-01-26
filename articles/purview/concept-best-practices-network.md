@@ -198,6 +198,27 @@ For performance and cost optimization, we highly recommended deploying one or mo
 
 :::image type="content" source="media/concept-best-practices/network-pe-multi-region.png" alt-text="Screenshot that shows Azure Purview with private endpoints in a scenario of multiple virtual networks and multiple regions."lightbox="media/concept-best-practices/network-pe-multi-region.png":::
 
+### DNS configuration with private endpoints
+
+#### Name resolution for single Azure Purview account
+
+If you have one Azure Purview account in your tenant, and you have enabled private endpoints for account, portal and ingestion, you can use any of [the supported scenarios](catalog-private-link-name-resolution#deployment-options) for name resolution in your network.
+
+#### Name resolution for multiple Azure Purview accounts
+
+It is recommended to follow these recommendations, if your organization needs to deploy and maintain multiple Azure Purview accounts using private endpoints:
+
+1. Deploy at least one _account_ private endpoint for each Azure Purview account.
+2. Deploy at least one _ingestion_ private endpoint for each Azure Purview account.
+3. Deploy one _portal_ private endpoint for one of the Azure Purview accounts in your Azure environments. Create one DNS A record for _portal_ private endpoint to resolve `web.purview.azure.com`.
+  
+:::image type="content" source="media/concept-best-practices/network-pe-dns.png" alt-text="Screenshot that shows how to handle private endpoints and DNS records for multiple Azure Purview accounts."lightbox="media/concept-best-practices/network-pe-dns.png":::
+
+> [!NOTE]
+> _Portal_ private endpoint mainly renders static assets related to Azure Purview Studio, thus, it is independent of Azure Purview account, therefore, only one _portal_ private endpoint is needed to visit all Azure Purview accounts in the Azure environment.
+You may need to deploy separate _portal_ private endpoints for each Azure Purview account in the scenarios where Azure Purview accounts are deployed in isolated network segmentations.
+> Azure Purview _portal_ is static contents for all customers without any customer information. Optionally, you can use public network to launch `web.purview.azure.com` if your end users are allowed to launch the Internet.
+
 ## Option 3: Use both private and public endpoints
 
 You might choose an option in which a subset of your data sources uses private endpoints, and at the same time, you need to scan either of the following:
