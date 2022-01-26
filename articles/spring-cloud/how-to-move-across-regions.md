@@ -169,7 +169,7 @@ After modifying the template, the new resource can be created using **Deploy a c
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the top search box, search for *Deploy a custom template*.
 
-    :::image type="content" source="media/move-across-regions/search-deploy-template.png" alt-text="Azure portal screenshot showing how to search for deploy a custom template service." lightbox="media/move-across-regions/search-deploy-template.png" border="true":::
+    :::image type="content" source="media/move-across-regions/search-deploy-template.png" alt-text="Azure portal screenshot showing search results." lightbox="media/move-across-regions/search-deploy-template.png" border="true":::
 
 1. Under **Services**, select **Deploy a custom template**.
 1. Go to the **Select a template** tab, then select **Build your own template in the editor**.
