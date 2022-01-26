@@ -10,9 +10,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Use the Redis command-line tool with Azure Cache for Redis
 
-Use the popular `redis-cli.exe` command-line tool to interact with an Azure Cache for Redis as a client. This tool is also available for use with Azure Cache for Redis.
-
-The tool is available for Windows platforms by downloading the [Redis command-line tools for Windows](https://github.com/MSOpenTech/redis/releases/).
+Use the popular `redis-cli.exe` command-line tool to interact with an Azure Cache for Redis as a client. The tool is available for Windows platforms by downloading the [Redis command-line tools for Windows](https://github.com/MSOpenTech/redis/releases/).
 
 If you want to run the command-line tool on another platform, download open-source Redis from [https://redis.io/download](https://redis.io/download).
 
