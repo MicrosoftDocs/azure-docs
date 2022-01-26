@@ -74,7 +74,7 @@ When you reassign a device to another organization, the device's data stays with
 
 Devices can self-register with your IoT Central application without first being added to the device list. In this case, IoT Central adds the device to the root organization in the hierarchy. You can then reassign the device to a different organization.
 
-Instead, you can use the CSV import feature to bulk register devices with your application and assign them to organizations. To learn more, see [Import devices](howto-manage-devices.md#import-devices).
+Instead, you can use the CSV import feature to bulk register devices with your application and assign them to organizations. To learn more, see [Import devices](howto-manage-devices-in-bulk.md#import-devices).
 
 ### Gateways
 
