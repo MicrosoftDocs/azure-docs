@@ -93,11 +93,11 @@ Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant 
  
 ## vmProfile
 ## buildVM
-Image Builder will use a "Standard_D1_v2" build VM for Gen1 images and a "Standard_D2ds_v4" build VM for Gen2 images by default. The generation is defined by the image you specify in the `source`. You can override this and may wish to do this for these reasons:
+Image Builder will use a default SKU size of "Standard_D1_v2" for Gen1 images and "Standard_D2ds_v4" for Gen2 images. The generation is defined by the image you specify in the `source`. You can override this and may wish to do this for these reasons:
 1. Performing customizations that require increased memory, CPU and handling large files (GBs).
 2. Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
 3. Require [VM isolation](../isolation.md).
-4. Customize an Image that require specific hardware, e.g. for a GPU VM, you need a GPU VM size. 
+4. Customize an image that requires specific hardware. For example, for a GPU VM, you need a GPU VM size. 
 5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](../azure-vms-no-temp-disk.yml) that don't use local temporary disks.
  
 This is optional.
@@ -179,9 +179,9 @@ To learn more, see [How to use managed identities for Azure resources on an Azur
 
 ## Properties: source
 
-The `source` section contains information about the source image that will be used by Image Builder. Image Builder currently only natively supports creating Hyper-V generation (Gen1) 1 images to the Azure Compute Gallery (SIG) or Managed Image. If you want to create Gen2 images, then you need to use a source Gen2 image, and distribute to VHD. After, you will then need to create a Managed Image from the VHD, and inject it into the SIG as a Gen2 image.
+The `source` section contains information about the source image that will be used by Image Builder. Image Builder currently only natively supports creating Hyper-V generation (Gen1) 1 images to the Azure Compute Gallery (SIG) or managed image. If you want to create Gen2 images, then you need to use a source Gen2 image, and distribute to VHD. After, you will then need to create a managed image from the VHD, and inject it into the SIG as a Gen2 image.
 
-The API requires a 'SourceType' that defines the source for the image build, currently there are three types:
+The API requires a `SourceType` that defines the source for the image build, currently there are three types:
 - PlatformImage - indicated the source image is a Marketplace image.
 - ManagedImage - use this when starting from a regular managed image.
 - SharedImageVersion - this is used when you're using an image version in an Azure Compute Gallery as the source.
@@ -210,7 +210,7 @@ The properties here are the same that are used to create VM's, using AZ CLI, run
 az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all 
 ```
 
-You can use 'latest' in the version, the version is evaluated when the image build takes place, not when the template is submitted. If you use this functionality with the Azure Compute Gallery destination, you can avoid resubmitting the template, and rerun the image build at intervals, so your images are recreated from the most recent images.
+You can use `latest` in the version, the version is evaluated when the image build takes place, not when the template is submitted. If you use this functionality with the Azure Compute Gallery destination, you can avoid resubmitting the template, and rerun the image build at intervals, so your images are recreated from the most recent images.
 
 #### Support for Market Place Plan Information
 You can also specify plan information, for example:
@@ -279,7 +279,7 @@ If you find you need more time for customizations to complete, set this to what 
 
 ## Properties: customize
 
-Image Builder supports multiple ‘customizers’. Customizers are functions that are used to customize your image, such as running scripts, or rebooting servers. 
+Image Builder supports multiple `customizers`. Customizers are functions that are used to customize your image, such as running scripts, or rebooting servers. 
 
 When using `customize`: 
 - You can use multiple customizers, but they must have a unique `name`.
@@ -498,7 +498,7 @@ Customizer properties:
 > The Windows Update customizer can fail if there are any outstanding Windows restarts, or application installations still running, typically you may see this error in the customization.log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016`. We strongly advise you consider adding in a Windows Restart, and/or allowing applications enough time to complete their installations using [sleep](/powershell/module/microsoft.powershell.utility/start-sleep) or wait commands in the inline commands or scripts before running Windows Update.
 
 ### Generalize 
-By default, Azure Image Builder will also run ‘deprovision’ code at the end of each image customization phase, to ‘generalize’ the image. Generalizing is a process where the image is set up so it can be reused to create multiple VMs. For Windows VMs, Azure Image Builder uses Sysprep. For Linux, Azure Image Builder runs ‘waagent -deprovision’. 
+By default, Azure Image Builder will also run `deprovision` code at the end of each image customization phase, to generalize the image. Generalizing is a process where the image is set up so it can be reused to create multiple VMs. For Windows VMs, Azure Image Builder uses Sysprep. For Linux, Azure Image Builder runs `waagent -deprovision`. 
 
 The commands Image Builder users to generalize may not be suitable for every situation, so Azure Image Builder will allow you to customize this command, if needed. 
 
@@ -540,7 +540,7 @@ To override the commands, use the PowerShell or Shell script provisioners to cre
 * Windows: c:\DeprovisioningScript.ps1
 * Linux: /tmp/DeprovisioningScript.sh
 
-Image Builder will read these commands, these are written out to the AIB logs, ‘customization.log’. See [troubleshooting](image-builder-troubleshoot.md#customization-log) on how to collect logs.
+Image Builder will read these commands, these are written out to the AIB logs, `customization.log`. See [troubleshooting](image-builder-troubleshoot.md#customization-log) on how to collect logs.
  
 ## Properties: distribute
 
@@ -610,7 +610,7 @@ Distribute properties:
 - **imageId** – Resource ID of the destination image, expected format: /subscriptions/\<subscriptionId>/resourceGroups/\<destinationResourceGroupName>/providers/Microsoft.Compute/images/\<imageName>
 - **location** - location of the managed image.  
 - **runOutputName** – unique name for identifying the distribution.  
-- **artifactTags** - Optional user specified key value pair tags.
+- **artifactTags** - Optional user specified key\value tags.
  
  
 > [!NOTE]
@@ -653,7 +653,7 @@ Distribute properties for galleries:
     `/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version - for example: 1.1.1>`
 
 - **runOutputName** – unique name for identifying the distribution.  
-- **artifactTags** - Optional user specified key value pair tags.
+- **artifactTags** - Optional user specified key\value tags.
 - **replicationRegions** - Array of regions for replication. One of the regions must be the region where the Gallery is deployed. Adding regions will mean an increase of build time, as the build doesn't complete until the replication has completed.
 - **excludeFromLatest** (optional) This allows you to mark the image version you create not be used as the latest version in the gallery definition, the default is 'false'.
 - **storageAccountType** (optional) AIB supports specifying these types of storage for the image version that is to be created:
