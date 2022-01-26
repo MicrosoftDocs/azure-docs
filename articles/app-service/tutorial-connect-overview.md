@@ -9,7 +9,7 @@ ms.date: 01/26/2022
 
 Your app service may need to connect to other Azure services such as a database, storage, or another app. This overview recommends the more secure method for connecting.
 
-|Feature|When to use|
+|Connection method|When to use|
 |--|--|
 |[App service managed identity](#connect-with-managed-identity)|Dependent service [supports managed identity](/azure/active-directory/managed-identities-azure-resources/managed-identities-status)|
 |[Key vault managed identity](#connect-with-secrets-stored-in-key-vault)|Dependent service doesn't support managed identity|
