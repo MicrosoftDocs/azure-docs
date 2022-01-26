@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 01/21/2022
+ms.date: 01/25/2022
 ms.author: phjensen
 ---
 
@@ -28,6 +28,19 @@ The 4 new preview features provided with AzAcSnap v5.1 are:
 - Backint Co-existence
 - Azure Managed Disk
 - RunBefore and RunAfter capability
+
+## Feedback
+
+Feedback on AzAcSnap, including this preview, can be provided [online](https://aka.ms/azacsnap-feedback).
+
+## Getting the Preview snapshot tools
+
+Get the most recent version of the Preview [AzAcSnap Preview Installer](https://aka.ms/azacsnap-preview-installer) from Microsoft.
+
+The self-installation file has an associated [MD5 checksum file](https://aka.ms/azacsnap-preview-installer-checksum) to check the download integrity.
+
+Once the installer is downloaded, then follow the steps in the main [get started](azacsnap-get-started.md) documentation to install before returning to this document 
+for details on using the preview features.
 
 ## Oracle Database
 
