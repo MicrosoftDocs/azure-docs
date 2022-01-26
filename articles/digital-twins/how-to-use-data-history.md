@@ -55,17 +55,21 @@ $clustername = "<name-for-your-cluster>"
 $databasename = "<name-for-your-database>"
 ```
 
-## Create an Azure Digital Twins instance
+## Create an Azure Digital Twins instance with a managed identity
 
-If you already have an Azure Digital Twins instance, ensure that you have enabled a [system-managed identity](how-to-route-with-managed-identity.md#add-a-system-managed-identity-to-an-existing-instance).
+If you already have an Azure Digital Twins instance, ensure that you have enabled a [system-managed identity](how-to-route-with-managed-identity.md#add-a-system-managed-identity-to-an-existing-instance) for it.
 
-If you don't have an Azure Digital Twins instance, use the following command to create a new instance with a system-managed identity. The command makes use of three local variables (`$dtname`, `$resourcegroup`, and `$location`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
+If you don't have an Azure Digital Twins instance, set one up using the instructions in this section.
+
+# [CLI](#tab/cli) 
+
+Use the following command to create a **new instance with a system-managed identity**. The command uses three local variables (`$dtname`, `$resourcegroup`, and `$location`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
 
 ```azurecli-interactive
 az dt create -n $dtname -g $resourcegroup -l $location --assign-identity
 ```
 
-Next, use the following command to grant yourself the **Azure Digital Twins Data Owner** role on the instance. The command has one placeholder, `<owneruser@microsoft.com>`, that you should replace with your own Azure account information, and makes use of a local variable (`$dtname`) that was created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
+Next, use the following command to grant yourself the **Azure Digital Twins Data Owner** role on the instance. The command has one placeholder, `<owneruser@microsoft.com>`, that you should replace with your own Azure account information, and uses a local variable (`$dtname`) that was created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
 
 ```azurecli-interactive
 az dt role-assignment create -n $dtname --assignee "<owneruser@microsoft.com>" --role "Azure Digital Twins Data Owner"
@@ -73,6 +77,14 @@ az dt role-assignment create -n $dtname --assignee "<owneruser@microsoft.com>" -
 
 >[!NOTE]
 >It may take up to five minutes for this RBAC change to apply. 
+
+# [Portal](#tab/portal)
+
+Follow the instructions in [Set up an Azure Digital Twins instance and authentication](how-to-set-up-instance-portal.md) to create an **instance**, making sure to enable a **system-managed identity** in the [Advanced](how-to-set-up-instance-portal.md#additional-setup-options) tab during setup. Then, continue through the article's instructions to set up **user access permissions** so that you have the Azure Digital Twins Data Owner role on the instance.
+
+Remember the name you give to your instance so you can use it later.
+
+---
 
 ## Create an Event Hubs namespace and Event Hub
 
@@ -82,15 +94,15 @@ For more information about Event Hubs and their capabilities, see the [Event Hub
 
 # [CLI](#tab/cli) 
 
-Use the following CLI commands to create the required resources. The commands make use of several local variables (`$location`, `$resourcegroup`, `$eventhubnamespace`, and `$eventhub`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
+Use the following CLI commands to create the required resources. The commands use several local variables (`$location`, `$resourcegroup`, `$eventhubnamespace`, and `$eventhub`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
 
-Create an Event Hubs namespace:
+Create an **Event Hubs namespace**:
 
 ```azurecli-interactive
 az eventhubs namespace create --name $eventhubnamespace --resource-group $resourcegroup -l $location
 ```
 
-Create an event hub in your namespace (uses the name of your namespace from above):
+Create an **event hub** in your namespace:
 
 ```azurecli-interactive
 az eventhubs eventhub create --name $eventhub --resource-group $resourcegroup --namespace-name $eventhubnamespace
@@ -110,21 +122,21 @@ Next, create a Kusto (Azure Data Explorer) cluster and database to receive the d
 
 # [CLI](#tab/cli) 
 
-Use the following CLI commands to create the required resources. The commands make use of several local variables (`$location`, `$resourcegroup`, `$clustername`, and `$databasename`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
+Use the following CLI commands to create the required resources. The commands use several local variables (`$location`, `$resourcegroup`, `$clustername`, and `$databasename`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
 
-Start by adding the Kusto extension to your CLI session, if you don't have it already.
+Start by adding the **Kusto extension** to your CLI session, if you don't have it already.
 
 ```azurecli-interactive
 az extension add -n kusto
 ```
 
-Next, create the Kusto cluster. The command below requires 5-10 minutes to execute, and will create an E2a v4 cluster in the developer tier. This type of cluster has a single node for the engine and data-management cluster, and is applicable for development and test scenarios. For more information about the tiers in Azure Data Explorer and how to select the right options for your production workload, see [Select the correct compute SKU for your Azure Data Explorer cluster](/azure/data-explorer/manage-cluster-choose-sku) and [Azure Data Explorer Pricing](https://azure.microsoft.com/pricing/details/data-explorer).
+Next, create the **Kusto cluster**. The command below requires 5-10 minutes to execute, and will create an E2a v4 cluster in the developer tier. This type of cluster has a single node for the engine and data-management cluster, and is applicable for development and test scenarios. For more information about the tiers in Azure Data Explorer and how to select the right options for your production workload, see [Select the correct compute SKU for your Azure Data Explorer cluster](/azure/data-explorer/manage-cluster-choose-sku) and [Azure Data Explorer Pricing](https://azure.microsoft.com/pricing/details/data-explorer).
 
 ```azurecli-interactive
 az kusto cluster create --cluster-name $clustername --sku name="Dev(No SLA)_Standard_E2a_v4" tier="Basic" --resource-group $resourcegroup --location $location --type SystemAssigned
 ```
 
-Create a database in your new Kusto cluster (using the cluster name from above and in the same location). This database will be used to store contextualized Azure Digital Twins data. The command below creates a database with a soft delete period of 365 days, and a hot cache period of 31 days. For more information about the options available for this command, see [az kusto database create](/cli/azure/kusto/database?view=azure-cli-latest&preserve-view=true#az_kusto_database_create).
+Create a **database** in your new Kusto cluster (using the cluster name from above and in the same location). This database will be used to store contextualized Azure Digital Twins data. The command below creates a database with a soft delete period of 365 days, and a hot cache period of 31 days. For more information about the options available for this command, see [az kusto database create](/cli/azure/kusto/database?view=azure-cli-latest&preserve-view=true#az_kusto_database_create).
 
 ```azurecli-interactive
 az kusto database create --cluster-name $clustername --database-name $databasename --resource-group $resourcegroup --read-write-database soft-delete-period=P365D hot-cache-period=P31D location=$location
@@ -138,14 +150,14 @@ Remember the names you give to these resources so you can use them later.
 
 ---
 
-## Create a data history connection
+## Set up data history connection
 
 Now that you've created the required resources, use the command below to create a data history connection between the Azure Digital Twins instance, the Event Hub, and the Azure Data Explorer cluster. 
 
 # [CLI](#tab/cli) 
 
 Use the following command to create a data history connection. By default, this command assumes all resources are in the same resource group as the Azure Digital Twins instance. You can also specify resources that are in different resource groups using the parameter options for this command, which can be displayed by running `az dt data-history create adx -h`.
-The command makes use of several local variables (`$connectionname`, `$dtname`, `$clustername`, `$databasename`, `$eventhub`, and `$eventhubnamespace`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
+The command uses several local variables (`$connectionname`, `$dtname`, `$clustername`, `$databasename`, `$eventhub`, and `$eventhubnamespace`) that were created earlier in [Set up local variables for CLI session](#set-up-local-variables-for-cli-session).
 
 ```azurecli-interactive
 az dt data-history create adx --cn $connectionname --dt-name $dtname --adx-cluster-name $clustername --adx-database-name $databasename --eventhub $eventhub --eventhub-namespace $eventhubnamespace
@@ -205,7 +217,7 @@ After setting up the data history connection, you can optionally remove the role
 >[!NOTE]
 >Once the connection is set up, the default settings on your Azure Data Explorer cluster will result in an ingestion latency of approximately 10 minutes or less. You can reduce this latency by enabling [streaming ingestion](/azure/data-explorer/ingest-data-streaming) (less than 10 seconds of latency) or an [ingestion batching policy](/azure/data-explorer/kusto/management/batchingpolicy). For more information about Azure Data Explorer ingestion latency, see [End-to-end ingestion latency](concepts-data-history.md#end-to-end-ingestion-latency).
 
-## Create a twin graph and send telemetry to it
+## Verify with a sample twin graph
 
 Now that your data history connection is set up, you can test it with data from your digital twins.
 
@@ -231,7 +243,7 @@ To verify that data is flowing through the data history pipeline, navigate to th
 
 :::image type="content"  source="media/how-to-use-data-history/simulated-environment-portal.png" alt-text="Screenshot of the Azure portal showing an Event Hubs namespace for the simulated environment." lightbox="media/how-to-use-data-history/simulated-environment-portal.png":::
 
-## View the historized twin updates in Azure Data Explorer
+### View the historized twin updates in Azure Data Explorer
 
 In this section, you'll view the historized twin updates being stored in Azure Data Explorer.
 
