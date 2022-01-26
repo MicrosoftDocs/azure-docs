@@ -220,16 +220,16 @@ Yes. You must have a SQL Database account to host the hub database.
 
 Not directly. You can sync between SQL Server databases indirectly, however, by creating a Hub database in Azure, and then adding the on-premises databases to the sync group.
 
-### Can I use Data Sync to sync between databases in SQL Database that belong to different subscriptions
+### Can I configure Data Sync to sync between databases in Azure SQL Database that belong to different subscriptions
 
-Yes. You can sync between databases that belong to resource groups owned by different subscriptions, even if the subscriptions belong to different tenants.
+Yes. You can configure sync between databases that belong to resource groups owned by different subscriptions, even if the subscriptions belong to different tenants.
 
-- If the subscriptions belong to the same tenant, and you have permission to all subscriptions, you can configure the sync group in the Azure portal.
+- If the subscriptions belong to the same tenant and you have permission to all subscriptions, you can configure the sync group in the Azure portal.
 - Otherwise, you have to use PowerShell to add the sync members.
 
-### Can I use Data Sync to sync between databases in SQL Database that belong to different clouds (like Azure Public Cloud and Azure China 21Vianet)
+### Can I setup Data Sync to sync between databases in SQL Database that belong to different clouds (like Azure Public Cloud and Azure China 21Vianet)
 
-Yes. You can sync between databases that belong to different clouds. You have to use PowerShell to add the sync members that belong to the different subscriptions.
+Yes. You can setup sync between databases that belong to different clouds. You have to use PowerShell to add the sync members that belong to the different subscriptions.
 
 ### Can I use Data Sync to seed data from my production database to an empty database, and then sync them
 
