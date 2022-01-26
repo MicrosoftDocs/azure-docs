@@ -36,11 +36,11 @@ This article provides a list of the rules used to assess the feasibility of migr
  | FileStream | Database | Issue | [Filestream and Filetable are not supported in Azure SQL Managed Instance.](#FileStream) | 
  | LinkedServerWithNonSQLProvider | Database | Issue | [Linked server with non-SQL Server Provider isn't supported in Azure SQL Managed Instance.](#LinkedServerWithNonSQLProvider) | 
  | MergeJob | Instance | Warning | [Merge job step isn't supported in Azure SQL Managed Instance.](#MergeJob) | 
- | MIDatabaseSize | Database | Issue | [Azure SQL Managed Instance does not support database size greater than 8 TB.](#MIDatabaseSize) | 
+ | MIDatabaseSize | Database | Issue | [Azure SQL Managed Instance does not support database size greater than 8 TB.](#MIDatabaseSize<) | 
  | MIHeterogeneousMSDTCTransactSQL | Database | Issue | [BEGIN DISTRIBUTED TRANSACTION with non-SQL Server remote server isn't supported in Azure SQL Managed Instance.](#MIHeterogeneousMSDTCTransactSQL) | 
  | MIHomogeneousMSDTCTransactSQL | Database | Issue | [BEGIN DISTRIBUTED TRANSACTION is supported across multiple servers for Azure SQL Managed Instance.](#MIHomogeneousMSDTCTransactSQL) | 
- | MIInstanceSize | Instance | Warning | [Maximum instance storage size in Azure SQL Managed Instance cannot be greater than 8 TB.](#MIInstanceSize) | 
- | MultipleLogFiles | Database | Issue | [Azure SQL Managed Instance does not support databases with multiple log files.](#MultipleLogFiles) | 
+ | MIInstanceSize | Instance | Warning | [Maximum instance storage size in Azure SQL Managed Instance cannot be greater than 8 TB.](#MIInstanceSize<) | 
+ | MultipleLogFiles | Database | Issue | [Azure SQL Managed Instance does not support databases with multiple log files.](#MultipleLogFiles<) | 
  | NextColumn | Database | Issue | [Tables and Columns named NEXT will lead to an error In Azure SQL Managed Instance.](#NextColumn) | 
  | NonANSILeftOuterJoinSyntax | Database | Warning | [Non-ANSI style left outer join is no longer supported and has been removed.](#NonANSILeftOuterJoinSyntax) | 
  | NonANSIRightOuterJoinSyntax | Database | Warning | [Non-ANSI style right outer join is no longer supported and has been removed.](#NonANSIRightOuterJoinSyntax) | 
@@ -302,7 +302,7 @@ Review impacted objects section in Azure Migrate to see all jobs using Merge job
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
 
-## MI database size<a id="MIDatabaseSize"></a>
+## MI database size<a id="MIDatabaseSize<"></a>
 
 **Title: Azure SQL Managed Instance does not support database size greater than 8 TB.**   
 **Category**: Issue   
@@ -318,7 +318,7 @@ More information: [Hardware generation characteristics of Azure SQL Managed Inst
 
 
 
-## MI instance size<a id="MIInstanceSize"></a>
+## MI instance size<a id="MIInstanceSize<"></a>
 
 **Title: Maximum instance storage size in Azure SQL Managed Instance cannot be greater than 8 TB.**   
 **Category**: Warning   
@@ -333,7 +333,7 @@ Consider migrating the databases to different Azure SQL Managed Instances or to 
 More information: [Hardware generation characteristics of Azure SQL Managed Instance ](../../managed-instance/resource-limits.md#hardware-generation-characteristics)
 
 
-## Multiple log files<a id="MultipleLogFiles"></a>
+## Multiple log files<a id="MultipleLogFiles<"></a>
 
 **Title: Azure SQL Managed Instance does not support multiple log files.**   
 **Category**: Issue   
