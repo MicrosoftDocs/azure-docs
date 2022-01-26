@@ -32,27 +32,29 @@ items:
         - name: Register a client application
           expanded: true
           items:
-           - name: Register a client application using the portal
+           - name: Register application using the portal
              href: register-application.md
-           - name: Register a client application using scripts
+           - name: Register application using scripts
              href: register-application-cli-rest.md  
         - name: Grant access permissions
           expanded: true
           items:
-           - name: Grant access permissions using the portal
+           - name: Grant permissions using the portal
              href: configure-azure-rbac.md
-           - name: Grant access permissions using CLI and REST API
+           - name: Grant permissions using scripts
              href: configure-azure-rbac-using-scripts.md
     - name: Get an Access Token
       href: get-access-token.md
-    - name: Access using Postman
-      href: use-postman.md  
-    - name: Access using cURL
-      href: using-curl.md
-    - name: Access using REST Client
-      href: using-rest-client.md
-    - name: Logging
-      href: logging.md
+    - name: Access Healthcare APIs
+      href: access-healthcare-apis.md  
+    - name: Configure settings
+      expanded: true
+      items:
+    - name: Diagnostic logging
+      expanded: true
+      items:
+      - name: Enable diagnostic logging in Healthcare APIs
+        href: logging.md
 - name: Concepts
   expanded: true
   items:
@@ -61,7 +63,7 @@ items:
 - name: Resources
   expanded: true
   items:
-  - name: FAQs
+  - name: FAQs - Healthcare APIs
     href: healthcare-apis-faqs.md
   - name: GitHub projects
     href: github-projects.md

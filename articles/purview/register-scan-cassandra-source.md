@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 01/20/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -18,7 +18,7 @@ This article outlines how to register Cassandra, and how to authenticate and int
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](how-to-lineage-cassandra.md)|
+| [Yes](#register) | [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage)|
 
 The supported Cassandra server versions are 3.*x* or 4.*x*.
 
@@ -32,6 +32,8 @@ When scanning Cassandra source, Azure Purview supports:
     - Materialized views including the columns
 
 - Fetching static lineage on assets relationships among tables and materialized views.
+
+When setting up scan, you can choose to scan an entire Cassandra instance, or scope the scan to a subset of keyspaces matching the given name(s) or name pattern(s).
 
 ## Prerequisites
 
@@ -138,6 +140,14 @@ To create and run a new scan:
 1. Review your scan, and then select **Save and Run**.
 
 [!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
+
+## Lineage
+
+After scanning your Cassandra source, you can [browse data catalog](how-to-browse-catalog.md) or [search data catalog](how-to-search-catalog.md) to view the asset details. 
+
+Go to the asset -> lineage tab, you can see the asset relationship when applicable. Refer to the [supported capabilities](#supported-capabilities) section on the supported Cassandra lineage scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
+
+:::image type="content" source="media/register-scan-cassandra-source/lineage.png" alt-text="Cassandra lineage view" border="true":::
 
 ## Next steps
 

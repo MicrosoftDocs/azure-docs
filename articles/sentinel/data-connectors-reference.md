@@ -1446,12 +1446,12 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 | **Supported by** | Microsoft |
 | | |
 
+For more information, see:
 
-For more information, see [Insecure protocols workbook setup](./get-visibility.md#use-built-in-workbooks).
-
-See also: [**Windows Security Events via AMA**](#windows-security-events-via-ama) connector based on Azure Monitor Agent (AMA)
-
-[Configure the **Security events / Windows Security Events connector** for **anomalous RDP login detection**](#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection).
+- [Windows security event sets that can be sent to Microsoft Sentinel](windows-security-event-id-reference.md)
+- [Insecure protocols workbook setup](./get-visibility.md#use-built-in-workbooks)
+- [**Windows Security Events via AMA**](#windows-security-events-via-ama) connector based on Azure Monitor Agent (AMA)
+- [Configure the **Security events / Windows Security Events connector** for **anomalous RDP login detection**](#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection).
 
 ## SentinelOne (Preview)
 

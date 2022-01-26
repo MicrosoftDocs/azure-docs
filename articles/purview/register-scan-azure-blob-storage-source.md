@@ -5,7 +5,7 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 01/24/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -26,8 +26,6 @@ For file types such as csv, tsv, psv, ssv, the schema is extracted when the foll
 * First row values are non-empty
 * First row values are unique
 * First row values are not a date or a number
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWPdqG]
 
 ## Prerequisites
 
@@ -285,10 +283,11 @@ Scans can be managed or run again on completion
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-full-inc-scan.png" alt-text="full or incremental scan":::
 
 ## Access policy
-[!INCLUDE [supported regions](./includes/storage-access-policy-regions.md)]
-[!INCLUDE [access policy enablement storage](./includes/storage-access-policy-enable.md)]
+[!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
 
-Follow this configuration guide to [enable access policies on an Azure Storage account](./how-to-access-policies-storage.md)
+Follow these configuration guides to:
+- [Configure from Azure Purview data owner access policies on an Azure Storage account](./how-to-access-policies-storage.md)
+- [Configure from Azure Purview data owner access policies on all data sources in a subscription or a resource group](./tutorial-access-policies-resource-group.md)
 
 ## Next steps
 

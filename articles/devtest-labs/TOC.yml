@@ -15,9 +15,9 @@
     href: quickstarts/create-lab-rest.md
 - name: Tutorials
   items:
-  - name: Set up a lab
+  - name: Set up a lab (admins)
     href: tutorial-create-custom-lab.md
-  - name: Access a lab
+  - name: Access a lab (students)
     href: tutorial-use-custom-lab.md
 - name: Samples
   items:
@@ -49,23 +49,23 @@
       href: scripts/stop-delete-virtual-machine-in-lab-cli.md
 - name: Concepts
   items:
-  - name: DevTest Labs concepts
+  - name: Key concepts
     href: devtest-lab-concepts.md
-  - name: Best practices for distributed and collaborative development
+  - name: Best practices
     href: best-practices-distributive-collaborative-development-environment.md
   - name: Integration with Azure DevOps
     href: devtest-lab-dev-ops.md
   - name: Scenarios
     items:
-    - name: Popular scenarios for using DevTest Labs
+    - name: Popular scenarios
       href: devtest-lab-guidance-get-started.md
-    - name: Use labs for developers
+    - name: Labs for developers
       href: devtest-lab-developer-lab.md
-    - name: Use labs for test environments
+    - name: Labs for test environments
       href: devtest-lab-test-env.md
-    - name: Use labs for training
+    - name: Labs for training
       href: devtest-lab-training-lab.md
-    - name: Scenarios for using claimable VMs
+    - name: Claimable VMs
       href: devtest-lab-use-claim-capabilities.md
   - name: Security
     items:
@@ -258,9 +258,9 @@
       href: deliver-proof-concept.md
     - name: Scale up your DevTest Labs deployment
       href: devtest-lab-guidance-scale.md
-    - name: Orchestrate the implementation of DevTest Labs
+    - name: Orchestrate the implementation
       href: devtest-lab-guidance-orchestrate-implementation.md
-    - name: Governance of DevTest Labs infrastructure
+    - name: Governance
       items:
       - name: Resources
         href: devtest-lab-guidance-governance-resources.md
@@ -304,11 +304,7 @@
     href: https://azure.microsoft.com/updates/?product=devtest-lab
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
-  - name: Microsoft Q&A question page
+  - name: Microsoft Q&A page
     href: /answers/topics/azure-devtestlabs.html
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-devtest-labs
-  - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
   - name: Frequently asked questions
     href: devtest-lab-faq.yml
