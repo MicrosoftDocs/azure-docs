@@ -23,7 +23,7 @@ Benefits of managed identity:
 
 Learn which [services](/azure/active-directory/managed-identities-azure-resources/managed-identities-status) are supported with managed identity and what [operations you can perform](/azure/active-directory/managed-identities-azure-resources/overview).
 
-:::image type="content" source="media/service-to-service-managed-identity.png" alt-text="Image showing authentication flow from one Azure service to another Azure service.":::
+:::image type="content" source="media/tutorial-connect-overview/service-to-service-managed-identity.png" alt-text="Image showing authentication flow from one Azure service to another Azure service.":::
 
 ## Connect with secrets stored in Key Vault
 
@@ -40,6 +40,6 @@ Benefits of managed identity integrated with Key vault include:
 ## Next steps
 
 * Learn how to use App service managed identity with:
-    * [SQL server](tutorial-connect-msi-sql-database?tabs=windowsclient%2Cdotnet)
-    * [Azure storage](scenario-secure-app-access-storage?tabs=azure-portal%2Cprogramming-language-csharp)
-    * [Microsoft Graph](scenario-secure-app-access-microsoft-graph-as-app?tabs=azure-powershell%2Cprogramming-language-csharp)
+    * [SQL server](tutorial-connect-msi-sql-database.md?tabs=windowsclient%2Cdotnet)
+    * [Azure storage](scenario-secure-app-access-storage.md?tabs=azure-portal%2Cprogramming-language-csharp)
+    * [Microsoft Graph](scenario-secure-app-access-microsoft-graph-as-app.md?tabs=azure-powershell%2Cprogramming-language-csharp)
