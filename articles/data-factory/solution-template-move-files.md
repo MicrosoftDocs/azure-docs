@@ -44,11 +44,11 @@ The template defines four parameters:
 1. Go to the **Move files** template. Select existing connection or create a **New** connection to your source file store where you want to move files from. Be aware that **DataSource_Folder** and **DataSource_File** are reference to the same connection of your source file store.
 
     
-    :::image type="content" source="media/solution-template-move-files/move-files1-small.png" alt-text="Create a new connection to the source" lightbox="media/solution-template-move-files/move-files1.png":::
+    :::image type="content" source="media/solution-template-move-files/move-files-1-small.png" alt-text="Create a new connection to the source" lightbox="media/solution-template-move-files/move-files-1.png":::
 
 2. Select existing connection or create a **New** connection to your destination file store where you want to move files to.
 
-    :::image type="content" source="media/solution-template-move-files/move-files2-small.png" alt-text="Create a new connection to the destination" lightbox="media/solution-template-move-files/move-files2.png":::
+    :::image type="content" source="media/solution-template-move-files/move-files-2-small.png" alt-text="Create a new connection to the destination" lightbox="media/solution-template-move-files/move-files-2.png":::
 
 3. Select **Use this template** tab.
 	
