@@ -294,8 +294,6 @@
       href: test-throttle-service-limits.md
     - name: Run automated integration tests as a user
       href: test-automate-integration-testing.md
-    - name: Publish your app to the app gallery
-      href: v2-howto-app-gallery-listing.md
   - name: Work with the Microsoft Authentication Library
     displayName: MSAL
     items:
