@@ -999,8 +999,9 @@ cat blob-credentials.saskey
 portalGeneratedSas="https://<targetstorageaccount>.blob.core.windows.net/<blob-store>?sp=racwl&st=2021-06-10T21:10:38Z&se=2021-06-11T05:10:38Z&spr=https&sv=2020-02-10&sr=c&sig=<key-material>"
 ```
 
-
 ## Next steps
 
-- [Get snapshot details](azacsnap-cmd-ref-details.md)
-- [Delete snapshots](azacsnap-cmd-ref-delete.md)
+- [Get started](azacsnap-get-started.md)
+- [Test AzAcSnap](azacsnap-cmd-ref-test.md)
+- [Back up using AzAcSnap](azacsnap-cmd-ref-backup.md)
+- 
