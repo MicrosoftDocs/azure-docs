@@ -19134,6 +19134,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/lab-services/class-type-ethical-hacking-virtualbox.md",
+      "redirect_url": "/azure/lab-services/class-types",
+      "redirect_document_id": true
+    },    
+    {
       "source_path_from_root": "/articles/lab-services/classroom-labs/class-type-jupyter-notebook.md",
       "redirect_url": "/azure/lab-services/class-type-jupyter-notebook",
       "redirect_document_id": true
