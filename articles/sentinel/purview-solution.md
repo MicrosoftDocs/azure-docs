@@ -7,7 +7,7 @@ ms.date: 12/20/2021
 ms.author: bagol
 ---
 
-# Tutorial: Integrate Microsoft Sentinel and Azure Purview
+# Tutorial: Integrate Microsoft Sentinel and Azure Purview (Public Preview)
 
 > [!IMPORTANT]
 >

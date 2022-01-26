@@ -29,9 +29,9 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## February 2022
 
-[View Azure Purview data in Microsoft Sentinel](#view-azure-purview-data-in-microsoft-sentinel)
+- [View Azure Purview data in Microsoft Sentinel](#view-azure-purview-data-in-microsoft-sentinel-public-preview)
 
-### View Azure Purview data in Microsoft Sentinel
+### View Azure Purview data in Microsoft Sentinel (Public Preview)
 
 Microsoft Sentinel now integrates directly with Azure Purview by providing an out-of-the-box solution, with the Azure Purview data connector, related analytics rule templates, and a workbook that you can use to visualize sensitivity data detected by Azure Purview, together with other data ingested in Microsoft Sentinel.
 
