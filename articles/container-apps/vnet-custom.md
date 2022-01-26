@@ -40,7 +40,7 @@ You can deploy your Container Apps environment with an internet-accessible endpo
 
 ### External
 
-Container Apps environments deployed as external resources are available for public requests. External environments are deployed with a virtual IP on an external, public facing IP address. (make sure to remove app service environment)
+Container Apps environments deployed as external resources are available for public requests. External environments are deployed with a virtual IP on an external, public facing IP address.
 
 ### Internal
 
@@ -335,7 +335,7 @@ az network private-dns record-set a add-record `
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
+If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the **my-container-apps** resource group.
 
 ::: zone pivot="azure-cli"
 
