@@ -191,7 +191,7 @@ After you modify the template, you can use the following command to deploy the c
 
 ```bash
 az login
-az account set -s <resource-subscription-id>
+az account set --subscription <resource-subscription-id>
 az deployment group create \
   --name <custom-deployment-name> \
   --resource-group <resource-group> \
