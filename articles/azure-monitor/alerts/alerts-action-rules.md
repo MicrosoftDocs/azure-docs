@@ -127,7 +127,7 @@ In the fourth tab (**Details**), you give this rule a name, pick where it will b
 > [!NOTE]
 > The Azure CLI is in the process of being updated to leverage the GA API of alert processing rules. Until then, you can use existing CLI capabilities under the **action rule** command to create alert processing rules. Meanwhile, the existing CLI does not support some of the newer alert processing rules features.
 
-You can create alert processing rules with the Azure CLI using the [az monitor action-rule create](/cli/azure/monitor/action-rule#az_monitor_action_rule_create) command.  The `az monitor action-rule` reference is just one of many [Azure CLI references for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
+You can create alert processing rules with the Azure CLI using the [az monitor action-rule create](/cli/azure/monitor/action-rule#az-monitor-action-rule-create) command.  The `az monitor action-rule` reference is just one of many [Azure CLI references for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
 
 ### Prepare your environment
 
@@ -141,7 +141,7 @@ You can create alert processing rules with the Azure CLI using the [az monitor a
 
 1. Sign in.
 
-   If you're using a local install of the CLI, sign in using the [az login](/cli/azure/reference-index#az_login) command.  Follow the steps displayed in your terminal to complete the authentication process.
+   If you're using a local install of the CLI, sign in using the [az login](/cli/azure/reference-index#az-login) command.  Follow the steps displayed in your terminal to complete the authentication process.
 
     ```azurecli
     az login
@@ -163,7 +163,7 @@ You can create alert processing rules with the Azure CLI using the [az monitor a
 
 ### Create an alert processing rule with the Azure CLI
 
-See the Azure CLI reference content for [az monitor action-rule create](/cli/azure/monitor/action-rule#az_monitor_action_rule_create) to learn about required and optional parameters.
+See the Azure CLI reference content for [az monitor action-rule create](/cli/azure/monitor/action-rule#az-monitor-action-rule-create) to learn about required and optional parameters.
 
 Create an alert processing rule to suppress notifications in a resource group.
 
