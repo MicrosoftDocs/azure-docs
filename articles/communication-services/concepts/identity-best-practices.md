@@ -17,12 +17,12 @@ This article provides information about best practices related to managing [User
 
 ## Communication Token Credential
 
-Communication Token Credential (Credential) is an authentication primitive that wraps User Access Tokens. It is used to authenticate users in Communication Services, such as Chat or Calling. Additionally, it provides built-in token refreshing functionality for the convenience of the developer.
+Communication Token Credential (Credential) is an authentication primitive that wraps User Access Tokens. It's used to authenticate users in Communication Services, such as Chat or Calling. Additionally, it provides built-in token refreshing functionality for the convenience of the developer.
 
 ## Initialization
 
 Depending on your scenario, you may want to initialize the Credential with a [static token](#static-token) or a [callback function](#callback-function) returning tokens.
-The tokens supplied to the Credential either through the constructor or via the token refresher callback can be obtained using the Azure Communication Identity API.
+The tokens that are supplied to the Credential through either of the approaches can be obtained using the Azure Communication Identity API.
 
 ### Static token
 
@@ -34,7 +34,7 @@ const tokenCredential = new AzureCommunicationTokenCredential("<user_access_toke
 
 ### Callback function
 
-For long-lived clients, initialize the Credential with a callback function that ensures a continuous authentication state during communications. This approach is suitable for example, for long Calling sessions.
+For long-lived clients, initialize the Credential with a callback function that ensures a continuous authentication state during communications. This approach is suitable, for example, for long Calling sessions.
 
 ```javascript
 const tokenCredential = new AzureCommunicationTokenCredential({
@@ -165,7 +165,7 @@ const tokenCredential = new AzureCommunicationTokenCredential({
 
 ## Proactive token refreshing
 
-Use proactive refreshing to eliminate any possible delay during the on-demand fetching of the token. The proactive refreshing will take care of refreshing the token in the background at the end of the current token's lifetime. When the token is about to expire, 10 minutes before the end of its validity, the Credential will start attempting to retrieve the token. It will trigger the refresher callback with increasing frequency until it succeeds and retrieves a token with long enough validity.
+Use proactive refreshing to eliminate any possible delay during the on-demand fetching of the token. The proactive refreshing will refresh the token in the background at the end of its lifetime. When the token is about to expire, 10 minutes before the end of its validity, the Credential will start attempting to retrieve the token. It will trigger the refresher callback with increasing frequency until it succeeds and retrieves a token with long enough validity.
 
 ```javascript
 const tokenCredential = new AzureCommunicationTokenCredential({
@@ -205,7 +205,17 @@ const refreshAadToken = async function (abortSignal, username) {
 }
 ```
 
----
+# [C#](#tab/csharp)
+
+TODO
+
+# [Java](#tab/java)
+
+TODO
+
+# [Python](#tab/python)
+
+TODO
 
 1. Increase the MSAL's token renewal window to more than 10 minutes
 
@@ -245,7 +255,20 @@ leaveChatBtn.addEventListener('click', function() {
 
 ### Clean up resources
 
-Communication Services applications should dispose the Credential instance when it is no longer needed. Disposing the credential is also the recommended way of canceling scheduled refresh actions when the proactive refreshing is enabled.
+Communication Services applications should dispose the Credential instance when it's no longer needed. Disposing the credential is also the recommended way of canceling scheduled refresh actions when the proactive refreshing is enabled.
+
+# [JavaScript](#tab/javascript)
+
+Call the `.dispose()` function.
+
+```javascript
+const tokenCredential = new AzureCommunicationTokenCredential({
+    tokenRefresher: async (abortSignal) => fetchTokenFromMyServerForUser(abortSignal, "<user_name>"),
+    refreshProactively: true
+});
+// ...
+tokenCredential.dispose()
+```
 
 # [C#](#tab/csharp)
 
@@ -259,19 +282,6 @@ using (var tokenCredential = new CommunicationTokenCredential(new CommunicationT
             // ...
         }
 
-```
-
-# [JavaScript](#tab/javascript)
-
-Call the `.dispose()` function.
-
-```javascript
-const tokenCredential = new AzureCommunicationTokenCredential({
-    tokenRefresher: async (abortSignal) => fetchTokenFromMyServerForUser(abortSignal, "<user_name>"),
-    refreshProactively: true
-});
-// ...
-tokenCredential.dispose()
 ```
 
 # [Java](#tab/java)
