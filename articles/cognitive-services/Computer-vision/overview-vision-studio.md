@@ -1,3 +1,20 @@
+---
+title: What is Vision Studio?
+titleSuffix: Azure Cognitive Services
+description: Learn how to set up and use Vision Studio to test features of Azure Computer Vision
+author: PatrickFarley
+manager: nitinme
+
+ms.service: cognitive-services
+ms.subservice: computer-vision
+ms.topic: overview
+ms.date: 01/26/2022
+ms.author: pafarley
+ms.custom: cog-serv-seo-aug-2020
+
+---
+
+
 # Quickstart: Get started with Vision Studio
 
 [Vision Studio](https://vision.cognitive.azure.com/) is a set of UI-based tools that lets you explore, build, and integrate features from Azure Cognitive Service for Vision into your applications.
