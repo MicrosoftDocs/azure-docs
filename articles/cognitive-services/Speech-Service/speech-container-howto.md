@@ -52,7 +52,7 @@ You must meet the following prerequisites before you use Speech service containe
 
 ### Container requirements and recommendations
 
-The following table describes the minimum and recommended allocation of resources for each Speech container.
+The following table describes the minimum and recommended allocation of resources for each Speech container:
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
@@ -67,11 +67,11 @@ Each core must be at least 2.6 gigahertz (GHz) or faster.
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 > [!NOTE]
-> The minimum and recommended are based off of Docker limits, *not* the host machine resources. For example, speech-to-text containers memory map portions of a large language model. We recommend that the entire file fits in memory, which is an additional 4 to 6 GB. Also, the first run of either container might take longer because models are being paged into memory.
+> The minimum and recommended allocations are based on Docker limits, *not* the host machine resources. For example, speech-to-text containers memory map portions of a large language model. We recommend that the entire file should fit in memory, which is an additional 4 to 6 GB. Also, the first run of either container might take longer because models are being paged into memory.
 
 ### Advanced Vector Extension support
 
-The *host* is the computer that runs the docker container. The host *must support* [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). You can check for AVX2 support on Linux hosts with the following command:
+The *host* is the computer that runs the Docker container. The host *must support* [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). You can check for AVX2 support on Linux hosts with the following command:
 
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
@@ -79,7 +79,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 > [!WARNING]
 > The host computer is *required* to support AVX2. The container *will not* function correctly without AVX2 support.
 
-## Request approval to the run the container
+## Request approval to run the container
 
 Fill out and submit the [request form](https://aka.ms/csgate) to request access to the container.
 
@@ -87,7 +87,7 @@ Fill out and submit the [request form](https://aka.ms/csgate) to request access 
 
 ## Get the container image with docker pull
 
-Container images for Speech are available in the following Container Registry.
+Container images for Speech are available in the following container registry.
 
 # [Speech-to-text](#tab/stt)
 
@@ -116,7 +116,7 @@ Container images for Speech are available in the following Container Registry.
 # [Speech language identification](#tab/lid)
 
 > [!TIP]
-> To get the most useful results, we recommend that you use the Speech language identification container with the speech-to-text or custom speech-to-text containers.
+> To get the most useful results, use the Speech language identification container with the speech-to-text or custom speech-to-text containers.
 
 | Container | Repository |
 |-----------|------------|
@@ -132,7 +132,7 @@ Container images for Speech are available in the following Container Registry.
 
 #### Docker pull for the speech-to-text container
 
-Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry:
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest
@@ -155,13 +155,13 @@ The following tag is an example of the format:
 2.6.0-amd64-en-us
 ```
 
-For all of the supported locales of the speech-to-text container, see [Speech-to-text image tags](../containers/container-image-tags.md#speech-to-text).
+For all the supported locales of the speech-to-text container, see [Speech-to-text image tags](../containers/container-image-tags.md#speech-to-text).
 
 # [Custom speech-to-text](#tab/cstt)
 
 #### Docker pull for the custom speech-to-text container
 
-Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry:
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text:latest
@@ -174,7 +174,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-spe
 
 #### Docker pull for the text-to-speech container
 
-Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry:
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech:latest
@@ -197,16 +197,16 @@ The following tag is an example of the format:
 1.8.0-amd64-en-us-ariarus
 ```
 
-For all of the supported locales and corresponding voices of the text-to-speech container, see [Text-to-speech image tags](../containers/container-image-tags.md#text-to-speech).
+For all the supported locales and corresponding voices of the text-to-speech container, see [Text-to-speech image tags](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
-> When you construct a text-to-speech HTTP POST, the [SSML](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, which is also known as the ["short name"](how-to-migrate-to-prebuilt-neural-voice.md). For example, the `latest` tag would have a voice name of `en-US-AriaRUS`.
+> When you construct a text-to-speech HTTP POST, the [SSML](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, which is also known as the [short name](how-to-migrate-to-prebuilt-neural-voice.md). For example, the `latest` tag would have a voice name of `en-US-AriaRUS`.
 
 # [Neural text-to-speech](#tab/ntts)
 
 #### Docker pull for the neural text-to-speech container
 
-Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry:
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:latest
@@ -229,16 +229,16 @@ The following tag is an example of the format:
 1.3.0-amd64-en-us-arianeural
 ```
 
-For all of the supported locales and corresponding voices of the neural text-to-speech container, see [Neural text-to-speech image tags](../containers/container-image-tags.md#neural-text-to-speech).
+For all the supported locales and corresponding voices of the neural text-to-speech container, see [Neural text-to-speech image tags](../containers/container-image-tags.md#neural-text-to-speech).
 
 > [!IMPORTANT]
-> When you construct a neural text-to-speech HTTP POST, the [SSML](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, which is also known as the ["short name"](language-support.md#prebuilt-neural-voices). For example, the `latest` tag would have a voice name of `en-US-AriaNeural`.
+> When you construct a neural text-to-speech HTTP POST, the [SSML](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, which is also known as the [short name](language-support.md#prebuilt-neural-voices). For example, the `latest` tag would have a voice name of `en-US-AriaNeural`.
 
 # [Speech language identification](#tab/lid)
 
 #### Docker pull for the Speech language identification container
 
-Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry:
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest
@@ -281,7 +281,7 @@ This command:
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
 > [!NOTE]
-> Containers support compressed audio input to Speech SDK using GStreamer.
+> Containers support compressed audio input to the Speech SDK by using GStreamer.
 > To install GStreamer in a container, 
 > follow Linux instructions for GStreamer in [Use codec compressed audio input with the Speech SDK](how-to-use-codec-compressed-audio-input-streams.md).
 
@@ -291,24 +291,25 @@ Diarization is enabled by default. To get diarization in your response, use `dia
 
 1. Set the phrase output format to `Detailed`.
 2. Set the mode of diarization. The supported modes are `Identity` and `Anonymous`.
-```python
-diarize_speech_config.set_service_property(
-    name='speechcontext-PhraseOutput.Format',
-    value='Detailed',
-    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
-)
+    
+    ```python
+    diarize_speech_config.set_service_property(
+        name='speechcontext-PhraseOutput.Format',
+        value='Detailed',
+        channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+    )
+    
+    diarize_speech_config.set_service_property(
+        name='speechcontext-phraseDetection.speakerDiarization.mode',
+        value='Identity',
+        channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+    )
+    ```
 
-diarize_speech_config.set_service_property(
-    name='speechcontext-phraseDetection.speakerDiarization.mode',
-    value='Identity',
-    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
-)
-```
-> [!NOTE]
-> "Identity" mode returns `"SpeakerId": "Customer"` or `"SpeakerId": "Agent"`.
-> "Anonymous" mode returns `"SpeakerId": "Speaker 1"` or `"SpeakerId": "Speaker 2"`.
-
-
+    > [!NOTE]
+    > "Identity" mode returns `"SpeakerId": "Customer"` or `"SpeakerId": "Agent"`.
+    > "Anonymous" mode returns `"SpeakerId": "Speaker 1"` or `"SpeakerId": "Speaker 2"`.
+    
 #### Analyze sentiment on the speech-to-text output
 
 Starting in v2.6.0 of the speech-to-text container, you should use Language service 3.0 API endpoint instead of the preview one. For example:
@@ -319,13 +320,14 @@ Starting in v2.6.0 of the speech-to-text container, you should use Language serv
 > [!NOTE]
 > The Language service `v3.0` API isn't backward compatible with `v3.0-preview.1`. To get the latest sentiment feature support, use `v2.6.0` of the speech-to-text container image and Language service `v3.0`.
 
-Starting in v2.2.0 of the speech-to-text container, you can call the [sentiment analysis v3 API](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) on the output. To call sentiment analysis, you will need a Language service API resource endpoint. For example: 
+Starting in v2.2.0 of the speech-to-text container, you can call the [sentiment analysis v3 API](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) on the output. To call sentiment analysis, you'll need a Language service API resource endpoint. For example:
+
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 
 If you're accessing a Language service endpoint in the cloud, you'll need a key. If you're running Language service features locally, you might not need to provide this.
 
-The key and endpoint are passed to the Speech container as arguments, as in the following example.
+The key and endpoint are passed to the Speech container as arguments, as in the following example:
 
 ```bash
 docker run -it --rm -p 5000:5000 \
@@ -406,7 +408,7 @@ This command:
 
 * Runs a custom speech-to-text container from the container image.
 * Allocates 4 CPU cores and 4 GB of memory.
-* Loads the custom speech-to-text model from the volume input mount, for example *C:\CustomSpeech*.
+* Loads the custom speech-to-text model from the volume input mount, for example, *C:\CustomSpeech*.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Downloads the model given the `ModelId` (if not found on the volume mount).
 * If the custom model was previously downloaded, the `ModelId` is ignored.
@@ -450,11 +452,11 @@ Checking available base model for en-us
 
 #### Custom pronunciation on the custom speech-to-text container
 
-Starting in v2.5.0 of the custom-speech-to-text container, you can get custom pronunciation results in the output. All you need to do is to have your own custom pronunciation rules set up in your custom model and mount the model to a custom-speech-to-text container.
+Starting in v2.5.0 of the custom-speech-to-text container, you can get custom pronunciation results in the output. All you need to do is have your own custom pronunciation rules set up in your custom model and mount the model to a custom-speech-to-text container.
 
 # [Text-to-speech](#tab/tts)
 
-To run the standard text-to-speech container, execute the following `docker run` command.
+To run the standard text-to-speech container, execute the following `docker run` command:
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -473,7 +475,7 @@ This command:
 
 # [Neural text-to-speech](#tab/ntts)
 
-To run the neural text-to-speech container, execute the following `docker run` command.
+To run the neural text-to-speech container, execute the following `docker run` command:
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
@@ -492,7 +494,7 @@ This command:
 
 # [Speech language identification](#tab/lid)
 
-To run the Speech language identification container, execute the following `docker run` command.
+To run the Speech language identification container, execute the following `docker run` command:
 
 ```bash
 docker run --rm -it -p 5003:5003 --memory 1g --cpus 1 \
@@ -509,14 +511,13 @@ This command:
 * Exposes TCP port 5003 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
-If you want to run this container with the speech-to-text container, you can use this [Docker image](https://hub.docker.com/r/antsu/on-prem-client). After both containers have been started, use this Docker Run command to execute `speech-to-text-with-languagedetection-client`.
+If you want to run this container with the speech-to-text container, you can use this [docker image](https://hub.docker.com/r/antsu/on-prem-client). After both containers have been started, use this `docker run` command to execute `speech-to-text-with-languagedetection-client`:
 
 ```Docker
 docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-text-with-languagedetection-client ./audio/LanguageDetection_en-us.wav --host localhost --lport 5003 --sport 5000
 ```
 
-> [!NOTE]
-> Increasing the number of concurrent calls can affect reliability and latency. For language identification, we recommend a maximum of four concurrent calls using 1 CPU with 1 GB of memory. For hosts with 2 CPUs and 2 GB of memory, we recommend a maximum of six concurrent calls.
+Increasing the number of concurrent calls can affect reliability and latency. For language identification, we recommend a maximum of four concurrent calls using 1 CPU with 1 GB of memory. For hosts with 2 CPUs and 2 GB of memory, we recommend a maximum of six concurrent calls.
 
 ***
 
@@ -563,7 +564,7 @@ speech_config.set_service_property(
 )
 ```
 
-`Simple.Extensions` will return the sentiment result in root layer of the response.
+`Simple.Extensions` returns the sentiment result in the root layer of the response.
 
 ```json
 {
@@ -602,7 +603,7 @@ speech_config.set_service_property(
 )
 ```
 
-`Detailed.Extensions` provides sentiment result in the root layer of the response. `Detailed.Options` provides the result in `NBest` layer of the response. They can be used separately or together.
+`Detailed.Extensions` provides the sentiment result in the root layer of the response. `Detailed.Options` provides the result in the `NBest` layer of the response. They can be used separately or together.
 
 ```json
 {
