@@ -52,7 +52,7 @@ In this article you learn how to enable the following workspaces resources in a 
 + To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
 
     - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
-    - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
+    - "Microsoft.Network/virtualNetworks/subnets/join/action" on the subnet resource.
 
     For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking)
 

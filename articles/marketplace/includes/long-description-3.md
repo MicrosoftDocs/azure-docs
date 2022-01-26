@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 01/25/2021
+ms.date: 01/26/2021
 ---
 
 Use HTML tags to format your description so it's more engaging. Most tags require both an opening and closing component, as shown in this table.
