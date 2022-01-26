@@ -187,11 +187,13 @@ definitions as `constraintTemplate` is deprecated.
 - **apiGroups** (required when using _templateInfo_)
   - An _array_ that includes the
     [API groups](https://kubernetes.io/docs/reference/using-api/#api-groups) to match. An empty
-    array (`[""]`) is the core API group while `["*"]` matches all API groups.
+    array (`[""]`) is the core API group.
+  - Defining `["*"]` for _apiGroups_ is disallowed.
 - **kinds** (required when using _templateInfo_)
   - An _array_ that includes the
     [kind](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/#required-fields)
     of Kubernetes object to limit evaluation to.
+   - Defining `["*"]` for _kinds_ is disallowed.
 - **values** (optional)
   - Defines any parameters and values to pass to the Constraint. Each value must exist in the
     Constraint template CRD.
@@ -397,11 +399,13 @@ definitions as `constraintTemplate` is deprecated.
 - **apiGroups** (required when using _templateInfo_)
   - An _array_ that includes the
     [API groups](https://kubernetes.io/docs/reference/using-api/#api-groups) to match. An empty
-    array (`[""]`) is the core API group while `["*"]` matches all API groups.
+    array (`[""]`) is the core API group.
+  - Defining `["*"]` for _apiGroups_ is disallowed.
 - **kinds** (required when using _templateInfo_)
   - An _array_ that includes the
     [kind](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/#required-fields)
     of Kubernetes object to limit evaluation to.
+  - Defining `["*"]` for _kinds_ is disallowed.
 - **values** (optional)
   - Defines any parameters and values to pass to the Constraint. Each value must exist in the
     Constraint template CRD.

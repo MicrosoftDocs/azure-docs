@@ -111,7 +111,7 @@ Here's how to install OneDrive in per-machine mode:
 
 1. First, create a location to stage the OneDrive installer. A local disk folder or [\\\\unc] (file://unc) location is fine.
 
-2. Download OneDriveSetup.exe to your staged location with this link: <https://aka.ms/OneDriveWVD-Installer>
+2. Download OneDriveSetup.exe to your staged location with this link: <https://go.microsoft.com/fwlink/?linkid=844652>
 
 3. If you installed office with OneDrive by omitting **\<ExcludeApp ID="OneDrive" /\>**, uninstall any existing OneDrive per-user installations from an elevated command prompt by running the following command:
 
