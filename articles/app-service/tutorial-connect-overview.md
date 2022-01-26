@@ -11,9 +11,9 @@ Your app service may need to connect to other Azure services such as a database,
 
 |Feature|When to use|
 |--|--|
-|App service managed identity|Dependent service [supports managed identity](/azure/active-directory/managed-identities-azure-resources/managed-identities-status)|
-|Key vault managed identity|Dependent service doesn't support managed identity|
-|App service configuration settings|Quick proof-of-concept for API keys, connection strings, and access tokens.|
+|[App service managed identity](#connect-with-managed-identity)|Dependent service [supports managed identity](/azure/active-directory/managed-identities-azure-resources/managed-identities-status)|
+|[Key vault managed identity](#connect-with-secrets-stored-in-key-vault)|Dependent service doesn't support managed identity|
+|[App service settings](#connect-with-app-service-settings)|Temporary proof-of-concept for API keys, connection strings, and access tokens.|
 
 ## Connect with managed identity
 
@@ -66,7 +66,13 @@ Benefits of managed identity integrated with Key vault include:
 
 ## Connect with App service settings 
 
-The App service provides [Application settings](configure-common.md?tabs=portal#configure-app-settings) to store connection strings, API keys, and other environment variables. While App service does provide encryption for app settings, consider other services to manage these types of secrets that provide additional benefits.
+The App service provides [Application settings](configure-common.md?tabs=portal#configure-app-settings) to store connection strings, API keys, and other environment variables. While App service does provide encryption for app settings, for enterprise-level security, consider other services to manage these types of secrets that provide additional benefits.
+
+**App service** integrated with managed identity benefits include:
+
+* You don't need to manage Azure credentials. Credentials are not even accessible to you.
+* You can use managed identities to authenticate to any resource that supports Azure Active Directory authentication including your own applications.
+* Managed identities can be used without any additional cost.
 
 **Key vault** integrated with managed identity benefits include:
 
@@ -75,11 +81,6 @@ The App service provides [Application settings](configure-common.md?tabs=portal#
 * No code change is required if your application code already accesses connection secrets with app settings.
 * Monitoring and auditing of who accessed secrets.
 
-**App service** integrated with managed identity benefits include:
-
-* You don't need to manage Azure credentials. Credentials are not even accessible to you.
-* You can use managed identities to authenticate to any resource that supports Azure Active Directory authentication including your own applications.
-* Managed identities can be used without any additional cost.
 
 ## Next steps
 
