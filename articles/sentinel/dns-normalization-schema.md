@@ -236,7 +236,7 @@ The fields below are specific to DNS events, although many are similar to fields
 
 ### Deprecated aliases
 
-The following fields are aliases that, although currently deprecated, are maintained for backwards compatibility. They will be removed from the schema on December 31st, 2021.
+The following fields are aliases that, although currently deprecated, are maintained for backwards compatibility. They have been removed from the schema on December 31st, 2021.
 
 - Query (alias to DnsQuery)
 - QueryType (alias to DnsQueryType)
@@ -260,6 +260,17 @@ These are the changes in version 0.1.3 of the schema:
 - Added `Src` and `Dst` as aliases to a leading identifier for the source and destination systems.
 - Added optional `DnsNetworkDuration` and `Duration`, an alias to it.
 - Added optional Geo Location and Risk Level fields.
+
+## Source-specific descrepencies 
+
+The goal of normalizing is to ensure that all sources provide consistent telemetry. A source that does not provide required telemetry, for example, mandatory schema fields, cannot be normalized. That said, a source that typically provides all required telemetry, apart from specific situations, can be normalized. The descrepencies may affect the completness of query results and therefore known descrepencies are listed here:
+
+| Source | Descrepencies |
+| ------ | ------------- |
+| Microsoft DNS Server Collected using the DNS connector and the Log Analytics Agent | THe connector does not provide the mandatory DnsQuery field for original event ID 264 (Response to a dybamic update). The data is avaiable at the source, but not forwarded by the connector. |
+| Corelight Zeek | Corelight Zeek may not provide the mandatory DnsQuery field. We have observered such behoavior in certain cases in which the original event type is `dns_unmatched_msg` or when the DNS response code name is `NXDOMAIN`. |
+|||
+
 
 ## Handling DNS response
 
