@@ -17,11 +17,11 @@ To create a Visual Studio project for UWP development, you need to:
 
 To start, make sure you're set up correctly in Visual Studio for UWP development:
 
-1. Open Visual Studio 2019 to display the **Start** window.   
+1. Open Visual Studio 2019 to display the start window.   
 
 1. Select **Continue without code** to go to the Visual Studio IDE.
 
-   ![Screenshot that shows the Start window with the action for continuing without code highlighted.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-start-window.png)
+   ![Screenshot that shows the start window with the action for continuing without code highlighted.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-start-window.png)
 
 1. From the Visual Studio menu bar, select **Tools** > **Get Tools and Features** to open Visual Studio Installer and view the **Modifying** dialog.
 
