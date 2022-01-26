@@ -194,7 +194,7 @@ source_language_recognizer.stop_continuous_recognition()
 You use standalone language identification when you only need to identify the language in an audio source. 
 
 > [!NOTE]
-> Standalone source language recognition is only supported with the Speech SDKs for C#, C++, and Python.
+> Standalone source language identification is only supported with the Speech SDKs for C#, C++, and Python.
 
 ::: zone pivot="programming-language-csharp"
 
