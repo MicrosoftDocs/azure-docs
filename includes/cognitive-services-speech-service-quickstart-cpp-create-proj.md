@@ -16,11 +16,11 @@ To create a Visual Studio project for C++ desktop development, you need to:
 
 To start, make sure you're set up correctly in Visual Studio for C++ desktop development:
 
-1. Open Visual Studio 2019 to display the **Start** window.
-
-   ![Screenshot that shows the Visual Studio 2019 Start window.](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
+1. Open Visual Studio 2019 to display the start window.   
 
 1. Select **Continue without code** to go to the Visual Studio IDE.
+
+   ![Screenshot that shows the Visual Studio 2019 Start window.](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
 
 1. From the Visual Studio menu bar, select **Tools** > **Get Tools and Features** to open Visual Studio Installer and view the **Modifying** dialog.   
 
