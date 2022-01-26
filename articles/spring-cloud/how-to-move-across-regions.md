@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: wepa
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 01/25/2022
 ms.custom: devx-track-java
 ---
 
