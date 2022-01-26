@@ -17,9 +17,11 @@ ms.date: 01/25/2022
 
 In this article, you learn how to generate the training code from any automated machine learning trained model. 
 
-Code generation for automated ML trained models allows you to see the underlying data preprocessing, algorithm selection, featurization, hyperparameter tuning automated ML uses to train and develop the model for a specific run. You can select any automated ML trained model, recommended or child run, and generate the Python training code that created that specific model.
+Code generation for automated ML trained models allows you to see the underlying data preprocessing, algorithm selection, featurization, and training algorithm and hyperparameters that Automated ML uses to train and build the model for a specific run.
 
-With the generated code you can, 
+You can select any automated ML trained model, recommended or child run, and generate the Python training code that created that specific model.
+
+With the generated model's training code you can, 
 
 *  **Learn** what featurization process and hyperparameters the model algorithm uses.
 * **Track/version/audit** trained models. Store versioned code to track what specific training code is used with the model that's to be deployed to production.
@@ -33,9 +35,9 @@ You can generate the code for the following scenarios:
 - Time series forecasting models
 
 > [!NOTE]
-> Computer vision models and natural language processing based models do not currently support code generation. 
+> Computer vision models and natural language processing based models in AutoML do not currently support model's training code generation. 
 
-The following diagram illustrates that you can enable code generation for any AutoML created model from the Azure Machine Learning studio UI or with the Azure Machine Learning SDK. After you select the model to generate code for, Azure Machine Learning copies the code files used to create the model and displays them into your notebooks so you can view and customize them as needed. 
+The following diagram illustrates that you can enable code generation for any AutoML created model from the Azure Machine Learning studio UI or with the Azure Machine Learning SDK. After you select any model, Azure Machine Learning copies the code files used to create the model and displays them into your notebooks shared folder so you can view and customize the code as needed. 
 
 ![Code generation diagram](./media/how-to-generate-automl-training-code/code-generation-design.svg)
 
@@ -47,17 +49,37 @@ The following diagram illustrates that you can enable code generation for any Au
 
 * Automated ML code generation is only available for experiments run on remote Azure ML compute target. Code generation is not supported for local runs.
 
-* Install the latest Azure Machine Learning Python SDK in a Conda environment. We recommend you create a new/clean Conda environment.
+* Using AutoML UI. 
+    * Since the UI uses the latest version, this approach doesn't need any special requirement. You simply need to run an AutoML experiment/parent-run and under the covers AutoML will generate the training code for each trained model of the experiment.
 
-    * You can run your code via a Jupyter notebook in an Azure ML Compute Instance with the latest Azure ML SDK already installed. The compute instance comes with a ready-to-use Conda environment that is compatible with the automated ML code generation capability (preview).
+* Using the SDK.
 
-    * Alternatively, you can create a new local Conda environment on your local machine and then install the latest Azure ML SDK. [How to install AutoML client SDK in Conda environment with the `automl` package](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml#setup-using-a-local-conda-environment).
+    * Option A: You can run your code via a Jupyter notebook in an Azure ML Compute Instance which should have the latest Azure ML SDK already installed. The compute instance should comes with a ready-to-use Conda environment that is compatible with the automated ML code generation capability.
 
-## Enable code generation for automated ML experiments
+    * Option B: Alternatively, you can create a new local Conda environment on your local machine and then install the latest Azure ML SDK. [How to install AutoML client SDK in Conda environment with the `automl` package](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml#setup-using-a-local-conda-environment).
 
-You can enable code generation for your automated ML experiments in your AutoMLConfig object. Before submitting your automated ML experiment, you need to set the `enable_code_generation=True` parameter. Confirm that you call `experiment.submit()` from a Conda environment that contains the latest Azure ML SDK with automated ML. This ensures that code generation is triggered properly for the experiments that are run on a remote compute target.
+## Disabling/Enabling code generation for automated ML experiments
+
+By default, all trained models by AutoML will have the training code generated under the covers which will be performed right after training each model.
+
+However, in some troubleshooting cases you might want to disable the code generation.
+
+You can disable code generation for your automated ML experiments in your AutoMLConfig object. Before submitting your automated ML experiment, you need to set the `enable_code_generation=False` parameter.
 
 ```python
+# Disabling Code Generation
+config = AutoMLConfig( task="classification",
+                       training_data=data,
+                       label_column_name="label",
+                       compute_target=compute_target,
+                       enable_code_generation=False
+                     )
+```
+
+You can also explicitely enable code generation for your automated ML experiments in your AutoMLConfig object. Before submitting your automated ML experiment, you need to set the `enable_code_generation=True` parameter. Confirm that you call `experiment.submit()` from a Conda environment that contains the latest Azure ML SDK with automated ML. This ensures that code generation is triggered properly for the experiments that are run on a remote compute target.
+
+```python
+# Disabling Code Generation
 config = AutoMLConfig( task="classification",
                        training_data=data,
                        label_column_name="label",
@@ -66,11 +88,13 @@ config = AutoMLConfig( task="classification",
                      )
 ```
 
-When you enable code generation, automated ML generates the model's training code for each model trained and created for each training run. There are two main files with the generated code,
+When code generation is enabled (by default), Automated ML generates the model's training code for each trained model under its related training run, within the folder ```outputs/generated_code``` within the model's run "Outputs+logs" tab. 
+
+There are two main files with the generated code,
 
 * **script.py** This is the model's training code, the interesting code you want to analyze with the featurization steps, specific algorithm used, and hyperparameters.
 
-* **script_run_notebook.ipynb** Notebook with boiler-plate code to run the model's training code (script.py) in AzureMLCompute through Azure ML SDK classes such as `ScriptRunConfig`. 
+* **script_run_notebook.ipynb** Notebook with boiler-plate code to run the model's training code (script.py) in AzureML compute through Azure ML SDK classes such as `ScriptRunConfig`. 
 
 
 ## Get generated code and model artifacts
@@ -79,40 +103,45 @@ After the automated ML training run completes, you can get the `script.py` and t
 
 ```python
 remote_run.download_file("outputs/generated_code/script.py", "script.py")
+
 remote_run.download_file("outputs/generated_code/script_run_notebook.ipynb", "script_run_notebook.ipynb")
 ```
 
-You also can view the generated code through the Azure Machine Learning studio UI. To do so, you can select the **View generated code** button on the **Models** tab on the automated ML experiments parent run page. This button redirects to the Notebooks portal extension, where you can view and run the generated code.
+You also can view the generated code and prepare it for code customization by using the Azure Machine Learning studio UI. 
+
+To do so, in the **Models** tab of the Automated ML experiment parent run page and once you have selected any of the trained models, you can click on the **View generated code (preview)** button. This button redirects to the Notebooks portal extension, where you can view and run the generated code for that particular selected model.
 
 ![parent run models tab view generate code button](./media/how-to-generate-automl-training-code/parent-run-view-generated-code.png)
 
-You can also access to the model's generated code from the top of the child run page.
+As an alternative way, you can also access to the model's generated code from the top of the child run's page once you navigate into that child run's page of a particular model.
 
 ![child run page view generated code button](./media/how-to-generate-automl-training-code/child-run-view-generated-code.png)
 
 
 ## script.py
 
-The `script.py` file contains the core logic needed to train a model with the previously used hyperparameters. While intended to be executed in the context of an Azure ML script run, with some modifications it can also be run standalone.
+The `script.py` file contains the core logic needed to train a model with the previously used hyperparameters. While intended to be executed in the context of an Azure ML script run, with some simple modifications, the model's training code could also be run standalone in your own environment (i.e. on-premises).
 
-The script can roughly be broken down into several different parts: data loading, data preparation, data featurization, preprocessor and model specification, and training.
+The script can roughly be broken down into several different parts: data loading, data preparation, data featurization, preprocessor algorithm specification, and training.
 
 ### Data loading
 
 The function `get_training_dataset()` loads the previously used dataset. It assumes that the script is run in an AzureML script run under the same workspace as the original experiment.
 
 ```python
-def get_training_dataset():
-    from azureml.core import Dataset, Workspace, Run
+def get_training_dataset(dataset_id):
+    from azureml.core.dataset import Dataset
+    from azureml.core.run import Run
     
+    logger.info("Running get_training_dataset")
     ws = Run.get_context().experiment.workspace
-    dataset = Dataset.get_by_id(workspace=ws, id='your_dataset_id')
+    dataset = Dataset.get_by_id(workspace=ws, id=dataset_id)
     return dataset.to_pandas_dataframe()
 ```
 
-When running as part of a script run, `Run.get_context().experiment.workspace` retrieves the correct workspace. However, if this script is run inside of a different workspace or run locally without using `ScriptRunConfig`, [you need to modify the script to specify the appropriate workspace explicitly](/python/api/azureml-core/azureml.core.workspace.workspace).
+When running as part of a script run, `Run.get_context().experiment.workspace` retrieves the correct workspace. However, if this script is run inside of a different workspace or run locally without using `ScriptRunConfig`, [you need to modify the script to explicitly specify the appropriate workspace ](/python/api/azureml-core/azureml.core.workspace.workspace).
 
-Once the workspace has been retrieved, the original dataset is retrieved by its ID. Another dataset can also be specified, either using [`get_by_id()`](/python/api/azureml-core/azureml.core.dataset.dataset#get-by-id-workspace--id-) if you know
+Once the workspace has been retrieved, the original dataset is retrieved by its ID. Another dataset with exactly the same structure could also be specified, either using [`get_by_id()`](/python/api/azureml-core/azureml.core.dataset.dataset#get-by-id-workspace--id-) if you know
 its ID, or [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset#get-by-name-workspace--name--version--latest--) if you know its name.
 
 You can also opt to replace this entire function with your own data loading mechanism; the only constraints are that the return value must be a Pandas dataframe and that the data must have the same shape as in the original experiment.
@@ -123,31 +152,32 @@ The function `prepare_data()` cleans the data, splits out the feature and sample
 
 ```python
 def prepare_data(dataframe):
-    from azureml.automl.runtime import data_cleaning
+    from azureml.training.tabular.preprocessing import data_cleaning
     
-    label_column_name = 'target'
+    logger.info("Running prepare_data")
+    label_column_name = 'y'
     
     # extract the features, target and sample weight arrays
-    y_train = dataframe[label_column_name].values
-    X_train = dataframe.drop([label_column_name], axis=1)
+    y = dataframe[label_column_name].values
+    X = dataframe.drop([label_column_name], axis=1)
     sample_weights = None
-    X_train, y_train, sample_weights = data_cleaning._remove_nan_rows_in_X_y(X_train, y_train, sample_weights, is_timeseries=False, target_column=label_column_name)
-    return X_train, y_train, sample_weights
+    X, y, sample_weights = data_cleaning._remove_nan_rows_in_X_y(X, y, sample_weights,
+     is_timeseries=False, target_column=label_column_name)
+    
+    return X, y, sample_weights
 ```
 
+This function can vary depending on the type of dataset and the type of the target ML Task (Classification, Regression or Time Series Forecasting).
 
-At this point, the dataframe from the data loading step is passed in. The label column and sample weights, if originally specified, are extracted and rows containing `NaN` are dropped from the input data.
+In the previous example, the dataframe from the data loading step is passed in. The label column and sample weights, if originally specified, are extracted and rows containing `NaN` are dropped from the input data.
 
-If you want to do more data preparation, it can be done in this step.
+If you want to do any additional data preparation, it can be done in this step by adding your custom data preparation code here.
 
 ### Data featurization
 
 The function `generate_data_transformation_config()` specifies the featurization step in the final scikit-learn pipeline. The featurizers from the original experiment are reproduced here, along with their parameters.
 
 For example, a possible data transformation that can happen in this function would be multiple columns could be transformed with an imputer like, `SimpleImputer()`, `StringCastTransformer()`, or `LabelEncoderTransformer()`. 
-
-> [!NOTE] 
-> Transformers are applied depending on each column, so if you have many columns in your dataset (i.e. 50 or 100 columns) you can end up with tens of blocks of code doing the column's data transformations, so the size of this function can be very significant depending on the number of columns in your dataset.
 
 With a classification and regression tasks, featurizers are combined with the corresponding [`DataFrameMappers`](https://github.com/scikit-learn-contrib/sklearn-pandas) into [`TransformerAndMapper`](/python/api/azureml-automl-runtime/azureml.automl.runtime.featurization.transformer_and_mapper.transformerandmapper) objects. These combined objects are wrapped in the [`DataTransformer`](/python/api/azureml-automl-runtime/azureml.automl.runtime.featurization.data_transformer.datatransformer).
 
