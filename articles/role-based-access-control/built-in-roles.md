@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 11/12/2021
+ms.date: 01/17/2022
 ms.custom: generated
 ---
 
@@ -88,7 +88,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Search Index Data Reader](#search-index-data-reader) | Grants read access to Azure Cognitive Search index data. | 1407120a-92aa-4202-b7e9-c0e197c71c8f |
 > | [Search Service Contributor](#search-service-contributor) | Lets you manage Search services, but not access to them. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [SignalR AccessKey Reader](#signalr-accesskey-reader) | Read SignalR Service Access Keys | 04165923-9d83-45d5-8227-78b77b0a687e |
-> | [SignalR App Server (Preview)](#signalr-app-server-preview) | Lets your app server access SignalR Service with AAD auth options. | 420fcaa2-552c-430f-98ca-3264be4806c7 |
+> | [SignalR App Server](#signalr-app-server) | Lets your app server access SignalR Service with AAD auth options. | 420fcaa2-552c-430f-98ca-3264be4806c7 |
 > | [SignalR REST API Owner](#signalr-rest-api-owner) | Full access to Azure SignalR Service REST APIs | fd53cd77-2268-407a-8f46-7e7863d0f521 |
 > | [SignalR REST API Reader](#signalr-rest-api-reader) | Read-only access to Azure SignalR Service REST APIs | ddde6b66-c0df-4114-a159-3618637b3035 |
 > | [SignalR Service Owner](#signalr-service-owner) | Full access to Azure SignalR Service REST APIs | 7e4f1700-ea5a-4f59-8f37-079cfe29dce3 |
@@ -131,9 +131,6 @@ The following table provides a brief description of each built-in role. Click th
 > | [HDInsight Domain Services Contributor](#hdinsight-domain-services-contributor) | Can Read, Create, Modify and Delete Domain Services related operations needed for HDInsight Enterprise Security Package | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
 > | [Log Analytics Contributor](#log-analytics-contributor) | Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs; reading storage account keys to be able to configure collection of logs from Azure Storage; adding solutions; and configuring Azure diagnostics on all Azure resources. | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
 > | [Log Analytics Reader](#log-analytics-reader) | Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources. | 73c42c96-874c-492b-b04d-ab87d138a893 |
-> | [Azure Purview Data Curator (Legacy)](#azure-purview-data-curator-legacy) | The Microsoft.Purview data curator is a legacy role that can create, read, modify and delete catalog data objects and establish relationships between objects. We have recently deprecated this role from Azure role-based access and introduced a new data curator inside Azure Purview data plane. See [Access control in Azure Purview - Roles](../purview/catalog-permissions.md#roles) | 8a3c2885-9b38-4fd2-9d99-91af537c1347 |
-> | [Azure Purview Data Reader (Legacy)](#azure-purview-data-reader-legacy) | The Microsoft.Purview data reader is a legacy role that can read catalog data objects. We have recently deprecated this role from Azure role-based access and introduced a new data reader inside Azure Purview data plane. See [Access control in Azure Purview - Roles](../purview/catalog-permissions.md#roles) | ff100721-1b9d-43d8-af52-42b69c1272db |
-> | [Azure Purview Data Source Administrator (Legacy)](#azure-purview-data-source-administrator-legacy) | The Microsoft.Purview data source administrator is a legacy role that can manage data sources and data scans. We have recently deprecated this role from Azure role-based access and introduced a new data source admin inside Azure Purview data plane. See [Access control in Azure Purview - Roles](../purview/catalog-permissions.md#roles) | 200bba9e-f0c8-430f-892b-6f0794863803 |
 > | [Schema Registry Contributor (Preview)](#schema-registry-contributor-preview) | Read, write, and delete Schema Registry groups and schemas. | 5dffeca3-4936-4216-b2bc-10343a5abb25 |
 > | [Schema Registry Reader (Preview)](#schema-registry-reader-preview) | Read and list Schema Registry groups and schemas. | 2c56ea50-c6b3-40a6-83c0-9d98858bc7d2 |
 > | **Blockchain** |  |  |
@@ -551,6 +548,7 @@ View Virtual Machines in the portal and login as administrator [Learn more](../a
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/*/read |  |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/*/read |  |
+> | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/listCredentials/action | List the endpoint access credentials to the resource. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -577,7 +575,8 @@ View Virtual Machines in the portal and login as administrator [Learn more](../a
         "Microsoft.Network/loadBalancers/read",
         "Microsoft.Network/networkInterfaces/read",
         "Microsoft.Compute/virtualMachines/*/read",
-        "Microsoft.HybridCompute/machines/*/read"
+        "Microsoft.HybridCompute/machines/*/read",
+        "Microsoft.HybridConnectivity/endpoints/listCredentials/action"
       ],
       "notActions": [],
       "dataActions": [
@@ -731,6 +730,7 @@ View Virtual Machines in the portal and login as a regular user. [Learn more](..
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/*/read |  |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/*/read |  |
+> | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/listCredentials/action | List the endpoint access credentials to the resource. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -755,7 +755,8 @@ View Virtual Machines in the portal and login as a regular user. [Learn more](..
         "Microsoft.Network/loadBalancers/read",
         "Microsoft.Network/networkInterfaces/read",
         "Microsoft.Compute/virtualMachines/*/read",
-        "Microsoft.HybridCompute/machines/*/read"
+        "Microsoft.HybridCompute/machines/*/read",
+        "Microsoft.HybridConnectivity/endpoints/listCredentials/action"
       ],
       "notActions": [],
       "dataActions": [
@@ -1470,7 +1471,7 @@ Lets you manage backup service, but can't create vaults and give access to other
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
-> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/providers/operations/read | Operation returns the list of Operations for a Resource Provider |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/providers/operations/read |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1614,6 +1615,9 @@ Lets you manage backup services, except removal of backup, vault creation and gi
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupstorageconfig/* |  |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupValidateOperation/action | Validate Operation on Protected Item |
+> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupTriggerValidateOperation/action | Validate Operation on Protected Item |
+> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupValidateOperationResults/read | Validate Operation on Protected Item |
+> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupValidateOperationsStatuses/read | Validate Operation on Protected Item |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupOperations/read | Returns Backup Operation Status for Recovery Services Vault. |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupPolicies/operations/read | Get Status of Policy Operation. |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/write | Creates a registered container |
@@ -1650,7 +1654,7 @@ Lets you manage backup services, except removal of backup, vault creation and gi
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Subscription |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
-> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/providers/operations/read | Operation returns the list of Operations for a Resource Provider |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/providers/operations/read |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1709,6 +1713,9 @@ Lets you manage backup services, except removal of backup, vault creation and gi
         "Microsoft.Storage/storageAccounts/read",
         "Microsoft.RecoveryServices/Vaults/backupstorageconfig/*",
         "Microsoft.RecoveryServices/Vaults/backupValidateOperation/action",
+        "Microsoft.RecoveryServices/Vaults/backupTriggerValidateOperation/action",
+        "Microsoft.RecoveryServices/Vaults/backupValidateOperationResults/read",
+        "Microsoft.RecoveryServices/Vaults/backupValidateOperationsStatuses/read",
         "Microsoft.RecoveryServices/Vaults/backupOperations/read",
         "Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read",
         "Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write",
@@ -1826,7 +1833,7 @@ Can view backup services, but can't make changes [Learn more](../backup/backup-r
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
-> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/providers/operations/read | Operation returns the list of Operations for a Resource Provider |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/providers/operations/read |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -3697,7 +3704,7 @@ Read SignalR Service Access Keys
 }
 ```
 
-### SignalR App Server (Preview)
+### SignalR App Server
 
 Lets your app server access SignalR Service with AAD auth options.
 
@@ -3710,6 +3717,7 @@ Lets your app server access SignalR Service with AAD auth options.
 > | **DataActions** |  |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/action | Generate an AccessKey for signing AccessTokens, the key will expire in 90 minutes by default. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/serverConnection/write | Start a server connection. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/write | Close client connection. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -3727,12 +3735,13 @@ Lets your app server access SignalR Service with AAD auth options.
       "notActions": [],
       "dataActions": [
         "Microsoft.SignalRService/SignalR/auth/accessKey/action",
-        "Microsoft.SignalRService/SignalR/serverConnection/write"
+        "Microsoft.SignalRService/SignalR/serverConnection/write",
+        "Microsoft.SignalRService/SignalR/clientConnection/write"
       ],
       "notDataActions": []
     }
   ],
-  "roleName": "SignalR App Server (Preview)",
+  "roleName": "SignalR App Server",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -5992,133 +6001,6 @@ Log Analytics Reader can view and search all monitoring data as well as and view
 }
 ```
 
-### Azure Purview Data Curator (Legacy)
-
-The Microsoft.Purview data curator is a legacy role that can create, read, modify and delete catalog data objects and establish relationships between objects. We have recently deprecated this role from Azure role-based access and introduced a new data curator inside Azure Purview data plane. See [Access control in Azure Purview - Roles](../purview/catalog-permissions.md#roles)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/read | Read account resource for Microsoft Azure Purview provider. |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/data/read | Read data objects. |
-> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/data/write | Create, update and delete data objects. |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "The Microsoft.Purview data curator is a legacy role that can create, read, modify and delete catalog data objects and establish relationships between objects. We have recently deprecated this role from Azure role-based access and introduced a new data curator inside Azure Purview data plane. See https://docs.microsoft.com/azure/purview/catalog-permissions#roles",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8a3c2885-9b38-4fd2-9d99-91af537c1347",
-  "name": "8a3c2885-9b38-4fd2-9d99-91af537c1347",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.Purview/accounts/read"
-      ],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.Purview/accounts/data/read",
-        "Microsoft.Purview/accounts/data/write"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Azure Purview Data Curator (Legacy)",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-### Azure Purview Data Reader (Legacy)
-
-The Microsoft.Purview data reader is a legacy role that can read catalog data objects. We have recently deprecated this role from Azure role-based access and introduced a new data reader inside Azure Purview data plane. See [Access control in Azure Purview - Roles](../purview/catalog-permissions.md#roles)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/read | Read account resource for Microsoft Azure Purview provider. |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/data/read | Read data objects. |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "The Microsoft.Purview data reader is a legacy role that can read catalog data objects. We have recently deprecated this role from Azure role-based access and introduced a new data reader inside Azure Purview data plane. See https://docs.microsoft.com/azure/purview/catalog-permissions#roles",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ff100721-1b9d-43d8-af52-42b69c1272db",
-  "name": "ff100721-1b9d-43d8-af52-42b69c1272db",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.Purview/accounts/read"
-      ],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.Purview/accounts/data/read"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Azure Purview Data Reader (Legacy)",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-### Azure Purview Data Source Administrator (Legacy)
-
-The Microsoft.Purview data source administrator is a legacy role that can manage data sources and data scans. We have recently deprecated this role from Azure role-based access and introduced a new data source admin inside Azure Purview data plane. See [Access control in Azure Purview - Roles](../purview/catalog-permissions.md#roles)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/read | Read account resource for Microsoft Azure Purview provider. |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/scan/read | Read data sources and scans. |
-> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/scan/write | Create, update and delete data sources and manage scans. |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "The Microsoft.Purview data source administrator is a legacy role that can manage data sources and data scans. We have recently deprecated this role from Azure role-based access and introduced a new data source admin inside Azure Purview data plane. See https://docs.microsoft.com/azure/purview/catalog-permissions#roles",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/200bba9e-f0c8-430f-892b-6f0794863803",
-  "name": "200bba9e-f0c8-430f-892b-6f0794863803",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.Purview/accounts/read"
-      ],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.Purview/accounts/scan/read",
-        "Microsoft.Purview/accounts/scan/write"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Azure Purview Data Source Administrator (Legacy)",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
 ### Schema Registry Contributor (Preview)
 
 Read, write, and delete Schema Registry groups and schemas.
@@ -7195,6 +7077,7 @@ Gives you full access to management operations [Learn more](../iot-hub-device-up
 > | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/management/read | Performs a read operation related to management |
 > | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/management/write | Performs a write operation related to management |
 > | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/management/delete | Performs a delete operation related to management |
+> | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/updates/read | Performs a read operation related to updates |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -7219,7 +7102,8 @@ Gives you full access to management operations [Learn more](../iot-hub-device-up
       "dataActions": [
         "Microsoft.DeviceUpdate/accounts/instances/management/read",
         "Microsoft.DeviceUpdate/accounts/instances/management/write",
-        "Microsoft.DeviceUpdate/accounts/instances/management/delete"
+        "Microsoft.DeviceUpdate/accounts/instances/management/delete",
+        "Microsoft.DeviceUpdate/accounts/instances/updates/read"
       ],
       "notDataActions": []
     }
@@ -7246,6 +7130,7 @@ Gives you read access to management operations, but does not allow making change
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/management/read | Performs a read operation related to management |
+> | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/updates/read | Performs a read operation related to updates |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -7268,7 +7153,8 @@ Gives you read access to management operations, but does not allow making change
       ],
       "notActions": [],
       "dataActions": [
-        "Microsoft.DeviceUpdate/accounts/instances/management/read"
+        "Microsoft.DeviceUpdate/accounts/instances/management/read",
+        "Microsoft.DeviceUpdate/accounts/instances/updates/read"
       ],
       "notDataActions": []
     }
@@ -9350,6 +9236,7 @@ Perform any action on the keys of a key vault, except manage permissions. Only w
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/* |  |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keyrotationpolicies/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -9377,7 +9264,8 @@ Perform any action on the keys of a key vault, except manage permissions. Only w
       ],
       "notActions": [],
       "dataActions": [
-        "Microsoft.KeyVault/vaults/keys/*"
+        "Microsoft.KeyVault/vaults/keys/*",
+        "Microsoft.KeyVault/vaults/keyrotationpolicies/*"
       ],
       "notDataActions": []
     }
@@ -9999,7 +9887,7 @@ View and update permissions for Security Center. Same permissions as the Securit
 > | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/* |  |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
-> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/defenderSettings/write | Creates or updates IoT Defender Settings |
+> | *none* |  |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -10030,9 +9918,7 @@ View and update permissions for Security Center. Same permissions as the Securit
         "Microsoft.IoTSecurity/*",
         "Microsoft.Support/*"
       ],
-      "notActions": [
-        "Microsoft.IoTSecurity/defenderSettings/write"
-      ],
+      "notActions": [],
       "dataActions": [],
       "notDataActions": []
     }
@@ -10527,6 +10413,7 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/scheduledqueryrules/* |  |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/webtests/* | Create and manage Insights web tests |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/workbooks/* |  |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/workbooktemplates/* |  |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/privateLinkScopes/* |  |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/privateLinkScopeOperationStatuses/* |  |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/write | Creates a new workspace or links to an existing workspace by providing the customer id from the existing workspace. |
@@ -10578,6 +10465,7 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
         "Microsoft.Insights/scheduledqueryrules/*",
         "Microsoft.Insights/webtests/*",
         "Microsoft.Insights/workbooks/*",
+        "Microsoft.Insights/workbooktemplates/*",
         "Microsoft.Insights/privateLinkScopes/*",
         "Microsoft.Insights/privateLinkScopeOperationStatuses/*",
         "Microsoft.OperationalInsights/workspaces/write",
@@ -10617,6 +10505,7 @@ Enables publishing metrics against Azure resources [Learn more](../azure-monitor
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/Metrics/Write | Write metrics |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/Telemetry/Write | Write telemetry |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -10637,7 +10526,8 @@ Enables publishing metrics against Azure resources [Learn more](../azure-monitor
       ],
       "notActions": [],
       "dataActions": [
-        "Microsoft.Insights/Metrics/Write"
+        "Microsoft.Insights/Metrics/Write",
+        "Microsoft.Insights/Telemetry/Write"
       ],
       "notDataActions": []
     }
@@ -10701,6 +10591,9 @@ Can save shared workbooks. [Learn more](../sentinel/tutorial-monitor-your-data.m
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/workbooks/write | Create or update a workbook |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/workbooks/delete | Delete a workbook |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/workbooks/read | Read a workbook |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/workbooktemplates/write | Create or update a workbook template |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/workbooktemplates/delete | Delete a workbook template |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/workbooktemplates/read | Read a workbook template |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -10721,7 +10614,10 @@ Can save shared workbooks. [Learn more](../sentinel/tutorial-monitor-your-data.m
       "actions": [
         "Microsoft.Insights/workbooks/write",
         "Microsoft.Insights/workbooks/delete",
-        "Microsoft.Insights/workbooks/read"
+        "Microsoft.Insights/workbooks/read",
+        "Microsoft.Insights/workbooktemplates/write",
+        "Microsoft.Insights/workbooktemplates/delete",
+        "Microsoft.Insights/workbooktemplates/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -10742,6 +10638,7 @@ Can read workbooks. [Learn more](../sentinel/tutorial-monitor-your-data.md)
 > | Actions | Description |
 > | --- | --- |
 > | [microsoft.insights](resource-provider-operations.md#microsoftinsights)/workbooks/read | Read a workbook |
+> | [microsoft.insights](resource-provider-operations.md#microsoftinsights)/workbooktemplates/read | Read a workbook template |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -10760,7 +10657,8 @@ Can read workbooks. [Learn more](../sentinel/tutorial-monitor-your-data.md)
   "permissions": [
     {
       "actions": [
-        "microsoft.insights/workbooks/read"
+        "microsoft.insights/workbooks/read",
+        "microsoft.insights/workbooktemplates/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -10843,7 +10741,7 @@ Create and Manage Jobs using Automation Runbooks. [Learn more](../automation/aut
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Automation](resource-provider-operations.md#microsoftautomation)/automationAccounts/hybridRunbookWorkerGroups/read | Reads Hybrid Runbook Worker Resources |
+> | [Microsoft.Automation](resource-provider-operations.md#microsoftautomation)/automationAccounts/hybridRunbookWorkerGroups/read | Reads a Hybrid Runbook Worker Group |
 > | [Microsoft.Automation](resource-provider-operations.md#microsoftautomation)/automationAccounts/jobs/read | Gets an Azure Automation job |
 > | [Microsoft.Automation](resource-provider-operations.md#microsoftautomation)/automationAccounts/jobs/resume/action | Resumes an Azure Automation job |
 > | [Microsoft.Automation](resource-provider-operations.md#microsoftautomation)/automationAccounts/jobs/stop/action | Stops an Azure Automation job |
@@ -10906,7 +10804,7 @@ Automation Operators are able to start, stop, suspend, and resume jobs [Learn mo
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Automation](resource-provider-operations.md#microsoftautomation)/automationAccounts/hybridRunbookWorkerGroups/read | Reads Hybrid Runbook Worker Resources |
+> | [Microsoft.Automation](resource-provider-operations.md#microsoftautomation)/automationAccounts/hybridRunbookWorkerGroups/read | Reads a Hybrid Runbook Worker Group |
 > | [Microsoft.Automation](resource-provider-operations.md#microsoftautomation)/automationAccounts/jobs/read | Gets an Azure Automation job |
 > | [Microsoft.Automation](resource-provider-operations.md#microsoftautomation)/automationAccounts/jobs/resume/action | Resumes an Azure Automation job |
 > | [Microsoft.Automation](resource-provider-operations.md#microsoftautomation)/automationAccounts/jobs/stop/action | Stops an Azure Automation job |
@@ -11530,6 +11428,7 @@ Can read, write, delete and re-onboard Azure Connected Machines.
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/machines/extensions/delete | Deletes an Azure Arc extensions |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/privateLinkScopes/* |  |
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/*/read |  |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -11556,7 +11455,8 @@ Can read, write, delete and re-onboard Azure Connected Machines.
         "Microsoft.HybridCompute/machines/extensions/write",
         "Microsoft.HybridCompute/machines/extensions/delete",
         "Microsoft.HybridCompute/privateLinkScopes/*",
-        "Microsoft.HybridCompute/*/read"
+        "Microsoft.HybridCompute/*/read",
+        "Microsoft.Resources/deployments/*"
       ],
       "notActions": [],
       "dataActions": [],

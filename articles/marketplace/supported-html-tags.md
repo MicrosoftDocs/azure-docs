@@ -6,7 +6,7 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/05/2020
+ms.date: 01/25/2021
 ---
 
 # HTML tags supported in commercial marketplace offer descriptions

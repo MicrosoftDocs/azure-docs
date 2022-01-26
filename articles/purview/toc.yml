@@ -34,6 +34,8 @@ items:
     href: tutorial-using-rest-apis.md
   - name: Use REST APIs for collections
     href: tutorial-metadata-policy-collections-apis.md
+  - name: Data owner policies on resource groups or subscriptions
+    href: tutorial-access-policies-resource-group.md
 - name: Concepts
   items:
   - name: Use Azure Purview Studio
@@ -212,28 +214,12 @@ items:
       href: how-to-link-azure-data-share.md
     - name: Azure Synapse Analytics lineage
       href: how-to-lineage-azure-synapse-analytics.md
-    - name: Cassandra lineage
-      href: how-to-lineage-cassandra.md
-    - name: Erwin lineage
-      href: how-to-lineage-erwin.md
-    - name: Looker lineage
-      href: how-to-lineage-looker.md
-    - name: Google BigQuery lineage
-      href: how-to-lineage-google-bigquery.md
-    - name: Oracle lineage
-      href: how-to-lineage-oracle.md
     - name: Power BI lineage
       href: how-to-lineage-powerbi.md
-    - name: SAP S/4HANA lineage
-      href: how-to-lineage-saps4hana.md
-    - name: SAP ECC lineage
-      href: how-to-lineage-sapecc.md
     - name: Spark lineage
       href: how-to-lineage-spark-atlas-connector.md
     - name: SQL Server Integration Services lineage
       href: how-to-lineage-sql-server-integration-services.md
-    - name: Teradata lineage
-      href: how-to-lineage-teradata.md
   - name: Business glossary
     items:
     - name: Create, import, & export glossary terms
@@ -300,7 +286,7 @@ items:
     href: how-to-integrate-with-azure-security-products.md
   - name: Data owner access policies
     items:
-    - name: Data access policy Azure Storage
+    - name: Data owner policies on Azure Storage
       href: how-to-access-policies-storage.md
 - name: Reference
   items:
