@@ -48,7 +48,7 @@ Available regulatory standards:
 - FedRAMP M
 
 > [!TIP]
-> Standards are added to the dashboard as they become available and may not be reflected in the above list.
+> Standards are added to the dashboard as they become available. The preceding list might not contain recently added standards.
 
 ## Add a regulatory standard to your dashboard
 
