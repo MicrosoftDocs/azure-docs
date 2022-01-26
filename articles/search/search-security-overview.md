@@ -28,13 +28,13 @@ Cognitive Search has three basic network traffic patterns:
 
 ### Inbound traffic
 
-Inbound requests range from creating objects, loading data, and querying an index. For inbound access to data and operations on your search service, you can implement a progression of security measures, starting with API keys on the request. You can also use Azure Active Directory and role-based access control for data plane operations (currently in preview).
+Inbound requests that target a search service endpoint consist of creating objects, processing data, and querying an index. 
 
-You can then supplement with [network security features](#service-access-and-authentication), either inbound rules in an IP firewall, or private endpoints that fully shield your service from the public internet. 
+For inbound access to data and operations on your search service, you can implement a progression of security measures, starting with API keys on the request. You can also use Azure Active Directory and role-based access control for data plane operations (currently in preview). You can then supplement with [network security features](#service-access-and-authentication), either inbound rules in an IP firewall, or private endpoints that fully shield your service from the public internet. 
 
 ### Outbound traffic
 
-Outbound requests include both read and write operations. The primary agent of an outbound call is an indexer and constituent skillsets:
+Outbound requests from a search service to other applications are typically made by indexers. Outbound requests include both read and write operations:
 
 + Indexers connect to external data sources to read data for indexing.
 + Indexers can also write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
