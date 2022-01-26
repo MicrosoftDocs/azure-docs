@@ -3,7 +3,7 @@ title: Azure SQL bindings for Functions
 description: Understand how to use Azure SQL bindings in Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.date: 12/15/2021
+ms.date: 1/25/2022
 ms.author: drskwier
 ms.reviewer: cachai
 ms.devlang: csharp
@@ -44,7 +44,6 @@ Working with the trigger and bindings requires that you reference the appropriat
 ## Known issues
 
 - Output bindings against tables with columns of data types `NTEXT`, `TEXT`, or `IMAGE` are not supported and data upserts will fail. These types [will be removed](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) in a future version of SQL Server and are not compatible with the `OPENJSON` function used by this Azure Functions binding.
-- Case-sensitive [collations](/sql/relational-databases/collations/collation-and-unicode-support#Collation_Defn) are not currently supported. [GitHub item #133](https://github.com/Azure/azure-functions-sql-extension/issues/133) tracks progress on this issue.
 
 
 ## Open source
