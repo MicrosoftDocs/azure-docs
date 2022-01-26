@@ -131,6 +131,25 @@ To improve accuracy, customization is available for some languages and baseline 
 | Turkish (Turkey)                  | `tr-TR`         | Plain text                                                            |
 | Vietnamese (Vietnam)              | `vi-VN`         | Plain text                                                            |
 
+### Phrase list
+
+You can use the locales in this table with [phrase list](improve-accuracy-phrase-list.md). 
+
+| Language | Locale |
+|---|---|
+| Chinese (Mandarin, Simplified) | `zh-CN` |
+| English (Australia) | `en-AU` |
+| English (Canada) | `en-CA` |
+| English (India) | `en-IN` |
+| English (United Kingdom)) | `en-GB` |
+| English (United States) | `en-US` |
+| French (France) | `fr-FR` |
+| German (Germany) | `de-DE` |
+| Italian (Italy) | `it-IT` |
+| Japanese (Japan) | `ja-JP` |
+| Portuguese (Brazil) | `pt-BR` |
+| Spanish (Spain) | `es-ES` |
+
 ## Text-to-speech
 
 Both the Microsoft Speech SDK and REST APIs support these neural voices, each of which supports a specific language and dialect, identified by locale. You can also get a full list of languages and voices supported for each specific region or endpoint through the [voices list API](rest-text-to-speech.md#get-a-list-of-voices).
