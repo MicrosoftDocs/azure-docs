@@ -38,9 +38,6 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Data types
-    href: data-types.md
-    displayName: supported types,arrays,booleans,integers,objects,strings,secure
   - name: Keywords
     items:
     - name: existing
@@ -61,6 +58,9 @@
       displayName: decorators,secure,objects,constraints
     - name: resource
       href: resource-declaration.md
+    - name: var
+      href: variables.md
+      displayName: configuration
     - name: resource properties
       items:
       - name: name
@@ -88,9 +88,6 @@
       - name: Tenant
         href: deploy-to-tenant.md
         displayName: assign role
-    - name: var
-      href: variables.md
-      displayName: configuration
   - name: Functions
     items:
     - name: All functions
@@ -129,6 +126,9 @@
       href: operators-logical.md
     - name: Numeric operators
       href: operators-numeric.md
+  - name: Data types
+    href: data-types.md
+    displayName: supported types,arrays,booleans,integers,objects,strings,secure
 - name: How to
   items:
   - name: Author
