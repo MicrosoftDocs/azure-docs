@@ -58,7 +58,7 @@ The presenter layout is one of several layouts available through the media compo
 1. **Presenter** - This layout overlays two sources on top of each other.
 1. **Weather Person** - This layout overlays two sources, but in real-time Azure will remove the background behind people.
 
-To try out media composition, check out following content:
+<!----To try out media composition, check out following content:----->
 
-- [Quick Start - Applying Media Composition to a video call](../../quickstarts/media-composition/get-started-media-composition.md)
-- [Tutorial - Media Composition Layouts](../../quickstarts/media-composition/media-composition-layouts.md)
+<!---- [Quick Start - Applying Media Composition to a video call](../../quickstarts/media-composition/get-started-media-composition.md) ----->
+<!---- [Tutorial - Media Composition Layouts](../../quickstarts/media-composition/media-composition-layouts.md) ----->
