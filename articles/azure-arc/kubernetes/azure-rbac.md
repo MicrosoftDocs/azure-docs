@@ -285,7 +285,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
         authentication-token-webhook-cache-ttl: 5m0s
         authentication-token-webhook-config-file: /etc/guard/guard-authn-webhook.yaml
         authentication-token-webhook-version: v1
-        authorization-mode: Node,Webhook,RBAC
+        authorization-mode: Node,RBAC,Webhook
         authorization-webhook-cache-authorized-ttl: 5m0s
         authorization-webhook-config-file: /etc/guard/guard-authz-webhook.yaml
         authorization-webhook-version: v1
