@@ -18,7 +18,7 @@ If you want to skip straight to sample code, see the [Python quickstart samples]
 
 ## Prerequisites
 
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
+This article assumes that you have an Azure account and a Speech service subscription. If you don't have an account and a subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 ## Install the Speech SDK
 
@@ -101,7 +101,7 @@ With every call to [`add_target_language`][addlang], a new target translation la
 
 ## Initialize a translation recognizer
 
-After you've created a [`SpeechTranslationConfig`][config], the next step is to initialize a [`TranslationRecognizer`][recognizer]. When you initialize a [`TranslationRecognizer`][recognizer], you'll need to pass it your `translation_config`. The configuration object provides the credentials that the speech service requires to validate your request.
+After you've created a [`SpeechTranslationConfig`][config], the next step is to initialize a [`TranslationRecognizer`][recognizer]. When you initialize a [`TranslationRecognizer`][recognizer], you'll need to pass it your `translation_config`. The configuration object provides the credentials that the Speech service requires to validate your request.
 
 If you're recognizing speech using your device's default microphone, here's what the [`TranslationRecognizer`][recognizer] should look like:
 
@@ -117,7 +117,7 @@ def translate_speech_to_text():
             translation_config=translation_config)
 ```
 
-If you want to specify the audio input device, then you'll need to create an [`AudioConfig`][audioconfig] and provide the `audio_config` parameter when initializing your [`TranslationRecognizer`][recognizer].
+If you want to specify the audio input device, then you'll need to create an [`AudioConfig`][audioconfig] class instance and provide the `audio_config` parameter when initializing your [`TranslationRecognizer`][recognizer].
 
 > [!TIP]
 > [Learn how to get the device ID for your audio input device](../../../how-to-select-audio-input-devices.md).
@@ -138,7 +138,7 @@ def translate_speech_to_text():
             translation_config=translation_config, audio_config=audio_config)
 ```
 
-If you want to provide an audio file instead of using a microphone, you'll still need to provide an `audioConfig`. However, when you create an [`AudioConfig`][audioconfig], instead of calling with `use_default_microphone=True`, you'll call with `filename="path-to-file.wav"` and provide the `filename` parameter.
+If you want to provide an audio file instead of using a microphone, you'll still need to provide an `audioConfig`. However, when you create an `AudioConfig` class instance, instead of calling with `use_default_microphone=True`, you'll call with `filename="path-to-file.wav"` and provide the `filename` parameter.
 
 ```python
 def translate_speech_to_text():

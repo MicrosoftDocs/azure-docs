@@ -19,7 +19,7 @@ If you want to skip straight to sample code, see the [JavaScript quickstart samp
 
 ## Prerequisites
 
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
+This article assumes that you have an Azure account and a Speech service subscription. If you don't have an account and a subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 ## Install the Speech SDK
 
@@ -87,7 +87,7 @@ If you're translating speech provided through your device's default microphone, 
 const translator = new TranslationRecognizer(speechTranslationConfig);
 ```
 
-If you want to specify the audio input device, then you'll need to create an [`AudioConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig) and provide the `audioConfig` parameter when initializing your [`TranslationRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer).
+If you want to specify the audio input device, then you'll need to create an [`AudioConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig) class instance and provide the `audioConfig` parameter when initializing your [`TranslationRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer).
 
 > [!TIP]
 > [Learn how to get the device ID for your audio input device](../../../how-to-select-audio-input-devices.md).
@@ -98,7 +98,7 @@ const audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 const recognizer = new TranslationRecognizer(speechTranslationConfig, audioConfig);
 ```
 
-If you want to provide an audio file instead of using a microphone, you'll still need to provide an `audioConfig`. However, this can only be done when targeting **Node.js** and when you create an [`AudioConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig), instead of calling `fromDefaultMicrophoneInput`, you'll call `fromWavFileOutput` and pass the `filename` parameter.
+If you want to provide an audio file instead of using a microphone, you'll still need to provide an `audioConfig`. However, this can only be done when targeting **Node.js** and when you create an `AudioConfig` class instance, instead of calling `fromDefaultMicrophoneInput`, you'll call `fromWavFileOutput` and pass the `filename` parameter.
 
 ```javascript
 const audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
