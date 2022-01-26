@@ -187,7 +187,7 @@ After modifying the template, the new resource can be created using **Deploy a c
 
 ### [Azure CLI](#tab/azure-cli)
 
-After modifying the template, the new resource can be created by deploying a custom template with the CLI.
+After you modify the template, you can use the following command to deploy the custom template and create the new resource.
 
 ```bash
 az login
