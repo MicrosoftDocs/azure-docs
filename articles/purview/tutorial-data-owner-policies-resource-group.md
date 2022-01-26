@@ -1,5 +1,5 @@
 ---
-title: Resource group and subscription provisioning by data owner
+title: Access provisioning by data owner to resource groups or subscriptions
 description: Step-by-step guide showing how a data owner can create policies on resource groups or subscriptions.
 author: ePpnqeqR
 ms.author: vlrodrig
@@ -10,9 +10,9 @@ ms.date: 1/25/2022
 ms.custom:
 ---
 
-# Resource group and subscription provisioning by data owner (preview)
+# Access provisioning by data owner to resource groups or subscriptions (preview)
 
-This guide describes how a data owner can enable access from Azure Purview to ALL datasets in a subscription or a resource group. At this point, only the following data sources are supported:
+This guide describes how a data owner can leverage Azure Purview to enable access to ALL data sources in a subscription or a resource group. This can be achieved through a single policy statement, and will cover all existing data sources, as well as data sources that are created afterwards. However, at this point, only the following data sources are supported:
 - Blob storage
 - Azure Data Lake Storage (ADLS) Gen2
 
@@ -33,7 +33,7 @@ The subscription or resource group needs to be registered with Azure Purview to 
 
 - [Register multiple sources - Azure Purview](register-scan-azure-multiple-sources.md)
 
-Enable the resource group or subscription for access policies in Azure Purview by setting the the **Data use governance** toggle to enable, as shown in the picture.
+Enable the resource group or subscription for access policies in Azure Purview by setting the **Data use governance** toggle to enable, as shown in the picture.
 
 ![Image shows how to register a data source for policy.](./media/tutorial-access-policies-resource-group/register-resource-group-for-policy.png)
 
@@ -55,4 +55,4 @@ Check the blog and demo related to the capabilities mentioned in this how-to gui
 
 * [What's New in Azure Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
 * [Demo of access policy for Azure Storage](https://www.youtube.com/watch?v=CFE8ltT19Ss)
-* [Enable access policies on an Azure Storage account](./how-to-access-policies-storage.md)
+* [Enable Azure Purview data owner policies on an Azure Storage account](./tutorial-data-owner-policies-storage.md)
