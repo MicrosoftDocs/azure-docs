@@ -41,7 +41,7 @@ The template can be exported with the Azure portal using these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **All resources** in the left menu, then select your Azure Spring Cloud instance.
-1. Under **Automation** select **Export template**.
+1. Under **Automation**, select **Export template**.
 1. Select **Download** in the **Export template** blade.
 1. Locate the zip file, unzip it, and get the template.json file. The json file contains the resource template.
 
