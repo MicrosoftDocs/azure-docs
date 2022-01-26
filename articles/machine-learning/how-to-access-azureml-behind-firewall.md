@@ -252,7 +252,6 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | ----- | ----- | ----- | ----- |
 | Azure Machine Learning studio | ml.azure.us | TCP | 443 |
 | API | \*.ml.azure.us | TCP | 443 |
-| API | \*.azureml.us | TCP | 443 |
 | Model management | \*.modelmanagement.azureml.us | TCP | 443 |
 | Integrated notebook | \*.notebooks.usgovcloudapi.net | TCP | 443 |
 | Integrated notebook | \<storage\>.file.core.usgovcloudapi.net | TCP | 443, 445 |
@@ -268,7 +267,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Azure Machine Learning studio | studio.ml.azure.cn | TCP | 443 |
 | API | \*.ml.azure.cn | TCP | 443 |
 | API | \*.azureml.cn | TCP | 443 |
-| Model management | \*.modelmanagement.azureml.cn | TCP | 443 |
+| Model management | \*.modelmanagement.ml.azure.cn | TCP | 443 |
 | Integrated notebook | \*.notebooks.chinacloudapi.cn | TCP | 443 |
 | Integrated notebook | \<storage\>.file.core.chinacloudapi.cn | TCP | 443, 445 |
 | Integrated notebook | \<storage\>.dfs.core.chinacloudapi.cn | TCP | 443 |
