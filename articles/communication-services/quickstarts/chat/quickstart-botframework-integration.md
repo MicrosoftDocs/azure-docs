@@ -1,13 +1,15 @@
 ---
-title: Quickstart: Integrate bot to your chat app
-description: This quickstart shows you how to use the Azure Communication Services Chat SDK to create a chat app, the BotFramework SDK to create a bot, then integrate the bot into the chat app
-services: azure-communication-services
+title: Quickstart - Integrate bot to your chat app
+titleSuffix: A Botframework quickstart
+description: This quickstart shows you how to use the Azure Communication Services Chat SDK to create a chat app, the BotFramework SDK to create a bot, then integrate the bot into the chat app.
 author: gelli
 manager: juramir
-ms.service: azure-communication-service
-ms.date: 01/24/2022
+services: azure-communication-services
+ms.author: gelli
+ms.date: 01/25/2022
 ms.topic: quickstart
-ms.custom: include file
+ms.service: azure-communication-services
+ms.custom: mode-other
 ---
 
 # Quickstart: Integrate bot to your chat app
@@ -54,7 +56,7 @@ In order to use ACS chat as a channel in Azure Bot Service, the first step would
 After creating the Azure Bot resource, next step would be to set a password for the App Id we set for the Bot credential if you chose to create one automatically in the first step.
 
  - Go to Azure Active Directory
-![AAD](./media/AAD.png)
+![Azure Active Directory](./media/AAD.png)
 
 
 - Find your app in the App Registration blade
