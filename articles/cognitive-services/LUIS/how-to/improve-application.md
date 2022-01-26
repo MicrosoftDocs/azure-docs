@@ -70,7 +70,7 @@ Each of these examples uses:
 
 LUIS needs these to make predictions correctly. Notice that the last two examples in the table use almost the same text except for "_in_" and "_on_".
 
-The following example template utterances would allow for optional information:
+Using patterns, the following example template utterances would allow for optional information:
 
 |Intent|Example utterances with optional text and prebuilt entities|
 |:--|:--|
