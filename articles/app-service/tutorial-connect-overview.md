@@ -29,8 +29,9 @@ Learn which [services](/azure/active-directory/managed-identities-azure-resource
 
 The following image demonstrates the following authentication scenarios:
 
-* Securely access an Azure service from the web application using managed identities to get **non-user data** (B in diagram). 
-* Access Microsoft Graph (C in diagram)
+* A: User authenticates to Azure app service
+* B: Securely access an Azure service from the web application using managed identities to get **non-user data**. 
+* C: Access Microsoft Graph
     * for the signed-in user to get **user data**
     * for the web application to get **non-user data**. 
 
@@ -42,6 +43,7 @@ When managed identity isn't supported for your app's dependent services, use Key
 
 Secrets include:
 
+* Certificates with rotation
 * Service keys
 * Service connection strings
 
