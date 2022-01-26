@@ -89,8 +89,10 @@ The `@query` parameter in the [sp_send_db_mail](/sql/relational-databases/system
 
 ### Querying external table fails with not supported error message
 Querying external table may fail with generic error message "_Queries over external tables are not supported with the current service tier or performance level of this database. Consider upgrading the service tier or performance level of the database_". The only type of external table supported in Azure SQL Managed Instance are PolyBase external tables (in preview). To allow queries on PolyBase external tables you need to enable PolyBase on managed instance by running sp_configure command. 
-External tables related to [Elastic Query](../database/elastic-query-overview) feature of Azure SQL Database are [not supported](../database/features-comparison#features-of-sql-database-and-sql-managed-instance) in SQL Managed Instance, but creating and querying them was not explicitly blocked. With support for PolyBase external tables, new checks have been introduced, effectively blocking querying of _any_ type of external table in managed instance unless PolyBase is enabled.
-If you are using unsupported Elastic Query external tables to query data in Azure SQL Database or Azure Synapse from your managed instance, you should use Linked Server feature instead. To establish Linked Server connection from SQL Managed Instance to SQL Database, please follow instructions from [this article](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-63-it-is-possible-to-create-linked-server-in/ba-p/369168). To establish Linked Server connection from SQL Managed Instance to SQL Synapse, check [step-by-step instructions](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/#how-to-use-linked-servers). Since configuring and testing Linked Server conenction takes some time, you can use workaround described below as a temporary solution to enable querying external tables related to Elastic Query feature.
+
+External tables related to [Elastic Query](../database/elastic-query-overview) feature of Azure SQL Database are [not supported](../database/features-comparison#features-of-sql-database-and-sql-managed-instance) in SQL Managed Instance, but creating and querying them wasn't explicitly blocked. With support for PolyBase external tables, new checks have been introduced, effectively blocking querying of _any_ type of external table in managed instance unless PolyBase is enabled.
+
+If you're using unsupported Elastic Query external tables to query data in Azure SQL Database or Azure Synapse from your managed instance, you should use Linked Server feature instead. To establish Linked Server connection from SQL Managed Instance to SQL Database, please follow instructions from [this article](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-63-it-is-possible-to-create-linked-server-in/ba-p/369168). To establish Linked Server connection from SQL Managed Instance to SQL Synapse, check [step-by-step instructions](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/#how-to-use-linked-servers). Since configuring and testing Linked Server conenction takes some time, you can use workaround described below as a temporary solution to enable querying external tables related to Elastic Query feature.
 
 **Workaround**: Execute the following commands (once per instance) that will enable queries on external tables:
 
@@ -103,7 +105,7 @@ go
 
 ### Changing the connection type does not affect connections through the failover group endpoint
 
-If an instance participates in an [auto-failover group](../database/auto-failover-group-overview.md), changing the instance's [connection type](../managed-instance/connection-types-overview.md) does not take effect for the connections established through the failover group listener endpoint.
+If an instance participates in an [auto-failover group](../database/auto-failover-group-overview.md), changing the instance's [connection type](../managed-instance/connection-types-overview.md) doesn't take effect for the connections established through the failover group listener endpoint.
 
 **Workaround**: Drop and recreate auto-failover group after changing the connection type.
 
@@ -133,7 +135,7 @@ END
 
 ### Distributed transactions can be executed after removing managed instance from Server Trust Group
 
-[Server Trust Groups](../managed-instance/server-trust-group-overview.md) are used to establish trust between managed instances that is prerequisite for executing [distributed transactions](../database/elastic-transactions-overview.md). After removing managed instance from Server Trust Group or deleting the group, you still might be able to execute distributed transactions. There is a workaround you can apply to be sure that distributed transactions are disabled and that is [user-initiated manual failover](../managed-instance/user-initiated-failover.md) on managed instance.
+[Server Trust Groups](../managed-instance/server-trust-group-overview.md) are used to establish trust between managed instances that is prerequisite for executing [distributed transactions](../database/elastic-transactions-overview.md). After removing managed instance from Server Trust Group or deleting the group, you still might be able to execute distributed transactions. There's a workaround you can apply to be sure that distributed transactions are disabled and that is [user-initiated manual failover](../managed-instance/user-initiated-failover.md) on managed instance.
 
 ### Distributed transactions cannot be executed after managed instance scaling operation
 
@@ -141,13 +143,13 @@ SQL Managed Instance scaling operations that include changing service tier or nu
 
 ### Cannot create SQL Managed Instance with the same name as logical server previously deleted
 
-A DNS record of `<name>.database.windows.com` is created when you create a [logical server in Azure](../database/logical-servers.md) for Azure SQL Database, and when you create a SQL Managed Instance. The DNS record must be unique. As such, if you create a logical server for SQL Database and then delete it, there is a threshold period of 7 days before the name is released from the records. In that period, a SQL Managed Instance cannot be created with the same name as the deleted logical server. As a workaround, use a different name for the SQL Managed Instance, or create a support ticket to release the logical server name.  
+A DNS record of `<name>.database.windows.com` is created when you create a [logical server in Azure](../database/logical-servers.md) for Azure SQL Database, and when you create a SQL Managed Instance. The DNS record must be unique. As such, if you create a logical server for SQL Database and then delete it, there's a threshold period of 7 days before the name is released from the records. In that period, a SQL Managed Instance cannot be created with the same name as the deleted logical server. As a workaround, use a different name for the SQL Managed Instance, or create a support ticket to release the logical server name.  
 
 ### Service Principal cannot access Azure AD and AKV
 
 In some circumstances, there might exist an issue with Service Principal used to access Azure AD and Azure Key Vault (AKV) services. As a result, this issue impacts usage of Azure AD authentication and Transparent Database Encryption (TDE) with SQL Managed Instance. This might be experienced as an intermittent connectivity issue, or not being able to run statements such are `CREATE LOGIN/USER FROM EXTERNAL PROVIDER` or `EXECUTE AS LOGIN/USER`. Setting up TDE with customer-managed key on a new Azure SQL Managed Instance might also not work in some circumstances.
 
-**Workaround**: To prevent this issue from occurring on your SQL Managed Instance before executing any update commands, or in case you have already experienced this issue after update commands, go to Azure portal, access SQL Managed Instance [Active Directory admin page](../database/authentication-aad-configure.md?tabs=azure-powershell#azure-portal). Verify if you can see the error message "Managed Instance needs a Service Principal to access Azure Active Directory. Click here to create a Service Principal". In case you have encountered this error message, click on it, and follow the step-by-step instructions provided until this error have been resolved.
+**Workaround**: To prevent this issue from occurring on your SQL Managed Instance before executing any update commands, or in case you have already experienced this issue after update commands, go to Azure portal, access SQL Managed Instance [Active Directory admin page](../database/authentication-aad-configure.md?tabs=azure-powershell#azure-portal). Verify if you can see the error message "Managed Instance needs a Service Principal to access Azure Active Directory. Click here to create a Service Principal". In case you've encountered this error message, click on it, and follow the step-by-step instructions provided until this error have been resolved.
 
 ### Limitation of manual failover via portal for failover groups
 
