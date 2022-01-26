@@ -17,102 +17,102 @@ ms.author: v-ydequadros
 Compliance is the state of following various established guidelines or specifications.
 Microsoft CloudKnox Permissions Management (CloudKnox) supports the Center for Internet Security (CIS) Benchmarks standard, Amazon Web Services (AWS) Well-Architected Framework, Next Generation Security and Privacy (NIST) 800-53, and Payment Card Industry / Data Security Standards (PCI DSS) benchmark frameworks.
 
-## View information about a compliance standard
+In Microsoft CloudKnox Permissions Management (CloudKnox), the **Compliance** dashboard  provides an overview of how you can follow the national, regional, and industry-specific requirements that govern the collection and use of data.
 
-The main **Compliance** page displays all accounts for the selected **Authorization System Type**.
+## View compliance information about an account
 
-- To view details about each compliance standard, select **View**.
+1. To display the **Compliance** dashboard, in CloudKnox, select the **Compliance** tab.
 
-     <!---For more information about applying filters, see How to apply filters.--->
+    The main **Compliance** page displays the following information about each account for the selected **Authorization system**:
+    
+    - The **Account** tile displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard. It also displays how many recommendations were passed at the date shown.
+    - **Level 1**: Items in this profile intend to be:
 
-**Center for Internet Security (CIS) Benchmarks**
+        -  Practical and prudent.
+        -  Provide a clear security benefit.
+        - Doesn't inhibit the utility of the technology beyond acceptable means.
 
-- The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard. It also displays how many recommendations were passed at the date shown.
+     - **Level 2**: This profile extends the Level 1 profile. Items in this profile exhibit one or more of the following characteristics:
+        - The date range for which the information is displayed.
+        - When CloudKnox has collected a minimum of 1 week’s data, you will see a trend graph based on your daily pass percentages.
 
-     - To view the differentiators between the two levels, hover over the information **(i)** icon in the Level 1 and Level 2 boxes.
-
-  > [!NOTE]
-  > If the recommendation has been further categorized in the standard, a **Pass**/**Fail** status displays for that category. You can select on the details in the boxes to view select details. For example, select the number under **Passed** to display only the recommendations in which a resource passed.
-
-- The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
-
-- The last box on the dashboard displays the date range for which the information is displayed.
-
-**Amazon Web Services (AWS) Well-Architected Framework**
-
-- The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard. It also displays how many recommendations were passed at the date shown.
-
-     > [!NOTE]
-     > If the recommendation has been further categorized in the standard, a **Pass**/**Fail** status displays for that category. You can select on the details in this box to view select details. For example, select the number under **Passed** to display only the recommendations in which a resource passed.
-
-- The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
-
-- The last box on the dashboard displays the date range for which the information is displayed.
-
-**Next Generation Security and Privacy (NIST) 800-53**
-
-- The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard. It also displays how many recommendations were passed at the date shown.
-
-     > [!NOTE]
-     > If the recommendation has been further categorized in the standard, a **Priority** status displays for that category. You can select on the details in the boxes to view select details. For example, select the number under **Priority 1** to display only the recommendations in which a resource passed.
-
-- The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
-
-- The last box on the dashboard displays the date range for which the information is displayed.
-
-**Payment Card Industry/Data Security Standards (PCI DSS) Benchmarks**
-
-- The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard. It also displays how many recommendations were passed at the date shown.
-
-     If the recommendation has been further categorized in the standard, a **Priority** status displays for that category. You can select on the details in the boxes to view select details. For example, select the number under **Priority 1** to view only the recommendations in which a resource passed.
-
-- The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
-
-- The last box on the dashboard displays the date range for which the information is displayed.
-
-**Microsoft Azure Well-Architected Framework**
-
-- The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard. It also displays how many recommendations were passed at the date shown.
-
-     If the recommendation has been further categorized in the standard, a **Priority** status displays for that category. You can select on the details in the boxes to view select details. For example, select the number under **Priority 1** to view only the recommendations in which a resource passed.
-
-- The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
-
-- The last box on the dashboard displays the date range for which the information is displayed.
-
-## View recommendation details by account
+## View recommendation details for an account
 
 1. Select the account name to view details on the recommendations:
 
-     - **Ignore** – Users can set this option **On** or **Off** to ignore or view the recommendation.
-       - When the recommendation is set to **Off**, a pop-up box opens asking the user if they are sure they want to turn off the recommendation and requires the user to input a reason. Select **Confirm** once a reason has been entered.
-       - On the dashboard, the number of compliance recommendations will be reduced by however many recommendations are switched to **Off.**
-       - When turning the recommendation back on, a pop-up box opens asking the user to confirm they want to turn on the recommendation. Select **Confirm**.
-       - If items can't be ignored, they will be marked in the column as **Manual** since there are no tests available to give a result on the item.
-       - Some items aren't scored because they are test items and will be marked in the column as **Not Scored**. These items aren't counted in the recommendations.
-      - **Recommendation** – Displays the summary describing the recommendation. The **Recommendation** sections vary slightly depending on which compliance standard and authorization system is being viewed.
-      - **Result** – Displays the results of the recommendation, whether it has passed or failed. A green check mark displays when the recommendation passes and a red **X** if it has failed.
+    The **Result Summary** opens, displaying the following sections:
+
+     - **1: Identity and access management**
+     - **2: Storage**
+     - **3: Logging**
+     - **4: Monitoring**     
+     - **5: Networking**
+
+     Each section has a table that displays the following information: 
+
+     - **Ignore** - Indicates if each item was scored (**On**) or **Not scored**.
+     - **Recommendations** - Select an item to view the **Results details**:
+
+         - **Description**
+         - **Rationale**
+         - **Audit** activity
+         - **Remediation**
+         - A link to **References**.
+
+     - **Results** - Indicates if each item **Passed** or **Failed**
+     - **Profile** - Indicates if the item is Level 1 (**L1**) or Level 2 (**L2**).
+     - **Resources** - The status of the item: **Failed**, **Passed**, **Not Run**, and **Ignored**.
+
+1. To collapse a table, select the up arrow at the right of the table heading.
+
+    To display a table, select the down arrow at the right of the table heading.
+
+1. To collapse all the tables, select **Collapse all**.
+
+    To display all the tables, select **Expand all**.
+
+
+## Modify recommendation details for an account
+
+1. Select the account name to modify details on the recommendations:
+
+     - **Ignore** – You can set this option **On** or **Off** to ignore or view the recommendation.
+
+        When the recommendation is set to **Off**, a pop-up box opens confirming that you are sure you want to turn off the recommendation and requires you to enter a reason. Then select **Confirm**.
+
+     - On the dashboard, the number of compliance recommendations will be reduced by however many recommendations are switched to **Off.**
+     
+     - When you turn the recommendation back on, a pop-up box opens asking you to confirm you want to turn on the recommendation. Select **Confirm**.
+     
+     - If items can't be ignored, they will be marked in the column as **Manual** since there are no tests available to give a result on the item.
+
+     - Some items aren't scored because they are test items and will be marked in the column as **Not Scored**. These items aren't counted in the recommendations.
+
+     - **Recommendation** – Displays the summary describing the recommendation. The **Recommendation** sections vary slightly depending on which compliance standard and authorization system is being viewed.
+
+     - **Result** – Displays the results of the recommendation, whether it has passed or failed. A green check mark displays when the recommendation passes and a red **X** if it has failed.
 
         - If the item is a manual item, a hand icon displays in this column.
         - If the item is one that cannot be scored, a document icon with a slash through it displays in this column.
-      - **Profile** (CIS Benchmarks and NIST 800-53) – Displays the recommendation priority or level.
+
+     - **Profile** (CIS Benchmarks and NIST 800-53) – Displays the recommendation priority or level.
+
      - **Resources** – All recommendations are run against resources.
+
          - **Failed** – Displays how many resources failed the recommendation.
         - **Passed** – Displays how many resources passed the recommendation.
          - **Not Run** – Displays how many resources for which the recommendation wasn't run.
 
            A failure usually happens when the CloudKnox account doesn't have sufficient privileges to access the resources.
-      - **Ignored** – Displays how many resources the user decided to ignore or exclude from the recommendations.
+
+     - **Ignored** – Displays how many resources you've decided to ignore or exclude from the recommendations.
+
 
 ## View details about a recommendation
 
-1. View details about a recommendation. 
+1. To navigate to the recommendation, select the recommendation name in the **Recommendation Name** column.
 
-    <!---See How to view recommendation details by account.--->
-
-    - To navigate to the recommendation, select the recommendation name in the **Recommendation Name** column.
-
-2. The top of the page displays the number of Resources are being tallied for this recommendation, and the number of resources that failed, passed, weren't run, and were ignored.
+2. The top of the page displays the number of **Resources** are being tallied for this recommendation, and the number of resources that failed, passed, weren't run, and were ignored.
 
 3. The table defaults to the **Results** tab, and displays the following details:
     - **Ignore** - You can check the box next to each line item to ignore the recommendation for a specific user or resource.
@@ -138,11 +138,9 @@ The main **Compliance** page displays all accounts for the selected **Authorizat
 
 4. Select the **Description** tab to view full details on how to read, use, and remediate a recommendation.
 
-### Apply a filter
+## Apply a filter to the recommendations
 
-There are several filtering options to choose from when filtering the recommendations. When you select a specific account, other filters (listed beginning on step 5) display.
-
-<!---For more information, see How to view Recommendation details by account.--->
+There are several filtering options to choose from when filtering the recommendations. When you select a specific account, other filters display.
 
 1. Select the funnel icon to apply filter options.
 
@@ -162,12 +160,15 @@ There are several filtering options to choose from when filtering the recommenda
 
 8. CIS Benchmarks and NIST 800-53 – From **Profiles**, choose **All** or the various levels or priorities.
 
-### Search for information on the Compliance page
+## Search for information on the Compliance dashboard
 
-1. Select in the **Search for Authorization Systems...** box at the top of the page, and then enter your criteria.
+1. Select in the **Search for Authorization Systems...** box at the top of the Compliance dashboard, and then enter your criteria.
 
 2. To search for your criteria, press **Enter** or select **Search**.
 
      The search results display on the screen. The top-right corner displays **Showing 1 of XX** to let you know how many pages of results have been found and which page is currently displayed.
 
-<!---## Next steps--->
+
+## Next steps
+
+- For information about compliance standards, see [Information about compliance standards](cloudknox-ui-compliance.md)

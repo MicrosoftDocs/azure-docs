@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - The Integrations dashboard 
-description: How to view available authorization systems in the Integrations dashboard in Microsoft CloudKnox Permissions Management.
+title: Microsoft CloudKnox Permissions Management - View available authorization systems 
+description: How to view available authorization systems in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -12,11 +12,11 @@ ms.date: 01/25/2022
 ms.author: v-ydequadros
 ---
 
-# The Integrations dashboard
+# View available authorization systems
 
-This topic describes how to use the **Integrations** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) to view available authorization systems.
+This topic describes how to view available authorization systems using the **Integrations** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) to view available authorization systems.
 
-**To display the Integrations dashboard**:
+## Display available authorization systems
 
 1. In the upper right of the CloudKnox dashboard, select **User** (your initials) in the upper right of the screen, and then select **Integrations.**
 
@@ -28,7 +28,7 @@ This topic describes how to use the **Integrations** dashboard in Microsoft Clou
     - The **Integration** tab
     - The **Settings** tab
 
-## The Authorization system tab
+## View information about an authorization system's application programming interface (API)
 
 The **Authorization system** tab provides information about features available through the selected authorization system's application programming interface (API). 
 
@@ -36,7 +36,7 @@ The API ensures that an organization can customize CloudKnox to best suit their 
 
 - To find out more about the API, select the link to the documentation.
 
-## The Integration tab
+## View integration information about an authorization system
 
 The **Integration** tab displays the following integration information for the selected authorization system.
 
@@ -60,7 +60,7 @@ Depending on the authorization system you've selected, some of the information d
 
         If you don't receive the OTP in your email, select **Resend OTP**, and then check your email.
 
-## The Settings tab
+## View settings information about an authorization system
 
 The **Settings** tab displays the following settings information for the selected authorization system:
 

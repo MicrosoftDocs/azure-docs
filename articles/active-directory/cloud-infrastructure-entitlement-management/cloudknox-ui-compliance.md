@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - The Compliance dashboard
-description: How to use the Microsoft CloudKnox Permissions Management Compliance dashboard.
+title: Microsoft CloudKnox Permissions Management - Information about compliance standards
+description: Information about compliance standards for Microsoft CloudKnox Permissions Management Compliance dashboard.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -12,52 +12,69 @@ ms.date: 01/25/2022
 ms.author: v-ydequadros
 ---
 
-# The Compliance dashboard
+# Information about compliance standards
 
 The **Compliance** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox)  provides an overview of how you can follow the national, regional, and industry-specific requirements that govern the collection and use of data.
 
 This topic provides an overview of the components of the **Compliance** dashboard.
 
-## The Compliance dashboard
 
-The **Compliance** dashboard displays the following information:
+## Center for Internet Security (CIS) Benchmarks
 
 - The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard. It also displays how many recommendations were passed at the date shown.
+
+     - To view the differentiators between the two levels, hover over the information **(i)** icon in the Level 1 and Level 2 boxes.
+
+  > [!NOTE]
+  > If the recommendation has been further categorized in the standard, a **Pass**/**Fail** status displays for that category. You can select on the details in the boxes to view select details. For example, select the number under **Passed** to display only the recommendations in which a resource passed.
+
 - The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
+
 - The last box on the dashboard displays the date range for which the information is displayed.
 
-## The Filter toolbar
+## Amazon Web Services (AWS) Well-Architected Framework
 
-- The **Filter** toolbar displays the following options:
-    - **Compliance Standard** provides the following options:
-        - **AWS Well Architected** - The Amazon Web Services (AWS) Well-Architected Framework
-        - **CIS Benchmarks** - Center for Internet Security (CIS) Benchmarks standard
-        - **NIST 800-53** - Next Generation Security and Privacy (NIST) 800-53
-        - **PCI DSS Benchmarks** - Payment Card Industry / Data Security Standards (PCI DSS) benchmark frameworks
+- The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard. It also displays how many recommendations were passed at the date shown.
 
-    - **Authorization System Type** provides a drop-down list of authorization system types you can access. The options may include:
-        - **Amazon Web Services (AWS)**
-        - **Microsoft Azure (Azure)**
-        - **Google Cloud Platform (GCP)**
+     > [!NOTE]
+     > If the recommendation has been further categorized in the standard, a **Pass**/**Fail** status displays for that category. You can select on the details in this box to view select details. For example, select the number under **Passed** to display only the recommendations in which a resource passed.
 
-- **Search** - Enter criteria to search for the required authorization system.
- 
-## Information about Compliance standards
+- The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
 
-### Amazon Web Services (AWS)
+- The last box on the dashboard displays the date range for which the information is displayed.
 
-If the recommendation has been further categorized in the standard, a **Priority** status displays for that category. You can select on the details in the boxes to view select details. For example, select the number under **Priority 1** to display only the recommendations in which a resource passed.
+## Next Generation Security and Privacy (NIST) 800-53
 
-If the recommendation has been further categorized in the standard, a **Pass**/**Fail** status displays for that category. You can select on the details in the boxes to view select details. For example, select the number under **Passed** to display only the recommendations in which a resource passed.
+- The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard. It also displays how many recommendations were passed at the date shown.
 
-### Payment Card Industry/Data Security Standards (PCI DSS) Benchmarks
+     > [!NOTE]
+     > If the recommendation has been further categorized in the standard, a **Priority** status displays for that category. You can select on the details in the boxes to view select details. For example, select the number under **Priority 1** to display only the recommendations in which a resource passed.
 
-If the recommendation has been further categorized in the standard, a **Priority** status displays for that category. You can select on the details in the boxes to view select details. For example, select the number under **Priority 1** to view only the recommendations in which a resource passed.
+- The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
 
-### Microsoft Azure Well-Architected Framework
+- The last box on the dashboard displays the date range for which the information is displayed.
 
-If the recommendation has been further categorized in the standard, a **Priority** status displays for that category. You can select on the details in the boxes to view select details. For example, select the number under **Priority 1** to view only the recommendations in which a resource passed.
+## Payment Card Industry/Data Security Standards (PCI DSS) Benchmarks
+
+- The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard. It also displays how many recommendations were passed at the date shown.
+
+     If the recommendation has been further categorized in the standard, a **Priority** status displays for that category. You can select on the details in the boxes to view select details. For example, select the number under **Priority 1** to view only the recommendations in which a resource passed.
+
+- The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
+
+- The last box on the dashboard displays the date range for which the information is displayed.
+
+## Microsoft Azure Well-Architected Framework
+
+- The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard. It also displays how many recommendations were passed at the date shown.
+
+     If the recommendation has been further categorized in the standard, a **Priority** status displays for that category. You can select on the details in the boxes to view select details. For example, select the number under **Priority 1** to view only the recommendations in which a resource passed.
+
+- The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
+
+- The last box on the dashboard displays the date range for which the information is displayed.
 
 
+## Next steps
 
-<!---## Next steps--->
+- For information on how to view product compliance guidelines, see [View product compliance guidelines](cloudknox-product-compliance.md)

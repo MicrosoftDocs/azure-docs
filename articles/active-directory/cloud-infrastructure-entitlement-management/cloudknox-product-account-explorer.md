@@ -1,5 +1,5 @@
 ---
-title: The Microsoft CloudKnox Permissions Management - View roles and identities that can access account information from external accounts
+title: The Microsoft CloudKnox Permissions Management - View roles and identities that can access account information from an external account
 description: How to view information about identities that can access accounts from an external account in the Account explorer in Microsoft CloudKnox Permissions Management.
 services: active-directory
 manager: karenh444
@@ -10,9 +10,9 @@ ms.date: 01/25/2022
 ms.author: v-ydequadros
 ---
 
-# View roles and identities that can access account information from external accounts
+# View roles and identities that can access account information from an external account
 
-You can use the **Account explorer** in Microsoft CloudKnox Permissions Management (CloudKnox) to view information about roles and identities that can access account information from an external accounts. This includes users, roles, EC2 instances and Lambda functions.
+You can use the **Account explorer** in Microsoft CloudKnox Permissions Management (CloudKnox) to view information about roles and identities that can access account information from an external account. This includes users, roles, EC2 instances and Lambda functions.
 
 ## View information about identities that can access accounts
 
