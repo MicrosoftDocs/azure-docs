@@ -49,7 +49,7 @@ The template can be exported with the Azure portal using these steps:
 
 Use the following command to export the template:
 
-```bash
+```azurecli
 az login
 az account set --subscription <resource-subscription-id>
 az group export --resource-group <resource-group> --resource-ids <resource-id>
@@ -190,7 +190,7 @@ After modifying the template, the new resource can be created using **Deploy a c
 
 After you modify the template, you can use the following command to deploy the custom template and create the new resource.
 
-```bash
+```azurecli
 az login
 az account set --subscription <resource-subscription-id>
 az deployment group create \
