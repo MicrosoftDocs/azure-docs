@@ -101,6 +101,8 @@ items:
       href: concepts/identity-model.md
     - name: Authenticating services
       href: concepts/authentication.md
+    - name: Credentials best practices
+      href: concepts/identity-best-practices.md
     - name: End-user privacy
       href: concepts/privacy.md
   - name: Chat
