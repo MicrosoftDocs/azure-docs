@@ -6,7 +6,7 @@ ms.date: 10/15/2020
 ms.author: erhopf
 ---
 
-To create a Visual Studio project for Universal Windows Platform (UWP) development, you need to:
+To create a Visual Studio project for UWP development, you need to:
 
 - Set up Visual Studio development options.
 - Create the project and select the target architecture.
