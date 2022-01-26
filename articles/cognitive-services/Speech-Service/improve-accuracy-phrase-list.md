@@ -6,7 +6,7 @@ ms.author: umaheshwari
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual 
-ms.date: 01/15/2022 
+ms.date: 01/26/2022 
 zone_pivot_groups: programming-languages-set-two-with-js-spx
 ---
 

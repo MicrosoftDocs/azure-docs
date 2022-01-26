@@ -513,6 +513,8 @@
       href: howto-create-service-principal-portal.md   
     - name: Configure an app to trust a GitHub repo
       href: workload-identity-federation-create-trust-github.md 
+    - name: Access Azure AD protected resources from Google Cloud
+      href: workload-identity-federation-create-trust-gcp.md 
     - name: Configure an app to trust an external identity provider
       href: workload-identity-federation-create-trust.md
   - name: Accept sign-ins from multiple tenants
@@ -558,7 +560,7 @@
     - name: Publish to App Source
       href: v2-howto-get-appsource-certified.md
     - name: Publish to Azure AD App Gallery
-      href: v2-howto-app-gallery-listing.md
+      href: ../manage-apps/v2-howto-app-gallery-listing.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Publish to the Office 365 Seller Dashboard
       href: /office/dev/store/add-in-submission-guide
   - name: Remove an app registration

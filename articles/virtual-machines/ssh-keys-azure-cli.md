@@ -25,10 +25,6 @@ For more detailed information about creating and using SSH keys with Linux VMs, 
 
 ## Generate new keys
 
-Start by preparing your environment for the Azure CLI:
-
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
 1. After you sign in, use the [az sshkey create](/cli/azure/sshkey#az_sshkey_create) command to create the new SSH key:
 
     ```azurecli
