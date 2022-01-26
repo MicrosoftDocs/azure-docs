@@ -139,7 +139,7 @@ If the Application Insights Java agent detects that you do not have any of the c
 Cipher suites come into play before a client application and server exchange information over an SSL/TLS connection. The client application initiates an SSL handshake. Part of that process involves notifying the server which cipher suites it supports. The server receives that information and compares the cipher suites supported by the client application with the algorithms it supports. If it finds a match, the server notifies the client application and a secure connection is established. If it does not find a match, the server refuses the connection.
 
 #### How to determine client side cipher suites:
-In this case, the client is the JVM on which your instrumented application is running. Starting from 3.2.5-BETA, Application Insights Java will log a warning message if missing cipher suites could be causing connection failures to one of the service endpoints.
+In this case, the client is the JVM on which your instrumented application is running. Starting from 3.2.5, Application Insights Java will log a warning message if missing cipher suites could be causing connection failures to one of the service endpoints.
 
 If using an earlier version of Application Insights Java, compile and run the following Java program to get the list of supported cipher suites in your JVM:
 
