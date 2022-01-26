@@ -160,54 +160,54 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
     **If your `kube-apiserver` is a [static pod](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/):**
 
-        1. The `azure-arc-guard-manifests` secret in the `kube-system` namespace contains two files `guard-authn-webhook.yaml` and `guard-authz-webhook.yaml`. Copy these files to the `/etc/guard` directory of the node.
+    1. The `azure-arc-guard-manifests` secret in the `kube-system` namespace contains two files `guard-authn-webhook.yaml` and `guard-authz-webhook.yaml`. Copy these files to the `/etc/guard` directory of the node.
 
-        1. Open the `apiserver` manifest in edit mode:
-            
-            ```console
-            sudo vi /etc/kubernetes/manifests/kube-apiserver.yaml
-            ```
-
-        1. Add the following specification under `volumes`:
+    1. Open the `apiserver` manifest in edit mode:
         
-            ```yml
-            - name: azure-rbac
-              hostPath:
-                path: /etc/guard
-                type: Directory
-            ```
+        ```console
+        sudo vi /etc/kubernetes/manifests/kube-apiserver.yaml
+        ```
 
-        1. Add the following specification under `volumeMounts`:
+    1. Add the following specification under `volumes`:
     
-            ```yml
-            - mountPath: /etc/guard
-              name: azure-rbac
-              readOnly: true
-            ```
+        ```yml
+        - name: azure-rbac
+            hostPath:
+            path: /etc/guard
+            type: Directory
+        ```
+
+    1. Add the following specification under `volumeMounts`:
+
+        ```yml
+        - mountPath: /etc/guard
+            name: azure-rbac
+            readOnly: true
+        ```
 
     **If your `kube-apiserver` is a not a static pod:**
 
-        1. Open the `apiserver` manifest in edit mode:
-            
-            ```console
-            sudo vi /etc/kubernetes/manifests/kube-apiserver.yaml
-            ```
-
-        1. Add the following specification under `volumes`:
+    1. Open the `apiserver` manifest in edit mode:
         
-            ```yml
-            - name: azure-rbac
-              secret:
-                secretName: azure-arc-guard-manifests
-            ```
+        ```console
+        sudo vi /etc/kubernetes/manifests/kube-apiserver.yaml
+        ```
 
-        1. Add the following specification under `volumeMounts`:
+    1. Add the following specification under `volumes`:
     
-            ```yml
-            - mountPath: /etc/guard
-              name: azure-rbac
-              readOnly: true
-            ```
+        ```yml
+        - name: azure-rbac
+            secret:
+            secretName: azure-arc-guard-manifests
+        ```
+
+    1. Add the following specification under `volumeMounts`:
+
+        ```yml
+        - mountPath: /etc/guard
+            name: azure-rbac
+            readOnly: true
+        ```
 
     Add the following `apiserver` arguments:
 
