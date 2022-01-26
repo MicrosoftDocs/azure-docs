@@ -16,11 +16,11 @@ Use these best practices to improve your knowledge base and provide better resul
 
 ## Extraction
 
-The question answering is continually improving the algorithms that extract question answer pairs from content and expanding the list of supported file and HTML formats. In general, FAQ pages should be stand-alone and not combined with other information. Product manuals should have clear headings and preferably an index page.
+Question answering is continually improving the algorithms that extract question answer pairs from content and expanding the list of supported file and HTML formats. In general, FAQ pages should be stand-alone and not combined with other information. Product manuals should have clear headings and preferably an index page.
 
 ## Creating good questions and answers
 
-We’ve used the following list of question and answer pairs as representation of a knowledge base to highlight best practices when authoring knowledge bases for Question answering.
+We’ve used the following list of question and answer pairs as representation of a knowledge base to highlight best practices when authoring knowledge bases for question answering.
 
 | Question | Answer |
 |----------|----------|
@@ -31,20 +31,20 @@ We’ve used the following list of question and answer pairs as representation o
 | Want to sell car | Please send car pics and document.|
 | How to get access to identification card? | Apply via company portal to get identification card.|
 
-### When should you add alternate questions to question and answer pair?
+### When should you add alternate questions to question and answer pairs?
 
-Question answering employs transformer-based ranker that takes care of user queries that are semantically similar to the question in the knowledge base. For example, consider the following question answer pair:
+Question answering employs a transformer-based ranker that takes care of user queries that are semantically similar to the question in the knowledge base. For example, consider the following question answer pair:
 
-*Question: "What is the price of Microsoft Stock?"*
-*Answer: "$200".*
+*Question: What is the price of Microsoft Stock?*
+*Answer: $200.*
 
 The service can return the expected response for semantically similar queries such as:
 
 “How much is Microsoft stock worth?
 “How much is Microsoft share value?”
-“How much a Microsoft share cost?”
-“What is market value of a Microsoft stock?”
-“What is market value of a Microsoft share?”
+“How much does a Microsoft share cost?”
+“What is the market value of a Microsoft stock?”
+“What is the market value of a Microsoft share?”
 
 However, it’s important to understand that the confidence score with which the system returns the correct response will vary based on the input query and how different it is from the original question answer pair.  
 
@@ -56,23 +56,23 @@ Users can add up to 10 alternate questions. Alternate questions beyond the first
 
 Semantic understanding in question answering should be able to take care of similar alternate questions.
 
-Simply put, the return on investment will start diminishing once you exceed 10 questions. Even if you’re adding more than 10 alternate questions, try to make the initial 10 questions as semantically dissimilar as possible so that all kinds of intents for the answer are captured by these 10 questions.  For the knowledge base at the beginning of this section, in question answer pair #1, adding alternate questions such as “How can I buy a car”, “I wanna buy a car” aren’t required. Whereas adding alternate questions such as “How to purchase a car”, “What are the options of buying a vehicle” can be useful.
+The return on investment will start diminishing once you exceed 10 questions. Even if you’re adding more than 10 alternate questions, try to make the initial 10 questions as semantically dissimilar as possible so that all kinds of intents for the answer are captured by these 10 questions.  For the knowledge base at the beginning of this section, in question answer pair #1, adding alternate questions such as “How can I buy a car”, “I wanna buy a car” aren’t required. Whereas adding alternate questions such as “How to purchase a car”, “What are the options of buying a vehicle” can be useful.
 
 ### When to add synonyms to a knowledge base?
 
-Question answering provides the flexibility to use synonyms at knowledge base level, unlike QnA Maker where synonyms are shared across knowledge bases for the entire service.
+Question answering provides the flexibility to use synonyms at the knowledge base level, unlike QnA Maker where synonyms are shared across knowledge bases for the entire service.
 
-For better relevance, the customer needs to provide a list of acronyms that the end user intends to use interchangeably. The following is a list of acceptable acronyms:
+For better relevance, you need to provide a list of acronyms that the end user intends to use interchangeably. The following is a list of acceptable acronyms:
 
 `MSFT` – Microsoft
 `ID` – Identification
 `ETA` – Estimated time of Arrival
 
-Other than acronyms, if you think your words are similar in context of a particular domain and generic language models won’t consider them similar, it’s better to add them as synonyms. For instance, if an auto company producing a car model X receives queries such as “my car’s audio isn’t working” and the knowledge base has questions on “fixing audio for car X”, then we need to add ‘X’ and ‘car’ as synonyms. 
+Other than acronyms, if you think your words are similar in context of a particular domain and generic language models won’t consider them similar, it’s better to add them as synonyms. For instance, if an auto company producing a car model X receives queries such as “my car’s audio isn’t working” and the knowledge base has questions on “fixing audio for car X”, then we need to add ‘X’ and ‘car’ as synonyms.
 
-The Transformer based model already takes care of most of the common synonym cases, for example: `Purchase – Buy`, `Sell - Auction`, `Price – Value`. For example, consider the following QnA pair: Q: “What is the price of Microsoft Stock?” A: “$200”.  
+The transformer-based model already takes care of most of the common synonym cases, for example: `Purchase – Buy`, `Sell - Auction`, `Price – Value`. For another example, consider the following question answer pair: Q: “What is the price of Microsoft Stock?” A: “$200”.  
 
-If we receive user queries like “Microsoft stock value”,” Microsoft share value”, “Microsoft stock worth”, “Microsoft share worth”, “stock value”, etc., they should be able to get correct answer even though these queries have words like share, value, worth which aren’t originally present in the knowledge base.
+If we receive user queries like “Microsoft stock value”,” Microsoft share value”, “Microsoft stock worth”, “Microsoft share worth”, “stock value”, etc., you should be able to get the correct answer even though these queries have words like "share", "value", and "worth", which aren’t originally present in the knowledge base.
 
 ### How are lowercase/uppercase characters treated?
 
@@ -80,15 +80,15 @@ Question answering takes casing into account but it's intelligent enough to unde
 
 ### How are question answer pairs prioritized for multi-turn questions?
 
-When a knowledge base has hierarchical relationships (either added manually or via extraction) and the previous response was an answer related to other QnAs, for the next query we give slight preference to all the children QnAs, sibling QnAs and grandchildren QnAs in that order. Along with any query, the [Question Answering REST API](https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers) expects a `context` object with the property `previousQnAId`, which denotes the last top answer. Based on this previous QnA ID, all the related QnAs are boosted.
+When a knowledge base has hierarchical relationships (either added manually or via extraction) and the previous response was an answer related to other question answer pairs, for the next query we give slight preference to all the children question answer pairs, sibling question answer pairs, and grandchildren question answer pairs in that order. Along with any query, the [Question Answering REST API](https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers) expects a `context` object with the property `previousQnAId`, which denotes the last top answer. Based on this previous `QnAID`, all the related `QnAs` are boosted.
 
 ### How are accents treated?
 
-Accents are supported for all major European languages. If the query has an incorrect accent, confidence score might be slightly different, but the service still returns the relevant answer and takes care of minor errors by leveraging fuzzy search.
+Accents are supported for all major European languages. If the query has an incorrect accent, the confidence score might be slightly different, but the service still returns the relevant answer and takes care of minor errors by leveraging fuzzy search.
 
 ### How is punctuation in a user query treated?
 
-Punctuation is ignored in user query before sending it to the ranking stack. Ideally it shouldn’t impact the relevance scores. Punctuation that is ignored is as follows:  `,?:;\"'(){}[]-+。./!*؟`
+Punctuation is ignored in a user query before sending it to the ranking stack. Ideally it shouldn’t impact the relevance scores. Punctuation that is ignored is as follows:  `,?:;\"'(){}[]-+。./!*؟`
 
 ## Chit-Chat
 
@@ -155,7 +155,7 @@ Alternate questions to improve the likelihood of a match with a user query. Alte
 |Original query|Alternate queries|Change|
 |--|--|--|
 |Is parking available?|Do you have a car park?|sentence structure|
- |Hi|Yo<br>Hey there!|word-style or slang|
+ |Hi|Yo<br>Hey there|word-style or slang|
 
 ### Use metadata tags to filter questions and answers
 
