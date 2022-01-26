@@ -18,9 +18,7 @@ You'll create the following as part of this how-to guide.
 - The Mobile Network resource representing your private mobile network as a whole.
 - The Site resource representing the physical enterprise location of your Azure Stack Edge device, which will host the packet core instance.
 - (Optionally) SIM resources representing the physical SIMs or eSIMs that will be served by the private mobile network.
-- The Kubernetes base VM that will run on the Azure Stack Edge device in the site. This serves as the platform for the Kubernetes cluster that will run the packet core instance.
 
-You will also connect the Kubernetes cluster that runs your packet core instance to Azure Arc. Azure Arc enabled Kubernetes allows you to manage the Kubernetes cluster directly from Azure.
 
 ## Prerequisites
 
@@ -28,7 +26,6 @@ You will also connect the Kubernetes cluster that runs your packet core instance
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
 - Collect all of the information listed in [Collect the required information to deploy a private mobile network - Azure portal](collect-required-information-for-private-mobile-network.md).
 - If you decided when collecting the information in [Collect the required information to deploy a private mobile network - Azure portal](collect-required-information-for-private-mobile-network.md) that you wanted to provision SIMs using a JSON file as part of deploying your private mobile network, you must have prepared this file and made it available on the machine you will use to access the Azure portal. You can find more information on the format of this file in [Provisioning SIM resources through the Azure portal using a JSON file](collect-required-information-for-private-mobile-network.md#provisioning-sim-resources-through-the-azure-portal-using-a-json-file) if necessary.
-- Ensure that the private key of the SSH keypair you will use to securely connect to the Kubernetes base VM is available on your local machine and that you know its filepath. You created this SSH keypair as part of [Collect the required information to deploy a private mobile network - Azure portal](collect-required-information-for-private-mobile-network.md).
 - Request a product key from your support representative.
 - Decide on the Log Analytics workspace you want to use for the Kubernetes cluster. For more information on Log Analytics, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview). You can choose from the following options.
   - A new Log Analytics workspace, which you will create as part of this procedure.
@@ -116,108 +113,11 @@ In this step, you will create the site resource representing the physical enterp
 
 1. Once you have confirmed this, keep the resource group displayed in the Azure portal and move to the next step.
 
-## Create the Kubernetes base VM
-
-In this step, you will create the Kubernetes base VM that will run on the Azure Stack Edge device in the site. This serves as the platform for the Kubernetes cluster that will run the packet core instance.
-
-1. You should still be viewing the resource group containing the site you created in the previous step. Select the **Mobile network site** resource corresponding to the site. Note that you may need to tick the **Show hidden types** checkbox to display this resource.
-1. Click **Create a custom location**.
-
-    :::image type="content" source="media/select-site.png" alt-text="Screenshot of the Azure portal showing the available sites in the private mobile network.":::
-
-1. Use the information you collected in [Collect Kubernetes base VM configuration values](collect-required-information-for-private-mobile-network.md#collect-kubernetes-base-vm-configuration-values) to fill out the fields on the **Basics** configuration tab. Once you have done this, click the **Next - Legal >** button.
-
-    :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/kubernetes-base-vm-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab for a Kubernetes base VM.":::
-
-1. On the **Legal** tab, read the Terms of Use and Privacy Policy. If you agree with these, tick the **I have read and agree to the Terms of use and the Privacy policy** checkbox, and then click the **Review + create** tab.
-1. Azure will now validate the configuration values you have entered. You should see a message indicating that your values have passed validation, as shown below.
-
-    :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/kubernetes-base-vm-validation-screen.png" alt-text="Screenshot of the Azure portal showing the successful validation of Kubernetes base VM configuration.":::
-
-    If the validation fails, you will see an error message and the configuration tab(s) containing the invalid configuration will be flagged with red dots. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
-
-1. Click **Create** to create the Kubernetes base VM. This process takes approximately 15 minutes. Once Azure has created the Kubernetes base VM, it will display the following confirmation screen.
-
-    :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/kubernetes-base-vm-deployment-confirmation.png" alt-text="Screenshot of the Azure portal confirming the successful deployment of Kubernetes base VM.":::
-
-1. Click **Go to resource** to navigate to the newly created **Azure Network Function Manager - Network Function** resource. Check the configuration to ensure it is as expected.
-
-    :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/azure-nfm-network-function-resource.png" alt-text="Screenshot of the Azure portal displaying an Azure Network Function Manager - Network Function resource.":::
-
-## Connect the Kubernetes cluster to Azure Arc
-
-Azure Arc enabled Kubernetes allows you to use Azure to manage the Kubernetes cluster that will run your packet core instance. In this step, you'll connect the Kubernetes cluster to Azure Arc. This step will create the following resources.
-
-- An **Azure Arc enabled Kubernetes** resource to represent the Kubernetes cluster on the Kubernetes base VM.
-- A **custom location** that provides a target for tenant administrators when deploying Azure services instances on the Kubernetes cluster.
-
-Do the following to connect the Kubernetes cluster to Azure Arc.
-
-1. Open a command prompt and enter `ssh -i <SSHKeyPath> MecUser@10.232.46.21`, where *`<SSHKeyPath>`* is the filepath of the SSH private key on your local machine. You identified this location as part of [Prerequisites](#prerequisites).
-1. Select **Connect Azure Arc for Kubernetes** and press Enter.
-1. Enter the subscription ID of your Azure subscription.
-1. Enter the name of the resource group in which the new Azure resources mentioned above will be created. This must be one of the following.
-
-   - A name for a new resource group that will be automatically generated as part of this step. We strongly recommend using a name that will allow you to identify it easily in future (for example, *contoso-arc-rg*).
-   - An existing resource group.
-
-1. Enter a prefix that will be included in the names of each of the resources created by this process. This must be between 3 and 32 characters long and include only letters, numbers and hyphens (for example, *contoso-arc*).
-1. Enter the region location code for the Azure region in which you want to create the resources (for example, *eastus*).
-1. When prompted, confirm whether you want to use an existing Log Analytics workspace for the Kubernetes cluster. If you answer yes, you will be prompted to provide the resource ID of your chosen Log Analytics workspace. You retrieved this in [Prerequisites](#prerequisites).
-1. If you answered no to the previous prompt, you will now be asked whether you want to create a new Log Analytics workspace for the Kubernetes cluster.
-
-   - If you answer yes, the Network Function Service Menu will automatically create a new Log Analytics workspace with the name *`<Prefix>`***-log** as part of this step, where *`<Prefix>`* is the prefix you chose for the new Azure resources.
-   - If you answer no, the Network Function Service Menu will configure the Kubernetes cluster to use the default Log Analytics workspace for your subscription in the Azure region you have chosen above. If this Log Analytics workspace doesn't already exist, the Network Function Service Menu will create it with the name **DefaultWorkspace-***`<Subscription>`***-***`<Region>`* and place it in the default resource group for your chosen region (**DefaultResourceGroup-***`<Region>`*).
-
-1. When prompted, paste in the product key provided to you by your support representative.
-1. Check your chosen configuration is correct. If so, press Y to proceed. If not, press N and repeat the process.
-1. The Network Function Service Menu starts the Microsoft Azure Command Line Interface setup. You will see output resembling the following. Make a note of the code given in the output.
-
-    ```text
-    Logging in to Azure CLI.
-    To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code <Code> to authenticate.
-    ```
-
-1. Open a web browser and navigate to [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin).
-1. Enter the code you retrieved from the Network Function Service Menu and click **Next**.
-
-    :::image type="content" source="media/azure-cross-platform-cli-enter-code.png" alt-text="Screenshot of the Azure Cross-Platform Command Line Interface prompting for a code.":::
-
-1. Use your Azure account credentials to sign in to the Microsoft Azure Cross-platform Command Line Interface.
-
-    :::image type="content" source="media/azure-cross-platform-cli-sign-in.png" alt-text="Screenshot of the Azure Cross-Platform Command Line Interface sign in screen.":::
-
-1. Click **Continue** to confirm that you want to sign in.
-
-    :::image type="content" source="media/azure-cross-platform-cli-confirmation.png" alt-text="Screenshot of the Azure Cross-Platform Command Line Interface showing a confirmation prompt for sign in.":::
-
-1. When the Microsoft Azure Cross-platform Command Line Interface confirms that the sign in is complete, you can close your browser.
-1. The Network Function Service Menu will now run through the process of connecting the Kubernetes cluster to Azure Arc. This takes approximately 5 minutes and comprises 7 stages. When this is complete, you will see output resembling the following.
-
-```text
-Completed setting up Packet Core prerequisites.
-Completed stage 7/7.
-Azure Arc enabling has completed successfully.
-Resource Group: contoso-arc-rg
-Connected Kubernetes Cluster: contoso-k8s-cluster
-Custom Location: contoso-custom-loc
-Done.
-Logging out of Azure CLI.
-Azure arc setup completed using the following properties.
-Azure subscription ID: <SubscriptionID>
-Azure resource group: contoso-arc-rg
-Azure connected Kubernetes cluster: contoso-arc-k8s-cluster
-Azure custom location: contoso-arc-custom-loc
-Azure location: eastus
-Log analytics workspace: contoso-arc-log
-Product key: **********...
-```
-
-## Verify that the correct resources have been created and that the connection is active
+## Verify that your Azure Stack Edge Pro cluster resources have been created and that the connection is active
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-1. Search for and select the resource group created by the Network Function Service Menu. The name of this resource group is the prefix you chose before starting this task, followed by **-rg** (for example, **contoso-arc-rg**).
-1. Check the contents of the resource group to confirm that it contains **Custom Location** and **Kubernetes - Azure Arc** resources. Note that if you chose to create a new Log Analytics workspace as part of the previous step, this will also be present in the resource group.
+1. Search for and select the resource group created when commissioning the cluster. 
+1. Check the contents of the resource group to confirm that it contains **Custom Location** and **Kubernetes - Azure Arc** resources. 
 1. Make a note of the name of the **Custom location** resource. You will need this in the next step.
 1. Select the **Kubernetes - Azure Arc** resource and confirm that the **Status** field is set to **Connected**.
 

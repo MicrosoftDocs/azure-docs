@@ -115,24 +115,6 @@ Collect all the values in the following table to define the packet core instance
    |The network address of the subnet from which IP addresses must be allocated to UEs, given in CIDR notation. The following is an example of the network address format.<br>`198.51.100.0/24`<br>Note that the UE subnets are not related to the access subnet.    |**UE IP subnet**|
    |Whether or not Network Address and Port Translation (NAPT) should be enabled for this data network. NAPT allows you to translate a large pool of private IP addresses for UEs to a small number of public IP addresses at the point at which traffic enters the core network, maximizing the utility of a limited supply of public IP addresses.    |**NAPT**|
 
-## Collect Kubernetes base VM configuration values
-
-During the deployment of your private mobile network, you will create a Kubernetes base VM on each Azure Stack Edge device. This serves as the platform for the Kubernetes cluster that will run the packet core instance. Collect all of the values in the following table for the Kubernetes base VM.
-
-   |Value  |Field name in Azure portal  |
-   |---------|---------|
-   |The Azure subscription to use to deploy the Kubernetes base VM. You must use the same subscription for all resources in your private mobile network deployment.                  |**Project details: Subscription**
-   |The Azure resource group to use to deploy the Kubernetes base VM. We recommend that you use the same resource group you chose for the private mobile network under **Project details: Resource group** in [Collect private mobile network resource configuration values](#collect-private-mobile-network-resource-configuration-values).                |**Project details: Resource group**|
-   |The name for the Kubernetes base VM.           |**Instance details: Name**|
-   |The region in which you are deploying the private mobile network. We recommend that you use the East US region.                         |**Instance details: Region**|
-   |The vendor of the Kubernetes base VM. This is always set to *metaswitch*.   |**Instance details: Vendor**|
-   |The name of the **Azure Network Function Manager - Device** resource representing the Azure Stack Edge device on which you want to deploy the Kubernetes base VM. You created this as part of [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).  |**Instance details: Device**|
-   |The stock keeping unit (SKU) for the version of the Kubernetes base VM you will deploy. You must request this from your support representative.  |**Instance details: Vendor SKU**|
-   |The public key of an SSH keypair you can use to securely connect to the Kubernetes base VM. The private key must be on your local machine and you must have the public key available to place on the Kubernetes base VM as part of deploying your private mobile network. For more information on creating SSH keypairs, see [Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure](/azure/virtual-machines/linux/create-ssh-keys-detailed).  |**Instance details: SSH public key for admin user (MecUser)**|
-   |The management IP address for the Kubernetes base VM. This must be a static IPv4 address in the same subnet as, but not identical to, the IP address of the physical port used for the management network on the Azure Stack Edge device.   |**Management: IP address**|
-   |The network address of the management subnet in CIDR notation.   |**Management: Subnet**|
-   |The management subnet default gateway.   |**Management: Default gateway**|
-
 ## Next steps
 
 You can now use the information you have collected to deploy your private mobile network
