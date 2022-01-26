@@ -20,7 +20,7 @@ This page illustrates typical architectural components and dataflows in various 
 
 ## User access management
 
-Azure Communication Services clients must present `user access tokens` to access Communication Services resources securely. `User access tokens` should be generated and managed by a trusted service due to the sensitive nature of the token and the connection string or managed identity necessary to generate them. Failure to properly manage access tokens can result in additional charges due to misuse of resources.
+Azure Communication Services clients must present `user access tokens` to access Communication Services resources securely. `User access tokens` should be generated and managed by a trusted service due to the sensitive nature of the token and the connection string or Azure AD authentication secrets necessary to generate them. Failure to properly manage access tokens can result in additional charges due to misuse of resources.
 
 :::image type="content" source="../media/scenarios/architecture_v2_identity.svg" alt-text="Diagram showing user access token architecture.":::
 

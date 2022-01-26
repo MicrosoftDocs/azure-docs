@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: firewall
   ms.topic: conceptual
-  ms.date: 09/28/2021
+  ms.date: 11/10/2021
   ms.author: victorh
     
 title: Azure Firewall FAQ
@@ -163,7 +163,7 @@ sections:
            |Type  |Rule  |Supported?  |Positive examples  |
            |---------|---------|---------|---------|
            |TargetURL  |`www.contoso.com` |Yes|`www.contoso.com`<br>`www.contoso.com/`|
-           |TargetURL  |`*.contoso.com` |Yes|`www.contoso.com`<br>`any.contoso.com/`|
+           |TargetURL  |`*.contoso.com` |Yes|`any.contoso.com/`|
            |TargetURL  |`*contoso.com`|Yes         |`example.anycontoso.com`<br>`contoso.com`|
            |TargetURL  |`www.contoso.com/test`|Yes|`www.contoso.com/test`<br>`www.contoso.com/test/`<br>`www.contoso.com/test?with_query=1`|
            |TargetURL  |`www.contoso.com/test/*`|Yes|`www.contoso.com/test/anything`<br>Note - `www.contoso.com/test` will **not** match (last slash)|

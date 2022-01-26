@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 09/21/2021
 ---
 
-# Manage Azure Database for PostgreSQL server
+# Manage Azure Database for PostgreSQL server (preview)
 
 This article describes how to manage Azure Database for PostgreSQL servers that are backed up with the Azure Backup service.
 

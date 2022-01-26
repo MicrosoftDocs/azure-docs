@@ -11,7 +11,7 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 03/08/2021
 ms.author: nitinme
-ms.custom: cog-serv-seo-aug-2020
+ms.custom: cog-serv-seo-aug-2020, mode-api
 keywords: display pictures, parts of speech, read selected text, translate words, reading comprehension
 ---
 

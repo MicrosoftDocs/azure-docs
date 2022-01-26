@@ -4,7 +4,7 @@ description: This article is regularly updated with news about the Azure Cogniti
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 04/07/2021
+ms.date: 11/08/2021
 ---
 
 # What's new in Language Understanding
@@ -12,6 +12,17 @@ ms.date: 04/07/2021
 Learn what's new in the service. These items include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up to date with the service.
 
 ## Release notes
+
+### January 2022
+* [Updated text recognizer](https://github.com/microsoft/Recognizers-Text/releases/tag/dotnet-v1.8.2) to v1.8.2
+* Added [English-British](luis-language-support.md) to supported languages.
+
+### December 2021
+* [Updated text recognizer](https://github.com/microsoft/Recognizers-Text/releases/tag/dotnet-v1.8.1) to v1.8.1
+* Jio India west [publishing region](luis-reference-regions.md#other-publishing-regions)
+   
+### November 2021
+* [Azure Role-based access control (RBAC) article](role-based-access-control.md)
 
 ### August 2021
 * Norway East [publishing region](luis-reference-regions.md#publishing-to-europe).
@@ -60,7 +71,7 @@ Learn what's new in the service. These items include release notes, videos, blog
     * [Continuous integration tools](developer-reference-resource.md#continuous-integration-tools)
     * Workshop - learn best practices for [_Natural Language Understanding_ (NLU) using LUIS](developer-reference-resource.md#workshops)
 * [Customer managed keys](./encrypt-data-at-rest.md) - encrypt all the data you use in LUIS by using your own key
-* [AI show](https://channel9.msdn.com/Shows/AI-Show/New-Features-in-Language-Understanding) (video) - see the new features in LUIS
+* [AI show](/Shows/AI-Show/New-Features-in-Language-Understanding) (video) - see the new features in LUIS
 
 
 

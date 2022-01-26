@@ -598,4 +598,4 @@ Check the `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (W
 
 ## Suggestions
 
-Do you have any feedback for us about Service Map or this documentation?  Visit our [User Voice page](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), where you can suggest features or vote up existing suggestions.
+Do you have any feedback for us about Service Map or this documentation?  Visit our [User Voice page](https://feedback.azure.com/d365community/forum/aa68334e-1925-ec11-b6e6-000d3a4f09d0?c=ad4304e4-1925-ec11-b6e6-000d3a4f09d0), where you can suggest features or vote up existing suggestions.

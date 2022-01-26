@@ -51,7 +51,7 @@ Azure Virtual Desktop supports the following operating systems:
 
 - Windows 7
 - Windows 10 Enterprise
-- Windows Server 2012 R2, 2016, and 2019
+- Windows Server 2012 R2, 2016, 2019, and 2022
 - Windows 10 Enterprise multi-session
 
 Windows 10 Enterprise multi-session is an Azure-exclusive OS that functions as a Remote Desktop session host (RDSH) that allows multiple concurrent interactive sessions, much like Windows Server. The Windows 10 environment gives users a familiar and consistent experience. The service's per-user Windows licensing also lowers costs for the organization as a whole because IT doesn't have to keep purchasing RDS Client Access Licenses (CALs). Because of these benefits, Windows 10 Enterprise multi-session is the most widely deployed OS for session hosts in Azure Virtual Desktop.

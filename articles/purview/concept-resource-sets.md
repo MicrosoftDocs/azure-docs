@@ -12,6 +12,7 @@ ms.date: 09/24/2021
 # Understanding resource sets
 
 This article helps you understand how Azure Purview uses resource sets to map data assets to logical resources.
+
 ## Background info
 
 At-scale data processing systems typically store a single table in storage as multiple files. In the Azure Purview data catalog, this concept is represented by using resource sets. A resource set is a single object in the catalog that represents a large number of assets in storage.
@@ -36,7 +37,7 @@ Using this strategy, Azure Purview would map the following resources to the same
 
 ### File types that Azure Purview will not detect as resource sets
 
-Purview intentionally doesn't try to classify most document file types like Word, Excel, or PDF as Resource Sets. The exception is CSV format since that is a common partitioned file format.
+Azure Purview intentionally doesn't try to classify most document file types like Word, Excel, or PDF as Resource Sets. The exception is CSV format since that is a common partitioned file format.
 
 ## How Azure Purview scans resource sets
 
@@ -62,9 +63,6 @@ Enabling advanced resource sets also allows for the creation of [resource set pa
 ### Turning on advanced resource sets
 
 Advanced resource sets is off by default in all new Azure Purview instances. Advanced resource sets can be enabled from **Account information** in the management hub.
-
-> [!NOTE]
-> All Purview instances created before August 19, 2021 have advanced resource set turned on by default.
 
 :::image type="content" source="media/concept-resource-sets/advanced-resource-set-toggle.png" alt-text="Turn on Advanced resource set." border="true":::
 
@@ -125,6 +123,7 @@ When scanning a storage account, Azure Purview uses a set of defined patterns to
 - Incorrectly marking an asset as not being a resource set
 
 To customize or override how Azure Purview detects which assets are grouped as resource sets and how they are displayed within the catalog, you can define pattern rules in the management center. For step-by-step instructions and syntax, please see [resource set pattern rules](how-to-resource-set-pattern-rules.md).
+
 ## Next steps
 
 To get started with Azure Purview, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).

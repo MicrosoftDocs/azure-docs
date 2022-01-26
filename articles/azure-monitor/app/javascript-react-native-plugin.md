@@ -7,6 +7,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/06/2020
+ms.devlang: javascript
 ---
 
 # React Native plugin for Application Insights JavaScript SDK

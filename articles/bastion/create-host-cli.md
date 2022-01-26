@@ -3,13 +3,12 @@ title: 'Create a Bastion host using Azure CLI | Azure Bastion'
 description: Learn how to create and delete a bastion host using Azure CLI.
 services: bastion
 author: cherylmc
-
 ms.service: bastion
 ms.topic: how-to
 ms.date: 09/22/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create an Azure Bastion host.
-
+ms.custom: ignite-fall-2021
 ---
 
 # Create an Azure Bastion host using Azure CLI
@@ -20,7 +19,7 @@ Optionally, you can create an Azure Bastion host by using the following methods:
 * [Azure portal](./tutorial-create-host-portal.md)
 * [Azure PowerShell](bastion-create-host-powershell.md)
 
-[!INCLUDE [Note about SKU limitations for preview.](../../includes/bastion-preview-sku-note.md)]
+[!INCLUDE [About skus](../../includes/bastion-sku-note.md)]
 
 ## Prerequisites
 

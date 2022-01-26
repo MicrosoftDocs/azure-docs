@@ -1,13 +1,12 @@
 ---
 title: Render coverage | Microsoft Azure Maps
 description: Learn whether Azure Maps renders various regions with detailed or simplified data. See the level it uses for raster-tile and vector-tile maps in those regions.
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: 
 ---
 
 

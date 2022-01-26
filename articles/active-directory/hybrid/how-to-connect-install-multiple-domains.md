@@ -4,16 +4,15 @@ description: This document describes setting up and configuring multiple top lev
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: curtand
 
 ms.assetid: 5595fb2f-2131-4304-8a31-c52559128ea4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 05/31/2017
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -38,7 +37,7 @@ You can view the IssuerUri by using the PowerShell command `Get-MsolDomainFedera
 
 A problem arises when you add more than one top-level domain.  For example, let's say you have set up federation between Azure AD and your on-premises environment.  For this document, the domain, bmcontoso.com is being used.  Now a second, top-level domain, bmfabrikam.com has been added.
 
-![An screenshot showing multiple top-level domains](./media/how-to-connect-install-multiple-domains/domains.png)
+![A screenshot showing multiple top-level domains](./media/how-to-connect-install-multiple-domains/domains.png)
 
 When you attempt to convert the bmfabrikam.com domain to be federated, an error occurs.  The reason is, Azure AD has a constraint that does not allow the IssuerUri property to have the same value for more than one domain.  
 

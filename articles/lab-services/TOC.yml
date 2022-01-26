@@ -20,8 +20,6 @@
     href: tutorial-track-usage.md            
 - name: Concepts
   items:
-  - name: Labs overview
-    href: classroom-labs-overview.md 
   - name: Labs concepts
     href: classroom-labs-concepts.md    
   - name: Labs architecture fundamentals

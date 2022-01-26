@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
 recommendations: false
+ms.custom: ignite-fall-2021
 ---
 <!-- markdownlint-disable MD033 -->
 
@@ -54,7 +55,7 @@ The Layout API analyzes and extracts text, tables and headers, selection marks, 
 
 ***Sample form processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature***:
 
-:::image type="content" source="media/overview-layout.png" alt-text="{alt-text}":::
+:::image type="content" source="media/overview-layout.png" alt-text="Screenshot: analyze sample document processed in Form Recognizer studio":::
 
 > [!div class="nextstepaction"]
 > [Learn more: layout model](concept-layout.md)
@@ -113,9 +114,9 @@ The business card model analyzes and extracts key information from business card
 
 ### Custom
 
- :::image type="content" source="media/studio/custom.png" alt-text="Screenshot: Studiocustom icon.":::
+ :::image type="content" source="media/studio/custom.png" alt-text="Screenshot: Form Recognizer Studio custom icon.":::
 
-The custom model analyzes and extracts data from forms and documents specific to your business. The API is a machine learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
+The custom model analyzes and extracts data from forms and documents specific to your business. The API is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
 
 ***Sample custom form processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***:
 

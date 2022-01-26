@@ -7,7 +7,6 @@ author: sama
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
 ms.date: 08/18/2021
@@ -23,7 +22,7 @@ ms.collection: M365-identity-device-management
 You can use entitlement management as a way of onboarding external users. This feature allows external users to request access to a set of resources and where you can set up approvals before they gain access to your directory. For external users onboarded through entitlement, you can manage their lifecycle through access packages. When their last access package expires, they'll be removed from your directory.
 
 In this tutorial, you work for WoodGrove Bank as an IT administrator. You’ve been asked to create an access package to onboard partners from an outside organization that your business group is working with. They will need access to a Teams group called **External collaboration**. 
-Approval is needed by an by internal sponsor for collaborating organizations. Also, you've been informed that the partner's access needs to expire after 60 days.
+Approval is needed by an internal sponsor for collaborating organizations. Also, you've been informed that the partner's access needs to expire after 60 days.
 To use Azure AD entitlement management, you must have one of the following licenses:
 
 - Azure AD Premium P2

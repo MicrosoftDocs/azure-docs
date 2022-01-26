@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
@@ -16,7 +16,7 @@ ms.topic: how-to
 
 ## Prerequisites
 
-Review the topic [Create the Azure Arc data controller](create-data-controller.md) for overview information.
+Review the topic [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md) for overview information.
 
 To create the Azure Arc data controller using Kubernetes tools you will need to have the Kubernetes tools installed.  The examples in this article will use `kubectl`, but similar approaches could be used with other Kubernetes tools such as the Kubernetes dashboard, `oc`, or `helm` if you are familiar with those tools and Kubernetes yaml/json.
 
@@ -48,11 +48,13 @@ kubectl delete clusterrole arcdataservices-extension
 kubectl delete clusterrole arc:cr-arc-metricsdc-reader
 kubectl delete clusterrole arc:cr-arc-dc-watch
 kubectl delete clusterrole cr-arc-webhook-job
-
-# Substitute the name of the namespace the data controller was deployed in into {namespace}.  If unsure, get the name of the mutatingwebhookconfiguration using 'kubectl get clusterrolebinding'
+kubectl delete clusterrole {namespace}:cr-upgrade-worker
 kubectl delete clusterrolebinding {namespace}:crb-arc-metricsdc-reader
 kubectl delete clusterrolebinding {namespace}:crb-arc-dc-watch
 kubectl delete clusterrolebinding crb-arc-webhook-job
+kubectl delete clusterrolebinding {namespace}:crb-upgrade-worker
+
+# Substitute the name of the namespace the data controller was deployed in into {namespace}.  If unsure, get the name of the mutatingwebhookconfiguration using 'kubectl get clusterrolebinding'
 
 # API services
 # Up to May 2021 release
@@ -148,13 +150,13 @@ The example below assumes that you created a image pull secret name `arc-private
       - name: arc-private-registry #Create this image pull secret if you are using a private container registry
       containers:
       - name: bootstrapper
-        image: mcr.microsoft.com/arcdata/arc-bootstrapper:v1.0.0_2021-07-30 #Change this registry location if you are using a private container registry.
+        image: mcr.microsoft.com/arcdata/arc-bootstrapper:v1.1.0_2021-11-02 #Change this registry location if you are using a private container registry.
         imagePullPolicy: Always
 ```
 
-## Create a secret for the Kibana/Grafana dashboards
+## Create secrets for the metrics and logs dashboards
 
-The username and password is used to authenticate to the Kibana and Grafana dashboards as an administrator.  Choose a secure password and share it with only those that need to have these privileges.
+You can specify a user name and password that is used to authenticate to the metrics and logs dashboards as an administrator. Choose a secure password and share it with only those that need to have these privileges.
 
 A Kubernetes secret is stored as a base64 encoded string - one for the username and one for the password.
 
@@ -179,7 +181,7 @@ echo -n '<your string to encode here>' | base64
 # echo -n 'example' | base64
 ```
 
-Once you have encoded the username and password you can create a file based on the [template file](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/controller-login-secret.yaml) and replace the username and password values with your own.
+Once you have encoded the usernames and passwords you can create a file based on the [template file](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/controller-login-secret.yaml) and replace the usernames and passwords with your own.
 
 Then run the following command to create the secret.
 
@@ -189,6 +191,10 @@ kubectl create --namespace arc -f <path to your data controller secret file>
 #Example
 kubectl create --namespace arc -f C:\arc-data-services\controller-login-secret.yaml
 ```
+
+## Create certificates for logs and metrics dashboards
+
+Optionally, you can create SSL/TLS certificates for the logs and metrics dashboards. Follow the instructions at [Specify during Kubernetes native tools deployment](monitor-certificates.md).
 
 ## Create the webhook deployment job, cluster role and cluster role binding
 
@@ -215,7 +221,7 @@ First, create a copy of the [template file](https://raw.githubusercontent.com/mi
 Edit the following as needed:
 
 **REQUIRED**
-- **location**: Change this to be the Azure location where the _metadata_ about the data controller will be stored.  You can see the list of available Azure locations in the [create data controller overview](create-data-controller.md) article.
+- **location**: Change this to be the Azure location where the _metadata_ about the data controller will be stored.  Review the [list of available regions](overview.md#supported-regions).
 - **resourceGroup**: the Azure resource group where you want to create the data controller Azure resource in Azure Resource Manager.  Typically this resource group should already exist, but it is not required until the time that you upload the data to Azure.
 - **subscription**: the Azure subscription GUID for the subscription that you want to create the Azure resources in.
 
@@ -237,63 +243,13 @@ Edit the following as needed:
 - **registry**: The Microsoft Container Registry is the default.  If you are pulling the images from the Microsoft Container Registry and [pushing them to a private container registry](offline-deployment.md), enter the IP address or DNS name of your registry here.
 - **dockerRegistry**: The image pull secret to use to pull the images from a private container registry if required.
 - **repository**: The default repository on the Microsoft Container Registry is `arcdata`.  If you are using a private container registry, enter the path the folder/repository containing the Azure Arc-enabled data services container images.
-- **imageTag**: the current latest version tag is defaulted in the template, but you can change it if you want to use an older version.
+- **imageTag**: The current latest version tag is defaulted in the template, but you can change it if you want to use an older version.
+- **logsui-certificate-secret**: The name of the secret created on the Kubernetes cluster for the logs UI certificate.
+- **metricsui-certificate-secret**: The name of the secret created on the Kubernetes cluster for the metrics UI certificate.
 
 The following example shows a completed data controller yaml file. Update the example for your environment, based on your requirements, and the information above.
 
-```yml
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: sa-arc-controller
----
-apiVersion: arcdata.microsoft.com/v1
-kind: DataController
-metadata:
-  generation: 1
-  name: arc-dc
-spec:
-  credentials:
-    controllerAdmin: controller-login-secret
-    dockerRegistry: arc-private-registry #Create a registry secret named 'arc-private-registry' if you are going to pull from a private registry instead of MCR.
-    serviceAccount: sa-arc-controller
-  docker:
-    imagePullPolicy: Always
-    imageTag: v1.0.0_2021-07-30
-    registry: mcr.microsoft.com
-    repository: arcdata
-  infrastructure: other #Must be a value in the array [alibaba, aws, azure, gcp, onpremises, other]
-  security:
-    allowDumps: true #Set this to false if deploying on OpenShift
-    allowNodeMetricsCollection: true #Set this to false if deploying on OpenShift
-    allowPodMetricsCollection: true #Set this to false if deploying on OpenShift
-  services:
-  - name: controller
-    port: 30080
-    serviceType: LoadBalancer # Modify serviceType based on your Kubernetes environment
-  settings:
-    ElasticSearch:
-      vm.max_map_count: "-1"
-    azure:
-      connectionMode: indirect
-      location: eastus # Choose a different Azure location if you want
-      resourceGroup: <your resource group>
-      subscription: <your subscription GUID>
-    controller:
-      displayName: arc-dc
-      enableBilling: "True"
-      logs.rotation.days: "7"
-      logs.rotation.size: "5000"
-  storage:
-    data:
-      accessMode: ReadWriteOnce
-      className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
-      size: 15Gi
-    logs:
-      accessMode: ReadWriteOnce
-      className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
-      size: 10Gi
-```
+:::code language="yaml" source="~/azure_arc_sample/arc_data_services/deploy/yaml/data-controller.yaml":::
 
 Save the edited file on your local computer and run the following command to create the data controller:
 

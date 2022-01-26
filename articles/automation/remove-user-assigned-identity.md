@@ -1,13 +1,13 @@
 ---
-title: Remove user-assigned managed identity for Azure Automation account (preview)
+title: Remove user-assigned managed identity for Azure Automation account
 description: This article explains how to remove a user-assigned managed identity for an Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/24/2021
+ms.date: 10/26/2021
 ms.topic: conceptual
 ---
 
-# Remove user-assigned managed identity for Azure Automation account (preview)
+# Remove user-assigned managed identity for Azure Automation account
 
 You can remove a user-assigned managed identity in Azure Automation by using the Azure portal, PowerShell, the Azure REST API, or an Azure Resource Manager (ARM) template.
 
@@ -228,6 +228,6 @@ Use the [Get-AzAutomationAccount](/powershell/module/az.automation/get-azautomat
 
 ## Next steps
 
-- For more information about enabling managed identities in Azure Automation, see [Enable and use managed identity for Automation (preview)](enable-managed-identity-for-automation.md).
+- For more information about enabling managed identities in Azure Automation, see [Enable and use managed identity for Automation](enable-managed-identity-for-automation.md).
 
 - For an overview of Automation account security, see [Automation account authentication overview](automation-security-overview.md).

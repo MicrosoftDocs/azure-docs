@@ -1,11 +1,10 @@
 ---
 title: Troubleshoot common Azure Automanage onboarding errors
 description: Common Automanage onboarding errors and how to troubleshoot them
-ms.service: virtual-machines
-ms.subservice: automanage
+ms.service: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 12/10/2021
 ---
 
 # Troubleshoot common Automanage onboarding errors

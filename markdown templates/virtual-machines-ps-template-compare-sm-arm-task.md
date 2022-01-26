@@ -46,7 +46,7 @@ $FriendlyName"\<Describe value>"
 
 <!--if it makes more sense to present this one command block after the other instead of a table, use this. Otherwise, delete-->
 
-[Short intro sentence about the command. Omit if there's really nothing to say. But if it uses approaches such a the pipeline, explain that]:
+[Short intro sentence about the command. Omit if there's really nothing to say. But if it uses approaches such as the pipeline, explain that]:
 
     [command string]
 

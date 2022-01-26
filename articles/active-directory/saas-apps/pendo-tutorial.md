@@ -70,8 +70,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set-up single sign-on with SAML** page, perform the following steps:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://sso.connect.pingidentity.com/<CUSTOM_GUID>`
+    a. In the **Identifier** text box, enter `PingConnect`. (If this identifier is already used by another application, contact the [Pendo support team](mailto:support@pendo.io).)
+    
 
     b. In the **Relay State** text box, type a URL using the following pattern:
     `https://pingone.com/1.0/<CUSTOM_GUID>`
@@ -133,4 +133,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Pendo you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Pendo you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

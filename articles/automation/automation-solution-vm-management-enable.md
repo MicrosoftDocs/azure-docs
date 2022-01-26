@@ -11,10 +11,6 @@ ms.topic: conceptual
 
 Perform the steps in this topic in sequence to enable the Start/Stop VMs during off-hours feature for VMs using a new or existing Automation account and linked Log Analytics workspace. After completing the setup process, configure the variables to customize the feature.
 
->[!NOTE]
->To use this feature with classic VMs, you need a Classic Run As account, which is not created by default. See [Create a Classic Run As account](automation-create-standalone-account.md#create-a-classic-run-as-account).
->
-
 ## Enable and configure 
 
 1. Sign in to the Azure [portal](https://portal.azure.com).

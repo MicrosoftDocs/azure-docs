@@ -7,9 +7,9 @@ ms.subservice: data-movement
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: rothja
-ms.author: jroth
-ms.reviewer: mathoma
+author: WilliamDAssafMSFT 
+ms.author: wiassaf
+ms.reviewer: kendralittle, mathoma
 ms.date: 03/12/2019
 ---
 # Use PowerShell to copy a database to a new server

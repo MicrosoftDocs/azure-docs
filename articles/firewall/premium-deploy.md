@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 07/15/2021
+ms.date: 11/24/2021
 ms.author: victorh
 ---
 
@@ -83,7 +83,7 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
    :::image type="content" source="media/premium-deploy/alert-message.png" alt-text="Alert message":::
 
    > [!NOTE]
-   > It can take some time for the data to begin showing in the logs. Give it at least 20 minutes to allow for the logs to begin showing the data.
+   > It can take some time for the data to begin showing in the logs. Give it at least a couple minutes to allow for the logs to begin showing the data.
 5. Add a signature rule for signature 2008983:
 
    1. Select the **DemoFirewallPolicy** and under **Settings** select **IDPS**.

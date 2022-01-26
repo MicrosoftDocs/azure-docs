@@ -2,13 +2,13 @@
 title: "Quickstart: Recognize speech from an audio file - Speech service"
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/14/2020
-ms.author: pafarley
+ms.author: eur
 ---
 
 In this quickstart you will use the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) to recognize speech from an audio file. After satisfying a few prerequisites, recognizing speech from a file only takes a few steps:

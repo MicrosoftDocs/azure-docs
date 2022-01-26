@@ -27,7 +27,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Azure Friday - Azure Blueprints Overview
-            url: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
+            url: /Shows/Azure-Friday/An-overview-of-Azure-Blueprints
 
   - title: Get started
     linkLists:
@@ -89,7 +89,7 @@ landingContent:
           - text: Azure Governance YouTube channel
             url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
           - text: Request product feature
-            url: https://feedback.azure.com/forums/915958-azure-governance?category_id=345058
+            url: https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0?c=775ae472-f324-ec11-b6e6-000d3a4f0da0
           - text: Tech Community for Azure Governance
             url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
 

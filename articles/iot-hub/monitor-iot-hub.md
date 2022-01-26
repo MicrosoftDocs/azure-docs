@@ -1,12 +1,12 @@
 ---
 title: Monitoring Azure IoT Hub
 description: Start here to learn how to monitor Azure IoT Hub 
-author: robinsh
-ms.author: robinsh
+author: eross-msft
+ms.author: lizross
 ms.topic: conceptual 
 ms.service: iot-hub
 ms.custom: subject-monitoring
-ms.date: 11/06/2020
+ms.date: 10/26/2021
 
 ---
 
@@ -78,7 +78,7 @@ You can analyze metrics for Azure IoT Hub with metrics from other Azure services
 
 In Azure portal, you can select **Metrics** under **Monitoring** on the left-pane of your IoT hub to open metrics explorer scoped, by default, to the platform metrics emitted by your IoT hub:
 
-:::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="Metrics explorer page for an IoT hub.":::
+:::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="Screenshot showing the metrics explorer page for an IoT hub." border="true":::
 
 For a list of the platform metrics collected for Azure IoT Hub, see [Metrics in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#metrics). For a list of the platform metrics collected for all Azure services, see [Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 

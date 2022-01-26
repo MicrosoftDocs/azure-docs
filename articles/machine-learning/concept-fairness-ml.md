@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.author: luquinta
-author: luisquintanilla
-ms.date: 04/02/2021
+ms.author: lagayhar
+author: lgayhardt
+ms.date: 10/21/2021
 ms.custom: responsible-ml
 #Customer intent: As a data scientist, I want to learn about machine learning fairness and how to assess and mitigate unfairness in machine learning models.
 ---
 
 # Machine learning fairness (preview)
 
-Learn about machine learning fairness and how the [Fairlearn](https://fairlearn.github.io/) open-source Python package can help you assess and mitigate unfairness issues in machine learning models. 
+Learn about machine learning fairness and how the [Fairlearn](https://fairlearn.github.io/) open-source Python package can help you assess and mitigate unfairness issues in machine learning models.
 
 ## What is machine learning fairness?
 

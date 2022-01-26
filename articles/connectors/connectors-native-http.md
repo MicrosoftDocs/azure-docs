@@ -271,7 +271,7 @@ For *stateless* workflows in single-tenant Azure Logic Apps, HTTP-based actions 
 
 ## Disable asynchronous operations
 
-Sometimes, you might want to the HTTP action's asynchronous behavior in specific scenarios, for example, when you want to:
+Sometimes, you might want to disable the HTTP action's asynchronous behavior in specific scenarios, for example, when you want to:
 
 * [Avoid HTTP timeouts for long-running tasks](#avoid-http-timeouts)
 * [Disable checking location headers](#disable-location-header-check)
