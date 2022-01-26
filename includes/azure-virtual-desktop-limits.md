@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Desktop limits
+title: Azure Virtual Desktop limititations
 description: Azure Virtual Desktop limitations.
 ms.topic: include
 ms.date: 01/25/2021
@@ -18,9 +18,9 @@ The following table describes the maximum limits for Azure Virtual Desktop.
 | HostPool                                            | Workspace                                       | 400 |
 | Application group                                   | HostPool                                        | 200 |
 | RemoteApp                                           | Application group                               | 500 |
-| Role Assignment                                     | Any AVD Object                                  | 200 |
+| Role Assignment                                     | Any Azure Virtual Desktop Object                | 200 |
 | Session Host                                        | HostPool                                        | 10,000 |
 
-To get started with Azure Virtual desktop, use the [getting started guide!](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview).
-For deeper architectural content for Azure Virtual Desktop, use the [Azure Virtual Desktop section of the Cloud Adoption Framework!](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/wvd/).
-For pricing information for Azure Virtual Desktop add "Azure Virtual Desktop" within the Compute section of the [Azure Pricing Calculator!](https://azure.microsoft.com/en-gb/pricing/calculator).
+To get started with Azure Virtual Desktop, use the [getting started guide](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview).
+For deeper architectural content for Azure Virtual Desktop, use the [Azure Virtual Desktop section of the Cloud Adoption Framework](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/wvd/).
+For pricing information for Azure Virtual Desktop, add "Azure Virtual Desktop" within the Compute section of the [Azure Pricing Calculator](https://azure.microsoft.com/en-gb/pricing/calculator).
