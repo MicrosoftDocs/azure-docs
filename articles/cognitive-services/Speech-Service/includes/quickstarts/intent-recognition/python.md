@@ -7,11 +7,11 @@ ms.topic: include
 ms.author: eur
 ---
 
-[!INCLUDE [Introduction](intro.md)
+[!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../../quickstarts/common/azure-prerequisites-luis.md)
+[!INCLUDE [Prerequisites](../common/azure-prerequisites-luis.md)]
 
 You also need to <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?pivots=programming-language-python" target="_blank">install the Speech SDK for your development environment and create an empty sample project</a>.
 
