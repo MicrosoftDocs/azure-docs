@@ -6,7 +6,7 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 01/26/2021
+ms.date: 01/26/2022
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, ignite-fall-2021, mode-api
 zone_pivot_groups: qnamaker-quickstart
