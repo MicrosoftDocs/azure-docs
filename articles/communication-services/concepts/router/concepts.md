@@ -85,7 +85,7 @@ The 3 types of modes are
 
 - **Round Robin**: Workers are ordered by `Id` and the next worker after the previous one that got an offer is picked.
 - **Longest Idle**: The worker that has not been working on a job for the longest.
-- **Best Worker**: You can specify an expression to compare 2 workers to determine which one to pick.
+- **Best Worker**: The workers that are best able to handle the job will be picked first.  The logic to determine this can be optionally customized by specifying an expression or azure function to compare 2 workers and determine which one to pick.
 
 ### Labels
 
