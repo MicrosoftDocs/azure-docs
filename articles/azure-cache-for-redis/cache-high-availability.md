@@ -4,7 +4,7 @@ description: Learn about Azure Cache for Redis high availability features and op
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 01/26/2022
 ms.author: franlanglois
 
 ---
@@ -17,7 +17,7 @@ Azure Cache for Redis implements high availability by using multiple VMs, called
 | Option | Description | Availability | Standard | Premium | Enterprise |
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
 | [Standard replication](#standard-replication)| Dual-node replicated configuration in a single datacenter with automatic failover | 99.9% (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |✔|✔|-|
-| [Zone redundancy](#zone-redundancy) | Multi-node replicated configuration across AZs, with automatic failover | Up to 99.99% (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |-|✔|✔|
+| [Zone redundancy](#zone-redundancy) | Multi-node replicated configuration across AZs, with automatic failover | 99.9% in Premium; 99.99% in Enterprise (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |-|✔|✔|
 | [Geo-replication](#geo-replication) | Linked cache instances in two regions, with user-controlled failover | Up to 99.999% (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |-|✔|Preview|
 
 ## Standard replication
