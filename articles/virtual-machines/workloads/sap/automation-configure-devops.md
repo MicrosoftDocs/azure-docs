@@ -30,6 +30,10 @@ Open (https://dev.azure.com) and create a new project by clicking on the _New Pr
 
 Start by importing the SAP Deployment Automation Framework GitHub repository into Azure Repos. Navigate to the Repositories section and choose Import a repository. Import the 'https://github.com/Azure/sap-automation.git' repository into Azure DevOps. For more info, see [Importing a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops&preserve-view=true)
 
+### Create configuration root folder
+
+Navigate to the new repository and create a top level folder called 'WORKSPACES', this folder will be the root folder for all the Terraform configuration files.
+
 ## Set up the Azure Pipelines
 
 To remove the Azure resources, you need an Azure Resource Manager service connection.
@@ -42,33 +46,6 @@ Choose _Azure Resource Manager_ as the service connection type and _Service prin
 
 Finally provide a Service connection name, for instance 'Connection to DEV subscription' and ensure that the _Grant access permission to all pipelines_ checkbox is checked. Click _Verify and save_ to save the service connection.
 
-### Variable definitions
-
-Create a new variable group "sap-deployment-variables-general" using the Library page in the Pipelines section. Add the following variables:
-
-| Variable                           | Value                                   |
-| ---------------------------------- | --------------------------------------- |
-| `ANSIBLE_HOST_KEY_CHECKING`        | false                                   |
-| `ANSIBLE_CALLBACK_WHITELIST`       | profile_tasks                           |
-| Deployment_Configuration_Path      | samples/WORKSPACES                      |
-| Repository                         | https://github.com/Azure/sap-automation |
-| Branch                             | private-preview                         |
-| S-Username                         | `<SAP Support user account name>`       |
-| S-Password                         | `<SAP Support user password>`           |
-| `advice.detachedHead`              | false                                   |
-| `skipComponentGovernanceDetection` | true                                    |
-| `tf_version`                       | 1.0.11                                  |
-
-Create another variable group "sap-deployment-variables-specific" and add the following variables:
-
-| Variable              | Value                                          |
-| --------------------- | ---------------------------------------------- |
-| ARM_CLIENT_ID         | Service principal application id               |
-| ARM_CLIENT_SECRET     | Service principal password                     |
-| ARM_TENANT_ID         | Tenant ID for service principal                |
-| ARM_SUBSCRIPTION_ID   | Target subscription ID                         |
-| AZURE_CONNECTION_NAME | Previously created connection name             |
-| Agent                 | Name of the agent pool containing the deployer, for instance 'DEV-WEEU-POOL' Note, this pool will be created in a later step |
 
 ## Create Azure Pipelines
 
@@ -179,6 +156,38 @@ Save the Pipeline, to see the Save option click the chevron next to the Run butt
 ## Import Cleanup task from Visual Studio Marketplace
 
 The pipelines uses a custom task to perform cleanup activities post deployment. The custom task can be installed from [Post Build Cleanup](https://marketplace.visualstudio.com/items?itemName=mspremier.PostBuildCleanup). Install it to your Azure DevOps organization before running the _Configuration and SAP installation_ or _SAP software acquisition_  pipelines.
+
+## Variable definitions
+
+Create a new variable group "sap-deployment-variables-general" using the Library page in the Pipelines section. Add the following variables:
+
+| Variable                           | Value                                   | Notes               |
+| ---------------------------------- | --------------------------------------- | ------------------- |
+| `ANSIBLE_HOST_KEY_CHECKING`        | false                                   |                     |
+| `ANSIBLE_CALLBACK_WHITELIST`       | profile_tasks                           |                     |
+| Deployment_Configuration_Path      | WORKSPACES                              | You can populate this folder with the sample configurations from the samples/WORKSPACES folder.                    |
+| Repository                         | https://github.com/Azure/sap-automation |                     |
+| Branch                             | main                                    |                     |
+| S-Username                         | `<SAP Support user account name>`       |                     |
+| S-Password                         | `<SAP Support user password>`           |                     |
+| `advice.detachedHead`              | false                                   |                     |
+| `skipComponentGovernanceDetection` | true                                    |                     |
+| `tf_version`                       | 1.1.4                                   | Terraform version   |
+
+Save the variables and assign permissions for all pipelines using _Pipeline permissions_.
+
+For each environment create a variable group for example 'DEV' and add the following variables:
+
+| Variable              | Value                                          |
+| --------------------- | ---------------------------------------------- |
+| Agent                 | Either 'Azure Pipelines' or the name of the agent pool containing the deployer, for instance 'DEV-WEEU-POOL' Note, this pool will be created in a later step |
+| ARM_CLIENT_ID         | Service principal application id               |
+| ARM_CLIENT_SECRET     | Service principal password                     |
+| ARM_SUBSCRIPTION_ID   | Target subscription ID                         |
+| ARM_TENANT_ID         | Tenant ID for service principal                |
+| AZURE_CONNECTION_NAME | Previously created connection name             |
+
+Save the variables and assign permissions for all pipelines using _Pipeline permissions_.
 
 ## Register the Deployer as an self-hosted agent for Azure DevOps
 
