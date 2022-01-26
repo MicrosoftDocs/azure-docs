@@ -66,7 +66,7 @@ After creating the Azure Bot resource, next step would be to set a password for 
 
 ### Create a Web App where actual bot logic resides
 
-Create a Web App where actual bot logic resides. You could check out some samples here [Bot samples](https://github.com/Microsoft/BotBuilder-Samples) and tweak them or use Bot Builder SDK to create one[Bot Builder documentation](https://docs.microsoft.com/en-in/composer/introduction?tabs=v2x). One of the simplest ones to play around with is Echo Bot located here with steps on how to use it and it is the one we will use in this example [Echo Bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot). Generally, the Bot Service expects the Bot Application Web App Controller to expose an endpoint `/api/messages` which handles all the messages reaching the bot. To create the Bot application, follow these steps.
+Create a Web App where actual bot logic resides. You could check out some samples here [Bot samples](https://github.com/Microsoft/BotBuilder-Samples) and tweak them or use Bot Builder SDK to create one[Bot Builder documentation](https://docs.microsoft.com/composer/introduction). One of the simplest ones to play around with is Echo Bot located here with steps on how to use it and it is the one we will use in this example [Echo Bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot). Generally, the Bot Service expects the Bot Application Web App Controller to expose an endpoint `/api/messages` which handles all the messages reaching the bot. To create the Bot application, follow these steps.
 
    - As in previously shown create a resource and choose `Web App` in search. <br/><br/> 
 ![Web app.png](./media/Web%20app.png)
@@ -120,8 +120,8 @@ The final step would be to deploy the bot logic to the Web App we created. As we
 
 ## Step 2 - Get an Azure Communication Services Resource
 Now that you got the bot part sorted out, we will need to get an ACS resource which we would use for configuring the ACS channel.
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource). You'll need to **record your resource endpoint and key** for this quickstart.
-- Create a ACS User and issue a user access token [User Access Token](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/access-tokens). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource). You'll need to **record your resource endpoint and key** for this quickstart.
+- Create a ACS User and issue a user access token [User Access Token](https://docs.microsoft.com//azure/communication-services/quickstarts/access-tokens). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**.
 
 ## Step 3 - Enable ACS Chat Channel
 With the ACS resource, we can configure the ACS channel in Azure Bot to bind an ACS user ID with a bot. Note that currently, only the allowlisted azure subscription will be able to see ACS channel option.
