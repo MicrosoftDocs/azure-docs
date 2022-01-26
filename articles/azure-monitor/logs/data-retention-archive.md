@@ -1,5 +1,5 @@
 ---
-title: Archive a table in Azure Monitor
+title: Configure data retention and archive in Azure Monitor Logs (Preview)
 description: Configure archive settings for a table in a Log Analytics workspace in Azure Monitor.
 author: bwren
 ms.author: bwren
@@ -11,9 +11,9 @@ ms.date: 01/12/2022
 ---
 
 # Configure data retention and archive in Azure Monitor Logs (Preview)
-Data in each table in a Log Analytics workspace is retained for a certain period of time after which it's either removed or moved to archive with a reduced retention fee. Set the retention time to balance your requirement for having data available with reducing your retention costs. This article describes the detailed operation of the data retention and archive and how to configure it for your workspace or individual tables.
+Data in each table in a [Log Analytics workspace](log-analytics-workspace-overview.md) is retained for a specified period of time after which it's either removed or moved to archive with a reduced retention fee. Set the retention time to balance your requirement for having data available with reducing your cost for data retention. This article describes the detailed operation of data retention and archive and how to configure it for your workspace or for individual tables.
 
-See [Archived Logs in Azure Monitor](archived-logs-overview.md) for a high level description of data retention and archive.
+See [Overview of Log Analytics workspaces](log-analytics-workspace-overview.md) for a description of Log Analytics workspaces and how archived data is related to the different data plans.
 
 > [!NOTE]
 > The archive feature is currently in public preview.
@@ -22,42 +22,51 @@ See [Archived Logs in Azure Monitor](archived-logs-overview.md) for a high level
 
 
 ## Workspace default retention
-Each workspace has a default retention that's applied to all tables unless they have their own retention set. You cannot currently define a default archive period (defined by the total retention time) for the workspace but must instead set this value for each table. 
+Each workspace has a default retention that's applied to all tables unless they have their own retention set. You cannot define a default archive period (defined by the total retention time) for the workspace but must instead set this value for each table.
 
-If you lower the retention, there's a grace period of several days before the data older than the new retention setting is removed.
+If you lower the retention, there's a grace period of several days before the data older than the new retention setting is removed. When you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter which eliminates the grace period. This might be useful for compliance-related scenarios where immediate data removal is imperative. You can only perform the immediate purge functionality using Azure Resource Manager.
 
-When you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter (eliminating the grace period). This might be useful for compliance-related scenarios where immediate data removal is imperative. This immediate purge functionality is only exposed via Azure Resource Manager.
-
-Workspaces with 30 days retention might actually retain data for 31 days. If it's imperative that data be kept for only 30 days, use the Azure Resource Manager to set the retention to 30 days and with the `immediatePurgeDataOn30Days` parameter.
-
-
-## Special tables
-By default, two data types - `Usage` and `AzureActivity` - are retained for a minimum of 90 days at no charge. If the workspace retention is increased to more than 90 days, the retention of these data types is also increased. These data types are also free from data ingestion charges. 
-
-Data types from workspace-based Application Insights resources (`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents`, and `AppTraces`) are also retained for 90 days at no charge by default. Their retention can be adjusted using the retention by data type functionality. 
 
 ## Data purge
-The Log Analytics [purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing and is intended to be used for very limited cases. **To reduce your retention bill, the retention period must be reduced either for the workspace or for specific data types.** Learn more about managing [personal data stored in Log Analytics and Application Insights](./personal-data-mgmt.md).
+Data is automatically removed from the workspace after the retention or total retention period ends. The only way to remove data on demand is to use the [purge feature](personal-data-mgmt.md#how-to-export-and-delete-private-data) which is intended to remove personal data that was accidentally collected. The Log Analytics [purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing and is intended to be used for very limited cases. **To reduce your retention bill, the retention period must be reduced either for the workspace or for specific data types.** 
 
 
+### Set workspace default retention
+The workspace default retention applies to any table that doesn't have its own retention period configured. The workspace default retention applies to every table that doesn't have its own retention period configured. You can set the workspace default retention in the Azure portal to distinct periods of 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. If you require another setting, then use the Resource Manager configuration method described below. If you're on the *free* tier, you can't modify the data retention period; you need to upgrade to the paid tier to control this setting.
 
-### Set workspace default retention 
-You can set the workspace default retention in the Azure portal to distinct periods of 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. If you require another setting, then use the Resource Manager configuration method described below. If you're on the *free* tier, you can't modify the data retention period; you need to upgrade to the paid tier to control this setting.
+Workspaces with 30 days retention might actually retain data for 31 days. If it's imperative that data be kept for only 30 days, use Azure Resource Manager to set the retention to 30 days and with the `immediatePurgeDataOn30Days` parameter.
+
 
 > [!NOTE]
-> There is currently no option in the Azure portal to configure data retention or archive, so the only option currently included here is the REST API.
+> There is currently no option in the Azure portal to configure data retention for individual tables.
 
 From the **Logs Analytics workspaces** menu in the Azure portal, select your workspace and then **Usage and estimated costs** in the left pane. Select **Data Retention** at the top of the page. Move the slider to increase or decrease the number of days, and then select **OK**.  
 
 :::image type="content" source="media/manage-cost-storage/manage-cost-change-retention-01.png" alt-text="Change workspace data retention setting":::
 
-When the retention is lowered, there's a grace period of several days before the data older than the new retention setting is removed. 
+> [!NOTE]
+> When the retention is lowered, there's a grace period of several days before the data older than the new retention setting is removed. 
 
+## Tables with unique cost
+By default, two data types - `-Usage` and `AzureActivity` - are retained for a minimum of 90 days at no charge. If the workspace retention is increased to more than 90 days, the retention of these data types is also increased. These data types are also free from data ingestion charges. 
 
+The following data types from workspace-based Application Insights resources are also retained for 90 days at no charge by default. Their retention can be adjusted using the retention by data type functionality. 
+
+- `AppAvailabilityResults`
+- `AppBrowserTimings`
+- `AppDependencies`
+- `AppExceptions`
+- `AppEvents`
+- `AppMetrics`
+- `AppPageViews`
+- `AppPerformanceCounters`, 
+- `AppRequests`
+- `AppSystemEvents`
+- `AppTraces`
 
 
 ## Retention and archive by table
-You can set different retention settings for individual data types from 4 to 730 days (except for workspaces in the legacy Free Trial pricing tier) and aan archive period for a total retention time of 2,555 daye (7 years). 
+You can set different retention settings for individual data types from 4 to 730 days (except for workspaces in the legacy Free Trial pricing tier) and an archive period for a total retention time of 2,555 days (7 years). 
 
 > [!NOTE]
 > The `Usage` and `AzureActivity` data types can't be set with custom retention. They take on the maximum of the default workspace retention or 90 days. 
@@ -87,15 +96,16 @@ Use the **Tables - Update** API to set the retention and archive duration for a 
 
 You can use either PUT or PATCH, with the following difference:  
 
-- With **PUT**, if *retentionInDays* or *totalRetentionInDays* is null or unspecified, its value will be set to default.
-- With **PATCH**, if *retentionInDays* or *totalRetentionInDays* is null or unspecified, the existing value will be kept. 
-
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}?api-version=2021-07-01-privatepreview
 ```
 
+- With **PUT**, if *retentionInDays* or *totalRetentionInDays* is null or unspecified, its value will be set to default.
+- With **PATCH**, if *retentionInDays* or *totalRetentionInDays* is null or unspecified, the existing value will be kept. 
+
+
 ### Request Body
-The requet body should include the values in the following table.
+The request body includes the values in the following table.
 
 |Name | Type | Description |
 | --- | --- | --- |
@@ -105,15 +115,14 @@ The requet body should include the values in the following table.
 
 
 ### Example
-
+The following table sets table retention to workspace default of 30 days, and total of 2 years. This means that the archive duration would be 23 months.
 ##### Request
-Set table retention to workspace default of 30 days, and total of 2 years. This means that the archive duration would be 23 months.
 
 ```http
 PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/testRG/providers/Microsoft.OperationalInsights/workspaces/testWS/tables/CustomLog_CL?api-version=2021-07-01-privatepreview
 ```
 
-###Request body
+### Request body
 ```http
 {
     "properties": {
