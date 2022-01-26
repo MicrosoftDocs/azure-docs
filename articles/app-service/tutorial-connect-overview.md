@@ -25,6 +25,17 @@ Learn which [services](/azure/active-directory/managed-identities-azure-resource
 
 :::image type="content" source="media/tutorial-connect-overview/service-to-service-managed-identity.png" alt-text="Image showing authentication flow from one Azure service to another Azure service.":::
 
+## Example managed identity scenario
+
+The following image demonstrates the following authentication scenarios:
+
+* Securely access an Azure service from the web application using managed identities to get **non-user data** (B in diagram). 
+* Access Microsoft Graph (C in diagram)
+    * for the signed-in user to get **user data**
+    * for the web application to get **non-user data**. 
+
+:::image type="content" source="media/scenario-secure-app-overview/web-app.svg" alt-text="Diagram showing managed identity accessing a resource with or without the user's identity.":::
+
 ## Connect with secrets stored in Key Vault
 
 When managed identity isn't supported for your app's dependent services, use Key Vault to store your secrets, and connect your app to Key Vault with a managed identity.

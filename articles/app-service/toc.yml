@@ -68,9 +68,9 @@
       items:
         - name: Overview
           href: tutorial-connect-overview.md
-        - name: Access SQL DB with managed identity
+        - name: SQL DB with managed identity
           href: tutorial-connect-msi-sql-database.md
-        - name: Access services without managed identity support
+        - name: Cognitive services with key vault
           href: tutorial-connect-msi-key-vault.md
 
     - name: Secure app accesses storage, and Microsoft Graph
