@@ -1,7 +1,7 @@
 ---
 title: Language identification - Speech service
 titleSuffix: Azure Cognitive Services
-description: Language identification is used to determine the language being spoken in audio passed to the Speech SDK when compared against a list of provided languages.
+description: Language identification is used to determine the language being spoken in audio when compared against a list of provided languages.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -46,35 +46,35 @@ You must provide the full 4-letter locale, but language identification only uses
 ::: zone pivot="programming-language-csharp"
 ```csharp
 var autoDetectSourceLanguageConfig =
-    AutoDetectSourceLanguageConfig.FromLanguages(new string[] { "en-US", "ja-JP", "zh-CN" });
+    AutoDetectSourceLanguageConfig.FromLanguages(new string[] { "en-US", "de-DE", "zh-CN" });
 ```
 ::: zone-end
 ::: zone pivot="programming-language-cpp"
 ```cpp
 auto autoDetectSourceLanguageConfig = 
-    AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "ja-JP", "zh-CN" });
+    AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE", "zh-CN" });
 ```
 ::: zone-end
 ::: zone pivot="programming-language-python"
 ```python
 auto_detect_source_language_config = \
-    speechsdk.languageconfig.AutoDetectSourceLanguageConfig(languages=["en-US", "ja-JP", "zh-CN"])
+    speechsdk.languageconfig.AutoDetectSourceLanguageConfig(languages=["en-US", "de-DE", "zh-CN"])
 ```
 ::: zone-end
 ::: zone pivot="programming-language-java"
 ```java
 AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig =
-    AutoDetectSourceLanguageConfig.fromLanguages(Arrays.asList("en-US", "ja-JP", "zh-CN"));
+    AutoDetectSourceLanguageConfig.fromLanguages(Arrays.asList("en-US", "de-DE", "zh-CN"));
 ```
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 ```javascript
-var autoDetectSourceLanguageConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromLanguages([("en-US", "ja-JP", "zh-CN"]);
+var autoDetectSourceLanguageConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromLanguages([("en-US", "de-DE", "zh-CN"]);
 ```
 ::: zone-end
 ::: zone pivot="programming-language-objectivec"
 ```objective-c
-NSArray *languages = @[@"en-US", @"ja-JP", @"zh-CN"];
+NSArray *languages = @[@"en-US", @"de-DE", @"zh-CN"];
 SPXAutoDetectSourceLanguageConfiguration* autoDetectSourceLanguageConfig = \
     [[SPXAutoDetectSourceLanguageConfiguration alloc]init:languages];
 ```
@@ -204,15 +204,20 @@ You use standalone language identification when you only need to identify the la
 using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 
-var speechConfig = SpeechConfig.FromSubscription("<paste-your-subscription-key>","<paste-your-region>");
+var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey","YourServiceRegion");
 
 speechConfig.SetProperty(PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, "Latency");
 
+var audioConfig = AudioConfig.FromWavFileInput(@"en-us_zh-cn.wav");
+
 var autoDetectSourceLanguageConfig =
     AutoDetectSourceLanguageConfig.FromLanguages(
-        new string[] { "en-US", "ja-JP", "zh-CN" });
+        new string[] { "en-US", "de-DE", "zh-CN" });
 
-using (var recognizer = new SourceLanguageRecognizer(speechConfig, autoDetectSourceLanguageConfig))
+using (var recognizer = new SourceLanguageRecognizer(
+    speechConfig, 
+    autoDetectSourceLanguageConfig,
+    audioConfig))
 {
     var result = await recognizer.RecognizeOnceAsync();
     if (result.Reason == ResultReason.RecognizedSpeech)
@@ -243,10 +248,10 @@ using namespace std;
 using namespace Microsoft::CognitiveServices::Speech;
 using namespace Microsoft::CognitiveServices::Speech::Audio;
 
-auto config = SpeechConfig::FromSubscription("<paste-your-subscription-key>","<paste-your-region>");
+auto config = SpeechConfig::FromSubscription("YourSubscriptionKey","YourServiceRegion");
 speechConfig->SetProperty(PropertyId::SpeechServiceConnection_SingleLanguageIdPriority, "Latency");
 
-auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "ja-JP", "zh-CN" });
+auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE", "zh-CN" });
 
 auto recognizer = SourceLanguageRecognizer::FromConfig(config, autoDetectSourceLanguageConfig);
 cout << "Say something...\n";
@@ -258,7 +263,6 @@ if (result->Reason == ResultReason::RecognizedSpeech)
     cout << "DETECTED: Language="<< lidResult->Language << std::endl;
 }
 ```
-
 
 ### [Continuous recognition](#tab/continuous)
 
@@ -329,13 +333,13 @@ You use Speech-to-text recognition when you need to identify the language in an 
 using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 
-var speechConfig = SpeechConfig.FromSubscription("<paste-your-subscription-key>","<paste-your-region>");
+var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey","YourServiceRegion");
 
 speechConfig.SetProperty(PropertyId.SpeechServiceConnection_SingleLanguageIdPriority, "Latency");
 
 var autoDetectSourceLanguageConfig =
     AutoDetectSourceLanguageConfig.FromLanguages(
-        new string[] { "en-US", "ja-JP", "zh-CN" });
+        new string[] { "en-US", "de-DE", "zh-CN" });
 
 using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
 using (var recognizer = new SpeechRecognizer(
@@ -357,19 +361,19 @@ using (var recognizer = new SpeechRecognizer(
 using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 
-var region = "<paste-your-region>";
+var region = "YourServiceRegion";
 // Continuous LID requires the v2 endpoint. In a future SDK release you won't need to set it. 
 var endpointString = $"wss://{region}.stt.speech.microsoft.com/speech/universal/v2";
 var endpointUrl = new Uri(endpointString);
 
-var config = SpeechConfig.FromEndpoint(endpointUrl, "<paste-your-subscription-key>");
+var config = SpeechConfig.FromEndpoint(endpointUrl, "YourSubscriptionKey");
 // can switch "Latency" to "Accuracy" depending on priority
 config.SetProperty(PropertyId.SpeechServiceConnection_ContinuousLanguageIdPriority, "Latency");
 
-var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromLanguages(new string[] { "en-US", "ja-JP", "zh-CN" });
+var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromLanguages(new string[] { "en-US", "de-DE", "zh-CN" });
 
 var stopRecognition = new TaskCompletionSource<int>();
-using (var audioInput = AudioConfig.FromWavFileInput(@"path-to-your-audio-file.wav"))
+using (var audioInput = AudioConfig.FromWavFileInput(@"en-us_zh-cn.wav"))
 {
     using (var recognizer = new SpeechRecognizer(config, autoDetectSourceLanguageConfig, audioInput))
     {
@@ -451,11 +455,11 @@ using namespace std;
 using namespace Microsoft::CognitiveServices::Speech;
 using namespace Microsoft::CognitiveServices::Speech::Audio;
 
-auto speechConfig = SpeechConfig::FromSubscription("<paste-your-subscription-key>","<paste-your-region>");
+auto speechConfig = SpeechConfig::FromSubscription("YourSubscriptionKey","YourServiceRegion");
 speechConfig->SetProperty(PropertyId::SpeechServiceConnection_SingleLanguageIdPriority, "Latency");
 
 auto autoDetectSourceLanguageConfig =
-    AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "ja-JP", "zh-CN" });
+    AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE", "zh-CN" });
 
 auto recognizer = SpeechRecognizer::FromConfig(
     speechConfig,
@@ -477,15 +481,15 @@ using namespace std;
 using namespace Microsoft::CognitiveServices::Speech;
 using namespace Microsoft::CognitiveServices::Speech::Audio;
 
-auto region = "<paste-your-region>";
+auto region = "YourServiceRegion";
 // Continuous LID requires the v2 endpoint. In a future SDK release you won't need to set it. 
 auto endpointString = std::format("wss://{}.stt.speech.microsoft.com/speech/universal/v2", region);
-auto config = SpeechConfig::FromEndpoint(endpointString, "<paste-your-subscription-key>");
+auto config = SpeechConfig::FromEndpoint(endpointString, "YourSubscriptionKey");
 
 speechConfig->SetProperty(PropertyId::SpeechServiceConnection_ContinuousLanguageIdPriority, "Latency");
-auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "ja-JP", "zh-CN" });
+auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE", "zh-CN" });
 
-auto audioInput = AudioConfig::FromWavFileInput("path-to-your-audio-file.wav");
+auto audioInput = AudioConfig::FromWavFileInput("whatstheweatherlike.wav");
 auto recognizer = SpeechRecognizer::FromConfig(config, autoDetectSourceLanguageConfig, audioInput);
 
 // promise for synchronization of recognition end.
@@ -638,7 +642,7 @@ See more examples of speech-to-text recognition with language identification on 
 ::: zone pivot="programming-language-objectivec"
 
 ```Objective-C
-NSArray *languages = @[@"en-US", @"ja-JP", @"zh-CN"];
+NSArray *languages = @[@"en-US", @"de-DE", @"zh-CN"];
 SPXAutoDetectSourceLanguageConfiguration* autoDetectSourceLanguageConfig = \
         [[SPXAutoDetectSourceLanguageConfiguration alloc]init:languages];
 SPXSpeechRecognizer* speechRecognizer = \
@@ -787,7 +791,7 @@ public static async Task RecognizeOnceSpeechTranslationAsync()
     speechTranslationConfig.AddTargetLanguage("de");
     speechTranslationConfig.AddTargetLanguage("fr");
 
-    var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromLanguages(new string[] { "en-US", "ja-JP", "zh-CN" });
+    var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromLanguages(new string[] { "en-US", "de-DE", "zh-CN" });
 
     using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
 
@@ -823,12 +827,12 @@ using Microsoft.CognitiveServices.Speech.Translation;
 
 public static async Task MultiLingualTranslation()
 {
-    var region = "<paste-your-region>";
+    var region = "YourServiceRegion";
     // Continuous LID requires the v2 endpoint. In a future SDK release you won't need to set it. 
     var endpointString = $"wss://{region}.stt.speech.microsoft.com/speech/universal/v2";
     var endpointUrl = new Uri(endpointString);
     
-    var config = SpeechTranslationConfig.FromEndpoint(endpointUrl, "<paste-your-subscription-key>");
+    var config = SpeechTranslationConfig.FromEndpoint(endpointUrl, "YourSubscriptionKey");
 
     // Source language is required, but currently ignored. 
     string fromLanguage = "en-US";
@@ -838,10 +842,10 @@ public static async Task MultiLingualTranslation()
     config.AddTargetLanguage("fr");
 
     config.SetProperty(PropertyId.SpeechServiceConnection_ContinuousLanguageIdPriority, "Latency");
-    var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromLanguages(new string[] { "en-US", "ja-JP", "zh-CN" });
+    var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromLanguages(new string[] { "en-US", "de-DE", "zh-CN" });
 
     var stopTranslation = new TaskCompletionSource<int>();
-    using (var audioInput = AudioConfig.FromWavFileInput(@"path-to-your-audio-file.wav"))
+    using (var audioInput = AudioConfig.FromWavFileInput(@"en-us_zh-cn.wav"))
     {
         using (var recognizer = new TranslationRecognizer(config, autoDetectSourceLanguageConfig, audioInput))
         {
@@ -942,13 +946,13 @@ using namespace Microsoft::CognitiveServices::Speech::Translation;
 
 void MultiLingualTranslation()
 {
-    auto region = "<paste-your-region>";
+    auto region = "YourServiceRegion";
     // Continuous LID requires the v2 endpoint. In a future SDK release you won't need to set it. 
     auto endpointString = std::format("wss://{}.stt.speech.microsoft.com/speech/universal/v2", region);
-    auto config = SpeechTranslationConfig::FromEndpoint(endpointString, "<paste-your-subscription-key>");
+    auto config = SpeechTranslationConfig::FromEndpoint(endpointString, "YourSubscriptionKey");
 
     speechConfig->SetProperty(PropertyId::SpeechServiceConnection_ContinuousLanguageIdPriority, "Latency");
-    auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "ja-JP", "zh-CN" });
+    auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE", "zh-CN" });
 
     promise<void> recognitionEnd;
     // Source language is required, but currently ignored. 
@@ -957,7 +961,7 @@ void MultiLingualTranslation()
     config->AddTargetLanguage("de");
     config->AddTargetLanguage("fr");
 
-    auto audioInput = AudioConfig::FromWavFileInput("path-to-your-audio-file.wav");
+    auto audioInput = AudioConfig::FromWavFileInput("whatstheweatherlike.wav");
     auto recognizer = TranslationRecognizer::FromConfig(config, autoDetectSourceLanguageConfig, audioInput);
 
     recognizer->Recognizing.Connect([](const TranslationRecognitionEventArgs& e)
