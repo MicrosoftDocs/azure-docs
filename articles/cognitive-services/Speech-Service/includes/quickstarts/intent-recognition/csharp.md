@@ -11,7 +11,7 @@ ms.author: eur
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)
+[!INCLUDE [Prerequisites](../../quickstarts/common/azure-prerequisites-luis.md)
 
 ## Create a LUIS app for intent recognition
 

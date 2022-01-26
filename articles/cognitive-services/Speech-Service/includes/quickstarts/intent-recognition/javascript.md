@@ -11,7 +11,7 @@ ms.author: eur
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)
+[!INCLUDE [Prerequisites](../../quickstarts/common/azure-prerequisites-luis.md)
 
 You also need to <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?pivots=programming-language-python" target="_blank">install the Speech SDK for your development environment and create an empty sample project</a>.
 
