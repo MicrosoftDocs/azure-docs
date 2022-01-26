@@ -6,6 +6,8 @@
     href: core/overview-iot-central.md
   - name: Tour of the UI
     href: core/overview-iot-central-tour.md
+  - name: Tour of the API
+    href: core/overview-iot-central-api-tour.md
   - name: What's new?
     href: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central
 - name: Quickstarts
@@ -35,7 +37,7 @@
         href: core/tutorial-create-telemetry-rules.md
       - name: Explore the IoT Central APIs
         href: /learn/modules/manage-iot-central-apps-with-rest-api/
-    - name: Create industry specific demo applications
+    - name: Create industry specific demo apps
       items:
       - name: Retail
         items:
@@ -85,7 +87,7 @@
     - name: Device connectivity guide
       href: core/overview-iot-central-developer.md
       items:
-      - name: Device connectivity
+      - name: Device connectivity concepts
         href: core/concepts-get-connected.md
       - name: Device templates
         href: core/concepts-device-templates.md      
