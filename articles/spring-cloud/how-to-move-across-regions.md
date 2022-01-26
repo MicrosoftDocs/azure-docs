@@ -173,7 +173,7 @@ After modifying the template, the new resource can be created using **Deploy a c
 
 1. Under **Services**, select **Deploy a custom template**.
 1. Go to the **Select a template** tab, then select **Build your own template in the editor**.
-1. In the template editor, paste the template.json file modified earlier, then select **Save**.
+1. In the template editor, paste the *template.json* file modified earlier, then select **Save**.
 1. In the **Basics** tab, fill in the following information:
     - Select the target subscription
     - Select the target resource group
