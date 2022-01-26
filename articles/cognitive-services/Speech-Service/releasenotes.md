@@ -22,8 +22,8 @@ See below for information about changes to Speech services and resources.
 * Speaker Recognition service is generally available (GA). With [Speaker Recognition](./speaker-recognition-overview.md) you can accurately verify and identify speakers by their unique voice characteristics.
 * Speech SDK 1.19.0 release including Speaker Recognition support, Mac M1 ARM support, OpenSSL linking in Linux is dynamic, and Ubuntu 16.04 is no longer supported.
 * Custom Neural Voice extended to support [49 locales](./language-support.md#custom-neural-voice).
+* Prebuilt Neural Voice added new [languages and variants](./language-support.md#prebuilt-neural-voice).
 * Commitment Tiers added to [pricing options](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
-
 
 ## Release notes
 
