@@ -548,7 +548,8 @@ Architecture at a high-level:
 1.	Logical Volume mounted to a Linux directory.
 1.	Service Principal should be created in the same way as for Azure NetApp Files in [AzAcSnap installation](azacsnap-installation.md?tabs=azure-netapp-files%2Csap-hana#enable-communication-with-storage).
 1.	Install and Configure AzAcSnap
-    > [!NOTE] The configurator has a new option to define the mountpoint for the Logical Volume.  This parameter gets passed to `xfs_freeze` to block the I/O (this 
+    > [!NOTE]
+    > The configurator has a new option to define the mountpoint for the Logical Volume.  This parameter gets passed to `xfs_freeze` to block the I/O (this 
     > happens after the DB is put into backup mode).  After the I/O cache has been flushed (dependent on Linux kernel parameter `fs.xfs.xfssyncd_centisecs`).  
 6.	Install and Configure `xfs_freeze` to be run as a non-privileged user:
     a.	Create an executable file called $HOME/bin/xfs_freeze with the following content
