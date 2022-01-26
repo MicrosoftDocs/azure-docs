@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Use the Redis command-line tool with Azure Cache for Redis
 
-*redis-cli.exe* is a popular command-line tool for interacting with an Azure Cache for Redis as a client. This tool is also available for use with Azure Cache for Redis.
+Use the popular *redis-cli.exe* command-line tool to interact with an Azure Cache for Redis as a client. This tool is also available for use with Azure Cache for Redis.
 
 The tool is available for Windows platforms by downloading the [Redis command-line tools for Windows](https://github.com/MSOpenTech/redis/releases/). 
 
@@ -29,7 +29,6 @@ You can gather the information needed to access the cache using three methods:
 In this section, you retrieve the keys from the Azure portal.
 
 [!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
-
 
 ## Enable access for redis-cli.exe
 
@@ -58,12 +57,11 @@ With Azure Cache for Redis, only the TLS port (6380) is enabled by default. The 
   
     On the stunnel Log Window menu, select **Configuration** > **Reload Configuration**.
 
-
 ## Connect using the Redis command-line tool.
 
-When using *stunnel*, run *redis-cli.exe*, and pass only your *port*, and *access key* (primary or secondary) to connect to the cache.
+When using *stunnel*, run `redis-cli.exe`, and pass only your *port*, and *access key* (primary or secondary) to connect to the cache.
 
-```
+```console
 redis-cli.exe -p 6380 -a YourAccessKey
 ```
 
@@ -71,7 +69,7 @@ redis-cli.exe -p 6380 -a YourAccessKey
 
 If you're using a test cache with the **unsecure** non-TLS port, run `redis-cli.exe` and pass your *host name*, *port*, and *access key* (primary or secondary) to connect to the test cache.
 
-```
+```console
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
 ```
 
