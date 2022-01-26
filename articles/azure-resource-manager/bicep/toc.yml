@@ -35,49 +35,46 @@
   items:
   - name: Microsoft Learn - Bicep
     href: learn-bicep.md
-- name: How to
+- name: Concepts
   expanded: true
   items:
-  - name: Author
-    expanded: true
+  - name: Data types
+    href: data-types.md
+    displayName: supported types,arrays,booleans,integers,objects,strings,secure
+  - name: Keywords
     items:
-    - name: File structure & syntax
-      displayName: parameters,variables,resources,outputs,condition
-      href: file.md
-    - name: Resources
-      items:
-      - name: Resource declaration
-        href: resource-declaration.md
-        displayName: existing
-      - name: Conditional deployment
-        href: conditional-resource-deployment.md
-        displayName: runtime
-      - name: Child resources
-        href: child-resource-name-type.md
-        displayName: parent,parent resource,sub,nested
-      - name: Extension resources
-        href: scope-extension-resources.md
-    - name: Parameters
-      href: parameters.md
-      displayName: decorators,secure,objects,constraints
-    - name: Variables
-      href: variables.md
-      displayName: configuration
-    - name: Outputs
+    - name: existing
+      href: existing-resource.md
+    - name: for
+      href: loops.md
+      displayName: multiple
+    - name: if
+      href: conditional-resource-deployment.md
+    - name: module
+      href: modules.md
+      displayName: scopes,consume,registry,module registry,private module registry
+    - name: output
       href: outputs.md
       displayName: dynamic number of outputs,modules
-    - name: Modules
+    - name: param
+      href: parameters.md
+      displayName: decorators,secure,objects,constraints
+    - name: resource
+      href: resource-declaration.md
+    - name: resource properties
       items:
-      - name: Module definition
-        href: modules.md
-        displayName: scopes,consume,registry,module registry,private module registry
-      - name: Create private registry
-        href: private-module-registry.md
-        displayName: module registry,private module registry
-    - name: Loops
-      displayName: multiple
-      href: loops.md
-    - name: Scopes
+      - name: name
+        href: resource-name.md
+      - name: location
+        href: resource-location.md
+      - name: parent
+        href: child-resource-name-type.md
+        displayName: parent,parent resource,sub,nested
+      - name: scope
+        href: scope-extension-resources.md
+      - name: dependsOn
+        href: resource-dependencies.md
+    - name: targetScope
       items:
       - name: Resource group
         href: deploy-to-resource-group.md
@@ -91,11 +88,62 @@
       - name: Tenant
         href: deploy-to-tenant.md
         displayName: assign role
-    - name: Deployment script
+    - name: var
+      href: variables.md
+      displayName: configuration
+  - name: Functions
+    items:
+    - name: All functions
+      href: bicep-functions.md
+    - name: Any function
+      href: bicep-functions-any.md
+    - name: Array functions
+      href: bicep-functions-array.md
+    - name: Date functions
+      href: bicep-functions-date.md
+    - name: Deployment functions
+      href: bicep-functions-deployment.md
+    - name: File functions
+      href: bicep-functions-files.md
+    - name: Logical functions
+      href: bicep-functions-logical.md
+    - name: Numeric functions
+      href: bicep-functions-numeric.md
+    - name: Object functions
+      href: bicep-functions-object.md
+    - name: Resource functions
+      href: bicep-functions-resource.md
+    - name: Scope functions
+      href: bicep-functions-scope.md
+    - name: String functions
+      href: bicep-functions-string.md
+  - name: Operators
+    items:
+    - name: All operators
+      href: operators.md
+    - name: Accessor operators
+      href: operators-access.md
+    - name: Comparison operators
+      href: operators-comparison.md
+    - name: Logical operators
+      href: operators-logical.md
+    - name: Numeric operators
+      href: operators-numeric.md
+- name: How to
+  items:
+  - name: Author
+    items:
+    - name: Write Bicep file
+      displayName: parameters,variables,resources,outputs,condition,syntax
+      href: file.md
+    - name: Create private module registry
+      href: private-module-registry.md
+      displayName: module registry,private module registry
+    - name: Add deployment script
       href: deployment-script-bicep.md
-    - name: Template specs
+    - name: Define template specs
       href: template-specs.md
-    - name: Linter
+    - name: Apply linter
       items:
       - name: Linter
         href: linter.md
@@ -123,9 +171,9 @@
           href: linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md
         - name: Use stable VM image
           href: linter-rule-use-stable-vm-image.md
-    - name: Best practices
+    - name: Implement best practices
       href: best-practices.md
-    - name: Patterns
+    - name: Use patterns
       items:
       - name: Configuration set
         href: patterns-configuration-set.md
@@ -142,7 +190,7 @@
     - name: Pass sensitive values
       displayName: key vault
       href: key-vault-parameter.md
-  - name: Scenarios
+  - name: Use common scenarios
     items:
     - name: Access control
       href: scenarios-rbac.md
@@ -184,47 +232,6 @@
   items:
   - name: Resource reference
     href: /azure/templates/
-  - name: Data types
-    href: data-types.md
-    displayName: supported types,arrays,booleans,integers,objects,strings,secure
-  - name: Functions
-    items:
-    - name: All functions
-      href: bicep-functions.md
-    - name: Any function
-      href: bicep-functions-any.md
-    - name: Array functions
-      href: bicep-functions-array.md
-    - name: Date functions
-      href: bicep-functions-date.md
-    - name: Deployment functions
-      href: bicep-functions-deployment.md
-    - name: File functions
-      href: bicep-functions-files.md
-    - name: Logical functions
-      href: bicep-functions-logical.md
-    - name: Numeric functions
-      href: bicep-functions-numeric.md
-    - name: Object functions
-      href: bicep-functions-object.md
-    - name: Resource functions
-      href: bicep-functions-resource.md
-    - name: Scope functions
-      href: bicep-functions-scope.md
-    - name: String functions
-      href: bicep-functions-string.md
-  - name: Operators
-    items:
-    - name: All operators
-      href: operators.md
-    - name: Accessor operators
-      href: operators-access.md
-    - name: Comparison operators
-      href: operators-comparison.md
-    - name: Logical operators
-      href: operators-logical.md
-    - name: Numeric operators
-      href: operators-numeric.md
   - name: Bicep CLI
     href: bicep-cli.md
     displayName: build,decompile,install,list-versions,list versions,upgrade,version
