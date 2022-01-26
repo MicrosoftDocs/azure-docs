@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.custom: mvc, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 01/26/2022
 ---
 
 # Tutorial: Design an Azure Database for PostgreSQL - Single Server using Azure CLI
@@ -51,15 +51,15 @@ Create a server with the [az postgres server create](/cli/azure/postgres/server#
 
 > [!NOTE]
 >
->- The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain 3 to 63 characters. For more information, see [Azure Database for PostgreSQL Naming Rules](../azure-resource-manager/management/resource-name-rules.md#microsoftdbforpostgresql).
->- The user name for the admin user can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
->- The password must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
->- For information about SKUs, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
+> * The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain 3 to 63 characters. For more information, see [Azure Database for PostgreSQL Naming Rules](../azure-resource-manager/management/resource-name-rules.md#microsoftdbforpostgresql).
+> * The user name for the admin user can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
+> * The password must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
+> * For information about SKUs, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
 
 >[!IMPORTANT]
 >
->- The default PostgreSQL version on your server is 9.6. To see all the versions supported, see [Supported PostgreSQL major versions](./concepts-supported-versions.md).
->- SSL is enabled by default on your server. For more information on SSL, see [Configure SSL connectivity](./concepts-ssl-connection-security.md).
+> * The default PostgreSQL version on your server is 9.6. To see all the versions supported, see [Supported PostgreSQL major versions](./concepts-supported-versions.md).
+> * SSL is enabled by default on your server. For more information on SSL, see [Configure SSL connectivity](./concepts-ssl-connection-security.md).
 
 ## Configure a server-based firewall rule
 
@@ -153,7 +153,7 @@ You have now added two rows of sample data into the table you created earlier.
 
 ## Query and update the data in the tables
 
-Execute the following query to retrieve information from the inventory table: 
+Execute the following query to retrieve information from the inventory table:
 
 ```sql
 SELECT * FROM inventory;
@@ -217,4 +217,3 @@ In this tutorial, you learned how to use Azure CLI (command-line interface) and 
 
 > [!div class="nextstepaction"]
 > [Design your first Azure Database for PostgreSQL using the Azure portal](tutorial-design-database-using-azure-portal.md)
-
