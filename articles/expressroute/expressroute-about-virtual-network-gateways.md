@@ -32,8 +32,8 @@ If you want to upgrade your gateway to a more powerful gateway SKU, you can use 
 - Standard to High Performance
 - Standard to Ultra Performance
 - High Performance to Ultra Performance
-- ErGw1Az to ErGw3Az
 - ErGw1Az to ErGw2Az
+- ErGw1Az to ErGw3Az
 - ErGw2Az to ErGw3Az
 - Default to Standard
 
