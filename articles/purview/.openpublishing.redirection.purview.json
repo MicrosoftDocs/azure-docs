@@ -47,7 +47,7 @@
       },
       {
         "source_path_from_root": "/articles/purview/how-to-access-policies-storage.md",
-        "redirect_url": "/azure/purview/tutorial-data-owner-policies-storage.md",
+        "redirect_url": "/azure/purview/tutorial-data-owner-policies-storage",
         "redirect_document_id": true
       },
       {
