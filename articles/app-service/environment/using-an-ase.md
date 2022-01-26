@@ -168,7 +168,8 @@ As a customer, you should monitor the App Service plans and the individual apps 
 
 Through Azure portal and CLI, you can configure the scale ratio of your frontend servers between 5 and 15 (default 15) App Service plan instances per frontend server. An App Service Environment will always have a minimum of two frontend servers. You can also increase the size of the frontend servers.
 
-The [metrics scope](../../azure-monitor/essentials/metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools) used to monitor the platform infrastructure is called `Microsoft.Web/hostingEnvironments/multiRolePools`. The root scope `Microsoft.Web/hostingEnvironments` shouldn't be used.
+The [metrics scope](../../azure-monitor/essentials/metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools) used to monitor the platform infrastructure is called `Microsoft.Web/hostingEnvironments/multiRolePools`.
+
 You'll see a scope called `Microsoft.Web/hostingEnvironments/workerPools`. The metrics here are only applicable to App Service Environment v1.
 
 ## Logging
