@@ -138,7 +138,7 @@ Similarly, you can use or reference an existing DICOM service using the keyword 
 
 ## Create an IoT connector template
 
-For the IoT connector resource, the required properties include IoT connector name, location, managed identity, and the dependency on the workspace. For the IoT connector itself, required properties include Azure Events Hubs namespace, event hub, event hub consumer group, and the device mapping. As an example, the heart rate device mapping is used in the template.
+For the IoT connector resource, the required properties include IoT connector name, location, managed identity, and the dependency on the workspace. For the IoT connector itself, required properties include Azure Event Hubs namespace, Event Hubs, Event Hubs consumer group, and the device mapping. As an example, the heart rate device mapping is used in the template.
 
 ```
 //Create IoT connector
@@ -194,7 +194,7 @@ resource exampleExistingIoT 'Microsoft.HealthcareApis/workspaces/iotconnectors/f
 }
 ```
 
-The IoT connector requires a child resource, destination, and it currently supports the FHIR service destination only. For the IoT connector destination resource, the required properties include name, location, and the dependency on the IoT connector. For the FHIR service destination, required properties include the resolution type, which takes a value of *Create* or *Lookup*, the FHIR service resource ID, and a FHIR resource type. As an example, the heart rate mapping for the FHIR Observation resource is used in the template.
+The IoT connector requires a child resource, destination, and it currently supports the FHIR service destination only. For the IoT connector destination resource, the required properties include a name, location, and the dependency on the IoT connector. For the FHIR service destination, required properties include the resolution type, which it takes a value of *Create* or *Lookup*, the FHIR service resource ID, and a FHIR resource type. As an example, the heart rate mapping for the FHIR Observation resource is used in the template.
 
 ```
 //Create IoT destination
