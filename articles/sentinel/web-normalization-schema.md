@@ -33,7 +33,7 @@ The Web Session normalization schema represents any HTTP network session, and is
 
 The ASIM Web Session schema represents HTTP and HTTPS protocol activity. Since the schema represents protocol activity, it is governed by RFCs and officially assigned parameter lists, which are referenced in this article when appropriate. 
 
-The Web Session schema does not represent audit events from source devices. For example, an event modifying a Web Security Gateway policy cannot be represented by the Web Session schema.
+The Web Session schema doesn't represent audit events from source devices. For example, an event modifying a Web Security Gateway policy can't be represented by the Web Session schema.
 
 Since HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session, the Web Session schema is a super set of the [ASIM Network Session schema](network-normalization-schema.md).
 
@@ -99,7 +99,7 @@ imWebSession (hurl_has_any = torProxies)
 
 ## Schema details
 
-The Web Session information model is aligned is the [OSSEM Network entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/network.md) and the [OSSEM HTTP entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/http.md).
+The Web Session information model is aligned with the [OSSEM Network entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/network.md) and the [OSSEM HTTP entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/http.md).
 
 To conform with industry best practices, the Web Session schema uses the descriptors **Src** and **Dst** to identify the session source and destination devices, without including the token **Dvc** in the field name.
 
@@ -128,7 +128,7 @@ Fields common to all schemas are described in the [ASIM schema overview](normali
 
 HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session. The Web Session schema is a super set of [ASIM Network Session schema](network-normalization-schema.md) and all [Network Session Fields](network-normalization-schema.md#network-session-fields) are also included in the Web Session schema.
 
-The following ASIM Network Session schema have specific guidelines when used for a Web Session event:
+The following ASIM Network Session schema fields have specific guidelines when used for a Web Session event:
 - The alias IpAddr should preferably alias [SrcNatIpAddr](network-normalization-schema.md#srcnatipaddr) rather than [SrcIpAddr](network-normalization-schema.md#srcipaddr).
 - The alias User should refer to the [SrcUsername](network-normalization-schema.md#srcusername) and not to [DstUsername](network-normalization-schema.md#dstusername).
 - The field [EventOriginalResultDetails](normalization-about-schemas.md#eventoriginalresultdetails) can hold any result reported by the source in addition to the HTTP status code stored in [EventResultDetails](#eventresultdetails).
