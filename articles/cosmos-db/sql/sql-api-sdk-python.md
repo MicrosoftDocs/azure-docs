@@ -56,31 +56,31 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [4.2.0](#420) |Oct 09, 2020 |--- |
-| [4.1.0](#410) |Aug 10, 2020 |--- |
-| [4.0.0](#400) |May 20, 2020 |--- |
-| [3.0.2](#302) |Nov 15, 2018 |--- |
-| [3.0.1](#301) |Oct 04, 2018 |--- |
-| [2.3.3](#233) |Sept 08, 2018 |August 31, 2022 |
-| [2.3.2](#232) |May 08, 2018 |August 31, 2022 |
-| [2.3.1](#231) |December 21, 2017 |August 31, 2022 |
-| [2.3.0](#230) |November 10, 2017 |August 31, 2022 |
-| [2.2.1](#221) |Sep 29, 2017 |August 31, 2022 |
-| [2.2.0](#220) |May 10, 2017 |August 31, 2022 |
-| [2.1.0](#210) |May 01, 2017 |August 31, 2022 |
-| [2.0.1](#201) |October 30, 2016 |August 31, 2022 |
-| [2.0.0](#200) |September 29, 2016 |August 31, 2022 |
-| [1.9.0](#190) |July 07, 2016 |August 31, 2022 |
-| [1.8.0](#180) |June 14, 2016 |August 31, 2022 |
-| [1.7.0](#170) |April 26, 2016 |August 31, 2022 |
-| [1.6.1](#161) |April 08, 2016 |August 31, 2022 |
-| [1.6.0](#160) |March 29, 2016 |August 31, 2022 |
-| [1.5.0](#150) |January 03, 2016 |August 31, 2022 |
-| [1.4.2](#142) |October 06, 2015 |August 31, 2022 |
+| 4.2.0 |Oct 09, 2020 |--- |
+| 4.1.0 |Aug 10, 2020 |--- |
+| 4.0.0 |May 20, 2020 |--- |
+| 3.0.2 |Nov 15, 2018 |--- |
+| 3.0.1 |Oct 04, 2018 |--- |
+| 2.3.3 |Sept 08, 2018 |August 31, 2022 |
+| 2.3.2 |May 08, 2018 |August 31, 2022 |
+| 2.3.1 |December 21, 2017 |August 31, 2022 |
+| 2.3.0 |November 10, 2017 |August 31, 2022 |
+| 2.2.1 |Sep 29, 2017 |August 31, 2022 |
+| 2.2.0 |May 10, 2017 |August 31, 2022 |
+| 2.1.0 |May 01, 2017 |August 31, 2022 |
+| 2.0.1 |October 30, 2016 |August 31, 2022 |
+| 2.0.0 |September 29, 2016 |August 31, 2022 |
+| 1.9.0 |July 07, 2016 |August 31, 2022 |
+| 1.8.0 |June 14, 2016 |August 31, 2022 |
+| 1.7.0 |April 26, 2016 |August 31, 2022 |
+| 1.6.1 |April 08, 2016 |August 31, 2022 |
+| 1.6.0 |March 29, 2016 |August 31, 2022 |
+| 1.5.0 |January 03, 2016 |August 31, 2022 |
+| 1.4.2 |October 06, 2015 |August 31, 2022 |
 | 1.4.1 |October 06, 2015 |August 31, 2022 |
-| [1.2.0](#120) |August 06, 2015 |August 31, 2022 |
-| [1.1.0](#110) |July 09, 2015 |August 31, 2022 |
-| [1.0.1](#101) |May 25, 2015 |August 31, 2022 |
+| 1.2.0 |August 06, 2015 |August 31, 2022 |
+| 1.1.0 |July 09, 2015 |August 31, 2022 |
+| 1.0.1 |May 25, 2015 |August 31, 2022 |
 | 1.0.0 |April 07, 2015 |August 31, 2022 |
 | 0.9.4-prelease |January 14, 2015 |February 29, 2016 |
 | 0.9.3-prelease |December 09, 2014 |February 29, 2016 |
