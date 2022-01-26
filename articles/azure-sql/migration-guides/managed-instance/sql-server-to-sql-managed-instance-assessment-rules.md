@@ -302,7 +302,7 @@ Review impacted objects section in Azure Migrate to see all jobs using Merge job
 More information: [SQL Server Agent differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 
 
-## MI database size<a id="MIDatabaseSize<"></a>
+## MI database size<a id="MIDatabaseSize"></a>
 
 **Title: Azure SQL Managed Instance does not support database size greater than 8 TB.**   
 **Category**: Issue   
@@ -318,7 +318,7 @@ More information: [Hardware generation characteristics of Azure SQL Managed Inst
 
 
 
-## MI instance size<a id="MIInstanceSize<"></a>
+## MI instance size<a id="MIInstanceSize"></a>
 
 **Title: Maximum instance storage size in Azure SQL Managed Instance cannot be greater than 8 TB.**   
 **Category**: Warning   
@@ -333,7 +333,7 @@ Consider migrating the databases to different Azure SQL Managed Instances or to 
 More information: [Hardware generation characteristics of Azure SQL Managed Instance ](../../managed-instance/resource-limits.md#hardware-generation-characteristics)
 
 
-## Multiple log files<a id="MultipleLogFiles<"></a>
+## Multiple log files<a id="MultipleLogFiles"></a>
 
 **Title: Azure SQL Managed Instance does not support multiple log files.**   
 **Category**: Issue   
