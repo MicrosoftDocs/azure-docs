@@ -41,7 +41,7 @@ Update apt.
    ```
 
    > [!NOTE]
-   > For instructions to get the latest repository configuration from Microsoft see how to [Access the Microsoft installation packages](how-to-provision-single-device-linux-symmetric.md#access-the-microsoft-installation-packages).
+   > For instructions to get the latest repository configuration from Microsoft see the preliminary steps to [Install IoT Edge](how-to-provision-single-device-linux-symmetric.md#install-iot-edge).
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"

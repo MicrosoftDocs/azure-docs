@@ -20,7 +20,7 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
 <!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-* On **20.04**:
+* **20.04**:
 
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
@@ -31,7 +31,7 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
 <!-- end 1.2 -->
 ::: moniker-end
 
-* On **18.04**:
+* **18.04**:
 
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/multiarch/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
@@ -43,7 +43,7 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
 
 Installing with APT can be done with a few commands.  Open a terminal and run the following commands:
 
-* On **Stretch**:
+* **Stretch**:
 
    ```bash
    curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
@@ -73,10 +73,13 @@ Azure IoT Edge relies on an OCI-compatible container runtime. For production sce
 
 # [Raspberry Pi OS](#tab/rpios)
 
+1. Install the Moby engine.
+
    ```bash
    sudo apt-get update; \
      sudo apt-get install moby-engine
    ```
+
 ---
 
    > [!TIP]
@@ -139,33 +142,34 @@ The steps in this section represent the typical process to install the latest ve
 
 # [Ubuntu](#tab/ubuntu)
 
-Check to see which versions of IoT Edge and the IoT identity service are available.
+Install the latest version of IoT Edge and the IoT identity service package:
 
    ```bash
    sudo apt-get update; \
-     apt list -a aziot-edge aziot-identity-service
+     sudo apt-get install aziot-edge
    ```
 
-To install the latest version of IoT Edge and the IoT identity service package, use the following command:
+To list other versions of IoT Edge and the IoT identity service that are available, use the following command:
 
    ```bash
-   sudo apt-get install aziot-edge
+   apt list -a aziot-edge aziot-identity-service
    ```
 
 # [Raspberry Pi OS](#tab/rpios)
 
-Check to see which versions of IoT Edge and the IoT identity service are available.
+Install the latest version of IoT Edge and the IoT identity service package:
 
    ```bash
    sudo apt-get update; \
-     apt list -a aziot-edge aziot-identity-service
+     sudo apt-get install aziot-edge
    ```
 
-To install the latest version of IoT Edge and the IoT identity service package, use the following command:
+To list other versions of IoT Edge and the IoT identity service that are available, use the following command:
 
    ```bash
-   sudo apt-get install aziot-edge
+   apt list -a aziot-edge aziot-identity-service
    ```
+
 ---
 
 <!-- end 1.2 -->
