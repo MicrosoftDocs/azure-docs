@@ -48,7 +48,7 @@ When the server is in the **Stopped** state, the server's compute is not billed.
 During the time server is stopped, no management operations can be performed on the server. In order to change any configuration settings on the server, you will need to [start the server](how-to-stop-start-server-portal.md). Refer to the [stop/start limitations](./concepts-limitations.md#stopstart-operation).
 
 > [!NOTE]
->     Operations on servers that are in a [Stop](concept-servers.md#stopstart-an-azure-database-for-mysql-flexible-server) state are disabled and show as inactive in the Azure portal. Operations that are not supported on stopped servers include changing the pricing tier, number of vCores, storage size or IOPS, backup retention day, server tag, the server password, server parameters, storage auto-grow, GEO backup, HA, and user identity.
+> Operations on servers that are in a [Stop](concept-servers.md#stopstart-an-azure-database-for-mysql-flexible-server) state are disabled and show as inactive in the Azure portal. Operations that are not supported on stopped servers include changing the pricing tier, number of vCores, storage size or IOPS, backup retention day, server tag, the server password, server parameters, storage auto-grow, GEO backup, HA, and user identity.
 
 ## How do I manage a server?
 
