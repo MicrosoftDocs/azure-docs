@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: luisquintanilla
-ms.author: luquinta
+author: ssalgadodev
+ms.author: ssalgado
 ms.custom: mktng-kw-nov2021
 ms.date: 11/04/2021
 ---
