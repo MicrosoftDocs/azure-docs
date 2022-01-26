@@ -92,7 +92,7 @@ Querying external table may fail with generic error message "_Queries over exter
 
 External tables related to [Elastic Query](../database/elastic-query-overview.md) feature of Azure SQL Database are [not supported](../database/features-comparison.md#features-of-sql-database-and-sql-managed-instance) in SQL Managed Instance, but creating and querying them wasn't explicitly blocked. With support for PolyBase external tables, new checks have been introduced, blocking querying of _any_ type of external table in managed instance unless PolyBase is enabled.
 
-If you're using unsupported Elastic Query external tables to query data in Azure SQL Database or Azure Synapse from your managed instance, you should use Linked Server feature instead. To establish Linked Server connection from SQL Managed Instance to SQL Database, please follow instructions from [this article](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-63-it-is-possible-to-create-linked-server-in/ba-p/369168). To establish Linked Server connection from SQL Managed Instance to SQL Synapse, check [step-by-step instructions](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/#how-to-use-linked-servers). Since configuring and testing Linked Server conenction takes some time, you can use a workaround as a temporary solution to enable querying external tables related to Elastic Query feature:
+If you're using unsupported Elastic Query external tables to query data in Azure SQL Database or Azure Synapse from your managed instance, you should use Linked Server feature instead. To establish Linked Server connection from SQL Managed Instance to SQL Database, please follow instructions from [this article](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-63-it-is-possible-to-create-linked-server-in/ba-p/369168). To establish Linked Server connection from SQL Managed Instance to SQL Synapse, check [step-by-step instructions](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/#how-to-use-linked-servers). Since configuring and testing Linked Server connection takes some time, you can use a workaround as a temporary solution to enable querying external tables related to Elastic Query feature:
 
 **Workaround**: Execute the following commands (once per instance) that will enable queries on external tables:
 
@@ -321,7 +321,7 @@ _Active Directory admin_ blade of Azure portal for Azure SQL Managed Instance ma
 
 "Managed Instance needs a Service Principal to access Azure Active Directory. Click here to create a Service Principal"
 
-You can neglect this error message if Service Principal for the managed instance already exists, and/or AAD authentication on the managed instance works. 
+You can neglect this error message if Service Principal for the managed instance already exists, and/or Azure Active Directory authentication on the managed instance works. 
 
 To check whether Service Principal exists, navigate to the _Enterprise applications_ page on the Azure portal, choose _Managed Identities_ from the _Application type_ dropdown list, select _Apply_ and type the name of the managed instance in the search box. If the instance name shows up in the result list, Service Principal already exists and no further actions are needed.
 
