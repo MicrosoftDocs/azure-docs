@@ -22,7 +22,7 @@ ms.author: phjensen
 > PREVIEWS ARE PROVIDED "AS-IS," "WITH ALL FAULTS," AND "AS AVAILABLE," AND ARE EXCLUDED FROM THE SERVICE LEVEL AGREEMENTS AND LIMITED WARRANTY
 > ref:  https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
-This article provides a guide on setup and usage of the following new features in preview for **AzAcSnap v5.1** you can use with Azure NetApp Files, Azure BareMetal, and Azure Managed Disk.  This guide should be read as a supplemental to the documentation for the generally available version of AzAcSnap available at aka.ms/azacsnap.
+This article provides a guide on setup and usage of the new features in preview for **AzAcSnap v5.1**.  These new features can be used with Azure NetApp Files, Azure BareMetal, and now Azure Managed Disk.  This guide should be read along with the documentation for the generally available version of AzAcSnap at [aka.ms/azacsnap](https://aka.ms/azacsnap).
 
 The 4 new preview features provided with AzAcSnap v5.1 are:
 - Oracle Database support
@@ -40,8 +40,8 @@ Get the most recent version of the Preview [AzAcSnap Preview Installer](https://
 
 The self-installation file has an associated [MD5 checksum file](https://aka.ms/azacsnap-preview-installer-checksum) to check the download integrity.
 
-Once the installer is downloaded, then follow the steps in the main [get started](azacsnap-get-started.md) documentation to install before returning to this document 
-for details on using the preview features.
+First download the installer.  Follow the steps in the main [get started](azacsnap-get-started.md) documentation to complete the install of AzAcSnap.  Return
+to this document for details on using the preview features.
 
 ## Oracle Database
 
@@ -54,7 +54,7 @@ for details on using the preview features.
 New database platforms and operating systems supported with this preview release.
 
 - **Databases**
-  - Oracle DB release 12 or later (refer to [Oracle VM images and their deployment on Microsoft Azure](/virtual-machines/workloads/oracle/oracle-vm-solutions) for details)
+  - Oracle Database release 12 or later (refer to [Oracle VM images and their deployment on Microsoft Azure](/virtual-machines/workloads/oracle/oracle-vm-solutions) for details)
 
 - **Operating Systems**
   - Oracle Linux 7+
@@ -71,7 +71,8 @@ This section explains how to enable communication with storage. Ensure the stora
 # [Oracle](#tab/oracle)
 
 The snapshot tools communicate with the Oracle database and need a user with appropriate permissions to enable/disable backup mode. The following example
-shows the setup of the Oracle database user and the use of mkstore and associated sqlplus configuration files for communication to the Oracle database. 
+shows the setup of the Oracle database user, the use of `mkstore` to create an Oracle Wallet, and the `sqlplus` configuration files required for 
+communication to the Oracle database. 
 The following example commands set up a user (AZACSNAP) in the Oracle database, change the IP address, usernames, and passwords as appropriate:
 
 1. From the Oracle database installation
@@ -158,7 +159,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
    SQL> ALTER PROFILE default LIMIT PASSWORD_LIFE_TIME unlimited;
    ```
    
-   After which there is no password expiry date for user's with the DEFAULT profile.
+   After making this change there should be no password expiry date for user's with the DEFAULT profile.
 
    ```sql
    SQL> SELECT username, account_status,expiry_date,profile FROM dba_users WHERE username='AZACSNAP';
@@ -172,12 +173,12 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
 
 
 1. The Oracle Wallet provides a method to manage database credentials across multiple domains. This is accomplished by using a database connection string in 
-   the datasource definition which is resolved by an entry in the wallet. When used correctly, the Oracle Wallet makes having passwords in the datasource 
+   the datasource definition, which is resolved by an entry in the wallet. When used correctly, the Oracle Wallet makes having passwords in the datasource 
    configuration unnecessary.
    
-   This feature can be leveraged by also using the Oracle TNS (Transparent Network Substrate) administrative file to hide the details of the database 
-   connection string (host name, port number, and service name) from the datasource definition and instead use an alias. If the connection information changes, it 
-   is a matter of changing the tnsnames.ora file instead of potentially many datasource definitions.
+   This feature can be leveraged to use the Oracle TNS (Transparent Network Substrate) administrative file to hide the details of the database 
+   connection string from the datasource definition and instead use an alias.  The database connection string contains host name, port number, and service name.
+   If the connection information changes, it is a matter of changing the `tnsnames.ora` file instead of potentially many datasource definitions.
    
    Set up the Oracle Wallet (change the password) This example uses the mkstore command from the Linux shell to set up the Oracle wallet. Theses commands 
    are run on the Oracle database server using unique user credentials to avoid any impact on the running database. In this example a new user (azacsnap) 
@@ -186,7 +187,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
    > [!IMPORTANT]
    > Be sure to create a unique user to generate the Oracle Wallet to avoid any impact on the running database.
    
-   1. Complete the following on the Oracle DB Server
+   1. Run the following on the Oracle DB Server
       
     1. Get the Oracle environment variables to be used in setup.  Run the following as the `root` user on the Oracle DB Server.
 
@@ -209,7 +210,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
     1. Create the Linux user to generate the Oracle Wallet and associated `*.ora` files using the output from the previous step
 
        > [!NOTE]
-       > In these examples we are using the `bash` shell.  If you are using a different shell (e.g. csh), then ensure environment variables have been set correctly.
+       > In these examples we are using the `bash` shell.  If you are using a different shell (for example, csh), then ensure environment variables have been set correctly.
 
        ```bash
        useradd -m azacsnap
@@ -330,12 +331,12 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
          adding: .oracle_wallet/cwallet.sso (deflated 1%)
        ```
 
-    1. Copy the ZIP file to the target system (e.g. the centralized virtual machine running AzAcSnap).
+    1. Copy the ZIP file to the target system (for example, the centralized virtual machine running AzAcSnap).
     
        > [!NOTE]
        > If deploying to a centralized virtual machine, then it will need to have the Oracle instant client installed and setup so the AzAcSnap user can 
        > run `sqlplus` commands.  The Oracle Instant Client can downloaded from https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html.
-       > In order for SQL\*Plus to run correctly, download both the required package (e.g. Basic Light Package) and the optional SQL\*Plus tools package.
+       > In order for SQL\*Plus to run correctly, download both the required package (for example, Basic Light Package) and the optional SQL\*Plus tools package.
 
    1. Complete the following on the system running AzAcSnap.
       
@@ -408,7 +409,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
        
     1. Test the setup with AzAcSnap
        
-       After configuring AzAcSnap (e.g. `azacsnap -c configure --configuration new`) with the Oracle connect string (e.g. `/@AZACSNAP`) it should be possible to 
+       After configuring AzAcSnap (for example, `azacsnap -c configure --configuration new`) with the Oracle connect string (for example, `/@AZACSNAP`), it should be possible to 
        connect to the Oracle database.
        
        Check the `$TNS_ADMIN` variable is setup for the correct Oracle target system
@@ -443,7 +444,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
        
        > [!IMPORTANT]
        > The `$TNS_ADMIN` variable must be setup correctly for `azacsnap` to run correctly, either by adding to the user's `.bash_profile` file, 
-       > or by exporting it before each run (e.g. `export TNS_ADMIN="/home/orasnap/ORACLE19c" ; cd /home/orasnap/bin ; ./azacsnap --configfile ORACLE19c.json 
+       > or by exporting it before each run (for example, `export TNS_ADMIN="/home/orasnap/ORACLE19c" ; cd /home/orasnap/bin ; ./azacsnap --configfile ORACLE19c.json 
        > -c backup --volume data --prefix hourly-ora19c --retention 12`)
 
 1. Set up Oracle alert logging
@@ -496,10 +497,10 @@ When adding an Oracle database to the configuration, the following values are re
 > Support for co-existence with SAP HANA's Backint interface is a Preview feature.  
 > This section's content supplements [Configure Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md) website page.
 
-Azure Backup, an alternate backup tool offered by Microsoft, provides a method for SAP HANA backup where database and log backups are streamed into the 
+[Azure Backup](/azure/backup/) service provides an alternate backup tool to backup SAP HANA where database and log backups are streamed into the 
 Azure Backup Service.  Some customers would like to combine the streaming backint-based backups with regular snapshot-based backups.  However, backint-based 
-backups block other methods of backup, such as using a files-based backup or a storage snapshot-based backup (e.g. AzAcSnap).  Fortunately, there is guidance 
-provided on the Azure Backup site on how to [Run SAP HANA native client backup to local disk on a database with Azure Backup enabled](/backup/sap-hana-db-manage#run-sap-hana-native-client-backup-to-local-disk-on-a-database-with-azure-backup-enabled.md).  
+backups block other methods of backup, such as using a files-based backup or a storage snapshot-based backup (for example, AzAcSnap).  Guidance is provided on
+the Azure Backup site on how to [Run SAP HANA native client backup to local disk on a database with Azure Backup enabled](/backup/sap-hana-db-manage#run-sap-hana-native-client-backup-to-local-disk-on-a-database-with-azure-backup-enabled.md).  
 
 The process described in the Azure Backup documentation has been implemented with AzAcSnap to automatically:
 
@@ -513,7 +514,7 @@ The process described in the Azure Backup documentation has been implemented wit
 
 By default this option is disabled, but it can be enabled by running `azacsnap -c configure –configuration edit` and answering ‘y’ (yes) to the question 
 “Do you need AzAcSnap to automatically disable/enable backint during snapshot? (y/n) [n]”.  This will set the autoDisableEnableBackint value to true in the 
-JSON configuration file (e.g. `azacsnap.json`).  It is also possible to change this value by editing the configuration file directly.
+JSON configuration file (for example, `azacsnap.json`).  It is also possible to change this value by editing the configuration file directly.
 
 Refer to this partial snippet of the configuration file to see where this value is placed and the correct format:
 
@@ -535,9 +536,13 @@ Refer to this partial snippet of the configuration file to see where this value 
 > Support for Azure Managed Disk as a storage back-end is a Preview feature.  
 > This section's content supplements [Configure Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md) website page.
 
-Microsoft provide a number of storage options for deploying databases such as SAP HANA, much of which is detailed in the [Azure Storage types for SAP workload](/virtual-machines/workloads/sap/planning-guide-storage) web page.  Additionally there is a [Cost conscious solution with Azure premium storage](/virtual-machines/workloads/sap/hana-vm-operations-storage#cost-conscious-solution-with-azure-premium-storage).  
+Microsoft provide a number of storage options for deploying databases such as SAP HANA.  Many of these are detailed on the 
+[Azure Storage types for SAP workload](/virtual-machines/workloads/sap/planning-guide-storage) web page.  Additionally there is a 
+[Cost conscious solution with Azure premium storage](/virtual-machines/workloads/sap/hana-vm-operations-storage#cost-conscious-solution-with-azure-premium-storage).  
 
-AzAcSnap is able to take application consistent database snapshots when deployed on this type of architecture (i.e., a VM with Managed Disks).  However, the setup for this platform is slightly more complicated as in this scenario we need to block I/O to the mountpoint (using `xfs_freeze`) before taking a snapshot of the Managed Disks in the mounted Logical Volume(s).  
+AzAcSnap is able to take application consistent database snapshots when deployed on this type of architecture (i.e., a VM with Managed Disks).  However, the setup 
+for this platform is slightly more complicated as in this scenario we need to block I/O to the mountpoint (using `xfs_freeze`) before taking a snapshot of the Managed 
+Disks in the mounted Logical Volume(s).  
 
 > [!IMPORTANT]
 > The Linux system must have `xfs_freeze` available to block disk I/O.
@@ -728,7 +733,7 @@ The storage hierarchy looks like the following example for SAP HANA:
 
 Installing and setting up the Azure VM and Azure Managed Disks in this way follows Microsoft guidance to create LVM stripes of the Managed Disks on the VM.  
 
-With this setup AzAcSnap can be run with Azure Managed Disks in a very similar way to other supported storage back-ends (e.g. Azure NetApp Files, Azure Large Instance (Bare Metal)).  Because AzAcSnap communicates with the Azure Resource Manager to take snapshots, it also needs a Service Principal with the correct permissions to take managed disk snapshots.
+With this setup AzAcSnap can be run with Azure Managed Disks in a very similar way to other supported storage back-ends (for example, Azure NetApp Files, Azure Large Instance (Bare Metal)).  Because AzAcSnap communicates with the Azure Resource Manager to take snapshots, it also needs a Service Principal with the correct permissions to take managed disk snapshots.
 
 This capability allows customers to test/trial AzAcSnap on a smaller system and scale-up to Azure NetApp Files and/or Azure Large Instance (Bare Metal).
 
@@ -855,17 +860,17 @@ A new capability for AzAcSnap to execute external commands before or after its m
 
 `--runbefore` will run a shell command before the main execution of azacsnap and provides some of the azacsnap command line parameters to the shell environment. 
 By default, `azacsnap` will wait up to 30 seconds for the external shell command to complete before killing the process and returning to azacsnap normal execution. 
-This can be overridden by adding a number to wait in seconds after a `%` character (e.g. `--runbefore "mycommand.sh%60"` will wait up to 60 seconds for `mycommand.sh` 
+This can be overridden by adding a number to wait in seconds after a `%` character (for example, `--runbefore "mycommand.sh%60"` will wait up to 60 seconds for `mycommand.sh` 
 to complete).
 
 `--runafter` will run a shell command after the main execution of azacsnap and provides some of the azacsnap command line parameters to the shell environment. 
 By default, `azacsnap` will wait up to 30 seconds for the external shell command to complete before killing the process and returning to azacsnap normal execution. 
-This can be overridden by adding a number to wait in seconds after a `%` character (e.g. `--runafter "mycommand.sh%60"` will wait for up to 60 seconds for `mycommand.sh` 
+This can be overridden by adding a number to wait in seconds after a `%` character (for example, `--runafter "mycommand.sh%60"` will wait for up to 60 seconds for `mycommand.sh` 
 to complete).
 
 The following list of environment variables are generated by `azacsnap` and passed to the shell which is forked to run the shell commands for `--runbefore` and `--runafter`:
 
-- `$azCommand` = the command option passed to -c (e.g. backup , test , etc.).
+- `$azCommand` = the command option passed to -c (for example, backup , test , etc.).
 - `$azConfigFileName` = the configuration filename.
 - `$azPrefix` = the --prefix value.
 - `$azRetention` = the --retention value.
