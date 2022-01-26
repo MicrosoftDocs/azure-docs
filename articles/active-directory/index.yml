@@ -304,7 +304,7 @@ conceptualContent:
         - url: ./saas-apps/workday-inbound-tutorial.md
           itemType: tutorial
           text: Configure Workday for automatic user provisioning
-        - url: ./develop/v2-howto-app-gallery-listing.md
+        - url: ./manage-apps/v2-howto-app-gallery-listing.md
           itemType: get-started
           text: Request to add your app to the Gallery
       footerLink:
