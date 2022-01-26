@@ -7,7 +7,8 @@ ms.workload: azure-government
 ms.custom: references_regions
 ms.author: stevevi
 author: stevevi
-ms.date: 10/01/2021
+recommendations: false
+ms.date: 01/25/2022
 ---
 
 # What is Azure Government?
@@ -51,5 +52,5 @@ To start using Azure Government, first check out [Guidance for developers](./doc
 ## Next steps
 
 - [Acquiring and accessing Azure Government](https://azure.microsoft.com/offers/azure-government/)
-- [Get started with Azure Government](./documentation-government-get-started-connect-with-portal.md)
+- [Azure Government security](./documentation-government-plan-security.md)
 - View [YouTube videos](https://www.youtube.com/playlist?list=PLLasX02E8BPA5IgCPjqWms5ne5h4briK7)

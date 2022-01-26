@@ -5,7 +5,7 @@ services: azure-government
 cloud: gov
 ms.service: azure-government
 ms.topic: article
-ms.date: 10/05/2021
+ms.date: 01/19/2022
 ---
 
 # Azure Government authorized reseller list
@@ -82,6 +82,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Casserly Consulting](https://www.casserlyconsulting.com)|
 |[Carahsoft Technology Corporation](https://www.carahsoft.com/)|
 |[Castalia Systems](https://www.castaliasystems.com)|
+|[cb20](https://cb20.com/)|
 |[CB5 Solutions](https://www.cbfive.com/)|
 |[cBEYONData](https://cbeyondata.com/)|
 |[CBTS](https://www.cbts.com/)|
@@ -101,7 +102,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[CodeLynx, LLC](http://www.codelynx.com/)|
 |[Columbus US, Inc.](https://www.columbusglobal.com)|
 |[Competitive Innovations, LLC](https://www.cillc.com)|
-|[Computer Professionals International](https://cb20.com/)|
 |[Computer Solutions Inc.](http://cs-inc.co/)|
 |[Computex Technology Solutions](http://www.computex-inc.com/)|
 |[ConvergeOne](https://www.convergeone.com)|
