@@ -91,8 +91,6 @@ items:
       href: concept-classification.md
   - name: Data catalog
     items:
-    - name: Catalog search
-      href: concept-search.md
     - name: Business glossary
       href: concept-business-glossary.md 
     - name: Asset normalization
