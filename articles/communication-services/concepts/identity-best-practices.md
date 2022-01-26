@@ -17,7 +17,7 @@ This article provides information about best practices related to managing [User
 
 ## Communication Token Credential
 
-Communication Token Credential (Credential) is an authentication primitive that wraps User Access Tokens and provides an additional layer of convenience for the developer. Communication Services, such as Chat or Calling, use a Communication Token Credential to authenticate users.
+Communication Token Credential (Credential) is an authentication primitive that wraps User Access Tokens. It is used to authenticate users in Communication Services, such as Chat or Calling. Additionally, it provides built-in token refreshing functionality for the convenience of the developer.
 
 ## Initialization
 
@@ -26,7 +26,7 @@ The tokens supplied to the Credential either through the constructor or via the 
 
 ### Static token
 
-For short-lived clients, initialize the Credential with a static token. This approach is sutable for scenarios such as sending one-off Chat messages or time-limited Calling sessions.
+For short-lived clients, initialize the Credential with a static token. This approach is suitable for scenarios such as sending one-off Chat messages or time-limited Calling sessions.
 
 ```javascript
 const tokenCredential = new AzureCommunicationTokenCredential("<user_access_token>");
@@ -34,7 +34,7 @@ const tokenCredential = new AzureCommunicationTokenCredential("<user_access_toke
 
 ### Callback function
 
-For long-lived clients, initialize the Credential with a callback function that ensures a continuous authentication state during communications. This approach is suitable e.g. for long Calling sessions.
+For long-lived clients, initialize the Credential with a callback function that ensures a continuous authentication state during communications. This approach is suitable for example, for long Calling sessions.
 
 ```javascript
 const tokenCredential = new AzureCommunicationTokenCredential({
@@ -44,7 +44,7 @@ const tokenCredential = new AzureCommunicationTokenCredential({
 
 ## Token refreshing
 
-To correctly implement the token refresher callback function, the code must return a string with a valid JWT token. It's necessary that the returned token is valid (its expiration date is set in the future) at all times. Some platforms, such as JavaScript and .NET, offer a way to abort the refresh operation, and pass `AbortSignal` or `CancellationToken` to your function. It's recommended to accept these objects, utilize them or pass them further.
+To correctly implement the token refresher callback, the code must return a string with a valid JSON Web Token (JWT). It's necessary that the returned token is valid (its expiration date is set in the future) at all times. Some platforms, such as JavaScript and .NET, offer a way to abort the refresh operation, and pass `AbortSignal` or `CancellationToken` to your function. It's recommended to accept these objects, utilize them or pass them further.
 
 ### Example 1: Refresh token for Communication User
 
@@ -61,7 +61,7 @@ app.post('/getToken', async (req, res) => {
 });
 ```
 
-Next, we need to implement a token refresher callback in the client application, properly utilizing the `AbortSignal` and returning an unwrapped JWT token string.
+Next, we need to implement a token refresher callback in the client application, properly utilizing the `AbortSignal` and returning an unwrapped JWT string.
 
 ```javascript
 const fetchTokenFromMyServerForUser = async function (abortSignal, username) {
@@ -82,7 +82,7 @@ const fetchTokenFromMyServerForUser = async function (abortSignal, username) {
 
 ### Example 2: Refresh token for a Teams User
 
-Let's assume we have a Node.js application built on Express with the `/getTokenForTeamsUser` endpoint allowing to exchange an AAD access token of a Teams user for a new Communication Identity access token with a matching expiration time.
+Let's assume we have a Node.js application built on Express with the `/getTokenForTeamsUser` endpoint allowing to exchange an Azure Active Directory (Azure AD) access token of a Teams user for a new Communication Identity access token with a matching expiration time.
 
 ```javascript
 app.post('/getTokenForTeamsUser', async (req, res) => {
@@ -94,19 +94,15 @@ app.post('/getTokenForTeamsUser', async (req, res) => {
 
 Next, we need to implement a token refresher callback in the client application, whose responsibility will be to:
 
-1. Refresh the AAD access token of the Teams User
-1. Exchange the AAD access token of the Teams User for a Communication Identity access token
+1. Refresh the Azure AD access token of the Teams User
+1. Exchange the Azure AD access token of the Teams User for a Communication Identity access token
 
 ```javascript
 const fetchTokenFromMyServerForUser = async function (abortSignal, username) {
-    // MSAL.js v2 exposes several account APIs; the logic to determine which account to use is the responsibility of the developer. 
-    // In this case, we'll use an account from the cache.    
-    let teamsUser = (await publicClientApplication.getTokenCache().getAllAccounts()).find(u => u.username === username);
+    // Get a fresh Azure AD token first
+    let teamsTokenResponse = await refreshAadToken(abortSignal, username);
 
-    // Get a fresh AAD token first
-    let teamsTokenResponse = await refreshAadToken(abortSignal, teamsUser);
-
-    // Use the fresh AAD token to exchange it for a Communication Identity access token
+    // Use the fresh Azure AD token to exchange it for a Communication Identity access token
     const response = await fetch(`${HOST_URI}/getTokenForTeamsUser`,
         {
             method: "POST",
@@ -122,11 +118,16 @@ const fetchTokenFromMyServerForUser = async function (abortSignal, username) {
 }
 ```
 
-Following the guide to [acquire an AAD token to call an API](../../active-directory/develop/scenario-spa-acquire-token.md), we first try to obtain the token without the user's interaction. If that's not possible, we trigger the interactive flow.
+In this example, we'll use the Microsoft Authentication Library (MSAL) to refresh the Azure AD access token. Following the guide to [acquire an Azure AD token to call an API](../../active-directory/develop/scenario-spa-acquire-token.md), we first try to obtain the token without the user's interaction. If that's not possible, we trigger the interactive flow.
 
 ```javascript
-const refreshAadToken = async function (abortSignal, account, forceRefresh) {
+const refreshAadToken = async function (abortSignal, username, forceRefresh) {
     if (abortSignal.aborted === true) throw new Error("Operation canceled");
+
+    // MSAL.js v2 exposes several account APIs; the logic to determine which account to use is the responsibility of the developer. 
+    // In this case, we'll use an account from the cache.    
+    let account = (await publicClientApplication.getTokenCache().getAllAccounts()).find(u => u.username === username);
+
     const renewRequest = {
         scopes: ["https://auth.msft.communication.azure.com/Teams.ManageCalls"],
         account: account,
@@ -164,7 +165,7 @@ const tokenCredential = new AzureCommunicationTokenCredential({
 
 ## Proactive token refreshing
 
-Use proactive refreshing to eliminate any possible delay during the on-demand fetching of the token. The proactive refreshing will take care of refreshing the token in the background at the end of the current token's lifetime. When the token is about to expire (10 minutes before the end of its validity), the Credential will start attempting to retrieve the token via the refresher callback with increasing frequency until it succeeds and retrieves a token with long enough validity.
+Use proactive refreshing to eliminate any possible delay during the on-demand fetching of the token. The proactive refreshing will take care of refreshing the token in the background at the end of the current token's lifetime. When the token is about to expire, 10 minutes before the end of its validity, the Credential will start attempting to retrieve the token. It will trigger the refresher callback with increasing frequency until it succeeds and retrieves a token with long enough validity.
 
 ```javascript
 const tokenCredential = new AzureCommunicationTokenCredential({
@@ -177,18 +178,12 @@ const tokenCredential = new AzureCommunicationTokenCredential({
 
 
 - TODO
+
 ```javascript
-const msalConfig = {
-    auth: {
-        clientId: "<contoso_application_id>",
-        authority: "https://login.microsoftonline.com/<contoso_tenant_id>",
-    }
+const publicClientApplication = new PublicClientApplication({
     system: {
         tokenRenewalOffsetSeconds: 600
-    }
-};
-
-const publicClientApplication = new PublicClientApplication(msalConfig);
+    });
 ```
 
 We might want to extend the logic of the `refreshAadToken` function with:
@@ -198,7 +193,7 @@ Finally, if the retrieved token's validity is not sufficient, we trigger the who
 
     if (tokenResponse.expiresOn < (Date.now() + (10 * 60 * 1000)) && !forceRefresh) {
         // Make sure the token has at least 10-minute lifetime and if not, force-renew it
-        tokenResponse = await refreshAadToken(abortSignal, teamsUser, true);
+        tokenResponse = await refreshAadToken(abortSignal, username, true);
     }
 ```
 
@@ -231,7 +226,7 @@ leaveChatBtn.addEventListener('click', function() {
 
 ### Clean up resources
 
-Communication Services applications should dispose the Credential instance when it is no longer needed. Disposing the credential is also the recommended way of cancelling scheduled refresh actions when the proactive refreshing is enabled.
+Communication Services applications should dispose the Credential instance when it is no longer needed. Disposing the credential is also the recommended way of canceling scheduled refresh actions when the proactive refreshing is enabled.
 
 # [C#](#tab/csharp)
 

@@ -185,7 +185,7 @@ items:
         href: concepts/logging-and-diagnostics.md
       - name: Metrics
         href: concepts/metrics.md
-  - name: Service Events (EventGrid)
+  - name: Service Events (Event Grid)
     items:
       - name: Overview
         href: ../event-grid/event-schema-communication-services.md
