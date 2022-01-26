@@ -137,30 +137,23 @@ The Azure storage account has the following configuration settings
         - **Value**: This name is something like \<guid>-eastus-ps2-gw . You can get this from the vWAN HUB User VPN settings.
  1. Click **Save**
 
-1. It's time to create Function!!!
+1. Click on **Functions** in the left-hand panel and click **+ Create**. 
 
-Function:
-- FunctionName: <FunctionName>, choose for example a trigger type function to be executed each 5 minutes
-- Code: see below 
+1. Fill in the fields. 
+   :::image type="content" source="./media/monitor-point-to-site-connections/CreatingFunction.png" alt-text="Screenshot shows the page when creating a function.":::
 
-------------------------------------------------------------------------------------------------------------------------
+   * **Development Environment**: Develop in portal
+   * **Template**: Timer Trigger
+   * **New Function**: Choose a name for the Function 
+   * **Schedule**: Enter a cron expression of the format '{second} {minute} {hour} {day} {month} {day of the week}' to specify the schedule. 
 
-param($Timer)
-$currentUTCtime = (Get-Date).ToUniversalTime()
-if ($Timer.IsPastDue) {
-    Write-Host "PowerShell timer is running late!"
-}
-Write-Host "PowerShell timer trigger function ran! TIME: $currentUTCtime"
-$tenantname = $env:appsetting_tenantname
-$subscription = $env:appsetting_subscription
-$resourceGroup = $env:appsetting_resourcegroup
-$storageAccountName = $env:appsetting_storageaccountname
-$storageContainer = $env:appsetting_storagecontainer
-$vpnstatsfile= $env:appsetting_vpnstatsfile
-$vpngw = $env:appsetting_vpngw
-$sasuri = $env:appsetting_sasuri
-connect-azaccount -tenant $tenantname -identity -subscription $subscription
-Get-AzP2sVpnGatewayDetailedConnectionHealth -name $vpngw -ResourceGroupName $resourceGroup -OutputBlobSasUrl $sasuri
+ 1. Click on **Code + Test** in the left-hand panel, and type the following code in the **run.ps1** file. Click **Save**.
+ :::image type="content" source="./media/monitor-point-to-site-connections/function-code.png" alt-text="Screenshot shows the page when typing code for the function.":::
+
+1. Navigate back to the **Function App** page and click on **App Service Editor** in the left-hand panel under **Development Tools**. Then, click **Go -->**. 
+
+1. Go to **requirements.psd1** and uncomment the line beginning with **'Az'...** as shown.
+:::image type="content" source="./media/monitor-point-to-site-connections/requirements-file.png" alt-text="Screenshot showing the requirements file for function app.":::
 
 ----------------------------------------------------------------------------------------------------------------------
 
