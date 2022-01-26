@@ -6,7 +6,7 @@ ms.author: wepa
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/25/2022
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Move an Azure Spring Cloud service instance to another region
