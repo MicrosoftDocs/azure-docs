@@ -8,12 +8,16 @@
     items:
     - name: Enable CloudKnox on your Azure AD tenant 
       href: cloudknox-onboard-enable-tenant.md
-    - name: Onboard the AWS authorization system
+    - name: Onboard an AWS account
       href: cloudknox-onboard-aws.md
-    - name: Onboard the Azure authorization system
+    - name: Onboard an Azure subscription
       href: cloudknox-onboard-azure.MD
-    - name: Onboard the GCP authorization system
+    - name: Onboard a GCP project
       href: cloudknox-onboard-gcp.md
+    #- name: Enable or disable the controller
+      #href: cloudknox-onboard-enable-controller.md
+    #- name: Add an account/subscription/project after onboarding
+      #href: cloudknox-onboard-add-account-after-onboarding.md
   #- name: Integration
     #expanded: true
     #items:
@@ -36,14 +40,14 @@
   - name: How-to guides
     expanded: true
     items:
-    - name: View avoidable risk metrics
+    - name: View avoidable risk metrics in your authorization system
       expanded: true
       items:
       - name: View key statistics and data about your authorization system
         href: cloudknox-ui-dashboard.md
       - name: View data about authorization systems and account activity
         href: cloudknox-product-dashboard.md
-    - name: Set personal information and preferences
+    - name: View configuration settings for data collection
       expanded: true
       items:
       - name: View and modify configuration settings for data collection
@@ -56,21 +60,23 @@
     - name: View roles and identities that access account information
       expanded: true
       items:
+      - name: View roles and identities that access account information from an external account
+        href: cloudknox-product-account-explorer.md
       - name: Set personal information and preferences
         href: cloudknox-product-account-settings.md
     - name: Manage organizational and personal information
       expanded: true
       items:
-      - name: The Account Settings dashboard
+      - name: The Account Settings dashboard - Overview
         href: cloudknox-ui-account-settings.md
       - name: Set personal information and preferences
         href: cloudknox-product-account-settings.md
     - name: View information about identities, resources, and tasks
       expanded: true
       items:
-      - name: The Usage Analytics dashboard
+      - name: The Usage Analytics dashboard - Overview
         href: cloudknox-ui-usage-analytics.md
-      - name: The Usage Analytics explorers
+      - name: The Usage Analytics explorers - Overview
         href: cloudknox-usage-analytics-explorers.md
       - name: View usage information
         href: cloudknox-usage-analytics-home.md
@@ -93,7 +99,7 @@
     - name: Manage roles/policies and permission requests
       expanded: true
       items:
-      - name: The JEP Controller dashboard
+      - name: The JEP Controller dashboard - Overview
         href: cloudknox-ui-jep-controller.md
       - name: Attach and detach permissions
         href: cloudknox-howto-attach-detach-permissions.md
@@ -104,7 +110,7 @@
     - name: Review how users access their authorization systems
       expanded: true
       items:
-      - name: The Audit Trail dashboard
+      - name: The Audit Trail dashboard - Overview
         href: cloudknox-ui-audit-trail.md
       - name: Create a custom query
         href: cloudknox-howto-create-custom-queries.md
@@ -136,11 +142,12 @@
       expanded: true
       items:
       - name: View available authorization systems
+      - name: View available authorization systems
         href: cloudknox-ui-integrations.md
     - name: Set activity alerts and triggers 
       expanded: true
       items: 
-      - name: The Activity Triggers dashboard
+      - name: The Activity Triggers dashboard - Overview
         href: cloudknox-ui-triggers.md
       - name: Create an alert trigger
         href: cloudknox-howto-create-alert-trigger.md
@@ -149,7 +156,7 @@
     - name: Manage rules for authorization systems
       expanded: true
       items:
-      - name: The Autopilot dashboard
+      - name: The Autopilot dashboard - Overview
         href: cloudknox-ui-autopilot.md
       - name: Manage users with the Autopilot dashboard
         href: cloudknox-product-autopilot.md
@@ -158,7 +165,7 @@
     - name: Create and view reports 
       expanded: true
       items: 
-      - name: The Reports dashboard
+      - name: The Reports dashboard - Overview
         href: cloudknox-ui-reports.md
       - name: Overview of available system report types
         href: cloudknox-product-reports.md
@@ -173,6 +180,8 @@
     - name: Compliance
       expanded: true
       items:
+      - name: View information about compliance standards
+        href: cloudknox-ui-compliance.md
       - name: View product compliance guidelines
         href: cloudknox-product-compliance.md
       - name: Information about compliance standards
