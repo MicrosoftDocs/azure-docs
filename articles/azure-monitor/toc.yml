@@ -124,10 +124,8 @@ items:
     - name: Logs
       displayName: Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries
       href: logs/data-platform-logs.md
-    - name: Basic logs
-      href: logs/basic-logs-overview.md
-    - name: Archived logs
-      href: logs/archived-logs-overview.md
+    - name: Log Analytics workspace
+      href: logs/log-analytics-workspace-overview.md
   - name: Workspaces
     items:
     - name: Design a workspace deployment
@@ -282,8 +280,8 @@ items:
         href: logs/move-workspace-region.md
       - name: Configure basic logs
         href: logs/basic-logs-configure.md
-      - name: Archive a table
-        href: logs/archived-logs-configure.md
+      - name: Set retention and archive
+        href: logs/data-retention-archive.md
       - name: Restore a table
         href: logs/restore.md
       - name: Create a search job

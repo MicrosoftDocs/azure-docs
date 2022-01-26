@@ -9,39 +9,58 @@ ms.date: 01/19/2022
 ---
 
 # Restore archived logs in Azure Monitor (preview)
-Restore makes a specific time range of an Archived orBasic Logs table available as analytics logs and allocates additional compute resources to handle their processing. This allows you to use 
+[Archived Logs]() are stored for up to seven years in a Log Analytics workspace at a reduced cost, but you can't directly access them. Restore makes a specific time range of archived data in a table available for querying and allocates additional compute resources to handle their processing. This article describes how to restore archived data, query that data, and then dismiss it when you're done with it. 
 
+> [!NOTE]
+> See []() for a high level description of Archived Logs in Azure Monitor and how this relates to data in Analytics Logs and Basic Logs tables.
 
+> [!NOTE]
+> Restore is one method for accessing archived data. Use restore when you want to run queries against a set of data in a particular time range. Use [Search jobs](search-jobs.md) to access data that fits a certain criteria.
 
-The restore table allows querying its data with full KQL support.  
+## Basic operation
+When you restore data, you specify the source table that contains the archived data and a destination table to store the restored data. This table is in the same workspace as the source table and provides a view of the underlying source data. You can then use regular [log queries](log-query-overview.md) to retrieve data from the restored table. The restored table has no retention setting, and you must explicitly release it when you no longer require it. 
 
-Restore creates a logical table with a view of the underlying source table, such that a restore table has no retention by its own. The restore table is created in the same workspace as the source table. The restored data will be available as long as the underlying source data is available, and the user did not explicitly asked to release the data back to its source table. Restore is charge according to the volume of the data and the time it is available. For more details on billing, see **TODO:** add link to billing page.
+## Cost
+Restore is charge according to the volume of the data restored and the time it is available. 
 
-### Restore limits
-Executing restore is limited to up to 4 per workspace per week, with concurrent limitation of up to 2 per workspace.
-A single table is limited to have only one active restore, such that executing a second restore on a table that has already active restore will fail. To restore a different chunk of a table you should first dismiss the existing one. See details in _Dismiss restored data_ below
+> [!NOTE]
+> There is no charge for restored data during the preview period.
 
-### Restore table status
-Restore table property provisioningState can have one of the following value:
-- Updating - the table and its schema are populated.
-- Succeeded - restore has completed. 
+## Limits
+Restore is subject to the following limitations: 
 
-### Restore data from archive
-Use **Tables - Update** API call to trigger restore:
+- You can perform up to 4 restores per workspace per week. 
+- Up to 2 restore processes in a workspace can be concurrently running.
+- A single table can have only one active restore. Executing a second restore on a table that has already active restore will fail. 
+
+## Restore data using API
+
+> [!NOTE]
+> The only current option to create a restore is using the **Tables** API.
+
+Use **Tables - Update** API call to restore archived data:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{user defined name}_RST?api-version=2021-07-01-privatepreview
 ```
-> [!NOTE]
->Table name must end with _RST postfix
-#### Request Body
+### Request Body
+The body of the request must include the following values:
+
 |Name | Type | Description |
 |:---|:---|:---|
-|properties.restoredLogs.sourceTable | string  | Table to restore data from |
-|properties.restoredLogs.startRestoreTime | string  | Date and time to start the restore from |
-|properties.restoredLogs.endRestoreTime | string  | Date and time to end the restore by |
+|properties.restoredLogs.sourceTable | string  | Table with the archived data to restore. Must end with _RST. |
+|properties.restoredLogs.startRestoreTime | string  | Start of the time range to restore. |
+|properties.restoredLogs.endRestoreTime | string  | End of the time range to restore. |
 
-##### Sample Request
+### Restore table status
+You can get the current state of the restore table from a property called **provisioningState**. This property will be returned when you start the restore, and you can retrieve it later using a GET operation on the table. The **provisioningState** property will have one of the following value:
+
+- Updating - the table and its schema are populated.
+- Succeeded - restore has completed. 
+
+#### Sample Request
+The following sample restores data from the month of January 2020 from the *Usage* table to a table called *Usage_RST*.
+
 ```http
 PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/testRG/providers/Microsoft.OperationalInsights/workspaces/testWS/tables/Usage_RST?api-version=2021-07-01-privatepreview
 ```
@@ -59,10 +78,19 @@ Request body:
 }
 ```
 
-### Dismiss restored data
-Restore allocates additional compute resources, and will be charged according to the volume of the data and the time it is available. It is recommended to release the data back to archive as soon as the processing of the data ends. To release the data from restore you should delete the restored table - this action will not affect the underlying source table.
+## Dismiss restored data
+You should dismiss restored data as soon as your done with it since you're charged according to how long the data is available.  To release the data from restore you should delete the restored table - this action will not affect the underlying source table.
 
-Use **Tables - Delete** API call to delete the (logical) restore table
+> [!NOTE]
+> Removing the table from the workspace will also remove any restores for that table. You can only remove custom tables and not built-in tables.
+
+Use **Tables - Delete** API call to delete the (logical) restore table.
+
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{user defined name}_RST?api-version=2021-07-01-privatepreview
 ```
+
+## Next steps
+
+- Learn more about data retention and archiving data.
+- Learn about Search jobs which is another method for retrieving archived data.

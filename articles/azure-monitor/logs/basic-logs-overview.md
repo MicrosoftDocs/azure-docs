@@ -15,16 +15,15 @@ Basic Logs is a feature of Azure Monitor that reduces the cost for high-value ve
 
 [Logs plans overview](media/basic-logs-overview/logs-plans-overview.png)
 
-## Difference from Analytics Logs
-Specific differences between Basic Logs tables and Analytics Logs tables are listed in the following table.
+## Differences between plans
+The following table summarizes the differences between the plans.
 
-| Category | Description |
-|:---|:---|
-| Ingestion | Ingestion for data in Basic Logs tables has a reduced cost for ingestion. |
-| Log queries | Log queries using Basic Logs tables have a cost and support a subset of the query language. Log queries with Standard Logs tables have no cost and support the full query language. |
-| Retention |  Retention for Basic Logs is always 8 days. Retention for Standard Logs tables can be configured. |
-| Alerts | Log query alert rules cannot use Basic Logs tables. |
-
+| Category | Archive Logs | Basic Logs |
+|:---|:---|:---|
+| Ingestion | Cost for ingestion. | Reduced cost for ingestion. |
+| Log queries | Full query language. | Subset of query language. |
+| Retention |  Configure retention from 30 days to 750 days. | Retention fixed at 8 days. |
+| Alerts | Supported. | Not supported. |
 
 ## Tables that support Basic Logs
 You configure particular tables your Log Analytics workspace to use Basic Logs. This does not affect other tables in the workspace. Not all tables can be configured for Basic Logs since other Azure Monitor features may rely on these tables.

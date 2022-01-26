@@ -75,23 +75,6 @@ For a list of where log queries are used and references to tutorials and other d
 
 ![Screenshot that shows queries in Log Analytics.](media/data-platform-logs/log-analytics.png)
 
-## Data structure
-Log queries retrieve their data from a Log Analytics workspace. Each workspace contains multiple tables that are organized into separate columns with multiple rows of data. Each table is defined by a unique set of columns. Rows of data provided by the data source share those columns. 
-
-[![Diagram that shows the Azure Monitor Logs structure.](media/data-platform-logs/logs-structure.png)](media/data-platform-logs/logs-structure.png#lightbox)
-
-Log data from Application Insights is also stored in Azure Monitor Logs, but it's stored differently depending on how your application is configured: 
-
-- For a workspace-based application, data is stored in a Log Analytics workspace in a standard set of tables. The types of data include application requests, exceptions, and page views. Multiple applications can use the same workspace. 
-
-- For a classic application, the data is not stored in a Log Analytics workspace. It uses the same query language, and you create and run queries by using the same Log Analytics tool in the Azure portal. Data items for classic applications are stored separately from each other. The general structure is the same as for workspace-based applications, although the table and column names are different. 
-
-For a detailed comparison of the schema for workspace-based and classic applications, see [Workspace-based resource changes](../app/apm-tables.md).
-
-> [!NOTE]
-> The classic Application Insights experience includes backward compatibility for your resource queries, workbooks, and log-based alerts. To query or view against the [new workspace-based table structure or schema](../app/apm-tables.md), you must first go to your Log Analytics workspace. During the preview, selecting **Logs** from within the Application Insights panes will give you access to the classic Application Insights query experience. For more information, see [Query scope](./scope.md).
-
-[![Diagram that shows the Azure Monitor Logs structure for Application Insights.](media/data-platform-logs/logs-structure-ai.png)](media/data-platform-logs/logs-structure-ai.png#lightbox)
 
 ## Relationship to Azure Data Explorer
 Azure Monitor Logs is based on Azure Data Explorer. A Log Analytics workspace is roughly the equivalent of a database in Azure Data Explorer. Tables are structured the same, and both use KQL. 

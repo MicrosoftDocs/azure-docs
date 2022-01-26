@@ -15,6 +15,14 @@ ms.date: 01/13/2022
 > [!IMPORTANT]
 > Switching between plans is limited to once a week.
 
+## Tables that support Basic Logs
+You configure particular tables your Log Analytics workspace to use Basic Logs. This does not affect other tables in the workspace. Not all tables can be configured for Basic Logs since other Azure Monitor features may rely on these tables.
+
+The following tables can currently be configured as basic logs.
+
+- All custom logs created with [direct ingestion](direct-ingestion-overview.md). Basic Logs is not supported for tables created with [Data Collector API](data-collector-api.md).
+-	[ContainerLog](/azure/azure-monitor/reference/tables/containerlog) and [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2), which are tables used by [Container Insights](../containers/container-insights-overview.md) and include cases verbose text-based log records.
+- [AppTraces](/azure/azure-monitor/reference/tables/apptraces), which contains freeform log records for application traces in Application Insights.
 
 ## Existing data
 Retention for tables configured for Basic Logs is 8 days. If you have existing data over 8 days old in a table that you configure for Basic Logs, that data will be moved to [Archived Logs](archived-logs-overview.md).
