@@ -40,10 +40,10 @@ Data moves through these resources in this order:
 
 ### Required permissions
 
-In order to set up a data history connection, your Azure Digital Twins instance must have the following permissions to access the Event Hubs and Azure Data Explorer resources. These permissions can optionally be removed after data history is set up.
+In order to set up a data history connection, your Azure Digital Twins instance must have the following permissions to access the Event Hubs and Azure Data Explorer resources. These roles enable Azure Digital Twins to configure the event hub and Azure Data Explorer database on your behalf (for example, creating a table in the database). These permissions can optionally be removed after data history is set up.
 * Event Hubs resource: **Azure Event Hubs Data Owner**
 * Azure Data Explorer cluster: **Contributor** (scoped to either the entire cluster or specific database)
-* Azure Data Explorer database: **Admin**
+* Azure Data Explorer database principal assignment: **Admin** (scoped to the database being used)
 
 Later, your Azure Digital Twins instance must have the following permission on the Event Hubs resource while data history is being used: **Azure Event Hubs Data Sender** (you can also opt instead to keep **Azure Event Hubs Data Owner** from data history setup).
 
@@ -83,6 +83,10 @@ Below is an example table of twin property updates stored to Azure Data Explorer
 You may need to store a property with multiple fields. These properties are represented with a JSON object in the `Value` attribute of the schema.
 
 For instance, if you're representing a property with three fields for roll, pitch, and yaw, data history will store the following JSON object as the `Value`: `{"roll": 20, "pitch": 15, "yaw": 45}`.
+
+## Pricing
+
+Messages emitted by data history are metered under the [Message pricing dimension](https://azure.microsoft.com/pricing/details/digital-twins/#pricing).
 
 ## End-to-end ingestion latency
 
