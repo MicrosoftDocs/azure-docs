@@ -21,7 +21,14 @@ This feature uses text summarization to produce a summary of a document. It extr
 <!--
 :::image type="content" source="media/feature-example.png" alt-text="A diagram of the text analytics feature.":::
 -->
-:::image type="content" source="media/feature-example-2.png" alt-text="A simple example of the text summarization feature." source="media/feature-example-2.png":::
+
+For example, consider the following paragraph of text:
+
+*"We’re delighted to announce that Text Analytics now supports extractive summarization. In general, there are two approaches for automatic text summarization: extractive and abstractive. The Text Analytics API provides extractive summarization. Text Analytics for Extractive Summarization is a feature that produces a text summary by extracting sentences that collectively represent the most important or relevant information within the original content. This feature is designed to shorten content that could be considered too long to read. Extractive summarization condenses articles, papers, or documents to key sentences."*
+
+The text summarization feature would simplify 
+
+:::image type="content" source="media/feature-example-2.png" alt-text="A simple example of the text summarization feature." lightbox="media/feature-example-2.png":::
 
 This documentation contains the following article types:
 
