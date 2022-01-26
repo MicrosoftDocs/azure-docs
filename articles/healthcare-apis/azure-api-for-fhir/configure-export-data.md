@@ -9,7 +9,7 @@ ms.date: 01/26/2022
 ms.author: ginle
 ---
 
-# Configure export settings and set up a storage account
+# Configure export settings in Azure API for FHIR and set up a storage account
 
 Azure API for FHIR supports $export command that allows you to export the data out of Azure API for FHIR account to a storage account.
 
@@ -37,7 +37,7 @@ After you've created a storage account, browse to the **Access Control (IAM)** i
 
 For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.md).
 
-It's here that you'll add the role [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) to our service name, and then select **Save**.
+It's here that you'll add the role [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) to our service name, and then select **Save**.
 
 ![Add role assignment page](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
