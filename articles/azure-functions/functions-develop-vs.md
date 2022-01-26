@@ -1,6 +1,7 @@
 ---
 title: Develop Azure Functions using Visual Studio  
 description: Learn how to develop and test Azure Functions by using Azure Functions Tools for Visual Studio 2019.
+ms.devlang: csharp
 ms.custom: "vs-azure, devx-track-csharp"
 ms.topic: conceptual
 ms.date: 12/10/2020

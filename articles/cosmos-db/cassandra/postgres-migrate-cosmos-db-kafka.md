@@ -37,7 +37,7 @@ Data in PostgreSQL table will be pushed to Apache Kafka using the [Debezium Post
 ## Prerequisites
 
 * [Provision an Azure Cosmos DB Cassandra API account](manage-data-dotnet.md#create-a-database-account)
-* [Use cqlsh or hosted shell for validation](cassandra-support.md#hosted-cql-shell-preview)
+* [Use cqlsh for validation](cassandra-support.md#cql-shell)
 * JDK 8 or above
 * [Docker](https://www.docker.com/) (optional)
 

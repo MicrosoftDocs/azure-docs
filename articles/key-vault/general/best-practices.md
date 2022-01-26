@@ -53,7 +53,7 @@ Make sure you take regular backups of your vault. Backups should be performed wh
 
 ## Turn on logging
 
-[Turn on logging](logging.md) for your vault. Also, set up alerts.
+[Turn on logging](logging.md) for your vault. Also, [set up alerts](alert.md).
 
 ## Turn on recovery options
 

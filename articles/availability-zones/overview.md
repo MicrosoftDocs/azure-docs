@@ -1,7 +1,7 @@
 ---
 title: Resiliency in Azure
 description: Learn about resiliency in Azure.
-author: prsandhu
+author: awysza
 ms.service: azure
 ms.topic: conceptual
 ms.date: 10/21/2021
@@ -56,4 +56,4 @@ Building resilient systems on Azure is a shared responsibility. Microsoft is res
 - [Azure services that support availability zones](az-region.md)
 - [Resilience in Azure whitepaper](https://azure.microsoft.com/mediahandler/files/resourcefiles/resilience-in-azure-whitepaper/Resilience%20in%20Azure.pdf)
 - [Azure Well-Architected Framework](https://www.aka.ms/WellArchitected/Framework)
-- [Azure architecture guidance](/architecture/high-availability/building-solutions-for-high-availability)
+- [Azure architecture guidance](/azure/architecture/high-availability/building-solutions-for-high-availability)

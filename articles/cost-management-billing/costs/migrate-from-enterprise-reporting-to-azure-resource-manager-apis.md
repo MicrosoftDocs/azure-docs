@@ -6,7 +6,7 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 03/10/2021
+ms.date: 12/17/2021
 ms.author: banders
 ---
 
@@ -353,7 +353,7 @@ https://management.azure.com/{scope}/Microsoft.Consumption/reservationSummaries?
 [_Get Reservation Summary Monthly_](/rest/api/consumption/reservationssummaries/list#reservationsummariesmonthlywithbillingaccountid)
 
 ```json
-https://management.azure.com/{scope}/Microsoft.Consumption/reservationSummaries?grain=daily&$filter=properties/usageDate ge 2017-10-01 AND properties/usageDate le 2017-11-20&api-version=2019-10-01
+https://management.azure.com/{scope}/Microsoft.Consumption/reservationSummaries?grain=monthly&$filter=properties/usageDate ge 2017-10-01 AND properties/usageDate le 2017-11-20&api-version=2019-10-01
 ```
 
 #### Response body changes

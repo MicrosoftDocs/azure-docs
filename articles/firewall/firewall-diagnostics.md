@@ -30,7 +30,7 @@ It can take a few minutes for the data to appear in your logs after you complete
 1. In the Azure portal, open your firewall resource group and select the firewall.
 2. Under **Monitoring**, select **Diagnostic settings**.
 
-   For Azure Firewall, four service-specific logs are available:
+   For Azure Firewall, three service-specific logs are available:
 
    * AzureFirewallApplicationRule
    * AzureFirewallNetworkRule

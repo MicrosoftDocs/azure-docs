@@ -8,8 +8,8 @@ author: cjgronlund
 ms.author: cgronlun
 ms.topic: quickstart
 ms.date: 12/31/2019
-# Customer intent: As a data scientist, I want to learn how to provision the Windows DSVM so that I can move my existing workflow to the cloud.
 ms.custom: mode-other
+#Customer intent: As a data scientist, I want to learn how to provision the Windows DSVM so that I can move my existing workflow to the cloud.
 ---
 
 # Quickstart: Set up the Data Science Virtual Machine for Windows

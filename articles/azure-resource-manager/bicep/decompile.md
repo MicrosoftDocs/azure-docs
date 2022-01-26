@@ -194,6 +194,10 @@ Use `bicep decompile <filename>` on the downloaded file.
 
 ---
 
+## Side-by-side view
+
+The [Bicep Playground](https://aka.ms/bicepdemo) enables you to view equivalent ARM template and Bicep files side by side. You can select **Sample Template** to see both versions. Or, select **Decompile** to upload your own ARM template and view the equivalent Bicep file.
+
 ## Next steps
 
 To learn about all of the Bicep CLI commands, see [Bicep CLI commands](bicep-cli.md).

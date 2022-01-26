@@ -9,7 +9,7 @@ ms.devlang: php
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier
-ms.reviewer: mathoma, v-masebo
+ms.reviewer: kendralittle, mathoma, v-masebo
 ms.date: 05/29/2020
 ms.custom: sqldbrb=2 , mode-other
 ---

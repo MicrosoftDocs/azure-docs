@@ -139,4 +139,4 @@ When properly configured, the HTTP response shows an HTTP success code and displ
 ## Next steps
 
 * Learn how to [configure policies](api-management-advanced-policies.md) to forward requests to a backend
-* Backends can also be configured using the API Management [REST API](/rest/api/apimanagement/2021-01-01-preview/backend), [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementbackend), or [Azure Resource Manager templates](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
+* Backends can also be configured using the API Management [REST API](/rest/api/apimanagement/current-ga/backend), [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementbackend), or [Azure Resource Manager templates](../service-fabric/service-fabric-tutorial-deploy-api-management.md)

@@ -4,7 +4,7 @@ description: This article describes how to connect Windows computers hosted in o
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/03/2020
+ms.date: 12/16/2021
 
 ---
 
@@ -16,9 +16,6 @@ This article provides details on installing the Log Analytics agent on Windows c
 
 >[!IMPORTANT]
 > The installation methods described in this article are typically used for virtual machines on-premises or in other clouds. See [Installation options](./log-analytics-agent.md#installation-options) for more efficient options you can use for Azure virtual machines.
-
-> [!NOTE]
-> If you need to configure the agent to report to more than one workspace, this cannot be performed during initial setup, only afterwards by updating the settings from Control Panel or PowerShell as described in [Adding or removing a workspace](agent-manage.md#adding-or-removing-a-workspace).  
 
 > [!NOTE]
 > Installing the Log Analytics agent will typically not require you to restart the machine.  
@@ -62,6 +59,15 @@ Configure .NET Framework 4.6 or later to support secure cryptography, as by defa
 3. Locate the following registry subkey: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v4.0.30319**.  
 4. Create the DWORD value **SchUseStrongCrypto** under this subkey with a value of **1**. 
 5. Restart the system for the settings to take effect. 
+
+## Workspace ID and key
+
+Regardless of the installation method used, you will require the workspace ID and key for the Log Analytics workspace that the agent will connect to. Select the workspace from the **Log Analytics workspaces** menu in the Azure portal. Then select **Agents management** in the **Settings** section. 
+
+[![Workspace details](media/log-analytics-agent/workspace-details.png)](media/log-analytics-agent/workspace-details.png#lightbox)
+
+> [!NOTE]
+> You can't configure the agent to report to more than one workspace during initial setup. [Add or remove a workspace](agent-manage.md#adding-or-removing-a-workspace) afer installation by updating the settings from Control Panel or PowerShell.  
 
 ## Install agent using setup wizard
 The following steps install and configure the Log Analytics agent in Azure and Azure Government cloud by using the setup wizard for the agent on your computer. If you want to learn how to configure the agent to also report to a System Center Operations Manager management group, see [deploy the Operations Manager agent with the Agent Setup Wizard](/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).

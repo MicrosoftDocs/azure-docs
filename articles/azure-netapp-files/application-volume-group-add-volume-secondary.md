@@ -3,7 +3,7 @@ title: Add volumes for an SAP HANA system as a secondary database in HSR using A
 description: Describes using application volume group to add volumes for an SAP HANA system as a secondary database in HANA System Replication (HSR).
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 11/19/2021
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # Add volumes for an SAP HANA system as a secondary database in HSR
 

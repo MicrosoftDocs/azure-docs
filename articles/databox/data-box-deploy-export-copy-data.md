@@ -9,7 +9,6 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.author: alkohli
-ms.localizationpriority: high
 
 # Customer intent: As an IT admin, I need to be able to copy data from Data Box to download from Azure to my on-premises server. 
 ---

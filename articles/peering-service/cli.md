@@ -4,7 +4,6 @@ description: Learn how to register a Peering Service connection by using the Azu
 services: peering-service
 author: derekolo
 ms.service: peering-service
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services

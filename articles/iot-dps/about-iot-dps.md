@@ -2,7 +2,7 @@
 title: Overview of the Microsoft Azure IoT Hub Device Provisioning Service
 description: Describes device provisioning in Azure with the Device Provisioning Service (DPS) and IoT Hub
 author: wesmc7777
-ms.author: v-stharr
+ms.author: wesmc
 ms.date: 11/22/2021
 ms.topic: overview
 ms.service: iot-dps
@@ -26,6 +26,8 @@ There are many provisioning scenarios in which DPS is an excellent choice for ge
 * Connecting a device to the IoT hub with the lowest latency (geo-sharding)
 * Reprovisioning based on a change in the device
 * Rolling the keys used by the device to connect to IoT Hub (when not using X.509 certificates to connect)
+
+Provisioning of nested edge devices (parent/child hierarchies) is not currently supported by DPS.
 
 >[!NOTE]
 >**Data residency consideration:**
@@ -116,7 +118,7 @@ DPS is available in many regions. The updated list of existing and newly announc
 > [!NOTE]
 > DPS is global and not bound to a location. However, you must specify a region in which the metadata associated with your DPS profile will reside.
 
-## Availability
+## High availability
 
 There is a 99.9% Service Level Agreement for DPS, and you can [read the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
 
@@ -125,10 +127,14 @@ DPS also supports [Availability Zones](../availability-zones/az-overview.md). An
 * Australia East
 * Brazil South
 * Canada Central
+* Central US
+* East US
+* East US 2
 * Japan East
 * North Europe
-* West Europe
 * UK South
+* West Europe
+* West US 2
 
 ## Quotas and Limits
 
@@ -185,6 +191,9 @@ The tables below show the current billable status for each DPS service API opera
 ## Related Azure components
 
 DPS automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub](../iot-hub/index.yml).
+
+> [!NOTE]
+> Provisioning of nested edge devices (parent/child hierarchies) is not currently supported by DPS.
 
 ## Next steps
 

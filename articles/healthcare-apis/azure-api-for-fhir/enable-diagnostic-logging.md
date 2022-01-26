@@ -5,10 +5,10 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.reviewer: dseven
+ms.reviewer: matjazl
 ms.author: cavoeg
 author: zxue
-ms.date: 03/03/2021
+ms.date: 12/02/2021
 ---
 
 # Enable Diagnostic Logging in Azure API for FHIR
@@ -105,7 +105,23 @@ Having access to diagnostic logs is essential for monitoring a service and provi
 FHIR is the registered trademark of HL7 and is used with the permission of HL7.
 
 ## Next steps
-In this article, you learned how to enable Audit Logs for Azure API for FHIR. Next, learn about other additional settings you can configure in the Azure API for FHIR
+In this article, you learned how to enable Audit Logs for Azure API for FHIR. For information about Azure API for FHIR configuration settings, see
  
+
 >[!div class="nextstepaction"]
->[Additional Settings](azure-api-for-fhir-additional-settings.md)
+>[Configure Azure RBAC for FHIR](configure-azure-rbac.md)
+
+>[!div class="nextstepaction"]
+>[Configure local RBAC for FHIR](configure-local-rbac.md)
+
+>[!div class="nextstepaction"]
+>[Configure database settings](configure-database.md)
+
+>[!div class="nextstepaction"]
+>[Configure customer-managed keys](customer-managed-key.md)
+
+>[!div class="nextstepaction"]
+>[Configure CORS](configure-cross-origin-resource-sharing.md)
+
+>[!div class="nextstepaction"]
+>[Configure Private Link](configure-private-link.md)

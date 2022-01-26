@@ -7,8 +7,8 @@ ms.subservice: machine-learning
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: rothja
-ms.author: jroth 
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: mathoma, davidph
 manager: cgronlun
 ms.date: 03/17/2021

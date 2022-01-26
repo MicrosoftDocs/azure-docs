@@ -8,6 +8,7 @@ ms.date: 06/08/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
+ms.devlang: ruby
 ---
 
 # How to use Queue Storage from Ruby

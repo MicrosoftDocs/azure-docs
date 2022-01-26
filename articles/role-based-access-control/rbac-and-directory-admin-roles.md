@@ -4,13 +4,12 @@ description: Describes the different roles in Azure - Classic subscription admin
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 05/20/2021
 ms.author: rolyon

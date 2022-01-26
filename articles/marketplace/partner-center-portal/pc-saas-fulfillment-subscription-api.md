@@ -4,7 +4,7 @@ description: Learn how to use the Subscription APIs, which are part of the  the 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 10/27/2021
+ms.date: 12/08/2021
 author: arifgani
 ms.author: argani
 ---
@@ -550,12 +550,9 @@ Use this API to unsubscribe a specified SaaS subscription.  The publisher doesn'
 
 If the publisher decides to implement the cancellation of a SaaS subscription purchased in the commercial marketplace on the publisher's side, they must call this API.  After the completion of this call, the subscription's status will become *Unsubscribed* on the Microsoft side.
 
-The customer won't be billed if a subscription is canceled within the following grace periods:
+The customer won't be billed if a subscription is canceled within 72 hours from purchase.
 
-* Twenty-four hours for a monthly subscription after activation.
-* Fourteen days for a yearly subscription after activation.
-
-The customer will be billed if a subscription is canceled after the preceding grace periods.  The customer will lose access to the SaaS subscription on the Microsoft side immediately after cancellation. 
+The customer will be billed if a subscription is canceled after the preceding grace period.  The customer will lose access to the SaaS subscription on the Microsoft side immediately after cancellation.
 
 ### Delete `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 

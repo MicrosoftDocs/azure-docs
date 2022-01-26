@@ -4,7 +4,8 @@ description: This tutorial shows you how to send messages to and receive message
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 10/11/2021
-ms.custom: contperf-fy22q2, mode-other
+ms.devlang: csharp
+ms.custom: contperf-fy22q2, mode-api
 ---
 
 # Get started with Azure Service Bus queues (.NET)
@@ -24,7 +25,7 @@ In this quickstart, you'll do the following steps:
 4. Write a .NET Core console application to receive those messages from the queue.
 
 > [!NOTE]
-> This quick start provides step-by-step instructions for a simple scenario of sending a batch of messages to a Service Bus queue and receiving them. You can find pre-built .NET samples for Azure Service Bus in the [Azure SDK for .NET repository on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
+> This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus queue and then receiving them. For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
 
 ## Prerequisites
 If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) before you do this quickstart. 
@@ -42,7 +43,7 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 This section shows you how to create a .NET Core console application to send messages to a Service Bus queue. 
 
 > [!NOTE]
-> This quick start provides step-by-step instructions for a simple scenario of sending a batch of messages to a Service Bus queue and receiving them. You can find pre-built .NET samples for Azure Service Bus in the [Azure SDK for .NET repository on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
+> This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus queue and then receiving them. For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
 
 
 ### Create a console application
@@ -244,7 +245,7 @@ This section shows you how to create a .NET Core console application to send mes
 In this section, you'll create a .NET Core console application that receives messages from the queue. 
 
 > [!NOTE]
-> This quick start provides step-by-step instructions for a simple scenario of sending a batch of messages to a Service Bus queue and receiving them. You can find pre-built .NET samples for Azure Service Bus in the [Azure SDK for .NET repository on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
+> This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus queue and then receiving them. For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
 
 
 ### Create a project for the receiver
@@ -301,7 +302,7 @@ In this section, you'll add code to retrieve messages from the queue.
         string body = args.Message.Body.ToString();
         Console.WriteLine($"Received: {body}");
 
-        // complete the message. messages is deleted from the queue. 
+        // complete the message. message is deleted from the queue. 
         await args.CompleteMessageAsync(args.Message);
     }
 

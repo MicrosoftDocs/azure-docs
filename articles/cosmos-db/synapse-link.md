@@ -112,19 +112,18 @@ Synapse Link is not recommended if you are looking for traditional data warehous
 
 * Azure Synapse Link for Azure Cosmos DB is supported for SQL API and Azure Cosmos DB API for MongoDB. It is not supported for Gremlin API, Cassandra API, and Table API.
 
-* Synapse Link can be enabled on new containers for both SQL API and MongoDB API accounts, but existing containers are only supported for SQL API.
+* Accessing the Azure Cosmos DB analytics store with Azure Synapse Dedicated SQL Pool currently is not supported.
 
-* Backup and restore of your data in analytical store isn't supported at this time. This limitation is applied to both periodic and continuous backup modes and doesn't impact your Cosmos DB transactional store data. 
+* Enabling Synapse Link on existing Cosmos DB containers is only supported for SQL API acconts. Synapse Link can be enabled on new containers for both SQL API and MongoDB API   accounts.
 
-* Synapse Link and periodic backup mode coexistence in the same database account is supported. You can make backups of your transactional data normally. If you use `transactional TTL` equal or bigger than your `analytical TTL`, you can restore your transactional data and recreate your analytical store.
+* Backup and restore of your data in analytical store is not supported at this time. You can recreate your analytical store data in some scenarios as below:
+    * Azure Synapse Link and periodic backup mode can coexist in the same database account. In this mode, your transactional store data will be automatically backed up.              However, analytical store data is not included in backups and restores. If you use `transactional TTL` equal or bigger than your `analytical TTL` on your container, you can
+     fully recreate your analytical store data by enabling analytical store on the restored container. Please note, at present, you can only recreate analytical store on your
+     restored containers for SQL API.
+    * Synapse Link and continuous backup mode (point=in-time restore) coexistence in the same database account is not supported. If you enable continuous backup mode, you can't
+      turn on Synapse Link, and vice versa.
 
-* Synapse Link and continuous backup mode coexistence in the same database account isn't supported. If you enable continuous backup mode, you can't turn Synapse Link on, and vice versa.
-
-* Accessing the Azure Cosmos DB analytics store with Azure Synapse Dedicated SQL Pool currently isn't supported.
-
-* Azure Synapse Link and periodic backup mode can coexist in the same database account. However, analytical store data isn't included in backups and restores. When Synapse Link is enabled, Azure Cosmos DB will continue to automatically take backups of your data in the transactional store at a scheduled backup interval.
-
-* RBAC and Managed Identity are currently not supported.
+* RBAC is not supported when querying using Synapse SQL serverless pools. 
 
 
 ## Security

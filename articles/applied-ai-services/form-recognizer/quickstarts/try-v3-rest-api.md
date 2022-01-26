@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: lajanuar
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021, mode-api
 ---
 
 # Quickstart: REST API  | Preview
@@ -400,7 +400,7 @@ This sample demonstrates how to analyze data from certain common document types 
 >
 > * For this example, we wll analyze an invoice document using a prebuilt model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
 
-### Choose the invoice prebuilt model ID
+##### Choose the invoice prebuilt model ID
 
 You are not limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the model IDs for the prebuilt models currently supported by the Form Recognizer service:
 

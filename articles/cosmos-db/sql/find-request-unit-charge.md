@@ -7,6 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
+ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-js
 ---
 # Find the request unit charge for operations executed in Azure Cosmos DB SQL API

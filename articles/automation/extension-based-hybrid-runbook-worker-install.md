@@ -18,6 +18,10 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 
 After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
+
+> [!NOTE]
+> A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install Extension based (V2)on a hybrid worker already running Agent based (V1), then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform Extension based (V2) and the other Agent based (V1). [**Learn more**](#install-extension-based-v2-on-existing-agent-based-v1-hybrid-worker).
+
 ## Prerequisites
 
 ### Machine minimum requirements
@@ -57,6 +61,36 @@ After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid
 
 If you use a proxy server for communication between Azure Automation and machines running the extension-base Hybrid Runbook Worker, ensure that the appropriate resources are accessible. The timeout for requests from the Hybrid Runbook Worker and Automation services is 30 seconds. After three attempts, a request fails.
 
+> [!NOTE]
+> You can set up the proxy settings either by PowerShell cmdlets or API.
+
+**Proxy server settings**
+# [Windows](#tab/windows) 
+ 
+```azurepowershell
+$settings = @{
+    "AutomationAccountURL"  = "<registrationurl>/<subscription-id>";    
+    "ProxySettings" = @{
+        "ProxyServer" = "<ipaddress>:<port>";
+        "UserName"="test";
+    }
+};
+$protectedsettings = @{
+"ProxyPassword" = "password";
+};
+```
+
+# [Linux](#tab/linux)
+```
+$protectedsettings = @{
+      "Proxy_URL"="http://username:password@<IP Address>"
+};
+$settings = @{
+    "AutomationAccountURL"  = "<registration-url>/<subscription-id>";    
+};
+```
+---
+
 ### Firewall use
 
 If you use a firewall to restrict access to the Internet, you must configure the firewall to permit access. The following port and URLs are required for the Hybrid Runbook Worker, and for [Automation State Configuration](./automation-dsc-overview.md) to communicate with Azure Automation.
@@ -66,7 +100,6 @@ If you use a firewall to restrict access to the Internet, you must configure the
 |Port | 443 for outbound internet access|
 |Global URL |*.azure-automation.net|
 |Global URL of US Gov Virginia |*.azure-automation.us|
-|Agent service |`https://<workspaceId>.agentsvc.azure-automation.net`|
 
 ## Create hybrid worker group 
 
@@ -123,6 +156,19 @@ You can also add machines to an existing hybrid worker group.
 
    :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-group-platform.png" alt-text="Platform field showing agent or extension based.":::
 
+## Install Extension-based (V2) on existing Agent-based (V1) Hybrid Worker
+
+A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. To install Extension based (V2) on a hybrid worker that already has an Agent based (V1): 
+
+  1.  Under **Process Automation**, select **Hybrid Workers groups** and then your existing hybrid worker group to go to the **Hybrid Worker Group** page.
+  1.  Under **Hybrid worker group**, select **Hybrid Workers**.
+  1.  Select **+ Add** to go to the **Add machines as hybrid worker** page.
+  1.  Select the checkbox next to existing Agent based (V1) Hybrid worker.
+  1.  Select **Add** to add the machine to the group. </br>
+
+The **Platform** column shows the same worker as both **Agent based (V1)** and **Extension based (V2)**. Delete the Agent based (V1) Hybrid Worker after you are sure on the working of Extension based (V2) worker.
+
+
 ## Delete a Hybrid Runbook Worker
 
 You can delete the Hybrid Runbook Worker from the portal.
@@ -138,7 +184,8 @@ You can delete the Hybrid Runbook Worker from the portal.
    :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/delete-machine-from-group.png" alt-text="Delete virtual machine from existing group.":::
 
    > [!NOTE]
-   > A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install **Extension based (V2)** on a hybrid worker already running **Agent based (V1)**, then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform **Extension based (V2)** and the other **Agent based (V1)**.
+   > - A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install **Extension based (V2)** on a hybrid worker already running **Agent based (V1)**, then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform **Extension based (V2)** and the other **Agent based (V1)**. </br> </br>
+   > - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
 
 ## Delete a Hybrid Runbook Worker group
 
@@ -146,7 +193,7 @@ You can delete an empty Hybrid Runbook Worker group from the portal.
 
 1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
 
-1. Select **Delete**. You'll be presented with a warning in a dialog box to remove any machines that are defined as hybrid workers in the hybrid worker group. If there's already a worker added to the group, you'll first have to delete the worker from the group.
+1. Select **Delete**. A warning message appears to remove any machines that are defined as hybrid workers in the hybrid worker group. If there's already a worker added to the group, you'll first have to delete the worker from the group.
 
 1. Select **Yes**. The hybrid worker group will be deleted.
 

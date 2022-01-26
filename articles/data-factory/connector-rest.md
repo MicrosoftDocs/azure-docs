@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/11/2021
+ms.date: 01/13/2022
 ms.author: makromer
 ---
 
@@ -567,6 +567,48 @@ The corresponding REST copy activity source configuration especially the `pagina
     }
 }
 ```
+
+**Example: Pagination rules**
+
+If you want to send multiple sequence requests with one variable in a range, you can define a variable such as `{offset}`, `{id}` in AbsoluteUrl, Headers, QueryParameters, and define the range rule in pagination rules. See the following examples of pagination rules:
+
+- **Example 1**
+
+    You have multiple requests:
+    
+    ```
+    baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=0,
+    
+    baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=1000,
+    
+    ......
+    
+    baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=10000
+    ```
+    You need to specify the range pagination: 
+    
+    `AbosoluteUrl = baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset={offset}`
+
+    The pagination rule is: `QueryParameter.{offset} = RANGE:0:10000:1000`
+
+- **Example 2**
+
+    You have multiple requests:
+
+    ```
+    baseUrl/api/now/table/t1
+    
+    baseUrl/api/now/table/t2
+    
+    ......
+    
+    baseUrl/api/now/table/t100
+    ```
+    You need to specify the range pagination:
+
+    `AbosoluteUrl = baseUrl/api/now/table/t{id}`
+
+    The pagination rule is: `AbsoluteUrl.{id} = RANGE:1:100:1`
 
 ## Use OAuth
 This section describes how to use a solution template to copy data from REST connector into Azure Data Lake Storage in JSON format using OAuth. 

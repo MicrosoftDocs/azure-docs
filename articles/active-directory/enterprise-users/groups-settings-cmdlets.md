@@ -4,7 +4,7 @@ description: How manage the settings for groups using Azure Active Directory cmd
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
