@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 This article shows you how to move your Azure Spring Cloud service instance to another region.
 
-You may want to move your Azure Spring Cloud service instance from one region to another. This might be done as part of a disaster recovery plan or to create a duplicate testing environment.
+You may want to move your Azure Spring Cloud service instance from one region to another. For example, you might move the instance as part of a disaster recovery plan or to create a duplicate testing environment.
 
 You can't move an Azure Spring Cloud instance from one region to another directly, but you can use an Azure Resource Manager template (ARM template) to deploy to a new region. For more information about using Azure Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
