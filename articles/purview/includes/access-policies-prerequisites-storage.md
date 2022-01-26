@@ -9,7 +9,7 @@ ms.custom: references_regions
 ---
 
 ### Enable access policy enforcement for the Azure Storage account
-To enable Azure Purview to manage policies for one or more Storage accounts, execute the following PowerShell commands in the subscription where the Azure Storage account resides. It will cover all Azure Storage accounts in that subscription.
+To enable Azure Purview to manage policies for one or more Storage accounts, execute the following PowerShell commands in the subscription where the Azure Storage account resides. It will cover all Azure Storage accounts in that subscription. Run PowerShell as administrator in your PC.
 
 ```powershell
 # Install the Az module
