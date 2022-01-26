@@ -20,7 +20,7 @@ Objects and credentials in an Azure Active Directory Domain Services (Azure AD D
 
 In a hybrid environment, objects and credentials from an on-premises AD DS domain can be synchronized to Azure AD using Azure AD Connect. Once those objects are successfully synchronized to Azure AD, the automatic background sync then makes those objects and credentials available to applications using the managed domain.
 
-If on-prem AD DS and Azure AD are configured for federated authentication using ADFS  without password hash sync or if 3rd party IdP products and Azure AD are configured for federated authentication without password hash sync then there is no (current/valid) password hash available in Azure DS. Azure AD user accounts created before fed auth was implemented might have an old password hash but this likely doesn't match a hash of their on-prem password. Hence Azure AD DS won't be able to validate the users credentials.
+If on-premises AD DS and Azure AD are configured for federated authentication using ADFS without password hash sync, or if third-party identity protection products and Azure AD are configured for federated authentication without password hash sync, no (current/valid) password hash is available in Azure DS. Azure AD user accounts created before fed auth was implemented might have an old password hash, but this likely doesn't match a hash of their on-premises password. Hence, Azure AD DS won't be able to validate a user's credentials.
 
 The following diagram illustrates how synchronization works between Azure AD DS, Azure AD, and an optional on-premises AD DS environment:
 
