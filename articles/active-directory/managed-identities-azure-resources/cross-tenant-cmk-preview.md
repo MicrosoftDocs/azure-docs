@@ -91,9 +91,9 @@ This section provides step-by-step tutorial to create a working setup. At the en
     az provider register --namespace Microsoft.Storage
     ```       
 #### Customer Tenant 
-5. At least 1 Customer Azure AD Tenant -Contoso.com
-6. An Azure subscription associated with Customer Tenant.“KVSubscription2”
-7. An account in the Customer tenant (for example, demouser@contoso.com) with the “Owner” role for “KVSubscription2” (Created using Azure RBAC Role Assignments)
+6. At least 1 Customer Azure AD Tenant -Contoso.com
+7. An Azure subscription associated with Customer Tenant.“KVSubscription2”
+8. An account in the Customer tenant (for example, demouser@contoso.com) with the “Owner” role for “KVSubscription2” (Created using Azure RBAC Role Assignments)
 
 #### Tools
 You will need the following tools to complete this tutorial.
