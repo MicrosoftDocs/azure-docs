@@ -51,7 +51,7 @@ Use the following command to export the template:
 
 ```bash
 az login
-az account set -s <resource-subscription-id>
+az account set --subscription <resource-subscription-id>
 az group export --resource-group <resource-group> --resource-ids <resource-id>
 ```
 
