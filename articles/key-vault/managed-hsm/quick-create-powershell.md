@@ -44,7 +44,7 @@ Your principal ID will be returned in the format, "xxxxxxxx-xxxx-xxxx-xxxx-xxxxx
 
 ## Create a managed HSM
 
-Use the Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvault/new-azkeyvaultmanagedhsm) cmdlet to create a new Key Vault managed HSM. You will need to provide some information:
+Use the Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvault/new-azkeyvaultmanagedhsm) cmdlet to create a new Key Vault Managed HSM. You will need to provide some information:
 
 - Managed HSM name: A string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-)
 
@@ -59,7 +59,7 @@ Use the Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvau
 New-AzKeyVaultManagedHsm -Name "<your-unique-managed-hsm-name>" -ResourceGroupName "myResourceGroup" -Location "westus2" -Administrator "<your-principal-ID>"
 ```
 
-The output of this cmdlet shows properties of the newly created managed HSM. Take note of the two properties listed below:
+The output of this cmdlet shows properties of the newly created managed HSM. Take note of these two properties:
 
 - **Managed HSM Name**: The name you provided to the --name parameter above.
 - **Vault URI**: In the example, this is https://&lt;your-unique-managed-hsm-name&gt;.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
@@ -68,13 +68,13 @@ At this point, your Azure account is the only one authorized to perform any oper
 
 ## Activate your managed HSM
 
-All data plane commands are disabled until the HSM is activated. You will not be able to create keys or assign roles. Only the designated administrators that were assigned during the create command can activate the HSM. To activate the HSM you must download the [Security Domain](security-domain.md).
+All data plane commands are disabled until the HSM is activated. You will not be able to create keys or assign roles. Only the designated administrators that were assigned during the create command can activate the HSM. To activate the HSM, you must download the [Security Domain](security-domain.md).
 
 To activate your HSM you need:
-- Minimum 3 RSA key-pairs (maximum 10)
-- Specify minimum number of keys required to decrypt the security domain (quorum)
+- A minimum of three RSA key-pairs (maximum 10)
+- To specify the minimum number of keys required to decrypt the security domain (quorum)
 
-To activate the HSM you send at least 3 (maximum 10) RSA public keys to the HSM. The HSM encrypts the security domain with these keys and sends it back. Once this security domain download is successfully completed, your HSM is ready to use. You also need to specify quorum, which is the minimum number of private keys required to decrypt the security domain.
+To activate the HSM, you send at least three (maximum 10) RSA public keys to the HSM. The HSM encrypts the security domain with these keys and sends it back. Once this security domain download is successfully completed, your HSM is ready to use. You also need to specify quorum, which is the minimum number of private keys required to decrypt the security domain.
 
 The example below shows how to use `openssl` (available for Windows [here](https://slproweb.com/products/Win32OpenSSL.html)) to generate 3 self signed certificate.
 
