@@ -40,10 +40,8 @@ zone_pivot_groups: programming-languages-speech-services
 [!INCLUDE [Header](python.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-curl"
-TBD
+::: zone pivot="programming-language-rest"
 ::: zone-end
 
 ::: zone pivot="programming-language-cli"
-TBD
 ::: zone-end

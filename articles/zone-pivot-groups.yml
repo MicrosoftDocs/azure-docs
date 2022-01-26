@@ -830,7 +830,7 @@ groups:
     title: Python
   - id: programming-language-cli
     title: CLI
-  - id: programming-language-curl
+  - id: programming-language-rest
     title: REST
 - id: programming-languages-set-nineteen
   title: Programming languages

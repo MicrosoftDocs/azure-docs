@@ -2,21 +2,22 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 04/04/2020
+ms.date: 01/25/2022
 ms.topic: include
 ms.author: eur
-zone_pivot_groups: programming-languages-set-two
 ---
+
+[!INCLUDE [Introduction](intro.md)
 
 ## Prerequisites
 
-Before you get started:
+[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)
 
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java" target="_blank">Install the Speech SDK for your development environment and create an empty sample project</a>.
+You also need to <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java" target="_blank">install the Speech SDK for your development environment and create an empty sample project</a>.
 
 ## Create a LUIS app for intent recognition
 
-[!INCLUDE [Create a LUIS app for intent recognition](../luis-sign-up.md)]
+[!INCLUDE [Create a LUIS app for intent recognition](luis-sign-up.md)]
 
 ## Open your project
 
@@ -37,7 +38,7 @@ Before you can initialize an `IntentRecognizer` object, you need to create a con
 Insert this code in the try / catch block in `main()`. Make sure you update these values:
 
 * Replace `"YourLanguageUnderstandingSubscriptionKey"` with your LUIS prediction key.
-* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location. Use **Region identifier** from [region](../../../../regions.md)
+* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location. Use **Region identifier** from [region](../../../regions.md)
 
 >[!TIP]
 > If you need help finding these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).

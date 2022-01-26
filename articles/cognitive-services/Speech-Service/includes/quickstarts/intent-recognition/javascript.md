@@ -1,11 +1,23 @@
 ---
 author: eric-urban
 ms.service: cognitive-services
+ms.subservice: speech-service
+ms.date: 01/25/2022
 ms.topic: include
-ms.date: 04/03/2020
 ms.author: eur
-ms.custom: devx-track-js
 ---
+
+[!INCLUDE [Introduction](intro.md)
+
+## Prerequisites
+
+[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)
+
+You also need to <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?pivots=programming-language-python" target="_blank">install the Speech SDK for your development environment and create an empty sample project</a>.
+
+## Create a LUIS app for intent recognition
+
+[!INCLUDE [Create a LUIS app for intent recognition](luis-sign-up.md)]
 
 ## Start with some boilerplate code
 
@@ -275,7 +287,7 @@ echo curl_exec($ch);
 
 ## Build and run the sample locally
 
-To launch the app, double-click on the index.html file or open index.html with your favorite web browser. It will present a simple GUI allowing you to enter your LUIS key, [LUIS region](../../../../regions.md), and LUIS Application ID. Once those fields have been entered, you can click the appropriate button to trigger a recognition using the microphone.
+To launch the app, double-click on the index.html file or open index.html with your favorite web browser. It will present a simple GUI allowing you to enter your LUIS key, [LUIS region](../../../regions.md), and LUIS Application ID. Once those fields have been entered, you can click the appropriate button to trigger a recognition using the microphone.
 
 > [!NOTE]
 > This method doesn't work on the Safari browser.
@@ -283,8 +295,4 @@ To launch the app, double-click on the index.html file or open index.html with y
 
 ## Build and run the sample via a web server
 
-To launch your app, open your favorite web browser and point it to the public URL that you host the folder on, enter your [LUIS region](../../../../regions.md) as well as your LUIS Application ID, and trigger a recognition using the microphone. If configured, it will acquire a token from your token source and begin recognizing spoken commands.
-
-## Next steps
-
-[!INCLUDE [footer](footer.md)]
+To launch your app, open your favorite web browser and point it to the public URL that you host the folder on, enter your [LUIS region](../../../regions.md) as well as your LUIS Application ID, and trigger a recognition using the microphone. If configured, it will acquire a token from your token source and begin recognizing spoken commands.

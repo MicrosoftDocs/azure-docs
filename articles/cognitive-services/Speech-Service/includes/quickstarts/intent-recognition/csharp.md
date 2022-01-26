@@ -7,11 +7,11 @@ ms.topic: include
 ms.author: eur
 ---
 
-[!INCLUDE [Introduction](includes/quickstarts/intent-recognition/intro.md)
+[!INCLUDE [Introduction](intro.md)
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](includes/quickstarts/common/azure-prerequisites.md)
+[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)
 
 ## Create a LUIS app for intent recognition
 

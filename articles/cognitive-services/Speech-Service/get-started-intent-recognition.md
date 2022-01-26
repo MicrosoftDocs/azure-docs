@@ -18,7 +18,7 @@ keywords: intent recognition
 
 # Get started with intent recognition
 
-[!INCLUDE [Header](includes/quickstarts/common/csharp.md)]
+[!INCLUDE [Header](includes/quickstarts/common/see-also-reference.md)]
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [csharp](includes/quickstarts/intent-recognition/csharp.md)]
@@ -29,37 +29,32 @@ keywords: intent recognition
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Header](includes/quickstarts/intent-recognition/intro.md)]
-[!INCLUDE [Header](includes/quickstarts/intent-recognition/java/header.md)]
 [!INCLUDE [java](includes/quickstarts/intent-recognition/java/java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Header](includes/quickstarts/intent-recognition/intro.md)]
-[!INCLUDE [Header](includes/quickstarts/intent-recognition/javascript/header.md)]
-[!INCLUDE [javascript](includes/quickstarts/intent-recognition/javascript/javascript.md)]
+[!INCLUDE [javascript](includes/quickstarts/intent-recognition/javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Header](includes/quickstarts/intent-recognition/intro.md)]
-[!INCLUDE [Header](includes/quickstarts/intent-recognition/python/header.md)]
-[!INCLUDE [python](includes/quickstarts/intent-recognition/python/python.md)]
+[!INCLUDE [python](includes/quickstarts/intent-recognition/python.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+[!INCLUDE [csharp](includes/quickstarts/intent-recognition/go.md)]
+::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-TBD
+[!INCLUDE [cpp](includes/quickstarts/intent-recognition/objectivec.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-curl"
-TBD
+::: zone pivot="programming-language-rest"
+[!INCLUDE [cpp](includes/quickstarts/intent-recognition/rest.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cli"
-TBD
+[!INCLUDE [cpp](includes/quickstarts/intent-recognition/cli.md)]
 ::: zone-end
 
-
-
 > [!div class="nextstepaction"]
-> [See the advanced LUIS sample on GitHub](https://github.com/Azure/pizza_luis_bot)
+> [See more LUIS samples on GitHub](https://github.com/Azure/pizza_luis_bot)
