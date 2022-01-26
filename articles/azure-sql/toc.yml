@@ -19,9 +19,9 @@
       href: database/reserved-capacity-overview.md
   - name: Service tiers
     items:
-    - name: General purpose
+    - name: General Purpose
       href: database/service-tier-general-purpose.md
-    - name: Business critical
+    - name: Business Critical
       href: database/service-tier-business-critical.md
 
   - name: Shared concepts 
@@ -303,12 +303,12 @@
 
     - name: Service tiers
       items: 
-      - name: vCore
+      - name: vCore model
         href: database/service-tiers-sql-database-vcore.md
         displayName: provisioned compute tier
       - name: Serverless
         href: database/serverless-tier-overview.md
-      - name: DTU model overview
+      - name: DTU model 
         href: database/service-tiers-dtu.md
       - name: Hyperscale
         items: 

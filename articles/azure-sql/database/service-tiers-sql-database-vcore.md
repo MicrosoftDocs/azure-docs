@@ -58,7 +58,7 @@ For information on selecting a service tier for your particular workload, see th
 
 - [When to choose the General Purpose service tier](service-tier-general-purpose.md#when-to-choose-this-service-tier)
 - [When to choose the Business Critical service tier](service-tier-business-critical.md#when-to-choose-this-service-tier)
-- [When to choose the Hyperscale service tier](service-tier-hyperscale.md#who-should-consider-the-Hyperscale-service-tier)
+- [When to choose the Hyperscale service tier](service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
 
 ## Resource limits
 
