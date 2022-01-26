@@ -23,6 +23,14 @@ All packet core Network Functions are compliant with the 3GPP specifications giv
 - TS 23.501: System architecture for the 5G System (5GS)
 - TS 23.502: Procedures for the 5G System (5GS)
 
+### 4G System
+
+- TS 23.002: Network architecture
+- TS 23.401: General Packet Radio Service (GPRS) enhancements for Evolved Universal Terrestrial Radio Access Network (E-UTRAN) access
+- TS 29.272: Evolved Packet System (EPS); Mobility Management Entity (MME) and Serving GPRS Support Node (SGSN) related interfaces based on Diameter protocol
+- TS 29.274: 3GPP Evolved Packet System (EPS); Evolved General Packet Radio Service (GPRS) Tunnelling Protocol for Control plane (GTPv2-C); Stage 3
+- TS 36.413: Evolved Universal Terrestrial Radio Access Network (E-UTRAN); S1 Application Protocol (S1AP)
+
 ### Policy and Charging Control (PCC) Framework
 
 - TS 23.503: Policy and charging control framework for the 5G System (5GS); Stage 2
@@ -33,16 +41,19 @@ All packet core Network Functions are compliant with the 3GPP specifications giv
 ### User plane
 
 - TS 29.281: General Packet Radio System (GPRS) Tunnelling Protocol User Plane (GTPv1-U)
+- TS 38.415: NG-RAN; PDU session user plane protocol
 
 ### Non-Access-Stratum (NAS) Protocol / NG Application Protocol (NGAP)
 
 - TS 24.501: Non-Access-Stratum (NAS) protocol for 5G System (5GS); Stage 3
+- TS 38.410: 	NG-RAN; NG general aspects and principles (NGAP)
 - TS 38.413: NG-RAN; NG Application Protocol (NGAP)
 
 ### Service Based Interfaces
 
 - TS 29.500: 5G System; Technical Realization of Service Based Architecture; Stage 3
 - TS 29.501: 5G System; Principles and Guidelines for Services Definition; Stage 3
+- TS 29.512: 5G System; Session Management Policy Control Service; Stage 3
 - TS 29.571: 5G System; Common Data Types for Service Based Interfaces; Stage 3
 
 ### Service Based Interface Exposure
@@ -58,7 +69,10 @@ All packet core Network Functions are compliant with the 3GPP specifications giv
 
 ### Security
 
+- TS 33.102: 3G security; Security architecture
+- TS 33.220: Generic Authentication Architecture (GAA); Generic Bootstrapping Architecture (GBA)
 - TS 33.501: Security architecture and procedures for 5G System
+- TS 35.206: 3G Security; Specification of the MILENAGE algorithm set: An example algorithm set for the 3GPP authentication and key generation functions f1, f1*, f2, f3, f4, f5 and f5*; Document 2: Algorithm specification
 
 ## IETF RFCs
 

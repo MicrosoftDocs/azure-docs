@@ -23,6 +23,25 @@ Each packet core instance is standards compliant and compatible with several Rad
 
 Azure Private 5G Core allows you to use Azure to deliver and automate the lifecycle of packet core instances on Azure Stack Edge devices, manage configuration, set policies, provision SIMs for User Equipment, and monitor the network.
 
+### 5GC features
+
+|Feature  |Description  |
+|---------|---------|
+|**Supported 5G Network Functions**|<ul><li>Access and Mobility Management Function (AMF)</li><li>Session Management Function (SMF)</li><li>User Plane Function (UPF)</li><li >Policy Control Function (PCF)</li><li>Authentication Server Function (AUSF)</li><li>Unified Data Management (UDM)</li><li>Unified Data Repository (UDR)</li><li>Network Repository Function (NRF)</li>|
+|**Supported 5G procedures**|See [Statement of compliance - Azure Private 5G Core Preview](statement-of-compliance.md) for detailed information on Azure Private 5G Core's support for standards-based 5G procedures.|
+|**UE authentication**|<ul><li>Security Anchor Function (SEAF) support to provide authentication functionality in the serving network.</li><li>Authentication using Subscription Permanent Identifiers (SUPI) and Globally Unique Temporary Identities (5G-GUTI).</li><li>Assignment or reallocation of a 5G-GUTI to a UE.</li><li>5G Authentication and Key Agreement (5G-AKA) for mutual authentication between UEs and the network.</li></ul>|
+|**UE Security Context Management**|<p>The packet core instance performs ciphering and integrity protection of 5G NAS. During UE registration, the UE includes its security capabilities for 5G NAS with 128-bit keys.</p><p>The algorithms supported by Azure Private 5G Core for ciphering and integrity protection include the following.</p><ul><li>5GS null encryption algorithm</li><li>128-bit Snow3G</li><li>128-bit AES</li></ul>|
+|**UE MTU configuration**|The packet core instance signals the MTU for a data network to UEs on request as part of PDU session Establishment procedures to avoid fragmentation.|
+|**Index to RAT/Frequency Selection Priority (RFSP)**|The packet core instance can provide a RAN with an RFSP Index, which the RAN can match to its local configuration to apply specific Radio Resource Management policies, such as cell reselection or frequency layer redirection.|
+
+### Packet core architecture
+
+The following diagram shows each of the Network Functions supported by a packet core instance. It also shows the interfaces these Network Functions use to interoperate with third-party components.
+
+:::image type="complex" source="media/azure-private-5g-core/packet-core-architecture.png" alt-text="Packet core architecture diagram displaying each of the supported Network Functions and their interfaces.":::
+   Diagram displaying the packet core architecture. The packet core includes the following network functions: the A M F, the S M F, the U P F, the U D R, the N R F, the P C F, the U D M and the A U S F. The A M F communicates with 5G user equipment over the N1 interface. A G Node B provided by a Microsoft partner communicates with the A M F over the N2 interface and the U P F over the N3 interface. The U P F communicates with the data network over the N6 interface. Several Network Functions use the N A F interface to communicate with the Application Function, which is provided by a service provider or enterprise.
+:::image-end:::
+
 ## Why use Azure Private 5G Core?
 
 ### Deployment at the enterprise edge
@@ -47,6 +66,17 @@ Azure Private 5G Core is able to leverage this low latency with the security and
 
 Each packet core instance is connected to the local RAN network to provide coverage for cellular wireless devices. You can choose to limit these devices to local connectivity, or provide multiple routes to the cloud, Internet, or other enterprise datacenters running IoT and automation applications.
 
+### Flexible integration with other solution components
+
+Azure Private 5G Core exposes an N2 and N3 interface for the 5G control plane and user plane respectively. It complies with the following 3GPP Technical Specifications, allowing you to integrate with a wide range of Radio Access Network (RAN) models.
+
+- [TS 38.413](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3223) for the N2 interface.
+- [TS 29.281](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=1699) for the N3 interface.
+
+For 4G, it exposes S1-MME and S1-U interfaces to interoperate with 4G RAN models.
+
+It also employs a simple, scalable provisioning model to allow you to bring the SIM partner of your choice to Azure.
+
 ### Native Azure service management
 
 Azure Private 5G Core is available as a native Azure service, offering the same levels of reliability, security and availability for deployment and management that are key tenets of all Azure services. This allows you to use the Azure portal and Azure Resource Manager (ARM) APIs to do any of the following from anywhere in the world.
@@ -61,17 +91,6 @@ Azure Private 5G Core is available as a native Azure service, offering the same 
 - Access the large ecosystem of Microsoft Independent Software Vendor (ISV) partners for applications and network functions.
 - Utilize Azure Lighthouse and the Azure Expert Managed Services Provider (MSP) program to simplify the end-to-end deployment of a private mobile network through Azure.
 
-### Flexible integration with other solution components
-
-Azure Private 5G Core exposes an N2 and N3 interface for the 5G control plane and user plane respectively. It complies with the following 3GPP Technical Specifications, allowing you to integrate with a wide range of Radio Access Network (RAN) models.
-
-- [TS 38.413](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3223) for the N2 interface.
-- [TS 29.281](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=1699) for the N3 interface.
-
-For 4G, it exposes S1-MME and S1-U interfaces to interoperate with 4G RAN models.
-
-It also employs a simple, scalable provisioning model to allow you to bring the SIM partner of your choice to Azure.
-
 ### Log Analytics integration
 
 Azure Private 5G Core is integrated with the Azure Log Analytics tool, as described in [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview). You can write queries to retrieve records or visualize data in charts, allowing you to monitor and analyze activity in your private mobile network directly from the Azure portal.
@@ -83,25 +102,6 @@ Azure Private 5G Core is integrated with the Azure Log Analytics tool, as descri
 Azure Private 5G Core provides proactive, real-time analysis of all message traffic, including NGAP/NAS messages and HTTP requests and responses. You can use the distributed tracing web GUI to collect detailed traces for signaling flows involving packet core instances. These can be used to diagnose many common configuration, network, and interoperability problems affecting user service.
 
 :::image type="content" source="media/azure-private-5g-core/distributed-tracing-web-gui.png" alt-text="Screenshot of the distributed tracing web GUI displaying details of a successful PDU session establishment.":::
-
-### 5GC features
-
-|Feature  |Description  |
-|---------|---------|
-|**Supported 5G Network Functions**|<ul><li>Access and Mobility Management Function (AMF)</li><li>Session Management Function (SMF)</li><li>User Plane Function (UPF)</li><li >Policy Control Function (PCF)</li><li>Authentication Server Function (AUSF)</li><li>Unified Data Management (UDM)</li><li>Unified Data Repository (UDR)</li><li>Network Repository Function (NRF)</li>|
-|**Supported 5G procedures**|See [Statement of compliance - Azure Private 5G Core Preview](statement-of-compliance.md) for detailed information on Azure Private 5G Core's support for standards-based 5G procedures.|
-|**UE authentication**|<ul><li>Security Anchor Function (SEAF) support to provide authentication functionality in the serving network.</li><li>Authentication using Subscription Permanent Identifiers (SUPI) and Globally Unique Temporary Identities (5G-GUTI).</li><li>Assignment or reallocation of a 5G-GUTI to a UE.</li><li>5G Authentication and Key Agreement (5G-AKA) for mutual authentication between UEs and the network.</li></ul>|
-|**UE Security Context Management**|<p>The packet core instance performs ciphering and integrity protection of 5G NAS. During UE registration, the UE includes its security capabilities for 5G NAS with 128-bit keys.</p><p>The algorithms supported by Azure Private 5G Core for ciphering and integrity protection include the following.</p><ul><li>5GS null encryption algorithm</li><li>128-bit Snow3G</li><li>128-bit AES</li></ul>|
-|**UE MTU configuration**|The packet core instance signals the MTU for a data network to UEs on request as part of PDU session Establishment procedures to avoid fragmentation.|
-|**Index to RAT/Frequency Selection Priority (RFSP)**|The packet core instance can provide a RAN with an RFSP Index, which the RAN can match to its local configuration to apply specific Radio Resource Management policies, such as cell reselection or frequency layer redirection.|
-
-## Packet core architecture
-
-The following diagram shows each of the Network Functions supported by a packet core instance. It also shows the interfaces these Network Functions use to interoperate with third-party components.
-
-:::image type="complex" source="media/azure-private-5g-core/packet-core-architecture.png" alt-text="Packet core architecture diagram displaying each of the supported Network Functions and their interfaces.":::
-   Diagram displaying the packet core architecture. The packet core includes the following network functions: the A M F, the S M F, the U P F, the U D R, the N R F, the P C F, the U D M and the A U S F. The A M F communicates with 5G user equipment over the N1 interface. A G Node B provided by a Microsoft partner communicates with the A M F over the N2 interface and the U P F over the N3 interface. The U P F communicates with the data network over the N6 interface. Several Network Functions use the N A F interface to communicate with the Application Function, which is provided by a service provider or enterprise.
-:::image-end:::
 
 ## Azure services consumed by Azure Private 5G Core
 
