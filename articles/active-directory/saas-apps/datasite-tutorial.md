@@ -73,6 +73,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following step:
 
+    In the **Identifier (Entity ID)** text box, type:
+    `DataSiteOne`
+    
+    In the **Sign-on URL** text box, type the URL:
+    `https://auth.datasite.com/sp/ACS.saml2`
+    
     In the **Sign-on URL** text box, type the URL:
     `https://auth.datasite.com/sp/ACS.saml2`
 
