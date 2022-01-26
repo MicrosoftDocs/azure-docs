@@ -88,5 +88,5 @@ Check the blog and demo related to the capabilities mentioned in this how-to gui
 
 * [What's New in Azure Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
 * [Demo of access policy for Azure Storage](https://www.youtube.com/watch?v=CFE8ltT19Ss)
-* [Enable Azure Purview data owner policies on all data sources in a subscription or a resource group](./tutorial-access-policies-resource-group.md)
+* [Enable Azure Purview data owner policies on all data sources in a subscription or a resource group](./tutorial-data-owner-policies-resource-group.md)
 
