@@ -52,8 +52,6 @@ New-AzVm `
     -OpenPorts 80,3389
 ```
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
-
 ## Connect to virtual machine
 
 After the deployment has completed, RDP to the VM. To see your VM in action, the IIS web server is then installed.
@@ -61,11 +59,10 @@ After the deployment has completed, RDP to the VM. To see your VM in action, the
 To see the public IP address of the VM, use the [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) cmdlet:
 
 ```azurepowershell-interactive
-Get-AzPublicIpAddress -ResourceGroupName 'myResourceGroup' | 
-  Select-Object -Property  'IpAddress'
+Get-AzPublicIpAddress -ResourceGroupName 'myResourceGroup' | Select-Object -Property  'IpAddress'
 ```
 
-Use the following command to create a remote desktop session from your local computer. Replace the IP address with the public IP address of your VM. 
+Use the following command to create a remote desktop session from your local computer. Replace `publicIpAddress` with the public IP address of your VM. 
 
 ```powershell
 mstsc /v:publicIpAddress
