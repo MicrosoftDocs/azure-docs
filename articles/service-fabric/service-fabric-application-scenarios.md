@@ -42,7 +42,7 @@ Consider using the Service Fabric platform for the following types of applicatio
 
 ## Application design case studies
 
-Case studies that show how Service Fabric is used to design applications are published on the [Customer stories](https://customers.microsoft.com/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=2&so=story_publish_date%20desc) and [Microservices in Azure](https://azure.microsoft.com/solutions/microservice-applications/) sites.
+Case studies that show how Service Fabric is used to design applications are published on the [Customer stories](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=2&so=story_publish_date%20desc) and [Microservices in Azure](https://azure.microsoft.com/solutions/microservice-applications/) sites.
 
 ## Designing applications composed of stateless and stateful microservices
 

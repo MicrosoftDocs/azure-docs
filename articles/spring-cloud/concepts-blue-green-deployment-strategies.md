@@ -1,11 +1,11 @@
 ---
 title:  "Blue-green deployment strategies in Azure Spring Cloud"
 description: This topic explains two approaches to blue-green deployments in Azure Spring Cloud.
-author:  yevster
-ms.author: yebronsh
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 11/12/2021
 ms.custom: devx-track-java
 ---
 
@@ -90,7 +90,7 @@ However, there are drawbacks as well, as described in the following section.
 
 #### Deployment pipeline failures
 
-Between the time a deployment starts and the time the staging deployment is deleted, any additional attempts to run the deployment pipeline will fail. The pipeline will attempt to create a new deployment, which will result in an error because only two deployments are permitted per Azure Spring Cloud application.
+Between the time a deployment starts and the time the staging deployment is deleted, any additional attempts to run the deployment pipeline will fail. The pipeline will attempt to create a new deployment, which will result in an error because only two deployments are permitted per application in Azure Spring Cloud.
 
 Therefore, the deployment orchestration must either have the means to retry a failed deployment process at a later time, or the means to ensure that the deployment flows for each version will remain queued until the flow is completed for all previous versions.
 

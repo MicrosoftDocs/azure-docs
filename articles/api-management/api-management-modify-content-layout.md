@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to edit page contents on the developer portal in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vlvinogr
+author: dlepow
 manager: vlvinogr
 editor: ''
 
@@ -14,7 +14,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/09/2017
-ms.author: vlvinogr
+ms.author: danlep
 
 ---
 # Modify the content and layout of pages on the developer portal in Azure API Management

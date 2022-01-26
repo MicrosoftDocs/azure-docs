@@ -49,15 +49,15 @@ If you have support websites for Azure Global Customers and/or Azure Government 
 
 ### Add logos
 
-Under **Logos**, upload a **Large** logo in .PNG format between 216 x 216 and 350 x 350 pixels. Partner Center will automatically create **Medium** and **Small** logos, which you can replace later.
+Under **Logos**, upload a **Large** logo in .PNG format between 216x216 and 350x350 pixels. Partner Center will automatically create **Medium** and **Small** logos, which you can replace later.
 
-- The large logo (from 216 x 216 to 350 x 350 px) appears on your offer listing on Azure Marketplace.
-- The medium logo (90 x 90 px) is shown when a new resource is created.
-- The small logo (48 x 48 px) is used on the Azure Marketplace search results.
+- The large logo (from 216x216 to 350x350 px) appears on your offer listing on Azure Marketplace.
+- The medium logo (90x90 px) is shown when a new resource is created.
+- The small logo (48x48 px) is used in Azure Marketplace search results.
 
 ### Add screenshots (optional)
 
-Add up to five images that demonstrate your offer. All images must be 1280 x 720 pixels in size and in .PNG format.
+Add up to five images that demonstrate your offer. All images must be 1280x720 pixels in size and in .PNG format.
 
 1. Under **Screenshots**, drag and drop your PNG file onto the **Screenshot** box.
 2. Select **Add image caption**.
@@ -66,11 +66,11 @@ Add up to five images that demonstrate your offer. All images must be 1280 x 720
 
 ### Add videos (optional)
 
-You can add links to YouTube or Vimeo videos that demonstrate your offer. These videos are shown to customers along with your offer. You must enter a thumbnail image of the video, sized 1280 x 720 pixels and in .PNG format. Add a maximum of five videos per offer.
+You can add links to YouTube or Vimeo videos that demonstrate your offer. These videos are shown to customers along with your offer. You must enter a thumbnail image of the video, sized 1280x720 pixels and in .PNG format. Add a maximum of five videos per offer.
 
 1. Under **Videos**, select the **Add video link**.
 2. In the boxes that appear, enter the name and link for your video.
-3. Drag and drop a PNG file (1280 x 720 pixels) onto the gray **Thumbnail** box.
+3. Drag and drop a PNG file (1280x720 pixels) onto the gray **Thumbnail** box.
 4. To add another video, repeat steps 1 through 3.
 
 Select **Save draft** before continuing to the next tab, **Preview audience**.

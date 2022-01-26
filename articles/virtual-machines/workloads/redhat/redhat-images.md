@@ -14,6 +14,8 @@ ms.reviewer: cynthn
 
 # Overview of Red Hat Enterprise Linux images
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 This article describes available Red Hat Enterprise Linux (RHEL) images in Azure Marketplace and policies around their naming and retention.
 
 For information on Red Hat support policies for all versions of RHEL, see [Red Hat Enterprise Linux life cycle](https://access.redhat.com/support/policy/updates/errata). For pricing details, see [Azure pricing calculator](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).

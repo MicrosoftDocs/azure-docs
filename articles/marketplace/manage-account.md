@@ -1,35 +1,36 @@
 ---
-title: How to manage a commercial marketplace account in Microsoft Partner Center - Azure Marketplace
-description: Learn how to manage a commercial marketplace account in Microsoft Partner Center.
+title: Manage a commercial marketplace account in Partner Center
+description: Manage a commercial marketplace account in Partner Center.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
-ms.date: 04/07/2021
+ms.date: 1/20/2022
 ---
 
-# Manage your commercial marketplace account in Partner Center
+# Manage a commercial marketplace account in Partner Center
 
 **Appropriate roles**
 
 - Owner
 - Manager
 
-Once you've [created a Partner Center account](./create-account.md), you can use the [commercial marketplace dashboard](https://go.microsoft.com/fwlink/?linkid=2166002) to manage your account and offers.
+Once you've [created a Partner Center account](./create-account.md), use the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) to manage your account and offers.
 
 ## Access your account settings
 
-If you have not already done so, you (or your organization's administrator) should access the [account settings](https://go.microsoft.com/fwlink/?linkid=2165291) for your Partner Center account.
+If you have not already done so, you (or your organization's administrator) should access the [account settings](https://partner.microsoft.com/dashboard/account/v3/organization/legalinfo#mpn) for your Partner Center account.
 
-1. Sign in to the [commercial marketplace dashboard](https://go.microsoft.com/fwlink/?linkid=2165290) in Partner Center with the account you want to access. If you’re part of multiple accounts and have signed in with a different, you can [switch accounts](switch-accounts.md).
-1. In the top-right, select **Settings** (gear icon), and then select **Account settings**.
+1. Sign in to the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/home) in Partner Center with the account you want to access. If you’re part of multiple accounts and have signed in with a different, you can [switch accounts](switch-accounts.md).
 
-    [ ![Screenshot of the account settings menu in Partner Center.](./media/manage-accounts/settings-account.png) ](./media/manage-accounts/settings-account.png#lightbox)
+1. In the upper-right, select **Settings** (gear icon) > **Account settings**.
 
-1. Under **Account settings** select **Legal**. Then select the **Developer** tab to view details related to your commercial marketplace account.
+    [ ![Screenshot of the account settings menu in Partner Center.](./media/manage-accounts/settings-account-workspaces.png) ](./media/manage-accounts/settings-account-workspaces.png#lightbox)
 
-    [ ![Screenshot of the developer tab on the legal page in Account settings.](./media/manage-accounts/developer-tab.png) ](./media/manage-accounts/developer-tab.png#lightbox)
+1. In the left-menu, under **Organization profile**, select **Legal profile**. Then select the **Developer** tab to view details related to your commercial marketplace account.
+
+    [ ![Screenshot of the developer tab on the legal page in Account settings.](./media/manage-accounts/developer-tab-workspaces.png) ](./media/manage-accounts/developer-tab-workspaces.png#lightbox)
 
 ### Account settings page
 
@@ -75,7 +76,7 @@ You can also select the **Update** link to change your contact info, such as pub
 
 ### Account settings identifiers
 
-Under **Account settings** > **Organization profile**, select **Identifiers** to see the following information:
+In the left-menu, under **Organization profile**, select **Identifiers** to see the following information:
 
 - **MPN IDs**: Any MPN IDs associated with your account
 - **CSP**: MPN IDs associated with the CSP program for this account.
@@ -90,7 +91,7 @@ To create GUIDs for tracking, you should use a GUID generator. The Azure Storage
 
 We recommend that you create a unique GUID for every offer and distribution channel for each product. You can opt to use a single GUID for the product's multiple distribution channels if you do not want reporting to be split.
 
-If you deploy a product by using a template and it is available on both the Azure Marketplace and on GitHub, you can create and register two distinct GUIDs:
+If you deploy a product by using a template and it is available on both Azure Marketplace and GitHub, you can create and register two distinct GUIDs:
 
 - Product A in Azure Marketplace
 - Product A on GitHub
@@ -105,22 +106,34 @@ The **Agreements** page lets you view a list of the publishing agreements that y
 
 To access the Agreements page:
 
-1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
-1. In the top-right, select **Settings** > **Account settings**.
-1. Under **Account settings**, select **Agreements**.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. In the upper-right, select **Settings** > **Account settings**.
+1. In the left-menu, select **Agreements**.
 
 **Actions needed** may appear at the top of this page if there are agreement updates that need your attention. To accept an updated agreement, first read the linked Agreement Version, then select **Accept agreement**.
 
 ## Set up a payout profile
 
-A payout profile is the bank account to which proceeds are sent from your sales. This bank account must be in the same country or region where you registered your Partner Center account. For more information about a payout profile, see [Create and manage incentives payout and tax profiles in Partner Center](/partner-center/incentives-create-and-manage-your-payout-and-tax-profiles) and [Set up your payout account and tax forms](/partner-center/set-up-your-payout-account).
+To have a transactable offer in Azure Marketplace, a Tax profile and Payment profile must be submitted and validated in Partner Center.  A Tax profile needs to be submitted first before a Payout profile can be created. A Tax profile submission can take up to 48 hours to validate.
 
-To set up your payout profile:
+A payout profile is the bank account to which proceeds are sent from your sales. This bank account must be in the same country or region where you registered your Partner Center account. For more information about a payout profile, see [Set up your payout account and tax forms](/partner-center/set-up-your-payout-account).
 
-1. Go to the [commercial marketplace overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) page in Partner Center.
-2. In the **Profile** section, next to **Payout Profile**, select **Update**.
-3. **Choose a payment method**: Bank account or PayPal.
-4. **Add payment information**: This may include choosing an account type (checking or savings), entering the account holder name, account number, and routing number, billing address, phone number, or PayPal email address. For more information about using PayPal as your account payment method and to find out whether it is supported in your market or region, see [PayPal info](/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+### To set up your payout profile
+
+1. Sign in to the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/home) in Partner Center with the account you want to access.
+
+1. In the upper-right, select **Settings** (gear icon) > **Account settings**.
+
+    [ ![Screenshot of the account settings menu in Partner Center.](./media/manage-accounts/settings-account-workspaces.png) ](./media/manage-accounts/settings-account-workspaces.png#lightbox)
+
+1. In the left menu, under **Payout and tax**, select **Payout and tax profile assignment**.
+
+    [ ![Illustrates Payout and tax profile assignment page.](./media/manage-accounts/payout-and-tax-profile-assignment.png) ](./media/manage-accounts/payout-and-tax-profile-assignment.png#lightbox)
+
+    > [!NOTE]
+    > In you don't see the **Payout and tax** section in the left menu, contact your global admin or account admin for permissions.
+
+1. For more information about setting up your payout profile, see [Set up your payout account and tax forms](/partner-center/set-up-your-payout-account).
 
 > [!IMPORTANT]
 > Changing your payout account can delay your payments by up to one payment cycle. This delay occurs because we need to verify the account change, just as we do when first setting up the payout account. You'll still get paid for the full amount after your account has been verified; any payments due for the current payment cycle will be added to the next one.  
@@ -157,11 +170,11 @@ By default, Microsoft sends payments on a monthly basis. However, you can option
 
 **To place your payments on hold**:
 
-1. Go to **Account settings**. 
-1. In the left-nav expand **Payout and tax** and select **Payout and tax profiles**.
+1. Go to **Account settings**.
+1. In the left-menu under **Payout and tax**, select **Payout and tax profiles**.
 1. Select the program for which you want to hold payments, and then select the **Hold my Payment** check box.
 
-You can change your payout hold status at any time, but be aware that your decision will impact the next monthly payout. For example, if you want to hold April's payout, make sure to set your payout hold status to **On** before the end of March.
+You can change your payout hold status at any time but be aware that your decision will impact the next monthly payout. For example, if you want to hold April's payout, make sure to set your payout hold status to **On** before the end of March.
 
 After you set your payout hold status to **On**, all payouts will be on hold until you toggle the slider back to **Off**. When you do so, you'll be included during the next monthly payout cycle (provided any applicable payment thresholds have been met). For example, if you've had your payouts on hold, but would like to have a payout generated in June, then make sure to toggle the payout hold status to **Off** before the end of May.
 
@@ -174,13 +187,12 @@ The device management settings apply only to universal windows platform (UWP) pu
 
 ## Create a billing profile
 
-If you are publishing a [Dynamics 365 for Customer Engagement & Power Apps](dynamics-365-customer-engage-offer-setup.md) or [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md) offer, you need to complete your *billing profile*.
+If you are publishing a [Dynamics 365 apps on Dataverse and Power Apps](./partner-center-portal/create-new-customer-engagement-offer.md) or [Dynamics 365 Operations Apps](./partner-center-portal/create-new-operations-offer.md) offer, you need to complete your *billing profile*.
 
 The billing address is pre-populated from your legal entity, and you can update this address later. The TAX and VAT ID fields are required for some countries and optional for others. The country/region name and company name cannot be edited.
 
-1. Go to **Account settings**.
-1. Then in the left-nav expand **Organization profile** and select **Billing profile**.
-
+1. In the upper-right, select **Settings** (gear icon) > **Account settings**.
+1. In the left-menu under **Organization profile**, select **Billing profile**.
 
 ## Multi-user account management
 

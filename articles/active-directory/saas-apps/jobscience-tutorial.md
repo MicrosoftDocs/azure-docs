@@ -107,7 +107,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     `http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
-    > This value is not real. Update this value with the actual Sign-On URL. Get this value by [Jobscience Client support team](http://www.jobscience.com/support) or from the SSO profile you will create which is explained later in the tutorial. 
+    > This value is not real. Update this value with the actual Sign-On URL. Get this value by [Jobscience Client support team](https://www.bullhorn.com/technical-support/) or from the SSO profile you will create which is explained later in the tutorial. 
  
 1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -300,7 +300,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Jobscience tile in the Access Panel, you should get automatically signed-on to your Jobscience application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 

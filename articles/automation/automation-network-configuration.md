@@ -1,10 +1,10 @@
 ---
 title: Azure Automation network configuration details
 description: This article provides details of network information required by Azure Automation State Configuration, Azure Automation Hybrid Runbook Worker, Update Management, and Change Tracking and Inventory
-ms.author: magoedte
 ms.topic: conceptual
 ms.date: 01/26/2021
 ---
+
 # Azure Automation network configuration details
 
 This page provides networking details that are required for [Hybrid Runbook Worker and State Configuration](#hybrid-runbook-worker-and-state-configuration), and for [Update Management and Change Tracking and Inventory](#update-management-and-change-tracking-and-inventory).
@@ -20,7 +20,7 @@ The following port and URLs are required for the Hybrid Runbook Worker, and for 
 
 ### Network planning for Hybrid Runbook Worker
 
-For either a system or user Hybrid Runbook Worker to connect to and register with Azure Automation, it must have access to the port number and URLs described in this section. The worker must also have access to the [ports and URLs required for the Log Analytics agent](../azure-monitor/agents/agent-windows.md) to connect to the Azure Monitor Log Analytics workspace.
+For either a system or user Hybrid Runbook Worker to connect to and register with Azure Automation, it must have access to the port number and URLs described in this section. The worker must also have access to the [ports and URLs required for the Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) to connect to the Azure Monitor Log Analytics workspace.
 
 If you have an Automation account that's defined for a specific region, you can restrict Hybrid Runbook Worker communication to that regional datacenter. Review the [DNS records used by Azure Automation](how-to/automation-region-dns-records.md) for the required DNS records.
 
@@ -28,7 +28,7 @@ If you have an Automation account that's defined for a specific region, you can 
 
 If your nodes are located in a private network, the port and URLs defined above are required. These resources provide network connectivity for the managed node and allow DSC to communicate with Azure Automation.
 
-If you are using DSC resources that communicate between nodes, such as the [WaitFor* resources](/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), you also need to allow traffic between nodes. See the documentation for each DSC resource to understand these network requirements.
+If you are using DSC resources that communicate between nodes, such as the [WaitFor* resources](/powershell/dsc/reference/resources/windows/waitForAllResource), you also need to allow traffic between nodes. See the documentation for each DSC resource to understand these network requirements.
 
 To understand client requirements for TLS 1.2, see [TLS 1.2 for Azure Automation](automation-managing-data.md#tls-12-for-azure-automation).
 

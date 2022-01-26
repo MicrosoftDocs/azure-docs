@@ -1,7 +1,7 @@
 ---
 title: Create data mining reports
 description: generate comprehensive and granular information about your network devices at various layers, such as protocols, firmware versions, or programming commands.
-ms.date: 01/20/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
@@ -54,10 +54,11 @@ You can use queries to handle an extensive range of security needs for various s
 
 - **Visibility**: Generate a report that covers all query items to view all baseline parameters of your network.
 
+- **PLC Security** Improve security by detecting PLCs in unsecure states for example Program and Remote states.
+
 ## Data mining storage
 
 Data mining information is saved and stored continuously, except for when a device is deleted. Data mining results can be exported and stored externally to a secure server. In addition, the sensor performs automatic daily backups to ensure system continuity and preservation of data.
-
 
 ## Predefined data mining queries
 

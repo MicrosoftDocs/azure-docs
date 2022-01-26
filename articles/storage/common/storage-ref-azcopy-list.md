@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy list com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 09/21/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -41,6 +41,7 @@ azcopy list [containerURL]
 |-h, --help|Show help content for the list command.|
 |--machine-readable|Lists file sizes in bytes.|
 |--mega-units|Displays units in orders of 1000, not 1024.|
+| --properties |   delimiter (;) separated values of properties required in list output. |
 |--running-tally|Counts the total number of files and their sizes.|
 
 ## Options inherited from parent commands

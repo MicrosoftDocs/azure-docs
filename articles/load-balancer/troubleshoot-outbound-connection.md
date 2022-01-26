@@ -10,7 +10,7 @@ ms.author: anavin
 ---
 # <a name="obconnecttsg"></a> Troubleshooting outbound connections failures
 
-This article is intended to provide resolutions for common problems that can occur with outbound connections from an Azure Load Balancer. Most problems with outbound connectivity that customers experience are due to souce network address translation (SNAT) port exhaustion and connection timeouts leading to dropped packets. This article provides steps for mitigating each of these issues.
+This article is intended to provide resolutions for common problems that can occur with outbound connections from an Azure Load Balancer. Most problems with outbound connectivity that customers experience are due to source network address translation (SNAT) port exhaustion and connection timeouts leading to dropped packets. This article provides steps for mitigating each of these issues.
 
 ## Avoid SNAT
 
@@ -65,7 +65,7 @@ If you scale out to the next larger backend pool size tier, there is potential f
 ## <a name="idletimeout"></a>Use keepalives to reset the outbound idle timeout
 Outbound connections have a 4-minute idle timeout. This timeout is adjustable via [Outbound rules](outbound-rules.md). You can also use transport (for example, TCP keepalives) or application-layer keepalives to refresh an idle flow and reset this idle timeout if necessary.  
 
-When using TCP keepalives, it is sufficient to enable them on one side of the connection. For example, it is sufficient to enable them on the server side only to reset the idle timer of the flow and it is not necessary for both sides to initiated TCP keepalives.  Similar concepts exist for application layer, including database client-server configurations.  Check the server side for what options exist for application-specific keepalives.
+When using TCP keepalives, it is sufficient to enable them on one side of the connection. For example, it is sufficient to enable them on the server side only to reset the idle timer of the flow and it is not necessary for both sides to initiate TCP keepalives.  Similar concepts exist for application layer, including database client-server configurations.  Check the server side for what options exist for application-specific keepalives.
 
 ## Next Steps
 We are always looking to improve the experience of our customers. If you are experiencing issues with outbound connectivity that are not listed or resolved by this article, submit feedback through GitHub via the bottom of this page and we will address your feedback as soon as possible.

@@ -177,7 +177,7 @@ It can also be created via the Azure CLI:
 
 ```azurecli-interactive
 # Create new role definition based on input file
-az role create -inputfile <file path>
+az role defination create --role-definition <file path>
 ```
 
 The role can then be assigned in the same way as built-in roles, as described earlier in this article.

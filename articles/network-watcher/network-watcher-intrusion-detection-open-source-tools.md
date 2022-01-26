@@ -7,7 +7,6 @@ documentationcenter: na
 author: damendo
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
@@ -40,7 +39,7 @@ For all other methods of installation, visit https://suricata.readthedocs.io/en/
     ```
     sudo add-apt-repository ppa:oisf/suricata-stable
     sudo apt-get update
-    sudo sudo apt-get install suricata
+    sudo apt-get install suricata
     ```
 
 1. To verify your installation, run the command `suricata -h` to see the full list of commands.

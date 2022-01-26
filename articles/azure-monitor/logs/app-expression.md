@@ -4,7 +4,7 @@ description: The app expression is used in an Azure Monitor log query to retriev
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/09/2019
+ms.date: 08/11/2021
 
 ---
 
@@ -37,7 +37,7 @@ The `app` expression is used in an Azure Monitor query to retrieve data from a s
 * You must have read access to the application.
 * Identifying an application by its name assumes that it is unique across all accessible subscriptions. If you have multiple applications with the specified name, the query will fail because of the ambiguity. In this case you must use one of the other identifiers.
 * Use the related expression [workspace](../logs/workspace-expression.md) to query across Log Analytics workspaces.
-* The app() expression is currently not supported in the search query when using the Azure portal to create a [custom log search alert rule](../alerts/alerts-log.md), unless an Application Insights application is used as the resource for the alert rule.
+* The app() expression is currently not supported in the log query when using the Azure portal to create a [custom log query alert rule](../alerts/alerts-log.md), unless an Application Insights application is used as the resource for the alert rule.
 
 ## Examples
 

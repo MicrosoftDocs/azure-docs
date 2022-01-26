@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: This article teaches you how to use Azure Machine Learning to deploy a GPU-enabled Tensorflow deep learning model as a web service.service and score inference requests.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 06/17/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, deploy
 ---

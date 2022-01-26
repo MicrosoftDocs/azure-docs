@@ -138,7 +138,7 @@ This change requires calling the `GET` for the collection in a loop until all el
 A detailed description on how to create batches of transcriptions can be found in [Batch transcription How-to](./batch-transcription.md).
 
 The v3 transcription API lets you set specific transcription options explicitly. All (optional) configuration properties can now be set in the `properties` property.
-Version v3 also supports multiple input files, so it requires a list of URLs rather than a single URL as v2 did. The v2 property name `recordingsUrl` is now `contentUrls` in v3. The functionality of analyzing sentiment in transcriptions has been removed in v3. See Microsoft Cognitive Service [Text Analysis](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/) for sentiment analysis options.
+Version v3 also supports multiple input files, so it requires a list of URLs rather than a single URL as v2 did. The v2 property name `recordingsUrl` is now `contentUrls` in v3. The functionality of analyzing sentiment in transcriptions has been removed in v3. See Microsoft Cognitive Service [Text Analysis](https://azure.microsoft.com/services/cognitive-services/text-analytics/) for sentiment analysis options.
 
 The new property `timeToLive` under `properties` can help prune the existing completed entities. The `timeToLive` specifies a duration after which a completed entity will be deleted automatically. Set it to a high value (for example `PT12H`) when the entities are continuously tracked, consumed, and deleted and therefore usually processed long before 12 hours have passed.
 

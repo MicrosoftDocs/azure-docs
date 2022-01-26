@@ -1,11 +1,9 @@
 ---
 title: 'Quickstart: Create a management group with Python'
 description: In this quickstart, you use Python to create a management group to organize your resources into a resource hierarchy.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom:
-  - devx-track-python
-  - mode-api
+ms.custom: devx-track-python, mode-api
 ---
 # Quickstart: Create a management group with Python
 

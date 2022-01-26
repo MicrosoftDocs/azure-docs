@@ -20,7 +20,7 @@ To schedule a runbook in Azure Automation to start at a specified time, you link
 
 ## PowerShell cmdlets used to access schedules
 
-The cmdlets in the following table create and manage Automation schedules with PowerShell. They ship as part of the [Az modules](modules.md#az-modules).
+The cmdlets in the following table create and manage Automation schedules with PowerShell. They ship as part of the Az modules.
 
 | Cmdlets | Description |
 |:--- |:--- |

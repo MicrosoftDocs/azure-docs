@@ -12,6 +12,8 @@ ms.custom: devx-track-azurepowershell
 
 ---
 # Setting up WinRM access for Virtual Machines in Azure Resource Manager
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
 
 Here are the steps you need to take to set up a VM with WinRM connectivity
 

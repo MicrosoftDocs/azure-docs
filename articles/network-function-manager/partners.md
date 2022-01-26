@@ -1,21 +1,18 @@
 ---
 title: Azure Network Function Manager partners
 description: Learn about partners offering their network functions for use with this service.
-author: cherylmc
-
+author: prmitt
 ms.service: network-function-manager
 ms.topic: article
-ms.date: 06/30/2021
-ms.author: cherylmc
-
+ms.date: 11/02/2021
+ms.author: prmitt
+ms.custom: ignite-fall-2021
 ---
-# Network Function Manager partners (Preview)
+# Network Function Manager partners
 
-We have a growing ecosystem of partners offering their network function as managed applications for use with this service. 
+We have a growing ecosystem of partners offering their network function as managed applications for use with this service.
 
 ## <a name="devices"></a>Devices and configuration links
-
-For Preview, the following SKUs are currently available.
 
 |Function |Category|Link|
 | ---  | --- | --- |

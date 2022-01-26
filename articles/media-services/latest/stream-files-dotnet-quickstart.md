@@ -35,7 +35,7 @@ By the end of the tutorial you will be able to stream a video.
 - Install [Visual Studio Code for Windows/macOS/Linux](https://code.visualstudio.com/) or [Visual Studio 2019 for Windows or Mac](https://visualstudio.microsoft.com/).
 - Install [.NET 5.0 SDK](https://dotnet.microsoft.com/download)
 - [Create a Media Services account](./account-create-how-to.md). Be sure to copy the **API Access** details in JSON format or store the values needed to connect to the Media Services account in the *.env* file format used in this sample.
-- Follow the steps in [Access the Azure Media Services API with the Azure CLI](./access-api-howto.md) and save the credentials. You'll need to use them to access the API in this sample, or enter them into the *.env* file format.
+- Follow the steps in [Access the Azure Media Services API with the Azure CLI](./access-api-howto.md). Be sure to *save the credentials*. You'll need to use them to access the API in this sample, or enter them into the *.env* file format.
 
 ## Download and configure the sample
 
@@ -45,7 +45,7 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
 
-The sample is located in the [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles) folder.
+The sample is located in the [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles) folder under AMSV3Quickstarts.
 
 [!INCLUDE [appsettings or .env file](./includes/note-appsettings-or-env-file.md)]
 
@@ -65,8 +65,9 @@ For explanations about what each function in the sample does, examine the code a
 
 When you run the app, URLs that can be used to playback the video using different protocols are displayed. 
 
-1. Press Ctrl+F5 to run the *EncodeAndStreamFiles* application.
-2. Choose the Apple's **HLS** protocol (ends with *manifest(format=m3u8-aapl)*) and copy the streaming URL from the console.
+1. Open AMSV3Quickstarts in VSCode.
+2. Press Ctrl+F5 to run the *EncodeAndStreamFiles* application with .NET. This may take a few minutes.
+3. The app will output three URLs. You will use these URLs to test the stream in the next step.
 
 ![Screenshot of the output from the EncodeAndStreamFiles app in Visual Studio showing three streaming URLs for use in the Azure Media Player.](./media/stream-files-tutorial-with-api/output.png)
 
@@ -83,7 +84,7 @@ To test the stream, this article uses Azure Media Player.
 2. In the **URL:** box, paste one of the streaming URL values you got when you ran the application. 
  
      You can paste the URL in HLS, Dash, or Smooth format and Azure Media Player will switch to an appropriate streaming protocol for playback on your device automatically.
-3. Press **Update Player**.
+3. Press **Update Player**. This should start playing the video file in the repository.
 
 Azure Media Player can be used for testing but should not be used in a production environment. 
 

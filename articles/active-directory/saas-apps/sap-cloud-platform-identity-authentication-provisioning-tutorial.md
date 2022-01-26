@@ -27,8 +27,11 @@ The objective of this tutorial is to demonstrate the steps to be performed in SA
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant
-* [A SAP Cloud Platform Identity Authentication tenant](https://cloudplatform.sap.com/pricing.html)
+* [A SAP Cloud Platform Identity Authentication tenant](https://www.sap.com/products/cloud-platform.html)
 * A user account in SAP Cloud Platform Identity Authentication with Admin permissions.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Assigning users to SAP Cloud Platform Identity Authentication
 

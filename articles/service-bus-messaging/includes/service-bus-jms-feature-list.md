@@ -5,7 +5,7 @@ services: service-bus-messaging
 author: axisc
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 6/9/2020
+ms.date: 09/28/2021
 ms.author: aschhab
 ms.custom: "include file"
 ---

@@ -10,7 +10,7 @@ ms.date: 11/21/2019
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: jsimmons
 
 ms.collection: M365-identity-device-management 
@@ -98,6 +98,9 @@ PasswordSetErrors               : 1
 
 The scope of the cmdlet's reporting may be influenced using one of the –Forest, -Domain, or –DomainController parameters. Not specifying a parameter implies –Forest.
 
+> [!NOTE]
+> If you only install the DC agent on one DC, the Get-AzureADPasswordProtectionSummaryReport will read events only from that DC. To get events from multiple DCs, you'll need the DC agent installed on each DC.
+
 The `Get-AzureADPasswordProtectionSummaryReport` cmdlet works by querying the DC agent admin event log, and then counting the total number of events that correspond to each displayed outcome category. The following table contains the mappings between each outcome and its corresponding event ID:
 
 |Get-AzureADPasswordProtectionSummaryReport property |Corresponding event ID|
@@ -121,36 +124,55 @@ Note that the `Get-AzureADPasswordProtectionSummaryReport` cmdlet is shipped in 
 > [!NOTE]
 > This cmdlet works by remotely querying each DC agent service's Admin event log. If the event logs contain large numbers of events, the cmdlet may take a long time to complete. In addition, bulk network queries of large data sets may impact domain controller performance. Therefore, this cmdlet should be used carefully in production environments.
 
-### Sample event log message for Event ID 10014 (successful password change)
+### Sample event log messages
+
+#### Event ID 10014 (Successful password change)
 
 ```text
 The changed password for the specified user was validated as compliant with the current Azure password policy.
 
- UserName: BPL_02885102771
- FullName:
+UserName: SomeUser
+FullName: Some User
 ```
 
-### Sample event log message for Event ID 10017 and 30003 (failed password set)
-
-10017:
+#### Event ID 10017 (Failed password change):
 
 ```text
 The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
 
- UserName: BPL_03283841185
- FullName:
+UserName: SomeUser
+FullName: Some User
 ```
 
-30003:
+#### Event ID 30003 (Failed password change):
 
 ```text
 The reset password for the specified user was rejected because it matched at least one of the tokens present in the per-tenant banned password list of the current Azure password policy.
 
- UserName: BPL_03283841185
- FullName:
+UserName: SomeUser
+FullName: Some User
 ```
 
-### Sample event log message for Event ID 30001 (password accepted due to no policy available)
+#### Event ID 10024 (Password accepted due to policy in audit only mode)
+
+``` text
+The changed password for the specified user would normally have been rejected because it did not comply with the current Azure password policy. The current Azure password policy is con-figured for audit-only mode so the password was accepted. Please see the correlated event log message for more details. 
+ 
+UserName: SomeUser
+FullName: Some User
+```
+
+#### Event ID 30008 (Password accepted due to policy in audit only mode)
+
+``` text
+The changed password for the specified user would normally have been rejected because it matches at least one of the tokens present in the per-tenant banned password list of the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted. 
+
+UserName: SomeUser
+FullName: Some User
+
+```
+
+#### Event ID 30001 (Password accepted due to no policy available)
 
 ```text
 The password for the specified user was accepted because an Azure password policy is not available yet
@@ -177,7 +199,7 @@ This condition may be caused by one or more of the following reasons:%n
    Resolution steps: ensure network connectivity exists to the domain.
 ```
 
-### Sample event log message for Event ID 30006 (new policy being enforced)
+#### Event ID 30006 (New policy being enforced)
 
 ```text
 The service is now enforcing the following Azure password policy.
@@ -189,13 +211,12 @@ The service is now enforcing the following Azure password policy.
  Enforce tenant policy: 1
 ```
 
-### Sample event log message for Event ID 30019 (Azure AD Password Protection is disabled)
+#### Event ID 30019 (Azure AD Password Protection is disabled)
 
 ```text
 The most recently obtained Azure password policy was configured to be disabled. All passwords submitted for validation from this point on will automatically be considered compliant with no processing performed.
 
 No further events will be logged until the policy is changed.%n
-
 ```
 
 ## DC Agent Operational log

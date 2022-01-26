@@ -2,11 +2,11 @@
 title: Azure Data Lake Storage Gen1 performance tuning - PowerShell
 description: Tips on how to improve performance when using Azure PowerShell with Azure Data Lake Storage Gen1.
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 01/09/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Performance tuning guidance for using PowerShell with Azure Data Lake Storage Gen1

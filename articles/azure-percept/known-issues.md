@@ -1,8 +1,8 @@
 ---
 title: Azure Percept known issues
 description: Learn more about Azure Percept known issues and their workarounds
-author: mimcco
-ms.author: mimcco
+author: nkhuyent
+ms.author: juniem
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 03/25/2021

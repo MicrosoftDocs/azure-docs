@@ -11,6 +11,7 @@ ms.author: srijangupta
 ---
 # Prepare an Ubuntu virtual machine for Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 Ubuntu now publishes official Azure VHDs for download at [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/). If you need to build your own specialized Ubuntu image for Azure, rather than use the manual procedure below it is recommended to start with these known working VHDs and customize as needed. The latest image releases can always be found at the following locations:
 
@@ -76,11 +77,11 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 6. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 
-7. Install cloud-init (the provisioning agent) and the Azure Linux Agent (the guest extensions handler). Cloud-init uses `netplan` to configure the system network configuration during provisioning and each subsequent boot.
+7. Install cloud-init (the provisioning agent) and the Azure Linux Agent (the guest extensions handler). Cloud-init uses `netplan` to configure the system network configuration (during provisioning and each subsequent boot) and `gdisk` to partition resource disks.
 
     ```console
     # sudo apt update
-    # sudo apt install cloud-init netplan.io walinuxagent && systemctl stop walinuxagent
+    # sudo apt install cloud-init gdisk netplan.io walinuxagent && systemctl stop walinuxagent
     ```
 
    > [!Note]

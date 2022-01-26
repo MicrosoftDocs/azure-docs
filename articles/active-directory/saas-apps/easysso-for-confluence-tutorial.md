@@ -192,7 +192,7 @@ However, if you do not wish to enable automatic user provisioning on the user fi
 
 In this section, you test your Azure AD single sign-on configuration using the My Apps.
 
-When you click the EasySSO for Confluence tile in the My Apps, you should be automatically signed in to the Confluence instance for which you set up SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+When you click the EasySSO for Confluence tile in the My Apps, you should be automatically signed in to the Confluence instance for which you set up SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ### SP-initiated workflow
 
@@ -212,4 +212,4 @@ Should you have any issues digesting the log messages, please contact [EasySSO s
 
 ## Next steps
 
-Once you configure EasySSO for Confluence you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure EasySSO for Confluence you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

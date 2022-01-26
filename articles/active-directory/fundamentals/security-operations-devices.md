@@ -51,19 +51,19 @@ The log files you use for investigation and monitoring are:
 
 * [Sign-in logs](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide.md) 
+* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Azure Key Vault logs](../..//key-vault/general/logging.md?tabs=Vault)
 
 From the Azure portal, you can view the Azure AD Audit logs and download as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
 
-* **[Azure Sentinel](../../sentinel/overview.md)** – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities. 
+* **[Microsoft Sentinel](../../sentinel/overview.md)** – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities. 
 
 * **[Azure Monitor](../..//azure-monitor/overview.md)** – enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
 * **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) -integrated with a SIEM**- [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hub integration.
 
-* **[Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS)** – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
+* **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
 
 Much of what you'll monitor and alert on are the effects of your Conditional Access policies. You can use the [Conditional Access insights and reporting workbook](../conditional-access/howto-conditional-access-insights-reporting.md) to examine the effects of one or more Conditional Access policies on your sign-ins, and the results of policies including device state. This workbook enables you to view an impact summary, and identify the impact over a specific time period. You can also use the workbook to investigate the sign-ins of a specific user. 
 
@@ -75,12 +75,12 @@ Azure AD registered and Azure AD joined devices possess primary refresh tokens (
 
  | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
-| Device registration or join completed without MFA| Medium| Sign-in logs| Activity: successful authentication to Device Registration Service. <br>And<br>No MFA required| Alert when: <br>Any device registered or joined without MFA |
+| Device registration or join completed without MFA| Medium| Sign-in logs| Activity: successful authentication to Device Registration Service. <br>And<br>No MFA required| Alert when: <br>Any device registered or joined without MFA<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SigninLogs/SuspiciousSignintoPrivilegedAccount.yaml) |
 | Changes to the Device Registration MFA toggle in Azure AD| High| Audit log| Activity: Set device registration policies| Look for: <br>The toggle being set to off. There isn't audit log entry. Schedule periodic checks. |
 | Changes to Conditional Access policies requiring domain joined or compliant device.| High| Audit log| Changes to CA policies<br>| Alert when: <br><li> Change to any policy requiring domain joined or compliant.<li>Changes to trusted locations.<li> Accounts or devices added to MFA policy exceptions. |
 
 
-You can create an alert that notifies appropriate administrators when a device is registered or joined without MFA by using Azure Sentinel.
+You can create an alert that notifies appropriate administrators when a device is registered or joined without MFA by using Microsoft Sentinel.
 
 ```
 Sign-in logs
@@ -102,7 +102,7 @@ It might not be possible to block access to all cloud and software-as-a-service 
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
-| Sign-ins by non-compliant devices| High| Sign-in logs| DeviceDetail.isCompliant ==false| If requiring sign-in from compliant devices, alert when:<br><li> any sign in by non-compliant devices.<li> any access without MFA or a trusted location.<p>If working toward requiring devices, monitor for suspicious sign-ins. |
+| Sign-ins by non-compliant devices| High| Sign-in logs| DeviceDetail.isCompliant ==false| If requiring sign-in from compliant devices, alert when:<br><li> any sign in by non-compliant devices.<li> any access without MFA or a trusted location.<p>If working toward requiring devices, monitor for suspicious sign-ins.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SigninLogs/SuspiciousSignintoPrivilegedAccount.yaml) |
 | Sign-ins by unknown devices| Low| Sign-in logs| <li>DeviceDetail is empty<li>Single factor authentication<li>From a non-trusted location| Look for: <br><li>any access from out of compliance devices.<li>any access without MFA or trusted location |
 
 

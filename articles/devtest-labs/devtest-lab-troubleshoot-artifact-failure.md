@@ -1,7 +1,7 @@
 ---
 title: Diagnose artifact failures in an Azure DevTest Labs virtual machine
 description: DevTest Labs provide information that you can use to diagnose an artifact failure. This article shows you how to troubleshoot artifact failures. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
@@ -44,4 +44,3 @@ For instructions on finding the log files on a **Linux** VM, see the following a
 
 ## Next steps
 * Learn how to [add a Git repository to a lab](devtest-lab-add-artifact-repo.md).
-

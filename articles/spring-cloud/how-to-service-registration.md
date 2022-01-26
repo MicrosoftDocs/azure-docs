@@ -1,5 +1,5 @@
 ---
-title:  Automate service registry and discovery 
+title:  Automate service registry and discovery
 description: Learn how to automate service discovery and registration using Spring Cloud Service Registry
 author: karlerickson
 ms.service: spring-cloud
@@ -28,22 +28,6 @@ Include dependencies for *spring-cloud-starter-netflix-eureka-client* and *sprin
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-            <version>3.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-            <version>2.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.jersey</groupId>
-            <artifactId>jersey-client</artifactId>
-            <version>1.19.4</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.jersey.contribs</groupId>
-            <artifactId>jersey-apache-client4</artifactId>
-            <version>1.19.4</version>
         </dependency>
 ```
 
@@ -62,9 +46,9 @@ Finally, we add an annotation to the top level class of your application
     @EnableEurekaClient
     public class DemoApplication {
 
-    	public static void main(String[] args) {
-	    	SpringApplication.run(DemoApplication.class, args);
-	    }
+        public static void main(String[] args) {
+            SpringApplication.run(DemoApplication.class, args);
+        }
     }
  ```
 

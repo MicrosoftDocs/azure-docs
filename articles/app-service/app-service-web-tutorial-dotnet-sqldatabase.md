@@ -4,7 +4,7 @@ description: Learn how to deploy a C# ASP.NET app to Azure and to Azure SQL Data
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 11/08/2021
 ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18"
 ---
 
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial:
 
-Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> with the **ASP.NET and web development** workload.
+Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2022</a> with the **ASP.NET and web development** workload.
 
 If you've installed Visual Studio already, add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
 
@@ -69,7 +69,7 @@ The app uses a database context to connect with the database. In this sample, th
 
 #### Sign in and add an app
 
-1. In the **Publish** dialog, click **Add an account** from the account manager drop down.
+1. In the **Publish** dialog, click **Sign In**.
 
 1. Sign in to your Azure subscription. If you're already signed into a Microsoft account, make sure that account holds your Azure subscription. If the signed-in Microsoft account doesn't have your Azure subscription, click it to add the correct account.
 
@@ -125,6 +125,9 @@ Before creating a database, you need a [logical SQL server](../azure-sql/databas
 
 1. In the **Publish** dialog, scroll down to the **Service Dependencies** section. Next to **SQL Server Database**, click **Configure**.
 
+    > [!NOTE]
+    > Be sure to configure the SQL Database from the **Publish** page instead of the **Connected Services** page.
+
    ![Configure SQL Database dependency](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sqldb-dependency.png)
 
 1. Select **Azure SQL Database** and click **Next**.
@@ -133,7 +136,7 @@ Before creating a database, you need a [logical SQL server](../azure-sql/databas
 
 1. Next to **Database server**, click **New**.
 
-   A server name is generated. This name is used as part of the default URL for your server, `<server_name>.database.windows.net`. It must be unique across all servers in Azure SQL. You can change the server name, but for this tutorial, keep the generated value.
+   The server name is used as part of the default URL for your server, `<server_name>.database.windows.net`. It must be unique across all servers in Azure SQL. Change the server name to a value you want.
 
 1. Add an administrator username and password. For password complexity requirements, see [Password Policy](/sql/relational-databases/security/password-policy).
 
@@ -159,6 +162,9 @@ Before creating a database, you need a [logical SQL server](../azure-sql/databas
 1. In **Database connection user name** and **Database connection password**, type the administrator username and password you used in [Create a server](#create-a-server-and-database).
 
 1. Make sure **Azure App Settings** is selected and click **Finish**.
+
+    > [!NOTE]
+    > If you see **Local user secrets files** instead, you must have configured SQL Database from the **Connected Services** page instead of the **Publish** page.
 
     ![Configure database connection string](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-connection.png)
 
@@ -422,7 +428,7 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to easily improve the security of your connection Azure SQL Database.
 
 > [!div class="nextstepaction"]
-> [Access SQL Database securely using managed identities for Azure resources](app-service-web-tutorial-connect-msi.md)
+> [Access SQL Database securely using managed identities for Azure resources](tutorial-connect-msi-sql-database.md)
 
 More resources:
 

@@ -1,24 +1,25 @@
 ---
-title: Plan a Privileged Identity Management deployment? - Azure AD | Microsoft Docs
+title: Plan a Privileged Identity Management deployment - Azure AD | Microsoft Docs
 description: Learn how to deploy Privileged Identity Management (PIM) in your Azure AD organization.
 services: active-directory
 documentationcenter: ''
-author: BarbaraSelden
-manager: martinco
+author: curtand
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: conceptual
-ms.date: 07/26/2021
-ms.author: baselden
+ms.date: 12/10/2021
+ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
 # Plan a Privileged Identity Management deployment
 
-**Privileged Identity Management (PIM)** provides a time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions to important resources. These resources include resources in Azure Active Directory (Azure AD), Azure, and other Microsoft Online Services such as Microsoft 365 or Microsoft Intune. You can also use PIM with service (SaaS) applications.
+**Privileged Identity Management (PIM)** provides a time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions to important resources. These resources include resources in Azure Active Directory (Azure AD), Azure, and other Microsoft Online Services such as Microsoft 365 or Microsoft Intune.
 
 PIM enables you to allow a specific set of actions at a particular scope. Key features include:
 
@@ -147,7 +148,7 @@ Follow these tasks to prepare PIM to manage Azure AD roles.
 
 List who has privileged roles in your organization. Review the users assigned, identify administrators who no longer need the role, and remove them from their assignments. 
 
-You can use [Azure AD roles access reviews](pim-how-to-start-security-review.md) to automate the discovery, review, and approval or removal of assignments.
+You can use [Azure AD roles access reviews](./pim-create-azure-ad-roles-and-resource-roles-review.md) to automate the discovery, review, and approval or removal of assignments.
 
 ### Determine roles to be managed by PIM
 
@@ -174,11 +175,11 @@ For Azure AD roles in PIM, only a user who is in the Privileged Role Administrat
 
 Follow the instructions in the links below:
 
-1.[Give eligible assignments](pim-how-to-add-role-to-user.md).
+1. [Give eligible assignments](pim-how-to-add-role-to-user.md).
 
-2.[Allow eligible users to activate their Azure AD role just-in-time](pim-how-to-activate-role.md)
+1. [Allow eligible users to activate their Azure AD role just-in-time](pim-how-to-activate-role.md)
 
-When role nears its expiration, use [PIM to extend or renew the roles](pim-resource-roles-renew-extend.md). Both user-initiated actions require an approval from a Global administrator or Privileged role administrator.  Both user-initiated actions require an approval from a Global administrator or Privileged role administrator. 
+When role nears its expiration, use [PIM to extend or renew the roles](pim-resource-roles-renew-extend.md). Both user-initiated actions require an approval from a Global administrator or Privileged role administrator.
 
 When these important events occur in Azure AD roles, PIM [sends email notifications and weekly digest emails](pim-email-notifications.md) to privilege administrators depending on the role, event, and notification settings. These emails might also include links to relevant tasks, such activating or renewing a role. 
 
@@ -207,13 +208,13 @@ Follow these tasks to prepare PIM to manage Azure resource roles.
 
 Minimize Owner and User Access Administrator assignments attached to each subscription or resource and remove unnecessary assignments.
 
-As a Global Administrator you can [elevate access to manage all Azure subscriptions](/azure/role-based-access-control/elevate-access-global-admin). You can then find each subscription owner and work with them to remove unnecessary assignments within their subscriptions.
+As a Global Administrator you can [elevate access to manage all Azure subscriptions](../../role-based-access-control/elevate-access-global-admin.md). You can then find each subscription owner and work with them to remove unnecessary assignments within their subscriptions.
 
-Use [access reviews for Azure resources](pim-resource-roles-start-access-review.md) to audit and remove unnecessary role assignments. 
+Use [access reviews for Azure resources](./pim-create-azure-ad-roles-and-resource-roles-review.md) to audit and remove unnecessary role assignments. 
 
 ### Determine roles to be managed by PIM
 
-When deciding which role assignments should be managed using PIM for Azure resource, you must first identify the [management groups](/azure/governance/management-groups/overview), subscriptions, resource groups, and resources that are most vital for your organization. Consider using management groups to organize all their resources within their organization.
+When deciding which role assignments should be managed using PIM for Azure resource, you must first identify the [management groups](../../governance/management-groups/overview.md), subscriptions, resource groups, and resources that are most vital for your organization. Consider using management groups to organize all their resources within their organization.
 
 **We recommend** you manage all Subscription Owner and User Access Administrator roles using PIM. 
 
@@ -291,7 +292,7 @@ The following table shows example settings:
 You can [assign eligibility to members or owners of the privileged access groups.](groups-assign-member-owner.md) With just one activation, they will have access to all the linked resources. 
 
 >[!NOTE] 
->You can assign the privileged group to one or more Azure AD and Azure resource roles in the same way as you assign roles to users. A maximum of 250 role-assignable groups can be created in a single Azure AD organization (tenant).
+>You can assign the privileged group to one or more Azure AD and Azure resource roles in the same way as you assign roles to users. A maximum of 400 role-assignable groups can be created in a single Azure AD organization (tenant).
 
 ![Assign eligibility for privileged access groups](media/pim-deployment-plan/privileged-access-groups.png)
 
@@ -313,8 +314,4 @@ Configure privileged access group members and owners to require approval for act
 * If there is PIM-related issues, see [Troubleshooting a problem with PIM](pim-troubleshoot.md).
 
 * [Deploy other identity features](../fundamentals/active-directory-deployment-plans.md)
-
- 
-
- 
 

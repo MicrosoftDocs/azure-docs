@@ -126,11 +126,11 @@ Related links:
 
 ## Advanced troubleshooting
 
-If [collection of resource logs](monitor-service.md) is enabled in the registry, review the ContainterRegistryLoginEvents log. This log stores authentication events and status, including the incoming identity and IP address. Query the log for [registry authentication failures](monitor-service.md#registry-authentication-failures). 
+If [collection of resource logs](monitor-service.md) is enabled in the registry, review the ContainerRegistryLoginEvents log. This log stores authentication events and status, including the incoming identity and IP address. Query the log for [registry authentication failures](monitor-service.md#registry-authentication-failures). 
 
 Related links:
 
-* [Logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md)
+* [Logs for diagnostic evaluation and auditing](./monitor-service.md)
 * [Container registry FAQ](container-registry-faq.yml)
 * [Best practices for Azure Container Registry](container-registry-best-practices.md)
 

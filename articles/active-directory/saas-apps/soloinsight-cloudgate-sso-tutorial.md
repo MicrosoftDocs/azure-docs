@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/24/2021
+ms.date: 09/01/2021
 ms.author: jeedes
 ---
 
@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Soloinsight-CloudGate SSO supports **SP** initiated SSO.
+* Soloinsight-CloudGate SSO supports [Automated user provisioning](soloinsight-cloudgate-sso-provisioning-tutorial.md).
 
 ## Add Soloinsight-CloudGate SSO from the gallery
 
@@ -62,13 +63,13 @@ To configure and test Azure AD SSO with Soloinsight-CloudGate SSO, perform the f
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Soloinsight-CloudGate SSO** application integration page, find the **Manage** section and select **Single sign-on**.
+1. In the Azure portal, on the **Soloinsight-CloudGate SSO** application integration page, find the **Manage** section and select **Single sign-on**.
 1. On the **Select a Single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** page, enter the values for the following fields:
+1. On the **Basic SAML Configuration** page, perform the following steps:
 
     1. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.sigateway.com/login`
@@ -169,6 +170,9 @@ To Create a test user, Select **Employees** from the main menu of your CloudGate
 
 ![Employee test](./media/soloinsight-cloudgate-sso-tutorial/employee-test.png)
 
+> [!NOTE]
+> Soloinsight-CloudGate SSO also supports automatic user provisioning, you can find more details [here](./soloinsight-cloudgate-sso-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -177,8 +181,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Soloinsight-CloudGate SSO Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Soloinsight-CloudGate SSO tile in the My Apps, this will redirect to Soloinsight-CloudGate SSO Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Soloinsight-CloudGate SSO tile in the My Apps, this will redirect to Soloinsight-CloudGate SSO Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Soloinsight-CloudGate SSO you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Soloinsight-CloudGate SSO you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

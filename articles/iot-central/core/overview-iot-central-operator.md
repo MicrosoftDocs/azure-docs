@@ -3,7 +3,7 @@ title: Azure IoT Central operator guide
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This article provides an overview of the operator role in IoT Central. 
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/19/2021
+ms.date: 12/19/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -34,6 +34,8 @@ For more detailed information, an operator can use device groups and the built-i
 To manage individual devices, an operator can use device views to set device and cloud properties, and call device commands. Examples, include the **Manage device** and **Commands** views in the previous screenshot.
 
 To manage devices in bulk, an operator can create and schedule jobs. Jobs can update properties and run commands on multiple devices. To learn more, see [Create and run a job in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
+
+If your IoT Central application uses *organizations*, an administrator controls which devices in the application you have access to.
 
 ## Troubleshoot and remediate issues
 

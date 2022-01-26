@@ -2,13 +2,13 @@
 title: Angular plugin for Application Insights JavaScript SDK
 description: How to install and use Angular plugin for Application Insights JavaScript SDK. 
 services: azure-monitor
-author: lgayhardt
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.author: lagayhar
+author: mattmccleary
+ms.author: mmcc
+ms.devlang: javascript
 ---
 
 # Angular plugin for Application Insights JavaScript SDK
@@ -82,4 +82,4 @@ export class AppModule { }
 ## Next steps
 
 - To learn more about the JavaScript SDK, see the [Application Insights JavaScript SDK documentation](javascript.md)
-- [Angular plugin on GitHub](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-angularplugin-js)
+- [Angular plugin on GitHub](https://github.com/microsoft/applicationinsights-angularplugin-js)

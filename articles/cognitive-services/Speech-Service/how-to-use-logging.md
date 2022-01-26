@@ -3,13 +3,12 @@ title: Speech SDK logging - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn about how to enable logging in the Speech SDK (C++, C#, Python, Objective-C, Java).
 services: cognitive-services
-author: amitkumarshukla
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: amishu
+ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -42,6 +41,12 @@ config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName
 
 ```objc
 [config setPropertyTo:@"LogfilePathAndName" byId:SPXSpeechLogFilename];
+```
+
+```go
+import ("github.com/Microsoft/cognitive-services-speech-sdk-go/common")
+
+config.SetProperty(common.SpeechLogFilename, "LogfilePathAndName")
 ```
 
 You can create a recognizer from the config object. This will enable logging for all recognizers.

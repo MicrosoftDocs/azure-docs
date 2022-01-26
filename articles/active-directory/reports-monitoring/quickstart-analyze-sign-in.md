@@ -1,21 +1,18 @@
 ---
 title: Analyze sign-ins with the Azure AD sign-ins log
 description: In this quickstart, you learn how you can use the sign-ins log to determine the reason for a failed sign-in to Azure AD.
-
 services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
-ms.topic: quickstart 
+ms.topic: quickstart
 ms.date: 06/03/2021
-
 ms.author: markvi
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 ms.reviewer: besiler
-
-# Customer intent: As an IT admin, you need to know how to use the sign-ins log so that you can fix sign-in issues.
-
 ms.collection: M365-identity-device-management
+ms.custom: mode-other
+#Customer intent: As an IT admin, you need to know how to use the sign-ins log so that you can fix sign-in issues.
 ---
 # Quickstart: Analyze sign-ins with the Azure AD sign-ins log 
 

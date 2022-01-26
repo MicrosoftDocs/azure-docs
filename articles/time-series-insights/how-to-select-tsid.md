@@ -28,11 +28,12 @@ Watch the environment provisioning tutorial for a detailed explanation of the Ti
 > [!IMPORTANT]
 > Time Series IDs are:
 >
-> * A *case-sensitive* property: letter and character casings are used in searches, comparisons, updates, and when partitioning.
+> * A *case-sensitive string* property: letter and character casings are used in searches, comparisons, updates, and when partitioning.
 > * An *immutable* property: once created it cannot be changed.
 
 > [!TIP]
 > If your event source is an IoT hub, your Time Series ID will likely be ***iothub-connection-device-id***.
+> If you plan to use IoT Plug and Play device models or are using them without components, you should include ***dt-subject*** as a part of the composite key in case you need it in the future.
 
 Key best practices to follow include:
 

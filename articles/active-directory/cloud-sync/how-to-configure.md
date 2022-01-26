@@ -3,11 +3,11 @@ title: 'Azure AD Connect cloud sync new agent configuration'
 description: This article describes how to install cloud sync.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 12/14/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -15,7 +15,11 @@ ms.collection: M365-identity-device-management
 
 # Create a new configuration for Azure AD Connect cloud sync
 
-After you've installed the Azure AD Connect provisioning agent, you need to sign in to the Azure portal and configure it. Follow these steps to enable the agent.
+The following document will guide you through configuring Azure AD Connect cloud sync.  For additional information and an example of how to configure cloud sync, see the video below.
+
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWKact]
+
 
 ## Configure provisioning
 To configure provisioning, follow these steps.
@@ -50,9 +54,8 @@ You can scope the agent to synchronize specific users and groups by using on-pre
  ![Configuration section](media/how-to-configure/scope-1.png)
  
  5. Under **Configure**, select **Edit scoping filters** to change the scope of the configuration rule.
- ![Edit scope](media/how-to-configure/scope-3.png)
- 7. On the right, you can change the scope.  Click **Done**  and **Save** when you have finished.
- 8. Once you have changed the scope, you should [restart provisioning](#restart-provisioning) to initiate an immediate synchronization of the changes.
+ 6. On the right, you can change the scope.  Click **Done**  and **Save** when you have finished.
+ 7. Once you have changed the scope, you should [restart provisioning](#restart-provisioning) to initiate an immediate synchronization of the changes.
 
 ## Attribute mapping
 Azure AD Connect cloud sync allows you to easily map attributes between your on-premises user/group objects and the objects in Azure AD.  You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings.  For more information see [attribute mapping](how-to-attribute-mapping.md).

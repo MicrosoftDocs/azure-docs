@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 10/13/2020
+ms.date: 11/15/2021
 ms.author: mjbrown 
 ms.custom: devx-track-azurecli
 ---
@@ -35,6 +35,7 @@ These samples apply to all Azure Cosmos DB APIs
 |Task | Description |
 |---|---|
 | [Create an Azure Cosmos account and table](../scripts/cli/table/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account and table for Table API. |
+| [Create a serverless Azure Cosmos account and table](../scripts/cli/table/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creates a serverless Azure Cosmos DB account and table for Table API. |
 | [Create an Azure Cosmos account and table with autoscale](../scripts/cli/table/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account and table with autoscale for Table API. |
 | [Throughput operations](../scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Read, update and migrate between autoscale and standard throughput on a table.|
 | [Lock resources from deletion](../scripts/cli/table/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Prevent resources from being deleted with resource locks.|

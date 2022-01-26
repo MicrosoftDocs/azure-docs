@@ -2,7 +2,7 @@
 title: Partner onboarding overview (Azure Event Grid)
 description: Provides an overview how you can onboard as an Event Grid partner. 
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 09/28/2021
 ---
 
 # Partner onboarding overview (Azure Event Grid)

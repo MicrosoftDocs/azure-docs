@@ -128,7 +128,7 @@ conceptualContent:
         - url: ../iot-dps/quick-setup-auto-provision-cli.md
           itemType: quickstart
           text: Set up the service
-        - url: ../iot-dps/quick-create-simulated-device.md
+        - url: ../iot-dps/quick-create-simulated-device-tpm.md
           itemType: quickstart
           text: Provision a TPM device
       # footerLink
@@ -198,19 +198,6 @@ conceptualContent:
       # footerLink
       footerLink:
         url: ../azure-maps/index.yml
-        text: See more
-    # Card
-    - title: Customize a pre-built IoT solution
-      links:
-        - url: ../iot-accelerators/about-iot-accelerators.md
-          itemType: overview
-          text: What are Azure IoT solution accelerators?
-        - url: ../iot-accelerators/quickstart-connected-factory-deploy.md
-          itemType: quickstart
-          text: Try a connected factory solution
-      # footerLink
-      footerLink:
-        url: ../iot-accelerators/index.yml
         text: See more
 
 tools:

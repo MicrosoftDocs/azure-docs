@@ -8,40 +8,31 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 12/13/2021
 ms.custom: devx-track-csharp
 ---
+
 # Filters in Azure Cognitive Search 
 
-A *filter* provides value-based criteria for selecting documents used in a query. A filter can be a single value or an OData [filter expression](search-query-odata-filter.md). In contrast with full text search, a filter value or expression only returns a strict match.
+A *filter* provides value-based criteria for selecting which documents to include in search results. A filter can be a single value or an OData [filter expression](search-query-odata-filter.md). In contrast with full text search, a filter succeeds only if an exact match is made.
 
-Some search experiences, such as [faceted navigation](search-filters-facets.md), depend on filters as part of the implementation, but you can use filters anytime you want to scope a query to specific values. If instead your goal is to scope a query to specific fields, there are alternative methods, described below.
+Filters are specified on individual fields. A field definition must be attributed as "filterable" if you want to use it in filter expressions.
 
 ## When to use a filter
 
-Filters are foundational to several search experiences, including "find near me", faceted navigation, and security filters that show only  those documents a user is allowed to see. If you implement any one of these experiences, a filter is required. It's the filter attached to the search query that provides the geolocation coordinates, the facet category selected by the user, or the security ID of the requestor.
+Filters are foundational to several search experiences, including "find near me" geospatial search, faceted navigation, and security filters that show only  those documents a user is allowed to see. If you implement any one of these experiences, a filter is required. It's the filter attached to the search query that provides the geolocation coordinates, the facet category selected by the user, or the security ID of the requestor.
 
 Common scenarios include the following:
 
 + Slice search results based on content in the index. Given a schema with hotel location, categories, and amenities, you might create a filter to explicitly match on criteria (in Seattle, on the water, with a view). 
 
-+ Implement a search experience comes with a filter requirement:
++ Implement a search experience comes with a filter dependency:
 
   + [Faceted navigation](search-faceted-navigation.md) uses a filter to pass back the facet category selected by the user.
-  + Geo-search uses a filter to pass coordinates of the current location in "find near me" apps. 
+  + [Geospatial search](search-query-odata-geo-spatial-functions.md) uses a filter to pass coordinates of the current location in "find near me" apps and functions that match within an area or by distance.
   + [Security filters](search-security-trimming-for-azure-search.md) pass security identifiers as filter criteria, where a match in the index serves as a proxy for access rights to the document.
 
 + Do a "numbers search". Numeric fields are retrievable and can appear in search results, but they are not searchable (subject to full text search) individually. If you need selection criteria based on numeric data, use a filter.
-
-### Alternative methods for reducing scope
-
-If you want a narrowing effect in your search results, filters are not your only choice. These alternatives could be a better fit, depending on your objective:
-
-+ `searchFields` query parameter restricts search to specific fields. For example, if your index provides separate fields for English and Spanish descriptions, you can use searchFields to target which fields to use for full text search. 
-
-+ `$select` parameter is used to specify which fields to include in a result set, effectively trimming the response before sending it to the calling application. This parameter does not refine the query or reduce the document collection, but if a smaller response is your goal, this parameter is an option to consider. 
-
-For more information about either parameter, see [Search Documents > Request > Query parameters](/rest/api/searchservice/search-documents#query-parameters).
 
 ## How filters are executed
 
@@ -60,10 +51,6 @@ One of the limits on a filter expression is the maximum size limit of the reques
 The following examples represent prototypical filter definitions in several APIs.
 
 ```http
-# Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?api-version=2020-06-30&search=*&$filter=Rooms/any(room: room/BaseRate lt 150.0)&$select=HotelId, HotelName, Rooms/Description, Rooms/BaseRate
-
-# Option 2: Use filter for POST and pass it in the request body
 POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "*",
@@ -83,13 +70,13 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
     var results = searchIndexClient.Documents.Search("*", parameters);
 ```
 
-## Filter usage patterns
+## Filter patterns
 
 The following examples illustrate several usage patterns for filter scenarios. For more ideas, see [OData expression syntax > Examples](./search-query-odata-filter.md#examples).
 
 + Standalone **$filter**, without a query string, useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring, and no ranking. Notice the search string is just an asterisk, which means "match all documents".
 
-  ```http
+  ```json
   {
     "search": "*",
     "filter": "Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Honolulu"
@@ -98,7 +85,7 @@ The following examples illustrate several usage patterns for filter scenarios. F
 
 + Combination of query string and **$filter**, where the filter creates the subset, and the query string provides the term inputs for full text search over the filtered subset. The addition of terms (walking distance theaters) introduces search scores in the results, where documents that best match the terms are ranked higher. Using a filter with a query string is the most common usage pattern.
 
-  ```http
+  ```json
   {
     "search": "walking distance theaters",
     "filter": "Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'"
@@ -106,7 +93,7 @@ The following examples illustrate several usage patterns for filter scenarios. F
 
 + Compound queries, separated by "or", each with its own filter criteria (for example, 'beagles' in 'dog' or 'siamese' in 'cat'). Expressions combined with `or` are evaluated individually, with the union of documents matching each expression sent back in the response. This usage pattern is achieved through the `search.ismatchscoring` function. You can also use the non-scoring version, `search.ismatch`.
 
-   ```
+   ```http
    # Match on hostels rated higher than 4 OR 5-star motels.
    $filter=search.ismatchscoring('hostel') and Rating ge 4 or search.ismatchscoring('motel') and Rating eq 5
 
@@ -116,16 +103,11 @@ The following examples illustrate several usage patterns for filter scenarios. F
 
   It is also possible to combine full-text search via `search.ismatchscoring` with filters using `and` instead of `or`, but this is functionally equivalent to using the `search` and `$filter` parameters in a search request. For example, the following two queries produce the same result:
 
-  ```
+  ```http
   $filter=search.ismatchscoring('pool') and Rating ge 4
 
   search=pool&$filter=Rating ge 4
   ```
-
-Follow up with these articles for comprehensive guidance on specific use cases:
-
-+ [Facet filters](search-filters-facets.md)
-+ [Security trimming](search-security-trimming-for-azure-search.md) 
 
 ## Field requirements for filtering
 
@@ -168,7 +150,7 @@ Documents that contain numeric fields (price, size, SKU, ID) provide those value
 
 First, try **Search explorer** in the portal to submit queries with **$filter** parameters. The [real-estate-sample index](search-get-started-portal.md) provides interesting results for the following filtered queries when you paste them into the search bar:
 
-```
+```http
 # Geo-filter returning documents within 5 kilometers of Redmond, Washington state
 # Use $count=true to get a number of hits returned by the query
 # Use $select to trim results, showing values for named fields only

@@ -19,7 +19,7 @@ Log Analytics dashboards can visualize all of your saved log queries, giving you
 > * Add a log query to a shared dashboard 
 > * Customize a tile in a shared dashboard
 
-To complete the example in this tutorial, you must have an existing virtual machine [connected to the Log Analytics workspace](../vm/quick-collect-azurevm.md).  
+To complete the example in this tutorial, you must have an existing virtual machine [connected to the Log Analytics workspace](../vm/monitor-virtual-machine.md).  
  
 ## Sign in to Azure portal
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 

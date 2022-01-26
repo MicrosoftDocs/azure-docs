@@ -1,10 +1,5 @@
 - name: Cloud Foundry documentation
   href: index.yml
-- name: Quickstarts
-  expanded: true
-  items:
-  - name: Marketplace template
-    href: https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry
 - name: Tutorials
   items:
   - name: Create CF on Azure

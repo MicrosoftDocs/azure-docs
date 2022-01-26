@@ -1,15 +1,15 @@
 ---
 title: Azure Percept overview
 description: Learn more about the Azure Percept platform
-author: mimcco
-ms.author: mimcco
+author: nkhuyent
+ms.author: davej
 ms.service: azure-percept
 ms.topic: overview
 ms.date: 03/23/2021
 ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
 
-# Introduction to Azure Percept
+# Azure Percept overview
 
 Azure Percept is a family of hardware, software, and services designed to accelerate business transformation using IoT and AI at the edge. Azure Percept covers the full stack from silicon to services to solve the integration challenges of edge AI at scale.  
 

@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
+ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 ---
 # Azure Table storage output bindings for Azure Functions
@@ -13,7 +14,7 @@ ms.custom: "devx-track-csharp, devx-track-python"
 Use an Azure Table storage output binding to write entities to a table in an Azure Storage account.
 
 > [!NOTE]
-> This output binding does not support updating existing entities. Use the `TableOperation.Replace` operation [from the Azure Storage SDK](../cosmos-db/tutorial-develop-table-dotnet.md#delete-an-entity) to update an existing entity.
+> This output binding does not support updating existing entities. Use the `TableOperation.Replace` operation [from the Azure Storage SDK](../cosmos-db/table/table-support.md) to update an existing entity.
 
 ## Example
 

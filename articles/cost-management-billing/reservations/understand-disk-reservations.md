@@ -6,7 +6,7 @@ ms.author: rogarana
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 09/15/2021
 ---
 
 # Understand how your reservation discount is applied to Azure disk storage

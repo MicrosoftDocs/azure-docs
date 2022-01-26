@@ -9,6 +9,9 @@ ms.service: storage
 ms.subservice: disks
 ---
 # Virtual machine and disk performance
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 [!INCLUDE [VM and Disk Performance](../../includes/virtual-machine-disk-performance.md)]
 
 ## Virtual machine uncached vs cached limits

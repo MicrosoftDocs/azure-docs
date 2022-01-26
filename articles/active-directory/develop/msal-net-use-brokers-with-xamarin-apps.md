@@ -7,12 +7,12 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: "devx-track-csharp, aaddev"
+ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
 #Customer intent: As an application developer, I want to learn how to use brokers with my Xamarin iOS or Android application and MSAL.NET.
 ---
 
@@ -130,7 +130,7 @@ In the URL scheme, `BundleId` uniquely identifies the app: `$"msauth.(BundleId)"
 > [!NOTE]
 > This URL scheme becomes part of the redirect URI that uniquely identifies your app when it receives the response from the broker.
 
-```XML
+```xml
  <key>CFBundleURLTypes</key>
     <array>
       <dict>
@@ -152,7 +152,7 @@ MSAL uses `–canOpenURL:` to check whether the broker is installed on the devic
 
 Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the *Info.plist* file, as in the following example:
 
-```XML
+```xml
 <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>msauthv2</string>

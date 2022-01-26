@@ -6,9 +6,7 @@ author: rahulg1190
 manager: bsiva
 ms.author: rahugup
 ms.topic: quickstart
-ms.custom:
-  - subject-armqs
-  - mode-arm
+ms.custom: subject-armqs, mode-arm
 ---
 
 # Quickstart: Create an Azure Migrate project using an ARM template
@@ -32,8 +30,6 @@ If you don't have an active Azure subscription, you can create a [free account](
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/migrate-project-create/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.migrate/migrate-project-create/azuredeploy.json":::
-
-
 
 ## Deploy the template
 
@@ -62,7 +58,7 @@ To confirm that the Azure Migrate project was created, use the Azure portal.
 
 
 1. Navigate to Azure Migrate by searching for **Azure Migrate** in the search bar on the Azure portal.
-2. Click the **Discover,** **Assess,** and **Migrate** button under the Windows, Linux, and SQL Server tile.
+2. Click the **Discover,** **Assess,** and **Migrate** button under the Servers, databases and web apps tile.
 3. Select the **Azure subscription** and **Project** as per the values specified in the deployment.
 
 

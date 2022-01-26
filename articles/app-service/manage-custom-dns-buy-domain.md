@@ -94,6 +94,11 @@ For pricing information on App Service domains, visit the [App Service Pricing p
 
 You're now ready to assign an App Service app to this custom domain.
 
+> [!NOTE]
+> Depending on the subscription type, a sufficient payment history may be required prior to creating an App Service Domain. 
+> 
+> If you have made payments and are still running into this error, you can contact support and provide proof of payments.
+
 ## Prepare the app
 
 To map a custom DNS name to a web app, the web app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (Shared, Basic, Standard, Premium, or Consumption for Azure Functions). In this step, you make sure that the App Service app is in the supported pricing tier.
@@ -240,13 +245,11 @@ After you purchase the App Service Domain, you have five days to cancel your pur
 
 1. In the **App Service Domains** section, select the domain you want to configure.
 
-1. In the domain's left navigation, select **Hostname bindings**. The hostname bindings from all Azure services are listed here.
+1. In the domain's left navigation, select **Locks**. 
 
-    ![Screenshot that shows the Hostname bindings page.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
+    A delete lock has been created for your domain. As long as a delete lock exists, you can't delete the App Service domain.
 
-1. Delete each hostname binding by selecting **...** > **Delete**. After all the bindings are deleted, select **Save**.
-
-    <!-- ![Screenshot that shows where to delete the hostname bindings.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png) -->
+1. Click **Delete** to remove the lock.
 
 1. In the domain's left navigation, select **Overview**. 
 
@@ -260,7 +263,7 @@ After you purchase the App Service Domain, you have five days to cancel your pur
 
 ## Direct default URL to a custom directory
 
-By default, App Service directs web requests to the root directory of your app code. To direct them to a subdirectory, such as `public`, see [Redirect to a custom directory](app-service-web-tutorial-custom-domain.md#redirect-to-a-custom-directory).
+By default, App Service directs web requests to the root directory of your app code. To direct them to a subdirectory, such as `public`, see [Redirect to a custom directory](configure-common.md#redirect-to-a-custom-directory).
 
 ## Next steps
 

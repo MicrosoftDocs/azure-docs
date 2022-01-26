@@ -12,8 +12,7 @@ ms.custom:
 
 # Certificates overview for Azure Cloud Services (classic)
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 Certificates are used in Azure for cloud services ([service certificates](#what-are-service-certificates)) and for authenticating with the management API ([management certificates](#what-are-management-certificates)). This topic gives a general overview of both certificate types, how to [create](#create) and deploy them to Azure.
 
@@ -44,6 +43,8 @@ Management certificates allow you to authenticate with the classic deployment mo
 
 ### Limitations
 There is a limit of 100 management certificates per subscription. There is also a limit of 100 management certificates for all subscriptions under a specific service administrator’s user ID. If the user ID for the account administrator has already been used to add 100 management certificates and there is a need for more certificates, you can add a co-administrator to add the additional certificates. 
+
+Additionally, management certificates can not be used with CSP subscriptions as CSP subscriptions only support the Azure Resource Manager deployment model and management certificates use the classic deployment model. Reference [Azure Resource Manager vs classic deployment model](../azure-resource-manager/management/deployment-models.md) and [Understanding Authentication with the Azure SDK for .NET](/dotnet/azure/sdk/authentication) for more information on your options for CSP subscriptions.
 
 <a name="create"></a>
 ## Create a new self-signed certificate

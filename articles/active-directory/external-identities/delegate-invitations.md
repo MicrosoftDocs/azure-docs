@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/04/2021
+ms.date: 08/24/2021
 
 ms.author: mimart
 author: msmimart
@@ -60,20 +60,7 @@ By default, all users, including guests, can invite guest users.
      > [!NOTE]
      > If **Members can invite** is set to **No** and **Admins and users in the guest inviter role can invite** is set to **Yes**, users in the **Guest Inviter** role will still be able to invite guests.
 
-6. Under **Email one-time passcode for guests**, choose the appropriate settings (for more information, see [Email one-time passcode authentication](one-time-passcode.md)):
-
-   - **Automatically enable email one-time passcode for guests in October 2021**. (Default) If the email one-time passcode feature is not already enabled for your tenant, it will be automatically turned on in October 2021. No further action is necessary if you want the feature enabled at that time. If you've already enabled or disabled the feature, this option will be unavailable.
-
-   - **Enable email one-time passcode for guests effective now**. Turns on the email one-time passcode feature for your tenant.
-
-   - **Disable email one-time passcode for guests**. Turns off the email one-time passcode feature for your tenant, and prevents the feature from turning on in October 2021.
-
-   > [!NOTE]
-   > Instead of the options above, you'll see the following toggle if you've enabled or disabled this feature or if you've previously opted in to the preview:
-   >
-   >![Enable Email one-time passcode opted in](media/delegate-invitations/enable-email-otp-opted-in.png)
-
-7. Under **Enable guest self-service sign up via user flows**, select **Yes** if you want to be able to create user flows that let users sign up for apps. For more information about this setting, see [Add a self-service sign-up user flow to an app](self-service-sign-up-user-flow.md).
+6. Under **Enable guest self-service sign up via user flows**, select **Yes** if you want to be able to create user flows that let users sign up for apps. For more information about this setting, see [Add a self-service sign-up user flow to an app](self-service-sign-up-user-flow.md).
 
     ![Self-service sign up via user flows setting](./media/delegate-invitations/self-service-sign-up-setting.png)
 

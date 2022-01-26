@@ -1,21 +1,16 @@
 ---
 title: Azure VMs high availability for SAP NetWeaver on SLES multi-SID guide | Microsoft Docs
 description: Multi-SID high-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server for SAP applications
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 01/24/2022
 ms.author: radeltch
-
 ---
 
 # High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications multi-SID guide
@@ -261,7 +256,7 @@ This documentation assumes that:
        op monitor interval=20s timeout=40s
    
       sudo crm configure primitive vip_NW2_ASCS IPaddr2 \
-        params ip=10.3.1.16 cidr_netmask=24 \
+        params ip=10.3.1.16 \
         op monitor interval=10 timeout=20
    
       sudo crm configure primitive nc_NW2_ASCS azure-lb port=62010
@@ -275,7 +270,7 @@ This documentation assumes that:
         op monitor interval=20s timeout=40s
    
       sudo crm configure primitive vip_NW3_ASCS IPaddr2 \
-       params ip=10.3.1.13 cidr_netmask=24 \
+       params ip=10.3.1.13 \
        op monitor interval=10 timeout=20
    
       sudo crm configure primitive nc_NW3_ASCS azure-lb port=62020
@@ -307,7 +302,7 @@ This documentation assumes that:
       op monitor interval=20s timeout=40s
    
     sudo crm configure primitive vip_NW2_ERS IPaddr2 \
-      params ip=10.3.1.17 cidr_netmask=24 \
+      params ip=10.3.1.17 \
       op monitor interval=10 timeout=20
    
     sudo crm configure primitive nc_NW2_ERS azure-lb port=62112
@@ -320,7 +315,7 @@ This documentation assumes that:
       op monitor interval=20s timeout=40s
    
     sudo crm configure primitive vip_NW3_ERS IPaddr2 \
-      params ip=10.3.1.19 cidr_netmask=24 \
+      params ip=10.3.1.19 \
       op monitor interval=10 timeout=20
    
     sudo crm configure primitive nc_NW3_ERS azure-lb port=62122
@@ -580,7 +575,7 @@ The tests that are presented are in a two node, multi-SID cluster with three SAP
 
 1. Test HAGetFailoverConfig and HACheckFailoverConfig
 
-   Run the following commands as <sapsid>adm on the node where the ASCS instance is currently running. If the commands fail with FAIL: Insufficient memory, it might be caused by dashes in your hostname. This is a known issue and will be fixed by SUSE in the sap-suse-cluster-connector package.
+   Run the following commands as \<sapsid\>adm on the node where the ASCS instance is currently running. If the commands fail with FAIL: Insufficient memory, it might be caused by dashes in your hostname. This is a known issue and will be fixed by SUSE in the sap-suse-cluster-connector package.
 
    ```
     slesmsscl1:nw1adm 57> sapcontrol -nr 00 -function HAGetFailoverConfig

@@ -5,7 +5,7 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: article
-ms.date: 03/15/2021
+ms.date: 08/26/2021
 ms.author: duau
 ---
 
@@ -78,7 +78,7 @@ Azure Front Door currently provides individual API requests with each entry havi
 | UserAgent | The browser type that the client used. |
 | ClientIp | The IP address of the client that made the original request. If there was an X-Forwarded-For header in the request, then the Client IP is picked from the same. |
 | SocketIp | The IP address of the direct connection to AFD edge. If the client used an HTTP proxy or a load balancer to send the request, the value of SocketIp is the IP address of the proxy or load balancer. |
-| Latency | The length of time from the time AFD edge server receives a client's request to the time that AFD sends the last byte of response to client,  in milliseconds. This field doesn't take into account network latency and TCP buffering. |
+| timeTaken | The length of time from the time AFD edge server receives a client's request to the time that AFD sends the last byte of response to client,  in milliseconds. This field doesn't take into account network latency and TCP buffering. |
 | RequestProtocol | The protocol that the client specified in the request: HTTP, HTTPS. |
 | SecurityProtocol | The TLS/SSL protocol version used by the request or null if no encryption. Possible values include: SSLv3, TLSv1, TLSv1.1, TLSv1.2 |
 | SecurityCipher | When the value for Request Protocol is HTTPS, this field indicates the TLS/SSL cipher negotiated by the client and AFD for encryption. |

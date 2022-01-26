@@ -26,7 +26,7 @@ shared between one or more AKS clusters and/or other Azure components.
 
 ## Prerequisites
 This document assumes you already have the following tools and infrastructure installed:
-- [AKS](https://azure.microsoft.com/services/kubernetes-service/) with [Advanced Networking](../aks/configure-azure-cni.md) enabled
+- [AKS](https://azure.microsoft.com/services/kubernetes-service/) with [Azure Container Networking Interface (CNI)](../aks/configure-azure-cni.md)
 - [Application Gateway v2](./tutorial-autoscale-ps.md) in the same virtual network as AKS
 - [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) installed on your AKS cluster
 - [Cloud Shell](https://shell.azure.com/) is the Azure shell environment, which has `az` CLI, `kubectl`, and `helm` installed. These tools are required for the commands below.
@@ -126,7 +126,7 @@ It is also possible to provide AGIC access to ARM via a Kubernetes secret.
 blob to be saved to Kubernetes.
 
 ```azurecli
-az ad sp create-for-rbac --sdk-auth | base64 -w0
+az ad sp create-for-rbac --role Contributor --sdk-auth | base64 -w0
 ```
 
 2. Add the base64 encoded JSON blob to the `helm-config.yaml` file. More information on `helm-config.yaml` is in the
@@ -194,7 +194,7 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
     ## Alternatively you can use Service Principal credentials
     # armAuth:
     #    type: servicePrincipal
-    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --sdk-auth | base64 -w0" >>
+    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --role Contributor --sdk-auth | base64 -w0" >>
     
     ################################################################################
     # Specify if the cluster is Kubernetes RBAC enabled or not
@@ -231,7 +231,7 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
          --set appgw.subscriptionId=subscription-uuid \
          --set appgw.shared=false \
          --set armAuth.type=servicePrincipal \
-         --set armAuth.secretJSON=$(az ad sp create-for-rbac --sdk-auth | base64 -w0) \
+         --set armAuth.secretJSON=$(az ad sp create-for-rbac --role Contributor --sdk-auth | base64 -w0) \
          --set rbac.enabled=true \
          --set verbosityLevel=3 \
          --set kubernetes.watchNamespace=default \

@@ -25,6 +25,7 @@ Assessments you create with Azure Migrate are a point-in-time snapshot of data. 
 --- | --- 
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. You can assess your on-premises servers in [VMware](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
 **Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance.
+**Azure App Service** | Assessments to migrate your on-premises ASP.NET web apps, running on IIS web servers, from your VMware environment to Azure App Service.
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
@@ -114,7 +115,7 @@ Here's what's included in an AVS assessment:
 | - | - |
 | **Target location** | Specifies the AVS private cloud location to which you want to migrate. |
 | **Storage type** | Specifies the storage engine to be used in AVS. AVS currently only supports vSAN as a default storage type but more storage options will be coming as per roadmap. |
-| **Reserved Instances (RIs)** | This property helps you specify Reserved Instances in AVS if purchased and the term of the Reserved Instance. Used to calculate costs. |
+| **Reserved Instances (RIs)** | This property helps you specify Reserved Instances in AVS if purchased and the term of the Reserved Instance. Your cost estimates will take the option chosen into account.[Learn more](../azure-vmware/reserved-instance.md) <br/><br/> If you select reserved instances, you can't specify “Discount (%)”.|
 | **Node type** | Specifies the [AVS Node type](../azure-vmware/concepts-private-clouds-clusters.md) used to be used in Azure. The default node type is AV36. More node types might be available in future.  Azure Migrate will recommend a required number of nodes for the VMs to be migrated to AVS. |
 | **FTT Setting, RAID Level** | Specifies the valid combination of Failures to Tolerate and Raid combinations. The selected FTT option combined with RAID level and the on-premises VM disk requirement will determine the total vSAN storage required in AVS. Total available storage after calculations also includes a) space reserved for management objects such as vCenter and b) 25% storage slack required for vSAN operations. |
 | **Sizing criterion** | Sets the criteria to be used to determine memory, cpu and storage requirements for AVS nodes. You can opt for*performance-based* sizing or *as on-premises* without considering the performance history. To simply lift and shift choose as on-premises. To obtain usage based sizing choose performance based. |
@@ -134,7 +135,7 @@ Here's what's included in an AVS assessment:
 AVS assessments assess each on-premises VMs for its suitability for AVS by reviewing the server properties. It also assigns each assessed server to one of the following suitability categories:
 
 - **Ready for AVS**: The server can be migrated as-is to Azure (AVS) without any changes. It will start in AVS with full AVS support.
-- **Ready with conditions**: The VM might have compatibility issues with the current vSphere version as well as requiring possibly VMware tools and or other settings before full functionality from the VM can be achieved in AVS.
+- **Ready with conditions**: There might be some compatibility issues example internet protocol or deprecated OS in VMware and need to be remediated before migrating to Azure VMware Solution. To fix any readiness problems, follow the remediation guidance the assessment suggests.
 - **Not ready for AVS**: The VM will not start in AVS. For example, if the on-premises VMware VM has an external device attached such as a cd-rom the VMware VMotion operation will fail (if using VMware VMotion).
 - **Readiness unknown**: Azure Migrate couldn't determine the readiness of the server because of insufficient metadata collected from the on-premises environment.
 
@@ -146,19 +147,19 @@ The assessment reviews the following property of the on-premises VM to determine
 
 | **Property** | **Details** | **AVS readiness status** |
 | - | - | - |
-| **Internet Protocol** | Azure currently does not support end to end IPv6 internet addressing. Contact your local MSFT AVS GBB team for guidance on remediation guidance if your server is detected with IPv6. | Conditionally Ready Internet Protocol |
-
-### Guest operating system
-
-Currently, AVS assessments do not review operating system as part of the suitability analysis. All operating systems running on on-premises VMs are likely to run on Azure VMware Solution (AVS).
-
-Along with VM properties, the assessment looks at the guest operating system of the servers to determine whether it can run on Azure.
+| **Internet Protocol** | Azure VMware Solution currently does not support end to end IPv6 internet addressing. Contact your local MSFT AVS GBB team for guidance on remediation guidance if your server is detected with IPv6. | Unsupported IPv6 |
+| **Operating System** | Support for certain Operating System versions have been deprecated by VMware and the assessment recommends you to upgrade the operating system before migrating to Azure VMware Solution. [Learn more](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software)
+ | Unsupported OS |
 
 ## Sizing
 
 After a server is marked as ready for AVS, AVS Assessment makes node sizing recommendations, which involve identifying the appropriate on-premises VM requirements and finding the total number of AVS nodes required. These recommendations vary, depending on the assessment properties specified.
 
 - If the assessment uses*performance-based sizing*, Azure Migrate considers the performance history of the server to make the appropriate sizing recommendation for AVS. This method is especially helpful if you've over-allocated the on-premises VM, but utilization is low and you want to right-size the VM in AVS to save costs. This method will help you optimize the sizes during migration.
+
+> [!NOTE] 
+>If you import serves by using a CSV file, the performance values you specify (CPU utilization, Memory utilization, Storage in use, Disk IOPS and throughput) are used if you choose performance-based sizing. You will not be able to provide performance history and percentile information.
+
 - If you don't want to consider the performance data for VM sizing and want to take the on-premises servers as-is to AVS, you can set the sizing criteria to* as on-premises*. Then, the assessment will size the VMs based on the on-premises configuration without considering the utilization data.
 
 ### FTT Sizing Parameters
@@ -186,11 +187,11 @@ For performance-based sizing, Azure Migrate appliance profiles the on-premises e
 
 After the effective utilization value is determined, the storage, network, and compute sizing is handled as follows.
 
-**Storage sizing**: Azure Migrate uses the total on-premises VM disk space as a calculation parameter to determine AVS vSAN storage requirements in addition to the customer-selected FTT setting. FTT - Failures to tolerate as well as requiring a minimum no of nodes per FTT option will determine the total vSAN storage required combined with the VM disk requirement. Storage utilization is currently not taken into consideration and the logic only looks at allocated storage per VM.
+**Storage sizing**: Azure Migrate uses the total on-premises VM disk space as a calculation parameter to determine AVS vSAN storage requirements in addition to the customer-selected FTT setting. FTT - Failures to tolerate as well as requiring a minimum no of nodes per FTT option will determine the total vSAN storage required combined with the VM disk requirement. If you import serves by using a CSV file, storage utilization is taken into consideration when you create a performance based assessment. If you create an as-on-premises assessment, the logic only looks at allocated storage per VM.
 
-**Network sizing**: AVS assessments currently does not take any network settings into consideration.
+**Network sizing**:  Azure VMware Solution assessments currently do not take any network settings into consideration for node sizing. While migrating to Azure VMware Solution, minimums and maximums as per VMware NSX- T standards are used.
 
-**Compute sizing**: After it calculates storage requirements, AVS assessment considers CPU and memory requirements to determine the number of nodes required for AVS based on the node type.
+**Compute sizing**: After it calculates storage requirements (FTT Sizing Parameters), Azure VMware Solution assessment considers CPU and memory requirements to determine the number of nodes required for AVS based on the node type.
 
 - Based on the sizing criteria, AVS assessment looks at either the performance-based VM data or the on-premises VM configuration. The comfort factor setting allows for specifying growth factor of the cluster. Currently by default, hyperthreading is enabled and thus a 36 core nodes will have 72 vCores. 4 vCores per physical is used to determine CPU thresholds per cluster using the VMware standard of not exceeding 80% utilization to allow for maintenance or failures to be handled without compromising cluster availability. There is currently no override available to change the oversubscription values and we may have this in future versions.
 
@@ -223,7 +224,11 @@ Storage utilization is calculated based on the following sequence:
 5. Apply required 25% slack for vSAN
 6. Result available storage for VMs out of total storage including management overhead.
 
-The available storage on a 3 node cluster will be based on the default storage policy which is Raid-1 and uses thick provisioning. When calculating for erasure coding or Raid-5 for example, a minimum of 4 nodes is required. Note that in AVS the storage policy has to be changed by the admin to allow for more space.
+The available storage on a 3 node cluster will be based on the default storage policy which is Raid-1 and uses thick provisioning. When calculating for erasure coding or Raid-5 for example, a minimum of 4 nodes is required. Note that in Azure VMware Solution, the storage policy for customer workload can be changed by the admin or Run Command(Currently in Preview). [Learn more] (./azure-vmware/configure-storage-policy.md)
+
+### Limiting factor
+
+The limiting factor shown in assessments could be CPU or memory or storage resources based on the utilization on nodes. It is the resource which is limiting or determining the number of hosts/nodes required to accommodate the resources. For example, in an assessment if it was found that after migrating 8 VMware VMs to Azure VMware Solution, 50% of CPU resources will be utilized, 14% of memory is utilized and 18% of storage will be utilized on the 3 Av36 nodes and thus CPU is the limiting factor.
 
 ## Confidence ratings
 
@@ -280,7 +285,7 @@ As the pricing for Azure VMware Solution (AVS) is per node, the total cost does 
 
 In the Azure readiness report for Azure VMware Solution (AVS) assessment, you can see the following suggested tools:
 
-- **VMware HCX or Enterprise**: For VMware servers, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+- **VMware HCX or Enterprise**: For VMware servers, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/install-vmware-hcx.md).
 - **Unknown**: For servers imported via a CSV file, the default migration tool is unknown. Though for VMware servers, it is recommended to use the VMware Hybrid Cloud Extension (HCX) solution.
 
 ## Next steps

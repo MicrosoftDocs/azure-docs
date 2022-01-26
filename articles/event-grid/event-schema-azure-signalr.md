@@ -2,7 +2,7 @@
 title: Azure SignalR as Event Grid source
 description: Describes the properties that are provided for Azure SignalR events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 09/15/2021
 ---
 
 # Azure Event Grid event schema for SignalR Service

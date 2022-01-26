@@ -192,7 +192,12 @@ If your master target has Internet connectivity, you can use the following steps
 
 #### Download the master target installation packages
 
-[Download the latest Linux master target installation bits](https://aka.ms/latestlinuxmobsvc).
+[Download](https://aka.ms/latestlinuxmobsvc) the latest Linux master target installation bits for Ubuntu 20.04.
+
+[Download](https://aka.ms/oldlinuxmobsvc) the older Linux master target installation bits for Ubuntu 16.04.
+
+> [!NOTE]
+> It is recommended that you use the latest Ubuntu operating system version for setting up the master target server.
 
 To download it using Linux, type:
 

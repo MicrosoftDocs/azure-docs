@@ -29,7 +29,7 @@ You can create and manage read replicas using the Azure CLI.
 ### Create a read replica
 
 > [!IMPORTANT]
-> When you create a replica for a source that has no existing replicas, the source will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
+> If your source server has no existing replica servers, source server might need a restart to prepare itself for replication depending upon the storage used (v1/v2). Please consider server restart and perform this operation during off-peak hours. See [Source Server restart](./concepts-read-replicas.md#source-server-restart) for more details.  
 >
 >If GTID is enabled on a primary server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID based replication. To learn more refer to [Global transaction identifier (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid)
 
@@ -119,7 +119,7 @@ az mysql server delete --resource-group myresourcegroup --name mydemoserver
 You can create and manage read replicas using the [Azure REST API](/rest/api/azure/).
 
 ### Create a read replica
-You can create a read replica by using the [create API](/rest/api/mysql/flexibleserver(preview)/servers/create):
+You can create a read replica by using the [create API](/rest/api/mysql/flexibleserver/servers/create):
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{replicaName}?api-version=2017-12-01
@@ -147,14 +147,14 @@ A replica is created by using the same compute and storage settings as the maste
 > Before a source server setting is updated to a new value, update the replica setting to an equal or greater value. This action helps the replica keep up with any changes made to the master.
 
 ### List replicas
-You can view the list of replicas of a source server using the [replica list API](/rest/api/mysql/flexibleserver(preview)/replicas/listbyserver):
+You can view the list of replicas of a source server using the [replica list API](/rest/api/mysql/flexibleserver/replicas/list-by-server):
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
 ### Stop replication to a replica server
-You can stop replication between a source server and a read replica by using the [update API](/rest/api/mysql/flexibleserver(preview)/servers/update).
+You can stop replication between a source server and a read replica by using the [update API](/rest/api/mysql/flexibleserver/servers/update).
 
 After you stop replication to a source server and a read replica, it can't be undone. The read replica becomes a standalone server that supports both reads and writes. The standalone server can't be made into a replica again.
 
@@ -171,7 +171,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 ```
 
 ### Delete a source or replica server
-To delete a source or replica server, you use the [delete API](/rest/api/mysql/flexibleserver(preview)/servers/delete):
+To delete a source or replica server, you use the [delete API](/rest/api/mysql/flexibleserver/servers/delete):
 
 When you delete a source server, replication to all read replicas is stopped. The read replicas become standalone servers that now support both reads and writes.
 

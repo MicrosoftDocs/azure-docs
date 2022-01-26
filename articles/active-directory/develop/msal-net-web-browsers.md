@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: "devx-track-csharp, aaddev"
+ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
 #Customer intent: As an application developer, I want to learn about web browsers MSAL.NET so I can decide if this platform meets my application development needs and requirements.
 ---
 
@@ -36,7 +36,7 @@ It's important to understand that when acquiring a token interactively, the cont
 
 ### Embedded vs System Web UI
 
-MSAL.NET is a multi-framework library and has framework-specific code to host a browser in a UI control (for example, on .NET Classic it uses WinForms, on Xamarin it uses native mobile controls etc.). This control is called `embedded` web UI. Alternatively, MSAL.NET is also able to kick off the system OS browser.
+MSAL.NET is a multi-framework library and has framework-specific code to host a browser in a UI control (for example, on .NET Classic it uses WinForms, on .NET 5.0+ it uses WebView2, on Xamarin it uses native mobile controls etc.). This control is called `embedded` web UI. Alternatively, MSAL.NET is also able to kick off the system OS browser.
 
 Generally, it's recommended that you use the platform default, and this is typically the system browser. The system browser is better at remembering the users that have logged in before. To change this behavior, use `WithUseEmbeddedWebView(bool)`
 
@@ -44,6 +44,7 @@ Generally, it's recommended that you use the platform default, and this is typic
 
 | Framework        | Embedded | System | Default |
 | ------------- |-------------| -----| ----- |
+| .NET 5.0+     | Yes†        | Yes^ | Embedded |
 | .NET Classic     | Yes | Yes^ | Embedded |
 | .NET Core     | No | Yes^ | System |
 | .NET Standard | No | Yes^ | System |
@@ -52,7 +53,9 @@ Generally, it's recommended that you use the platform default, and this is typic
 | Xamarin.iOS | Yes | Yes  | System |
 | Xamarin.Mac| Yes | No | Embedded |
 
-^ Requires "http://localhost" redirect URI
+**†** Requires OS-specific target framework moniker (TFM) of at least [`net5.0-windows10.0.17763.0`](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/efc71473d668fdd42c21cef6a6cadc69e1907290/src/client/Microsoft.Identity.Client/Platforms/netcore/NetCoreWebUIFactory.cs#L28). Do _not_ use the `net5.0` or `net5.0-windows` TFMs. For more information about TFMs, see [Target frameworks in SDK-style projects](/dotnet/standard/frameworks).
+
+**^** Requires redirect URI _http://localhost_
 
 ## System web browser on Xamarin.iOS, Xamarin.Android
 
@@ -62,7 +65,7 @@ Using the system browser has the significant advantage of sharing the SSO state 
 
 ## System browser experience on .NET 
 
-On .NET Core, MSAL.NET will start the system browser as a separate process. MSAL.NET doesn't have control over this browser, but once the user finishes authentication, the web page is redirected in such a way that MSAL.NET can intercept the Uri.
+On .NET Core, MSAL.NET will start the system browser as a separate process. MSAL.NET doesn't have control over this browser, but once the user finishes authentication, the web page is redirected in such a way that MSAL.NET can intercept the URI.
 
 You can also configure apps written for .NET Classic or .NET 5 to use this browser by specifying:
 
@@ -79,8 +82,8 @@ MSAL.NET needs to listen on `http://localhost:port` and intercept the code that 
 
 To enable the system browser:
 
-1. During app registration, configure `http://localhost` as a redirect uri (not currently supported by B2C)
-2. When you construct your PublicClientApplication, specify this redirect uri:
+1. During app registration, configure `http://localhost` as a redirect URI (not currently supported by B2C)
+2. When you construct your PublicClientApplication, specify this redirect URI:
 
 ```csharp
 IPublicClientApplication pca = PublicClientApplicationBuilder
@@ -102,7 +105,7 @@ On Linux, MSAL.NET will open the default OS browser using the xdg-open tool. To 
 > [!NOTE]
 > Customization is available in MSAL.NET 4.1.0 or later.
 
-MSAL.NET is able to respond with an HTTP message when a token is received or in case of error. You can display an HTML message or redirect to an url of your choice:
+MSAL.NET is able to respond with an HTTP message when a token is received or in case of error. You can display an HTML message or redirect to an URL of your choice:
 
 ```csharp
 var options = new SystemWebViewOptions() 
@@ -134,7 +137,7 @@ For desktop applications, however, launching a System Webview leads to a subpar 
 
 ## Enable embedded webviews on iOS and Android
 
-You can also enable embedded webviews in Xamarin.iOS and Xamarin.Android apps. Starting with MSAL.NET 2.0.0-preview, MSAL.NET also supports using the **embedded** webview option. For ADAL.NET, embedded webview is the only option supported.
+You can also enable embedded webviews in Xamarin.iOS and Xamarin.Android apps. Starting with MSAL.NET 2.0.0-preview, MSAL.NET also supports using the **embedded** webview option. 
 
 As a developer using MSAL.NET targeting Xamarin, you may choose to use either embedded webviews or system browsers. This is your choice depending on the user experience and security concerns you want to target.
 
@@ -224,4 +227,4 @@ authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
 #### .NET Core doesn't support interactive authentication with an embedded browser
 
 For .NET Core, acquisition of tokens interactively is only available through the system web browser, not with embedded web views. Indeed, .NET Core doesn't provide UI yet.
-If you want to customize the browsing experience with the system web browser, you can implement the [IWithCustomUI](scenario-desktop-acquire-token.md#withcustomwebui) interface and even provide your own browser.
+If you want to customize the browsing experience with the system web browser, you can implement the [IWithCustomUI](scenario-desktop-acquire-token-interactive.md#withcustomwebui) interface and even provide your own browser.

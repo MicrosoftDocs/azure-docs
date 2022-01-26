@@ -13,7 +13,7 @@ ms.date: 01/18/2021
 Azure Database for MariaDB successfully completed the root certificate change on **February 15, 2021 (02/15/2021)** as part of standard maintenance and security best practices. This article gives you more details about the changes, the resources affected, and the steps needed to ensure that your application maintains connectivity to your database server.
 
 > [!NOTE]
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 >
 
 ## Why root certificate update is required?
@@ -53,8 +53,8 @@ There is no change required on client side. if you followed our previous recomme
 
     Then replace the original keystore file with the new generated one:
 
-    - System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file");
-    - System.setProperty("javax.net.ssl.trustStorePassword","password");
+    - `System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file");`
+    - `System.setProperty("javax.net.ssl.trustStorePassword","password");`
 
   - For .NET (MariaDB Connector/NET, MariaDBConnector) users, make sure **BaltimoreCyberTrustRoot** and **DigiCertGlobalRootG2** both exist in Windows Certificate Store, Trusted Root Certification Authorities. If any certificates don't exist, import the missing certificate.
 

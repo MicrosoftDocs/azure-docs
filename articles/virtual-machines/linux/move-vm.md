@@ -10,6 +10,9 @@ ms.author: cynthn
 
 ---
 # Move a VM to another subscription or resource group
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article walks you through how to move a virtual machine (VM) between resource groups or subscriptions. Moving a VM between subscriptions can be handy if you created a VM in a personal subscription and now want to move it to your company's subscription.
 
 > [!IMPORTANT]
@@ -47,7 +50,7 @@ diag=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/
 storage=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccountname    
 
 az resource move \
-    --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag \
+    --ids $vm $nic $nsg $pip $vnet $storage $diag \
 	--destination-group "myDestinationResourceGroup"
 ```
 

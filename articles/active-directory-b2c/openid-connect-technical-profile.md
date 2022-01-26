@@ -3,14 +3,14 @@ title: Define an OpenID Connect technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define an OpenID Connect technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/04/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -125,7 +125,7 @@ The **CryptographicKeys** element contains the following attribute:
 | client_secret | Yes | The client secret of the identity provider application. This cryptographic key is required only if the **response_types** metadata is set to `code` and **token_endpoint_auth_method** is set to `client_secret_post` or `client_secret_basic`. In this case, Azure AD B2C makes another call to exchange the authorization code for an access token. If the metadata is set to `id_token` you can omit the cryptographic key.  |
 | assertion_signing_key | Yes | The RSA private key which will be used to sign the client assertion. This cryptographic key is required only if the **token_endpoint_auth_method** metadata is set to `private_key_jwt`. |
 
-## Redirect Uri
+## Redirect URI
 
 When you configure the redirect URI of your identity provider, enter `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`. Make sure to replace `{your-tenant-name}` with your tenant's name. The redirect URI needs to be in all lowercase.
 

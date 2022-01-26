@@ -3,14 +3,14 @@ title: Debug Application Proxy connectors - Azure Active Directory
 description: Debug issues with Azure Active Directory (Azure AD) Application Proxy connectors.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Debug Application Proxy connector issues 

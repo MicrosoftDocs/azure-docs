@@ -3,7 +3,7 @@ title: Create an Azure Files file share with a domain controller - Azure
 description: Set up an FSLogix profile container on an Azure file share in an existing Azure Virtual Desktop host pool with your Active Directory domain.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 12/08/2021
 ms.author: helohr
 manager: femila
 ---
@@ -170,8 +170,8 @@ To configure your NTFS permissions:
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
-     - Replace <mounted-drive-letter> with the letter of the drive you used to map the drive.
-     - Replace <user-email> with the UPN of the user or Active Directory group that contains the users that will require access to the share.
+     - Replace \<mounted-drive-letter\> with the letter of the drive you used to map the drive.
+     - Replace \<user-email\> with the UPN of the user or Active Directory group that contains the users that will require access to the share.
 
      For example:
 
@@ -192,7 +192,7 @@ To configure FSLogix on your session host VM:
 
 2. [Download and install FSLogix](/fslogix/install-ht).
 
-5. Follow the instructions in [Configure profile container registry settings](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
+3. Follow the instructions in [Configure profile container registry settings](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
 
     - Navigate to **Computer** > **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **FSLogix**.
 
@@ -204,7 +204,7 @@ To configure FSLogix on your session host VM:
 
     - Set the value of **VHDLocations** to the UNC path you generated in [Get the UNC path](#get-the-unc-path).
 
-6. Restart the VM.
+4. Restart the VM.
 
 ## Testing
 

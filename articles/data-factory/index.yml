@@ -28,15 +28,13 @@ landingContent:
           - text: Whitepapers
             url: ./whitepapers.md
           - text: Pricing
-            url: https://azure.microsoft.com/pricing/details/data-factory/
+            url: ./pricing.md
           - text: Understanding pricing through examples
             url: ./pricing-concepts.md
-          - text: Recent feature updates
-            url: https://azure.microsoft.com/updates/?tag=data-factory
           - text: ADF Blog
-            url: https://techcommunity.microsoft.com/t5/Azure-Data-Factory/bg-p/AzureDataFactoryBlog
+            url: ./blog.md
           - text: Request a feature
-            url: https://feedback.azure.com/forums/270578-azure-data-factory
+            url: /answers/topics/azure-data-factory.html
   - title: Get started
     linkLists:
       - linkListType: concept
@@ -152,6 +150,6 @@ landingContent:
           - text: Source Control
             url: ./source-control.md
           - text: Continuous integration and delivery
-            url: ./continuous-integration-deployment.md
+            url: ./continuous-integration-delivery.md
           - text: Monitor with Azure Monitor
             url: ./monitor-using-azure-monitor.md

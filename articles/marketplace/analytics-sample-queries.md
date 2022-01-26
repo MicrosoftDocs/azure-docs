@@ -1,12 +1,13 @@
 ---
-title: Sample queries for programmatic analytics
+title: Sample queries for programmatic analytics | Azure Marketplace
 description: Use these sample queries to programmatically access Microsoft commercial marketplace analytics data. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
-ms.date: 3/08/2021
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 1/25/2022
 ---
 
 # Sample queries for programmatic analytics
@@ -18,6 +19,8 @@ For details about the column names, attributes, and descriptions, refer to the f
 - [Customer details table](customer-dashboard.md#customer-details-table)
 - [Orders details table](orders-dashboard.md#orders-details-table)
 - [Usage details table](usage-dashboard.md#usage-details-table)
+- [Revenue details table](revenue-dashboard.md#data-dictionary-table)
+- [Quality of service table](quality-of-service-dashboard.md#offer-deployment-details)
 
 ## Customers report queries
 
@@ -57,6 +60,28 @@ These sample queries apply to the Orders report.
 | Orders report for specific offer name for the last 6M | `SELECT OrderId, OrderPurchaseDate FROM ISVOrder WHERE OfferName = ‘Example Offer Name’ TIMESPAN LAST_6_MONTHS` |
 | Orders report for active orders for the last 6M | `SELECT OrderId, OrderPurchaseDate FROM ISVOrder WHERE OrderStatus = ‘Active’ TIMESPAN LAST_6_MONTHS` |
 | Orders report for canceled orders for the last 6M | `SELECT OrderId, OrderPurchaseDate FROM ISVOrder WHERE OrderStatus = ‘Cancelled’ TIMESPAN LAST_6_MONTHS` |
+| Orders report with term start, term end date and estimatedcharges, currency | `SELECT OrderId, TermStartId, TermEndId, estimatedcharges from ISVOrderV2 WHERE OrderStatus = ‘Active’ TIMESPAN LAST_6_MONTHS` |
+| Orders report for trial orders active for the last 6M | `SELECT OrderId from ISVOrderV2 WHERE OrderStatus = ‘Active’ and HasTrial = ‘True’ TIMESPAN LAST_6_MONTHS` |
+|||
+
+## Revenue report queries
+
+These sample queries apply to the Revenue report.
+
+| **Query Description** | **Sample Query** |
+| --- | --- |
+| Show billed revenue of the partner for last 1 month | `SELECT BillingAccountId, OfferName, OfferType, Revenue, EarningAmountCC, EstimatedRevenueUSD, EarningAmountUSD, PayoutStatus, PurchaseRecordId, LineItemId,TransactionAmountCC,TransactionAmountUSD, Quantity,Units FROM ISVRevenue TIMESPAN LAST_MONTH` |
+| List estimated revenue in USD of all transactions with sent status in last 3 months | `SELECT BillingAccountId, OfferName, OfferType, EstimatedRevenueUSD, EarningAmountUSD, PayoutStatus, PurchaseRecordId, LineItemId, TransactionAmountUSD FROM ISVRevenue where PayoutStatus='Sent' TIMESPAN LAST_3_MONTHS` |
+| List of non-trial transactions for subscription-based billing model | `SELECT BillingAccountId, OfferName,OfferType, TrialDeployment EstimatedRevenueUSD, EarningAmountUSD FROM ISVRevenue WHERE TrialDeployment=’False’ and BillingModel=’SubscriptionBased’` |
+|||
+
+## Quality of service report queries
+
+This sample query applies to the Quality of service report.
+
+| **Query Description** | **Sample Query** |
+| ------------ | ------------- |
+| Show deployment status of offers for last 6 months | `SELECT OfferId, Sku, DeploymentStatus, DeploymentCorrelationId, SubscriptionId, CustomerTenantId, CustomerName, TemplateType, StartTime, EndTime, DeploymentDurationInMilliSeconds, DeploymentRegion FROM ISVQualityOfService TIMESPAN LAST_6_MONTHS` |
 |||
 
 ## Next steps

@@ -3,9 +3,9 @@ title: Workflow using shared access signatures
 titleSuffix: Microsoft Genomics
 description: This article demonstrates how to submit a workflow to the Microsoft Genomics service using shared access signatures (SAS) instead of storage account keys.
 services: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
@@ -47,7 +47,7 @@ There are two ways to create a SAS token, either using Azure Storage Explorer or
 
 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a tool to manage resources that you have stored in Azure Storage.  You can learn more about how to use Azure Storage Explorer [here](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-The SAS for the input files should be scoped to the specific input file (blob). To create a SAS token, follow [these instructions](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). Once you have created the SAS, the full URL with the query string as well as the query string by itself are provided and can be copied from the screen.
+The SAS for the input files should be scoped to the specific input file (blob). To create a SAS token, follow [these instructions](../storage/blobs/quickstart-storage-explorer.md). Once you have created the SAS, the full URL with the query string as well as the query string by itself are provided and can be copied from the screen.
 
  ![Genomics SAS Storage Explorer](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomics SAS Storage Explorer")
 

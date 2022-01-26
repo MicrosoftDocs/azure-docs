@@ -90,7 +90,7 @@ Machine learned entity uses context to extract entities based on labeled example
 
 You can learn more about Machine learned entities [here](./reference-entity-machine-learned-entity.md).
 
-See the [machine learned entities reference article](./reference-entity-pattern-any.md) for more information.
+See the [machine learned entities reference article](./reference-entity-machine-learned-entity.md) for more information.
 
 #### ML Entity with Structure
 

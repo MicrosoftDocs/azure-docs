@@ -2,7 +2,7 @@
 title: Set up a lab for ArcMap\ArcGIS Desktop with Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab for classes using ArcGIS. 
 author: nicolela
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/04/2021
 ms.author: nicolela
 ---

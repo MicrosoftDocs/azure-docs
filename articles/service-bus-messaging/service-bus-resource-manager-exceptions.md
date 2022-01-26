@@ -2,7 +2,7 @@
 title: Azure Service Bus Resource Manager exceptions | Microsoft Docs
 description: List of Service Bus exceptions surfaced by Azure Resource Manager and suggested actions.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 09/15/2021
 ---
 
 # Service Bus Resource Manager exceptions

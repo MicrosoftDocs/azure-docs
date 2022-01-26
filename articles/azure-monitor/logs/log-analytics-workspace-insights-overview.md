@@ -9,9 +9,9 @@ ms.date: 05/06/2021
 
 ---
 
-# Log Analytics Workspace Insights (preview)
+# Log Analytics Workspace Insights
 
-Log Analytics Workspace Insights (preview) provides comprehensive monitoring of your workspaces through a unified view of your workspace usage, performance, health, agent, queries, and change log. This article will help you understand how to onboard and use Log Analytics Workspace Insights (preview).
+Log Analytics Workspace Insights provides comprehensive monitoring of your workspaces through a unified view of your workspace usage, performance, health, agent, queries, and change log. This article will help you understand how to onboard and use Log Analytics Workspace Insights.
 
 ## Overview your Log Analytics workspaces
 
@@ -25,7 +25,7 @@ To launch Log Analytics Workspace Insights at scale, perform the following steps
 
 1. Sign into the [Azure portal](https://portal.azure.com/)
 
-2. Select **Monitor** from the left-hand pane in the Azure portal, and under the Insights Hub section, select **Log Analytics Workspace Insights (preview)**.
+2. Select **Monitor** from the left-hand pane in the Azure portal, and under the Insights Hub section, select **Log Analytics Workspace Insights**.
 
 ## View Insights for a Log Analytics workspace
 

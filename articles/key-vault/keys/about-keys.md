@@ -32,8 +32,8 @@ Azure Key Vault provides two types of resources to store and manage cryptographi
 Cryptographic keys in Key Vault are represented as JSON Web Key [JWK] objects. The JavaScript Object Notation (JSON) and JavaScript Object Signing and Encryption (JOSE) specifications are:
 
 -   [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
--   [JSON Web Encryption (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
--   [JSON Web Algorithms (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
+-   [JSON Web Encryption (JWE)](https://datatracker.ietf.org/doc/html/draft-jones-json-web-encryption)  
+-   [JSON Web Algorithms (JWA)](https://datatracker.ietf.org/doc/html/draft-ietf-jose-json-web-algorithms)  
 -   [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature) 
 
 The base JWK/JWA specifications are also extended to enable key types unique to the Azure Key Vault and Managed HSM implementations. 
@@ -55,17 +55,17 @@ Key Vault supports RSA and EC keys. Managed HSM supports RSA, EC, and symmetric 
 
 |Key type|Vaults (Premium SKU only)|Managed HSMs|
 |--|--|--|
-|**EC-HSM**: Elliptic Curve key | Supported | Supported|
-|**RSA-HSM**: RSA key|Supported|Supported|
-|**oct-HSM**: Symmetric key|Not supported|Supported|
+|**EC-HSM**: Elliptic Curve key | Supported (P-256, P-384, P-521, P-256K)| Supported (P-256, P-256K, P-384, P-521)|
+|**RSA-HSM**: RSA key|Supported (2048-bit, 3072-bit, 4096-bit)|Supported (2048-bit, 3072-bit, 4096-bit)|
+|**oct-HSM**: Symmetric key|Not supported|Supported (128-bit, 192-bit, 256-bit)|
 |||
 
 ### Software-protected keys
 
 |Key type|Vaults|Managed HSMs|
 |--|--|--|
-**RSA**: "Software-protected" RSA key|Supported|Not supported
-**EC**: "Software-protected" Elliptic Curve key|Supported|Not supported
+**RSA**: "Software-protected" RSA key|Supported  (2048-bit, 3072-bit, 4096-bit)|Not supported
+**EC**: "Software-protected" Elliptic Curve key |Supported  (P-256, P-384, P-521, P-256K)|Not supported
 |||
 
 ### Compliance
@@ -77,9 +77,15 @@ Key Vault supports RSA and EC keys. Managed HSM supports RSA, EC, and symmetric 
 |HSM-protected keys in Managed HSM|FIPS 140-2 Level 3|
 |||
 
-
-
 See [Key types, algorithms, and operations](about-keys-details.md) for details about each key type, algorithms, operations, attributes, and tags.
+
+## Usage Scenarios
+
+| When to use | Examples |
+|--------------|-------------|
+| Azure server-side data encryption for integrated resource providers with customer-managed keys | - [Server-side encryption using customer-managed keys in Azure Key Vault](../../security/fundamentals/encryption-models.md#server-side-encryption-using-customer-managed-keys-in-azure-key-vault) |
+| Client-side data encryption | - [Client-Side Encryption with Azure Key Vault](../../storage/common/storage-client-side-encryption.md?tabs=dotnet)|
+| Keyless TLS | - Use key [Client Libraries](../general/client-libraries.md#client-libraries-per-language-and-object) |
 
 ## Next steps
 - [About Key Vault](../general/overview.md)

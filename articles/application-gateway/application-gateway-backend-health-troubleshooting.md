@@ -2,11 +2,11 @@
 title: Troubleshoot backend health issues in Azure Application Gateway
 description: Describes how to troubleshoot backend health issues for Azure Application Gateway
 services: application-gateway
-author: surajmb
+author: vhorne
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
-ms.author: surmb 
+ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -139,6 +139,37 @@ this message is displayed, it suggests that Application Gateway couldn't success
     [start](/powershell/module/azurerm.network/start-azurermapplicationgateway)
     by using the PowerShell commands described in these linked resources.
 
+### Updates to the DNS entries of the backend pool
+
+**Message:** The backend health status could not be retrieved. This happens when an NSG/UDR/Firewall on the application gateway subnet is blocking traffic on ports 65503-65534 in case of v1 SKU, and ports 65200-65535 in case of the v2 SKU or if the FQDN configured in the backend pool could not be resolved to an IP address. To learn more visit - https://aka.ms/UnknownBackendHealth.
+
+**Cause:** Application Gateway resolves the DNS entries for the backend pool at time of startup and doesn't update them dynamically while running.
+
+**Resolution:**
+
+Application Gateway must be restarted after any modification to the backend server DNS entries to begin to use the new IP addresses.  This operation can be completed via Azure PowerShell or Azure CLI.
+
+#### Azure PowerShell
+```
+# Get Azure Application Gateway
+$appgw=Get-AzApplicationGateway -Name <appgw_name> -ResourceGroupName <rg_name>
+ 
+# Stop the Azure Application Gateway
+Stop-AzApplicationGateway -ApplicationGateway $appgw
+ 
+# Start the Azure Application Gateway
+Start-AzApplicationGateway -ApplicationGateway $appgw
+```
+
+#### Azure CLI
+```
+# Stop the Azure Application Gateway
+az network application-gateway stop -n <appgw_name> -g <rg_name>
+
+# Start the Azure Application Gateway
+az network application-gateway start -n <appgw_name> -g <rg_name>
+```
+
 ### TCP connect error
 
 **Message:** Application Gateway could not connect to the backend.
@@ -233,7 +264,7 @@ request contains the string **unauthorized**, it will be marked as Healthy. Othe
 
 1.  Verify that the response body in the Application Gateway custom probe configuration matches what's configured.
 
-1.  If they don't match, change the probe configuration so that is has the correct string value to accept.
+1.  If they don't match, change the probe configuration so that it has the correct string value to accept.
 
 Learn more about [Application Gateway probe matching](./application-gateway-probe-overview.md#probe-matching).
 
@@ -395,7 +426,7 @@ message associated with error code {errorCode}
 
 **Cause:** This error occurs when Application Gateway can't verify the validity of the certificate.
 
-**Solution:** To resolve this issue, verify that the certificate on your server was created properly. For example, you can use [OpenSSL](https://www.openssl.org/docs/man1.0.2/man1/verify.html) to verify the certificate and its properties and then try reuploading the certificate to the Application Gateway HTTP settings.
+**Solution:** To resolve this issue, verify that the certificate on your server was created properly. For example, you can use [OpenSSL](https://www.openssl.org/docs/manmaster/man1/verify.html) to verify the certificate and its properties and then try reuploading the certificate to the Application Gateway HTTP settings.
 
 ## Backend health status: unknown
 

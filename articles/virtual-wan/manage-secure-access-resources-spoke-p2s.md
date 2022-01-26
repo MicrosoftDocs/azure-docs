@@ -67,7 +67,7 @@ In this section, you generate and download the configuration profile files. Thes
 
 ## <a name="clients"></a>Configure VPN clients
 
-Use the downloaded profile to configure the remote access clients. The procedure for each operating system is different, follow the instructions that apply to your system. The following instructions are for Windows VPN clients.
+Use the downloaded profile to configure the remote access clients. The procedure for each operating system is different, follow the instructions that apply to your system.
 
 [!INCLUDE [Configure clients](../../includes/virtual-wan-p2s-configure-clients-include.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: VMware server assessment support in Azure Migrate
+title: VMware server discovery support in Azure Migrate
 description: Learn about Azure Migrate discovery and assessment support for servers in a VMware environment.
 author: Vikram1988
 ms.author: vibansa
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 03/17/2021
 ---
 
-# Support matrix for VMware assessment 
+# Support matrix for VMware discovery 
 
 This article summarizes prerequisites and support requirements for using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool to discover and assess servers in a VMware environment for migration to Azure.
 
@@ -21,7 +21,7 @@ As you plan your migration of VMware servers to Azure, review the [migration sup
 Requirement | Details
 --- | ---
 **Project limits** | You can create multiple Azure Migrate projects in an Azure subscription.<br /><br /> You can discover and assess up to 50,000 servers in a VMware environment in a single [project](migrate-support-matrix.md#project). A project can include physical servers and servers from a Hyper-V environment, up to the assessment limits.
-**Discovery** | The Azure Migrate appliance can discover up to 10,000 servers on a server running vCenter Server.
+**Discovery** | The Azure Migrate appliance can discover up to 10,000 servers running across multiple vCenter Servers.<br /><br /> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance. 
 **Assessment** | You can add up to 35,000 servers in a single group.<br /><br /> You can assess up to 35,000 servers in a single assessment.
 
 Learn more about [assessments](concepts-assessment-calculation.md).
@@ -92,16 +92,32 @@ Support | Details
 > [!NOTE]
 > By default, Azure Migrate uses the most secure way of connecting to SQL instances i.e. Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses SSL to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. 
 >
-> However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance.[Learn more](https://go.microsoft.com/fwlink/?linkid=2158046) to understand what to choose.
+> However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance.[Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
 
+## ASP.NET web apps discovery requirements
+
+[Software inventory](how-to-discover-applications.md) identifies web server role existing on discovered servers. If a server is found to have web server role enabled, Azure Migrate will perform web apps discovery on the server.
+User can add both domain and non-domain credentials on appliance. Please make sure that the account used has local admin privileges on source servers. Azure Migrate automatically maps credentials to the respective servers, so one doesn’t have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in source environment.
+After the appliance is connected, it gathers configuration data for IIS web server and ASP.NET web apps. Web apps configuration data is updated once every 24 hours.
+
+Support | Details
+--- | ---
+**Supported servers** | Currently supported only for windows servers running IIS in your VMware environment.
+**Windows servers** | Windows Server 2008 R2 and later are supported.
+**Linux servers** | Currently not supported.
+**IIS access** | Web apps discovery requires a local admin user account.
+**IIS versions** | IIS 7.5 and later are supported.
+
+> [!NOTE]
+> Data is always encrypted at rest and during transit.
 
 ## Dependency analysis requirements (agentless)
 
 [Dependency analysis](concepts-dependency-visualization.md) helps you identify dependencies between on-premises servers that you want to assess and migrate to Azure. The following table summarizes the requirements for setting up agentless dependency analysis:
 
 Support | Details
---- | --- 
-**Supported servers** | Currently supported only for servers in your VMware environment.
+--- | ---
+**Supported servers** | You can enable agentless dependency analysis on up to 1000 servers (across multiple vCenter Servers), discovered per appliance. Currently supported only for servers in your VMware environment.
 **Windows servers** | Windows Server 2019<br />Windows Server 2016<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2 (64-bit)<br />Microsoft Windows Server 2008 (32-bit)
 **Linux servers** | Red Hat Enterprise Linux 7, 6, 5<br /> Ubuntu Linux 16.04, 14.04<br /> Debian 8, 7<br /> Oracle Linux 7, 6<br /> CentOS 7, 6, 5<br /> SUSE Linux Enterprise Server 11 and later
 **Server requirements** | VMware Tools (10.2.1 and later) must be installed and running on servers you want to analyze.<br /><br /> Servers must have PowerShell version 2.0 or later installed.

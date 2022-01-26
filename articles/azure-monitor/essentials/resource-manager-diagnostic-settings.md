@@ -124,6 +124,9 @@ The following sample creates a diagnostic setting for an Activity log by adding 
 ## Diagnostic setting for Azure Key Vault 
 The following sample creates a diagnostic setting for an Azure Key Vault by adding a resource of type `Microsoft.KeyVault/vaults/providers/diagnosticSettings` to the template.
 
+> [!IMPORTANT]
+> For Azure Key Vault, the event hub must be in the same region as the key vault.
+
 ### Template file
 
 ```json

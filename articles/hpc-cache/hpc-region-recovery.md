@@ -1,22 +1,29 @@
 ---
 title: Regional redundancy and failover recovery with Azure HPC Cache
 description: Techniques to provide failover capabilities for disaster recovery with Azure HPC Cache 
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/30/2019
-ms.author: v-erkel
+ms.date: 08/19/2021
+ms.author: femila
 ---
 
 # Use multiple caches for regional failover recovery
 
-Each Azure HPC Cache instance runs within a particular subscription and in one region. This means that your cache workflow could possibly be disrupted if the region has a full outage.
+Each Azure HPC Cache instance runs within a particular subscription and in one region. This means that your cache workflow could possibly be disrupted if the cache's region has a full outage.
 
 This article describes a strategy to reduce risk of work disruption by using a second region for cache failover.
 
 The key is using back-end storage that is accessible from multiple regions. This storage can be either an on-premises NAS system with appropriate DNS support, or Azure Blob storage that resides in a different region from the cache.
 
 As your workflow proceeds in your primary region, data is saved in the long-term storage outside of the region. If the cache region becomes unavailable, you can create a duplicate Azure HPC Cache instance in a secondary region, connect to the same storage, and resume work from the new cache.
+
+> [!NOTE]
+> This failover plan does not cover a complete outage in a *storage account's* region. Also, Azure HPC Cache does not support geographically redundant storage accounts (GRS or GZRS) because their asynchronous copying between regions is not consistent enough for HPC Cache workflows.
+>
+> HPC Cache **does** support locally redundant storage (LRS) and zone-redundant storage (ZRS), which [replicate data within one Azure region](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region).
+>
+> Consider a manual backup strategy if you need to protect against full-region storage outages.
 
 ## Planning for regional failover
 
@@ -31,7 +38,7 @@ To set up a cache that is prepared for possible failover, follow these steps:
    1. Details about client machines, if they are located in the same region as the cache
    1. Mount command for use by cache clients
 
-   > [!NOTE]
+   > [NOTE]
    > Azure HPC Cache can be created programmatically, either through an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) or by directly accessing its API. Contact the Azure HPC Cache team for details.
 
 ## Failover example
@@ -52,4 +59,4 @@ All clients will need to mount the new cache, even if the clients were not affec
 
 ## Learn more
 
-The Azure application architecture guide includes more information about how to [recover from a region-wide service disruption](<https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region>).
+The Azure application architecture guide includes more information about how to [recover from a region-wide service disruption](/azure/architecture/resiliency/recovery-loss-azure-region).

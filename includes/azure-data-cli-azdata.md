@@ -6,4 +6,4 @@ ms.date: 07/30/2021
 ms.author: mikeray
 ---
 
-(`arcdata`) extension for Azure (az) CLI
+(`arcdata`) extension for Azure (`az`) CLI

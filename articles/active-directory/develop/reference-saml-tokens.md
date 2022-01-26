@@ -150,7 +150,7 @@ This is a sample of a typical SAML token.
 
 ## Next steps
 
-* To learn more about managing token lifetime policy using the Microsoft Graph API, see the [Azure AD policy resource overview](/graph/api/resources/policy).
+* To learn more about managing token lifetime policy using the Microsoft Graph API, see the [Azure AD policy resource overview](/graph/api/resources/policy-overview).
 * Add [custom and optional claims](active-directory-optional-claims.md) to the tokens for your application.
 * Use [Single Sign-On (SSO) with SAML](single-sign-on-saml-protocol.md).
 * Use the [Azure Single Sign-Out SAML protocol](single-sign-out-saml-protocol.md)

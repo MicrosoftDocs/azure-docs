@@ -28,6 +28,15 @@ Event grid uses [event subscriptions](../../../event-grid/concepts.md#event-subs
 
 For more information, see [Media Services event schemas](../media-services-event-schemas.md).
 
+## Samples and How-to
+
+The Media Services [samples repository for .NET](https://github.com/Azure-Samples/media-services-v3-dotnet) demonstrates how to use the latest Event Grid and Event Hubs client libraries to receive events in your own custom applications.
+
+In addition, the following how-to articles demonstrate the use of Event Grid through the CLI and Azure portal.
+
+* [Monitor events - portal](../monitor-events-portal-how-to.md)
+* [Monitor events - CLI](../job-state-events-cli-how-to.md)
+
 ## Practices for consuming events
 
 Applications that handle Media Services events should follow a few recommended practices:

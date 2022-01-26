@@ -16,7 +16,7 @@ You can create an AKS cluster using:
 * [The Azure CLI](kubernetes-walkthrough.md)
 * [The Azure portal](kubernetes-walkthrough-portal.md)
 * [Azure PowerShell](kubernetes-walkthrough-powershell.md)
-* Using template-driven deployment options, like [Azure Resource Manager templates](kubernetes-walkthrough-rm-template.md) and Terraform 
+* Using template-driven deployment options, like [Azure Resource Manager templates](kubernetes-walkthrough-rm-template.md), [Bicep](../azure-resource-manager/bicep/overview.md) and Terraform 
 
 When you deploy an AKS cluster, the Kubernetes master and all nodes are deployed and configured for you. Advanced networking, Azure Active Directory (Azure AD) integration, monitoring, and other features can be configured during the deployment process. 
 
@@ -151,7 +151,7 @@ Learn more about deploying and managing AKS with the Azure CLI Quickstart.
 <!-- LINKS - external -->
 [aks-engine]: https://github.com/Azure/aks-engine
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
-[compliance-doc]: https://azure.microsoft.com/en-us/overview/trusted-cloud/compliance/
+[compliance-doc]: https://azure.microsoft.com/overview/trusted-cloud/compliance/
 
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md

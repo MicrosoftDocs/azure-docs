@@ -17,14 +17,13 @@ ms.author: avgupta
 
 # Reload secrets and certificates from Key Vault automatically
 
-App Configuration and Key Vault are complementary services used side by side in many applications. App Configuration helps you use the services together by creating keys in your App Config store that reference secrets or certificates stored in Key Vault. Since Key Vault stores the public and private key pair of a certificate as a secret, your application can retrieve any certificate as a secret from Key Vault.
+App Configuration and Key Vault are complementary services used side by side in many applications. App Configuration helps you use the services together by creating keys in your App Configuration store that reference secrets or certificates stored in Key Vault. Since Key Vault stores the public and private key pair of a certificate as a secret, your application can retrieve any certificate as a secret from Key Vault.
 
 As a good security practice, [secrets](../key-vault/secrets/tutorial-rotation.md) and [certificates](../key-vault/certificates/tutorial-rotate-certificates.md) should be rotated periodically. Once they have been rotated in Key Vault, you would want your application to pick up the latest secret and certificate values. There are two ways to achieve this without restarting your application:
 - Update a sentinel key-value to trigger the refresh of your entire configuration, thereby reloading all Key Vault secrets and certificates. For more information, see how to [use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md).
 - Periodically reload some or all secrets and certificates from Key Vault.
 
 In the first option, you will have to update the sentinel key-value in App Configuration whenever you rotate secrets and certificates in Key Vault. This approach works well when you want to force an immediate reload of secrets and certificates in your application. However, when secrets and certificates are rotated automatically in Key Vault, your application may experience errors if you don't update the sentinel key-value in time. The second option allows you to completely automate this process. You can configure your application to reload secrets and certificates from Key Vault within your acceptable delay from the time of rotation. This tutorial will walk you through the second option.
-
 
 ## Prerequisites
 

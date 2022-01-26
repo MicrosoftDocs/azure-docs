@@ -2,7 +2,7 @@
 title: Overview of Azure Service Bus throttling | Microsoft Docs
 description: Overview of Service Bus throttling - Standard and Premium tiers.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 09/20/2021
 ---
 
 # Throttling operations on Azure Service Bus

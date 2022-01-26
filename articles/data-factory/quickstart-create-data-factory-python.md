@@ -5,10 +5,11 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: tutorials
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/27/2021
-ms.custom: seo-python-october2019, devx-track-python
+ms.custom: seo-python-october2019, devx-track-python, mode-api
 ---
 
 # Quickstart: Create a data factory and pipeline using Python

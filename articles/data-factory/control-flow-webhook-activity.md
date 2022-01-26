@@ -1,22 +1,37 @@
 ---
-title: Webhook activity in Azure Data Factory 
-description: The webhook activity doesn't continue execution of the pipeline until it validates the attached dataset with certain criteria the user specifies.
+title: Webhook activity
+titleSuffix: Azure Data Factory & Azure Synapse
+description: The webhook activity for Azure Data Factory and Synapse Analytics controls the execution of pipelines through custom code.
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 09/09/2021
 ---
 
 # Webhook activity in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A webhook activity can control the execution of pipelines through your custom code. With the webhook activity, customers' code can call an endpoint and pass it a callback URL. The pipeline run waits for the callback invocation before it proceeds to the next activity.
+A webhook activity can control the execution of pipelines through custom code. With the webhook activity, code can call an endpoint and pass it a callback URL. The pipeline run waits for the callback invocation before it proceeds to the next activity.
 
 > [!IMPORTANT]
 > WebHook activity now allows you to surface error status and custom messages back to activity and pipeline. Set _reportStatusOnCallBack_ to true, and include _StatusCode_ and _Error_ in callback payload. For more information, see [Additional Notes](#additional-notes) section.
+
+## Create a Webhook activity with UI
+
+To use a Webhook activity in a pipeline, complete the following steps:
+
+1. Search for _Webhook_ in the pipeline Activities pane, and drag a Webhook activity to the pipeline canvas.
+1. Select the new Fail activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/control-flow-webhook-activity/webhook-activity.png" alt-text="Shows the UI for a Webhook activity.":::
+
+1. Specify a URL for the webhook, which can be a literal URL string, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).  Provide other details to be submitted with the request.
+1. Use the output from the activity as the input to any other activity, and reference the output anywhere dynamic content is supported in the destination activity.
 
 ## Syntax
 
@@ -94,7 +109,7 @@ Specify the Base64-encoded contents of a PFX file and a password.
 
 ### Managed identity
 
-Use the data factory's managed identity to specify the resource URI for which the access token is requested. To call the Azure Resource Management API, use `https://management.azure.com/`. For more information about how managed identities work, see the [managed identities for Azure resources overview](../active-directory/managed-identities-azure-resources/overview.md).
+Use the managed identity for your data factory or Synapse workspace to specify the resource URI for which the access token is requested. To call the Azure Resource Management API, use `https://management.azure.com/`. For more information about how managed identities work, see the [managed identities for Azure resources overview](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {
@@ -104,11 +119,11 @@ Use the data factory's managed identity to specify the resource URI for which th
 ```
 
 > [!NOTE]
-> If your data factory is configured with a Git repository, you must store your credentials in Azure Key Vault to use basic or client-certificate authentication. Azure Data Factory doesn't store passwords in Git.
+> If the service is configured with a Git repository, you must store your credentials in Azure Key Vault to use basic or client-certificate authentication. The service doesn't store passwords in Git.
 
 ## Additional notes
 
-Data Factory passes the additional property **callBackUri** in the body sent to the URL endpoint. Data Factory expects this URI to be invoked before the specified timeout value. If the URI isn't invoked, the activity fails with the status "TimedOut".
+The service passes the additional property **callBackUri** in the body sent to the URL endpoint. The service expects this URI to be invoked before the specified timeout value. If the URI isn't invoked, the activity fails with the status "TimedOut".
 
 The webhook activity fails when the call to the custom endpoint fails. Any error message can be added to the callback body and used in a later activity.
 
@@ -137,7 +152,7 @@ When you use the **Report status on callback** property, you must add the follow
 
 ## Next steps
 
-See the following control flow activities supported by Data Factory:
+See the following supported control flow activities:
 
 - [If Condition Activity](control-flow-if-condition-activity.md)
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)

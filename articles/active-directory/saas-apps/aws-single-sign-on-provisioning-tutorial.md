@@ -12,8 +12,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/23/2021
 ms.author: thwimmer
 ---
@@ -166,7 +165,40 @@ Once you've configured provisioning, use the following resources to monitor your
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## Troubleshooting Tips
-Check the AWS SSO troubleshooting tips [here](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html#azure-ad-troubleshooting).
+
+### Missing attributes
+When exporting a user to AWS, they are required to have the following attributes
+
+* firstName
+* lastName
+* displayName
+* userName 
+
+Users who don't have these attributes will fail with the following error
+
+![errorcode](https://user-images.githubusercontent.com/83957767/146811532-8b95a90b-2a32-4094-87a3-1b8180793a66.png)
+
+
+### Multi-valued attributes
+AWS does not support the following multi-valued attributes:
+
+* email
+* phone numbers
+
+Trying to flow the above as multi-valued attributes will result in the following error message
+
+![errorcode2](https://user-images.githubusercontent.com/83957767/146811704-8980c317-aa6b-43ad-bfb8-a17534fcb9d0.png)
+
+
+There are two ways to resolve this
+
+1. Ensure the user only has one value for phoneNumber/email
+2. Remove the duplicate attributes. For example, having two different attributes being mapped from Azure AD both mapped to "phoneNumber___" on the AWS side  would result in the error if both attributes have values in Azure AD. Only having one attribute mapped to a "phoneNumber____ " attribute would resolve the error.
+
+### Invalid characters
+Currently AWS SSO is not allowing some other characters that Azure AD supports like tab (\t), new line (\n), return carriage (\r), and characters such as " <|>|;|:% ".
+
+You can also check the AWS SSO troubleshooting tips [here](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html#azure-ad-troubleshooting) for more troubleshooting tips
 
 ## Additional resources
 

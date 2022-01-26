@@ -46,7 +46,7 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
 1. Then select **Add** and then **Update** to save your configuration.
 
-## Approve private endpoint connection from the storage account
+## Approve Azure Front Door Premium private endpoint connection from Private link service
 
 1. Go to the Private Link Center and select **Private link services**. Then select your Private link name.
 

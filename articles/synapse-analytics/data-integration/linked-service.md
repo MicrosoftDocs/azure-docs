@@ -2,13 +2,13 @@
 title: Secure a linked service 
 description: Learn how to provision and secure a linked service with Managed VNet 
 services: synapse-analytics 
-author: RonyMSFT
+author: ashinMSFT
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security
 ms.date: 04/15/2020
-ms.author: ronytho
-ms.reviewer: jrasnick
+ms.author: seshin
+ms.reviewer: sngun
 ---
 
 # Secure a linked service with Private Links

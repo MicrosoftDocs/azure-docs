@@ -7,8 +7,8 @@ ms.author: larryfr
 author: BlackMist
 ms.reviewer: aashishb
 ms.service: machine-learning
-ms.subservice: core
-ms.date: 11/16/2020
+ms.subservice: enterprise-readiness
+ms.date: 10/21/2021
 ms.topic: how-to
 
 ---

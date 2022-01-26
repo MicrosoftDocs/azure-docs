@@ -2,7 +2,7 @@
 title: Deploy templates with Cloud Shell
 description: Use Azure Resource Manager and Azure Cloud Shell to deploy resources to Azure. The resources are defined in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 09/03/2021
 ---
 
 # Deploy ARM templates from Azure Cloud Shell
@@ -10,6 +10,8 @@ ms.date: 10/22/2020
 You can use [Azure Cloud Shell](../../cloud-shell/overview.md) to deploy an Azure Resource Manager template (ARM template). You can deploy either an ARM template that is stored remotely, or an ARM template that is stored on the local storage account for Cloud Shell.
 
 You can deploy to any scope. This article shows deploying to a resource group.
+
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
 ## Deploy remote template
 
@@ -49,41 +51,17 @@ To deploy an external template, provide the URI of the template exactly as you w
 
 To deploy a local template, you must first upload your template to the storage account that is connected to your Cloud Shell session.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Cloud Shell](https://shell.azure.com).
 
-1. Select your Cloud Shell resource group. The name pattern is `cloud-shell-storage-<region>`.
+1. Select either **PowerShell** or **Bash**.
 
-   ![Select resource group](./media/deploy-cloud-shell/select-cloud-shell-resource-group.png)
+   :::image type="content" source="./media/deploy-cloud-shell/cloud-shell-bash-powershell.png" alt-text="Select Bash or PowerShell":::
 
-1. Select the storage account for your Cloud Shell.
+1. Select **Upload/Download files**, and then select **Upload**.
 
-   :::image type="content" source="./media/deploy-cloud-shell/cloud-shell-storage.png" alt-text="Select storage account":::
+   :::image type="content" source="./media/deploy-cloud-shell/cloud-shell-upload.png" alt-text="Upload file":::
 
-1. Select **File Shares**.
-
-   :::image type="content" source="./media/deploy-cloud-shell/files-shares.png" alt-text="Select file shares":::
-
-1. Select the default file share for Cloud Shell. The file share has the name format of `cs-<user>-<domain>-com-<uniqueGuid>`.
-
-   :::image type="content" source="./media/deploy-cloud-shell/select-file-share.png" alt-text="Default file share":::
-
-1. Add a new directory to hold your templates. Select that directory.
-
-   :::image type="content" source="./media/deploy-cloud-shell/add-directory.png" alt-text="Add directory":::
-
-1. Select **Upload**.
-
-   :::image type="content" source="./media/deploy-cloud-shell/upload-template.png" alt-text="Upload template":::
-
-1. Find and upload your template.
-
-   :::image type="content" source="./media/deploy-cloud-shell/select-template.png" alt-text="Select template":::
-
-1. Open the Cloud Shell prompt.
-
-   :::image type="content" source="./media/deploy-cloud-shell/open-cloud-shell.png" alt-text="Open Cloud Shell":::
-
-1. Navigate to the **clouddrive** directory. Navigate to the directory you added for holding the templates.
+1. Select the ARM template you want to upload, and then select **Open**.
 
 1. To deploy the template, use the following commands:
 

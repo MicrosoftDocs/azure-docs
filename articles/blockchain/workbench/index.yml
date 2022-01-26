@@ -24,10 +24,6 @@ landingContent:
         links:
           - text: Architecture
             url: architecture.md
-      - linkListType: video
-        links:
-          - text: Introduction to Azure Blockchain Workbench
-            url: https://channel9.msdn.com/Shows/Blocktalk/Introduction-to-Azure-Blockchain-Workbench
 
   - title: Get started
     linkLists:
@@ -36,7 +32,7 @@ landingContent:
           - text: Follow the Microsoft Learn blockchain path
             url: /learn/paths/ethereum-blockchain-development
           - text: Watch the beginner's blockchain series
-            url: https://channel9.msdn.com/Series/Beginners-Series-to-Blockchain
+            url: /shows/Beginners-Series-to-Blockchain/
       - linkListType: deploy
         links:
           - text: Deploy Azure Blockchain Workbench
@@ -47,10 +43,6 @@ landingContent:
             url: create-app.md
           - text: Use a Blockchain Workbench application
             url: use.md
-      - linkListType: video
-        links:
-          - text: Building your first Azure Blockchain Workbench application
-            url: https://channel9.msdn.com/Shows/Blocktalk/Building-your-first-Azure-Blockchain-Workbench-application
 
   - title: Sample contracts
     linkLists:

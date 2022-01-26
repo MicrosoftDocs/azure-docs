@@ -7,13 +7,13 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/27/2021
+ms.date: 09/03/2021
 ms.author: cherylmc
 
 ---
 # Install client certificates for P2S certificate authentication connections
 
-When a P2S VPN gateway is configured to require certificate authentication, each client computer must have a client certificate installed locally. This article helps you install a client certificate.
+When a P2S VPN gateway is configured to require certificate authentication, each client computer must have a client certificate installed locally. This article helps you install a client certificate locally on a client computer. You can also use [Intune](/mem/intune/configuration/vpn-settings-configure) to install certain VPN client profiles and certificates.
 
 If you want to generate a client certificate from a self-signed root certificate, see one of the following articles:
 

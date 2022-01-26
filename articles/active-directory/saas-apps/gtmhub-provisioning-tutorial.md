@@ -12,8 +12,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: thwimmer
 ---
@@ -61,9 +60,9 @@ In order to connect your provisioning application to your Gtmhub account you wil
 
     ![Copy Token](media/gtmhub-provisioning-tutorial/token.png)
 
-### To compile the tenant url:
+### To compile the tenant URL:
 
-1. Your tenant url has to be in the following format:
+1. Your tenant URL has to be in the following format:
 
     `https://app.gtmhub.com/api/v1/scim/azure/{account_id}`
 

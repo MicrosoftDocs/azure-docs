@@ -6,8 +6,8 @@ ms.author: ebnkruma
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-
-#Customer intent: "As an IT admin/developer I want to create a Stream Analytics job, configure input and output & analyze data by using Visual Studio."
+ms.custom: mode-ui
+#Customer intent: As an IT admin/developer, I want to create a Stream Analytics job, configure input and output, and analyze data by using Visual Studio.
 ---
 
 # Quickstart: Create an Azure Stream Analytics job by using Visual Studio
@@ -150,7 +150,7 @@ Notice the elements that are included in an Azure Stream Analytics project.
    SELECT *
    INTO Output
    FROM Input
-   HAVING Temperature > 27
+   WHERE Temperature > 27
    ```
 
 ## Submit a Stream Analytics query to Azure

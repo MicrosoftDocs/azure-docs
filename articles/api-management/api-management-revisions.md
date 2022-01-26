@@ -52,6 +52,21 @@ When you create a revision, you can set a description for your own tracking purp
 
 When you set a revision as current you can also optionally specify a public change log note. The change log is included in the developer portal for your API users to view. You can modify your change log note using the `Update-AzApiManagementApiRelease` PowerShell cmdlet.
 
+> [!CAUTION]
+> If you are editing a non-current revision of an API, you cannot change the following properties:
+>
+> * Name
+> * Type
+> * Description
+> * Subscription required
+> * API version
+> * API version description
+> * Path
+> * Protocols
+>
+> These properties can only be changed in the current revision.  If your edits change any of the above 
+> properties of a non-current revision, the error message `Can't change property for non-current revision` will be displayed.
+
 ## Versions and revisions
 
 Versions and revisions are distinct features. Each version can have multiple revisions, just like a non-versioned API. You can use revisions without using versions, or the other way around. Typically versions are used to separate API versions with breaking changes, while revisions can be used for minor and non-breaking changes to an API.

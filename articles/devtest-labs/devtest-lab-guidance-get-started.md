@@ -1,7 +1,7 @@
 ---
 title: Popular scenarios for using Azure DevTest Labs
 description: This article provides the primary scenarios for using Azure DevTest Labs and two general paths to start using the service in your organization. 
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/20/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ---
@@ -22,7 +22,7 @@ Developers often have different requirements for development machines for differ
 - Developers can quickly provision their development machines on demand or [claim an existing pre-configured machine](devtest-lab-add-claimable-vm.md).
 - Developers can provision resources in a self-service way without needing subscription-level permissions.
 - IT or admins can [pre-define the networking topology](devtest-lab-configure-vnet.md) and developers can directly use it in a simple and intuitive way without requiring any special access.
-- Developers can easily [customize](devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) their development machines as needed.
+- Developers can easily [customize](devtest-lab-add-vm.md#add-artifacts-after-installation) their development machines as needed.
 - Administrators can control costs by ensuring that:
     - Developers [can't get more VMs](devtest-lab-set-lab-policy.md#set-virtual-machines-per-user) than they need for development
     - [VMs are shut down](devtest-lab-set-lab-policy.md#set-auto-shutdown) when not in use
@@ -55,7 +55,7 @@ A lab in Azure DevTest Labs acts as a great container for transient activities l
 - [Policies](devtest-lab-set-lab-policy.md) ensure trainees only get the number of resources, such as virtual machines, that they need.
 - Pre-configured and created machines are [claimed](devtest-lab-add-claimable-vm.md) with single action from trainee.
 - Labs are shared with trainees by accessing [URL for the lab](/azure/devtest-labs/devtest-lab-faq#how-do-i-share-a-direct-link-to-my-lab).
-- [Expiration dates](devtest-lab-add-vm.md#steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs) on virtual machines ensure that machines are deleted after they are no longer needed.
+- [Expiration dates](devtest-lab-add-vm.md#create-and-add-virtual-machines) on virtual machines ensure that machines are deleted after they are no longer needed.
 - It’s easy to [delete a lab](devtest-lab-delete-lab-vm.md#delete-a-lab) and all [related resources](/azure/devtest-labs/devtest-lab-faq#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) when the training is over.
 
 For more information, see [Use Azure DevTest Labs for training](devtest-lab-training-lab.md).  

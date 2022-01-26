@@ -5,7 +5,7 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 11/4/2021
 ---
 # MySQL drivers and management tools compatible with Azure Database for MySQL
 
@@ -14,10 +14,13 @@ ms.date: 3/18/2020
 This article describes the drivers and management tools that are compatible with Azure Database for MySQL Single Server.
 
 > [!NOTE]
-> This article is only applicable to Azure Database for MySQL Single Server to ensure drivers are compatible with [connectivity architecture](concepts-connectivity-architecture.md) of Single Server service. [Azure Database for MySQL Flexible Server](./flexible-server/overview.md) is compatible with all the drivers and tools supported and compatible with MySQL community edition. 
+> This article is only applicable to Azure Database for MySQL Single Server to ensure drivers are compatible with [connectivity architecture](concepts-connectivity-architecture.md) of Single Server service. [Azure Database for MySQL Flexible Server](./flexible-server/overview.md) is compatible with all the drivers and tools supported and compatible with MySQL community edition.
 
 ## MySQL Drivers
 Azure Database for MySQL uses the world's most popular community edition of MySQL database. As such, it's compatible with a wide variety of programming languages and drivers. The goal is to support the three most recent versions MySQL drivers, and efforts with authors from the open-source community to constantly improve the functionality and usability of MySQL drivers continue. A list of drivers that have been tested and found to be compatible with Azure Database for MySQL 5.6 and 5.7 is provided in the following table:
+
+> [!WARNING]
+> The MySQL 8.0.27 client is incompatible with Azure Database for MySQL - Single Server. All connections from the MySQL 8.0.27 client created either via mysql.exe or workbench will fail. As a workaround, consider using an earlier version of the client (prior to MySQL 8.0.27) or creating an instance of [Azure Database for MySQL - Flexible Server](./flexible-server/overview.md) instead.
 
 | **Programming Language** | **Driver** | **Links** | **Compatible Versions** | **Incompatible Versions** | **Notes** |
 | :----------------------- | :--------- | :-------- | :---------------------- | :------------------------ | :-------- |
@@ -31,7 +34,7 @@ Azure Database for MySQL uses the world's most popular community edition of MySQ
 | Python | PyMySQL | https://pypi.org/project/PyMySQL/ | 0.7.11, 0.8.0, 0.8.1, 0.9.3+ | 0.9.0 - 0.9.2 (regression in web2py) | |
 | Java | MariaDB Connector/J | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 and before | | 
 | Java | MySQL Connector/J | https://github.com/mysql/mysql-connector-j | 5.1.21+, use 8.0.17+ with MySQL 8.0 | 5.1.20 and below | |
-| C | MySQL Connector/C (libmysqlclient) | https://dev.mysql.com/doc/refman/5.7/en/c-api-implementations.html | 6.0.2+ | | |
+| C | MySQL Connector/C (libmysqlclient) | https://dev.mysql.com/doc/c-api/5.7/en/c-api-implementations.html | 6.0.2+ | | |
 | C | MySQL Connector/ODBC (myodbc) | https://github.com/mysql/mysql-connector-odbc | 3.51.29+ | | |
 | C++ | MySQL Connector/C++ | https://github.com/mysql/mysql-connector-cpp | 1.1.9+ | 1.1.3 and below | | 
 | C++ | MySQL++| https://github.com/tangentsoft/mysqlpp | 3.2.3+ | | |

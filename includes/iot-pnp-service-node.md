@@ -32,7 +32,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/pnp/readme.md).
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples#iot-plug-and-play-device-samples).
 
 In this quickstart, you use a sample thermostat device that's written in Node.js as the IoT Plug and Play device. To run the sample device:
 
@@ -47,7 +47,7 @@ In this quickstart, you use a sample thermostat device that's written in Node.js
 1. Run the sample thermostat device with the following command:
 
     ```cmd/sh
-    node simple_thermostat.js
+    node pnp_simple_thermostat.js
     ```
 
 1. You see messages saying that the device has sent some information and reported itself online. These messages indicate that the device has begun sending telemetry data to the hub, and is now ready to receive commands and property updates. Don't close this terminal, you need it to confirm the service sample is working.

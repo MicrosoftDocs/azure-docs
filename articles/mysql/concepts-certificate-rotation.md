@@ -17,7 +17,7 @@ Azure Database for MySQL Single Server successfully completed the root certifica
 > [!NOTE]
 > This article applies to [Azure Database for MySQL - Single Server](single-server-overview.md) ONLY. For [Azure Database for MySQL - Flexible Server](flexible-server/overview.md), the certificate needed to communicate over SSL is [DigiCert Global Root CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)
 >
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 >
 
 #### Why is a root certificate update required?

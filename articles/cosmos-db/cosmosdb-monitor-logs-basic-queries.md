@@ -11,6 +11,7 @@ ms.author: esarroyo
 ---
 
 # Troubleshoot issues with diagnostics queries
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 In this article, we'll cover how to write simple queries to help troubleshoot issues with your Azure Cosmos DB account using diagnostics logs sent to **AzureDiagnostics (legacy)** and **Resource-specific (preview)** tables.
 
@@ -71,7 +72,7 @@ For resource-specific tables, data is written into individual tables for each ca
 
 - How to find which operations are taking most of RU/s?
 
-    ```Kusto
+   ```kusto
    AzureDiagnostics
    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
    | where TimeGenerated >= ago(2h) 

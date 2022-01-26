@@ -4,7 +4,7 @@ description:
   This article provides detail guidance for implementing specific event
   replication task patterns
 ms.topic: article
-ms.date: 12/12/2020
+ms.date: 09/28/2021
 ---
 
 # Event replication tasks patterns

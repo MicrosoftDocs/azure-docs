@@ -57,11 +57,11 @@ azcopy login --identity
 ```
 
 Log in by using the user-assigned identity of a VM and a Client ID of the service identity:
-  
+
 ```azcopy
 azcopy login --identity --identity-client-id "[ServiceIdentityClientID]"
 ```
- 
+
 Log in by using the user-assigned identity of a VM and an Object ID of the service identity:
 
 ```azcopy
@@ -69,7 +69,7 @@ azcopy login --identity --identity-object-id "[ServiceIdentityObjectID]"
 ```
 
 Log in by using the user-assigned identity of a VM and a Resource ID of the service identity:
- 
+
 ```azcopy
 azcopy login --identity --identity-resource-id "/subscriptions/<subscriptionId>/resourcegroups/myRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID"
 ```

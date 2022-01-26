@@ -1,40 +1,40 @@
 ---
-title: Enable Angular application options using Azure Active Directory B2C
-description:  Enable the use of Angular application options by using several ways.
+title: Enable Angular application options by using Azure Active Directory B2C
+description:  Enable the use of Angular application options in several ways.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/29/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
 
-# Configure authentication options in an Angular application using Azure Active Directory B2C
+# Configure authentication options in an Angular application by using Azure Active Directory B2C
 
-This article describes ways you can customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your Angular application. Before you start, familiarize yourself with the following article: [Configure authentication in an Angular SPA application](configure-authentication-sample-angular-spa-app.md), or [Enable authentication in your own Angular SPA application](enable-authentication-angular-spa-app.md).
-
-
-## Single-page application sign-in and sign-out behavior
+This article describes ways you can customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your Angular single-page application (SPA). Before you start, familiarize yourself with the article [Configure authentication in an Angular SPA](configure-authentication-sample-angular-spa-app.md) or [Enable authentication in your own Angular SPA](enable-authentication-angular-spa-app.md).
 
 
-You can configure your single page application to sign in users with MSAL.js in two ways:
+## Sign-in and sign-out behavior
 
-- **Pop-up window** - The authentication happens in a pop-up window, the state of the application is preserved. Use this approach if you don't want users to move away from your application page during authentication.  Note, there are [known issues with pop-up windows on Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/internet-explorer.md#popups).
-    - To sign in with popup windows, in the *src/app/app.component.ts* class, use the `loginPopup` method.  
-    - In the *src/app/app.module.ts* class, set the `interactionType` attribute to `InteractionType.Popup`.
-    - To sign out with popup windows, in the *src/app/app.component.ts* class, use the `logoutPopup` method. You can also configure `logoutPopup` to redirect the main window to a different page, such as the home page or sign-in page, after logout is complete by passing `mainWindowRedirectUri` as part of the request.
-- **Redirect** -  The user is redirected to Azure AD B2C to complete the authentication flow. Use this approach if users have browser constraints or policies where pop-up windows are disabled. 
-    - To sign-in with redirection, in the *src/app/app.component.ts* class, use the `loginRedirect` method.  
-    - In the *src/app/app.module.ts* class, set the `interactionType` attribute to `InteractionType.Redirect`.
-    - To sign out with redirection, in the *src/app/app.component.ts* class, use the `logoutRedirect` method. Configure the URI to which it should redirect after sign-out by setting `postLogoutRedirectUri`. This URI should be registered as a redirect Uri in your application registration.
+
+You can configure your single-page application to sign in users with MSAL.js in two ways:
+
+- **Pop-up window**: The authentication happens in a pop-up window, and the state of the application is preserved. Use this approach if you don't want users to move away from your application page during authentication.  Note that there are [known issues with pop-up windows on Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/internet-explorer.md#popups).
+  - To sign in with pop-up windows, in the `src/app/app.component.ts` class, use the `loginPopup` method.  
+  - In the `src/app/app.module.ts` class, set the `interactionType` attribute to `InteractionType.Popup`.
+  - To sign out with pop-up windows, in the `src/app/app.component.ts` class, use the `logoutPopup` method. You can also configure `logoutPopup` to redirect the main window to a different page, such as the home page or sign-in page, after sign-out is complete by passing `mainWindowRedirectUri` as part of the request.
+- **Redirect**: The user is redirected to Azure AD B2C to complete the authentication flow. Use this approach if users have browser constraints or policies where pop-up windows are disabled. 
+  - To sign in with redirection, in the `src/app/app.component.ts` class, use the `loginRedirect` method.  
+  - In the `src/app/app.module.ts` class, set the `interactionType` attribute to `InteractionType.Redirect`.
+  - To sign out with redirection, in the `src/app/app.component.ts` class, use the `logoutRedirect` method. Configure the URI to which it should redirect after sign-out by setting `postLogoutRedirectUri`. This URI should be registered as a redirect URI in your application registration.
   
 The following sample demonstrates how to sign in and sign out:
 
-#### [Popup](#tab/popup)
+#### [Pop-up](#tab/popup)
 
 
 ```typescript
@@ -75,9 +75,11 @@ logout() {
 
 ---
 
-The MSAL Angular library has three sign-in flows: interactive sign-in (where a user selects the sign-in button), MSAL Guard, and MSAL Interceptor. The MSAL Guard and MSAL Interceptor configurations take effect when a user tries to access a protected resource without a valid access token. In such cases, the MSAL library forces the user to sign in. The following samples demonstrate how to configure MSAL Guard and MSAL Interceptor for sign-in with a pop-up window or redirection. 
+The MSAL Angular library has three sign-in flows: interactive sign-in (where a user selects the sign-in button), MSAL Guard, and MSAL Interceptor. The MSAL Guard and MSAL Interceptor configurations take effect when a user tries to access a protected resource without a valid access token. In such cases, the MSAL library forces the user to sign in. 
 
-#### [Popup](#tab/popup)
+The following samples demonstrate how to configure MSAL Guard and MSAL Interceptor for sign-in with a pop-up window or redirection: 
+
+#### [Pop-up](#tab/popup)
 
 ```typescript
 // src/app/app.module.ts
@@ -121,11 +123,11 @@ MsalModule.forRoot(new PublicClientApplication(msalConfig),
 
 1. If you use a custom policy, add the required input claim as described in [Set up direct sign-in](direct-signin.md#prepopulate-the-sign-in-name). 
 1. Create or use an existing `PopupRequest` or `RedirectRequest` MSAL configuration object.
-1. Set the `loginHint` attribute with the corresponding login hint. For example: bob@contoso.com.
+1. Set the `loginHint` attribute with the corresponding sign-in hint. 
 
-The following code snippets demonstrate how to pass the login hint parameter:
+The following code snippets demonstrate how to pass the sign-in hint parameter. They use `bob@contoso.com` as the attribute value.
 
-#### [Popup](#tab/popup)
+#### [Pop-up](#tab/popup)
 
 ```typescript
 // src/app/app.component.ts
@@ -182,11 +184,11 @@ MsalModule.forRoot(new PublicClientApplication(msalConfig),
 
 1. Check the domain name of your external identity provider. For more information, see [Redirect sign-in to a social provider](direct-signin.md#redirect-sign-in-to-a-social-provider). 
 1. Create or use an existing `PopupRequest` or `RedirectRequest` MSAL configuration object.
-1. Set the `domainHint` attribute with the corresponding domain hint. For example: facebook.com.
+1. Set the `domainHint` attribute with the corresponding domain hint.
 
-The following code snippets demonstrate how to pass the domain hint parameter:
+The following code snippets demonstrate how to pass the domain hint parameter. They use `facebook.com` as the attribute value.
 
-#### [Popup](#tab/popup)
+#### [Pop-up](#tab/popup)
 
 ```typescript
 // src/app/app.component.ts
@@ -242,11 +244,11 @@ MsalModule.forRoot(new PublicClientApplication(msalConfig),
 
 1. [Configure Language customization](language-customization.md). 
 1. Create or use an existing `PopupRequest` or `RedirectRequest` MSAL configuration object with `extraQueryParameters` attributes.
-1. Add the `ui_locales` parameter with the corresponding language code to the `extraQueryParameters` attributes. For example, `es-es`.
+1. Add the `ui_locales` parameter with the corresponding language code to the `extraQueryParameters` attributes.
 
-The following code snippets demonstrate how to pass the domain hint parameter:
+The following code snippets demonstrate how to pass the domain hint parameter. They use `es-es` as the attribute value.
 
-#### [Popup](#tab/popup)
+#### [Pop-up](#tab/popup)
 
 ```typescript
 // src/app/app.component.ts
@@ -303,11 +305,11 @@ MsalModule.forRoot(new PublicClientApplication(msalConfig),
 
 1. Configure the [ContentDefinitionParameters](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri) element.
 1. Create or use an existing `PopupRequest` or `RedirectRequest` MSAL configuration object with `extraQueryParameters` attributes.
-1. Add the custom query string parameter, such as `campaignId`. Set the parameter value. For example, `germany-promotion`.
+1. Add the custom query string parameter, such as `campaignId`. Set the parameter value. 
 
-The following code snippets demonstrate how to pass a custom query string parameter:
+The following code snippets demonstrate how to pass a custom query string parameter. They use `germany-promotion` as the attribute value.
 
-#### [Popup](#tab/popup)
+#### [Pop-up](#tab/popup)
 
 ```typescript
 // src/app/app.component.ts
@@ -361,13 +363,13 @@ MsalModule.forRoot(new PublicClientApplication(msalConfig),
 
 [!INCLUDE [active-directory-b2c-app-integration-id-token-hint](../../includes/active-directory-b2c-app-integration-id-token-hint.md)]
 
-1. In your custom policy, define an [ID token hint technical profile](id-token-hint.md).
+1. In your custom policy, define the [technical profile of an ID token hint](id-token-hint.md).
 1. Create or use an existing `PopupRequest` or `RedirectRequest` MSAL configuration object with `extraQueryParameters` attributes.
 1. Add the `id_token_hint` parameter with the corresponding variable that stores the ID token.
 
-The following code snippets demonstrate how to an ID token hint:
+The following code snippets demonstrate how to define an ID token hint:
 
-#### [Popup](#tab/popup)
+#### [Pop-up](#tab/popup)
 
 ```typescript
 // src/app/app.component.ts
@@ -421,7 +423,7 @@ MsalModule.forRoot(new PublicClientApplication(msalConfig),
 
 [!INCLUDE [active-directory-b2c-app-integration-custom-domain](../../includes/active-directory-b2c-app-integration-custom-domain.md)]
 
-To use your custom domain your tenant ID in the authentication URL, follow the guidance in [Enable custom domains](custom-domain.md). Open the *src/app/auth-config.ts* MSAL configuration object and change the **authorities** and **knownAuthorities** to use your custom domain name and tenant ID.  
+To use your custom domain for your tenant ID in the authentication URL, follow the guidance in [Enable custom domains](custom-domain.md). Open the `src/app/auth-config.ts` MSAL configuration object and change `authorities` and `knownAuthorities` to use your custom domain name and tenant ID.  
 
 The following JavaScript shows the MSAL configuration object before the change: 
 
@@ -454,11 +456,11 @@ const msalConfig = {
 
 [!INCLUDE [active-directory-b2c-app-integration-logging](../../includes/active-directory-b2c-app-integration-logging.md)]
 
-To configure Angular [logging](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/logging.md), in the *src/app/auth-config.ts* configure the following keys:
+To configure Angular [logging](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/logging.md), in *src/app/auth-config.ts*, configure the following keys:
 
 - `loggerCallback` is the logger callback function. 
-- `logLevel` lets you specify the level of logging you want. Possible values: `Error`, `Warning`, `Info`, and `Verbose`.
-- `piiLoggingEnabled` enables the input of personal data. Possible values: `true`, or `false`.
+- `logLevel` lets you specify the level of logging. Possible values: `Error`, `Warning`, `Info`, and `Verbose`.
+- `piiLoggingEnabled` enables the input of personal data. Possible values: `true` or `false`.
  
 The following code snippet demonstrates how to configure MSAL logging:
 
@@ -480,4 +482,4 @@ export const msalConfig: Configuration = {
 
 ## Next steps
 
-- Learn more: [MSAL.js configuration options](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md)
+- Learn more: [MSAL.js configuration options](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md).

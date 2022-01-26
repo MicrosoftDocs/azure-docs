@@ -7,9 +7,9 @@ ms.subservice: high-availability
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
-author: BustosMSFT
-ms.author: robustos
-ms.reviewer: mathoma, jrasnick, vanto
+author: emlisa
+ms.author: emlisa
+ms.reviewer: kendralittle, mathoma, vanto
 ms.date: 06/26/2019
 ---
 # DNS alias for Azure SQL Database

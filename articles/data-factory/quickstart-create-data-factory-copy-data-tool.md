@@ -1,14 +1,16 @@
 ---
-title: Copy data by using the Azure Copy Data tool 
+title: Copy data by using the Azure Copy Data tool
 description: Create an Azure Data Factory and then use the Copy Data tool to copy data from one location in Azure Blob storage to another location.
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: quickstart
 ms.date: 07/05/2021
+ms.custom: mode-other
 ---
 
-# Quickstart: Use the Copy Data tool to copy data
+# Quickstart: Use the Copy Data tool in the Azure Data Factory Studio to copy data
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -29,13 +31,13 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 1. Go to the [Azure portal](https://portal.azure.com). 
 1. From the Azure portal menu, select **Create a resource** > **Integration** > **Data Factory**:
 
-    ![New data factory creation](./media/doc-common-process/new-azure-data-factory-menu.png)
+    :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="New data factory creation":::
 
 1. On the **New data factory** page, enter **ADFTutorialDataFactory** for **Name**. 
  
    The name of the Azure Data Factory must be *globally unique*. If you see the following error, change the name of the data factory (for example, **&lt;yourname&gt;ADFTutorialDataFactory**) and try creating again. For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](naming-rules.md) article.
   
-   ![Error when a name is not available](./media/doc-common-process/name-not-available-error.png)
+   :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Error when a name is not available":::
 1. For **Subscription**, select your Azure subscription in which you want to create the data factory. 
 1. For **Resource Group**, use one of the following steps:
      
@@ -58,11 +60,11 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
 1. On the home page of Azure Data Factory, select the **Ingest** tile to start the Copy Data tool.
 
-   ![Screenshot that shows the Azure Data Factory home page.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the Azure Data Factory home page.":::
 
 1. On the **Properties** page of the Copy Data tool, choose **Built-in copy task** under **Task type**, then select **Next**.
 
-   !["Properties" page](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-properties-page.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-properties-page.png" alt-text="&quot;Properties&quot; page":::
 
 1. On the **Source data store** page, complete the following steps:
 
@@ -70,11 +72,11 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
     1. Select the linked service type that you want to create for the source connection. In this tutorial, we use **Azure Blob Storage**. Select it from the gallery, and then select **Continue**.
     
-       ![Select Blob](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
+       :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png" alt-text="Select Blob":::
 
     1. On the **New connection (Azure Blob Storage)** page, specify a name for your connection. Select your Azure subscription from the **Azure subscription** list and your storage account from the **Storage account name** list, test connection, and then select **Create**. 
 
-       ![Configure the Azure Blob storage account](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
+       :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png" alt-text="Configure the Azure Blob storage account":::
 
     1. Select the newly created connection in the **Connection** block.
     1. In the **File or folder** section, select **Browse** to navigate to the **adftutorial/input** folder, select the **emp.txt** file, and then click **OK**.
@@ -99,11 +101,11 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
 1. On the **Deployment complete** page, select **Monitor** to monitor the pipeline that you created. 
 
-    !["Deployment complete" page](./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png" alt-text="&quot;Deployment complete&quot; page":::
 
 1. The application switches to the **Monitor** tab. You see the status of the pipeline on this tab. Select **Refresh** to refresh the list. Click the link under **Pipeline name** to view activity run details or rerun the pipeline. 
    
-    ![Refresh pipeline](./media/quickstart-create-data-factory-copy-data-tool/refresh-pipeline.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/refresh-pipeline.png" alt-text="Refresh pipeline":::
 
 1. On the Activity runs page, select the **Details** link (eyeglasses icon) under the **Activity name** column for more details about copy operation. For details about the properties, see [Copy Activity overview](copy-activity-overview.md). 
 
@@ -113,7 +115,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
 1. Switch to the **Author** tab above the **Monitor** tab on the left panel so that you can edit linked services, datasets, and pipelines. To learn about editing them in the Data Factory UI, see [Create a data factory by using the Azure portal](quickstart-create-data-factory-portal.md).
 
-    ![Select Author tab](./media/quickstart-create-data-factory-copy-data-tool/select-author.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/select-author.png" alt-text="Select Author tab":::
 
 ## Next steps
 The pipeline in this sample copies data from one location to another location in Azure Blob storage. To learn about using Data Factory in more scenarios, go through the [tutorials](tutorial-copy-data-portal.md). 

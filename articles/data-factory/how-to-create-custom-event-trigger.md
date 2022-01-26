@@ -2,6 +2,7 @@
 title: Create custom event triggers in Azure Data Factory 
 description: Learn how to create a trigger in Azure Data Factory that runs a pipeline in response to a custom event published to Event Grid.
 ms.service: data-factory
+ms.subservice: orchestration
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
@@ -9,7 +10,7 @@ ms.topic: conceptual
 ms.date: 05/07/2021
 ---
 
-# Create a custom event trigger to run a pipeline in Azure Data Factory (preview)
+# Create a custom event trigger to run a pipeline in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -88,6 +89,39 @@ Data Factory expects events to follow the [Event Grid event schema](../event-gri
 
 1. After you've entered the parameters, select **OK**.
 
+## Advanced filtering
+
+Custom event trigger supports advanced filtering capabilities, similar to [Event Grid Advanced Filtering](../event-grid/event-filtering.md#advanced-filtering). These conditional filters allow pipelines to trigger based upon the _values_ of event payload. For instance, you may have a field in the event payload, named _Department_, and pipeline should only trigger if _Department_ equals to _Finance_. You may also specify complex logic, such as _date_ field in list [1, 2, 3, 4, 5], _month_ field __not__ in list [11, 12], _tag_ field contains any of ['Fiscal Year 2021', 'FiscalYear2021', 'FY2021'].
+
+ :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-5-advanced-filters.png" alt-text="Screenshot of setting advanced filters for customer event trigger":::
+
+As of today custom event trigger supports a __subset__ of [advanced filtering operators](../event-grid/event-filtering.md#advanced-filtering) in Event Grid. Following filter conditions are supported:
+
+* NumberIn
+* NumberNotIn
+* NumberLessThan
+* NumberGreaterThan
+* NumberLessThanOrEquals
+* NumberGreaterThanOrEquals
+* BoolEquals
+* StringContains
+* StringBeginsWith
+* StringEndsWith
+* StringIn
+* StringNotIn
+
+Click **+New** to add new filter conditions. 
+
+Additionally, custom event triggers obey the [same limitations as event grid](../event-grid/event-filtering.md#limitations), including:
+
+* 5 advanced filters and 25 filter values across all the filters per custom event trigger
+* 512 characters per string value
+* 5 values for in and not in operators
+* keys cannot have `.` (dot) character in them, for example, `john.doe@contoso.com`. Currently, there's no support for escape characters in keys.
+* The same key can be used in more than one filter.
+
+Data Factory relies upon the latest _GA_ version of [Event Grid API](../event-grid/whats-new.md). As new API versions get to GA stage, Data Factory will expand its support for more advanced filtering operators.
+
 ## JSON schema
 
 The following table provides an overview of the schema elements that are related to custom event triggers:
@@ -96,12 +130,13 @@ The following table provides an overview of the schema elements that are related
 |---|----------------------------|---|---|---|
 | `scope` | The Azure Resource Manager resource ID of the event grid topic. | String | Azure Resource Manager ID | Yes |
 | `events` | The type of events that cause this trigger to fire. | Array of strings    |  | Yes, at least one value is expected. |
-| `subjectBeginsWith` | The `subject` field must begin with the provided pattern for the trigger to fire. For example, *factories* only fires the trigger for event subjects that start with *factories*. | String   | | No |
+| `subjectBeginsWith` | The `subject` field must begin with the provided pattern for the trigger to fire. For example, _factories_ only fire the trigger for event subjects that start with *factories*. | String   | | No |
 | `subjectEndsWith` | The `subject` field must end with the provided pattern for the trigger to fire. | String   | | No |
+| `advancedFilters` | List of JSON blobs, each specifying a filter condition. Each blob specifies `key`, `operatorType`, and `values`. | List of JSON blob | | No |
 
 ## Role-based access control
 
-Azure Data Factory uses Azure RBAC to prohibit unauthorized access. To function properly, Data Factory requires access to:
+Azure Data Factory uses Azure role-based access control (RBAC) to prohibit unauthorized access. To function properly, Data Factory requires access to:
 - Listen to events.
 - Subscribe to updates from events.
 - Trigger pipelines linked to custom events.

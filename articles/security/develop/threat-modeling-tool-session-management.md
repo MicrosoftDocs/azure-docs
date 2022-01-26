@@ -12,7 +12,6 @@ ms.service: security
 ms.subservice: security-develop
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
@@ -201,7 +200,7 @@ The setting is enforced even if HTTP is used to access the application. If HTTP 
 
 ### Example
 All HTTP-based applications that use cookies should specify HttpOnly in the cookie definition, by implementing following configuration in web.config:
-```XML
+```xml
 <system.web>
 .
 .
@@ -222,7 +221,7 @@ All HTTP-based applications that use cookies should specify HttpOnly in the cook
 
 ### Example 
 The following code example sets the requireSSL attribute in the Web.config file.
-```XML
+```xml
 <authentication mode="Forms">
   <forms loginUrl="member_login.aspx" cookieless="UseCookies" requireSSL="true"/>
 </authentication>
@@ -239,7 +238,7 @@ The following code example sets the requireSSL attribute in the Web.config file.
 
 ### Example
 Following configuration shows the correct configuration:
-```XML
+```xml
 <federatedAuthentication>
 <cookieHandler mode="Custom"
                        hideFromScript="true"
@@ -379,7 +378,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Steps** | Session timeout represents the event occurring when a user does not perform any action on a web site during an interval (defined by web server). The event, on server side, change the status of the user session to 'invalid' (for example  "not used anymore") and instruct the web server to destroy it (deleting all data contained into it). The following code example sets the timeout session attribute to 15 minutes in the Web.config file.|
 
 ### Example
-```XML 
+```xml
 <configuration>
   <system.web>
     <sessionState mode="InProc" cookieless="true" timeout="15" />
@@ -399,7 +398,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Steps** | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
 
 ### Example
-```XML
+```xml
 <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
 </forms>
 ```
@@ -414,7 +413,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Steps** | When the web application is Relying Party and ADFS is the STS, the lifetime of the authentication cookies - FedAuth tokens - can be set by the following configuration in web.config:|
 
 ### Example
-```XML
+```xml
   <system.identityModel.services>
     <federationConfiguration>
       <!-- Set requireSsl=true; domain=application domain name used by FedAuth cookies (Ex: .gdinfra.com); -->

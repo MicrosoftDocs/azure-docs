@@ -113,7 +113,7 @@ Follow the steps to visualize data on TSI:
 1. Go to **Azure Portal** > **FarmBeats DataHub resource group** > select **Time Series Insights** environment (tsi-xxxx) > **Data Access Policies**. Add user with Reader or Contributor access.
 2. Go to the **Overview** page of **Time Series Insights** environment (tsi-xxxx) and select the **Time Series Insights Explorer URL**. You'll now be able to visualize the ingested telemetry.
 
-Apart from storing, querying and visualization of telemetry, TSI also enables integration to a Power BI dashboard. For more information, see [here]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)
+Apart from storing, querying and visualization of telemetry, TSI also enables integration to a Power BI dashboard. For more information, see [here](../../time-series-insights/how-to-connect-power-bi.md)
 
 ## Next steps
 

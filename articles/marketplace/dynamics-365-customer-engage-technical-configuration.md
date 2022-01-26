@@ -1,16 +1,16 @@
 ---
-title: Set up Dynamics 365 for Customer Engagement & PowerApps offer technical configuration on Microsoft AppSource - Azure Marketplace
-description: Set up Dynamics 365 for Customer Engagement & PowerApps offer technical configuration on Microsoft AppSource (Azure Marketplace.
+title: Set up Dynamics 365 apps on Dataverse and Power Apps offer technical configuration on Microsoft AppSource - Azure Marketplace
+description: Set up Dynamics 365 apps on Dataverse and Power Apps offer technical configuration on Microsoft AppSource (Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.custom: references_regions
 author: vamahtan
 ms.author: vamahtan
-ms.date: 06/29/2021
+ms.date: 12/03/2021
 ---
 
-# Set up Dynamics 365 for Customer Engagement & Power Apps offer technical configuration
+# Set up Dynamics 365 apps on Dataverse and Power Apps offer technical configuration
 
 This page defines the technical details used to connect to your offer. This connection lets us provision your offer for the customers who choose to acquire it.
 

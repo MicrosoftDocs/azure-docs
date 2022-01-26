@@ -3,14 +3,14 @@ title: Define an OAuth2 custom error technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define an OAuth2 custom error technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/26/2021
-ms.author: mimart
+ms.date: 01/25/2022
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -41,7 +41,7 @@ https://jwt.ms/#error=access_denied&error_description=AAD_Custom_1234%3a+My+cust
   
 ## Protocol
 
-The **Name** attribute of the **Protocol** element needs to be set to `None`. Set the **OutputTokenFormat** element to `OAuth2Error`.
+The **Name** attribute of the **Protocol** element needs to be set to `OAuth2`. Set the **OutputTokenFormat** element to `OAuth2Error`.
 
 The following example shows a technical profile for `ReturnOAuth2Error`:
 
@@ -53,7 +53,7 @@ The following example shows a technical profile for `ReturnOAuth2Error`:
     <TechnicalProfiles>
       <TechnicalProfile Id="ReturnOAuth2Error">
         <DisplayName>Return OAuth2 error</DisplayName>
-        <Protocol Name="None" />
+        <Protocol Name="OAuth2" />
         <OutputTokenFormat>OAuth2Error</OutputTokenFormat>
         <CryptographicKeys>
           <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />

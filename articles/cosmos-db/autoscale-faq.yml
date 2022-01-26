@@ -61,7 +61,7 @@ sections:
       - question: |
           Does autoscale work with free tier?
         answer: |
-          Yes. In free tier, you can use autoscale throughput on a container. Support for autoscale shared throughput databases with custom max RU/s is not yet available. See how [free tier billing works with autoscale](understand-your-bill.md#azure-free-tier).
+          Yes. In free tier, you can use autoscale throughput on a database or container. See how [free tier billing works with autoscale](understand-your-bill.md#azure-free-tier).
           
       - question: |
           Is autoscale supported for all APIs?
@@ -139,7 +139,7 @@ sections:
       - question: |
           Can I change the max RU/s on the database or container? 
         answer: |
-          Yes. See this [article](how-to-provision-autoscale-throughput.md) on how to change the max RU/s. When you change the max RU/s, depending on the requested value, this can be an asynchronous operation that may take some time to complete (may be up to 4-6 hours, depending on the RU/s selected)
+          Yes. See this [article](how-to-provision-autoscale-throughput.md) on how to change the max RU/s. When you change the max RU/s, depending on the requested value, this can be an asynchronous operation that may take some time to complete (may be up to 4-6 hours, depending on the RU/s selected). [Learn more](scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus).
           
       - question: |
           Increasing the max RU/s

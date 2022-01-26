@@ -16,7 +16,7 @@ Skype for Business has various workloads that require differentiated QoS treatme
 ![Diagram that shows the voice services going through ExpressRoute.](./media/expressroute-qos/expressroute-qos.png)
 
 > [!NOTE]
-> QoS requirements apply to the Microsoft peering only. The DSCP values in your network traffic received on Azure public peering and Azure private peering will be reset to 0. 
+> QoS requirements apply to the Microsoft peering only. The DSCP values in your network traffic received on Azure private peering will be kept as is, but they won't be used to prioritize the traffic on Microsoft's network. 
 > 
 > 
 

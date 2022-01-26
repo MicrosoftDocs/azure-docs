@@ -1,15 +1,15 @@
 ---
-title: Azure Percept security overview
+title: Azure Percept security
 description: Learn more about Azure Percept security
-author: mimcco
-ms.author: mimcco
+author: nkhuyent
+ms.author: ngt
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/24/2021
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-# Azure Percept security overview
+# Azure Percept security
 
 Azure Percept devices are designed with a hardware root of trust. This built-in security helps protect inference data and privacy-sensitive sensors like cameras and microphones and enables device authentication and authorization for Azure Percept Studio services.
 

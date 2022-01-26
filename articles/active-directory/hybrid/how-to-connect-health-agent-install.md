@@ -4,15 +4,14 @@ description: This Azure AD Connect Health article describes agent installation f
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: curtand
 ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e
 ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.date: 10/20/2020
+ms.date: 01/21/2022
 ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management 
@@ -37,11 +36,10 @@ The following table lists requirements for using Azure AD Connect Health.
 | Firewall ports on the server are running the agent. |The agent requires the following firewall ports to be open so that it can communicate with the Azure AD Connect Health service endpoints: <br /><li>TCP port 443</li><li>TCP port 5671</li> <br />The latest version of the agent doesn't require port 5671. Upgrade to the latest version so that only port 443 is required. For more information, see [Hybrid identity required ports and protocols](./reference-connect-ports.md). |
 | If Internet Explorer enhanced security is enabled, allow specified websites.  |If Internet Explorer enhanced security is enabled, then allow the following websites on the server where you install the agent:<br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https:\//aadcdn.msftauth.net</li><li>The federation server for your organization that's trusted by Azure AD (for example, https:\//sts.contoso.com)</li> <br />For more information, see [How to configure Internet Explorer](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). If you have a proxy in your network, then see the note that appears at the end of this table.|
 | PowerShell version 5.0 or newer is installed. | Windows Server 2016 includes PowerShell version 5.0. 
-|FIPS (Federal Information Processing Standard) is disabled.|Azure AD Connect Health agents don't support FIPS.|
+
 
 > [!IMPORTANT]
 > Windows Server Core doesn't support installing the Azure AD Connect Health agent.
-
 
 > [!NOTE]
 > If you have a highly locked-down and restricted environment, you need to add more URLs than the ones the table lists for Internet Explorer enhanced security. Also add URLs that are listed in the table in the next section.  
@@ -168,7 +166,7 @@ The "basic" audit level is enabled by default. For more information, see [AD FS 
 3. On the right, select **Filter Current Logs**.
 4. For **Event sources**, select **AD FS Auditing**.
 
-    For more information about audit logs, see [Operations questions](/azure/active-directory/hybrid/reference-connect-health-faq#operations-questions).
+    For more information about audit logs, see [Operations questions](./reference-connect-health-faq.yml).
 
     ![Screenshot showing the Filter Current Log window. In the "Event sources" field, "AD FS auditing" is selected.](./media/how-to-connect-health-agent-install/adfsaudit.png)
 
@@ -258,7 +256,6 @@ If you completed the configuration, these services should already be running. Ot
     import-module "C:\Program Files\Azure Ad Connect Health Adds Agent\PowerShell\AdHealthAdds"
      
     Register-AzureADConnectHealthADDSAgent -Credential $myCreds
-    
     ```
 
 When you finish, you can remove access for the local account by doing one or more of the following tasks: 
@@ -272,10 +269,9 @@ When you finish, you can remove access for the local account by doing one or mor
 After you install the appropriate agent *setup.exe* file, you can register the agent by using the following PowerShell commands, depending on the role. Open a PowerShell window and run the appropriate command:
 
 ```powershell
-    Register-AzureADConnectHealthADFSAgent
-    Register-AzureADConnectHealthADDSAgent
-    Register-AzureADConnectHealthSyncAgent
-
+Register-AzureADConnectHealthADFSAgent
+Register-AzureADConnectHealthADDSAgent
+Register-AzureADConnectHealthSyncAgent
 ```
 
 > [!NOTE]
@@ -286,8 +282,6 @@ After you install the appropriate agent *setup.exe* file, you can register the a
 > Register-AzureADConnectHealthADDSAgent -UserPrincipalName upn-of-the-user
 > Register-AzureADConnectHealthSyncAgent -UserPrincipalName upn-of-the-user
 > ```
->
-
 
 These commands accept `Credential` as a parameter to complete the registration noninteractively or to complete the registration on a machine that runs Server Core. Keep in mind that:
 * You can capture `Credential` in a PowerShell variable that's passed as a parameter.

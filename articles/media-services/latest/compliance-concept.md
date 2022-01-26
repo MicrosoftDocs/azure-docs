@@ -1,6 +1,6 @@
 ---
 title: Media Services regulatory compliance
-description: Azure Media Services complies with Azure Government.
+description: Azure Media Services helps Azure Government customers meet their compliance obligations.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -10,32 +10,37 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/11/2021
 ms.author: inhenkel
-
 ---
 
 # Media Services regulatory compliance
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Media Services meets the demanding requirements of the US Federal Risk & Authorization Management Program (FedRAMP) and of the US Department of Defense, from information impact levels 2 through 5. By deploying protected services including Azure Government, Office 365 U.S. Government, and Dynamics 365 Government, federal, and defense agencies can use a rich array of compliant services.
+Media Services meets the demanding requirements of the US Federal Risk & Authorization Management Program (FedRAMP) and of the US Department of Defense (DoD) Cloud Computing Security Requirements Guide (SRG) Impact Level (IL) 2, IL4, and IL5. By deploying authorized services in Azure Government, Office 365 GCC High and DoD, and Dynamics 365 US Government, federal and defense agencies can use a rich array of cloud services while meeting their compliance obligations.
 
-## FedRAMP and US Department of Defense compliance
+## FedRAMP and DoD compliance
 
-Media Services Public services are compliant with the Department of Defense Cloud Computing Security Requirements Guide 2 (DoD CC SRG IL 2) and FedRAMP High.
+Media Services in Azure Public maintains:
 
-Media Services Government services are compliant with DoD CC SRG IL 2, DoD CC SRG IL 4, DoD CC SRG IL 5, and FedRAMP High.
+- FedRAMP High Provisional Authorization to Operate (P-ATO)
+- DoD IL2 Provisional Authorization (PA)
 
-A review of Media Services by 3PAO and JAB isn't planned for 2020.
+Media Services in Azure Government maintains:
 
-Read more about Azure services compliance in the [Azure services by FedRAMP and DoD CC SRG audit scope](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) article.
+- FedRAMP High P-ATO
+- DoD IL2 PA
+- DoD IL4 PA
+- DoD IL5 PA
+
+For more information about Azure compliance coverage for US government, see Azure [FedRAMP High](/azure/compliance/offerings/offering-fedramp), [DoD IL2](/azure/compliance/offerings/offering-dod-il2), [DoD IL4](/azure/compliance/offerings/offering-dod-il4), and [DoD IL5](/azure/compliance/offerings/offering-dod-il5) documentation. For FedRAMP and DoD audit scope, see [Cloud services by audit scope](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
 
 ## Azure compliance documentation
 
-If your organization needs to comply with legal or regulatory standards for Global, US government, regional, financial services, health, media, and manufacturing, start with the [Azure compliance documentation](../../compliance/index.yml).
+To help you meet your own compliance obligations across regulated industries and markets worldwide, Azure maintains the largest compliance portfolio in the industry both in terms of breadth (total number of [compliance offerings](/azure/compliance/offerings/)) and depth (number of [customer-facing services](https://azure.microsoft.com/services/) in assessment scope). For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
-You will also find additional compliance resources such as audit reports, a checklist for privacy and General Data Protection Regulation (GDPR), compliance blueprints, country and regional guidelines, implementation and mappings, as well as white papers and analyst reports.
+Azure compliance offerings are grouped into four segments - globally applicable, US Government, industry specific, and region/country specific.  Compliance offerings are based on various types of assurances, including formal certifications, attestations, validations, authorizations, and assessments produced by independent third-party auditing firms, as well as contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. For more information, see [Azure compliance documentation](../../compliance/index.yml). You will also find additional compliance resources such as audit reports, a checklist for privacy and General Data Protection Regulation (GDPR), compliance blueprints, country and regional guidelines, implementation and mappings, as well as white papers and analyst reports.
 
 ## Next steps
 

@@ -3,11 +3,11 @@ title: 'Export a Microsoft Identity Manager connector for use with the Azure AD 
 description: Describes how to create and export a connector from MIM Sync to be used with the Azure AD ECMA Connector Host.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 11/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -16,13 +16,10 @@ ms.collection: M365-identity-device-management
 
 # Export a Microsoft Identity Manager connector for use with the Azure AD ECMA Connector Host
 
->[!IMPORTANT]
-> The on-premises provisioning preview is currently in an invitation-only preview. To request access to the capability, use the [access request form](https://aka.ms/onpremprovisioningpublicpreviewaccess). We'll open the preview to more customers and connectors over the next few months as we prepare for general availability.
-
 You can import into the Azure Active Directory (Azure AD) ECMA Connector Host a configuration for a specific connector from a Forefront Identity Manager Synchronization Service or Microsoft Identity Manager Synchronization Service (MIM Sync) installation. The MIM Sync installation is only used for configuration, not for the ongoing synchronization from Azure AD.
 
 >[!IMPORTANT]
->Currently, only the generic SQL connector is supported for use with the Azure AD ECMA Connector Host.
+>Currently, only the generic SQL and LDAP connectors are supported for use with the Azure AD ECMA Connector Host.
 
 ## Create and export a connector configuration in MIM Sync
 If you already have MIM Sync with your ECMA connector configured, skip to step 10.
@@ -51,7 +48,4 @@ At this point, the MIM Sync server is no longer needed.
 ## Next steps
 
 - [App provisioning](user-provisioning.md)
-- [Azure AD ECMA Connector Host prerequisites](on-premises-ecma-prerequisites.md)
-- [Azure AD ECMA Connector Host installation](on-premises-ecma-install.md)
-- [Azure AD ECMA Connector Host configuration](on-premises-ecma-configure.md)
 - [Generic SQL connector](on-premises-sql-connector-configure.md)

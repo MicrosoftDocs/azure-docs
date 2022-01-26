@@ -1,7 +1,7 @@
 ---
-title: Scale quotas and limits in your lab in Azure DevTest Labs | Microsoft Docs
+title: Scale quotas and limits in your lab
 description: This article describes how you can scale your lab in Azure DevTest Labs. View your usage quotas and limits, and request for an increase. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Lucidchart supports **SP** initiated SSO
+* Lucidchart supports [**Automated** user provisioning and deprovisioning](lucidchart-provisioning-tutorial.md) (recommended).
 * Lucidchart supports **Just In Time** user provisioning
 
 ## Add Lucidchart from the gallery
@@ -152,8 +153,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Lucidchart Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Lucidchart tile in the My Apps, you should be automatically signed in to the Lucidchart for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Lucidchart tile in the My Apps, you should be automatically signed in to the Lucidchart for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
- Once you configure the Lucidchart you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+ Once you configure the Lucidchart you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

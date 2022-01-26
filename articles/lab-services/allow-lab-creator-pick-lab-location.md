@@ -1,7 +1,7 @@
 ---
 title: Allow lab creator to pick location in Azure Lab Services
 description: This article describes how a lab account administrator can allow lab creators to pick locations for their labs. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

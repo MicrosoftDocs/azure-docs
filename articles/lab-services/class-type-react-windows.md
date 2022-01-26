@@ -2,7 +2,7 @@
 title: Set up a lab to teach front-end development with React on Windows using Azure Lab Services
 description: Learn how to set up labs to teach front-end development with React. 
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/16/2021
 ms.author: enewman
 ---

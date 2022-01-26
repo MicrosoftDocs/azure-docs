@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 
 # Data transfer for large datasets with moderate to high network bandwidth
- 
+
 This article provides an overview of the data transfer solutions when you have moderate to high network bandwidth in your environment and you are planning to transfer large datasets. The article also describes the recommended data transfer options and the respective key capability matrix for this scenario.
 
 To understand an overview of all the available data transfer options, go to [Choose an Azure data transfer solution](storage-choose-data-transfer-solution.md).
@@ -29,17 +29,16 @@ The options recommended in this scenario depend on whether you have moderate net
 
 With moderate network bandwidth, you need to project the time for data transfer over the network.
 
-Use the following table to estimate the time and based on that, choose between an offline transfer or over the network transfer. The table shows the projected time for network data transfer, for various available network bandwidths (assuming 90% utilization).  
+Use the following table to estimate the time and based on that, choose between an offline transfer or over the network transfer. The table shows the projected time for network data transfer, for various available network bandwidths (assuming 90% utilization).
 
 ![Network transfer or offline transfer](media/storage-solution-large-dataset-low-network/storage-network-or-offline-transfer.png)
 
 - If the network transfer is projected to be too slow, you should use a physical device. The recommended options in this case are the offline transfer devices from Azure Data Box family or Azure Import/Export using your own disks.
 
-    - **Azure Data Box family for offline transfers** – Use devices from Microsoft-supplied Data Box devices to move large amounts of data to Azure when you’re limited by time, network availability, or costs. Copy on-premises data using tools such as Robocopy. Depending on the data size intended for transfer, you can choose from Data Box Disk, Data Box, or Data Box Heavy.
-    - **Azure Import/Export** – Use Azure Import/Export service by shipping your own disk drives to securely import large amounts of data to Azure Blob storage and Azure Files. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites.
+  - **Azure Data Box family for offline transfers** – Use devices from Microsoft-supplied Data Box devices to move large amounts of data to Azure when you're limited by time, network availability, or costs. Copy on-premises data using tools such as Robocopy. Depending on the data size intended for transfer, you can choose from Data Box Disk, Data Box, or Data Box Heavy.
+  - **Azure Import/Export** – Use Azure Import/Export service by shipping your own disk drives to securely import large amounts of data to Azure Blob storage and Azure Files. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites.
 
 - If the network transfer is projected to be reasonable, then you can use any of the following tools detailed in [High network bandwidth](#high-network-bandwidth).
-
 
 ### High network bandwidth (1 Gbps - 100 Gbps)
 
@@ -74,7 +73,6 @@ If using offline data transfer, use the following table to understand the differ
 | **Use when data moves**     |Within a commerce boundary|Within a commerce boundary|Within a commerce boundary|Across geographic boundaries, e.g. US to EU|
 |    **Pricing**                          |    [Pricing](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Pricing](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Pricing](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Pricing](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
-
 If using online data transfer, use the table in the following section for high network bandwidth.
 
 ### High network bandwidth
@@ -92,16 +90,16 @@ If using online data transfer, use the table in the following section for high n
 ## Next steps
 
 - [Learn how to transfer data with Import/Export](../../import-export/storage-import-export-data-to-blobs.md).
-- Understand how to
 
-    - [Transfer data with Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
-    - [Transfer data with Data Box](../../databox/data-box-quickstart-portal.md).
-- [Transfer data with AzCopy](./storage-use-azcopy-v10.md).
 - Understand how to:
-    - [Transfer data with Data Box Gateway](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
-    - [Transform data with Data Box Edge before sending to Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
-- [Learn how to transfer data with Azure Data Factory](../../data-factory/quickstart-create-data-factory-portal.md).
-- Use the REST APIs to transfer data
+  - [Transfer data with Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
+  - [Transfer data with Data Box](../../databox/data-box-quickstart-portal.md).
+  - [Transfer data with AzCopy](./storage-use-azcopy-v10.md).
+  - [Transfer data with Data Box Gateway](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
+  - [Transform data with Data Box Edge before sending to Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
 
-    - [In .NET](/dotnet/api/overview/azure/storage)
-    - [In Java](/java/api/overview/azure/storage)
+- [Learn how to transfer data with Azure Data Factory](../../data-factory/quickstart-create-data-factory-portal.md).
+
+- Use the REST APIs to transfer data:
+  - [In .NET](/dotnet/api/overview/azure/storage)
+  - [In Java](/java/api/overview/azure/storage)

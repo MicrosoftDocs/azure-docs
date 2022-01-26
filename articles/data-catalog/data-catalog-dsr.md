@@ -436,7 +436,7 @@ You can publish metadata by using a public API or a click-once registration tool
     </tr>
 </table>
 
-If you want to see a specific data source supported, suggest it (or voice your support if it has already been suggested) by going to the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/forums/906052-data-catalog).
+If you want to see a specific data source supported, suggest it (or voice your support if it has already been suggested) by going to the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/d365community/forum/3bedd14b-6b26-ec11-b6e6-000d3a4f032c).
 
 
 ## Data-source reference specification
@@ -1246,14 +1246,12 @@ If you want to see a specific data source supported, suggest it (or voice your s
       <td>Container</td>
       <td>Model</td>
       <td>
-        <font size="2">
           Protocol: mssql-mds
           <br>Authentication: {windows}
           <br>Address:
           <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
           <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
           <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version
-        
       </td>
     </tr>
     <tr>
@@ -1261,7 +1259,6 @@ If you want to see a specific data source supported, suggest it (or voice your s
       <td>Table</td>
       <td>Entity</td>
       <td>
-        <font size="2">
           Protocol: mssql-mds
           <br>Authentication: {windows}
           <br>Address:
@@ -1269,7 +1266,6 @@ If you want to see a specific data source supported, suggest it (or voice your s
           <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
           <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version
           <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entity
-        
       </td>
     </tr>
     <tr>

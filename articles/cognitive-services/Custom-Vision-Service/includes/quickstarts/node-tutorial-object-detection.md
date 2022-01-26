@@ -116,6 +116,12 @@ Start a new function to contain all of your Custom Vision function calls. Add th
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ObjectDetection/CustomVisionQuickstart.js?name=snippet_create)]
 
+## Add tags to the project
+
+To create classification tags to your project, add the following code to your function:
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ObjectDetection/CustomVisionQuickstart.js?name=snippet_tags)]
+
 ## Upload and tag images
 
 First, download the sample images for this project. Save the contents of the [sample Images folder](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ObjectDetection/Images) to your local device.
@@ -167,7 +173,7 @@ Run the application with the `node` command on your quickstart file.
 node index.js
 ```
 
-The output of the application should appear in the console. You can then verify that the test image (found in **<sampleDataRoot>/Test/**) is tagged appropriately and that the region of detection is correct. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
+The output of the application should appear in the console. You can then verify that the test image (found in **\<sampleDataRoot\>/Test/**) is tagged appropriately and that the region of detection is correct. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
 
 ## Clean up resources
 

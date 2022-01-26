@@ -91,7 +91,7 @@ The client library supports encryption of entity properties for insert and repla
 > [!NOTE]
 > Merge is not currently supported. Since a subset of properties may have been encrypted previously using a different key, simply merging the new properties and updating the metadata will result in data loss. Merging either requires making extra service calls to read the pre-existing entity from the service, or using a new key per property, both of which are not suitable for performance reasons.
 
-Table data encryption works as follows:  
+Table data encryption works as follows:
 
 1. Users specify the properties to be encrypted.
 2. The client library generates a random Initialization Vector (IV) of 16 bytes along with a random content encryption key (CEK) of 32 bytes for every entity, and performs envelope encryption on the individual properties to be encrypted by deriving a new IV per property. The encrypted property is stored as binary data.
@@ -125,8 +125,8 @@ The storage client library uses the Key Vault interfaces in the core library in 
 
 There are two necessary packages for Key Vault integration:
 
-* Azure.Core contains the `IKeyEncryptionKey` and `IKeyEncryptionKeyResolver` interfaces. The storage client library for .NET already defines it as a dependency.
-* Azure.Security.KeyVault.Keys (v4.x) contains the Key Vault REST client, as well as cryptographic clients used with client-side encryption.
+- Azure.Core contains the `IKeyEncryptionKey` and `IKeyEncryptionKeyResolver` interfaces. The storage client library for .NET already defines it as a dependency.
+- Azure.Security.KeyVault.Keys (v4.x) contains the Key Vault REST client, as well as cryptographic clients used with client-side encryption.
 
 Key Vault is designed for high-value master keys, and throttling limits per Key Vault are designed with this in mind. As of Azure.Security.KeyVault.Keys 4.1.0, there is not an `IKeyEncryptionKeyResolver` implementation that supports key caching. Should caching be necessary due to throttling, [this sample](/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) can be followed to inject a caching layer into an `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` instance.
 
@@ -134,9 +134,9 @@ Key Vault is designed for high-value master keys, and throttling limits per Key 
 
 There are three Key Vault packages:
 
-* Microsoft.Azure.KeyVault.Core contains the IKey and IKeyResolver. It is a small package with no dependencies. The storage client library for .NET defines it as a dependency.
-* Microsoft.Azure.KeyVault (v3.x) contains the Key Vault REST client.
-* Microsoft.Azure.KeyVault.Extensions (v3.x) contains extension code that includes implementations of cryptographic algorithms and an RSAKey and a SymmetricKey. It depends on the Core and KeyVault namespaces and provides functionality to define an aggregate resolver (when users want to use multiple key providers) and a caching key resolver. Although the storage client library does not directly depend on this package, if users wish to use Azure Key Vault to store their keys or to use the Key Vault extensions to consume the local and cloud cryptographic providers, they will need this package.
+- Microsoft.Azure.KeyVault.Core contains the IKey and IKeyResolver. It is a small package with no dependencies. The storage client library for .NET defines it as a dependency.
+- Microsoft.Azure.KeyVault (v3.x) contains the Key Vault REST client.
+- Microsoft.Azure.KeyVault.Extensions (v3.x) contains extension code that includes implementations of cryptographic algorithms and an RSAKey and a SymmetricKey. It depends on the Core and KeyVault namespaces and provides functionality to define an aggregate resolver (when users want to use multiple key providers) and a caching key resolver. Although the storage client library does not directly depend on this package, if users wish to use Azure Key Vault to store their keys or to use the Key Vault extensions to consume the local and cloud cryptographic providers, they will need this package.
 
 Key Vault is designed for high-value master keys, and throttling limits per Key Vault are designed with this in mind. When performing client-side encryption with Key Vault, the preferred model is to use symmetric master keys stored as secrets in Key Vault and cached locally. Users must do the following:
 
@@ -155,19 +155,19 @@ Encryption support is available only in the storage client library for .NET. Win
 > [!IMPORTANT]
 > Be aware of these important points when using client-side encryption:
 >
-> * When reading from or writing to an encrypted blob, use whole blob upload commands and range/whole blob download commands. Avoid writing to an encrypted blob using protocol operations such as Put Block, Put Block List, Write Pages, Clear Pages, or Append Block; otherwise you may corrupt the encrypted blob and make it unreadable.
-> * For tables, a similar constraint exists. Be careful to not update encrypted properties without updating the encryption metadata.
-> * If you set metadata on the encrypted blob, you may overwrite the encryption-related metadata required for decryption, since setting metadata is not additive. This is also true for snapshots; avoid specifying metadata while creating a snapshot of an encrypted blob. If metadata must be set, be sure to call the **FetchAttributes** method first to get the current encryption metadata, and avoid concurrent writes while metadata is being set.
-> * Enable the **RequireEncryption** property in the default request options for users that should work only with encrypted data. See below for more info.
+> - When reading from or writing to an encrypted blob, use whole blob upload commands and range/whole blob download commands. Avoid writing to an encrypted blob using protocol operations such as Put Block, Put Block List, Write Pages, Clear Pages, or Append Block; otherwise you may corrupt the encrypted blob and make it unreadable.
+> - For tables, a similar constraint exists. Be careful to not update encrypted properties without updating the encryption metadata.
+> - If you set metadata on the encrypted blob, you may overwrite the encryption-related metadata required for decryption, since setting metadata is not additive. This is also true for snapshots; avoid specifying metadata while creating a snapshot of an encrypted blob. If metadata must be set, be sure to call the **FetchAttributes** method first to get the current encryption metadata, and avoid concurrent writes while metadata is being set.
+> - Enable the **RequireEncryption** property in the default request options for users that should work only with encrypted data. See below for more info.
 
 ## Client API / Interface
 
 Users can provide only a key, only a resolver, or both. Keys are identified using a key identifier and provides the logic for wrapping/unwrapping. Resolvers are used to resolve a key during the decryption process. It defines a resolve method that returns a key given a key identifier. This provides users the ability to choose between multiple keys that are managed in multiple locations.
 
-* For encryption, the key is used always and the absence of a key will result in an error.
-* For decryption:
-  * If the key is specified and its identifier matches the required key identifier, that key is used for decryption. Otherwise, the resolver is attempted. If there is no resolver for this attempt, an error is thrown.
-  * The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier, an error is thrown.
+- For encryption, the key is used always and the absence of a key will result in an error.
+- For decryption:
+  - If the key is specified and its identifier matches the required key identifier, that key is used for decryption. Otherwise, the resolver is attempted. If there is no resolver for this attempt, an error is thrown.
+  - The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier, an error is thrown.
 
 ### RequireEncryption mode (v11 only)
 
@@ -405,7 +405,7 @@ Note that encrypting your storage data results in additional performance overhea
 
 ## Next steps
 
-* [Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
-* Download the [Azure Storage Client Library for .NET NuGet package](https://www.nuget.org/packages/WindowsAzure.Storage)
-* Download the Azure Key Vault NuGet [Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/), and [Extensions](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) packages  
-* Visit the [Azure Key Vault Documentation](../../key-vault/general/overview.md)
+- [Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
+- Download the [Azure Storage Client Library for .NET NuGet package](https://www.nuget.org/packages/WindowsAzure.Storage)
+- Download the Azure Key Vault NuGet [Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/), and [Extensions](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) packages
+- Visit the [Azure Key Vault Documentation](../../key-vault/general/overview.md)

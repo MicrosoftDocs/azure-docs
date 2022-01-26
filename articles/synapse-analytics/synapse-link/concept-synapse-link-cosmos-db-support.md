@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: synapse-link
 ms.date: 06/02/2021
 ms.author: rosouz
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: cosmos-db
 ---
 
@@ -56,4 +56,5 @@ You can connect to an Azure Cosmos DB container without enabling Synapse Link. I
 ## Next steps
 
 * See how to [connect to Synapse Link for Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
-* [Learn how to query the Cosmos DB Analytical Store with Spark](how-to-query-analytical-store-spark.md)
+* [Learn how to query the Cosmos DB Analytical Store with Spark 3](how-to-query-analytical-store-spark-3.md)
+* [Learn how to query the Cosmos DB Analytical Store with Spark 2](how-to-query-analytical-store-spark.md)

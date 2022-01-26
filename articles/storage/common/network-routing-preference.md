@@ -15,12 +15,12 @@ ms.custom: references_regions
 
 # Network routing preference for Azure Storage
 
-You can configure network [routing preference](../../virtual-network/routing-preference-overview.md) for your Azure storage account to specify how network traffic is routed to your account from clients over the internet. By default, traffic from the internet is routed to the public endpoint of your storage account over the [Microsoft global network](../../networking/microsoft-global-network.md). Azure Storage provides additional options for configuring how traffic is routed to your storage account.
+You can configure network [routing preference](../../virtual-network/ip-services/routing-preference-overview.md) for your Azure storage account to specify how network traffic is routed to your account from clients over the internet. By default, traffic from the internet is routed to the public endpoint of your storage account over the [Microsoft global network](../../networking/microsoft-global-network.md). Azure Storage provides additional options for configuring how traffic is routed to your storage account.
 
 Configuring routing preference gives you the flexibility to optimize your traffic either for premium network performance or for cost. When you configure a routing preference, you specify how traffic will be directed to the public endpoint for your storage account by default. You can also publish route-specific endpoints for your storage account.
 
 > [!NOTE]
-> This feature is not supported in storage accounts that are configured to use the premium performance tier or Zone-redundant storage (ZRS).
+> This feature is not supported in premium performance storage accounts or accounts configured to use Zone-redundant storage (ZRS).
 
 ## Microsoft global network versus Internet routing
 
@@ -32,7 +32,7 @@ The following diagram shows how traffic flows between the client and the storage
 
 ![Overview of routing options for Azure Storage](media/network-routing-preference/routing-options-diagram.png)
 
-For more information on routing preference in Azure, see [What is routing preference?](../../virtual-network/routing-preference-overview.md).
+For more information on routing preference in Azure, see [What is routing preference?](../../virtual-network/ip-services/routing-preference-overview.md).
 
 ## Routing configuration
 
@@ -66,36 +66,36 @@ The connection strings for the published route-specific endpoints can be copied 
 
 Routing preference for Azure Storage is available in the following regions:
 
-- Central US 
-- Central US EUAP
-- East US 
-- East US 2
-- East US 2 
-- East US 2 EUAP
-- South Central US
-- West Central US
-- West US 
-- West US 2 
-- France Central 
-- France South 
-- Germany North 
-- Germany West Central 
-- North Central US
-- North Europe 
-- Norway East 
-- Switzerland North
-- Switzerland West
-- UK South 
-- UK West 
-- West Europe 
-- UAE Central
-- East Asia 
-- Southeast Asia 
-- Japan East 
-- Japan West 
-- West India
-- Australia East 
-- Australia Southeast 
+- Central US 
+- Central US EUAP
+- East US 
+- East US 2
+- East US 2 
+- East US 2 EUAP
+- South Central US
+- West Central US
+- West US 
+- West US 2 
+- France Central 
+- France South 
+- Germany North 
+- Germany West Central 
+- North Central US
+- North Europe 
+- Norway East 
+- Switzerland North
+- Switzerland West
+- UK South 
+- UK West 
+- West Europe 
+- UAE Central
+- East Asia 
+- Southeast Asia 
+- Japan East 
+- Japan West 
+- West India
+- Australia East 
+- Australia Southeast 
 
 The following known issues affect the routing preference for Azure Storage:
 
@@ -103,11 +103,11 @@ The following known issues affect the routing preference for Azure Storage:
 
 ## Pricing and billing
 
-For pricing and billing details, see the **Pricing** section in [What is routing preference?](../../virtual-network/routing-preference-overview.md#pricing).
+For pricing and billing details, see the **Pricing** section in [What is routing preference?](../../virtual-network/ip-services/routing-preference-overview.md#pricing).
 
 ## Next steps
 
-- [What is routing preference?](../../virtual-network/routing-preference-overview.md)
+- [What is routing preference?](../../virtual-network/ip-services/routing-preference-overview.md)
 - [Configure network routing preference](configure-network-routing-preference.md)
 - [Configure Azure Storage firewalls and virtual networks](storage-network-security.md)
 - [Security recommendations for Blob storage](../blobs/security-recommendations.md)

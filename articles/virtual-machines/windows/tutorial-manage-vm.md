@@ -7,12 +7,14 @@ ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
+ms.collection: windows
 ms.custom: mvc, devx-track-azurepowershell
 
 #Customer intent: As an IT administrator, I want to learn about common maintenance tasks so that I can create and manage Windows VMs in Azure
 ---
 
 # Tutorial: Create and Manage Windows VMs with Azure PowerShell
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine (VM) deployment tasks like selecting a VM size, selecting a VM image, and deploying a VM. You learn how to:
 
@@ -285,15 +287,9 @@ Start-AzVM `
    -Name "myVM"
 ```
 
-### Delete resource group
+### Deleting VM resources
 
-Everything inside of a resource group is deleted when you delete the resource group.
-
-```azurepowershell-interactive
-Remove-AzResourceGroup `
-   -Name "myResourceGroupVM" `
-   -Force
-```
+You can delete a VM, but by default this only deletes the VM resource, not the disks and networking resources the VM uses. You can change the default behavior to delete other resources when you delete the VM. For more information, see [Delete a VM and attached resources](../delete.md).
 
 ## Next steps
 

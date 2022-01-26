@@ -3,14 +3,14 @@ title: Azure Active Directory Application Proxy and Qlik Sense
 description:  Integrate Azure Active Directory Application Proxy with Qlik Sense.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 # Azure Active Directory Application Proxy and Qlik Sense 
 Azure Active Directory Application Proxy and Qlik Sense have partnered together to ensure you are easily able to use Application Proxy to provide remote access for your Qlik Sense deployment.  
@@ -52,7 +52,7 @@ Your application is now ready to test. Access the external URL you used to publi
 
 ## Additional references
 For more information about publishing Qlik Sense with Application Proxy, refer to following the Qlik Community Articles: 
-- [Azure AD with Integrated Windows Authentication using a Kerberos Constrained Delegation with Qlik Sense](https://community.qlik.com/docs/DOC-20183)
+- [Azure AD with integrated Windows authentication using a Kerberos Constrained Delegation with Qlik Sense](https://community.qlik.com/docs/DOC-20183)
 - [Qlik Sense integration with Azure AD Application Proxy](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396)
 
 ## Next steps

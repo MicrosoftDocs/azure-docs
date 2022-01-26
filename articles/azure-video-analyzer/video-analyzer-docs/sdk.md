@@ -1,10 +1,10 @@
 ---
-title: Azure Video Analyzer SDKs and resources
+title: SDKs and resources
 description: Learn about the Azure Video Analyzer SDKs
 author: bennage
 ms.author: christb
 ms.topic: reference
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 
 ---
 
@@ -31,6 +31,10 @@ The following platforms are supported:
 - [.NET](https://aka.ms/ava/sdk/client/net)
 - [Python](https://aka.ms/ava/sdk/client/python)
 - [Java](https://aka.ms/ava/sdk/client/java)
+
+## See Also
+
+- You can also refer [Azure Video Analyzer APIs](/rest/api/videoanalyzer/)
 
 <!-- links -->
 [docs-direct-methods]: direct-methods.md

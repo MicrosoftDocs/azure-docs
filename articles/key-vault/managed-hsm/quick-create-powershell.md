@@ -1,17 +1,14 @@
 ---
 title: Create and retrieve attributes of a managed key in Azure Key Vault – Azure PowerShell
 description: Quickstart showing how to set and retrieve a managed key from Azure Key Vault using Azure PowerShell
-services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/26/2021
 ms.topic: quickstart
 ms.service: key-vault
 ms.subservice: keys
-tags:
-  - azure-resource-manager
-ms.custom: devx-track-azurepowershell
-  - mode-api
+tags: azure-resource-manager
+ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Set and retrieve a managed key from Azure Key Vault using PowerShell
@@ -30,10 +27,10 @@ Login-AzAccount
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Use the Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a resource group named *myResourceGroup* in the *westus* location. 
+A resource group is a logical container into which Azure resources are deployed and managed. Use the Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a resource group named *myResourceGroup* in the *centralus* location. 
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name "myResourceGroup" -Location "WestUS"
+New-AzResourceGroup -Name "myResourceGroup" -Location "centralus"
 
 ## Get your principal ID
 
@@ -52,14 +49,14 @@ Use the Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvau
 - Managed HSM name: A string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-)
 
   > [!Important]
-  > Each managed HSM must have a unique name. Replace <your-unique-managed-hsm-name> with the name of your managed HSM in the following examples.
+  > Each managed HSM must have a unique name. Replace \<your-unique-managed-hsm-name\> with the name of your managed HSM in the following examples.
 
 - Resource group name: **myResourceGroup**.
-- The location: **EastUS**.
+- The location: **Central US**.
 - Your principal ID: Pass the Azure Active Directory principal ID that you obtained in the last section to the "Administrator" parameter. 
 
 ```azurepowershell-interactive
-New-AzKeyVaultManagedHsm -Name "<your-unique-managed-hsm-name>" -ResourceGroupName "myResourceGroup" -Location "West US" -Administrator "<your-principal-ID>"
+New-AzKeyVaultManagedHsm -Name "<your-unique-managed-hsm-name>" -ResourceGroupName "myResourceGroup" -Location "centralus" -Administrator "<your-principal-ID>"
 ```
 
 The output of this cmdlet shows properties of the newly created managed HSM. Take note of the two properties listed below:

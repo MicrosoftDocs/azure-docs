@@ -8,7 +8,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev , devx-track-azurepowershell
+ms.custom: aaddev, devx-track-azurepowershell
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.date: 02/22/2021
@@ -16,7 +16,7 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ---
 
-# How to: Use Azure PowerShell to create a service principal with a certificate
+# Use Azure PowerShell to create a service principal with a certificate
 
 When you have an app or script that needs to access resources, you can set up an identity for the app and authenticate the app with its own credentials. This identity is known as a service principal. This approach enables you to:
 

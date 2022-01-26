@@ -50,7 +50,7 @@ Additionally to the base feature set, Azure Remote Rendering supports the follow
 
 * [MSFT_packing_occlusionRoughnessMetallic](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_packing_occlusionRoughnessMetallic/README.md)
 * [KHR_materials_unlit](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_unlit/README.md): Corresponds to [color materials](../overview/features/color-materials.md). For *emissive* materials, it's recommended to use this extension.
-* [KHR_materials_pbrSpecularGlossiness](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/README.md): Instead of metallic-roughness textures, you can provide diffuse-specular-glossiness textures. The Azure Remote Rendering implementation directly follows the conversion formulas from the extension.
+* [KHR_materials_pbrSpecularGlossiness](https://kcoley.github.io/glTF/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/): Instead of metallic-roughness textures, you can provide diffuse-specular-glossiness textures. The Azure Remote Rendering implementation directly follows the conversion formulas from the extension.
 
 ## FBX
 
@@ -118,7 +118,7 @@ Roughness = sqrt(2 / (ShininessExponent * SpecularIntensity + 2))
 
 The idea here is that we solve the equation: Ax<sup>2</sup> + Bx + C = 0.
 Basically, dielectric surfaces reflect around 4% of light in a specular way, and the rest is diffuse. Metallic surfaces reflect no light in a diffuse way, but all in a specular way.
-This formula has a few drawbacks, because there is no way to distinguish between glossy plastic and glossy metallic surfaces. We assume most of the time the surface has metallic properties, and consequently glossy plastic/rubber surfaces may not look as expected.
+This formula has a few drawbacks, because there is no way to distinguish between glossy plastic and glossy metallic surfaces. We assume most of the time the surface has metallic properties, and so glossy plastic/rubber surfaces may not look as expected.
 
 ```cpp
 dielectricSpecularReflectance = 0.04
@@ -149,7 +149,7 @@ albedoRawColor = lerpColors(dielectricColor, metalColor, metalness * metalness)
 AlbedoRGB = clamp(albedoRawColor, 0.0, 1.0);
 ```
 
-`AlbedoRGB` has been computed by the formula above, but the alpha channel requires additional computations. The FBX format is vague about transparency and has many ways to define it. Different content tools use different methods. The idea here is to unify them into one formula. It makes some assets incorrectly shown as transparent, though, if they are not created in a common way.
+`AlbedoRGB` has been computed by the formula above, but the alpha channel requires more computations. The FBX format is vague about transparency and has many ways to define it. Different content tools use different methods. The idea here is to unify them into one formula. It makes some assets incorrectly shown as transparent, though, if they are not created in a common way.
 
 This is computed from `TransparentColor`, `TransparencyFactor`, `Opacity`:
 
@@ -166,7 +166,7 @@ To summarize here, `Albedo` will be very close to the original `Diffuse`, if `Sp
 ### Known issues
 
 * The current formula does not work well for simple colored geometry. If `Specular` is bright enough, then all geometries become reflective metallic surfaces without any color. The workaround here is to lower `Specular` to 30% from the original or to use the conversion setting [fbxAssumeMetallic](../how-tos/conversion/configure-model-conversion.md#converting-from-older-fbx-formats-with-a-phong-material-model).
-* PBR materials were recently added to `Maya` and `3DS Max` content creation tools. They use custom user-defined black-box properties to pass it to FBX. Azure Remote Rendering does not read those additional properties because they are not documented and the format is closed-source.
+* PBR materials were recently added to `Maya` and `3DS Max` content creation tools. They use custom user-defined black-box properties to pass it to FBX. Azure Remote Rendering does not read those properties because they are not documented and the format is closed-source.
 
 ## Next steps
 

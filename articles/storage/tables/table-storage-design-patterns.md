@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 06/24/2021
 ms.author: tamram
 ms.subservice: tables
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 # Table design patterns

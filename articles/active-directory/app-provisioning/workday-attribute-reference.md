@@ -3,7 +3,7 @@ title: Workday attribute reference for Azure Active Directory
 description: Learn which which attributes that you can fetch from Workday using XPATH queries in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -200,7 +200,7 @@ To configure additional XPATHs, refer to the section [Tutorial: Managing your co
 | 76 | UserID                                | wd:Worker/wd:Worker\_Data/wd:User\_ID/text\(\)                                                                                                                                                                                                                                                                                                                                         |
 | 77 | WID                                   | wd:Worker/wd:Worker\_Reference/wd:ID\[@wd:type='WID'\]/text\(\)                                                                                                                                                                                                                                                                                                                        |
 | 78 | WorkerID                              | wd:Worker/wd:Worker\_Data/wd:Worker\_ID/text\(\)                                                                                                                                                                                                                                                                                                                                       |
-| 79 | WorkerType                            | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Worker\_Type\_Reference/wd:ID\[@wd:type="Employee\_Type\_ID"\]/text\(\)                                                                                                                                                                                                 |
+| 79 | WorkerType                            | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary\_Job=1]/wd:Position\_Data/wd:Worker\_Type\_Reference\[wd:ID/@wd:type="Contingent\_Worker\_Type\_ID" or wd:ID/@wd:type="Employee\_Type\_ID"]/@wd:Descriptor                                                                                                                                                                                                 |
 | 80 | WorkSpaceReference                    | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Work\_Space\_\_Reference/@wd:Descriptor                                                                                                                                                                                                                                  |
 
 ## Custom XPATH values

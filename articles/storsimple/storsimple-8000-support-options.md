@@ -107,16 +107,9 @@ StorSimple 8000 Series Storage Arrays support is provided based on how the StorS
 
 
 
-*<text> * Premium coverage is not available in all locations. Contact Microsoft at SSSupOps\@microsoft.com for geographical coverage before purchasing StorSimple Premium Support.*
+\* Premium coverage is not available in all locations. Contact Microsoft at SSSupOps\@microsoft.com for geographical coverage before purchasing StorSimple Premium Support.
 
-***The StorSimple appliance must be deployed in a region where the customer is covered by Premier support in order to be eligible for a free upgrade to premium StorSimple support.*
+\** The StorSimple appliance must be deployed in a region where the customer is covered by Premier support in order to be eligible for a free upgrade to premium StorSimple support.
 
 
 ASAP+ customers can switch to subscription model where standard support is included. Use the StorSimple pricing calculator for subscription pricing and contact SSSupOps@microsoft.com for any questions. Switching is one way only from ASAP+ to Subscription.
-
-
-
-
-
-
- 

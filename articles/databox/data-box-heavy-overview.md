@@ -8,7 +8,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: overview
-ms.date: 08/28/2019
+ms.date: 10/20/2021
 ms.author: alkohli
 ---
 
@@ -98,17 +98,14 @@ Throughout this process, you're notified via email on all status changes.
 
 Data Box Heavy can transfer data based on the region in which service is deployed, country/region to which the device is shipped, and the target Azure storage account where you transfer the data.
 
-- **Service availability** - For this release, Data Box Heavy is available in the following regions:
-    - All public cloud regions in the United States - West Central US, West US2, West US, South Central US, Central US, North Central US, East US, and East US2.
-    - European Union - West Europe and North Europe.
-    - UK - UK South and UK West.
-    - France - France Central and France South.
+- **Service availability** - Data Box Heavy is available in the US and EU.
+
 
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions where the service is available.
 
 For the most up-to-date information on region availability for Data Box Heavy, go to [Azure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
 
-## Sign up
+<!--## Sign up
 
 Take the following steps to sign up for Data Box Heavy:
 
@@ -118,6 +115,6 @@ Take the following steps to sign up for Data Box Heavy:
 4. Pick the subscription that you want to use for Data Box Heavy. Select the region where you want to deploy the Data Box Heavy resource. In the **Data Box Heavy** option, click **Sign up**.
 5. Answer the questions regarding data residence country/region, time-frame, target Azure service for data transfer, network bandwidth, and data transfer frequency. Review Privacy and terms and select the checkbox against Microsoft can use your email address to contact you.
 
-Once you're signed up, you can order a Data Box Heavy.
+Once you're signed up, you can order a Data Box Heavy.-->
 
     

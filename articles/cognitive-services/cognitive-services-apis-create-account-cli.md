@@ -1,7 +1,7 @@
 ---
-title: Create a Cognitive Services resource using the Azure CLI
+title: Create a Cognitive Services resource via the Azure CLI
 titleSuffix: Azure Cognitive Services
-description: Get started with Azure Cognitive Services by creating and subscribing to a resource using the Azure command-line interface.
+description: Get started with Azure Cognitive Services by creating and subscribing to a resource via the Azure CLI.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,24 +10,26 @@ keywords: cognitive services, cognitive intelligence, cognitive solutions, ai se
 ms.topic: quickstart
 ms.date: 06/04/2021
 ms.author: aahi
+ms.custom: mode-api
 ---
 
-# Quickstart: Create a Cognitive Services resource using the Azure Command-Line Interface(CLI)
+# Quickstart: Create a Cognitive Services resource via the Azure CLI
 
-Use this quickstart to get started with Azure Cognitive Services using the [Azure Command Line Interface(CLI)](/cli/azure/install-azure-cli).
+Use this quickstart to get started with Azure Cognitive Services via the [Azure CLI](/cli/azure/install-azure-cli).
 
 Azure Cognitive Services are cloud-base services with REST APIs, and client library SDKs available to help developers build cognitive intelligence into applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, understand, and even begin to reason.
 
 Cognitive Services are represented by Azure [resources](../azure-resource-manager/management/manage-resources-portal.md) that you create in your Azure subscription. After creating the resource, Use the keys and endpoint generated for you to authenticate your applications.
 
-In this quickstart, you'll learn how to sign up for Azure Cognitive Services and create an account that has a single-service or multi-service subscription, Using the [Azure Command Line Interface(CLI)](/cli/azure/install-azure-cli). These services are represented by Azure [resources](../azure-resource-manager/management/manage-resources-portal.md), which enable you to connect to one or more of the Azure Cognitive Services APIs.
+In this quickstart, you'll learn how to sign up for Azure Cognitive Services and create an account that has a single-service or multi-service subscription via the [Azure CLI](/cli/azure/install-azure-cli). These services are represented by Azure [resources](../azure-resource-manager/management/manage-resources-portal.md), which enable you to connect to one or more of the Azure Cognitive Services APIs.
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## Prerequisites
 
 * A valid Azure subscription - [Create one](https://azure.microsoft.com/free/cognitive-services) for free.
-* The [Azure Command Line Interface(CLI)](/cli/azure/install-azure-cli)
+* The [Azure CLI](/cli/azure/install-azure-cli)
+* [!INCLUDE [contributor-requirement](./includes/quickstarts/contributor-requirement.md)]
 * [!INCLUDE [terms-azure-portal](./includes/quickstarts/terms-azure-portal.md)]
 
 ## Install the Azure CLI and sign in

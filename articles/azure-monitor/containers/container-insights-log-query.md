@@ -40,16 +40,10 @@ ContainerInventory
 ### Kubernetes events
 
 ``` kusto
-KubeEvents_CL
-| where not(isempty(Namespace_s))
+KubeEvents
+| where not(isempty(Namespace))
 | sort by TimeGenerated desc
 | render table
-```
-### Image inventory
-
-``` kusto
-ContainerImageInventory
-| summarize AggregatedValue = count() by Image, ImageTag, Running
 ```
 
 ### Container CPU
@@ -74,7 +68,8 @@ Perf
 InsightsMetrics
 | where Name == "requests_count"
 | summarize Val=any(Val) by TimeGenerated=bin(TimeGenerated, 1m)
-| sort by TimeGenerated asc<br> &#124; project RequestsPerMinute = Val - prev(Val), TimeGenerated
+| sort by TimeGenerated asc
+| project RequestsPerMinute = Val - prev(Val), TimeGenerated
 | render barchart 
 ```
 ### Pods by name and namespace
@@ -95,7 +90,6 @@ on ContainerID
 // at this point before the next pipe, columns from both tables are available to be "projected". Due to both
 // tables having a "Name" column, we assign an alias as PodName to one column which we actually want
 | project TimeGenerated, PodName, LogEntry, LogEntrySource
-| extend TimeGenerated = TimeGenerated - 21600s | order by TimeGenerated desc
 | summarize by TimeGenerated, LogEntry
 | order by TimeGenerated desc
 ```

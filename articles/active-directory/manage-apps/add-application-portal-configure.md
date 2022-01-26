@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Configure properties for an application'
+title: 'Quickstart: Configure enterprise application properties'
 titleSuffix: Azure AD
-description: This quickstart uses the Azure portal to configure an application that has been registered with your Azure Active Directory (Azure AD) tenant.
+description: Configure the properties of an enterprise application in Azure Active Directory.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -9,90 +9,77 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/23/2021
+ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
+ms.custom: mode-other
+#Customer intent: As an administrator of an Azure AD tenant, I want to configure the properties of an enterprise application.
 ---
 
-# Quickstart: Configure properties for an application
+# Quickstart: Configure enterprise application properties
 
-In the previous quickstart, you added an application to your Azure Active Directory (Azure AD) tenant. When you add an application, you're letting your Azure AD tenant know it's the identity provider for the app. Now you'll configure some of the properties for the app.
+In this quickstart, you use the Azure Active Directory Admin Center to configure the properties of an enterprise application that you previously added to your Azure Active Directory (Azure AD) tenant.
+
+You can configure the following common attributes of an enterprise application:
+
+- **Enabled for users to sign in?** - Determines whether users assigned to the application can sign in.
+- **User assignment required?** - Determines whether users who aren't assigned to the application can sign in.
+- **Visible to users?** - Determines whether users assigned to an application can see it in My Apps and Microsoft 365 app launcher. (See the waffle menu in the upper-left corner of a Microsoft 365 website.)
+- **Logo** - Determines the logo that represents the application.
+- **Notes** - Provides a place to add notes that apply to the application.
+
+It is recommended that you use a non-production environment to test the steps in this quickstart.
 
 ## Prerequisites
 
-To configure the properties of an application in your Azure AD tenant, you need:
+To configure the properties of an enterprise application, you need:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- Optional: Completion of [View your apps](view-applications-portal.md).
-- Optional: Completion of [Add an app](add-application-portal.md).
+- Completion of the steps in [Quickstart: Add an enterprise application](add-application-portal.md).
 
->[!IMPORTANT]
->Use a non-production environment to test the steps in this quickstart.
+## Configure application properties
 
-## Configure app properties
-
-When you finish adding an application to your Azure AD tenant, the overview page appears. If you're configuring an application that was already added, look at the first quickstart. It walks you through viewing the applications added to your tenant.
+Application properties control how the application is represented and how the application is accessed.
 
 To edit the application properties:
 
-1. In the Azure AD portal, select **Enterprise applications**. Then find and select the application you want to configure.
-2. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
-3. Take a moment to understand the options available. The options available will depend on how the app is integrated with Azure AD. For example, an app that uses SAML-based single sign-on will have fields such as *User access URL* whereas an app that uses OIDC-based single sign-on will not. Also note that apps added through **Azure Active Directory > App registrations** are by default OIDC-based apps. Whereas apps added through **Azure Active Directory > Enterprise applications** might use any of a number of single sign-on standards. All apps will have fields for configuring when an app appears and can be used. These fields are:
-    - **Enabled for users to sign in?** determines whether users assigned to the application can sign in.
-    - **User assignment required?** determines whether users who aren't assigned to the application can sign in.
-    - **Visible to users?** determines whether users assigned to an app can see it in [My Apps](https://myapps.microsoft.com) and Microsoft 365 app launcher. (See the waffle menu in the upper-left corner of a Microsoft 365 website.)
+1. Go to the [Azure Active Directory Admin Center](https://aad.portal.azure.com) and sign in using one of the roles listed in the prerequisites.
+1. In the left menu, select **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. Search for and select the application that you want to use. For example, **Azure AD SAML Toolkit 1**.
+1. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
+1. Select **Yes** or **No** to decide whether the application is enabled for users to sign in.
+1. Select **Yes** or **No** to decide whether only user accounts that have been assigned to the application can sign in.
+1. Select **Yes** or **No** to decide whether users assigned to an application can see it in My Apps and Microsoft 365 portals. 
 
-    > [!TIP]
-    > Assigning users happens on the **Users and groups** section of navigation.
-
-    The three options can be toggled independently of each other and the resulting behavior is not always obvious. Here is a table that might help:
-
-    | Enabled for users to sign in? | User assignment required? | Visible to users? | Behavior for users who have either been assigned to the app or not. |
-    |---|---|---|---|
-    | Yes | Yes | Yes | Assigned users can see the app and sign in.<br>Unassigned users cannot see the app and cannot sign in. |
-    | Yes | Yes | No  | Assigned users cannot see the app but they can sign in.<br>Unassigned users cannot see the app and cannot sign in. |
-    | Yes | No  | Yes | Assigned users can see the app and sign in.<br>Unassigned users cannot see the app but can sign in. |
-    | Yes | No  | No  | Assigned users cannot see the app but can sign in.<br>Unassigned users cannot see the app but can sign in. |
-    | No  | Yes | Yes | Assigned users cannot see the app and cannot sign in.<br>Unassigned users cannot see the app and cannot sign in. |
-    | No  | Yes | No  | Assigned users cannot see the app and cannot sign in.<br>Unassigned users cannot see the app and cannot sign in. |
-    | No  | No  | Yes | Assigned users cannot see the app and cannot sign in.<br>Unassigned users cannot see the app and cannot sign in. |
-    | No  | No  | No  | Assigned users cannot see the app and cannot sign in.<br>Unassigned users cannot see the app and cannot sign in. |
-
-4. When you're finished, select **Save**.
+    :::image type="content" source="media/add-application-portal-configure/configure-properties.png" alt-text="Configure the properties of an enterprise application.":::
 
 ## Use a custom logo
+
+The application logo is seen on the My Apps and Microsoft 365 portals, and when administrators view this application in the enterprise application gallery. Custom logos must be exactly 215x215 pixels in size and be in the PNG format. It is recommended that you use a solid color background with no transparency in your application logo so that it appears best to users.
 
 To use a custom logo:
 
 1. Create a logo that's 215 by 215 pixels, and save it in .png format.
-2. In the Azure AD portal, select **Enterprise applications**. Then find and select the application you want to configure.
-3. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
-4. Select the icon to upload the logo.
-5. When you're finished, select **Save**.
+1. Select the icon in **Select a file** to upload the logo.
+1. When you're finished, select **Save**.
 
-    :::image type="content" source="media/add-application-portal/change-logo.png" alt-text="Screenshot of the Properties screen that shows how to change the logo.":::
-
-   > [!NOTE]
-   > The thumbnail displayed on this **Properties** pane doesn't update right away. You can close and reopen the **Properties** pane to see the updated icon.
-
-> [!TIP]
-> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](/graph/application-saml-sso-configure-api).
+The thumbnail for the logo doesn't update right away. You can close and reopen the **Properties** pane to see the updated thumbnail.
 
 ## Add notes
 
-You can use the notes field to add any information that is relevant for the management of the application in Azure AD. Notes is a free text field with a maximum size of 1024 characters.
+You can use the **Notes** property to add any information that is relevant for the management of the application in Azure AD. The **Notes** property is a free text field with a maximum size of 1024 characters.
 
-1. In the Azure AD portal, select **Enterprise applications**. Then find and select the application you want to configure.
-2. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
-3. Update the Notes field, select **Save**.
+To enter notes for the application:
+
+1. Enter the notes that you want to keep with the application.
+1. Select **Save**.
 
 ## Clean up resources
 
-If you're not going to continue with the quickstart series, then consider deleting the app to clean up your test tenant. Deleting the app is covered in the last quickstart in this series, see [Delete an app](delete-application-portal.md).
+If you are planning to complete the next quickstart, keep the enterprise application that you created. Otherwise, you can consider deleting it to clean up your tenant. For more information, see [Delete an application](delete-application-portal.md).
 
 ## Next steps
 
-Advance to the next article to learn how to assign users to the app.
+Learn how to search for and view the applications in your Azure AD tenant.
 > [!div class="nextstepaction"]
-> [Assign users to an app](add-application-portal-assign-users.md)
+> [View applications](view-applications-portal.md)

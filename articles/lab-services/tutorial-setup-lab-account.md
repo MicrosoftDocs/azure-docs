@@ -2,7 +2,8 @@
 title: Set up a lab account with Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab account with Azure Lab Services, add a lab creator, and specify Marketplace images to be used by labs in the lab account. 
 ms.topic: tutorial
-ms.date: 06/26/2020
+ms.date: 07/26/2021
+ms.custom: subject-rbac-steps
 ---
 
 # Tutorial: Set up a lab account with Azure Lab Services
@@ -45,17 +46,25 @@ The following steps illustrate how to use the Azure portal to create a lab accou
     ![Lab account page](./media/tutorial-setup-lab-account/lab-account-page.png)
 
 ## Add a user to the Lab Creator role
-To set up a classroom lab in a lab account, the user must be a member of the **Lab Creator** role in the lab account. To provide educators the permission to create labs for their classes, add them to the **Lab Creator** role:
+To set up a classroom lab in a lab account, the user must be a member of the **Lab Creator** role in the lab account. To provide educators the permission to create labs for their classes, add them to the **Lab Creator** role: For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 > [!NOTE]
 > The account you used to create the lab account is automatically added to this role. If you are planning to use the same user account to create a classroom lab in this tutorial, skip this step. 
 
-1. On the **Lab Account** page, select **Access control (IAM)**, select **+ Add** on the toolbar, and then select **+ Add role assignment** on the toolbar. 
 
-    ![Access Control -> Add Role Assignment button](./media/tutorial-setup-lab-account/add-role-assignment-button.png)
-1. On the **Add role assignment** page, select **Lab Creator** for **Role**, select the user you want to add to the Lab Creators role, and select **Save**. 
+1. On the **Lab Account** page, select **Access control (IAM)**
 
-    ![Add lab creator](./media/tutorial-setup-lab-account/add-lab-creator.png)
+1. Select **Add** > **Add role assignment (Preview)**.
+
+    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+
+1. On the **Role** tab, select the **Lab Creator** role.
+
+    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+
+1. On the **Members** tab, select the user you want to add to the Lab Creators role
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 
 ## Next steps

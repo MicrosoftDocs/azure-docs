@@ -3,7 +3,7 @@ title: Azure Active Directory and Workday integration reference
 description: Technical deep dive into Workday-HR driven provisioning in Azure Active Directory
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -56,7 +56,7 @@ This strategy of limiting access using constrained ISSG (Integration System Secu
 
 To test connectivity to Workday, Azure AD sends the following *Get_Workers* Workday Web Services request. 
 
-```XML
+```xml
 <!-- Test connection query tries to retrieve one record from the first page -->
 <!-- Replace version with Workday Web Services version present in your connection URL -->
 <!-- Replace timestamps below with the UTC time corresponding to the test connection event -->
@@ -91,7 +91,7 @@ To test connectivity to Workday, Azure AD sends the following *Get_Workers* Work
 
 Azure AD sends the following *Get_Workers* Workday Web Services request to retrieve worker data. The query looks up the Workday transaction log for all effective dated worker entries as of the time corresponding to the full sync run. 
 
-```XML
+```xml
 <!-- Workday full sync query -->
 <!-- Replace version with Workday Web Services version present in your connection URL -->
 <!-- Replace timestamps below with the UTC time corresponding to full sync run -->
@@ -151,7 +151,7 @@ Certain flag values specified in the *Response_Group* node are calculated based 
 
 The *Get_Workers* response from Workday for the above query includes the number of worker records and page count.
 
-```XML
+```xml
   <wd:Response_Results>
     <wd:Total_Results>509</wd:Total_Results>
     <wd:Total_Pages>17</wd:Total_Pages>
@@ -161,7 +161,7 @@ The *Get_Workers* response from Workday for the above query includes the number 
 ```
 To retrieve the next page of the result set, the next *Get_Workers* query specifies the page number as a parameter in the *Response_Filter*.
 
-```XML
+```xml
   <p1:Response_Filter>
     <p1:As_Of_Effective_Date>2021-01-19T02:29:16.0094202Z</p1:As_Of_Effective_Date>
     <p1:As_Of_Entry_DateTime>2021-01-19T02:29:16.0094202Z</p1:As_Of_Entry_DateTime>

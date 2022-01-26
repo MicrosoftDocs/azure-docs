@@ -1,5 +1,5 @@
 ---
-title: Encrypt an Azure storage account used by a lab in Azure DevTest Labs
+title: Encrypt an Azure storage account used by a lab
 description: Learn how to configure encryption of an Azure storage used by a lab in Azure DevTest Labs 
 ms.topic: how-to
 ms.date: 07/29/2020
@@ -60,7 +60,7 @@ These documents are used to support the option to both create formulas from exis
 - Creating a VM from a formula.
 
 ### Artifact results
-As artifacts are applied, the size of the respective artifact results can increase over time depending on the number and type of artifacts being run on lab VMs. So, as a lab owner, you may want to control the lifecycle of such documents. For more information, see [Manage the Azure Blob storage lifecycle](../storage/blobs/storage-lifecycle-management-concepts.md).
+As artifacts are applied, the size of the respective artifact results can increase over time depending on the number and type of artifacts being run on lab VMs. So, as a lab owner, you may want to control the lifecycle of such documents. For more information, see [Manage the Azure Blob storage lifecycle](../storage/blobs/lifecycle-management-overview.md).
 
 > [!IMPORTANT]
 > We recommend that you do this step to reduce expenses associated with the Azure Storage account. 
