@@ -28,7 +28,7 @@ You can't move an Azure Spring Cloud instance from one region to another directl
   - Not all sub-resources in Azure Spring Cloud can be moved with the template. Extra setup is still required after the template is deployed. See [Configure the new Azure Spring Cloud service instance](#configure-the-new-azure-spring-cloud-service-instance).
   - When moving a [VNet instance](./how-to-deploy-in-azure-virtual-network.md), new network resources need to be created.
 
-## How to move an Azure Spring Cloud service instance with a template
+## Move an Azure Spring Cloud service instance using a template
 
 In order to move an Azure Spring Cloud service instance with a template, use the following steps.
 
