@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 01/23/2022
 ms.author: yulili
 ms.devlang: cpp, csharp, java, javascript, python
 ms.custom: references_regions
@@ -18,17 +18,17 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 # Get facial pose events
 
 > [!NOTE]
-> At this time, viseme events are available only for `en-US` English (United States) [neural voices](language-support.md#text-to-speech).
+> At this time, viseme events are available only for English (US) [neural voices](language-support.md#text-to-speech).
 
-A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth when a person speaks a word. Each viseme depicts the key facial poses for a specific set of phonemes. You can use visemes to control the movement of 2D and 3D avatar models, so that the mouth movements are perfectly matched to synthetic speech.
+A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth when a person speaks a word. Each viseme depicts the key facial poses for a specific set of phonemes. 
 
-Visemes make avatars easier to use and control. By using visemes, you can:
+You can use visemes to control the movement of 2D and 3D avatar models, so that the mouth movements are perfectly matched to synthetic speech. For example, you can:
 
- * Create an **animated virtual voice assistant** for intelligent kiosks, building multi-mode integrated services for your customers.
- * Build **immersive news broadcasts** and improve audience experiences with natural face and mouth movements.
- * Generate more **interactive gaming avatars and cartoon characters** that can speak with dynamic content.
- * Make more **effective language teaching videos** that help language learners to understand the mouth behavior of each word and phoneme.
- * People with hearing impairment can also pick up sounds visually and **"lip-read"** speech content that shows visemes on an animated face.
+ * Create an animated virtual voice assistant for intelligent kiosks, building multi-mode integrated services for your customers.
+ * Build immersive news broadcasts and improve audience experiences with natural face and mouth movements.
+ * Generate more interactive gaming avatars and cartoon characters that can speak with dynamic content.
+ * Make more effective language teaching videos that help language learners understand the mouth behavior of each word and phoneme.
+ * People with hearing impairment can also pick up sounds visually and "lip-read" speech content that shows visemes on an animated face.
 
 For more information about visemes, view this [introductory video](https://youtu.be/ui9XT47uwxs).
 > [!VIDEO https://www.youtube.com/embed/ui9XT47uwxs]
@@ -235,4 +235,5 @@ Visemes vary by language. Each language has a set of visemes that correspond to 
 
 ## Next steps
 
-* [Speech SDK reference documentation](speech-sdk.md)
+> [!div class="nextstepaction"]
+> [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)

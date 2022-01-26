@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 01/23/2022
 ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 
 # Evaluate and improve Custom Speech accuracy
 
-In this article, you learn how to quantitatively measure and improve the accuracy of the Microsoft speech-to-text models or your own custom models. Audio + human-labeled transcription data is required to test accuracy, and 30 minutes to 5 hours of representative audio should be provided.
+In this article, you learn how to quantitatively measure and improve the accuracy of the Microsoft speech-to-text model or your own custom models. Audio + human-labeled transcription data is required to test accuracy, and 30 minutes to 5 hours of representative audio should be provided.
 
 ## Evaluate Custom Speech accuracy
 
@@ -33,7 +33,7 @@ Here's an example:
 
 ![Screenshot showing an example of incorrectly identified words.](./media/custom-speech/custom-speech-dis-words.png)
 
-If you want to replicate WER measurements locally, you can use the sclite tool from [SCTK](https://github.com/usnistgov/SCTK).
+If you want to replicate WER measurements locally, you can use the sclite tool from the [NIST Scoring Toolkit (SCTK)](https://github.com/usnistgov/SCTK).
 
 ## Resolve errors and improve WER
 
@@ -50,11 +50,12 @@ If you want to test the quality of the Microsoft speech-to-text baseline model o
 To evaluate models side by side, do the following:
 
 1. Sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech).
-2. Select **Speech-to-text** > **Custom Speech** > **\<name of project>** > **Testing**.
-3. Select **Add Test**.
-4. Select **Evaluate accuracy**. Give the test a name and description, and then select your audio + human-labeled transcription dataset.
-5. Select up to two models that you want to test.
-6. Select **Create**.
+
+1. Select **Speech-to-text** > **Custom Speech** > **\<name of project>** > **Testing**.
+1. Select **Add Test**.
+1. Select **Evaluate accuracy**. Give the test a name and description, and then select your audio + human-labeled transcription dataset.
+1. Select up to two models that you want to test.
+1. Select **Create**.
 
 After your test has been successfully created, you can compare the results side by side.
 
@@ -62,7 +63,7 @@ After your test has been successfully created, you can compare the results side 
 
 After the test is complete, as indicated by the status change to *Succeeded*, you'll find a WER number for both models included in your test. Select the test name to view the test details page. This page lists all the utterances in your dataset and the recognition results of the two models, alongside the transcription from the submitted dataset. 
 
-To help inspect the side-by-side comparison, you can toggle various error types, including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column, which show the human-labeled transcription and the results for two speech-to-text models, you can decide which model meets your needs and where additional training and improvements are required.
+To inspect the side-by-side comparison, you can toggle various error types, including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column, which display the human-labeled transcription and the results for two speech-to-text models, you can decide which model meets your needs and determine where additional training and improvements are required.
 
 ## Improve Custom Speech accuracy
 
@@ -70,8 +71,8 @@ Speech recognition scenarios vary by audio quality and language (vocabulary and 
 
 | Scenario | Audio quality | Vocabulary | Speaking style |
 |----------|---------------|------------|----------------|
-| Call center | Low, 8&nbsp;kHz, could be two humans on one audio channel, could be compressed | Narrow, unique to domain and products | Conversational, loosely structured |
-| Voice assistant (such as Cortana, or a drive-through window) | High, 16&nbsp;kHz | Entity heavy (song titles, products, locations) | Clearly stated words and phrases |
+| Call center | Low, 8&nbsp;kHz, could be two people on one audio channel, could be compressed | Narrow, unique to domain and products | Conversational, loosely structured |
+| Voice assistant, such as Cortana, or a drive-through window | High, 16&nbsp;kHz | Entity-heavy (song titles, products, locations) | Clearly stated words and phrases |
 | Dictation (instant message, notes, search) | High, 16&nbsp;kHz | Varied | Note-taking |
 | Video closed captioning | Varied, including varied microphone use, added music | Varied, from meetings, recited speech, musical lyrics | Read, prepared, or loosely structured |
 | | |
@@ -124,8 +125,9 @@ Consider these details:
 * Avoid samples that include transcription errors, but do include a diversity of audio quality.
 * Avoid sentences that are unrelated to your problem domain. Unrelated sentences can harm your model.
 * When the transcript quality varies, you can duplicate exceptionally good sentences (like excellent transcriptions that include key phrases) to increase their weight.
-* The Speech service automatically uses the transcripts to improve the recognition of domain-specific words and phrases, as if they were added as related text.
-* It can take several days for a training operation to finish. To improve the speed of training, be sure to create your Speech service subscription in a [region that has the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
+* The Speech service automatically uses the transcripts to improve the recognition of domain-specific words and phrases, as though they were added as related text.
+* It can take several days for a training operation to finish. To improve the speed of training, be sure to create your Speech service subscription in a [region that has dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
+
 
 > [!NOTE]
 > Not all base models support training with audio. If a base model doesn't support audio, the Speech service will use only the text from the transcripts and ignore the audio. For a list of base models that support training with audio data, see [Language support](language-support.md#speech-to-text). Even if a base model does support training with audio data, the service might use only part of the audio. And it will still use all the transcripts.
@@ -148,9 +150,9 @@ The following table shows voice recognition scenarios and lists source materials
 
 | Scenario | Plain text data and <br> structured text data | Audio + human-labeled transcripts | New words with pronunciation |
 |--- |--- |--- |--- |
-| Call center             | Marketing documents, website, product reviews related to call center activity | Call center calls transcribed by humans | Terms that have ambiguous pronunciations (see the *Xbox* example in the preceding section) |
-| Voice assistant         | Lists of sentences that use various combinations of commands and entities | Recorded voices speaking commands into device, transcribed into text | Names (movies, songs, products) that have unique pronunciations |
-| Dictation               | Written input, such as instant messages or emails | Similar to preceding examples | Similar to preceding examples |
+| Call center | Marketing documents, website, product reviews related to call center activity | Call center calls transcribed by humans | Terms that have ambiguous pronunciations (see the *Xbox* example in the preceding section) |
+| Voice assistant | Lists of sentences that use various combinations of commands and entities | Recorded voices speaking commands into device, transcribed into text | Names (movies, songs, products) that have unique pronunciations |
+| Dictation  | Written input, such as instant messages or emails | Similar to preceding examples | Similar to preceding examples |
 | Video closed captioning | TV show scripts, movies, marketing content, video summaries | Exact transcripts of videos | Similar to preceding examples |
 | | |
 

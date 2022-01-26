@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 01/23/2022
 ms.author: eur
 ---
 
@@ -69,7 +69,7 @@ The following diagram displays the process for fine-tuning the text-to-speech ou
 
 :::image type="content" source="media/audio-content-creation/audio-content-creation-diagram.jpg" alt-text="Diagram of the sequence of steps for fine-tuning text-to-speech outputs.":::
 
-To learn more about each step in the preceding diagram, see the following instructions.
+Each step in the preceding diagram is described here:
 
 1. Choose the Speech resource you want to work with.
 
@@ -79,7 +79,7 @@ To learn more about each step in the preceding diagram, see the following instru
    > [!NOTE]
    > Gated access is available for Custom Neural Voice, which allows you to create high-definition voices that are similar to natural-sounding speech. For more information, see [Gating process](./text-to-speech.md).
 
-1. Select the content you want to preview, and then select the **Play** icon (triangle) to preview the default synthesis output. 
+1. Select the content you want to preview, and then select **Play** (triangle icon) to preview the default synthesis output. 
 
    If you make any changes to the text, select the **Stop** icon, and then select **Play** again to regenerate the audio with changed scripts. 
 
@@ -108,7 +108,7 @@ You can get your content into the Audio Content Creation tool in either of two w
 
      If your script file is more than 20,000 characters, split the content by paragraphs, by characters, or by regular expressions.
 
-  1. When you upload your text files, make sure that the file meets these requirements:
+  1. When you upload your text files, make sure that they meet these requirements:
 
         | Property | Description |
         |----------|---------------|
@@ -165,7 +165,6 @@ If more than one user wants to use Audio Content Creation, you can grant them ac
 
 The users you grant access to need to set up a [Microsoft account](https://account.microsoft.com/account). If they don' have a Microsoft account, they can create one in just a few minutes. They can use their existing email and link it to a Microsoft account, or they can create and use an Outlook email address as a Microsoft account.
 
-
 ### Add users to a Speech resource
 
 To add users to a Speech resource so that they can use Audio Content Creation, do the following:
@@ -178,14 +177,13 @@ To add users to a Speech resource so that they can use Audio Content Creation, d
 
 Here is what happens next:
 
-An email invitation is automatically sent to the user. They can accept it by selecting **Accept invitation** > **Accept to join Azure** in their email. They're then redirected to the Azure portal. They don't need to take further action in the Azure portal. After a few moments, the user is assigned the role at the Speech resource scope, and will have the access to this Speech resource. If the user doesn't receive the invitation email, you can search for the user's account under **Role assignments** and go into the user's profile. Look for **Identity** > **Invitation accepted**, and select **(manage)** to resend the email invitation. You can also copy and send the invitation link to the user. 
+An email invitation is automatically sent to users. They can accept it by selecting **Accept invitation** > **Accept to join Azure** in their email. They're then redirected to the Azure portal. They don't need to take further action in the Azure portal. After a few moments, users are assigned the role at the Speech resource scope, which gives htme access to this Speech resource. If users don't receive the invitation email, you can search for their account under **Role assignments** and go into their profile. Look for **Identity** > **Invitation accepted**, and select **(manage)** to resend the email invitation. You can also copy and send the invitation link to them. 
 
-Users now visit or refresh the [Audio Content Creation](https://aka.ms/audiocontentcreation) product page, and sign in with their Microsoft account. They select **Audio Content Creation** block among all speech products. They choose the Speech resource in the pop-up window or in the settings at the upper right of the page. 
+Users now visit or refresh the [Audio Content Creation](https://aka.ms/audiocontentcreation) product page, and sign in with their Microsoft account. They select **Audio Content Creation** block among all speech products. They choose the Speech resource in the pop-up window or in the settings at the upper right. 
 
 If they can't find the available Speech resource, they can check to ensure that they're in the right directory. To do so, they select the account profile at the upper right and then select **Switch** next to **Current directory**. If there's more than one directory available, it means they have access to multiple directories. They can switch to different directories and go to **Settings** to see whether the right Speech resource is available. 
 
 :::image type="content" source="media/audio-content-creation/add-role-first.png" alt-text="Add role dialog":::
-
 
 Users who are in the same Speech resource will see each other's work in Audio Content Creation studio. If you want each individual user to have a unique and private workplace in Audio Content Creation, [create a new Speech resource](#step-2---create-a-speech-resource) for each user and give each user the unique access to the Speech resource.
 
@@ -206,7 +204,7 @@ If you want to allow a user to grant access to other users, you need to assign t
 
 1. In the [Azure portal](https://portal.azure.com/), select the collapsed menu at the upper left, select **Azure Active Directory**, and then select **Users**.
 1. Search for the user's Microsoft account, go to their detail page, and then select **Assigned roles**.
-1. Select **Add assignments** > **Directory Readers**. If the **Add assignments** is unavailable, it means that you do not have access. Only the global administrator of this directory can add assignments to users.
+1. Select **Add assignments** > **Directory Readers**. If the **Add assignments** button is unavailable, it means that you don't have access. Only the global administrator of this directory can add assignments to users.
 
 ## See also
 

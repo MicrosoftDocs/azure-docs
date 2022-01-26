@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 01/23/2022
 ms.author: eur
 ms.custom: ignite-fall-2021
 ---
@@ -63,7 +63,7 @@ The **Training** table displays a new entry that corresponds to the new model. T
 For more information, see the [how-to article](how-to-custom-speech-evaluate-data.md) about evaluating and improving Custom Speech model accuracy. If you choose to test accuracy, it's important to select an acoustic dataset that's different from the one you used with your model. This approach can provide a more realistic sense of the model's performance.
 
 > [!NOTE]
-> Both base models and custom  models can be used only up to a certain date (see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md)). Speech Studio shows this date in the **Expiration** column for each model and endpoint. After that date, a request to an endpoint or to batch transcription might fail or fall back to base model.
+> Both base models and custom models can be used only up to a certain date (see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md)). Speech Studio displays this date in the **Expiration** column for each model and endpoint. After that date, a request to an endpoint or to batch transcription might fail or fall back to base model.
 >
 > Retrain your model by using the most recent base model to benefit from accuracy improvements and to avoid allowing your model to expire.
 
@@ -105,12 +105,8 @@ Logging data is available for export from the endpoint's page, under **Deploymen
 > [!NOTE]
 > Logging data is available on Microsoft-owned storage for 30 days, after which it will be removed. If a customer-owned storage account is linked to the Cognitive Services subscription, the logging data won't be automatically deleted.
 
-## Next steps
-
-* [Learn how to use your custom model](how-to-specify-source-language.md)
-
 ## Additional resources
 
-- [Prepare and test your data](./how-to-custom-speech-test-and-train.md)
+- [Learn how to use your custom model](how-to-specify-source-language.md)
 - [Inspect your data](how-to-custom-speech-inspect-data.md)
 - [Evaluate your data](how-to-custom-speech-evaluate-data.md)
