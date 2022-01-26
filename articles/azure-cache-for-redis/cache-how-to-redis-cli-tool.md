@@ -10,9 +10,9 @@ ms.custom: devx-track-azurepowershell
 ---
 # Use the Redis command-line tool with Azure Cache for Redis
 
-Use the popular *redis-cli.exe* command-line tool to interact with an Azure Cache for Redis as a client. This tool is also available for use with Azure Cache for Redis.
+Use the popular `redis-cli.exe` command-line tool to interact with an Azure Cache for Redis as a client. This tool is also available for use with Azure Cache for Redis.
 
-The tool is available for Windows platforms by downloading the [Redis command-line tools for Windows](https://github.com/MSOpenTech/redis/releases/). 
+The tool is available for Windows platforms by downloading the [Redis command-line tools for Windows](https://github.com/MSOpenTech/redis/releases/).
 
 If you want to run the command-line tool on another platform, download open-source Redis from [https://redis.io/download](https://redis.io/download).
 
@@ -44,16 +44,16 @@ With Azure Cache for Redis, only the TLS port (6380) is enabled by default. The 
 
     On the *stunnel* Log Window menu, select **Configuration** > **Edit Configuration** to open the current configuration file.
 
-    Add the following entry for *redis-cli.exe* under the **Service definitions** section. Insert your actual cache name in place of `yourcachename`. 
+    Add the following entry for `redis-cli.exe` under the **Service definitions** section. Insert your actual cache name in place of `yourcachename`. 
 
-    ```
+    ```properties
     [redis-cli]
     client = yes
     accept = 127.0.0.1:6380
     connect = yourcachename.redis.cache.windows.net:6380
     ```
 
-    Save and close the configuration file. 
+    Save and close the configuration file.
   
     On the stunnel Log Window menu, select **Configuration** > **Reload Configuration**.
 
@@ -74,9 +74,6 @@ redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
 ```
 
 ![stunnel with redis-cli](media/cache-how-to-redis-cli-tool/cache-redis-cli-non-ssl.png)
-
-
-
 
 ## Next steps
 
