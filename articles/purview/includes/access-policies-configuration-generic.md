@@ -24,7 +24,7 @@ Follow this [guide to configure Azure RBAC permissions](../../role-based-access-
 >[!IMPORTANT]
 > - At this point, policy operations are only supported at **root collection level** and not child collection level.
 - User needs Azure Purview *Data source admins* role at the root collection level to:
-  - Register a source for *Data use governance*.
+  - Register a data source source, resource group or subscription for *Data use governance*.
   - Publish a policy.
 - User needs Azure Purview *Policy authors* role at root collection level to create or edit policies.
 
