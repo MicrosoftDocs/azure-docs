@@ -50,11 +50,11 @@ You need to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget
 
 ### Use NuGet Package Manager to install the Speech SDK
 
-1. In Solution Explorer, right-click the **helloworld** project, and then select **Manage NuGet Packages** to show NuGet Package Manager.
-
-   ![Screenshot that shows NuGet Package Manager.](~/articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
+1. In Solution Explorer, right-click the **helloworld** project, and then select **Manage NuGet Packages** to show NuGet Package Manager.   
 
 1. In the upper-right corner, find the **Package Source** drop-down box, and make sure that **nuget.org** is selected.
+
+   ![Screenshot that shows NuGet Package Manager.](~/articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
 
 1. In the upper-left corner, select **Browse**.
 
@@ -72,11 +72,11 @@ You need to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget
 
 To build and run the console application, create a platform configuration that matches your computer's architecture.
 
-1. From the menu bar, select **Build** > **Configuration Manager**. The **Configuration Manager** dialog appears.
-
-   ![Screenshot that shows the Configuration Manager dialog.](~/articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
+1. From the menu bar, select **Build** > **Configuration Manager**. The **Configuration Manager** dialog appears.   
 
 1. In the **Active solution platform** drop-down box, select **New**. The **New Solution Platform** dialog appears.
+
+   ![Screenshot that shows the Configuration Manager dialog.](~/articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
 
 1. In the **Type or select the new platform** drop-down box:
    - If you're running 64-bit Windows, select **x64**.
