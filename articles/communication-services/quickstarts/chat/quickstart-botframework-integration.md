@@ -11,9 +11,16 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: mode-other
 ---
+> [!IMPORTANT]
+> This functionality is in private preview, and restricted to a limited number of Azure Communication Services early adopters. You can [submit this form to request participation in the preview](https://forms.office.com/r/HBm8jRuuGZ) and we will review your scenario(s) and evaluate your participation in the preview.
+>
+> Private Preview APIs and SDKs are provided without a service-level agreement, and are not appropriate for production workloads and should only be used with test users and test data. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> 
+> For support, questions or to provide feedback or report issues, please use the [early adopters Teams channel](https://teams.microsoft.com/l/team/19%3af93daaae01b8427f8920eb7d3a552692%40thread.tacv2/conversations?groupId=d78f76f3-4229-4262-abfb-172587b7a6bb&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47). You must be a member of the Azure Communication Service TAP team.
+
 
 # Quickstart: Add a bot to your chat app
-In this quickstart, we'll learn how to build conversational AI experiences in our chat application. We will create a bot using BotFramework SDK and learn how to integrate this bot into our chat application that is built using Communication Services Chat SDK.
+In this quickstart, we'll learn how to build conversational AI experiences in our chat application using 'Communication Services-Chat' messaging channel available under Azure Bot Services. We will create a bot using BotFramework SDK and learn how to integrate this bot into our chat application that is built using Communication Services Chat SDK.
 
 You will learn how to:
 
