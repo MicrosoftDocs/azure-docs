@@ -47,7 +47,7 @@ The template can be exported with the Azure portal using these steps:
 
 ### [Azure CLI](#tab/azure-cli)
 
-The template can be exported with Azure CLI using the following command:
+Use the following command to export the template:
 
 ```bash
 az login
