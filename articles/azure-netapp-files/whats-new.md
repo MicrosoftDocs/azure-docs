@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 01/14/2022
+ms.date: 01/25/2022
 ms.author: anfdocs
 ---
 
@@ -115,7 +115,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     The new Azure NetApp Files **Storage service add-ons** menu option provides an Azure portal “launching pad” for available third-party, ecosystem add-ons to the Azure NetApp Files storage service. With this new portal menu option, you can enter a landing page by clicking an add-on tile to quickly access the add-on.  
 
-    **NetApp add-ons** is the first category of add-ons introduced under **Storage service add-ons**. It provides access to **NetApp Cloud Compliance**. Clicking the **NetApp Cloud Compliance** tile opens a new browser and directs you to the add-on installation page. 
+    **NetApp add-ons** is the first category of add-ons introduced under **Storage service add-ons**. It provides access to NetApp Cloud Data Sense. Clicking the **Cloud Data Sense** tile opens a new browser and directs you to the add-on installation page. 
 
 * [Manual QoS capacity pool](azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type) now generally available (GA)   
 
