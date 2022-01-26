@@ -209,7 +209,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
             readOnly: true
         ```
 
-    Add the following `apiserver` arguments:
+1. Add the following `apiserver` arguments:
 
     ```yml
     - --authentication-token-webhook-config-file=/etc/guard/guard-authn-webhook.yaml
@@ -226,7 +226,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
     - --authentication-token-webhook-version=v1
     ```
 
-    Save and close the editor to update the `apiserver` pod.
+1. Save and close the editor to update the `apiserver` pod.
 
 
 ### Cluster created by using Cluster API
