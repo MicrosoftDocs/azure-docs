@@ -8,11 +8,11 @@ ms.author: erhopf
 
 1. Start Visual Studio 2019.
 
-1. Make sure the **.NET cross-platform development** workload is available. Select **Tools** > **Get Tools and Features** from the Visual Studio menu bar to open the Visual Studio installer. If this workload is already enabled, close the dialog.
-
-   ![Screenshot of the Visual Studio installer, with the Workloads tab highlighted.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-net-core-workload.png)
+1. Make sure the **.NET cross-platform development** workload is available. Select **Tools** > **Get Tools and Features** from the Visual Studio menu bar to open the Visual Studio installer. If this workload is already enabled, close the dialog.   
 
    Otherwise, select the box next to **.NET Core cross-platform development**, and select **Modify** at the lower-right corner of the dialog. Installation of the new feature will take a moment.
+   
+   ![Screenshot of the Visual Studio installer, with the Workloads tab highlighted.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-net-core-workload.png)
 
 1. Create a new Visual C# .NET Core console app. In the **New Project** dialog, from the left pane, expand **Installed** > **Visual C#** > **.NET Core**. Then select **Console App (.NET Core)**. For the project name, enter **helloworld**.
 
