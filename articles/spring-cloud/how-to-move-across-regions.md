@@ -18,8 +18,10 @@ You may want to move your Azure Spring Cloud service instance from one region to
 You can't move an Azure Spring Cloud instance from one region to another directly, but you can use an Azure Resource Manager template (ARM template) to deploy to a new region. For more information about using Azure Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ## Prerequisites
-  - A running Azure Spring Cloud instance.
-  - The target region supports Azure Spring Cloud and it's related features.
+
+- A running Azure Spring Cloud instance.
+- A target region that supports Azure Spring Cloud and its related features.
+- [Azure CLI](/cli/azure/install-azure-cli) if you aren't using the Azure portal.
 
 ## Qualifications
   - Different feature sets are supported by different pricing tiers (SKUs). Changing the SKU may require a change to the template, as only supported features can be included in the template for the target SKU.
