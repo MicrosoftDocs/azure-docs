@@ -4,7 +4,7 @@ description: How to suspend, remove, force delete, and flush Azure HPC Cache sto
 author: ronhogue
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/25/2022
+ms.date: 01/26/2022
 ms.author: rohogue
 ---
 
@@ -32,7 +32,7 @@ These options are available:
 * **Flush** - Write all cached changes to the back-end storage
 * **Suspend** - Temporarily stop the storage target from serving requests
 * **Refresh DNS** - Update the storage target IP address from a custom DNS server or from an Azure Storage private endpoint
-* **Invalidate** - Discards cached files from this storage target (**might cause data loss**)
+* **Invalidate** - Discards cached files from this storage target (**Invalidate can cause data loss**)
 * **Force remove** - Delete a storage target, skipping some safety steps (**Force remove can cause data loss**)
 * **Resume** - Put a suspended storage target back into service
 * **Delete** - Permanently remove a storage target
@@ -41,7 +41,7 @@ Read the rest of this article for more detail about these options.
 
 ### Write cached files to the storage target
 
-The **Flush** option tells the cache to immediately copy any changed files stored in the cache to the back-end storage system. For example, if your client machines are updating a particular file repeatedly, it's held in the cache for quicker access and not written to the long-term storage system for a period ranging from several minutes to more than an hour.
+The **Flush** option tells the cache to immediately copy any changed files stored in the cache to the back-end storage system. For example, if your client machines are updating a particular file repeatedly, it's held in the cache for quicker access. File changes aren't written to the long-term storage system for a period ranging from several minutes to more than an hour.
 
 The **Flush** action tells the cache to write all files to the storage system.
 
@@ -139,13 +139,12 @@ $ az hpc-cache storage-target remove --resource-group cache-rg --cache-name doc-
 
 ---
 
-
 ## Understand storage target state
 
 The storage target list shows two types of status: **State** and **Provisioning state**.
 
 * **State** indicates the operational state of the storage target. This value updates regularly and helps you understand whether the storage target is available for client requests, and which of the management options are available.
-* **Provisioning state** tells you whether the last action to add or edit the storage target was successful. This value is only updated if you edit the storage target.
+* **Provisioning state** tells you whether the last action to add or edit the storage target was successful. This value is only updated when you edit the storage target.
 
 The **State** value affects which management options you can use. Here's a short explanation of the values and their effects.
 
