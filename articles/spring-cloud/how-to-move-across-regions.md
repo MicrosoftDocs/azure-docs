@@ -175,10 +175,10 @@ After modifying the template, the new resource can be created using **Deploy a c
 1. Go to the **Select a template** tab, then select **Build your own template in the editor**.
 1. In the template editor, paste the *template.json* file modified earlier, then select **Save**.
 1. In the **Basics** tab, fill in the following information:
-    - Select the target subscription
-    - Select the target resource group
-    - Select the target region
-    - Fill in any other parameters required for the template
+    - The target subscription.
+    - The target resource group.
+    - The target region.
+    - Any other parameters required for the template.
 
     :::image type="content" source="media/move-across-regions/deploy-template.png" alt-text="Azure portal screenshot showing how deploy template basic tab can be filled.":::
 
