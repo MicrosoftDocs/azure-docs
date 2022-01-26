@@ -268,7 +268,6 @@ The goal of normalizing is to ensure that all sources provide consistent telemet
 | Microsoft DNS Server Collected using the DNS connector and the Log Analytics Agent | THe connector does not provide the mandatory DnsQuery field for original event ID 264 (Response to a dybamic update). The data is avaiable at the source, but not forwarded by the connector. |
 | Corelight Zeek | Corelight Zeek may not provide the mandatory DnsQuery field. We have observered such behoavior in certain cases in which the original event type is `dns_unmatched_msg` or when the DNS response code name is `NXDOMAIN`. |
 |||
-s
 
 ## Handling DNS response
 
