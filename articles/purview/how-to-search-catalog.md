@@ -13,7 +13,7 @@ ms.date: 01/25/2022
 
 After data is scanned and ingested into the Azure Purview data map, data consumers need to easily find the data needed for their analytics or governance workloads. Data discovery can be time consuming because you may not know where to find the data that you want. Even after finding the data, you may have doubts about whether you can trust the data and take a dependency on it.
 
-The goal of search in Azure Purview is to speed up the process of data discovery to quickly find the data that matters. This article outlines how to search the Azure Purview data catalog to quickly find the data you are looking for.
+The goal of search in Azure Purview is to speed up the process of data discovery to quickly find the data that matters. This article outlines how to search the Azure Purview data catalog to quickly find the data you're looking for.
 
 ## Search the catalog for assets
 
@@ -21,7 +21,7 @@ The search bar can be quickly accessed from the top bar of the Azure Purview Stu
 
 :::image type="content" source="./media/how-to-search-catalog/purview-search-bar.png" alt-text="Screenshot showing the location of the Azure Purview search bar" border="true":::
 
-Once you click on the search bar, you will be presented with your search history and the assets recently accessed in the data catalog. This allows you to quickly pick up from previous data exploration that was already done.
+Once you click on the search bar, you'll be presented with your search history and the assets recently accessed in the data catalog. This allows you to quickly pick up from previous data exploration that was already done.
 
 :::image type="content" source="./media/how-to-search-catalog/search-no-keywords.png" alt-text="Screenshot showing the search bar before any keywords have been entered" border="true":::
 
@@ -31,12 +31,12 @@ Enter in keywords that help identify your asset such as its name, data type, cla
 
 Once you enter in your search, Azure Purview returns a list of data assets a user is a data reader for to that matched to the keywords entered in.
 
-The Azure Purview relevance engine sorts through all the matches and ranks them based on what it believes their usefulness is to a user. For example, a table that matches on multiple keywords that a data steward has assigned glossary terms and given a description is likely going to be more interesting to a data consumer than a folder which has been unannotated. A large set of factors determine an asset’s relevance score and the Azure Purview search team is constantly tuning the relevance engine to ensure the top search results have value to you.
+The Azure Purview relevance engine sorts through all the matches and ranks them based on what it believes their usefulness is to a user. For example, a data consumer is likely more interested in a table curated by a data steward that matches on multiple keywords than an unannotated folder. Many factors determine an asset’s relevance score and the Azure Purview search team is constantly tuning the relevance engine to ensure the top search results have value to you.
 
-If the top results don’t include the assets you are looking for, you can use the facets on the left-hand side to filter down by business metadata such glossary terms, classifications and the containing collection. If you are interested in a particular data source type such as Azure Data Lake Storage Gen2 or Azure SQL Database, you can use the source type pill filter to narrow down your search.
+If the top results don’t include the assets you're looking for, you can use the facets on the left-hand side to filter down by business metadata such glossary terms, classifications, and the containing collection. If you're interested in a particular data source type such as Azure Data Lake Storage Gen2 or Azure SQL Database, you can use a pill filter to narrow down your search.
 
 > [!NOTE]
-> Search will only return assets in collections you are a data reader or curator for. For more information, see [create and manage Collections](how-to-create-and-manage-collections.md).
+> Search will only return assets in collections you're a data reader or curator for. For more information, see [create and manage Collections](how-to-create-and-manage-collections.md).
 
 :::image type="content" source="./media/how-to-search-catalog/search-results.png" alt-text="Screenshot showing the results of a search" border="true":::
 
@@ -44,30 +44,30 @@ For certain annotations, you can click on the ellipses to choose between an AND 
 
 :::image type="content" source="./media/how-to-search-catalog/search-and-or-choice.png" alt-text="Screenshot showing how to choose between and AND or OR condition" border="true":::
 
-Once you find the asset you are looking for, you can select it to view details such as schema, lineage, and a detailed classification list. To learn more about the asset details page, see [Manage catalog assets](catalog-asset-details.md).
+From the search results page, you can select an asset to view details such as schema, lineage, and classifications. To learn more about the asset details page, see [Manage catalog assets](catalog-asset-details.md).
 
 :::image type="content" source="./media/how-to-search-catalog/search-view-asset.png" alt-text="Screenshot showing the asset details page" border="true":::
 
 ## Searching Azure Purview in connected services
 
-Once you register your Azure Purview instance to an Azure Data Factory or an Azure Synapse Analytics workspace, you can search the Azure Purview data catalog directly from those services. To learn more see, [Discover data in ADF using Azure Purview](../data-factory/how-to-discover-explore-purview-data.md) and [Discover data in Synapse using Azure Purview](../synapse-analytics/catalog-and-governance/how-to-discover-connect-analyze-azure-purview.md).
+Once you register your Azure Purview instance to an Azure Data Factory or an Azure Synapse Analytics workspace, you can search the Azure Purview data catalog directly from those services. To learn more, see [Discover data in ADF using Azure Purview](../data-factory/how-to-discover-explore-purview-data.md) and [Discover data in Synapse using Azure Purview](../synapse-analytics/catalog-and-governance/how-to-discover-connect-analyze-azure-purview.md).
 
 :::image type="content" source="./media/how-to-search-catalog/search-azure-data-factory.png" alt-text="Screenshot showing how to use Azure Purview search in Azure Data Factory" border="true":::
 ## Bulk edit search results
 
-If you are looking to make changes to multiple assets returned by search, Azure Purview lets you modify glossary terms, classifications, and contacts in bulk. To learn more, see the [bulk edit assets](how-to-bulk-edit-assets.md) guide.
+If you're looking to make changes to multiple assets returned by search, Azure Purview lets you modify glossary terms, classifications, and contacts in bulk. To learn more, see the [bulk edit assets](how-to-bulk-edit-assets.md) guide.
 
 ## Browse the data catalog
 
-While searching is great if you know what you are looking for, there are times where data consumers wish to explore the data available to them. The Azure Purview data catalog offers a browse experience that enables users to explore what data is available to them either by collection or through traversing the hierarchy of each data source in the catalog. For more information, see [browse the data catalog](how-to-browse-catalog.md).
+While searching is great if you know what you're looking for, there are times where data consumers wish to explore the data available to them. The Azure Purview data catalog offers a browse experience that enables users to explore what data is available to them either by collection or through traversing the hierarchy of each data source in the catalog. For more information, see [browse the data catalog](how-to-browse-catalog.md).
 
 ## Search query syntax
 
-All search queries consist of keywords and operators. A keyword is a something that would be part of an asset's properties. Potential keywords can be a classification, glossary term, asset description, or an asset name. A keyword can be just a part of the property you are looking to match to. Use keywords and the operators listed below to ensure Azure Purview returns the assets you are looking for.
+All search queries consist of keywords and operators. A keyword is a something that would be part of an asset's properties. Potential keywords can be a classification, glossary term, asset description, or an asset name. A keyword can be just a part of the property you're looking to match to. Use keywords and the operators to ensure Azure Purview returns the assets you're looking for.
 
 Certain characters including spaces, dashes, and commas are interpreted as delimiters. Searching a string like `hive-database` is the same as searching two keywords `hive database`. 
 
-Below are the operators that can be used to compose a search query. Operators can be combined as many times as need in a single query.
+The following table contains the operators that can be used to compose a search query. Operators can be combined as many times as need in a single query.
 
 | Operator | Definition | Example |
 | -------- | ---------- | ------- |
