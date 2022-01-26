@@ -51,6 +51,7 @@ This article describes how to tag glossary terms, classifications, owners and ex
     :::image type="content" source="media/how-to-bulk-edit-assets/add-list.png" alt-text="Screenshot of the add.":::
 
 1. Once complete, close the bulk edit blade by selecting **Close** or **Remove all and close**. Close won't remove the selected assets whereas remove all and close will remove all the selected assets.
+1. 
     :::image type="content" source="media/how-to-bulk-edit-assets/close-list.png" alt-text="Screenshot of the close.":::
 
 > [!Important]
