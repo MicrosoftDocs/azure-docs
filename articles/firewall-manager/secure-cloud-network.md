@@ -11,7 +11,7 @@ ms.author: victorh
 
 # Tutorial: Secure your virtual hub using Azure Firewall Manager
 
-Using Azure Firewall Manager, you can create secured virtual hubs to secure your cloud network traffic destined to private IP addresses, Azure PaaS, and the Internet. Traffic routing to the firewall is automated, so there's no need to create user defined routes (UDRs).
+Using Azure Firewall Manager, you can create secured virtual hubs to secure your cloud network traffic destined to private IP addresses, Azure PaaS, and the Internet. Traffic routing to the firewall is automated, so there's no need to create user-defined routes (UDRs).
 
 ![secure the cloud network](media/secure-cloud-network/secure-cloud-network.png)
 
@@ -262,7 +262,7 @@ So now you've verified that the firewall network rule is working:
 
 ## Clean up resources
 
-When you are done testing your firewall resources, delete the **fw-manager-rg** resource group to delete all firewall-related resources.
+When you’re done testing your firewall resources, delete the **fw-manager-rg** resource group to delete all firewall-related resources.
 
 ## Next steps
 
