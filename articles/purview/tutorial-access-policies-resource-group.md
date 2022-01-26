@@ -12,7 +12,7 @@ ms.custom:
 
 # Resource group and subscription provisioning by data owner (preview)
 
-This guide describes how a data owner can leverage Azure Purview to enable access to ALL datasets in a subscription or a resource group. At this point, only the following data sources are supported:
+This guide describes how a data owner can leverage Azure Purview to enable access to ALL data sources in a subscription or a resource group. This can be achieved through a single policy statement, and will cover all existing data sources, as well as data sources that are created afterwards. However, at this point, only the following data sources are supported:
 - Blob storage
 - Azure Data Lake Storage (ADLS) Gen2
 
