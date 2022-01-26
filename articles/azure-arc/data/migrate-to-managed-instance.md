@@ -80,11 +80,11 @@ In this step, we will connect to the source SQL Server and create the backup fil
 
 Learn more about backup to URL here:
 
-[SQL Server Backup and Restore with Azure Blob Storage](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
+- [SQL Server Backup and Restore with Azure Blob Storage](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
 
-[Backup to URL docs](/sql/relational-databases/backup-restore/sql-server-backup-to-url)
+- [Back up to URL docs](/sql/relational-databases/backup-restore/sql-server-backup-to-url)
 
-[Backup to URL using SQL Server Management Studio (SSMS)](/sql/relational-databases/tutorial-sql-server-backup-and-restore-to-azure-blob-storage-service)
+- [Back up to URL using SQL Server Management Studio (SSMS)](/sql/relational-databases/tutorial-sql-server-backup-and-restore-to-azure-blob-storage-service)
 
 
 ### Step 4: Restore the database from Azure blob storage to SQL Managed Instance - Azure Arc
