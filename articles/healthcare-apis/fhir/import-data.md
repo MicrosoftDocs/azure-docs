@@ -45,14 +45,6 @@ Below are some of the important fields in the response body:
 |error.count|Count of resources that were not imported due to some error|
 |error.url|URL of the file containing details of the error. Each error.url is unique to an input URL. |
 
-
-### importing FHIR data to ADLS Gen2
-
-Currently we support $import for ADLS Gen2 enabled storage accounts, with the following limitation:
-
-- User cannot take advantage of [hierarchical namespaces](../../storage/blobs/data-lake-storage-namespace.md), yet there isn't a way to target import to a specific subdirectory within the container. We only provide the ability to target a specific container (where we create a new folder for each import).
-- Once an import is complete, we never import anything to that folder again, since subsequent imports to the same container will be inside a newly created folder.
-
 To import data to storage accounts behind the firewalls, see [Configure settings for import](configure-import-data.md).
 
 ## Settings and parameters
