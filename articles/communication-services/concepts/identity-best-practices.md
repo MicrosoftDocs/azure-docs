@@ -217,6 +217,8 @@ TODO
 
 TODO
 
+---
+
 1. Increase the MSAL's token renewal window to more than 10 minutes
 
 ```javascript
@@ -303,3 +305,5 @@ Use the `with` statement.
 with CommunicationTokenCredential("<token>") as credential:
     # ...
 ```
+
+---
