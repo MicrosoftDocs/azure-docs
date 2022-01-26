@@ -148,5 +148,15 @@ Status code: 200
 }
 ```
 
+## Accessing archived logs
+To access archived data, you must first retrieve data from it in an Analytics Logs table using one of the following methods:
+
+[Search Jobs](search-jobs.md) are log queries that run asynchronously and make their results available as an Analytics Logs table that you can use with standard log queries. Search jobs are charged according to the volume of data they scan, not just the data they return. Use a search job when you need to access to a specific set of records in your archived data.
+
+[Restore](restore.md) allows you to temporarily make data from an archived table within a particular time range available as an Analytics Logs table and allocates additional compute resources to handle its processing. Restore is charge according to the volume of the data it retrieves and the duration that data is made available. Use restore when you have a temporary need to run a number of queries on large volume of data. 
+
+> [!NOTE]
+> During public preview there is no charge for archived logs and restore. The only charge for search jobs is for the ingestion of the search results.
+
 ## Next steps
 - [Learn more about Log Analytics workspaces and data retention and archive.](log-analytics-workspace-overview.md)

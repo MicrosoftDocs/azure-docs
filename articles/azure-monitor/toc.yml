@@ -124,10 +124,10 @@ items:
     - name: Logs
       displayName: Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries
       href: logs/data-platform-logs.md
-    - name: Log Analytics workspace
-      href: logs/log-analytics-workspace-overview.md
   - name: Workspaces
     items:
+    - name: Overview
+      href: logs/log-analytics-workspace-overview.md
     - name: Design a workspace deployment
       href: logs/design-logs-deployment.md
     - name: Design for service providers
