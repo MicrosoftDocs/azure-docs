@@ -72,12 +72,24 @@ This section provides step-by-step tutorial to create a working setup. At the en
 2. An Azure subscription associated with Service-Provider Tenant–(for example, AppSubscription1)
 3. A user account in Service Provider tenant (for example, demouser@bestserviceprovider.com) with the following permissions
     a. Owner role for “AppSubscription1”.(Created using Azure RBAC Role assignments).
-    b. One of the following Azure AD roles (Granted using Azure AD RBAC)
+    b. One of the following Azure AD roles (Granted using [Azure AD RBAC](https://docs.microsoft.com/azure/active-directory/roles/custom-overview))
         i.Application Administrator
         ii.Application Developer
         iii.Cloud application administrator
 4. Fill out the Private Preview request survey using https://aka.ms/ami/xtcmk/privatepreview
     a. Include the Service-Provider Tenant (for example -BestServiceProvider.com) and the corresponding subscription (for example -AppSubscription1)
+5. For Azure Storage enable the preview feature with the following instructions: 
+    Check the registration status for the feature and then register the Microsoft.Storage Resource Provider 
+    PSH: To check the status of your registration with PowerShell, call the Get-AzProviderFeature command.
+    ```
+    Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName FederatedClientIdentity
+    Register-AzResourceProvider -ProviderNamespace "Microsoft.Storage" 
+    ```
+    CLI:
+    ```azcli-interactive
+    az feature show --namespace Microsoft.Storage --name FederatedClientIdentity
+    az provider register --namespace Microsoft.Storage
+    ```       
 #### Customer Tenant 
 5. At least 1 Customer Azure AD Tenant -Contoso.com
 6. An Azure subscription associated with Customer Tenant.“KVSubscription2”
