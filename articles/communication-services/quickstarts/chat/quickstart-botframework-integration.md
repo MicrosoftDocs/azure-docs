@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Integrate bot to your chat app
-titleSuffix: A Botframework quickstart
-description: This quickstart shows you how to use the Azure Communication Services Chat SDK to create a chat app, the BotFramework SDK to create a bot, then integrate the bot into the chat app.
+title: Quickstart - Add a bot to your chat app
+titleSuffix: A quickstart on how to use Chat SDK with  Bot Services 
+description: This quickstart shows you how to build chat experience with a bot using Communication Services Chat SDK and Bot Services. 
 author: gelli
 manager: juramir
 services: azure-communication-services
@@ -12,16 +12,16 @@ ms.service: azure-communication-services
 ms.custom: mode-other
 ---
 
-# Quickstart: Integrate bot to your chat app
-In this quickstart, we'll use the Azure Communication Services Chat SDK to create a chat app, the BotFramework SDK to create a bot, then integrate the bot into the chat app.
+# Quickstart: Add a bot to your chat app
+In this quickstart, we'll learn how to build conversational AI experiences in our chat application. We will create a bot using BotFramework SDK and learn how to integrate this bot into our chat application that is built using Communication Services Chat SDK.
 
 You will learn how to:
 
 - [Create and deploy a bot](#step-1---create-and-deploy-a-bot)
 - [Get an Azure Communication Services Resource](#step-2---get-an-azure-communication-services-resource)
-- [Enable ACS Chat Channel](#step-3---enable-acs-chat-channel)
+- [Enable Communication Services' Chat Channel for the bot](#step-3---enable-acs-chat-channel)
 - [Create a chat app and add bot as a participant](#step-4---create-a-chat-app-and-add-bot-as-a-participant)
-- [More things you can do with bot](#more-things-you-can-do-with-bot)
+- [explore additional features available for bot](#more-things-you-can-do-with-bot)
 
 ## Prerequisites
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
