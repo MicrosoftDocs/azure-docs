@@ -25,3 +25,5 @@ There's a maximum count for each object type for Azure Policy. For definitions, 
 | Remediation task | Resources | 50,000 |
 
 Policy rules have additional limits to the number of conditions and their complexity. See [Policy rule limits](../articles/governance/policy/concepts/definition-structure.md#policy-rule-limits) for more details.
+
+For Policy and PolicySet definition properties and Policy assignment properties such as displayname and resource name different naming restrictions apply based on the scope. See [Resource naming restrictions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftauthorization) for more details.
