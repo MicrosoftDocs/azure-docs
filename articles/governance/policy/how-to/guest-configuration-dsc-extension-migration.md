@@ -1,7 +1,7 @@
 ---
 title: Desired State Configuration extension to guest configuration migration planning
 description: Guidance for moving from DSC extension to the guest configuration feature of Azure Policy.
-ms.date: 01/21/2022
+ms.date: 01/26/2022
 ms.topic: how-to
 ---
 # Desired State Configuration extension to guest configuration migration planning
@@ -150,7 +150,7 @@ extension.
 
 To remove a configuration in Windows, use the `Remove-DscConfigurationDocument` command as
 documented in
-[Manage Configuration Documents](/powershell/dsc/managing-nodes/apply-get-test?view=dsc-1.1#manage-configuration-documents).
+[Manage Configuration Documents](/powershell/dsc/managing-nodes/apply-get-test?view=dsc-1.1&preserve-view=true#manage-configuration-documents).
 
 For Linux, use the `Remove.py` script as documented in
 [Performing DSC Operations from the Linux Computer](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer)
