@@ -113,7 +113,7 @@ By default, Image Builder will not change the size of the image, it will use the
 ```
 
 ## vnetConfig
-If you do not specify any VNET properties, then Image Builder will create its own VNET, Public IP, and network security group (NSG). The Public IP is used for the service to communicate with the build VM, however if you do not want a Public IP or want Image Builder to have access to your existing VNET resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares, then you can specify a VNET. For more information, review the [networking documentation](image-builder-networking.md), this is optional.
+If you don't specify any VNET properties, then Image Builder will create its own VNET, Public IP, and network security group (NSG). The Public IP is used for the service to communicate with the build VM, however if you don't want a Public IP or want Image Builder to have access to your existing VNET resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares, then you can specify a VNET. For more information, review the [networking documentation](image-builder-networking.md), this is optional.
 
 ```json
     "vnetConfig": {
@@ -146,7 +146,7 @@ Required - For Image Builder to have permissions to read/write images, read in s
 
 The Image Builder service User Assigned Identity:
 * Supports a single identity only
-* Does not support custom domain names
+* Doesn't support custom domain names
 
 To learn more, see [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
 For more information on deploying this feature, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity).
@@ -173,9 +173,9 @@ Optional - The Image Builder Build VM, that is created by the Image Builder serv
 The Image Builder Build VM User Assigned Identity:
 * Supports a list of one or more user assigned managed identities to be configured on the VM
 * Supports cross subscription scenarios (identity created in one subscription while the image template is created in another subscription under the same tenant)
-* Does not support cross tenant scenarios (identity created in one tenant while the image template is created in another tenant)
+* Doesn't support cross tenant scenarios (identity created in one tenant while the image template is created in another tenant)
 
-To learn more, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](/active-directory/managed-identities-azure-resources/how-to-use-vm-token) and [How to use managed identities for Azure resources on an Azure VM for sign-in](/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).
+To learn more, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](/active-directory/managed-identities-azure-resources/how-to-use-vm-token) and [How to use managed identities for Azure resources on an Azure VM](/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).
 
 ## Properties: source
 
@@ -270,9 +270,9 @@ By default, the Image Builder will run for 240 minutes. After that, it will time
 [ERROR] complete: 'context deadline exceeded'
 ```
 
-If you do not specify a buildTimeoutInMinutes value, or set it to 0, this will use the default value. You can increase or decrease the value, up to the maximum of 960mins (16hrs). For Windows, we do not recommend setting this below 60 minutes. If you find you're hitting the timeout, review the [logs](image-builder-troubleshoot.md#customization-log), to see if the customization step is waiting on something like user input. 
+If you don't specify a buildTimeoutInMinutes value, or set it to 0, this will use the default value. You can increase or decrease the value, up to the maximum of 960mins (16hrs). For Windows, we don't recommend setting this below 60 minutes. If you find you're hitting the timeout, review the [logs](image-builder-troubleshoot.md#customization-log), to see if the customization step is waiting on something like user input. 
 
-If you find you need more time for customizations to complete, set this to what you think you need, with a little overhead. But, do not set it too high because you might have to wait for it to timeout before seeing an error. 
+If you find you need more time for customizations to complete, set this to what you think you need, with a little overhead. But, don't set it too high because you might have to wait for it to timeout before seeing an error. 
 
 > [!NOTE]
 > If you don't set the value to 0, the minimum supported value is 6 minutes. Using values 1 through 5 will fail.
@@ -286,7 +286,7 @@ When using `customize`:
 - Customizers execute in the order specified in the template.
 - If one customizer fails, then the whole customization component will fail and report back an error.
 - It is strongly advised you test the script thoroughly before using it in a template. Debugging the script on your own VM will be easier.
-- Do not put sensitive data in the scripts. 
+- don't put sensitive data in the scripts. 
 - The script locations need to be publicly accessible, unless you're using [MSI](./image-builder-user-assigned-identity.md).
 
 ```json
@@ -504,7 +504,7 @@ The commands Image Builder users to generalize may not be suitable for every sit
 
 If you're migrating existing customization, and you're using different Sysprep/waagent commands, you can use the Image Builder generic commands, and if the VM creation fails, use your own Sysprep or waagent commands.
 
-If Azure Image Builder creates a Windows custom image successfully, and you create a VM from it, then find that the VM creation fails or does not complete successfully, you will need to review the Windows Server Sysprep documentation or raise a support request with the Windows Server Sysprep Customer Services Support team, who can troubleshoot and advise on the correct Sysprep usage.
+If Azure Image Builder creates a Windows custom image successfully, and you create a VM from it, then find that the VM creation fails or doesn't complete successfully, you will need to review the Windows Server Sysprep documentation or raise a support request with the Windows Server Sysprep Customer Services Support team, who can troubleshoot and advise on the correct Sysprep usage.
 
 
 #### Default Sysprep command
@@ -553,7 +553,7 @@ Azure Image Builder supports three distribution targets:
 You can distribute an image to both of the target types in the same configuration.
 
 > [!NOTE]
-> The default AIB sysprep command does not include "/mode:vm", however this maybe required when create images that will have the HyperV role installed. If you need to add this command argument, you must override the sysprep command.
+> The default AIB sysprep command doesn't include "/mode:vm", however this maybe required when create images that will have the HyperV role installed. If you need to add this command argument, you must override the sysprep command.
 
 Because you can have more than one target to distribute to, Image Builder maintains a state for every distribution target that can be accessed by querying the `runOutputName`.  The `runOutputName` is an object you can query post distribution for information about that distribution. For example, you can query the location of the VHD, or regions where the image version was replicated to, or SIG Image version created. This is a property of every distribution target. The `runOutputName` must be unique to each distribution target. Here is an example, this is querying an Azure Compute Gallery distribution:
 
@@ -654,7 +654,7 @@ Distribute properties for galleries:
 
 - **runOutputName** – unique name for identifying the distribution.  
 - **artifactTags** - Optional user specified key value pair tags.
-- **replicationRegions** - Array of regions for replication. One of the regions must be the region where the Gallery is deployed. Adding regions will mean an increase of build time, as the build does not complete until the replication has completed.
+- **replicationRegions** - Array of regions for replication. One of the regions must be the region where the Gallery is deployed. Adding regions will mean an increase of build time, as the build doesn't complete until the replication has completed.
 - **excludeFromLatest** (optional) This allows you to mark the image version you create not be used as the latest version in the gallery definition, the default is 'false'.
 - **storageAccountType** (optional) AIB supports specifying these types of storage for the image version that is to be created:
     * "Standard_LRS"
@@ -662,7 +662,7 @@ Distribute properties for galleries:
 
 
 > [!NOTE]
-> If the image template and referenced `image definition` are not in the same location, you will see additional time to create images. Image Builder currently does not have a `location` parameter for the image version resource, we take it from its parent `image definition`. For example, if an image definition is in westus and you want the image version replicated to eastus, a blob is copied to westus, from this, an image version resource in westus is created, and then replicate to eastus. To avoid the additional replication time, ensure the `image definition` and image template are in the same location.
+> If the image template and referenced `image definition` are not in the same location, you will see additional time to create images. Image Builder currently doesn't have a `location` parameter for the image version resource, we take it from its parent `image definition`. For example, if an image definition is in westus and you want the image version replicated to eastus, a blob is copied to westus, from this, an image version resource in westus is created, and then replicate to eastus. To avoid the additional replication time, ensure the `image definition` and image template are in the same location.
 
 
 ### Distribute: VHD  
@@ -687,7 +687,7 @@ Distribute VHD parameters:
 - **runOutputName** – unique name for identifying the distribution.  
 - **tags** - Optional user specified key value pair tags.
  
-Azure Image Builder does not allow the user to specify a storage account location, but you can query the status of the `runOutputs` to get the location.  
+Azure Image Builder doesn't allow the user to specify a storage account location, but you can query the status of the `runOutputs` to get the location.  
 
 ```azurecli-interactive
 az resource show \
@@ -718,7 +718,7 @@ az resource invoke-action \
 ### Cancelling an Image Build
 If you're running an image build that you believe is incorrect, waiting for user input, or you feel will never complete successfully, then you can cancel the build.
 
-The build can be canceled any time. If the distribution phase has started you can still cancel, but you will need to clean up any images that may not be completed. The cancel command does not wait for cancel to complete, please monitor `lastrunstatus.runstate` for canceling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
+The build can be canceled any time. If the distribution phase has started you can still cancel, but you will need to clean up any images that may not be completed. The cancel command doesn't wait for cancel to complete, please monitor `lastrunstatus.runstate` for canceling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
 
 
 Examples of `cancel` commands:
