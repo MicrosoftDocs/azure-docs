@@ -12,22 +12,24 @@ ms.date: 01/08/2022
 ms.author: eur
 ms.devlang: cpp, csharp, java, javascript, python
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
-zone_pivot_groups: programming-languages-speech-services-one-nomore-no-go
+zone_pivot_groups: programming-languages-speech-services
 keywords: intent recognition
 ---
 
 # Get started with intent recognition
 
+[!INCLUDE [Header](includes/quickstarts/common/csharp.md)]
+
 In this quickstart, you'll use the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) and the Language Understanding (LUIS) service to recognize intents from audio data captured from a microphone. Specifically, you'll use the Speech SDK to capture speech, and a prebuilt domain from LUIS to identify intents for home automation, like turning on and off a light. 
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Header](includes/quickstarts/common/csharp.md)]
+## Prerequisites
 [!INCLUDE [Header](includes/quickstarts/common/azure-prerequisites.md)]
 [!INCLUDE [chsarp](includes/quickstarts/intent-recognition/csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-[!INCLUDE [Header](includes/quickstarts/common/cpp.md)]
+## Prerequisites
 [!INCLUDE [Header](includes/quickstarts/common/azure-prerequisites.md)]
 [!INCLUDE [cpp](includes/quickstarts/intent-recognition/cpp.md)]
 ::: zone-end
