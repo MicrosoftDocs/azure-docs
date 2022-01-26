@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 01/21/2022
+ms.date: 01/26/2022
 ---
 
 # Azure Purview network architecture and best practices
@@ -202,7 +202,7 @@ For performance and cost optimization, we highly recommended deploying one or mo
 
 #### Name resolution for single Azure Purview account
 
-If you have one Azure Purview account in your tenant, and you have enabled private endpoints for account, portal and ingestion, you can use any of [the supported scenarios](catalog-private-link-name-resolution#deployment-options) for name resolution in your network.
+If you have one Azure Purview account in your tenant, and you have enabled private endpoints for account, portal and ingestion, you can use any of [the supported scenarios](catalog-private-link-name-resolution.md#deployment-options) for name resolution in your network.
 
 #### Name resolution for multiple Azure Purview accounts
 
