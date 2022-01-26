@@ -288,10 +288,7 @@ Enables debug-level logging in a Python function app. A value of '1' enables deb
 |---|------------|
 |PYTHON_ENABLE_DEBUG_LOGGING|`1`|
 
-> [!NOTE]
-> Please ensure your host.json [log levels](functions-host-json#logging.md) are consistent with this flag.
-> 
-> When the flag is '1', host.json log level for all categories must be set to DEBUG or lower levels to see debug logs for all functions inside the function app. For more information, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
+When debugging Python functions, make sure to also set a debug or trace [logging level](functions-host-json#logging.md) in the host.json file, as needed. To learn more, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
 
 
 ## PYTHON\_ENABLE\_WORKER\_EXTENSIONS
