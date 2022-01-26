@@ -22,7 +22,7 @@ Communication Token Credential (Credential) is an authentication primitive that 
 ## Initialization
 
 Depending on your scenario, you may want to initialize the Credential with a [static token](#static-token) or a [callback function](#callback-function) returning tokens.
-The tokens that are supplied to the Credential through either of the approaches can be obtained using the Azure Communication Identity API.
+No matter which method you choose, you can supply the tokens to the Credential via the Azure Communication Identity API.
 
 ### Static token
 
