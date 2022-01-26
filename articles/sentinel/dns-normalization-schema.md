@@ -68,9 +68,7 @@ For more information about ASIM parsers, see the [ASIM parsers overview](normali
 
 ### Unifying parsers
 
-To use parsers that unify all ASIM out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the `_Im_Dns` filtering parser or the `_ASim_Dns` parameter-less parser.
-
-Deploy unifying parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/azsentinelDNS). For more information, see [built-in ASIM parsers and workspace-deployed parsers](normalization-parsers-overview.md#built-in-asim-parsers-and-workspace-deployed-parsers).
+To use parsers that unify all ASIM out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the `_Im_Dns` filtering parser or the `_ASim_Dns` parameter-less parser. You can also use workspace deployed `ImDns` and `ASimDns` parsers by deploying them from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM). For more information, see [built-in ASIM parsers and workspace-deployed parsers](normalization-parsers-overview.md#built-in-asim-parsers-and-workspace-deployed-parsers).
 
 ### Out-of-the-box, source-specific parsers
 
@@ -85,8 +83,8 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific DNS p
 | **Cisco Umbrella**  | `_ASim_DnsCiscoUmbrella` (regular)<br> `_Im_DnsCiscoUmbrella` (filtering)  | `ASimDnsCiscoUmbrella` (regular)<br> `vimDnsCiscoUmbrella` (filtering) |
 | **Infoblox NIOS**  | `_ASim_DnsInfobloxNIOS` (regular)<br> `_Im_DnsInfobloxNIOS` (filtering) | `ASimDnsInfobloxNIOS` (regular)<br> `vimDnsInfobloxNIOS` (filtering) |
 | **GCP DNS** | `_ASim_DnsGcp` (regular)<br> `_Im_DnsGcp`  (filtering) | `ASimDnsGcp` (regular)<br> `vimDnsGcp`  (filtering) |
-| **Corelight Zeek DNS events** | `_ASim_DnsCorelightZeek` (regular)<br> `_Im_DnsCorelightZeek`  (filtering) |  `ASimDnsCorelightZeek` (regular)<br> `vimDnsCorelightZeek`  (filtering)
-| **zScaler ZIA** |`_ASim_DnsZscalerZIA` (regular)<br> `_Im_DnsZdcalerZIA` (filtering)  | `AsimDnsZscalerZIA` (regular)<br> `vimDnsSzcalerZIA` (filtering)  |
+| **Corelight Zeek DNS events** | `_ASim_DnsCorelightZeek` (regular)<br> `_Im_DnsCorelightZeek`  (filtering) |  `ASimDnsCorelightZeek` (regular)<br> `vimDnsCorelightZeek`  (filtering) |
+| **Zscaler ZIA** |`_ASim_DnsZscalerZIA` (regular)<br> `_Im_DnsZscalerZIA` (filtering)  | `AsimDnsZscalerZIA` (regular)<br> `vimDnsSzcalerZIA` (filtering)  |
 | | | |
 
 These parsers can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/azsentinelDNS).
@@ -261,7 +259,7 @@ These are the changes in version 0.1.3 of the schema:
 - Added optional `DnsNetworkDuration` and `Duration`, an alias to it.
 - Added optional Geo Location and Risk Level fields.
 
-## Source-specific descrepencies 
+## Source-specific discrepancies 
 
 The goal of normalizing is to ensure that all sources provide consistent telemetry. A source that does not provide required telemetry, for example, mandatory schema fields, cannot be normalized. That said, a source that typically provides all required telemetry, apart from specific situations, can be normalized. The descrepencies may affect the completness of query results and therefore known descrepencies are listed here:
 
@@ -270,7 +268,7 @@ The goal of normalizing is to ensure that all sources provide consistent telemet
 | Microsoft DNS Server Collected using the DNS connector and the Log Analytics Agent | THe connector does not provide the mandatory DnsQuery field for original event ID 264 (Response to a dybamic update). The data is avaiable at the source, but not forwarded by the connector. |
 | Corelight Zeek | Corelight Zeek may not provide the mandatory DnsQuery field. We have observered such behoavior in certain cases in which the original event type is `dns_unmatched_msg` or when the DNS response code name is `NXDOMAIN`. |
 |||
-
+s
 
 ## Handling DNS response
 

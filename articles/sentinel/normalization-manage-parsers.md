@@ -62,6 +62,8 @@ The syntax of the line to add is different for each schema:
 | Schema | Filtering  parser | Parameter&#8209;less&nbsp;parser | 
 | ------ | ---------------------------------------- | --------------------- |
 | DNS    | **Name**: `Im_DnsCustom`<br><br> **Line to add**:<br> `_parser_name_ (starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype)` | **Name**: `ASim_DnsCustom`<br><br> **Line to add**:<br> `_parser_name_` |
+| NetworkSession    | **Name**: `Im_NetworkSessionCustom`<br><br> **Line to add**:<br> `_parser_name_  (starttime, endtime, srcipaddr_has_any_prefix, dstipaddr_has_any_prefix, dstportnumber, hostname_has_any, dvcaction, eventresult)` | **Name**: `ASim_NetworkSessionCustom`<br><br> **Line to add**:<br> `_parser_name_` |
+| WebSession    | **Name**: `Im_WebSessionCustom`<br><br> **Line to add**:<br> `_parser_name_ (starttime, endtime, srcipaddr_has_any_prefix, url_has_any, httpuseragent_has_any, eventresultdetails_in, eventresult)` | **Name**: `ASim_WebSessionCustom`<br><br> **Line to add**:<br> `_parser_name_` |
 | | |
 
 When adding an additional parser to a unifying custom parser that already references parsers, make sure you add a comma at the end of the previous line. 
