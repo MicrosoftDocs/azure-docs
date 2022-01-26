@@ -349,7 +349,7 @@ To support logging of metrics and other monitoring information to Azure Monitor 
 * **dc.applicationinsights.azure.com**
 * **dc.applicationinsights.microsoft.com**
 * **dc.services.visualstudio.com**
-* **.in.applicationinsights.azure.com**
+* ***.in.applicationinsights.azure.com**
 
 For a list of IP addresses for these hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 
