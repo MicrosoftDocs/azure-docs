@@ -58,9 +58,12 @@ For the **Send Email (V2)** action, customize how you wish to format the email, 
 
 :::image type="content" source="media/how-to-send-email/logic-app-email-action.png" alt-text="Shows the Logic App workflow designer for the Send Email (V2) action.":::
 
-Save the workflow. Make a note of the Workflow URL for your new workflow then:
+Save the workflow. Browse to the Overview page for the workflow.  Make a note of the Workflow URL for your new workflow then:
 
 :::image type="content" source="media/how-to-send-email/logic-app-workflow-url.png" alt-text="Shows the Logic App workflow Overview tab with the Workflow URL highlighted.":::
+
+> [!NOTE]
+> To find the Workflow URL you must browse to the workflow itself, not just the logic app that contains it.  From the Workflows page of your logic app instance, choose the workflow and then navigate to its Overview page. 
 
 ## Create a pipeline to trigger your Logic App email workflow
 
