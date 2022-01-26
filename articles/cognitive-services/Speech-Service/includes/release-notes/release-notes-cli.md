@@ -8,8 +8,19 @@ ms.author: eur
 
 ### 2022-January release
 
-#### New features
 
+#### New features
+- Speaker recognition
+    - `spx profile enroll` and `spx speaker [identify/verify]` now support microphone input
+- Intent recognition (`spx intent`)
+    - `--keyword FILE.table`
+    - `--pattern` and `--patterns`
+    - `--output all/each intentid`
+    - `--output all/each entity json`
+    - `--output all/each ENTITY entity`
+    - `--once`, `--once+`, `--continuous` (continuous now default)
+    - `--output all/each connection EVENT`
+    - `--output all/each connection message` (e.g. `text`, `path`)
 - CLI console output expectation checking/authoring:
     - `--expect PATTERN` and `--not expect PATTERN` support on all commands
     - `--auto expect` to assist authoring patterns for above
@@ -31,20 +42,10 @@ ms.author: eur
     - `--output […] result XXX property` (PropertyId or string)
     - `--output […] connection message received XXX property` (PropertyId or string)
     - `--output […] recognizer XXX property` (PropertyId or string)
-- Intent recognition (`spx intent`)
-    - `--keyword FILE.table`
-    - `--pattern` and `--patterns`
-    - `--output all/each intentid`
-    - `--output all/each entity json`
-    - `--output all/each ENTITY entity`
-    - `--once`, `--once+`, `--continuous` (continuous now default)
-    - `--output all/each connection EVENT`
-    - `--output all/each connection message` (e.g. `text`, `path`)
 - Azure WebJob integration
     - `spx webjob` now follows sub-command pattern
     - Updated WebJob help to reflect above (see `spx help webjob`)
-- Speaker recognition
-    - `spx profile enroll` and `spx speaker [identify/verify]` now support microphone input
+
 
 #### Bug fixes
 
