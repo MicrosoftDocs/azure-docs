@@ -29,8 +29,9 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed, however *1.14.x* -> *1.16.x* is not allowed. 
-> > Skipping multiple versions can only be done when upgrading from an _unsupported version_ back to a _supported version_. For example, an upgrade from an unsupported *1.10.x* --> a supported *1.15.x* can be completed.
+> When you upgrade a supported AKS cluster, Kubernetes minor versions can't be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed, however *1.14.x* -> *1.16.x* is not allowed.
+> 
+> Skipping multiple versions can only be done when upgrading from an _unsupported version_ back to a _supported version_. For example, an upgrade from an unsupported *1.10.x* -> a supported *1.15.x* can be completed if available.
 
 The following example output shows that the cluster can be upgraded to versions *1.19.1* and *1.19.3*:
 
@@ -45,8 +46,9 @@ If no upgrade is available, you will get the message:
 ```console
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
-> [!NOTE]
-> If there is no upgrade available, that means that we can attempt to upgrade your cluster to a newer, supported version, but this action is unsupported by AKS and contains risk due to possible deprecation of Kubernetes objects. A safer route to upgrading the cluster would be to create a new cluster directly on a newer, supported version and migrate workloads from the old cluster.
+
+> [!IMPORTANT]
+> If no upgrade is available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. Attempting to upgrade a cluster to a newer Kubernetes version when `az aks get-upgrades` shows no upgrades available is not supported.
 
 ## Customize node surge upgrade
 
