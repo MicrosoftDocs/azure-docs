@@ -80,7 +80,7 @@ In this step, we will connect to the source SQL Server and create the backup fil
 
 Learn more about backup to URL here:
 
-[SQL Server Backup and Restore with Azure Blob Storage](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service?view=sql-server-ver15)
+[SQL Server Backup and Restore with Azure Blob Storage](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
 
 [Backup to URL docs](/sql/relational-databases/backup-restore/sql-server-backup-to-url)
 
