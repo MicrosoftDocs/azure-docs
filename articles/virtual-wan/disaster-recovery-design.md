@@ -31,15 +31,15 @@ With the point-to-site VPN gateway, the minimum number of instances deployed is 
 
 For the site-to-site VPN gateway, two instances of the gateway are deployed within a virtual hub. Each of the gateway instance is deployed with its own set of public and private IP addresses. The following screen capture shows the IP addresses associated with the two instances of an example site-to-site VPN gateway configuration. In other words, the two instances provide two independent tunnel endpoints for establishing site-to-site VPN connectivity from your branches. To maximize high-availability, you can create two tunnels terminating on the two different instances of the VPN gateway for each link from your branch sites.
 
-:::image type="content" source="./media/disaster-recovery-design/stos-gw-config.png" alt-text="Example S2S VPN gateway configuration.":::
+:::image type="content" source="./media/disaster-recovery-design/site-to-site-gateway-config.png" alt-text="Example S2S VPN gateway configuration.":::
 
 Maximizing the high-availability of your network architecture is a key first step for Business Continuity and Disaster Recovery (BCDR). In the rest of this article, as stated previously, let's go beyond high-availability and discuss how to architect your Virtual WAN connectivity network for BCDR.
 
 ## Need for disaster recovery design
 
-Disaster may strike at any time, anywhere. Disaster may occur in a cloud provider regions or network, within a service provider network, or within an onpremises network. Regional impact of a cloud or network service due to certain factors such as natural calamity, human errors, war, terrorism, misconfiguration are hard to rule-out. So for the continuity of your business-critical applications you need to have a disaster recovery design. For a comprehensive disaster recovery design, you need to identify all the dependencies that may possibly fail in your end-to-end communication path, and create non-overlapping redundancy for each of the dependency.
+Disaster may strike at any time, anywhere. Disaster may occur in a cloud provider regions or network, within a service provider network, or within an on-premises network. Regional impact of a cloud or network service due to certain factors such as natural calamity, human errors, war, terrorism, misconfiguration are hard to rule-out. So for the continuity of your business-critical applications you need to have a disaster recovery design. For a comprehensive disaster recovery design, you need to identify all the dependencies that may possibly fail in your end-to-end communication path, and create non-overlapping redundancy for each of the dependency.
 
-Irrespective of whether you run your mission-critical applications in an Azure region, onpremises or anywhere else, you can use another Azure region as your failover site. The following articles addresses disaster recovery from applications and frontend access perspectives:
+Irrespective of whether you run your mission-critical applications in an Azure region, on-premises or anywhere else, you can use another Azure region as your failover site. The following articles addresses disaster recovery from applications and frontend access perspectives:
 
 - [Enterprise-scale disaster recovery](https://azure.microsoft.com/solutions/architecture/disaster-recovery-enterprise-scale-dr/) 
 - [Disaster recovery with Azure Site Recovery](https://azure.microsoft.com/solutions/architecture/disaster-recovery-smb-azure-site-recovery/)
@@ -65,7 +65,7 @@ Point-to-site VPN establishes private connectivity between an end-device to a ne
 
 The following diagram shows the concept of managing redundant virtual hub with their respective point-to-site gateway within a region. 
 
-:::image type="content" source="./media/disaster-recovery-design/ptos-multi-hub.png" alt-text="Multi-hub point-to-site aggregation.":::
+:::image type="content" source="./media/disaster-recovery-design/point-to-site-multi-hub.png" alt-text="Multi-hub point-to-site aggregation.":::
 
 In the above diagram, the solid green lines show the primary site-to-site VPN connections and the dotted yellow lines show the stand-by back-up connections. The VWAN point-to-site global profile select primary and back-up connections based on the network performance. See [Download a global profile for User VPN clients](global-hub-profile.md) for further information regarding global profile.
 
@@ -73,7 +73,7 @@ In the above diagram, the solid green lines show the primary site-to-site VPN co
 
 Let's consider the example site-to-site VPN connection shown in the following diagram for our discussion. To establish a site-to-site VPN connection with high-available active-active tunnels, see [Tutorial: Create a Site-to-Site connection using Azure Virtual WAN](virtual-wan-site-to-site-portal.md).
 
-:::image type="content" source="./media/disaster-recovery-design/stos-scenario.png" alt-text="Connecting an onpremises branch to virtual wan via site-to-site VPN.":::
+:::image type="content" source="./media/disaster-recovery-design/site-to-site-scenario.png" alt-text="Connecting an on-premises branch to virtual wan via site-to-site VPN.":::
 
 > [!NOTE]
 > For easy understanding of the concepts discussed in the section, we are not repeating the discussion of the high-availability feature of site-to-site VPN gateway that lets you create two tunnels to two different endpoints for each VPN link you configure. However, while deploying any of the suggested architecture in the section, remember to configure two tunnels for each of the link you establish.
@@ -83,17 +83,17 @@ Let's consider the example site-to-site VPN connection shown in the following di
 
 To protect against failures of VPN Customer Premises Equipment (CPE) at a branch site, you can configure parallel VPN links to a VPN gateway from parallel CPE devices at the branch site. Further to protect against network failures of a last-mile service provider to the branch office, you can configure different VPN links over different service provider network. The following diagram shows multiple VPN links originating from two different CPEs of a branch site terminating on the same VPN-gateway.
 
-:::image type="content" source="./media/disaster-recovery-design/multi-onprem-stos.png" alt-text="Redundant site-to-site VPN connections to a branch site.":::
+:::image type="content" source="./media/disaster-recovery-design/multi-on-premises-site-to-site.png" alt-text="Redundant site-to-site VPN connections to a branch site.":::
 
 You can configure up to four links to a branch site from a virtual hub VPN gateway. While configuring a link to a branch site, you can identify the service provider and the throughput speed associated with the link. When you configure parallel links between a branch site and a virtual hub, the VPN gateway by default would load balance traffic across the parallel links. The load balancing of traffic would be according to Equal-Cost Multi-Path (ECMP) on per-flow basis.
 
 ### Multi-hub multi-link topology
 
-Multi-link topology protects against CPE device failures and a service provider network failure at the onpremises branch location. Additionally, to protect against any downtime of a virtual hub VPN-gateway, multi-hub multi-link topology would help. The following diagram shows the topology:
+Multi-link topology protects against CPE device failures and a service provider network failure at the on-premises branch location. Additionally, to protect against any downtime of a virtual hub VPN-gateway, multi-hub multi-link topology would help. The following diagram shows the topology:
 
 :::image type="content" source="./media/disaster-recovery-design/multi-hub.png" alt-text="Multi-hub site-to-site VPN connections to a branch site.":::
 
-In the above topology, because intra-Azure-region latency over the connection between the hubs is insignificant, you can use all the site-to-site VPN connections between the onpremises and the two virtual hubs in active-active state by spreading the spoke VNets across the hubs. In the topology, by default, traffic between onpremises and a spoke VNET would traverse directly through the virtual hub to which the spoke VNET is connected during the steady-state and use another virtual hub as a backup only during a failure state. Traffic would traverse through the directly connected hub in the steady state, because the BGP routes advertised by the directly connected hub would have shorter AS-path compared to the backup hub.
+In the above topology, because intra-Azure-region latency over the connection between the hubs is insignificant, you can use all the site-to-site VPN connections between the on-premises and the two virtual hubs in active-active state by spreading the spoke VNets across the hubs. In the topology, by default, traffic between on-premises and a spoke VNET would traverse directly through the virtual hub to which the spoke VNET is connected during the steady-state and use another virtual hub as a backup only during a failure state. Traffic would traverse through the directly connected hub in the steady state, because the BGP routes advertised by the directly connected hub would have shorter AS-path compared to the backup hub.
 
 The multi-hub multi-link topology would protect and provide business continuity against most of the failure scenarios. However, if a catastrophic failure takes down the entire Azure region, you need 'multi-region multi-link topology' to withstand the failure.
 
@@ -105,15 +105,15 @@ Multi-region multi-link topology protects against even a catastrophic failure of
 
 From a traffic engineering point of view, you need to take into consideration one substantial difference between having redundant hubs within a region vs having the backup hub in a different region. The difference is the latency resulting from the physical distance between the primary and secondary regions. Therefore, you may want to deploy your steady-state service resources in the region closest to your branch/end-users and use the remote region purely for backup.
 
-If your onpremises branch locations are spread around two or more Azure regions, the multi-region multi-link topology would be more effective in spreading the load and in gaining better network experience during the steady state. The following diagram shows multi-region multi-link topology with branches in different regions. In such scenario, the topology would additionally provide effective Business Continuity Disaster Recovery (BCDR).
+If your on-premises branch locations are spread around two or more Azure regions, the multi-region multi-link topology would be more effective in spreading the load and in gaining better network experience during the steady state. The following diagram shows multi-region multi-link topology with branches in different regions. In such scenario, the topology would additionally provide effective Business Continuity Disaster Recovery (BCDR).
 
 :::image type="content" source="./media/disaster-recovery-design/multi-branch.png" alt-text="Multi-region site-to-site VPN connections to multi-branch sites.":::
 
 ## ExpressRoute considerations
 
-Disaster recovery considerations for ExpressRoute private peering are discussed in [Designing for disaster recovery with ExpressRoute private peering](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md#small-to-medium-on-premises-network-considerations). As noted in the article, the concepts described in that article equally apply to ExpressRoute gateways created within a virtual hub. Using a redundant virtual hub within the region, as shown in the following diagram, is the only topology enhancement recommended for [Small to medium onpremises network considerations](../expressroute/index.yml).
+Disaster recovery considerations for ExpressRoute private peering are discussed in [Designing for disaster recovery with ExpressRoute private peering](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md#small-to-medium-on-premises-network-considerations). As noted in the article, the concepts described in that article equally apply to ExpressRoute gateways created within a virtual hub. Using a redundant virtual hub within the region, as shown in the following diagram, is the only topology enhancement recommended for [Small to medium on-premises network considerations](../expressroute/index.yml).
 
-:::image type="content" source="./media/disaster-recovery-design/exr-multi-hub.png" alt-text="Multi-hub ExpresssRoute connectivity.":::
+:::image type="content" source="./media/disaster-recovery-design/expressroute-multi-hub.png" alt-text="Multi-hub ExpresssRoute connectivity.":::
 
 In the above diagram, the ExpressRoute 2 is terminated on a separate ExpressRoute gateway within a second virtual hub within the region.
 
