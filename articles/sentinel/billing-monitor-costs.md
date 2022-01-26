@@ -1,8 +1,8 @@
 ---
 title: Monitor costs for Microsoft Sentinel
 description: Learn how to manage and monitor costs and billing for Microsoft Sentinel by using cost analysis in the Azure portal and other methods.
-author: cwatson
-ms.author: cwatson-cat
+author: cwatson-cat
+ms.author: cwatson
 ms.custom: subject-cost-optimization
 ms.topic: how-to
 ms.date: 01/26/2022
@@ -16,13 +16,11 @@ Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azu
 
 ## Prerequisites
 
-- To view cost data and perform cost analysis in Cost Management, you must have a supported Azure account type, with at least read access.
+To view cost data and perform cost analysis in Cost Management, you must have a supported Azure account type, with at least read access.
 
-    While cost analysis in Cost Management supports most Azure account types, not all are supported. To view the full list of supported account types, see [Understand Cost Management data](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+While cost analysis in Cost Management supports most Azure account types, not all are supported. To view the full list of supported account types, see [Understand Cost Management data](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-    For information about assigning access to Azure Cost Management data, see [Assign access to data](../cost-management/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-
-- You must have details about your data sources. Microsoft Sentinel allows you to bring in data from one or more data sources. Some of these data sources are free, and others incur charges. For more information, see [Free data sources](#free-data-sources).
+For information about assigning access to Azure Cost Management data, see [Assign access to data](../cost-management/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 
 ## View costs by using cost analysis
@@ -46,7 +44,7 @@ For example, to see charts of your daily costs for a certain time frame:
 
 The Microsoft Sentinel pricing tiers don't include Log Analytics charges. To change your pricing tier commitment for Log Analytics, see [Changing pricing tier](../azure-monitor/logs/manage-cost-storage.md#changing-pricing-tier).
 
-For more information, see [Create budgets](#create-budgets) and [Other ways to manage and reduce Microsoft Sentinel costs](#other-ways-to-manage-and-reduce-microsoft-sentinel-costs).
+For more information, see [Create budgets](#create-budgets) and [Reduce costs in Microsoft Sentinel](billing-monitor-costs.md).
 
 ## Using Azure Prepayment with Microsoft Sentinel
 

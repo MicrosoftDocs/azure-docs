@@ -1,8 +1,8 @@
 ---
 title: Plan costs for Microsoft Sentinel
-description: Learn how to plan for costs for Microsoft Sentinel by using the pricing calculator and other methods.
-author: cwatson
-ms.author: cwatson-cat
+description: Learn how to estimate your costs for Microsoft Sentinel by using the pricing calculator and other methods.
+author: cwatson-cat
+ms.author: cwatson
 ms.custom: subject-cost-optimization
 ms.topic: how-to
 ms.date: 01/26/2022
@@ -51,7 +51,7 @@ There are two ways to pay for the Microsoft Sentinel service: **Pay-As-You-Go** 
 
     You can increase your commitment tier anytime, and decrease it every 31 days, to optimize costs as your data volume increases or decreases. To see your current Microsoft Sentinel pricing tier, select **Settings** in the Microsoft Sentinel left navigation, and then select the **Pricing** tab. Your current pricing tier is marked as **Current tier**.
 
-    To set and change your Commitment Tier, see [Set or change pricing tier](#set-or-change-pricing-tier).
+    To set and change your Commitment Tier, see [Set or change pricing tier](billing-reduce-costs.md#set-or-change-pricing-tier).
 
 ### Understand your Microsoft Sentinel bill
 
