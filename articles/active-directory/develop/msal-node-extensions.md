@@ -11,6 +11,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 01/26/2022
+ms.reviewer: j-mantu
 ms.author: henrymbugua
 #Customer intent: As an application developer, I want to learn how to use the Microsoft Authentication Extensions for Node library for cache persistence support for public client applications.
 ---
