@@ -27,7 +27,22 @@ Each virtual network can have only one virtual network gateway per gateway type.
 ## <a name="gwsku"></a>Gateway SKUs
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-If you want to upgrade your gateway to a more powerful gateway SKU, in most cases you can use the 'Resize-AzVirtualNetworkGateway' PowerShell cmdlet. This will work for upgrades to Standard and HighPerformance SKUs. However, to upgrade a non Availability Zone (AZ) gateway to the UltraPerformance SKU, you will need to recreate the gateway. Recreating a gateway incurs downtime. You do not need to delete and recreate the gateway to upgrade an AZ-enabled SKU.
+If you want to upgrade your gateway to a more powerful gateway SKU, you can use the 'Resize-AzVirtualNetworkGateway' PowerShell cmdlet or perform the upgrade directly in the ExpressRoute virtual network gateway configuration blade in the Azure Portal. The following upgrades are supported:
+
+- Standard to High Performance
+- Standard to Ultra Performance
+- High Performance to Ultra Performance
+- ErGw1Az to ErGw2Az
+- ErGw1Az to ErGw3Az
+- ErGw2Az to ErGw3Az
+- Default to Standard
+
+Additionally, you can downgrade the virtual network gateway SKU. The following downgrades are supported:
+- High Performance to Standard
+- ErGw2Az to ErGw1Az
+
+For all other downgrade scenarios, you will need to delete and recreate the gateway. Recreating a gateway incurs downtime.
+
 ### <a name="gatewayfeaturesupport"></a>Feature support by gateway SKU
 The following table shows the features supported across each gateway type.
 

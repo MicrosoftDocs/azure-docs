@@ -79,7 +79,7 @@ requests
 | where resultCode == "500"
 ```
 
-- **Time period / Aggregation granularity:** 15 minutes
+- **Aggregation granularity:** 15 minutes
 - **Alert frequency:** 15 minutes
 - **Threshold value:** Greater than 0
 
@@ -129,7 +129,7 @@ For example, you want to monitor errors for multiple virtual machines running yo
 This rule monitors if any virtual machine had error events in the last 15 minutes. Each virtual machine is monitored separately and will trigger actions individually.
 
 > [!NOTE]
-> Split by alert dimensions is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource centric alerting at scale is only supported in the API version `2020-08-01` and above.
+> Split by alert dimensions is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource centric alerting at scale is only supported in the API version `2021-08-01` and above.
 
 ## Alert logic definition
 
@@ -166,7 +166,7 @@ See this alert stateless evaluation example:
 
 Stateful alerts fire once per incident and resolve. The alert rule resolves when the alert condition isn't met for 30 minutes for a specific evaluation period (to account for log ingestion delay), and for three consecutive evaluations to reduce noise if there is flapping conditions. For example, with a frequency of 5 minutes, the alert resolve after 40 minutes or with a frequency of 1 minute, the alert resolve after 32 minutes. The resolved notification is sent out via web-hooks or email, the status of the alert instance (called monitor state) in Azure portal is also set to resolved.
 
-Stateful alerts feature is currently in preview in the Azure public cloud. You can set this using **Automatically resolve alerts** in the alert details section.
+Stateful alerts feature is currently in preview. You can set this using **Automatically resolve alerts** in the alert details section.
 
 ## Location selection in log alerts
 
