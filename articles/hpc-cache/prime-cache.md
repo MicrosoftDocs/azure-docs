@@ -4,11 +4,11 @@ description: Use the cache priming feature (preview) to populate or preload cach
 author: ronhogue
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/25/2022
+ms.date: 01/26/2022
 ms.author: rohogue
 ---
 
-# Pre-load files in Azure HPC Cache (Preview)
+# Pre-load files in Azure HPC Cache (preview)
 
 > [!IMPORTANT]
 > Cache priming is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -118,6 +118,8 @@ Directory-level include/exclude statements are not the same as the global includ
 
 After the files and directories, you can specify global `include` and `exclude` statements. These global settings apply to all directories. They do not apply to files that were specified in a `files` statement.
 
+In general, rules are matched in order, so statements that appear earlier in the manifest file are applied before later ones. The descriptions in this article also assume that earlier rules have already been applied and not matched.
+
 * **Include** statements - When scanning directories, the priming job ignores any files that **do not match** the regular expressions in the `include` setting.
 
 * **Exclude** statements - When scanning directories, the priming job ignores any file that **matches** the regular expressions in the `exclude` setting.
@@ -148,13 +150,13 @@ More information about include/exclude rules and how they match file names:
 
 * If a directory and an ancestor of that directory both appear in the directories list, the specific rules for the directory are applied along with the global rules and the rules for the ancestor directory are ignored.
 
-* Names and rules are case sensitive. Case-insensitive sources are not supported. <!-- in the private preview version -->
+* Names and rules are case sensitive. Case-insensitive sources are not supported. <!-- this might change in future? -->
 
 * The total number of file rules plus directory rules may not exceed 4000. The number of regular expression rules for any include/exclude list may not exceed 5.
 
 * If one directory specification overlaps another, the one with the more explicit path takes precedence.
 
-* It is an error for a manifest to specify the same path more than once in the explicit list or directory list.
+* It is an error for a manifest to specify the same path more than once in the file list or directory list.
 
 ### Upload the priming manifest file
 
@@ -162,7 +164,7 @@ When your manifest file is ready, upload it to an Azure blob container in a stor
 
 * If you create a priming job from the Azure portal, select the manifest file in the HPC Cache **Prime cache** settings page as described below. Selecting it from the cache settings automatically creates a [Shared Access Signature (SAS)](../storage/common/storage-sas-overview.md) that gives the cache limited access to the priming file.
 
-* If you use APIs to create the priming job instead of using the portal, you need to take make sure that the cache is authorized to access that file. Either store the file in an accessible location (for example, on a webserver you control that is inside your cache or storage network), or manually create a SAS URL for your priming file.
+* If you use APIs to create the priming job instead of using the portal, make sure that the cache is authorized to access that file. Either store the file in an accessible location (for example, on a webserver you control that is inside your cache or storage network), or manually create a SAS URL for your priming file.
 
   Read [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md) to learn how to create an Account SAS URL for your priming manifest file. The manifest file must be accessible with HTTPS.
 
@@ -185,7 +187,7 @@ Use the **Priming file** field to select your priming manifest file. Select the 
 
 To select the priming manifest file, click the link to select a storage target. Then select the container where your .json manifest file is stored.
 
-If you can’t find the manifest file, your cache might not have the correct permissions to access the file's container.
+If you can’t find the manifest file, your cache might not be able to access the file's container. Make sure that the cache has network connectivity to the storage account and is able to read data from the container.
 
 ## Manage priming jobs
 
@@ -193,11 +195,11 @@ Priming jobs are listed in the **Prime cache** page in the Azure portal.
 
 ![screenshot of the priming jobs list in the portal, with jobs in various states (running, paused, and success). The cursor has clicked the ... symbol at the right side of one job's row, and a context menu shows options to pause or resume.](media/prime-cache-list.png)
 
-This page shows each job's name, its current status, and summary statistics about the priming progress. The summary in the **Details** column updates periodically as the job progresses.
+This page shows each job's name, its state, its current status, and summary statistics about the priming progress. The summary in the **Details** column updates periodically as the job progresses.
 
 Click the **...** section at the right of the table to pause or resume a priming job.
 
-To delete a priming job, use the button at the top of the table.
+To delete a priming job, select it in the list and click the delete control at the top of the table.
 
 ## Azure REST APIs
 
@@ -262,7 +264,7 @@ BODY:
 
 * What happens if the content I’m pre-loading is larger than my cache storage?
 
-  If the cache becomes full, files fetched later will overwrite files that were primed earlier. <!-- research ongoing - can overwrite files within one priming job; also cache storage is allocated per storage target and that might affect the overwriting if there are a lot of storage targets added to the cache. -->
+  If the cache becomes full, files fetched later will overwrite files that were primed earlier.
 
 ## Next steps
 
