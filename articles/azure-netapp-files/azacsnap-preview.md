@@ -490,6 +490,7 @@ When adding an Oracle database to the configuration, the following values are re
 - **SID** = The database System ID.
 - **Oracle Connect String** = The Connect String used by `sqlplus` to connect to Oracle and enable/disable backup mode.
 
+---
 
 ## Backint co-existence
 
