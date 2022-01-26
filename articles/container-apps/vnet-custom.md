@@ -21,7 +21,7 @@ As you create an Azure Container Apps [environment](environment.md), a virtual n
 - You can restrict inbound requests to the environment exclusively to the VNET by deploying the environment as internal.
 
 > [!IMPORTANT]
-> In order to ensure the environment deployment within your custom VNET is successful, configure your VNET with an "allow-all" configuration by default. The full list of traffic dependencies required to configure the VNET as "deny-all" is not yet available. Refer to the [custom VNET security sample (https://aka.ms/azurecontainerapps/customvnet) for additional details.
+> In order to ensure the environment deployment within your custom VNET is successful, configure your VNET with an "allow-all" configuration by default. The full list of traffic dependencies required to configure the VNET as "deny-all" is not yet available. Refer to the [custom VNET security sample](https://aka.ms/azurecontainerapps/customvnet) for additional details.
 
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Azure Container Apps environments use an existing VNET, or you can provide your own.":::
 
@@ -249,19 +249,39 @@ If you want to deploy your container app with a private DNS, run the following c
 
 First, extract identifiable information from the environment.
 
+# [Bash](#tab/bash)
+
 ```bash
-export ENVIRONMENT_DEFAULT_DOMAIN=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query defaultDomain --out json | tr -d '"'`
+ENVIRONMENT_DEFAULT_DOMAIN=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query defaultDomain --out json | tr -d '"'`
 ```
 
 ```bash
-export ENVIRONMENT_STATIC_IP=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query staticIp --out json | tr -d '"'`
+ENVIRONMENT_STATIC_IP=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query staticIp --out json | tr -d '"'`
 ```
 
 ```bash
-export VNET_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name ${VNET_NAME} --query id --out json | tr -d '"'`
+VNET_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name ${VNET_NAME} --query id --out json | tr -d '"'`
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+$ENVIRONMENT_DEFAULT_DOMAIN=(az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query defaultDomain --out json | tr -d '"')
+```
+
+```powershell
+$ENVIRONMENT_STATIC_IP=(az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query staticIp --out json | tr -d '"')
+```
+
+```powershell
+$VNET_ID=(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query id --out json | tr -d '"')
+```
+
+---
 
 Next, set up the private DNS.
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az network private-dns zone create \
@@ -284,6 +304,32 @@ az network private-dns record-set a add-record \
   --ipv4-address $ENVIRONMENT_STATIC_IP \
   --zone-name $ENVIRONMENT_DEFAULT_DOMAIN
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az network private-dns zone create `
+  --resource-group $RESOURCE_GROUP `
+  --name $ENVIRONMENT_DEFAULT_DOMAIN
+```
+
+```powershell
+az network private-dns link vnet create `
+  --resource-group $RESOURCE_GROUP `
+  --name $VNET_NAME `
+  --virtual-network $VNET_ID `
+  --zone-name $ENVIRONMENT_DEFAULT_DOMAIN -e true
+```
+
+```powershell
+az network private-dns record-set a add-record `
+  --resource-group $RESOURCE_GROUP `
+  --name "*" `
+  --ipv4-address $ENVIRONMENT_STATIC_IP `
+  --zone-name $ENVIRONMENT_DEFAULT_DOMAIN
+```
+
+---
 
 ::: zone-end
 
