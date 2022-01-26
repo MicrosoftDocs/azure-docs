@@ -282,7 +282,7 @@ The configuration is specific to Python function apps. It defines the prioritiza
 |PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`1`| Prioritize loading the Python libraries from application's package defined in requirements.txt. This prevents your libraries from colliding with internal Python worker's libraries. |
 
 ## PYTHON_ENABLE_DEBUG_LOGGING
-Optional flag to turn on debug level logging in the function app. Setting to '1' will enable debug level logging; setting to '0' or not setting will set the function app log level to INFO.
+Enables debug-level logging in a Python function app. A value of '1' enables debug-level logging. Without this setting, only information and higher level logs are sent from the Python worker to the Functions host. Use this setting when debugging or tracing your Python function executions.
 
 |Key|Sample value|
 |---|------------|
