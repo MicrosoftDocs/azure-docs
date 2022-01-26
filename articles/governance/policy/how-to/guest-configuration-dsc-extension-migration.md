@@ -24,31 +24,31 @@ Before you begin, it's a good idea to read the conceptual overview information a
 ## Major differences
 
 Configurations are deployed through DSC extension in a "push" model, where the operation is
-completed asynchronously. The deployment does not return until the configuration has finished
+completed asynchronously. The deployment doesn't return until the configuration has finished
 running inside the virtual machine. After deployment, no further information is returned to ARM.
 The monitoring and drift are managed within the machine.
 
-By contrast, guest configuration processes configurations in a "pull" model. The extension is
-deployed to a virtual machine and then jobs are executed based on guest assignment details. It is
-not possible to view the status while the configuration in real time as it is being applied inside
-the machine. It is possible to monitor and correct drift from Azure Resource Manager (ARM) after the
+Guest configuration processes configurations in a "pull" model. The extension is
+deployed to a virtual machine and then jobs are executed based on guest assignment details. it's
+not possible to view the status while the configuration in real time as it's being applied inside
+the machine. it's possible to monitor and correct drift from Azure Resource Manager (ARM) after the
 configuration is applied.
 
 The .zip packages used by DSC Extension and guest configuration are similar. Both contain a
 configuration and required dependencies. However, with DSC extension most content packages contained
 the configuration as a PowerShell script. For guest configuration,
 **the configuration must be compiled to Managed Object Format (MOF) before the package is created**.
-Compiling before packaging means that it is not possible to perform custom script tasks from a
+Compiling before packaging means that it isn't possible to perform custom script tasks from a
 configuration script. Any logic that changes behavior based on machine state must be implemented in
 DSC resources.
 
 Other major differences:
 
 - **Reboots** - while DSC in Windows PowerShell was able to manage reboots,
-  reboot management has not yet been implemented for guest configuration.
+  reboot management hasn't yet been implemented for guest configuration.
 - **Secrets** - The DSC extension included "privateSettings" where secrets
   could be passed to the configuration such as passwords or shared keys.
-  Secrets management has not yet been implemented for guest configuration.
+  Secrets management hasn't yet been implemented for guest configuration.
 
 ### Considerations for whether to migrate existing machines or only new machines
 
@@ -65,7 +65,7 @@ feature.
 If a machine is planned to exist for months or years, you might choose to shift the configuration
 from DSC extension to guest configuration because you want to take advantage of new features.
 
-It is not advised to have both platforms manage the same configuration.
+it isn't advised to have both platforms manage the same configuration.
 
 ## Understand migration
 
@@ -87,8 +87,8 @@ machine. To take advantage of the expanded capabilities offered by guest configu
 configuration files can be divided into many smaller configurations where each handles a specific
 scenario.
 
-There is no orchestration in guest configuration to control the order of how configurations are
-sorted, so keep steps in a configuration together in one package if they are required to happen
+There's no orchestration in guest configuration to control the order of how configurations are
+sorted, so keep steps in a configuration together in one package if They're required to happen
 sequentially.
 
 ### Test content in Azure guest configuration
@@ -99,12 +99,11 @@ with guest configuration is to follow the step-by-step tutorial in the page
 
 When you reach the step
 [Author a configuration](./guest-configuration-create.md#author-a-configuration),
-the configuration script that generates a MOF file should be the configuration you extracted from
-the package used by DSC extension. You must have the required PowerShell modules installed in
-your environment before you can compile the configuration to a MOF file and create a guest
-configuration package.
+use the configuration script from the DSC extension package to compile a new MOF file. You must have
+the required PowerShell modules installed in your environment before you can compile the
+configuration to a MOF file and create a guest configuration package.
 
-#### What if a module does not work with guest configuration?
+#### What if a module doesn't work with guest configuration?
 
 Some modules might encounter compatibility issues with guest configuration. The most common problems
 are related to .NET framework vs .NET core. Detailed technical information is available on the page,
@@ -112,7 +111,7 @@ are related to .NET framework vs .NET core. Detailed technical information is av
 
 One option to resolve compatibility issues is to run commands in Windows PowerShell from within a
 module that is imported in PowerShell 7, by running `powershell.exe`. You can review a sample module
-that uses this technique in the Azure-Policy repo where it is used to audit the state of
+that uses this technique in the Azure-Policy repo where it's used to audit the state of
 [Windows DSC Configuration](https://github.com/Azure/azure-policy/blob/bbfc60104c2c5b7fa6dd5b784b5d4713ddd55218/samples/GuestConfiguration/package-samples/resource-modules/WindowsDscConfiguration/DscResources/WindowsDscConfiguration/WindowsDscConfiguration.psm1#L97).
 
 The example also illustrates a small proof of concept.
@@ -139,11 +138,11 @@ details from the properties returned by the `Get` method. Therefore, it's option
 
 In previous versions of DSC, the DSC extension assigned a configuration through the Local
 Configuration Manager in Windows and Linux. If you intend to start managing the configuration use
-the guest configuration feature, it is recommended to remove the assigned configuration from DSC
+the guest configuration feature, it's recommended to remove the assigned configuration from DSC
 extension.
 
 > NOTE
-> Removing a configuration in Local Configuration Manager does not "roll back"
+> Removing a configuration in Local Configuration Manager doesn't "roll back"
 > the settings in Windows or Linux that were set by the configuration. The
 > action of removing the configuration only causes the LCM to stop managing
 > the assigned configuration. The settings remain in place.
@@ -162,7 +161,7 @@ For Linux, use the `Remove.py` script as documented in
 - [Test the package artifact](./guest-configuration-create-test.md)
   from your development environment.
 - [Publish the package artifact](./guest-configuration-create-publish.md)
-  so it is accessible to your machines.
+  so it's accessible to your machines.
 - Use the `GuestConfiguration` module to
   [create an Azure Policy definition](./guest-configuration-create-definition.md)
   for at-scale management of your environment.
