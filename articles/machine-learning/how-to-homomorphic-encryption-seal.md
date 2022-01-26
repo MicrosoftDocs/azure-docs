@@ -2,8 +2,8 @@
 title: Deploy an encrypted inferencing service (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to use Microsoft SEAL to deploy an encrypted prediction service for image classification
-author: luisquintanilla
-ms.author: luquinta 
+author: ssalgadodev
+ms.author: ssalgado 
 ms.date: 10/21/2021
 services: machine-learning
 ms.service: machine-learning

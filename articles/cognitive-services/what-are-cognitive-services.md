@@ -19,14 +19,14 @@ Azure Cognitive Services are cloud-based services with REST APIs and client libr
 
 ## Categories of Cognitive Services
 
-The catalog of cognitive services that provide cognitive understanding is categorized into five main pillars:
+The catalog of cognitive services that provide cognitive understanding is categorized into four main pillars:
 
 * Vision
 * Speech
 * Language
 * Decision
 
-The following sections in this article provide a list of services that are part of these five pillars.
+The following sections in this article provide a list of services that are part of these four pillars.
 
 ## Vision APIs
 
