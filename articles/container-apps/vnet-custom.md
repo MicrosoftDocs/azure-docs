@@ -32,7 +32,7 @@ As a Container Apps environment is created, you provide resource IDs for two dif
 - **App subnet**: Subnet for user app containers. Subnet that contains IP ranges mapped to applications deployed as containers.
 - **Control plane subnet**: Subnet for [control plane infrastructure](/azure/azure-resource-manager/management/control-plane-and-data-plane) components and user app containers.
 
-If the `platformReservedCidr` is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
+If the [platformReservedCidr](#optional-networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
 
 ## Accessibility level
 
@@ -248,6 +248,20 @@ The following table describes the parameters used in for `containerapp env creat
 | `internal-only` | Optional parameter that scopes the environment to IP addresses only available the custom VNET. |
 
 With your environment created with your custom virtual network, you can create container apps into the environment using the `az containerapp create` command.
+
+### Optional networking parameters
+
+There are three optional networking parameters you can choose to define when calling `containerapp env create`. You must either provide values for all three of these properties, or none of them. If they are not provided, the CLI generates the values for you.
+
+| Parameter | Description |
+|---|---|
+| `platform-reserved-cidr` | The address range used internally for environment infrastructure services. Must have a size between `/21` and `/12`. |
+| `platform-reserved-dns-ip` | An IP address from the `platform-reserved-cidr` range that is used for the internal DNS server. The address can't be the first address in the range, or the network address. For example, if `platform-reserved-cidr` is set to `10.2.0.0/16`, then `platform-reserved-dns-ip` can't be `10.2.0.0` (this is the network address), or `10.2.0.1` (infrastructure reserves use of this IP). In this case, the first usable IP for the DNS would be `10.2.0.2`. |
+| `docker-bridge-cidr` | The address range assigned to the Docker bridge network. This range must have a size between `/28` and `/12`. |
+
+- The `platform-reserved-cidr` and `docker-bridge-cidr` address ranges can't conflict with each other, or with the ranges of either provided subnet. Further, make sure these ranges don't conflict with any other address range in the VNET.
+
+- If these properties are not provided, the CLI auto-generates the range values based on the address range of the VNET to avoid range conflicts.
 
 ### Optional: Deploy with a private DNS
 
