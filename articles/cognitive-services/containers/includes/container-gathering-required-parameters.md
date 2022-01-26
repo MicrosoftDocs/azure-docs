@@ -12,7 +12,7 @@ ms.author: aahi
 
 ## Gather required parameters
 
-Three primary parameters for all Cognitive Services' containers are required. The Microsoft Software License Terms must be present with a value of **accept**. An Endpoint URI and API key are also needed.
+Three primary parameters for all Cognitive Services containers are required. The Microsoft Software License Terms must be present with a value of **accept**. An Endpoint URI and API key are also needed.
 
 ### Endpoint URI `{ENDPOINT_URI}`
 
