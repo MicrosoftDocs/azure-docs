@@ -1,7 +1,7 @@
 ---
 title: How to run Spring Boot apps locally using local Config Server and local eureka
 description: Learn how to run Spring Boot apps locally using local Config Server and local eureka.
-author: xiading
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/18/2022
