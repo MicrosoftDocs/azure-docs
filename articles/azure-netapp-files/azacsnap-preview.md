@@ -1004,4 +1004,3 @@ portalGeneratedSas="https://<targetstorageaccount>.blob.core.windows.net/<blob-s
 - [Get started](azacsnap-get-started.md)
 - [Test AzAcSnap](azacsnap-cmd-ref-test.md)
 - [Back up using AzAcSnap](azacsnap-cmd-ref-backup.md)
-- 
