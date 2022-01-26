@@ -509,9 +509,9 @@ You can create custom Azure Automation roles and grant following permissions to 
 
 **Actions** | **Description**
 --- | ---
-Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Reads a Hybrid Runbook Worker Group.
-Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/write | Creates a Hybrid Runbook Worker Group.
-Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete | Deletes a Hybrid Runbook Worker Group.
+```Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read``` | Reads a Hybrid Runbook Worker Group.
+```Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/write``` | Creates a Hybrid Runbook Worker Group.
+```Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete``` | Deletes a Hybrid Runbook Worker Group.
 
 ## Next steps
 
