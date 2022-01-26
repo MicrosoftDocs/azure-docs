@@ -180,7 +180,7 @@ After modifying the template, the new resource can be created using **Deploy a c
     - The target region.
     - Any other parameters required for the template.
 
-    :::image type="content" source="media/move-across-regions/deploy-template.png" alt-text="Azure portal screenshot showing how deploy template basic tab can be filled.":::
+    :::image type="content" source="media/move-across-regions/deploy-template.png" alt-text="Azure portal screenshot showing 'Custom deployment' pane.":::
 
 1. Select **Review + create** to create the target service.
 1. Wait until the template has been deployed successfully. If the deployment fails, select **Deployment details** to view the failure reason and update the template or configurations accordingly.
