@@ -14,7 +14,7 @@ ms.author: bagol
 > The *Azure Purview* solution is in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-[Azure Purview](/azure/purview/) provides organizations with visibility into where sensitive information is stored, helping top prioritize at-risk data for protection.
+[Azure Purview](/azure/purview/) provides organizations with visibility into where sensitive information is stored, helping prioritize at-risk data for protection.
 
 Integrate Azure Purview with Microsoft Sentinel to help narrow down the high volume of incidents and threats surfaced in Microsoft Sentinel, and understand the most critical areas to start.
 
@@ -34,7 +34,7 @@ In this tutorial, you:
 
 Before you start, make sure you have both a [Microsoft Sentinel workspace](quickstart-onboard.md) and [Azure Purview](/azure/purview/create-catalog-portal) onboarded, and that your user has the following roles:
 
-- **An Azure Purview account [Owner](/azure/role-based-access-control/built-in-roles) or [Contributor](/azure/role-based-access-control/built-in-roles) role**, to set up Diagnostic Settings and configure the data connector.
+- **An Azure Purview account [Owner](/azure/role-based-access-control/built-in-roles) or [Contributor](/azure/role-based-access-control/built-in-roles) role**, to set up diagnostic settings and configure the data connector.
 
 - **A [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) role**, with write permissions to enable data connector, view the workbook, and create analytic rules.
 
@@ -60,7 +60,7 @@ For more information, see [About Microsoft Sentinel content and solutions](senti
 
 Configure diagnostic settings to have Azure Purview data sensitivity logs flow into Microsoft Sentinel, and then run an Azure Purview scan to start ingesting your data.
 
-Diagnostics settings sends log events only after a full scan is run, or when a change is detected during an incremental scan. It typically takes about 10-15 minutes for the logs to start appearing in Microsoft Sentinel.
+Diagnostics settings send log events only after a full scan is run, or when a change is detected during an incremental scan. It typically takes about 10-15 minutes for the logs to start appearing in Microsoft Sentinel.
 
 > [!TIP]
 > Instructions for enabling your data connector also available in Microsoft Sentinel, on the **Azure Purview** data connector page.
@@ -95,7 +95,7 @@ The Azure Purview solution provides two analytics rule templates out-of-the-box 
 - The generic version, *Sensitive Data Discovered in the Last 24 Hours*, monitors for the detection of any classifications found across your data estate during an Azure Purview scan.
 - The customized version, *Sensitive Data Discovered in the Last 24 Hours - Customized*, monitors and generates alerts each time the specified classification, such as Social Security Number, has been detected.
 
-Use this procedure to customize the Azure Purview analytics rules's queries to detect assets with specific classification, sensitivity label, source region, and more. Combine the data generated with other data in Microsoft Sentinel to enrich your detections and alerts.
+Use this procedure to customize the Azure Purview analytics rules' queries to detect assets with specific classification, sensitivity label, source region, and more. Combine the data generated with other data in Microsoft Sentinel to enrich your detections and alerts.
 
 > [!NOTE]
 > Microsoft Sentinel analytics rules are KQL queries that trigger alerts when suspicious activity has been detected. Customize and group your rules together to create incidents for your SOC team to investigate.
@@ -132,7 +132,7 @@ Use this procedure to customize the Azure Purview analytics rules's queries to d
 
     :::image type="content" source="media/purview-solution/analytics-rule-wizard.png" alt-text="Screenshot of the analytics rule wizard defined to show data detected in the last 24 hours.":::
 
-1. If needed, customize the **Incident settings** and **Automated response**  tabs. For example, in the **Incidents settings** tab, verify that **Create incidents form alerts triggered by this analytics rule** is selected.
+1. If needed, customize the **Incident settings** and **Automated response**  tabs. For example, in the **Incidents settings** tab, verify that **Create incidents from alerts triggered by this analytics rule** is selected.
 
 1. On the **Review and update** tab, select **Save**.
 
@@ -152,11 +152,11 @@ To drill down in the Azure Purview workbook:
 
 - Select a specific data source to jump to that resource in Azure.
 - Select an asset path link to show more details, with all the data fields shared in the ingested logs.
-- Select a row in the Data Source, Classification, or Sensitivity Label tables to filter the Asset Level data as configured.
+- Select a row in the **Data Source**, **Classification**, or **Sensitivity Label** tables to filter the Asset Level data as configured.
 
 ### Investigate incidents triggered by Azure Purview events
 
-When investigating incidents triggered by the Azure Purview analytics rules, find detailed information on the assets and classifications found in the the incident's **Events**.
+When investigating incidents triggered by the Azure Purview analytics rules, find detailed information on the assets and classifications found in the incident's **Events**.
 
 For example:
 
