@@ -62,7 +62,15 @@ To verify that the integration between Azure Synapse and Azure Machine Learning 
     > [!TIP]
     > It may take several minutes for the Azure Machine Learning workspace to update the credentials cache. Until it has been updated, you may receive errors when trying to access the Azure Machine Learning workspace from Synapse.
 
+1. From the left of the page, select __Overview__ and then select __Launch studio__.
+1. From the Azure Machine Learning studio, select __Linked Services__ and then select __Add Integration__.
+1. Provide a friendly name for the linked workspace, select the Azure subscription that contains the Azure Synapse workspace, and then select the Synapse workspace.
+1. Select __Next__, and then select the Spark pool. Enter a name for the compute resource, and then select __Next__.
+1. Select __Create__.
+
 ## Verify connectivity
+
+### From Azure Synapse to Azure Machine Learning
 
 1. From Azure Synapse Studio, select __Develop__, and then __+ Notebook__.
 1. In the __Attach to__ field, select the Apache Spark pool for your Azure Synapse workspace, and enter the following code in the first cell:
@@ -74,7 +82,9 @@ To verify that the integration between Azure Synapse and Azure Machine Learning 
     # not the Azure Machine Learning workspace name.
     ws = azureML.getWorkspace("AzureMLService1")
 
-    print(ws)
+    print(ws.name)
     ```
 
-    This code snippet connects to the linked workspace, and then prints the workspace info. Note that in the printed output, the 
+    This code snippet connects to the linked workspace, and then prints the workspace info. Note that in the printed output, the value displayed is the name of the Azure Machine Learning workspace, not the linked service name that was used in the `getWorkspace()` call.
+
+### From Azure Machine Learning to Azure Synapse
