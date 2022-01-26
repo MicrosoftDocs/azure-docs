@@ -46,13 +46,8 @@
         "redirect_document_id": true
       },
       {
-        "source_path_from_root": "/articles/purview/concept-data-policies.md",
-        "redirect_url": "/azure/purview/how-to-access-policies-storage",
-        "redirect_document_id": true
-      },
-      {
-        "source_path_from_root": "/articles/purview/concept-self-service.md",
-        "redirect_url": "/azure/purview/overview",
+        "source_path_from_root": "/articles/purview/how-to-access-policies-storage.md",
+        "redirect_url": "/azure/purview/tutorial-data-owner-policies-storage.md",
         "redirect_document_id": true
       },
       {
