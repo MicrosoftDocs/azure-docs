@@ -31,7 +31,7 @@ You will learn how to:
 
 
 
-## Step 1 - Create and deploy a bot
+## Step 1 - Create and deploy a create-communication-resource
 
 In order to use ACS chat as a channel in Azure Bot Service, the first step would be to deploy a bot. To do so one can follow these steps:
 
@@ -122,8 +122,8 @@ The final step would be to deploy the bot logic to the Web App we created. As we
 
 ## Step 2 - Get an Azure Communication Services Resource
 Now that you got the bot part sorted out, we will need to get an ACS resource which we would use for configuring the ACS channel.
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource). You'll need to **record your resource endpoint and key** for this quickstart.
-- Create a ACS User and issue a user access token [User Access Token](https://docs.microsoft.com//azure/communication-services/quickstarts/access-tokens). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). You'll need to **record your resource endpoint and key** for this quickstart.
+- Create a ACS User and issue a user access token [User Access Token](../../quickstarts/access-tokens). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**.
 
 ## Step 3 - Enable ACS Chat Channel
 With the ACS resource, we can configure the ACS channel in Azure Bot to bind an ACS user ID with a bot. Note that currently, only the allowlisted azure subscription will be able to see ACS channel option.
