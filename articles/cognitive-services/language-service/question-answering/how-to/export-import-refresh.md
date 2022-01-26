@@ -28,13 +28,13 @@ You may want to create a copy of your question answering project or related ques
 
 2. Scroll down to the **Answer questions** section and select **Open custom question answering**.
 
-3. Select the project you wish to export > Select Export > You will have the option to export as a Excel or TSV file.
+3. Select the project you wish to export > Select Export > You’ll have the option to export as an Excel or TSV file.
 
-4. You will be prompted to save your exported file locally as a zip file.
+4. You’ll be prompted to save your exported file locally as a zip file.
 
 ### Export a project programmatically
 
-To automate the export process use the [export functionality of the authoring API](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/how-to/authoring#export-project-metadata-and-assets)
+To automate the export process, use the [export functionality of the authoring API](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/how-to/authoring#export-project-metadata-and-assets)
 
 ## Import a project
 
@@ -42,17 +42,17 @@ To automate the export process use the [export functionality of the authoring AP
 
 2. Scroll down to the **Answer questions** section and select **Open custom question answering**.
 
-3. Select **Import** and specify the file type you selected for the export processs. Either Excel, or TSV.
+3. Select **Import** and specify the file type you selected for the export process. Either Excel, or TSV.
 
 4. Select Choose File and browse to the local zipped copy of your project that you exported previously.
 
-5. Provide a unique name for the project you are importing.
+5. Provide a unique name for the project you’re importing.
 
 6. Remember that a project that has only been imported still needs to be deployed/published if you want it to be live.
 
 ### Import a project programmatically
 
-To automate the import process use the [import functionality of the authoring API](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/how-to/authoring#import-project)
+To automate the import process, use the [import functionality of the authoring API](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/how-to/authoring#import-project)
 
 ## Refresh source url
 
@@ -62,19 +62,19 @@ To automate the import process use the [import functionality of the authoring AP
 
 3. Select the project that contains the source you want to refresh > select manage sources.
 
-4. We recommend having a backup of your project/question answer pairs prior to running each refresh so that you can always roll-back in the case of an issue.
+4. We recommend having a backup of your project/question answer pairs prior to running each refresh so that you can always roll-back if needed.
 
-5. Select a url-based source to refresh > Select **Refresh URL**
+5. Select a url-based source to refresh > Select **Refresh URL**.
 
 ### Refresh a URL programmatically
 
-To automate the URL refresh process use the [update sources functionality of the authoring API](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/how-to/authoring#update-sources)
+To automate the URL refresh process, use the [update sources functionality of the authoring API](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/how-to/authoring#update-sources)
 
-The update sources example in the authoring API docs shows the syntax for adding a new URL based source. An example query for an update would be as follows:
+The update sources example in the [Authoring API docs](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/how-to/authoring#update-sources) shows the syntax for adding a new URL-based source. An example query for an update would be as follows:
 
 |Variable name | Value |
 |--------------------------|-------------|
-| `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy knowledge base** > **Get prediction URL**. An example endpoint is: `https://southcentralus.api.cognitive.microsoft.com/`. If this was your endpoint in the code sample below, you would only need to add the region specific portion of `southcentral` as the rest of the endpoint path is already present.|
+| `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy knowledge base** > **Get prediction URL**. An example endpoint is: `https://southcentralus.api.cognitive.microsoft.com/`. If this was your endpoint in the following code sample, you would only need to add the region-specific portion of `southcentral` as the rest of the endpoint path is already present.|
 | `API-KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either Key1 or Key2. Always having two valid keys allows for secure key rotation with zero downtime. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy knowledge base** > **Get prediction URL**. The key value is part of the sample request.|
 | `PROJECT-NAME` | The name of project/knowledge base where you would like to update sources.|
 
@@ -94,7 +94,7 @@ curl -X PATCH -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applic
 
 ## Export questions and answers
 
-It is also possible to export/import a specific knowledge base of question and answers rather than the entire question answering project.
+It’s also possible to export/import a specific knowledge base of question and answers rather than the entire question answering project.
 
 1. Sign in to the [Language Studio](https://language.azure.com/) with your Azure credentials.
 
@@ -102,7 +102,7 @@ It is also possible to export/import a specific knowledge base of question and a
 
 3. Select the project that contains the knowledge base question and answer pairs you want to export.
 
-4. Select **Edit knowledge base**
+4. Select **Edit knowledge base**.
 
 5. To the right of show columns are `...` an ellipsis button. > Select the `...` > a dropdown for Enable rich text will appear with another ellipsis button underneath it. Selecting the second `...` button will reveal the option to export/import questions and answers.
 
@@ -111,7 +111,7 @@ It is also possible to export/import a specific knowledge base of question and a
 
 ## Import questions and answers
 
-It is also possible to export/import a specific knowledge base of question and answers rather than the entire question answering project.
+It’s also possible to export/import a specific knowledge base of question and answers rather than the entire question answering project.
 
 1. Sign in to the [Language Studio](https://language.azure.com/) with your Azure credentials.
 
@@ -119,7 +119,7 @@ It is also possible to export/import a specific knowledge base of question and a
 
 3. Select the project that contains the knowledge base question and answer pairs you want to export.
 
-4. Select **Edit knowledge base**
+4. Select **Edit knowledge base**.
 
 5. To the right of show columns are `...` an ellipsis button. > Select the `...` > a dropdown for Enable rich text will appear with another ellipsis button underneath it. Selecting the second `...` button will reveal the option to export/import questions and answers.
 
