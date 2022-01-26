@@ -20,22 +20,19 @@ Examples of phrases include:
 * Homonyms
 * Words or acronyms unique to your industry or organization
 
-For supported Phrase list locales see [Language and voice support for the Speech service](language-support.md#phrase-list).
+For example, let's say that you want the Speech service to recognize the sentence: "Abdoulaye Gueye is a Senegalese professional footballer." You might estimate in advance or discover later that it's incorrectly recognized as: "Abdullah **Guy** is a Senegalese professional footballer." In this case you want to add "Abdoulaye Gueye" to your phrase list. 
 
-A phrase list can be provided just before starting the speech recognition, eliminating the need for training a custom model.
+A phrase list is provided just before starting the speech recognition, eliminating the need to train a custom model. You can use the Speech SDK or Speech CLI. The Batch transcription API does not support phrase lists. 
 
-A phrase list shouldn't have more than 500 phrases. If you have a larger list or for languages that are not currently supported, [training a custom model](custom-speech-overview.md) is likely the best option to improve accuracy.
+There are some situations where [training a custom model](custom-speech-overview.md) that includes the phrases is likely the best option to improve accuracy.
+- If you need to use a large list of phrases. A phrase list shouldn't have more than 500 phrases. 
+- If you need a phrase list for languages that are not currently supported. For supported Phrase list locales see [Language and voice support for the Speech service](language-support.md#phrase-list).
+- If you use a custom endpoint. Phrase lists can't be used custom endpoints. 
 
-Phrase lists can't be used with Batch API or custom endpoint. Instead of using custom endpoints, train a custom model that includes the phrases.
-
-
-For example, let's say that you want the Speech service to recognize the sentence: "Abdoulaye Gueye is a Senegalese professional footballer." 
-
-Incorrectly recognized as: "Abdullah Guy is a Senegalese professional footballer." 
 
 ## Speech Studio
 
-Let's use Speech Studio to see how Phrase list helps improve recognition accuracy.
+Let's use Speech Studio to see how Phrase list can improve recognition accuracy.
 
 > [!NOTE]
 > You may be prompted to select your Azure subscription and Speech resource, and then acknowledge billing for your region. If you are new to Azure or Speech, see [Try the Speech service for free](overview.md#try-the-speech-service-for-free).
@@ -47,11 +44,9 @@ Let's use Speech Studio to see how Phrase list helps improve recognition accurac
 1. Select **Show advanced options** and make sure **Phrase list** is turned on. 
 1. Enter "Abdoulaye Gueye" in the phrase list text box, and then use the microphone to test recognition again. Note that multiple phrases need to be separated by a semicolon.  
 
-
 ## Example code
 
-With the Speech SDK you add phrases and then run speech recognition. You can clear or update the Phrase list to take effect before the next recognition.
-
+With the Speech SDK you add phrases and then run speech recognition. Then you can optionally clear or update the phrase list to take effect before the next recognition.
 
 ::: zone pivot="programming-language-csharp"
 ```csharp
@@ -61,7 +56,6 @@ phraseList.Clear();
 ```
 ::: zone-end
 
-
 ::: zone pivot="programming-language-cpp"
 ```cpp
 auto phraseListGrammar = PhraseListGrammar::FromRecognizer(recognizer);
@@ -69,7 +63,6 @@ phraseListGrammar->AddPhrase("Abdoulaye Gueye");
 phraseListGrammar->Clear();
 ```
 ::: zone-end
-
 
 ::: zone pivot="programming-language-java"
 ```java
@@ -79,7 +72,6 @@ phraseList.clear();
 ```
 ::: zone-end
 
-
 ::: zone pivot="programming-language-javascript"
 ```javascript
 const phraseList = sdk.PhraseListGrammar.fromRecognizer(recognizer);
@@ -88,7 +80,6 @@ phraseList.clear();
 ```
 ::: zone-end
 
-
 ::: zone pivot="programming-language-python"
 ```Python
 phrase_list_grammar = speechsdk.PhraseListGrammar.from_recognizer(reco)
@@ -96,7 +87,6 @@ phrase_list_grammar.addPhrase("Abdoulaye Gueye")
 phrase_list_grammar.clear()
 ```
 ::: zone-end
-
 
 ::: zone pivot="programmer-tool-spx"
 With the Speech CLI you include phrases along with the recognize command.
