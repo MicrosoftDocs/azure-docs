@@ -68,7 +68,7 @@ These parsers can be deployed from the [Microsoft Sentinel GitHub repository](ht
 
 ### Add your own normalized parsers
 
-When implementing custom parsers for the Dns information model, name your KQL functions using the following syntax:
+When implementing custom parsers for the Web Session information model, name your KQL functions using the following syntax:
 
 - `vimWebSession<vendor><Product>` for parametrized parsers
 - `ASimWebSession<vendor><Product>` for regular parsers
