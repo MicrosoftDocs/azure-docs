@@ -1,32 +1,22 @@
 ---
-title: Plan and manage costs for Microsoft Sentinel
-description: Learn how to plan, understand, and manage costs and billing for Microsoft Sentinel by using cost analysis in the Azure portal and other methods.
-author: batamig
-ms.author: bagol
-ms.custom: subject-cost-optimization, ignite-fall-2021
+title: Plan costs for Microsoft Sentinel
+description: Learn how to plan for costs for Microsoft Sentinel by using the pricing calculator and other methods.
+author: cwatson
+ms.author: cwatson-cat
+ms.custom: subject-cost-optimization
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/26/2022
 ---
 
-# Plan and manage costs for Microsoft Sentinel
+# Plan costs for Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+Before you add any resources for the Microsoft Sentinel use the Azure pricing calculator to help estimate your costs.
 
-This article describes how to plan for and manage costs for Microsoft Sentinel. First, you use the Azure pricing calculator to help plan for Microsoft Sentinel costs, before you add any resources for the service. Next, as you add Azure resources, review the estimated costs.
+Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan costs for Microsoft Sentinel, you're billed for all Azure services and resources your Azure subscription uses, including Partner services.
 
-After you've started using Microsoft Sentinel resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. This article describes several ways to manage and optimize Microsoft Sentinel costs.
+## Identify data sources
 
-Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Microsoft Sentinel, you're billed for all Azure services and resources your Azure subscription uses, including Partner services.
-
-## Prerequisites
-
-- To view cost data and perform cost analysis in Cost Management, you must have a supported Azure account type, with at least read access.
-
-    While cost analysis in Cost Management supports most Azure account types, not all are supported. To view the full list of supported account types, see [Understand Cost Management data](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-
-    For information about assigning access to Azure Cost Management data, see [Assign access to data](../cost-management/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-
-- You must have details about your data sources. Microsoft Sentinel allows you to bring in data from one or more data sources. Some of these data sources are free, and others incur charges. For more information, see [Free data sources](#free-data-sources).
+Identify the data sources you're ingesting or plan to ingest to your workspace in Microsoft Sentinel. Microsoft Sentinel allows you to bring in data from one or more data sources. Some of these data sources are free, and others incur charges. For more information, see [Free data sources](#free-data-sources).
 
 ## Estimate costs before using Microsoft Sentinel
 
@@ -87,7 +77,7 @@ The following table shows how Microsoft Sentinel and Log Analytics costs appear 
 
 For more information on viewing and downloading your Azure bill, see [Azure cost and billing information](../cost-management-billing/understand/download-azure-daily-usage.md).
 
-### Costs for other services
+## Costs for other services
 
 Microsoft Sentinel integrates with many other Azure services to provide enhanced capabilities. These services include Azure Logic Apps, Azure Notebooks, and bring your own machine learning (BYOML) models. Some of these services may have extra charges. Some of Microsoft Sentinel's data connectors and solutions use Azure Functions for data ingestion, which also has a separate associated cost.
 
@@ -100,23 +90,23 @@ For pricing details for these services, see:
 
 Any other services you use could have associated costs.
 
-### Data retention costs
+## Data retention costs
 
 After you enable Microsoft Sentinel on a Log Analytics workspace, you can retain all data ingested into the workspace at no charge for the first 90 days. Retention beyond 90 days is charged per the standard [Log Analytics retention prices](https://azure.microsoft.com/pricing/details/monitor/).
 
 You can specify different retention settings for individual data types. For more information, see [Retention by data type](../azure-monitor/logs/manage-cost-storage.md#retention-by-data-type).
 
-### Other CEF ingestion costs
+## Other CEF ingestion costs
 
 CEF is a supported Syslog events format in Microsoft Sentinel. You can use CEF to bring in valuable security information from various sources to your Microsoft Sentinel workspace. CEF logs land in the CommonSecurityLog table in Microsoft Sentinel, which includes all the standard up-to-date CEF fields.
 
 Many devices and data sources allow for logging fields beyond the standard CEF schema. These extra fields land in the AdditionalExtensions table. These fields could have higher ingestion volumes than the standard CEF fields, because the event content within these fields can be variable.
 
-### Costs that might accrue after resource deletion
+## Costs that might accrue after resource deletion
 
 Removing Microsoft Sentinel doesn't remove the Log Analytics workspace Microsoft Sentinel was deployed on, or any separate charges that workspace might be incurring.
 
-### Free trial
+## Free trial
 
 Try Microsoft Sentinel free for the first 31 days. Microsoft Sentinel can be enabled at no extra cost on an Azure Monitor Log Analytics workspace, subject to the limits stated below:
 
@@ -135,7 +125,7 @@ Usage beyond these limits will be charged per the pricing listed on the [Microso
 >
 > This tab also displays details about the dates of your free trial, and how many days you have left until it expires.
 >
-### Free data sources
+## Free data sources
 
 The following data sources are free with Microsoft Sentinel:
 
@@ -182,206 +172,10 @@ For more information about free and paid data sources and connectors, see [Conne
 > Data connectors listed as Public Preview do not generate cost. Data connectors generate cost only once becoming Generally Available (GA).
 >
 
-## Estimate Microsoft Sentinel costs
-
-If you're not yet using Microsoft Sentinel, you can use the [Microsoft Sentinel pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=azure-sentinel) to estimate the potential cost of using Microsoft Sentinel. Enter *Microsoft Sentinel* in the Search box and select the resulting Microsoft Sentinel tile. The pricing calculator helps you estimate your likely costs based on your expected data ingestion and retention.
-
-For example, you can enter the GB of daily data you expect to ingest in Microsoft Sentinel, and the region for your workspace. The calculator provides the aggregate monthly cost across these components:
-
-- Log Analytics data ingestion
-- Microsoft Sentinel data analysis
-- Log Analytics data retention
-
-## Manage and monitor Microsoft Sentinel costs
-
-As you use Azure resources with Microsoft Sentinel, you incur costs. Azure resource usage unit costs vary by time intervals such as seconds, minutes, hours, and days, or by unit usage, like bytes and megabytes. As soon as Microsoft Sentinel use starts, it incurs costs, and you can see the costs in [cost analysis](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-
-When you use cost analysis, you view Microsoft Sentinel costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends. And you see where overspending might have occurred. If you've created budgets, you can also easily see where they're exceeded.
-
-The [Azure Cost Management + Billing](../cost-management-billing/costs/quick-acm-cost-analysis.md) hub provides useful functionality. After you open **Cost Management + Billing** in the Azure portal, select **Cost Management** in the left navigation and then select the [scope](..//cost-management-billing/costs/understand-work-scopes.md) or set of resources to investigate, such as an Azure subscription or resource group.
-
-The **Cost Analysis** screen shows detailed views of your Azure usage and costs, with the option to apply various controls and filters.
-
-For example, to see charts of your daily costs for a certain time frame:
-
-1. Select the drop-down caret in the **View** field and select **Accumulated costs** or **Daily costs**.
-1. Select the drop-down caret in the date field and select a date range.
-1. Select the drop-down caret next to **Granularity** and select **Daily**.
-
-> [!NOTE]
-> Microsoft Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
-
-The Microsoft Sentinel pricing tiers don't include Log Analytics charges. To change your pricing tier commitment for Log Analytics, see [Changing pricing tier](../azure-monitor/logs/manage-cost-storage.md#changing-pricing-tier).
-
-For more information, see [Create budgets](#create-budgets) and [Other ways to manage and reduce Microsoft Sentinel costs](#other-ways-to-manage-and-reduce-microsoft-sentinel-costs).
-
-### Using Azure Prepayment with Microsoft Sentinel
-
-You can pay for Microsoft Sentinel charges with your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay bills to third-party organizations for their products and services, or for products from the Azure Marketplace.
-
-### Run queries to understand your data ingestion
-
-Microsoft Sentinel uses an extensive query language to analyze, interact with, and derive insights from huge volumes of operational data in seconds. Here are some Kusto queries you can use to understand your data ingestion volume.
-
-Run the following query to show data ingestion volume by solution:
-
-```kusto
-Usage
-| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
-| where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution
-| extend Solution = iif(Solution == "SecurityInsights", "AzureSentinel", Solution)
-| render columnchart
-```
-
-Run the following query to show data ingestion volume by data type:
-
-```kusto
-Usage
-| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
-| where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType
-| render columnchart
-```
-
-Run the following query to show data ingestion volume by both solution and data type:
-
-```kusto
-Usage
-| where TimeGenerated > ago(32d)
-| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
-| where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) by Solution, DataType
-| extend Solution = iif(Solution == "SecurityInsights", "AzureSentinel", Solution)
-| sort by Solution asc, DataType asc
-```
-
-### Deploy a workbook to visualize data ingestion
-
-The **Workspace Usage Report workbook** provides your workspace's data consumption, cost, and usage statistics. The workbook gives the workspace's data ingestion status and amount of free and billable data. You can use the workbook logic to monitor data ingestion and costs, and to build custom views and rule-based alerts.
-
-This workbook also provides granular ingestion details. The workbook breaks down the data in your workspace by data table, and provides volumes per table and entry to help you better understand your ingestion patterns.
-
-To enable the Workspace Usage Report workbook:
-
-1. In the Microsoft Sentinel left navigation, select **Threat management** > **Workbooks**.
-1. Enter *workspace usage* in the Search bar, and then select **Workspace Usage Report**.
-1. Select **View template** to use the workbook as is, or select **Save** to create an editable copy of the workbook. If you save a copy, select **View saved workbook**.
-1. In the workbook, select the **Subscription** and **Workspace** you want to view, and then set the **TimeRange** to the time frame you want to see. You can set the **Show help** toggle to **Yes** to display in-place explanations in the workbook.
-
-## Export cost data
-
-You can also [export your cost data](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. Exporting cost data is helpful when you need or others to do more data analysis for costs. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
-
-## Create budgets
-
-You can create [budgets](../cost-management/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to manage costs and create [alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy.
-
-You can create budgets with filters for specific resources or services in Azure if you want more granularity in your monitoring. Filters help ensure that you don't accidentally create new resources that cost you more money. For more information about the filter options available when you create a budget, see [Group and filter options](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-
-### Use a playbook for cost management alerts
-
-To help you control your Microsoft Sentinel budget, you can create a cost management playbook. The playbook sends you an alert if your Microsoft Sentinel workspace exceeds a budget, which you define, within a given timeframe.
-
-The Microsoft Sentinel GitHub community provides the [`Send-IngestionCostAlert`](https://github.com/iwafula025/Azure-Sentinel/tree/master/Playbooks/Send-IngestionCostAlert) cost management playbook on GitHub. This playbook is activated by a recurrence trigger, and gives you a high level of flexibility. You can control execution frequency, ingestion volume, and the message to trigger, based on your requirements.
-
-### Define a data volume cap in Log Analytics
-
-In Log Analytics, you can enable a daily volume cap that limits the daily ingestion for your workspace. The daily cap can help you manage unexpected increases in data volume, stay within your limit, and limit unplanned charges.
-
-To define a daily volume cap, select **Usage and estimated costs** in the left navigation of your Log Analytics workspace, and then select **Daily cap**. Select **On**, enter a daily volume cap amount, and then select **OK**.
-
-![Screenshot showing the Usage and estimated costs screen and the Daily cap window.](media/billing/daily-cap.png)
-
-The **Usage and estimated costs** screen also shows your ingested data volume trend in the past 31 days, and the total retained data volume.
-
-> [!IMPORTANT]
-> The daily cap doesn't limit collection of all data types. Security data is excluded from the cap. For more information about managing the daily cap in Log Analytics, see [Manage your maximum daily data volume](../azure-monitor/logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume).
-
-## Other ways to manage and reduce Microsoft Sentinel costs
-
-To manage data ingestion and retention costs:
-
-- [Use Commitment Tier pricing to optimize costs](#set-or-change-pricing-tier) based on your data ingestion volume.
-- [Separate non-security data in a different workspace](#separate-non-security-data-in-a-different-workspace).
-- [Optimize Log Analytics costs with dedicated clusters](#optimize-log-analytics-costs-with-dedicated-clusters).
-- [Reduce long-term data retention costs with Azure Data Explorer (ADX)](#reduce-long-term-data-retention-costs-with-adx).
-- [Use Data Collection Rules for your Windows Security Events](#use-data-collection-rules-for-your-windows-security-events).
-
-### Set or change pricing tier
-
-To optimize for highest savings, monitor your ingestion volume to ensure you have the Commitment Tier that aligns most closely with your ingestion volume patterns. You can increase or decrease your Commitment Tier to align with changing data volumes.
-
-You can increase your Commitment Tier anytime, which restarts the 31-day commitment period. However, to move back to Pay-As-You-Go or to a lower Commitment Tier, you must wait until after the 31-day commitment period finishes. Billing for Commitment Tiers is on a daily basis.
-
-To see your current Microsoft Sentinel pricing tier, select **Settings** in the Microsoft Sentinel left navigation, and then select the **Pricing** tab. Your current pricing tier is marked **Current tier**.
-
-To change your pricing tier commitment, select one of the other tiers on the pricing page, and then select **Apply**. You must have **Contributor** or **Owner** role in Microsoft Sentinel to change the pricing tier.
-
-![Screenshot showing the Pricing page in Microsoft Sentinel Settings, with Pay-As-You-Go indicated as the current pricing tier.](media/billing/pricing.png)
-
-> [!NOTE]
-> Microsoft Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
-
-The Microsoft Sentinel pricing tiers don't include Log Analytics charges. To change your pricing tier commitment for Log Analytics, see [Changing pricing tier](../azure-monitor/logs/manage-cost-storage.md#changing-pricing-tier).
-
-### Separate non-security data in a different workspace
-
-Microsoft Sentinel analyzes all the data ingested into Microsoft Sentinel-enabled Log Analytics workspaces. It's best to have a separate workspace for non-security operations data, to ensure it doesn't incur Microsoft Sentinel costs.
-
-When hunting or investigating threats in Microsoft Sentinel, you might need to access operational data stored in these standalone Azure Log Analytics workspaces. You can access this data by using cross-workspace querying in the log exploration experience and workbooks. However, you can't use cross-workspace analytics rules and hunting queries unless Microsoft Sentinel is enabled on all the workspaces.
-
-### Optimize Log Analytics costs with dedicated clusters
-
-If you ingest at least 500 GB into your Microsoft Sentinel workspace or workspaces in the same region, consider moving to a Log Analytics dedicated cluster to decrease costs. A Log Analytics dedicated cluster Commitment Tier aggregates data volume across workspaces that collectively ingest a total of 500 GB or more.
-
-Log Analytics dedicated clusters don't apply to Microsoft Sentinel Commitment Tiers. Microsoft Sentinel costs still apply per workspace in the dedicated cluster.
-
-You can add multiple Microsoft Sentinel workspaces to a Log Analytics dedicated cluster. There are a couple of advantages to using a Log Analytics dedicated cluster for Microsoft Sentinel:
-
-- Cross-workspace queries run faster if all the workspaces involved in the query are in the dedicated cluster. It's still best to have as few workspaces as possible in your environment, and a dedicated cluster still retains the [100 workspace limit](../azure-monitor/logs/cross-workspace-query.md) for inclusion in a single cross-workspace query.
-
-- All workspaces in the dedicated cluster can share the Log Analytics Commitment Tier set on the cluster. Not having to commit to separate Log Analytics Commitment Tiers for each workspace can allow for cost savings and efficiencies. By enabling a dedicated cluster, you commit to a minimum Log Analytics Commitment Tier of 500 GB ingestion per day.
-
-Here are some other considerations for moving to a dedicated cluster for cost optimization:
-
-- The maximum number of clusters per region and subscription is two.
-- All workspaces linked to a cluster must be in the same region.
-- The maximum of workspaces linked to a cluster is 1000.
-- You can unlink a linked workspace from your cluster. The number of link operations on a particular workspace is limited to two in a period of 30 days.
-- You can't move an existing workspace to a customer managed key (CMK) cluster. You must create the workspace in the cluster.
-- Moving a cluster to another resource group or subscription isn't currently supported.
-- A workspace link to a cluster fails if the workspace is linked to another cluster.
-
-For more information about dedicated clusters, see [Log Analytics dedicated clusters](../azure-monitor/logs/manage-cost-storage.md#log-analytics-dedicated-clusters).
-
-### Reduce long-term data retention costs with ADX
-
-Microsoft Sentinel data retention is free for the first 90 days. To adjust the data retention time period in Log Analytics, select **Usage and estimated costs** in the left navigation, then select **Data retention**, and then adjust the slider.
-
-Microsoft Sentinel security data might lose some of its value after a few months. Security operations center (SOC) users might not need to access older data as frequently as newer data, but still might need to access the data for sporadic investigations or audit purposes. To reduce Microsoft Sentinel data retention costs, you can use Azure Data Explorer for long-term data retention at lower cost. ADX provides the right balance of cost and usability for aged data that no longer needs Microsoft Sentinel security intelligence.
-
-With ADX, you can store data at a lower price, but still explore the data using the same Kusto Query Language (KQL) queries as in Microsoft Sentinel. You can also use the ADX proxy feature to do cross-platform queries. These queries aggregate and correlate data spread across ADX, Application Insights, Microsoft Sentinel, and Log Analytics.
-
-For more information, see [Integrate Azure Data Explorer for long-term log retention](store-logs-in-azure-data-explorer.md).
-
-### Use data collection rules for your Windows Security Events
-
-The [Windows Security Events connector](connect-windows-security-events.md?tabs=LAA) enables you to stream security events from any computer running Windows Server that's connected to your Microsoft Sentinel workspace, including physical, virtual, or on-premises servers, or in any cloud. This connector includes support for the Azure Monitor agent, which uses data collection rules to define the data to collect from each agent.
-
-Data collection rules enable you to manage collection settings at scale, while still allowing unique, scoped configurations for subsets of machines. For more information, see [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md).
-
-Besides for the predefined sets of events that you can select to ingest, such as All events, Minimal, or Common, data collection rules enable you to build custom filters and select specific events to ingest. The Azure Monitor Agent uses these rules to filter the data at the source, and then ingest only the events you've selected, while leaving everything else behind. Selecting specific events to ingest can help you optimize your costs and save more.
-
-> [!NOTE]
-> The costs shown in this image are for example purposes only. They're not intended to reflect actual costs.
-
-![Screenshot showing a Cost Management + Billing Cost analysis screen.](media/billing/cost-management.png)
-
-You could also apply further controls. For example, to view only the costs associated with Microsoft Sentinel, select **Add filter**, select **Service name**, and then select the service names **Sentinel**, **log analytics**, and **azure monitor**.
-
 ## Next steps
 
+- [Monitor costs for Microsoft Sentinel](billing-monitor-costs.md)
+- [Reduce costs for Microsoft Sentinel](billing-reduce-costs.md)
 - Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
