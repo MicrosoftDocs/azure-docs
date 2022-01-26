@@ -137,9 +137,10 @@ To create the custom authorization and delegation in Azure Lighthouse, we use an
 After you deploy the template, it can take a few minutes (typically no more than five) for the resource projection to complete. You can verify the deployment in your Azure AD tenant and get the details of the resource projection. For more information, see [View and manage service providers](../lighthouse/how-to/view-manage-service-providers.md).
 
 ## 4. Select your subscription
+After you've deployed the template and waited a few minutes for the resource projection to complete, follow these steps to associate your subscription with your Azure AD B2C directory.
 
 > [!NOTE]
-> Ensure your Azure AD B2C and Azure AD tenant are selected under the **Current + delegated directories** section of the **Portal settings | Directories + subscriptions page**.
+> Ensure your Azure AD B2C and Azure AD tenants are selected under the **Current + delegated directories** section of the **Portal settings | Directories + subscriptions** page.
 
 1. Sign out of the Azure portal if you're currently signed in (this allows your session credentials to be refreshed in the next step).
 1. Sign in to the [Azure portal](https://portal.azure.com) with your **Azure AD B2C** administrative account. This account must be a member of the security group you specified in the [Delegate resource management](#3-delegate-resource-management) step.
