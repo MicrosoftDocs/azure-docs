@@ -18,7 +18,7 @@ ms.service: azure-communication-services
 
 When you submit a job to Job Router, you can either specify the queue, priority and worker selectors manually or you can specify a classification policy to drive these values.
 
-If you choose to use a classification policy, you will receive a [JobClassified Event][job_classified_event] or a [JobClassificationFailed Event][job_classify_failed_event] with the result.  Once the job has been successfully classified it will be added to the queue, if the classification process fails, you will need to intervene to fix it.
+If you choose to use a classification policy, you will receive a [JobClassified Event][job_classified_event] or a [JobClassificationFailed Event][job_classify_failed_event] with the result.  Once the job has been successfully classified it will be automatically queued.  If the classification process fails, you will need to intervene to fix it.
 
 The process of classifying a Job involves optionally setting the following properties:
 
