@@ -44,15 +44,15 @@ DNS events collected on client device may also include [User](#user) and [Proces
 
 ## Guidelines for collecting DNS events
 
-DNS is a unique protocol in that it may cross a large number of computers. Also, since DNS uses UDP, requests and responses are de-coupled and are not directly related to each other.
+DNS is a unique protocol in that it may cross a large number of computers. Also, since DNS uses UDP, requests and responses are de-coupled and aren't directly related to each other.
 
 The following image shows a simplified DNS request flow, including four segments. A real-world request can be more complex, with more segments involved.
 
 :::image type="content" source="media/normalization/dns-request-flow.png" alt-text="Simplified DNS request flow.":::
 
-Since request and response segments are not directly connected to each other in the DNS request flow, full logging can result in significant duplication.
+Since request and response segments aren't directly connected to each other in the DNS request flow, full logging can result in significant duplication.
 
-The most valuable segment to log is the response to the client, which provides the domain name queries, the lookup result, and the IP address of the client. While many DNS systems log only this segment, there is value in logging the other parts. For example, a DNS cache poisoning attack often takes advantage of fake responses from an upstream server.
+The most valuable segment to log is the response to the client. The response provides the domain name queries, the lookup result, and the IP address of the client. While many DNS systems log only this segment, there is value in logging the other parts. For example, a DNS cache poisoning attack often takes advantage of fake responses from an upstream server.
 
 If your data source supports full DNS logging and you've chosen to log multiple segments, you'll need to adjust your queries to prevent data duplication in Microsoft Sentinel.
 
@@ -109,8 +109,8 @@ The following filtering parameters are available:
 | **srcipaddr** | string | Filter only DNS queries from this source IP address. |
 | **domain_has_any**| dynamic | Filter only DNS queries where the `domain` (or `query`) has any of the listed domain names, including as part of the event domain.
 | **responsecodename** | string | Filter only DNS queries for which the response code name matches the provided value. <br>For example: `NXDOMAIN` |
-| **response_has_ipv4** | string | Filter only DNS queries in which the response field includes the provided IP address or IP address prefix. Use this parameter when you want to filter on a single IP address or prefix. <br><br>Results are not returned for sources that don't provide a response.|
-| **response_has_any_prefix** | dynamic| Filter only DNS queries in which the response field includes any of the listed IP addresses or IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. <br><br>Use this parameter when you want to filter on a list of IP addresses or prefixes. <br><br>Results are not returned for sources that don't provide a response. |
+| **response_has_ipv4** | string | Filter only DNS queries in which the response field includes the provided IP address or IP address prefix. Use this parameter when you want to filter on a single IP address or prefix. <br><br>Results aren't returned for sources that don't provide a response.|
+| **response_has_any_prefix** | dynamic| Filter only DNS queries in which the response field includes any of the listed IP addresses or IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. <br><br>Use this parameter when you want to filter on a list of IP addresses or prefixes. <br><br>Results aren't returned for sources that don't provide a response. |
 | **eventtype**| string | Filter only DNS queries of the specified type. If no value is specified, only lookup queries are returned. |
 | | | |
 
@@ -215,7 +215,7 @@ The fields below are specific to DNS events, although many are similar to fields
 | **NetworkProtocol** | Optional | Enumerated | The transport protocol used by the network resolution event. The value can be **UDP** or **TCP**, and is most commonly set to **UDP** for DNS. <br><br>Example: `UDP`|
 | **DnsQueryClass** | Optional | Integer | The [DNS class ID](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>In practice, only the **IN** class (ID 1) is used, making this field less valuable.|
 | **DnsQueryClassName** | Optional | String | The [DNS class name](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>In practice, only the **IN** class (ID 1) is used, making this field less valuable. <br><br>Example: `IN`|
-| <a name=flags></a>**DnsFlags** | Optional | List of strings | The flags field, as provided by the reporting device. If flag information is provided in multiple fields, concatenate them with comma as a separator. <br><br>Since DNS flags are complex to parse and are less often used by analytics, parsing and normalization are not required, and Microsoft Sentinel uses an auxiliary function to provide flags information. For more information, see [Handling DNS response](#handling-dns-response). <br><br>Example: `["DR"]`|
+| <a name=flags></a>**DnsFlags** | Optional | List of strings | The flags field, as provided by the reporting device. If flag information is provided in multiple fields, concatenate them with comma as a separator. <br><br>Since DNS flags are complex to parse and are less often used by analytics, parsing and normalization aren't required, and Microsoft Sentinel uses an auxiliary function to provide flags information. For more information, see [Handling DNS response](#handling-dns-response). <br><br>Example: `["DR"]`|
 | <a name=UrlCategory></a>**UrlCategory** |  Optional | String | A DNS event source may also look up the category of the requested Domains. The field is called **_UrlCategory_** to align with the Microsoft Sentinel network schema. <br><br>**_DomainCategory_** is added as an alias that's fitting to DNS. <br><br>Example: `Educational \\ Phishing` |
 | **DomainCategory** | Optional | Alias | Alias to [UrlCategory](#UrlCategory). |
 | **ThreatCategory** | Optional | String | If a DNS event source also provides DNS security, it may also evaluate the DNS event. For example, it may search for the IP address or domain in a threat intelligence database, and may assign the domain or IP address with a Threat Category. |
@@ -261,12 +261,12 @@ These are the changes in version 0.1.3 of the schema:
 
 ## Source-specific discrepancies 
 
-The goal of normalizing is to ensure that all sources provide consistent telemetry. A source that doesn't provide required telemetry, for example, mandatory schema fields, cannot be normalized. That said, a source that typically provides all required telemetry, apart from specific situations, can be normalized. The descrepencies may affect the completness of query results and therefore known descrepencies are listed here:
+The goal of normalizing is to ensure that all sources provide consistent telemetry. A source that doesn't provide required telemetry, for example, mandatory schema fields, cannot be normalized. That said, a source that typically provides all required telemetry, apart from specific situations, can be normalized. The discrepancies may affect the completeness of query results and therefore known discrepancies are listed here:
 
-| Source | Descrepencies |
+| Source | Discrepancies |
 | ------ | ------------- |
-| Microsoft DNS Server Collected using the DNS connector and the Log Analytics Agent | THe connector doesn't provide the mandatory DnsQuery field for original event ID 264 (Response to a dybamic update). The data is avaiable at the source, but not forwarded by the connector. |
-| Corelight Zeek | Corelight Zeek may not provide the mandatory DnsQuery field. We have observered such behoavior in certain cases in which the original event type is `dns_unmatched_msg` or when the DNS response code name is `NXDOMAIN`. |
+| Microsoft DNS Server Collected using the DNS connector and the Log Analytics Agent | The connector doesn't provide the mandatory DnsQuery field for original event ID 264 (Response to a dynamic update). The data is available at the source, but not forwarded by the connector. |
+| Corelight Zeek | Corelight Zeek may not provide the mandatory DnsQuery field. We have observered such behavior in certain cases in which the original event type is `dns_unmatched_msg` or when the DNS response code name is `NXDOMAIN`. |
 |||
 
 ## Handling DNS response
@@ -305,7 +305,7 @@ The fields in each dictionary in the dynamic value correspond to the fields in e
 
 ## Handling DNS flags
 
-Parsing and normalization are not required for flag data. Instead, store the flag data provided by the reporting device in the [Flags](#flags) field. If determining the value of individual flags is straight forward, you can also use the dedicated flags fields. 
+Parsing and normalization aren't required for flag data. Instead, store the flag data provided by the reporting device in the [Flags](#flags) field. If determining the value of individual flags is straight forward, you can also use the dedicated flags fields. 
 
 You can also provide an extra KQL function called `_imDNS<vendor>Flags_`, which takes the unparsed response, or dedicated flag fields, as input and returns a dynamic list, with Boolean values that represent each flag in the following order:
 
