@@ -70,7 +70,7 @@ In this section, you configure an IoT Hub to log distributed tracing attributes 
 
 Once the logging is turned on, IoT Hub records a log when a message containing valid trace properties is encountered in any of the following situations:
 
-- The messages arrives at IoT Hub's gateway.
+- The message arrives at IoT Hub's gateway.
 - The message is processed by the IoT Hub.
 - The message is routed to custom endpoints. Routing must be enabled.
 
@@ -183,7 +183,7 @@ To control the percentage of messages containing this property, implement logic 
 
 ## Update sampling options 
 
-To change the percentage of messages to be traced from the cloud, you must update the device twin. You can accomplish this multiple ways including the JSON editor in portal and the IoT Hub service SDK. The following subsections provide examples.
+To change the percentage of messages to be traced from the cloud, you must update the device twin. You can accomplish this in multiple ways including the JSON editor in portal and the IoT Hub service SDK. The following subsections provide examples.
 
 ### Update using the portal
 
@@ -310,4 +310,4 @@ Once enabled, distributed tracing support for IoT Hub will follow this flow:
 - To learn more about the general distributed tracing pattern in microservices, see [Microservice architecture pattern: distributed tracing](https://microservices.io/patterns/observability/distributed-tracing.html).
 - To set up configuration to apply distributed tracing settings to a large number of devices, see [Configure and monitor IoT devices at scale](./iot-hub-automatic-device-management.md).
 - To learn more about Azure Monitor, see [What is Azure Monitor?](../azure-monitor/overview.md).
-- To learn more about using Azure Monitor with IoT HUb, see [Monitor IoT Hub](monitor-iot-hub.md)
+- To learn more about using Azure Monitor with IoT Hub, see [Monitor IoT Hub](monitor-iot-hub.md)
