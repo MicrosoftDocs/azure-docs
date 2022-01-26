@@ -1,12 +1,12 @@
 ---
-title: Non-Common Alert schema definitions in Azure Monitor for Test Action Group
+title: Non-common alert schema definitions in Azure Monitor for Test Action Group
 description: Understanding the non-common alert schema definitions for Azure Monitor for Test Action group
 author: issahn
 ms.topic: conceptual
 ms.date: 01/25/2022
 ---
 
-# Non-Common alert schema definitions for Test Action Group (Preview)
+# Non-common alert schema definitions for Test Action Group (Preview)
 
 This article describes the non common alert schema definitions for Azure Monitor, including those for webhooks, Azure Logic Apps, Azure Functions, and Azure Automation runbooks. 
 
