@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Workplace by Facebook | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Workplace by Facebook.
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Workplace by Meta | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Workplace by Meta.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 06/15/2021
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Workplace by Facebook
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Workplace by Meta
 
-In this tutorial, you'll learn how to integrate Workplace by Facebook with Azure Active Directory (Azure AD). When you integrate Workplace by Facebook with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Workplace by Meta with Azure Active Directory (Azure AD). When you integrate Workplace by Meta with Azure AD, you can:
 
-* Control in Azure AD who has access to Workplace by Facebook.
-* Enable your users to be automatically signed-in to Workplace by Facebook with their Azure AD accounts.
+* Control in Azure AD who has access to Workplace by Meta.
+* Enable your users to be automatically signed-in to Workplace by Meta with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
 
@@ -27,50 +27,50 @@ In this tutorial, you'll learn how to integrate Workplace by Facebook with Azure
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Workplace by Facebook single sign-on (SSO) enabled subscription.
+* Workplace by Meta single sign-on (SSO) enabled subscription.
 
 > [!NOTE]
-> Facebook has two products, Workplace Standard (free) and Workplace Premium (paid). Any Workplace Premium tenant can configure SCIM and SSO integration with no other implications to cost or licenses required. SSO and SCIM are not available in Workplace Standard instances.
+> Meta has two products, Workplace Standard (free) and Workplace Premium (paid). Any Workplace Premium tenant can configure SCIM and SSO integration with no other implications to cost or licenses required. SSO and SCIM are not available in Workplace Standard instances.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Workplace by Facebook supports **SP** initiated SSO.
-* Workplace by Facebook supports **just-in-time provisioning**.
-* Workplace by Facebook supports **[automatic User Provisioning](workplace-by-facebook-provisioning-tutorial.md)**.
-* Workplace by Facebook Mobile application can now be configured with Azure AD for enabling SSO. In this tutorial, you configure and test Azure AD SSO in a test environment.
+* Workplace by Meta supports **SP** initiated SSO.
+* Workplace by Meta supports **just-in-time provisioning**.
+* Workplace by Meta supports **[automatic User Provisioning](workplace-by-facebook-provisioning-tutorial.md)**.
+* Workplace by Meta Mobile application can now be configured with Azure AD for enabling SSO. In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 
-## Adding Workplace by Facebook from the gallery
+## Adding Workplace by Meta from the gallery
 
-To configure the integration of Workplace by Facebook into Azure AD, you need to add Workplace by Facebook from the gallery to your list of managed SaaS apps.
+To configure the integration of Workplace by Meta into Azure AD, you need to add Workplace by Meta from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **Workplace by Facebook** in the search box.
-1. Select **Workplace by Facebook** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. In the **Add from the gallery** section, type **Workplace by Meta** in the search box.
+1. Select **Workplace by Meta** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD SSO for Workplace by Facebook
+## Configure and test Azure AD SSO for Workplace by Meta
 
-Configure and test Azure AD SSO with Workplace by Facebook using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Workplace by Facebook.
+Configure and test Azure AD SSO with Workplace by Meta using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Workplace by Meta.
 
-To configure and test Azure AD SSO with Workplace by Facebook, perform the following steps:
+To configure and test Azure AD SSO with Workplace by Meta, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-2. **[Configure Workplace by Facebook SSO](#configure-workplace-by-facebook-sso)** - to configure the Single Sign-On settings on application side.
-    1. **[Create Workplace by Facebook test user](#create-workplace-by-facebook-test-user)** - to have a counterpart of B.Simon in Workplace by Facebook that is linked to the Azure AD representation of user.
+2. **[Configure Workplace by Meta SSO](#configure-workplace-by-meta-sso)** - to configure the Single Sign-On settings on application side.
+    1. **[Create Workplace by Meta test user](#create-workplace-by-meta-test-user)** - to have a counterpart of B.Simon in Workplace by Meta that is linked to the Azure AD representation of user.
 3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **Workplace by Facebook** application integration page, find the **Manage** section and select **Single sign-on**.
+1. In the Azure portal, on the **Workplace by Meta** application integration page, find the **Manage** section and select **Single sign-on**.
 1. On the **Select a Single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -79,13 +79,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
     a. In the **Sign on URL** (found in WorkPlace as the Recipient URL) text box, type a URL using the following pattern:
-    `https://.facebook.com/work/saml.php`
+    `https://.workplace.com/work/saml.php`
 
     b. In the **Identifier (Entity ID)** (found in WorkPlace as the Audience URL) text box, type a URL using the following pattern: 
-    `https://www.facebook.com/company/`
+    `https://www.workplace.com/company/`
 
     c. In the **Reply URL** (found in WorkPlace as the Assertion Consumer Service) text box, type a URL using the following pattern: 
-    `https://.facebook.com/work/saml.php`
+    `https://.workplace.com/work/saml.php`
 
     > [!NOTE]
     > These values are not the real. Update these values with the actual Sign-On URL, Identifier and Reply URL. See the Authentication page of the Workplace Company Dashboard for the correct values for your Workplace community, this is explained later in the tutorial.
@@ -94,7 +94,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     ![The Certificate download link](common/certificatebase64.png)
 
-1. On the **Set up Workplace by Facebook** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Set up Workplace by Meta** section, copy the appropriate URL(s) based on your requirement.
 
     ![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -112,27 +112,27 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Workplace by Facebook.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Workplace by Meta.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Workplace by Facebook**.
+1. In the applications list, select **Workplace by Meta**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure Workplace by Facebook SSO
+## Configure Workplace by Meta SSO
 
-1. To automate the configuration within Workplace by Facebook, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+1. To automate the configuration within Workplace by Meta, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
     ![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Set up Workplace by Facebook** will direct you to the Workplace by Facebook application. From there, provide the admin credentials to sign into Workplace by Facebook. The browser extension will automatically configure the application for you and automate steps 3-5.
+1. After adding extension to the browser, click on **Set up Workplace by Meta** will direct you to the Workplace by Meta application. From there, provide the admin credentials to sign into Workplace by Meta. The browser extension will automatically configure the application for you and automate steps 3-5.
 
     ![Setup configuration](common/setup-sso.png)
 
-1. If you want to setup Workplace by Facebook manually, open a new web browser window and sign into your Workplace by Facebook company site as an administrator and perform the following steps:
+1. If you want to setup Workplace by Meta manually, open a new web browser window and sign into your Workplace by Meta company site as an administrator and perform the following steps:
 
     > [!NOTE]
     > As part of the SAML authentication process, Workplace may utilize query strings of up to 2.5 kilobytes in size in order to pass parameters to Azure AD.
@@ -188,28 +188,28 @@ You can configure Workplace to prompt for a SAML check every day, three days, we
 
 You can also force a SAML reset for all users using the button: Require SAML authentication for all users now.
 
-### Create Workplace by Facebook test user
+### Create Workplace by Meta test user
 
-In this section, a user called B.Simon is created in Workplace by Facebook. Workplace by Facebook supports just-in-time provisioning, which is enabled by default.
+In this section, a user called B.Simon is created in Workplace by Meta. Workplace by Meta supports just-in-time provisioning, which is enabled by default.
 
-There is no action for you in this section. If a user doesn't exist in Workplace by Facebook, a new one is created when you attempt to access Workplace by Facebook.
+There is no action for you in this section. If a user doesn't exist in Workplace by Meta, a new one is created when you attempt to access Workplace by Meta.
 
 >[!Note]
->If you need to create a user manually, Contact [Workplace by Facebook Client support team](https://www.workplace.com/help/work/).
+>If you need to create a user manually, Contact [Workplace by Meta Client support team](https://www.workplace.com/help/work/).
 
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Workplace by Facebook Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Workplace by Meta Sign-on URL where you can initiate the login flow. 
 
-* Go to Workplace by Facebook Sign-on URL directly and initiate the login flow from there.
+* Go to Workplace by Meta Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Workplace by Facebook tile in the My Apps, this will redirect to Workplace by Facebook Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+* You can use Microsoft My Apps. When you click the Workplace by Meta tile in the My Apps, this will redirect to Workplace by Meta Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-## Test SSO for Workplace by Facebook (mobile)
+## Test SSO for Workplace by Meta (mobile)
 
-1. Open Workplace by Facebook Mobile application. On the sign in page, click on **LOG IN**.
+1. Open Workplace by Meta Mobile application. On the sign in page, click on **LOG IN**.
 
     ![The sign in](./media/workplacebyfacebook-tutorial/test05.png)
 
@@ -231,4 +231,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Workplace by Facebook you can enforce Session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
+Once you configure Workplace by Meta you can enforce Session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

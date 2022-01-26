@@ -1199,6 +1199,7 @@
           "articles/hdinsight/interactive-query/apache-hive-warehouse-connector-zeppelin.md",
           "articles/hdinsight/kafka/apache-kafka-mirroring.md",
           "articles/machine-learning/azure-machine-learning-release-notes.md",
+          "articles/managed-instance-apache-cassandra/monitor-clusters.md",
           "articles/mariadb/concepts-certificate-rotation.md",
           "articles/mariadb/concepts-read-replicas.md",
           "articles/mariadb/howto-create-users.md",

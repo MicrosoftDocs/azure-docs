@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 01/20/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -21,7 +21,7 @@ This article outlines how to register Looker, and how to authenticate and intera
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](how-to-lineage-looker.md)|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage)|
 
 The supported Looker server version is 7.2.
 
@@ -38,9 +38,10 @@ When scanning Looker source, Azure Purview supports:
     - Explore diagrams including the joins
     - Views including the dimensions, measures, parameters, and filters
     - Layouts including the chart layouts, table layouts, text, and fields
-    - Queries including the query fields
 
-- Fetching static lineage on assets relationships among views, queries and layouts.
+- Fetching static lineage on assets relationships among views and layouts.
+
+When setting up scan, you can choose to scan an entire Looker server, or scope the scan to a subset of Looker projects matching the given name(s).
 
 ## Prerequisites
 
@@ -138,6 +139,14 @@ To create and run a new scan, do the following:
 1. Review your scan and select on **Save and Run**.
 
 [!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
+
+## Lineage
+
+After scanning your Looker source, you can [browse data catalog](how-to-browse-catalog.md) or [search data catalog](how-to-search-catalog.md) to view the asset details. 
+
+Go to the asset -> lineage tab, you can see the asset relationship when applicable. Refer to the [supported capabilities](#supported-capabilities) section on the supported Looker lineage scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
+
+:::image type="content" source="media/register-scan-looker-source/lineage.png" alt-text="Looker lineage view" border="true":::
 
 ## Next steps
 

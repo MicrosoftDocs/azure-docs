@@ -4,7 +4,7 @@ description: Learn about the OS functionality in Azure App Service on Windows. F
 
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
-ms.date: 09/09/2021
+ms.date: 01/21/2022
 ms.custom: seodec18
 
 ---
@@ -29,7 +29,8 @@ Because App Service supports a seamless scaling experience between different tie
 ## Development frameworks
 App Service pricing tiers control the amount of compute resources (CPU, disk storage, memory, and network egress) available to apps. However, the breadth of framework functionality available to apps remains the same regardless of the scaling tiers.
 
-App Service supports a variety of development frameworks, including ASP.NET, classic ASP, Node.js, PHP, and Python - all of which run as extensions within IIS. In order to simplify and normalize security configuration, App Service apps typically run the various development frameworks with their default settings. One approach to configuring apps could have been to customize the API surface area and functionality for each individual development framework. App Service instead takes a more generic approach by enabling a common baseline of operating system functionality regardless of an app's development framework.
+App Service supports a variety of development frameworks, including ASP.NET, classic ASP, Node.js, PHP, and Python.
+In order to simplify and normalize security configuration, App Service apps typically run the various development frameworks with their default settings. The frameworks and runtime components provided by the platform are updated regularly to satisfy security and compliance requirements, for this reason we do not guarantee specific minor/patch versions and recommend customers target major version as needed.
 
 The following sections summarize the general kinds of operating system functionality available to App Service apps.
 

@@ -168,9 +168,9 @@
             href: concept-component.md
           - name: MLflow
             href: concept-mlflow.md
-          - name: Responsible ML
+          - name: Responsible AI
             items:
-              - name: Responsible ML overview
+              - name: Responsible AI overview
                 displayName: responsible,ml
                 href: concept-responsible-ml.md
               - name: Model interpretability
@@ -297,6 +297,8 @@
                 href: how-to-manage-workspace-terraform.md
               - name: Use REST
                 href: how-to-manage-rest.md
+              - name: How to move a workspace
+                href: how-to-move-workspace.md
               - name: Link to Azure Synapse Analytics workspace
                 href: how-to-link-synapse-ml-workspaces.md
               - name: Workspace Diagnostics
