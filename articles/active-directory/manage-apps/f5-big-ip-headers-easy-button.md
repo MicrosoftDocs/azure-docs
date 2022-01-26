@@ -51,7 +51,7 @@ The SHA solution for this scenario is made up of:
 
 SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
-![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-ldap/sp-initiated-flow.png)
+![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-header/sp-initiated-flow.png)
 
 | Steps| Description |
 | - |----|
