@@ -31,10 +31,7 @@ In this tutorial you learn how to:
 
 ## Video tutorial
 
-You can also follow along in a related video:
-
-> [!VIDEO https://www.youtube.com/embed/rA8TvhNcCvQ]
-
+You can also follow along in a related video: [How to enable and configure SSPR in Azure AD](https://www.youtube.com/embed/rA8TvhNcCvQ?azure-portal=true).
 
 ## Prerequisites
 
