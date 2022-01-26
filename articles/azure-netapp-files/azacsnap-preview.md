@@ -30,11 +30,11 @@ The 4 new preview features provided with AzAcSnap v5.1 are:
 - Azure Managed Disk
 - RunBefore and RunAfter capability
 
-## Providing Feedback
+## Providing feedback
 
 Feedback on AzAcSnap, including this preview, can be provided [online](https://aka.ms/azacsnap-feedback).
 
-## Getting the Preview snapshot tools
+## Getting the AzAcSnap Preview snapshot tools
 
 Get the most recent version of the Preview [AzAcSnap Preview Installer](https://aka.ms/azacsnap-preview-installer) from Microsoft.
 
@@ -45,7 +45,7 @@ to this document for details on using the preview features.
 
 ## Oracle Database
 
-## Supported Platforms and OS
+### Supported platforms and operating systems
 
 > [!NOTE]
 > Support for Oracle is Preview feature.  
@@ -54,13 +54,13 @@ to this document for details on using the preview features.
 New database platforms and operating systems supported with this preview release.
 
 - **Databases**
-  - Oracle Database release 12 or later (refer to [Oracle VM images and their deployment on Microsoft Azure](/virtual-machines/workloads/oracle/oracle-vm-solutions) for details)
+  - Oracle Database release 12 or later (refer to [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions) for details)
 
 - **Operating Systems**
   - Oracle Linux 7+
 
 
-## Enable communication with database
+### Enable communication with database
 
 > [!NOTE]
 > Support for Oracle is Preview feature.  
@@ -472,17 +472,17 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
    QUIT
    ```
        
-## Oracle Database values
+### Oracle Database values
 
 > [!NOTE]
 > Support for Oracle is Preview feature.  
 > This section's content supplements [Configure Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md) website page.
 
-## Details of required values
+### Details of required values
 
 The following sections provide detailed guidance on the various values required for the configuration file.
 
-### Oracle Database values
+#### Oracle Database values for configuration
 
 When adding an Oracle database to the configuration, the following values are required:
 
@@ -491,7 +491,7 @@ When adding an Oracle database to the configuration, the following values are re
 - **Oracle Connect String** = The Connect String used by `sqlplus` to connect to Oracle and enable/disable backup mode.
 
 
-## Backint Co-existence
+## Backint co-existence
 
 > [!NOTE]
 > Support for co-existence with SAP HANA's Backint interface is a Preview feature.  
@@ -500,7 +500,7 @@ When adding an Oracle database to the configuration, the following values are re
 [Azure Backup](/azure/backup/) service provides an alternate backup tool for SAP HANA, where database and log backups are streamed into the 
 Azure Backup Service.  Some customers would like to combine the streaming backint-based backups with regular snapshot-based backups.  However, backint-based 
 backups block other methods of backup, such as using a files-based backup or a storage snapshot-based backup (for example, AzAcSnap).  Guidance is provided on
-the Azure Backup site on how to [Run SAP HANA native client backup to local disk on a database with Azure Backup enabled](/backup/sap-hana-db-manage#run-sap-hana-native-client-backup-to-local-disk-on-a-database-with-azure-backup-enabled.md).  
+the Azure Backup site on how to [Run SAP HANA native client backup to local disk on a database with Azure Backup enabled](/azure/backup/sap-hana-db-manage#run-sap-hana-native-client-backup-to-local-disk-on-a-database-with-azure-backup-enabled).  
 
 The process described in the Azure Backup documentation has been implemented with AzAcSnap to automatically do the following steps:
 
@@ -537,8 +537,8 @@ Refer to this partial snippet of the configuration file to see where this value 
 > This section's content supplements [Configure Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md) website page.
 
 Microsoft provides a number of storage options for deploying databases such as SAP HANA.  Many of these are detailed on the 
-[Azure Storage types for SAP workload](/virtual-machines/workloads/sap/planning-guide-storage) web page.  Additionally there is a 
-[Cost conscious solution with Azure premium storage](/virtual-machines/workloads/sap/hana-vm-operations-storage#cost-conscious-solution-with-azure-premium-storage).  
+[Azure Storage types for SAP workload](/azure/virtual-machines/workloads/sap/planning-guide-storage) web page.  Additionally there is a 
+[Cost conscious solution with Azure premium storage](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#cost-conscious-solution-with-azure-premium-storage).  
 
 AzAcSnap is able to take application consistent database snapshots when deployed on this type of architecture (that is, a VM with Managed Disks).  However, the setup 
 for this platform is slightly more complicated as in this scenario we need to block I/O to the mountpoint (using `xfs_freeze`) before taking a snapshot of the Managed 
@@ -548,63 +548,63 @@ Disks in the mounted Logical Volume(s).
 > The Linux system must have `xfs_freeze` available to block disk I/O.
 
 Architecture at a high level:
-1.	Azure Managed Disks attached to the VM using the Azure Portal
-1.	Logical Volume is created from these Managed Disks.
-1.	Logical Volume mounted to a Linux directory.
-1.	Service Principal should be created in the same way as for Azure NetApp Files in [AzAcSnap installation](azacsnap-installation.md?tabs=azure-netapp-files%2Csap-hana#enable-communication-with-storage).
-1.	Install and Configure AzAcSnap
-    > [!NOTE]
-    > The configurator has a new option to define the mountpoint for the Logical Volume.  This parameter gets passed to `xfs_freeze` to block the I/O (this 
-    > happens after the database is put into backup mode).  After the I/O cache has been flushed (dependent on Linux kernel parameter `fs.xfs.xfssyncd_centisecs`).  
-6.	Install and Configure `xfs_freeze` to be run as a non-privileged user:
-    a.	Create an executable file called $HOME/bin/xfs_freeze with the following content
-    
-    ```bash
-    #!/bin/sh
-    /usr/bin/sudo /usr/sbin/xfs_freeze $1 $2
-    ```
-    
-    a.	Create a sudoers file called `/etc/sudoers.d/azacsnap` to allow the azacsnap user to run `xfs_freeze` with the following content:
-    
-    ```bash
-    #
-    # What: azacsnap
-    # Why: Allow the azacsnap user to run "specific" commands with elevated privileges.
-    #
-    # User_Alias = SAP HANA Backup administrator user.
-    User_Alias      AZACSNAP = azacsnap
-    #
-    AZACSNAP ALL=(ALL) NOPASSWD: /usr/sbin/xfs_freeze
-    ```
-    
-    a.	Test the azacsnap user can freeze and unfreeze I/O to the target mountpoint by running the following as the azacsnap user.  
-    
-    > [!NOTE]
-    > In this example we run each command twice to show it worked the first time as there is no command to confirm if `xfs_freeze` has frozen I/O.
-    
-    Freeze I/O.
-    
-    ```bash
-    su - azacsnap
-    xfs_freeze -f /hana/data
-    xfs_freeze -f /hana/data
-    ```
-    
-    ```output
-    xfs_freeze: cannot freeze filesystem at /hana/data: Device or resource busy
-    ```
-    
-    Unfreeze I/O.
-    
-    ```bash
-    su - azacsnap
-    xfs_freeze -u /hana/data
-    xfs_freeze -u /hana/data
-    ```
-    
-    ```output
-    xfs_freeze: cannot unfreeze filesystem mounted at /hana/data: Invalid argument
-    ```
+1. Azure Managed Disks attached to the VM using the Azure portal
+1. Logical Volume is created from these Managed Disks.
+1. Logical Volume mounted to a Linux directory.
+1. Service Principal should be created in the same way as for Azure NetApp Files in [AzAcSnap installation](azacsnap-installation.md?tabs=azure-netapp-files%2Csap-hana#enable-communication-with-storage).
+1. Install and Configure AzAcSnap
+   > [!NOTE]
+   > The configurator has a new option to define the mountpoint for the Logical Volume.  This parameter gets passed to `xfs_freeze` to block the I/O (this 
+   > happens after the database is put into backup mode).  After the I/O cache has been flushed (dependent on Linux kernel parameter `fs.xfs.xfssyncd_centisecs`).  
+1. Install and Configure `xfs_freeze` to be run as a non-privileged user: 
+   1. Create an executable file called $HOME/bin/xfs_freeze with the following content
+   
+      ```bash
+      #!/bin/sh
+      /usr/bin/sudo /usr/sbin/xfs_freeze $1 $2
+      ```
+   
+   1. Create a sudoers file called `/etc/sudoers.d/azacsnap` to allow the azacsnap user to run `xfs_freeze` with the following content:
+   
+      ```bash
+      #
+      # What: azacsnap
+      # Why: Allow the azacsnap user to run "specific" commands with elevated privileges.
+      #
+      # User_Alias = SAP HANA Backup administrator user.
+      User_Alias      AZACSNAP = azacsnap
+      #
+      AZACSNAP ALL=(ALL) NOPASSWD: /usr/sbin/xfs_freeze
+      ```
+   
+   1. Test the azacsnap user can freeze and unfreeze I/O to the target mountpoint by running the following as the azacsnap user.
+   
+      > [!NOTE]
+      > In this example we run each command twice to show it worked the first time as there is no command to confirm if `xfs_freeze` has frozen I/O.
+  
+      Freeze I/O.
+  
+      ```bash
+      su - azacsnap
+      xfs_freeze -f /hana/data
+      xfs_freeze -f /hana/data
+      ```
+      
+      ```output
+      xfs_freeze: cannot freeze filesystem at /hana/data: Device or resource busy
+      ```
+  
+      Unfreeze I/O.
+   
+      ```bash
+      su - azacsnap
+      xfs_freeze -u /hana/data
+      xfs_freeze -u /hana/data
+      ```
+  
+      ```output
+      xfs_freeze: cannot unfreeze filesystem mounted at /hana/data: Invalid argument
+      ```
 
 ### Example configuration file
 
@@ -654,7 +654,7 @@ Here is an example config file, note the hierarchy for the dataVolume, mountpoin
 }
 ```
 
-### Virtual Machine Storage Layout
+### Virtual machine storage layout
 
 The storage hierarchy looks like the following example for SAP HANA:
 
@@ -743,56 +743,56 @@ Supported `azacsnap` command functionality with Azure Managed Disks is 'configur
 
 Although `azacsnap` is currently missing the `-c restore` option for Azure Managed Disks, it’s possible to restore manually as follows:
 
-1.	Creating disks from the snapshots via the Azure Portal. 
+1.	Creating disks from the snapshots via the Azure portal. 
 
     > [!NOTE]
     > Be sure to create the disks in the same Availability Zone as the target VM.
 
-1.	Connect the disks to the VM via the Azure Portal.
+1.	Connect the disks to the VM via the Azure portal.
 1.	Log in to the VM as the `root` user and scan for the newly attached disks using dmesg or pvscan:
     
-    a. Using `dmesg`
+    1. Using `dmesg`
     
-    ```bash
-    dmesg | tail -n30
-    ```
+       ```bash
+       dmesg | tail -n30
+       ```
     
-    ```output
-    [2510054.252801] scsi 5:0:0:2: Direct-Access     Msft     Virtual Disk     1.0  PQ:0 ANSI: 5
-    [2510054.262358] scsi 5:0:0:2: Attached scsi generic sg4 type 0
-    [2510054.268514] sd 5:0:0:2: [sde] 1073741824 512-byte logical blocks: (550 GB/512 GiB)
-    [2510054.272583] sd 5:0:0:2: [sde] 4096-byte physical blocks
-    [2510054.275465] sd 5:0:0:2: [sde] Write Protect is off
-    [2510054.277915] sd 5:0:0:2: [sde] Mode Sense: 0f 00 10 00
-    [2510054.278566] sd 5:0:0:2: [sde] Write cache: disabled, read cache: enabled, supports DPO and FUA
-    [2510054.314269] sd 5:0:0:2: [sde] Attached SCSI disk
-    [2510054.573135] scsi 5:0:0:3: Direct-Access     Msft     Virtual Disk     1.0  PQ: 0 ANSI: 5
-    [2510054.579931] scsi 5:0:0:3: Attached scsi generic sg5 type 0
-    [2510054.584505] sd 5:0:0:3: [sdf] 1073741824 512-byte logical blocks: (550 GB/512 GiB)
-    [2510054.589293] sd 5:0:0:3: [sdf] 4096-byte physical blocks
-    [2510054.592237] sd 5:0:0:3: [sdf] Write Protect is off
-    [2510054.594735] sd 5:0:0:3: [sdf] Mode Sense: 0f 00 10 00
-    [2510054.594839] sd 5:0:0:3: [sdf] Write cache: disabled, read cache: enabled, supports DPO and FUA
-    [2510054.627310] sd 5:0:0:3: [sdf] Attached SCSI disk
-    ```
+       ```output
+       [2510054.252801] scsi 5:0:0:2: Direct-Access     Msft     Virtual Disk     1.0  PQ:0 ANSI: 5
+       [2510054.262358] scsi 5:0:0:2: Attached scsi generic sg4 type 0
+       [2510054.268514] sd 5:0:0:2: [sde] 1073741824 512-byte logical blocks: (550 GB/512 GiB)
+       [2510054.272583] sd 5:0:0:2: [sde] 4096-byte physical blocks
+       [2510054.275465] sd 5:0:0:2: [sde] Write Protect is off
+       [2510054.277915] sd 5:0:0:2: [sde] Mode Sense: 0f 00 10 00
+       [2510054.278566] sd 5:0:0:2: [sde] Write cache: disabled, read cache: enabled, supports DPO and FUA
+       [2510054.314269] sd 5:0:0:2: [sde] Attached SCSI disk
+       [2510054.573135] scsi 5:0:0:3: Direct-Access     Msft     Virtual Disk     1.0  PQ: 0 ANSI: 5
+       [2510054.579931] scsi 5:0:0:3: Attached scsi generic sg5 type 0
+       [2510054.584505] sd 5:0:0:3: [sdf] 1073741824 512-byte logical blocks: (550 GB/512 GiB)
+       [2510054.589293] sd 5:0:0:3: [sdf] 4096-byte physical blocks
+       [2510054.592237] sd 5:0:0:3: [sdf] Write Protect is off
+       [2510054.594735] sd 5:0:0:3: [sdf] Mode Sense: 0f 00 10 00
+       [2510054.594839] sd 5:0:0:3: [sdf] Write cache: disabled, read cache: enabled, supports DPO and FUA
+       [2510054.627310] sd 5:0:0:3: [sdf] Attached SCSI disk
+       ```
     
-    a. Using `pvscan`
+    1. Using `pvscan`
     
-    ```bash
-    saphana:~ # pvscan
-    ```
+       ```bash
+       saphana:~ # pvscan
+       ```
     
-    ```output
-    WARNING: scan found duplicate PVID RNCylWF3OGG93c1XL3W6pwM0XB2mYFGV on /dev/sde
-    WARNING: scan found duplicate PVID K3yhxN2713lk4kc3PcxOJQsCkD8ZE6YX on /dev/sdf
-    WARNING: Not using device /dev/sde for PV RNCylW-F3OG-G93c-1XL3-W6pw-M0XB-2mYFGV.
-    WARNING: Not using device /dev/sdf for PV K3yhxN-2713-lk4k-c3Pc-xOJQ-sCkD-8ZE6YX.
-    WARNING: PV RNCylW-F3OG-G93c-1XL3-W6pw-M0XB-2mYFGV prefers device /dev/sdc because device is used by LV.
-    WARNING: PV K3yhxN-2713-lk4k-c3Pc-xOJQ-sCkD-8ZE6YX prefers device /dev/sdd because device is used by LV.
-    PV /dev/sdd   VG hanadata        lvm2 [512.00 GiB / 0    free]
-    PV /dev/sdc   VG hanadata        lvm2 [512.00 GiB / 0    free]
-    Total: 2 [1023.99 GiB] / in use: 2 [1023.99 GiB] / in no VG: 0 [0   ]
-    ```
+       ```output
+       WARNING: scan found duplicate PVID RNCylWF3OGG93c1XL3W6pwM0XB2mYFGV on /dev/sde
+       WARNING: scan found duplicate PVID K3yhxN2713lk4kc3PcxOJQsCkD8ZE6YX on /dev/sdf
+       WARNING: Not using device /dev/sde for PV RNCylW-F3OG-G93c-1XL3-W6pw-M0XB-2mYFGV.
+       WARNING: Not using device /dev/sdf for PV K3yhxN-2713-lk4k-c3Pc-xOJQ-sCkD-8ZE6YX.
+       WARNING: PV RNCylW-F3OG-G93c-1XL3-W6pw-M0XB-2mYFGV prefers device /dev/sdc because device is used by LV.
+       WARNING: PV K3yhxN-2713-lk4k-c3Pc-xOJQ-sCkD-8ZE6YX prefers device /dev/sdd because device is used by LV.
+       PV /dev/sdd   VG hanadata        lvm2 [512.00 GiB / 0    free]
+       PV /dev/sdc   VG hanadata        lvm2 [512.00 GiB / 0    free]
+       Total: 2 [1023.99 GiB] / in use: 2 [1023.99 GiB] / in no VG: 0 [0   ]
+       ```
     
 1.	Import a Volume Group Clone from the disks using `vgimportclone` as the `root` user:
 
@@ -877,12 +877,12 @@ The following list of environment variables is generated by `azacsnap` and passe
 - `$azSid` = the --dbsid value.
 - `$azSnapshotName` = the snapshot name generated by azacsnap
 
-    - > [!NOTE]
-    - > There is only a value for this in the `--runafter` option.
+> [!NOTE]
+> There is only a value for `$azSnapshotName` in the `--runafter` option.
 
-### Example Usage
+### Example usage
 
-An example usage for this new feature is to upload a snapshot to Azure Blob for archival purposes using the azcopy tool ([Copy or move data to Azure Storage by using AzCopy](/storage/common/storage-use-azcopy-v10)).  
+An example usage for this new feature is to upload a snapshot to Azure Blob for archival purposes using the azcopy tool ([Copy or move data to Azure Storage by using AzCopy](/azure/storage/common/storage-use-azcopy-v10)).  
 
 The following crontab entry is a single line and runs `azacsnap` at five past midnight.  Note the call to `snapshot-to-blob.sh` passing the snapshot name and snapshot prefix:
 
