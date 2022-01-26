@@ -93,7 +93,7 @@ The following example shows you how to create a Container Apps environment in an
 
 - Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
-- Install the [Azure CLI](/cli/azure/install-azure-cli) version 2.32.0 or higher.
+- Install the [Azure CLI](/cli/azure/install-azure-cli) version 2.28.0 or higher.
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
