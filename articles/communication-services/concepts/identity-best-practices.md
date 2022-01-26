@@ -86,7 +86,7 @@ Let's assume we have a Node.js application built on Express with the `/getTokenF
 
 ```javascript
 app.post('/getTokenForTeamsUser', async (req, res) => {
-    const identityClient = new CommunicationIdentityClient(COMMUNICATION_SERVICES_CONNECTION_STRING);
+    const identityClient = new CommunicationIdentityClient("<COMMUNICATION_SERVICES_CONNECTION_STRING>");
     let communicationIdentityToken = await identityClient.getTokenForTeamsUser(req.body.teamsToken);
     res.json({ communicationIdentityToken: communicationIdentityToken.token });
 });
@@ -99,10 +99,10 @@ Next, we need to implement a token refresher callback in the client application,
 
 ```javascript
 const fetchTokenFromMyServerForUser = async function (abortSignal, username) {
-    // Get a fresh Azure AD token first
+    // 1. Refresh the Azure AD access token of the Teams User
     let teamsTokenResponse = await refreshAadToken(abortSignal, username);
 
-    // Use the fresh Azure AD token to exchange it for a Communication Identity access token
+    // 2. Exchange the Azure AD access token of the Teams User for a Communication Identity access token
     const response = await fetch(`${HOST_URI}/getTokenForTeamsUser`,
         {
             method: "POST",
@@ -118,10 +118,10 @@ const fetchTokenFromMyServerForUser = async function (abortSignal, username) {
 }
 ```
 
-In this example, we'll use the Microsoft Authentication Library (MSAL) to refresh the Azure AD access token. Following the guide to [acquire an Azure AD token to call an API](../../active-directory/develop/scenario-spa-acquire-token.md), we first try to obtain the token without the user's interaction. If that's not possible, we trigger the interactive flow.
+In this example, we use the Microsoft Authentication Library (MSAL) to refresh the Azure AD access token. Following the guide to [acquire an Azure AD token to call an API](../../active-directory/develop/scenario-spa-acquire-token.md), we first try to obtain the token without the user's interaction. If that's not possible, we trigger one of the interactive flows.
 
 ```javascript
-const refreshAadToken = async function (abortSignal, username, forceRefresh) {
+const refreshAadToken = async function (abortSignal, username) {
     if (abortSignal.aborted === true) throw new Error("Operation canceled");
 
     // MSAL.js v2 exposes several account APIs; the logic to determine which account to use is the responsibility of the developer. 
@@ -176,25 +176,42 @@ const tokenCredential = new AzureCommunicationTokenCredential({
 
 ### Proactively refresh token for a Teams User
 
+To minimize the number of roundtrips to the Azure Communication Identity API, make sure the Azure AD token you're passing to the `/:getTokenForTeamsUser` endpoint has long enough validity (> 10 minutes). In case that MSAL returns a cached token with a shorter validity, you have the following options to bypass the cache:
 
-- TODO
+1. Refresh the token forcibly
+
+# [JavaScript](#tab/javascript)
+
+Trigger the token acquisition flow with [`AuthenticationParameters.forceRefresh`](../../active-directory/develop/msal-js-pass-custom-state-authentication-request.md) set to `true`.
+
+```javascript
+// Extend the `refreshAadToken` function 
+const refreshAadToken = async function (abortSignal, username) {
+
+    // ... existing refresh logic
+
+    // Make sure the token has at least 10-minute lifetime and if not, force-renew it
+    if (tokenResponse.expiresOn < (Date.now() + (10 * 60 * 1000))) {
+        const renewRequest = {
+            scopes: ["https://auth.msft.communication.azure.com/Teams.ManageCalls"],
+            account: account,
+            forceRefresh: true // Force-refresh the token
+        };        
+        
+        await publicClientApplication.acquireTokenSilent(renewRequest).then(renewResponse => {
+            tokenResponse = renewResponse;
+        });
+    }
+}
+```
+
+1. Increase the MSAL's token renewal window to more than 10 minutes
 
 ```javascript
 const publicClientApplication = new PublicClientApplication({
     system: {
-        tokenRenewalOffsetSeconds: 600
+        tokenRenewalOffsetSeconds: 900 // 15 minutes (by default 5 minutes)
     });
-```
-
-We might want to extend the logic of the `refreshAadToken` function with:
- and ensure the returned token has a sufficient lifetime
-Finally, if the retrieved token's validity is not sufficient, we trigger the whole process again with [`AuthenticationParameters.forceRefresh`](../../active-directory/develop/msal-js-pass-custom-state-authentication-request.md) set to `true` to bypass MSAL's cache.
-```javascript
-
-    if (tokenResponse.expiresOn < (Date.now() + (10 * 60 * 1000)) && !forceRefresh) {
-        // Make sure the token has at least 10-minute lifetime and if not, force-renew it
-        tokenResponse = await refreshAadToken(abortSignal, username, true);
-    }
 ```
 
 ## Cancel refreshing
@@ -230,7 +247,7 @@ Communication Services applications should dispose the Credential instance when 
 
 # [C#](#tab/csharp)
 
-Use the `using` statement or call `.Dispose()` explicitly.
+Use the `using` statement or call the `.Dispose()` method explicitly.
 
 ```csharp
 using (var tokenCredential = new CommunicationTokenCredential(new CommunicationTokenRefreshOptions(
@@ -244,7 +261,7 @@ using (var tokenCredential = new CommunicationTokenCredential(new CommunicationT
 
 # [JavaScript](#tab/javascript)
 
-Call `.dispose()`.
+Call the `.dispose()` function.
 
 ```javascript
 const tokenCredential = new AzureCommunicationTokenCredential({
@@ -257,13 +274,12 @@ tokenCredential.dispose()
 
 # [Java](#tab/java)
 
-Use the `try-with-resources` pattern or call `.close()` explicitly.
+Use the `try-with-resources` pattern or call the `.close()` method explicitly.
 
 ```java
 try (CommunicationTokenCredential tokenCredential = new CommunicationTokenCredential("<token>")) {
     // ...
 }
-;
 
 ```
 
