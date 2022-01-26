@@ -101,9 +101,9 @@ In the `signin.hbs` file, add the following code:
     
     :::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/index.js" id="ms_docref_view_tepmplate_engine":::
 
-## Add app endpoints
+## Add app express routes
 
-Before you add the app endpoints, add the logic that retrieves the authorization code URL. This is the first leg of authorization code grant flow. In the `index.js` file, add the following code:
+Before you add the app route, add the logic that retrieves the authorization code URL. This is the first leg of authorization code grant flow. In the `index.js` file, add the following code:
 
 :::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/index.js" id="ms_docref_authorization_code_url":::
 
@@ -113,7 +113,7 @@ In the `index.js` file, add the following code:
 
 :::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/index.js" id="ms_docref_app_endpoints":::
 
-The app endpoints are:
+The app express routes are:
 - `/`:
     - It's used to enter the web app.
     - It renders the `signin` page.
@@ -121,22 +121,22 @@ The app endpoints are:
     - It's used when the user signs in.
     - It calls the `getAuthCode()` method and passes `authority` for the **Sign in and sign up** user flow/policy, `APP_STATES.LOGIN`, and an empty `scopes` array to it.  
     - If necessary, it causes the user to be challenged to enter their credentials. If the user doesn't have an account, it prompts the user to sign up.
-    - The final response that results from this endpoint includes an authorization code from Azure AD B2C posted back to the `/redirect` endpoint. 
+    - The final response that results from this route includes an authorization code from Azure AD B2C posted back to the `/redirect` route. 
 - `/password`:
     - It's used when a user resets a password.
     - It calls the `getAuthCode()` method and passes `authority` for the **Password reset** user flow/policy, `APP_STATES.PASSWORD_RESET`, and an empty `scopes` array to it.
     - It causes the user to change their password by using the password reset experience, or they can cancel the operation.
-    - The final response that results from this endpoint includes an authorization code from Azure AD B2C posted back to the `/redirect` endpoint. If the user cancels the operation, an error is posted back. 
+    - The final response that results from this route includes an authorization code from Azure AD B2C posted back to the `/redirect` route. If the user cancels the operation, an error is posted back. 
 - `/profile`: 
     - It's used when a user updates their profile.
     - It calls the `getAuthCode()` method and passes `authority` for the **Profile editing** user flow/policy, `APP_STATES.EDIT_PROFILE`, and an empty `scopes` array to it.
     - It causes the user to update their profile by using the profile-editing experience. 
-    - The final response that results from this endpoint includes an authorization code from Azure AD B2C posted back to the `/redirect` endpoint. 
+    - The final response that results from this route includes an authorization code from Azure AD B2C posted back to the `/redirect` route. 
 - `/signout`:
     - It's used when a user signs out.
     - The web app session is cleared, and an HTTP call is made to the Azure AD B2C logout endpoint. 
 - `/redirect`:
-    - It's the endpoint set as Redirect URI for the web app in Azure portal.
+    - It's the route set as Redirect URI for the web app in Azure portal.
     - It uses the `state` query parameter in the request from Azure AD B2C to differentiate between requests that are made from the web app. It handles all redirects from Azure AD B2C, except for sign out.
     - If the app state is `APP_STATES.LOGIN`, the acquired authorization code is used to retrieve a token through the `acquireTokenByCode()` method. This token includes `idToken` and `idTokenClaims`, which are used for user identification.
     - If the app state is `APP_STATES.PASSWORD_RESET`, it handles any error, such as `user cancelled the operation`. The`AADB2C90091` error code identifies this error. Otherwise, it decides the next user experience. 

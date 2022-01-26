@@ -455,7 +455,7 @@ At this point, you've built the *colorsapi*. Next, we update the web app code, s
 
     We've made the following updates in the code:
 
-    - Import axioms http client, which we use to make http calls.
+    - Import axios http client, which we use to make http calls.
     - Add `redApiUri` and `greenApiUri` properties in the `apiConfig` object. The properties are the URIs for calling the red and green APIs respectively. Replace `api-server-port` with the port number that your web API runs on, such as 4000. 
     - In the `/redirect` endpoint, we put the access token in a session after we acquire it. 
     - Add `/api` endpoint, where we call the API. If the `accessToken` isn't in the session, we call the red API, otherwise, we call the green API.     

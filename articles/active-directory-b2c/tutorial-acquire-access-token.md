@@ -93,9 +93,6 @@ npm install express-session
 npm install @azure/msal-node
 ```
 
- 
-
-
 ## Build web app UI components 
 
 1. In the `main.hbs` file, add the following code:
