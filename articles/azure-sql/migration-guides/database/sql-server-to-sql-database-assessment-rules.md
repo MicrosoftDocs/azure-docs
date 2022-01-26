@@ -18,6 +18,40 @@ Migration tools validate your source SQL Server instance by running a number of 
 
 This article provides a list of the rules used to assess the feasibility of migrating your SQL Server database to Azure SQL Database. 
 
+## Rules Summary
+
+|Rule Title|Level|Category|Details|
+|-|-|-|-|
+|AgentJobs|Instance|Warning|[SQL Server Agent jobs are not available in Azure SQL Database](#AgentJobs)|
+|BulkInsert|Database|Issue|[BULK INSERT with non-Azure blob data source is not supported in Azure SQL Database.](#BulkInsert)|
+|ClrAssemblies|Database|Issue|[SQL CLR assemblies are not supported in Azure SQL Database](#ClrAssemblies)|
+|ComputeClause|Database|Warning|[COMPUTE clause is discontinued and has been removed.](#ComputeClause)|
+|CrossDatabaseReferences|Database|Issue|[Cross-database queries are not supported in Azure SQL Database](#CrossDatabaseReferences)|
+|CryptographicProvider|Database|Issue|[A use of CREATE CRYPTOGRAPHIC PROVIDER or ALTER CRYPTOGRAPHIC PROVIDER was found, which is not supported in Azure SQL Database](#CryptographicProvider)|
+|DatabaseMail|Instance|Warning|[Database Mail is not supported in Azure SQL Database.](#DatabaseMail)|
+|DatabasePrincipalAlias|Database|Issue|[SYS.DATABASE_PRINCIPAL_ALIASES is discontinued and has been removed.](#DatabasePrincipalAlias)|
+|DbCompatLevelLowerThan100|Database|Warning|[Azure SQL Database doesn’t support compatibility levels below 100.](#DbCompatLevelLowerThan100)|
+|DisableDefCNSTCHK|Database|Issue|[SET option DISABLE_DEF_CNST_CHK is discontinued and has been removed.](#DisableDefCNSTCHK)|
+|FastFirstRowHint|Database|Warning|[FASTFIRSTROW query hint is discontinued and has been removed.](#FastFirstRowHint)|
+|FileStream|Database|Issue|[Filestream is not supported in Azure SQL Database](#FileStream)|
+|LinkedServer|Database|Issue|[Linked server functionality is not supported in Azure SQL Database](#LinkedServer)|
+|MSDTCTransactSQL|Database|Issue|[BEGIN DISTRIBUTED TRANSACTION is not supported in Azure SQL Database. ](#MSDTCTransactSQL)|
+|NextColumn|Database|Issue|[Tables and Columns named NEXT will lead to an error In Azure SQL Database.](#NextColumn)|
+|NonANSILeftOuterJoinSyntax|Database|Warning|[Non-ANSI style left outer join is discontinued and has been removed.](#NonANSILeftOuterJoinSyntax)|
+|NonANSIRightOuterJoinSyntax|Database|Warning|[Non-ANSI style right outer join is discontinued and has been removed.](#NonANSIRightOuterJoinSyntax)|
+|OpenRowsetWithNonBlobDataSourceBulk|Database|Issue|[OpenRowSet used in bulk operation with non-Azure blob storage data source is not supported in Azure SQL Database.](#OpenRowsetWithNonBlobDataSourceBulk)|
+|OpenRowsetWithSQLAndNonSQLProvider|Database|Issue|[OpenRowSet with SQL or non-SQL provider is not supported in Azure SQL Database. ](#OpenRowsetWithSQLAndNonSQLProvider)|
+|RAISERROR|Database|Warning|[Legacy style RAISERROR calls should be replaced with modern equivalents.](#RAISERROR)|
+|ServerAudits|Instance|Warning|[Server Audits is not supported in Azure SQL Database.](#ServerAudits)|
+|ServerCredentials|Instance|Warning|[Server scoped credential is not supported in Azure SQL Database](#ServerCredentials)|
+|ServerScopedTriggers|Instance|Warning |[Server-scoped trigger is not supported in Azure SQL Database](#ServerScopedTriggers)|
+|ServiceBroker|Database|Issue|[Service Broker feature is not supported in Azure SQL Database](#ServiceBroker)|
+|SQLDBDatabaseSize|Database|Issue|[Azure SQL Database does not support database size greater than 100 TB.](#SQLDBDatabaseSize)|
+|SqlMail|Database|Warning|[SQL Mail has been discontinued.](#SqlMail)|
+|SystemProcedures110|Database|Warning|[Detected statements that reference removed system stored procedures that are not available in Azure SQL Database.](#SystemProcedures110)|
+|TraceFlags|Instance|Warning|[Azure SQL Database does not support trace flags](#TraceFlags)|
+|WindowsAuthentication|Instance|Warning|[Database users mapped with Windows authentication (integrated security) are not supported in Azure SQL Database. ](#WindowsAuthentication)|
+|XpCmdshell|Database|Issue|[xp_cmdshell is not supported in Azure SQL Database.](#XpCmdshell)|
 
 ## Bulk insert<a id="BulkInsert"></a>
 
@@ -86,7 +120,7 @@ Azure SQL Database does not support CRYPTOGRAPHIC PROVIDER statements because it
 **Recommendation**   
 Review objects with `CREATE CRYPTOGRAPHIC PROVIDER` or `ALTER CRYPTOGRAPHIC PROVIDER`. In any such objects that are required, remove the uses of these features. Alternatively, migrate to SQL Server on Azure Virtual Machine
 
-## Cross database references<a id="CrossDataseReferences"></a>
+## Cross database references<a id="CrossDatabaseReferences"></a>
 
 **Title: Cross-database queries are not supported in Azure SQL Database**   
 **Category**: Issue   

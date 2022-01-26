@@ -18,6 +18,46 @@ Migration tools validate your source SQL Server instance by running a number of 
 
 This article provides a list of the rules used to assess the feasibility of migrating your SQL Server database to Azure SQL Managed Instance. 
 
+## Rules Summary
+
+|Rule Title|Level|Category|Details|
+|-|-|-|-|
+|AnalysisCommandJob|Instance|Warning|[AnalysisCommand job step is not supported in Azure SQL Managed Instance.](#AnalysisCommandJob)|
+|AnalysisQueryJob|Instance|Warning|[AnalysisQuery job step is not supported in Azure SQL Managed Instance.](#AnalysisQueryJob)|
+|AssemblyFromFile|Database|Issue|['CREATE ASSEMBLY' and 'ALTER ASSEMBLY' with a file parameter are unsupported in Azure SQL Managed Instance.](#AssemblyFromFile)|
+|BulkInsert|Database|Issue|[BULK INSERT with non-Azure blob data source is not supported in Azure SQL Managed Instance.](#BulkInsert)|
+|ClrStrictSecurity|Database|Warning|[CLR assemblies marked as SAFE or EXTERNAL_ACCESS are considered UNSAFE](#ClrStrictSecurity)|
+|ComputeClause|Database|Warning|[COMPUTE clause is discontinued and has been removed.](#ComputeClause)|
+|CryptographicProvider|Database|Issue|[A use of CREATE CRYPTOGRAPHIC PROVIDER or ALTER CRYPTOGRAPHIC PROVIDER was found, which is not supported in Azure SQL Managed Instance.](#CryptographicProvider)|
+|DatabasePrincipalAlias|Database|Issue|[SYS.DATABASE_PRINCIPAL_ALIASES is discontinued and has been removed.](#DatabasePrincipalAlias)|
+|DbCompatLevelLowerThan100|Database|Warning|[Database compatibility level below 100 is not supported](#DbCompatLevelLowerThan100)|
+|DisableDefCNSTCHK|Database|Issue|[SET option DISABLE_DEF_CNST_CHK is discontinued and has been removed.](#DisableDefCNSTCHK)|
+|FastFirstRowHint|Database|Warning|[FASTFIRSTROW query hint is discontinued and has been removed.](#FastFirstRowHint)|
+|FileStream|Database|Issue|[Filestream and Filetable are not supported in Azure SQL Managed Instance.](#FileStream)|
+|LinkedServerWithNonSQLProvider|Database|Issue|[Linked server with non-SQL Server Provider is not supported in Azure SQL Managed Instance.](#LinkedServerWithNonSQLProvider)|
+|MergeJob|Instance|Warning|[Merge job step is not supported in Azure SQL Managed Instance.](#MergeJob)|
+|MIDatabaseSize|Database|Issue|[Azure SQL Managed Instance does not support database size greater than 8 TB.](#MIDatabaseSize)|
+|MIHeterogeneousMSDTCTransactSQL|Database|Issue|[BEGIN DISTRIBUTED TRANSACTION with non-SQL Server remote server is not supported in Azure SQL Managed Instance.](#MIHeterogeneousMSDTCTransactSQL)|
+|MIHomogeneousMSDTCTransactSQL|Database|Issue|[BEGIN DISTRIBUTED TRANSACTION is supported across multiple servers for Azure SQL Managed Instance.](#MIHomogeneousMSDTCTransactSQL)|
+|MIInstanceSize|Instance|Warning|[Maximum instance storage size in Azure SQL Managed Instance cannot be greater than 8 TB.](#MIInstanceSize)|
+|MultipleLogFiles|Database|Issue|[Azure SQL Managed Instance does not support databases with multiple log files.](#MultipleLogFiles)|
+|NextColumn|Database|Issue|[Tables and Columns named NEXT will lead to an error In Azure SQL Managed Instance.](#NextColumn)|
+|NonANSILeftOuterJoinSyntax|Database|Warning|[Non-ANSI style left outer join is discontinued and has been removed.](#NonANSILeftOuterJoinSyntax)|
+|NonANSIRightOuterJoinSyntax|Database|Warning|[Non-ANSI style right outer join is discontinued and has been removed.](#NonANSIRightOuterJoinSyntax)|
+|NumDbExceeds100|Instance|Warning|[Azure SQL Managed Instance supports a maximum of 100 databases per instance.](#NumDbExceeds100)|
+|OpenRowsetWithNonBlobDataSourceBulk|Database|Issue|[OpenRowSet used in bulk operation with non-Azure blob storage data source is not supported in Azure SQL Managed Instance.](#OpenRowsetWithNonBlobDataSourceBulk)|
+|OpenRowsetWithNonSQLProvider|Database|Issue|[OpenRowSet with non-SQL provider is not supported in Azure SQL Managed Instance.](#OpenRowsetWithNonSQLProvider)|
+|PowerShellJob|Instance|Warning|[PowerShell job step is not supported in Azure SQL Managed Instance.](#PowerShellJob)|
+|QueueReaderJob|Instance|Warning|[Queue Reader job step is not supported in Azure SQL Managed Instance.](#QueueReaderJob)|
+|RAISERROR|Database|Warning|[Legacy style RAISERROR calls should be replaced with modern equivalents.](#RAISERROR)|
+|SqlMail|Database|Warning|[SQL Mail has been discontinued.](#SqlMail)|
+|SystemProcedures110|Database|Warning|[Detected statements that reference removed system stored procedures that are not available in Azure SQL Managed Instance.](#SystemProcedures110)|
+|TraceFlags|Instance|Warning|[Trace flags not supported in Azure SQL Managed Instance were found](#TraceFlags)|
+|TransactSqlJob|Instance|Warning|[TSQL job step includes unsupported commands in Azure SQL Managed Instance ](#TransactSqlJob)|
+|WindowsAuthentication|Instance|Warning|[Database users mapped with Windows authentication (integrated security) are not supported in Azure SQL Managed Instance ](#WindowsAuthentication)|
+|XpCmdshell|Database|Issue|[xp_cmdshell is not supported in Azure SQL Managed Instance.](#XpCmdshell)|
+
+
 ## AnalysisCommand job<a id="AnalysisCommandJob"></a>
 
 **Title: AnalysisCommand job step is not supported in Azure SQL Managed Instance.**   
