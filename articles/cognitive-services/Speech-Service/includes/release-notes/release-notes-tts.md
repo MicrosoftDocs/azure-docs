@@ -35,7 +35,7 @@ Added 10 new languages and variants for Neural text-to-speech:
 | Sinhala (Sri Lanka) | `si-LK` | Female | `si-LK-ThiliniNeural` <sup>New</sup> | General |
 | Sinhala (Sri Lanka) | `si-LK` | Male | `si-LK-SameeraNeural` <sup>New</sup> | General |
 
-For the full list of available voices, see [Language support](language-support.md#prebuilt-neural-voices).
+For the full list of available voices, see [Language support](../../language-support.md#prebuilt-neural-voices).
 
 #### New voices in preview
 
@@ -80,7 +80,7 @@ Added new voices for en-GB, fr-FR and de-DE in preview:
 | German (Germany) | `de-DE` | Male | `de-DE-KlausNeural` <sup>New</sup> | General |
 | German (Germany) | `de-DE` | Male | `de-DE-RalfNeural` <sup>New</sup> | General |
 
-For the full list of available voices, see [Language support](language-support.md#prebuilt-neural-voices-in-preview).
+For the full list of available voices, see [Language support](../../language-support.md#prebuilt-neural-voices-in-preview).
 
 #### Word pronunciation
 
