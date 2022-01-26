@@ -26,9 +26,6 @@ The process of classifying a Job involves optionally setting the following prope
 - Worker Selectors
 - Queue ID
 
-> [!NOTE]
-> You have the option of overriding the result of dynamic classification by using the Job Router SDK to update the Job properties manually. For example, you could specify a static Queue ID initially, then update the Job with a Classification Policy ID to be dynamically classified, then override the Queue ID.
-
 ## Prioritization rule
 
 The priority of a Job can be resolved during classification using one of many rule engines.
@@ -68,7 +65,7 @@ Once a Job has been classified, it can be reclassified in the following ways:
 
 1. You can update the Job labels, which will cause the Job Router to evaluate the new labels with the previous Classification Policy.
 2. You can update the Classification Policy ID of a Job, which will cause Job Router to process the existing Job against the new policy.
-3. An Exception Policy **trigger** can take the **action** of requesting a Job be reclassified 
+3. An Exception Policy **trigger** can take the **action** of requesting a Job be reclassified.
 
 > [!NOTE]
 > The Job Router SDK includes an `UpdateJobLabels` method which simply updates the labels without causing the Job Router to execute the reclassification process.

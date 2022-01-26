@@ -104,12 +104,14 @@ Now, we can submit a job directly to that queue, with a worker selector the requ
 ```csharp
 var job = await routerClient.CreateJobAsync(
     channelId: "my-channel",
-    channelReference: "12345",
     queueId: queue.Value.Id,
     priority: 1,
     workerSelectors: new List<LabelSelector>
     {
-        new LabelSelector("Some-Skill", LabelOperator.GreaterThan, 10)
+        new LabelSelector(
+            key: "Some-Skill", 
+            @operator: LabelOperator.GreaterThan, 
+            value: 10)
     });
 ```
 
@@ -151,6 +153,9 @@ Run the application using `dotnet run` and observe the results.
 
 ```console
 dotnet run
+
+
+Worker worker-1 has an active offer for job 6b83c5ad-5a92-4aa8-b986-3989c791be91
 ```
 
 > [!NOTE]

@@ -30,7 +30,7 @@ A real-world example of this may be an incoming call or chat in the context of a
 
 #### Job submission flow
 
-1. Your application submits a Job to the Job Router API.
+1. Your application submits a Job via the Job Router SDK.
 2. The Job is classified and a [JobClassified Event][job_classified_event] is sent via EventGrid which includes all the information about the Job and how the classification process may have modified its properties.
  
     :::image type="content" source="../media/router/acs-router-job-submission.png" alt-text="Diagram showing Communication Services' Job Router submitting a job.":::
@@ -43,7 +43,7 @@ A real-world example of this may be an agent working in a call center.
 
 #### Worker registration flow
 
-1. When your Worker is ready to take on work, you can register the worker via the Job Router API.
+1. When your Worker is ready to take on work, you can register the worker via the Job Router SDK.
 2. Job Router then sends a [WorkerRegistered Event][worker_registered_event]
 
     :::image type="content" source="../media/router/acs-router-worker-registration.png" alt-text="Diagram showing Communication Services' Job Router worker registration.":::
@@ -62,7 +62,7 @@ A real-world example of this may be `voice calls` or `chats` in a call center.
 
 ### Offer
 
-An Offer is extended by JobRouter to a worker to handle a particular job when it determines a match, this notification is normally delivered via [EventGrid][subscribe_events].  The worker can either accept or decline the offer using th JobRouter API, or it will expire according to the time to live configured on the distribution policy.
+An Offer is extended by JobRouter to a worker to handle a particular job when it determines a match, this notification is normally delivered via [EventGrid][subscribe_events].  The worker can either accept or decline the offer using the JobRouter SDK, or it will expire according to the time to live configured on the distribution policy.
 
 A real-world example of this may be the ringing of an agent in a call center.
 
