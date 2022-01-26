@@ -185,7 +185,7 @@ If they can't find the available Speech resource, they can check to ensure that 
 
 :::image type="content" source="media/audio-content-creation/add-role-first.png" alt-text="Add role dialog":::
 
-Users who are in the same Speech resource will see each other's work in Audio Content Creation studio. If you want each individual user to have a unique and private workplace in Audio Content Creation, [create a new Speech resource](#step-2---create-a-speech-resource) for each user and give each user the unique access to the Speech resource.
+Users who are in the same Speech resource will see each other's work in Audio Content Creation studio. If you want each individual user to have a unique and private workplace in Audio Content Creation, [create a new Speech resource](#step-2-create-a-speech-resource) for each user and give each user the unique access to the Speech resource.
 
 ### Remove users from a Speech resource
 
