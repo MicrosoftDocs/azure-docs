@@ -93,4 +93,4 @@ Don't forget to assign user permissions on the lab plan and the lab plan’s res
 
 - [Create a lab plan](tutorial-setup-lab-plan.md).
 - [Manage your lab plan](how-to-manage-lab-plans.md).
-- [Create up a lab](tutorial-setup-lab.md)
+- [Create a lab](tutorial-setup-lab.md)
