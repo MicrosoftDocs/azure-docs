@@ -3,7 +3,7 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: madsd
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 01/26/2022
 ms.author: madsd
 
 ---
@@ -71,6 +71,8 @@ You must have at least the following RBAC permissions on the subnet or at a high
 | Microsoft.Network/virtualNetworks/read | Read the virtual network definition |
 | Microsoft.Network/virtualNetworks/subnets/read | Read a virtual network subnet definition |
 | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
+
+If the virtual network is in a different subscription than the app, you must ensure that subscription is registered for the Microsoft.Web resource provider. You can explicitly register the provider [by following this documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider), but it will also be automatically registered when creating the first web app in a subscription.
 
 ### Routes
 

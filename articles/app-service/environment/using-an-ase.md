@@ -4,7 +4,7 @@ description: Learn how to create, publish, and scale apps in an App Service Envi
 author: madsd
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 8/5/2021
+ms.date: 01/26/2022
 ms.author: madsd
 ms.custom: seodec18
 ---
@@ -164,11 +164,12 @@ An ASE has 1 TB of storage for all the apps in the ASE. An App Service plan in t
 
 ## Monitoring
 
-As a customer, you should monitor the App Service plans and the individual apps running and take appropriate actions. For App Service Environment v2, you should also pay attention to the metrics around the platform infrastructure. These metrics will give you insights into how the platform infrastructure and frontend servers are doing, and you can take action if they are heavily utilized and you are not getting maximum throughput.
+As a customer, you should monitor the App Service plans and the individual apps running and take appropriate actions. For App Service Environment v2, you should also pay attention to the metrics around the platform infrastructure. These metrics will give you insights into how the platform infrastructure and frontend servers (multiRole) are doing, and you can take action if they are heavily utilized and you are not getting maximum throughput.
 
-Through CLI you can configure the scale ratio of your frontend servers between 5 and 15 (default 15) App Service plan instances per frontend server. An App Service Environment will always have a minimum of two frontend servers. You can also increase the size of the frontend servers through CLI.
+Through Azure portal and CLI you can configure the scale ratio of your frontend servers between 5 and 15 (default 15) App Service plan instances per frontend server. An App Service Environment will always have a minimum of two frontend servers. You can also increase the size of the frontend servers.
 
-You will see some metrics called Small/Medium/Large App Service Plan Workers and a sub-scope called multiRolePools/default. These are applicable to App Service Environment v1 only.
+The [metrics scope](../azure-monitor/essentials/metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools) used to monitor the platform infrastructure is called `Microsoft.Web/hostingEnvironments/multiRolePools`. The root scope `Microsoft.Web/hostingEnvironments`should not be used.
+You will see a scope called `Microsoft.Web/hostingEnvironments/workerPools`. The metrics here are only applicable to App Service Environment v1.
 
 ## Logging
 

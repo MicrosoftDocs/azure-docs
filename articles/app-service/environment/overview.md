@@ -3,7 +3,7 @@ title: App Service Environment overview
 description: Overview on the App Service Environment
 author: madsd
 ms.topic: overview
-ms.date: 11/15/2021
+ms.date: 01/26/2022
 ms.author: madsd
 ms.custom: references_regions
 ---
@@ -47,6 +47,10 @@ There are many networking features that enable apps in the multi-tenant App Serv
 The App Service Environment is a single tenant deployment of the Azure App Service that runs in your virtual network. 
 
 Applications are hosted in App Service plans, which are created in an App Service Environment. The App Service plan is essentially a provisioning profile for an application host. As you scale your App Service plan out, you create more application hosts with all of the apps in that App Service plan on each host. A single App Service Environment v3 can have up to 200 total App Service plan instances across all of the App Service plans combined. A single Isolated v2 App Service plan can have up to 100 instances by itself.
+
+> [!NOTE]
+> When you are deploying on dedicated hardware (hosts), you are limited in scaling across all App Service plans to the amount of cores in the environment. An App Service Environment deployed on dedicated hosts has 132 vCores available. I1v2 uses 2 vCores, I2v2 uses 4 vCores, and I3v2 uses 8 vCores per instance.
+> 
 
 ## Virtual network support
 
