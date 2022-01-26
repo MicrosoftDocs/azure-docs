@@ -47,17 +47,17 @@ Text summarization supports the following features:
 
 To use this feature, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are two ways to use text summarization:
 
-### Language studio
+**Language studio**
 
 [Language Studio](https://language.cognitive.azure.com/tryout/summarization) is a web-based platform that enables you to try several Azure Cognitive Service for Language features without needing to write code. use the [language studio quickstart](../language-studio.md) to learn about....
 
-### REST API or Client library (Azure SDK)
+**REST API or Client library (Azure SDK)**
 
 The [text summarization quickstart](quickstart.md) for instructions on making requests to the service using the REST API, or the client library available in a variety of languages.  
 
 <!--[!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]-->
 
-### Deploy on premises using Docker containers
+**Deploy on premises using Docker containers**
 
 *for example only - summarization doesn't have a container*
 
