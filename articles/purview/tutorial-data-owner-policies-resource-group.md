@@ -33,7 +33,7 @@ The subscription or resource group needs to be registered with Azure Purview to 
 
 - [Register multiple sources - Azure Purview](register-scan-azure-multiple-sources.md)
 
-Enable the resource group or subscription for access policies in Azure Purview by setting the the **Data use governance** toggle to enable, as shown in the picture.
+Enable the resource group or subscription for access policies in Azure Purview by setting the **Data use governance** toggle to enable, as shown in the picture.
 
 ![Image shows how to register a data source for policy.](./media/tutorial-access-policies-resource-group/register-resource-group-for-policy.png)
 
@@ -55,4 +55,4 @@ Check the blog and demo related to the capabilities mentioned in this how-to gui
 
 * [What's New in Azure Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
 * [Demo of access policy for Azure Storage](https://www.youtube.com/watch?v=CFE8ltT19Ss)
-* [Enable Azure Purview data owner policies on an Azure Storage account](./how-to-access-policies-storage.md)
+* [Enable Azure Purview data owner policies on an Azure Storage account](./tutorial-data-owner-policies-storage.md)
