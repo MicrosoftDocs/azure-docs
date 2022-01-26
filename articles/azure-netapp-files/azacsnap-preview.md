@@ -409,8 +409,8 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
        
     1. Test the setup with AzAcSnap
        
-       After configuring AzAcSnap (for example, `azacsnap -c configure --configuration new`) with the Oracle connect string (for example, `/@AZACSNAP`), it should be possible to 
-       connect to the Oracle database.
+       After configuring AzAcSnap (for example, `azacsnap -c configure --configuration new`) with the Oracle connect string (for example, `/@AZACSNAP`), it should 
+       be possible to connect to the Oracle database.
        
        Check the `$TNS_ADMIN` variable is set for the correct Oracle target system
        
@@ -447,6 +447,16 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
        > or by exporting it before each run (for example, `export TNS_ADMIN="/home/orasnap/ORACLE19c" ; cd /home/orasnap/bin ; ./azacsnap --configfile ORACLE19c.json 
        > -c backup --volume data --prefix hourly-ora19c --retention 12`)
 
+---
+
+### Configuring the database
+
+This section explains how to configure the data base.
+
+# [Oracle](#tab/oracle)
+
+These are required changes to be applied to the Oracle Database to allow for monitoring by the database administrator. 
+
 1. Set up Oracle alert logging
    
    Use the following Oracle SQL commands while connected to the database as SYSDBA to create a stored procedure under the default Oracle SYSBACKUP database account. 
@@ -471,8 +481,12 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
    SHOW ERRORS
    QUIT
    ```
-       
-### Oracle Database values
+
+---
+
+### Configuring AzAcSnap
+
+This section explains how to configure AzAcSnap for the specified database.
 
 > [!NOTE]
 > Support for Oracle is Preview feature.  
@@ -481,6 +495,8 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
 ### Details of required values
 
 The following sections provide detailed guidance on the various values required for the configuration file.
+
+# [Oracle](#tab/oracle)
 
 #### Oracle Database values for configuration
 
