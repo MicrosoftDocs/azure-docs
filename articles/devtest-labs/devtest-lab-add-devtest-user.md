@@ -2,7 +2,7 @@
 title: Add owners and users
 description: Learn about the Azure DevTest Labs Owner, Contributor, and DevTest Labs User roles, and how to add members to lab roles by using the Azure portal or Azure PowerShell.
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 01/26/2022
 ms.custom: devx-track-azurepowershell
 ---
 
