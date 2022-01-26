@@ -683,6 +683,8 @@
         href: ekarda-tutorial.md
       - name: eKincare
         href: ekincare-tutorial.md
+      - name: eLearnPOSH
+        href: elearnposh-tutorial.md  
       - name: Eli Onboarding
         href: elionboarding-tutorial.md
       - name: Elium
@@ -1306,6 +1308,8 @@
         href: mailgates-tutorial.md
       - name: Manabi Pocket
         href: manabipocket-tutorial.md
+      - name: Manifestly Checklists
+        href: manifestly-checklists-tutorial.md  
       - name: Mapbox
         href: mapbox-tutorial.md
       - name: Mapiq Essentials
@@ -1578,7 +1582,7 @@
         href: people-tutorial.md
       - name: Peoplecart
         href: peoplecart-tutorial.md
-      - name: Perception United States (Non-UltiPro)
+      - name: UltiPro perception
         href: perceptionunitedstates-tutorial.md
       - name: Perceptyx
         href: perceptyx-tutorial.md
@@ -2394,7 +2398,7 @@
         href: ziflow-tutorial.md
       - name: Zip
         href: zip-tutorial.md
-      - name: ZIVVER
+      - name: Zivver
         href: zivver-tutorial.md
       - name: Zoho
         href: zoho-mail-tutorial.md
