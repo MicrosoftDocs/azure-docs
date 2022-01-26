@@ -16,11 +16,11 @@ ms.author: travisw
 
 1. On the **Configure your project** page:
 
-   - For **Name**, enter **Quickstart**. 
-   - For **Package name**, enter **samples.speech.cognitiveservices.microsoft.com**. 
-   - For **Save location**, select a project directory. 
-   - For **Minimum API level**, select **API 23: Android 6.0 (Marshmallow)**. 
-   - Leave the two check boxes clear, and select **Finish**.
+   1. For **Name**, enter **Quickstart**. 
+   1. For **Package name**, enter **samples.speech.cognitiveservices.microsoft.com**. 
+   1. For **Save location**, select a project directory. 
+   1. For **Minimum API level**, select **API 23: Android 6.0 (Marshmallow)**. 
+   1. Leave the two check boxes clear, and select **Finish**.
 
    ![Screenshot of the selections for configuring a project in the wizard.](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-03-create-android-project.png)
 
@@ -49,7 +49,7 @@ Set up your project to use the Speech SDK. Open the **Project Structure** window
 
    ![Screenshot of the Speech SDK in the list of dependencies.](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
 
-1. Select the **Properties** tab. For both **Source Compatibility** and **Target Compatibility**, select **1.9**.
+1. Select the **Properties** tab. For both **Source Compatibility** and **Target Compatibility**, select **1.8**.
 
    ![Screenshot of selections for Source Compatibility and Target Compatibility.](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-09-dependency-added.png)
 
