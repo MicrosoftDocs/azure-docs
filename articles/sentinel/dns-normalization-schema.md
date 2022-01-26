@@ -59,7 +59,7 @@ If your data source supports full DNS logging and you've chosen to log multiple 
 For example, you might modify your query with the following normalization:
 
 ```kql
-imDNS | where SrcIpAddr != "127.0.0.1" and EventSubType == "response"
+_Im_DNS | where SrcIpAddr != "127.0.0.1" and EventSubType == "response"
 ```
 
 ## Parsers
@@ -119,14 +119,14 @@ The following filtering parameters are available:
 For example, to filter only DNS queries from the last day that failed to resolve the domain name, use:
 
 ```kql
-imDns (responsecodename = 'NXDOMAIN', starttime = ago(1d), endtime=now())
+_Im_Dns (responsecodename = 'NXDOMAIN', starttime = ago(1d), endtime=now())
 ```
 
 To filter only DNS queries for a specified list of domain names, use:
 
 ```kql
 let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);
-imDns (domain_has_any = torProxies)
+_Im_Dns (domain_has_any = torProxies)
 ```
 
 ## Normalized content
