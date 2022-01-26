@@ -24,9 +24,9 @@ In this article, learn the steps for defining and publishing a search index. Onc
 
 + An external data source that provides the content to be indexed. You should refer to the data source to understand the schema requirements of your search index. Index creation is largely a schema definition exercise. Before creating one, you should have:
 
-  + A clear idea of which source fields you want to make searchable, retrievable, filterable, facetable, and sortable in the search index (more about this is discussed in [schema checklist](#schema-checklist)).
+  + A clear idea of which source fields you want to make searchable, retrievable, filterable, facetable, and sortable in the search index (see the [schema checklist](#schema-checklist) for guidance).
 
-  + A unique identifier in source data that can be used as the [document key (or ID)](#document-keys) in the index.
+  + A unique field in source data that can be used as the [document key (or ID)](#document-keys) in the index.
 
 + A stable index location. Moving an existing index to a different search service is not supported out-of-the-box. Revisit application requirements and make sure that your existing search service, its capacity and location, are sufficient for your needs.
 
@@ -34,7 +34,7 @@ In this article, learn the steps for defining and publishing a search index. Onc
 
 ## Document keys
 
-A search index has one required field: a document key. A document key is the unique identifier of a search document. In Azure Cognitive Search, it must be a string, and it must originate from unique values in the data source that's providing the content to be indexed. A search service does not generate key values, but in special cases (such as the [Azure Table indexer](search-howto-indexing-azure-tables.md)) it will synthesize existing values to create a unique key for the documents being indexed.
+A search index has one required field: a document key. A document key is the unique identifier of a search document. In Azure Cognitive Search, it must be a string, and it must originate from unique values in the data source that's providing the content to be indexed. A search service does not generate key values, but in some scenarios (such as the [Azure Table indexer](search-howto-indexing-azure-tables.md)) it will synthesize existing values to create a unique key for the documents being indexed.
 
 During incremental indexing, where just new and updated content is indexed, incoming documents with new keys are added, while incoming documents with existing keys are either merged or overwritten, depending on whether index fields are null or populated.
 
@@ -64,11 +64,11 @@ When you're ready to create the index, use a search client that can send the req
 
 During development, plan on frequent rebuilds. Because physical structures are created in the service, [dropping and re-creating indexes](search-howto-reindex.md) is necessary for many modifications. You might consider working with a subset of your data to make rebuilds go faster.
 
-### [**Azure portal**](#tab/index-portal)
+### [**Azure portal**](#tab/portal)
 
 Index design through the portal enforces requirements and schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. 
 
-1. [Sign in to the Azure portal](https://portal.azure.com)
+1. [Sign in to Azure portal](https://portal.azure.com).
 
 1. In the search service Overview page, choose either option for creating a search index: 
 

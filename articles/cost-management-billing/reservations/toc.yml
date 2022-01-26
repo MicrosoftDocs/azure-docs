@@ -72,6 +72,8 @@
       href: prepare-buy-reservation.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: App Service
       href: prepay-app-service.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: JBoss EAP Integrated Support (App Service)
+      href: prepay-jboss-eap-integrated-support-app-service.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cache for Redis reservation
       href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Data Factory

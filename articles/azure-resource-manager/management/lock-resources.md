@@ -58,6 +58,8 @@ Applying locks can lead to unexpected results because some operations that don't
 
 - A cannot-delete lock on a **resource group** prevents **Azure Machine Learning** from autoscaling [Azure Machine Learning compute clusters](../../machine-learning/concept-compute-target.md#azure-machine-learning-compute-managed) to remove unused nodes.
 
+- A read-only lock on a **Log Analytics workspace** prevents **User and Entity Behavior Analytics (UEBA)** from being enabled.
+
 - A read-only lock on a **subscription** prevents **Azure Advisor** from working correctly. Advisor is unable to store the results of its queries.
 
 - A read-only lock on an **Application Gateway** prevents you from getting the backend health of the application gateway. That [operation uses POST](/rest/api/application-gateway/application-gateways/backend-health), which is blocked by the read-only lock.
