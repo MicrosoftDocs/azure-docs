@@ -29,7 +29,7 @@ In this tutorial, you use Azure CLI (command-line interface) and other utilities
 
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-### Set parameter values
+## Set parameter values
 
 The following values are used in subsequent commands to create the database and required resources. Server names need to be globally unique across all of Azure so the $RANDOM function is used to create the server name.
 
@@ -37,13 +37,13 @@ Change the location as appropriate for your environment. Replace `0.0.0.0` with 
 
 :::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" range="4-18":::
 
-### Create a resource group
+## Create a resource group
 
 Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 :::code language="azurecli" source="~/azure_cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh" range="19-21":::
 
-### Create a server
+## Create a server
 
 Create a server with the [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) command.
 
@@ -61,7 +61,7 @@ Create a server with the [az postgres server create](/cli/azure/postgres/server#
 >- The default PostgreSQL version on your server is 9.6. To see all the versions supported, see [Supported PostgreSQL major versions](./concepts-supported-versions.md).
 >- SSL is enabled by default on your server. For more information on SSL, see [Configure SSL connectivity](./concepts-ssl-connection-security.md).
 
-### Configure a server-based firewall rule
+## Configure a server-based firewall rule
 
 Create a firewall rule with the [az postgres server firewall-rule create](/cli/azure/postgre/server/firewall-rule) command to give your local environment access to connect to the server.
 
