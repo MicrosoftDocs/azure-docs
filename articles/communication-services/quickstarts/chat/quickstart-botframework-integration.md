@@ -31,7 +31,7 @@ You will learn how to:
 
 
 
-## Step 1 - Create and deploy a create-communication-resource
+## Step 1 - Create and deploy a bot
 
 In order to use ACS chat as a channel in Azure Bot Service, the first step would be to deploy a bot. To do so one can follow these steps:
 
