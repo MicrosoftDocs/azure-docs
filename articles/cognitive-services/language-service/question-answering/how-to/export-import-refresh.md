@@ -34,7 +34,7 @@ You may want to create a copy of your question answering project or related ques
 
 ### Export a project programmatically
 
-To automate the export process, use the [export functionality of the authoring API](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/how-to/authoring#export-project-metadata-and-assets)
+To automate the export process, use the [export functionality of the authoring API](./authoring.md#export-project-metadata-and-assets)
 
 ## Import a project
 
@@ -52,7 +52,7 @@ To automate the export process, use the [export functionality of the authoring A
 
 ### Import a project programmatically
 
-To automate the import process, use the [import functionality of the authoring API](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/how-to/authoring#import-project)
+To automate the import process, use the [import functionality of the authoring API](./authoring.md#import-project)
 
 ## Refresh source url
 
@@ -68,9 +68,9 @@ To automate the import process, use the [import functionality of the authoring A
 
 ### Refresh a URL programmatically
 
-To automate the URL refresh process, use the [update sources functionality of the authoring API](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/how-to/authoring#update-sources)
+To automate the URL refresh process, use the [update sources functionality of the authoring API](./authoring.md#update-sources)
 
-The update sources example in the [Authoring API docs](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/how-to/authoring#update-sources) shows the syntax for adding a new URL-based source. An example query for an update would be as follows:
+The update sources example in the [Authoring API docs](./authoring.md#update-sources) shows the syntax for adding a new URL-based source. An example query for an update would be as follows:
 
 |Variable name | Value |
 |--------------------------|-------------|
