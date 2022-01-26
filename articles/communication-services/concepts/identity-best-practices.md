@@ -46,7 +46,7 @@ const tokenCredential = new AzureCommunicationTokenCredential({
 
 To correctly implement the token refresher callback, the code must return a string with a valid JSON Web Token (JWT). It's necessary that the returned token is valid (its expiration date is set in the future) at all times. Some platforms, such as JavaScript and .NET, offer a way to abort the refresh operation, and pass `AbortSignal` or `CancellationToken` to your function. It's recommended to accept these objects, utilize them or pass them further.
 
-### Example 1: Refresh token for Communication User
+### Example 1: Refresh token for a Communication User
 
 Let's assume we have a Node.js application built on Express with the `/getToken` endpoint allowing to fetch a new valid token for a user specified by name.
 
@@ -204,6 +204,8 @@ const refreshAadToken = async function (abortSignal, username) {
     }
 }
 ```
+
+---
 
 1. Increase the MSAL's token renewal window to more than 10 minutes
 
