@@ -315,6 +315,8 @@
       href: azacsnap-tips.md
     - name: Troubleshoot AzAcSnap
       href: azacsnap-troubleshoot.md
+    - name: Preview release features of AzAcSnap
+      href: azacsnap-preview.md
     - name: AzAcSnap command reference 
       items: 
       - name: Configure AzAcSnap

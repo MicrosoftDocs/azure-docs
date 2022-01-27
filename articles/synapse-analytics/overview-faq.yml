@@ -32,6 +32,8 @@ sections:
           * Synapse Artifact User
           * Synapse Compute Operator
           * Synapse Credential User
+          * Synapse Linked Data Manager
+          * Synapse User
           
           To secure your Synapse workspace, assign the RBAC Roles to these RBAC scopes:
           * Workspaces
