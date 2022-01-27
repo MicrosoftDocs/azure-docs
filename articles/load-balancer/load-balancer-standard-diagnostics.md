@@ -39,6 +39,7 @@ The various load balancer configurations provide the following metrics:
 
   >[!NOTE]
   >When using distributing traffic from an internal load balancer through an NVA or firewall syn packet, byte count, and packet count metrics are not be available and will show as zero. 
+  >
   >Max and min aggregations are not available for the SYN count, packet count, SNAT connection count, and byte count metrics.
  
 ### View your load balancer metrics in the Azure portal
