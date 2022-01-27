@@ -138,7 +138,8 @@ Remove-AzConnectedMachineExtension -MachineName <arc-server-name> -ResourceGroup
 ---
 
 ### Upgrade on Azure Arc-enabled servers
-To perform a one time upgrade of the agent, use the following PowerShell commands:
+To perform a **one time** upgrade of the agent, use the following PowerShell commands:
+
 # [Windows](#tab/PowerShellWindowsArc)
 ```powershell
 $target = @{"Microsoft.Azure.Monitor.AzureMonitorWindowsAgent" = @{"targetVersion"=<target-version-number>}}
@@ -220,7 +221,7 @@ az connectedmachine extension delete --name AzureMonitorLinuxAgent --machine-nam
 ---
 
 ### Upgrade on Azure Arc-enabled servers
-To perform a one time upgrade of the agent, use the following CLI commands:
+To perform a **one time upgrade** of the agent, use the following CLI commands:
 # [Windows](#tab/CLIWindowsArc)
 ```azurecli
 az connectedmachine upgrade-extension --extension-targets "{\"Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\":{\"targetVersion\":\"<target-version-number>\"}}" --machine-name <arc-server-name> --resource-group <resource-group-name>
