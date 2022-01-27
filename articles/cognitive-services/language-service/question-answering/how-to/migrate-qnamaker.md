@@ -4,15 +4,15 @@ description: Migrate your legacy QnAMaker knowledge bases to custom question ans
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.author: diagarw
-author: DishaAgarwal
-ms.date: 11/02/2021
+ms.author: mbullwin
+author: mrbullwinkle
+ms.date: 01/23/2022
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
 # Migrate from QnA Maker to custom question answering
 
-Custom question answering was introduced in May 2021 with several new features including enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support. Each custom question answering project is equivalent to a knowledge base in QnA Maker. You can easily migrate knowledge bases from a QnA Maker resource to custom question answering projects within a [language resource](https://aka.ms/create-language-resource). You can also choose to migrate knowledge bases from multiple QnA Maker resources to a specific language resource.
+Custom question answering, a feature of Azure Cognitive Service for Language was introduced in May 2021 with several new capabilities including enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support. Each custom question answering project is equivalent to a knowledge base in QnA Maker. You can easily migrate knowledge bases from a QnA Maker resource to custom question answering projects within a [language resource](https://aka.ms/create-language-resource). You can also choose to migrate knowledge bases from multiple QnA Maker resources to a specific language resource.
 
 To successfully migrate knowledge bases, **the account performing the migration needs contributor access to the selected QnA Maker and language resource**. When a knowledge base is migrated, the following details are copied to the new custom question answering project:
 

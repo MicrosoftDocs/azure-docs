@@ -39,7 +39,7 @@ With Front Door you can build, operate, and scale out your dynamic web applicati
 
 Key features included with Front Door:
 
-* Accelerated application performance by using **[split TCP](front-door-routing-architecture.md#splittcp)**-based **[anycast protocol](front-door-routing-architecture.md#anycast)**.
+* Accelerated application performance by using **[split TCP](front-door-traffic-acceleration.md?pivots=front-door-classic#splittcp)**-based **[anycast protocol](front-door-traffic-acceleration.md?pivots=front-door-classic#anycast)**.
 
 * Intelligent **[health probe](front-door-health-probes.md)** monitoring for backend resources.
 
