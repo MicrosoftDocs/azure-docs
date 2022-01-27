@@ -35,6 +35,8 @@
       
   - name: Concepts
     items:
+    - name: Ready safety
+      href: azure-stack-edge-pro-2-safety.md
     - name: Review requirements
       items:
       - name: For Azure Stack Edge
