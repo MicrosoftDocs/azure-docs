@@ -13,7 +13,7 @@ In this quickstart, you learn basic design patterns for speaker recognition by u
 * Speaker identification to identify a voice sample among a group of voices.
 * Deleting voice profiles.
 
-For a high-level look at speaker recognition concepts, see the [overview](../../../speaker-recognition-overview.md) article. See the **Reference** node in the left pane for a list of the supported platforms.
+For a high-level look at speaker recognition concepts, see the [Overview](../../../speaker-recognition-overview.md) article. See the **Reference** node in the left pane for a list of the supported platforms.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ public class Program
 
 ## Text-dependent verification
 
-Speaker verification is the act of confirming that a speaker matches a known, or *enrolled*, voice. The first step is to enroll a voice profile so that the service has something to compare future voice samples against. In this example, you enroll the profile by using a *text-dependent* strategy, which requires a specific passphrase to use for both enrollment and verification. See the [reference docs](/rest/api/speakerrecognition/) for a list of supported passphrases.
+Speaker verification is the act of confirming that a speaker matches a known, or *enrolled*, voice. The first step is to enroll a voice profile so that the service has something to compare future voice samples against. In this example, you enroll the profile by using a *text-dependent* strategy, which requires a specific passphrase to use for enrollment and verification. See the [reference docs](/rest/api/speakerrecognition/) for a list of supported passphrases.
 
 Start by creating the following function in your `Program` class to enroll a voice profile:
 
@@ -104,7 +104,7 @@ public static async Task VerificationEnroll(SpeechConfig config, Dictionary<stri
 }
 ```
 
-In this function, `await client.CreateProfileAsync()` is what actually creates the new voice profile. After it's created, you specify how you'll input audio samples by using `AudioConfig.FromDefaultMicrophoneInput()` in this example to capture audio from your default input device. Next, you enroll audio samples in a `while` loop that tracks the number of samples remaining, and required, for enrollment. In each iteration, `client.EnrollProfileAsync(profile, audioInput)` prompts you to speak the passphrase into your microphone and adds the sample to the voice profile.
+In this function, `await client.CreateProfileAsync()` is what actually creates the new voice profile. After it's created, you specify how you'll input audio samples by using `AudioConfig.FromDefaultMicrophoneInput()` in this example to capture audio from your default input device. Next, you enroll audio samples in a `while` loop that tracks the number of samples remaining, and that are required, for enrollment. In each iteration, `client.EnrollProfileAsync(profile, audioInput)` prompts you to speak the passphrase into your microphone and adds the sample to the voice profile.
 
 After enrollment is finished, call `await SpeakerVerify(config, profile, profileMapping)` to verify against the profile you just created. Add another function to define `SpeakerVerify`.
 
@@ -139,7 +139,7 @@ static async Task Main(string[] args)
 }
 ```
 
-Run the script, and you're prompted to speak the phrase *My voice is my passport, verify me* three times for enrollment, and one more time for verification. The result returned is the similarity score, which you can use to create your own custom thresholds for verification.
+Run the script. You're prompted to speak the phrase "My voice is my passport, verify me" three times for enrollment, and one more time for verification. The result returned is the similarity score, which you can use to create your own custom thresholds for verification.
 
 ```shell
 Enrolling profile id 87-2cef-4dff-995b-dcefb64e203f.
@@ -158,9 +158,7 @@ Verified voice profile for speaker Your Name, score is 0.915581
 
 ## Text-independent verification
 
-In contrast to *text-dependent* verification, *text-independent* verification:
-
-* Doesn't require three audio samples, but it *does* require 20 seconds of total audio.
+In contrast to *text-dependent* verification, *text-independent* verification doesn't require three audio samples but *does* require 20 seconds of total audio.
 
 Make a couple simple changes to your `VerificationEnroll` function to switch to *text-independent* verification. First, you change the verification type to `VoiceProfileType.TextIndependentVerification`. Next, change the `while` loop to track `result.RemainingEnrollmentsSpeechLength`, which will continue to prompt you to speak until 20 seconds of audio have been captured.
 
@@ -225,7 +223,7 @@ Verified voice profile for speaker Your Name, score is 0.849409
 
 ## Speaker identification
 
-Speaker Identification is used to determine *who* is speaking from a given group of enrolled voices. The process is similar to *text-independent verification*. The main difference is the capability to verify against multiple voice profiles at once rather than verifying against a single profile.
+Speaker identification is used to determine *who* is speaking from a given group of enrolled voices. The process is similar to *text-independent verification*. The main difference is the capability to verify against multiple voice profiles at once rather than verifying against a single profile.
 
 Create a function `IdentificationEnroll` to enroll multiple voice profiles. The enrollment process for each profile is the same as the enrollment process for *text-independent verification*. The process requires 20 seconds of audio for each profile. This function accepts a list of strings `profileNames` and will create a new voice profile for each name in the list. The function returns a list of `VoiceProfile` objects, which you use in the next function for identifying a speaker.
 
@@ -300,9 +298,9 @@ static async Task Main(string[] args)
 }
 ```
 
-Run the script, and you're prompted to speak to enroll voice samples for the first profile. After the enrollment is finished, you're prompted to repeat this process for each name in the `profileNames` list. After each enrollment is finished, you're prompted to have *anyone* speak. The service then attempts to identify this person from among your enrolled voice profiles.
+Run the script. You're prompted to speak to enroll voice samples for the first profile. After the enrollment is finished, you're prompted to repeat this process for each name in the `profileNames` list. After each enrollment is finished, you're prompted to have *anyone* speak. The service then attempts to identify this person from among your enrolled voice profiles.
 
-This example returns only the closest match and its similarity score, but you can get the full response that includes the top five similarity scores by adding `string json = result.Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult)` to your `SpeakerIdentification` function.
+This example returns only the closest match and its similarity score. To get the full response that includes the top five similarity scores, add `string json = result.Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult)` to your `SpeakerIdentification` function.
 
 ## Change audio input type
 

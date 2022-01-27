@@ -11,10 +11,9 @@ In this quickstart, you learn basic design patterns for speaker recognition by u
 
 * Text-dependent and text-independent verification.
 * Speaker identification to identify a voice sample among a group of voices.
-
 * Deleting voice profiles.
 
-For a high-level look at speaker recognition concepts, see the [overview](../../../speaker-recognition-overview.md) article. See the **Reference node** in the left pane for a list of the supported platforms.
+For a high-level look at speaker recognition concepts, see the [Overview](../../../speaker-recognition-overview.md) article. See the **Reference node** in the left pane for a list of the supported platforms.
 
 ## Prerequisites
 
@@ -49,7 +48,7 @@ Speaker verification is the act of confirming that a speaker matches a known, or
 
 ### TextDependentVerification function
 
-Start by creating the `TextDependentVerification` function.
+Start by creating the `TextDependentVerification` function:
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="text_dependent_verification":::
 
@@ -65,11 +64,11 @@ You then call two helper functions that you'll define next, `AddEnrollmentsToTex
 
 ### AddEnrollmentsToTextDependentProfile function
 
-Define the following function to enroll a voice profile.
+Define the following function to enroll a voice profile:
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="add_enrollments_dependent":::
 
-In this function, you enroll audio samples in a `while` loop that tracks the number of samples remaining, and required, for enrollment. In each iteration, [EnrollProfileAsync](/cpp/cognitive-services/speech/speaker-voiceprofileclient#enrollprofileasync) prompts you to speak the passphrase into your microphone, and it adds the sample to the voice profile.
+In this function, you enroll audio samples in a `while` loop that tracks the number of samples remaining, and that are required, for enrollment. In each iteration, [EnrollProfileAsync](/cpp/cognitive-services/speech/speaker-voiceprofileclient#enrollprofileasync) prompts you to speak the passphrase into your microphone, and it adds the sample to the voice profile.
 
 ### SpeakerVerify function
 
@@ -83,11 +82,11 @@ Next, [SpeechRecognizer::RecognizeOnceAsync](/cpp/cognitive-services/speech/spee
 
 ## Text-independent verification
 
-In contrast to *text-dependent* verification, *text-independent* verification doesn't require three audio samples, but it *does* require 20 seconds of total audio.
+In contrast to *text-dependent* verification, *text-independent* verification doesn't require three audio samples but *does* require 20 seconds of total audio.
 
 ### TextIndependentVerification function
 
-Start by creating the `TextIndependentVerification` function.
+Start by creating the `TextIndependentVerification` function:
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="text_independent_verification":::
 
@@ -99,11 +98,11 @@ You then call two helper functions: `AddEnrollmentsToTextIndependentProfile`, wh
 
 ### AddEnrollmentsToTextIndependentProfile
 
-Define the following function to enroll a voice profile.
+Define the following function to enroll a voice profile:
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="add_enrollments_independent":::
 
-In this function, you enroll audio samples in a `while` loop that tracks the number of seconds of audio remaining, and required, for enrollment. In each iteration, [EnrollProfileAsync](/cpp/cognitive-services/speech/speaker-voiceprofileclient#enrollprofileasync) prompts you to speak into your microphone, and it adds the sample to the voice profile.
+In this function, you enroll audio samples in a `while` loop that tracks the number of seconds of audio remaining, and that are required, for enrollment. In each iteration, [EnrollProfileAsync](/cpp/cognitive-services/speech/speaker-voiceprofileclient#enrollprofileasync) prompts you to speak into your microphone, and it adds the sample to the voice profile.
 
 ## Speaker identification
 
@@ -111,7 +110,7 @@ Speaker identification is used to determine *who* is speaking from a given group
 
 ### TextIndependentIdentification function
 
-Start by creating the `TextIndependentIdentification` function.
+Start by creating the `TextIndependentIdentification` function:
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="text_independent_indentification":::
 
@@ -137,7 +136,7 @@ Finally, define the `main` function as follows:
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="main":::
 
-This function calls the functions you defined previously. First, though, it creates a [VoiceProfileClient](/cpp/cognitive-services/speech/speaker-voiceprofileclient) object and a [SpeakerRecognizer](/cpp/cognitive-services/speech/speaker-speakerrecognizer) object.
+This function calls the functions you defined previously. First, it creates a [VoiceProfileClient](/cpp/cognitive-services/speech/speaker-voiceprofileclient) object and a [SpeakerRecognizer](/cpp/cognitive-services/speech/speaker-speakerrecognizer) object.
 
 ```
 auto speech_config = GetSpeechConfig();
@@ -145,7 +144,7 @@ auto client = VoiceProfileClient::FromConfig(speech_config);
 auto recognizer = SpeakerRecognizer::FromConfig(speech_config, audio_config);
 ```
 
-The `VoiceProfileClient` is used to create, enroll, and delete voice profiles. The `SpeakerRecognizer` is used to validate speech samples against one or more enrolled voice profiles.
+The `VoiceProfileClient` object is used to create, enroll, and delete voice profiles. The `SpeakerRecognizer` object is used to validate speech samples against one or more enrolled voice profiles.
 
 ## Change audio input type
 
