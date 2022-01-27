@@ -89,9 +89,9 @@ The following image shows a properly configured distributed availability group:
 
 After you complete the steps above, you have configured the distributed availability group.
 
-## Auto failover from primary to secondary instance
+## Manual failover from primary to secondary instance
 
-The following command initiates a failover from the primary instance to the secondary instance. Any pending transactions on the geo-primary instance are replicated over to the geo-secondary disaster recovery instance before the failover. 
+Use `az sql mi-arc dag...` to initiate a failover from primary to secondary. The following command initiates a failover from the primary instance to the secondary instance. Any pending transactions on the geo-primary instance are replicated over to the geo-secondary disaster recovery instance before the failover. 
 
 ```azurecli
 az sql mi-arc dag edit --name <name of DAG> --role secondary --k8s-namespace <namespace> --use-k8s 
