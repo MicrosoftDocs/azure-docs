@@ -12,7 +12,7 @@ ms.author: v-amallick
 
 This article explains how to restore [Azure PostgreSQL databases](../postgresql/overview.md#azure-database-for-postgresql---single-server) to an Azure PostgreSQL server backed-up by Azure Backup.
 
-Being a PaaS database, the Original-Location Recovery (OLR) option to restore by replacing the existing database (from where the backups were taken) isn't supported. You can restore from a recovery point to create a new database in the same Azure PostgreSQL server or in any other PostgreSQL server. This is called Alternate-Location Recovery (ALR) that helps to keep both - the source database and the restored (new) database.
+Being a PaaS database, the Original Location Recovery (OLR) option to restore by replacing the existing database (from where the backups were taken) isn't supported. You can restore from a recovery point to create a new database in the same Azure PostgreSQL server or in any other PostgreSQL server. This is called Alternate-Location Recovery (ALR) that helps to keep both - the source database and the restored (new) database.
 
 In this article, you'll learn how to:
 
@@ -160,7 +160,7 @@ There are various restore options for a PostgreSQL database. You can restore the
 
 #### Restore as database
 
-Construct the Azure Resource Manager ID (ARM ID) of the new PostgreSQL database to be created (with the [target PostgreSQL server to which permissions were assigned](#set-up-permissions)) and the required PostgreSQL database name. For example, a PostgreSQL database can be named **emprestored21** under a target PostgreSQL server **targetossserver** in resource group **targetrg** with a different subscription.
+Construct the Azure Resource Manager ID (ARM ID) of the new PostgreSQL database. You need to create this with the [target PostgreSQL server to which permissions were assigned](#set-up-permissions). Also, construct the required PostgreSQL database name. For example, a PostgreSQL database can be named **emprestored21** under a target PostgreSQL server **targetossserver** in resource group **targetrg** with a different subscription.
 
 ```azurecli
 $targetOssId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/providers/Microsoft.DBforPostgreSQL/servers/targetossserver/databases/emprestored21"
