@@ -253,7 +253,7 @@ You can now test your application. You need to start both your web application a
 1. To call the anonymous API, select the **Or call the ANONYMOUS API**. The API responds with JSON object with `date` key such as:     
 
     ```json
-        {"date":"2022-01-27T14:21:22.681Z"}.
+        {"date":"2022-01-27T14:21:22.681Z"}
     ```
 
 
@@ -267,7 +267,7 @@ You can now test your application. You need to start both your web application a
 1. To call the protected API, select the **Call the PROTECTED API** button. The API responds with JSON object with a `name` key whose value is the user's account surname such as:
 
     ```json
-        {"name": "User 1"}.
+        {"name": "User 1"}
     ``` 
 
 ## Next steps
