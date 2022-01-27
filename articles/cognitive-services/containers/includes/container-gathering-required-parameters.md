@@ -27,4 +27,4 @@ The `{API_KEY}` value is used to start the container and is available on the Azu
 ![Screenshot that shows getting one of the two keys for later use.](../media/keys-copy-api-key.png)
 
 > [!IMPORTANT]
-> These subscription keys are used to access your Cognitive Services API. Don't share your keys. Store them securely. For example, use an Azure Key Vault. We also recommend that you regenerate these keys regularly. Only one key is necessary to make an API call. When you regenerate the first key, you can use the second key for continued access to the service.
+> These subscription keys are used to access your Cognitive Services API. Don't share your keys. Store them securely. For example, use Azure Key Vault. We also recommend that you regenerate these keys regularly. Only one key is necessary to make an API call. When you regenerate the first key, you can use the second key for continued access to the service.
