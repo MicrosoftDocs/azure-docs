@@ -1,7 +1,37 @@
 items:
+- name: Azure Private 5G Core documentation
+  href: index.yml
+- name: Tutorials
+  items:
+  - name: Create an example policy control configuration set
+    href: tutorial-create-example-set-of-policy-control-configuration.md
 - name: Concepts
   items:
-  - name: Distributed tracing
-    href: distributed-tracing.md
-  - name: Packet core dashboards
-    href: packet-core-dashboards.md
+  - name: Policy control
+    href: policy-control.md
+  - name: Local monitoring tools
+    items:
+    - name: Distributed tracing
+      href: distributed-tracing.md
+    - name: Packet core dashboards
+      href: packet-core-dashboards.md
+- name: How-to guides
+  items:
+  - name: Services
+    items:
+    - name: Collect the required information for a service
+      href: collect-required-information-for-service.md
+    - name: Configure a service
+      href: configure-service-azure-portal.md
+  - name: SIM policies
+    items:
+    - name: Collect the required information for a SIM policy
+      href: collect-required-information-for-sim-policy.md
+    - name: Configure a SIM policy
+      href: configure-sim-policy-azure-portal.md
+  - name: SIMs
+    items:
+    - name: Provision SIMs
+      href: provision-sims-azure-portal.md
+    - name: Activate SIMs
+      href: activate-sims.md
