@@ -16,7 +16,7 @@ ms.custom: references_regions
 
 This article describes the security features in Azure Cognitive Search that protect data and operations.
 
-## Data flow and points of entry
+## Data flow (network traffic patterns)
 
 A search service is hosted on Azure and is typically accessed by client applications using public network connections. Understanding the search service's points of entry and network traffic patterns is useful background for setting up development and production environments.
 
@@ -26,15 +26,29 @@ Cognitive Search has three basic network traffic patterns:
 + Outbound requests issued by the search service to other services on Azure and elsewhere
 + Internal service-to-service requests over the secure Microsoft backbone network
 
-Inbound requests range from creating objects, loading data, and querying. For inbound access to data and operations, you can implement a progression of security measures, starting with API keys on the request. You can then supplement with either inbound rules in an IP firewall, or create private endpoints that fully shield your service from the public internet. You can also use Azure Active Directory and role-based access control for data plane operations (currently in preview).
+### Inbound traffic
 
-Outbound requests can include both read and write operations. The primary agent of an outbound call is an indexer and constituent skillsets. For indexers, read operations include [document cracking](search-indexer-overview.md#document-cracking) and data ingestion. An indexer can also write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions. Finally, a skillset can also include custom skills that run external code, for example in Azure Functions or in a web app.
+Inbound requests that target a search service endpoint consist of creating objects, processing data, and querying an index. 
 
-Internal requests include service-to-service calls for tasks like diagnostic logging, encryption, authentication and authorization through Azure Active Directory, private endpoint connections, and requests made to Cognitive Services for built-in skills.
+For inbound access to data and operations on your search service, you can implement a progression of security measures, starting with API keys on the request. You can also use Azure Active Directory and role-based access control for data plane operations (currently in preview). You can then supplement with [network security features](#service-access-and-authentication), either inbound rules in an IP firewall, or private endpoints that fully shield your service from the public internet. 
 
-## Network security
+### Outbound traffic
+
+Outbound requests from a search service to other applications are typically made by indexers. Outbound requests include both read and write operations:
+
++ Indexers connect to external data sources to read data for indexing.
++ Indexers can also write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
++ A custom skill runs external code that's hosted off-service. An indexer sends the request for external processing during skillset execution.
+
+Indexer connections can be made under a managed identity if you're using Azure Active Directory, or a connection string that includes shared access keys or a database login.
+
+### Internal traffic
+
+Internal requests are secured and managed by Microsoft. Internal traffic consists of service-to-service calls for tasks like authentication and authorization through Azure Active Directory, diagnostic logging in Azure Monitor, encryption, private endpoint connections, and requests made to Cognitive Services for built-in skills. 
 
 <a name="service-access-and-authentication"></a>
+
+## Network security
 
 Inbound security features protect the search service endpoint through increasing levels of security and complexity. Cognitive Search uses [key-based authentication](search-security-api-keys.md), where all requests require an API key for authenticated access.
 
@@ -143,7 +157,7 @@ At the storage layer, data encryption is built in for all service-managed conten
 
 In Azure Cognitive Search, encryption starts with connections and transmissions, and extends to content stored on disk. For search services on the public internet, Azure Cognitive Search listens on HTTPS port 443. All client-to-service connections use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) are not supported.
 
-### Encrypted data at rest
+### Data at rest
 
 For data handled internally by the search service, the following table describes the [data encryption models](../security/fundamentals/encryption-models.md). Some features, such as knowledge store, incremental enrichment, and indexer-based indexing, read from or write to data structures in other Azure Services. Those services have their own levels of encryption support separate from Azure Cognitive Search.
 
@@ -153,17 +167,17 @@ For data handled internally by the search service, the following table describes
 | server-side encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in all regions, for content created after January 2019. | Content (indexes and synonym maps) on data disks |
 | server-side double encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in selected regions, on search services after August 1 2020. | Content (indexes and synonym maps) on data disks and temporary disks |
 
-### Service-managed keys
+#### Service-managed keys
 
 Service-managed encryption is a Microsoft-internal operation, based on [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). It occurs automatically on all indexing, including on incremental updates to indexes that are not fully encrypted (created before January 2018).
 
-### Customer-managed keys (CMK)
+#### Customer-managed keys (CMK)
 
 Customer-managed keys require an additional billable service, Azure Key Vault, which can be in a different region, but under the same subscription, as Azure Cognitive Search. Enabling CMK encryption will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30%-60% in query times, although actual performance will vary depending on the index definition and types of queries. Because of this performance impact, we recommend that you only enable this feature on indexes that really require it. For more information, see [Configure customer-managed encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).
 
 <a name="double-encryption"></a>
 
-### Double encryption
+#### Double encryption
 
 In Azure Cognitive Search, double encryption is an extension of CMK. It is understood to be two-fold encryption (once by CMK, and again by service-managed keys), and comprehensive in scope, encompassing long-term storage that is written to a data disk, and short-term  storage written to temporary disks. Double encryption is implemented in services created after specific dates. For more information, see [Double encryption](search-security-manage-encryption-keys.md#double-encryption).
 

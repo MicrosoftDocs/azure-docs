@@ -18004,7 +18004,7 @@
     },
     {
       "source_path_from_root": "/articles/lab-services/classroom-labs/classroom-labs-overview.md",
-      "redirect_url": "/azure/lab-services/get-started-manage-labs",
+      "redirect_url": "/azure/lab-services/lab-services-overview",
       "redirect_document_id": false
     },
     {
@@ -18032,6 +18032,11 @@
       "redirect_url": "/azure/lab-services/class-type-ethical-hacking",
       "redirect_document_id": true
     },
+    {
+      "source_path_from_root": "/articles/lab-services/class-type-ethical-hacking-virtualbox.md",
+      "redirect_url": "/azure/lab-services/class-types",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/lab-services/classroom-labs/class-type-jupyter-notebook.md",
       "redirect_url": "/azure/lab-services/class-type-jupyter-notebook",
@@ -21052,7 +21057,11 @@
       "redirect_url": "/azure/machine-learning/reference-yaml-job-pipeline",
       "redirect_document_id": false
     },
-
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-pipeline-batch-scoring-classification.md",
+      "redirect_url": "/azure/machine-learning/tutorial-pipeline-python-sdk",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-precise-answering.md",
       "redirect_url": "/azure/cognitive-services/language/custom-question-answering/concepts/precise-answering",
