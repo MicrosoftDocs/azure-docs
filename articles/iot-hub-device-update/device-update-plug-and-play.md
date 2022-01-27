@@ -37,21 +37,21 @@ information and status to Device Update services.
 |resultDetails|string|device to cloud|Free form string set by user to provide additional result details. Returned to the twin without parsing||
 |stepResults|map|device to cloud|The result reported by the agent containing result code, extended result code and result details for step updates |                            "step_1": { "resultCode": 0,"extendedResultCode": 0, "resultDetails": ""}|
 |state|integer|device to cloud|It is an integer that indicates the current state of the Device Update Agent. See below for details |0|
-|workflow|complex|device to cloud|It is a set of values that indicates which deployment the agent is currenlty working on, ID of current deployment, and acknowledgement of the any retry request sent from service to agent.|"workflow": {"action": 3,"id": "11b6a7c3-6956-4b33-b5a9-87fdd79d2f01"}|
+|workflow|complex|device to cloud|It is a set of values that indicates which deployment the agent is currenlty working on, ID of current deployment, and acknowledgement of the any retry request sent from service to agent.|"workflow": {"action": 3,"id": "11b6a7c3-6956-4b33-b5a9-87fdd79d2f01","retryTimestamp": "2022-01-26T11:33:29.9680598Z"}|
 |installedUpdateId|string|device to cloud|An ID of the update that is currently installed (through Device Update). This value will be a string capturing the Update Id JSON or null for a device that has never taken an update through Device Update.|installedUpdateID{\"provider\":\"contoso\",\"name\":\"image-update\",\"version\":\"1.0.0\"}"|
 
 
 #### State
 
-It is the status reported by the Device Update Agent after receiving an action from the Device Update Service. `State` is reported in response to an `Action` (see `Actions` below) sent to the Device Update Agent from the Device Update Service. See the [overview workflow](understand-device-update.md#device-update-agent) for requests that flow between the Device Update Service and the Device Update Agent.
+It is the status reported by the Device Update (DU) Agent after receiving an action from the Device Update Service. `State` is reported in response to an `Action` (see `Actions` below) sent to the Device Update Agent from the Device Update Service. See the [overview workflow](understand-device-update.md#device-update-agent) for requests that flow between the Device Update Service and the Device Update Agent.
 
 |Name|Value|Description|
 |---------|-----|-----------|
 |Idle|0|The device is ready to receive an action from the Device Update Service. After a successful update, state is returned to the `Idle` state.|
-|DownloadSucceeded|2|A successful download. This status will only be reported by devices with agent version 0.7.0 or older.|
-|InstallSucceeded|4|A successful install. This status will only be reported by devices with agent version 0.7.0 or older.|
 |DeploymentInprogress|6| A deployment in progress|
 |Failed|255|A failure occurred during updating.|
+|DownloadSucceeded|2|A successful download. This status will only be reported by devices with agent version 0.7.0 or older.|
+|InstallSucceeded|4|A successful install. This status will only be reported by devices with agent version 0.7.0 or older.|
 
 #### Device Properties
 
@@ -96,6 +96,7 @@ IoT Hub Device Twin sample
                     "workflow": {
                         "action": 3,
                         "id": "11b6a7c3-6956-4b33-b5a9-87fdd79d2f01"
+                        "retryTimestamp": "2022-01-26T11:33:29.9680598Z"
                     },
                     "installedUpdateId": "{\"provider\":\"Contoso\",\"name\":\"Virtual-Vacuum\",\"version\":\"5.0\"}"
                 },
@@ -113,7 +114,7 @@ Service Metadata contains fields that the Device Update services uses to communi
 |action|integer|cloud to device|It is an integer that corresponds to an action the agent should perform. Values listed below.|
 |updateManifest|string|cloud to device|Used to describe the content of an update. Generated from the [Import Manifest](import-update.md#create-a-device-update-import-manifest)|
 |updateManifestSignature|JSON Object|cloud to device|A JSON Web Signature (JWS) with JSON Web Keys used for source verification.|
-|fileUrls|Map|cloud to device|Map of `FileHash` to `DownloadUri`. Tells the agent, which files to download and the hash to use to verify the files were downloaded correctly.|
+|fileUrls|Map|cloud to device|Map of `FileID` to `DownloadUrl`. Tells the agent, which files to download and the hash to use to verify the files were downloaded correctly.|
 
 #### Action
 
@@ -121,11 +122,11 @@ Service Metadata contains fields that the Device Update services uses to communi
 
 |Name|Value|Description|
 |---------|-----|-----------|
+|ApplyDeployment|3|Apply the update. It signals to the device to apply the deployed update|
+|Cancel|255|Stop processing the current action and go back to `Idle`. Will also be used to tell the agent in the `Failed` state to go back to `Idle`.|
 |Download|0|Download published content or update and any other content needed. This action will only be sent to devices with agent version 0.7.0 or older.|
 |Install|1|Install the content or update. Typically this means calling the installer for the content or update.This action will only be sent to devices with agent version 0.7.0 or older.|
 |Apply|2|Finalize the update. It signals the system to reboot if necessary.This action will only be sent to devices with agent version 0.7.0 or older.|
-|ApplyDeployment|3|Apply the update. It signals to the device to apply the deployed update|
-|Cancel|255|Stop processing the current action and go back to `Idle`. Will also be used to tell the agent in the `Failed` state to go back to `Idle`.|
 
 ## Device Information Interface
 
@@ -148,4 +149,4 @@ The expected component name in your model is **deviceInformation** when implemen
 
 Model ID is how smart devices advertise their capabilities to Azure IoT applications with IoT Plug and Play.To learn more on how to build smart devices to advertise their capabilities to Azure IoT applications visit [IoT Plug and Play device developer guide](../iot-develop/concepts-developer-guide-device.md).
 
-Device Update for IoT Hub requires the IoT Plug and Play smart device to announce a model ID with a value of **"dtmi:AzureDeviceUpdate;1"** as part of the device connection. [Learn how to announce a model ID](../iot-develop/concepts-developer-guide-device.md#model-id-announcement).
+Device Update for IoT Hub requires the IoT Plug and Play smart device to announce a model ID with a value of **"dtmi:azure:iot:deviceUpdate;1"** as part of the device connection. [Learn how to announce a model ID](../iot-develop/concepts-developer-guide-device.md#model-id-announcement).
