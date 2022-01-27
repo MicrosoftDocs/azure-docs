@@ -21,7 +21,7 @@ Priming the cache improves performance by increasing cache "hits". If a client m
 
 This feature uses a JSON manifest file to specify which files to load. Each priming job takes one manifest file.
 
-Create cache priming jobs by using the Azure Portal, or with the [Azure REST API endpoints](#azure-rest-apis) mentioned at the end of this document.
+Create cache priming jobs by using the Azure portal, or with the [Azure REST API endpoints](#azure-rest-apis) mentioned at the end of this document.
 
 You can create up to 10 priming jobs. Depending on the size of the cache, between three and 10 priming jobs can run at the same time; others are queued until resources free up.
 
@@ -172,7 +172,7 @@ The cache accesses the manifest file once when the priming job starts. The SAS U
 
 ## Create a priming job
 
-Use the Azure portal to create a priming job. View your Azure HPC Cache in the portal and click the **Prime cache** page under the **Settings** heading.
+Use the Azure portal to create a priming job. View your Azure HPC Cache in the portal and select the **Prime cache** page under the **Settings** heading.
 
 ![screenshot of the Priming page in the portal, with several completed jobs.](media/priming-preview.png)
 <!-- to do: screenshot with 'preview' on GUI heading, screenshot with more diverse jobs and statuses -->
@@ -199,7 +199,7 @@ This page shows each job's name, its state, its current status, and summary stat
 
 Click the **...** section at the right of the table to pause or resume a priming job.
 
-To delete a priming job, select it in the list and click the delete control at the top of the table.
+To delete a priming job, select it in the list and use the delete control at the top of the table.
 
 ## Azure REST APIs
 
@@ -260,7 +260,7 @@ BODY:
 
 * How long does a failed or completed priming job stay in the list?
 
-  Priming jobs persist in the list until you delete them. On the portal **Prime cache** page, check the checkbox next to the job and click the **Delete** control at the top of the list.
+  Priming jobs persist in the list until you delete them. On the portal **Prime cache** page, check the checkbox next to the job and select the **Delete** control at the top of the list.
 
 * What happens if the content I’m pre-loading is larger than my cache storage?
 
