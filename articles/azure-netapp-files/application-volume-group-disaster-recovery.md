@@ -150,7 +150,7 @@ The following example adds volumes to an SAP HANA system. The system serves as a
 
     2. For each source volume, click **Replication** and then **Authorize**. Paste the **Resource ID** of each corresponding destination volume. 
 
-## Setup options for replicating an SAP HANA database using HANA system replication for HA  
+## Setup options for replicating an SAP HANA database using HANA system replication for HA
 
 In some situations, you might want to combine an HA setup of HANA system replication with a disaster-recovery (DR) setup using cross-region replication (CRR). Depending on the specific usage pattern and service-level agreement (SLA), two setup options for replication are possible. This section describes the options.  
 
@@ -162,9 +162,9 @@ The following diagram describes this scenario:
 
 [ ![Diagram that shows replication for only the primary HANA database volumes.](../media/azure-netapp-files/replicate-only-primary-database-volumes.png) ](../media/azure-netapp-files/replicate-only-primary-database-volumes.png#lightbox)
 
-In this scenario, a DR setup must include only the volumes of the primary HANA system. With the daily replication of the primary data volume and the log backups, the system can be recovered at the DR site.
+In this scenario, a DR setup must include only the volumes of the primary HANA system. With the daily replication of the primary data volume and the log backups of both the primary and secondary system, the system can be recovered at the DR site. In the diagram, a single volume is used for the log backups of the primary and secondary systems.
 
-In case of a takeover by the secondary HSR host, the data volume won’t be replicated anymore, but log backups of the secondary will continue to be replicated. If a disaster happens, the system at the DR site can still be recovered using the old snapshot backup from the former primary and the replicated log backups from both hosts. RTO will increase because more logs are to be recovered, depending on how long the HSR pair will run in the takeover mode. If the takeover mode is significantly longer and RTO becomes a problem, you need to set up a new CRR replication for the data volume.
+In case of a takeover by the secondary HSR host, the backups taken in the secondary system won’t be replicated, but log backups of the secondary will continue to be replicated. If a disaster happens, the system at the DR site can still be recovered using the old snapshot backup from the former primary and the replicated log backups from both hosts. RTO will increase because more logs are to be recovered, depending on how long the HSR pair will run in the takeover mode. If the takeover mode is significantly longer and RTO becomes a problem, you need to set up a new CRR replication including the data volume of the secondary system.
 
 The workflow for this scenario is identical to the [Add volumes](#add-volumes) workflow.
 
