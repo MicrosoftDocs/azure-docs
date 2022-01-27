@@ -10,8 +10,7 @@ ms.service: iot-hub-device-update
 
 # Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image
 
-Device Update for IoT Hub supports two forms of updates – image-based
-and package-based.
+Device Update for IoT Hub supports image-based, package-based and script-based updates.
 
 Image updates provide a higher level of confidence in the end-state of the device. It is typically easier to replicate the results of an image-update between a pre-production environment and a production environment, since it doesn’t pose the same challenges as packages and their dependencies. Due to their atomic nature, one can also adopt an A/B failover model easily.
 
