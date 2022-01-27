@@ -5,7 +5,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/08/2021
+ms.date: 01/27/2022
 ms.author: alkohli
 ---
 
@@ -47,6 +47,7 @@ The following table provides a summary of known issues in the 2101 release.
 |**7.**|NFS |Applications that use NFS share mounts on your device to write data should use Exclusive write. That ensures the writes are written to the disk.| |
 |**8.**|Compute configuration |Compute configuration fails in network configurations where gateways or switches or routers respond to Address Resolution Protocol (ARP) requests for systems that do not exist on the network.| |
 |**9.**|Compute and Kubernetes |If Kubernetes is set up first on your device, it claims all the available GPUs. Hence, it is not possible to create Azure Resource Manager VMs using GPUs after setting up the Kubernetes. |If your device has 2 GPUs, then you can create 1 VM that uses the GPU and then configure Kubernetes. In this case, Kubernetes will use the remaining available 1 GPU. |
+|**10.**|Alerts related to a signing chain certificates aren't removed from the portal even after uploading new signing chain certificates.|
 
 
 ## Known issues from previous releases
