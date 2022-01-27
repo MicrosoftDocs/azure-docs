@@ -250,7 +250,8 @@ Use the following header to authenticate your request.
 |Key|Value|
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
-
+|`Content-Type` | application/json |
+ 
 ### Request body
 
 Use the following object in your request. The model will be named `MyModel` once training is complete.  
@@ -318,7 +319,7 @@ Once you send the request, you will get the following response. Keep polling thi
 
 Once training is completed, you can deploy your model for predictions. 
 
-Create a **POST** request using the following URL, headers, and JSON body to start deploying a conversational language understanding model.
+Create a **PUT** request using the following URL, headers, and JSON body to start deploying a conversational language understanding model.
 
 
 ### Request URL
@@ -339,7 +340,7 @@ Use the following header to authenticate your request.
 |Key|Value|
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
-
+|`Content-Type` | application/json |
 
 ### Request Body
 
@@ -419,6 +420,7 @@ Use the following header to authenticate your request.
 |Key|Value|
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
+|`Content-Type` | application/json |
 
 ### Request Body
 
