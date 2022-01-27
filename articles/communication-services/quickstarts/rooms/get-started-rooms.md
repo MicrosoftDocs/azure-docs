@@ -11,6 +11,7 @@ ms.date: 11/19/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: mode-other
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 # Quickstart: Create and manage a room resource
 
@@ -24,6 +25,16 @@ This quickstart will help you get started with Azure Communication Services Room
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 
 ## Setting up
+
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [Send SMS with .NET SDK](./includes/rooms-quickstart-net.md)]
+::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [Send SMS with Java SDK](./includes/rooms-quickstart-java.md)]
+::: zone-end
+
 
 ### Create a new C# application
 
