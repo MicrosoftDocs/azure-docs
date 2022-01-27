@@ -137,7 +137,7 @@ items:
       - name: Export data
         href: export-data.md
       - name: De-identified export
-        href: ../data-transformation/de-identified-export.md
+        href: de-identified-export.md
       - name: Move data to Synapse
         href: ../data-transformation/move-to-synapse.md
     - name: Convert data
