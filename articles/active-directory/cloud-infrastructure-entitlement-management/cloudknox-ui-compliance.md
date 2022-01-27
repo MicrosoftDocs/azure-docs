@@ -1,6 +1,6 @@
 ---
-title:  - View information about national, regional, and industry-specific compliance standards in Microsoft CloudKnox Permissions Management
-description: How to view information about national, regional, and industry-specific compliance standards in the Compliance dashboard for Microsoft CloudKnox Permissions Management .
+title: View information about national, regional, and industry-specific compliance standards in Microsoft CloudKnox Permissions Management
+description: How to view information about national, regional, and industry-specific compliance standards in the Compliance dashboard for Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
