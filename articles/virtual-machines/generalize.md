@@ -35,6 +35,14 @@ First you'll deprovision the VM by using the Azure VM agent to delete machine-sp
 4. After the command completes, enter **exit** to close the SSH client.  The VM will still be running at this point.
 
 
+Deallocate the VM that you deprovisioned with `az vm deallocate` so that it can be generalized.
+
+```azurecli-interactive
+az vm deallocate \
+   --resource-group myResourceGroup \
+   --name myVM
+```
+
 Then the VM needs to be marked as generalized on the platform. 
 
 ```azurecli-interactive
