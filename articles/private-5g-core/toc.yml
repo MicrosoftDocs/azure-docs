@@ -9,6 +9,12 @@ items:
   items:
   - name: Policy control
     href: policy-control.md
+  - name: Local monitoring tools
+    items:
+    - name: Distributed tracing
+      href: distributed-tracing.md
+    - name: Packet core dashboards
+      href: packet-core-dashboards.md
 - name: How-to guides
   items:
   - name: Services
