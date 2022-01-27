@@ -177,9 +177,9 @@ For regular data plane operation, these roles can be reduced to a single Azure E
 
 # [Portal](#tab/portal)
 
-Start by navigating to your instance in the Azure portal (you can find the instance by entering its name into the portal search bar). Then complete the following steps.
+Start by navigating to your Azure Digital Twins instance in the Azure portal (you can find the instance by entering its name into the portal search bar). Then complete the following steps.
 
-1. Select **Data history** from the Connect Output section of the instance's menu.
+1. Select **Data history** from the Connect Outputs section of the instance's menu.
     :::image type="content"  source="media/how-to-use-data-history/select-data-history.png" alt-text="Screenshot of the Azure portal showing the data history option in the menu for an Azure Digital Twins instance." lightbox="media/how-to-use-data-history/select-data-history.png":::
 
     Select **Create a connection**. This will begin the process of creating a data history connection.

@@ -9,9 +9,9 @@ ms.author: wolfma
 | Path | Description |
 |:-----|:----|
 | `license.md` | License
-| `ThirdPartyNotices.md` | Third-party notices.
-| `REDIST.txt` | Redistribution notice.
-| `include` | The required header files for C and C++
+| `ThirdPartyNotices.md` | Third-party notices
+| `REDIST.txt` | Redistribution notice
+| `include` | Required header files for C and C++
 | `lib/arm32` | Native library for ARM32 required to link your application
 | `lib/arm64` | Native library for ARM64 required to link your application
 | `lib/x64` | Native library for x64 required to link your application
