@@ -331,7 +331,7 @@ To view the health of your public standard load balancer resources:
 
 3. In the list, select the load balancer resource to view its historical health status.
 
-    :::image type="content" source="(./media/load-balancer-standard-diagnostics/lbhealth4.png" alt-text="Resource health status.":::
+    :::image type="content" source="./media/load-balancer-standard-diagnostics/lbhealth4.png" alt-text="Resource health status.":::
 
    *Figure: Resource health status*
  
