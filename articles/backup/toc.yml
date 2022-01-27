@@ -619,6 +619,8 @@
       href: troubleshoot-archive-tier.md
 - name: Reference
   items:
+  - name: Archived release notes
+    href: backup-release-notes-archived.md
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
   - name: Azure CLI
@@ -644,8 +646,6 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Archived release notes
-    href: backup-release-notes-archived.md
   - name: Compliance
     href: compliance-offerings.md
   - name: Azure Roadmap
