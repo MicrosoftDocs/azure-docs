@@ -17,6 +17,9 @@ ms.date: 10/12/2021
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
 ## January 2022
+- **All Operations are disabled on Stopped Azure Database for MySQL - Flexible Server**
+    Operations on servers that are in a [Stop](concept-servers.md#stopstart-an-azure-database-for-mysql-flexible-server) state are disabled and show as inactive in the Azure portal. Operations that are not supported on stopped servers include changing the pricing tier, number of vCores, storage size or IOPS, backup retention day, server tag, the server password, server parameters, storage auto-grow, GEO backup, HA, and user identity.
+    
 - **Bug fixes**
  
     Restart workflow struck issue with servers with HA and Geo-redundant backup option enabled is fixed. 

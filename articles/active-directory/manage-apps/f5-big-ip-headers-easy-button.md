@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 In this article, you’ll learn to implement Secure Hybrid Access (SHA) with single sign-on (SSO) to header-based applications using F5’s BIG-IP Easy Button Guided Configuration.
 
-Configuring a BIG-IP with Azure Active Directory (Azure AD) provides many benefits, including:
+Enabling BIG-IP published services for Azure Active Directory (Azure AD) SSO provides many benefits, including:
 
   * Improved Zero Trust governance through Azure AD pre-authentication and authorization
 
@@ -31,9 +31,13 @@ To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD i
 
 For this scenario, we have a legacy application using HTTP authorization headers to control access to protected content.
 
-Ideally, application access should be managed directly by Azure AD but being legacy it lacks any form of modern authentication protocol. Modernization would take considerable effort and time, introducing inevitable costs and risk of potential downtime. Instead, a BIG-IP deployed between the public internet and the internal application will be used to gate inbound access to the application.
+Being legacy, the application lacks any form of modern protocols to support a direct integration with Azure AD. Modernizing the app is also costly, requires careful planning, and introduces risk of potential impact. 
 
-Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application.
+One option would be to consider [Azure AD Application Proxy](/azure/active-directory/app-proxy/application-proxy), to gate remote access to the application.
+
+Another approach is to use an F5 BIG-IP Application Delivery Controller, as it too provides the protocol transitioning required to bridge legacy applications to the modern ID control plane.
+
+Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application for both remote and local access.
 
 ## Scenario architecture
 
@@ -47,7 +51,7 @@ The SHA solution for this scenario is made up of:
 
 SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
-![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-ldap/sp-initiated-flow.png)
+![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-header/sp-initiated-flow.png)
 
 | Steps| Description |
 | - |----|
@@ -95,7 +99,9 @@ With the **Easy Button**, admins no longer go back and forth between Azure AD an
 
 ## Register Easy Button
 
-Before a client or service can access Microsoft Graph, it must be trusted by the Microsoft identity platform. Registering with Azure AD establishes a trust relationship between your application and the IdP. BIG-IP must also be registered as a client in Azure AD, before the Easy Button wizard is trusted to access Microsoft Graph.
+Before a client or service can access Microsoft Graph, it must be trusted by the Microsoft identity platform. 
+
+The Easy Button client must also be registered as a client in Azure AD, before it is allowed to establish a trust relationship between each SAML SP instance of a BIG-IP published applications, and the IdP.
 
 1. Sign-in to the [Azure AD portal](https://portal.azure.com/) using an account with Application Administrative rights
 2. From the left navigation pane, select the **Azure Active Directory** service
@@ -120,12 +126,13 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
 
 ## Configure Easy Button
 
-Next, step through the Easy Button configurations, and complete the trust to start publishing the internal application. Start by provisioning your BIG-IP with an X509 certificate that Azure AD can use to sign SAML tokens and claims issued for SHA enabled services.
+Next, step through the Easy Button configurations to federate and publish the internal application. Start by provisioning your BIG-IP with an X509 certificate that Azure AD can use to sign SAML tokens and claims issued for SHA enabled services.
 
 1. From a browser, sign-in to the F5 BIG-IP management console
 2. Navigate to **System > Certificate Management > Traffic Certificate Management SSL Certificate List > Import**
 3. Select **PKCS 12 (IIS)** and import your certificate along with its private key
   Once provisioned, the certificate can be used for every application published through Easy Button. You can also choose to upload a separate certificate for individual applications.
+  
     ![Screenshot for Configure Easy Button- Import SSL certificates and keys](./media/f5-big-ip-easy-button-ldap/configure-easy-button.png)
 
 4. Navigate to **Access > Guided Configuration > Microsoft Integration and select Azure AD Application**
@@ -143,7 +150,6 @@ The **Easy Button** template will display the sequence of steps required to publ
 
 ![Configuration steps flow](./media/f5-big-ip-easy-button-ldap/config-steps-flow.png)
 
-Configuration steps flow
 
 ### Configuration Properties
 
@@ -302,7 +308,7 @@ Enabling SSO allows users to access BIG-IP published services without having to 
 ![Screenshot for SSO and HTTP headers](./media/f5-big-ip-easy-button-header/sso-http-headers.png)
 
 >[!NOTE]
-> The APM session variables defined within curly brackets are CASE sensitive. If you enter EmployeeID when the Azure AD attribute name is being sent as employeeid, it will cause an attribute mapping failure. In case of any issues, troubleshoot using the session analysis steps to check how the APM has variables defined.
+> APM session variables defined within curly brackets are CASE sensitive. If you enter EmployeeID when the Azure AD attribute name is being defined as employeeid, it will cause an attribute mapping failure.
 
 ### Session Management
 
