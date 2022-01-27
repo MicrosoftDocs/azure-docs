@@ -62,7 +62,7 @@ You should receive the following response:
 
 :::code language="json" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tdv_verify_response":::
 
-The `Accept` means the passphrase matched and the verification was successful. The response also contains a similarity score that ranges from 0.0 to 1.0.
+`Accept` means the passphrase matched and the verification was successful. The response also contains a similarity score that ranges from 0.0 to 1.0.
 
 To finish, [delete the voice profile](/rest/api/speakerrecognition/verification/textdependent/deleteprofile).
 
@@ -101,7 +101,7 @@ You should receive the following response:
 
 :::code language="json" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tiv_verify_response":::
 
-The `Accept` means the verification was successful. The response also contains a similarity score that ranges from 0.0 to 1.0.
+`Accept` means the verification was successful. The response also contains a similarity score that ranges from 0.0 to 1.0.
 
 To finish, [delete the voice profile](/rest/api/speakerrecognition/verification/textindependent/deleteprofile).
 

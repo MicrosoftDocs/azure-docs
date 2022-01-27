@@ -33,7 +33,7 @@ Depending on the target environment, use one of the following:
 
 # [script](#tab/script)
 
-Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Speech SDK for JavaScript </a> *microsoft.cognitiveservices.speech.sdk.bundle.js* file, and place it in a folder accessible to your HTML file.
+Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Speech SDK for JavaScript </a> *microsoft.cognitiveservices.speech.sdk.bundle.js* file. Place it in a folder accessible to your HTML file.
 
 ```html
 <script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
@@ -48,7 +48,7 @@ Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" targ
 import * from "microsoft-cognitiveservices-speech-sdk";
 ```
 
-For more information on `import`, see <a href="https://javascript.info/import-export" target="_blank">export and import </a>.
+For more information on `import`, see <a href="https://javascript.info/import-export" target="_blank">Export and import</a>.
 
 # [require](#tab/require)
 
@@ -123,7 +123,7 @@ In contrast to *text-dependent* verification, *text-independent* verification:
 
 ### TextIndependentVerification function
 
-Start by creating the `TextIndependentVerification` function:
+Start by creating the `TextIndependentVerification` function.
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="text_independent_verification":::
 
@@ -147,7 +147,7 @@ Speaker identification is used to determine *who* is speaking from a given group
 
 ### TextIndependentIdentification function
 
-Start by creating the `TextIndependentIdentification` function:
+Start by creating the `TextIndependentIdentification` function.
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/speech/speaker-recognition.js" id="text_independent_indentification":::
 
