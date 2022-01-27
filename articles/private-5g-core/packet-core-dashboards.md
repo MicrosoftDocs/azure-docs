@@ -15,9 +15,9 @@ The packet core dashboards provide a flexible way to monitor key statistics rela
 
 The packet core dashboards are powered by Grafana, an open-source, metric analytics and visualization suite. For more information on Grafana, see [https://grafana.com/docs/](https://grafana.com/docs/).
 
-## Using the packet core dashboards
+## Use the packet core dashboards
 
-We'll go through the common concepts and operations you'll need to understand to use the packet core dashboards. If you need more information on using Grafana, see [https://grafana.com/docs/](https://grafana.com/docs/).
+We'll go through the common concepts and operations you'll need to understand before you can use the packet core dashboards. If you need more information on using Grafana, see [https://grafana.com/docs/](https://grafana.com/docs/).
 
 ### Dashboards
 

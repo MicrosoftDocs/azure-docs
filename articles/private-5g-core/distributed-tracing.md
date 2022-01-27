@@ -22,7 +22,7 @@ If you can't see the **Search** heading, select on the **Search** button in the 
 - **SUPI** - Allows you to search for activity involving a particular subscriber using their Subscription Permanent Identifier (SUPI). This tab also provides an Errors panel, which allows you to filter the results by error condition. To search for activity for a particular subscriber, enter all of the initial digits of the subscriber's SUPI into the text box on the **SUPI search** panel.
 - **Errors** - Allows you to search for error condition occurrences across all subscribers. To search for occurrences of error conditions across all subscribers, select the **Errors** tab and then use the drop-down menus on the **Error** panel to select an error category and, optionally, a specific error.
 
-  :::image type="content" source="media\distributed-tracing\distributed-tracing-search-display.png" alt-text="Search display in the distributed tracing web GUI, showing the SUPI and Errors tabs.":::
+  :::image type="content" source="media\distributed-tracing\distributed-tracing-search-display.png" alt-text="Screenshot of the Search display in the distributed tracing web GUI, showing the SUPI and Errors tabs.":::
 
 Both tabs also provide a **Date/time range** panel that allows you to specify a custom time window in which to search for diagnostics data. You can specify this time window in several ways.
 
@@ -48,13 +48,17 @@ When you select on a specific result, the display shows the following tabs conta
 > [!NOTE] 
 > In addition to the tabs described below, the distributed tracing web GUI also includes a **User Experience** tab. This tab is not used by Azure Private 5G Core Preview and will not display any information.
 
+### Summary view
+
 The **Summary** view displays a description of the flow or error.
 
-:::image type="content" source="media\distributed-tracing\distributed-tracing-summary-view.png" alt-text="The Summary view of the distributed tracing web GUI, providing detailed information on a Successful PDU Session Establishment record.":::
+:::image type="content" source="media\distributed-tracing\distributed-tracing-summary-view.png" alt-text="Screenshot of the Summary view of the distributed tracing web GUI, providing detailed information on a Successful PDU Session Establishment record.":::
+
+### Detailed Timeline view
 
 The **Detailed Timeline** view shows the sequence of operations and events that occurred during the flow or error.
 
-:::image type="content" source="media\distributed-tracing\distributed-tracing-detailed-timeline.png" alt-text="The Detailed Timeline view of the distributed tracing web GUI, providing a list of messages sent between Network Functions and other components.":::
+:::image type="content" source="media\distributed-tracing\distributed-tracing-detailed-timeline.png" alt-text="Screenshot of the Detailed Timeline view of the distributed tracing web GUI. It shows messages sent between Network Functions and other components.":::
 
 Each entry in the list shows summary information for a specific event that occurred during the flow or error. Each entry includes the date and time at which the event occurred and the name of the component on which it occurred. When you select a specific entry in this list, the panel at the bottom of the screen provides more detail about the selected event.
 
@@ -65,9 +69,11 @@ The **Events to be viewed** drop-down list allows you to control the level of ev
 - **Detailed events** - includes the network protocol messages and more fine-grained detail of events.
 - **Engineering level events** - provides a detailed listing of internal events, typically for use by Microsoft personnel.
 
+### Call Flow view
+
 The **Call Flow** view shows the sequence of messages flowing between components during the course of the flow or error.
 
-:::image type="content" source="media\distributed-tracing\distributed-tracing-call-flow.png" alt-text="Screenshot of the Call Flow view of the distributed tracing web GUI. It shows the messages exchanged during a Successful PDU Session Establishment.":::
+:::image type="content" source="media\distributed-tracing\distributed-tracing-call-flow.png" alt-text="Screenshot of the Call Flow view of the distributed tracing web GUI. It shows the messages exchanged during a Successful PDU Session Establishment." lightbox="media\distributed-tracing\distributed-tracing-call-flow.png":::
 
 The vertical lines in the diagram show the network components involved in the flow.
 
@@ -83,7 +89,11 @@ You can customize the view by showing or hiding individual columns and giving th
 - The **Show messages within group** option shows any messages between group members as arrows that loop back on themselves to their originating column.
 - The **Set annotation** option allows you to enter a new display name for the column.
 
-You can revert to the default display options using the **Options** menu (select the white cogwheel on a blue background at the top-right-hand corner of the view window). Choose **Colors, styles and annotations -> Revert to default** to clear your custom display names, choose **Visibility -> Show all** to restore columns you've previously hidden from view, and choose **Column grouping -> Ungroup all** to separate columns you've previously grouped.
+You can revert to the default display options using the **Options** menu. You can access this menu by selecting the white cogwheel on a blue background at the top-right-hand corner of the view window. You can take the following actions.
+
+- Choose **Colors, styles and annotations -> Revert to default** to clear your custom display names.
+- Choose **Visibility -> Show all** to restore columns you've previously hidden from view. 
+- Choose **Column grouping -> Ungroup all** to separate columns you've previously grouped.
 
 A horizontal line in the diagram shows each individual signaling message flowing between two network components. An arrow indicates the direction of flow from the sending to the receiving component.
 
@@ -101,6 +111,8 @@ Different colors and line styles (dashed, dotted, and so on) for horizontal line
 The messages appear in the diagram in the order in which they occurred. An axis break on all of the vertical lines in the diagram between two consecutive messages indicates a gap of 10 seconds or more occurred between these two messages.
 
 If the call flow diagram is too large to fit in the browser window, you can use the vertical and horizontal scrollbars to move around the display.
+
+## Viewing help information
 
 To view help information, select on the **Options** symbol in the top-right corner and choose **Help**. The help information appears in a panel at the bottom of the display. To hide this panel, select on the **X** symbol at the top-right corner of the panel.
 
