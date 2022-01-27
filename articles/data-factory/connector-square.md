@@ -20,7 +20,7 @@ This article outlines how to use the Copy Activity in an Azure Data Factory or S
 > This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
 
 > [!Note]
-> Currently, Square Sandbox account is not supported in this connector.
+> Currently, Square Sandbox accounts are not supported in this connector.
 
 ## Supported capabilities
 
