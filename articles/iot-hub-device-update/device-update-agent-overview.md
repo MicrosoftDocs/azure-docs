@@ -20,13 +20,13 @@ allowing for messaging to flow between the Device Update Agent and Device Update
 
 ## The Interface Layer
 
-The Interface layer is made up of the [ADU Core Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/adu_core_interface) and the [Device Information Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/device_info_interface).
+The Interface layer is made up of the [Device Update Core Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/adu_core_interface) and the [Device Information Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/device_info_interface).
 
 These interfaces rely on a configuration file for the device specific values that need to be reported to the Device Update services. [Learn More](device-update-configuration-file.md) about the configuration file.
 
-### ADU Core Interface
+### Device Update Core Interface
 
-The 'ADU Core' interface is the primary communication channel between Device Update Agent and Services. [Learn More](device-update-plug-and-play.md#adu-core-interface) about this interface.
+The 'DeviceUpdate Core' interface is the primary communication channel between Device Update Agent and Services. [Learn More](device-update-plug-and-play.md#device-update-core-interface) about this interface.
 
 ### Device Information Interface
 
@@ -55,7 +55,7 @@ We have added many new capabilities to the Device Update agent in the latest Pub
 
 If you are using the Device Update agent versions 0.6.0 or 0.7.0 please upgrade to the latest agent version 0.8.0. See [Public Preview Refresh agent for changes and how to upgrade](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/upgrade-guide.md)
 
-You can check installed version of the Device Update agent and the Delivery Optimization agent in the Device Properties section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). [Learn more about device properties under ADU Core Interface](device-update-plug-and-play.md#device-properties).
+You can check installed version of the Device Update agent and the Delivery Optimization agent in the Device Properties section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). [Learn more about device properties under Device Update Core Interface](device-update-plug-and-play.md#device-properties).
 
 ## Next Steps
 [Understand Device Update agent configuration file](device-update-configuration-file.md)
