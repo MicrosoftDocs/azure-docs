@@ -161,8 +161,6 @@
         href: av2-series.md
       - name: B-series burstable
         href: sizes-b-series-burstable.md
-      - name: DCasv5 and DCadsv5-series
-        href: dcasv5-dcadsv5-series.md
       - name: DCsv2-series
         href: dcv2-series.md
       - name: DCsv3 and DCdsv3-series
@@ -536,7 +534,7 @@
         - name: Windows
           displayName: Image builder, images, building, PowerShell
           href: ./windows/image-builder-powershell.md
-        - name: Windows Virtual Desktop
+        - name: Azure Virtual Desktop
           href: ./windows/image-builder-virtual-desktop.md
       - name: Security
         items:
