@@ -2,6 +2,7 @@ items:
 - name: Azure Private 5G Core documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure Private 5G Core?
     href: private-5g-core-overview.md
@@ -39,6 +40,10 @@ items:
       href: how-to-guide-deploy-a-private-mobile-network-azure-portal.md
     - name: Delete a private mobile network - Azure portal
       href: delete-private-mobile-network.md
+  - name: Sites
+    items:
+    - name: Create an additional site
+      href: create-an-additional-site.md
   - name: Services
     items:
     - name: Collect the required information for a service
@@ -57,4 +62,12 @@ items:
       href: provision-sims-azure-portal.md
     - name: Activate SIMs
       href: activate-sims.md
+- name: Reference
+  items:
+   - name: REST API documentation
+     href: /rest/api/private-5g-core
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=databases
 
