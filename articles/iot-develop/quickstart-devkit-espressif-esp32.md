@@ -234,4 +234,4 @@ As a next step, explore the following articles to learn more about working with 
 > [!div class="nextstepaction"]
 > [Azure RTOS embedded development quickstarts](quickstart-devkit-mxchip-az3166.md)
 > [!div class="nextstepaction"]
-> [Azure IoT device development documentation](/azure/iot-develop/)
+> [Azure IoT device development documentation](./index.yml)

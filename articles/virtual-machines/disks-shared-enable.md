@@ -4,7 +4,7 @@ description: Configure an Azure managed disk with shared disks so that you can s
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/01/2021
+ms.date: 01/13/2022
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -266,6 +266,31 @@ Before using the following template, replace `[parameters('dataDiskName')]`, `[r
 [Zonal shared ultra disks template](https://aka.ms/SharedUltraDiskARMtemplateZonal)
 
 ---
+
+## Share an existing disk
+
+To share an existing disk, or update how many VMs it can mount to, set the `maxShares` parameter with either the Azure PowerShell module or Azure CLI. You can also set `maxShares` to 1, if you want to disable sharing.
+
+> [!IMPORTANT]
+> The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs. See the [Disk sizes](#disk-sizes) for the allowed values for `maxShares`.
+> Before detaching a disk, record the LUN ID for when you re-attach it.
+
+### PowerShell
+
+```azurepowershell
+$datadiskconfig = Get-AzDisk -DiskName "mySharedDisk"
+$datadiskconfig.maxShares = 3
+
+Update-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $datadiskconfig
+```
+
+### CLI
+
+```azurecli
+#Modifying a disk to enable or modify sharing configuration
+
+az disk update --name mySharedDisk --max-shares 5
+```
 
 ## Using Azure shared disks with your VMs
 

@@ -421,7 +421,10 @@ When Azure Container Registry is behind the virtual network, Azure Machine Learn
 1. To update the workspace to use the compute cluster to build Docker images. Replace `docs-ml-rg` with your resource group. Replace `docs-ml-ws` with your workspace. Replace `cpu-cluster` with the compute cluster to use:
 
     ```azurecli-interactive
-    az ml workspace update -g docs-ml-rg -w docs-ml-ws --image-build-compute cpu-cluster
+    az ml workspace update \
+        -g docs-ml-rg \
+        --name docs-ml-ws \
+        --image-build-compute cpu-cluster
     ```
 
     > [!NOTE]

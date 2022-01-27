@@ -90,7 +90,7 @@ When you create a load test in the Azure portal, or you use a [YAML test configu
 > [!NOTE]
 > If you run a load test as part of your CI/CD process, you might also use the related secret store. Skip to [Use the CI/CD secret store](#cicd_secrets).
 
-1. [Add the secret to your key vault](/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault), if you haven't already done so.
+1. [Add the secret to your key vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault), if you haven't already done so.
 
 1. Retrieve the key vault secret identifier for your secret. You'll use this secret identifier to configure your load test.
 
@@ -151,7 +151,7 @@ If you're using Azure Load Testing in your CI/CD workflow, you can also use the 
         [
             {
             "name": "appToken",
-            "value": "${{ secrets.MY_SECRET }}",
+            "value": "${{ secrets.MY_SECRET }}"
             }
         ]
     ```
@@ -169,7 +169,7 @@ If you're using Azure Load Testing in your CI/CD workflow, you can also use the 
           [
               {
               "name": "appToken",
-              "value": "$(mySecret)",
+              "value": "$(mySecret)"
               }
           ]
     ```
@@ -255,7 +255,7 @@ The following YAML snippet shows a GitHub Actions example:
     [
         {
         "name": "webapp",
-        "value": "myapplication.contoso.com",
+        "value": "myapplication.contoso.com"
         }
     ]
 ```
@@ -273,7 +273,7 @@ The following YAML snippet shows an Azure Pipelines example:
       [
           {
           "name": "webapp",
-          "value": "myapplication.contoso.com",
+          "value": "myapplication.contoso.com"
           }
       ]
 ```

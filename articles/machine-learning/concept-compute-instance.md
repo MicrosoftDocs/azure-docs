@@ -110,7 +110,7 @@ You can also **[use a setup script (preview)](how-to-create-manage-compute-insta
 To create a compute instance for yourself, use your workspace in Azure Machine Learning studio, [create a new compute instance](how-to-create-manage-compute-instance.md?tabs=azure-studio#create) from either the **Compute** section or in the **Notebooks** section when you are ready to run one of your notebooks.
 
 You can also create an instance
-* Directly from the [integrated notebooks experience](tutorial-train-models-with-aml.md#azure)
+* Directly from the [integrated notebooks experience](tutorial-train-deploy-notebook.md#azure)
 * In Azure portal
 * From Azure Resource Manager template. For an example template, see the [create an Azure Machine Learning compute instance template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
 * With [Azure Machine Learning SDK](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/concept-compute-instance.md)

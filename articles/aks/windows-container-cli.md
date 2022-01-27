@@ -119,21 +119,10 @@ az aks nodepool add \
 
 The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `az aks create`.
 
-## Optional: Using `containerd` with Windows Server node pools (preview)
+## Optional: Using `containerd` with Windows Server node pools
 
-Beginning in Kubernetes version 1.20 and greater, you can specify `containerd` as the container runtime for Windows Server 2019 node pools.
+Beginning in Kubernetes version 1.20 and greater, you can specify `containerd` as the container runtime for Windows Server 2019 node pools.  From Kubernetes 1.23, containerd will be the default container runtime for Windows.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-You will need the *aks-preview* Azure CLI extension version 0.5.24 or greater. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 > [!IMPORTANT]
 > When using `containerd` with Windows Server 2019 node pools:
@@ -141,25 +130,8 @@ az extension update --name aks-preview
 > - When creating or updating a node pool to run Windows Server containers, the default value for *node-vm-size* is *Standard_D2s_v3* which was minimum recommended size for Windows Server 2019 node pools prior to Kubernetes 1.20. The minimum recommended size for Windows Server 2019 node pools using `containerd` is *Standard_D4s_v3*. When setting the *node-vm-size* parameter, please check the list of [restricted VM sizes][restricted-vm-sizes].
 > - It is highly recommended that you use [taints or labels][aks-taints] with your Windows Server 2019 node pools running `containerd` and tolerations or node selectors with your deployments to guarantee your workloads are scheduled correctly.
 
-Register the `UseCustomizedWindowsContainerRuntime` feature flag using the [az feature register][az-feature-register] command as shown in the following example:
 
-```azurecli
-az feature register --namespace "Microsoft.ContainerService" --name "UseCustomizedWindowsContainerRuntime"
-```
-
-You can check on the registration status using the [az feature list][az-feature-list] command:
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedWindowsContainerRuntime')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the Microsoft.ContainerService resource provider using the [az provider register][az-provider-register] command:
-
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```
-
-### Add a Windows Server node pool with `containerd` (preview)
+### Add a Windows Server node pool with `containerd` 
 
 Use the `az aks nodepool add` command to add an additional node pool that can run Windows Server containers with the `containerd` runtime.
 
@@ -180,7 +152,7 @@ az aks nodepool add \
 
 The above command creates a new Windows Server node pool using `containerd` as the runtime named *npwcd* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `az aks create`.
 
-### Upgrade an existing Windows Server node pool to `containerd` (preview)
+### Upgrade an existing Windows Server node pool to `containerd`
 
 Use the `az aks nodepool upgrade` command to upgrade a specific node pool from Docker to `containerd`.
 

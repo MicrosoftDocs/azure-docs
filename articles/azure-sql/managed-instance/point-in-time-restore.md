@@ -8,9 +8,9 @@ ms.subservice: backup-restore
 ms.custom: devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
-author: Misliplavo
+author: MilanMSFT
 ms.author: mlazic
-ms.reviewer: mathoma
+ms.reviewer: mathoma, nvraparl 
 ms.date: 08/25/2019
 ---
 # Restore a database in Azure SQL Managed Instance to a previous point in time
@@ -40,7 +40,7 @@ The following table shows point-in-time restore scenarios for SQL Managed Instan
 
 |           |Restore existing DB to the same instance of SQL Managed Instance| Restore existing DB to another SQL Managed Instance|Restore dropped DB to same SQL Managed Instance|Restore dropped DB to another SQL Managed Instance|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure portal**| Yes|No |Yes|No|
+|**Azure portal**| Yes|Yes|Yes|Yes|
 |**Azure CLI**|Yes |Yes |No|No|
 |**PowerShell**| Yes|Yes |Yes|Yes|
 

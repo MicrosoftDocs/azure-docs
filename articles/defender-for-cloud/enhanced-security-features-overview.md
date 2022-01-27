@@ -11,7 +11,7 @@ ms.date: 11/14/2021
 
 The enhanced security features are free for the first 30 days. At the end of 30 days, if you decide to continue using the service, we'll automatically start charging for usage.
 
-You can upgrade from the **Environment settings** page, as described in [Quickstart: Enable enhanced security features](enable-enhanced-security.md). For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+You can upgrade from the **Environment settings** page, as described in [Quickstart: Enable enhanced security features](enable-enhanced-security.md). For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 :::image type="content" source="media/enhanced-security-features-overview/defender-plans-top.png" alt-text="Enabling Microsoft Defender for Cloud's enhanced security features.":::
 
@@ -132,5 +132,5 @@ If the workspace is in the legacy Per Node pricing tier, the Defender for Cloud 
 This article explained Defender for Cloud's pricing options. For related material, see:
 
 - [How to optimize your Azure workload costs](https://azure.microsoft.com/blog/how-to-optimize-your-azure-workload-costs/)
-- [Pricing details according to currency or region](https://azure.microsoft.com/pricing/details/security-center/)
+- [Pricing details according to currency or region](https://azure.microsoft.com/pricing/details/defender-for-cloud/)
 - You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents. Use [solution targeting](../azure-monitor/insights/solution-targeting.md) to apply a scope to the solution and target a subset of computers in the workspace. If you're using solution targeting, Defender for Cloud lists the workspace as not having a solution.

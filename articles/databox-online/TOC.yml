@@ -42,15 +42,16 @@
       - name: For Azure Stack Edge Blob storage
         href: azure-stack-edge-placeholder.md
     - name: Understand limits
-      href: azure-stack-edge-limits.md 
+      href: azure-stack-edge-placeholder.md 
     - name: Security overview
-      href: azure-stack-edge-security.md
+      href: azure-stack-edge-placeholder.md
     - name: Review specifications
       items:
       - name: Device specifications
-        href: azure-stack-edge-placeholder.md
+        href: azure-stack-edge-pro-2-technical-specifications-compliance.md
       - name: Power cord specifications
         href: azure-stack-edge-placeholder.md
+        
 - name: Azure Stack Edge Pro - GPU
   items:
   - name: Overview
@@ -101,7 +102,8 @@
         href: azure-stack-edge-gpu-technical-specifications-compliance.md
       - name: Power cord specifications
         href: azure-stack-edge-technical-specifications-power-cords-regional.md
-
+    - name: FAQ - Billing model
+      href: azure-stack-edge-gpu-faq-billing-model.yml
 - name: Azure Stack Edge Pro R
   items:
   - name: Overview
