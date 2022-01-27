@@ -278,7 +278,7 @@ After the move, follow the below steps to clear the old identities, and create n
     az account get-access-token
     ```
 
-1. Command to disable all managed identities (user and system assigned managed identities):
+1. Run the following bash command to disable all managed identities (user and system assigned managed identities):
 
     > [!IMPORTANT]
     > Be sure to replace these values in the below commands:
@@ -291,13 +291,13 @@ After the move, follow the below steps to clear the old identities, and create n
     curl 'https://management.azure.com/subscriptions/<Subscription_Id>/resourceGroups/<Resource_Group_Name>/providers/Microsoft.Purview/accounts/<Account_Name>?api-version=2021-07-01' -X PATCH -d'{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H "Authorization:Bearer <Access_Token>"
     ```
 
-1. Command to enable system assigned managed identity (SAMI):
+1. To enable your new system managed assigned identity (SAMI), run the following bash command:
   
     ```bash
     curl 'https://management.azure.com/subscriptions/<Subscription_Id>/resourceGroups/<Resource_Group_Name>/providers/Microsoft.Purview/accounts/<Account_Name>?api-version=2021-07-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H "Authorization:Bearer <Access_Token>"
     ```
 
-1. If you had a user assigned managed identity (UAMI), register your UAMI in Azure Purview as you did originally by following [the steps from the manage credentials article](manage-credentials.md#create-a-user-assigned-managed-identity).
+1. If you had a user assigned managed identity (UAMI), to enable one on your new tenant, register your UAMI in Azure Purview as you did originally by following [the steps from the manage credentials article](manage-credentials.md#create-a-user-assigned-managed-identity).
 
 ## Next steps
 
