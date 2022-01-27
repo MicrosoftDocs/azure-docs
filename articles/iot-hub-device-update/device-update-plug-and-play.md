@@ -18,7 +18,7 @@ Concepts:
 
 ## Device Update Core Interface
 
-The 'DeviceUpdateCoreInterface' interface is used to send update actions and metadata to devices and receive update status from devices. The 'DU Core' interface is split into two Object properties.
+The 'DeviceUpdateCore' interface is used to send update actions and metadata to devices and receive update status from devices. The 'DeviceUpdateCore' interface is split into two Object properties.
 
 The expected component name in your model is **"deviceUpdate"** when implementing this interface. [Learn more about Azure IoT Plug and Play Components](../iot-develop/concepts-modeling-guide.md)
 
