@@ -1,0 +1,50 @@
+### YamlMime:Landing
+
+title: Azure Private 5G Core Preview documentation
+summary: Learn how to securely deploy and manage private mobile networks for 5G Internet of Things (IoT) devices using Azure Private 5G Core Preview.
+
+metadata:
+  title: Azure Private 5G Core Preview documentation
+  description: Learn how to securely deploy and manage private mobile networks for 5G Internet of Things (IoT) devices using Azure Private 5G Core Preview.
+  ms.service: private-5g-core
+  ms.topic: landing-page
+  author: djrmetaswitch
+  ms.author: drichards
+  ms.date: 01/24/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Customize Quality of Service (QoS) and traffic control
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Policy control
+            url: policy-control.md
+      - linkListType: tutorial
+        links:
+          - text: Create an example policy control configuration set
+            url: tutorial-create-example-set-of-policy-control-configuration.md
+      - linkListType: how-to-guide
+        links:
+          - text: Collect the required information for a service
+            url: collect-required-information-for-service.md
+          - text: Configure a service
+            url: configure-service-azure-portal.md
+          - text: Collect the required information for a SIM policy
+            url: collect-required-information-for-sim-policy.md
+          - text: Configure a SIM policy
+            url: configure-sim-policy-azure-portal.md
+
+  # Card
+  - title: Provision SIMs
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Provision SIMs
+            url: provision-sims-azure-portal.md
+          - text: Activate SIMs
+            url: activate-sims.md
