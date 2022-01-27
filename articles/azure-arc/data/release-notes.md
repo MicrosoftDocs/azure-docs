@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 12/16/2021
+ms.date: 01/27/2022
 ms.topic: conceptual
 ms.custom: references_regions
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
@@ -16,6 +16,26 @@ ms.custom: references_regions
 # Release notes - Azure Arc-enabled data services
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
+
+## January 2022
+
+This release is published January 27, 2022.
+
+### Data controller
+
+- Initiate an upgrade of the data controller from the portal in the direct connected mode
+- Removed block on data controller upgrade if there are Azure Arc-enabled SQL Managed Instance business critical instances that exist
+- Better handling of delete user experiences in Azure portal
+
+### SQL Managed Instance
+
+- Azure Arc-enabled SQL Managed Instance business critical instances can be upgraded from the January release and going forward (preview)
+- Business critical distributed availability group failover can now be done through a Kubernetes-native experience or the Azure CLI (indirect mode only) (preview)
+- Added support for `LicenseType: DisasterRecovery` which will ensure that instances which are used for business critical distributed availability group secondary replicas:
+    - Are not billed for
+    - Automatically seed the system databases from the primary replica when the distributed availability group is created. (preview)
+- New option added to `desiredVersion` called `auto` - automatically upgrades a given SQL instance when there is a new upgrade available (preview)
+- Update the configuration of SQL instances using Azure CLI in the direct connected mode
 
 ## December 2021
 
