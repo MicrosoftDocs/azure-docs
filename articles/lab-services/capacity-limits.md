@@ -53,7 +53,7 @@ Before you set up a large number of VMs across your labs, we recommend that you 
 
 ## Next steps
 
-See the following article:
+See the following articles:
 
 - [Administrator Guide - VM sizing](administrator-guide.md#vm-sizing).
 - [Frequently asked questions](classroom-labs-faq.yml).
