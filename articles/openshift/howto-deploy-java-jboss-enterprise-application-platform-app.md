@@ -35,7 +35,7 @@ The application is a stateful application that stores information in an HTTP Ses
 
 [!INCLUDE [aro-quota](includes/aro-quota.md)]
 
-1. Prepare a local machine with a Unix-like operating system that is supported by the various products installed (for example Red Hat Enterprise Linux 8 (latest update) in the case of JBoss EAP).
+1. Prepare a local machine with a Unix-like operating system that is supported by the various products installed.
 1. Install a Java SE implementation (for example, [Oracle JDK 11](https://www.oracle.com/java/technologies/downloads/#java11)).
 1. Install [Maven](https://maven.apache.org/download.cgi) 3.6.3 or higher.
 1. Install [Docker](https://docs.docker.com/get-docker/) for your OS.
