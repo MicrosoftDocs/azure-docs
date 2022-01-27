@@ -24,12 +24,6 @@ zone_pivot_groups: web-app-tutorial
 
 ::: zone-end
 
-::: zone pivot="devlang-openjdk"
-
-[!INCLUDE [openjdk](./includes/web-app/open-jdk-tutorial-04-call-web-api-graph.md)]
-
-::: zone-end
-
 ::: zone pivot="devlang-python-flask"
 
 [!INCLUDE [python-flask](./includes/web-app/python-flask-tutorial-04-call-web-api-graph.md)]
