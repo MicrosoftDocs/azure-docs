@@ -169,6 +169,26 @@ The next step is to define an input source for the job to read data using the ev
 
    ![Configure Azure Stream Analytics input](media/stream-analytics-real-time-fraud-detection/configure-stream-analytics-input.png)
 
+## Create a consumer group
+
+It is recommended to use a distinct consumer group for each Stream Analytics job. If no consumer group is specified, the Stream Analytics job uses the $Default consumer group. When a job contains a self-join or has multiple inputs, some inputs might be read by more than one reader downstream. This situation impacts the number of readers in a single consumer group.
+
+Navigate to your Event Hubs Instance to add a new **Consumer group**.
+
+1. In the **Entities** section of the Event Hubs Instance, select *Consumer Groups*.
+
+2. Select **+ Consumer group**.
+
+3. Provide a specified name for your new consumer group.
+    |**Setting**  |**Suggested value**  |
+   |---------|---------|
+   |Name*  |  MyConsumerGroup  |
+ 
+ 4. Click **Create**.
+ 
+ ![image](https://user-images.githubusercontent.com/70035300/151443244-6b342150-13c0-49d3-abe1-24a6e611aff7.png)
+
+	
 ## Configure job output
 
 The last step is to define an output sink where the job can write the transformed data. In this tutorial, you output and visualize data with Power BI.
