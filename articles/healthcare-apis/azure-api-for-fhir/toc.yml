@@ -135,7 +135,7 @@ items:
       - name: Configure Export
         href: configure-export-data.md
       - name: Export data
-        href: ../data-transformation/export-data.md
+        href: export-data.md
       - name: De-identified export
         href: ../data-transformation/de-identified-export.md
       - name: Move data to Synapse
