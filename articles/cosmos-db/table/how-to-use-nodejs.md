@@ -54,21 +54,24 @@ Add the following code to the top of the **server.js** file in your application:
 const { TableServiceClient } = require("@azure/data-tables");
 ```
 
-## Add your connection string
+## Connect to Azure Table service
 
 You can either connect to the Azure storage account or the Azure Cosmos DB Table API account. Get the connection string based on the type of account you are using.
 
-### Add an Azure Storage connection
+### Creating the Table service client from a shared key
 
-The Azure module reads the environment variables AZURE_STORAGE_ACCOUNT and AZURE_STORAGE_ACCESS_KEY, or AZURE_STORAGE_CONNECTION_STRING for information required to connect to your Azure Storage account. If these environment variables are not set, you must specify the account information when calling `TableServiceClient`. For example, the following code creates a `TableServiceClient` object:
+The Azure module reads the environment variables AZURE_STORAGE_ACCOUNT and AZURE_STORAGE_ACCESS_KEY, or AZURE_TABLES_ENDPOINT for information required to connect to your Azure Storage account and Cosmos DB. If these environment variables are not set, you must specify the account information when calling `TableServiceClient`. For example, the following code creates a `TableServiceClient` object:
 
 ```javascript
-const tableService = TableServiceClient.fromConnectionString("<connection-string>");;
+const tableService = new TableServiceClient(
+  tablesEndpoint,
+  new AzureNamedKeyCredential("<accountName>", "<accountKey>")
+);
 ```
 
-### Add an Azure Cosmos DB connection
+### Creating the Table service client from a connection string
 
-To add an Azure Cosmos DB connection, create a `TableServiceClient` object and specify your account name, primary key, and endpoint. You can copy these values from **Settings** > **Connection String** in the Azure portal for your Cosmos DB account. For example:
+To add an Azure Cosmos DB or Storage account connection, create a `TableServiceClient` object and specify your account name, primary key, and endpoint. You can copy these values from **Settings** > **Connection String** in the Azure portal for your Cosmos DB account or Storage account. For example:
 
 ```javascript
 const tableService = TableServiceClient.fromConnectionString("<connection-string>");
