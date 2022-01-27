@@ -18,9 +18,8 @@ The SQL Assessment feature of the Azure portal identifies possible performance i
 
 The SQL Assessment feature is currently in preview.
 
-To learn more, watch this video on [SQL Assessment](/shows/data-exposed/optimally-configure-sql-server-on-azure-virtual-machines-with-sql-assessment):
+To learn more, watch this video on [SQL Assessment](/shows/data-exposed/):
 > [!VIDEO https://docs.microsoft.com/shows/data-exposed/optimally-configure-sql-server-on-azure-virtual-machines-with-sql-assessment/player]
-
 
 ## Overview
 
