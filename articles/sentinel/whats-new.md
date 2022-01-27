@@ -29,14 +29,14 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## January 2022
 
-- [Maturity Model for Event Log Management (M-21-31) Solution (Public preview)](maturity-model-for-event-log-management-m-21-31-solution-public-preview)
+- [Maturity Model for Event Log Management (M-21-31) Solution (Public preview)](#maturity-model-for-event-log-management-m-21-31-solution-public-preview)
 - [SentinelHealth data table (Public preview)](#sentinelhealth-data-table-public-preview)
 - [More workspaces supported for Multiple Workspace View](#more-workspaces-supported-for-multiple-workspace-view)
 - [Kusto Query Language workbook and tutorial](#kusto-query-language-workbook-and-tutorial)
 
 ### Maturity Model for Event Log Management (M-21-31) Solution (Public preview)
 
-The Microsoft Sentinel content hub now includes the **Maturity Model for Event Log Management (M-21-31)** solution, which integrates Microsoft Sentinel and Microsoft Defender for Cloud to provide an industry differentiator for meeting challenging requirements in regulated industries. 
+The Microsoft Sentinel content hub now includes the **Maturity Model for Event Log Management (M-21-31)** solution, which integrates Microsoft Sentinel and Microsoft Defender for Cloud to provide an industry differentiator for meeting challenging requirements in regulated industries.
 
 The Maturity Model for Event Log Management (M-21-31) solution provides a quantifiable framework to measure maturity. Use the analytics rules, hunting queries, playbooks, and workbook provided with the solution to do any of the following:
 
@@ -45,7 +45,7 @@ The Maturity Model for Event Log Management (M-21-31) solution provides a quanti
 - Respond to notifications with Security Orchestration Automation & Response (SOAR) activities
 - Remediate with Cloud Security Posture Management (CSPM)
 
-For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy) and the [content hub catalog](sentinel-solutions-catalog.md#domain-solutions).
+For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions (Public preview)](sentinel-solutions-deploy.md) and the [content hub catalog](sentinel-solutions-catalog.md#domain-solutions).
 
 ### SentinelHealth data table (Public preview)
 
