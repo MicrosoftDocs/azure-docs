@@ -43,23 +43,23 @@ In order to use ACS chat as a channel in Azure Bot Service, the first step would
 
 ### Provision a bot service resource in Azure
 
-   - Click on create a resource option in Azure portal.
+   1. Click on create a resource option in Azure portal.
    
    ![Create a new resource.png](./media/create-a-new-resource.png)
 
 
-   - Search Azure Bot in the list of available resource types.
+   2. Search Azure Bot in the list of available resource types.
    
    ![Search Azure Bot.png](./media/search-azure-bot.png)
 
 
 
-   - Choose Azure Bot to create it.
+   3. Choose Azure Bot to create it.
    
 ![Creat Azure Bot.png](./media/create-azure-bot.png)
 
 
-   - Finally create an Azure Bot resource. You might use an existing Microsoft app ID that you must have created or create a new one that gets created automatically. 
+   4. Finally create an Azure Bot resource. You might use an existing Microsoft app ID that you must have created or create a new one that gets created automatically. 
    
  ![Provision Azure Bot.png](./media/provision-azure-bot.png)
 
@@ -67,36 +67,36 @@ In order to use ACS chat as a channel in Azure Bot Service, the first step would
 
 After creating the Azure Bot resource, next step would be to set a password for the App ID we set for the Bot credential if you chose to create one automatically in the first step.
 
- - Go to Azure Active Directory
+ 1. Go to Azure Active Directory
 ![Azure Active Directory](./media/azure-ad.png)
 
 
-- Find your app in the App Registration blade
+2. Find your app in the App Registration blade
 
 ![App Registration.png](./media/app-registration.png)
 
-- Create a new password for your app from the `Certificates and Secrets` blade and copy the password you create as you won't be able to copy it again.
-- 
+3. Create a new password for your app from the `Certificates and Secrets` blade and copy the password you create as you won't be able to copy it again.
+ 
 ![Save password.png](./media/save-password.png)
 
 ### Create a Web App where actual bot logic resides
 
 Create a Web App where actual bot logic resides. You could check out some samples at [Bot Builder Samples](https://github.com/Microsoft/BotBuilder-Samples) and tweak them or use Bot Builder SDK to create one: [Bot Builder documentation](https://docs.microsoft.com/composer/introduction). One of the simplest ones to play around with is Echo Bot located here with steps on how to use it and it's the one we will use in this example [Echo Bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot). Generally, the Bot Service expects the Bot Application Web App Controller to expose an endpoint `/api/messages`, which handles all the messages reaching the bot. To create the Bot application, follow these steps.
 
-   - As in previously shown create a resource and choose `Web App` in search. 
+   1. As in previously shown create a resource and choose `Web App` in search. 
    
 ![Web app.png](./media/web-app.png)
 
 
 
-   - Configure the options you want to set including the region you want to deploy it to.
+   2. Configure the options you want to set including the region you want to deploy it to.
    
 ![Web App Create Options.png](./media/web-app-create-options.png)
 
 
 
 
-   - Review your options and create the Web App and move to the resource once its been provisioned and copy the hostname URL exposed by the Web App.
+   3. Review your options and create the Web App and move to the resource once its been provisioned and copy the hostname URL exposed by the Web App.
    
    ![Web App endpoint.png](./media/web-app-endpoint.png)
 
@@ -114,14 +114,14 @@ Configure the Azure Bot we created with its Web App endpoint where the bot logic
 
 The final step would be to deploy the bot logic to the Web App we created. As we mentioned for this tutorial, we'll be using the Echo Bot. This bot only demonstrates a limited set of capabilities, such as echoing the user input. Here's how we deploy it to Azure Web App.
 
-   - To use the samples, clone this Github repository using Git.
+   1. To use the samples, clone this Github repository using Git.
 
      ``` 
      git clone https://github.com/Microsoft/BotBuilder-Samples.gitcd BotBuilder-Samples
      ```
-   - Open the project located here [Echo bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot) in Visual Studio.
+   2. Open the project located here [Echo bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot) in Visual Studio.
 
-   - Go to the appsettings.json file inside the project and copy the application ID and password we created in step 2 in respective places.
+   3. Go to the appsettings.json file inside the project and copy the application ID and password we created in step 2 in respective places.
       ```js
       {
         "MicrosoftAppId": "<App-registration-id>",
@@ -129,24 +129,24 @@ The final step would be to deploy the bot logic to the Web App we created. As we
       }
       ```
 
-   - Click on the project to publish the Web App code to Azure. Choose the publish option in Visual Studio. 
+   4. Click on the project to publish the Web App code to Azure. Choose the publish option in Visual Studio. 
 
    ![Publish app.png](./media/publish-app.png)
 
 
-   - Click on New to create a new publishing profile, choose Azure as the target, and Azure App Service as the specific target.
+   5. Click on New to create a new publishing profile, choose Azure as the target, and Azure App Service as the specific target.
 
 ![Select Azure as Target.png](./media/select-azure-as-target.png)
 ![Select App Service.png](./media/select-app-service.png)
 
-   - Lastly, the above option opens the deployment config. Choose the Web App we had provisioned from the list of options it comes up with after signing into your Azure account. Once ready click on `Finish` to start the deployment.
+   6. Lastly, the above option opens the deployment config. Choose the Web App we had provisioned from the list of options it comes up with after signing into your Azure account. Once ready click on `Finish` to start the deployment.
    
    ![Deployment config.png](./media/deployment-config.png)
 
 ## Step 2 - Get an Azure Communication Services Resource
 Now that you got the bot part sorted out, we'll need to get an ACS resource, which we would use for configuring the ACS channel.
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). You'll need to **record your resource endpoint and key** for this quickstart.
-- Create a ACS User and issue a user access token [User Access Token](../../quickstarts/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**.
+1. Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). You'll need to **record your resource endpoint and key** for this quickstart.
+2. Create a ACS User and issue a user access token [User Access Token](../../quickstarts/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**.
 
 ## Step 3 - Enable ACS Chat Channel
 With the ACS resource, we can configure the ACS channel in Azure Bot to bind an ACS User ID with a bot. Note that currently, only the allowlisted Azure subscription will be able to see ACS channel option.
@@ -279,8 +279,8 @@ chatClient.on("chatMessageReceived", (e) => {
 
 ### Deploy the C# chat application
 If you would like to deploy the chat application, you can follow these steps:
-- Open the chat project in Visual Studio.
-- Right click on the ChatQuickstart project and click Publish
+1. Open the chat project in Visual Studio.
+2. Right click on the ChatQuickstart project and click Publish
 
 ![Deploy Chat Application.png](./media/deploy-chat-application.png)
 
