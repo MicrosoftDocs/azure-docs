@@ -1,29 +1,31 @@
 ---
-title: 'Quickstart: Connect using Node.js - Azure Database for MySQL'
-description: This quickstart provides several Node.js code samples you can use to connect and query data from Azure Database for MySQL.
-author: savjani
-ms.author: pariks
+title: 'Quickstart: Connect using Node.js - Azure Database for MySQL - Flexible Server'
+description: This quickstart provides several Node.js code samples you can use to connect and query data from Azure Database for MySQL - Flexible Server.
+author: shreyaaithal
+ms.author: shaithal
 ms.service: mysql
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 12/11/2020
+ms.date: 01/27/2022
 ---
-# Quickstart: Use Node.js to connect and query data in Azure Database for MySQL
+# Quickstart: Use Node.js to connect and query data in Azure Database for MySQL - Flexible Server
 
-[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-In this quickstart, you connect to an Azure Database for MySQL by using Node.js. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Ubuntu Linux, and Windows platforms. 
+In this quickstart, you connect to an Azure Database for MySQL - Flexible Server by using Node.js. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Ubuntu Linux, and Windows platforms. 
 
-This topic assumes that you're familiar with developing using Node.js, but you're new to working with Azure Database for MySQL.
+This topic assumes that you're familiar with developing using Node.js, but you're new to working with Azure Database for MySQL - Flexible Server.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An Azure Database for MySQL server. [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+This quickstart uses the resources created in either of these guides as a starting point:
+
+- [Create an Azure Database for MySQL Flexible Server using Azure portal](./quickstart-create-server-portal.md)
+- [Create an Azure Database for MySQL Flexible Server using Azure CLI](./quickstart-create-server-cli.md)
 
 > [!IMPORTANT] 
-> Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./howto-manage-firewall-using-portal.md) or [Azure CLI](./howto-manage-firewall-using-cli.md)
+> Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./how-to-manage-firewall-portal.md) or [Azure CLI](./how-to-manage-firewall-cli.md)
 
 ## Install Node.js and the MySQL connector
 
@@ -85,24 +87,23 @@ Depending on your platform, follow the instructions in the appropriate section t
 
 ## Get connection information
 
-Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
+Get the connection information needed to connect to the Azure Database for MySQL - Flexible Server. You need the fully qualified server name and sign in credentials.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Select the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- :::image type="content" source="./media/connect-nodejs/server-name-azure-database-mysql.png" alt-text="Azure Database for MySQL server name":::
 
 ## Running the code samples
 
 1. Paste the JavaScript code into new text files, and then save it into a project folder with file extension .js (such as C:\nodejsmysql\createtable.js or /home/username/nodejsmysql/createtable.js).
-1. Replace `host`, `user`, `password` and `database` config options in the code with the values that you specified when you created the server and database.
-1. **Obtain SSL certificate**: Download the certificate needed to communicate over SSL with your Azure Database for MySQL server from [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and save the certificate file to your local drive.
-
-    **For Microsoft Internet Explorer and Microsoft Edge:** After the download has completed, rename the certificate to BaltimoreCyberTrustRoot.crt.pem.
-
-    See the following links for certificates for servers in sovereign clouds: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
-1. In the `ssl` config option, replace the `ca-cert` filename with the path to this local file.
+1. Replace `host`, `user`, `password` and `database` config options in the code with the values that you specified when you created the MySQL flexible server and database.
+1. **Obtain SSL certificate**: To use encrypted connections with your client applications,you will need to download the [public SSL certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) which is also available in Azure portal Networking blade as shown in the screenshot below.
+    :::image type="content" source="./media/how-to-connect-tls-ssl/download-ssl.png" alt-text="Screenshot showing how to download public SSL certificate from Azure portal.":::
+    
+    Save the certificate file to your preferred location. 
+    
+1. In the `ssl` config option, replace the `ca-cert` filename with the path to this local file. This will allow the application to connect securely to the database over SSL.
 1. Open the command prompt or bash shell, and then change directory into your project folder `cd nodejsmysql`.
 1. To run the application, enter the node command followed by the file name, such as `node createtable.js`.
 1. On Windows, if the node application is not in your environment variable path, you may need to use the full path to launch the node application, such as `"C:\Program Files\nodejs\node.exe" createtable.js`
@@ -119,12 +120,12 @@ const fs = require('fs');
 
 var config =
 {
-    host: 'mydemoserver.mysql.database.azure.com',
-    user: 'myadmin@mydemoserver',
-    password: 'your_password',
+    host: 'your_server_name.mysql.database.azure.com',
+    user: 'your_admin_name',
+    password: 'your_admin_password',
     database: 'quickstartdb',
     port: 3306,
-    ssl: {ca: fs.readFileSync("your_path_to_ca_cert_file_BaltimoreCyberTrustRoot.crt.pem")}
+    ssl: {ca: fs.readFileSync("your_path_to_ca_cert_file_DigiCertGlobalRootCA.crt.pem")}
 };
 
 const conn = new mysql.createConnection(config);
@@ -137,39 +138,46 @@ conn.connect(
     }
     else
     {
-       console.log("Connection established.");
-           queryDatabase();
+        console.log("Connection established.");
+        queryDatabase();
     }
 });
 
-function queryDatabase(){
-    conn.query('DROP TABLE IF EXISTS inventory;', function (err, results, fields) { 
-        if (err) throw err; 
-        console.log('Dropped inventory table if existed.');
-    })
-        conn.query('CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);', 
-            function (err, results, fields) {
-                if (err) throw err;
-        console.log('Created inventory table.');
-    })
+function queryDatabase()
+{
+    conn.query('DROP TABLE IF EXISTS inventory;', 
+        function (err, results, fields) { 
+            if (err) throw err; 
+            console.log('Dropped inventory table if existed.');
+        }
+    )
+    conn.query('CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);', 
+        function (err, results, fields) {
+            if (err) throw err;
+            console.log('Created inventory table.');
+        }
+    )
     conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['banana', 150], 
-            function (err, results, fields) {
-                if (err) throw err;
-        else console.log('Inserted ' + results.affectedRows + ' row(s).');
-        })
-    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['orange', 154], 
-            function (err, results, fields) {
-                if (err) throw err;
-        console.log('Inserted ' + results.affectedRows + ' row(s).');
-        })
+        function (err, results, fields) {
+            if (err) throw err;
+            else console.log('Inserted ' + results.affectedRows + ' row(s).');
+        }
+    )
+    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['orange', 250], 
+        function (err, results, fields) {
+            if (err) throw err;
+            console.log('Inserted ' + results.affectedRows + ' row(s).');
+        }
+    )
     conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['apple', 100], 
-    function (err, results, fields) {
-                if (err) throw err;
-        console.log('Inserted ' + results.affectedRows + ' row(s).');
-        })
+        function (err, results, fields) {
+            if (err) throw err;
+            console.log('Inserted ' + results.affectedRows + ' row(s).');
+        }
+    )
     conn.end(function (err) { 
-    if (err) throw err;
-    else  console.log('Done.') 
+        if (err) throw err;
+        else  console.log('Done.') 
     });
 };
 ```
@@ -186,12 +194,12 @@ const fs = require('fs');
 
 var config =
 {
-    host: 'mydemoserver.mysql.database.azure.com',
-    user: 'myadmin@mydemoserver',
-    password: 'your_password',
+    host: 'your_server_name.mysql.database.azure.com',
+    user: 'your_admin_name',
+    password: 'your_admin_password',
     database: 'quickstartdb',
     port: 3306,
-    ssl: {ca: fs.readFileSync("your_path_to_ca_cert_file_BaltimoreCyberTrustRoot.crt.pem")}
+    ssl: {ca: fs.readFileSync("your_path_to_ca_cert_file_DigiCertGlobalRootCA.crt.pem")}
 };
 
 const conn = new mysql.createConnection(config);
@@ -228,7 +236,7 @@ function readData(){
 
 ## Update data
 
-Use the following code to connect and update data by using an **UPDATE** SQL statement. 
+Use the following code to connect and update the data by using an **UPDATE** SQL statement. 
 
 The [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) method is used to interface with the MySQL server. The [connect()](https://github.com/mysqljs/mysql#establishing-connections) method is used to establish the connection to the server. The [query()](https://github.com/mysqljs/mysql#performing-queries) method is used to execute the SQL query against MySQL database. 
 
@@ -238,12 +246,12 @@ const fs = require('fs');
 
 var config =
 {
-    host: 'mydemoserver.mysql.database.azure.com',
-    user: 'myadmin@mydemoserver',
-    password: 'your_password',
+    host: 'your_server_name.mysql.database.azure.com',
+    user: 'your_admin_name',
+    password: 'your_admin_password',
     database: 'quickstartdb',
     port: 3306,
-    ssl: {ca: fs.readFileSync("your_path_to_ca_cert_file_BaltimoreCyberTrustRoot.crt.pem")}
+    ssl: {ca: fs.readFileSync("your_path_to_ca_cert_file_DigiCertGlobalRootCA.crt.pem")}
 };
 
 const conn = new mysql.createConnection(config);
@@ -261,7 +269,7 @@ conn.connect(
     });
 
 function updateData(){
-       conn.query('UPDATE inventory SET quantity = ? WHERE name = ?', [200, 'banana'], 
+       conn.query('UPDATE inventory SET quantity = ? WHERE name = ?', [75, 'banana'], 
             function (err, results, fields) {
                 if (err) throw err;
                 else console.log('Updated ' + results.affectedRows + ' row(s).');
@@ -287,12 +295,12 @@ const fs = require('fs');
 
 var config =
 {
-    host: 'mydemoserver.mysql.database.azure.com',
-    user: 'myadmin@mydemoserver',
-    password: 'your_password',
+    host: 'your_server_name.mysql.database.azure.com',
+    user: 'your_admin_name',
+    password: 'your_admin_password',
     database: 'quickstartdb',
     port: 3306,
-    ssl: {ca: fs.readFileSync("your_path_to_ca_cert_file_BaltimoreCyberTrustRoot.crt.pem")}
+    ssl: {ca: fs.readFileSync("your_path_to_ca_cert_file_DigiCertGlobalRootCA.crt.pem")}
 };
 
 const conn = new mysql.createConnection(config);
@@ -335,5 +343,7 @@ az group delete \
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Migrate your database using Export and Import](./concepts-migrate-import-export.md)
+- [Encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL - Flexible Server](./how-to-connect-tls-ssl.md).
+- Learn more about [Networking in Azure Database for MySQL Flexible Server](./concepts-networking.md).
+- [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md).
+- [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).
