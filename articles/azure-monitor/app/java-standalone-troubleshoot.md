@@ -81,7 +81,7 @@ Typically the default Java keystore will already have all of the CA root certifi
 
 2. Once you have the list of certificates, follow these [steps](#steps-to-download-ssl-certificate) to download the SSL certificate that was used to sign the Application Insights endpoint.
 
-    Once you have the certificate downloaded, generate a SHA-1 hash on the certificate using the below command:
+    Once you have the certificate downloaded, generate an SHA-1 hash on the certificate using the below command:
     > `keytool -printcert -v -file "your_downloaded_ssl_certificate.cer"`
  
     Copy the SHA-1 value and check if this value is present in "temp.txt" file you saved previously.  If you are not able to find the SHA-1 value in the temp file, it indicates that the downloaded SSL cert is missing in default Java keystore.
