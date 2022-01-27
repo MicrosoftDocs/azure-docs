@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: ninallam
 author: ninallam
-ms.date: 11/30/2021
+ms.date: 01/25/2022
 ms.topic: tutorial
 #Customer intent: As an Azure user, I want to learn how to automatically test builds for performance regressions on every merge request and/or deployment by using Azure Pipelines.
 ---
@@ -36,8 +36,7 @@ You'll learn how to:
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
 * An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops&preserve-view=true). If you need help with getting started with Azure Pipelines, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
-* A GitHub account, where you can create a repository. If you don't have one, you can [create one for free](https://github.com/).  
-* An existing Azure Load Testing resource. To create a Load Testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md#create_resource).
+* A GitHub account, where you can create a repository. If you don't have one, you can [create one for free](https://github.com/).
 
 ## Set up your repository
 
@@ -154,6 +153,7 @@ First, you'll install the Azure Load Testing extension from the Azure DevOps Mar
 For every update to the main branch, the Azure pipeline executes the following steps:
 
 - Deploy the sample Node.js application to an Azure App Service web app. The name of the web app is configured in the pipeline definition.
+- Create an Azure Load Testing resource using the Azure Resource Manager (ARM) template present in the GitHub repository. Learn more about ARM templates [here](/azure/azure-resource-manager/templates/overview).
 - Trigger Azure Load Testing to create and run the load test, based on the Apache JMeter script and the test configuration YAML file in the repository.
 
 To view the results of the load test in the pipeline log:
@@ -313,22 +313,22 @@ The following YAML code snippet describes how to use the task in an Azure Pipeli
       [
           {
           "name": "<Name of the secret>",
-          "value": "$(mySecret1)",
+          "value": "$(mySecret1)"
           },
           {
           "name": "<Name of the secret>",
-          "value": "$(mySecret1)",
+          "value": "$(mySecret1)"
           }
       ]
     env: |
       [
           {
           "name": "<Name of the variable>",
-          "value": "<Value of the variable>",
+          "value": "<Value of the variable>"
           },
           {
           "name": "<Name of the variable>",
-          "value": "<Value of the variable>",
+          "value": "<Value of the variable>"
           }
       ]
 ```
