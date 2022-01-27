@@ -100,23 +100,41 @@ phrase_list_grammar.clear()
 ::: zone-end
 
 ::: zone pivot="programmer-tool-spx"
-With the Speech CLI you include phrases along with the recognize command.
+With the [Speech CLI](spx-overview.md) you include phrases along with the recognize command.
+
+
+# [Terminal](#tab/terminal)
+
+Try  recognition from a microphone or an audio file. 
 
 ```console
 spx recognize --microphone --phrases "Abdoulaye Gueye;"
+spx recognize --file "your\path\to\audio.wav" --phrases "Abdoulaye Gueye;"
 ```
 
 You can also use a text file that contains one phrase per line.
 
-# [Terminal](#tab/terminal)
 ```console
 spx recognize --microphone --phrases @phrases.txt
+spx recognize --file "your\path\to\audio.wav" --phrases @phrases.txt
 ```
 
 # [PowerShell](#tab/powershell)
+
+Try  recognition from a microphone or an audio file. 
+
+```powershell
+spx --% recognize --microphone --phrases "Abdoulaye Gueye;"
+spx --% recognize --file "your\path\to\audio.wav" --phrases "Abdoulaye Gueye;"
+```
+
+You can also use a text file that contains one phrase per line.
+
 ```powershell
 spx --% recognize --microphone --phrases @phrases.txt
+spx --% recognize --file "your\path\to\audio.wav" --phrases @phrases.txt
 ```
+
 ***
 
 ::: zone-end
