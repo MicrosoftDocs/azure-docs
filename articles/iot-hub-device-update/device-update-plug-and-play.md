@@ -3,7 +3,7 @@ title: Understand how Device Update for IoT Hub uses IoT Plug and Play | Microso
 description: Device Update for IoT Hub uses to discover and manage devices that are over-the-air update capable.
 author: ValOlson
 ms.author: valls
-ms.date: 2/14/2021
+ms.date: 1/26/2022
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
@@ -16,9 +16,9 @@ Concepts:
 * Understand the [IoT Plug and Play device client](../iot-develop/concepts-developer-guide-device.md?pivots=programming-language-csharp).
 * See how the [Device Update agent is implemented](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).
 
-## ADU Core Interface
+## Device Update Core Interface
 
-The 'ADUCoreInterface' interface is used to send update actions and metadata to devices and receive update status from devices. The 'ADU Core' interface is split into two Object properties.
+The 'DeviceUpdateCoreInterface' interface is used to send update actions and metadata to devices and receive update status from devices. The 'DU Core' interface is split into two Object properties.
 
 The expected component name in your model is **"deviceUpdate"** when implementing this interface. [Learn more about Azure IoT Plug and Play Components](../iot-develop/concepts-modeling-guide.md)
 
@@ -29,11 +29,17 @@ information and status to Device Update services.
 
 |Name|Schema|Direction|Description|Example|
 |----|------|---------|-----------|-----------|
-|resultCode|integer|device to cloud|A code that contains information about the result of the last update action. Can be populated for either success or failure and should follow [http status code specification](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).|500|
+|`deviceProperties`|Map|device to cloud|The set of properties that contain the manufacturer, model, and other device information.|See below for details|
+|`compatPropertyNames`|String (Comma seperated)|device to cloud|The device reported properties that are used to check for compatability of the device for targeting the update deployment. Limited to 5 device properties|Default Value: "manufacturer,model"|
+|`lastInstallResult`|Map|device to cloud|The result reported by the agent containing result code, extended result code and result details for main update and other step updates||
+|resultCode|integer|device to cloud|A code that contains information about the result of the last update action. Can be populated for either success or failure.|700|
 |extendedResultCode|integer|device to cloud|A code that contains additional information about the result. Can be populated for either success or failure.|0x80004005|
-|state|integer|device to cloud|It is an integer that indicates the current state of the Device Update Agent. See below for details |Idle|
+|resultDetails|string|device to cloud|Free form string set by user to provide additional result details. Returned to the twin without parsing||
+|stepResults|map|device to cloud|The result reported by the agent containing result code, extended result code and result details for step updates |stepResult { integer resultCode, integer extendedResultCode, string resultDetails }|
+|state|integer|device to cloud|It is an integer that indicates the current state of the Device Update Agent. See below for details |0|
+|workflow|complex|device to cloud|It is a set of values that indicates which deployment the agent is currenlty working on, ID of current deployment, and acknowledgement of the any retry request sent from service to agent.|workflow { integer action, string id, string retryTimestamp |
 |installedUpdateId|string|device to cloud|An ID of the update that is currently installed (through Device Update). This value will be a string capturing the Update Id JSON or null for a device that has never taken an update through Device Update.|"{\"provider\":\"contoso\",\"name\":\"image-update\",\"version\":\"1.0.0\"}"|
-|`deviceProperties`|Map|device to cloud|The set of properties that contain the manufacturer and model.|See below for details
+
 
 #### State
 
@@ -42,8 +48,9 @@ It is the status reported by the Device Update Agent after receiving an action f
 |Name|Value|Description|
 |---------|-----|-----------|
 |Idle|0|The device is ready to receive an action from the Device Update Service. After a successful update, state is returned to the `Idle` state.|
-|DownloadSucceeded|2|A successful download.|
-|InstallSucceeded|4|A successful install.|
+|DownloadSucceeded|2|A successful download. This status will only be reported by devices with agent version 0.7.0 or older.|
+|InstallSucceeded|4|A successful install. This status will only be reported by devices with agent version 0.7.0 or older.|
+|DeploymentInprogress|6| A deployment in progress|
 |Failed|255|A failure occurred during updating.|
 
 #### Device Properties
@@ -52,28 +59,46 @@ It is the set of properties that contain the manufacturer and model.
 
 |Name|Schema|Direction|Description|
 |----|------|---------|-----------|
-|manufacturer|string|device to cloud|The device manufacturer of the device, reported through `deviceProperties`. This property is read from one of two places-the 'AzureDeviceUpdateCore' interface will first attempt to read the 'aduc_manufacturer' value from the [Configuration file](device-update-configuration-file.md) file.  If the value is not populated in the configuration file, it will default to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MANUFACTURER. This property will only be reported at boot time. Default value 'Contoso'|
-|model|string|device to cloud|The device model of the device, reported through `deviceProperties`. This property is read from one of two places-the AzureDeviceUpdateCore interface will first attempt to read the 'aduc_model' value from the [Configuration file](device-update-configuration-file.md) file.  If  the value is not populated in the configuration file, it will default to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MODEL. This property will only be reported at boot time. Default value 'Video'|
+|manufacturer|string|device to cloud|The device manufacturer of the device, reported through `deviceProperties`. This property is read from one of two places-the 'DeviceUpdateCore' interface will first attempt to read the 'aduc_manufacturer' value from the [Configuration file](device-update-configuration-file.md) file.  If the value is not populated in the configuration file, it will default to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MANUFACTURER. This property will only be reported at boot time. Default value 'Contoso'|
+|model|string|device to cloud|The device model of the device, reported through `deviceProperties`. This property is read from one of two places-the DeviceUpdateCore interface will first attempt to read the 'aduc_model' value from the [Configuration file](device-update-configuration-file.md) file.  If  the value is not populated in the configuration file, it will default to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MODEL. This property will only be reported at boot time. Default value 'Video'|
+|interfaceId|string|device to cloud|This property is used by the service to identify the interface version being used by the Device Update agent.It is required by Device Update service to manage and communicate with the agent. This property is set at 'dtmi:azure:iot:deviceUpdate;1' for device using DU agent version 0.8.0.|
 |aduVer|string|device to cloud|Version of the Device Update agent running on the device. This value is read from the build only if during compile time ENABLE_ADU_TELEMETRY_REPORTING is set to 1 (true). Customers can choose to opt-out of version reporting by setting the value to 0 (false). [How to customize Device Update agent properties](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).|
 |doVer|string|device to cloud|Version of the Delivery Optimization agent running on the device. The value is read from the build only if during compile time ENABLE_ADU_TELEMETRY_REPORTING is set to 1 (true). Customers can choose to opt-out of the version reporting by setting the value to 0 (false).[How to customize Delivery Optimization agent properties](https://github.com/microsoft/do-client/blob/main/README.md#building-do-client-components).|
+|Custom Compatability Properties|User Defined|device to cloud|Users can define other device properties to be used for the compatability check while targeting the update deployment|
+
 
 IoT Hub Device Twin sample
 ```json
-"azureDeviceUpdateAgent": {
-  "__t": "c",
-  "client": {
-    "state": 0,
-    "resultCode": 200,
-    "extendedResultCode": 0,
-    "deviceProperties": {
-      "manufacturer": "Contoso",
-      "model": "Video",
-      "aduVer": "DU;agent/0.6.0",
-      "doVer": "DU;lib/v0.4.0,DU;agent/v0.4.0,DU;plugin-apt/v0.2.0"
-    },
-    "installedUpdateId": "{\"provider\":\"Contoso\",\"name\":\"SampleUpdate1\",\"version\":\"1.0.4\"}"
-  },
-}
+"deviceUpdate": {
+                "__t": "c",
+                "agent": {
+                    "deviceProperties": {
+                        "manufacturer": "contoso",
+                        "model": "virtual-vacuum-v1",
+                        "interfaceId": "dtmi:azure:iot:deviceUpdate;1",
+                        "aduVer": "DU;agent/0.8.0-rc1-public-preview",
+                        "doVer": "DU;lib/v0.6.0+20211001.174458.c8c4051,DU;agent/v0.6.0+20211001.174418.c8c4051"
+                    },
+                    "compatPropertyNames": "manufacturer,model",
+                    "lastInstallResult": {
+                        "resultCode": 700,
+                        "extendedResultCode": 0,
+                        "resultDetails": "",
+                        "stepResults": {
+                            "step_0": {
+                                "resultCode": 700,
+                                "extendedResultCode": 0,
+                                "resultDetails": ""
+                            }
+                        }
+                    },
+                    "state": 0,
+                    "workflow": {
+                        "action": 3,
+                        "id": "11b6a7c3-6956-4b33-b5a9-87fdd79d2f01"
+                    },
+                    "installedUpdateId": "{\"provider\":\"Contoso\",\"name\":\"Virtual-Vacuum\",\"version\":\"5.0\"}"
+                },
 ```
 
 >[!NOTE]
@@ -96,9 +121,10 @@ Service Metadata contains fields that the Device Update services uses to communi
 
 |Name|Value|Description|
 |---------|-----|-----------|
-|Download|0|Download published content or update and any other content needed|
-|Install|1|Install the content or update. Typically this means calling the installer for the content or update.|
-|Apply|2|Finalize the update. It signals the system to reboot if necessary.|
+|Download|0|Download published content or update and any other content needed. This action will only be sent to devices with agent version 0.7.0 or older.|
+|Install|1|Install the content or update. Typically this means calling the installer for the content or update.This action will only be sent to devices with agent version 0.7.0 or older.|
+|Apply|2|Finalize the update. It signals the system to reboot if necessary.This action will only be sent to devices with agent version 0.7.0 or older.|
+|ApplyDeployment|3|Apply the update. It signals to the device to apply the deployed update|
 |Cancel|255|Stop processing the current action and go back to `Idle`. Will also be used to tell the agent in the `Failed` state to go back to `Idle`.|
 
 ## Device Information Interface
