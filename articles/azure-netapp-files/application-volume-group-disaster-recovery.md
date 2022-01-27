@@ -45,7 +45,7 @@ The following table summarizes the replication schedule options. It also describ
 |     Volume type    |     Default replication schedule    |     Available options    |     Notes    |
 |---|---|---|---|
 |     Data    |     Daily    |     Daily, hourly    |     The choice   you select impacts Recover Time Objective (RTO) and the amount of transferred   data.    |
-|     Log    |     -    |     -    |     Log volumes   are not replicated.    |
+|     Log    |     -    |     -    |     Log volumes aren't replicated.    |
 |     SAP shared    |     Every 10 minutes    |     Every 10 minutes, hourly, daily    |     You should   choose a schedule based on your SLA requirements and the data stored in the shared   volume.    |
 |     Data-backup    |     Daily    |     Daily, weekly    |     Replicating   the data-backup volumes is optional.    |
 |     Log-backup    |     Every 10 minutes    |     Every 10 minutes    |     This setting   impacts Recover Point Objective (RPO).     |
@@ -75,14 +75,14 @@ The following example adds volumes to an SAP HANA system. The system serves as a
     * **Group name**:  
         The volume group name. 
     * **SAP node memory**:  
-        This value defines the size of the SAP HANA database on the host. It is used to calculate the required volume size and throughput. 
+        This value defines the size of the SAP HANA database on the host. It's used to calculate the required volume size and throughput. 
     * **Capacity overhead (%)**:  
         When you use snapshots for data protection, you need to plan for extra capacity. This field will add additional size (%) for the data volume.  
         You can estimate this value by using `"change rate per day" X "number of days retention"`.
     * **Single-host**:  
         Select this option for an SAP HANA single-host system or the first host for a multiple-host system. Only the shared, log-backup, and data-backup volumes will be created with the first host.
     * **Multiple-host**:  
-        Select this option if you are adding additional hosts to a multiple-hosts HANA system.
+        Select this option if you're adding additional hosts to a multiple-hosts HANA system.
     * **Disaster recover destination**:  
         Select this option to create volumes for a HANA system as a DR site using [cross-region replication](cross-region-replication-introduction.md).  
     
@@ -96,7 +96,7 @@ The following example adds volumes to an SAP HANA system. The system serves as a
 
     * **Proximity placement group (PPG)**:  
         Specifies that the data and shared volumes are to be created close to the disaster recovery VMs.  
-        Even if you do not need the VM’s for replication, you need to start at least one VM to anchor the PPG while provisioning the volumes.
+        Even if you don't need the VM’s for replication, you need to start at least one VM to anchor the PPG while provisioning the volumes.
     * **Capacity pool**:  
         All volumes will be placed in a single manual QoS capacity pool.   
         If you want to create the log-backup and data-backup volumes in a separate capacity pool, you can choose not to add those volumes to the volume group.
@@ -127,12 +127,12 @@ The following example adds volumes to an SAP HANA system. The system serves as a
 
     The Volumes tab also displays the volume type: 
  
-    * **DP** - Indicates destination in the cross-region replication setting. Volumes of this type are not online but in replication mode.
+    * **DP** - Indicates destination in the cross-region replication setting. Volumes of this type aren't online but in replication mode.
     * **RW** - Indicates that reads and writes are allowed.
 
-    The default type for the log volume is RW, and the setting cannot be changed.
+    The default type for the log volume is `RW`, and the setting can't be changed.
 
-    The default type for the data, shared, and log-backup volumes is DP, and the setting cannot be changed.
+    The default type for the data, shared, and log-backup volumes is `DP`, and the setting can't be changed.
 
     The default type for the data-backup volume is DP, but this setting can be changed to RW.  
 
@@ -152,7 +152,7 @@ The following example adds volumes to an SAP HANA system. The system serves as a
 
 ## Setup options for replicating an SAP HANA database using HANA system replication for HA  
 
-In some situations, you might want to combine an HA setup of HANA system replication with a disaster-recovery (DR) setup using cross-region replication (CRR). Depending on the specific usage pattern and SLA, two setup options for replication are possible. This section describes the options.  
+In some situations, you might want to combine an HA setup of HANA system replication with a disaster-recovery (DR) setup using cross-region replication (CRR). Depending on the specific usage pattern and service-level agreement (SLA), two setup options for replication are possible. This section describes the options.  
 
 ### Replicate only the primary HANA database volumes 
 
