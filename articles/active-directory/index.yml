@@ -268,7 +268,7 @@ conceptualContent:
     - title: Reports and monitoring
       links:
         - url: ./reports-monitoring/overview-reports.md
-          itemType: reference
+          itemType: overview
           text:  What are Azure AD reports?
         - url: ./reports-monitoring/concept-audit-logs.md
           itemType: concept
