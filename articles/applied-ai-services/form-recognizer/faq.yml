@@ -209,7 +209,7 @@ sections:
       - question: |
            If my storage account is behind a VNet or firewall, how do I give Form Recognizer access to my storage account data?
         answer: |
-              - Private Azure storage account access and authentication are supported by managed identities for Azure resources. See [Create and use a managed identity for your Form Recognizer resource](managed-identity-byos.md)
+              - Private Azure storage account access and authentication are supported by managed identities for Azure resources. See [Create and use a managed identity for your Form Recognizer resource](managed-identities.md)
               - If you intend to analyze your private storage account data with FOTT, the tool must be deployed behind the VNet or firewall.
 
   - name: Containers
@@ -217,7 +217,7 @@ sections:
       - question: |
           Do I need an internet connection to use Form Recognizer containers?
         answer: |
-          Yes, Form Recognizer containers [require internet connectivity to send billing information](form-recognizer-container-install-run.md?tabs=layout#billing) to Azure. However, your documents and analysis results stay in your environment and aren’t transmitted over the internet. Learn more about [Azure container security](/azure/container-instances/container-instances-image-security#security-recommendations-for-azure-container-instances).
+          Yes, Form Recognizer containers [require internet connectivity to send billing information](containers/form-recognizer-container-install-run.md?tabs=layout#billing) to Azure. However, your documents and analysis results stay in your environment and aren’t transmitted over the internet. Learn more about [Azure container security](/azure/container-instances/container-instances-image-security#security-recommendations-for-azure-container-instances).
 
   - name: Security and Privacy
     questions:
@@ -226,10 +226,10 @@ sections:
         answer: |
           Each request to an Azure service must include an authentication header. You can authenticate a request with several methods:
 
-          - [Authenticate](create-a-form-recognizer-resource?branch=master#get-endpoint-url-and-api-keys) with a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) subscription key.
+          - [Authenticate](create-a-form-recognizer-resource.md?#get-endpoint-url-and-api-keys) with a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) subscription key.
           - [Authenticate](/azure/cognitive-services/authentication?context=%2Fazure%2Fapplied-ai-services%2Fform-recognizer%2Fcontext%2Fcontext&tabs=powershell#authenticate-with-azure-active-directory) with Azure Active Directory (Azure AD).
           - [Enable](/azure/applied-ai-services/form-recognizer/encrypt-data-at-rest#enable-customer-managed-keys-for-your-resource) customer-managed keys.
-          - [Authorize](managed-identity-byos.md#enable-a-system-assigned-managed-identity)
+          - [Authorize](managed-identities.md#enable-a-system-assigned-managed-identity)
 
       - question: |
           Does Form Recognizer store my data? 
@@ -243,7 +243,7 @@ sections:
         answer: |  
           If you have an Azure storage account protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS), Form Recognizer can’t directly access your storage account data; however, Private Azure storage account access and authentication are supported by [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). Once a managed identity is enabled, the Form Recognizer service can access your storage account using an assigned managed identity credential. 
 
-          Learn how to [create and use a managed identity](managed-identity-byos.md) for Form Recognizer.
+          Learn how to [create and use a managed identity](managed-identities.md) for Form Recognizer.
 
   - name: Additional help and support
     questions:
@@ -255,4 +255,4 @@ sections:
       - question: |
             What should I do if specific text isn’t recognized or recognized incorrectly when labeling documents?
         answer: |
-               We continually update and improve the Form Recognizer OCR model. Please reach out to the [Form Recognizer team](formrecog_contact@microsoft.com) and, if possible, please share a sample document with the issue highlighted.
+               We continually update and improve the Form Recognizer OCR model. Please reach out to the Form Recognizer team: formrecog_contact@microsoft.com. If possible, please share a sample document with the issue highlighted.
