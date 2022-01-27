@@ -59,7 +59,6 @@ To deploy the Azure Machine Learning extension on AKS clusters, see the [Deploy 
     az login
     az account set --subscription <your-subscription-id>
     ```  
-
 ### Azure Kubernetes Service (AKS) <a id="aks-prerequisites"></a>
 
 For AKS clusters, connecting them to Azure Arc is **optional**.
@@ -69,6 +68,8 @@ However, you have to register the feature in your cluster. Use the following com
 ```azurecli
 az feature register --namespace Microsoft.ContainerService -n AKS-ExtensionManager
 ```
+> [!NOTE]
+> For more information, see [Deploy and manage cluster extensions for Azure Kubernetes Service (AKS)](../aks/cluster-extensions.md)
 
 ### Azure RedHat OpenShift Service (ARO) and OpenShift Container Platform (OCP) only
 
