@@ -7,7 +7,7 @@ ms.author: tejaswikolli
 ms.date: 01/26/2022
 ---
 
-# Allow trusted services to securely access a network-restricted container registry (preview)
+# Allow trusted services to securely access a network-restricted container registry
 
 Azure Container Registry can allow select trusted Azure services to access a registry that's configured with network access rules. When trusted services are allowed, a trusted service instance can securely bypass the registry's network rules and perform operations such as pull or push images. This article explains how to enable and use trusted services with a network-restricted Azure container registry.
 
