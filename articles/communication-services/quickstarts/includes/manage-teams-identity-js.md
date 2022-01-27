@@ -140,7 +140,7 @@ const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING']
 const identityClient = new CommunicationIdentityClient(connectionString);
 ```
 
-### Step 3: Exchange the AAD access token of the Teams User for a Communication Identity access token
+### Step 3: Exchange the Azure AD access token of the Teams User for a Communication Identity access token
 
 Use the `getTokenForTeamsUser` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 

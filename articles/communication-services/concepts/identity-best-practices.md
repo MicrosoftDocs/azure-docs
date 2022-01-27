@@ -178,7 +178,7 @@ If you want to cancel scheduled refresh tasks, [dispose](#clean-up-resources) of
 
 ### Proactively refresh token for a Teams User
 
-To minimize the number of roundtrips to the Azure Communication Identity API, make sure the Azure AD token you're passing to the `/:getTokenForTeamsUser` endpoint has long enough validity (> 10 minutes). In case that MSAL returns a cached token with a shorter validity, you have the following options to bypass the cache:
+To minimize the number of roundtrips to the Azure Communication Identity API, make sure the Azure AD token you're passing for an [exchange](../quickstarts/manage-teams-identity.md#step-3-exchange-the-azure-ad-access-token-of-the-teams-user-for-a-communication-identity-access-token) has long enough validity (> 10 minutes). In case that MSAL returns a cached token with a shorter validity, you have the following options to bypass the cache:
 
 1. Refresh the token forcibly
 1. Increase the MSAL's token renewal window to more than 10 minutes
@@ -258,46 +258,14 @@ leaveChatBtn.addEventListener('click', function() {
 
 Communication Services applications should dispose the Credential instance when it's no longer needed. Disposing the credential is also the recommended way of canceling scheduled refresh actions when the proactive refreshing is enabled.
 
-# [JavaScript](#tab/javascript)
-
 Call the `.dispose()` function.
 
 ```javascript
 const tokenCredential = new AzureCommunicationTokenCredential("<token>");
 // Use the credential for Calling or Chat
+const chatClient = new ChatClient("<endpoint-url>", tokenCredential);
+// ...
 tokenCredential.dispose()
-```
-
-# [C#](#tab/csharp)
-
-Use the `using` statement or call the `.Dispose()` method explicitly.
-
-```csharp
-using (var tokenCredential = new CommunicationTokenCredential("<token>"))
-{
-    // Use the credential for Calling or Chat
-}
-
-```
-
-# [Java](#tab/java)
-
-Use the `try-with-resources` pattern or call the `.close()` method explicitly.
-
-```java
-try (CommunicationTokenCredential tokenCredential = new CommunicationTokenCredential("<token>")) {
-    // Use the credential for Calling or Chat
-}
-
-```
-
-# [Python](#tab/python)
-
-Use the `with` statement.
-
-```python
-with CommunicationTokenCredential("<token>") as credential:
-    # Use the credential for Calling or Chat
 ```
 
 ---
