@@ -11,17 +11,15 @@ ms.author: cherylmc
 ms.custom: ignite-fall-2021
 ---
 
-# Connect to a VM using Bastion and the native client on your Windows computer (Preview)
+# Connect to a VM using Bastion and the native client on your workstation (Preview)
 
-Azure Bastion now offers support for connecting to target VMs in Azure using a native RDP or SSH client on your Windows workstation. This feature lets you connect to your target VMs via Bastion using Azure CLI and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). This article helps you configure Bastion with the required settings, and then connect to a VM in the VNet. For more information, see the [What is Azure Bastion?](bastion-overview.md).
+Azure Bastion now offers support for connecting to target VMs in Azure using a native RDP or SSH client on your local workstation. This feature lets you connect to your target VMs via Bastion using Azure CLI and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). This article helps you configure Bastion with the required settings, and then connect to a VM in the VNet. For more information, see the [What is Azure Bastion?](bastion-overview.md).
 
 > [!NOTE]
 > This configuration requires the Standard SKU for Azure Bastion.
 >
 
 Currently, this feature has the following limitations:
-
-* Native client support is not yet available for use from your local Linux workstation. If you are connecting to your target VM from a Linux workstation, use the Azure portal experience.
 
 * Signing in using an SSH private key stored in Azure Key Vault is not supported with this feature. Download your private key to a file on your local machine before signing in to your Linux VM using an SSH key pair.
 
@@ -84,9 +82,9 @@ To connect to a Windows VM using native client support, you must have the follow
 * Inbound port: RDP (3389) *or*
 * Inbound port: Custom value (you will then need to specify this custom port when you connect to the VM via Azure Bastion)
 
-## <a name="connect"></a>Connect to a VM
+## <a name="connect"></a>Connect to a VM from a Windows local workstation
 
-This section helps you connect to your virtual machine. Use the steps that correspond to the type of VM you want to connect to.
+This section helps you connect to your virtual machine from a Windows local workstation. Use the steps that correspond to the type of VM you want to connect to.
 
 1. Sign in to your Azure account and select your subscription containing your Bastion resource.
 
@@ -121,6 +119,10 @@ This section helps you connect to your virtual machine. Use the steps that corre
       ```azurecli-interactive
       az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "password" --username "<Username>"
       ```
+   
+   > [!NOTE]
+   > VM sessions using the **az network bastion ssh** command do not support file transfer. To use file transfer with SSH over Bastion, please see the section on the **az network bastion tunnel** command further below.
+   >
 
 ### Connect to a Windows VM
 
@@ -142,7 +144,30 @@ This section helps you connect to your virtual machine. Use the steps that corre
       az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
       ```
 
-1. Once you sign in to your target VM, the native client on your workstation will open up with your VM session; MSTSC for RDP sessions, and SSH CLI extension for SSH sessions.
+1. Once you sign in to your target VM, the native client on your workstation will open up with your VM session; **MSTSC** for RDP sessions, and **SSH CLI extension (az ssh)** for SSH sessions.
+
+## Connect to a VM using the *az network bastion tunnel* command
+
+This section helps you connect to your virtual machine using the *az network bastion tunnel* command, which allows you to:
+* Use native clients on *non*-Windows local workstations (ex: a Linux PC)
+* Use a native client of your choice
+* Set up concurrent VM sessions with Bastion
+* Access file transfer for SSH sessions
+
+1. Sign in to your Azure account and select your subscription containing your Bastion resource.
+
+   ```azurecli-interactive
+   az login
+   az account list
+   az account set --subscription "<subscription ID>"
+   ```
+
+2. Open the tunnel to your targt VM using the following command:
+
+   ```azurecli-interactive
+   az network bastion tunnel --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --resource-port "<TargetVMPort>" --port "<LocalMachinePort>"
+   ```
+3. Connect and log in to your target VM using SSH or RDP, the native client of your choice, and the local machine port you specified in Step 2.
 
 ## Next steps
 
