@@ -190,7 +190,7 @@ After you register the self-hosted integration runtime, if you want to view or u
 > [!NOTE]
 > If you set up a proxy server with NTLM authentication, the integration runtime host service runs under the domain account. If you later change the password for the domain account, remember to update the configuration settings for the service and restart the service. Because of this requirement, we suggest that you access the proxy server by using a dedicated domain account that doesn't require you to update the password frequently.
 
-If using system proxy, make sure your proxy server allow outbound traffic to the r[network rules](#networking-requirements).
+If using system proxy, make sure your proxy server allow outbound traffic to the [network rules](#networking-requirements).
 
 ### Configure proxy server settings
 
