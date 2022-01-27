@@ -1,24 +1,24 @@
 ---
-title: Session log in copy activity 
-description: 'Learn about how to enable session log in copy activity in Azure Data Factory.'
+title: Session log in a Copy activity 
+description: 'Learn about how to enable session log in a Copy activity in Azure Data Factory.'
 author: dearandyxu
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 01/26/2022
 ms.author: yexu
 ---
-#  Session log in copy activity
+#  Session log in a Copy activity
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-You can log your copied file names in copy activity, which can help you to further ensure the data is not only successfully copied from source to destination store, but also consistent between source and destination store by reviewing the copied files in copy activity session logs.  
+You can log your copied file names in a Copy activity.  This can help ensure data is not only successfully copied from the source to the destination store, but also validate consistency between source and destination, through review of the copied files in the Copy activity session logs.  
 
-When you enable fault tolerance setting in copy activity to skip faulty data, the skipped files and skipped rows can also be logged.  You can get more details from [fault tolerance in copy activity](copy-activity-fault-tolerance.md). 
+When you enable fault tolerance setting in a Copy activity to skip faulty data, the skipped files and skipped rows can also be logged.  You can get more details from [fault tolerance in copy activity](copy-activity-fault-tolerance.md). 
 
-Given you have the opportunity to get all the file names copied by ADF copy activity via enabling session log, it will be helpful for you in the following scenarios:
--   After you use ADF copy activities to copy the files from one storage to another, you see some files are shown up in destination store which should not. You can scan the copy activity session logs to see which copy activity actually copied those files and when to copy those files. By those, you can easily find the root cause and fix your configurations in ADF.   
--   After you use ADF copy activities to copy the files from one storage to another, you feel the files copied to the destination are not the same as the ones from the source store. You can scan the copy activity session logs to get the timestamp of copy jobs as well as the metadata of files when ADF copy activities read them from the source store.  By those, you can know if those files had been updated by other applications on source store after being copied by ADF.  
+Given you have the opportunity to get all the file names copied by Azure Data Factory (ADF) Copy activity via enabling session log, it will be helpful for you in the following scenarios:
+-   After you use ADF Copy activities to copy the files from one storage to another, you find some unexpected files in the destination store. You can scan the Copy activity session logs to see which Copy activity actually copied those files and when they were copied. With this approach, you can easily find the root cause and fix your configurations in ADF.   
+-   After you use ADF Copy activities to copy the files from one storage to another, you find the files copied to the destination are not ones expected from the source store. You can scan the Copy activity session logs to get the timestamp of copy jobs as well as the metadata of files when ADF Copy activities read them from the source store.  With this approach, you can know if the files were updated by other applications on the source store after being copied by ADF.  
 
 
 ## Configuration
@@ -76,8 +76,8 @@ path | The path of the log files. | Specify the path that you want to store the 
 
 ## Monitoring
 
-### Output from copy activity
-After the copy activity runs completely, you can see the path of log files from the output of each copy activity run. You can find the log files from the path: `https://[your-blob-account].blob.core.windows.net/[logFilePath]/copyactivity-logs/[copy-activity-name]/[copy-activity-run-id]/[auto-generated-GUID].txt`.  The log files generated have the .txt extension and their data is in CSV format.
+### Output from a Copy activity
+After the copy activity runs completely, you can see the path of log files from the output of each Copy activity run. You can find the log files from the path: `https://[your-blob-account].blob.core.windows.net/[logFilePath]/copyactivity-logs/[copy-activity-name]/[copy-activity-run-id]/[auto-generated-GUID].txt`.  The log files generated have the .txt extension and their data is in CSV format.
 
 ```json
 "output": {
@@ -108,7 +108,7 @@ Column | Description
 -------- | -----------  
 Timestamp | The timestamp when ADF reads, writes, or skips the object.
 Level | The log level of this item. It can be 'Warning' or "Info".
-OperationName | ADF copy activity operational behavior on each object. It can be 'FileRead',' FileWrite', 'FileSkip', or 'TabularRowSkip'.
+OperationName | ADF Copy activity operational behavior on each object. It can be 'FileRead',' FileWrite', 'FileSkip', or 'TabularRowSkip'.
 OperationItem | The file names or skipped rows.
 Message | More information to show if the file has been read from source store, or written to the destination store. It can also be why the file or rows has being skipped.
 
