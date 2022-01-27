@@ -1,8 +1,8 @@
 ---
 title: Create and manage Integration Runtimes
 description: This article explains the steps to create and manage Integration Runtimes in Azure Purview.
-author: viseshag
-ms.author: viseshag
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to

@@ -1571,6 +1571,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/marketplace/marketplace-managed-apps.md",
+            "redirect_url": "/azure/marketplace/plan-azure-app-managed-app",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-solution-templates.md",
+            "redirect_url": "/azure/marketplace/plan-azure-app-solution-template",
+            "redirect_document_id": true
+        },                
+        {
             "source_path_from_root": "/articles/marketplace/marketplace-co-sell.md",
             "redirect_url": "/azure/marketplace/co-sell-overview",
             "redirect_document_id": false

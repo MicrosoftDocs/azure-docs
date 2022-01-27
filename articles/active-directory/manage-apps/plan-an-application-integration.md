@@ -90,7 +90,7 @@ With Microsoft Azure AD Application Proxy, you can provide access to application
 
 ### Integrating custom applications
 
-If you want to add your custom application to the Azure Application Gallery, see [Publish your app to the Azure AD app gallery](../develop/v2-howto-app-gallery-listing.md).
+If you want to add your custom application to the Azure Application Gallery, see [Publish your app to the Azure AD app gallery](../manage-apps/v2-howto-app-gallery-listing.md).
 
 ## Managing access to applications
 
