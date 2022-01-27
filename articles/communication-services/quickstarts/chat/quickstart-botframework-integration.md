@@ -40,7 +40,7 @@ You'll learn how to:
 
 ## Step 1 - Create and deploy a bot
 
-In order to use ACS chat as a channel in Azure Bot Service, the first step would be to deploy a bot. To do so one can follow these steps:
+In order to use ACS chat as a channel in Azure Bot Service, the first step would be to deploy a bot. Please follow these steps:
 
 ### Provision a bot service resource in Azure
 
@@ -75,7 +75,7 @@ After creating the Azure Bot resource, next step would be to set a password for 
 
 ### Create a Web App where actual bot logic resides
 
-Create a Web App where actual bot logic resides. You could check out some samples [here](https://github.com/Microsoft/BotBuilder-Samples) and tweak them or use Bot Builder SDK to create one: [Bot Builder documentation](https://docs.microsoft.com/composer/introduction). One of the simplest ones to play around with is Echo Bot located here with steps on how to use it and it's the one we will use in this example [Echo Bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot). Generally, the Bot Service expects the Bot Application Web App Controller to expose an endpoint `/api/messages` which handles all the messages reaching the bot. To create the Bot application, follow these steps.
+Create a Web App where actual bot logic resides. You could check out some samples [here](https://github.com/Microsoft/BotBuilder-Samples) and tweak them or use Bot Builder SDK to create one: [Bot Builder documentation](https://docs.microsoft.com/composer/introduction). One of the simplest ones to play around with is Echo Bot located here with steps on how to use it and it's the one we will use in this example [Echo Bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot). Generally, the Bot Service expects the Bot Application Web App Controller to expose an endpoint `/api/messages`, which handles all the messages reaching the bot. To create the Bot application, follow these steps.
 
    - As in previously shown create a resource and choose `Web App` in search. <br/><br/> 
 ![Web app.png](./media/Web%20app.png)
@@ -100,7 +100,7 @@ Configure the Azure Bot we created with its Web App endpoint where the bot logic
 
 ### Deploy the Azure Bot
 
-The final step would be to deploy the bot logic to the Web App we created. As we mentioned for this tutorial we'll be using the Echo Bot. This bot only demonstrates a limited set of capabilities, such as echoing the user input. Here's how we deploy it to Azure Web App.
+The final step would be to deploy the bot logic to the Web App we created. As we mentioned for this tutorial, we'll be using the Echo Bot. This bot only demonstrates a limited set of capabilities, such as echoing the user input. Here's how we deploy it to Azure Web App.
 
    - To use the samples, clone this Github repository using Git.
 
@@ -117,7 +117,7 @@ The final step would be to deploy the bot logic to the Web App we created. As we
       }
       ```
 
-   - Click on the project to publish the web app code to Azure. Choose the publish option in Visual Studio. <br/><br/>![Publish app.png](./media/Publish%20app.png)
+   - Click on the project to publish the Web App code to Azure. Choose the publish option in Visual Studio. <br/><br/>![Publish app.png](./media/Publish%20app.png)
 
 
    - Click on New to create a new publishing profile, choose Azure as the target, and Azure App Service as the specific target.
@@ -128,12 +128,12 @@ The final step would be to deploy the bot logic to the Web App we created. As we
    - Lastly, the above option opens the deployment config. Choose the Web App we had provisioned from the list of options it comes up with after signing into your Azure account. Once ready click on `Finish` to start the deployment. <br/><br/>![Deployment config.png](./media/Deployment%20config.png)
 
 ## Step 2 - Get an Azure Communication Services Resource
-Now that you got the bot part sorted out, we'll need to get an ACS resource which we would use for configuring the ACS channel.
+Now that you got the bot part sorted out, we'll need to get an ACS resource, which we would use for configuring the ACS channel.
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). You'll need to **record your resource endpoint and key** for this quickstart.
 - Create a ACS User and issue a user access token [User Access Token](../../quickstarts/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**.
 
 ## Step 3 - Enable ACS Chat Channel
-With the ACS resource, we can configure the ACS channel in Azure Bot to bind an ACS user ID with a bot. Note that currently, only the allowlisted azure subscription will be able to see ACS channel option.
+With the ACS resource, we can configure the ACS channel in Azure Bot to bind an ACS User ID with a bot. Note that currently, only the allowlisted azure subscription will be able to see ACS channel option.
 1. Go to your Bot Services resource on Azure portal. Navigate to `Channels` blade and click on `Azure Communications Services - Chat` channel from the list provided. <br/><br/> 
 ![DemoApp Launch Acs Chat.png](./media/DemoApp-LaunchAcsChat.png)
 
@@ -261,7 +261,7 @@ chatClient.on("chatMessageReceived", (e) => {
 
 
 ### Deploy the C# chat application
-If you would like to deploy the chat application, you can follow the steps below:
+If you would like to deploy the chat application, you can follow these steps:
 - Open the chat project in Visual Studio.
 - Right click on the ChatQuickstart project and click Publish
 
@@ -330,7 +330,7 @@ await turnContext.SendActivityAsync(reply, cancellationToken);
 ```
 You can find sample payloads for adaptive cards at [Samples and Templates](https://adaptivecards.io/samples)
 
-And on the ACS user side, the ACS message's metadata field will indicate this is a message with attachment.The key is microsoft.azure.communication.chat.bot.contenttype which is set to the value azurebotservice.adaptivecard. This is an example of the chat message that will be received:
+And on the ACS User side, the ACS message's metadata field will indicate this is a message with attachment.The key is microsoft.azure.communication.chat.bot.contenttype, which is set to the value azurebotservice.adaptivecard. This is an example of the chat message that will be received:
 
 ```json
 {
