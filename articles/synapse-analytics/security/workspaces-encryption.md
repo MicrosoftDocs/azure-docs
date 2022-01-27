@@ -63,7 +63,7 @@ Workspaces can be configured to use a [User-assigned Managed identity](../../act
 
 #### Permissions
 
-To encrypt or decrypt data at rest, the managed identity must have the following permissions. Similarly, if you are using a Resource Manager template to create a new key, the 'keyOps' under properties for Microsoft.KeyVault/vaults/keys resource must have the following permissions:
+To encrypt or decrypt data at rest, the managed identity must have the following permissions. Similarly, if you are using a Resource Manager template to create a new key, the 'keyOps' parameter of the template must have the following permissions:
 
 * WrapKey (to insert a key into Key Vault when creating a new key).
 * UnwrapKey (to get the key for decryption).
