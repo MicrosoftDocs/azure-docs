@@ -3,15 +3,14 @@ title: Device Update for Azure IoT Hub tutorial using the Ubuntu (18.04 x64) Sim
 description: Get started with Device Update for Azure IoT Hub using the Ubuntu (18.04 x64) Simulator Reference Agent.
 author: valls
 ms.author: valls
-ms.date: 2/11/2021
+ms.date: 1/26/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
 ---
 
 # Device Update for Azure IoT Hub tutorial using the Ubuntu (18.04 x64) Simulator Reference Agent
 
-Device Update for IoT Hub supports two forms of updates – image-based
-and package-based.
+Device Update for IoT Hub supports image-based, package-based and script-based updates.
 
 Image updates provide a higher level of confidence in the end-state of the device. It is typically easier to replicate the results of an image-update between a pre-production environment and a production environment, since it doesn’t pose the same challenges as packages and their dependencies. Due to their atomic nature, one can also adopt an A/B failover model easily.
 
@@ -128,30 +127,38 @@ Start Device Update Agent on your new Software Devices.
 ## Import update
 
 1. Download the [sample import manifest](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0/TutorialImportManifest_Sim.json) and [sample image update](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu). _Note_: these are re-used update files from the Raspberry Pi tutorial, because the update in this tutorial will be simulated and therefore the specific file content doesn't matter. 
-2. Log in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
+
+2. Log in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the Updates option under Automatic Device Management from the left-hand navigation bar.
 
 3. Select the Updates tab.
 
 4. Select "+ Import New Update".
 
-5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the _sample import manifest_ you downloaded in step 1 above.  Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the _sample image update_ that you downloaded in step 1 above. 
+   :::image type="content" source="media/import-update/updates-tab-ppr.png" alt-text="Updates" lightbox="media/import-update/updates-tab-ppr.png":::
 
-   :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
-
-6. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account.
-
-7. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
-  
-   :::image type="content" source="media/import-update/container.png" alt-text="Screenshot showing container selection." lightbox="media/import-update/container.png":::
-
-8. Select "Submit" to start the import process.
-
-9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, this may complete in a few minutes but could take longer.
+5. Select "+ Select from storage container". Select an existing account or create a new account using "+ Storage account". Then select an existing container or create a new container using "+ Container". This container will be used to stage your update files for importing 
+   _Recommendation: use a new container each time you import an update to avoid accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container before completing this step._
    
-   :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Screenshot showing update import sequence." lightbox="media/import-update/update-publishing-sequence-2.png":::
+   :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Storage Account" lightbox="media/import-update/storage-account-ppr.png":::
 
-10. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
+6. In your container, select `Upload. Select the folder icon on the right side of the "Files" section under the "Upload blob" header. Navigate to the location of your update file(s) and import manifest and select all of the manifest and update files downloaded earlier.
 
+   :::image type="content" source="media/import-update/container-picker-ppr.png" alt-text="Publish Update" lightbox="media/import-update/container-picker-ppr.png":::
+
+   _This screenshot shows the import step and file names may not match the ones used in the example_
+
+7. When you've selected all your update files, select "Upload" Then click the "Select" button to return to the "Import update" page.
+
+   :::image type="content" source="media/import-update/import-select-ppr.png" alt-text="Select Uploaded Files" lightbox="media/import-update/import-select-ppr.png":::
+
+8. On the Import update page, review the files to be imported. Then select "Import update" to start the import process.
+
+   :::image type="content" source="media/import-update/import-start-2-ppr.png" alt-text="Import Start" lightbox="media/import-update/import-start-2-ppr.png":::
+
+9. The import process begins, and the screen switches to the "Import History" section. When the `Status` column indicates the import has succeeded, select the "Available Updates" header. You should see your imported update in the list now.
+
+   :::image type="content" source="media/import-update/update-ready-ppr.png" alt-text="Job Status" lightbox="media/import-update/update-ready-ppr.png":::
+       
 [Learn more](import-update.md) about importing updates.
 
 ## Create update group
