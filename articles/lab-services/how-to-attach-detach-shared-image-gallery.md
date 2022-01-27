@@ -67,7 +67,7 @@ The following procedure shows you how to attach an existing compute gallery to a
     :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/gallery-attach-existing-list.png" alt-text="Azure compute gallery page for lab plan when gallery has been attached.":::
 
 > [!NOTE]
-> The **Azure Lab Services** app must be assigned the **Contributor** role on the compute gallery to show in the list.
+> The **Azure Lab Services** app must be assigned the **Owner** role on the compute gallery to show in the list.
 
 All labs created using this lab plan can now use images from the attached compute gallery.
 
