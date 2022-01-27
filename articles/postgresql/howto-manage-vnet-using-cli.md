@@ -6,7 +6,7 @@ ms.author: nlarin
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 5/6/2019 
+ms.date: 01/26/2022 
 ms.custom: devx-track-azurecli
 ---
 # Create and manage VNet service endpoints for Azure Database for PostgreSQL - Single Server using Azure CLI

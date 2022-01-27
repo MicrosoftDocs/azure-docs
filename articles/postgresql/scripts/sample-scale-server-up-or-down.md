@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli
 ms.topic: sample
-ms.date: 01/20/2022
+ms.date: 01/26/2022 
 ---
 # Monitor and scale a single PostgreSQL server using Azure CLI
 

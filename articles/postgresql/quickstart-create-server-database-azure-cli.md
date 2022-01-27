@@ -6,7 +6,7 @@ ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 01/25/2022
+ms.date: 01/26/2022 
 ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 # Quickstart: Create an Azure Database for PostgreSQL server by using the Azure CLI
