@@ -105,9 +105,9 @@ conceptualContent:
         - url: ./conditional-access/overview.md
           itemType: overview
           text:  What is Conditional Access?
-        - url: ./conditional-access/howto-conditional-access-policy-compliant-device.md
+        - url: ./conditional-access/howto-conditional-access-policy-all-users-mfa.md
           itemType: how-to-guide
-          text:  Require compliant or hybrid Azure AD–joined device
+          text:  Require MFA for all users
         - url: ./conditional-access/location-condition.md
           itemType: concept
           text:  Use location in Conditional Access policy
