@@ -25,7 +25,7 @@ The first step in configuring Azure API for FHIR for export is to enable system 
 
 Browse to the Azure API for FHIR service and select **Identity**. Changing the status to **On** will enable managed identity in Azure API for FHIR Service.
 
-[ ![Screenshot of the enable managed identity user interface.](media/export-data/fhir-mi-enabled.png) ](media/export-data/fhir-mi-enabled.png#lightbox)
+[ ![Screenshot of the enable managed identity page.](media/export-data/fhir-mi-enabled.png) ](media/export-data/fhir-mi-enabled.png#lightbox)
 
 In the next step, create a storage account and assign permission to our service.
 
@@ -39,7 +39,7 @@ For more information about assigning roles in the Azure portal, see [Azure built
 
 It's here that you'll add the role [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) to our service name, and then select **Save**.
 
-![Add role assignment page](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+[ ![Screenshot of add role assignment page.](../../../includes/role-based-access-control/media/add-role-assignment-page.png) ](../../../includes/role-based-access-control/media/add-role-assignment-page.png#lightbox)
 
 Now you’re ready to select the storage account in Azure API for FHIR as a default storage account for $export.
 
@@ -47,7 +47,7 @@ Now you’re ready to select the storage account in Azure API for FHIR as a defa
 
 The final step is to assign the Azure storage account that Azure API for FHIR will use to export the data to. To do this, go to **Integration** in Azure API for FHIR service and select the storage account.
 
-![FHIR Export Storage](media/export-data/fhir-export-storage.png)
+[ ![Screenshot of FHIR Export Storage.](media/export-data/fhir-export-storage.png) ](media/export-data/fhir-export-storage.png#lightbox)
 
 After you've completed this final step, you’re now ready to export the data using $export command.
 

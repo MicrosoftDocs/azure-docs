@@ -133,7 +133,7 @@ items:
       expanded: false
       items:
       - name: Configure Export
-        href: ../data-transformation/configure-export-data.md
+        href: configure-export-data.md
       - name: Export data
         href: ../data-transformation/export-data.md
       - name: De-identified export
