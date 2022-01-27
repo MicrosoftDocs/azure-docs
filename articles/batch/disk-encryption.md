@@ -27,6 +27,7 @@ You won't be able to specify which encryption method will be applied to the node
 
 > [!IMPORTANT]
 > If you are creating your pool with a Linux [custom image](batch-sig-images.md), you can only enable disk encryption only if your pool is using an [Encryption At Host Supported VM size](https://docs.microsoft.com/en-us/azure/virtual-machines/disk-encryption#supported-vm-sizes).
+> Encryption At Host is not currently supported on User Subscription Pools until the feature becomes [publicly available in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-enable-host-based-encryption-portal#prerequisites).
 
 ## Azure portal
 
