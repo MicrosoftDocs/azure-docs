@@ -1,5 +1,5 @@
 ---
-title: Resource group and subscription provisioning by data owner
+title: Access provisioning by data owner to resource groups or subscriptions
 description: Step-by-step guide showing how a data owner can create policies on resource groups or subscriptions.
 author: ePpnqeqR
 ms.author: vlrodrig
@@ -10,7 +10,7 @@ ms.date: 1/25/2022
 ms.custom:
 ---
 
-# Resource group and subscription provisioning by data owner (preview)
+# Access provisioning by data owner to resource groups or subscriptions (preview)
 
 This guide describes how a data owner can leverage Azure Purview to enable access to ALL data sources in a subscription or a resource group. This can be achieved through a single policy statement, and will cover all existing data sources, as well as data sources that are created afterwards. However, at this point, only the following data sources are supported:
 - Blob storage
