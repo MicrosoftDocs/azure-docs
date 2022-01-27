@@ -278,7 +278,7 @@ After the move, follow the below steps to clear the old identities, and create n
     az account get-access-token
     ```
 
-1. Command to disable MSI:
+1. Command to disable all managed identities (user and system assigned managed identities):
 
     > [!IMPORTANT]
     > Be sure to replace these values in the below commands:
@@ -291,7 +291,7 @@ After the move, follow the below steps to clear the old identities, and create n
     curl 'https://management.azure.com/subscriptions/<Subscription_Id>/resourceGroups/<Resource_Group_Name>/providers/Microsoft.Purview/accounts/<Account_Name>?api-version=2021-07-01' -X PATCH -d'{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H "Authorization:Bearer <Access_Token>"
     ```
 
-1. Command to enable MSI:
+1. Command to enable system assigned managed identity (SAMI):
   
     ```bash
     curl 'https://management.azure.com/subscriptions/<Subscription_Id>/resourceGroups/<Resource_Group_Name>/providers/Microsoft.Purview/accounts/<Account_Name>?api-version=2021-07-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H "Authorization:Bearer <Access_Token>"
