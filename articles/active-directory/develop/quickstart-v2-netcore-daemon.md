@@ -10,6 +10,7 @@ ms.subservice: develop
 ms.topic: portal
 ms.workload: identity
 ms.date: 01/10/2022
+ROBOTS: NOINDEX
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:aspnet-core", mode-api
