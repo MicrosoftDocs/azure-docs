@@ -5,7 +5,7 @@ author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 07/20/2021
+ms.date: 01/27/2022
 ms.author: mesrivas
 ms.reviewer: sngun, wiassaf
 
@@ -63,7 +63,8 @@ Workspaces can be configured to use a [User-assigned Managed identity](../../act
 
 #### Permissions
 
-To encrypt or decrypt data at rest, the managed identity must have the following permissions:
+To encrypt or decrypt data at rest, the managed identity must have the following permissions. Similarly, if you are using a Resource Manager template to create a new key, the 'keyOps' under properties for Microsoft.KeyVault/vaults/keys resource must have the following permissions:
+
 * WrapKey (to insert a key into Key Vault when creating a new key).
 * UnwrapKey (to get the key for decryption).
 * Get (to read the public part of a key)
