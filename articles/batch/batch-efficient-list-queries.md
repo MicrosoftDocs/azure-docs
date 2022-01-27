@@ -3,6 +3,7 @@ title: Design efficient list queries for Batch resources
 description: Learn how to create more efficient list queries for your Batch resources to improve application performance.
 ms.topic: how-to
 ms.date: 12/20/2021
+ms.devlang: csharp
 ms.custom: "seodec18, devx-track-csharp"
 ---
 

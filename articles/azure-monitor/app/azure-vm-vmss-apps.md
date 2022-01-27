@@ -2,7 +2,8 @@
 title: Monitor performance on Azure VMs - Azure Application Insights
 description: Application performance monitoring for Azure VM and Azure virtual machine scale sets. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 08/26/2019 
+ms.date: 08/26/2019
+ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -194,6 +195,16 @@ Extension execution output is logged to files found in the following directories
 ```Windows
 C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.ApplicationMonitoringWindows\<version>\
 ```
+
+## Release notes
+
+### 2.8.42
+
+- Updated ApplicationInsights .NET/.NET Core SDK to 2.18.1-redfield.
+
+### 2.8.41
+
+- Added ASP.NET Core Auto-Instrumentation feature.
 
 ## Next steps
 * Learn how to [deploy an application to an Azure virtual machine scale set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-app.md).

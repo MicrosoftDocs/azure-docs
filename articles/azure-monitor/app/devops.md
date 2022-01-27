@@ -146,10 +146,6 @@ When an alert is raised, Application Insights can automatically create a work it
 * [Pricing](./pricing.md) - You can get started for free, and that continues while you're in low volume.
 
 
-## Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
-
 ## Next steps
 Getting started with Application Insights is easy. The main options are:
 

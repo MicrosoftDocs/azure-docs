@@ -5,7 +5,7 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
-ms.reviewer: jrasnick, garye
+ms.reviewer: sngun, garye
 ms.date: 11/02/2021
 author: AjAgr
 ms.author: ajagarw

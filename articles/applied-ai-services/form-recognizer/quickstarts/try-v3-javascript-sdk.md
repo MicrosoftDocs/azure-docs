@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 01/04/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021, mode-api
 ---
-
+<!-- markdownlint-disable MD025 -->
 # Quickstart: Form Recognizer JavaScript client library SDKs v3.0 | Preview
 
 >[!NOTE]
@@ -107,6 +107,16 @@ const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-r
 const endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
 const apiKey = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
 ```
+
+> [!TIP]
+> If you would like to try more than one code sample:
+>
+> * Select one of the sample code blocks below to copy and paste into your application.
+> * [**Run your application**](#run-your-application).
+> * Comment out that sample code block but keep the set-up code and library directives.
+> * Select another sample code block to copy and paste into your application.
+> * [**Build and run your application**](#run-your-application).
+> * You can continue to comment out, copy/paste, and run the sample blocks of code.
 
 ### Select a code sample to copy and paste into your application:
 
@@ -248,11 +258,11 @@ You are not limited to invoices—there are several prebuilt models to choose fr
 * [**prebuilt-idDocument**](../concept-id-document.md): extracts text and key information from driver licenses and international passports.
 * [**prebuilt-businessCard**](../concept-business-card.md): extracts text and key information from business cards.
 
-#### Try the prebuilt invoice sample
+#### Try the prebuilt invoice model
 
 > [!div class="checklist"]
 >
-> * You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
+> * We wll analyze an invoice using the prebuilt-invoice model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
 > * We've added the file URL value to the `invoiceUrl` variable at the top of the file.
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocuments` method and pass `PrebuiltModels.Invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.

@@ -54,6 +54,7 @@ Once a service connection is created. Developers can validate and check connecti
 * Azure Storage (Blob, Queue, File and Table storage)
 * Azure Key Vault
 * Azure SignalR Service
+* Azure Cache for Redis (Basic, Standard and Premium and Enterprise tiers)
 * Apache Kafka on Confluent Cloud
 
 ## How to use Service Connector?

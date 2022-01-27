@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to configure your tenant to support
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 author: barclayn
-manager: karenh444
+manager: karenhoran
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 10/08/2021
@@ -45,22 +45,23 @@ Create a service principal for the Request Service API. The service API is the M
 
 To create the service principal:
 
-1. Run the following PowerShell commands. These commands install and import the `AzureAD` module. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps#installation).
+1. Run the following PowerShell commands. These commands install and import the `Az` module. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps#installation).
 
     ```powershell
-    if ((Get-Module -ListAvailable -Name "AzureAD") -eq $null) {  Install-Module "AzureAD" -Scope CurrentUser }  Import-Module AzureAD
+    if ((Get-Module -ListAvailable -Name "Az.Accounts") -eq $null) { Install-Module -Name "Az.Accounts" -Scope CurrentUser }
+    if ((Get-Module -ListAvailable -Name "Az.Resources") -eq $null) { Install-Module "Az.Resources" -Scope CurrentUser }
     ```
 
 1. Run the following PowerShell command to connect to your Azure AD tenant. Replace \<*your-tenant-ID*> with your [Azure AD tenant ID](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
 
     ```powershell
-    Connect-AzureAD -TenantId <your-tenant-ID>
+    Connect-AzAccount -TenantId <your-tenant-ID>
     ```
 
 1. Run the following command in the same PowerShell session. The `AppId` `bbb94529-53a3-4be5-a069-7eaf2712b826` refers to the Verifiable Credentials Microsoft service.
 
     ```powershell
-    New-AzureADServicePrincipal -AppId "bbb94529-53a3-4be5-a069-7eaf2712b826" -DisplayName "Verifiable Credential Request Service" 
+    New-AzADServicePrincipal -ApplicationId "bbb94529-53a3-4be5-a069-7eaf2712b826" -DisplayName "Verifiable Credential Request Service" 
     ```
 
 ## Create a key vault

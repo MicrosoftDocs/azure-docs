@@ -4,11 +4,10 @@ description: Demonstrates how to setup a hybrid identity environment using feder
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/16/2018
 ms.subservice: hybrid

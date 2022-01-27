@@ -18,11 +18,11 @@ YAML pipelines aren't available for Azure DevOps 2019 and earlier.
 
 * A GitHub account, where you can create a repository. If you don't have one, you can [create one for free](https://github.com).
 
-* An Azure DevOps organization. If you don't have one, you can [create one for free](//azure/devops/get-started/pipelines-sign-up.md). (An Azure DevOps organization is different from your GitHub organization. You can give your DevOps organization and your GitHub organization the same name if you want alignment between them.)
+* An Azure DevOps organization. If you don't have one, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up). (An Azure DevOps organization is different from your GitHub organization. You can give your DevOps organization and your GitHub organization the same name if you want alignment between them.)
 
   If your team already has one, then make sure you're an administrator of the Azure DevOps project that you want to use.
 
-* An ability to run pipelines on Microsoft-hosted agents. You can either purchase a [parallel job](/azure/devops/licensing/concurrent-jobs.md) or you can request a free tier. To request a free tier, follow the instructions in [this article](/azure/devops/licensing/concurrent-jobs.md). Note that it may take us 2-3 business days to grant access to the free tier.
+* An ability to run pipelines on Microsoft-hosted agents. You can either purchase a [parallel job](/azure/devops/pipelines/licensing/concurrent-jobs) or you can request a free tier. To request a free tier, follow the instructions in [this article](/azure/devops/pipelines/licensing/concurrent-jobs). Note that it may take us 2-3 business days to grant access to the free tier.
 
 ## Create your function app
 
@@ -235,7 +235,7 @@ steps:
 
 ## Deploy your app
 
-You'll deploy with the [Azure Function App Deploy](/azure/devops/pipelines/tasks/deploy/azure-function-app.md) task. This task requires an [Azure service connection](/azure/devops/pipelines/library/service-endpoints) as an input. An Azure service connection stores the credentials to connect from Azure Pipelines to Azure.
+You'll deploy with the [Azure Function App Deploy](/azure/devops/pipelines/tasks/deploy/azure-function-app) task. This task requires an [Azure service connection](/azure/devops/pipelines/library/service-endpoints) as an input. An Azure service connection stores the credentials to connect from Azure Pipelines to Azure.
 
 # [YAML](#tab/yaml)
 
@@ -282,7 +282,7 @@ You can automatically deploy your code to Azure Functions as a custom container 
 
 # [YAML](#tab/yaml/)
 
-The simplest way to deploy to a container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers.md).
+The simplest way to deploy to a container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers).
 
 To deploy, add the following snippet at the end of your YAML file:
 
@@ -312,7 +312,7 @@ The snippet pushes the Docker image to your Azure Container Registry. The **Azur
 
 # [Classic](#tab/classic/)
 
-The best way to deploy your function app as a container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers.md) in your release pipeline.
+The best way to deploy your function app as a container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers) in your release pipeline.
 
 
 How you deploy your app depends on your app's programming language. Each language has a template with specific deploy steps. If you can't find a template for your language, select the generic **Azure App Service Deployment** template.

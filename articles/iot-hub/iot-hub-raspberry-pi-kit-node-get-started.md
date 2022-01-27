@@ -6,7 +6,7 @@ manager:  eliotgra
 keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi send data to cloud, raspberry pi to cloud
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/18/2021
 ms.author: wesmc

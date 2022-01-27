@@ -101,7 +101,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az group delete --name $resourceGroupName

@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 10/12/2021
 
 ms.reviewer: sdash
+ms.devlang: csharp
 ---
 
 # Live Metrics Stream: Monitor & Diagnose with 1-second latency

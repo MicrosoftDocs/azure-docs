@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Move instance to a different Azure region
 titleSuffix: Azure Digital Twins
-description: See how to move an Azure Digital Twins instance from one Azure region to another.
+description: Learn how to move an Azure Digital Twins instance from one Azure region to another.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 12/15/2021
+ms.date: 1/5/2022
 ms.topic: how-to
 ms.custom: subject-moving-resources, contperf-fy22q2
 ms.service: digital-twins
@@ -18,9 +18,9 @@ ms.service: digital-twins
 
 # Move an Azure Digital Twins instance to a different Azure region
 
-If you need to move your Azure Digital Twins instance from one region to another, the current process is to recreate your resources in the new region. Once the resources have been recreated in the new region, the original resources are deleted. At the end of this process, you'll be working with a new Azure Digital Twins instance that's identical to the first, except for the updated location.
+This article provides guidance on how to do a complete move of an Azure Digital Twins instance to a different Azure region and copy over everything you'll need to make the new instance match the original.
 
-This article provides guidance on how to do a complete move and copy over everything you'll need to make the new instance match the original.
+If you need to move your Azure Digital Twins instance from one region to another, the current process is to recreate your resources in the new region. Once the resources have been recreated in the new region, the original resources are deleted. At the end of this process, you'll be working with a new Azure Digital Twins instance that's identical to the first, except for the updated location.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ Here are some questions to consider:
     - Azure IoT Hub Device Provisioning Service
 * What other **personal or company apps** do I have that connect to my instance?
 
-You can gather this information by using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md), [Azure Digital Twins CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true), or the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md).
+You can gather this information by using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md), [Azure Digital Twins CLI commands](/cli/azure/dt), or the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md).
 
 ## Prepare by downloading graph elements
 
@@ -95,7 +95,7 @@ You should see your graph with all its twins and relationships displayed in the 
 
 :::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Screenshot of the Azure Digital Twins Explorer showing two models highlighted in the Models box and a graph highlighted in the Twin Graph box." lightbox="media/how-to-move-regions/post-upload.png":::
 
-These views confirm that your models, twins, and graph were re-uploaded to the new instance in the target region.
+These views confirm that your models, twins, and graph were reuploaded to the new instance in the target region.
 
 #### Recreate endpoints and routes
 
@@ -133,7 +133,7 @@ After you finish this step, your new instance in the target region should be a c
 To verify that your new instance was set up correctly, use the following tools:
 
 * [Azure portal](https://portal.azure.com). The portal is good for verifying that your new instance exists and is in the correct target region. It's also good for verifying endpoints and routes and connections to other Azure services.
-* [Azure Digital Twins CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true). These commands are good for verifying that your new instance exists and is in the correct target region. They also can be used to verify instance data.
+* [Azure Digital Twins CLI commands](/cli/azure/dt). These commands are good for verifying that your new instance exists and is in the correct target region. They also can be used to verify instance data.
 * [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Azure Digital Twins Explorer is good for verifying instance data like models, twins, and graphs.
 * [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md). These resources are good for verifying instance data like models, twins, and graphs. They're also good for verifying endpoints and routes.
 
@@ -143,7 +143,7 @@ You can also try running any custom apps or end-to-end flows that you had runnin
 
 Now that your new instance is set up in the target region with a copy of the original instance's data and connections, you can delete the original instance.
 
-You can use the [Azure portal](https://portal.azure.com), the [Azure CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true), or the [control plane APIs](concepts-apis-sdks.md#overview-control-plane-apis).
+You can use the [Azure portal](https://portal.azure.com), the [Azure CLI](/cli/azure/dt), or the [control plane APIs](concepts-apis-sdks.md#overview-control-plane-apis).
 
 To delete the instance by using the Azure portal, [open the portal](https://portal.azure.com) in a browser window and go to your original Azure Digital Twins instance by searching for the name in the portal search bar.
 

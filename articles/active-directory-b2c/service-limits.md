@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/09/2021
+ms.date: 12/21/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -38,13 +38,13 @@ The frequency of requests made to Azure AD B2C endpoints determine the overall t
 
 |Endpoint                 |Endpoint type     |Requests consumed |
 |-----------------------------|---------|------------------|
-|/oauth2/v2.0/authorize       |Dynamic  |Varies<sup>1</sup>|
+|/oauth2/v2.0/authorize       |Dynamic  |Varies <sup>1</sup>|
 |/oauth2/v2.0/token           |Static   |1                 |
 |/openid/v2.0/userinfo        |Static   |1                 |
 |/.well-known/openid-config   |Static   |1                 |
 |/discovery/v2.0/keys         |Static   |1                 |
 |/oauth2/v2.0/logout          |Static   |1                 |
-|/samlp/sso/login             |Dynamic  |Varies<sup>1</sup>|
+|/samlp/sso/login             |Dynamic  |Varies <sup>1</sup>|
 |/samlp/sso/logout            |Static   |1                 |
 
 ::: zone pivot="b2c-user-flow"
@@ -97,11 +97,13 @@ The token issuance rate of a Custom Policy is dependent on the number of request
 |Starter Pack |Scenario |User journey ID |Requests consumed|
 |---------|---------|---------|---------|
 |LocalAccounts| Sign-in| SignUpOrSignIn |2|
+|LocalAccounts SocialAndLocalAccounts | Sign-up| SignUpOrSignIn |6|
 |LocalAccounts|Profile edit| ProfileEdit |2|
-|LocalAccounts SocialAndLocalAccounts| PasswordReset| Password reset| 6|
+|LocalAccounts SocialAndLocalAccounts SocialAndLocalAccountsWithMfa| Password reset| PasswordReset| 6|
 |SocialAndLocalAccounts| Federated account sign-in|SignUpOrSignIn| 4|
 |SocialAndLocalAccounts| Federated account sign-up|SignUpOrSignIn| 6|
 |SocialAndLocalAccountsWithMfa| Local account sign-in with MFA|SignUpOrSignIn |6|
+|SocialAndLocalAccountsWithMfa| Local account sign-up with MFA|SignUpOrSignIn |10|
 |SocialAndLocalAccountsWithMfa| Federated account sign-in with MFA|SignUpOrSignIn| 8|
 |SocialAndLocalAccountsWithMfa| Federated account sign-up with MFA|SignUpOrSignIn |10|
 
@@ -115,9 +117,9 @@ To obtain the token issuance rate per second for a particular user journey:
 Tokens/sec = 200/requests-consumed
 ```
 
-## Calculate the token issuance capability of your Custom Policy
+## Calculate the token issuance rate of your Custom Policy
 
-When you create your own Custom Policy, the number of requests consumed at the dynamic endpoint depends on which features a user traverses through. The below table shows how many requests are consumed for each feature in your Custom Policy.
+You can craete your own Custom Policy to provide a unique authentication experience for your application. The number of requests consumed at the dynamic endpoint depends on which features a user traverses through your Custom Policy. The below table shows how many requests are consumed for each feature in a Custom Policy.
 
 |Feature                                          |Requests consumed|
 |-------------------------------------------------|-----------------|

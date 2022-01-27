@@ -30,7 +30,7 @@ There are specific instructions for each source type:
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#authentication-for-registration)
 - [SQL Server](register-scan-on-premises-sql-server.md#authentication-for-registration)
 - [Power BI](register-scan-power-bi-tenant.md)
-- [Amazon S3](register-scan-amazon-s3.md#create-a-purview-credential-for-your-aws-s3-scan)
+- [Amazon S3](register-scan-amazon-s3.md#create-an-azure-purview-credential-for-your-aws-s3-scan)
 
 ## Verifying Azure Role-based Access Control to enumerate Azure resources in Azure Purview Studio
 
@@ -73,19 +73,19 @@ Verify this by following the steps below:
 1. Select the secret you're using to authenticate against your data source for scans.
 1. Select the version that you intend to use and verify that the password or account key is correct by selecting **Show Secret Value**. 
 
-## Verify permissions for the Purview managed identity on your Azure Key Vault
+## Verify permissions for the Azure Purview managed identity on your Azure Key Vault
 
-Verify that the correct permissions have been configured for the Purview managed identity to access your Azure Key Vault.
+Verify that the correct permissions have been configured for the Azure Purview managed identity to access your Azure Key Vault.
 
 To verify this, do the following steps:
 
 1. Navigate to your key vault and to the **Access policies** section
 
-1. Verify that your Purview managed identity shows under the *Current access policies* section with at least **Get** and **List** permissions on Secrets
+1. Verify that your Azure Purview managed identity shows under the *Current access policies* section with at least **Get** and **List** permissions on Secrets
 
    :::image type="content" source="./media/troubleshoot-connections/verify-minimum-permissions.png" alt-text="Image showing dropdown selection of both Get and List permission options":::
 
-If you don't see your Purview managed identity listed, then follow the steps in [Create and manage credentials for scans](manage-credentials.md) to add it. 
+If you don't see your Azure Purview managed identity listed, then follow the steps in [Create and manage credentials for scans](manage-credentials.md) to add it. 
 
 ## Next steps
 
