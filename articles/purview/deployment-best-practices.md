@@ -257,6 +257,48 @@ Additional hardening steps can be taken:
 * Use REST APIs to export critical metadata and properties for backup and recovery
 * Use workflow to automate ticketing and eventing to avoid human errors
 
+## Moving tenants
+
+If your Azure Subscription moves tenants while you have an Azure Purview account, there are some steps you should follow after the move.
+
+Currently your Azure Purview account's system assigned and user assigned managed identities will be cleared during the move to the new tenant. This is because your Azure tenant houses all authentication information, so these need to be updated for your Azure Purview account in the new tenant.
+
+After the move, follow the below steps to clear the old identities, and create new ones:
+
+1. If you're running locally, sign in to Azure through the Azure CLI.
+
+    ```azurecli-interactive
+      az login
+      ```
+    Alternatively, you can use the [Azure Cloud Shell](../cloud-shell/overview.md) in the Azure Portal. 
+    Direct browser link: [https://shell.azure.com](https://shell.azure.com).
+
+1. Obtain an access token by using [az account get-access-token](/cli/azure/account#az_account_get_access_token).
+    ```azurecli-interactive
+    az account get-access-token
+    ```
+
+1. Command to disable MSI:
+
+    > [!IMPORTANT]
+    > Be sure to replace these values in the below commands:
+    > - \<Subscription_Id>: Your Azure Subscription ID
+    > - \<Resource_Group_Name>: Name of the resource group where your Azure Purview account is housed.
+    > - \<Account_Name>: Your Azure Purview account name
+    > - \<Access_Token>: The token from the first two steps.
+
+    ```bash
+    curl 'https://management.azure.com/subscriptions/<Subscription_Id>/resourceGroups/<Resource_Group_Name>/providers/Microsoft.Purview/accounts/<Account_Name>?api-version=2021-07-01' -X PATCH -d'{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H "Authorization:Bearer <Access_Token>"
+    ```
+
+1. Command to enable MSI:
+  
+    ```bash
+    curl 'https://management.azure.com/subscriptions/<Subscription_Id>/resourceGroups/<Resource_Group_Name>/providers/Microsoft.Purview/accounts/<Account_Name>?api-version=2021-07-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H "Authorization:Bearer <Access_Token>"
+    ```
+
+1. If you had a user assigned managed identity (UAMI), register your UAMI in Azure Purview as you did originally by following [the steps from the manage credentials article](manage-credentials.md#create-a-user-assigned-managed-identity).
+
 ## Next steps
 
 - [Collections best practices](concept-best-practices-collections.md)
