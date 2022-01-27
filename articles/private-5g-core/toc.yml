@@ -17,8 +17,6 @@ items:
     href: how-to-guide-deploy-a-private-mobile-network-azure-portal.md
   - name: Delete a private mobile network - Azure portal
     href: delete-private-mobile-network.md
-  - name: Move a private mobile network to another region
-    href: move-private-mobile-network-to-another-region.md
 - name: Concepts
   items:
   - name: Key components of a private mobile network

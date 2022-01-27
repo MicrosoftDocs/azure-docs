@@ -23,7 +23,7 @@ Each packet core instance is standards compliant and compatible with several Rad
 
 Azure Private 5G Core allows you to use Azure to deliver and automate the lifecycle of packet core instances on Azure Stack Edge devices, manage configuration, set policies, provision SIMs for User Equipment, and monitor the network.
 
-### 5GC features
+## 5GC features
 
 |Feature  |Description  |
 |---------|---------|
@@ -34,7 +34,7 @@ Azure Private 5G Core allows you to use Azure to deliver and automate the lifecy
 |**UE MTU configuration**|The packet core instance signals the MTU for a data network to UEs on request as part of PDU session Establishment procedures to avoid fragmentation.|
 |**Index to RAT/Frequency Selection Priority (RFSP)**|The packet core instance can provide a RAN with an RFSP Index, which the RAN can match to its local configuration to apply specific Radio Resource Management policies, such as cell reselection or frequency layer redirection.|
 
-### Packet core architecture
+## Packet core architecture
 
 The following diagram shows each of the Network Functions supported by a packet core instance. It also shows the interfaces these Network Functions use to interoperate with third-party components.
 
