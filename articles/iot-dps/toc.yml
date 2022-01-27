@@ -143,16 +143,6 @@ items:
     href: /rest/api/iot-dps
   - name: Resource Manager template
     href: /azure/templates/microsoft.devices/deviceprovisioning-allversions
-  - name: Azure IoT SDK for C
-    href: https://github.com/Azure/azure-iot-sdk-c
-  - name: Azure IoT SDK for Python
-    href: https://github.com/Azure/azure-iot-sdk-python
-  - name: Azure IoT SDK for Node.js
-    href: https://github.com/Azure/azure-iot-sdk-node
-  - name: Azure IoT SDK for Java
-    href: https://github.com/Azure/azure-iot-sdk-java
-  - name: Azure IoT SDK for .NET
-    href: https://github.com/Azure/azure-iot-sdk-csharp
 - name: Resources
   items:
   - name: Support and help options
