@@ -339,7 +339,7 @@ After an alert is defined and the limit is reached, an alert is triggered and pe
 - [Integrated with an external ITSM solution](../alerts/itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
 
 ## Investigate your Log Analytics usage
-<a name="troubleshooting-why-usage-is-higher-than-expected></a>
+<a name="troubleshooting-why-usage-is-higher-than-expected"></a>
 
 Higher usage is caused by one, or both, of the following:
 - More nodes than expected sending data to Log Analytics workspace. For information, see the [Understanding nodes sending data](#understanding-nodes-sending-data) section of this article.
