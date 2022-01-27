@@ -78,12 +78,6 @@ Azure Private 5G Core Preview allows you to deploy a private mobile network on a
 
    |Field  |Value  |
    |---------|---------|
-   |**N2 address (signaling)** |*10.232.46.22*|
-   |**N2 subnet**              |*10.232.46.0/27*|
-   |**N2 gateway**             |*10.232.46.1*|
-   |**N3 address**             |*10.232.46.23*|
-   |**N3 subnet**              |*10.232.46.0/27*|
-   |**N3 gateway**             |*10.232.46.1*|
    |**Tracking area codes**    |*0001*|
 
 1. Under the **Attached data networks** heading, fill out the fields as follows.
@@ -91,10 +85,6 @@ Azure Private 5G Core Preview allows you to deploy a private mobile network on a
    |Field  |Value  |
    |---------|---------|
    |**Data network** |*internet*|
-   |**N6 address**   |*198.51.100.51*|
-   |**N6 subnet**    |*198.51.100.0/24*|
-   |**N6 gateway**   |*198.51.100.1*|
-   |**UE subnet**    |*192.0.2.0/24*|
    |**NAPT**         |*Enabled*|
 
 1. Click **Review + create**.

@@ -12,11 +12,7 @@ ms.custom: template-how-to
 
 # Collect the required information to deploy a private mobile network - Azure portal
 
-This how-to guide takes you through the process of collecting the information you'll need to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal. You'll use this information to complete the steps in [Deploy a private mobile network - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md).
-
-## Prerequisites
-
-You must have completed all of the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
+This how-to guide takes you through the process of collecting the information you'll need to deploy a private mobile network through Azure Private 5G Core Preview using the Azure portal. It's important to do this first as you'll use this information to complete the steps in [Prepare to deploy a private mobile network](complete-private-mobile-networks-prerequisites.md) and [Deploy a private mobile network - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md).
 
 ## Collect private mobile network resource configuration values
 
@@ -94,29 +90,30 @@ Each site represents a physical enterprise location (for example, Contoso Corpor
 
 Collect all the values in the following table to define the packet core instance's connection to the access network over the N2 and N3 interfaces.
 
-   |Value  |Field name in Azure portal  |
+   |Value  |When used  |
    |---------|---------|
-   |The IP address for the packet core instance N2 signaling interface.                  |**N2 address (signaling)**
-   |The IP address for the packet core instance N3 interface.                |**N3 address**|
-   |The network address of the access subnet in CIDR notation.           |**N2 subnet** and **N3 subnet**|
-   |The access subnet default gateway.                         |**N2 gateway** and **N3 gateway**|
-   |The Tracking Area Codes the packet core instance must support, given as a comma separated list. For example, *0001,0002*.    |**Tracking area codes**|
+   |The IP address for the packet core instance N2 signaling interface.                  |Deploying AKS-HCI Cluster
+   |The IP address for the packet core instance N3 interface.                |Deploying AKS-HCI Cluster|
+   |The network address of the access subnet in CIDR notation.           |Deploying AKS-HCI Cluster|
+   |The access subnet default gateway.                         |Deploying AKS-HCI Cluster|
+   |The Tracking Area Codes the packet core instance must support, given as a comma separated list. For example, *0001,0002*.    |**Tracking area codes** in Azure Portal|
 
 ## Collect attached data network configuration values
 
 Collect all the values in the following table to define the packet core instance's connection to the data network over the N6 interface.
 
-   |Value  |Field name in Azure portal  |
+   |Value  |When used  |
    |---------|---------|
-   |The name of the data network.                  |**Data network**
-   |The IP address for the packet core instance N6 interface.                |**N6 address**|
-   |The network address of the data subnet in CIDR notation.           |**N6 subnet**|
-   |The data subnet default gateway.                         |**N6 gateway**|
-   |The network address of the subnet from which IP addresses must be allocated to UEs, given in CIDR notation. The following is an example of the network address format.<br>`198.51.100.0/24`<br>Note that the UE subnets are not related to the access subnet.    |**UE IP subnet**|
-   |Whether or not Network Address and Port Translation (NAPT) should be enabled for this data network. NAPT allows you to translate a large pool of private IP addresses for UEs to a small number of public IP addresses at the point at which traffic enters the core network, maximizing the utility of a limited supply of public IP addresses.    |**NAPT**|
+   |The name of the data network.                  |**Data network** in Azure Portal
+   |The IP address for the packet core instance N6 interface.                |Deploying AKS-HCI Cluster|
+   |The network address of the data subnet in CIDR notation.           |Deploying AKS-HCI Cluster|
+   |The data subnet default gateway.                         |Deploying AKS-HCI Cluster|
+   |The network address of the subnet from which IP addresses must be allocated to UEs, given in CIDR notation. The following is an example of the network address format.<br>`198.51.100.0/24`<br>Note that the UE subnets are not related to the access subnet.    |**UE IP subnet** in Azure Portal|
+   |Whether or not Network Address and Port Translation (NAPT) should be enabled for this data network. NAPT allows you to translate a large pool of private IP addresses for UEs to a small number of public IP addresses at the point at which traffic enters the core network, maximizing the utility of a limited supply of public IP addresses.    |**NAPT** in Azure Portal|
 
 ## Next steps
 
-You can now use the information you have collected to deploy your private mobile network
+You can now use the information you have collected to complete the prerequisites and deploy your private mobile network
 
+- [Prepare to deploy a private mobile network](complete-private-mobile-networks-prerequisites.md)
 - [Deploy a private mobile network - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md)
