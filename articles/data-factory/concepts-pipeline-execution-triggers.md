@@ -23,7 +23,24 @@ A _pipeline run_ in Azure Data Factory and Azure Synapse defines an instance of 
 
 Pipeline runs are typically instantiated by passing arguments to parameters that you define in the pipeline. You can execute a pipeline either manually or by using a _trigger_. This article provides details about both ways of executing a pipeline.
 
-## Manual execution (on-demand)
+## Create triggers with UI
+
+To manually trigger a pipeline or configure a new scheduled, tumbling window, storage event, or custom event trigger, select Add trigger at the top of the pipeline editor.
+
+:::image type="content" source="media/concepts-pipeline-execution-triggers/manual-trigger.png" alt-text="Shows how to add a new trigger with UI from the pipeline editor.":::
+
+If you choose to manually trigger the pipeline, it will execute immediately.  Otherwise if you choose New/Edit, you will be prompted with the add triggers window to either choose an existing trigger to edit, or create a new trigger.
+
+:::image type="content" source="media/concepts-pipeline-execution-triggers/new-trigger.png" alt-text="Shows the add triggers window highlighting where to create a new trigger.":::
+
+You will see the trigger configuration window, allowing you to choose the trigger type.  
+
+:::image type="content" source="media/concepts-pipeline-execution-triggers/new-trigger-configuration.png" alt-text="Shows the new trigger configuration window with the type dropdown showing the various types of triggers you can create.":::
+
+Read more about [scheduled](#schedule-trigger-with-json), [tumbling window](#tumbling-window-trigger), [storage event](#event-based-trigger), and [custom event](#event-based-trigger) triggers below.
+
+
+## Manual execution (on-demand) with JSON
 
 The manual execution of a pipeline is also referred to as _on-demand_ execution.
 
@@ -132,7 +149,7 @@ For a complete sample, see [Quickstart: Create a data factory by using the .NET 
 > [!NOTE]
 > You can use the .NET SDK to invoke pipelines from Azure Functions, from your web services, and so on.
 
-## Trigger execution
+## Trigger execution with JSON
 
 Triggers are another way that you can execute a pipeline run. Triggers represent a unit of processing that determines when a pipeline execution needs to be kicked off. Currently, the service supports three types of triggers:
 
@@ -170,7 +187,7 @@ Pipelines and triggers have a many-to-many relationship (except for the tumbling
 }
 ```
 
-## Schedule trigger
+## Schedule trigger with JSON
 A schedule trigger runs pipelines on a wall-clock schedule. This trigger supports periodic and advanced calendar options. For example, the trigger supports intervals like "weekly" or "Monday at 5:00 PM and Thursday at 9:00 PM." The schedule trigger is flexible because the dataset pattern is agnostic, and the trigger doesn't discern between time-series and non-time-series data.
 
 For more information about schedule triggers and, for examples, see [Create a trigger that runs a pipeline on a schedule](how-to-create-schedule-trigger.md).
