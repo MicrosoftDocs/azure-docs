@@ -1366,10 +1366,6 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
-  - id: programming-language-go
-    title: Go
-  - id: programming-language-ruby
-    title: Ruby
     # Owner: mbullwin
 - id: custom-qna-quickstart
   title: Programming languages
