@@ -78,8 +78,8 @@ items:
     items:
     - name: Set up Virtual Networks
       href: ../../cognitive-services/cognitive-services-virtual-networks.md?context=/azure/applied-ai-services/form-recognizer/context/context
-    - name: Create and use managed identity
-      href: managed-identity-byos.md
+    - name: Create and use managed identities
+      href: managed-identities.md
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
     - name: Use Azure AD authentication

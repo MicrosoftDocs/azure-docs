@@ -45222,6 +45222,11 @@
       "source_path_from_root": "/articles/azure/cognitive-services/translator/custom-translator/v2-preview/project-overview.md",
       "redirect_url": "/azure/cognitive-services/translator/custom-translator/v2-preview/beginners-guide",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure/applied-ai-services/form-recognizer/managed-identity-byos.md",
+      "redirect_url": "azure/applied-ai-services/form-recognizer/managed-identities",
+      "redirect_document_id": true
     }
   ]
 }
