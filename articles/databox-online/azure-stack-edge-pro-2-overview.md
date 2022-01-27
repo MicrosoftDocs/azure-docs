@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 11/19/2021
+ms.date: 01/27/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro GPU is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -15,29 +15,20 @@ ms.author: alkohli
 
 Azure Stack Edge Pro 2 is the next generation of an AI-enabled edge computing device that can transfer data over the network. This article provides you an overview of the Azure Stack Edge Pro 2 solution. The overview also details the benefits, key capabilities, and the scenarios where you can deploy this device.
 
-Azure Stack Edge Pro 2 is a Hardware-as-a-service solution. Microsoft ships you a cloud-managed device that acts as network storage gateway. This device also has a built-in compute acceleration card that enables accelerated AI-inferencing. 
+Azure Stack Edge Pro 2 is a Hardware-as-a-service solution. Microsoft ships you a cloud-managed edge computing device that also acts as a network storage gateway. Depending on the model, these devices may have a built-in compute acceleration card that enables accelerated AI-inferencing. 
 
 The Azure Stack Edge Pro 2 offers the following benefits over its precursor, the Azure Stack Edge Pro series:
 
-- The Azure Stack Edge Pro 2 offers multiple SKUs that closely align with your compute acceleration, storage, and memory needs. The compute acceleration on the devices could be via a Graphical Processing Unit (GPU) or a Vision Processing Unit (VPU). 
-- The Pro 2 series has flexible form factors that can be rack mounted, mounted on a wall, or even placed on a shelf in your office. 
+- The Azure Stack Edge Pro 2 offers multiple models that closely align with your compute, storage, and memory needs. The compute acceleration on the devices could be via one or two Graphical Processing Units (GPU). 
+- The Pro 2 series has flexible form factors with multiple mounting options. These devices can be rack mounted, mounted on a wall, or even placed on a shelf in your office. 
 - The Pro 2 devices have low-acoustic emissions and meet the office noise requirements.
 
 
 ## Use cases
 
-Here are the various scenarios where Azure Stack Edge Pro 2 can be used for rapid Machine Learning (ML) inferencing at the edge and preprocessing data before sending it to Azure.
+The Azure Stack Edge Pro 2 is designed for deployment in edge locations such as retail, telecommunications, office buildings, manufacturing or even healthcare. Here are the various scenarios where Azure Stack Edge Pro 2 can be used for rapid Machine Learning (ML) inferencing at the edge and preprocessing data before sending it to Azure.
 
-- **Inference with Azure Machine Learning** - With Azure Stack Edge Pro 2, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information, see how to [Deploy Azure ML hardware accelerated models on Azure Stack Edge Pro 2](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
-
-- **Preprocess data** - Transform data before sending it to Azure via compute options such as containerized workloads and Virtual Machines to create a more actionable dataset. Preprocessing can be used to: 
-
-    - Aggregate data.
-    - Modify data, for example to remove personal data.
-    - Subset data to optimize storage and bandwidth, or for further analysis.
-    - Analyze and react to IoT Events. 
-
-- **Transfer data over network to Azure** - Use Azure Stack Edge Pro 2 to easily and quickly transfer data to Azure to enable further compute and analytics or for archival purposes. 
+[!INCLUDE [azure-stack-edge-gateway-use-cases](../../includes/azure-stack-edge-gateway-use-cases.md)] 
 
 ## Key capabilities
 
@@ -65,7 +56,7 @@ Azure Stack Edge Pro 2 has the following capabilities:
 
 The Azure Stack Edge Pro 2 solution comprises of Azure Stack Edge resource, Azure Stack Edge Pro 2 physical device, and a local web UI.
 
-* **Azure Stack Edge Pro 2 physical device** - A 2U rack-mounted server supplied by Microsoft that can be configured to send data to Azure.
+* **Azure Stack Edge Pro 2 physical device** - A 2U compact size device supplied by Microsoft that can be configured to send data to Azure.
 
     [!INCLUDE [azure-stack-edge-gateway-edge-hardware-center-overview](../../includes/azure-stack-edge-gateway-edge-hardware-center-overview.md)]    
 
@@ -82,7 +73,7 @@ The Azure Stack Edge Pro 2 solution comprises of Azure Stack Edge resource, Azur
 
 ## Region availability
 
-Azure Stack Edge Pro GPU physical device, Azure resource, and target storage account to which you transfer data don’t all have to be in the same region.
+The Azure Stack Edge Pro GPU physical device, Azure resource, and target storage account to which you transfer data don’t all have to be in the same region.
 
 - **Resource availability** - For this release, the resource is available in East US, West EU, and South East Asia regions.
 
@@ -95,6 +86,10 @@ Azure Stack Edge Pro GPU physical device, Azure resource, and target storage acc
 Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md). Azure Stack Edge service doesn’t have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
 
 For a discussion of considerations for choosing a region for the Azure Stack Edge service, device, and data storage, see [Choosing a region for Azure Stack Edge](azure-stack-edge-gpu-regions.md).
+
+## Billing and pricing 
+
+These devices can be ordered via the Azure Edge Hardware center. These devices are billed as a monthly service through the Azure portal. For more information, see [Azure Stack Edge Pro 2 pricing](azure-stack-edge-placeholder.md).
 
 ## Next steps
 
