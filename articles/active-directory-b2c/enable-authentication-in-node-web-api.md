@@ -122,7 +122,7 @@ npm install @azure/msal-node
    
    This page displays the response from the API. The `bg-{{bg_color}}` class attribute in Bootstrap's card enables the UI to display a different background color for the different API endpoints.
 
-### Web application server code
+### Complete web application server code
 
 1. In the `.env` file, add the following code, which includes server http port,  app registration details, and sign in and sign up user flow/policy details:
 
@@ -136,7 +136,7 @@ npm install @azure/msal-node
 
 1. In your `index.js` file, add the following code:
     
-   :::code language="html" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/call-protected-api/index.js":::
+   :::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/call-protected-api/index.js":::
 
        
     The code in the `index.js` file consists of some global variables and express routes.
@@ -144,11 +144,11 @@ npm install @azure/msal-node
     **Global variables**: 
     - `confidentialClientConfig`: The MSAL configuration object, which is used to create the confidential client application object. 
 
-        :::code language="html" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/call-protected-api/index.js" id="ms_docref_configure_msal":::    
+        :::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/call-protected-api/index.js" id="ms_docref_configure_msal":::    
 
-    - `apiConfig`: Contains `webApiScopes` property (it's value must be an array), which is the scopes configured in the web API, and granted to the web app.
+    - `apiConfig`: Contains `webApiScopes` property (it's value must be an array), which is the scopes configured in the web API, and granted to the web app. It also has URIs to the web API to be called, that is `anonymousUri` and `protectedUri`.
 
-        :::code language="html" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/call-protected-api/index.js" id="ms_docref_api_config"::: 
+        :::code language="JavaScript" source="~/active-directory-b2c-msal-node-sign-in-sign-out-webapp/call-protected-api/index.js" id="ms_docref_api_config"::: 
 
     - `APP_STATES`: Used to differentiate between responses received from Azure AD B2C by tagging requests. There's only one redirect URI for any number of requests sent to Azure AD B2C.
     - `authCodeRequest`: The configuration object used to retrieve authorization code. 
@@ -158,18 +158,50 @@ npm install @azure/msal-node
     
     **Express routes**:
     - `/`: 
-        - Used to enter the web app.
-        - It renders the `signin` page.
+        - Used to enter the web app, and renders the `signin` page.
     - `/signin`:
         - Used when the end-user signs in.
         - Calls `getAuthCode()` method and passes the `authority` for **Sign in and sign up** user flow/policy, `APP_STATES.LOGIN`, and `apiConfig.webApiScopes` to it.  
         - It causes the end user to be challenged to enter their logins, or if the user doesn't have an account, they can sign up.
         - The final response resulting from this endpoint includes an authorization code from B2C posted back to the `/redirect` endpoint.
     - `/redirect`:
-        - It's the endpoint set as Redirect URI for the web app in Azure portal.
+        - It's the endpoint set as **Redirect URI** for the web app in Azure portal.
         - It uses the `state` query parameter in Azure AD B2C's request to it, to differentiate between requests, which are made from the web app.
-        - If the app state is `APP_STATES.LOGIN`, the authorization code acquired is used to retrieve a token using the `acquireTokenByCode()` method. When requesting for a token using `acquireTokenByCode` method, you use the same scopes used while acquiring the authorization code. The acquired token includes an `accessToken`, `idToken`, and `idTokenClaims`. The `accessToken` can be used to call an API, and the `idToken` identifies the user alongside the `idTokenClaims`.
-        - Put the `accessToken` in the session, and log it.  
+        - If the app state is `APP_STATES.LOGIN`, the authorization code acquired is used to retrieve a token using the `acquireTokenByCode()` method. When requesting for a token using `acquireTokenByCode` method, you use the same scopes used while acquiring the authorization code. The acquired token includes an `accessToken`, `idToken`, and `idTokenClaims`. After we acquire the `accessToken`, we put it in a session for later use in to call the web API. 
     - `/signout`:
         - Used when a user signs out.
-        - The web app session is cleared and an http call is made to Azure AD B2c logout endpoint.
+        - The web app session is cleared and an http call is made to the Azure AD B2c logout endpoint.
+
+## Get the Node web API sample code
+
+Now that the web API is [registered and you've defined its scopes](#register-the-web-api-and-configure-scopes-in-azure-portal), configure the web API sample code to work with your Azure AD B2C tenant. 
+
+1. To get the web API sample code, run the following command in your shell or command line:
+
+    ```
+        git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
+    ```
+   The sample code has the following important files: 
+    - `config.json`: Contains configuration parameters for the sample.
+    - `index.js`: Contains main application logic.
+    - `process.json`: Contains configuration parameters for logging via Morgan.
+1. From your shell or command line, run the following command to install dependencies:
+    
+    ```
+        cd active-directory-b2c-javascript-nodejs-webapi
+        npm install
+    ```
+1. Open the `config.json` file in your code editor and update values for the following keys as follows:
+    - For `tenantName`, use the [name of your tenant name](tenant-management.md#get-your-tenant-name) such as `fabrikamb2c`.
+    - For `clientID`, use the **Application (Client) ID** for [the web API](#register-the-web-api-and-configure-scopes-in-azure-portal) you created earlier. 
+    - For `policyName`, use the name of the **Sing in and sign up** [user flow you created](#create-sign-in-and-sign-up-user-flows-in-azure-portal) earlier, such as `B2C_1_susi_node_app`.
+    - For `scope`
+   
+   After the update, your code should look similar to the following sample: 
+    
+    *config.json:*
+
+       :::code language="json" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json":::
+
+    *index.js:*
+        :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js":::
