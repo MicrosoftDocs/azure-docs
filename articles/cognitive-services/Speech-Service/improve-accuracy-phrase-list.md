@@ -20,19 +20,28 @@ Examples of phrases include:
 * Homonyms
 * Words or acronyms unique to your industry or organization
 
-For example, let's say that you want the Speech service to recognize the sentence: "Abdoulaye Gueye is a Senegalese professional footballer." You might estimate in advance or discover later that it's incorrectly recognized as: "Abdullah **Guy** is a Senegalese professional footballer." In this case you want to add "Abdoulaye Gueye" to your phrase list. 
+Phrase lists are lightweight and flexible:
+- **Just-in-time**: A phrase list is provided just before starting the speech recognition, eliminating the need to train a custom model. 
+- **Lightweight**: You don't need a large data set. Simply provide a word or phrase to give it importance.
 
-A phrase list is provided just before starting the speech recognition, eliminating the need to train a custom model. You can use the Speech SDK or Speech CLI. The Batch transcription API does not support phrase lists. 
+You can use the Speech SDK or Speech Command Line Interface (CLI). The Batch transcription API does not support phrase lists. 
 
-There are some situations where [training a custom model](custom-speech-overview.md) that includes the phrases is likely the best option to improve accuracy.
+There are some situations where [training a custom model](custom-speech-overview.md) that includes phrases is likely the best option to improve accuracy. In these cases you would not use phrase lists. 
 - If you need to use a large list of phrases. A phrase list shouldn't have more than 500 phrases. 
 - If you need a phrase list for languages that are not currently supported. For supported Phrase list locales see [Language and voice support for the Speech service](language-support.md#phrase-list).
 - If you use a custom endpoint. Phrase lists can't be used custom endpoints. 
 
+## Speech Studio demo
 
-## Speech Studio
+You can optionally use Speech Studio to compare recognition before and after using phrase lists. To use phrase lists with your application though, you'll use the Speech SDK or Speech CLI. 
 
-Let's use Speech Studio to see how Phrase list can improve recognition accuracy.
+For example, let's say that you want the Speech service to recognize this sentence:<br/>"Abdoulaye Gueye is a Senegalese professional footballer."
+
+You might find later that it's incorrectly recognized as:<br/>"**Abdullah Guy** is a Senegalese professional footballer."
+
+In this case you want to add "Abdoulaye Gueye" to your phrase list. Then the name should be recognized. 
+
+Now try Speech Studio to see how Phrase list can improve recognition accuracy.
 
 > [!NOTE]
 > You may be prompted to select your Azure subscription and Speech resource, and then acknowledge billing for your region. If you are new to Azure or Speech, see [Try the Speech service for free](overview.md#try-the-speech-service-for-free).
@@ -42,11 +51,13 @@ Let's use Speech Studio to see how Phrase list can improve recognition accuracy.
 1. You test speech recognition by uploading an audio file or recording audio with a microphone. For example, select **record audio with a microphone** and then say "Abdoulaye Gueye is a Senegalese professional footballer." Then select the red button to stop recording. 
 1. You should see the transcription result in the **Test results** text box. If "Abdoulaye Gueye" was not recognized, you can add their name to a phrase list in the next step.
 1. Select **Show advanced options** and make sure **Phrase list** is turned on. 
-1. Enter "Abdoulaye Gueye" in the phrase list text box, and then use the microphone to test recognition again. Note that multiple phrases need to be separated by a semicolon.  
+1. Enter "Abdoulaye Gueye" in the phrase list text box. Note that multiple phrases need to be separated by a semicolon.
+    :::image type="content" source="./media/custom-speech/phrase-list-after-zoom.png" alt-text="Screenshot of a phrase list applied in Speech Studio." lightbox="./media/custom-speech/phrase-list-after-full.png":::
+1. Use the microphone to test recognition again. The name "Abdoulaye Gueye" should be recognized. 
 
-## Example code
+## Integrate phrases lists
 
-With the Speech SDK you add phrases and then run speech recognition. Then you can optionally clear or update the phrase list to take effect before the next recognition.
+With the Speech SDK or Speech CLI you add phrases and then run speech recognition. Then you can optionally clear or update the phrase list to take effect before the next recognition.
 
 ::: zone pivot="programming-language-csharp"
 ```csharp
