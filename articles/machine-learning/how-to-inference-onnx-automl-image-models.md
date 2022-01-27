@@ -34,23 +34,6 @@ In this guide, you'll learn how to use [Python APIs for ONNX Runtime](https://on
 
 * Install the [onnxruntime](https://onnxruntime.ai/docs/get-started/with-python.html) package. The methods in this article have been tested with versions 1.3.0 to 1.8.0.
 
-## Import libraries
-
-
-```python
-import json
-import glob
-import onnxruntime
-import numpy as np
-import matplotlib.pyplot as plt
-from PIL import Image
-from azureml.train.automl.run import AutoMLRun
-from azureml.core.workspace import Workspace
-from azureml.core import Experiment
-
-%matplotlib inline
-
-```
 
 ## Download ONNX model files
 
@@ -102,23 +85,16 @@ best_child_run.download_file(name='train_artifacts/model.onnx', output_file_path
 
 ### Model generation for batch scoring
 
-# [Multi-class image classification ](#tab/multi-class)
+- For classification, by default, generated ONNX model for the best child-run support batch scoring. Proceed to the next section
 
-- By default,  generated ONNX model for the best child-run support batch scoring. Proceed to the next section.
-
-# [Multi-label image classification](#tab/multi-label)
-
-- By default,  generated ONNX model for the best child-run support batch scoring. Proceed to the next section.
-
-# [Object detection with Faster R-CNN](#tab/object-detect-cnn)
-
-- By default, Faster R-CNN model doesn't support batch inferencing
+- By default, object detection and segmentation models don't support batch inferencing
 
 - In case of batch inference, use the following procedure to generate an ONNX model for the required batch size (models generated for a specific batch size don't work for other batch sizes)
 
 - While exporting ONNX models, height and width of the images can be set by the user (choose values closer to training images for better predictions) to generate ONNX models. For making inference using generated ONNX model, input images have to be scaled to height and width values used to generate the ONNX model.
 
 - Use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) to submit the script `ONNX_batch_model_generator_automl_for_images.py` available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml), to generate an ONNX model of a specific batch size. Here, we utilize the trained model environment to submit the above script to generate and save the ONNX model to outputs directory
+
 
 ```python
 from azureml.core.script_run_config import ScriptRunConfig
@@ -141,7 +117,11 @@ experiment = Experiment(ws, name=experiment_name)
 run_id = ''
 automl_image_run = AutoMLRun(experiment=experiment, run_id=run_id)
 best_child_run = automl_image_run.get_best_child()
+```
+Use the following model specific arguments to submit the script.
 
+# [Object detection with Faster R-CNN](#tab/object-detect-cnn)
+```python
 arguments = ['--batch_size', 5,  # enter the batch size of your choice
              '--height_onnx', 600,  # enter the height of input to ONNX model
              '--width_onnx', 800,  # enter the width of input to ONNX model
@@ -157,52 +137,11 @@ arguments = ['--batch_size', 5,  # enter the batch size of your choice
              '--box_nms_thresh', 0.5,  # NMS threshold for the prediction head
              '--box_detections_per_img', 100  # maximum number of detections per image, for all classes
              ]
-
-# Download and keep the ONNX_batch_model_generator_faster_rcnn.py file in the current directory 
-script_run_config = ScriptRunConfig(source_directory='.',
-                                    script='ONNX_batch_model_generator_faster_rcnn.py',
-                                    arguments=arguments,
-                                    compute_target=compute_target,
-                                    environment=best_child_run.get_environment())
-
-remote_run = experiment.submit(script_run_config)
-remote_run.wait_for_completion(wait_post_processing=True)
-
 ```
 
 # [Object detection with YOLO](#tab/object-detect-yolo)
 
-- By default, YOLO model doesn't support batch inferencing
-
-- In case of batch inference, use the following procedure to generate an ONNX model for the required batch size (models generated for a specific batch size don't work for other batch sizes)
-
-- While exporting ONNX models, height and width of the images can be set by the user (choose values closer to training images for better predictions) to generate ONNX models. For making inference using generated ONNX model, input images have to be scaled to height and width values used to generate the ONNX model.
-
-- Use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) to submit the script `ONNX_batch_model_generator_automl_for_images.py` available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml), to generate an ONNX model of a specific batch size. Here, we utilize the trained model environment to submit the above script to generate and save the ONNX model to outputs directory
-
 ```python
-from azureml.core.script_run_config import ScriptRunConfig
-from azureml.train.automl.run import AutoMLRun
-from azureml.core import Experiment
-from azureml.core.workspace import Workspace
-
-# specify experiment name
-experiment_name = ''
-# specify workspace parameters
-subscription_id = ''
-resource_group = ''
-workspace_name = ''
-
-# load the workspace and compute target
-ws = ''
-compute_target = ''
-experiment = Experiment(ws, name=experiment_name)
-
-# specify the run id of the automl run
-run_id = ''
-automl_image_run = AutoMLRun(experiment=experiment, run_id=run_id)
-best_child_run = automl_image_run.get_best_child()
-
 arguments = ['--batch_size', 5,  # enter the batch size of your choice
              '--height_onnx', 640,  # enter the height of input to ONNX model
              '--width_onnx', 640,  # enter the width of input to ONNX model
@@ -217,51 +156,11 @@ arguments = ['--batch_size', 5,  # enter the batch size of your choice
              '--box_score_thresh', 0.1,  # threshold to return proposals with a classification score > box_score_thresh
              '--box_iou_thresh', 0.5  # IOU threshold used during inference in nms post processing
              ]
-# Download and keep the ONNX_batch_model_generator_yolo.py file in the current directory 
-script_run_config = ScriptRunConfig(source_directory='.',
-                                    script='ONNX_batch_model_generator_yolo.py',
-                                    arguments=arguments,
-                                    compute_target=compute_target,
-                                    environment=best_child_run.get_environment())
-
-remote_run = experiment.submit(script_run_config)
-remote_run.wait_for_completion(wait_post_processing=True)
-
 ```
 
 # [Instance segmentation](#tab/instance-segmentation)
 
-- By default, Mask R-CNN model doesn't support batch inferencing
-
-- In case of batch inference, use the following procedure to generate an ONNX model for the required batch size (models generated for a specific batch size don't work for other batch sizes)
-
-- While exporting ONNX models, height and width of the images can be set by the user (choose values closer to training images for better predictions) to generate ONNX models. For making inference using generated ONNX model, input images have to be scaled to height and width values used to generate the ONNX model.
-
-- Use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) to submit the script `ONNX_batch_model_generator_automl_for_images.py` available [here](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml), to generate an ONNX model of a specific batch size. Here, we utilize the trained model environment to submit the above script to generate and save the ONNX model to outputs directory
-
 ```python
-from azureml.core.script_run_config import ScriptRunConfig
-from azureml.train.automl.run import AutoMLRun
-from azureml.core.workspace import Workspace
-from azureml.core import Experiment
-
-# specify experiment name
-experiment_name = ''
-# specify workspace parameters
-subscription_id = ''
-resource_group = ''
-workspace_name = ''
-
-# load the workspace and compute target
-ws = ''
-compute_target = ''
-experiment = Experiment(ws, name=experiment_name)
-
-# specify the run id of the automl run
-run_id = ''
-automl_image_run = AutoMLRun(experiment=experiment, run_id=run_id)
-best_child_run = automl_image_run.get_best_child()
-
 arguments = ['--batch_size', 5,  # enter the batch size of your choice
              '--height_onnx', 600,  # enter the height of input to ONNX model
              '--width_onnx', 800,  # enter the width of input to ONNX model
@@ -277,19 +176,21 @@ arguments = ['--batch_size', 5,  # enter the batch size of your choice
              '--box_nms_thresh', 0.5,  # NMS threshold for the prediction head
              '--box_detections_per_img', 100  # maximum number of detections per image, for all classes
              ]
-# Download and keep the ONNX_batch_model_generator_mask_rcnn.py file in the current directory 
+```
+
+---
+
+Download and keep the ONNX_batch_model_generator_automl_for_images.py file in the current directory
+```python
 script_run_config = ScriptRunConfig(source_directory='.',
-                                    script='ONNX_batch_model_generator_mask_rcnn.py',
+                                    script='ONNX_batch_model_generator_automl_for_images.py',
                                     arguments=arguments,
                                     compute_target=compute_target,
                                     environment=best_child_run.get_environment())
 
 remote_run = experiment.submit(script_run_config)
 remote_run.wait_for_completion(wait_post_processing=True)
-
-```
-
----
+``` 
 
 Once the batch model is generated, either download it from **Outputs+logs** > **outputs** manually, or use the following method:
 ```python
@@ -307,6 +208,9 @@ We've trained the models for all vision tasks with their respective datasets to 
 The following code snippet loads *labels.json*, where class names are ordered. That is, if the ONNX model predicts a label ID as 2, then it corresponds to the label name given at the third index in the *labels.json* file.
 
 ```python
+import json
+import onnxruntime
+
 labels_file = "automl_models/labels.json"
 with open(labels_file) as f:
     classes = json.load(f)
@@ -501,6 +405,10 @@ batch, channel, height_onnx_crop_size, width_onnx_crop_size
 ### Without PyTorch
 
 ```python
+import glob
+import numpy as np
+from PIL import Image
+
 def preprocess(image, resize_size, crop_size_onnx):
     """Perform pre-processing on raw input image
     
@@ -567,7 +475,10 @@ assert batch_size == img_data.shape[0]
 ### With PyTorch
 
 ```python
+import glob
 import torch
+import numpy as np
+from PIL import Image
 from torchvision import transforms
 
 def _make_3d_tensor(x) -> torch.Tensor:
@@ -643,6 +554,10 @@ batch, channel, height_onnx_crop_size, width_onnx_crop_size
 ### Without PyTorch
 
 ```python
+import glob
+import numpy as np
+from PIL import Image
+
 def preprocess(image, resize_size, crop_size_onnx):
     """Perform pre-processing on raw input image
     
@@ -710,7 +625,10 @@ assert batch_size == img_data.shape[0]
 ### With PyTorch
 
 ```python
+import glob
 import torch
+import numpy as np
+from PIL import Image
 from torchvision import transforms
 
 def _make_3d_tensor(x) -> torch.Tensor:
@@ -787,6 +705,10 @@ batch, channel, height_onnx, width_onnx
 Then, perform the preprocessing steps.
 
 ```python
+import glob
+import numpy as np
+from PIL import Image
+
 def preprocess(image, height_onnx, width_onnx):
     """Perform pre-processing on raw input image
     
@@ -846,6 +768,8 @@ batch, channel, height_onnx, width_onnx
 For preprocessing required for YOLO, refer to [yolo_onnx_preprocessing_utils.py](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection).
 
 ```python
+import glob
+import numpy as np
 from yolo_onnx_preprocessing_utils import preprocess
 
 # use height and width based on the generated model
@@ -883,6 +807,10 @@ Perform the following preprocessing steps for the ONNX model inference:
 For `resize_height` and `resize_width`, you can also use the values that you used during training, bounded by the `min_size` and `max_size` [hyperparameters](how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) for Mask R-CNN.
 
 ```python
+import glob
+import numpy as np
+from PIL import Image
+
 def preprocess(image, resize_height, resize_width):
     """Perform pre-processing on raw input image
     
@@ -1192,7 +1120,7 @@ The following code creates boxes, labels, and scores. Use these bounding box det
 ```python
 from yolo_onnx_preprocessing_utils import non_max_suppression, _convert_to_rcnn_output
 
-result = non_max_suppression(
+result_final = non_max_suppression(
     torch.from_numpy(result),
     conf_thres=0.1,
     iou_thres=0.5)
@@ -1231,7 +1159,7 @@ def _get_prediction(label, image_shape, classes):
     return bounding_boxes
 
 bounding_boxes_batch = []
-for result_i, pad in zip(result, pad_list):
+for result_i, pad in zip(result_final, pad_list):
     label, image_shape = _convert_to_rcnn_output(result_i, height_onnx, width_onnx, pad)
     bounding_boxes_batch.append(_get_prediction(label, image_shape, classes))
 print(json.dumps(bounding_boxes_batch, indent=1))
@@ -1253,11 +1181,14 @@ Visualize an input image with Labels
 
 ```python
 import matplotlib.image as mpimg
+import matplotlib.pyplot as plt
+%matplotlib inline
 
 sample_image_index = 0 # change this for an image of interest from image_files list
 IMAGE_SIZE = (18, 12)
 plt.figure(figsize=IMAGE_SIZE)
-img_np = mpimg.imread(r'automl_models_multi_cls/test_images_dir/1.jpg')
+img_np = mpimg.imread(image_files[sample_image_index])
+
 img = Image.fromarray(img_np.astype('uint8'), 'RGB')
 x, y = img.size
 
@@ -1290,6 +1221,8 @@ Visualize an input image with Labels
 
 ```python
 import matplotlib.image as mpimg
+import matplotlib.pyplot as plt
+%matplotlib inline
 
 sample_image_index = 0 # change this for an image of interest from image_files list
 IMAGE_SIZE = (18, 12)
@@ -1330,6 +1263,8 @@ Visualize an input image with boxes and Labels
 ```python
 import matplotlib.image as mpimg
 import matplotlib.patches as patches
+import matplotlib.pyplot as plt
+%matplotlib inline
 
 img_np = mpimg.imread(image_files[1])  # replace with desired image index
 image_boxes = filtered_boxes_batch[1]  # replace with desired image index
@@ -1369,6 +1304,8 @@ Visualize an input image with boxes and Labels
 ```python
 import matplotlib.image as mpimg
 import matplotlib.patches as patches
+import matplotlib.pyplot as plt
+%matplotlib inline
 
 img_np = mpimg.imread(image_files[1])  # replace with desired image index
 image_boxes = bounding_boxes_batch[1]  # replace with desired image index
@@ -1407,6 +1344,8 @@ Visualize a sample Input Image with Masks and Labels
 
 ```python
 import matplotlib.patches as patches
+import matplotlib.pyplot as plt
+%matplotlib inline
 
 def display_detections(image, boxes, labels, scores, masks, resize_height, 
                        resize_width, classes, score_threshold):
