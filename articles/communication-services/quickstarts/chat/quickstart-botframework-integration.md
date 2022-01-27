@@ -362,4 +362,4 @@ And on the ACS User side, the ACS message's metadata field will indicate this is
 
 ## Next steps
 
-Try the [Sample App](/SPOOL/Services-and-Teams/Chat/Tech-Briefs/BotFramework-integration-:-Acs-Channel/Documentation-for-Private-Preview/Demo-App-Quickstart), which showcases a 1:1 chat between the end user and chat bot, and uses BotFramework's WebChat UI component.
+Try the [Sample App](https://github.com/Azure/communication-preview/tree/master/samples/AzureBotService-Sample-App), which showcases a 1:1 chat between the end user and chat bot, and uses BotFramework's WebChat UI component.
