@@ -27,7 +27,7 @@ In this tutorial you will learn how to:
 ## Prerequisites
 * If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
 
-## Install Device Update Agent to test it as a simulator
+## Install Device Update agent to test it as a simulator
 
 1. Follow the instructions to [Install the Azure IoT Edge runtime](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&preserve-view=true).
    > [!NOTE]
@@ -60,10 +60,10 @@ In this tutorial you will learn how to:
    ```
    
 Device Update for Azure IoT Hub software is subject to the following license terms:
-   * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
+   * [Device Update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
    * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
    
-Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the Device update for IoT Hub agent.
+Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the Device Update for IoT Hub agent.
 
 > [!NOTE] 
 > After your testing with the simulator run the below command to invoke the APT handler and [deploy over-the-air Package Updates](device-update-ubuntu-agent.md)
@@ -73,7 +73,7 @@ Read the license terms prior to using the agent. Your installation and use const
 
 ## Add device to Azure IoT Hub
 
-Once the Device Update Agent is running on an IoT device, the device needs to be added to the Azure IoT Hub.  From within Azure IoT Hub, a connection string will be generated for a particular device.
+Once the Device Update agent is running on an IoT device, the device needs to be added to the Azure IoT Hub.  From within Azure IoT Hub, a connection string will be generated for a particular device.
 
 1. From the Azure portal, launch the Device Update IoT Hub.
 2. Create a new device.
@@ -86,10 +86,10 @@ Once the Device Update Agent is running on an IoT device, the device needs to be
 
 ## Add connection string to simulator
 
-Start Device Update Agent on your new Software Devices.
+Start Device Update agent on your new Software Devices.
 
 1. Start Ubuntu.
-2. Run the Device Update Agent and specify the device connection string from the previous section wrapped with apostrophes:
+2. Run the Device Update agent and specify the device connection string from the previous section wrapped with apostrophes:
 
    Replace `<device connection string>` with your connection string
    ```shell
@@ -215,7 +215,7 @@ You have now completed a successful end-to-end image update using Device Update 
 
 ## Clean up resources
 
-When no longer needed, clean up your device update account, instance, IoT Hub and IoT device. 
+When no longer needed, clean up your Device Update account, instance, IoT Hub and IoT device. 
 
 ## Next steps
 
