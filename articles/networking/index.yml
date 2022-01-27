@@ -112,7 +112,17 @@ additionalContent:
               url: ../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md
             - text: See more
               url: ../virtual-network/nat-gateway/index.yml
-   
+
+        # Card
+        - title: Manage virtual network connectivity and security rules
+          links:
+            - text: What is Azure Virtual Network Manager?
+              url: ../virtual-network-manager/overview.md
+            - text: Create a mesh network topology
+              url: ../virtual-network-manager/create-virtual-network-manager-portal.md
+            - text: See more
+              url: ../virtual-network-manager/index.yml
+
     - title: Application delivery services  # < 60 chars (optional)
       items:
         # Card

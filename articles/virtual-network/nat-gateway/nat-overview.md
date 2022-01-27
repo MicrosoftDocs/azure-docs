@@ -48,10 +48,10 @@ NAT is fully scaled out from the start. There's no ramp up or scale-out operatio
   * Public IP
   * Public IP prefix
 * NAT is compatible with Standard SKU public IP address or public IP prefix resources or a combination of both. You can use a public IP prefix directly or distribute the public IP addresses of the prefix across multiple NAT gateway resources. NAT will groom all traffic to the range of IP addresses of the prefix. Basic resources, such as Basic Load Balancer or Basic Public IP aren't compatible with NAT.  Basic resources must be placed on a subnet not associated to a NAT Gateway. Basic Load Balancer and Basic Public IP can be upgraded to standard  in order to work with NAT gateway.
-  * To upgrade a basic load balancer to standard, see [Upgrade Azure Public Load Balancer](/azure/load-balancer/upgrade-basic-standard)
-  * To upgrade a basic public IP to standard, see [Upgrade a public IP address](/azure/virtual-network/ip-services/public-ip-upgrade-portal)
-* NAT is the recommended method for outbound connectivity. A NAT gateway does not have the same limitations of SNAT port exhaustion as does [default outbound access](/azure/virtual-network/ip-services/default-outbound-access) and [outbound rules of a load balancer](/azure/load-balancer/outbound-rules). 
-  * To migrate outbound access to NAT gateway from default outbound access or from outbound rules of a load balancer, see [Migrate outbound access to Azure Virtual Network NAT](/azure/virtual-network/nat-gateway/tutorial-migrate-outbound-nat)
+  * To upgrade a basic load balancer to standard, see [Upgrade Azure Public Load Balancer](../../load-balancer/upgrade-basic-standard.md)
+  * To upgrade a basic public IP to standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md)
+* NAT is the recommended method for outbound connectivity. A NAT gateway does not have the same limitations of SNAT port exhaustion as does [default outbound access](../ip-services/default-outbound-access.md) and [outbound rules of a load balancer](../../load-balancer/outbound-rules.md). 
+  * To migrate outbound access to NAT gateway from default outbound access or from outbound rules of a load balancer, see [Migrate outbound access to Azure Virtual Network NAT](./tutorial-migrate-outbound-nat.md)
 * NAT cannot be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. However, it can be associated to a dual stack subnet.
 * NAT allows flows to be created from the virtual network to the services outside your VNet. Return traffic from the Internet is only allowed in response to an active flow. Services outside your VNet cannot initiate a connection to instances.
 * NAT cannot span multiple virtual networks.

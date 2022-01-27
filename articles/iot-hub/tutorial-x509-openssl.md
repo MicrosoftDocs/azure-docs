@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 02/26/2021
 ms.author: lizross
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
-#Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to introduce me to OpenSSL that I can use to generate test certificates. 
+#Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to introduce me to OpenSSL that I can use to generate test certificates.
 ---
 
 # Tutorial: Using OpenSSL to create test certificates
@@ -20,9 +20,9 @@ Although you can purchase X.509 certificates from a trusted certification author
 
 Create a directory structure for the certification authority.
 
-* The **certs** directory stores new certificates.
-* The **db** directory is used for the certificate database.
-* The **private** directory stores the CA private key.
+* The *certs* directory stores new certificates.
+* The *db* directory is used for the certificate database.
+* The *private* directory stores the CA private key.
 
 ```bash
   mkdir rootca
@@ -35,7 +35,7 @@ Create a directory structure for the certification authority.
 
 ## Step 2 - Create a root CA configuration file
 
-Before creating a CA, create a configuration file and save it as `rootca.conf` in the rootca directory.
+Before creating a CA, create a configuration file and save it as *rootca.conf* in the *rootca* directory.
 
 ```xml
 [default]
@@ -50,7 +50,7 @@ name_opt                 = utf8,esc_ctrl,multiline,lname,align
 commonName               = "Test Root CA"
 
 [ca_default]
-home                     = ../rootca 
+home                     = ../rootca
 database                 = $home/db/index
 serial                   = $home/db/serial
 crlnumber                = $home/db/crlnumber
@@ -106,13 +106,13 @@ subjectKeyIdentifier     = hash
 
 ## Step 3 - Create a root CA
 
-First, generate the key and the certificate signing request (CSR) in the rootca directory.
+First, generate a private key and the certificate signing request (CSR) in the *rootca* directory.
 
 ```bash
   openssl req -new -config rootca.conf -out rootca.csr -keyout private/rootca.key
 ```
 
-Next, create a self-signed CA certificate. Self-signing is suitable for testing purposes. Specify the ca_ext configuration file extensions on the command line. These indicate that the certificate is for a root CA and can be used to sign certificates and certificate revocation lists (CRLs). Sign the certificate, and commit it to the database.
+Next, create a self-signed CA certificate. Self-signing is suitable for testing purposes. Specify the `ca_ext` configuration file extensions on the command line. These indicate that the certificate is for a root CA and can be used to sign certificates and certificate revocation lists (CRLs). Sign the certificate, and commit it to the database.
 
 ```bash
   openssl ca -selfsign -config rootca.conf -in rootca.csr -out rootca.crt -extensions ca_ext
@@ -120,7 +120,7 @@ Next, create a self-signed CA certificate. Self-signing is suitable for testing 
 
 ## Step 4 - Create the subordinate CA directory structure
 
-Create a directory structure for the subordinate CA.
+Create a directory structure for the subordinate CA at the same level as the *rootca* directory.
 
 ```bash
   mkdir subca
@@ -133,7 +133,7 @@ Create a directory structure for the subordinate CA.
 
 ## Step 5 - Create a subordinate CA configuration file
 
-Create a configuration file and save it as subca.conf in the `subca` directory.
+Create a configuration file and save it as *subca.conf* in the *subca* directory.
 
 ```bash
 [default]
@@ -148,7 +148,7 @@ name_opt                 = utf8,esc_ctrl,multiline,lname,align
 commonName               = "Test Subordinate CA"
 
 [ca_default]
-home                     = . 
+home                     = .
 database                 = $home/db/index
 serial                   = $home/db/serial
 crlnumber                = $home/db/crlnumber
@@ -157,9 +157,9 @@ private_key              = $home/private/$name.key
 RANDFILE                 = $home/private/random
 new_certs_dir            = $home/certs
 unique_subject           = no
-copy_extensions          = copy 
+copy_extensions          = copy
 default_days             = 365
-default_crl_days         = 90 
+default_crl_days         = 90
 default_md               = sha256
 policy                   = policy_c_o_match
 
@@ -203,7 +203,7 @@ subjectKeyIdentifier     = hash
 
 ## Step 6 - Create a subordinate CA
 
-Create a new serial number in the `rootca/db/serial` file for the subordinate CA certificate.
+From the *subca* directory, create a new serial number in the *rootca/db/serial* file for the subordinate CA certificate.
 
 ```bash
   openssl rand -hex 16 > ../rootca/db/serial
@@ -212,15 +212,15 @@ Create a new serial number in the `rootca/db/serial` file for the subordinate CA
 >[!IMPORTANT]
 >You must create a new serial number for every subordinate CA certificate and every device certificate that you create. Different certificates cannot have the same serial number.
 
-This example shows you how to create a subordinate or registration CA. Because you can use the root CA to sign certificates, creating a subordinate CA isn’t strictly necessary. Having a subordinate CA does, however,  mimic real world certificate hierarchies in which the root CA is kept offline and subordinate CAs issue client certificates.
+This example shows you how to create a subordinate or registration CA. Because you can use the root CA to sign certificates, creating a subordinate CA isn’t strictly necessary. Having a subordinate CA does, however, mimic real world certificate hierarchies in which the root CA is kept offline and subordinate CAs issue client certificates.
 
-Use the configuration file to generate a key and a certificate signing request (CSR).
+Use the configuration file to generate a private key and a certificate signing request (CSR).
 
 ```bash
   openssl req -new -config subca.conf -out subca.csr -keyout private/subca.key
 ```
 
-Submit the CSR to the root CA and use the root CA to issue and sign the subordinate CA certificate. Specify sub_ca_ext for the extensions switch on the command line. The extensions indicate that the certificate is for a CA that can sign certificates and certificate revocation lists (CRLs). When prompted, sign the certificate, and commit it to the database.
+Submit the CSR to the root CA and use the root CA to issue and sign the subordinate CA certificate. Specify `sub_ca_ext` for the extensions switch on the command line. The extensions indicate that the certificate is for a CA that can sign certificates and certificate revocation lists (CRLs). When prompted, sign the certificate, and commit it to the database.
 
 ```bash
   openssl ca -config ../rootca/rootca.conf -in subca.csr -out subca.crt -extensions sub_ca_ext
@@ -236,16 +236,15 @@ You now have both a root CA certificate and a subordinate CA certificate. You ca
 
 3. Enter a display name in the **Certificate Name** field, and select the PEM  certificate file you created previously.
 
-> [!NOTE]
-> The .crt certificates created above are the same as .pem certificates. You can simply change the extension when uploading a certificate to prove possession, or you can use the following OpenSSL command:
-
-```bash
-openssl x509 -in mycert.crt -out mycert.pem -outform PEM
-```
+   > [!NOTE]
+   > The .crt certificates created above are the same as .pem certificates. You can simply change the extension when uploading a certificate to prove possession, or you can use the following OpenSSL command:
+   >
+   > ```bash
+   > openssl x509 -in mycert.crt -out mycert.pem -outform PEM
+   > ```
 
 4. Select **Save**. Your certificate is shown in the certificate list with a status of **Unverified**. The verification process will prove that you own the certificate.
 
-   
 5. Select the certificate to view the **Certificate Details** dialog.
 
 6. Select **Generate Verification Code**. For more information, see [Prove Possession of a CA certificate](tutorial-x509-prove-possession.md).
@@ -254,39 +253,38 @@ openssl x509 -in mycert.crt -out mycert.pem -outform PEM
 
 8. Generate a private key.
 
-  ```bash
-    $ openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
-  ```
+   ```bash
+   openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+   ```
 
 9. Generate a certificate signing request (CSR) from the private key. Add the verification code as the subject of your certificate.
 
-  ```bash
-  openssl req -new -key pop.key -out pop.csr
-  
-    -----
-    Country Name (2 letter code) [XX]:.
-    State or Province Name (full name) []:.
-    Locality Name (eg, city) [Default City]:.
-    Organization Name (eg, company) [Default Company Ltd]:.
-    Organizational Unit Name (eg, section) []:.
-    Common Name (eg, your name or your server hostname) []:BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A
-    Email Address []:
+   ```bash
+   openssl req -new -key pop.key -out pop.csr
 
-    Please enter the following 'extra' attributes
-    to be sent with your certificate request
-    A challenge password []:
-    An optional company name []:
- 
-  ```
+     -----
+     Country Name (2 letter code) [XX]:.
+     State or Province Name (full name) []:.
+     Locality Name (eg, city) [Default City]:.
+     Organization Name (eg, company) [Default Company Ltd]:.
+     Organizational Unit Name (eg, section) []:.
+     Common Name (eg, your name or your server hostname) []:BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A
+     Email Address []:
+
+     Please enter the following 'extra' attributes
+     to be sent with your certificate request
+     A challenge password []:
+     An optional company name []:
+
+   ```
 
 10. Create a certificate using the subordinate CA configuration file and the CSR for the proof of possession certificate.
 
-  ```bash
+    ```bash
     openssl ca -config subca.conf -in pop.csr -out pop.crt -extensions client_ext
+    ```
 
-  ```
-
-11. Select the new certificate in the **Certificate Details** view. To find the PEM file, navigate to the certs folder.
+11. Select the new certificate in the **Certificate Details** view. To find the PEM file, navigate to the *certs* folder.
 
 12. After the certificate uploads, select **Verify**. The CA certificate status should change to **Verified**.
 
@@ -302,13 +300,13 @@ Navigate to your IoT Hub in the Azure portal and create a new IoT device identit
 
 ## Step 9 - Create a client device certificate
 
-To generate a client certificate, you must first generate a private key. The following command shows how to use OpenSSL to create a private key. Create the key in the subca directory.
+To generate a client certificate, you must first generate a private key. The following command shows how to use OpenSSL to create a private key. Create the key in the *subca* directory.
 
 ```bash
 openssl genpkey -out device.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
 ```
 
-Create a certificate signing request (CSR) for the key. You do not need to enter a challenge password or an optional company name. You must, however, enter the device ID in the common name field. You can also enter your own values for the other parameters such as **Country**, **Organization Name**, and so on.
+Create a certificate signing request (CSR) for the key. You do not need to enter a challenge password or an optional company name. You must, however, enter the device ID in the common name field. You can also enter your own values for the other parameters such as **Country Name**, **Organization Name**, and so on.
 
 ```bash
 openssl req -new -key device.key -out device.csr

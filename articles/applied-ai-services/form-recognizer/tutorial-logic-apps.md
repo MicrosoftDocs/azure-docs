@@ -21,7 +21,7 @@ Azure Logic Apps is a cloud-based platform that can be used to automate workflow
 * Integrate workflows with software as a service (SaaS) and enterprise applications.
 * Automate enterprise application integration (EAI), business-to-business(B2B), and electronic data interchange (EDI) tasks.
 
-For more information, *see* [Logic Apps Overview](/azure/logic-apps/logic-apps-overview).
+For more information, *see* [Logic Apps Overview](../../logic-apps/logic-apps-overview.md).
 
  In this tutorial, you'll learn how to build a Logic App connector flow to automate the following tasks:
 
@@ -90,7 +90,7 @@ At this point, you should have a Form Recognizer resource and a OneDrive folder 
 
    * **Subscription**. Select your current subscription.
    * **Resource group**. The [Azure resource group](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group) that will contain your resource. Choose the same resource group you have for your Form Recognizer resource.
-   * **Type**. Select **Consumption**. The Consumption resource type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](/azure/logic-apps/logic-apps-pricing#consumption-pricing).
+   * **Type**. Select **Consumption**. The Consumption resource type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](../../logic-apps/logic-apps-pricing.md#consumption-pricing).
    * **Logic App name**. Enter a name for your resource. We recommend using a descriptive name, for example *YourNameLogicApp*.
    * **Region**. Select your local region.
    * **Enable log analytics**. For this project, select **No**.
@@ -211,7 +211,7 @@ Now that we've created the flow, the last thing to do is to test it and make sur
 
 1. Check your email and you should see a new email with the information we pre-specified.
 
-1. Be sure to [disable or delete](/azure/logic-apps/manage-logic-apps-with-azure-portal#disable-or-enable-a-single-logic-app) your logic App after you're done so usage stops.
+1. Be sure to [disable or delete](../../logic-apps/manage-logic-apps-with-azure-portal.md#disable-or-enable-a-single-logic-app) your logic App after you're done so usage stops.
 
 Congratulations! You've officially completed this tutorial.
 
