@@ -45,16 +45,16 @@ In order to use ACS chat as a channel in Azure Bot Service, the first step would
 
    1. Click on create a resource option in Azure portal.
    
-   :::image type="content" source="./media/create-a-new-resource.png" alt-text="Create a new resource" lightbox="./media/create-a-new-resource.png":::
+   :::image type="content" source="./media/create-a-new-resource.png" alt-text="Create a new resource":::
    
    2. Search Azure Bot in the list of available resource types.
    
-   :::image type="content" source="./media/search-azure-bot.png" alt-text="Search Azure Bot" lightbox="./media/search-azure-bot.png":::
+   :::image type="content" source="./media/search-azure-bot.png" alt-text="Search Azure Bot":::
 
 
    3. Choose Azure Bot to create it.
    
-   :::image type="content" source="./media/create-azure-bot.png" alt-text="Creat Azure Bot" lightbox="./media/create-azure-bot.png":::
+   :::image type="content" source="./media/create-azure-bot.png" alt-text="Creat Azure Bot":::
 
    4. Finally create an Azure Bot resource. You might use an existing Microsoft app ID that you must have created or create a new one that gets created automatically. 
    
@@ -66,7 +66,7 @@ After creating the Azure Bot resource, next step would be to set a password for 
 
  1. Go to Azure Active Directory
 
-   :::image type="content" source="./media/azure-ad.png" alt-text="Azure Active Directory" lightbox="./media/azure-ad.png":::
+   :::image type="content" source="./media/azure-ad.png" alt-text="Azure Active Directory":::
 
 2. Find your app in the App Registration blade
 
@@ -82,18 +82,18 @@ Create a Web App where actual bot logic resides. You could check out some sample
 
    1. As in previously shown create a resource and choose `Web App` in search. 
    
-   :::image type="content" source="./media/web-app.png" alt-text="Web app" lightbox="./media/web-app.png":::
+   :::image type="content" source="./media/web-app.png" alt-text="Web app":::
 
 
    2. Configure the options you want to set including the region you want to deploy it to.
    
-   :::image type="content" source="./media/web-app-create-options.png" alt-text="Web App Create Options" lightbox="./media/web-app-create-options.png":::
+   :::image type="content" source="./media/web-app-create-options.png" alt-text="Web App Create Options":::
 
 
 
    3. Review your options and create the Web App and move to the resource once its been provisioned and copy the hostname URL exposed by the Web App.
    
-   :::image type="content" source="./media/web-app-endpoint.png" alt-text="Web App endpoint" lightbox="./media/web-app-endpoint.png":::
+   :::image type="content" source="./media/web-app-endpoint.png" alt-text="Web App endpoint":::
 
 
 ### Configure the Azure Bot
@@ -123,13 +123,13 @@ The final step would be to deploy the bot logic to the Web App we created. As we
 
    4. Click on the project to publish the Web App code to Azure. Choose the publish option in Visual Studio. 
 
-   :::image type="content" source="./media/publish-app.png" alt-text="Publish app" lightbox="./media/publish-app.png":::
+   :::image type="content" source="./media/publish-app.png" alt-text="Publish app":::
 
    5. Click on New to create a new publishing profile, choose Azure as the target, and Azure App Service as the specific target.
 
-   :::image type="content" source="./media/select-azure-as-target.png" alt-text="Select Azure as Target" lightbox="./media/select-azure-as-target.png":::
+   :::image type="content" source="./media/select-azure-as-target.png" alt-text="Select Azure as Target":::
    
-   :::image type="content" source="./media/select-app-service.png" alt-text="Select App Service" lightbox="./media/select-app-service.png":::
+   :::image type="content" source="./media/select-app-service.png" alt-text="Select App Service":::
 
    6. Lastly, the above option opens the deployment config. Choose the Web App we had provisioned from the list of options it comes up with after signing into your Azure account. Once ready click on `Finish` to start the deployment.
    
@@ -273,7 +273,7 @@ If you would like to deploy the chat application, you can follow these steps:
 1. Open the chat project in Visual Studio.
 2. Right click on the ChatQuickstart project and click Publish
 
-   :::image type="content" source="./media/deploy-chat-application.png" alt-text="Deploy Chat Application" lightbox="./media/deploy-chat-application.png":::
+   :::image type="content" source="./media/deploy-chat-application.png" alt-text="Deploy Chat Application":::
 
 
 ## More things you can do with bot
