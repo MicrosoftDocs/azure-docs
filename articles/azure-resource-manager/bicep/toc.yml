@@ -38,56 +38,51 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Keywords
+  - name: Bicep file
+    href: file.md
+    displayName: parameters,variables,resources,outputs,condition,syntax
+  - name: Parameters (param)
+    href: parameters.md
+    displayName: decorators,secure,objects,constraints
+  - name: Variables (var)
+    href: variables.md
+    displayName: configuration
+  - name: Resources (resource)
+    href: resource-declaration.md
+  - name: Existing resources (existing)
+    href: existing-resource.md
+  - name: Child resources (parent)
+    href: child-resource-name-type.md
+    displayName: parent,parent resource,sub,nested
+  - name: Extension resources (scope)
+    href: scope-extension-resources.md
+  - name: Dependencies (dependsOn)
+    href: resource-dependencies.md
+  - name: Modules (module)
+    href: modules.md
+    displayName: scopes,consume,registry,module registry,private module registry
+  - name: Outputs (output)
+    href: outputs.md
+    displayName: dynamic number of outputs,modules
+  - name: Loops (for)
+    href: loops.md
+    displayName: multiple
+  - name: Conditions (if)
+    href: conditional-resource-deployment.md
+  - name: Deployment scope (targetScope)
     items:
-    - name: existing
-      href: existing-resource.md
-    - name: for
-      href: loops.md
-      displayName: multiple
-    - name: if
-      href: conditional-resource-deployment.md
-    - name: module
-      href: modules.md
-      displayName: scopes,consume,registry,module registry,private module registry
-    - name: output
-      href: outputs.md
-      displayName: dynamic number of outputs,modules
-    - name: param
-      href: parameters.md
-      displayName: decorators,secure,objects,constraints
-    - name: resource
-      href: resource-declaration.md
-    - name: var
-      href: variables.md
-      displayName: configuration
-    - name: resource properties
-      items:
-      - name: name
-        href: resource-name.md
-      - name: location
-        href: resource-location.md
-      - name: parent
-        href: child-resource-name-type.md
-        displayName: parent,parent resource,sub,nested
-      - name: scope
-        href: scope-extension-resources.md
-      - name: dependsOn
-        href: resource-dependencies.md
-    - name: targetScope
-      items:
-      - name: Resource group
-        href: deploy-to-resource-group.md
-        displayName: deployment commands,multiple resource groups
-      - name: Subscription
-        href: deploy-to-subscription.md
-        displayName: Azure Policy,policy,access control
-      - name: Management group
-        href: deploy-to-management-group.md
-        displayName: policy,Azure Policy
-      - name: Tenant
-        href: deploy-to-tenant.md
-        displayName: assign role
+    - name: Resource group
+      href: deploy-to-resource-group.md
+      displayName: deployment commands,multiple resource groups
+    - name: Subscription
+      href: deploy-to-subscription.md
+      displayName: Azure Policy,policy,access control
+    - name: Management group
+      href: deploy-to-management-group.md
+      displayName: policy,Azure Policy
+    - name: Tenant
+      href: deploy-to-tenant.md
+      displayName: assign role
   - name: Functions
     items:
     - name: All functions
@@ -133,9 +128,6 @@
   items:
   - name: Author
     items:
-    - name: Write Bicep file
-      displayName: parameters,variables,resources,outputs,condition,syntax
-      href: file.md
     - name: Create private module registry
       href: private-module-registry.md
       displayName: module registry,private module registry
