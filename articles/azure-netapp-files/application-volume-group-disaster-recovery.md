@@ -162,7 +162,7 @@ The following diagram describes this scenario:
 
 [ ![Diagram that shows replication for only the primary HANA database volumes.](../media/azure-netapp-files/replicate-only-primary-database-volumes.png) ](../media/azure-netapp-files/replicate-only-primary-database-volumes.png#lightbox)
 
-In this scenario, a DR setup must include only the volumes of the primary HANA system. With the daily replication of the primary data volume and the log backups of both the primary and secondary system, the system can be recovered at the DR site. In the diagram, a single volume is used for the log backups of the primary and secondary systems.
+In this scenario, a DR setup must include only the volumes of the primary HANA system. With the daily replication of the primary data volume and the log backups of both the primary and secondary systems, the system can be recovered at the DR site. In the diagram, a single volume is used for the log backups of the primary and secondary systems.
 
 In case of a takeover by the secondary HSR host, the backups taken in the secondary system won’t be replicated, but log backups of the secondary will continue to be replicated. If a disaster happens, the system at the DR site can still be recovered using the old snapshot backup from the former primary and the replicated log backups from both hosts. RTO will increase because more logs are to be recovered, depending on how long the HSR pair will run in the takeover mode. If the takeover mode is significantly longer and RTO becomes a problem, you need to set up a new CRR replication including the data volume of the secondary system.
 
@@ -172,9 +172,11 @@ The workflow for this scenario is identical to the [Add volumes](#add-volumes) w
 
 For reasons other than HA, you might want to periodically switch roles between the primary and secondary HANA systems. In this scenario, applications-consistent backups must be created on both HANA hosts. 
 
-The following diagram describes this scenario. In this scenario, you might want to replicate both sets of volumes from the primary and secondary HANA systems as shown in the diagram:
+The following diagram describes this scenario:
 
 [ ![Diagram that shows replication for both the primary and the secondary HANA database volumes.](../media/azure-netapp-files/replicate-both-primary-secondary-database-volumes.png) ](../media/azure-netapp-files/replicate-both-primary-secondary-database-volumes.png#lightbox)
+
+In this scenario, you might want to replicate both sets of volumes from the primary and secondary HANA systems as shown in the diagram. 
 
 To create the volumes for the secondary replication target, the naming convention will be adapted. To distinguish between the replication of the primary and secondary database, the prefix will change from `DR` to `DR2` for the secondary HANA system. Except this name change, the workflow is identical to the [Add volumes](#add-volumes) workflow.
 
