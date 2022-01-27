@@ -10,8 +10,7 @@ ms.service: iot-hub-device-update
 
 # Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image
 
-Device Update for IoT Hub supports two forms of updates – image-based
-and package-based.
+Device Update for IoT Hub supports image-based, package-based, and script-based updates.
 
 Image updates provide a higher level of confidence in the end-state of the device. It is typically easier to replicate the results of an image-update between a pre-production environment and a production environment, since it doesn’t pose the same challenges as packages and their dependencies. Due to their atomic nature, one can also adopt an A/B failover model easily.
 
@@ -37,7 +36,7 @@ We provide sample images in "Assets" on the [Device Update GitHub releases page]
 ## Flash SD card with image
 
 Using your favorite OS flashing tool, install the Device Update base image
-(adu-base-image) on the SD Card that will be used in the Raspberry Pi 3 B+
+(adu-base-image) on the SD card that will be used in the Raspberry Pi 3 B+
 device.
 
 ### Using bmaptool to flash SD card
@@ -77,7 +76,7 @@ Device Update for Azure IoT Hub software is subject to the following license ter
    * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
    * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
    
-Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the Device update for IoT Hub agent.
+Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the Device Update for IoT Hub agent.
 
 ## Create device or module in IoT Hub and get connection string
 
@@ -118,7 +117,7 @@ IoT Hub, a connection string will be generated for the device.
 1. On the left-hand side of the page, select 'IoT Devices'.
 2. Select the link with your device name.
 3. At the top of the page, select 'Device Twin' if directly connecting to Device Update using the IoT device identity. Otherwise select the module you created above and click on its ‘Module Twin’.
-4. Under the 'reported' section of the device twin properties, look for the Linux kernel version.
+4. Under the 'reported' section of the Device Twin properties, look for the Linux kernel version.
 For a new device, which hasn't received an update from Device Update, the
 [DeviceManagement:DeviceInformation:1.swVersion](device-update-plug-and-play.md) value will represent
 the firmware version running on the device.  Once an update has been applied to a device, Device Update will
@@ -151,27 +150,32 @@ Use that version number in the Import Update step below.
 ## Import update
 
 1. Download the [sample import manifest](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0/TutorialImportManifest_Pi.json) and [sample image update](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu).
-2. Log in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
+
+2. Log in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the Updates option under Automatic Device Management from the left-hand navigation bar.
+
 3. Select the Updates tab.
+
 4. Select "+ Import New Update".
-5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the _sample import manifest_ you downloaded in step 1 above.  Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the _sample update file_ that you downloaded in step 1 above.
 
-   :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
-
-6. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account.
-
-7. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
-  
-   :::image type="content" source="media/import-update/container.png" alt-text="Screenshot showing container selection." lightbox="media/import-update/container.png":::
-
-8. Select "Submit" to start the import process.
-
-9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, this may complete in a few minutes but could take longer.
+5. Select "+ Select from storage container". Select an existing account or create a new account using "+ Storage account". Then select an existing container or create a new container using "+ Container". This container will be used to stage your update files for importing. 
+   > [!NOTE]
+   > We recommend using a new container each time you import an update to avoid accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container before completing this step.
    
-   :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Screenshot showing update import sequence." lightbox="media/import-update/update-publishing-sequence-2.png":::
+   :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Storage Account" lightbox="media/import-update/storage-account-ppr.png":::
 
-10. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
+6. In your container, select "Upload" and navigate to files downloaded in **Step 1**. When you've selected all your update files, select "Upload" Then click the "Select" button to return to the "Import update" page.
 
+   :::image type="content" source="media/import-update/import-select-ppr.png" alt-text="Select Uploaded Files" lightbox="media/import-update/import-select-ppr.png":::
+   _This screenshot shows the import step and file names may not match the ones used in the example_
+
+8. On the Import update page, review the files to be imported. Then select "Import update" to start the import process.
+
+   :::image type="content" source="media/import-update/import-start-2-ppr.png" alt-text="Import Start" lightbox="media/import-update/import-start-2-ppr.png":::
+
+9. The import process begins, and the screen switches to the "Import History" section. When the `Status` column indicates the import has succeeded, select the "Available Updates" header. You should see your imported update in the list now.
+
+   :::image type="content" source="media/import-update/update-ready-ppr.png" alt-text="Job Status" lightbox="media/import-update/update-ready-ppr.png":::
+       
 [Learn more](import-update.md) about importing updates.
 
 ## Create update group
@@ -236,7 +240,7 @@ You have now completed a successful end-to-end image update using Device Update 
 
 ## Clean up resources
 
-When no longer needed, clean up your device update account, instance, IoT Hub and IoT device. 
+When no longer needed, clean up your Device Update account, instance, IoT Hub and IoT device. 
 
 ## Next steps
 
