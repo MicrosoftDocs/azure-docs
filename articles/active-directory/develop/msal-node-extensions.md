@@ -11,18 +11,18 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/27/2022
-ms.reviewer: j-mantu
+ms.reviewer: j-mantu, samuelkubai, Dickson-Mwendia
 ms.author: henrymbugua
 #Customer intent: As an application developer, I want to learn how to use the Microsoft Authentication Extensions for Node library for cache persistence support for public client applications.
 ---
 
-# Overview of the Microsoft Authentication Extensions for Node
+# Microsoft Authentication Extensions for Node
 
 The Microsoft Authentication Extensions for Node enables developers to perform cross-platform token cache serialization and persistence to disk. It gives additional support to the Microsoft Authentication Library (MSAL) for Node.
 
-The [MSAL Node](msal-node-migration.md) supports an in-memory cache by default and provides the ICachePlugin interface to perform cache serialization, but doesn't provide a default way of storing the token cache to disk. The Microsoft Authentication Extensions for Node is default implementation for persisting cache to disk across different platforms.
+The [MSAL for Node](msal-node-migration.md) supports an in-memory cache by default and provides the ICachePlugin interface to perform cache serialization, but doesn't provide a default way of storing the token cache to disk. The Microsoft Authentication Extensions for Node is the default implementation for persisting cache to disk across different platforms.
 
-Microsoft authentication extensions for node support the following platforms:
+The Microsoft Authentication Extensions for Node support the following platforms:
 
 - Windows - Data Protection API (DPAPI) is used for protection.
 - MAC - The MAC KeyChain is used.
