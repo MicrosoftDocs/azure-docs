@@ -245,3 +245,5 @@ Advance to the next tutorial to learn how to connect to your device.
 
 > [!div class="nextstepaction"]
 > [Connect Azure Stack Edge Pro](./azure-stack-edge-pro-2-deploy-connect.md)
+
+
