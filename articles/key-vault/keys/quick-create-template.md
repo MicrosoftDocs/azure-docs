@@ -165,11 +165,11 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
 
 |Parameter  |Definition  |
 |---------|---------|
-|**keyOps**  | Specifies operations that can be performed by using the key. If you do not specify this parameter, all operations can be performed. The acceptable values for this parameter are a comma-separated list of key operations as defined by the [JSON Web Key (JWK) specification](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41): <br> `["sign", "verify", "encrypt", "decrypt", " wrapKey", "unwrapKey"]` |
-|**CurveName**  |  Elliptic curve name for EC key type. See [JsonWebKeyCurveName](/rest/api/keyvault/createkey/createkey#jsonwebkeycurvename) |
+|**keyOps**  | Specifies operations that can be performed by using the key. If you don't specify this parameter, all operations can be performed. The acceptable values for this parameter are a comma-separated list of key operations as defined by the [JSON Web Key (JWK) specification](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41): <br> `["sign", "verify", "encrypt", "decrypt", " wrapKey", "unwrapKey"]` |
+|**CurveName**  |  Elliptic curve (EC) name for EC key type. See [JsonWebKeyCurveName](/rest/api/keyvault/createkey/createkey#jsonwebkeycurvename) |
 |**Kty**  |  The type of key to create. For valid values, see [JsonWebKeyType](/rest/api/keyvault/createkey/createkey#jsonwebkeytype) |
 |**Tags** | Application specific metadata in the form of key-value pairs.  |
-|**nbf**  |  Specifies the time, as a DateTime object, before which the key cannot be used. The format would be Unix time stamp (the number of seconds after Unix Epoch on January 1st, 1970 at UTC).  |
+|**nbf**  |  Specifies the time, as a DateTime object, before which the key can't be used. The format would be Unix time stamp (the number of seconds after Unix Epoch on January 1st, 1970 at UTC).  |
 |**exp**  |  Specifies the expiration time, as a DateTime object. The format would be Unix time stamp (the number of seconds after Unix Epoch on January 1st, 1970 at UTC). |
 
 ## Deploy the template
@@ -177,7 +177,7 @@ You can use [Azure portal](../../azure-resource-manager/templates/deploy-portal.
 
 ## Review deployed resources
 
-You can either use the Azure portal to check the key vault and the key, or use the following Azure CLI or Azure PowerShell script to list the key created.
+You can use the Azure portal to check the key vault and the key. Alternatively, use the following Azure CLI or Azure PowerShell script to list the key created.
 
 # [CLI](#tab/CLI)
 
@@ -201,16 +201,16 @@ Write-Host "Press [ENTER] to continue..."
 ## Creating key using ARM template is different from creating key via data plane
 
 ### Creating a key via ARM
-- It is only possible to create *new* keys. It is not possible to update existing keys, and it is not possible to create new versions of existing keys. If the key already exists, then the existing key is retrieved from storage and used (no write operations will occur).
-- To be authorized to use this API, the caller needs to have the **"Microsoft.KeyVault/vaults/keys/write"** RBAC Action. The built-in "Key Vault Contributor" role is sufficient, since it authorizes all RBAC Actions which match the pattern "Microsoft.KeyVault/*". See the below screenshots for more information.
+- It's only possible to create *new* keys. It isn't possible to update existing keys, nor create new versions of existing keys. If the key already exists, then the existing key is retrieved from storage and used (no write operations will occur).
+- To be authorized to use this API, the caller needs to have the **"Microsoft.KeyVault/vaults/keys/write"** role-based access control (RBAC) Action. The built-in "Key Vault Contributor" role is sufficient, since it authorizes all RBAC Actions that match the pattern "Microsoft.KeyVault/*". See these screenshots for more information.
 
   :::image type="content" source="../media/keys-quick-template-1.png" alt-text="Create a key via ARM 1":::
   :::image type="content" source="../media/keys-quick-template-2.png" alt-text="Create a key via ARM 2":::
 
 
 ### Existing API (creating key via data plane)
-- It is possible to create new keys, update existing keys, and create new versions of existing keys.
-- To be authorized to use this API, the caller either needs to have the "create" key permission (if the vault uses access policies) or the "Microsoft.KeyVault/vaults/keys/create/action" RBAC DataAction (if the vault is enabled for RBAC).
+- It's possible to create new keys, update existing keys, and create new versions of existing keys.
+- The caller must have "create" key permission if the vault uses access policies, or "Microsoft.KeyVault/vaults/keys/create/action" RBAC DataAction if the vault is enabled for RBAC, to be authorized to use this API.
 
 
 ## Clean up resources
@@ -239,7 +239,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this quickstart, you created a key vault and a key using an ARM template, and validated the deployment. To learn more about Key Vault and Azure Resource Manager, continue on to the articles below.
+In this quickstart, you created a key vault and a key using an ARM template, and validated the deployment. To learn more about Key Vault and Azure Resource Manager, see these articles.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
