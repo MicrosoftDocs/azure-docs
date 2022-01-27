@@ -796,7 +796,7 @@
       "branch_mapping": {}
     },
     {  
-      "path_to_root": "",
+      "path_to_root": "active-directory-b2c-javascript-nodejs-webapi",
       "url": "https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi",
       "branch": "master",
       "branch_mapping": {}

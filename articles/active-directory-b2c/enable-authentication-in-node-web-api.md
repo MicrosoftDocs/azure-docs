@@ -232,8 +232,21 @@ Now that the web API is [registered and you've defined its scopes](#register-the
           :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json" id="ms_docref_anonymous_api_endpoint":::
 
 
-##
+## Test your application
 
+You can now test your application. You need to start both your web application and the sample web API. 
+
+1. In your terminal, navigate to the sample web API and run the following command to start the Node.js web API server:
+
+    ```
+        node index.js
+    ```
+1. In another terminal instance, navigate to the web app and run the following command to start the web API server:
+
+    ```
+        node index.js
+    ```
+1. In your browser, go to `http://localhost:3000`. You should see the page with a **Sign in** button.
 
 ## Next steps
 - [Secure an Azure API Management API with Azure AD B2C](secure-api-management.md)
