@@ -1,6 +1,6 @@
 ---
 title: Log Analytics workspace data export in Azure Monitor (preview)
-description: Log Analytics workspace data export in Azure Monitor lets you continuously export data per selected tables in your workspace, to Azure storage account or Azure Event Hubs as it's collected. 
+description: Log Analytics workspace data export in Azure Monitor lets you continuously export data per selected tables in your workspace, to an Azure storage account or Azure Event Hubs as it's collected. 
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: yossi-y
@@ -10,19 +10,19 @@ ms.date: 12/01/2021
 ---
 
 # Log Analytics workspace data export in Azure Monitor (preview)
-Log Analytics workspace data export in Azure Monitor allows you to continuously export data from selected tables in your Log Analytics workspace to an Azure storage account or Azure Event Hubs as it's collected. This article provides details on this feature and steps to configure data export in your workspaces.
+Data export in Log Analytics workspace lets you continuously export data per selected tables in your workspace, to an Azure storage account or Azure Event Hubs as it's collected. This article provides details on this feature and steps to configure data export in your workspaces.
 
 ## Overview
-Data in Log Analytics is available for the retention period defined in your workspace and used in various experiences provided in Azure Monitor and Azure services. There are cases where you need to use other tools:
+Data in Log Analytics is available for the retention period defined in your workspace, and used in various experiences provided in Azure Monitor and Azure services. There are cases where you need to use other tools:
 * Tamper protected store compliance – data can't be altered in Log Analytics once ingested, but can be purged. Export to storage account set with [immutability policies](../../storage/blobs/immutable-policy-configure-version-scope.md) to keep data tamper protected.
 *  Integration with Azure services and other tools – export to event hub in near-real-time to send data to your services and tools at it arrives to Azure Monitor.
 *  Keep audit and security data for very long time – export to storage account in the workspace's region, or replicate data to other regions using any of the [Azure Storage redundancy options](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) including "GRS" and "GZRS".
 
-When you configure data export in your Log Analytics workspace, new ingested data to selected tables in your rule is exported to your storage account or to your event hub as it arrives.
+When configuring data export rules in Log Analytics workspace, new ingested data to selected tables in rules is exported to your storage account or to your event hub as it arrives.
 
 [![Data export overview](media/logs-data-export/data-export-overview.png "Screenshot of data export flow diagram.")](media/logs-data-export/data-export-overview.png#lightbox)
 
-All data from included tables is exported without a filter. For example, when you configure a data export rule for *SecurityEvent* table, all data sent to the *SecurityEvent* table is exported starting from the configuration time.
+Data is exported without a filter. For example, when you configure a data export rule for *SecurityEvent* table, all data sent to the *SecurityEvent* table is exported starting from the configuration time.
 
 
 ## Other export options
@@ -42,7 +42,7 @@ Log Analytics workspace data export continuously exports data that is sent to yo
 - Data export isn't supported in Government regions currently
 
 ## Data completeness
-Data export is optimized for moving large data volume to your destinations, and in certain retry conditions can include a fraction of duplicated records. The export operation could fail when ingress limits reached, see details under [Create or update data export rule](#create-or-update-data-export-rule) and a retry continues for up to 30 minutes. If destination is unavailable to accept data yet, data will be discarded until destination becomes available.
+Data export is optimized for moving large data volume to your destinations, and in certain retry conditions, can include a fraction of duplicated records. The export operation could fail when ingress limits are reached, see details under [Create or update data export rule](#create-or-update-data-export-rule). In such case, a retry continues for up to 30 minutes, and if destination is unavailable yet, data will be discarded until destination becomes available.
 
 ## Cost
 Billing for the Log Analytics Data Export feature is not enabled yet. View more details in [pricing page](https://azure.microsoft.com/pricing/details/monitor/).
@@ -59,7 +59,7 @@ Don't use an existing storage account that has other, non-monitoring data to bet
 
 To send data to immutable storage, set the immutable policy for the storage account as described in [Set and manage immutability policies for Blob storage](../../storage/blobs/immutable-policy-configure-version-scope.md). You must follow all steps in this article, including enabling protected append blobs writes.
 
-The storage account must be StorageV1 or above and in the same region as your workspace. If you need to replicate your data to other storage accounts in other regions, you can use any of the [Azure Storage redundancy options](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) including GRS and GZRS.
+The storage account must be StorageV1 or above and in the same region as your workspace. If you need to replicate your data to other storage accounts in other regions, you can use any of the [Azure storage redundancy options](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region), including "GRS" and "GZRS".
 
 Data is sent to storage accounts as it reaches Azure Monitor and exported to destinations located in workspace region. A container is created for each table in storage account, with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to a container named *am-SecurityEvent*.
 
