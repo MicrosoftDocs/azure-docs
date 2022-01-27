@@ -71,10 +71,7 @@ const tableService = TableServiceClient.fromConnectionString("<connection-string
 To add an Azure Cosmos DB connection, create a `TableServiceClient` object and specify your account name, primary key, and endpoint. You can copy these values from **Settings** > **Connection String** in the Azure portal for your Cosmos DB account. For example:
 
 ```javascript
-const tableService = new TableServiceClient(
-  tablesEndpoint,
-  new AzureNamedKeyCredential("<accountName>", "<accountKey>")
-);
+const tableService = TableServiceClient.fromConnectionString("<connection-string>");
 ```
 
 ## Create a table
