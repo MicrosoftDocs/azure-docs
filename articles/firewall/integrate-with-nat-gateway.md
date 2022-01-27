@@ -5,7 +5,7 @@ services: firewall
 author: KumudD
 ms.service: firewall
 ms.topic: how-to
-ms.date: 04/23/2021
+ms.date: 01/27/2022
 ms.author: kumud 
 ms.custom: devx-track-azurepowershell
 ---
@@ -24,6 +24,8 @@ There is no double NAT with this architecture. Azure Firewall instances send the
 
 > [!NOTE]
 > Using Azure NAT Gateway is currently incompatible with Azure Firewall if you have deployed your [Azure Firewall across multiple availability zones](deploy-availability-zone-powershell.md).
+>
+> In addition, NAT Gateway integration is not currently supported in secured virtual hub network architectures. You must deploy using a hub virtual network architecture. For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](../firewall-manager/vhubs-and-vnets.md).
 
 ## Associate NAT gateway with Azure Firewall subnet - Azure PowerShell
 
