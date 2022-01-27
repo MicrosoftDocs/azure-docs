@@ -185,28 +185,31 @@ Start by navigating to your instance in the Azure portal (you can find the insta
     Select **Create a connection**. This will begin the process of creating a data history connection.
 
 2. If you **don't** have a [managed identity enabled for your Azure Digital Twins instance](how-to-route-with-managed-identity.md), you'll be asked to turn on Identity for the instance as the first step for the data history connection.
-    :::image type="content"  source="media/how-to-use-data-history/authenticate.png" alt-text="Screenshot of the Azure portal showing the first step in the data history connection setup, Authenticate." lightbox="media/how-to-use-data-history/authenticate.png":::
+    :::image type="content"  source="media/how-to-use-data-history/authentication.png" alt-text="Screenshot of the Azure portal showing the first step in the data history connection setup, Authentication." lightbox="media/how-to-use-data-history/authentication.png":::
+
+    Select **Next** after setting this up.
 
     If you **do** have a managed identity enabled, your setup will go straight to the next page as the first step.
 
 3. On the **Send** page, enter the details of the [Event Hubs resources](#create-an-event-hubs-namespace-and-event-hub) that you created earlier.
     :::image type="content"  source="media/how-to-use-data-history/send.png" alt-text="Screenshot of the Azure portal showing the Send step in the data history connection setup." lightbox="media/how-to-use-data-history/send.png":::
 
-    If you have sufficient [permissions](#prerequisites) in your subscription to allow your instance to connect to the event hub, select the **Grant permission** box shown at the bottom of the page. If you don't have the required permissions, you'll see a warning instead suggesting you ask your administrator for the permissions.
+    Select **Next**.
+
+4. On the **Store** page, enter the details of the [Azure Data Explorer resources](#create-a-kusto-azure-data-explorer-cluster-and-database) that you created earlier and choose a name for your database table.
+    :::image type="content"  source="media/how-to-use-data-history/store.png" alt-text="Screenshot of the Azure portal showing the Store step in the data history connection setup." lightbox="media/how-to-use-data-history/store.png":::
 
     Select **Next**.
 
-4. Next, on the **Store** page, enter the details of the [Azure Data Explorer resources](#create-a-kusto-azure-data-explorer-cluster-and-database) that you created earlier and choose a name for your database table.
-    :::image type="content"  source="media/how-to-use-data-history/store.png" alt-text="Screenshot of the Azure portal showing the Store step in the data history connection setup." lightbox="media/how-to-use-data-history/store.png":::
+5. On the **Permission** page, select all of the checkboxes to give your Azure Digital Twins instance permission to connect to the Event Hubs and Azure Data Explorer resources. If you already have equal or higher permissions in place, you can skip this step.
+    :::image type="content"  source="media/how-to-use-data-history/permission.png" alt-text="Screenshot of the Azure portal showing the Permission step in the data history connection setup." lightbox="media/how-to-use-data-history/permission.png":::
 
-    If you have sufficient [permissions](#prerequisites) in your subscription to allow your instance to connect to the cluster, select the **Grant permission** box shown at the bottom of the page. If you don't have the required permissions, you'll see a warning instead suggesting you ask your administrator for the permissions.
+    Select **Next**. 
 
-    Select **Create connection**.
-
-5. On the **Review + create** page, review the details of your resources and select **Create connection**.
+6. On the **Review + create** page, review the details of your resources and select **Create connection**.
     :::image type="content"  source="media/how-to-use-data-history/review-create.png" alt-text="Screenshot of the Azure portal showing the Review and Create step in the data history connection setup." lightbox="media/how-to-use-data-history/review-create.png":::
 
-When the connection is finished creating, you'll see the **Data history details** page with a confirmation that you've successfully established a connection with Azure Data Explorer.
+When the connection is finished creating, you'll be taken back to the **Data history** page for the Azure Digital Twins instance, which now shows details of the data history connection you've created.
 
 :::image type="content"  source="media/how-to-use-data-history/data-history-details.png" alt-text="Screenshot of the Azure portal showing the Data History Details page after setting up a connection." lightbox="media/how-to-use-data-history/data-history-details.png":::
 
