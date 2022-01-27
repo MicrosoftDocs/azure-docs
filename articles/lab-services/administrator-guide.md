@@ -10,7 +10,7 @@ ms.date: 01/22/2022
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 > [!NOTE]
-> If using Azure Lab Services prior to the [January 2022 Update (preview)](lab-services-whats-new.md), see [Azure Lab Services - Administrator guide (deprecated)](administrator-guide-1.md).
+> If using a version of Azure Lab Services prior to the [January 2022 Update (preview)](lab-services-whats-new.md), see [Azure Lab Services - Administrator guide (deprecated)](administrator-guide-1.md).
 
 Information technology (IT) administrators who manage a university's cloud resources are ordinarily responsible for setting up the lab plan for their school. After they have set up a lab plan, administrators or educators create the labs that are associated with the lab plan. This article provides a high-level overview of the Azure resources that are involved and the guidance for creating them.
 
@@ -248,7 +248,7 @@ With Lab Services, if you create a lab with a template, the lab VMs will have th
 
 To obtain lab VMs with unique SID, create a lab without a template VM.  You must use a *generalized* image from the Azure Marketplace or an attached Azure Compute Gallery.  To use your own Azure Compute Gallery, see [Attach or detach a compute gallery in Azure Lab Services](how-to-attach-detach-shared-image-gallery.md).  The machine SIDs can be verified by using a tool such as [PsGetSid](/sysinternals/downloads/psgetsid).
 
-If you plan to use an endpoint management tool or similar software, we recommend that you don’t use templates VMs for your labs.
+If you plan to use an endpoint management tool or similar software, we recommend that you don’t use template VMs for your labs.
 
 ## Pricing
 
