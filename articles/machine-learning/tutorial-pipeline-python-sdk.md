@@ -39,10 +39,10 @@ If you don't have an Azure subscription, create a free account before you begin.
 ## Prerequisites
 
 * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace.
-* A Python environment in which you've installed both the `azureml-core` and `azureml-pipelines` packages. This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at runtime for training.
+* A Python environment in which you've installed both the `azureml-core` and `azureml-pipeline` packages. This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at runtime for training.
 
 > [!Important]
-> Currently, the most recent Python release compatible with `azureml-pipelines` is Python 3.8. If you've difficulty installing the `azureml-pipelines` package, ensure that `python --version` is a compatible release. Consult the documentation of your Python virtual environment manager (`venv`, `conda`, and so on) for instructions.
+> Currently, the most recent Python release compatible with `azureml-pipeline` is Python 3.8. If you've difficulty installing the `azureml-pipeline` package, ensure that `python --version` is a compatible release. Consult the documentation of your Python virtual environment manager (`venv`, `conda`, and so on) for instructions.
 
 ## Start an interactive Python session
 
