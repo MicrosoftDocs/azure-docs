@@ -76,7 +76,7 @@ In the Business Critical service tier, in addition to what is natively provided 
 
 ## Contained availability groups
 
-An availability group binds one or more user databases into a logical group so that when there is a failover, the entire group of databases fails over to the secondary replica as a single unit. An availability group only replicates data in the user databases but not the data in system databases such as logins, permissions, or agent jobs. A contained availability group includes metadata from system databases such as `msdb` and `master` databases. When a login is created or modified in the primary replica, it's automatically also created in the secondary replicas. Similarly, when an agent job is created or modified in the primary replica, the secondary replicas also receive those changes.
+An availability group binds one or more user databases into a logical group so that when there is a failover, the entire group of databases fails over to the secondary replica as a single unit. An availability group only replicates data in the user databases but not the data in system databases such as logins, permissions, or agent jobs. A contained availability group includes metadata from system databases such as `msdb` and `master` databases. When logins are created or modified in the primary replica, they're automatically also created in the secondary replicas. Similarly, when an agent job is created or modified in the primary replica, the secondary replicas also receive those changes.
 
 Azure Arc-enabled SQL Managed Instance takes this concept of contained availability group and adds Kubernetes operator so these can be deployed and managed at scale. 
 
@@ -91,7 +91,7 @@ Capabilities that contained availability groups enable:
 ### Deploy Azure Arc-enabled SQL Managed Instance with multiple replicas using Azure portal
 
 From Azure portal, on the create Azure Arc-enabled SQL Managed Instance page:
-1. Select **Configure Compute + Storage** under Compute + Storage. This should open a new blade with advances settings.
+1. Select **Configure Compute + Storage** under Compute + Storage. The portal shows advanced settings.
 2. Under Service tier, select **Business Critical**.
 3. Check the "For development use only", if using for development purposes.
 4. Under High availability, select either **2 replicas** or **3 replicas**.
@@ -197,7 +197,7 @@ And the Contained Availability Dashboard:
 
 Unlike SQL Server Always On availability groups, the contained availability group is a managed high availability solution. Hence, the failover modes are limited compared to the typical modes available with SQL Server Always On availability groups.
 
-Deploy Business Critical service tier SQL managed instances in either two-replica configuration or three replica configuration. The impact of failures and the subsequent recoverability is different with each configuration. A three replica instance provides a much higher level of availability and recovery, than a two replica instance. 
+Deploy Business Critical service tier SQL managed instances in either two-replica configuration or three replica configuration. The effects of failures and the subsequent recoverability is different with each configuration. A three replica instance provides a much higher level of availability and recovery, than a two replica instance. 
 
 In a two replica configuration, when both the node states are `SYNCHRONIZED`, if the primary replica becomes unavailable, the secondary replica is automatically promoted to primary. When the failed replica becomes available, it will be updated with all the pending changes. If there are connectivity issues between the replicas, then the primary replica may not commit any transactions as every transaction needs to be committed on both replicas before a success is returned back on the primary. 
 
