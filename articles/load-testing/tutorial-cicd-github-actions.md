@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: ninallam
 author: ninallam
-ms.date: 01/21/2022
+ms.date: 01/27/2022
 ms.topic: tutorial
 #Customer intent: As an Azure user, I want to learn how to automatically test builds for performance regressions on every pull request and/or deployment by using GitHub Actions.
 ---
@@ -34,7 +34,6 @@ You'll learn how to:
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
 * A GitHub account where you can create a repository. If you don't have one, you can [create one for free](https://github.com/).
-* An existing Azure Load Testing resource. To create a Load Testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md#create_resource).
 
 ## Set up your repository
 
@@ -182,6 +181,7 @@ Update the *SampleApp.yaml* GitHub Actions workflow file to configure the parame
 The GitHub Actions workflow executes the following steps for every update to the main branch:
 
 - Deploy the sample Node.js application to an Azure App Service web app. The name of the web app is configured in the workflow file.
+- Create an Azure Load Testing resource using the Azure Resource Manager (ARM) template present in the GitHub repository. Learn more about ARM templates [here](/azure/azure-resource-manager/templates/overview).
 - Trigger Azure Load Testing to create and run the load test based on the Apache JMeter script and the test configuration YAML file in the repository.
 
 To view the results of the load test in the GitHub Actions workflow log:
