@@ -1,5 +1,5 @@
 ---
-title: Moving data from FHIR service to Azure Synapse Analytics
+title: Moving data from the FHIR service to Azure Synapse Analytics
 description: This article describes moving FHIR data into Synapse
 author: ginalee-dotcom
 ms.service: healthcare-apis
@@ -8,9 +8,9 @@ ms.topic: reference
 ms.date: 01/27/2022
 ms.author: ginle
 ---
-# Moving data from Azure API for FHIR to Azure Synapse Analytics
+# Moving data from the FHIR service to Azure Synapse Analytics
 
-In this article you will learn a couple of ways to move data from the FHIR service to [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/), which is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. 
+In this article, you’ll learn a couple of ways to move data from the FHIR service to [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/), which is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. 
 
 Moving data from the FHIR server to Synapse involves exporting the data using the FHIR `$export` operation followed by a series of steps to transform and load the data to Synapse. This article will walk you through two of the several approaches, both of which will show how to convert FHIR resources into tabular formats while moving them into Synapse.
 
@@ -27,7 +27,7 @@ Moving data from the FHIR server to Synapse involves exporting the data using th
 
 Azure API for FHIR implements the `$export` operation defined by the FHIR specification to export all or a filtered subset of FHIR data in `NDJSON` format. In addition, it supports [de-identified export](./de-identified-export.md) to anonymize FHIR data during the export. If you use `$export`, you get de-identification feature by default its capability is already integrated in `$export`.
 
-To export FHIR data to Azure blob storage, you first need to configure your FHIR server to export data to the storage account. You will need to (1) enable Managed Identity, (2) go to Access Control in the storage account and add role assignment, (3) select your storage account for `$export`. More step-by-step can be found [here](./configure-export-data.md).
+To export FHIR data to Azure blob storage, you first need to configure your FHIR server to export data to the storage account. You’ll need to (1) enable Managed Identity, (2) go to Access Control in the storage account and add role assignment, (3) select your storage account for `$export`. More step-by-step instructions can be found [here](./configure-export-data.md).
 
 You can configure the server to export the data to any kind of Azure storage account, but we recommend exporting to ADL Gen 2 for best alignment with Synapse.
 
@@ -39,7 +39,7 @@ After configuring your FHIR server, you can follow the [documentation](./export-
 https://{{FHIR service base URL}}/Group/{{GroupId}}/$export?_container={{BlobContainer}}  
 ```
 
-You can also use `_type` parameter in the `$export` call above to restrict the resources we you want to export. For example, the following call will export only `Patient`, `MedicationRequest`, and `Observation` resources:
+You can also use `_type` parameter in the `$export` call above to restrict the resources you want to export. For example, the following call will export only `Patient`, `MedicationRequest`, and `Observation` resources:
 
 ```rest
 https://{{FHIR service base URL}}/Group/{{GroupId}}/$export?_container={{BlobContainer}}&
@@ -50,20 +50,20 @@ For more information on the different parameters supported, check out our `$expo
 
 ### Create a Synapse workspace
 
-Before using Synapse, you will need a Synapse workspace. You will create a Azure Synapse Analytics service on Azure portal. More step-by-step guide can be found [here](../../synapse-analytics/get-started-create-workspace.md). You need an `ADLSGEN2` account to create a workspace. Your Azure Synapse workspace will use this storage account to store your Synapse workspace data.
+Before using Synapse, you’ll need a Synapse workspace. You’ll create an Azure Synapse Analytics service on Azure portal. More step-by-step guide can be found [here](../../synapse-analytics/get-started-create-workspace.md). You need an `ADLSGEN2` account to create a workspace. Your Azure Synapse workspace will use this storage account to store your Synapse workspace data.
 
 After creating a workspace, you can view your workspace on Synapse Studio by signing into your workspace on https://web.azuresynapse.net, or launching Synapse Studio in the Azure portal.
 
 #### Creating a linked service between Azure storage and Synapse
 
-To move your data to Synapse, you need to create a linked service that connects your Azure Storage account with Synapse. More step-by-step can be found [here](../../synapse-analytics/data-integration/data-integration-sql-pool.md#create-linked-services).
+To move your data to Synapse, you need to create a linked service that connects your Azure Storage account with Synapse. More step-by-step instructions can be found [here](../../synapse-analytics/data-integration/data-integration-sql-pool.md#create-linked-services).
 
 1. On Synapse Studio, navigate to the **Manage** tab, and under **External connections**, select **Linked services**.
-2. Select **New** to add a new linked service.
+2. Select **New** to add a new-linked service.
 3. Select **Azure Data Lake Storage Gen2** from the list and select **Continue**.
 4. Enter your authentication credentials. Select **Create** when finished.
 
-Now that you have a linked service between your ADL Gen 2 storage and Synapse, you are ready to use Synapse SQL pools to load and analyze your FHIR data.
+Now that you have a linked service between your ADL Gen 2 storage and Synapse, you’re ready to use Synapse SQL pools to load and analyze your FHIR data.
 
 ### Decide between serverless and dedicated SQL pool
 
@@ -71,7 +71,7 @@ Azure Synapse Analytics offers two different SQL pools, serverless SQL pool and 
 
 #### Using serverless SQL pool
 
-Since it is serverless, there's no infrastructure to setup or clusters to maintain. You can start querying data from Synapse Studio as soon as the workspace is created.
+Since it’s serverless, there's no infrastructure to setup or clusters to maintain. You can start querying data from Synapse Studio as soon as the workspace is created.
 
 For example, the following query can be used to transform selected fields from `Patient.ndjson` into a tabular structure:
 
@@ -142,7 +142,7 @@ FIELDTERMINATOR = '0x00'
 GO
 ```
 
-Once you have the JSON rows in the `StagingPatient` table above, you can create different tabular formats of the data using the `OPENJSON` function and storing the results into tables. Here is a sample SQL query to create a `Patient` table by extracting a few fields from the `Patient` resource:
+Once you have the JSON rows in the `StagingPatient` table above, you can create different tabular formats of the data using the `OPENJSON` function and storing the results into tables. Here’s a sample SQL query to create a `Patient` table by extracting a few fields from the `Patient` resource:
 
 ```sql
 SELECT RES.* 
@@ -176,7 +176,7 @@ Common Data Model (CDM) folder is a folder in a data lake that conforms to well-
 
 ### Generating table configuration
 
-Clone te repo get all the scripts and source code. Use `npm install` to install the dependencies. Run the following command from the `Configuration-Generator` folder to generate a table configuration folder using YAML format instructions:
+Clone the repo to get all the scripts and source code. Use `npm install` to install the dependencies. Run the following command from the `Configuration-Generator` folder to generate a table configuration folder using YAML format instructions:
 
 ```bash
 Configuration-Generator> node .\generate_from_yaml.js -r {resource configuration file} -p {properties group file} -o {output folder}
@@ -227,7 +227,7 @@ Run this script with the configuration file above:
 .\DeployCdmToSynapsePipeline.ps1 -Config: config.json
 ```
 
-Add ADF Managed Identity as a SQL user into SQL database. Here is a sample SQL script to create a user and an assign role:
+Add ADF Managed Identity as a SQL user into SQL database. Here’s a sample SQL script to create a user and an assign role:
 
 ```sql
 CREATE USER [datafactory-name] FROM EXTERNAL PROVIDER
