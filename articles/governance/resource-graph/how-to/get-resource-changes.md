@@ -1,14 +1,14 @@
 ---
 title: Get resource changes
 description: Understand how to find when a resource was changed and query the list of resource configuration changes at scale
-ms.date: 12/07/2021
+ms.date: 01/27/20212
 ms.topic: how-to
 ---
 # Get resource changes
 
 Resources get changed through the course of daily use, reconfiguration, and even redeployment.
 Change can come from an individual or by an automated process. Most change is by design, but
-sometimes it isn't. With the last 14 days of changes, Resource configuration changes enables you to:
+sometimes it isn't. With the last seven days of changes, Resource configuration changes enables you to:
 
 - Find when changes were detected on an Azure Resource Manager property
 - For each resource change, see property change details
@@ -82,7 +82,7 @@ Each change resource has the following properties:
 - **targetResourceId** - The resourceID of the resource on which the change occurred.
  - **targetResourceType** - The resource type of the resource on which the change occurred.
 - **changeType** - Describes the type of change detected for the entire change record. Values are: _Create_, _Update_, and _Delete_. The
-  **changes** property dictionary is only included when **changeType** is _Update_. For the _Delete_ case, the change resource will still be maintained as an extension of the deleted resource for 14 days, even if the entire Resource group has been deleted. The change resource will not block deletions or impact any existing delete behavior.
+  **changes** property dictionary is only included when **changeType** is _Update_. For the _Delete_ case, the change resource will still be maintained as an extension of the deleted resource for seven days, even if the entire Resource group has been deleted. The change resource will not block deletions or impact any existing delete behavior.
 
 
 - **changes** - Dictionary of the resource properties (with property name as the key) that were updated as part of the change:
