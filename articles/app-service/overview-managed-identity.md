@@ -14,7 +14,7 @@ ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurepowershell, de
 This article shows you how to create a managed identity for App Service and Azure Functions applications and how to use it to access other resources. 
 
 > [!IMPORTANT] 
-> Managed identities for App Service and Azure Functions won't behave as expected if your app is migrated across subscriptions/tenants. The app needs to obtain a new identity, which is done by disabling and re-enabling the feature. See [Removing an identity](#remove) below. Downstream resources also need to have access policies updated to use the new identity.
+> Managed identities for App Service and Azure Functions won't behave as expected if your app is migrated across subscriptions/tenants. The app needs to obtain a new identity, which is done by [disabling](#remove) and re-enabling the feature. Downstream resources also need to have access policies updated to use the new identity.
 
 > [!NOTE]
 > Managed identities are not available for [apps deployed in Azure Arc](overview-arc-integration.md).
@@ -78,7 +78,7 @@ Any resource of type `Microsoft.Web/sites` can be created with an identity by in
 
 Adding the system-assigned type tells Azure to create and manage the identity for your application.
 
-For example, a web app might look like the following:
+For example, a web app's template might look like the following JSON:
 
 ```json
 {
@@ -200,7 +200,7 @@ Any resource of type `Microsoft.Web/sites` can be created with an identity by in
 
 Adding the user-assigned type tells Azure to use the user-assigned identity specified for your application.
 
-For example, a web app might look like the following:
+For example, a web app's template might look like the following JSON:
 
 ```json
 {
@@ -248,40 +248,20 @@ The principalId is a unique identifier for the identity that's used for Azure AD
 
 ## Configure target resource
 
-You may need to configure the target resource to allow access from your application. For example, if you request a token to access Key Vault, you need to make sure you have added an access policy that includes your application's identity. Otherwise, your calls to Key Vault will be rejected, even if they include the token. The same is true for Azure SQL Database. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+You may need to configure the target resource to allow access from your app or function. For example, if you [request a token](#connect-to-azure-services-in-app-code) to access Key Vault, you must also add an access policy that includes the managed identity of your app or function. Otherwise, your calls to Key Vault will be rejected, even if you use a valid token. The same is true for Azure SQL Database. To learn more about which resources support Azure Active Directory tokens, see [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 > [!IMPORTANT]
 > The back-end services for managed identities maintain a cache per resource URI for around 24 hours. If you update the access policy of a particular target resource and immediately retrieve a token for that resource, you may continue to get a cached token with outdated permissions until that token expires. There's currently no way to force a token refresh.
 
-## Obtain tokens for Azure resources
+## Connect to Azure services in app code
 
-An app can use its managed identity to get tokens to access other resources protected by Azure AD, such as Azure SQL Database, Azure Key Vault, and Azure Storage. These tokens represent the application accessing the resource, and not any specific user of the application.
+With its managed identity, an app can obtain tokens for Azure resources that are protected by Azure Active Directory, such as Azure SQL Database, Azure Key Vault, and Azure Storage. These tokens represent the application accessing the resource, and not any specific user of the application. App Service and Azure Functions provide an internally accessible [REST endpoint](#rest-endpoint-reference) for token retrieval.
 
-There is a simple REST protocol for obtaining a token in App Service and Azure Functions. This can be used for all applications and languages. For .NET and Java, the Azure SDK provides an abstraction over this protocol and facilitates a local development experience.
+The REST endpoint can be accessed from within the app with a standard HTTP GET, which can be implemented with a generic HTTP client in every language. For .NET, JavaScript, Java, and Python, the Azure Identity client library provides an abstraction over this REST endpoint and simplifies the development experience. Connecting to other Azure services usually as simple as adding a credential object to the service-specific client.
 
-> [!NOTE]
-> An older version of this protocol, using the "2017-09-01" API version, used the `secret` header instead of `X-IDENTITY-HEADER` and only accepted the `clientid` property for user-assigned. It also returned the `expires_on` in a timestamp format. `MSI_ENDPOINT` can be used as an alias for `IDENTITY_ENDPOINT`, and `MSI_SECRET` can be used as an alias for `IDENTITY_HEADER`. This version of the protocol is currently required for Linux Consumption hosting plans.
+# [HTTP GET](#tab/http)
 
-An app with a managed identity has two environment variables defined:
-
-- IDENTITY_ENDPOINT - the URL to the local token service.
-- IDENTITY_HEADER - a header used to help mitigate server-side request forgery (SSRF) attacks. The value is rotated by the platform.
-
-The **IDENTITY_ENDPOINT** is a local URL from which your app can request tokens. To get a token for a resource, make an HTTP GET request to this endpoint, including the following parameters:
-
-> | Parameter name    | In     | Description                                                                                                                                                                                                                                                                                                                                |
-> |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | resource          | Query  | The Azure AD resource URI of the resource for which a token should be obtained. This could be one of the [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) or any other resource URI.    |
-> | api-version       | Query  | The version of the token API to be used. Please use "2019-08-01" or later (unless using Linux Consumption, which currently only offers "2017-09-01" - see note above).                                                                                                                                                                                                                                                                 |
-> | X-IDENTITY-HEADER | Header | The value of the IDENTITY_HEADER environment variable. This header is used to help mitigate server-side request forgery (SSRF) attacks.                                                                                                                                                                                                    |
-> | client_id         | Query  | (Optional) The client ID of the user-assigned identity to be used. Cannot be used on a request that includes `principal_id`, `mi_res_id`, or `object_id`. If all ID parameters  (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                             |
-> | principal_id      | Query  | (Optional) The principal ID of the user-assigned identity to be used. `object_id` is an alias that may be used instead. Cannot be used on a request that includes client_id, mi_res_id, or object_id. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`)  are omitted, the system-assigned identity is used. |
-> | mi_res_id         | Query  | (Optional) The Azure resource ID of the user-assigned identity to be used. Cannot be used on a request that includes `principal_id`, `client_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                      |
-
-> [!IMPORTANT]
-> If you are attempting to obtain tokens for user-assigned identities, you must include one of the optional properties. Otherwise the token service will attempt to obtain a token for a system-assigned identity, which may or may not exist.
-
-An raw HTTP GET request looks like the following example:
+A raw HTTP GET request looks like the following example:
 
 ```http
 GET /MSI/token?resource=https://vault.azure.net&api-version=2019-08-01 HTTP/1.1
@@ -304,9 +284,7 @@ Content-Type: application/json
 }
 ```
 
-This response is the same as the [response for the Azure AD service-to-service access token request](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
-
-## Connect to Azure services in app code
+This response is the same as the [response for the Azure AD service-to-service access token request](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response). To access Key Vault, you will then add the value of `access_token` to a client connection with the vault.
 
 # [.NET](#tab/dotnet)
 
@@ -368,6 +346,7 @@ $accessToken = $tokenResponse.access_token
 
 -----
 
+For more information on the REST endpoint, see [REST endpoint reference](#rest-endpoint-reference).
 ## <a name="remove"></a>Remove an identity
 
 When you remove a system-assigned identity, it's deleted from Azure Active Directory. System-assigned identities are also automatically removed from Azure Active Directory when you delete the app resource itself.
@@ -418,7 +397,7 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 
 # [ARM template](#tab/arm)
 
-To remove all identities in an [ARM template](#using-an-azure-resource-manager-template):
+To remove all identities in an ARM template:
 
 ```json
 "identity": {
@@ -430,6 +409,30 @@ To remove all identities in an [ARM template](#using-an-azure-resource-manager-t
 
 > [!NOTE]
 > There is also an application setting that can be set, WEBSITE_DISABLE_MSI, which just disables the local token service. However, it leaves the identity in place, and tooling will still show the managed identity as "on" or "enabled." As a result, use of this setting is not recommended.
+
+## REST endpoint reference
+
+> [!NOTE]
+> An older version of this endpoint, using the "2017-09-01" API version, used the `secret` header instead of `X-IDENTITY-HEADER` and only accepted the `clientid` property for user-assigned. It also returned the `expires_on` in a timestamp format. `MSI_ENDPOINT` can be used as an alias for `IDENTITY_ENDPOINT`, and `MSI_SECRET` can be used as an alias for `IDENTITY_HEADER`. This version of the protocol is currently required for Linux Consumption hosting plans.
+
+An app with a managed identity makes this endpoint available by defining two environment variables:
+
+- IDENTITY_ENDPOINT - the URL to the local token service.
+- IDENTITY_HEADER - a header used to help mitigate server-side request forgery (SSRF) attacks. The value is rotated by the platform.
+
+The **IDENTITY_ENDPOINT** is a local URL from which your app can request tokens. To get a token for a resource, make an HTTP GET request to this endpoint, including the following parameters:
+
+> | Parameter name    | In     | Description                                                                                                                                                                                                                                                                                                                                |
+> |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | resource          | Query  | The Azure AD resource URI of the resource for which a token should be obtained. This could be one of the [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) or any other resource URI.    |
+> | api-version       | Query  | The version of the token API to be used. Please use "2019-08-01" or later (unless using Linux Consumption, which currently only offers "2017-09-01" - see note above).                                                                                                                                                                                                                                                                 |
+> | X-IDENTITY-HEADER | Header | The value of the IDENTITY_HEADER environment variable. This header is used to help mitigate server-side request forgery (SSRF) attacks.                                                                                                                                                                                                    |
+> | client_id         | Query  | (Optional) The client ID of the user-assigned identity to be used. Cannot be used on a request that includes `principal_id`, `mi_res_id`, or `object_id`. If all ID parameters  (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                             |
+> | principal_id      | Query  | (Optional) The principal ID of the user-assigned identity to be used. `object_id` is an alias that may be used instead. Cannot be used on a request that includes client_id, mi_res_id, or object_id. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`)  are omitted, the system-assigned identity is used. |
+> | mi_res_id         | Query  | (Optional) The Azure resource ID of the user-assigned identity to be used. Cannot be used on a request that includes `principal_id`, `client_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                      |
+
+> [!IMPORTANT]
+> If you are attempting to obtain tokens for user-assigned identities, you must include one of the optional properties. Otherwise the token service will attempt to obtain a token for a system-assigned identity, which may or may not exist.
 
 ## Next steps
 
