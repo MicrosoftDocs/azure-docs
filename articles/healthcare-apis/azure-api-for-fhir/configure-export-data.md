@@ -15,8 +15,8 @@ Azure API for FHIR supports $export command that allows you to export the data o
 
 There are three steps involved in configuring export in Azure API for FHIR:
 
-1. Enable Managed Identity on Azure API for FHIR Service.
-2. Creating a Azure storage account (if not done before) and assigning permission to Azure API for FHIR to the storage account.
+1. Enable Managed Identity on Azure API for FHIR service.
+2. Creating an Azure storage account (if not done before) and assigning permission to Azure API for FHIR to the storage account.
 3. Selecting the storage account in Azure API for FHIR as export storage account.
 
 ## Enabling Managed Identity on Azure API for FHIR
@@ -25,7 +25,7 @@ The first step in configuring Azure API for FHIR for export is to enable system 
 
 Browse to the Azure API for FHIR service and select **Identity**. Changing the status to **On** will enable managed identity in Azure API for FHIR Service.
 
-![Enable Managed Identity](media/export-data/fhir-mi-enabled.png)
+[ ![Screenshot of the enable managed identity user interface.](media/export-data/fhir-mi-enabled.png) ](media/export-data/fhir-mi-enabled.png#lightbox)
 
 In the next step, create a storage account and assign permission to our service.
 
@@ -41,7 +41,7 @@ It's here that you'll add the role [Storage Blob Data Contributor](../../role-ba
 
 ![Add role assignment page](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
-Now you are ready to select the storage account in Azure API for FHIR as a default storage account for $export.
+Now you’re ready to select the storage account in Azure API for FHIR as a default storage account for $export.
 
 ## Selecting the storage account for $export
 
@@ -49,7 +49,7 @@ The final step is to assign the Azure storage account that Azure API for FHIR wi
 
 ![FHIR Export Storage](media/export-data/fhir-export-storage.png)
 
-After you've completed this final step, you are now ready to export the data using $export command.
+After you've completed this final step, you’re now ready to export the data using $export command.
 
 > [!Note]
 > Only storage accounts in the same subscription as that for Azure API for FHIR are allowed to be registered as the destination for $export operations.
