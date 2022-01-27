@@ -10,7 +10,7 @@ ms.service: iot-hub-device-update
 
 # Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image
 
-Device Update for IoT Hub supports image-based, package-based and script-based updates.
+Device Update for IoT Hub supports image-based, package-based, and script-based updates.
 
 Image updates provide a higher level of confidence in the end-state of the device. It is typically easier to replicate the results of an image-update between a pre-production environment and a production environment, since it doesn’t pose the same challenges as packages and their dependencies. Due to their atomic nature, one can also adopt an A/B failover model easily.
 
@@ -76,7 +76,7 @@ Device Update for Azure IoT Hub software is subject to the following license ter
    * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
    * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
    
-Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the Device update for IoT Hub agent.
+Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the Device Update for IoT Hub agent.
 
 ## Create device or module in IoT Hub and get connection string
 
