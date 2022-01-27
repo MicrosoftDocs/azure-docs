@@ -57,9 +57,9 @@ Now try Speech Studio to see how Phrase list can improve recognition accuracy.
 
 ## Integrate phrases lists
 
-With the Speech SDK or Speech CLI you add phrases and then run speech recognition. Then you can optionally clear or update the phrase list to take effect before the next recognition.
-
 ::: zone pivot="programming-language-csharp"
+With the [Speech SDK](speech-sdk.md) you add phrases and then run speech recognition. Then you can optionally clear or update the phrase list to take effect before the next recognition.
+
 ```csharp
 var phraseList = PhraseListGrammar.FromRecognizer(recognizer);
 phraseList.AddPhrase("Abdoulaye Gueye");
@@ -68,6 +68,8 @@ phraseList.Clear();
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
+With the [Speech SDK](speech-sdk.md) you add phrases and then run speech recognition. Then you can optionally clear or update the phrase list to take effect before the next recognition.
+
 ```cpp
 auto phraseListGrammar = PhraseListGrammar::FromRecognizer(recognizer);
 phraseListGrammar->AddPhrase("Abdoulaye Gueye");
@@ -76,6 +78,8 @@ phraseListGrammar->Clear();
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+With the [Speech SDK](speech-sdk.md) you add phrases and then run speech recognition. Then you can optionally clear or update the phrase list to take effect before the next recognition.
+
 ```java
 PhraseListGrammar phraseList = PhraseListGrammar.fromRecognizer(recognizer);
 phraseList.addPhrase("Abdoulaye Gueye");
@@ -84,6 +88,8 @@ phraseList.clear();
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
+With the [Speech SDK](speech-sdk.md) you add phrases and then run speech recognition. Then you can optionally clear or update the phrase list to take effect before the next recognition.
+
 ```javascript
 const phraseList = sdk.PhraseListGrammar.fromRecognizer(recognizer);
 phraseList.addPhrase("Abdoulaye Gueye");
@@ -92,6 +98,8 @@ phraseList.clear();
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+With the [Speech SDK](speech-sdk.md) you add phrases and then run speech recognition. Then you can optionally clear or update the phrase list to take effect before the next recognition.
+
 ```Python
 phrase_list_grammar = speechsdk.PhraseListGrammar.from_recognizer(reco)
 phrase_list_grammar.addPhrase("Abdoulaye Gueye")
@@ -101,7 +109,6 @@ phrase_list_grammar.clear()
 
 ::: zone pivot="programmer-tool-spx"
 With the [Speech CLI](spx-overview.md) you include phrases along with the recognize command.
-
 
 # [Terminal](#tab/terminal)
 
