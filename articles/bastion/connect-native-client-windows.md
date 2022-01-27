@@ -102,7 +102,7 @@ This section helps you connect to your virtual machine from a Windows local work
    > If you want to specify a custom port value, you should also include the field **--resource-port** in the sign-in command.
    >
 
-   * If you signing in to an Azure AD login-enabled VM, use the following command. To learn more about how to use Azure AD to sign in to your Azure Linux VMs, see [Azure Linux VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md).
+   * If you are signing in to an Azure AD login-enabled VM, use the following command. To learn more about how to use Azure AD to sign in to your Azure Linux VMs, see [Azure Linux VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md).
 
      ```azurecli-interactive
      az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type  "AAD"
@@ -162,7 +162,7 @@ This section helps you connect to your virtual machine using the *az network bas
    az account set --subscription "<subscription ID>"
    ```
 
-2. Open the tunnel to your targt VM using the following command:
+2. Open the tunnel to your target VM using the following command:
 
    ```azurecli-interactive
    az network bastion tunnel --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --resource-port "<TargetVMPort>" --port "<LocalMachinePort>"
