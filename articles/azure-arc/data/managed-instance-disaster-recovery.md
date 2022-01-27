@@ -24,8 +24,8 @@ Disaster recovery features for Azure Arc-enabled SQL Managed Instance are availa
 The distributed availability groups used in Azure Arc-enabled SQL Managed Instance is the same technology that is in SQL Server. Because Azure Arc-enabled SQL Managed Instance runs on Kubernetes, there's no Windows failover cluster involved.  For more information, see [Distributed availability groups](/sql/database-engine/availability-groups/windows/distributed-availability-groups).
 
 > [!NOTE]
-> 1. The Azure Arc-enabled SQL Managed Instance in both geo-primary and geo-secondary sites need to be identical in terms of their compute & capacity, as well as service tiers they are deployed in.
-> 2. Distributed availability groups can be setup for either General Purpose or Business Critical service tiers. 
+> - The Azure Arc-enabled SQL Managed Instance in both geo-primary and geo-secondary sites need to be identical in terms of their compute & capacity, as well as service tiers they are deployed in.
+> - Distributed availability groups can be setup for either General Purpose or Business Critical service tiers. 
 
 To configure disaster recovery:
 

@@ -19,6 +19,8 @@ Business continuity for Azure Arc-enabled SQL Managed Instance is available as p
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
+## Features
+
 This overview describes the set of capabilities that come built-in with Azure Arc-enabled SQL Managed Instance and how you can leverage them to recover from disruptions. 
 
 | Feature         | Use case     | Service Tier      | 
