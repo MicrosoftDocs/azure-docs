@@ -41,22 +41,22 @@ When the **Application Insights** feature is enabled, you can:
 * In the left navigation pane, select **Application Insights** to view the **Overview** page of Application Insights. The **Overview** page will show you an overview of all running applications.
 * Select **Application Map** to see the status of calls between applications.
 
-   :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent-2-map.png" alt-text="Azure portal screenshot of Application Insights with Application map page showing." lightbox="media/spring-cloud-application-insights/insights-process-agent-2-map.png":::
+   :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent-map.png" alt-text="Azure portal screenshot of Application Insights with Application map page showing." lightbox="media/spring-cloud-application-insights/insights-process-agent-map.png":::
 
 * Select the link between customers-service and `petclinic` to see more details such as a query from SQL.
 * Select an endpoint to see all the applications making requests to the endpoint.
 
 * In the left navigation pane, select **Performance** to see the performance data of all applications' operations, as well as dependencies and roles.
 
-   :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent-4-performance.png" alt-text="Azure portal screenshot of Application Insights with Performance page showing." lightbox="media/spring-cloud-application-insights/insights-process-agent-4-performance.png":::
+   :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent-performance.png" alt-text="Azure portal screenshot of Application Insights with Performance page showing." lightbox="media/spring-cloud-application-insights/insights-process-agent-performance.png":::
 
 * In the left navigation pane, select **Failures** to see any unexpected failures or exceptions from your applications.
 
-   :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent-6-failures.png" alt-text="Azure portal screenshot of Application Insights with Failures page showing." lightbox="media/spring-cloud-application-insights/insights-process-agent-6-failures.png":::
+   :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent-failures.png" alt-text="Azure portal screenshot of Application Insights with Failures page showing." lightbox="media/spring-cloud-application-insights/insights-process-agent-failures.png":::
 
 * In the left navigation pane, select **Metrics** and select the namespace, you will see both Spring Boot metrics and custom metrics, if any.
 
-   :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent-5-metrics.png" alt-text="Azure portal screenshot of Application Insights with Metrics page showing." lightbox="media/spring-cloud-application-insights/insights-process-agent-5-metrics.png":::
+   :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent-metrics.png" alt-text="Azure portal screenshot of Application Insights with Metrics page showing." lightbox="media/spring-cloud-application-insights/insights-process-agent-metrics.png":::
 
 * In the left navigation pane, select **Live Metrics** to see the real-time metrics for different dimensions.
 
@@ -81,7 +81,7 @@ Enable the Java In-Process Agent by using the following procedure.
 1. Select an existing instance of Application Insights or create a new one.
 1. When **Application Insights** is enabled, you can configure one optional sampling rate (default 10.0%).
 
-   :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent-0.png" alt-text="Azure portal screenshot of Azure Spring Cloud instance with Application Insights page showing and 'Enable Application Insights' checkbox highlighted." lightbox="media/spring-cloud-application-insights/insights-process-agent-0.png":::
+   :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent.png" alt-text="Azure portal screenshot of Azure Spring Cloud instance with Application Insights page showing and 'Enable Application Insights' checkbox highlighted." lightbox="media/spring-cloud-application-insights/insights-process-agent.png":::
 
 1. Select **Save** to save the change.
 
