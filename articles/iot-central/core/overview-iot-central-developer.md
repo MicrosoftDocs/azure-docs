@@ -115,13 +115,13 @@ The following options support ephemeral device connections:
   
   Deploy IoT Central Device Bridge as an Azure Function. The function accepts incoming telemetry data as HTTP requests and forwards it to IoT Central. IoT Central Device Bridge integrates with DPS and automatically handles device provisioning for you.
 
-  To learn more, see [Azure IoT Central Device Bridge](https://github.com/iot-for-all/iotc-device-bridge) GitHub repository.
+  To learn more, see [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge) GitHub repository.
 
 - Use IoT Central Device Bridge in stateless mode to connect external clouds:
   
   Use Azure IoT Central Device Bridge to forward messages to IoT Central from other IoT clouds, such as SigFox, Particle, and The Things Network.
 
-  To learn more, see [Azure IoT Central Device Bridge](https://github.com/iot-for-all/iotc-device-bridge) GitHub repository.
+  To learn more, see [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge) GitHub repository.
 
 ### Data transformation and custom computation on ingress
 
