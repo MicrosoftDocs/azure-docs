@@ -192,6 +192,13 @@ The examples in this article use resource group deployments.
    GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
    ```
 
+## Deploy with Armclient
+
+ARMClient is a simple command line tool to invoke the Azure Resource Manager API. To install the tool, see [ARMClient](https://github.com/projectkudu/ARMClient).
+
+
+
+
 ## Deployment name
 
 You can give your deployment a name such as `ExampleDeployment`.
