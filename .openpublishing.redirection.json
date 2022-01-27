@@ -45235,7 +45235,7 @@
     {
       "source_path_from_root": "/articles/azure-monitor/agents/azure-monitor-agent-install.md",
       "redirect_url": "/articles/azure-monitor/agents/azure-monitor-agent-manage.md",
-      "redirect_document_id": true
+      "redirect_document_id": false
     }
 
   ]
