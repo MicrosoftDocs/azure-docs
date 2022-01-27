@@ -22,7 +22,7 @@ Azure Arc-enabled SQL Managed Instance provides different levels of high availab
 
 ## High availability in General Purpose service tier
 
-In the General Purpose service tier, there is only one replica available, and the high availability is achieved via Kubernetes orchestration. For instance, if a pod or node containing the Azure Arc-enabled SQL managed instance container image crashes, then Kubernetes will attempt to stand up another pod or node, and attach to the same persistent storage. During this time, the SQL managed instance is unavailable to the applications. Applications will need to reconnect and retry the transaction when the new pod is up. If `load balancer` is the service type used, then applications can reconnect to the same primary endpoint and Kubernetes will redirect the connection to the new primary. If the service type is `nodeport` then the applications will need to reconnect to the new IP address. 
+In the General Purpose service tier, there is only one replica available, and the high availability is achieved via Kubernetes orchestration. For instance, if a pod or node containing the managed instance container image crashes, then Kubernetes will attempt to stand up another pod or node, and attach to the same persistent storage. During this time, the SQL managed instance is unavailable to the applications. Applications will need to reconnect and retry the transaction when the new pod is up. If `load balancer` is the service type used, then applications can reconnect to the same primary endpoint and Kubernetes will redirect the connection to the new primary. If the service type is `nodeport` then the applications will need to reconnect to the new IP address. 
 
 ### Verify built-in high availability
 
@@ -72,13 +72,13 @@ After all containers within the pod have recovered, you can connect to the manag
 
 ## High availability in Business Critical service tier
 
-In the Business Critical service tier, in addition to what is natively provided by Kubernetes orchestration, there is a new technology called Contained Availability Group (CAG) that provides higher levels of availability. Azure Arc-enabled SQL managed instances deployed with `Business Critical` service tier can be deployed with either 2 or 3 replicas. These replicas are always kept in sync with each other. Contained availability group is built on SQL Server Always On availability groups. With contained availability groups, any pod crashes or node failures are transparent to the application as there is at least one other pod that has the SQL managed instance that has all the data from the primary and ready to take on connections.  
+In the Business Critical service tier, in addition to what is natively provided by Kubernetes orchestration, there is a new technology called Contained availability group that provides higher levels of availability. Azure Arc-enabled SQL managed instance deployed with `Business Critical` service tier can be deployed with either 2 or 3 replicas. These replicas are always kept in sync with each other. Contained availability group is built on SQL Server Always On availability groups. With contained availability groups, any pod crashes or node failures are transparent to the application as there is at least one other pod that has the SQL managed instance that has all the data from the primary and ready to take on connections.  
 
 ## Contained availability groups
 
 An availability group binds one or more user databases into a logical group so that when there is a failover, the entire group of databases fails over to the secondary replica as a single unit. An availability group only replicates data in the user databases but not the data in system databases such as logins, permissions, or agent jobs. A contained availability group includes metadata from system databases such as `msdb` and `master` databases. When a login is created or modified in the primary replica, it's automatically also created in the secondary replicas. Similarly, when an agent job is created or modified in the primary replica, the secondary replicas also receive those changes.
 
-Azure Arc-enabled SQL Managed Instance takes this concept of Contained Availability Group and adds Kubernetes operator so these can be deployed and managed at scale. 
+Azure Arc-enabled SQL Managed Instance takes this concept of contained availability group and adds Kubernetes operator so these can be deployed and managed at scale. 
 
 Capabilities that contained availability groups enable:
 
@@ -88,23 +88,22 @@ Capabilities that contained availability groups enable:
 
 - An external endpoint is automatically provisioned for connecting to databases within the availability group. This endpoint `<managed_instance_name>-external-svc` plays the role of the availability group listener.
 
+### Deploy Azure Arc-enabled SQL Managed Instance with multiple replicas using Azure portal
 
-### Deploy Azure Arc-enabled SQL managed instance with multiple replicas using Azure portal
-
-From Azure portal, on the create Azure Arc-enabled SQL managed instance page:
+From Azure portal, on the create Azure Arc-enabled SQL Managed Instance page:
 1. Select **Configure Compute + Storage** under Compute + Storage. This should open a new blade with advances settings.
-2. Under Service tier, select **Business Critical**
-3. Check the "For development use only", if using for development purposes
-4. Under High availability, select either **2 replicas** or **3 replicas**
+2. Under Service tier, select **Business Critical**.
+3. Check the "For development use only", if using for development purposes.
+4. Under High availability, select either **2 replicas** or **3 replicas**.
 
 ![High availability settings](.\media\business-continuity\service-tier-replicas.png)
 
 
 
-### Deploy Azure Arc-enabled SQL managed instance with multiple replicas using Azure CLI
+### Deploy Azure Arc-enabled SQL Managed Instance with multiple replicas using Azure CLI
 
 
-When an Azure Arc-enabled SQL managed instance is deployed in Business Critical service tier, this enables multiple replicas to be created. The setup and configuration of contained availability groups among those instances is automatically done during provisioning. 
+When an Azure Arc-enabled SQL Managed Instance is deployed in Business Critical service tier, this enables multiple replicas to be created. The setup and configuration of contained availability groups among those instances is automatically done during provisioning. 
 
 For instance, the following command creates a managed instance with 3 replicas.
 
@@ -149,7 +148,7 @@ kubectl get sqlmi -A
 
 ### Get the primary and secondary endpoints and AG status
 
-Use the `kubectl describe sqlmi` or `az sql mi-arc show` commands to view the primary and secondary endpoints, and Contained Availability Group status.
+Use the `kubectl describe sqlmi` or `az sql mi-arc show` commands to view the primary and secondary endpoints, and availability group status.
 
 Example:
 
@@ -198,14 +197,14 @@ And the Contained Availability Dashboard:
 
 Unlike SQL Server Always On availability groups, the contained availability group is a managed high availability solution. Hence, the failover modes are limited compared to the typical modes available with SQL Server Always On availability groups.
 
-Deploy Business Critical service tier SQL managed instances in either 2-replica configuration or 3-replica configuration. The impact of failures and the subsequent recoverability is different with each configuration. A 3-replica instance provides a much higher level of availability and recovery, than a 2-replica instance. 
+Deploy Business Critical service tier SQL managed instances in either two-replica configuration or three replica configuration. The impact of failures and the subsequent recoverability is different with each configuration. A three replica instance provides a much higher level of availability and recovery, than a two replica instance. 
 
-In a 2-replica configuration, when both the node states are `SYNCHRONIZED`, if the primary replica becomes unavailable, the secondary replica is automatically promoted to primary. When the failed replica becomes available, it will be updated with all the pending changes. If there are connectivity issues between the replicas, then the primary replica may not commit any transactions as every transaction needs to be committed on both replicas before a success is returned back on the primary. 
+In a two replica configuration, when both the node states are `SYNCHRONIZED`, if the primary replica becomes unavailable, the secondary replica is automatically promoted to primary. When the failed replica becomes available, it will be updated with all the pending changes. If there are connectivity issues between the replicas, then the primary replica may not commit any transactions as every transaction needs to be committed on both replicas before a success is returned back on the primary. 
 
-In a 3-replica configuration, a transaction needs to commit in at least 2 of the 3 replicas before returning a success message back to the application. In the event of a failure, one of the secondaries is automatically promoted to primary while Kubernetes attempts to recover the failed replica. When the replica becomes available it is automatically joined back with the contained availability group and pending changes are synchronized. If there are connectivity issues between the replicas, and more than 2 replicas are out of sync, primary replica will not commit any transactions. 
+In a three replica configuration, a transaction needs to commit in at least 2 of the 3 replicas before returning a success message back to the application. In the event of a failure, one of the secondaries is automatically promoted to primary while Kubernetes attempts to recover the failed replica. When the replica becomes available it is automatically joined back with the contained availability group and pending changes are synchronized. If there are connectivity issues between the replicas, and more than 2 replicas are out of sync, primary replica will not commit any transactions. 
 
 > [!NOTE]
-> It is recommended to deploy a Business Critical SQL Managed Instance in a 3-replica configuration than a 2-replica configuration to achieve near-zero data loss. 
+> It is recommended to deploy a Business Critical SQL Managed Instance in a three replica configuration than a two replica configuration to achieve near-zero data loss. 
 
 
 To fail over from the primary replica to one of the secondaries, for a planned event, run the following command:
