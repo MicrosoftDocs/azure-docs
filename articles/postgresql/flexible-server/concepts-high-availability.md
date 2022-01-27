@@ -59,7 +59,7 @@ For other user initiated operations such as scale-compute or scale-storage, the 
 
 ### Reducing planned downtime with managed maintenance window
 
-With flexible server, you can optionally schedule Azure initiated maintenance activities by choosing a 30-minute window in a day of your preference where the activities on the databases are expected to be low. Azure maintenance tasks such as patching or minor version upgrades would happen during that maintenance window. If you do not choose a custom window, a system allocated 1-hr window between 11pm-7am local time is chosen for your server. 
+With flexible server, you can optionally schedule Azure initiated maintenance activities by choosing a 60-minute window in a day of your preference where the activities on the databases are expected to be low. Azure maintenance tasks such as patching or minor version upgrades would happen during that maintenance window. If you do not choose a custom window, a system allocated 1-hr window between 11pm-7am local time is chosen for your server. 
  
 For flexible servers configured with high availability, these maintenance activities are performed on the standby replica first and the service is failed over to the standby to which applications can reconnect.
 
@@ -68,7 +68,7 @@ For flexible servers configured with high availability, these maintenance activi
 Unplanned outages include software bugs or infrastructure component failures that impact the availability of the database. If the primary server becomes unavailable, it is detected by the monitoring system and initiates a failover process.  The process includes a few seconds of wait time to make sure it is not a false positive. The replication to the standby replica is severed and the standby replica is activated to be the primary database server. That includes the standby to recovery any residual WAL files. Once it is fully recovered, DNS for the same end point is updated with the standby server's IP address. Clients can then retry connecting to the database server using the same connection string and resume their operations. 
 
 >[!NOTE]
-> Flexible servers configured with zone-redundant high availability provide a recovery point objective (RPO) of **Zero** (no data loss.The recovery tome objective (RTO) is expected to be **less than 120s** in typical cases. However, depending on the activity in the primary database server at the time of the failover, the failover may take longer. 
+> Flexible servers configured with zone-redundant high availability provide a recovery point objective (RPO) of **Zero** (no data loss). The recovery time objective (RTO) is expected to be **less than 120s** in typical cases. However, depending on the activity in the primary database server at the time of the failover, the failover may take longer. 
 
 After the failover, while a new standby server is being provisioned, applications can still connect to the primary server and proceed with their read/write operations. Once the standby server is established, it will start recovering the logs that were generated after the failover. 
 
@@ -87,7 +87,7 @@ Flexible server provides two methods for you to perform on-demand failover to th
 
 You can use this feature to simulate an unplanned outage scenario while running your production workload and observe your application downtime. Alternatively, in rare case where your primary server becomes unresponsive for whatever reason, you may use this feature. 
 
-This feature triggers brings the primary server down and initiates the failover workflow in which the standby promote operation is performed. Once the standby completes the recovery process till the last committed data, it is promoted to be the primary server. DNS records are updated and your application can connect to the promoted primary server. Your application can continue to write to the primary while a new standby server is established in the background and that does not impact the uptime. 
+This feature brings the primary server down and initiates the failover workflow in which the standby promote operation is performed. Once the standby completes the recovery process till the last committed data, it is promoted to be the primary server. DNS records are updated and your application can connect to the promoted primary server. Your application can continue to write to the primary while a new standby server is established in the background and that does not impact the uptime. 
 
 The following are the steps during forced-failover:
 

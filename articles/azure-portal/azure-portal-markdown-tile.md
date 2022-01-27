@@ -14,7 +14,6 @@ You can add a markdown tile to your Azure dashboards to display custom, static c
 
 1. Select **Dashboard** from the Azure portal menu.
 
-
 1. In the dashboard view, select the dashboard where the custom markdown tile should appear, then select **Edit**.
 
    ![Screenshot showing dashboard edit view](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
@@ -36,7 +35,7 @@ You can add a markdown tile to your Azure dashboards to display custom, static c
       ![Screenshot showing entering URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
 
       > [!NOTE]
-      > For added security, create a markdown file and store it in an [Azure storage account blob where encryption is enabled](../storage/common/storage-service-encryption.md). For additional control, configure the encryption with [customer-managed keys stored in Azure Key Vault](/azure/storage/common/customer-managed-keys-configure-key-vault?tabs=portal). You can then point to the file using the **Insert content using URL** option. Only users with permissions to the file can see the markdown content on the dashboard. You might need to set a [cross-origin resource sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) rule on the storage account so that the Azure portal (_https://portal.azure.com/_) can access the markdown file in the blob.
+      > For added security, create a markdown file and store it in an [Azure storage account blob where encryption is enabled](../storage/common/storage-service-encryption.md). For additional control, configure the encryption with [customer-managed keys stored in Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md?tabs=portal). You can then point to the file using the **Insert content using URL** option. Only users with permissions to the file can see the markdown content on the dashboard. You might need to set a [cross-origin resource sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) rule on the storage account so that the Azure portal (_https://portal.azure.com/_) can access the markdown file in the blob.
 
 1. Select **Done** to dismiss the **Edit Markdown** pane. Your content appears on the Markdown tile, which you can resize by dragging the handle in the lower right-hand corner.
 
