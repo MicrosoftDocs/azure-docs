@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/26/2022
+ms.date: 01/27/2022
 ms.author: v-ydequadros
 ---
 
@@ -26,7 +26,7 @@ You can view the following data on the CloudKnox dashboards:
     - The number of users who have been granted high-risk privileges aren't using them.
     - The number of users who contribute to the privilege creep index and where they appear on the scale.
 
-- The **Usage analytics summary** on the **Usage analytics** dashboard provides a snapshot of permission metrics within the last 90 days.
+- The **Analytics summary** on the **Analytics** dashboard provides a snapshot of permission metrics within the last 90 days.
 
 
 ## Components of the CloudKnox Dashboard
@@ -37,7 +37,7 @@ When you launch CloudKnox, select **Dashboard** to displays the following inform
  
 - **Authorization systems** - Displays a **List** of accounts and **Folders** in the selected authorization system you can access.
 
-- **Privilege creep index (PCI)** - A graph displaying the **# of identities contributing to PCI** and the related PRIVILEGE CREEP INDEX.
+- **Permissions creep index (PCI)** - A graph displaying the **# of identities contributing to PCI** and the related PRIVILEGE CREEP INDEX.
 
     The PCI graph displays a bubble in the upper right corner. The bubble displays the number of identities that are considered high risk. *High-risk* refers to the number of users who have permissions that exceed their normal or required usage.
     - To display a list of the number of identities contributing to the **Low PCI**, **Medium PCI**, and **High PCI**, select the list icon in the upper right of the graph.
@@ -72,7 +72,7 @@ When you launch CloudKnox, select **Dashboard** to displays the following inform
 
 ## The PCI heat map
 
-The **Privilege creep index**  heat map shows the incurred risk of users with access to high-risk privileges, and is a function of:
+The **Permissions creep index**  heat map shows the incurred risk of users with access to high-risk privileges, and is a function of:
 
 - Users who were given access to high-risk privileges but aren't actively using them. High-risk privileges include the ability to modify or delete contents within the authorization system.
 
@@ -107,9 +107,9 @@ To view detailed information about the following, select the number displayed on
 - 
 <!---Is this still in?
 
-## The Usage analytics summary
+## The Analytics summary
 
-The **Usage Analytics summary** section on the [Usage analytics dashboard](cloudknox-ui-usage-analytics.md) provides a snapshot of the following high-risk tasks or actions users have accessed, and displays the total number of users with the high-risk access, how many users are inactive or have unexecuted tasks, and how many users are active or have executed tasks:
+The **Usage Analytics summary** section on the [Analytics dashboard](cloudknox-ui-usage-analytics.md) provides a snapshot of the following high-risk tasks or actions users have accessed, and displays the total number of users with the high-risk access, how many users are inactive or have unexecuted tasks, and how many users are active or have executed tasks:
 
 - **Users with access to high-risk tasks** - Displays the total number of users with access to a high risk task (**Total**), how many users have access but haven't used the task (**Inactive**), and how many users are actively using the task (**Active**).
 
@@ -128,11 +128,6 @@ The **Usage Analytics summary** section on the [Usage analytics dashboard](cloud
 ## Next steps
 
 - For information on how to view authorization system and account activity data on the CloudKnox dashboard, see [View authorization system and account activity on the CloudKnox dashboard](cloudknox-product-dashboard.md).
-- For an overview of the Usage Analytics dashboard, see [An overview of the Usage analytics  dashboard](cloudknox-ui-usage-analytics.md).
+- For an overview of the Usage Analytics dashboard, see [An overview of the Analytics  dashboard](cloudknox-ui-usage-analytics.md).
 
 
-<!---For an overview of the The Audit Trail dashboard, see [The CloudKnox dashboard](cloudknox-audit-trail-dashboard.html).--->
-<!---For an overview of the JEP Controller dashboard, see [The JEP Controller dashboard](cloudknox-ui-jep-controller.html).--->
-<!---For an overview of the The Compliance dashboard, see [The Compliance dashboard](cloudknox-ui-compliance.html).--->
-<!---For an overview of the The Reports dashboard, see [The Reports dashboard](cloudknox-ui-reports.html).--->
-<!---For an overview of the The Autopilot dashboard, see [The Autopilot dashboard](cloudknox-ui-autopilot.html).--->

@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - Manage permissions with the JEP Controller
-description: How to manage permissions with the JEP Controller in Microsoft CloudKnox Permissions Management.
+title: Microsoft CloudKnox Permissions Management - Manage permissions with the JEP Controller dashboard
+description: How to manage permissions with the JEP Controller dashboard in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -12,11 +12,14 @@ ms.date: 01/17/2022
 ms.author: v-ydequadros
 ---
 
-# Manage permissions with the JEP Controller
+# Manage permissions with the JEP Controller dashboard
 
-The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Management (CloudKnox) allows users to request privileges on-demand (POD). The JEP Controller also allows system administrators to adjust permissions and remediate excessive permissions based on activity data from Usage Analytics. 
+The JEP Controller dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) allows :
 
-The JEP Controller includes four tabs: **Roles/Policies**, **Permissions**, **Settings**, and **Requests**.
+- Users to request privileges on-demand (POD). 
+- System administrators to adjust permissions and remediate excessive permissions based on activity data. 
+
+The JEP Controller dashboard includes four tabs: **Roles/Policies**, **Permissions**, **Settings**, and **Requests**.
 
 ## The Roles/Policies tab
 
@@ -822,7 +825,7 @@ The **My Requests** tab  displays details about requests submitted by the curren
 <!---## Next steps--->
 
 <!---For information about how to create group-based permissions, see [Create group-based permissions](cloudknox-howto-create-group-based-permissions.html).--->
-<!---For information about how to request privileges on-demand (POD), adjust permissions, and remediate excessive permissions, see [Manage permissions with the JEP Controller](cloudknox-product-jep-controller.html).--->
-<!---For information about how to create group-based permissions, see [Attach and detach permissions in the JEP Controller](cloudknox-howto-attach-detach-permissions.html).--->
+<!---For information about how to request privileges on-demand (POD), adjust permissions, and remediate excessive permissions, see [Manage permissions with the JEP Controller dashboard](cloudknox-product-jep-controller.html).--->
+<!---For information about how to create group-based permissions, see [Attach and detach permissions in the JEP Controller dashboard](cloudknox-howto-attach-detach-permissions.html).--->
 <!---For information about how to create and view the Permissions Analytics report, see [The Permissions Analytics report](cloudknox-product-permissions-analytics-reports).--->
 <!---For information about how to view user management information, see [The User Management dashboard](cloudknox-ui-user-management.html).--->

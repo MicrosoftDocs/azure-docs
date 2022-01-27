@@ -1,5 +1,5 @@
 ---
-title: Microsoft CloudKnox Permissions Management - View usage analytics about serverless functions (AWS only)
+title: Microsoft CloudKnox Permissions Management - View analytic information about serverless functions (AWS only)
 description: How to view Microsoft CloudKnox Permissions Management usage analytics about serverless functions (AWS only).
 services: active-directory
 author: Yvonne-deQ
@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 01/27/2022
 ms.author: v-ydequadros
 ---
 
-# View usage analytics about serverless functions (AWS only)
+# View analytic information about serverless functions (AWS only)
 
-The **Usage Analytics** feature in Microsoft CloudKnox Permissions Management (CloudKnox) contains details about identities, resources, and tasks that you can use make informed decisions about granting privileges, and reducing risk on unused privileges.
+The **Usage Analytics** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) provides information about identities, resources, and tasks that you can use make informed decisions about granting privileges, and reducing risk on unused privileges.
 
 - **Users**: Tracks assigned privileges and usage of various identities.
 - **Groups**: Tracks assigned privileges and usage of the group and the group members.
@@ -29,7 +29,7 @@ This topic describes how to view usage analytics about serverless functions (AWS
 
 ## View information on the Serverless Functions dashboard
 
-The **Serverless Functions**, or lambda table, provides a high level overview of serverless function details. On the main **Usage Analytics** page, select **Serverless Functions** from the  drop-down list across the top of the screen. **
+The **Serverless Functions**, or lambda table, provides a high level overview of serverless function details. On the **Usage Analytics** dashboard, select **Serverless Functions** from the  drop-down list across the top of the screen. **
 
 To activate the **Access Keys** option, select **AWS** from the filter options drop-down list. The following components make up the **Serverless Functions** table:
 

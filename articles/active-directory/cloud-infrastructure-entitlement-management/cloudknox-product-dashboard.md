@@ -23,7 +23,7 @@ The Microsoft CloudKnox Permissions Management (CloudKnox) home page provides an
 1. Select the **Authorization system** box to display a **List** of accounts and **Folders** available to you. 
 1. Select the accounts and folders you want, and then select **Apply**. 
 
-   The **Privilege creep index (PCI)** chart appears. The number of days since it was last updated displays in the upper right corner. 
+   The **Permissions creep index (PCI)** chart appears. The number of days since it was last updated displays in the upper right corner. 
 
     The PCI graph displays a bubble in the upper right corner. The bubble displays the number of identities that are considered high risk. *High risk* refers to the number of users who have permissions that exceed their normal or required usage.
 
@@ -39,7 +39,7 @@ For more information about the CloudKnox dashboard, see [View key statistics and
 
 ## View user data on the PCI heat map
 
-The **Privilege creep index (PCI)** heat map shows the incurred risk of users with access to high-risk privileges. The distribution graph displays all the users who contribute to the privilege creep. It displays how many users contribute to a particular score. For example, if the score from the PCI chart is 14, the graph shows how many users have a score of 14.
+The **Permissions creep index (PCI)** heat map shows the incurred risk of users with access to high-risk privileges. The distribution graph displays all the users who contribute to the privilege creep. It displays how many users contribute to a particular score. For example, if the score from the PCI chart is 14, the graph shows how many users have a score of 14.
 
 - To view detailed data about a user, hover over the number.
 

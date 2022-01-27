@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - View usage analytics about access keys
-description: How to view  usage analytics about access keys in Microsoft CloudKnox Permissions Management.
+title: Microsoft CloudKnox Permissions Management - View analytic information about access keys
+description: How to view  analytic information about access keys in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/17/2022
+ms.date: 01/27/2022
 ms.author: v-ydequadros
 ---
 
-# View usage analytics about access keys
+# View analytic information about access keys
 
-The **Usage Analytics** feature in Microsoft CloudKnox Permissions Management (CloudKnox) contains details about identities, resources, and tasks that you can use make informed decisions about granting privileges, and reducing risk on unused privileges.
+The **Usage Analytics** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) provides information about identities, resources, and tasks that you can use make informed decisions about granting privileges, and reducing risk on unused privileges.
 
 - **Users**: Tracks assigned privileges and usage of various identities.
 - **Groups**: Tracks assigned privileges and usage of the group and the group members.
@@ -25,7 +25,7 @@ The **Usage Analytics** feature in Microsoft CloudKnox Permissions Management (C
 
 The Microsoft CloudKnox Permissions Management **Usage Analytics** dashboard allows system administrators to collect, analyze, report on, and visualize data about all identity types.
 
-This topic describes how to view  usage analytics about access keys for AWS, Azure, and GCP in Microsoft CloudKnox Permissions Management. 
+This topic describes how to view  analytic information about access keys for AWS, Azure, and GCP in Microsoft CloudKnox Permissions Management. 
 
 ## View information on the Access Keys dashboard
 

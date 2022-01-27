@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/25/2022
+ms.date: 01/27/2022
 ms.author: v-ydequadros
 ---
 
@@ -52,9 +52,13 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on M
 
 1. To launch Google Cloud, select **Launch SSH**.
 
-1. To copy all your scripts from the GitHub repository into your current directory, in **Open in Cloud Shell**, select **Trust repo**, and then select **Confirm**.
+1. To copy all your scripts into your current directory, in **Open in Cloud Shell**, select **Trust repo**, and then select **Confirm**.
 
     The Cloud Shell provisions the Cloud Shell machine and makes a connection to your Cloud Shell instance.
+
+    > [!NOTE] 
+    > Follow the instructions in the browser as they may be different from the ones given here.
+
 
 1. The **Welcome to CloudKnox GCP onboarding** screen appears, displaying four steps you must complete to onboard your GCP project:
 
