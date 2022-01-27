@@ -18,7 +18,7 @@ You can't move an Azure Spring Cloud instance from one region to another directl
 Before you move your service instance, you should be aware of the following limitations:
 
 - Different feature sets are supported by different pricing tiers (SKUs). If you change the SKU, you may need to change the template to include only features supported by the target SKU.
-- You might not be able to move all sub-resources in Azure Spring Cloud using the template. Your move may require extra setup after the template is deployed. For more information, see the [Configure the new Azure Spring Cloud service instance](#configure-the-new-azure-spring-cloud-service-instance) section below.
+- You might not be able to move all sub-resources in Azure Spring Cloud using the template. Your move may require extra setup after the template is deployed. For more information, see the [Configure the new Azure Spring Cloud service instance](#configure-the-new-azure-spring-cloud-service-instance) section.
 - When you move a virtual network (VNet) instance (see [Deploy Azure Spring Cloud in a virtual network](how-to-deploy-in-azure-virtual-network.md)), you'll need to create new network resources.
 
 ## Prerequisites
@@ -53,7 +53,7 @@ az group export --resource-group <resource-group> --resource-ids <resource-id>
 
 ## Modify the template
 
-Next, use the following steps to modify the *template.json* file. In the example below, the new service name for Azure Spring Cloud is *new-service-name*, and the previous service name is *old-service-name*.
+Next, use the following steps to modify the *template.json* file. In the examples shown here, the new Azure Spring Cloud instance name is *new-service-name*, and the previous instance name is *old-service-name*.
 
 1. Change all `name` instances in the template from *old-service-name* to *new-service-name*, as shown in the following example:
 
@@ -200,11 +200,11 @@ Wait until the template has deployed successfully. If the deployment fails, view
 
 ## Configure the new Azure Spring Cloud service instance
 
-Some features are not exported to the template, or cannot be imported with a template. You must manually set up some Azure Spring Cloud items on the new instance after the template deployment completes successfully, as described in the following guidelines:
+Some features aren't exported to the template, or can't be imported with a template. You must manually set up some Azure Spring Cloud items on the new instance after the template deployment completes successfully. The following guidelines describe these requirements:
 
-- The JAR files for the previous service are not deployed directly to the new service instance. To deploy all apps, follow the instructions in [Quickstart: Build and deploy apps to Azure Spring Cloud](quickstart-deploy-apps.md). If there is no active deployment configured automatically, you must configure a production deployment. For more information, see [Set up a staging environment in Azure Spring Cloud](how-to-staging-environment.md).
-- Config Server will not be imported automatically. To set up Config Server on your new instance, see [Set up a Spring Cloud Config Server instance for your service](how-to-config-server.md).
-- Managed identity will be created automatically for the new service instance, but the object ID will be different from the previous instance. For MSI to work in the new service instance, follow the instructions in [How to enable system-assigned managed identity for applications in Azure Spring Cloud](how-to-enable-system-assigned-managed-identity.md).
+- The JAR files for the previous service aren't deployed directly to the new service instance. To deploy all apps, follow the instructions in [Quickstart: Build and deploy apps to Azure Spring Cloud](quickstart-deploy-apps.md). If there's no active deployment configured automatically, you must configure a production deployment. For more information, see [Set up a staging environment in Azure Spring Cloud](how-to-staging-environment.md).
+- Config Server won't be imported automatically. To set up Config Server on your new instance, see [Set up a Spring Cloud Config Server instance for your service](how-to-config-server.md).
+- Managed identity will be created automatically for the new service instance, but the object ID will be different from the previous instance. For managed identity to work in the new service instance, follow the instructions in [How to enable system-assigned managed identity for applications in Azure Spring Cloud](how-to-enable-system-assigned-managed-identity.md).
 - For Monitoring -> Metrics, see [Metrics for Azure Spring Cloud](concept-metrics.md). To avoid mixing the data, we recommend that you create a new Log Analytics instance to collect the new data. You should also create a new instance for other monitoring configurations.
 - For Monitoring -> Diagnostic settings and logs, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
 - For Monitoring -> Application Insights, see [Application Insights Java In-Process Agent in Azure Spring Cloud](how-to-application-insights.md).
