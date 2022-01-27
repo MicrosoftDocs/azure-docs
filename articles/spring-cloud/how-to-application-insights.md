@@ -68,7 +68,7 @@ When the **Application Insights** feature is enabled, you can:
 
 * In the left navigation pane, select **Logs** to view all applications' logs, or one application's logs when filtering by `cloud_RoleName`.
 
-   :::image type="content" source="media/enterprise/how-to-application-insights/aplication-insights-application-logs.png" alt-text="Azure portal screenshot of Application Insights with Logs page showing." lightbox="media/enterprise/how-to-application-insights/application-insights-application-logs.png":::
+   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-application-logs.png" alt-text="Azure portal screenshot of Application Insights with Logs page showing." lightbox="media/enterprise/how-to-application-insights/application-insights-application-logs.png":::
 
 ## Manage Application Insights using the Azure portal
 
