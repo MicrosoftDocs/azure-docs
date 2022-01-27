@@ -6,8 +6,7 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
-### 2022-January release
-
+### Speech CLI 1.20.0: January 2022 release
 
 #### New features
 - Speaker recognition
