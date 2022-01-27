@@ -18,9 +18,9 @@ ms.author: henrymbugua
 
 # Overview of the Microsoft Authentication Extensions for Node
 
-The Microsoft Authentication Extensions for Node enables developers to perform cross-platform token cache serialization and persistence to disk. It gives additional support to the Microsoft Authentication Library for Node (MSAL Node).
+The Microsoft Authentication Extensions for Node enables developers to perform cross-platform token cache serialization and persistence to disk. It gives additional support to the Microsoft Authentication Library (MSAL) for Node.
 
-The [MSAL Node](msal-node-migration.md) supports an in-memory cache by default and provides the ICachePlugin interface to perform cache serialization, but doesn't provide a default way of storing the token cache to disk. Microsoft authentication extensions for node is default implementation for persisting cache to disk across different platforms.
+The [MSAL Node](msal-node-migration.md) supports an in-memory cache by default and provides the ICachePlugin interface to perform cache serialization, but doesn't provide a default way of storing the token cache to disk. The Microsoft Authentication Extensions for Node is default implementation for persisting cache to disk across different platforms.
 
 Microsoft authentication extensions for node support the following platforms:
 
@@ -30,7 +30,7 @@ Microsoft authentication extensions for node support the following platforms:
 
 ## Installation
 
-The `msal-node-extensions` package is available on NPM.
+The `msal-node-extensions` package is available on Node Package Manager (NPM).
 
 ```bash
 npm i @azure/msal-node-extensions --save
@@ -85,15 +85,15 @@ PersistenceCreator.createPersistence(persistenceConfiguration).then(
 );
 ```
 
-All the arguments for the persistence configuration are explained below:
+The following table provides an explanation for all the arguments for the persistence configuration.
 
 | Field Name              | Description                                                                                         | Required For           |
 | ----------------------- | --------------------------------------------------------------------------------------------------- | ---------------------- |
-| cachePath               | This is the path to the lock file the library uses to synchronize the reads and the writes          | Windows, Mac and Linux |
+| cachePath               | This is the path to the lock file the library uses to synchronize the reads and the writes          | Windows, Mac, and Linux |
 | dataProtectionScope     | Specifies the scope of the data protection on Windows either the current user or the local machine. | Windows                |
 | serviceName             | This specifies the service name to be used on Mac and/or Linux                                      | Mac and Linux          |
 | accountName             | This specifies the account name to be used on Mac and/or Linux                                      | Mac and Linux          |
-| usePlaintextFileOnLinux | This is a flag to default to plain text on linux if libsecret fails. Defaults to `false`            | Linux                  |
+| usePlaintextFileOnLinux | This is a flag to default to plain text on linux if LibSecret fails. Defaults to `false`            | Linux                  |
 
 ## Next steps
 
