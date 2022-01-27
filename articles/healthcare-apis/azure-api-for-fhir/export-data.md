@@ -1,6 +1,6 @@
 ---
 title: Executing the export by invoking $export command on Azure API for FHIR
-description: This article describes how to export FHIR data using $export
+description: This article describes how to export FHIR data using $export for Azure API for FHIR
 author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -9,7 +9,7 @@ ms.date: 01/26/2022
 ms.author: cavoeg
 ---
 
-# How to export FHIR data
+# How to export FHIR data in Azure API for FHIR
 
 The Bulk Export feature allows data to be exported from the FHIR Server per the [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html). 
 
