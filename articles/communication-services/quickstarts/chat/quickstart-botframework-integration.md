@@ -91,7 +91,7 @@ Create a Web App where actual bot logic resides. You could check out some sample
 
    - Configure the options you want to set including the region you want to deploy it to.
    
-![Web App Create Options.png](./media/we-app-create-options.png)
+![Web App Create Options.png](./media/web-app-create-options.png)
 
 
 
