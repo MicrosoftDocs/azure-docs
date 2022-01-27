@@ -24,9 +24,6 @@ This documentation contains the following article types:
 ## Text summarization feature
 
 Text summarization uses text summarization to produce a summary of a document. It extracts sentences that collectively represent the most important or relevant information within the original content. This feature is designed to shorten content that could be considered too long to read. For example, it can condense articles, papers, or documents to key sentences.
-<!--
-:::image type="content" source="media/feature-example.png" alt-text="A diagram of the text analytics feature.":::
--->
 
 As an example, consider the following paragraph of text:
 
@@ -34,7 +31,7 @@ As an example, consider the following paragraph of text:
 
 The text summarization feature would simplify the text into the following key sentences:
 
-:::image type="content" source="media/feature-example.png" alt-text="A simple example of the text summarization feature." lightbox="media/feature-example-2.png":::
+:::image type="content" source="media/feature-example.png" alt-text="A simple example of the text summarization feature." lightbox="media/feature-example.png":::
 
 ## Key features
 
