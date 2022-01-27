@@ -13,7 +13,7 @@ ms.author: alkohli
 ---
 # Tutorial: Configure the device settings for Azure Stack Edge Pro 2
 
-This tutorial describes how you configure device related settings for your Azure Stack Edge Pro device with an onboard GPU. You can set up your device name, update server, and time server via the local web UI.
+This tutorial describes how you configure device-related settings for your Azure Stack Edge Pro device with an onboard GPU. You can set up your device name, update server, and time server via the local web UI.
 
 The device settings can take around 5-7 minutes to complete.
 
@@ -28,7 +28,7 @@ In this tutorial, you learn about:
 
 ## Prerequisites
 
-Before you configure device related settings on your Azure Stack Edge Pro device with GPU, make sure that:
+Before you configure device-related settings on your Azure Stack Edge Pro device with GPU, make sure that:
 
 * For your physical device:
 
@@ -38,7 +38,7 @@ Before you configure device related settings on your Azure Stack Edge Pro device
 
 ## Configure device settings
 
-Follow these steps to configure device related settings:
+Follow these steps to configure device-related settings:
 
 1. On the **Device** page, take the following steps:
 
@@ -50,7 +50,7 @@ Follow these steps to configure device related settings:
 
         ![Local web UI "Device" page 1](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-2.png)
 
-        If you have changed the device name and the DNS domain, the automatically generated self-signed certificates on the device will not work. You need to choose one of the following options when you configure certificates.: 
+        If you’ve changed the device name and the DNS domain, the automatically generated self-signed certificates on the device won’t work. You need to choose one of the following options when you configure certificates: 
         
         - Generate and download the device certificates. 
         - Bring your own certificates for the device including the signing chain.

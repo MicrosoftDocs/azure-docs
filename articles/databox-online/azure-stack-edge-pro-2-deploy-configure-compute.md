@@ -41,14 +41,14 @@ Before you set up a compute role on your Azure Stack Edge Pro 2 device, make sur
 
 ## Get Kubernetes endpoints
 
-To configure a client to access Kubernetes cluster, you will need the Kubernetes endpoint. Follow these steps to get Kubernetes API endpoint from the local UI of your Azure Stack Edge Pro device.
+To configure a client to access Kubernetes cluster, you’ll need the Kubernetes endpoint. Follow these steps to get Kubernetes API endpoint from the local UI of your Azure Stack Edge Pro device.
 
 1. In the local web UI of your device, go to **Devices** page.
 2. Under the **Device endpoints**, copy the **Kubernetes API service** endpoint. This endpoint is a string in the following format: `https://compute.<device-name>.<DNS-domain>[Kubernetes-cluster-IP-address]`. 
 
     ![Device page in local UI](./media/azure-stack-edge-gpu-create-kubernetes-cluster/device-kubernetes-endpoint-1.png)
 
-3. Save the endpoint string. You will use this endpoint string later when configuring a client to access the Kubernetes cluster via kubectl.
+3. Save the endpoint string. You’ll use this endpoint string later when configuring a client to access the Kubernetes cluster via kubectl.
 
 4. While you are in the local web UI, you can:
 
@@ -56,7 +56,7 @@ To configure a client to access Kubernetes cluster, you will need the Kubernetes
 
         ![Device page in local UI 1](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-1.png)
 
-        If you have been provided a key from Microsoft (select users may have a key), then you can use this config file.
+        If you’ve been provided a key from Microsoft (select users may have a key), then you can use this config file.
 
         ![Device page in local UI 2](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-2.png)
 
