@@ -63,7 +63,7 @@
         href: adobe-creative-cloud-tutorial.md
       - name: Adobe Experience Manager
         href: adobeexperiencemanager-tutorial.md
-      - name: Adobe Identity Management
+      - name: Adobe Identity Management (SAML)
         href: adobe-identity-management-tutorial.md
       - name: Adobe Sign
         href: adobe-echosign-tutorial.md
