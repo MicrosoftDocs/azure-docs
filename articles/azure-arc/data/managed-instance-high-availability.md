@@ -131,7 +131,7 @@ az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 –s
 
 By default, all the replicas are configured in synchronous mode. This means any updates on the primary instance will be synchronously replicated to each of the secondary instances.
 
-## View and Monitor Availability Group status
+## View and monitor availability group status
 
 Once the deployment is complete, connect to the primary endpoint from SQL Server Management Studio.  
 
