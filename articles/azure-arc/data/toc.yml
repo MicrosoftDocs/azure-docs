@@ -242,7 +242,7 @@ items:
         - name: Business continuity
           items:
             - name: Overview
-              href: arc-business-continuity-overview.md
+              href: business-continuity-managed-instance-overview.md
             - name: Point in time restore
               href: point-in-time-restore.md
             - name: High availability

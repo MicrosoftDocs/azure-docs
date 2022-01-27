@@ -1,72 +1,105 @@
+---
+title: Disaster recovery - Azure Arc-enabled SQL Managed Instance
+description: Describes disaster recovery for Azure Arc-enabled SQL Managed Instance
+services: azure-arc
+ms.service: azure-arc
+ms.subservice: azure-arc-data
+author: dnethi
+ms.author: dinethi
+ms.reviewer: mikeray
+ms.date: 01/27/2022
+ms.topic: conceptual
+---
 
-# Disaster Recovery with Azure Arc enabled SQL Managed Instance (Preview)
+# Azure Arc-enabled SQL Managed Instance - disaster recovery (preview)
 
-Disaster Recovery in Azure Arc enabled SQL Managed Instance is achieved using Distributed Availability Groups.
+Disaster Recovery in Azure Arc-enabled SQL Managed Instance is achieved using distributed availability groups.
 
-## Pre-read
+Disaster recovery features for Azure Arc-enabled SQL Managed Instance are available as preview.
 
-Coneptually the Distributed Availability Groups (DAGs) used in Azure Arc enabled SQL Managed Instance is the same technology that is in SQL Server as described in [Distributed Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-ver15). In the case of Arc SQL MI, both geo-primary and geo-secondary sites are based on kubernetes and there is no Windows Failover Clustering involved. 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## Background
+
+Conceptually the distributed availability groups (DAGs) used in Azure Arc-enabled SQL Managed Instance is the same technology that is in SQL Server as described in [Distributed availability groups](/sql/database-engine/availability-groups/windows/distributed-availability-groups). In the case of Azure SQL Managed Instance for Azure Arc, both geo-primary and geo-secondary sites are hosted on Kubernetes and there is no Windows failover cluster involved. 
 
 > [!NOTE]
-> 1. The Azure Arc enabled SQL Managed Instances in both geo-primary and geo-secondary sites need to be identical in terms of their compute & capacity, as well as service tiers they are deployed in.
-> 2. Distributed Availability Groups can be setup for both General Purpose and Business Critical service tiers. 
+> 1. The Azure Arc-enabled SQL Managed Instance in both geo-primary and geo-secondary sites need to be identical in terms of their compute & capacity, as well as service tiers they are deployed in.
+> 2. Distributed availability groups can be setup for either general purpose or business critical service tiers. 
 
-Configuring the Distributed Availability Groups involves creating the DAG custom resoueces on each of the primary and secondary sites, retrieving and copying over the mirroring certificates and setting up the distributed availability group between the primary and secondary sites.
+To configure disaster recovery:
 
-A properly configured DAG setup would look as below:
+1. Create distributed availability group custom resources on the primary site
+1. Create distributed availability group custom resources on the secondary site
+1. Copy the mirroring certificates
+1. Set up the distributed availability group between the primary and secondary sites.
 
-![High availability settings](.\media\business-continuity\dag.png)
+The following image shows a properly configured distributed availability group:
 
-### Configure Distributed Availability groups 
+![A properly configured distributed availability group](.\media\business-continuity\dag.png)
 
-1. Provision the Arc SQL MI in the primary site.
-```
-az sql mi-arc create --name sqlprimary --tier bc --replicas 3 --k8s-namespace my-namespace --use-k8s
-```
-2. Provision the Arc SQL MI in the secondary site and configur as a DR instance. At this point the system databases are not part of the Contained Availability Group (CAG) yet.
-```
-az sql mi-arc create --name sqlsecondary --tier bc --replicas 3 --disaster-recovery-site true --k8s-namespace my-namespace --use-k8s
-```
+### Configure distributed availability groups 
+
+1. Provision the managed instance in the primary site.
+
+   ```azurecli
+   az sql mi-arc create --name sqlprimary --tier bc --replicas 3 --k8s-namespace my-namespace --use-k8s
+   ```
+
+2. Provision the managed instance in the secondary site and configure as a DR instance. At this point the system databases are not part of the contained availability group yet.
+
+   ```azurecli
+   az sql mi-arc create --name sqlsecondary --tier bc --replicas 3 --disaster-recovery-site true --k8s-namespace my-namespace --use-k8s
+  ```
+
 3. Copy the mirroring certificates from each site to a location thats accessible to both the geo-primary and geo-secondary instances. 
 
-```
-az sql mi-arc get-mirroring-cert --name <primaryinstance> --cert-file $HOME/sqlcerts/<name>.pem​ --k8s-namespace <namespace> --use-k8s
-az sql mi-arc get-mirroring-cert --name <secondaryinstance> --cert-file $HOME/sqlcerts/<name>.pem --k8s-namespace <namespace> --use-k8s
-```
+   ```azurecli
+   az sql mi-arc get-mirroring-cert --name <primaryinstance> --cert-file $HOME/sqlcerts/<name>.pem​ --k8s-namespace <namespace> --use-k8s
+   az sql mi-arc get-mirroring-cert --name <secondaryinstance> --cert-file $HOME/sqlcerts/<name>.pem --k8s-namespace <namespace> --use-k8s
+   ```
 
-Example:
-```
-az sql mi-arc get-mirroring-cert --name sqlprimary --cert-file $HOME/sqlcerts/sqlprimary.pem​ --k8s-namespace my-namespace --use-k8s
-az sql mi-arc get-mirroring-cert --name sqlsecondary --cert-file $HOME/sqlcerts/sqlsecondary.pem --k8s-namespace my-namespace --use-k8s
-```
+   Example:
 
-4. Create the DAG resource on both sites. System databases will be seeded into the DR instance CAG, from the primary instance CAG. 
-> [!NOTE] The DAG name should be identical on both sites.
+   ```azurecli
+   az sql mi-arc get-mirroring-cert --name sqlprimary --cert-file $HOME/sqlcerts/sqlprimary.pem​ --k8s-namespace my-namespace --use-k8s
+   az sql mi-arc get-mirroring-cert --name sqlsecondary --cert-file $HOME/sqlcerts/sqlsecondary.pem --k8s-namespace my-namespace --use-k8s
+   ```
 
-```
-az sql mi-arc dag create --dag-name <name of DAG> --name <name for primary DAG resource> --local-instance-name <primary instance name> --role primary --remote-instance-name <secondary instance name>  --remote-mirroring-url tcp://<secondary IP> --remote-mirroring-cert-file <secondary.pem> --k8s-namespace <namespace> --use-k8s
+4. Create the distributed availability group resource on both sites. 
 
-az sql mi-arc dag create --dag-name <name of DAG> --name <name for secondary DAG resource> --local-instance-name <secondary instance name> --role secondary --remote-instance-name <primary instance name> --remote-mirroring-url tcp://<primary IP> --remote-mirroring-cert-file <primary.pem> --k8s-namespace <namespace> --use-k8s
-```
+   Use `az sql mi-arc dag...` to complete the task. The command seeds system databases in the disaster recovery instance contained availability group, from the primary instance contained availability group.
+ 
+   > [!NOTE]
+   > The distributed availability group name should be identical on both sites.
+
+   ```azurecli
+   az sql mi-arc dag create --dag-name <name of DAG> --name <name for primary DAG resource> --local-instance-name <primary instance name> --role primary --remote-instance-name <secondary instance name>  --remote-mirroring-url tcp://<secondary IP> --remote-mirroring-cert-file <secondary.pem> --k8s-namespace <namespace> --use-k8s
+
+   az sql mi-arc dag create --dag-name <name of DAG> --name <name for secondary DAG resource> --local-instance-name <secondary instance name> --role secondary --remote-instance-name <primary instance name> --remote-mirroring-url tcp://<primary IP> --remote-mirroring-cert-file <primary.pem> --k8s-namespace <namespace> --use-k8s
+   ```
 
 
-Example:
-```
-az sql mi-arc dag create --dag-name dagtest --name dagPrimary --local-instance-name sqlPrimary --role primary --remote-instance-name sqlSecondary --remote-mirroring-url tcp://10.20.5.20:970 --remote-mirroring-cert-file $HOME/sqlcerts/sqlsecondary.pem --k8s-namespace my-namespace --use-k8s
+   Example:
+   ```azurecli
+   az sql mi-arc dag create --dag-name dagtest --name dagPrimary --local-instance-name sqlPrimary --role primary --remote-instance-name sqlSecondary --remote-mirroring-url tcp://10.20.5.20:970 --remote-mirroring-cert-file $HOME/sqlcerts/sqlsecondary.pem --k8s-namespace my-namespace --use-k8s
 
-az sql mi-arc dag create --dag-name dagtest --name dagSecondary --local-instance-name sqlSecondary  --role secondary --remote-instance-name sqlPrimary --remote-mirroring-url tcp://10.20.5.50:970 --remote-mirroring-cert-file $HOME/sqlcerts/sqlprimary.pem --k8s-namespace my-namespace --use-k8s
-```
+   az sql mi-arc dag create --dag-name dagtest --name dagSecondary --local-instance-name sqlSecondary  --role secondary --remote-instance-name sqlPrimary --remote-mirroring-url tcp://10.20.5.50:970 --remote-mirroring-cert-file $HOME/sqlcerts/sqlprimary.pem --k8s-namespace my-namespace --use-k8s
+   ```
+
+After you complete the steps above, you have configured the distributed availability group.
 
 ## Auto failover from primary to secondary instance
 
-Following command initiates a failover from the primary instance to the secondary instance. Any pending transactions on the geo-primary instance are replicated over to the geo-secondary DR instance before the failover. 
+The following command initiates a failover from the primary instance to the secondary instance. Any pending transactions on the geo-primary instance are replicated over to the geo-secondary disaster recovery instance before the failover. 
 
-```
+```azurecli
 az sql mi-arc dag edit --name <name of DAG> --role secondary --k8s-namespace <namespace> --use-k8s 
 ```
 
 Example:
-```
+
+```azurecli
 az sql mi-arc dag edit --name dagtest --role secondary --k8s-namespace <namespace> --use-k8s 
 ```
 
@@ -76,12 +109,13 @@ az sql mi-arc dag edit --name dagtest --role secondary --k8s-namespace <namespac
 In the circumstance when the geo-primary instance becomes unavailable, the following commands can be run on the geo-secondary DR instance to promote to primary with a forced failover incurring potential data loss.
 
 Run the below command on geo-primary, if available:
-```
+
+```azurecli
 az sql mi-arc dag edit -k test --name dagtestp --use-k8s --role force-secondary
 ```
 
 On the geo-secondary DR instance, run the following command to promote it to primary role, with data loss.
 
-```
+```azurecli
 az sql mi-arc dag edit -k test --name dagtests --use-k8s --role force-primary-allow-data-loss
 ```
