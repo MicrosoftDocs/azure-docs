@@ -123,7 +123,7 @@ The deployment process will do the following things for you:
 - Create a link to an Azure Resource Manager template based on your configuration that you can download and save for later.
 
 >[!IMPORTANT]
->You can only create 200 application groups for each Azure Active Directory tenant. We added this limit because of service limitations for retrieving feeds for our users. This limit doesn't apply to app groups created in Azure Virtual Desktop (classic).
+>You can only create 200 application groups for each Azure Active Directory tenant, although this can be increased with a request via a support ticket. We added this limit because of service limitations for retrieving feeds for our users. This limit doesn't apply to app groups created in Azure Virtual Desktop (classic).
 
 ## Edit or remove an app
 
