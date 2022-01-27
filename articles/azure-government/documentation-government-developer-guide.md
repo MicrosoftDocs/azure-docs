@@ -16,7 +16,7 @@ Azure Government is a separate instance of the Microsoft Azure service. It addre
 
 Microsoft provides various tools to help you create and deploy cloud applications on global Azure and Azure Government.
 
-When you create and deploy applications to Azure Government services, as opposed to global Azure, you need to know the key differences between the two cloud environments. The specific areas to understand are: 
+When you create and deploy applications on Azure Government, you need to know the key differences between Azure Government and global Azure. The specific areas to understand are: 
 
 - Setting up and configuring your programming environment
 - Configuring endpoints
@@ -39,17 +39,19 @@ Most of the currently available technical content assumes that applications are 
 - Certain services and features that are in specific regions of global Azure might not be available in Azure Government.
 - Feature configurations in Azure Government might differ from those in global Azure.
 
-Therefore, it's important to review your sample code, configurations, and steps to ensure that you are building and executing within the Azure Government cloud services environment.
-
-For current Azure Government regions and available services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
+Therefore, it's important to review your sample code and configurations to ensure that you are building within the Azure Government cloud services environment.
 
 ### Endpoint mapping
 
 Service endpoints in Azure Government are different than in Azure. For a mapping between Azure and Azure Government endpoints, see [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md#guidance-for-developers).
 
+### Feature variations
+
+For current Azure Government regions and available services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). Services available in Azure Government are listed by category and whether they are Generally Available or available through Preview. In general, service availability in Azure Government implies that all corresponding service features are available to you. Variations to this approach and other applicable limitations are tracked and explained in [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md#service-availability).
+
 ### Quickstarts
 
-Navigate through the links below to get started using Azure Government:
+Navigate through the following links to get started using Azure Government:
 
 - [Login to Azure Government portal](./documentation-government-get-started-connect-with-portal.md)
 - [Connect with PowerShell](./documentation-government-get-started-connect-with-ps.md)
@@ -64,7 +66,7 @@ The [Azure Government video library](https://aka.ms/AzureGovVideos) contains man
 
 ## Compliance
 
-For more information on Azure Government compliance, refer to the [compliance documentation](./documentation-government-plan-compliance.md).
+For more information about Azure Government compliance assurances, see [Azure Government compliance](./documentation-government-plan-compliance.md) documentation.
 
 ## Next steps
 

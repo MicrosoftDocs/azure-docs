@@ -33,7 +33,7 @@ For links to additional Azure Government compliance assurances, see [Azure compl
 - [International Traffic in Arms Regulations (ITAR)](/azure/compliance/offerings/offering-itar)
 - [Export Administration Regulations (EAR)](/azure/compliance/offerings/offering-ear)
 - [Federal Information Processing Standard (FIPS) 140](/azure/compliance/offerings/offering-fips-140-2)
-- [National Institute of Standards and Technology (NIST) SP 800-171](/azure/compliance/offerings/offering-nist-800-171)
+- [National Institute of Standards and Technology (NIST) 800-171](/azure/compliance/offerings/offering-nist-800-171)
 - [National Defense Authorization Act (NDAA) Section 889 and Section 1634](/azure/compliance/offerings/offering-ndaa-section-889)
 - [North American Electric Reliability Corporation (NERC) Critical Infrastructure Protection (CIP) standards](/azure/compliance/offerings/offering-nerc)
 - [Health Insurance Portability and Accountability Act of 1996 (HIPAA)](/azure/compliance/offerings/offering-hipaa-us)
@@ -51,12 +51,12 @@ For current Azure Government regions and available services, see [Products avail
 
 You can access Azure and Azure Government audit reports and related documentation via the [Service Trust Portal](https://servicetrust.microsoft.com) (STP) in the following sections:
 
-- STP [Audit Reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3), which is further divided into ISO Reports, PCI DSS, SOC Reports, FedRAMP Reports, GRC Assessment Reports, and other subsections.
+- STP [Audit Reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3), which has a subsection for FedRAMP Reports.
 - STP [Data Protection Resources](https://servicetrust.microsoft.com/ViewPage/TrustDocumentsV3), which is further divided into Compliance Guides, FAQ and White Papers, and Pen Test and Security Assessments subsections.
 
-You must login to access audit reports on the STP. For more information, see [Get started with the Microsoft Service Trust Portal](https://aka.ms/stphelp).
+You must sign in to access audit reports on the STP. For more information, see [Get started with the Microsoft Service Trust Portal](https://aka.ms/stphelp).
 
-Alternatively, you can access certain audit reports and certificates in the Azure or Azure Government portal by navigating to *Home > Security Center > Regulatory compliance > Audit reports* or using direct links based on your subscription (login required):
+Alternatively, you can access certain audit reports and certificates in the Azure or Azure Government portal by navigating to *Home > Security Center > Regulatory compliance > Audit reports* or using direct links based on your subscription (sign in required):
 
 - Azure portal [audit reports blade](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade)
 - Azure Government portal [audit reports blade](https://portal.azure.us/#blade/Microsoft_Azure_Security/AuditReportsBlade)
@@ -74,10 +74,6 @@ For additional customer assistance, Microsoft provides the Azure Policy regulato
 For additional regulatory compliance built-in initiatives that pertain to Azure Government, see [Azure Policy samples](../governance/policy/samples/index.md).
 
 Regulatory compliance in Azure Policy provides built-in initiative definitions to view a list of the controls and compliance domains based on responsibility - customer, Microsoft, or shared. For Microsoft-responsible controls, we provide additional audit result details based on third-party attestations and our control implementation details to achieve that compliance. Each control is associated with one or more Azure Policy definitions. These policies may help you [assess compliance](/azure/governance/policy/how-to/get-compliance-data) with the control; however, compliance in Azure Policy is only a partial view of your overall compliance status. Azure Policy helps to enforce organizational standards and assess compliance at scale. Through its compliance dashboard, it provides an aggregated view to evaluate the overall state of the environment, with the ability to drill down to more granular status.
-
-## General Data Protection Regulation (GDPR) Data Subject Requests (DSRs)
-
-Azure tenant administrators can use the [User Privacy blade](https://portal.azure.us/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) in the Azure portal to export and/or delete personal data generated during a customer's use of Azure Government services. For more information about Data Subject Requests, see [Azure Data Subject Requests for the GDPR](/compliance/regulatory/gdpr-dsr-Azure).
 
 ## Next steps
 
