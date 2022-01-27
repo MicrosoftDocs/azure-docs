@@ -531,6 +531,8 @@ items:
       href: question-answering/how-to/migrate-qnamaker.md
     - name: Getting started with question answering
       href: question-answering/how-to/create-test-deploy.md
+    - name: Export/import/refresh
+      href: question-answering/how-to/export-import-refresh.md
     - name: Encrypt data at rest
       href: question-answering/how-to/encrypt-data-at-rest.md
     - name: Migrate knowledge base
@@ -585,6 +587,12 @@ items:
       href: question-answering/tutorials/multiple-domains.md
   - name: Reference
     items: 
+    - name: General
+      items:
+      - name: Markdown format
+        href: question-answering/reference/markdown-format.md
+      - name: Format guidelines
+        href: question-answering/reference/document-format-guidelines.md
     - name: REST API
       items:
       - name: Prebuilt

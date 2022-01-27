@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 01/24/2022
 ms.author: eur
 ---
 
 # Long Audio API
 
-The Long Audio API provides asynchronous synthesis of long-form text to speech. For example: audio books, news articles and documents. There's no need to deploy a custom voice endpoint. Unlike the Text-to-speech API used by the Speech SDK, the Long Audio API can create synthesized audio longer than 10 minutes. This makes it ideal for publishers and audio content platforms to create long audio content like audio books in a batch.
+The Long Audio API provides asynchronous synthesis of long-form text to speech. For example: audio books, news articles, and documents. There's no need to deploy a custom voice endpoint. Unlike the Text-to-speech API used by the Speech SDK, the Long Audio API can create synthesized audio longer than 10 minutes. This makes it ideal for publishers and audio content platforms to create long audio content like audio books in a batch.
 
 ## Workflow
 
