@@ -6,9 +6,9 @@ services: sql-edge
 ms.service: sql-edge
 ms.topic: conceptual
 ms.subservice:
-author: VasiyaKrishnan
-ms.author: vakrishn
-ms.reviewer: sstein
+author: kendalvandyke
+ms.author: kendalv 
+ms.reviewer: jroth
 ms.date: 11/24/2020
 ---
 # Azure SQL Edge release notes 

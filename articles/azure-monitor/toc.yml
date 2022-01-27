@@ -589,7 +589,9 @@ items:
       - name: Common alert schema definition
         href: alerts/alerts-common-schema-definitions.md
       - name: Common alert schema definition for Test action group
-        href: alerts/alerts-common-schema-test-action-definitions.md       
+        href: alerts/alerts-common-schema-test-action-definitions.md
+      - name: Non-common alert schema definition
+        href: alerts/alerts-non-common-schema-definitions.md        
       - name: Integrate the common alert schema with Logic Apps
         href: alerts/alerts-common-schema-integrations.md
       - name: SMS alert behavior
@@ -1167,8 +1169,7 @@ items:
         href: containers/container-insights-update-metrics.md
       - name: Migration from Azure Red Hat OpenShift v4.x to Azure Arc enabled cluster
         href: containers/container-insights-transition-hybrid.md
-      - name: Migration from Container Monitoring Solution to Container Insights
-        href: containers/container-insights-transition-solution.md
+
     - name: Monitor
       items:
       - name: Monitor performance
