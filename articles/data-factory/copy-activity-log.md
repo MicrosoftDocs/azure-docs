@@ -26,7 +26,7 @@ Given you have the opportunity to get all the file names copied by Azure Data Fa
 To configure Copy activity logging, first add a Copy activity to your pipeline, and then use its Settings tab to configure logging and various logging options.
 :::image type="content" source="media/copy-activity-log/configure-logging.png" alt-text="Shows how to configure logging for a Copy activity in the settings tab.":::
 
-To subsequently monitor the log, you can check the output of a pipeline run on the Monitoring tab of the ADF Studio under pipeline runs.  There, select the pipeline run you want to monitor and then hover over the area beside the Activity name, where you will find icons to links showing the pipeline input, output (once it is complete), and other details.  
+To subsequently monitor the log, you can check the output of a pipeline run on the Monitoring tab of the ADF Studio under pipeline runs.  There, select the pipeline run you want to monitor and then hover over the area beside the Activity name, where you’ll find icons to links showing the pipeline input, output (once it is complete), and other details.  
 
 :::image type="content" source="media/copy-activity-log/monitoring-with-studio.png" alt-text="Shows how to find the output of a Copy activity in ADF Studio.":::
 
@@ -42,11 +42,11 @@ See below for details of the log output format.
 To configure Copy activity logging, first add a Copy activity to your pipeline, and then use its Settings tab to configure logging and various logging options.
 :::image type="content" source="media/copy-activity-log/configure-logging.png" alt-text="Shows how to configure logging for a Copy activity in the settings tab.":::
 
-To subsequently monitor the log, you can check the output of a pipeline run on the Monitoring tab of the ADF Studio under pipeline runs.  There, select the pipeline run you want to monitor and then hover over the area beside the Activity name, where you will find icons to links showing the pipeline input, output (once it is complete), and other details.  
+To monitor the log, you can check the output of a pipeline run on the Monitoring tab of ADF Studio, under pipeline runs.  Select the run you want to monitor and then hover over the area beside the Activity name.  Icons will appear with links showing the pipeline input, output (once it’s complete), and other details.  
 
 :::image type="content" source="media/copy-activity-log/monitoring-with-synapse-studio.png" alt-text="Shows how to find the output of a Copy activity in Synapse Studio.":::
 
-Select the output icon to see details of the logging for the job, and note the logging location in the selected storage account, where you can see details of all logged activities.
+Select the output icon :::image type="icon" source="media/copy-activity-log/output-icon.png" border="false"::: to see details of the logging for the job, and note the logging location in the selected storage account, where you can see details of all logged activities.
 
 :::image type="content" source="media/copy-activity-log/logging-output.png" alt-text="Shows the output of a Copy activity with logging enabled.":::
 
@@ -145,7 +145,7 @@ OperationName | ADF Copy activity operational behavior on each object. It can be
 OperationItem | The file names or skipped rows.
 Message | More information to show if the file has been read from source store, or written to the destination store. It can also be why the file or rows has being skipped.
 
-Here is an example of a log file:
+Here’s an example of a log file:
 ```
 Timestamp, Level, OperationName, OperationItem, Message
 2020-10-19 08:39:13.6688152,Info,FileRead,"sample1.csv","Start to read file: {""Path"":""sample1.csv"",""ItemType"":""File"",""Size"":104857620,""LastModified"":""2020-10-19T08:22:31Z"",""ETag"":""\""0x8D874081F80C01A\"""",""ContentMD5"":""dGKVP8BVIy6AoTtKnt+aYQ=="",""ObjectName"":null}"
