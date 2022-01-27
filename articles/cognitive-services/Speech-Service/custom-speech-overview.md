@@ -64,7 +64,7 @@ After you create an Azure account and a Speech service subscription, sign in to 
 1. Select the subscription in which you need to work, and create a speech project.
 1. If you want to modify your subscription, select the cog icon in the top menu.
 
-## How to create a project
+## Create a project
 
 Content like data, models, tests, and endpoints are organized into *projects* in the [Speech Studio](https://speech.microsoft.com/customspeech). Each project is specific to a domain and country or language. For example, you might create a project for call centers that use English in the United States.
 
