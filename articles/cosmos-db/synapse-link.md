@@ -13,7 +13,7 @@ ms.custom: synapse-cosmos-db
 # What is Azure Synapse Link for Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Azure Synapse Link for Azure Cosmos DB is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real time analytics over operational data in Azure Cosmos DB. Azure Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
+Azure Synapse Link for Azure Cosmos DB is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables near real time analytics over operational data in Azure Cosmos DB. Azure Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
 
 Using [Azure Cosmos DB analytical store](analytical-store-introduction.md), a fully isolated column store, Azure Synapse Link enables no Extract-Transform-Load (ETL) analytics in [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) against your operational data at scale. Business analysts, data engineers, and data scientists can now use Synapse Spark or Synapse SQL interchangeably to run near real time business intelligence, analytics, and machine learning pipelines. You can achieve this without impacting the performance of your transactional workloads on Azure Cosmos DB.
 
@@ -37,7 +37,7 @@ You can now get rich insights on your operational data in near real time, using 
 
 ### No impact on operational workloads
 
-With Azure Synapse Link, you can run analytical queries against an Azure Cosmos DB analytical store (a separate column store) while the transactional operations are processed using provisioned throughput for the transactional workload (a row-based transactional store).  The analytical workload is served independent of the transactional workload traffic without consuming any of the throughput provisioned for your operational data.
+With Azure Synapse Link, you can run analytical queries against an Azure Cosmos DB analytical store, a column store representation of you data, while the transactional operations are processed using provisioned throughput for the transactional workload, over the Cosmos DB row-based transactional store. The analytical workload is independent of the transactional workload traffic without consuming any of the throughput provisioned for your operational data.
 
 ### Optimized for large scale analytics workloads
 
