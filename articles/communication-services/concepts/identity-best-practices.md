@@ -174,15 +174,18 @@ const tokenCredential = new AzureCommunicationTokenCredential({
         });
 ```
 
+If you want to cancel scheduled refresh tasks, [dispose](#clean-up-resources) of the Credential object.
+
 ### Proactively refresh token for a Teams User
 
 To minimize the number of roundtrips to the Azure Communication Identity API, make sure the Azure AD token you're passing to the `/:getTokenForTeamsUser` endpoint has long enough validity (> 10 minutes). In case that MSAL returns a cached token with a shorter validity, you have the following options to bypass the cache:
 
 1. Refresh the token forcibly
+1. Increase the MSAL's token renewal window to more than 10 minutes
 
 # [JavaScript](#tab/javascript)
 
-Trigger the token acquisition flow with [`AuthenticationParameters.forceRefresh`](../../active-directory/develop/msal-js-pass-custom-state-authentication-request.md) set to `true`.
+Option 1: Trigger the token acquisition flow with [`AuthenticationParameters.forceRefresh`](../../active-directory/develop/msal-js-pass-custom-state-authentication-request.md) set to `true`.
 
 ```javascript
 // Extend the `refreshAadToken` function 
@@ -205,21 +208,7 @@ const refreshAadToken = async function (abortSignal, username) {
 }
 ```
 
-# [C#](#tab/csharp)
-
-TODO
-
-# [Java](#tab/java)
-
-TODO
-
-# [Python](#tab/python)
-
-TODO
-
----
-
-1. Increase the MSAL's token renewal window to more than 10 minutes
+Option 2: Initialize the MSAL authentication context by instantiating a `PublicClientApplication` with a custom [`SystemOptions.tokenRenewalOffsetSeconds`](https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal_common.html#systemoptions-1).
 
 ```javascript
 const publicClientApplication = new PublicClientApplication({
@@ -228,9 +217,12 @@ const publicClientApplication = new PublicClientApplication({
     });
 ```
 
+---
+
 ## Cancel refreshing
 
-- TODO
+For the Communication clients to be able to cancel ongoing refresh tasks, it's necessary to pass a cancellation object to the refresher callback.
+*Please note that this pattern applies only to JavaScript and .NET.*
 
 ```javascript
 var controller = new AbortController();
@@ -240,19 +232,26 @@ var joinChatBtn = document.querySelector('.joinChat');
 var leaveChatBtn = document.querySelector('.leaveChat');
 
 joinChatBtn.addEventListener('click', function() {
+    // Wrong:
+    const tokenCredentialWrong = new AzureCommunicationTokenCredential({
+            tokenRefresher: async () => fetchTokenFromMyServerForUser("<user_name>")
+        });
+
+    // Correct: Pass abortSignal through the arrow function
     const tokenCredential = new AzureCommunicationTokenCredential({
             tokenRefresher: async (abortSignal) => fetchTokenFromMyServerForUser(abortSignal, "<user_name>")
         });
+    
+    // ChatClient is now able to abort token refresh tasks
+    const chatClient = new ChatClient("<endpoint-url>", tokenCredential);
 
-    let token = (await tokenCredential.getToken({ abortSignal: controller.signal }));
+    // ...
 });
 
 leaveChatBtn.addEventListener('click', function() {
     controller.abort();
-    console.log('Call hung up!');
+    console.log('Leaving chat...');
 });
-
-
 ```
 
 ### Clean up resources
@@ -264,11 +263,8 @@ Communication Services applications should dispose the Credential instance when 
 Call the `.dispose()` function.
 
 ```javascript
-const tokenCredential = new AzureCommunicationTokenCredential({
-    tokenRefresher: async (abortSignal) => fetchTokenFromMyServerForUser(abortSignal, "<user_name>"),
-    refreshProactively: true
-});
-// ...
+const tokenCredential = new AzureCommunicationTokenCredential("<token>");
+// Use the credential for Calling or Chat
 tokenCredential.dispose()
 ```
 
@@ -277,12 +273,10 @@ tokenCredential.dispose()
 Use the `using` statement or call the `.Dispose()` method explicitly.
 
 ```csharp
-using (var tokenCredential = new CommunicationTokenCredential(new CommunicationTokenRefreshOptions(
-        refreshProactively: true,
-        tokenRefresher: cancellationToken => FetchTokenForUserFromMyServer("<user_name>", cancellationToken))))
-        {
-            // ...
-        }
+using (var tokenCredential = new CommunicationTokenCredential("<token>"))
+{
+    // Use the credential for Calling or Chat
+}
 
 ```
 
@@ -292,7 +286,7 @@ Use the `try-with-resources` pattern or call the `.close()` method explicitly.
 
 ```java
 try (CommunicationTokenCredential tokenCredential = new CommunicationTokenCredential("<token>")) {
-    // ...
+    // Use the credential for Calling or Chat
 }
 
 ```
@@ -303,7 +297,7 @@ Use the `with` statement.
 
 ```python
 with CommunicationTokenCredential("<token>") as credential:
-    # ...
+    # Use the credential for Calling or Chat
 ```
 
 ---
