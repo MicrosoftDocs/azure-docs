@@ -30,7 +30,7 @@ To subsequently monitor the log, you can check the output of a pipeline run on t
 
 :::image type="content" source="media/copy-activity-log/monitoring-with-studio.png" alt-text="Shows how to find the output of a Copy activity in ADF Studio.":::
 
-Select the output icon to see details of the logging for the job, and note the logging location in the selected storage account, where you can see details of all logged activities.
+Select the output icon :::image type="icon" source="media/copy-activity-log/output-icon.png" border="false"::: to see details of the logging for the job, and note the logging location in the selected storage account, where you can see details of all logged activities.
 
 :::image type="content" source="media/copy-activity-log/logging-output.png" alt-text="Shows the output of a Copy activity with logging enabled.":::
 
