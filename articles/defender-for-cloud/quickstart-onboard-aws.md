@@ -45,7 +45,7 @@ This screenshot shows AWS accounts displayed in Defender for Cloud's [overview d
 
 ## Prerequisites
 
-- To connect an AWS account to your Azure subscription, you'll obviously need access to an AWS account.
+- To connect an AWS account to your Azure subscription, you'll need access to an AWS account.
 
 - **To enable the Defender for Kubernetes plan**, you'll need:
     - At least one Amazon EKS cluster with permission to access to the EKS K8s API server. If you need to create a new EKS cluster, follow the instructions in [Getting started with Amazon EKS – eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html).
