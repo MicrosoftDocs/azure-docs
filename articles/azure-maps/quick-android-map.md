@@ -42,11 +42,12 @@ Create a new Azure Maps account using the following steps:
     * The *Subscription* that you want to use for this account.
     * The *Resource group* name for this account. You may choose to *Create new* or *Use existing* resource group.
     * The *Name* of your new account.
-    * The *Pricing tier* for this account.
-    * Read the *License* and *Privacy Statement*, and check the checkbox to accept the terms.
-    * Select the **Create** button.
+    * The *Pricing tier* for this account. Select *Gen2*.
+    * Read the *Terms*, and check the checkbox to confirm that you have read and agree to the License and Privacy Statement.
+    * Select the **Review + create** button.
+    * Once you have ensured that everything is correct in the **Review + create** page, select the **Create** button.
 
-    :::image type="content" source="./media/quick-demo-map-app/create-account.png" alt-text="A screenshot that shows the Create Maps account pane in the Azure portal.":::
+    :::image type="content" source="./media/quick-android-map/create-account.png" alt-text="A screenshot that shows the Create Maps account pane in the Azure portal.":::
 
 ## Get the primary key for your account
 
@@ -135,14 +136,14 @@ The next step in building your application is to install the Azure Maps Android 
     3. Update your dependencies block and add a new implementation dependency for the latest Azure Maps Android SDK:
 
        ```gradle
-       implementation 'com.azure.android:azure-maps-control:1.0.0'
+       implementation 'com.azure.android:azure-maps-control:1.+'
        ```
 
     4. Select **Sync Project with Gradle Files** from the **File** menu.
 
       :::image type="content" source="./media/quick-android-map/build-gradle-file.png" alt-text="A screenshot showing the application build dot gradle file in Android Studio.":::
 
-1. Add a map fragment to the main activity. To update the main activity, select **Open** from the **File** menu, then select AzureMapsApp \> app \> src \> main \> res \> layout \> **activity_main.xml**:
+1. Add a map fragment to the main activity:
 
     ```xml
     <com.azure.android.maps.control.MapControl
@@ -151,6 +152,10 @@ The next step in building your application is to install the Azure Maps Android 
         android:layout_height="match_parent"
         />
     ```
+
+   To update the main activity, select  app > res > layout > **activity_main.xml** in the **Project navigator**:
+
+      :::image type="content" source="./media/quick-android-map/project-navigator-activity-main.png" alt-text="A screenshot showing the activity_main.xml file in the Project navigator pane in Android Studio.":::
 
 ::: zone pivot="programming-language-java-android"
 
