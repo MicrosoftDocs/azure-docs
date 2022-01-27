@@ -50,7 +50,7 @@ The following image shows a properly configured distributed availability group:
 
    ```azurecli
    az sql mi-arc create --name sqlsecondary --tier bc --replicas 3 --disaster-recovery-site true --k8s-namespace my-namespace --use-k8s
-  ```
+   ```
 
 3. Copy the mirroring certificates from each site to a location thats accessible to both the geo-primary and geo-secondary instances. 
 
