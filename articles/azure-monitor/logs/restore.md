@@ -9,10 +9,7 @@ ms.date: 01/19/2022
 ---
 
 # Restore archived logs in Azure Monitor (preview)
-[Archived Logs]() are stored for up to seven years in a Log Analytics workspace at a reduced cost, but you can't directly access them. Restore makes a specific time range of archived data in a table available for querying and allocates additional compute resources to handle their processing. This article describes how to restore archived data, query that data, and then dismiss it when you're done with it. 
-
-> [!NOTE]
-> See []() for a high level description of Archived Logs in Azure Monitor and how this relates to data in Analytics Logs and Basic Logs tables.
+[Archived Logs](data-retention-archive.md) are stored for up to seven years in a Log Analytics workspace at a reduced cost, but you can't directly access them. Restore makes a specific time range of archived data in a table available for querying and allocates additional compute resources to handle their processing. This article describes how to restore archived data, query that data, and then dismiss it when you're done with it. 
 
 > [!NOTE]
 > Restore is one method for accessing archived data. Use restore when you want to run queries against a set of data in a particular time range. Use [Search jobs](search-jobs.md) to access data that fits a certain criteria.
@@ -34,10 +31,6 @@ Restore is subject to the following limitations:
 - A single table can have only one active restore. Executing a second restore on a table that has already active restore will fail. 
 
 ## Restore data using API
-
-> [!NOTE]
-> The only current option to create a restore is using the **Tables** API.
-
 Use **Tables - Update** API call to restore archived data:
 
 ```http
@@ -55,8 +48,10 @@ The body of the request must include the following values:
 ### Restore table status
 You can get the current state of the restore table from a property called **provisioningState**. This property will be returned when you start the restore, and you can retrieve it later using a GET operation on the table. The **provisioningState** property will have one of the following value:
 
-- Updating - the table and its schema are populated.
-- Succeeded - restore has completed. 
+| Value | Description 
+|:---|:---|
+| Updating | The table was created and is being populated. |
+| Succeeded | Restore has completed. |
 
 #### Sample Request
 The following sample restores data from the month of January 2020 from the *Usage* table to a table called *Usage_RST*.
@@ -92,5 +87,5 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroup
 
 ## Next steps
 
-- Learn more about data retention and archiving data.
-- Learn about Search jobs which is another method for retrieving archived data.
+- [Learn more about data retention and archiving data.](data-retention-archive.md)
+- [Learn about Search jobs which is another method for retrieving archived data.](search-jobs.md)

@@ -5,24 +5,24 @@ author: bwren
 ms.author: bwren
 ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/13/2022
+ms.date: 01/27/2022
 
 ---
 
 # Query Basic Logs in Azure Monitor (Preview)
-Queries can be executed from the Log Analytics experience in the Azure portal, or from a dedicated REST API. 
+Basic Logs is a feature of Azure Monitor that reduces the cost for high-value verbose logs that don’t require analytics and alerts. Tables in a Log Analytics workspace that are configured as Basic logs have a reduced cost for ingestion with limitations on log queries and other Azure Monitor features. This article describes how to query data from tables configured for Basic Logs. This includes guidance for running queries from Log Analytics in the Azure portal and from the Log Analytics REST API.
 
 ### Cost
+Log queries on Basic Logs are charged according to the amount of data they scan, not just the amount of data they return. For example, If a query is scanning three days of data for a table that ingests 100 GB/day, it would be charged on 300 GB. Calculation is based on chunks of up to one day of data. 
 
 > [!NOTE]
 > During the preview period, there is no cost for log queries on Basic Logs.
 
-Log queries on Basic Logs are charged by the amount of data they scan. For example, If a query is scanning three days of data for a table that ingest 100 GB/day, it would be charged on 300 GB. Calculation is based on chunks of up to one day of data. For more details on billing, see **TODO:** add link to billing page.
 
 ## Limits
-
+Queries with Basic Logs are subject to the following limitations:
 ### KQL language limits
-Only the following table operators are supported when running a query with a Basic Logs table. All functions and binary operators are supported when used within these operators.
+Log queries in against Basic Logs are intended for simple data retrieval and use a subset of the KQL language. Queries in search jobs are limited to the following operators: 
 
 - [where](/azure/data-explorer/kusto/query/whereoperator)
 - [extend](/azure/data-explorer/kusto/query/extendoperator)
@@ -35,21 +35,32 @@ Only the following table operators are supported when running a query with a Bas
 - [parse-where](/azure/data-explorer/kusto/query/parsewhereoperator)
 
 ### Time range
-The time range must be specified in the query header in Log Analytics and not within the query body using a **where** statement.
+The time range must be specified in the query header in Log Analytics or in the API call. You can't specify the time range in the query body using a **where** statement.
 
 ### Query context
-Queries can run only in the context of the relevant workspace. Queries cannot run in resource-context.
+Queries with Basic Logs must use a workspace for the scope. You can't run queries using another resource for the scope. For more details, see [Log query scope and time range in Azure Monitor Log Analytics](scope.md).
 
 ### Concurrent queries
 Up to only 2 concurrent queries are supported per user. 
 
 ### Purge
-Purge is not supported on Basic Logs tables. 
+[Purge](personal-data-mgmt.md#how-to-export-and-delete-private-data) is not supported on Basic Logs tables. 
 
 
-## Run a query from the Portal
-Open Log Analytics in the Azure portal and open the **Tables** tab. (see [Get started with Azure Monitor Log Analytics](./log-analytics-tutorial.md) for detailed instructions).
-On selecting a table, Log Analytics identifies which type of table it is and the UI is aligned to support the query specifications per the table configuration. On a Basic Logs table, the query authoring experience is aligned to the query limitations as explained above. 
+## Run a query from the Azure portal
+Creating a query using Basic Logs is the same as any other query in Log Analytics. See [Get started with Azure Monitor Log Analytics](./log-analytics-tutorial.md) if you aren't familiar with this process.
+
+Open Log Analytics in the Azure portal and open the **Tables** tab. When browsing the list of tables, Basic Logs tables are identified with a unique icon: 
+
+![Screenshot of the Basic Logs table icon in the table list.](./media/basic-logs-configure/table-icon.png)
+
+You can also hover over a table name for the table information view. This will specify that the table is configured as Basic Logs:
+
+![Screenshot of the Basic Logs table indicator in the table details.](./media/basic-logs-configure/table-info.png)
+
+
+When you add a table to the query, Log Analytics will identify a Basic Logs table an align the authoring experience accordingly. The following example shows when you attempt to use an operator that isn't supported by Basic Logs.
+
 ![Screenshot of Query on Basic Logs limitations.](./media/basic-logs-query/query-validator.png)
 
 ## Run a query from REST API
@@ -65,16 +76,15 @@ https://api.loganalytics.io/v1/workspaces/testWS/search?timespan=P1D
 
 **Request body**
 
-```http
+```json
 {
     "query": "ContainerLog | where LogEntry has \"some value\"\n",
 }
 ```
 
 
-
-
 ## Next steps
 
-- [Read more about Basic logs](basic-logs-overview.md)
-- [Configure a table for Basic Logs.](basic-logs-query.md)
+- [Learn more about Basic Logs and the different log plans.](log-analytics-workspace-overview.md#log-plans)
+- [Configure a table for Basic Logs.](basic-logs-configure.md)
+- [Use a search job to retrieve data from Basic Logs into Analytics Logs where it can be queries multiple times.](search-jobs.md)

@@ -278,11 +278,11 @@ items:
         href: logs/move-workspace.md
       - name: Move a workspace across regions 
         href: logs/move-workspace-region.md
-      - name: Configure basic logs
+      - name: Configure Basic Logs
         href: logs/basic-logs-configure.md
       - name: Set retention and archive
         href: logs/data-retention-archive.md
-      - name: Restore a table
+      - name: Restore archived data
         href: logs/restore.md
       - name: Create a search job
         href: logs/search-jobs.md

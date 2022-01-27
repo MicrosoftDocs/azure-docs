@@ -6,7 +6,7 @@ ms.author: bwren
 ms.reviewer: osalzberg
 ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/12/2022
+ms.date: 01/27/2022
 
 ---
 
@@ -20,19 +20,19 @@ See [Overview of Log Analytics workspaces](log-analytics-workspace-overview.md) 
 
 :::image type="content" source="media/data-retention-configure/retention-archive.png" alt-text="Overview of data retention and archive periods":::
 
-
-## Workspace default retention
-Each workspace has a default retention that's applied to all tables unless they have their own retention set. You cannot define a default archive period (defined by the total retention time) for the workspace but must instead set this value for each table.
-
-If you lower the retention, there's a grace period of several days before the data older than the new retention setting is removed. When you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter which eliminates the grace period. This might be useful for compliance-related scenarios where immediate data removal is imperative. You can only perform the immediate purge functionality using Azure Resource Manager.
-
-
 ## Data purge
 Data is automatically removed from the workspace after the retention or total retention period ends. The only way to remove data on demand is to use the [purge feature](personal-data-mgmt.md#how-to-export-and-delete-private-data) which is intended to remove personal data that was accidentally collected. The Log Analytics [purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing and is intended to be used for very limited cases. **To reduce your retention bill, the retention period must be reduced either for the workspace or for specific data types.** 
 
+## Workspace default retention
+Each workspace has a default retention that's applied to all tables unless they have their own retention set. You cannot define a default archive period (defined by the total retention time) for the workspace but must instead set that value for each table.
+
+If you lower the retention, there's a grace period of several days before the data older than the new retention setting is removed. When you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter which eliminates the grace period. This might be useful for compliance-related scenarios where immediate data removal is imperative. You can only perform the immediate purge functionality using Azure Resource Manager, not using the Azure portal.
+
+
+
 
 ### Set workspace default retention
-The workspace default retention applies to any table that doesn't have its own retention period configured. The workspace default retention applies to every table that doesn't have its own retention period configured. You can set the workspace default retention in the Azure portal to distinct periods of 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. If you require another setting, then use the Resource Manager configuration method described below. If you're on the *free* tier, you can't modify the data retention period; you need to upgrade to the paid tier to control this setting.
+You can set the workspace default retention in the Azure portal to distinct periods of 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. If you require another setting, then use the Resource Manager configuration method described below. If you're on the *free* tier, you can't modify the data retention period; you need to upgrade to the paid tier to control this setting.
 
 Workspaces with 30 days retention might actually retain data for 31 days. If it's imperative that data be kept for only 30 days, use Azure Resource Manager to set the retention to 30 days and with the `immediatePurgeDataOn30Days` parameter.
 
@@ -48,7 +48,7 @@ From the **Logs Analytics workspaces** menu in the Azure portal, select your wor
 > When the retention is lowered, there's a grace period of several days before the data older than the new retention setting is removed. 
 
 ## Tables with unique cost
-By default, two data types - `-Usage` and `AzureActivity` - are retained for a minimum of 90 days at no charge. If the workspace retention is increased to more than 90 days, the retention of these data types is also increased. These data types are also free from data ingestion charges. 
+By default, two data types - `Usage` and `AzureActivity` - are retained for a minimum of 90 days at no charge. If the workspace retention is increased to more than 90 days, the retention of these data types is also increased. These data types are also free from data ingestion charges. 
 
 The following data types from workspace-based Application Insights resources are also retained for 90 days at no charge by default. Their retention can be adjusted using the retention by data type functionality. 
 
@@ -160,3 +160,5 @@ To access archived data, you must first retrieve data from it in an Analytics Lo
 
 ## Next steps
 - [Learn more about Log Analytics workspaces and data retention and archive.](log-analytics-workspace-overview.md)
+- [Create a search job to retrieve archive data matching particular criteria.](search-jobs.md)
+- [Restore archive data within a particular time range.](restore.md)

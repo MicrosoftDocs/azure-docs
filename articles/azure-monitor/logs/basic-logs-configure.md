@@ -10,7 +10,7 @@ ms.date: 01/13/2022
 ---
 
 # Configure Basic Logs in Azure Monitor (Preview)
-[Basic Logs](basic-logs-overview.md) is a feature of Azure Monitor that reduces the cost for high-value verbose logs that don’t require analytics and alerts. This articles describes how to configure basic logs for a particular table in your Log Analytics workspace.
+[Basic Logs](log-analytics-workspace-overview.md#log-plans) in Azure Monitor reduce the cost for high-value verbose logs that don’t require analytics and alerts. This articles describes how to configure basic logs for a particular table in your Log Analytics workspace.
 
 > [!IMPORTANT]
 > Switching between plans is limited to once a week.
@@ -29,14 +29,14 @@ Retention for tables configured for Basic Logs is 8 days. If you have existing d
 
 
 ## Configure with REST API
-Use **Tables - Update** API call to set a table to Basic Logs or set it back to standard:
+Use **Tables - Update** API call to configure the plan for a table. You can configure the table for Basic Logs or Analytics Logs:
 
 > [!IMPORTANT]
 > Use PUT instead of PATCH in the first update of table properties to create the table entity.
 
 
 ```http
-PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}?api-version=2021-07-01-privatepreview
+PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/tables/<tableName>?api-version=2021-07-01-privatepreview
 ```
 
 ### Request Body
@@ -47,7 +47,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups
 
 
 ## Example
-
+The following example configures the `ContainerLog` table for Basic Logs.
 ### Sample Request
 
 ```http
@@ -64,7 +64,7 @@ Use the following request body to change to Basic Logs:
 }
 ```
 
-Use the following request body to change to analytics logs:
+Use the following request body to change to Analytics Logs:
 
 ```http
 {
@@ -75,7 +75,7 @@ Use the following request body to change to analytics logs:
 ```
 
 ### Sample Response
-The following is a response for a table changes to Basic Logs.
+The following is a response for a table changed to Basic Logs.
 
 Status code: 200
 
@@ -98,7 +98,7 @@ Status code: 200
 ## Check configuration
 You can check the configuration for a particular table from Log Analytics in the Azure portal. From the **Azure Monitor** menu, select **Logs** and then make sure that your workspace is selected for the [scope](scope.md). Open the **Tables** tab which lists all the tables in the workspace. See [Log Analytics tutorial](log-analytics-tutorial.md#view-table-information) for a walkthrough.
 
-When browsing the list of tables, Basic Logs tables are identified a unique icon: 
+When browsing the list of tables, Basic Logs tables are identified with a unique icon: 
 
 ![Screenshot of the Basic Logs table icon in the table list.](./media/basic-logs-configure/table-icon.png)
 
@@ -115,7 +115,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{
 ### Response Body
 |Name | Type | Description |
 | --- | --- | --- |
-|properties.plan | string  | The table plan: "Analytics" \ "Basic"|
+|properties.plan | string  | The table plan. Either "Analytics" or "Basic". |
 |properties.retentionInDays | integer  | The table's data retention in days. In _Basic Logs_ the value is 8 days, fixed. In _Analytics Logs_, between 7 and 730.| 
 |properties.totalRetentionInDays | integer  | The table's data retention including Archive period|
 |properties.archiveRetentionInDays|integer|The table's archive period (read-only, calculated).|
@@ -149,4 +149,5 @@ Status code: 200
 
 ## Next steps
 
-- [Query data in Basic Logs.](basic-logs-query.md)
+- [Learn more about the different log plans.](log-analytics-workspace-overview.md#log-plans)
+- [Query data in Basic Logs.](basic-logs-query.md).
