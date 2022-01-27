@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 01/26/2022
+ms.date: 01/07/2022
 ms.author: aahi
 ms.devlang: csharp, python
 ms.custom: language-service-clu, ignite-fall-2021
@@ -27,8 +27,6 @@ When a model is deployed, you will be able to test the model directly in the por
 Simply select a model and click on deploy model in the Deploy model page. 
 
 :::image type="content" source="../media/deploy-model.png" alt-text="A screenshot showing the model deployment page in Language Studio." lightbox="../media/deploy-model.png":::
-
-if you're using the REST API, refer to the [quickstart](../quickstart.md?pivots=rest-api#deploy-your-model) and REST API [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2021-11-01-preview/operations/Deployments_TriggerDeploymentJob) for more information.
 
 **Orchestration workflow projects deployments**
 
@@ -51,8 +49,6 @@ Once your model is deployed, you can begin using the deployed model for predicti
 You can get the full URL for your endpoint by going to the **Deploy model** page, selecting your deployed model, and clicking on "Get prediction URL".
 
 :::image type="content" source="../media/prediction-url.png" alt-text="Screenshot showing the prediction request and URL" lightbox="../media/prediction-url.png":::
-
-As you construct your requests, refer to the [quickstart](../quickstart.md?pivots=rest-api#query-model) and REST API [reference documentation](https://aka.ms/clu-apis) for more information.
 
 ### Use the client libraries (Azure SDK)
 
