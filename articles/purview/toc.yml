@@ -152,7 +152,7 @@ items:
       href: register-scan-azure-synapse-analytics.md
     - name: Cassandra
       href: register-scan-cassandra-source.md
-    - name: DB2
+    - name: Db2
       href: register-scan-db2.md
     - name: Erwin
       href: register-scan-erwin-source.md
