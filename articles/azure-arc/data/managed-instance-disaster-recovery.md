@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 # Azure Arc-enabled SQL Managed Instance - disaster recovery (preview)
 
-Disaster Recovery in Azure Arc-enabled SQL Managed Instance is achieved using distributed availability groups.
+Disaster recovery in Azure Arc-enabled SQL Managed Instance is achieved using distributed availability groups.
 
 Disaster recovery features for Azure Arc-enabled SQL Managed Instance are available as preview.
 
