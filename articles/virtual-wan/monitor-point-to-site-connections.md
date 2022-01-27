@@ -199,28 +199,30 @@ The Azure storage account has the following configuration settings
 
 The Azure workbook is now ready to be created with a mix of built-in functionality and the addition that uses the solution above to give insights to active sessions with more details.
 
-Create a workbook from Azure Monitor or from a Log Analytics workspace.
-Give it a name: <workbook name>
+1. Navigate to your Virtual WAN resource and click on **Insights** under **Monitor** in the left-hand panel. Click on **Workbooks** and then click **+ New**. 
+:::image type="content" source="./media/monitor-point-to-site-connections/create-workbook.png" alt-text="Screenshot shows first step in creation of Azure Workbook.":::
+1. Add the below query into the workbook. Replace "SASURI" with your sas uri. 
 
-### P2S VPN Active Sessions Details
+    let P2Svpnconnections = (externaldata (resource:string, UserNameVpnConnectionHealths: dynamic) [
+        @"SASURI"
+    ] with(format="multijson"));
 
-![workbook14.png](/.attachments/workbook14.png)
+    P2Svpnconnections
+    | mv-expand UserNameVpnConnectionHealths
+    | extend Username = parse_json(UserNameVpnConnectionHealths).UserName
+    | extend VpnConnectionHealths = parse_json(parse_json(UserNameVpnConnectionHealths).VpnConnectionHealths)
+    | mv-expand VpnConnectionHealths
+    | extend VpnConnectionId = parse_json(VpnConnectionHealths).VpnConnectionId, VpnConnectionDuration = parse_json(VpnConnectionHealths).VpnConnectionDuration, VpnConnectionTime = parse_json(VpnConnectionHealths).VpnConnectionTime, PublicIpAddress = parse_json(VpnConnectionHealths).PublicIpAddress, PrivateIpAddress = parse_json(VpnConnectionHealths).PrivateIpAddress, MaxBandwidth = parse_json(VpnConnectionHealths).MaxBandwidth, EgressPacketsTransferred = parse_json(VpnConnectionHealths).EgressPacketsTransferred, EgressBytesTransferred = parse_json(VpnConnectionHealths).EgressBytesTransferred, IngressPacketsTransferred = parse_json(VpnConnectionHealths).IngressPacketsTransferred, IngressBytesTransferred = parse_json(VpnConnectionHealths).IngressBytesTransferred, MaxPacketsPerSecond = parse_json(VpnConnectionHealths).MaxPacketsPerSecond
+    | extend PubIp = tostring(split(PublicIpAddress, ":").[0])
+    | project Username, VpnConnectionId, VpnConnectionDuration, VpnConnectionTime, PubIp, PublicIpAddress, PrivateIpAddress, MaxBandwidth, EgressPacketsTransferred, EgressBytesTransferred, IngressPacketsTransferred, IngressBytesTransferred, MaxPacketsPerSecond;
 
-let P2Svpnconnections = (externaldata (resource:string, UserNameVpnConnectionHealths: dynamic) [
-    @"SASURI"
-] with(format="multijson"));
-
-P2Svpnconnections
-| mv-expand UserNameVpnConnectionHealths
-| extend Username = parse_json(UserNameVpnConnectionHealths).UserName
-| extend VpnConnectionHealths = parse_json(parse_json(UserNameVpnConnectionHealths).VpnConnectionHealths)
-| mv-expand VpnConnectionHealths
-| extend VpnConnectionId = parse_json(VpnConnectionHealths).VpnConnectionId, VpnConnectionDuration = parse_json(VpnConnectionHealths).VpnConnectionDuration, VpnConnectionTime = parse_json(VpnConnectionHealths).VpnConnectionTime, PublicIpAddress = parse_json(VpnConnectionHealths).PublicIpAddress, PrivateIpAddress = parse_json(VpnConnectionHealths).PrivateIpAddress, MaxBandwidth = parse_json(VpnConnectionHealths).MaxBandwidth, EgressPacketsTransferred = parse_json(VpnConnectionHealths).EgressPacketsTransferred, EgressBytesTransferred = parse_json(VpnConnectionHealths).EgressBytesTransferred, IngressPacketsTransferred = parse_json(VpnConnectionHealths).IngressPacketsTransferred, IngressBytesTransferred = parse_json(VpnConnectionHealths).IngressBytesTransferred, MaxPacketsPerSecond = parse_json(VpnConnectionHealths).MaxPacketsPerSecond
-| extend PubIp = tostring(split(PublicIpAddress, ":").[0])
-| project Username, VpnConnectionId, VpnConnectionDuration, VpnConnectionTime, PubIp, PublicIpAddress, PrivateIpAddress, MaxBandwidth, EgressPacketsTransferred, EgressBytesTransferred, IngressPacketsTransferred, IngressBytesTransferred, MaxPacketsPerSecond;
+1. Click on the blue button **Run Query** to see the results.
+1. If yous see the below error, then navigate back to the file (vpnstatfile.json) in the storage container's blob, and re-generate the SAS URL. Then paste the updated SAS URL in the query. 
+:::image type="content" source="./media/monitor-point-to-site-connections/workbook-error.png" alt-text="Screenshot shows error when running query in workbook.":::
+1. Save the workbook to return to it later. 
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
-For the below metrics, you must enable diagnostics logging by adding diagnostic settings in Azure portal.  
+For the below metrics, you must enable diagnostics logging by adding diagnostic settings in Azure portal. Enable P2S Debugging through Azure Monitor debug settings, GatewayDiagnosticLog, IKEDiagnosticLog, P2SDiagnosticLog, AllMetrics. Notice that some logs are very noisy and thereby rather costly in regards to Log Analytics cost, specially IKEDiagnostics
 :::image type="content" source="./media/monitor-point-to-site-connections/final-monitoring.png" alt-text="Screenshot shows Diagnostic settings page in Azure Monitor.":::
 
 ### P2S VPN Gateway Metrics
@@ -360,4 +362,7 @@ AzureDiagnostics
 | mv-expand MessageId=MessageFields[2]
 | project MessageId, Message;
 
+### P2S VPN Active Sessions Details
+
+![workbook14.png](/.attachments/workbook14.png)
 
