@@ -9,10 +9,6 @@ ms.date: 06/26/2020
 
 This article includes sample bash scripts built for Azure CLI for Azure Lab Services.
 
-[!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 | Script | Description |
 |---|---|
 | [Create and verify a virtual machine](#create-and-verify-availability-of-a-virtual-machine) | Creates a Windows virtual machine with minimal configuration. |
@@ -21,6 +17,10 @@ This article includes sample bash scripts built for Azure CLI for Azure Lab Serv
 
 ## Prerequisites
 
+[!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 All of these scripts have the following prerequisite:
 
 - **A lab**. The script requires you to have an existing lab.
@@ -28,7 +28,7 @@ All of these scripts have the following prerequisite:
 ## Create and verify availability of a virtual machine
 
 This Azure CLI script creates a virtual machine in a lab.
-The virtual machine created based on a marketplace image with ssh authentication.
+The virtual machine created based on a marketplace image with SSH authentication.
 The script then verifies that the virtual machine is available for use.
 
 :::code language="powershell" source="../../cli_scripts/devtest-lab/create-verify-virtual-machine-in-lab/create-verify-virtual-machine-in-lab.sh":::
