@@ -125,7 +125,7 @@ az sql mi-arc create --name <name> --resource-group <group>  --location <Azure l
 ```
 Example:
 ```azurecli
-az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 –subscription a97da202-47ad-4de9-8991-9f7cf689eeb9  --custom-location private-location --tier bc --replcias 3
+az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 –subscription xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  --custom-location private-location --tier bc --replcias 3
 ```
 
 By default, all the replicas are configured in synchronous mode. This means any updates on the primary instance will be synchronously replicated to each of the secondary instances.
