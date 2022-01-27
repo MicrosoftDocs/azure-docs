@@ -81,7 +81,7 @@ Typically the default Java keystore will already have all of the CA root certifi
 
 2. Once you have the list of certificates, follow these [steps](#steps-to-download-ssl-certificate) to download the SSL certificate that was used to sign the Application Insights endpoint.
 
-    Once you have the certificate downloaded, generate a SHA-1 hash on the certificate using the below command:
+    Once you have the certificate downloaded, generate an SHA-1 hash on the certificate using the below command:
     > `keytool -printcert -v -file "your_downloaded_ssl_certificate.cer"`
  
     Copy the SHA-1 value and check if this value is present in "temp.txt" file you saved previously.  If you are not able to find the SHA-1 value in the temp file, it indicates that the downloaded SSL cert is missing in default Java keystore.
@@ -139,7 +139,7 @@ If the Application Insights Java agent detects that you do not have any of the c
 Cipher suites come into play before a client application and server exchange information over an SSL/TLS connection. The client application initiates an SSL handshake. Part of that process involves notifying the server which cipher suites it supports. The server receives that information and compares the cipher suites supported by the client application with the algorithms it supports. If it finds a match, the server notifies the client application and a secure connection is established. If it does not find a match, the server refuses the connection.
 
 #### How to determine client side cipher suites:
-In this case, the client is the JVM on which your instrumented application is running. Starting from 3.2.5-BETA, Application Insights Java will log a warning message if missing cipher suites could be causing connection failures to one of the service endpoints.
+In this case, the client is the JVM on which your instrumented application is running. Starting from 3.2.5, Application Insights Java will log a warning message if missing cipher suites could be causing connection failures to one of the service endpoints.
 
 If using an earlier version of Application Insights Java, compile and run the following Java program to get the list of supported cipher suites in your JVM:
 
