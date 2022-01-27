@@ -201,7 +201,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/) (incl. [UEBA](../../sentinel/identify-threats-with-entity-behavior-analytics.md#what-is-user-and-entity-behavior-analytics-ueba)) | &#x2705; | &#x2705; |
 | [Microsoft Stream](/stream/overview) | &#x2705; | &#x2705; |
 | [Microsoft Threat Experts](/microsoft-365/security/defender-endpoint/microsoft-threat-experts) | &#x2705; | &#x2705; |
-| [Multifactor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; |
+| [Multifactor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; |
 | [Network Watcher](https://azure.microsoft.com/services/network-watcher/) (incl. [Traffic Analytics](../../network-watcher/traffic-analytics.md)) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
 | [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) | &#x2705; | &#x2705; |
@@ -389,7 +389,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/) (formerly Azure Sentinel) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Microsoft Stream](/stream/overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Multifactor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Multifactor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Network Watcher](https://azure.microsoft.com/services/network-watcher/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Network Watcher Traffic Analytics](../../network-watcher/traffic-analytics.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
