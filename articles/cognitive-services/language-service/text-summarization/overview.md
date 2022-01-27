@@ -23,7 +23,7 @@ This documentation contains the following article types:
 * [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
 ## Text summarization feature
 
-Text summarization uses text summarization to produce a summary of a document. It extracts sentences that collectively represent the most important or relevant information within the original content. This feature is designed to shorten content that could be considered too long to read. For example, it can condense articles, papers, or documents to key sentences.
+Text summarization uses extractive text summarization to produce a summary of a document. It extracts sentences that collectively represent the most important or relevant information within the original content. This feature is designed to shorten content that could be considered too long to read. For example, it can condense articles, papers, or documents to key sentences.
 
 As an example, consider the following paragraph of text:
 
@@ -37,7 +37,7 @@ The text summarization feature would simplify the text into the following key se
 
 Text summarization supports the following features:
 
-* **Extracted sentences**: These sentences collectively convey the main idea of the document. They are original sentences extracted from the input document’s content.
+* **Extracted sentences**: These sentences collectively convey the main idea of the document. They’re original sentences extracted from the input document’s content.
 * **Rank score**: The rank score indicates how relevant a sentence is to a document's main topic. Text summarization ranks extracted sentences, and you can determine whether they're returned in the order they appear, or according to their rank.
 * **Maximum sentences**: Determine the maximum number of sentences to be returned. For example, if you request a three-sentence summary Text summarization will return the three highest scored sentences.
 
@@ -70,6 +70,6 @@ As you use text summarization in your applications, see the following reference 
 
 ## Responsible AI 
 
-An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the [transparency note for text summarization](/legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it’s deployed. Read the [transparency note for text summarization](/legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
 [!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
