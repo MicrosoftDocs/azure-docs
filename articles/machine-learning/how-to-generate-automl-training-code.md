@@ -146,7 +146,7 @@ its ID, or [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.datas
 
 You can also opt to replace this entire function with your own data loading mechanism; the only constraints are that the return value must be a Pandas dataframe and that the data must have the same shape as in the original experiment.
 
-### Data preparation
+### Data preparation code
 
 The function `prepare_data()` cleans the data, splits out the feature and sample weight columns and prepares the data for use in training.
 
@@ -173,17 +173,78 @@ In the previous example, the dataframe from the data loading step is passed in. 
 
 If you want to do any additional data preparation, it can be done in this step by adding your custom data preparation code here.
 
-### Data featurization
+### Data featurization code
 
 The function `generate_data_transformation_config()` specifies the featurization step in the final scikit-learn pipeline. The featurizers from the original experiment are reproduced here, along with their parameters.
 
-For example, a possible data transformation that can happen in this function would be multiple columns could be transformed with an imputer like, `SimpleImputer()`, `StringCastTransformer()`, or `LabelEncoderTransformer()`. 
+For example, possible data transformation that can happen in this function can be based on imputers like, `SimpleImputer()`, `CatImputer()` or transformers such as `StringCastTransformer()`, or `LabelEncoderTransformer()`. 
 
-With a classification and regression tasks, featurizers are combined with the corresponding [`DataFrameMappers`](https://github.com/scikit-learn-contrib/sklearn-pandas) into [`TransformerAndMapper`](/python/api/azureml-automl-runtime/azureml.automl.runtime.featurization.transformer_and_mapper.transformerandmapper) objects. These combined objects are wrapped in the [`DataTransformer`](/python/api/azureml-automl-runtime/azureml.automl.runtime.featurization.data_transformer.datatransformer).
+The following is a transformer of type `StringCastTransformer()` that can be used to transform a set of columns (column_names set, in this case):
 
-For time-series forecasting models, multiple time series-aware featurizers are collected into a scikit-learn pipeline, then wrapped in the [`TimeSeriesTransformer`](/python/api/azureml-automl-runtime/azureml.automl.runtime.featurizer.transformer.timeseries.timeseries_transformer.timeseriestransformer).
+```python    
+def get_mapper_c6ba98(column_names):
+    # ... Multiple imports to package dependencies, removed for simplicity ...
+    
+    definition = gen_features(
+        columns=column_names,
+        classes=[
+            {
+                'class': StringCastTransformer,
+            },
+            {
+                'class': CountVectorizer,
+                'analyzer': 'word',
+                'binary': True,
+                'decode_error': 'strict',
+                'dtype': numpy.uint8,
+                'encoding': 'utf-8',
+                'input': 'content',
+                'lowercase': True,
+                'max_df': 1.0,
+                'max_features': None,
+                'min_df': 1,
+                'ngram_range': (1, 1),
+                'preprocessor': None,
+                'stop_words': None,
+                'strip_accents': None,
+                'token_pattern': '(?u)\\b\\w\\w+\\b',
+                'tokenizer': DataTransformer._wrap_in_lst,
+                'vocabulary': None,
+            },
+        ]
+    )
+    mapper = DataFrameMapper(features=definition, input_df=True, sparse=True)
+    
+    return mapper
+```
 
-### Preprocessor specification
+Very importantly, if you have many columns of the same type that need to have the same featurization/transformation (for example, 50 columns in several column groups), that will also be handled in the generated code by grouping those columns of the same type and running all of those columns through the same transformer functions, such as in the following generated code snippet:
+
+```python
+def generate_data_transformation_config():
+    from sklearn.pipeline import FeatureUnion
+    
+    column_group_1 = [['id'], ['ps_reg_01'], ['ps_reg_02'], ['ps_reg_03'], ['ps_car_11_cat'], ['ps_car_12'], ['ps_car_13'], ['ps_car_14'], ['ps_car_15'], ['ps_calc_01'], ['ps_calc_02'], ['ps_calc_03']]
+    
+    column_group_2 = ['ps_ind_06_bin', 'ps_ind_07_bin', 'ps_ind_08_bin', 'ps_ind_09_bin', 'ps_ind_10_bin', 'ps_ind_11_bin', 'ps_ind_12_bin', 'ps_ind_13_bin', 'ps_ind_16_bin', 'ps_ind_17_bin', 'ps_ind_18_bin', 'ps_car_08_cat', 'ps_calc_15_bin', 'ps_calc_16_bin', 'ps_calc_17_bin', 'ps_calc_18_bin', 'ps_calc_19_bin', 'ps_calc_20_bin']
+    
+    column_group_3 = ['ps_ind_01', 'ps_ind_02_cat', 'ps_ind_03', 'ps_ind_04_cat', 'ps_ind_05_cat', 'ps_ind_14', 'ps_ind_15', 'ps_car_01_cat', 'ps_car_02_cat', 'ps_car_03_cat', 'ps_car_04_cat', 'ps_car_05_cat', 'ps_car_06_cat', 'ps_car_07_cat', 'ps_car_09_cat', 'ps_car_10_cat', 'ps_car_11', 'ps_calc_04', 'ps_calc_05', 'ps_calc_06', 'ps_calc_07', 'ps_calc_08', 'ps_calc_09', 'ps_calc_10', 'ps_calc_11', 'ps_calc_12', 'ps_calc_13', 'ps_calc_14']
+    
+    feature_union = FeatureUnion([
+        ('mapper_ab1045', get_mapper_ab1045(column_group_1)),
+        ('mapper_c6ba98', get_mapper_c6ba98(column_group_3)),
+        ('mapper_9133f9', get_mapper_9133f9(column_group_2)),
+    ])
+    return feature_union
+```
+
+This approach allows to you have a cleaner and simpler code even when you might have tens or hundreds of columns in your dataset by not having one transformer's code-block per column.
+
+With a classification and regression tasks, featurizers are combined with the corresponding [`DataFrameMappers`](https://github.com/scikit-learn-contrib/sklearn-pandas) into `TransformerAndMapper` objects. These combined objects are wrapped in the `DataTransformer`.
+
+For time-series forecasting models, multiple time series-aware featurizers are collected into a scikit-learn pipeline, then wrapped in the `TimeSeriesTransformer`.
+
+### Preprocessor specification code
 
 The function `generate_preprocessor_config()`, if present, specifies a preprocessing step to be done after featurization in the final scikit-learn pipeline.
 
@@ -195,18 +256,16 @@ Here's an example of a generated preprocessor code:
 
 ```python
 def generate_preprocessor_config():
-    from azureml.automl.runtime.shared.model_wrappers import StandardScalerWrapper
+    from sklearn.preprocessing import MaxAbsScaler
     
-    preproc = StandardScalerWrapper(
-        copy=True,
-        with_mean=False,
-        with_std=False
+    preproc = MaxAbsScaler(
+        copy=True
     )
     
     return preproc
 ```
 
-### Algorithm and hyperparameters specification
+### Algorithm and hyperparameters specification code
 
 This is probably the most interesting code for many ML professionals. 
 
@@ -214,37 +273,48 @@ The `generate_algorithm_config()` function specifies the actual algorithm and hy
 
 ```python
 def generate_algorithm_config():
-    from azureml.automl.runtime.shared.model_wrappers import XGBoostClassifier
-    from azureml.automl.runtime.shared.problem_info import ProblemInfo
+    from xgboost.sklearn import XGBClassifier
     
-    algorithm = XGBoostClassifier(
-        random_state=0,
-        n_jobs=-1,
-        problem_info=ProblemInfo(
-            gpu_training_param_dict={'processing_unit_type': 'cpu'}
-        ),
+    algorithm = XGBClassifier(
+        base_score=0.5,
         booster='gbtree',
-        colsample_bytree=0.6,
-        eta=0.1,
-        gamma=10,
-        max_depth=7,
-        max_leaves=0,
+        colsample_bylevel=1,
+        colsample_bynode=1,
+        colsample_bytree=1,
+        gamma=0,
+        learning_rate=0.1,
+        max_delta_step=0,
+        max_depth=3,
+        min_child_weight=1,
+        missing=numpy.nan,
         n_estimators=100,
-        objective='reg:logistic',
-        reg_alpha=0.20833333333333334,
-        reg_lambda=2.0833333333333335,
-        subsample=0.8,
-        tree_method='auto'
+        n_jobs=-1,
+        nthread=None,
+        objective='binary:logistic',
+        random_state=0,
+        reg_alpha=0,
+        reg_lambda=1,
+        scale_pos_weight=1,
+        seed=None,
+        silent=None,
+        subsample=1,
+        verbosity=0,
+        tree_method='auto',
+        verbose=-10
     )
     
     return algorithm
 ```
 
+As you can notice, the generated code is in most of the cases simply using OSS packages/classes like in the case above by using XGBoost classifier or any other library such as LightGBM or Scikit-Learn algorithms. Only in some cases where the code can be too complex it'll use intermediate wrapper classes to simplify the code.
+
+As an ML Professional you are able to customize that algorithm's configuration code by tweaking its hyperparameters as needed based on your skills and experience for that algorithm and your particular ML problem.
+
 In the case of ensemble models, `generate_preprocessor_config_N()` (if needed) and `generate_algorithm_config_N()` will be defined for each learner in the ensemble model,
 where `N` represents the placement of each learner in the ensemble model's list. In addition, `generate_algorithm_config_meta()` will be defined in the case of
 stack ensemble models for the meta learner.
 
-### Training
+### End to end training code
 
 Code generation emits `build_model_pipeline()` and `train_model()` for defining the scikit-learn pipeline and for calling `fit()` on it, respectively.
 
@@ -252,11 +322,12 @@ Code generation emits `build_model_pipeline()` and `train_model()` for defining 
 def build_model_pipeline():
     from sklearn.pipeline import Pipeline
     
+    logger.info("Running build_model_pipeline")
     pipeline = Pipeline(
         steps=[
-               ('dt', generate_data_transformation_config()),
-               ('preproc', generate_preprocessor_config()),
-               ('model', generate_algorithm_config())
+            ('featurization', generate_data_transformation_config()),
+            ('preproc', generate_preprocessor_config()),
+            ('model', generate_algorithm_config()),
         ]
     )
     
@@ -272,6 +343,8 @@ Once we have the Scikit-Learn pipeline, all that is left is to call `fit()` on i
 
 ```python
 def train_model(X, y, sample_weights):
+    
+    logger.info("Running train_model")
     model_pipeline = build_model_pipeline()
     
     model = model_pipeline.fit(X, y)
@@ -280,17 +353,31 @@ def train_model(X, y, sample_weights):
 
 The return value from `train_model()` is the model fitted/trained on the input data.
 
-The code that runs all the previous functions is the following:
+The main code that runs all the previous functions is the following:
 
 ```python
-def main():
-    # The following code is for when running this code as part of an AzureML script run.
-    from azureml.core import Run
-    run = Run.get_context()
+def main(training_dataset_id=None):
+    from azureml.core.run import Run
     
-    df = get_training_dataset()
+    # The following code is for when running this code as part of an AzureML script run.
+    run = Run.get_context()
+    setup_instrumentation(run)
+    
+    df = get_training_dataset(training_dataset_id)
     X, y, sample_weights = prepare_data(df)
-    model = train_model(X, y, sample_weights)
+    split_ratio = 0.1
+    try:
+        (X_train, y_train, sample_weights_train), (X_valid, y_valid, sample_weights_valid) = split_dataset(X, y, sample_weights, split_ratio, should_stratify=True)
+    except Exception:
+        (X_train, y_train, sample_weights_train), (X_valid, y_valid, sample_weights_valid) = split_dataset(X, y, sample_weights, split_ratio, should_stratify=False)
+
+    model = train_model(X_train, y_train, sample_weights_train)
+    
+    metrics = calculate_metrics(model, X, y, sample_weights, X_test=X_valid, y_test=y_valid)
+    
+    print(metrics)
+    for metric in metrics:
+        run.log(metric, metrics[metric])
 ```
 
 Once you have the trained model, you can use it for making predictions such as in the following code:
@@ -302,7 +389,8 @@ y_pred = model.predict(X)
 Finally, the model is serialized and saved as a `.pkl` file named "model.pkl":
 
 ```python
-    joblib.dump(model, 'model.pkl')
+    with open('model.pkl', 'wb') as f:
+        pickle.dump(model, f)
     run.upload_file('outputs/model.pkl', 'model.pkl')
 ```
 
@@ -395,5 +483,5 @@ However, in order to load that model in a notebook in your custom local Conda en
 
 ## Next steps
 
-* + Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
+* Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 * See how to [enable interpretability features](how-to-machine-learning-interpretability-automl.md) specifically within automated ML experiments.
