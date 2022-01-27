@@ -303,12 +303,12 @@
       - name: Overview
         href: database/purchasing-models.md
       - name: vCore model
+        displayName: provisioned compute tier
         href: database/service-tiers-sql-database-vcore.md
       - name: DTU model 
         href: database/service-tiers-dtu.md
     - name: Service tiers
       items: 
-        displayName: provisioned compute tier
       - name: Serverless
         href: database/serverless-tier-overview.md
       - name: Hyperscale
