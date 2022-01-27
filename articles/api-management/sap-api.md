@@ -6,7 +6,7 @@ ms.service: api-management
 author: martinpankraz
 ms.author: mapankra
 ms.topic: how-to
-ms.date: 01/25/2022
+ms.date: 01/26/2022
 ms.custom: 
 ---
 
@@ -25,6 +25,13 @@ In this article, you'll:
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
 - An SAP system and service exposed as OData v2 or v4. 
+- If your SAP backend uses a self-signed certificate (for test purposes), you may need to disable the verification of the trust chain for SSL. To do so, configure a [backend](backends.md) in your API Management instance:
+    1. In the Azure portal, under **APIs**, select **Backends** > **+ Add**.
+    1.  Add a **Custom URL** pointing to the SAP backend service.
+    1.  Uncheck **Validate certificate chain** and **Validate certificate name**. 
+
+    > [!NOTE]
+    > For production scenarios, use proper certificates for end-to-end SSL verification.
 
 ## Convert OData metadata to OpenAPI JSON
 
@@ -44,7 +51,7 @@ In this article, you'll:
     ./epm_ref_apps_prod_man_srv.xml
    ```
     > [!NOTE]
-    > * For test purposes with a single XML file, you can use a [web-based converter](https://convert.odata-openapi.net/) based on the open-source tool.
+    > * For test purposes with a single XML file, you can use a [web-based converter](https://aka.ms/ODataOpenAPI) based on the open-source tool.
     > * With the tool or the web-based converter, specifying the \<IP address>:\<port> of your SAP OData server is optional. Alternatively, add this information later in your generated OpenAPI specification or after importing to API Management.
 
 1. Save the `openapi-spec.json` file locally for import to API Management.
@@ -79,7 +86,7 @@ In this article, you'll:
 
     |Operation  |Description  |Further configuration for operation  |
     |---------|---------|---------|
-    |`GET /$metadata`     |   Metadata operation      |  Add a `200 OK` response.       |
+    |`GET /$metadata`     |   Enables API Management to reach the `$metadata` endpoint, which is required for client integration with the OData server.<br/><br/>This required operation isn't included in the OpenAPI specification that you generated and imported.    |  Add a `200 OK` response.       |
 
     :::image type="content" source="media/sap-api/get-metadata-operation.png" alt-text="Get metadata operation":::
 
@@ -87,7 +94,7 @@ In this article, you'll:
 
     |Operation  |Description  |Further configuration for operation  |
     |---------|---------|---------|
-    |`HEAD /`     | Operation at root for X-CSRF-Token retrieval        |     N/A    |
+    |`HEAD /`     | Enables the client to exchange Cross Site Request Forgery (CSRF) tokens with the SAP server, when required.<br/><br/>SAP also allows CSRF token exchange using the GET verb.<br/><br/> CSRF token exchange isn’t covered in this article. See an example API Management [policy snippet](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Get%20X-CSRF%20token%20from%20SAP%20gateway%20using%20send%20request.policy.xml)     to broker token exchange.     |     N/A    |
 
     :::image type="content" source="media/sap-api/head-root-operation.png" alt-text="Operation to fetch tokens":::
 
@@ -95,7 +102,7 @@ In this article, you'll:
 
     Operation  |Description  |Further configuration for operation  |
     |---------|---------|---------|
-    |`GET /`     |   GET operation at service root      |    Configure the following [rewrite-uri](api-management-transformation-policies.md#RewriteURL) inbound policy:<br/><br>    `<rewrite-uri template="/" copy-unmatched-params="true" />`|
+    |`GET /`     |   Enables policy configuration at service root.   |    Configure the following inbound [rewrite-uri](api-management-transformation-policies.md#RewriteURL) policy to append a trailing slash to requests that are forwarded to service root:<br/><br>    `<rewrite-uri template="/" copy-unmatched-params="true" />` <br/><br/>This policy removes potential ambiguity of requests with or without trailing slashes, which are treated differently by some backends.|
 
     :::image type="content" source="media/sap-api/get-root-operation.png" alt-text="Get operation for service root":::
 
@@ -115,8 +122,8 @@ Also, configure authentication to your backend using an appropriate method for y
 
 ## Production considerations
 
-* See an [Example end-to-end scenario](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/) to integrate API Management with an SAP gateway.
-* Use an [SAP principal propagation policy](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) to configure and control access to an SAP backend.
+* See an [example end-to-end scenario](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/) to integrate API Management with an SAP gateway.
+* Control access to an SAP backend using API Management policies. See policy snippets for [SAP principal propagation](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) and [fetching an X-CSRF token](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Get%20X-CSRF%20token%20from%20SAP%20gateway%20using%20send%20request.policy.xml).
 * For guidance to deploy, manage, and migrate APIs at scale, see:
     * [Automated API deployments with APIOps](/architecture/example-scenario/devops/automated-api-deployments-apiops)
     * [CI/CD for API Management using Azure Resource Manager templates](devops-api-development-templates.md).
