@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 01/27/2022
 ms.reviewer: j-mantu, samuelkubai, Dickson-Mwendia
 ms.author: henrymbugua
-#Customer intent: As an application developer, I want to learn how to use the Microsoft Authentication Extensions for Node library for cache persistence support for public client applications.
+#Customer intent: As an application developer, I want to learn how to use the Microsoft Authentication Extensions for Node to perform cross-platform token cache serialization and persistence.
 ---
 
 # Microsoft Authentication Extensions for Node
