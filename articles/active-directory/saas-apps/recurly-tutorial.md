@@ -28,6 +28,7 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Recurly single sign-on (SSO) enabled subscription.
+    * Please contact [Recurly Support](mailto:support@recurly.com) to ensure that SSO for Azure AD is enabled for your Recurly site.
 
 ## Scenario description
 
@@ -67,31 +68,35 @@ To configure and test Azure AD SSO with Recurly, perform the following steps:
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Recurly** application integration page, find the **Manage** section and select **single sign-on**.
-1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
+2. On the **Select a single sign-on method** page, select **SAML**.
+3. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+4. On the **Basic SAML Configuration** section, the **Identifier** and **Reply URL** values are pre-configured with `https://app.recurly.com` and `https://app.recurly.com/login/sso` respectively. Perform the following step to complete the configuration:
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **SP** initiated mode then perform the following steps:
+   a. In the **Sign-on URL** text box, type the URL:
+   `https://app.recurly.com/login/sso`
 
-    a. In the **Identifier** text box, type the URL:
-    `https://app.recurly.com`
+5. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click **Edit**, select the `...` next to the thumbprint status, select **PEM certificate download** to download the certificate and save it on your computer.
 
-    b. In the **Reply URL** text box, type the URL:
-    `https://app.recurly.com/login/sso`
+   ![The Certificate download link](common/certificate-base64-download.png)
 
-    c. In the **Sign-on URL** text box, type the URL:
-    `https://app.recurly.com/login/sso`
+6. Recurly expects the **Unique User Identifier (Name ID)** claim to be an email address. In the **Attributes & Claims** section, click **Edit**, click the **Unique User Identifier (Name ID)** claim under the **Required claim**. Perform the following steps:
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (PEM)** and select **Download** to download the certificate and save it on your computer.
+   a. Set `Name identifier format` to `Email address`.
 
-	![The Certificate download link](common/certificate-base64-download.png)
+   b. Set `Source attribute` to `user.mail`.
 
-1. Recurly application expects to enable token encryption in order to make SSO work. To activate token encryption, go to the **Azure Active Directory** > **Enterprise applications** and select **Token encryption**. For more information, please refer this [link](../manage-apps/howto-saml-token-encryption.md).
+8. Recurly application expects to enable token encryption in order to make SSO work. To activate token encryption, go to the **Azure Active Directory** > **Enterprise applications** and select **Token encryption**.
 
-    ![Screenshot shows the activation of Token Encryption.](./media/recurly-tutorial/token.png "Token Encryption")
+   ![Screenshot shows the activation of Token Encryption.](./media/recurly-tutorial/token.png "Token Encryption")
+
+   a. Please contact [Recurly Support](mailto:support@recurly.com) to get a copy of the certificate to import.
+
+   b. After importing the certificate, select the `...` next to the thumbprint status, click `Activate token encryption certificate`.
+
+   c. For more information on configuring token encryption, please refer this [link](../manage-apps/howto-saml-token-encryption.md).
 
 ### Create an Azure AD test user
 
@@ -100,10 +105,10 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+    1. In the **Name** field, enter `B.Simon`.
+    1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+    1. Click **Create**.
 
 ### Assign the Azure AD test user
 
@@ -119,25 +124,44 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Recurly SSO
 
-To configure single sign-on on **Recurly** side, you need to send the downloaded **Certificate (PEM)** and appropriate copied URLs from Azure portal to [Recurly support team](mailto:support@recurly.com). They set this setting to have the SAML SSO connection set properly on both sides.
+Follow these steps to configure single sign-on for your **Recurly** site.
+
+1. Log into your Recurly site. Your Recurly account will need have **Admin** access to configure single sign-on.
+2. Navigate to **Admin** > **Users**. Click the **Configure Single Sign on** button on the top right.
+3. In the **Single Sign-On** section, select the **Enabled** radio button.
+4. Perform the following steps to fill in the fields in the **Identity Provider** section:
+
+   a. In **PROVIDER NAME**, select **Azure**.
+
+   b. In **SAML ISSUER ID**, type `https://app.recurly.com` or copy it from the the **Identifier** field in the **Basic SAML Configuration** section in the Azure portal. The values of these two fields must match.
+
+   c. In the Azure portal, on the **Set up single sign-on with SAML** page, in the **Set up Recurly** section, copy the **Login URL** and paste it into the **LOGIN URL** field in Recurly.
+
+   d. Copy the contents of the PEM certificate you downloaded in step 5 of [Configure Azure AD SSO](#configure-azure-ad-sso) and paste it into the **CERTIFICATE** field in Recurly.
+
+   e. Click **Save Changes**.
 
 ### Create Recurly test user
 
-In this section, you create a user called Britta Simon in Recurly. Work with [Recurly support team](mailto:support@recurly.com) to add the users in the Recurly platform. Users must be created and activated before you use single sign-on.
+In this section, you will invite a new user to join your site and require them to use SSO to test the configuration.
 
-## Test SSO 
+1. Navigate to **Admin** > **Users**, click **Invite User** and type the email address of the Azure test user that was previously created. Your invitation will default to requiring them to use SSO.
+2. The test user will receive an email from Recurly inviting them to join your site.
+3. After accepting the invite, the test user will be listed under **Company Users** in your site and will be able to log in using SSO.
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+## Test SSO
+
+In this section, you test your Azure AD single sign-on configuration with following options.
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Recurly Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to Recurly Sign on URL where you can initiate the login flow.
 
 * Go to Recurly Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Recurly for which you set up the SSO. 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Recurly for which you set up the SSO.
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Recurly tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Recurly for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
