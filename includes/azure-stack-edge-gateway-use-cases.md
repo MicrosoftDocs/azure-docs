@@ -11,7 +11,7 @@ ms.author: alkohli
 - **Preprocess data** - Transform data before sending it to Azure via compute options such as containerized workloads and Virtual Machines to create a more actionable dataset. Preprocessing can be used to: 
 
     - Aggregate data.
-    - Modify data, for example to remove personal data.
+    - Modify data, for example, to remove personal data.
     - Subset data to optimize storage and bandwidth, or for further analysis.
     - Analyze and react to IoT Events. 
 

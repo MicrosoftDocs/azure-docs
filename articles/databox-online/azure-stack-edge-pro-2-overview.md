@@ -13,20 +13,20 @@ ms.author: alkohli
 ---
 # What is Azure Stack Edge Pro 2?
 
-Azure Stack Edge Pro 2 is the next generation of an AI-enabled edge computing device that can transfer data over the network. This article provides you an overview of the Azure Stack Edge Pro 2 solution. The overview also details the benefits, key capabilities, and the scenarios where you can deploy this device.
+Azure Stack Edge Pro 2 is the next generation of an AI-enabled edge computing device that can transfer data over the network. This device is a part of the Hardware-as-a-service solution  offered by Microsoft. 
 
-Azure Stack Edge Pro 2 is a Hardware-as-a-service solution. Microsoft ships you a cloud-managed edge computing device that also acts as a network storage gateway. Depending on the model, these devices may have a built-in compute acceleration card that enables accelerated AI-inferencing. 
+This article provides you an overview of the Azure Stack Edge Pro 2 solution. The overview also details the benefits, key capabilities, and the scenarios where you can deploy this device.
 
 The Azure Stack Edge Pro 2 offers the following benefits over its precursor, the Azure Stack Edge Pro series:
 
-- The Azure Stack Edge Pro 2 offers multiple models that closely align with your compute, storage, and memory needs. The compute acceleration on the devices could be via one or two Graphical Processing Units (GPU). 
+- The Azure Stack Edge Pro 2 offers multiple models that closely align with your compute, storage, and memory needs. Depending on the model you choose, the compute acceleration could be via one or two Graphical Processing Units (GPU) on the device. 
 - The Pro 2 series has flexible form factors with multiple mounting options. These devices can be rack mounted, mounted on a wall, or even placed on a shelf in your office. 
 - The Pro 2 devices have low-acoustic emissions and meet the office noise requirements.
 
 
 ## Use cases
 
-The Azure Stack Edge Pro 2 is designed for deployment in edge locations such as retail, telecommunications, office buildings, manufacturing or even healthcare. Here are the various scenarios where Azure Stack Edge Pro 2 can be used for rapid Machine Learning (ML) inferencing at the edge and preprocessing data before sending it to Azure.
+The Azure Stack Edge Pro 2 is designed for deployment in edge locations such as retail, telecommunications, office buildings, manufacturing, or even healthcare. Here are the various scenarios where Azure Stack Edge Pro 2 can be used for rapid Machine Learning (ML) inferencing at the edge and preprocessing data before sending it to Azure.
 
 [!INCLUDE [azure-stack-edge-gateway-use-cases](../../includes/azure-stack-edge-gateway-use-cases.md)] 
 
@@ -36,8 +36,8 @@ Azure Stack Edge Pro 2 has the following capabilities:
 
 |Capability |Description  |
 |---------|---------|
-|Accelerated AI inferencing| Enabled by the built-in compute acceleration card, which can be a GPU or a VPU depending on your compute needs. <br> For more information, see [GPU sharing on your Azure Stack Edge device](azure-stack-edge-gpu-sharing.md).|
-|Edge computing      |Supports VM and containerized workloads to allow analysis, processing, and filtering of data. <ul><li>For information on VM workloads, see [VM overview on Azure Stack Edge](azure-stack-edge-gpu-virtual-machine-overview.md).</li> <li>For containerized workloads, see [Kubernetes overview on Azure Stack Edge](azure-stack-edge-gpu-kubernetes-overview.md)</li></ul> |
+|Accelerated AI inferencing| Enabled by the compute acceleration card. Depending on your compute needs, you may choose a model that comes with or without Graphical Processing Units (GPUs). <br> For more information, see [GPU sharing on your Azure Stack Edge device](azure-stack-edge-gpu-sharing.md).|
+|Edge computing      |Supports VM and containerized workloads to allow analysis, processing, and filtering of data. <br>For information on VM workloads, see [VM overview on Azure Stack Edge](azure-stack-edge-gpu-virtual-machine-overview.md).<br>For containerized workloads, see [Kubernetes overview on Azure Stack Edge](azure-stack-edge-gpu-kubernetes-overview.md)</li></ul> |
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
 |Cloud-managed     |Device and service are managed via the Azure portal.|
 |Offline upload     | Disconnected mode supports offline upload scenarios.|
@@ -45,8 +45,8 @@ Azure Stack Edge Pro 2 has the following capabilities:
 |Data refresh     | Ability to refresh local files with the latest from cloud. <br> For more information, see [Refresh a share on your Azure Stack Edge](azure-stack-edge-gpu-manage-shares.md#refresh-shares).|
 |Encryption    | BitLocker support to locally encrypt data and secure data transfer to cloud over *https*.|
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours. <br> For more information, see [Manage bandwidth schedules on your Azure Stack Edge](azure-stack-edge-gpu-manage-bandwidth-schedules.md).|
-|Easy ordering| Bulk ordering and tracking of the device via Azure Edge Hardware Center (Preview). <br> For more information, see [Order a device via Azure Edge Hardware Center](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).|
-|Specialized network functions|Use the Marketplace experience from Azure Network Function Manager to rapidly deploy network functions such as mobile packet core, SD-WAN edge, and VPN services to an Azure Stack Edge device running in your on-premises environment. For more information, see [What is Azure Network Function Manager? (Preview)](../network-function-manager/overview.md).|
+|Easy ordering| Bulk ordering and tracking of the device via Azure Edge Hardware Center. <br> For more information, see [Order a device via Azure Edge Hardware Center](azure-stack-edge-pro-2-deploy-prep.md#create-a-new-resource).|
+|Specialized network functions|Use the Marketplace experience from Azure Network Function Manager to rapidly deploy network functions such as mobile packet core, SD-WAN edge, and VPN services to an Azure Stack Edge device running in your on-premises environment. <br>For more information, see [What is Azure Network Function Manager? (Preview)](../network-function-manager/overview.md).|
 |Scale out file server|The device is available as a single node or a two-node cluster. For more information, see [What is clustering on Azure Stack Edge devices? (Preview)](azure-stack-edge-placeholder.md).|
 
 <!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).|-->
@@ -93,8 +93,8 @@ These devices can be ordered via the Azure Edge Hardware center. These devices a
 
 ## Next steps
 
-- Review the [Azure Stack Edge Pro GPU system requirements](azure-stack-edge-gpu-system-requirements.md).
+- Review the [Azure Stack Edge Pro 2 system requirements](azure-stack-edge-placeholder.md).
 
-- Understand the [Azure Stack Edge Pro GPU limits](azure-stack-edge-limits.md).
+- Understand the [Azure Stack Edge Pro 2 limits](azure-stack-edge-placeholder.md).
 
-- Deploy [Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md) in Azure portal.
+- Deploy [Azure Stack Edge Pro 2](azure-stack-edge-placeholder.md) in Azure portal.
