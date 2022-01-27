@@ -52,13 +52,12 @@ Support for the premium-series hardware generations (public preview) is currentl
 | Australia East | Yes | Yes | 
 | Canada Central | Yes | | 
 | Canada East | Yes | | 
-| East US  | | Yes | 
 | East US 2 | Yes | | 
 | France Central |  | Yes | 
 | Germany West Central |  | Yes | 
 | Japan East | Yes | | 
 | Korea Central | Yes | | 
-| North Central US | Yes | Yes | 
+| North Central US | Yes | | 
 | North Europe | Yes | | 
 | South Central US | Yes | Yes | 
 | Southeast Asia | Yes |  | 
