@@ -164,7 +164,7 @@ The next step in building your application is to install the Azure Maps Android 
     * Add imports for the Azure Maps SDK.
     * Set your Azure Maps authentication information.
     * Get the map control instance in the **onCreate** method.
-
+        
     > [!TIP]
     > By setting the authentication information globally in the `AzureMaps` class using the `setSubscriptionKey` or `setAadProperties` methods, you won't need to add your authentication information in every view.
 
@@ -182,7 +182,7 @@ The next step in building your application is to install the Azure Maps Android 
     Edit the **MainActivity.java** file as follows:
 
     ```java
-    package com.example.myapplication;
+    package com.example.azuremapsapp;
     
     import androidx.appcompat.app.AppCompatActivity;
     import android.os.Bundle;
@@ -290,7 +290,7 @@ The next step in building your application is to install the Azure Maps Android 
     Edit the **MainActivity.kt** file as follows:
 
     ```kotlin
-    package com.example.myapplication;
+    package com.example.azuremapsapp;
 
     import androidx.appcompat.app.AppCompatActivity
     import android.os.Bundle
