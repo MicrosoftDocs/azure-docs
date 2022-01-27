@@ -31,6 +31,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Azure Disk Backup is now generally available](#azure-disk-backup-is-now-generally-available)
   - [Backup center is now generally available](#backup-center-is-now-generally-available)
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
+- February 2021
+  - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
 ## Archive Tier support for SQL Server/ SAP HANA in Azure VM from Azure portal
 
@@ -128,6 +130,14 @@ For more information, see [Overview of Backup Center](backup-center-overview.md)
 Azure Backup now allows you to reduce the cost of long-term retention backups with the availability of Archive Tier for Azure virtual machines and SQL Server in Azure virtual machines.
 
 For more information, see [Archive Tier support (Preview)](archive-tier-support.md).
+
+## Backup for Azure Blobs (in preview)
+
+Operational backup for Blobs is a managed, local data protection solution that lets you protect your block blobs from various data loss scenarios like corruptions, blob deletions, and accidental storage account deletion. The data is stored locally within the source storage account itself and can be recovered to a selected point in time whenever needed. So it provides a simple, secure, and cost-effective means to protect your blobs.
+
+Operational backup for Blobs integrates with Backup Center, among other Backup management capabilities, to provide a single pane of glass that can help you govern, monitor, operate, and analyze backups at scale.
+
+For more information, see [Overview of operational backup for Azure Blobs (in preview)](blob-backup-overview.md).
 
 ## Next steps
 
