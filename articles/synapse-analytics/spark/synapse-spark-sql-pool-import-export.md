@@ -1,35 +1,31 @@
 ---
 title: Import and Export data between serverless Apache Spark pools and SQL pools
-description: This article introduces the Synapse SQL Connector API for moving data between dedicated SQL pools and serverless Apache Spark pools.
+description: This article introduces the Synapse Dedicated SQL Pool Connector API for moving data between dedicated SQL pools and serverless Apache Spark pools.
 services: synapse-analytics
-author: kevxmsft
+author: kalyankadiyala-Microsoft,kevxmsft
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
-ms.date: 01/22/2022
-ms.author: kevx
+ms.date: 01/27/2022
+ms.author: kakadiya,kevx
 ms.reviewer: 
----
-# Transfer data between an Azure Dedicated SQL pool and Synapse Spark
+--- 
+# Azure Synapse Dedicated SQL Pool connector for Apache Spark
 
-The Synapse SQL Connector is an API that efficiently transfers data between serverless Apache Spark pools and dedicated SQL pools in Azure Synapse.
+The Synapse Dedicated SQL Pool Connector is an API that efficiently moves data between [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview) and [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) in Azure Synapse Analytics.
 
-## Better performance than JDBC
+It uses Azure Storage and [PolyBase](/sql/relational-databases/polybase/polybase-guide) to transfer data in parallel and at scale.
 
-A JDBC connector would be a bottleneck with serial data transfer.
-In contrast, the Synapse SQL Connector uses Azure Storage and [PolyBase](/sql/relational-databases/polybase/polybase-guide) to transfer data in parallel and at scale.
+## Authentication
 
-![Connector Architecture](./media/synapse-spark-sqlpool-import-export/arch1.png)
-
-## Authentication in Azure Synapse Analytics
-
-Authentication works automatically with AAD after the following prerequisites.
+Authentication works automatically with the signed in Azure Active Directory user after the following prerequisites.
 
 * Add the user to [db_exporter role](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) using system stored procedure [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
 * Add the user to [Storage Blob Data Contributor role](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) on the storage account.
 
-The Synapse SQL Connector also supports password-based [SQL authentication](/azure/azure-sql/database/logins-create-manage#authentication-and-authorization).
-In this case, the API uses an [existing external data source](/sql/t-sql/statements/create-external-data-source-transact-sql), whose [database scoped credential](/sql/t-sql/statements/create-database-scoped-credential-transact-sql) secret is the access key to an Azure Storage Account.
+The connector also supports password-based [SQL authentication](/azure/azure-sql/database/logins-create-manage#authentication-and-authorization) after the following prerequisites.
+  * Add the user to [db_exporter role](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) using system stored procedure [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+  * Create an [external data source](/sql/t-sql/statements/create-external-data-source-transact-sql), whose [database scoped credential](/sql/t-sql/statements/create-database-scoped-credential-transact-sql) secret is the access key to an Azure Storage Account. The API requires the name of this external data source.
 
 ## API Reference
 
@@ -50,7 +46,7 @@ See the [Scala API reference](https://synapsesql.blob.core.windows.net/docs/1.0.
   df.show
   ```
 
-* Save the content of a `DataFrame` to a database table in the dedicated SQL pool.
+* Save the content of a `DataFrame` to a database table in the dedicated SQL pool. The table type can be internal (i.e. managed) or external.
 
   ```scala
   import com.microsoft.spark.sqlanalytics.utils.Constants
@@ -60,7 +56,7 @@ See the [Scala API reference](https://synapsesql.blob.core.windows.net/docs/1.0.
 
   df.write.
     option(Constants.SERVER, "servername.database.windows.net").
-    synapsesql("databaseName.schemaName.tablename")
+    synapsesql("databaseName.schemaName.tablename", Constants.INTERNAL)
   ```
 
 * Use the connector API with SQL authentication with option keys `Constants.USER` and `Constants.PASSWORD`. It also requires option key `Constants.DATA_SOURCE`, specifying an external data source.
