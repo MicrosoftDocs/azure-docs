@@ -60,11 +60,11 @@ When the **Application Insights** feature is enabled, you can:
 
 * In the left navigation pane, select **Live Metrics** to see the real-time metrics for different dimensions.
 
-   :::image type="content" source="media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg" alt-text="Azure portal screenshot of Application Insights with Live Metrics page showing." lightbox="media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg":::
+   :::image type="content" source="media/spring-cloud-application-insights/petclinic-microservices-live-metrics.png" alt-text="Azure portal screenshot of Application Insights with Live Metrics page showing." lightbox="media/spring-cloud-application-insights/petclinic-microservices-live-metrics.png":::
 
 * In the left navigation pane, select **Availability** to monitor the availability and responsiveness of Web apps by creating [Availability tests in Application Insights](../azure-monitor/app/monitor-web-app-availability.md).
 
-   :::image type="content" source="media/spring-cloud-application-insights/petclinic-microservices-availability.jpg" alt-text="Azure portal screenshot of Application Insights with Availability page showing." lightbox="media/spring-cloud-application-insights/petclinic-microservices-availability.jpg":::
+   :::image type="content" source="media/spring-cloud-application-insights/petclinic-microservices-availability.png" alt-text="Azure portal screenshot of Application Insights with Availability page showing." lightbox="media/spring-cloud-application-insights/petclinic-microservices-availability.png":::
 
 * In the left navigation pane, select **Logs** to view all applications' logs, or one application's logs when filtering by `cloud_RoleName`.
 
