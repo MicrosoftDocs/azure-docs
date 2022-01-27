@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 01/26/2022
+ms.date: 01/27/2022
 ms.author: ginle
 ---
 

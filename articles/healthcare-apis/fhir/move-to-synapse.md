@@ -1,16 +1,16 @@
 ---
-title: Moving data in Azure API for FHIR to Azure Synapse Analytics
+title: Moving data from FHIR service to Azure Synapse Analytics
 description: This article describes moving FHIR data into Synapse
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 12/01/2021
+ms.date: 01/27/2022
 ms.author: ginle
 ---
 # Moving data from Azure API for FHIR to Azure Synapse Analytics
 
-In this article you will learn a couple of ways to move data from Azure API for FHIR to [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/), which is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. 
+In this article you will learn a couple of ways to move data from the FHIR service to [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/), which is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. 
 
 Moving data from the FHIR server to Synapse involves exporting the data using the FHIR `$export` operation followed by a series of steps to transform and load the data to Synapse. This article will walk you through two of the several approaches, both of which will show how to convert FHIR resources into tabular formats while moving them into Synapse.
 
