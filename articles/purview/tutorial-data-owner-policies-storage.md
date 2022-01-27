@@ -1,5 +1,5 @@
 ---
-title: Dataset provisioning by data owner for Azure Storage
+title: Access provisioning by data owner to Azure Storage datasets
 description: Step-by-step guide on how to integrate Azure Storage with Azure Purview to enable data owners to create access policies.
 author: ePpnqeqR
 ms.author: vlrodrig
@@ -10,7 +10,7 @@ ms.date: 1/25/2022
 ms.custom:
 ---
 
-# Dataset provisioning by data owner for Azure Storage (preview)
+# Access provisioning by data owner to Azure Storage datasets (preview)
 
 This guide describes how a data owner can leverage Azure Purview to enable access to datasets in Azure Storage. At this point, only the following data sources are supported:
 - Blob storage
