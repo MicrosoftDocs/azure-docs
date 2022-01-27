@@ -203,8 +203,6 @@ items:
               href: configure-managed-instance.md
             - name: Monitoring, log analytics, billing information, (portal)
               href: monitoring-log-analytics-azure-portal-managed-instance.md
-            - name: High availability
-              href: managed-instance-high-availability.md
             - name: Reserved capacity
               href: reserved-capacity-overview.md
             - name: Rotate certificates
@@ -242,13 +240,13 @@ items:
         - name: Business continuity
           items:
             - name: Overview
-              href: business-continuity-managed-instance-overview.md
+              href: managed-instance-business-continuity-overview.md
             - name: Point in time restore
               href: point-in-time-restore.md
             - name: High availability
-              href: high-availability-arcsqlmi.md
+              href: managed-instance-high-availability.md
             - name: Disaster recovery
-              href: disaster-recovery-arcsqlmi.md
+              href: managed-instance-disaster-recovery.md
 - name: Reference
   items:
   - name: Release version log
