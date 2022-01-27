@@ -15,11 +15,11 @@ ms.custom: ignite-fall-2021
 # Create and use managed identities with Form Recognizer
 
 > [!IMPORTANT]
-> Azure role-based access control (Azure RBAC) assignment is currently in preview and not recommended for production workloads. Certain features may not be supported or have constrained capabilities. Azure RBAC assignments are used to grant permissions for managed identity.
+> Azure RBAC (Azure role-based access control) assignment is currently in preview and not recommended for production workloads. Certain features may not be supported or have constrained capabilities. Azure RBAC assignments are used to grant permissions for managed identity.
 
 ## What is managed identity?
 
-Azure managed identity is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources. You can use a managed identity to grant access to any resource that supports Azure AD authentication. To grant access, assign a role to a managed identity using [Azure role-based access control](../../role-based-access-control/overview.md) (Azure RBAC).  There's no added cost to use managed identity in Azure.
+Azure managed identity is a service principal. It creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources. You can use a managed identity to grant access to any resource that supports Azure AD authentication. To grant access, assign a role to a managed identity using [Azure RBAC](../../role-based-access-control/overview.md) (Azure role-based access control).  There's no added cost to use managed identity in Azure.
 
 Managed identity supports both privately and publicly accessible Azure blob storage accounts.  For storage accounts with public access, you can opt to use a shared access signature (SAS) to grant limited access.   In this article, you'll learn to enable a system-assigned managed identity for your Form Recognizer instance.
 
@@ -29,7 +29,7 @@ Managed identity supports both privately and publicly accessible Azure blob stor
 > Form Recognizer only supports system-assigned managed identities today. User-assigned managed identities is on the roadmap and will be enabled in the near future. 
 
 
- Private Azure storage account access and authentication are supported by [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). If you have an Azure storage account protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS), Form Recognizer can't directly access your storage account data; however, once a managed identity is enabled, the Form Recognizer service can access your storage account using an assigned managed identity credential.
+ Private Azure storage account access and authentication are supported by [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). If you have an Azure storage account, protected by a Virtual Network (VNet) or firewall, Form Recognizer can't directly access your storage account data. However, once a managed identity is enabled, Form Recognizer can access your storage account using an assigned managed identity credential.
 
 > [!NOTE]
 >
