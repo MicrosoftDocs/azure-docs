@@ -1,16 +1,13 @@
 ---
-title: Azure Government developer guide | Microsoft Docs
-description: This article compares features and provides guidance on developing applications for Azure Government.
-services: azure-government
-cloud: gov
-documentationcenter: ''
-author: stevevi
-ms.author: stevevi
+title: Azure Government developer guide
+description: Provides guidance on developing applications for Azure Government
 ms.service: azure-government
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 8/04/2021
+ms.author: stevevi
+author: stevevi
+recommendations: false
+ms.date: 01/26/2022
 ---
 
 # Azure Government developer guide
@@ -30,10 +27,10 @@ The information in this document summarizes the differences between the two clou
 
 - [Azure Government](https://azure.microsoft.com/global-infrastructure/government/) site 
 - [Microsoft Trust Center](https://www.microsoft.com/trust-center/product-overview)
-- [Azure Documentation Center](../index.yml)
+- [Azure documentation center](../index.yml)
 - [Azure Blogs](https://azure.microsoft.com/blog/)
 
-This content is intended for partners and developers who are deploying to Azure Government.
+This content is intended for Microsoft partners and developers who are deploying to Azure Government.
 
 ## Guidance for developers
 
@@ -45,6 +42,10 @@ Most of the currently available technical content assumes that applications are 
 Therefore, it's important to review your sample code, configurations, and steps to ensure that you are building and executing within the Azure Government cloud services environment.
 
 For current Azure Government regions and available services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
+
+### Endpoint mapping
+
+Service endpoints in Azure Government are different than in Azure. For a mapping between Azure and Azure Government endpoints, see [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md#guidance-for-developers).
 
 ### Quickstarts
 
@@ -63,15 +64,7 @@ The [Azure Government video library](https://aka.ms/AzureGovVideos) contains man
 
 ## Compliance
 
-For more information on Azure Government Compliance, refer to the [compliance documentation](./documentation-government-plan-compliance.md). 
-
-### Azure Blueprints
-
-[Azure Blueprints](../governance/blueprints/overview.md) is a service that helps you deploy and update cloud environments in a repeatable manner using composable artifacts such as Azure Resource Manager templates to provision resources, role-based access controls, and policies. Resources provisioned through Azure Blueprints adhere to an organization’s standards, patterns, and compliance requirements. The overarching goal of Azure Blueprints is to help automate compliance and cybersecurity risk management in cloud environments. To help you deploy a core set of policies for any Azure-based architecture that requires compliance with certain US government compliance requirements, see [Azure Blueprints samples](../governance/blueprints/samples/index.md).
-
-## Endpoint mapping
-
-Service endpoints in Azure Government are different than in Azure. For a mapping between Azure and Azure Government endpoints, see [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md#guidance-for-developers).
+For more information on Azure Government compliance, refer to the [compliance documentation](./documentation-government-plan-compliance.md).
 
 ## Next steps
 
@@ -80,6 +73,9 @@ For more information about Azure Government, see the following resources:
 - [Sign up for a trial](https://azure.microsoft.com/global-infrastructure/government/request/?ReqType=Trial)
 - [Acquiring and accessing Azure Government](https://azure.microsoft.com/offers/azure-government/)
 - [Ask questions via the azure-gov tag in StackOverflow](https://stackoverflow.com/tags/azure-gov)
-- [Azure Government Overview](./documentation-government-welcome.md)
-- [Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/)
-- [Azure Compliance](../compliance/index.yml)
+- [Azure Government blog](https://devblogs.microsoft.com/azuregov/)
+- [Azure Government overview](./documentation-government-welcome.md)
+- [Azure Government security](./documentation-government-plan-security.md)
+- [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md)
+- [Azure Government compliance](./documentation-government-plan-compliance.md)
+- [Azure compliance](../compliance/index.yml)
