@@ -39,10 +39,7 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 - Destinations must be in the same region as the Log Analytics workspace.
 - Storage account must be unique across rules in workspace.
 - Tables names can be no longer than 60 characters when exporting to storage account and 47 characters to event hub. Tables with longer names will not be exported.
-- Data export isn't supported in these regions currently: 
-	- Korea South
-	- Jio India Central
-	- Government regions
+- Data export isn't supported in Government regions currently
 
 ## Data completeness
 Data export is optimized for moving large data volume to your destinations and in certain retry conditions, can include a fraction of duplicated records. The export operation to your destination could fail when ingress limits are reached, see details under [Create or update data export rule](#create-or-update-data-export-rule). Export continues to retry for up to 30 minutes and if destination is unavailable to accept data, data will be discarded until the destination becomes available.
@@ -113,7 +110,7 @@ If you have configured your storage account to allow access from selected networ
 
 [![Storage account firewalls and networks](media/logs-data-export/storage-account-network.png "Screenshot of allow trusted Microsoft services.")](media/logs-data-export/storage-account-network.png#lightbox)
 
-### Destinations monitoring
+### Monitor destinations 
 
 > [!IMPORTANT]
 > Export destinations have limits and should be monitored to minimize throttling, failures, and latency. See [storage accounts scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) and [event hub namespace quota](../../event-hubs/event-hubs-quotas.md). 
@@ -658,10 +655,9 @@ Supported tables are currently limited to those specified below. All data from t
 | AADServicePrincipalSignInLogs |  |
 | AADUserRiskEvents |  |
 | ABSBotRequests |  |
+| ACRConnectedClientList |  |
 | ACSAuthIncomingOperations |  |
 | ACSBillingUsage |  |
-| ACRConnectedClientList |  |
-| ACRConnectedClientList |  |
 | ACSCallDiagnostics |  |
 | ACSCallSummary |  |
 | ACSChatIncomingOperations |  |
@@ -682,25 +678,21 @@ Supported tables are currently limited to those specified below. All data from t
 | ADTQueryOperation |  |
 | ADXCommand |  |
 | ADXQuery |  |
+| AEWAuditLogs |  |
+| ATCExpressRouteCircuitIpfix |  |
+| AWSCloudTrail |  |
+| AWSGuardDuty |  |
+| AWSVPCFlow |  |
 | AegDeliveryFailureLogs |  |
 | AegPublishFailureLogs |  |
-| AEWAuditLogs |  |
-| AEWComputePipelinesLogs |  |
 | AgriFoodApplicationAuditLogs |  |
-| AgriFoodApplicationAuditLogs |  |
-| AgriFoodFarmManagementLogs |  |
 | AgriFoodFarmManagementLogs |  |
 | AgriFoodFarmOperationLogs |  |
-| AgriFoodInsightLogs |  |
 | AgriFoodJobProcessedLogs |  |
-| AgriFoodModelInferenceLogs |  |
 | AgriFoodProviderAuthLogs |  |
-| AgriFoodSatelliteLogs |  |
-| AgriFoodWeatherLogs |  |
-| Alert |  |
+| Alert | Partial support – Data ingestion for Zabbix alerts isn't supported. |
 | AlertEvidence |  |
 | AlertInfo |  |
-| AmlOnlineEndpointConsoleLog |  |
 | ApiManagementGatewayLogs |  |
 | AppCenterError |  |
 | AppPlatformSystemLogs |  |
@@ -710,28 +702,12 @@ Supported tables are currently limited to those specified below. All data from t
 | AppServiceFileAuditLogs |  |
 | AppServiceHTTPLogs |  |
 | AppServicePlatformLogs |  |
-| ATCExpressRouteCircuitIpfix |  |
 | AuditLogs |  |
 | AutoscaleEvaluationsLog |  |
 | AutoscaleScaleActionsLog |  |
-| AWSCloudTrail |  |
-| AWSGuardDuty |  |
-| AWSVPCFlow |  |
-| AZFWApplicationRule |  |
-| AZFWApplicationRuleAggregation |  |
-| AZFWDnsQuery |  |
-| AZFWIdpsSignature |  |
-| AZFWNatRule |  |
-| AZFWNatRuleAggregation |  |
-| AZFWNetworkRule |  |
-| AZFWNetworkRuleAggregation |  |
 | AzureAssessmentRecommendation |  |
 | AzureDevOpsAuditing |  |
 | BehaviorAnalytics |  |
-| BlockchainApplicationLog |  |
-| BlockchainProxyLog |  |
-| CassandraAudit |  |
-| CassandraLogs |  |
 | CDBCassandraRequests |  |
 | CDBControlPlaneRequests |  |
 | CDBDataPlaneRequests |  |
@@ -742,6 +718,7 @@ Supported tables are currently limited to those specified below. All data from t
 | CDBQueryRuntimeStatistics |  |
 | CIEventsAudit |  |
 | CIEventsOperational |  |
+| CassandraLogs |  |
 | CloudAppEvents |  |
 | CommonSecurityLog |  |
 | ComputerGroup |  |
@@ -753,36 +730,34 @@ Supported tables are currently limited to those specified below. All data from t
 | ContainerNodeInventory |  |
 | ContainerServiceLog |  |
 | CoreAzureBackup |  |
+| DSMAzureBlobStorageLogs |  |
 | DatabricksAccounts |  |
 | DatabricksClusters |  |
 | DatabricksDBFS |  |
 | DatabricksInstancePools |  |
 | DatabricksJobs |  |
 | DatabricksNotebook |  |
-| DatabricksSecrets |  |
 | DatabricksSQLPermissions |  |
 | DatabricksSSH |  |
+| DatabricksSecrets |  |
 | DatabricksWorkspace |  |
-| DeviceNetworkInfo |  |
 | DnsEvents |  |
 | DnsInventory |  |
-| DSMAzureBlobStorageLogs |  |
-| DummyHydrationFact |  |
 | Dynamics365Activity |  |
 | EmailAttachmentInfo |  |
 | EmailEvents |  |
 | EmailPostDeliveryEvents |  |
 | EmailUrlInfo |  |
-| Event | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics Extension agent is collected though storage while this path isn’t supported in export.2 |
+| Event | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics extension agent is collected through storage while this path isn’t supported in export. |
 | ExchangeAssessmentRecommendation |  |
 | FailedIngestion |  |
 | FunctionAppLogs |  |
 | HDInsightAmbariClusterAlerts |  |
 | HDInsightAmbariSystemMetrics |  |
-| HDInsightHadoopAndYarnLogs |  |
-| HDInsightHadoopAndYarnMetrics |  |
 | HDInsightHBaseLogs |  |
 | HDInsightHBaseMetrics |  |
+| HDInsightHadoopAndYarnLogs |  |
+| HDInsightHadoopAndYarnMetrics |  |
 | HDInsightHiveAndLLAPLogs |  |
 | HDInsightHiveAndLLAPMetrics |  |
 | HDInsightHiveQueryAppStats |  |
@@ -819,44 +794,39 @@ Supported tables are currently limited to those specified below. All data from t
 | KubePodInventory |  |
 | KubeServices |  |
 | LAQueryLogs |  |
-| McasShadowItReporting |  |
 | MCCEventLogs |  |
-| MCVPAuditLogs |  |
+| MCVPOperationLogs |  |
+| McasShadowItReporting |  |
 | MicrosoftAzureBastionAuditLogs |  |
 | MicrosoftDataShareReceivedSnapshotLog |  |
 | MicrosoftDataShareSentSnapshotLog |  |
-| MicrosoftDataShareShareLog |  |
 | MicrosoftHealthcareApisAuditLogs |  |
 | NWConnectionMonitorPathResult |  |
 | NWConnectionMonitorTestResult |  |
 | OfficeActivity | Partial support in government clouds – some of the data to ingested via webhooks from O365 into LA. This portion is missing in export currently. |
 | Operation | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
 | Perf | Partial support – only windows perf data is currently supported. The Linux perf data is missing in export currently. |
-| PowerBIActivity |  |
 | PowerBIDatasetsWorkspace |  |
-| ProjectActivity |  |
 | PurviewDataSensitivityLogs |  |
 | PurviewScanStatusLogs |  |
 | SCCMAssessmentRecommendation |  |
 | SCOMAssessmentRecommendation |  |
+| SQLAssessmentRecommendation |  |
+| SQLSecurityAuditEvents |  |
 | SecurityAlert |  |
 | SecurityBaseline |  |
 | SecurityBaselineSummary |  |
 | SecurityDetection |  |
-| SecurityEvent | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics Extension agent is collected though storage while this path isn’t supported in export. |
+| SecurityEvent | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics extension agent is collected through storage while this path isn’t supported in export. |
 | SecurityIncident |  |
 | SecurityIoTRawEvent |  |
 | SecurityNestedRecommendation |  |
 | SecurityRecommendation |  |
 | SentinelHealth |  |
 | SfBAssessmentRecommendation |  |
-| SfBOnlineAssessmentRecommendation |  |
 | SharePointOnlineAssessmentRecommendation |  |
 | SignalRServiceDiagnosticLogs |  |
 | SigninLogs |  |
-| SPAssessmentRecommendation |  |
-| SQLAssessmentRecommendation |  |
-| SQLSecurityAuditEvents |  |
 | SucceededIngestion |  |
 | SynapseBigDataPoolApplicationsEnded |  |
 | SynapseBuiltinSqlPoolRequestsEnded |  |
@@ -865,34 +835,32 @@ Supported tables are currently limited to those specified below. All data from t
 | SynapseIntegrationPipelineRuns |  |
 | SynapseIntegrationTriggerRuns |  |
 | SynapseRbacOperations |  |
+| SynapseScopePoolScopeJobsEnded |  |
+| SynapseScopePoolScopeJobsStateChange |  |
 | SynapseSqlPoolDmsWorkers |  |
 | SynapseSqlPoolExecRequests |  |
 | SynapseSqlPoolRequestSteps |  |
 | SynapseSqlPoolSqlRequests |  |
 | SynapseSqlPoolWaits |  |
-| Syslog | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics Extension agent is collected though storage while this path isn’t supported in export. |
+| Syslog | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics extension agent is collected through storage while this path isn’t supported in export. |
 | ThreatIntelligenceIndicator |  |
-| UCClient |  |
 | UCClientUpdateStatus |  |
-| UCDeviceAlert |  |
-| UCServiceUpdateStatus |  |
 | Update | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
 | UpdateRunProgress |  |
 | UpdateSummary |  |
 | Usage |  |
-| UserAccessAnalytics |  |
 | UserPeerAnalytics |  |
-| Watchlist |  |
-| WindowsEvent |  |
-| WindowsFirewall |  |
-| WireData | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
-| WorkloadDiagnosticLogs |  |
 | WVDAgentHealthStatus |  |
 | WVDCheckpoints |  |
 | WVDConnections |  |
 | WVDErrors |  |
 | WVDFeeds |  |
 | WVDManagement |  |
+| Watchlist |  |
+| WindowsEvent |  |
+| WindowsFirewall |  |
+| WireData | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
+| WorkloadDiagnosticLogs |  |
 
 ## Next steps
 
