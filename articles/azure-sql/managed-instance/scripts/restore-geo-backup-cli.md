@@ -10,7 +10,7 @@ ms.topic: sample
 author: rothja
 ms.author: jroth
 ms.reviewer: mathoma
-ms.date: 01/18/2022
+ms.date: 01/26/2022 
 ---
 
 # Use CLI to restore a Managed Instance database to another geo-region
