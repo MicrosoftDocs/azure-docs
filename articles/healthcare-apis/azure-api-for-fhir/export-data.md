@@ -82,7 +82,7 @@ Select a storage account from the Azure portal, and then select the **Networking
 > [!IMPORTANT]
 > Ensure that you’ve granted access permission to the storage account for Azure API for FHIR using its managed identity. For more information, see [Configure export setting and set up the storage account](../../healthcare-apis/fhir/configure-export-data.md).
 
-  :::image type="content" source="media/export-data/storage-networking.png" alt-text="Azure Storage Networking Settings." lightbox="media/export-data/storage-networking.png":::
+:::image type="content" source="media/export-data/storage-networking.png" alt-text="Azure Storage Networking Settings." lightbox="media/export-data/storage-networking.png":::
 
 Under the **Exceptions** section, select the box **Allow trusted Microsoft services to access this storage account** and save the setting. 
 
