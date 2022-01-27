@@ -58,7 +58,7 @@ To install the Azure Monitor agent using the Azure portal, follow the process to
 To uninstall the Azure Monitor agent using the Azure portal, navigate to your virtual machine, scale set or Arc-enabled server, select the **Extensions** tab and click on **AzureMonitorWindowsAgent** or **AzureMonitorLinuxAgent**. In the dialog that pops up, click **Uninstall**.
 
 ### Update
-To perform a one time update of the agent, you must first uninstall the existing agent version and then install the new version as described above.  
+To perform a **one time update** of the agent, you must first uninstall the existing agent version and then install the new version as described above.  
 
 
 ## Using Resource Manager template
@@ -111,7 +111,7 @@ Remove-AzVMExtension -Name AMALinux -ResourceGroupName <resource-group-name> -VM
 ---
 
 ### Update on Azure virtual machines
-To perform a one time update of the agent, you must first uninstall the existing agent version and then install the new version as described above.   
+To perform a **one time update** of the agent, you must first uninstall the existing agent version and then install the new version as described above.   
 
 ### Install on Azure Arc-enabled servers
 Use the following PowerShell commands to install the Azure Monitor agent on Azure Arc-enabled servers.
@@ -151,7 +151,7 @@ Update-AzConnectedExtension -ResourceGroupName $env.ResourceGroupName -MachineNa
 ```
 ---
 
-/*The recommendation is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade (preview)](../../azure-arc/servers/manage-automatic-vm-extension-upgrade.md#enabling-automatic-extension-upgrade-preview) feature, using the following PowerShell commands.
+The **recommendation** is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade (preview)](../../azure-arc/servers/manage-automatic-vm-extension-upgrade.md#enabling-automatic-extension-upgrade-preview) feature, using the following PowerShell commands.
 # [Windows](#tab/PowerShellWindowsArc)
 ```powershell
 Update-AzConnectedMachineExtension -ResourceGroup <resource-group-name> -MachineName <arc-server-name> -Name AMAWindows -EnableAutomaticUpgrade
@@ -161,7 +161,6 @@ Update-AzConnectedMachineExtension -ResourceGroup <resource-group-name> -Machine
 Update-AzConnectedMachineExtension -ResourceGroup <resource-group-name> -MachineName <arc-server-name> -Name AMALinux -EnableAutomaticUpgrade
 ```
 ---
-*/
 
 
 ## Using Azure CLI
@@ -192,7 +191,7 @@ az vm extension delete --resource-group <resource-group-name> --vm-name <virtual
 ---
 
 ### Update on Azure virtual machines
-To perform a one time update of the agent, you must first uninstall the existing agent version and then install the new version as described above. 
+To perform a **one time update** of the agent, you must first uninstall the existing agent version and then install the new version as described above. 
 
 ### Install on Azure Arc-enabled servers
 Use the following CLI commands to install the Azure Monitor agent onAzure Azure Arc-enabled servers.
@@ -232,7 +231,7 @@ az connectedmachine upgrade-extension --extension-targets "{\"Microsoft.Azure.Mo
 ```
 ---
 
-The recommendation is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade (preview)](../../azure-arc/servers/manage-automatic-vm-extension-upgrade.md#enabling-automatic-extension-upgrade-preview) feature, using the following PowerShell commands.
+The **recommendation** is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade (preview)](../../azure-arc/servers/manage-automatic-vm-extension-upgrade.md#enabling-automatic-extension-upgrade-preview) feature, using the following PowerShell commands.
 # [Windows](#tab/CLIWindowsArc)
 ```azurecli
 az connectedmachine extension update --name AzureMonitorWindowsAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --enable-auto-upgrade true
