@@ -246,7 +246,7 @@ Here are some failure scenarios that require user action to recover:
 * **Does the zone-redundant HA provides protection from planned and unplanned outages?** <br>
     Yes. The main purpose of HA is to offer higher uptime to mitigate from any outages. In the event of an unplanned outage - including a fault in database, VM, physical node, data center, or at the AZ-level, the monitoring system automatically fails over the server to the standby. Similarly, during planned outages including minor version updates or infrastructure patching that happen during scheduled maintenance window, the updates are applied at the standby first and the service is failed over while the old primary goes through the update process. This reduces the overall downtime. 
 
-* **Can I enable or disable HA any any point of time?** <br>
+* **Can I enable or disable HA at any point of time?** <br>
 
     Yes. You can enable or disable zone-redundant HA at any time except when the server is in certain states like stopped, restarting, or already in the process of failing over. 
 
