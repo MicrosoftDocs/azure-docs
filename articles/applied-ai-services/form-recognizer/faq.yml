@@ -275,15 +275,14 @@ sections:
       - question: |
             I'm building a custom model, what does the signature detection label return?
         answer: |
-            [Signature detection](quickstarts/try-v3-form-recognizer-studio.md#labeling-for-signature-detection) looks for the presence of a signature, not the identity of the person signing the document. 
-            
+            [Signature detection](quickstarts/try-v3-form-recognizer-studio.md#labeling-for-signature-detection) looks for the presence of a signature, not the identity of the person signing the document.
+
             If the model returns "unsigned" for signature detection, the model didn’t find a signature in the defined field.
 
       - question: |
              What should I consider and what are best practices for extracting tables from documents?
         answer: |
-           
-           You can start with the Form Recognizer [layout model](concept-layout.md) to extract texts, tables, selection marks, and structure information from documents and images. You can also consider the following: 
+           You can start with the Form Recognizer [layout model](concept-layout.md) to extract texts, tables, selection marks, and structure information from documents and images. You can also consider the following:
 
              - Is the data that you wish to extract presented as a table and is the table structure is meaningful?
 
@@ -306,8 +305,8 @@ sections:
       - question: |
            If my storage account is behind a VNet or firewall, how do I give Form Recognizer access to my storage account data?
         answer: |
-            If you have an Azure storage account protected by a Virtual Network (VNet) or firewall, Form Recognizer can’t directly access your storage account. However, Private Azure storage account access and authentication are supported by [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). Once a managed identity is enabled, the Form Recognizer service can access your storage account using an assigned managed identity credential. 
-            
+            If you have an Azure storage account protected by a Virtual Network (VNet) or firewall, Form Recognizer can’t directly access your storage account. However, Private Azure storage account access and authentication are supported by [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). Once a managed identity is enabled, the Form Recognizer service can access your storage account using an assigned managed identity credential.
+
             If you intend to analyze your private storage account data with FOTT, the tool must be deployed behind the VNet or firewall.
 
             Learn how to [create and use a managed identity for your Form Recognizer resource](managed-identities.md)
@@ -318,7 +317,7 @@ sections:
           Do I need an internet connection to use Form Recognizer containers?
         answer: |
 
-          Yes, Form Recognizer containers require internet connectivity to send [billing information](containers/form-recognizer-container-install-run.md?tabs=layout#billing) to Azure. 
+          Yes, Form Recognizer containers require internet connectivity to send [billing information](containers/form-recognizer-container-install-run.md?tabs=layout#billing) to Azure.
           Learn more about [Azure container security](/azure/container-instances/container-instances-image-security#security-recommendations-for-azure-container-instances).
 
   - name: Security and Privacy
