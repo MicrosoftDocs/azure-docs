@@ -65,6 +65,8 @@ When no longer needed, you can delete the resource group, lab plan, and all rela
 
 ## Next steps
 
-In this quickstart, you created a resource group and a lab plan.  Advance to the next article to learn how to create a lab.
+In this quickstart, you created a resource group and a lab plan.  To learn more about advanced options for lab plans, see [Tutorial: Create a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
+
+Advance to the next article to learn how to create a lab.
 > [!div class="nextstepaction"]
 > [Create a lab](quick-create-lab-portal.md)

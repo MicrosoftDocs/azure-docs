@@ -67,7 +67,9 @@ On the **Delete lab** dialog box, select **Delete** to continue with the deletio
 
 ## Next steps
 
-In this quickstart, you created a lab with Azure Lab Services.  Advance to the next article to learn how to configure the template VM.
+In this quickstart, you created a lab with Azure Lab Services.  To learn more about advanced options for labs, see [Tutorial: Create and publish a lab](tutorial-setup-lab.md).
+
+Advance to the next article to learn how to configure the template VM.
 
 > [!div class="nextstepaction"]
 > [Configure a template VM](how-to-create-manage-template.md)
