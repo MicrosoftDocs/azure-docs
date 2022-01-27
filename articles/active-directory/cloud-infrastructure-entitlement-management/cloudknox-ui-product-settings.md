@@ -1,5 +1,5 @@
 ---
-title: Microsoft CloudKnox Permissions Management - View, and modify configuration settings for data collection
+title: Microsoft CloudKnox Permissions Management - View and modify configuration settings for data collection
 description: How to view and modify configuration settings for data collection in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/25/2022
+ms.date: 01/26/2022
 ms.author: v-ydequadros
 ---
 
@@ -18,7 +18,7 @@ When you first open Microsoft CloudKnox Permissions Management (CloudKnox) after
 
 ## View configuration settings for data collection
 
-1. If the CloudKnox Settings dashboard does not open automatically, in the upper right of the window, select **Settings** (the gear icon).
+1. To open the CloudKnox Settings dashboard, in the upper right of the CloudKnox home page , select **Settings** (the gear icon).
 
     The **Settings** dashboard has three tabs:
 
@@ -26,13 +26,13 @@ When you first open Microsoft CloudKnox Permissions Management (CloudKnox) after
     - **Authorization systems** - Use this tab to configure settings for the authorization system you want to use.
     - **Inventory** - Use this tab to configure settings for inventory and licensing for the authorization system you selected in the **Authorization systems** tab.
 
-1. Select the authorization system whose data you want to collect:
+1. In the **Authorization systems** tab, select the authorization system whose data you want to collect:
 
     - For Amazon Web Services (AWS), select **AWS**. 
     - For Microsoft Azure, select **Azure**.
     - For Google Cloud Platform (GCP), select **GCP**.
 
-1. The **Data collectors** tab displays the following information about the authorization system on which you are collecting data:
+1. Return to the **Data collectors** tab and view the following information about the authorization system on which you are collecting data:
 
     - The **Name** of the authorization system
     - The **ID number** of your account, subscription, or project.
@@ -41,33 +41,31 @@ When you first open Microsoft CloudKnox Permissions Management (CloudKnox) after
     - **Recently uploaded on** - The status of your data as it's being collected.
     - **Recently transformed on** - The status of your data as it's being processed.
     - The **Tenant ID** - The ID for your Azure AD tenant.
-    - The **Tenant name** - The name for your Azure AD tenant. 
+    - The **Tenant name** - The name for your Azure AD tenant.
     - The ellipses **(...)** menu 
         - To view details about the **Sentry appliance configuration**, select **Configure**.
         - To delete the corresponding **Authorization systems**, select **Delete**.
 
-1. You can also use the following options:
+1. To view a more specific data set, use the following options on the **Data collectors** tab:
 
     - **Search** - Enter an ID or IP address to display specific authorization systems.
     - **Filters** - Select the uploaded and transformed systems you want to display: **All** or **Online** . 
-    - **||| Columns** - Select the columns you want to display: **Recently uploaded on** and **Recently transformed on**.
-    - To return to the system default settings, Select **Reset to default**.
+    - **||| Columns** - Select the columns you want to display or hide: **Recently uploaded on** and **Recently transformed on**. 
+        - To return to the system default settings, Select **Reset to default**.
     - **Deploy** - Select to deploy the Sentry Appliance. 
 
 ## View configuration settings for authorization systems
 
-1. Select the **Authorization systems** tab.
+1. In the **Settings** dashboard, select the **Authorization systems** tab.
 
     The **Authorization systems** tab has two subtabs: 
 
-    - **List** 
-    - **Folders**
+    - **List** - This subtab displays information about your accounts.
+    - **Folders** - This subtab displays information about your folders.
 
 ### View configuration settings for the accounts you've selected
 
-1. Select the **List** subtab.
-
-1. In the **List** tab, select settings to display information you want to about the account you've selected:
+1. In the **Authorization systems** tab, select the **List** subtab.Then select the following settings to display information you want to about an account:
 
     - **Controller status** - From the drop-down list, select **All**, **Enabled**, or **Disabled**.
     - **Benchmark status** - From the drop-down list, select **All**, **Online**, or **Offline**.
@@ -75,7 +73,6 @@ When you first open Microsoft CloudKnox Permissions Management (CloudKnox) after
     - **Search** - Enter an account name or ID.
     - **Apply** - Select **Apply** to apply your settings.
     - **Reset filter** - Select **Reset Filter** to discard your settings.
-    - The ellipses **(...)** menu - Select **Collect data** or **Delete**.
 
 1. The authorization systems table displays following information about the authorization system you've selected:
 
@@ -85,14 +82,13 @@ When you first open Microsoft CloudKnox Permissions Management (CloudKnox) after
     - **Benchmark status** - The benchmark status: **All**, **Online**, or **Offline**.
     - **Entitlements Status** - The entitlement status: **All**, **Online**, or **Offline**.
     - **||| Columns** - Select the columns you want to display: **Controller status**, **Benchmark status**, and **Entitlements status**.
+    - The ellipses **(...)** menu - Select **Collect data** or **Delete**.
 
 1. To return to the system default settings, select **Reset to default**.
 
 ### View configuration settings for the folders you've selected
 
-1. Select the **Folders** subtab.
-
-1. In the **Folders** subtab, select settings to display information you want to about the folders you've selected:
+1. In the **Authorization systems** tab, select the **Folders** subtab. Then select the following settings to display information you want to about a folder:
 
     - **Folder name** - The name of the folder.
     - **Created on** - The date the folder was created.
@@ -109,7 +105,7 @@ When you first open Microsoft CloudKnox Permissions Management (CloudKnox) after
 
 ## View configuration settings for inventory
 
-- Select the **Inventory** tab.
+- In the **Settings** dashboard, select the **Inventory** tab.
 
     The **Inventory** tab has two subtabs:
 
@@ -118,9 +114,8 @@ When you first open Microsoft CloudKnox Permissions Management (CloudKnox) after
 
 ### View configuration settings for inventory
 
-1. Select the **Inventory** subtab.
-
-1. In the **Inventory** subtab, select settings to display information about the authorization system you've selected:
+1. Select the **Inventory** subtab, and then select an authorization system.
+1. Select settings to display information about the authorization system you've selected:
 
     - **Authorization system name** - The name of the authorization system.
     - **Dynamodb table**
@@ -135,11 +130,11 @@ When you first open Microsoft CloudKnox Permissions Management (CloudKnox) after
 
 ### View configuration settings for licensing
 
-1. Select the **Licensing** subtab.
+1. Select the **Licensing** subtab, and then select an authorization system.
 
 1. In the **Licensing** subtab, select settings to display information about the authorization system you've selected:
 
-    - **Authorization system** - A list of accounts.
+    - **Authorization system** - A list of accounts in the authorization system.
     - **Total number of licenses** - The number of licenses.
     - **Search** - Enter a name.
 

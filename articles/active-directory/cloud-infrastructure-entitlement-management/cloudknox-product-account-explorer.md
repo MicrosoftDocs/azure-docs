@@ -1,77 +1,86 @@
 ---
-title: The Microsoft CloudKnox Permissions Management - The Account Explorer
-description: How to use the Microsoft CloudKnox Permissions Management Account Explorer to view identities.
+title: The Microsoft CloudKnox Permissions Management - View roles and identities that can access account information from an external account
+description: How to view information about identities that can access accounts from an external account in Microsoft CloudKnox Permissions Management.
 services: active-directory
 manager: karenh444
 ms.service: active-directory
 ms.topic: how-to
 author: Yvonne-deQ
-ms.date: 01/17/2022
+ms.date: 01/26/2022
 ms.author: v-ydequadros
 ---
 
-# The Account Explorer
+# View roles and identities that can access account information from an external account
 
-The **Account Explorer** in Microsoft CloudKnox Permissions Management (CloudKnox) displays a list of the identities that can access the selected account from an external account. This includes users, roles, EC2 instances and Lambda Functions.
+You can  view information about users, groups, and resources that can access account information from an external account in Microsoft CloudKnox Permissions Management (CloudKnox). 
 
-## How to use the Account Explorer
+## Display information about users, groups, or tasks
 
-1. To access the **Account Explorer**:
-    1. Click the **Usage Analytics** tab, and then click the **Users** dropdown.
+1. In CloudKnox, select the **Usage analytics** tab, and then, from the dropdown, select one of the following:
 
-    2. To choose an authorization system, click the lock icon in the left panel.
+   - **Users**
+   - **Group**
+   - **Active resources**
+   - **Active tasks**
+   - **Active resources**
+   - **Serverless functions**
 
-    3. Select an Amazon Web Services (AWS) account. 
+1. To choose an account from your authorization system, select the lock icon in the left panel.
+1. In the **Authorization systems** pane, select an account, then select **Apply**.
 
-        For more information, see [How to apply filters to users](https://www.notion.so/cloudknox/Usage-Analytics-2147da11c8ff47e1bb7989b4005c4105#3c4562396db24421a9670e40e1dda6eb).
+1. To choose a user, role, or group, select the person icon. 
+1. Select a user or group, then select **Apply**. 
 
-2. The **Cross Account - Users** page displays the identities you can use to access the specified account. 
+1. To choose a task, select the clipboard icon.
+1. In the **Task** pane, select **All** or **High-risk tasks**, then select **Apply**. 
+1. To delete a task, select **Delete**, then select **Apply**.
 
-    **Roles that Provide Access** lists the roles that provide access to other accounts through the Trusted Entities policy statement.
 
-    > [!NOTE]
-    > The **Account Explorer** displays identities that are not part of the specified AWS account but that also have permission to access the account through various roles.
+## Export information about users, groups, or tasks
 
-     - To export the data in comma-separated values (CSV) file format, click **Export**.
-     - To view other accounts in the **Account Explorer**, click the **Authorization system** drop-down and select one of the available accounts.
+- To export the data in comma-separated values (CSV) file format, in the **User analytics** dashboard, select **Export**.
 
-3. To view the **Role Summary**, click the "eye" icon to the right of the role name. 
+## View users and roles
+
+1. To view users and roles, select the lock icon, and then select the person icon to open the **Users** pane.
+
+1. To view the **Role summary**, select the "eye" icon to the right of the role name. 
 
     The following details display:
 
      - **Policies** - A list of all the policies attached to the role.
-     - **Trusted Entities** - The identities from external accounts that can assume this role.
+     - **Trusted entities** - The identities from external accounts that can assume this role.
 
-4. To view all the identities from various accounts that can assume this role, click the caret icon to the left of the role name.
+1. To view all the identities from various accounts that can assume this role, select the down arrow to the left of the role name.
 
-5. To view a graph of all the identities that can access the specified account and through which role(s), click the role name. 
+1. To view a graph of all the identities that can access the specified account and through which role(s), select the role name. 
 
-     If CloudKnox is monitoring the external account, it lists specific identities from the accounts that can assume this role. Otherwise, it lists the identities declared in the **Trusted Entity** section.
+     If CloudKnox is monitoring the external account, it lists specific identities from the accounts that can assume this role. Otherwise, it lists the identities declared in the **Trusted entity** section.
 
-     - **Connecting Roles** - Lists the following roles for each account:
+     - **Connecting roles** - Lists the following roles for each account:
 
          - *Direct roles* that are trusted by the account role.
-         - *Intermediary roles* that are not directly trusted by the account role but are assumable by identities through [role-chaining](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html).
+         - *Intermediary roles* that aren't directly trusted by the account role but are assumable by identities through role-chaining.
 
-6. To view all the roles from that account that are used to access the specified account, click the caret icon to the left of the account name.
+1. To view all the roles from that account that are used to access the specified account, select the down arrow to the left of the account name.
 
-7. To view the trusted identities declared by the role, click the caret icon to the left of the role name. 
+1. To view the trusted identities declared by the role, select the down arrow to the left of the role name. 
 
      The trusted identities for the role are listed only if the account is being monitored by CloudKnox.
 
-8. To view the role definition, click the "eye" icon to the right of the role name. 
+1. To view the role definition, select the "eye" icon to the right of the role name. 
 
-     When you click the caret icon and expand details, a search box is displayed. Enter your criteria in this box to search for specific roles.
+     When you select the down arrow and expand details, a search box is displayed. Enter your criteria in this box to search for specific roles.
 
-     - **Identities with Access** - Lists the identities that come from external accounts:
+     - **Identities with access** - Lists the identities that come from external accounts:
 
-        - To view all the identities from that account can access the specified account, click the caret icon to the left of the account name.
-        - To view the **Role Summary** for EC2 instances and Lambda Functions, click the "eye" icon to the right of the identity name. 
-        -  To view a graph of how the identity can access the specified account and through which role(s), click the identity name.
+        - To view all the identities from that account can access the specified account, select the down arrow to the left of the account name.
+        - To view the **Role summary** for EC2 instances and Lambda functions, select the "eye" icon to the right of the identity name. 
+        -  To view a graph of how the identity can access the specified account and through which role(s), select the identity name.
 
-9. The **Info** tab displays the **Privilege Creep Index** and **Service Control Policy (SCP)** information about the account. 
+1. The **Info** tab displays the **Privilege creep index** and **Service control policy (SCP)** information about the account. 
 
-     For more information about the **Privilege Creep Index** and SCP information, see [Dashboard](https://docs.aws.amazon.com/IAM/latest/UserGuide/product-dashboard.html).
+     For more information about the **Privilege creep index** and SCP information, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
 
 <!---## Next steps--->
 

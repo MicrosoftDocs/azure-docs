@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - The Tasks pane 
-description: How to view task information in the Tasks pane in Microsoft CloudKnox Permissions Management.
+title: Microsoft CloudKnox Permissions Management - View information about active and completed activities 
+description: How to view information about active and completed tasks in the Activities pane in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,25 +8,25 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/17/2022
+ms.date: 01/26/2022
 ms.author: v-ydequadros
 ---
 
-# The Tasks pane
+# View information about active and completed activities
 
-This topic describes how to use the **Tasks** pane in Microsoft CloudKnox Permissions Management (CloudKnox) to view task information in Microsoft CloudKnox Permissions Management.
+This article describes how to use to view task information the **Activities** pane in Microsoft CloudKnox Permissions Management (CloudKnox).
 
-**To display the Tasks pane:**
+**To display the activities pane:**
 
-- In the upper right of the CloudKnox dashboard, select **Tasks** (the timer icon).
+- In the upper right of the CloudKnox dashboard, select **Activities** (the timer icon).
 
-    The **Tasks** pane has two tabs:
+    The **Activities** pane has two tabs:
     - **Active** - A list of active tasks.
 
          If there are no active tasks, the following message displays: **There are no active tasks**.
     - **Completed** - A list of completed tasks.
 
-         If there are no completed tasks, the following message displays: **There are no recently completed tasks**.
+         If there are no completed activities, the following message displays: **There are no recently completed tasks**.
 
 
 

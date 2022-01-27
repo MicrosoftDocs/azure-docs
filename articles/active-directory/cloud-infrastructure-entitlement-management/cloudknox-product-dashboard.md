@@ -8,26 +8,26 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/25/2022
+ms.date: 01/26/2022
 ms.author: v-ydequadros
 ---
 
 # View data about authorization systems and account activity
 
-The Microsoft CloudKnox Permissions Management (CloudKnox) dashboard provides an overview of the authorization system and account activity being monitored. You can use this dashboard to view data collected from your Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP) authorization systems.
+The Microsoft CloudKnox Permissions Management (CloudKnox) home page provides an overview of the authorization system and account activity being monitored. You can use this page to view data collected from your Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP) authorization systems.
 
 ## View data about your authorization system
 
 1. In CloudKnox, select **Dashboard**.
 1. From the **Authorization systems** dropdown menu, select **AWS**, **Azure**, or **GCP**. 
-1. Select the **Authorization system** box to display the **List** of accounts and **Folders** available to you. 
+1. Select the **Authorization system** box to display a **List** of accounts and **Folders** available to you. 
 1. Select the accounts and folders you want, and then select **Apply**. 
 
-   The privilege creep index (PCI) chart appears. The date and time it was last updated displays in the upper right corner. 
+   The **Privilege creep index (PCI)** chart appears. The number of days since it was last updated displays in the upper right corner. 
 
     The PCI graph displays a bubble in the upper right corner. The bubble displays the number of identities that are considered high risk. *High risk* refers to the number of users who have permissions that exceed their normal or required usage.
 
-1. To display a list of the number of identities contributing to the **Low PCI**, **Medium PCI**, and **High PCI**, select the **List** icon for a column view of number of identities in the Low, Medium, and High PCI categories.
+1. To display a list of the number of identities contributing to the **Low PCI**, **Medium PCI**, and **High PCI**, select the **List** icon for a column view of number of identities in the low, medium, and high PCI categories.
 
 1. The **Highest PCI change** displays the authorization system name with the PCI number and the change number for the last seven days, if applicable.
  
@@ -35,17 +35,17 @@ The Microsoft CloudKnox Permissions Management (CloudKnox) dashboard provides an
 
 1. To return to the PCI graph, select the **Graph** icon in the upper right of the list box. 
 
-For more detailed information about the CloudKnox dashboard, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
+For more information about the CloudKnox dashboard, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
 
 ## View user data on the PCI heat map
 
-The **Privilege creep index** heat map shows the incurred risk of users with access to high-risk privileges. The distribution graph displays all the users who contribute to the privilege creep. It displays how many users contribute to a particular score. For example, if the score from the PCI chart is 14, the graph shows how many users have a score of 14.
+The **Privilege creep index (PCI)** heat map shows the incurred risk of users with access to high-risk privileges. The distribution graph displays all the users who contribute to the privilege creep. It displays how many users contribute to a particular score. For example, if the score from the PCI chart is 14, the graph shows how many users have a score of 14.
 
 - To view detailed data about a user, hover over the number.
 
     The PCI trend graph shows you the historical trend of the PCI score over the last 90 days. 
 
-- To download the PCI History report, select the **Download** icon.
+- To download the **PCI History** report, select **Download** (the down arrow icon).
 
 
 ## View information about users, roles, resources, and PCI trends
@@ -69,4 +69,4 @@ The **Resource** section below the heat map on the right side of the page shows 
 
 ## Next steps
 
-- For more detailed information about the CloudKnox dashboard, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
+- For more information about the CloudKnox dashboard, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).

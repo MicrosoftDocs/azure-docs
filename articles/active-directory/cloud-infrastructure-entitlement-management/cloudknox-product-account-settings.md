@@ -6,27 +6,29 @@ manager: karenh444
 ms.service: active-directory
 ms.topic: overview
 author: Yvonne-deQ
-ms.date: 01/17/2022
+ms.date: 01/26/2022
 ms.author: v-ydequadros
 ---
 
 # Set personal information and preferences
 
-The Microsoft CloudKnox Permissions Management (CloudKnox) **Account Settings** page allows you to set personal information, passwords, and account preferences.
+The **Account settings** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) allows you to set personal information, passwords, and account preferences.
 
-- Click the caret icon on the right of the top menu bar, and then, from the dropdown menu, select **Account Settings**.
+## Display the Account settings dashboard
 
-## How to edit personal information
+- In the CloudKnox home page, select the down arrow to the right of the **User** (your initials) menu, and then select **Account settings**.
 
-1. Under **Personal Information**, click **Edit**.
+## Set personal information
 
-2. In the **First Name** and **Last Name** boxes, enter the user's name. 
+1. On the **Account settings** dashboard, under **Personal information**, select **Edit**.
 
-     The **Email** field cannot be modified because the CloudKnox account is linked to the email address used to register on the application.
+2. In the **First name** and **Last name** boxes, enter the user's name. 
 
-## How to edit company information
+     The **Email** field can't be modified because the CloudKnox account is linked to the email address used to register on the application.
 
-1. Under **Company Information**, click **Edit**.
+## Set company information
+
+1. On the **Account settings** dashboard, under **Company information**, select **Edit**.
 
 2. In the **Company** box, enter the name of the company. 
 
@@ -34,39 +36,36 @@ The Microsoft CloudKnox Permissions Management (CloudKnox) **Account Settings** 
 
 3. In the **Title** box, enter the user's title.
 
-## How to edit account preferences
+## Set account preferences
 
-1. Under **Account Preferences**, click **Edit**.
+1. On the **Account settings** dashboard, under **Account preferences**, select **Edit**.
 
-2. In the box next to **User Session Timeout (min)**, enter the number of minutes before you want a user session to time out.
+2. In the box next to **User session timeout (min)**, enter the number of minutes before you want a user session to time out.
 
-## How to view organization information
+## View information about your organizations
 
-The **Organizations Information** page displays the following information:
+The **Organizations information** page displays the following information:
 
-- **Name** - Lists the organization name.
-- **Title** - Lists the user's title, if applicable.
-- **Current** - A check mark displays here if the user is current.
-- **Primary** - A check mark displays here if the user belongs to the primary organization.
+- **Name** - The organization name.
+- **Title** - The user's title, if applicable.
+- **Current** - A check mark displays here to indicate the user is current.
+- **Primary** - A check mark displays here to indicate the user belongs to the primary organization.
 
-If you are part of multiple organizations:
+If you're part of multiple organizations:
 
-- You can switch to a particular organization. You will be asked to log in into that organization when you make the change.
-- You can assign another organization as the primary organization. Next time you log in, you will log in to your primary organization.
+- You can switch to a particular organization. You'll be asked to log in into that organization when you make the change.
+- You can assign another organization as the primary organization. Next time you log in, you'll log in to your primary organization.
 
-## How to change the account password
+## Change the password for your account 
 
-1. Under **Change Password**, enter the following details:
+1. On the **Account settings** page, under **Change password**, enter the following details:
 
-      - **Current Password**
-      - **New Password**
-      - **Confirm Password**
+      - **Current password**
+      - **New password**
+      - **Confirm password**
 
-2. Click **Change Password**.
+2. Select **Change password**.
 
-## Next steps
+<!---## Next steps-->
 
-[Sentry installation - AWS](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203.html)
-
-[CloudKnox FortSentry registration](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/CloudKnox%20FortSentry%20Registration%20f9f85592b2cf48aca0c0effd604a0827.html)
 
