@@ -8,7 +8,7 @@ ms.service: frontdoor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2022
+ms.date: 01/27/2022
 ms.author: jodowns
 zone_pivot_groups: front-door-tiers
 ---
@@ -66,3 +66,7 @@ The diagram below illustrates how three users, in different geographical locatio
 Establishing a TCP connection requires 3-5 roundtrips from the client to the server. Front Door's architecture improves the performance of establishing the connection. The "short connection" between the end user and the Front Door edge location means the connection gets established over 3-5 short roundtrips instead of 3-5 long round trips, which results in saving latency. The "long connection" between the Front Door edge location and the backend can be pre-established and then reused across other end users requests save connectivity time. The effect of Split TCP is multiplied when establishing a SSL/TLS (Transport Layer Security) connection, because there are more round trips to secure a connection.
 
 ::: zone-end
+
+## Next steps
+
+- Learn about the [Front Door routing architecture](front-door-routing-architecture.md).
