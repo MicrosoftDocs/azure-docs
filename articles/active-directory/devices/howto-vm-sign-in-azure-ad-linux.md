@@ -29,7 +29,7 @@ There are many security benefits of using Azure AD with openSSH certificate-base
 - Reduce reliance on local administrator accounts, credential theft, and weak credentials.
 - Password complexity and password lifetime policies configured for Azure AD help secure Linux VMs as well.
 - With Azure role-based access control, specify who can login to a VM as a regular user or with administrator privileges. When users join or leave your team, you can update the Azure RBAC policy for the VM to grant access as appropriate. When employees leave your organization and their user account is disabled or removed from Azure AD, they no longer have access to your resources.
-- With Conditional Access, configure policies to require multi-factor authentication and or require client device you’re using to SSH be a managed device (for example: compliant device or hybrid Azure AD joined) before you can SSH to Linux VMs. 
+- With Conditional Access, configure policies to require multifactor authentication and or require client device you’re using to SSH be a managed device (for example: compliant device or hybrid Azure AD joined) before you can SSH to Linux VMs. 
 - Use Azure deploy and audit policies to require Azure AD login for Linux VMs and flag non-approved local accounts.
 - Login to Linux VMs with Azure Active Directory also works for customers that use Federation Services.
 
@@ -405,7 +405,7 @@ If you see the following error on your SSH prompt, verify that you have configur
 If the uninstall scripts fail, the extension may get stuck in a transitioning state. When this happens, it can leave packages that it’s supposed to uninstall during its removal. In such cases, it’s better to manually uninstall the old packages and then try to run az vm extension delete command.
 
 1.	Log in as a local user with admin privileges.
-1.	Make sure there are no logged in AAD users. Call `who -u` command to see who is logged in; then `sudo kill <pid>` for all session processes reported by the previous command.
+1.	Make sure there are no logged in Azure AD users. Call `who -u` command to see who is logged in; then `sudo kill <pid>` for all session processes reported by the previous command.
 1.	Run `sudo apt remove --purge aadlogin` (Ubuntu/Debian), `sudo yum erase aadlogin` (RHEL or CentOS), or `sudo zypper remove aadlogin` (OpenSuse or SLES).
 1.	If the command fails, try the low-level tools with scripts disabled:
    1. For Ubuntu/Deian run `sudo dpkg --purge aadlogin`. If it’s still failing because of the script, delete `/var/lib/dpkg/info/aadlogin.prerm` file and try again.
