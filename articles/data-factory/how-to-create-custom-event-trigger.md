@@ -149,5 +149,5 @@ Specifically, you need `Microsoft.EventGrid/EventSubscriptions/Write` permission
 
 ## Next steps
 
-* Get detailed information about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-execution).
+* Get detailed information about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
 * Learn how to [reference trigger metadata in pipeline runs](how-to-use-trigger-parameterization.md).
