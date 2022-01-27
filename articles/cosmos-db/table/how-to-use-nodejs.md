@@ -99,7 +99,7 @@ To add an entity, first create an object that defines your entity properties. Al
 * **partitionKey** - Determines the partition in which the entity is stored.
 * **rowKey** - Uniquely identifies the entity within the partition.
 
-Both **partitionKey** and **rowKey** must be string values. For more information, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
+Both **partitionKey** and **rowKey** must be string values.
 
 The following is an example of defining an entity. The **dueDate** is defined as a type of `Date`. Specifying the type is optional, and types are inferred if not specified.
 
