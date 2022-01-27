@@ -12,7 +12,7 @@ ms.custom: mvc
 
 # Microsoft SDKs for IoT Hub Device Provisioning Service
 
-The Device Provisioning Service (DPS) libraries and SDKs help developers build IoT solutions using various programming languages on multiple platforms. The following tables include links to samples and quickstarts to help you get started:
+The Device Provisioning Service (DPS) libraries and SDKs help developers build IoT solutions using various programming languages on multiple platforms. The following tables include links to samples and quickstarts to help you get started.
 
 ## Device SDKs
 
