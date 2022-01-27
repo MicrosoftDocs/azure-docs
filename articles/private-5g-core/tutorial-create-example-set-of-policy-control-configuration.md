@@ -26,7 +26,7 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 * Read the information in [Policy control](policy-control.md) and familiarize yourself with Azure Private 5G Core policy control configuration.
-* Ensure you can sign in to the Azure Portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
+* Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
 * Identify the name of the Mobile Network resource corresponding to your private mobile network.
 
 ## Create a service for protocol filtering
@@ -39,7 +39,7 @@ In this step, we'll create a service that filters packets based on their protoco
 
 Do the following to create the service.
 
-1. Sign in to the Azure portal at [https://aka.ms/PMNSPortal](https://aka.ms/PMNSPortal).<!-- Is this the correct link? -->
+1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
 1. Search for and select the Mobile Network resource representing your private mobile network.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal showing the results for a search for a Mobile Network resource.":::
@@ -319,7 +319,7 @@ In this step, we'll create two SIM policies. The first SIM policy will use the s
 > - The `rule_allow_other_icmp_and_udp_traffic` rule on the `service_restricted_udp_and_icmp` service.
 > - The `rule_bidirectional_limits` rule on the `service_traffic_limits` service. 
 >
-> In this case, the packet core instance will prioritize the service with the lowest value for the **Service precedence** field. It will then apply the QoS characteristics from this service to the packets. In the example above, the `service_restricted_udp_and_icmp` service has a lower value (100) than the `service_traffic_limits` service (253). The packet core instance will therefore apply the QoS characteristics given on the `service_restricted_udp_and_icmp` service to downlink ICMP packets. 
+> In this case, the packet core instance will prioritize the service with the lowest value for the **Service precedence** field. It will then apply the QoS characteristics from this service to the packets. In the example above, the `service_restricted_udp_and_icmp` service has a lower value (100) than the `service_traffic_limits` service (253). The packet core instance will therefore apply the QoS characteristics given on the `service_restricted_udp_and_icmp` service to downlink ICMP packets.
 
 Let's create the SIM policies.
 

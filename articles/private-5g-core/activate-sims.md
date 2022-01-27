@@ -21,7 +21,7 @@ SIM resources represent physical or eSIMs used by User Equipment (UE). Activatin
 
 ## Activate your chosen SIMs
 
-1. Sign in to the Azure portal at [https://aka.ms/PMNSPortal](https://aka.ms/PMNSPortal). <!-- need to confirm link -->
+1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
 1. Search for and select the Mobile Network resource representing the private mobile network for which you want to activate SIMs.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::

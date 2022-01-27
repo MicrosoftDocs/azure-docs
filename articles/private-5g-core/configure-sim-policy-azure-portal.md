@@ -22,7 +22,7 @@ SIM policies allow you to define different sets of policies and interoperability
 
 ## Configure the SIM policy
 
-1. Sign in to the Azure portal at [https://aka.ms/PMNSPortal](https://aka.ms/PMNSPortal).<!-- Is this the correct link? -->
+1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
 1. Search for and select the Mobile Network resource representing the private mobile network for which you want to configure a SIM policy.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
