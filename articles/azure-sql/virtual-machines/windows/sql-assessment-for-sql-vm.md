@@ -18,6 +18,10 @@ The SQL Assessment feature of the Azure portal identifies possible performance i
 
 The SQL Assessment feature is currently in preview.
 
+To learn more, watch this video on [SQL Assessment](/shows/data-exposed/optimally-configure-sql-server-on-azure-virtual-machines-with-sql-assessment):
+> [!VIDEO https://docs.microsoft.com/shows/data-exposed/optimally-configure-sql-server-on-azure-virtual-machines-with-sql-assessment/player]
+
+
 ## Overview
 
 Once the SQL Assessment feature is enabled, your SQL Server instance and databases are scanned to provide recommendations for things like indexes, deprecated features, enabled or missing trace flags, statistics, etc. Recommendations are surfaced to the [SQL VM management page](manage-sql-vm-portal.md) of the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines). 
