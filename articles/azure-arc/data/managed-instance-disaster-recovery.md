@@ -21,11 +21,11 @@ Disaster recovery features for Azure Arc-enabled SQL Managed Instance are availa
 
 ## Background
 
-Conceptually the distributed availability groups (DAGs) used in Azure Arc-enabled SQL Managed Instance is the same technology that is in SQL Server as described in [Distributed availability groups](/sql/database-engine/availability-groups/windows/distributed-availability-groups). In the case of Azure SQL Managed Instance for Azure Arc, both geo-primary and geo-secondary sites are hosted on Kubernetes and there is no Windows failover cluster involved. 
+The distributed availability groups used in Azure Arc-enabled SQL Managed Instance is the same technology that is in SQL Server. Because Azure Arc-enabled SQL Managed Instance runs on Kubernetes, there's no Windows failover cluster involved.  See [Distributed availability groups](/sql/database-engine/availability-groups/windows/distributed-availability-groups) for more information
 
 > [!NOTE]
 > 1. The Azure Arc-enabled SQL Managed Instance in both geo-primary and geo-secondary sites need to be identical in terms of their compute & capacity, as well as service tiers they are deployed in.
-> 2. Distributed availability groups can be setup for either general purpose or business critical service tiers. 
+> 2. Distributed availability groups can be setup for either General Purpose or Business Critical service tiers. 
 
 To configure disaster recovery:
 
@@ -52,7 +52,7 @@ The following image shows a properly configured distributed availability group:
    az sql mi-arc create --name sqlsecondary --tier bc --replicas 3 --disaster-recovery-site true --k8s-namespace my-namespace --use-k8s
    ```
 
-3. Copy the mirroring certificates from each site to a location thats accessible to both the geo-primary and geo-secondary instances. 
+3. Copy the mirroring certificates from each site to a location that's accessible to both the geo-primary and geo-secondary instances. 
 
    ```azurecli
    az sql mi-arc get-mirroring-cert --name <primaryinstance> --cert-file $HOME/sqlcerts/<name>.pem​ --k8s-namespace <namespace> --use-k8s
