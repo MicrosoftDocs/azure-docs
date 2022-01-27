@@ -38,7 +38,7 @@ To upload the root and endpoint certificates on the device, use the **+ Add cert
 1. Upload the root certificates first. In the local web UI, go to **Certificates**.
 1. Select **+ Add certificate**.
 
-    ![Add signing chain certificate 1](media/azure-stack-edge-gpu-manage-certificates/add-cert-1.png)
+    ![Screenshot showing Add Certificate screen when adding a Signing Chain certificate to an Azure Stack Edge device. The Save Certificate button is highlighted.](media/azure-stack-edge-gpu-manage-certificates/add-cert-1.png)
 
 1. Save the certificate.
 
@@ -46,13 +46,13 @@ To upload the root and endpoint certificates on the device, use the **+ Add cert
 
 1. Next upload the endpoint certificates. 
 
-    ![Add signing chain certificate 2](media/azure-stack-edge-gpu-manage-certificates/add-cert-2.png)
+    ![Screenshot showing Add Certificate screen when adding Endpoint certificates to an Azure Stack Edge device. The Save Certificate button is highlighted.](media/azure-stack-edge-gpu-manage-certificates/add-cert-2.png)
 
     Choose the certificate files in *.pfx* format and enter the password you supplied when you exported the certificate. The Azure Resource Manager certificate may take a few minutes to apply.
 
     If the signing chain is not updated first, and you try to upload the endpoint certificates, then you will get an error.
 
-    ![Apply certificate error](media/azure-stack-edge-gpu-manage-certificates/apply-cert-error-1.png)
+    ![Screenshot showing Apply Certificate error when an Endpoint certificate is uploaded without first uploading a Signing Chain certificate on an Azure Stack Edge device.](media/azure-stack-edge-gpu-manage-certificates/apply-cert-error-1.png)
 
     Go back and upload the signing chain certificate and then upload and apply the endpoint certificates.
 
@@ -104,12 +104,12 @@ The Kubernetes certificates can be for Edge Container Registry or for Kubernetes
 1. Upload the Kubernetes certificate and the corresponding key file that you generated earlier.
     
     - For Edge Container Registry
-    
-        ![Screenshot for adding an Edge Container Registry certificate and key file](media/azure-stack-edge-gpu-manage-certificates/add-cert-3.png)      
 
-    - For Kubernetes dashboard     
+        ![Screenshot showing Add Certificate screen when adding an Edge Container Registry certificate to an Azure Stack Edge device. Browse buttons for the certificate and key file are highlighted.](media/azure-stack-edge-gpu-manage-certificates/add-cert-3.png) 
 
-        ![Screenshot for adding a Kubernetes dashboard certificate and key file](media/azure-stack-edge-gpu-manage-certificates/add-cert-4.png) 
+    - For Kubernetes dashboard
+
+        ![Screenshot showing Add Certificate screen when adding a Kubernetes dashboard certificate to an Azure Stack Edge device. Browse buttons for the certificate and key file are highlighted.](media/azure-stack-edge-gpu-manage-certificates/add-cert-4.png) 
 
 ## Import certificates on the client accessing the device
 
@@ -127,24 +127,22 @@ To import certificates on a Windows client, take the following steps:
 
 1. Right-click the file and select **Install certificate**. This action starts the Certificate Import Wizard.
 
-    ![Import certificate 1](media/azure-stack-edge-gpu-manage-certificates/import-cert-1.png)
+    ![Screenshot the context menu for a file in Windows File Explorer. The Install Certificate option is highlighted.](media/azure-stack-edge-gpu-manage-certificates/import-cert-1.png)
 
 2. For **Store location**, select **Local Machine**, and then select **Next**.
 
-    ![Import certificate 2](media/azure-stack-edge-gpu-manage-certificates/import-cert-2.png)
+    ![Screenshot of the Certificate Import Wizard on a Windows client. The Local Machine storage location is highlighted.](media/azure-stack-edge-gpu-manage-certificates/import-cert-2.png)
 
 3. Select **Place all certificates in the following store**, and then select **Browse**. 
 
     - To import into personal store, navigate to the Personal store of your remote host, and then select **Next**.
 
-        ![Import certificate 4](media/azure-stack-edge-gpu-manage-certificates/import-cert-4.png)
-
+        ![Screenshot of Certificate Import Wizard in Windows with the Personal certificate store selected. The Certificate Store option and Next button are highlighted.](media/azure-stack-edge-gpu-manage-certificates/import-cert-4.png)
 
     - To import into trusted store, navigate to the Trusted Root Certificate Authority, and then select **Next**.
 
-        ![Import certificate 3](media/azure-stack-edge-gpu-manage-certificates/import-cert-3.png)
+        ![Screenshot of Certificate Import Wizard in Windows with the Trusted Root Certification Authority certificate store selected. The Certificate Store option and Next button are highlighted.](media/azure-stack-edge-gpu-manage-certificates/import-cert-3.png)
 
- 
 4. Select **Finish**. A message to the effect that the import was successful appears.
 
 
