@@ -33,7 +33,7 @@ Databases & storage solutions such as Oracle, Teradata, and SAP have query engin
 |**Category**|  **Data source**  |
 |---|---|
 |Database|    [Cassandra](register-scan-cassandra-source.md)|
-|| [DB2](register-scan-db2.md) |
+|| [Db2](register-scan-db2.md) |
 || [Google BigQuery](register-scan-google-bigquery-source.md)|
 || [Hive Metastore Database](register-scan-hive-metastore-source.md) |
 || [MySQL](register-scan-mysql.md) |
