@@ -168,6 +168,9 @@ npm install @azure/msal-node
         - It's the endpoint set as **Redirect URI** for the web app in Azure portal.
         - It uses the `state` query parameter in Azure AD B2C's request to it, to differentiate between requests, which are made from the web app.
         - If the app state is `APP_STATES.LOGIN`, the authorization code acquired is used to retrieve a token using the `acquireTokenByCode()` method. When requesting for a token using `acquireTokenByCode` method, you use the same scopes used while acquiring the authorization code. The acquired token includes an `accessToken`, `idToken`, and `idTokenClaims`. After we acquire the `accessToken`, we put it in a session for later use in to call the web API. 
+    - `/api`:
+        - Calls the web API. 
+        - If the `accessToken` isn't in the session, we call the anonymous API endpoint (`http://localhost:5000/public`), otherwise, we call the protected API endpoint (`http://localhost:5000/hello`).
     - `/signout`:
         - Used when a user signs out.
         - The web app session is cleared and an http call is made to the Azure AD B2c logout endpoint.
@@ -191,7 +194,7 @@ Now that the web API is [registered and you've defined its scopes](#register-the
         cd active-directory-b2c-javascript-nodejs-webapi
         npm install
     ```
-1. Open the `config.json` file in your code editor and update values for the following keys as follows:
+1. Open the `config.json` file in your code editor and update values for the following keys: 
     - For `tenantName`, use the [name of your tenant name](tenant-management.md#get-your-tenant-name) such as `fabrikamb2c`.
     - For `clientID`, use the **Application (Client) ID** for [the web API](#register-the-web-api-and-configure-scopes-in-azure-portal) you created earlier. 
     - For `policyName`, use the name of the **Sing in and sign up** [user flow you created](#create-sign-in-and-sign-up-user-flows-in-azure-portal) earlier, such as `B2C_1_susi_node_app`.
@@ -199,9 +202,38 @@ Now that the web API is [registered and you've defined its scopes](#register-the
    
    After the update, your code should look similar to the following sample: 
     
-    *config.json:*
+    *config.json*:
 
        :::code language="json" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json":::
 
-    *index.js:*
+    *index.js*:
+
         :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js":::
+    
+    Take note of the following code snippets in the `index.js`file:
+        - Imports the passport Azure AD library
+        
+          :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json" id="ms_docref_import_azuread_lib":::
+        
+        - Sets the Azure AD B2C options 
+          
+          :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json" id="ms_docref_azureadb2c_options":::
+
+        - Instantiate the passport Azure AD library with the Azure AD B2C options
+           
+          :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json" id="ms_docref_init_azuread_lib":::
+
+        - The protected API endpoint
+
+          :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json" id="ms_docref_protected_api_endpoint":::
+        
+        - The anonymous API endpoint
+
+          :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json" id="ms_docref_anonymous_api_endpoint":::
+
+
+##
+
+
+## Next steps
+- [Secure an Azure API Management API with Azure AD B2C](secure-api-management.md)

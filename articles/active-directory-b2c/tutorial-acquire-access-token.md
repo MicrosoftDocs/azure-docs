@@ -374,7 +374,7 @@ npm install @azure/msal-node
         - It's the endpoint set as Redirect URI for the web app in Azure portal.
         - It uses the `state` query parameter in Azure AD B2C's request to it, to differentiate between requests, which are made from the web app.
         - If the app state is `APP_STATES.LOGIN`, the authorization code acquired is used to retrieve a token using the `acquireTokenByCode()` method. When requesting for a token using `acquireTokenByCode` method, you use the same scopes used while acquiring the authorization code. The acquired token includes an `accessToken`, `idToken`, and `idTokenClaims`. The `accessToken` can be used to call an API, and the `idToken` identifies the user alongside the `idTokenClaims`.
-        - Put the `accessToken` in the session, and log it.  
+        - Put the `accessToken` in the session, and log it.       
     - `/signout`:
         - Used when a user signs out.
         - The web app session is cleared and an http call is made to Azure AD B2c logout endpoint.  
