@@ -120,7 +120,7 @@ best_child_run = automl_image_run.get_best_child()
 ```
 Use the following model specific arguments to submit the script.
 
-# [Object detection with Faster R-CNN](#tab/object-detect-cnn)
+# [Object detection with Faster R-CNN](#tab/object-detect-cnn-args)
 ```python
 arguments = ['--batch_size', 5,  # enter the batch size of your choice
              '--height_onnx', 600,  # enter the height of input to ONNX model
@@ -139,7 +139,7 @@ arguments = ['--batch_size', 5,  # enter the batch size of your choice
              ]
 ```
 
-# [Object detection with YOLO](#tab/object-detect-yolo)
+# [Object detection with YOLO](#tab/object-detect-yolo-args)
 
 ```python
 arguments = ['--batch_size', 5,  # enter the batch size of your choice
@@ -158,7 +158,7 @@ arguments = ['--batch_size', 5,  # enter the batch size of your choice
              ]
 ```
 
-# [Instance segmentation](#tab/instance-segmentation)
+# [Instance segmentation](#tab/instance-segmentation-args)
 
 ```python
 arguments = ['--batch_size', 5,  # enter the batch size of your choice
@@ -180,7 +180,7 @@ arguments = ['--batch_size', 5,  # enter the batch size of your choice
 
 ---
 
-Download and keep the ONNX_batch_model_generator_automl_for_images.py file in the current directory
+Download and keep the `ONNX_batch_model_generator_automl_for_images.py` file in the current directory and submit the script.
 ```python
 script_run_config = ScriptRunConfig(source_directory='.',
                                     script='ONNX_batch_model_generator_automl_for_images.py',
