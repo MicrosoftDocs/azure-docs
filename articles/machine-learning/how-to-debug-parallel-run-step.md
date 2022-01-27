@@ -89,7 +89,7 @@ If you have another file or folder in the same directory as your inference scrip
 script_dir = os.path.realpath(os.path.join(__file__, '..',))
 file_path = os.path.join(script_dir, "<file_name>")
 
-packages_dir = os.path.join(file_path, 'packages')
+packages_dir = os.path.join(file_path, '<your_package_folder>')
 if packages_dir not in sys.path:
     sys.path.append(packages_dir)
 from <your_package> import <your_class>
