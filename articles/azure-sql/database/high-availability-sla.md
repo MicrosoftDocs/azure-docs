@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
 ms.reviewer: kendralittle, mathoma, emlisa
-ms.date: 1/20/2022
+ms.date: 1/27/2022
 ---
 
 # High availability for Azure SQL Database and SQL Managed Instance
@@ -57,7 +57,7 @@ The zone-redundant version of the high availability architecture for the general
 ![Zone redundant configuration for general purpose](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
 
 > [!IMPORTANT]
-> Zone-redundant configuration is only available when the Gen5 compute hardware is selected. This feature is not available in SQL Managed Instance. Zone-redundant configuration for serverless and provisioned general purpose tier is only available in the following regions: East US, East US 2, West US 2, North Europe, West Europe, Southeast Asia, Australia East, Japan East, UK South, and France Central.
+> Zone-redundant configuration is not available in SQL Managed Instance. In SQL Database this feature is only available when the Gen5 compute hardware is selected. Additionally, for serverless and provisioned general purpose tier, the zone-redundant configuration is only available in the following regions: East US, East US 2, West US 2, North Europe, West Europe, Southeast Asia, Australia East, Japan East, UK South, and France Central.
 
 > [!NOTE]
 > General Purpose databases with a size of 80 vcore may experience performance degradation with zone-redundant configuration. Additionally, operations such as backup, restore, database copy, setting up Geo-DR relationships, and downgrading a zone-redundant database from Business Critical to General Purpose may experience slower performance for any single databases larger than 1 TB. Please see our [latency documentation on scaling a database](single-database-scale.md) for more information.
@@ -82,10 +82,7 @@ By default, the cluster of nodes for the premium availability model is created i
 Because the zone-redundant databases have replicas in different datacenters with some distance between them, the increased network latency may increase the commit time and thus impact the performance of some OLTP workloads. You can always return to the single-zone configuration by disabling the zone-redundancy setting. This process is an online operation similar to the regular service tier upgrade. At the end of the process, the database or pool is migrated from a zone-redundant ring to a single zone ring or vice versa.
 
 > [!IMPORTANT]
-> When using the Business Critical tier, zone-redundant configuration is only available when the Gen5 compute hardware is selected. For up to date information about the regions that support zone-redundant databases, see [Services support by region](../../availability-zones/az-region.md).
-
-> [!NOTE]
-> This feature is not available in SQL Managed Instance.
+> This feature is not available in SQL Managed Instance. In SQL Database, when using the Business Critical tier, zone-redundant configuration is only available when the Gen5 compute hardware is selected. For up to date information about the regions that support zone-redundant databases, see [Services support by region](../../availability-zones/az-region.md).
 
 The zone-redundant version of the high availability architecture is illustrated by the following diagram:
 
