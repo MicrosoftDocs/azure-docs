@@ -49,21 +49,21 @@ The following prerequisites must be met prior to installing the Azure Monitor ag
   - *.control.monitor.azure.com
 
 
-### Using the Azure portal
+## Using the Azure portal
 
-#### Install
+### Install
 To install the Azure Monitor agent using the Azure portal, follow the process to [create a data collection rule](data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal) in the Azure portal. This not only creates the rule, but it also associates it to the selected resources and installs the Azure Monitor agent on them if not already installed.
 
-#### Uninstall
+### Uninstall
 To uninstall the Azure Monitor agent using the Azure portal, navigate to your virtual machine, scale set or Arc-enabled server, select the **Extensions** tab and click on **AzureMonitorWindowsAgent** or **AzureMonitorLinuxAgent**. In the dialog that pops up, click **Uninstall**.
 
-#### Update
+### Update
 To perform a one time update of the agent, you must first uninstall the existing agent version and then install the new version as described above.  
 
 
-### Using Resource Manager template
+## Using Resource Manager template
 
-#### Install
+### Install
 You can use Resource Manager templates to install the Azure Monitor agent on Azure virtual machines and on Azure Arc-enabled servers and to create an association with data collection rules. You must create any data collection rule prior to creating the association.
 
 Get sample templates for installing the agent and creating the association from the following: 
@@ -83,10 +83,10 @@ New-AzResourceGroupDeployment -ResourceGroupName "<resource-group-name>" -Templa
 ```
 ---
 
-### Using PowerShell
+## Using PowerShell
 You can install the Azure Monitor agent on Azure virtual machines and on Azure Arc-enabled servers using the PowerShell command for adding a virtual machine extension. 
 
-#### Install on Azure virtual machines
+### Install on Azure virtual machines
 Use the following PowerShell commands to install the Azure Monitor agent on Azure virtual machines.
 # [Windows](#tab/PowerShellWindows)
 ```powershell
@@ -98,7 +98,7 @@ Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publishe
 ```
 ---
 
-#### Uninstall on Azure virtual machines
+### Uninstall on Azure virtual machines
 Use the following PowerShell commands to install the Azure Monitor agent on Azure virtual machines.
 # [Windows](#tab/PowerShellWindows)
 ```powershell
@@ -110,10 +110,10 @@ Remove-AzVMExtension -Name AMALinux -ResourceGroupName <resource-group-name> -VM
 ```
 ---
 
-#### Update on Azure virtual machines
+### Update on Azure virtual machines
 To perform a one time update of the agent, you must first uninstall the existing agent version and then install the new version as described above.   
 
-#### Install on Azure Arc-enabled servers
+### Install on Azure Arc-enabled servers
 Use the following PowerShell commands to install the Azure Monitor agent on Azure Arc-enabled servers.
 # [Windows](#tab/PowerShellWindowsArc)
 ```powershell
@@ -125,7 +125,7 @@ New-AzConnectedMachineExtension -Name AMALinux -ExtensionType AzureMonitorLinuxA
 ```
 ---
 
-#### Uninstall on Azure Arc-enabled servers
+### Uninstall on Azure Arc-enabled servers
 Use the following PowerShell commands to install the Azure Monitor agent on Azure Arc-enabled servers.
 # [Windows](#tab/PowerShellWindowsArc)
 ```powershell
@@ -137,7 +137,7 @@ Remove-AzConnectedMachineExtension -MachineName <arc-server-name> -ResourceGroup
 ```
 ---
 
-#### Upgrade on Azure Arc-enabled servers
+### Upgrade on Azure Arc-enabled servers
 To perform a one time upgrade of the agent, use the following PowerShell commands:
 # [Windows](#tab/PowerShellWindowsArc)
 ```powershell
@@ -164,10 +164,10 @@ Update-AzConnectedMachineExtension -ResourceGroup <resource-group-name> -Machine
 */
 
 
-### Using Azure CLI
+## Using Azure CLI
 You can install the Azure Monitor agent on Azure virtual machines and on Azure Arc-enabled servers using the Azure CLI command for adding a virtual machine extension. 
 
-#### Install on Azure virtual machines
+### Install on Azure virtual machines
 Use the following CLI commands to install the Azure Monitor agent on Azure virtual machines.
 # [Windows](#tab/CLIWindows)
 ```azurecli
@@ -179,7 +179,7 @@ az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Mo
 ```
 ---
 
-#### Uninstall on Azure virtual machines
+### Uninstall on Azure virtual machines
 Use the following CLI commands to install the Azure Monitor agent on Azure virtual machines.
 # [Windows](#tab/CLIWindows)
 ```azurecli
@@ -191,10 +191,10 @@ az vm extension delete --resource-group <resource-group-name> --vm-name <virtual
 ```
 ---
 
-#### Update on Azure virtual machines
+### Update on Azure virtual machines
 To perform a one time update of the agent, you must first uninstall the existing agent version and then install the new version as described above. 
 
-#### Install on Azure Arc-enabled servers
+### Install on Azure Arc-enabled servers
 Use the following CLI commands to install the Azure Monitor agent onAzure Azure Arc-enabled servers.
 
 # [Windows](#tab/CLIWindowsArc)
@@ -207,7 +207,7 @@ az connectedmachine extension create --name AzureMonitorLinuxAgent --publisher M
 ```
 ---
 
-#### Uninstall on Azure Arc-enabled servers
+### Uninstall on Azure Arc-enabled servers
 Use the following CLI commands to install the Azure Monitor agent onAzure Azure Arc-enabled servers.
 
 # [Windows](#tab/CLIWindowsArc)
@@ -220,7 +220,7 @@ az connectedmachine extension delete --name AzureMonitorLinuxAgent --machine-nam
 ```
 ---
 
-#### Upgrade on Azure Arc-enabled servers
+### Upgrade on Azure Arc-enabled servers
 To perform a one time upgrade of the agent, use the following CLI commands:
 # [Windows](#tab/CLIWindowsArc)
 ```azurecli
@@ -244,10 +244,10 @@ az connectedmachine extension update --name AzureMonitorLinuxAgent --machine-nam
 ---
 
 
-### Using Azure Policy
+## Using Azure Policy
 Use the following policies and policy initiatives to automatically install the agent and associate it with a data collection rule, every time you create a virtual machine.
 
-#### Built-in policy initiatives
+### Built-in policy initiatives
 [View prerequisites for agent installation](azure-monitor-agent-manage.md#prerequisites). 
 
 Policy initiatives for Windows and Linux virtual machines consist of individual policies that:
@@ -257,12 +257,12 @@ Policy initiatives for Windows and Linux virtual machines consist of individual 
 
 ![Partial screenshot from the Azure Policy Definitions page showing two built-in policy initiatives for configuring the Azure Monitor agent.](media/azure-monitor-agent-install/built-in-ama-dcr-initiatives.png)  
 
-#### Built-in policies 
+### Built-in policies 
 You can choose to use the individual policies from their respective policy initiatives, based on your needs. For example, if you only want to automatically install the agent, use the first policy from the initiative as shown in the following example.  
 
 ![Partial screenshot from the Azure Policy Definitions page showing policies contained within the initiative for configuring the Azure Monitor agent.](media/azure-monitor-agent-install/built-in-ama-dcr-policy.png)  
 
-#### Remediation
+### Remediation
 The initiatives or policies will apply to each virtual machine as it's created. A [remediation task](../../governance/policy/how-to/remediate-resources.md) deploys the policy definitions in the initiative to *existing resources*, so you can configure the Azure Monitor agent for any resources that were already created. 
 
 When you create the assignment by using the Azure portal, you have the option of creating a remediation task at the same time. See [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md) for details on the remediation.
