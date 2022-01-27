@@ -33,7 +33,6 @@ You will learn how to:
 
 ## Prerequisites
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Get your azure subscription and azure account allowlisted, currently for private preview, only allowlisted azure subscription will be able to see ACS channel option.
 - [Visual Studio (2019 and above)](https://visualstudio.microsoft.com/vs/)
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
 
@@ -56,12 +55,12 @@ In order to use ACS chat as a channel in Azure Bot Service, the first step would
 ![Creat Azure Bot.png](./media/Creat%20Azure%20Bot.png)
 
 
-   - Finally create an Azure Bot resource. You might use an existing Microsoft app Id that you must have created or create a new one that gets created automatically. <br/><br/> 
+   - Finally create an Azure Bot resource. You might use an existing Microsoft app ID that you must have created or create a new one that gets created automatically. <br/><br/> 
  ![Provision Azure Bot.png](./media/Provision%20Azure%20Bot.png)
 
 ### Get Bot's MicrosoftAppId and MicrosoftAppPassword
 
-After creating the Azure Bot resource, next step would be to set a password for the App Id we set for the Bot credential if you chose to create one automatically in the first step.
+After creating the Azure Bot resource, next step would be to set a password for the App ID we set for the Bot credential if you chose to create one automatically in the first step.
 
  - Go to Azure Active Directory
 ![Azure Active Directory](./media/AAD.png)
@@ -110,7 +109,7 @@ The final step would be to deploy the bot logic to the Web App we created. As we
      ```
    - Open the project located here [Echo bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot) in Visual Studio.
 
-   - Go to the appsettings.json file inside the project and copy the AAD application ID and password we created in step 2 in respective places.
+   - Go to the appsettings.json file inside the project and copy the application ID and password we created in step 2 in respective places.
       ```js
       {
         "MicrosoftAppId": "<App-registration-id>",
@@ -249,7 +248,7 @@ await foreach (ChatMessage message in allMessages)
 }
 ```
 You should see bot's echo reply to "Hello World" in the list of messages.
-When creating the actual chat applications, you can also receive real-time chat messages by subscribing to listen for new incoming messages using our Javascript or mobile SDKs. An example using Javascript SDK would be:
+When creating the actual chat applications, you can also receive real-time chat messages by subscribing to listen for new incoming messages using our JavaScript or mobile SDKs. An example using JavaScript SDK would be:
 ```js
 // open notifications channel
 await chatClient.startRealtimeNotifications();
