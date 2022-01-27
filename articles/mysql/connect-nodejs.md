@@ -93,10 +93,10 @@ Get the connection information needed to connect to the Azure Database for MySQL
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
  :::image type="content" source="./media/connect-nodejs/server-name-azure-database-mysql.png" alt-text="Azure Database for MySQL server name":::
 
-## Running the JavaScript code in Node.js
+## Running the code samples
 
 1. Paste the JavaScript code into new text files, and then save it into a project folder with file extension .js (such as C:\nodejsmysql\createtable.js or /home/username/nodejsmysql/createtable.js).
-1. Replace `host`, `user`, `password` and `database` config options in the code with your values. 
+1. Replace `host`, `user`, `password` and `database` config options in the code with the values that you specified when you created the server and database.
 1. **Obtain SSL certificate**: Download the certificate needed to communicate over SSL with your Azure Database for MySQL server from [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and save the certificate file to your local drive.
 
     **For Microsoft Internet Explorer and Microsoft Edge:** After the download has completed, rename the certificate to BaltimoreCyberTrustRoot.crt.pem.
@@ -112,8 +112,6 @@ Get the connection information needed to connect to the Azure Database for MySQL
 Use the following code to connect and load the data by using **CREATE TABLE** and  **INSERT INTO** SQL statements.
 
 The [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) method is used to interface with the MySQL server. The [connect()](https://github.com/mysqljs/mysql#establishing-connections) function is used to establish the connection to the server. The [query()](https://github.com/mysqljs/mysql#performing-queries) function is used to execute the SQL query against MySQL database. 
-
-Replace the `host`, `user`, `password`, and `database` parameters with the values that you specified when you created the server and database.
 
 ```javascript
 const mysql = require('mysql');
@@ -182,8 +180,6 @@ Use the following code to connect and read the data by using a **SELECT** SQL st
 
 The [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) method is used to interface with the MySQL server. The [connect()](https://github.com/mysqljs/mysql#establishing-connections) method is used to establish the connection to the server. The [query()](https://github.com/mysqljs/mysql#performing-queries) method is used to execute the SQL query against MySQL database. The results array is used to hold the results of the query.
 
-Replace the `host`, `user`, `password`, and `database` parameters with the values that you specified when you created the server and database.
-
 ```javascript
 const mysql = require('mysql');
 const fs = require('fs');
@@ -236,8 +232,6 @@ Use the following code to connect and read the data by using an **UPDATE** SQL s
 
 The [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) method is used to interface with the MySQL server. The [connect()](https://github.com/mysqljs/mysql#establishing-connections) method is used to establish the connection to the server. The [query()](https://github.com/mysqljs/mysql#performing-queries) method is used to execute the SQL query against MySQL database. 
 
-Replace the `host`, `user`, `password`, and `database` parameters with the values that you specified when you created the server and database.
-
 ```javascript
 const mysql = require('mysql');
 const fs = require('fs');
@@ -286,7 +280,6 @@ Use the following code to connect and read the data by using a **DELETE** SQL st
 
 The [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) method is used to interface with the MySQL server. The [connect()](https://github.com/mysqljs/mysql#establishing-connections) method is used to establish the connection to the server. The [query()](https://github.com/mysqljs/mysql#performing-queries) method is used to execute the SQL query against MySQL database. 
 
-Replace the `host`, `user`, `password`, and `database` parameters with the values that you specified when you created the server and database.
 
 ```javascript
 const mysql = require('mysql');
