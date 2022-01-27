@@ -22,6 +22,8 @@ This page lists major changes made to AzAcSnap to provide new functionality or r
 
 ## Jan-2022
 
+### AzAcSnap v5.1 Preview (Build: 20220125.85030)
+
 AzAcSnap v5.1 Preview (Build: 20220125.85030) has been released with the following new features:
 
 - Oracle Database support
