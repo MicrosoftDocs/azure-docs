@@ -1044,7 +1044,7 @@ Users in this role can read settings and administrative information across Micro
 >- [OneDrive admin center](https://admin.onedrive.com/) - OneDrive admin center does not support the Global Reader role
 >- [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage) - Global Reader can't read integrated apps. You won't find the **Integrated apps** tab under **Settings** in the left pane of Microsoft 365 admin center.
 >- [Office Security & Compliance Center](https://sip.protection.office.com/homepage) - Global Reader can't read SCC audit logs, do content search, or see Secure Score.
->- [Teams admin center](https://admin.teams.microsoft.com) - Global Reader cannot read **Teams lifecycle**, **Analytics & reports**, **IP phone device management** and **App catalog**.
+>- [Teams admin center](https://admin.teams.microsoft.com) - Global Reader cannot read **Teams lifecycle**, **Analytics & reports**, **IP phone device management**, and **App catalog**. For more information, see [Use Microsoft Teams administrator roles to manage Teams](/microsoftteams/using-admin-roles).
 >- [Privileged Access Management (PAM)](/office365/securitycompliance/privileged-access-management-overview) doesn't support the Global Reader role.
 >- [Azure Information Protection](/azure/information-protection/what-is-information-protection) - Global Reader is supported [for central reporting](/azure/information-protection/reports-aip) only, and when your Azure AD organization isn't on the [unified labeling platform](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 > - [SharePoint](https://admin.microsoft.com/sharepoint) - Global Reader currently can't access SharePoint using PowerShell.

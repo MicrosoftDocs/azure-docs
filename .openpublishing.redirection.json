@@ -45246,6 +45246,12 @@
       "source_path_from_root": "/articles/azure/devtest-labs/scripts/stop-delete-virtual-machine-in-lab-cli.md",
       "redirect_url": "/azure/devtest-labs/samples-cli",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/agents/azure-monitor-agent-install.md",
+      "redirect_url": "/azure/azure-monitor/agents/azure-monitor-agent-manage",
+      "redirect_document_id": true
     }
+
   ]
 }
