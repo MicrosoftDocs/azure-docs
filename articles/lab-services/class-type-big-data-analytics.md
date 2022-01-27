@@ -103,7 +103,7 @@ To provide an easy to use experience for students, we'll use a PowerShell script
 - Launches the browser and navigates to the Sandbox Welcome Page.
 
 We'll also use Windows Task Scheduler to automatically run this script when a student logs into their VM.
-To set this up, follow these steps: [Big Data Analytics scripting](https://aka.ms/azlabs/classtypes/bigDataAnalytics).
+To set this up, follow these steps: [Big Data Analytics scripting](https://aka.ms/azlabs/scripts/BigDataAnalytics).
 
 ## Cost estimate
 

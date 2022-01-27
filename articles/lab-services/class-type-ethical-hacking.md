@@ -40,7 +40,7 @@ To configure the template VM, we'll complete the following three major tasks.
 2. Set up the [Kali](https://www.kali.org/) Linux image. Kali is a Linux distribution that includes tools for penetration testing and security auditing.
 3. Set up the Metasploitable image. For this example, the [Metasploitable3](https://github.com/rapid7/metasploitable3) image will be used. This image is created to purposely have security vulnerabilities.
 
-You can complete the tasks above by executing the [Lab Services Hyper-V Script](https://aka.ms/azlabs/scripts/hyperV) and [Lab Services Ethical Hacking Script](https://aka.ms/azlabs/classtypes/EthicalHacking) PowerShell scripts on the template machine. Once scripts have been executed, continue to [Next steps](#next-steps).
+You can complete the tasks above by executing the [Lab Services Hyper-V Script](https://aka.ms/azlabs/scripts/hyperV) and [Lab Services Ethical Hacking Script](https://aka.ms/azlabs/scripts/EthicalHacking) PowerShell scripts on the template machine. Once scripts have been executed, continue to [Next steps](#next-steps).
 
 If you choose to set up the template machine manually, continue reading.  The rest of this article will cover the manual completion of template configuration tasks.  
 
