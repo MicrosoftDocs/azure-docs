@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 01/10/2022
+ms.date: 01/27/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -51,14 +51,14 @@ Once you're done, click **Next**, review the details, and click **create project
 
 ## Build schema
 
-1. Select the Intents or Entities tab in the **Build Schema** page, and click on **Add**. You will be prompted for a name before completing the creation of the intent or entity.
+1. Select the **Intents** or **Entities** tab in the **Build Schema** page, and click on **Add**. You will be prompted for a name before completing the creation of the intent or entity.
 
 2. Create three intents with the following names:
     - **Read**
     - **Delete**
     - **Attach**
 
-3. Create three entities with the following names:
+3. Create three entities with the following names. Once you create the entity, go back to the **Build Schema** page without adding details to the entity:
     - **Sender**
     - **FileName**
     - **FileType**
@@ -83,6 +83,7 @@ Add the rest of these utterances with the following intents and entities.
 |--|--|--|
 |*Read John's email for me*|**Read**|"John": **Sender**|
 |*What did the email from Matt say*|**Read**|"Matt": **Sender**|
+|*Open Blake's email*|**Read**|"Blake": **Sender**|
 |*Delete my last email from Martha*|**Delete**|"Martha": **Sender**|
 |*Delete this*|**Delete**|_No entities_|
 |*Remove this one*|**Delete**|_No entities_|
@@ -98,7 +99,7 @@ When you're done, click on **Save Changes** to save the utterances and labels to
 
 ## Train your model and view its details
 
-Click on **train model** on the left of the screen. To train your model, you need to provide a name for the model. Write a name like "*v0.1*" and press the enter key. 
+Click on **train model** on the left of the screen. Select **Start a training job**. To train your model, you need to provide a name for the model. Write a name like "*v1*" and press the enter key. 
 
 Turn off **Run evaluation with training** before clicking on **Train**. 
 
