@@ -27,7 +27,6 @@ When installing Debian agent on an IoT Device with a Linux OS, modify the '/etc/
 
 |Name|Description|
 |-----------|--------------------|
-
 |SchemaVersion|The schema version that maps the current configuration file format version|
 |aduShellTrustedUsers|The list of users that can launch the 'adu-shell' program. Note, 'adu-shell' is a "broker" program that does various Update Actions, as 'root'. The Device Update default content update handlers invoke 'adu-shell' to do tasks that require "super user" privilege. Examples of tasks that require this privilege are "apt-get install" or executing a privileged scripts.|
 |aduc_manufacturer|Reported by the `AzureDeviceUpdateCore:4.ClientMetadata:4` interface to classify the device for targeting the update deployment.|
