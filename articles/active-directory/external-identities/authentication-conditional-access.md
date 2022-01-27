@@ -15,15 +15,13 @@ manager: celestedg
 ms.collection: M365-identity-device-management
 ---
 
-# Authentication and Conditional Access for external users
+# Authentication and Conditional Access for External Identities
 
 When an external user accesses resources in your organization, the authentication flow is determined by the user's identity provider (an external Azure AD tenant, social identity provider, etc.), Conditional Access policies, and the cross-tenant access settings configured both in the user's home tenant and the tenant hosting resources.
 
 This article describes the authentication flow for external users who are accessing resources in your organization. Organizations can enforce multiple Conditional Access policies for their external users, which can be enforced at the tenant, app, or individual user level in the same way that they're enabled for full-time employees and members of the organization.
 
-## Authentication flow for external users
-
-### Authentication flow for Azure AD cross-tenant scenarios
+## Authentication flow for external Azure AD users
 
 The following diagram illustrates the authentication flow when an Azure AD organization shares resources with users from other Azure AD organizations. This diagram shows how cross-tenant access settings work with Conditional Access policies, such as multi-factor authentication (MFA), to determine if the user can access resources.
 
@@ -36,19 +34,18 @@ The following diagram illustrates the authentication flow when an Azure AD organ
 |**3**     | Azure AD checks Contoso’s inbound trust settings to see if Contoso trusts MFA and device claims (device compliance, hybrid Azure AD joined status) from Fabrikam. If not, skip to step 6.         |
 |**4**     | If Contoso trusts MFA and device claims from Fabrikam, Azure AD checks the user’s credentials for an indication the user has completed MFA. If Contoso trusts device information from Fabrikam, Azure AD uses the device ID to look up the device object in Fabrikam to determine its state (compliant or hybrid Azure AD joined).         |
 |**5**     | If MFA is required but not completed or if a device ID isn't provided, Azure AD issues MFA and device challenges in the user's home tenant as needed. When MFA and device requirements are satisfied in Fabrikam, the user is allowed access to the resource in Contoso. If the checks can’t be satisfied, access is blocked.        |
-|**6**     | When no trust settings are configured and MFA is required, B2B collaboration users are prompted for MFA, which they need to satisfy in the resource tenant. If device compliance is required but can't be evaluated, access is blocked.             |
+|**6**     | When no trust settings are configured and MFA is required, B2B collaboration users are prompted for MFA, which they need to satisfy in the resource tenant. If device compliance is required, access is blocked.             |
 
-### Cross-tenant access trust settings
+For more details, see the [Conditional Access for external users](#conditional-access-for-external-users) section below.
 
-As the resource tenant, you can opt to trust the MFA and device compliance claims from external Azure AD tenants. In your Azure AD cross-tenant access settings, you can configure trust settings for MFA claims and device compliance claims from external Azure AD tenants. Trust settings can apply to all Azure AD organizations, or just selected Azure AD organizations. For details, see [Configuring cross-tenant access settings for B2B collaboration](cross-tenant-access-settings-b2b-collaboration.md). If no trust settings are configured, the flow is the same as the [MFA flow for non-Azure AD external users](#mfa-for-non-azure-ad-external-users).
-
-### Authentication flow for non-Azure AD external users
+## Authentication flow for non-Azure AD external users
 
 When an Azure AD organization shares resources with external users with an identity provider other than Azure AD, the authentication flow depends on whether the user is authenticating with an identity provider or with email one-time passcode authentication. In either case, the resource tenant identifies which authentication method to use, and then either redirects the user to their identity provider or issues a one-time passcode.
 
-#### Example 1: Authentication flow and token for a non-Azure AD external user
+### Example 1: Authentication flow and token for a non-Azure AD external user
 
-The following diagram illustrates the flow:
+The following diagram illustrates the authentication flow when an external user signs in with an account from a non-Azure AD identity provider, such as Google, Facebook, or a federated SAML/WS-Fed identity provider.
+
 ![image shows Authentication flow for B2B guest users from an external directory](media/authentication-conditional-access/authentication-flow-b2b-guests.png)
 
 | Step | Description |
@@ -58,9 +55,10 @@ The following diagram illustrates the flow:
 | **3** | Outbound cross-tenant access settings are evaluated. If the user is allowed outbound access, the B2B guest user’s IdP issues a token to the user. The user is redirected back to the resource tenant with the token. The resource tenant validates the token and then evaluates the user against its Conditional Access policies. For example, the resource tenant could require the user to perform Azure Active Directory (AD) MFA.
 | **4** | Inbound cross-tenant access settings and Conditional Access policies are evaluated. If all policies are satisfied, the resource tenant issues its own token and redirects the user to its resource.
 
-#### Example 2: Authentication flow and token for one-time passcode user
+### Example 2: Authentication flow and token for one-time passcode user
 
-The following diagram illustrates the flow:
+The following diagram illustrates the flow when email one-time passcode authentication is enabled and the  external user isn't authenticated through other means, such as Azure AD, Microsoft account (MSA), or social identity provider.
+
 ![image shows Authentication flow for B2B guest users with one time passcode](media/authentication-conditional-access/authentication-flow-b2b-guests-otp.png)
 
 | Step | Description |
@@ -69,6 +67,18 @@ The following diagram illustrates the flow:
 | **2** | The resource tenant identifies the user as an [external email one-time passcode (OTP) user](./one-time-passcode.md) and sends an email with the OTP to the user.|
 | **3** | The user retrieves the OTP and submits the code. The resource tenant evaluates the user against its Conditional Access policies.
 | **4** | Once all Conditional Access policies are satisfied, the resource tenant issues a token and redirects the user to its resource. |
+
+## Conditional Access for external users
+
+Organizations can enforce Conditional Access policies for external B2B collaboration users in the same way that they're enabled for full-time employees and members of the organization. This section describes important considerations for applying Conditional Access to users outside of your organization.
+
+### Azure AD cross-tenant trust settings for MFA and device claims
+
+In an Azure AD cross-tenant scenario, the resource organization can create Conditional Access policies that require MFA or device compliance for all guest and external users. Generally, an external user accessing a resource is required to set up their Azure AD MFA with the resource tenant. However, Azure AD now offers the capability to trust MFA, compliant device claims, and [hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md) claims from external Azure AD organizations, making for a more streamlined sign-in experience for the external user. As the resource tenant, you can use cross-tenant access settings to trust the MFA and device claims from external Azure AD tenants. Trust settings can apply to all Azure AD organizations, or just selected Azure AD organizations.
+
+When trust settings are enabled, Azure AD will check a user's credentials during authentication for an MFA claim or a device ID to determine if the policies have already been met in their home tenant. If so, the external user will be granted seamless sign-on to your shared resource. Otherwise, an MFA or device challenge will be initiated in the user's home tenant. If trust settings aren't enabled, or if the user's credentials don't contain the required claims, the external user will be presented with an MFA or device challenge.
+
+For details, see [Configuring cross-tenant access settings for B2B collaboration](cross-tenant-access-settings-b2b-collaboration.md). If no trust settings are configured, the flow is the same as the [MFA flow for non-Azure AD external users](#mfa-for-non-azure-ad-external-users).
 
 ### MFA for non-Azure AD external users
 
@@ -116,21 +126,11 @@ The following PowerShell cmdlets are available to *proof up* or request MFA regi
    Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
    ```
 
-## Conditional Access for external users
-
-Organizations can enforce Conditional Access policies for external B2B collaboration users in the same way that they're enabled for full-time employees and members of the organization.
-
-### Azure AD cross-tenant scenarios and trust settings
-
-The resource organization can create Conditional Access policies that require MFA or device compliance for all guest and external users. Generally, an external user accessing a resource is required to set up their Azure AD MFA with the resource tenant. However, Azure AD now offers the capability to trust MFA, compliant device, and hybrid Azure AD joined device claims from external Azure AD organizations, making for a more streamlined sign-in experience for the external user. As the resource tenant, you can use cross-tenant access settings to trust the MFA and device claims from external Azure AD tenants. Trust settings can apply to all Azure AD organizations, or just selected Azure AD organizations.
-
-When trust settings are enabled, Azure AD will check a user's credentials during authentication for an MFA claim or a device ID to determine if the policies have already been met in their home tenant. If so, the external user will be granted seamless sign-on to your shared resource. Otherwise, an MFA or device challenge will be initiated in the user's home tenant. If trust settings aren't enabled, or if the user's credentials don't contain the required claims, the external user will be presented with an MFA or device challenge.
-
 ### Device-based Conditional Access
 
-In Conditional Access, there's an option to require a user’s [device to be compliant or hybrid Azure AD joined](../conditional-access/concept-conditional-access-conditions.md#device-state-preview). Because devices can only be managed by the home tenant, additional considerations must be made for external users. As the resource tenant, you can use cross-tenant access settings to trust device (compliant and hybrid azure AD joined) claims.
+In Conditional Access, there's an option to require a user’s [device to be compliant or hybrid Azure AD joined](../conditional-access/howto-conditional-access-policy-compliant-device.md). Because devices can only be managed by the home tenant, additional considerations must be made for external users. As the resource tenant, you can use cross-tenant access settings to trust device (compliant and hybrid azure AD joined) claims.
 
->[!Note]
+>[!Important]
 >
 >- Unless you're willing to trust device (compliant or hybrid Azure AD joined) claims for external users, we don't recommend a Conditional Access policy requiring a managed device.
 >- When guest users try to access a resource protected by Conditional Access, they can't register and enroll devices in your tenant and will be blocked from accessing your resources.

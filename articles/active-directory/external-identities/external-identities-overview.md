@@ -45,7 +45,7 @@ There are various ways to add external users to your organization for B2B collab
 
 A user object is created for the B2B collaboration user in the same directory as your employees. This user object can be managed like other user objects in your directory, added to groups, and so on. You can assign permissions to the user object (for authorization) while letting them use their existing credentials (for authentication).
 
-You can use [cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md) to manage B2B collaboration with other Azure AD organizations. For B2B collaboration with non-Azure AD external users and organizations, use [external collaboration settings](external-collaboration-settings-configure.md).
+You can use [cross-tenant access settings](cross-tenant-access-overview.md) to manage B2B collaboration with other Azure AD organizations. For B2B collaboration with non-Azure AD external users and organizations, use [external collaboration settings](external-collaboration-settings-configure.md).
 
 Learn more about [B2B collaboration in Azure AD](what-is-b2b.md).
 
@@ -85,7 +85,7 @@ Cross-tenant access settings let you manage B2B collaboration with other Azure A
 
 - **Organization-specific access settings** let you configure customized settings for individual Azure AD organizations. Once you add an organization and customize your cross-tenant access settings with this organization, these settings will take precedence over your defaults. For example, you could enable B2B collaboration with all external organizations by default, but disable this feature only for Fabrikam.
 
-For more information, see how to [configure cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md).
+For more information, see [Cross-tenant access in Azure AD External Identities](cross-tenant-access-overview.md).
 
 ### External collaboration settings
 

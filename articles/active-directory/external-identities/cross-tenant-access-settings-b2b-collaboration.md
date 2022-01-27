@@ -19,75 +19,18 @@ ms.collection: M365-identity-device-management
 > [!NOTE]
 > Cross-tenant access settings are preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Use External Identities cross-tenant access settings to manage how you collaborate with other Azure AD organizations through B2B collaboration. These settings determine both the level of *inbound* access users in external Azure AD organizations have to your resources, as well as the level of *outbound* access your users have to external organizations. They also let you trust multi-factor authentication (MFA) and device claims (compliant and Hybrid Azure AD join claims) from other Azure AD organizations.
-
-- **Default settings**: The default cross-tenant access settings apply to all Azure AD organizations external to your tenant, except those for which you've configured organizational settings. You can change your default settings, but their initial settings are as follows:
-
-  - All your users are enabled for **B2B collaboration** by default. This means your users can invite external guests to access your resources and they can be invited to external organizations as guests. MFA and device claims from other Azure AD organizations are not trusted.
-  - No organizations are added to your **Organizational settings** by default. This means all external Azure AD organizations are enabled for B2B collaboration with your organization.
-
-- **Organizational settings**: You can configure organization-specific settings by adding an organization and modifying the inbound and outbound settings for that organization. Organizational settings take precedence over default settings.
-
-This article describes how to configure both default and organizational cross-tenant access settings to manage collaboration with external users from Azure AD organizations.
-
-## Important considerations
-
-  > [!CAUTION]
-  > Changing the default inbound or outbound settings to **Block access** could block existing business-critical access to apps in your organization or partner organizations. Be sure to use the tools described in this article and consult with your business stakeholders to identify the required access.
- 
-- The cross-tenant access settings described in this article are used to manage B2B collaboration with other Azure AD organizations. For non-Azure AD identities (for example, social identities or non-IT managed external accounts), use [external collaboration settings](external-collaboration-settings-configure.md). External collaboration settings include options for restricting guest user access, specifying who can invite guests, and allowing or blocking domains.
-- The access settings you configure for users and groups must match the access settings for applications. Conflicting settings aren't allowed, and you’ll see warning messages if you try to configure them.
-  - *Example 1*: If you block inbound B2B collaboration for all external users and groups, access to all your applications must also be blocked.
-  - *Example 2*: If you allow outbound B2B collaboration for all your users (or specific users or groups), you’ll be prevented from blocking all access to external applications; acess to at least one application must be allowed.
-- If you block access to all apps by default, users will be unable to read emails encrypted with Microsoft Rights Management Service (also known as OME). To avoid this issue, we recommend configuring your outbound settings to allow your users to access this app ID: 00000012-0000-0000-c000-000000000000. If this is the only application you allow, access to all other apps will be blocked by default.
-- To configure cross-tenant access settings in the Azure portal, you'll need an account with a Global administrator or Security administrator role.
-- To configure trust settings or apply access settings to specific users, groups, or applications, you'll need an Azure AD Premium P1 license.
+Use External Identities cross-tenant access settings to manage how you collaborate with other Azure AD organizations through B2B collaboration. These settings determine both the level of *inbound* access users in external Azure AD organizations have to your resources, as well as the level of *outbound* access your users have to external organizations. They also let you trust multi-factor authentication (MFA) and device claims ([compliant and hybrid Azure AD join claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations. For details and planning considerations, see [Cross-tenant access in Azure AD External Identities](cross-tenant-access-overview.md).
 
 ## Before you begin
 
-- Use the tools and follow the recommendations in the [Identify inbound and outbound sign-ins](#identify-inbound-and-outbound-sign-ins) section to understand which external Azure AD organizations and resources users are currently accessing.
+  > [!CAUTION]
+  > Changing the default inbound or outbound settings to **Block access** could block existing business-critical access to apps in your organization or partner organizations. Be sure to use the tools described in [Cross-tenant access in Azure AD External Identities](cross-tenant-access-overview.md) and consult with your business stakeholders to identify the required access.
+
+- Review the [Important considerations](cross-tenant-access-overview.md#important-considerations) section in the [cross-tenant access overview](cross-tenant-access-overview.md) before configuring your cross-tenant access settings.
+- Use the tools and follow the recommendations in [Identify inbound and outbound sign-ins](cross-tenant-access-overview.md#identify-inbound-and-outbound-sign-ins) to understand which external Azure AD organizations and resources users are currently accessing.
 - Decide on the default level of access you want to apply to all external Azure AD organizations.
 - Identify any Azure AD organizations that will need customized settings so you can configure **Organizational settings** for them.
 - Obtain any required information from external organizations. If you want to apply access settings to specific users, groups, or applications within an external organization, you'll need to contact the organization to obtain object IDs for those groups, users, and applications before configuring access settings.
-
-## Identify inbound and outbound sign-ins
-
-Several tools are available to help you identify the access your users and partners need before you set inbound and outbound access settings. To ensure you don’t remove access that your users and partners need, you can examine current sign-in behavior. Taking this preliminary step will help prevent loss of desired access for your end users and partner users. However, in some cases these logs are only retained for 30 days, so we strongly recommend you speak with your business stakeholders to ensure required access is not lost.
-
-### Sign-In Logs
-
-To determine your users access to external Azure AD organizations in the last 30 days, run the following PowerShell script:
-
-```powershell
-Get-MgAuditLogsSignIn ` 
--Filter “ResourceTenantID ne ‘your tenant id’” ` 
--all:$True| ` 
-group ResourceTenantId,AppDisplayName,UserPrincipalName| ` 
-select count, @{n=’Ext TenantID/App User Pair’;e={$_.name}}] 
-```
-
-The output is a list of outbound sign-ins initiated by your users to apps in external tenants, for example:
-
-```powershell
-Count Ext TenantID/App User Pair
------ --------------------------
-    6 45fc4ed2-8f2b-42c1-b98c-b254d552f4a7, ADIbizaUX, a@b.com
-    6 45fc4ed2-8f2b-42c1-b98c-b254d552f4a7, Azure Portal, a@b.com
-    6 45fc4ed2-8f2b-42c1-b98c-b254d552f4a7, Access Panel, a@b.com
-    6 45fc4ed2-8f2b-42c1-b98c-b254d552f4a7, MS-PIM, a@b.com
-    6 45fc4ed2-8f2b-42c1-b98c-b254d552f4a7, AAD ID Gov, a@b.com
-    6 45fc4ed2-8f2b-42c1-b98c-b254d552f4a7, Access Panel, a@b.com
-```
-
-For the most up-to-date PowerShell script, see [Identify External Sign-ins PowerShell script](https://aka.ms/cross-tenant-signins-ps).
-
-### Azure Monitor
-
-If your organization subscribes to the Azure Monitor service, you can use the [Identify External Sign-ins Workbook](https://aka.ms/cross-tenant-signins-workbook) to visually explore inbound and outbound sign-ins for longer time periods.  
-
-### Security Information and Event Management (SIEM) Systems
-
-If your organization exports sign-in logs to a Security Information and Event Management (SIEM) system, you can retrieve required information from your SIEM system.
 
 ## Configure default settings
 
