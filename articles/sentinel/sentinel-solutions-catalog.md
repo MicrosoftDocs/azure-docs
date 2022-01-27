@@ -27,6 +27,8 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Apache Log4j Vulnerability Detection** | Analytics rules, hunting queries | Application, Security - Threat Protection, Security - Vulnerability Management | Microsoft|
+|**Cybersecurity Maturity Model Certification CMMC** | Analytics rules, workbook | Compliance | Microsoft|
+|**Maturity Model For Event Log Management M2131** | Analytics rules, hunting queries, playbooks, workbook | Compliance | Microsoft|
 |**Microsoft Insider Risk Management** (IRM) |[Data connector](data-connectors-reference.md#microsoft-365-insider-risk-management-irm-preview), workbook, analytics rules, hunting queries |Security - Insider threat | Microsoft|
 | **Microsoft MITRE ATT&CK solution for Cloud**| Workbooks, analytics rules, hunting queries|Security - Threat protection, Security - Others |Microsoft |
 | **Microsoft Sentinel Deception** | [Workbooks, analytics rules, watchlists](monitor-key-vault-honeytokens.md)  | Security - Threat Protection  |Microsoft |
