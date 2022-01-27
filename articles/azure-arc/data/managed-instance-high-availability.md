@@ -14,8 +14,6 @@ ms.subservice: azure-arc-data
 
 # High Availability with Azure Arc-enabled SQL Managed Instance (preview)
 
-## Overview
-
 Azure Arc-enabled SQL Managed Instance is deployed on Kubernetes as a containerized application and uses Kubernetes constructs such as stateful sets and persistent storage to provide built-in health monitoring, failure detection, and failover mechanisms to maintain service health. For increased reliability, you can also configure Azure Arc-enabled SQL Managed Instance to deploy with extra replicas in a high availability configuration. Monitoring, failure detection, and automatic failover are managed by the Arc data services data controller. This service is provided without user intervention – all from availability group setup, configuring database mirroring endpoints, to adding databases to the availability group or failover and upgrade coordination. This document explores both types of high availability.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
@@ -61,7 +59,7 @@ To verify the build-in high availability provided by Kubernetes, you can delete 
    kubectl get pods -n <namespace of data controller>
    ```
 
-   For example
+   For example:
 
    ```output
    user@pc:/# kubectl get pods -n arc
@@ -138,14 +136,14 @@ By default, all the replicas are configured in synchronous mode. This means any 
 Once the deployment is complete, connect to the primary endpoint from SQL Server Management Studio.  
 
 Verify and retrieve the endpoint of the primary replica, and connect to it from SQL Server Management Studio. 
-For instance, if the SQL instance was deployed using `service-type=loadbalancer```, run the below command to retieve the endpoint to connect to:
+For instance, if the SQL instance was deployed using `service-type=loadbalancer`, run the below command to retrieve the endpoint to connect to:
 
 ```azurecli
 az sql mi-arc list --k8s-namespace my-namespace --use-k8s
 ```
 
 or
-```bash
+```console
 kubectl get sqlmi -A
 ```
 
@@ -155,15 +153,17 @@ Use the `kubectl describe sqlmi` or `az sql mi-arc show` commands to view the pr
 
 Example:
 
-```
+```console
 kubectl describe sqlmi sqldemo -n my-namespace
 ```
 or 
-```
+
+```azurecli
 az sql mi-arc show sqldemo --k8s-namespace my-namespace --use-k8s
 ```
 
 Example output:
+
 ```console
  "status": {
     "AGStatus": "Healthy",
@@ -200,7 +200,7 @@ Unlike SQL Server Always on Availability Groups, the Contained Availability Grou
 
 Busines Critical service tier SQL managed instances can be deployed in either 2 replica configuration or 3 replica configuration and the impact of failures and the subsequent recoverability is different with each configuration. A 3-replica instance provides a much higher level of availability and recovery in case of failures, than a 2-replica instance. 
 
-When Arc SQL MI is deployed in a 2-replica configuration and both the nodes state is `SYNCHRONIZED```, if the primary replica becomes unavailable, the secondary replica is automatically promoted to the primary status and can take on transactions. When the failed replica becomes available, it will be updated with all the pending changes. If there are connectivity issues between the replicas, then the primary replica may not commit any transactions as every transaction needs to be committed on both replicas before a success is returned back on the primary. 
+When Arc SQL MI is deployed in a 2-replica configuration and both the nodes state is `SYNCHRONIZED`, if the primary replica becomes unavailable, the secondary replica is automatically promoted to the primary status and can take on transactions. When the failed replica becomes available, it will be updated with all the pending changes. If there are connectivity issues between the replicas, then the primary replica may not commit any transactions as every transaction needs to be committed on both replicas before a success is returned back on the primary. 
 
 When Arc SQL MI is deployed in a 3-replica configuration, a transaction needs to commit in at least 2 of the 3 replicas before returning a success message back to the application. In the event of a failure, one of the secondaries is automatically promoted to primary while Kubernetes attempts to recover the failed replica. When the replica becomes available it is automatically joined back with the Contained Availability Group and pending changes are synchronized. If there are connectivity issues between the replicas, and more than 2 replicas are out of sync, primary replica will not commit any transactions. 
 
@@ -249,25 +249,25 @@ Additional steps are required to restore a database into an availability group. 
     ```
     Create the Kubernetes service to the primary instance by running the command below if your Kubernetes cluster uses nodePort services. Replace `podName` with the name of the server returned at previous step, `serviceName` with the preferred name for the Kubernetes service created.
 
-    ```bash
+    ```console
     kubectl -n <namespaceName> expose pod <podName> --port=1533  --name=<serviceName> --type=NodePort
     ```
 
     For a LoadBalancer service, run the same command, except that the type of the service created is `LoadBalancer`. For example: 
 
-    ```bash
+    ```console
     kubectl -n <namespaceName> expose pod <podName> --port=1533  --name=<serviceName> --type=LoadBalancer
     ```
 
     Here is an example of this command run against Azure Kubernetes Service, where the pod hosting the primary is `sql2-0`:
 
-    ```bash
+    ```console
     kubectl -n arc-cluster expose pod sql2-0 --port=1533  --name=sql2-0-p --type=LoadBalancer
     ```
 
     Get the IP of the Kubernetes service created:
 
-    ```bash
+    ```console
     kubectl get services -n <namespaceName>
     ```
 2. Restore the database to the primary instance endpoint.
@@ -329,7 +329,7 @@ Additional steps are required to restore a database into an availability group. 
 > [!IMPORTANT]
 > As a best practice, you should cleanup by deleting the Kubernetes service created above by running this command:
 >
->```bash
+>```console
 >kubectl delete svc sql2-0-p -n arc
 >```
 
