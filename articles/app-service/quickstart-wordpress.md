@@ -56,6 +56,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. Select the **Review + create** tab. After validation runs, select the **Create** button at the bottom of the page to create the WordPress site.
  
+    :::image type="content" source="./media/quickstart-wordpress/08-wordpress-create.png?text=WordPress create button" alt-text="Screenshot of WordPress create button":::
 
     > [!NOTE]
     > App Service creates environment variables and application settings needed for WordPress/PHP configuration. See [Environment variables and app settings in Azure App Service](reference-app-settings.md#wordpress) for more information.
