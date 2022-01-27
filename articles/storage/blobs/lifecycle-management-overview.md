@@ -20,8 +20,8 @@ Data sets have unique lifecycles. Early in the lifecycle, people access some dat
 With the lifecycle management policy, you can:
 
 - Transition blobs from cool to hot immediately when they are accessed, to optimize for performance.
-- Transition blobs, blob versions, and blob snapshots to a cooler storage tier if these objects have not been accessed or modified for a period of time, to optimize for cost. In this scenario, the lifecycle management policy can move objects from hot to cool, from hot to archive, or from cool to archive.
-- Delete blobs, blob versions, and blob snapshots at the end of their lifecycles.
+- Transition current versions (previously called base blobs and referred in json formats as `baseBlob`), previous versions, and blob snapshots to a cooler storage tier if these objects have not been accessed or modified for a period of time, to optimize for cost. In this scenario, the lifecycle management policy can move objects from hot to cool, from hot to archive, or from cool to archive.
+- Delete current versions, previous versions, and blob snapshots at the end of their lifecycles.
 - Define rules to be run once per day at the storage account level.
 - Apply rules to containers or to a subset of blobs, using name prefixes or [blob index tags](storage-manage-find-blobs.md) as filters.
 
@@ -80,7 +80,7 @@ The following sample rule filters the account to run the actions on objects that
 - Tier blob to cool tier 30 days after last modification
 - Tier blob to archive tier 90 days after last modification
 - Delete blob 2,555 days (seven years) after last modification
-- Delete previous blob versions 90 days after creation
+- Delete previous versions 90 days after creation
 
 ```json
 {
@@ -140,9 +140,9 @@ To learn more about the blob index feature together with known issues and limita
 
 Actions are applied to the filtered blobs when the run condition is met.
 
-Lifecycle management supports tiering and deletion of blobs, previous blob versions, and blob snapshots. Define at least one action for each rule on base blobs, previous blob versions, or blob snapshots.
+Lifecycle management supports tiering and deletion of current versions, previous versions, and blob snapshots. Define at least one action for each rule.
 
-| Action                      | Base Blob                                  | Snapshot      | Version
+| Action                      | Current Version                            | Snapshot      | Previous Versions
 |-----------------------------|--------------------------------------------|---------------|---------------|
 | tierToCool                  | Supported for `blockBlob`                  | Supported     | Supported     |
 | enableAutoTierToHotFromCool | Supported for `blockBlob`                  | Not supported | Not supported |
@@ -152,13 +152,13 @@ Lifecycle management supports tiering and deletion of blobs, previous blob versi
 > [!NOTE]
 > If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
 
-The run conditions are based on age. Base blobs use the last modified time, blob versions use the version creation time, and blob snapshots use the snapshot creation time to track age.
+The run conditions are based on age. Current versions use the last modified time or last access time, previous versions use the version creation time, and blob snapshots use the snapshot creation time to track age.
 
 | Action run condition | Condition value | Description |
 |--|--|--|
-| daysAfterModificationGreaterThan | Integer value indicating the age in days | The condition for base blob actions |
-| daysAfterCreationGreaterThan | Integer value indicating the age in days | The condition for blob version and blob snapshot actions |
-| daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | The condition for base blob actions when access tracking is enabled |
+| daysAfterModificationGreaterThan | Integer value indicating the age in days | The condition for current version actions |
+| daysAfterCreationGreaterThan | Integer value indicating the age in days | The condition for previous version and blob snapshot actions |
+| daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | The condition for current version when access tracking is enabled |
 
 ## Examples of lifecycle policies
 
@@ -322,7 +322,7 @@ Some data should only be expired if explicitly marked for deletion. You can conf
 }
 ```
 
-### Manage versions
+### Manage previous versions
 
 For data that is modified and accessed regularly throughout its lifetime, you can enable blob storage versioning to automatically maintain previous versions of an object. You can create a policy to tier or delete previous versions. The version age is determined by evaluating the version creation time. This policy rule tiers previous versions within container `activedata` that are 90 days or older after version creation to cool tier, and deletes previous versions that are 365 days or older.
 
