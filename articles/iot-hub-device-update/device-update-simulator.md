@@ -3,7 +3,7 @@ title: Device Update for Azure IoT Hub tutorial using the Ubuntu (18.04 x64) Sim
 description: Get started with Device Update for Azure IoT Hub using the Ubuntu (18.04 x64) Simulator Reference Agent.
 author: valls
 ms.author: valls
-ms.date: 1/26/2021
+ms.date: 1/26/2022
 ms.topic: tutorial
 ms.service: iot-hub-device-update
 ---
