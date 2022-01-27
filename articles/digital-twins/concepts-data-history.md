@@ -60,7 +60,7 @@ Time series data for twin property updates is stored in Azure Data Explorer with
 | Attribute | Type | Description |
 | --- | --- | --- |
 | `TimeStamp` | DateTime | The date/time the property update message was processed by Azure Digital Twins. This field is set by the system and isn't writable by users. |
-| `SourceTime` | DateTime |  An optional, writable property representing the timestamp when the property update was observed in the real world. This property can only be written using the latest version of the [Azure Digital Twins APIs/SDKs](concepts-apis-sdks.md). For more information about how to update this property, see [Update a property's sourceTime](how-to-manage-twin.md#update-a-propertys-sourcetime). |
+| `SourceTime` | DateTime |  An optional, writable property representing the timestamp when the property update was observed in the real world. This property can only be written using the latest version of the [Azure Digital Twins APIs/SDKs](concepts-apis-sdks.md) and the value must comply to ISO 8601 date and time format. For more information about how to update this property, see [Update a property's sourceTime](how-to-manage-twin.md#update-a-propertys-sourcetime). |
 | `ServiceId` | String | The service instance ID of the Azure IoT service logging the record |
 | `Id` | String | The twin ID |
 | `ModelId` | String | The DTDL model ID (DTMI) |
