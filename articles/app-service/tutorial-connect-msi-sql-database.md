@@ -179,7 +179,7 @@ The steps you follow for your project depends on whether you're using [Entity Fr
     ```
 
     > [!NOTE]
-    > The [Active Directory Default](../sql/connect/ado-net/sql/azure-active-directory-authentication.md#using-active-directory-default-authentication) authentication type can be used both on your local machine and in Azure App Service. The driver attempts to acquire a token from Azure Active Directory using various means. If the app is deployed, it gets a token from the app's managed identity. If the app is running locally, it tries to get a token from Visual Studio, Visual Studio Code, and Azure CLI.
+    > The [Active Directory Default](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-default-authentication) authentication type can be used both on your local machine and in Azure App Service. The driver attempts to acquire a token from Azure Active Directory using various means. If the app is deployed, it gets a token from the app's managed identity. If the app is running locally, it tries to get a token from Visual Studio, Visual Studio Code, and Azure CLI.
     >
 
     That's everything you need to connect to SQL Database. When debugging in Visual Studio, your code uses the Azure AD user you configured in [2. Set up your dev environment](#2-set-up-your-dev-environment). You'll set up SQL Database later to allow connection from the managed identity of your App Service app. The `DefaultAzureCredential` class caches the token in memory and retrieves it from Azure AD just before expiration. You don't need any custom code to refresh the token.
@@ -251,7 +251,7 @@ Here's an example of the output:
 1. Type `EXIT` to return to the Cloud Shell prompt.
 
     > [!NOTE]
-    > The back-end services of managed identities also [maintains a token cache](overview-managed-identity.md#obtain-tokens-for-azure-resources) that updates the token for a target resource only when it expires. If you make a mistake configuring your SQL Database permissions and try to modify the permissions *after* trying to get a token with your app, you don't actually get a new token with the updated permissions until the cached token expires.
+    > The back-end services of managed identities also [maintains a token cache](overview-managed-identity.md#configure-target-resource) that updates the token for a target resource only when it expires. If you make a mistake configuring your SQL Database permissions and try to modify the permissions *after* trying to get a token with your app, you don't actually get a new token with the updated permissions until the cached token expires.
 
     > [!NOTE]
     > Azure Active Directory and managed identities are not supported for on-premises SQL Server. 
