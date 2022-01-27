@@ -343,7 +343,7 @@ In many scenarios, you might not know which input languages to specify. Using la
 The following example uses continuous translation from an audio file. It automatically detects the input language, even if the language being spoken is changing. When you run the sample, `en-US` and `zh-CN` will be automatically detected because they're defined in `AutoDetectSourceLanguageConfig`. Then, the speech will be translated to `de` and `fr` as specified in the calls to `AddTargetLanguage()`.
 
 > [!IMPORTANT]
-> This feature is currently in **preview**.
+> This feature is currently in *preview*.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;

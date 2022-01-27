@@ -20,11 +20,11 @@ If you want to skip straight to sample code, see the [Python quickstart samples]
 
 This article assumes that you have an Azure account and a Speech service subscription. If you don't have an account and a subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
-## Install the Speech SDK
+### Install the Speech SDK
 
 [!INCLUDE [Get the Speech SDK include](../../get-speech-sdk-python.md)]
 
-## Import dependencies
+### Import dependencies
 
 To run the examples in this article, include the following `import` statements at the top of the Python code file:
 
