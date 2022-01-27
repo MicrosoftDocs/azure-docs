@@ -18,7 +18,7 @@ When you begin your IoT journey, start with Azure IoT Central. IoT Central is th
 
 Use the migrator tool to move devices with no downtime from IoT Central to your own DPS instance. In a PaaS solution, you link a DPS instance to your IoT hub. The migrator tool disconnects devices from IoT Central and connects them to your PaaS solution. From this point forward, new devices are created in your IoT hub. Old device registrations remain in IoT Central so that you can fall back to IoT Central just if something goes wrong.
 
-Download the [migrator tool from GitHub](https://github.com/iot-for-all/iotc-migrator).
+Download the [migrator tool from GitHub](https://github.com/Azure/iotc-migrator).
 
 ## Minimize disruption
 
@@ -54,4 +54,4 @@ You can configure IoT Central to continuously export telemetry and property valu
 
 ## Next steps  
 
-Now that you've learned about moving from aPaaS to PaaS solutions, a suggested next step is to explore the [IoT Central migrator tool](https://github.com/iot-for-all/iotc-migrator).
+Now that you've learned about moving from aPaaS to PaaS solutions, a suggested next step is to explore the [IoT Central migrator tool](https://github.com/Azure/iotc-migrator).
