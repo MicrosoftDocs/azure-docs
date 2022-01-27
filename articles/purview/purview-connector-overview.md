@@ -31,24 +31,24 @@ Azure Purview supports the following data stores. Select each data store to lear
 ||    [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|  [Yes](register-scan-azure-sql-database-managed-instance.md#scan) | [Yes](register-scan-azure-sql-database-managed-instance.md#scan) | No* | No |
 ||    [Azure Synapse Analytics (Workspace)](register-scan-synapse-workspace.md)| [Yes](register-scan-synapse-workspace.md#register) | [Yes](register-scan-synapse-workspace.md#scan)| [Yes - Synapse pipelines](how-to-lineage-azure-synapse-analytics.md)| No|
 |Database| [Amazon RDS](register-scan-amazon-rds.md) | [Yes](register-scan-amazon-rds.md#register-an-amazon-rds-data-source) | [Yes](register-scan-amazon-rds.md#scan-an-amazon-rds-database) | No | No |
-||    [Cassandra](register-scan-cassandra-source.md)|[Yes](register-scan-cassandra-source.md#register) | No | [Yes](how-to-lineage-cassandra.md)| No|
-|| [DB2](register-scan-db2.md) | [Yes](register-scan-db2.md#register) | No | [Yes](register-scan-db2.md#scan) | No |
-||    [Google BigQuery](register-scan-google-bigquery-source.md)| [Yes](register-scan-google-bigquery-source.md#register)| No | [Yes](how-to-lineage-google-bigquery.md)| No|
-|| [Hive Metastore Database](register-scan-hive-metastore-source.md) | [Yes](register-scan-hive-metastore-source.md#register) | No | Yes* | No|
+||    [Cassandra](register-scan-cassandra-source.md)|[Yes](register-scan-cassandra-source.md#register) | No | [Yes](register-scan-cassandra-source.md#lineage)| No|
+|| [DB2](register-scan-db2.md) | [Yes](register-scan-db2.md#register) | No | [Yes](register-scan-db2.md#lineage) | No |
+||    [Google BigQuery](register-scan-google-bigquery-source.md)| [Yes](register-scan-google-bigquery-source.md#register)| No | [Yes](register-scan-google-bigquery-source.md#lineage)| No|
+|| [Hive Metastore Database](register-scan-hive-metastore-source.md) | [Yes](register-scan-hive-metastore-source.md#register) | No | [Yes*](register-scan-hive-metastore-source.md#lineage) | No|
 || [MySQL](register-scan-mysql.md) | [Yes](register-scan-mysql.md#register) | No | [Yes](register-scan-mysql.md#scan) | No |
-|| [Oracle](register-scan-oracle-source.md) | [Yes](register-scan-oracle-source.md#register)|  No | [Yes*](how-to-lineage-oracle.md) | No|
-|| [PostgreSQL](register-scan-postgresql.md) | [Yes](register-scan-postgresql.md#register) | No | [Yes](register-scan-postgresql.md#scan) | No |
+|| [Oracle](register-scan-oracle-source.md) | [Yes](register-scan-oracle-source.md#register)|  No | [Yes*](register-scan-oracle-source.md#lineage) | No|
+|| [PostgreSQL](register-scan-postgresql.md) | [Yes](register-scan-postgresql.md#register) | No | [Yes](register-scan-postgresql.md#lineage) | No |
 || [SAP HANA](register-scan-sap-hana.md) | [Yes](register-scan-sap-hana.md#register) | No | No | No |
-|| [Snowflake](register-scan-snowflake.md) | [Yes](register-scan-snowflake.md#register) | No | [Yes](register-scan-snowflake.md#scan) | No |
+|| [Snowflake](register-scan-snowflake.md) | [Yes](register-scan-snowflake.md#register) | No | [Yes](register-scan-snowflake.md#lineage) | No |
 ||    [SQL Server](register-scan-on-premises-sql-server.md)| [Yes](register-scan-on-premises-sql-server.md#register) |[Yes](register-scan-on-premises-sql-server.md#scan) | No* | No|
-||    [Teradata](register-scan-teradata-source.md)| [Yes](register-scan-teradata-source.md#register)|  No | [Yes*](how-to-lineage-teradata.md) | No|
+||    [Teradata](register-scan-teradata-source.md)| [Yes](register-scan-teradata-source.md#register)|  No | [Yes*](register-scan-teradata-source.md#lineage) | No|
 |File|[Amazon S3](register-scan-amazon-s3.md)|[Yes](register-scan-amazon-s3.md)| [Yes](register-scan-amazon-s3.md)| Limited* | No|
-|Services and apps|    [Erwin](register-scan-erwin-source.md)| [Yes](register-scan-erwin-source.md#register)| No | [Yes](how-to-lineage-erwin.md)| No|
-||    [Looker](register-scan-looker-source.md)| [Yes](register-scan-looker-source.md#register)| No | [Yes](how-to-lineage-looker.md)| No|
+|Services and apps|    [Erwin](register-scan-erwin-source.md)| [Yes](register-scan-erwin-source.md#register)| No | [Yes](register-scan-erwin-source.md#lineage)| No|
+||    [Looker](register-scan-looker-source.md)| [Yes](register-scan-looker-source.md#register)| No | [Yes](register-scan-looker-source.md#lineage)| No|
 ||    [Power BI](register-scan-power-bi-tenant.md)| [Yes](register-scan-power-bi-tenant.md#register)| No | [Yes](how-to-lineage-powerbi.md)| No|
 || [Salesforce](register-scan-salesforce.md) | [Yes](register-scan-salesforce.md#register) | No | No | No |
-||    [SAP ECC](register-scan-sapecc-source.md)| [Yes](register-scan-sapecc-source.md#register) | No | [Yes*](how-to-lineage-sapecc.md) | No|
-|| [SAP S/4HANA](register-scan-saps4hana-source.md) | [Yes](register-scan-saps4hana-source.md#register)| No | [Yes*](how-to-lineage-sapecc.md) | No|
+||    [SAP ECC](register-scan-sapecc-source.md)| [Yes](register-scan-sapecc-source.md#register) | No | [Yes*](register-scan-sapecc-source.md#lineage) | No|
+|| [SAP S/4HANA](register-scan-saps4hana-source.md) | [Yes](register-scan-saps4hana-source.md#register)| No | [Yes*](register-scan-saps4hana-source.md#lineage) | No|
 
 \* Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).
 
