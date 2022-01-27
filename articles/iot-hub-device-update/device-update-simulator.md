@@ -134,22 +134,15 @@ Start Device Update Agent on your new Software Devices.
 
 4. Select "+ Import New Update".
 
-   :::image type="content" source="media/import-update/updates-tab-ppr.png" alt-text="Updates" lightbox="media/import-update/updates-tab-ppr.png":::
-
 5. Select "+ Select from storage container". Select an existing account or create a new account using "+ Storage account". Then select an existing container or create a new container using "+ Container". This container will be used to stage your update files for importing 
    _Recommendation: use a new container each time you import an update to avoid accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container before completing this step._
    
    :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Storage Account" lightbox="media/import-update/storage-account-ppr.png":::
 
-6. In your container, select `Upload. Select the folder icon on the right side of the "Files" section under the "Upload blob" header. Navigate to the location of your update file(s) and import manifest and select all of the manifest and update files downloaded earlier.
-
-   :::image type="content" source="media/import-update/container-picker-ppr.png" alt-text="Publish Update" lightbox="media/import-update/container-picker-ppr.png":::
-
-   _This screenshot shows the import step and file names may not match the ones used in the example_
-
-7. When you've selected all your update files, select "Upload" Then click the "Select" button to return to the "Import update" page.
+6. In your container, select "Upload" and navigate to files downloaded in **Step 1**. When you've selected all your update files, select "Upload" Then click the "Select" button to return to the "Import update" page.
 
    :::image type="content" source="media/import-update/import-select-ppr.png" alt-text="Select Uploaded Files" lightbox="media/import-update/import-select-ppr.png":::
+   _This screenshot shows the import step and file names may not match the ones used in the example_
 
 8. On the Import update page, review the files to be imported. Then select "Import update" to start the import process.
 
