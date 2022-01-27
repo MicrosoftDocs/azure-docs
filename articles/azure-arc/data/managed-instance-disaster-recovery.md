@@ -94,13 +94,13 @@ After you complete the steps above, you have configured the distributed availabi
 Use `az sql mi-arc dag...` to initiate a failover from primary to secondary. The following command initiates a failover from the primary instance to the secondary instance. Any pending transactions on the geo-primary instance are replicated over to the geo-secondary disaster recovery instance before the failover. 
 
 ```azurecli
-az sql mi-arc dag edit --name <name of DAG> --role secondary --k8s-namespace <namespace> --use-k8s 
+az sql mi-arc dag update --name <name of DAG resource> --role secondary --k8s-namespace <namespace> --use-k8s 
 ```
 
 Example:
 
 ```azurecli
-az sql mi-arc dag edit --name dagtest --role secondary --k8s-namespace <namespace> --use-k8s 
+az sql mi-arc dag update --name dagtest --role secondary --k8s-namespace <namespace> --use-k8s 
 ```
 
 
@@ -111,11 +111,11 @@ In the circumstance when the geo-primary instance becomes unavailable, the follo
 Run the below command on geo-primary, if available:
 
 ```azurecli
-az sql mi-arc dag edit -k test --name dagtestp --use-k8s --role force-secondary
+az sql mi-arc dag update -k test --name dagtestp --use-k8s --role force-secondary
 ```
 
 On the geo-secondary DR instance, run the following command to promote it to primary role, with data loss.
 
 ```azurecli
-az sql mi-arc dag edit -k test --name dagtests --use-k8s --role force-primary-allow-data-loss
+az sql mi-arc dag update -k test --name dagtests --use-k8s --role force-primary-allow-data-loss
 ```
