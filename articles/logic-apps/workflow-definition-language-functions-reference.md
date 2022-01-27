@@ -121,7 +121,7 @@ To work with collections, generally arrays, strings, and sometimes, dictionaries
 | [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Check whether a collection is empty. |
 | [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Return the first item from a collection. |
 | [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Return a collection that has *only* the common items across the specified collections. |
-| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | When inside a repeating action over an array, return the current item in the array during the action's current iteration. |
+| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | If this function appears inside a repeating action over an array, return the current item in the array during the action's current iteration. |
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Return a string that has *all* the items from an array, separated by the specified character. |
 | [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Return the last item from a collection. |
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Return the number of items in a string or array. |
@@ -137,7 +137,7 @@ To work with collections, generally arrays, strings, and sometimes, dictionaries
 To work with conditions, compare values and expression results, or evaluate various kinds of logic, you can use these logical comparison functions. For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 > [!NOTE]
-> If you use logical functions or conditions to compare values, null values are converted to empty string (`""`) values. The behavior of conditions differs when you compare with an empty string instead of a null value. For more information, see the [string() function](#string). 
+> If you use logical functions or conditions to compare values, null values are converted to empty string (`""`) values. The behavior of conditions differs when you compare with an empty string instead of a null value. For more information, see the [string() function](#string).
 
 | Logical comparison function | Task |
 | --------------------------- | ---- |
@@ -156,7 +156,7 @@ To work with conditions, compare values and expression results, or evaluate vari
 
 ## Conversion functions
 
-To change a value's type or format, you can use these conversion functions. For example, you can change a value from a Boolean to an integer. For more information about how Logic Apps handles content types during conversion, see [Handle content types](../logic-apps/logic-apps-content-type.md). For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+To change a value's type or format, you can use these conversion functions. For example, you can change a value from a Boolean to an integer. For more information about how Azure Logic Apps handles content types during conversion, see [Handle content types](../logic-apps/logic-apps-content-type.md). For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 > [!NOTE]
 > Azure Logic Apps automatically or implicitly performs base64 encoding and decoding, so you don't have to manually perform these conversions by using 
@@ -200,7 +200,7 @@ For example, suppose a trigger returns a numerical value as output:
 
 `triggerBody()?['123']`
 
-If you use this numerical output where string input is expected, such as a URL, Logic Apps automatically converts the value into a string by using the curly braces (`{}`) notation:
+If you use this numerical output where string input is expected, such as a URL, Azure Logic Apps automatically converts the value into a string by using the curly braces (`{}`) notation:
 
 `@{triggerBody()?['123']}`
 
@@ -304,9 +304,9 @@ For the full reference about each function, see the
 | [body](#body) | Return an action's `body` output at runtime. See also [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). |
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Create an array with the values that match a key name in *form-data* or *form-encoded* action outputs. |
 | [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Return a single value that matches a key name in an action's *form-data* or *form-encoded output*. |
-| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | When inside a repeating action over an array, return the current item in the array during the action's current iteration. |
-| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | When inside a Foreach or Until loop, return the current item from the specified loop.|
-| [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | When inside an Until loop, return the index value for the current iteration. You can use this function inside nested Until loops. |
+| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | If this function appears inside a repeating action over an array, return the current item in the array during the action's current iteration. |
+| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | If this function appears inside a Foreach or Until loop, return the current item from the specified loop.|
+| [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | If this function appears inside an Until loop, return the index value for the current iteration. You can use this function inside nested Until loops. |
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Return the "callback URL" that calls a trigger or action. |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Return the body for a specific part in an action's output that has multiple parts. |
 | [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Return an action's output at runtime. |
@@ -4997,7 +4997,7 @@ This example passes in the XPath expression, `'/produce/item/name'`, to find the
 
 The example also uses the [parameters()](#parameters) function to get the XML string from `'items'` and convert the string to XML format by using the [xml()](#xml) function.
 
-Here is the result array with the nodes that match `<name></name`:
+Here's the result array with the nodes that match `<name></name`:
 
 `[ <name>Gala</name>, <name>Honeycrisp</name> ]`
 
@@ -5007,7 +5007,7 @@ Following on Example 1, this example passes in the XPath expression, `'/produce/
 
 `xpath(xml(parameters('items')), '/produce/item/name[1]')`
 
-Here is the result: `Gala`
+Here's the result: `Gala`
 
 *Example 3*
 
@@ -5015,7 +5015,7 @@ Following on Example 1, this example pass in the XPath expression, `'/produce/it
 
 `xpath(xml(parameters('items')), '/produce/item/name[last()]')`
 
-Here is the result: `Honeycrisp`
+Here's the result: `Honeycrisp`
 
 *Example 4*
 
@@ -5041,7 +5041,7 @@ This example passes in the XPath expression, `'//name[@expired]'`, to find all t
 
 `xpath(xml(parameters('items')), '//name[@expired]')`
 
-Here is the result: `[ Gala, Honeycrisp ]`
+Here's the result: `[ Gala, Honeycrisp ]`
 
 *Example 5*
 
@@ -5067,7 +5067,7 @@ This example passes in the XPath expression, `'//name[@expired = 'true']'`, to f
 
 `xpath(xml(parameters('items')), '//name[@expired = 'true']')`
 
-Here is the result: `[ Gala ]`
+Here's the result: `[ Gala ]`
 
 *Example 6*
 
@@ -5096,7 +5096,7 @@ This example passes in the XPath expression, `'//name[price>35]'`, to find all t
 
 `xpath(xml(parameters('items')), '//name[price>35]')`
 
-Here is the result: `Honeycrisp`
+Here's the result: `Honeycrisp`
 
 *Example 7*
 
@@ -5122,7 +5122,7 @@ This example finds nodes that match the `<count></count>` node and adds those no
 
 `xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
 
-Here is the result: `30`
+Here's the result: `30`
 
 *Example 8*
 
@@ -5137,7 +5137,7 @@ These expressions use either XPath expression, `/*[name()="file"]/*[name()="loca
 * `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
 * `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]')`
 
-Here is the result node that matches the `<location></location>` node: 
+Here's the result node that matches the `<location></location>` node: 
 
 `<location xmlns="https://contoso.com">Paris</location>`
 
@@ -5158,7 +5158,7 @@ Following on Example 8, this example uses the XPath expression, `'string(/*[name
 
 `xpath(xml(body('Http')), 'string(/*[name()="file"]/*[name()="location"])')`
 
-Here is the result: `Paris`
+Here's the result: `Paris`
 
 ## Next steps
 
