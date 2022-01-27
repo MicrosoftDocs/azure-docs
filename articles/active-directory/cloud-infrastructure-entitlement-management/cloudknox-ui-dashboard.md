@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/25/2022
+ms.date: 01/26/2022
 ms.author: v-ydequadros
 ---
 
@@ -20,13 +20,13 @@ Microsoft CloudKnox Permissions Management (CloudKnox) provides a dashboard that
 
 The data provided by CloudKnox shows metrics related to avoidable risk. These metrics allow the CloudKnox administrator to quickly and easily identify areas where they can reduce risks related to the principle of least privilege.
 
-You can view these metrics on the CloudKnox dashboards:
+You can view the following data on the CloudKnox dashboards:
 
-- The **PCI heat map** on the CloudKnox **Dashboard**, which identifies: 
-    - How many users who have been granted high-risk privileges aren't using them. 
-    - How many users contribute to the privilege creep index and where they're on the scale.
+- The **PCI heat map** on the CloudKnox **Dashboard** identifies:
+    - The number of users who have been granted high-risk privileges aren't using them.
+    - The number of users who contribute to the privilege creep index and where they appear on the scale.
 
-- The **Usage analytics summary** on the **Usage analytics** dashboard, which provides a snapshot of permission metrics within the last 90 days.
+- The **Usage analytics summary** on the **Usage analytics** dashboard provides a snapshot of permission metrics within the last 90 days.
 
 
 ## Components of the CloudKnox Dashboard
@@ -104,8 +104,10 @@ To view detailed information about the following, select the number displayed on
     - To expand the full list of identities, select **All findings**.
 
 - The **Resource** section below the heat map on the right side of the page shows all the relevant findings about resources. It includes unencrypted S3 buckets, open security groups, and so on.
+- 
+<!---Is this still in?
 
-## The Usage Analytics summary
+## The Usage analytics summary
 
 The **Usage Analytics summary** section on the [Usage analytics dashboard](cloudknox-ui-usage-analytics.md) provides a snapshot of the following high-risk tasks or actions users have accessed, and displays the total number of users with the high-risk access, how many users are inactive or have unexecuted tasks, and how many users are active or have executed tasks:
 
@@ -119,7 +121,7 @@ The **Usage Analytics summary** section on the [Usage analytics dashboard](cloud
 
 - **Resources that permit high-risk tasks** - Displays the total number of resources a user has access to (**Total**), how many resources are available but not used (**Inactive**), and how many resources are used (**Active**).
 
-- **Resources that permit delete tasks** - Displays the total number of resources that permit delete tasks (**Total**), how many resources with delete tasks aren't used (**Inactive**), and how many resources with delete tasks are used (**Active**).
+- **Resources that permit delete tasks** - Displays the total number of resources that permit delete tasks (**Total**), how many resources with delete tasks aren't used (**Inactive**), and how many resources with delete tasks are used (**Active**).--->
 
 
 

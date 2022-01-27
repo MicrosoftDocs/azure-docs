@@ -52,18 +52,11 @@
       items:
       - name: View and modify configuration settings for data collection
         href: cloudknox-ui-product-settings.md
-    - name: View information about tasks
+    - name: View information about activities
       expanded: true
       items:
-      - name: View information about active and completed tasks
+      - name: View information about active and completed activities
         href: cloudknox-ui-tasks.md
-    - name: View roles and identities that access account information
-      expanded: true
-      items:
-      - name: View roles and identities that access account information from an external account
-        href: cloudknox-product-account-explorer.md
-      - name: Set personal information and preferences
-        href: cloudknox-product-account-settings.md
     - name: Manage organizational and personal information
       expanded: true
       items:
@@ -125,7 +118,7 @@
         href: cloudknox-product-data-sources.md
       - name: Add an authorization systems for data collection
         href: cloudknox-product-data-add-authorization-system.md
-      - name: Display inventory about created resources and licensing information
+      - name: Display an inventory of created resources and licenses
         href: cloudknox-product-data-inventory.md
     - name: Manage user and role permissions
       expanded: true
@@ -177,14 +170,12 @@
         href: cloudknox-report-create-custom-report.md
       - name: View the Permissions Analytics report
         href: cloudknox-product-permissions-analytics-reports.md
-    - name: Compliance
+    - name: View information about compliance standards
       expanded: true
       items:
-      - name: View information about compliance standards
-        href: cloudknox-ui-compliance.md
       - name: View product compliance guidelines
         href: cloudknox-product-compliance.md
-      - name: Information about compliance standards
+      - name: View information about compliance standards
         href: cloudknox-ui-compliance.md
   #- name: Troubleshooting
     #expanded: true

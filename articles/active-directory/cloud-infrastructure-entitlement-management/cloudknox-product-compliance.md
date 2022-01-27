@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/25/2022
+ms.date: 01/26/2022
 ms.author: v-ydequadros
 ---
 
 # View product compliance guidelines
 
-Compliance is the state of following various established guidelines or specifications.
+*Compliance* is the state of following various established guidelines or specifications.
 Microsoft CloudKnox Permissions Management (CloudKnox) supports the Center for Internet Security (CIS) Benchmarks standard, Amazon Web Services (AWS) Well-Architected Framework, Next Generation Security and Privacy (NIST) 800-53, and Payment Card Industry / Data Security Standards (PCI DSS) benchmark frameworks.
 
-In Microsoft CloudKnox Permissions Management (CloudKnox), the **Compliance** dashboard  provides an overview of how you can follow the national, regional, and industry-specific requirements that govern the collection and use of data.
+In CloudKnox, you can use the **Compliance** dashboard  provides an overview of how you can view and follow the national, regional, and industry-specific requirements that govern the collection and use of data.
 
 ## View compliance information about an account
 
@@ -25,7 +25,7 @@ In Microsoft CloudKnox Permissions Management (CloudKnox), the **Compliance** da
 
     The main **Compliance** page displays the following information about each account for the selected **Authorization system**:
     
-    - The **Account** tile displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard. It also displays how many recommendations were passed at the date shown.
+    - The **Account** tile displays a percentage and a rating that represents how many recommendations were made for the selected compliance standard. It also displays how many recommendations were passed at the date shown.
     - **Level 1**: Items in this profile intend to be:
 
         -  Practical and prudent.
@@ -34,18 +34,18 @@ In Microsoft CloudKnox Permissions Management (CloudKnox), the **Compliance** da
 
      - **Level 2**: This profile extends the Level 1 profile. Items in this profile exhibit one or more of the following characteristics:
         - The date range for which the information is displayed.
-        - When CloudKnox has collected a minimum of 1 week’s data, you will see a trend graph based on your daily pass percentages.
+        - When CloudKnox has collected a minimum of one week’s data, you'll see a trend graph based on your daily pass percentages.
 
 ## View recommendation details for an account
 
 1. Select the account name to view details on the recommendations:
 
-    The **Result Summary** opens, displaying the following sections:
+    The **Result summary** opens, displaying the following sections:
 
      - **1: Identity and access management**
      - **2: Storage**
      - **3: Logging**
-     - **4: Monitoring**     
+     - **4: Monitoring**
      - **5: Networking**
 
      Each section has a table that displays the following information: 
@@ -76,17 +76,17 @@ In Microsoft CloudKnox Permissions Management (CloudKnox), the **Compliance** da
 
 1. Select the account name to modify details on the recommendations:
 
-     - **Ignore** – You can set this option **On** or **Off** to ignore or view the recommendation.
+     - **Ignore** – Set this option **On** or **Off** to ignore or view the recommendation.
 
-        When the recommendation is set to **Off**, a pop-up box opens confirming that you are sure you want to turn off the recommendation and requires you to enter a reason. Then select **Confirm**.
+        When you set the recommendation to **Off**, a message displays asking you to confirm that you want to turn off the recommendation and asking for a reason. After you enter a reason, select **Confirm**.
 
-     - On the dashboard, the number of compliance recommendations will be reduced by however many recommendations are switched to **Off.**
+     - On the dashboard, the number of recommendations is reduced by however many recommendations are switched to **Off.**
      
-     - When you turn the recommendation back on, a pop-up box opens asking you to confirm you want to turn on the recommendation. Select **Confirm**.
+     - When you turn the recommendation back on, a message displays asking you to confirm you want to turn on the recommendation. Select **Confirm**.
      
-     - If items can't be ignored, they will be marked in the column as **Manual** since there are no tests available to give a result on the item.
+     - If items can't be ignored, they'll be marked in the column as **Manual** since there are no tests available to give a result on the item.
 
-     - Some items aren't scored because they are test items and will be marked in the column as **Not Scored**. These items aren't counted in the recommendations.
+     - Some items aren't scored because they are test items and is marked in the column as **Not Scored**. These items aren't counted in the recommendations.
 
      - **Recommendation** – Displays the summary describing the recommendation. The **Recommendation** sections vary slightly depending on which compliance standard and authorization system is being viewed.
 
@@ -115,11 +115,11 @@ In Microsoft CloudKnox Permissions Management (CloudKnox), the **Compliance** da
 2. The top of the page displays the number of **Resources** are being tallied for this recommendation, and the number of resources that failed, passed, weren't run, and were ignored.
 
 3. The table defaults to the **Results** tab, and displays the following details:
-    - **Ignore** - You can check the box next to each line item to ignore the recommendation for a specific user or resource.
+    - **Ignore** - Hover over the check mark in the **Ignore** column to view details of who ignored the resource, when they chose to ignore it, and the reason for ignoring it.
+    - To ignore the recommendation for a specific user or resource, select the box next to each line item.
 
-      - When the recommendation is checked, a pop-up box opens asking the user if they are sure they want to turn off the recommendation and requires the user to input a reason.
-        - Select **Confirm** once a reason has been entered.
-        - Hover over the check mark in the Ignore column to view details of who ignored the resource, when they chose to ignore it, and the reason for ignoring it.
+    - When the recommendation is checked, a message displays, asking you to confirm that you want to turn off the recommendation and asking for a reason. 
+        - Enter a reason, and then select **Confirm**.
 
     - **Resources** – Displays the specific resource name captured under this recommendation.
     - **Resource Type** – Displays the type of resource, that is, **key** (encryption key) or **bucket** (storage).
@@ -150,7 +150,7 @@ There are several filtering options to choose from when filtering the recommenda
 
 4. From **Version**, choose a version to view.
 
-5. From **Show Security Controls**, check **All** or select the specific CSC version you want to view.
+5. From **Show Security Controls**, check **All** or select the specific version you want to view.
 
      This control is only available for CIS Benchmark for AWS.
 
@@ -162,7 +162,7 @@ There are several filtering options to choose from when filtering the recommenda
 
 ## Search for information on the Compliance dashboard
 
-1. Select in the **Search for Authorization Systems...** box at the top of the Compliance dashboard, and then enter your criteria.
+1. Select in the **Search for Authorization Systems...** box at the top of the **Compliance** dashboard, and then enter your criteria.
 
 2. To search for your criteria, press **Enter** or select **Search**.
 
@@ -171,4 +171,4 @@ There are several filtering options to choose from when filtering the recommenda
 
 ## Next steps
 
-- For information about compliance standards, see [Information about compliance standards](cloudknox-ui-compliance.md)
+- For information about national, regional, and industry-specific compliance standards, see [View information about compliance standards](cloudknox-ui-compliance.md)

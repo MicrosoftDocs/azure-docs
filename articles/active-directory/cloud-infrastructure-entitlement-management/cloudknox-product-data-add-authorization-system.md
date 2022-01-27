@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/25/2022
+ms.date: 01/26/2022
 ms.author: v-ydequadros
 ---
 
 # Add an authorization system for data collection
 
-You can use the **Authorization system** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) to add an authorization systems for data collection.
+You can use the **Authorization system** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) to add an authorization system for data collection.
 
 ## Add an authorization system
 
@@ -32,12 +32,12 @@ You can use the **Authorization system** dashboard in Microsoft CloudKnox Permis
     - **Controller Status** - Select **All**, **Enabled**, or **Disabled**.
     - **Benchmark Status** - **Controller Status** - Select **All**, **Enabled**, or **Disabled**.
     - **Entitlement Status** - **Controller Status** - Select **All**, **Enabled**, or **Disabled**. **All**, **Online**, or **Offline**.
-    - **Enter a Name or ID** - Use this box to enter a specific name or ID to apply the filter, if required.
+    - **Enter a Name or ID** - Use this box to enter a specific name or ID to apply the filter, if necessary.
 
 4. View the following details for each authorization system:
      - **Name** - Displays the name of the authorization system, if available. Otherwise, it will display the ID of the authorization system.
          - To access Account explorer, select the name or the ID. 
-     - **ID** - Displays the identification number of the authorization system. It is a unique number that identifies a specific authorization system.
+     - **ID** - Displays the identification number of the authorization system. It's a unique number that identifies a specific authorization system.
      - **Controller Status** - Displays either **Enabled** or **Disabled**.
 
       The **Controller status** indicates whether an administrator has given permission to CloudKnox to perform write operations for various features, such as privilege on demand, activity-based roles, or policy creation, etc.
@@ -51,7 +51,7 @@ You can use the **Authorization system** dashboard in Microsoft CloudKnox Permis
 
        The **Validate OTP to Delete Data Collector** box opens so you can ask for a one time passcode (OTP) to be sent to the email address on file.
 
-       If you do not receive the email, select **Resend OTP** and then check your email again.
+       If you don't receive the email, select **Resend OTP** and then check your email again.
 
 6. Enter the passcode from your email in the **Enter OTP** box and select **Verify**.
 
@@ -98,4 +98,4 @@ You can use the **Authorization system** dashboard in Microsoft CloudKnox Permis
 ## Next steps
 
 - For information about viewing and configuring settings for collecting data from your authorization system and its associated accounts, see [View and configure settings for data collection](cloudknox-product-data-sources.md)
-- For information about viewing an inventory of created resources and licensing information for your authorization systems, see [Display inventory about created resources and licensing information for your authorization systems](cloudknox-product-data-inventory.md)
+- For information about viewing an inventory of created resources and licensing information for your authorization systems, see [Display an inventory of  created resources and licenses for your authorization system](cloudknox-product-data-inventory.md)
