@@ -61,7 +61,7 @@ To send data to immutable Storage Account, set the immutable policy for the Stor
 
 The Storage Account must be StorageV1 or above and in the same region as your workspace. If you need to replicate your data to other Storage Accounts in other regions, you can use any of the [Azure storage redundancy options](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region), including "GRS" and "GZRS".
 
-Data is sent to Storage Accounts as it reaches Azure Monitor and exported to destinations located in workspace region. A container is created for each table in Storage Account, with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to a container named *am-SecurityEvent*.
+Data is sent to Storage Accounts as it reaches Azure Monitor and exported to destinations located in workspace region. A container is created for each table in Storage Account, with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would send to a container named *am-SecurityEvent*.
 
 Blobs are stored in 5-minute folders in path structure: *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=\<two-digit 60-minute clock minute\>/PT05M.json*. Append blobs is limited to 50-K writes and could be reached, and more blobs will be added in folder as: PT05M_#.json*, where # is incremental blob count.
 
