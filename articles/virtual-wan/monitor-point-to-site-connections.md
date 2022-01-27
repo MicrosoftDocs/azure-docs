@@ -126,13 +126,15 @@ The Azure storage account has the following configuration settings
     - **Name**: "resourcegroup"
         - **Value**: your resource group
     - **Name**: "sasuri"
-        - **Value**:  @Microsoft.KeyVault(SecretUri=https://\<keyvaultname>.vault.azure.net/secrets/sasuri/\<version>) (update accordingly after keyvault is created.
+        - **Value**: @Microsoft.KeyVault(SecretUri=https://\<keyvaultname>.vault.azure.net/secrets/sasuri/\<version>)-->update accordingly after keyvault is created in next section)
     - **Name**: "storageaccountname"
         - **Value**: your storage account name
     - **Name**: "storagecontainer"
         - **Value**: your storage container name
     - **Name**: "subscription"
         - **Value**: your subscription ID
+    - **Name**: "tenantname"
+        - **Value**: your tenant ID
     - **Name**: "vpngw"
         - **Value**: This name is something like \<guid>-eastus-ps2-gw . You can get this from the vWAN HUB User VPN settings.
  1. Click **Save**
@@ -155,22 +157,7 @@ The Azure storage account has the following configuration settings
 1. Go to **requirements.psd1** and uncomment the line beginning with **'Az'...** as shown.
 :::image type="content" source="./media/monitor-point-to-site-connections/requirements-file.png" alt-text="Screenshot showing the requirements file for function app.":::
 
-----------------------------------------------------------------------------------------------------------------------
-
-For the get-AzP2sVpnGatewayDetailedConnectionHealth command to succeed, you need to have the right permissions to the information. This can be done by creating a custom Azure role. Go the Azure Portal to the resource group used and choose Access Control (IAM) and assign the following role/permissions
-Custom Role Name: <custom role name like MicrosoftNetworkP2SGWReader>. We don't want to use built-in role like network-contributor as we only want read-access. 
-
-|**Type**|**Permissions**|**Description**|
-|-------|----------------------------------------|-----------------------------------------------|
-|Read  |Get P2SVpnGateway| Gets a P2SVpnGateway.|
-|Other  | Gets a P2S Vpn Connection health for P2SVpnGateway  |Gets a P2S Vpn Connection health for P2SVpnGateway|
-|Other  | Gets a P2S Vpn Connection health detailed for P2SVpnGateway  |  Gets a P2S Vpn Connection health detailed for P2SVpnGateway|
-|Read   | Gets P2S Vpn Gateway Log Definitions  | Gets the events for P2S Vpn Gateway|
-|Read   | Get P2S Vpn Gateway Diagnostic Settings   | Gets the P2S Vpn Gateway Diagnostic Settings|
-|Read   | Read P2S Vpn Gateway metric definitions   | Gets the available metrics for P2S Vpn Gateway |
-|Read   | Get Virtual Wan P2SVpnServerConfiguration  |  Gets a virtual Wan P2SVpnServerConfiguration |
-
-Now assign the managed identity (objectid) this role.
+1. For the get-AzP2sVpnGatewayDetailedConnectionHealth command to succeed, you need to have the right permissions to the information. Navigate to your resource group and choose Access Control (IAM) in the left-hand panel. Assign the FunctionApp read access over the resource group. 
 
 
 
@@ -194,177 +181,28 @@ Now assign the managed identity (objectid) this role.
 1. Leave the options under **Resource access** as disabled
 1. Under **Access policies**, click **+ Create**.
    :::image type="content" source="./media/monitor-point-to-site-connections/create-access-policy-screen1.png" alt-text="Screenshot shows first screen in creating access policy.":::
-1. Click **Next** to go to the **Principal** tab. TODO: FIND FUNCTION APP MANAGED IDENTITY
+1. Click **Next** to go to the **Principal** tab. Type the name of your function app and select it. 
 1. Click **Next** twice to get to the fourth tab: **Review + create** and click **Create** at the bottom.
 1. You should now see the newly created access policy under the **Access policies** section. Modifying the default values under the **Networking** tab is optional, so click **Review + create** in the bottom left-hand corner. 
-1. After creating, go back to the **Configuration** tab for the Function App and modify the following entry: 
-- **Name**: "sasuri", **Value**:  @Microsoft.KeyVault(SecretUri=https://\<keyvaultname>.vault.azure.net/secrets/sasuri/\<version>) 
+1. Go to **Secrets** under **Objects** under the left-hand panel of the key vault resource. Click **+ Generate/Import** and add secret as follows:
+
+* **Name**: sasuri
+* **value**: \<SASURI> 
+* **Enabled**: Yes
+12. Go back to the **Configuration** tab for the Function App and modify the following entry. The value comes from the **Secret Identifier** field that appears after clicking on the secret: 
+* **Name**: "sasuri"
+* **Value**:  @Microsoft.KeyVault(SecretUri=https://\<keyvaultname>.vault.azure.net/secrets/sasuri/\<version>)
 
 
-KeyVault settings:
-Secrets: 
-- sasuri: 
-- secret value: <SASURI> (storage account SAS key)
-Enabled:Yes
 
-New Access Policy: 
-Permission model: Vault access policy
-- Keys and secret management
-- Key Permissions:  Get, List
-- Secret Permissions: Get, List
-- Select Principal: <FunctionApp managed identity>
-
-Generate SAS token and URL: (SASURI, to be saved in KeyVault and used directly from within the workbook)
-
-
-You can choose to create two SAS keys, one for read/write access from the Azure FunctionApp and one with read access used from the workbook, but for now, we use the same SAS key and restrict access to the workbook.
-
-
-##Azure workbook
+## Create Azure Workbook
 
 The Azure workbook is now ready to be created with a mix of built-in functionality and the addition that uses the solution above to give insights to active sessions with more details.
 
 Create a workbook from Azure Monitor or from a Log Analytics workspace.
 Give it a name: <workbook name>
 
-###P2S VPN Gateway Metrics
-
-![workbook1.png](/.attachments/workbook1.png)
-
-###Express Route Circuit Metrics
-
-![workbook2.png](/.attachments/workbook2.png)
-
-###Express Route Gateway Metrics
-
-![workbook3.png](/.attachments/workbook3.png)
-
-###P2S User successful connections with IP
-
-![workbook4.png](/.attachments/workbook4.png)
-
-Log Query:
-
-AzureDiagnostics
-| where Category == "P2SDiagnosticLog" and Message has "Connection successful" and Message has "Username={UserName}"
-| project splitted=split(Message, "Username=")
-| mv-expand col1=splitted[0], col2=splitted[1], col3=splitted[2]
-| project user=split(col2, " ")
-| mv-expand username=user[0]
-| project ['user']
-
-###EAP Authentication succeded
-
-![workbook5.png](/.attachments/workbook5.png)
-
-Log Query:
-
-AzureDiagnostics 
-| where Category == "P2SDiagnosticLog" and Message has "EAP authentication succeeded" and Message has "Username={UserName}"
-| project Message, MessageFields = split(Message, " "), Userinfo = split(Message, "Username=")
-| mv-expand MessageId=MessageFields[2],user=split(Userinfo[1]," ")
-| project MessageId, Message, Userinfo[1]
-
-
-###P2S VPN User Info
-
-![workbook6.png](/.attachments/workbook6.png)
-
-Log Query:
-
-AzureDiagnostics
-| where Category == "P2SDiagnosticLog" and Message has "Username={UserName}"
-| project Message, MessageFields = split(Message, " "), Userinfo = split(Message, "Username=")
-| mv-expand MessageId=MessageFields[2], Username=Userinfo[1]
-| project MessageId, Message, Username;
-
-###P2S VPN Successful connections per user
-
-![workbook7.png](/.attachments/workbook7.png)
-
-Log Query:
-
-AzureDiagnostics 
-| where Category == "P2SDiagnosticLog" and Message has "Connection successful"
-| project splitted=split(Message, "Username=")
-| mv-expand col1=splitted[0], col2=splitted[1], col3=splitted[2]
-| project user=split(col2, " ")
-| mv-expand username=user[0]
-| project-away ['user']
-| summarize count() by tostring(username)
-| sort by count_ desc
-
-###P2S VPN Connections
-
-![workbook8.png](/.attachments/workbook8.png)
-
-Log Query:
-
-AzureDiagnostics | where Category == "P2SDiagnosticLog"
-| project TimeGenerated, OperationName, Message, Resource, ResourceGroup
-| sort by TimeGenerated asc
-
-###Successful P2S VPN Connections
-
-![workbook9.png](/.attachments/workbook9.png)
-
-Log Query:
-
-AzureDiagnostics
-| where Category == "P2SDiagnosticLog" and Message has "Connection successful"
-| project TimeGenerated, Resource ,Message
-
-
-###Failed P2S VPN Connections
-
-![workbook10.png](/.attachments/workbook10.png)
-
-Log Query:
-
-AzureDiagnostics
-| where Category == "P2SDiagnosticLog" and Message has "Connection failed"
-| project TimeGenerated, Resource ,Message
-
-###VPN Connection count by P2SDiagnosticLog
-
-![workbook11.png](/.attachments/workbook11.png)
-
-Log Query: 
-
-AzureDiagnostics 
-| where Category == "P2SDiagnosticLog" and Message has "Connection successful" and Message has "Username={UserName}"| count
-
-###IKE Diagnosticsdetails
-
-![workbook12.png](/.attachments/workbook12.png)
-
-Log Query:
-
-AzureDiagnostics
-| where Category == "IKEDiagnosticLog"
-| extend Message1=Message
-| parse Message with * "Remote " RemoteIP ":" * "500: Local " LocalIP ":" * "500: " Message2
-| extend Event = iif(Message has "SESSION_ID",Message2,Message1)
-| project TimeGenerated, RemoteIP, LocalIP, Event, Level
-| sort by TimeGenerated asc
-
-###IKEDiagnosticLog
-
-![workbook13.png](/.attachments/workbook13.png)
-
-###P2S VPN Statistics
-
-![workbook14.png](/.attachments/workbook14.png)
-
-Log Query:
-
-AzureDiagnostics 
-| where Category == "P2SDiagnosticLog" and Message has "Statistics"
-| project Message, MessageFields = split(Message, " ")
-| mv-expand MessageId=MessageFields[2]
-| project MessageId, Message;
-
-###P2S VPN Active Sessions Details
+### P2S VPN Active Sessions Details
 
 ![workbook14.png](/.attachments/workbook14.png)
 
@@ -380,3 +218,146 @@ P2Svpnconnections
 | extend VpnConnectionId = parse_json(VpnConnectionHealths).VpnConnectionId, VpnConnectionDuration = parse_json(VpnConnectionHealths).VpnConnectionDuration, VpnConnectionTime = parse_json(VpnConnectionHealths).VpnConnectionTime, PublicIpAddress = parse_json(VpnConnectionHealths).PublicIpAddress, PrivateIpAddress = parse_json(VpnConnectionHealths).PrivateIpAddress, MaxBandwidth = parse_json(VpnConnectionHealths).MaxBandwidth, EgressPacketsTransferred = parse_json(VpnConnectionHealths).EgressPacketsTransferred, EgressBytesTransferred = parse_json(VpnConnectionHealths).EgressBytesTransferred, IngressPacketsTransferred = parse_json(VpnConnectionHealths).IngressPacketsTransferred, IngressBytesTransferred = parse_json(VpnConnectionHealths).IngressBytesTransferred, MaxPacketsPerSecond = parse_json(VpnConnectionHealths).MaxPacketsPerSecond
 | extend PubIp = tostring(split(PublicIpAddress, ":").[0])
 | project Username, VpnConnectionId, VpnConnectionDuration, VpnConnectionTime, PubIp, PublicIpAddress, PrivateIpAddress, MaxBandwidth, EgressPacketsTransferred, EgressBytesTransferred, IngressPacketsTransferred, IngressBytesTransferred, MaxPacketsPerSecond;
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+For the below metrics, you must enable diagnostics logging by adding diagnostic settings in Azure portal.  
+:::image type="content" source="./media/monitor-point-to-site-connections/final-monitoring.png" alt-text="Screenshot shows Diagnostic settings page in Azure Monitor.":::
+
+### P2S VPN Gateway Metrics
+
+![workbook1.png](/.attachments/workbook1.png)
+
+### Express Route Circuit Metrics
+
+![workbook2.png](/.attachments/workbook2.png)
+
+### Express Route Gateway Metrics
+
+![workbook3.png](/.attachments/workbook3.png)
+
+### P2S User successful connections with IP
+
+![workbook4.png](/.attachments/workbook4.png)
+
+Log Query:
+
+AzureDiagnostics
+| where Category == "P2SDiagnosticLog" and Message has "Connection successful" and Message has "Username={UserName}"
+| project splitted=split(Message, "Username=")
+| mv-expand col1=splitted[0], col2=splitted[1], col3=splitted[2]
+| project user=split(col2, " ")
+| mv-expand username=user[0]
+| project ['user']
+
+### EAP Authentication succeded
+
+![workbook5.png](/.attachments/workbook5.png)
+
+Log Query:
+
+AzureDiagnostics 
+| where Category == "P2SDiagnosticLog" and Message has "EAP authentication succeeded" and Message has "Username={UserName}"
+| project Message, MessageFields = split(Message, " "), Userinfo = split(Message, "Username=")
+| mv-expand MessageId=MessageFields[2],user=split(Userinfo[1]," ")
+| project MessageId, Message, Userinfo[1]
+
+
+### P2S VPN User Info
+
+![workbook6.png](/.attachments/workbook6.png)
+
+Log Query:
+
+AzureDiagnostics
+| where Category == "P2SDiagnosticLog" and Message has "Username={UserName}"
+| project Message, MessageFields = split(Message, " "), Userinfo = split(Message, "Username=")
+| mv-expand MessageId=MessageFields[2], Username=Userinfo[1]
+| project MessageId, Message, Username;
+
+### P2S VPN Successful connections per user
+
+![workbook7.png](/.attachments/workbook7.png)
+
+Log Query:
+
+AzureDiagnostics 
+| where Category == "P2SDiagnosticLog" and Message has "Connection successful"
+| project splitted=split(Message, "Username=")
+| mv-expand col1=splitted[0], col2=splitted[1], col3=splitted[2]
+| project user=split(col2, " ")
+| mv-expand username=user[0]
+| project-away ['user']
+| summarize count() by tostring(username)
+| sort by count_ desc
+
+### P2S VPN Connections
+
+![workbook8.png](/.attachments/workbook8.png)
+
+Log Query:
+
+AzureDiagnostics | where Category == "P2SDiagnosticLog"
+| project TimeGenerated, OperationName, Message, Resource, ResourceGroup
+| sort by TimeGenerated asc
+
+### Successful P2S VPN Connections
+
+![workbook9.png](/.attachments/workbook9.png)
+
+Log Query:
+
+AzureDiagnostics
+| where Category == "P2SDiagnosticLog" and Message has "Connection successful"
+| project TimeGenerated, Resource ,Message
+
+
+### Failed P2S VPN Connections
+
+![workbook10.png](/.attachments/workbook10.png)
+
+Log Query:
+
+AzureDiagnostics
+| where Category == "P2SDiagnosticLog" and Message has "Connection failed"
+| project TimeGenerated, Resource ,Message
+
+### VPN Connection count by P2SDiagnosticLog
+
+![workbook11.png](/.attachments/workbook11.png)
+
+Log Query: 
+
+AzureDiagnostics 
+| where Category == "P2SDiagnosticLog" and Message has "Connection successful" and Message has "Username={UserName}"| count
+
+### IKE Diagnosticsdetails
+
+![workbook12.png](/.attachments/workbook12.png)
+
+Log Query:
+
+AzureDiagnostics
+| where Category == "IKEDiagnosticLog"
+| extend Message1=Message
+| parse Message with * "Remote " RemoteIP ":" * "500: Local " LocalIP ":" * "500: " Message2
+| extend Event = iif(Message has "SESSION_ID",Message2,Message1)
+| project TimeGenerated, RemoteIP, LocalIP, Event, Level
+| sort by TimeGenerated asc
+
+### IKEDiagnosticLog
+
+![workbook13.png](/.attachments/workbook13.png)
+
+### P2S VPN Statistics
+
+![workbook14.png](/.attachments/workbook14.png)
+
+Log Query:
+
+AzureDiagnostics 
+| where Category == "P2SDiagnosticLog" and Message has "Statistics"
+| project Message, MessageFields = split(Message, " ")
+| mv-expand MessageId=MessageFields[2]
+| project MessageId, Message;
+
+
