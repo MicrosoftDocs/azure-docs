@@ -212,6 +212,8 @@ It is recommended to follow these recommendations, if your organization needs to
 
 This scenario also applies if multiple Azure Purview accounts are deployed across multiple subscriptions and multiple VNets that are connected through VNet peering. _Portal_ private endpoint mainly renders static assets related to Azure Purview Studio, thus, it is independent of Azure Purview account, therefore, only one _portal_ private endpoint is needed to visit all Azure Purview accounts in the Azure environment if VNets are connected.
 
+:::image type="content" source="media/concept-best-practices/network-pe-dns-multi-vnet.png" alt-text="Screenshot that shows how to handle private endpoints and DNS records for multiple Azure Purview accounts in multiple vnets."lightbox="media/concept-best-practices/network-pe-dns-multi-vnet.png":::
+
 > [!NOTE]
 > You may need to deploy separate _portal_ private endpoints for each Azure Purview account in the scenarios where Azure Purview accounts are deployed in isolated network segmentations.
 > Azure Purview _portal_ is static contents for all customers without any customer information. Optionally, you can use public network, (without portal private endpoint) to launch `web.purview.azure.com` if your end users are allowed to launch the Internet.
