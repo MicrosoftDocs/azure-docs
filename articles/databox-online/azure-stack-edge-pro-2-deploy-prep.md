@@ -36,7 +36,7 @@ For Azure Stack Edge Pro 2 deployment, you need to first prepare your environmen
 |**Deployment tutorials** |These tutorials are required to deploy your Azure Stack Edge Pro 2 device in production. |
 |**[1. Prepare the Azure portal for Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-prep.md)** |Create and configure your Azure Stack Edge resource before you install an Azure Stack Box Edge physical device. |
 |**[2. Install Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-install.md)**|Unpack, rack, and cable the Azure Stack Edge Pro 2 physical device.  |
-|**[3. Connect to Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-connect.md)** |Once the device is installed, connect to device local web UI.  |
+|**[3. Connect to Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-connect.md)** |Once the device is installed, connect to its local web UI.  |
 |**[4. Configure network settings for Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md)** |Configure network including the compute network and web proxy settings for your device.   |
 |**[5. Configure device settings for Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-set-up-device-update-time.md)** |Assign a device name and DNS domain, configure update server and device time. |
 |**[6. Configure security settings for Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-configure-certificates.md)** |Configure certificates for your device. Use device-generated certificates or bring your own certificates.   |
@@ -104,7 +104,7 @@ Azure Edge Hardware Center (Preview) lets you explore and order a variety of har
 
 When you place an order through the Azure Edge Hardware Center, you can order multiple devices, to be shipped to more than one address, and you can reuse ship to addresses from other orders.
 
-Ordering through Azure Edge Hardware Center will create an Azure resource that will contain all your order-related information. One resource each will be created for each of the units ordered. You will have to create an Azure Stack Edge resource after you receive the device to activate and manage it.
+Ordering through Azure Edge Hardware Center will create an Azure resource that will contain all your order-related information. One resource each will be created for each of the units ordered. You’ll have to create an Azure Stack Edge resource after you receive the device to activate and manage it.
 
 [!INCLUDE [Create order in Azure Edge Hardware Center](../../includes/azure-edge-hardware-center-new-order.md)]
 
@@ -180,7 +180,7 @@ After the Azure Stack Edge resource is up and running, you'll need to get the ac
 
 ## Next steps
 
-In this tutorial, you learned about Azure Stack Edge Pro 2 topics such as:
+In this tutorial, you learned about Azure Stack Edge Pro 2 articles such as:
 
 > [!div class="checklist"]
 > * Create a new resource

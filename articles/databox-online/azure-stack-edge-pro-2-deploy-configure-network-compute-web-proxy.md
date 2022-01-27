@@ -67,8 +67,8 @@ Follow these steps to configure the network for your device.
     * If DHCP is enabled in your environment, network interfaces are automatically configured. An IP address, subnet, gateway, and DNS are automatically assigned.
     * If DHCP isn't enabled, you can assign static IPs if needed.
     * You can configure your network interface as IPv4.
-    * On 25-Gbps interfaces, you can set the RDMA (Remote Direct Access Memory) mode to iWarp or RoCE (RDMA over Converged Ethernet). Where low latencies are the primary requirement and scalability is not a concern, use RoCE. When latency is a key requirement, but ease-of-use and scalability are also high priorities, iWARP is the best candidate.
-    * Network Interface Card (NIC) Teaming or link aggregation is not supported with Azure Stack Edge. 
+    * On 25-Gbps interfaces, you can set the RDMA (Remote Direct Access Memory) mode to iWarp or RoCE (RDMA over Converged Ethernet). Where low latencies are the primary requirement and scalability isn’t a concern, use RoCE. When latency is a key requirement, but ease-of-use and scalability are also high priorities, iWARP is the best candidate.
+    * Network Interface Card (NIC) Teaming or link aggregation isn’t supported with Azure Stack Edge. 
     * Serial number for any port corresponds to the node serial number.
 
     Once the device network is configured, the page updates as shown below.
@@ -80,7 +80,7 @@ Follow these steps to configure the network for your device.
      > We recommend that you do not switch the local IP address of the network interface from static to DCHP, unless you have another IP address to connect to the device. If using one network interface and you switch to DHCP, there would be no way to determine the DHCP address. If you want to change to a DHCP address, wait until after the device has activated with the service, and then change. You can then view the IPs of all the adapters in the **Device properties** in the Azure portal for your service.
 
 
-    After you have configured and applied the network settings, select **Next: Compute** to configure compute network.
+    After you’ve configured and applied the network settings, select **Next: Compute** to configure compute network.
 
 ## Enable compute network
 
@@ -104,7 +104,7 @@ Follow these steps to enable compute and configure compute network.
     > Kubernetes on Azure Stack Edge uses 172.27.0.0/16 subnet for pod and 172.28.0.0/16 subnet for service. Make sure that these are not in use in your network. If these subnets are already in use in your network, you can change these subnets by running the `Set-HcsKubeClusterNetworkInfo` cmdlet from the PowerShell interface of the device. For more information, see [Change Kubernetes pod and service subnets](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
 
 
-1. Assign **Kubernetes external service IPs**. These are also the load balancing IP addresses. These contiguous IP addresses are for services that you want to expose outside of the Kubernetes cluster and you specify the static IP range depending on the number of services exposed. 
+1. Assign **Kubernetes external service IPs**. These are also the load-balancing IP addresses. These contiguous IP addresses are for services that you want to expose outside of the Kubernetes cluster and you specify the static IP range depending on the number of services exposed. 
     
     > [!IMPORTANT]
     > We strongly recommend that you specify a minimum of 1 IP address for Azure Stack Edge Hub service to access compute modules. You can then optionally specify additional IP addresses for other services/IoT Edge modules (1 per service/module) that need to be accessed from outside the cluster. The service IP addresses can be updated later. 
@@ -135,7 +135,7 @@ This is an optional configuration.
 
 1. On the **Web proxy settings** page, take the following steps:
 
-   1. In the **Web proxy URL** box, enter the URL in this format: `http://host-IP address or FQDN:Port number`. HTTPS URLs are not supported.
+   1. In the **Web proxy URL** box, enter the URL in this format: `http://host-IP address or FQDN:Port number`. HTTPS URLs aren’t supported.
 
    2. To validate and apply the configured web proxy settings, select **Apply**.
 

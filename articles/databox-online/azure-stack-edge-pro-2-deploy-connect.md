@@ -40,13 +40,13 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 
     ![Backplane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
 
-    The backplane of the device may look slightly different depending on the exact model you have received. For more information, see [Cable your device](azure-stack-edge-gpu-deploy-install.md#cable-the-device).
+    The backplane of the device may look slightly different depending on the exact model you’ve received. For more information, see [Cable your device](azure-stack-edge-gpu-deploy-install.md#cable-the-device).
 
 
 3. Open a browser window and access the local web UI of the device at `https://192.168.100.10`.  
     This action may take a few minutes after you've turned on the device.
 
-    You see an error or a warning indicating that there is a problem with the website's security certificate. 
+    You see an error or a warning indicating that there’s a problem with the website's security certificate. 
    
     ![Website security certificate error message](./media/azure-stack-edge-deploy-connect-setup-activate/image2.png)
 

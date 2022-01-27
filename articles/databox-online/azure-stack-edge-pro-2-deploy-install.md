@@ -46,7 +46,7 @@ Before you deploy a device:
     - Standard AC power from an independent source.
 
         -OR-
-    - A rack power distribution unit (PDU) with an uninterruptible power supply (UPS).
+    - A power distribution unit (PDU) with an uninterruptible power supply (UPS).
     - An available 1U slot on the rack on which you intend to mount the device.
 
 ### For the network in the datacenter
@@ -68,8 +68,8 @@ This device is shipped in a single box. Complete the following steps to unpack y
     - One single enclosure Azure Stack Edge Pro 2 device
     - One power cord
     - One packaged bezel
-    - One packaged 4-post rack  slide rail
-    - A Safety, Environmental, and Regulatory Information booklet
+    - One packaged 4-post rack slide rail
+    - A safety, environmental, and regulatory information booklet
 
 If you didn't receive all of the items listed here, [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). The next step is to rack mount your device.
 
@@ -155,7 +155,7 @@ Locate the components for installing the rail kit assembly:
 
 After the device is rackmounted, you can install the bezel on the device.
 
-1. Locate two fixed pins on the right side of the bezel, and two spring loaded pins on the left side of the bezel. 
+1. Locate two fixed pins on the right side of the bezel, and two spring-loaded pins on the left side of the bezel. 
 2. Insert the bezel in at an angle with fixed pins going into holes in right rack ear.
 3. Push [> shaped latch to the right, move left side of bezel into place, then release the latch until the spring pins engage with holes in left rack ear. 
 
@@ -173,8 +173,8 @@ Before you start cabling your device, you need the following things:
 
 - Your Azure Stack Edge Pro 2 physical device, unpacked, and rack mounted.
 - One power cable.
-- At least one 1-GbE RJ-45 network cable to connect to the PORT 1. There are two 10-GbE network interfaces, one used for initial configuration and one for data, on the device. These network interfaces can also act as 10 GbE interfaces.
-- One 100-GbE QSFP28 Passive Direct Attached Cable (tested in-house) for each data network interface PORT 3 and PORT 4 to be configured. At least one data network interface from among PORT 2, PORT 3, and PORT 4 needs to be connected to the Internet (with connectivity to Azure). Here is an example QSFP28 DAC connector: 
+- At least one 1-GbE RJ-45 network cable to connect to the PORT 1. There are two 10-GbE network interfaces, one used for initial configuration and one for data, on the device. These network interfaces can also act as 10-GbE interfaces.
+- One 100-GbE QSFP28 passive direct attached cable (tested in-house) for each data network interface PORT 3 and PORT 4 to be configured. At least one data network interface from among PORT 2, PORT 3, and PORT 4 needs to be connected to the Internet (with connectivity to Azure). Here is an example QSFP28 DAC connector: 
 
     For a full list of supported cables, modules, and switches, see [Connect-X6 DX adapter card compatible firmware](https://docs.mellanox.com/display/ConnectX6DxFirmwarev22271016/Firmware Compatible Products). 
 - Access to one power distribution unit.
@@ -189,7 +189,7 @@ On your Azure Stack Edge Pro 2 device:
 
 - The front panel has disk drives and a power button.
 
-    - There are 6 disk slots in the front of your device.
+    - There are six disk slots in the front of your device.
     - Slot 0 – Slot 3 contain data disks. Slots 4 and 5 are empty.
 - The back plane has four network interfaces:
 
@@ -197,7 +197,7 @@ On your Azure Stack Edge Pro 2 device:
     - Two 100-Gbps interfaces.
     - A baseboard management controller (BMC).
 
-- The back plane has one network cards corresponding to two high speed ports and two built-in 10/1-GbE ports:
+- The back plane has one network card corresponding to two high-speed ports and two built-in 10/1-GbE ports:
 
     - **Intel Ethernet X722 network adapter** - PORT 1, PORT 2.
     - **Mellanox dual port 100 GbE ConnectX-6 Dx network adapter** - PORT 3, PORT 4.
@@ -219,7 +219,7 @@ Take the following steps to cable your device for power and network.
     ![Front plane of a device](./media/azure-stack-edge-gpu-deploy-install/ase-gpu-device-front-plane-labeled.png)
 
 3. Connect the power cord to the PSU in the enclosure. 
-4. Attach the power cord to the rack power distribution unit (PDU). 
+4. Attach the power cord to the power distribution unit (PDU). 
 5. Press the power button to turn on the device.
 6. Connect the 10/1-GbE network interface PORT 1 to the computer that's used to configure the physical device. PORT 1 serves as the management interface for the initial configuration of the device.
     
@@ -234,7 +234,7 @@ Take the following steps to cable your device for power and network.
 
 ## Next steps
 
-In this tutorial, you learned about Azure Stack Edge Pro 2 topics such as how to:
+In this tutorial, you learned about Azure Stack Edge Pro 2 articles such as how to:
 
 > [!div class="checklist"]
 > * Unpack the device
