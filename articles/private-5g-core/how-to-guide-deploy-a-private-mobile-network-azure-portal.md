@@ -91,7 +91,10 @@ In this step, you will create the site resource representing the physical enterp
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-site-packet-core-tab.png" alt-text="Screenshot of the Azure portal showing the Packet core configuration tab for a site resource.":::
 
 1. In the **Packet core** section, ensure **Technology type** is set to *5G*, and then leave the **Version** and **Custom location** fields blank unless you have been instructed to do otherwise by your support representative.
-1. Use the information you collected in [Collect access network configuration values](collect-required-information-for-private-mobile-network.md#collect-access-network-configuration-values) to fill out the fields in the **Access network** section. 
+1. Use the information you collected in [Collect access network configuration values](collect-required-information-for-private-mobile-network.md#collect-access-network-configuration-values) to fill out the fields in the **Access network** section. Note the following.
+
+    - You must use the same value for both the **N2 subnet** and **N3 subnet** fields.
+    - You must use the same value for both the **N2 gateway** and **N3 gateway** fields.
 
 1. Use the information you collected in [Collect attached data network configuration values](collect-required-information-for-private-mobile-network.md#collect-attached-data-network-configuration-values) to fill out the fields in the **Attached data networks** section. Note that you can only connect the packet core instance to a single data network.
 1. Select **Review + create**.

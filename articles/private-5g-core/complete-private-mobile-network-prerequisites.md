@@ -16,7 +16,7 @@ In this how-to guide, you'll carry out each of the tasks you need to complete be
 
 ## Complete the prerequisite tasks
 
-You must do the following before you can deploy a private mobile network. Detailed instructions for how to carry out each step are included in the **Detailed instructions** column where applicable.  You will use information collected in [Collect the required information to deploy a private mobile network - Azure portal](collect-required-information-for-private-mobile-network.md) during this process.
+You must do the following before you can deploy a private mobile network. Detailed instructions for how to carry out each step are included in the **Detailed instructions** column where applicable.
 
 | Step No. | Description | Detailed instructions |
 |--|--|--|
