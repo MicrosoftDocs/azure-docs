@@ -3,7 +3,7 @@ title: Device Update for Azure IoT Hub tutorial using the Ubuntu Server 18.04 x6
 description: Get started with Device Update for Azure IoT Hub using the Ubuntu Server 18.04 x64 Package agent.
 author: vimeht
 ms.author: vimeht
-ms.date: 2/16/2021
+ms.date: 1/26/2022
 ms.topic: tutorial
 ms.service: iot-hub-device-update
 ---
@@ -132,37 +132,32 @@ Read the license terms prior to using a package. Your installation and use of a 
 
 ## Import update
 
-1. Go to [Device Update releases](https://github.com/Azure/iot-hub-device-update/releases) in GitHub and click the "Assets" drop-down.
+1. Go to [Device Update releases](https://github.com/Azure/iot-hub-device-update/releases) in GitHub and click the "Assets" drop-down. Download the `Edge.package.update.samples.zip` by clicking on it. Extract the contents of the folder to discover a sample APT manifest(sample-1.0.1-aziot-edge-apt-manifest.json) and its corresponding import manifest(sample-1.0.1-aziot-edge-importManifest.json). 
 
-3. Download the `Edge.package.update.samples.zip` by clicking on it.
-
-5. Extract the contents of the folder to discover a sample [APT manifest](device-update-apt-manifest.md) and its corresponding [import manifest](import-concepts.md). 
-
-2. In Azure portal, select the Device Updates option under Automatic Device Management from the left-hand navigation bar in your IoT Hub.
+2. Log in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the Updates option under Automatic Device Management from the left-hand navigation bar.
 
 3. Select the Updates tab.
 
 4. Select "+ Import New Update".
 
-5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the `sample-1.0.1-aziot-edge-importManifest.json` import manifest from the folder you downloaded previously. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the `sample-1.0.1-aziot-edge-apt-manifest.json` apt manifest update file from the folder you downloaded previously.
-This update will update the `aziot-identity-service` and the `aziot-edge` packages to version 1.2.0~rc4-1 on your device.
+5. Select "+ Select from storage container". Select an existing account or create a new account using "+ Storage account". Then select an existing container or create a new container using "+ Container". This container will be used to stage your update files for importing 
+   _Recommendation: use a new container each time you import an update to avoid accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container before completing this step._
+   
+   :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Storage Account" lightbox="media/import-update/storage-account-ppr.png":::
 
-   :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
+6. In your container, select "Upload" and navigate to files downloaded in **Step 1**. When you've selected all your update files, select "Upload" Then click the "Select" button to return to the "Import update" page.
 
-6. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account.
+   :::image type="content" source="media/import-update/import-select-ppr.png" alt-text="Select Uploaded Files" lightbox="media/import-update/import-select-ppr.png":::
+   _This screenshot shows the import step and file names may not match the ones used in the example_
 
-7. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
+8. On the Import update page, review the files to be imported. Then select "Import update" to start the import process.
 
-   :::image type="content" source="media/import-update/container.png" alt-text="Screenshot showing container selection." lightbox="media/import-update/container.png":::
+   :::image type="content" source="media/import-update/import-start-2-ppr.png" alt-text="Import Start" lightbox="media/import-update/import-start-2-ppr.png":::
 
-8. Select "Submit" to start the import process.
+9. The import process begins, and the screen switches to the "Import History" section. When the `Status` column indicates the import has succeeded, select the "Available Updates" header. You should see your imported update in the list now.
 
-9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, the import process may complete in a few minutes but could take longer.
-
-   :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Screenshot showing update import sequence." lightbox="media/import-update/update-publishing-sequence-2.png":::
-
-10. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
-
+   :::image type="content" source="media/import-update/update-ready-ppr.png" alt-text="Job Status" lightbox="media/import-update/update-ready-ppr.png":::
+       
 [Learn more](import-update.md) about importing updates.
 
 ## Create update group
