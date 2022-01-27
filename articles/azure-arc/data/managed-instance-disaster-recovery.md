@@ -29,8 +29,8 @@ The distributed availability groups used in Azure Arc-enabled SQL Managed Instan
 
 To configure disaster recovery:
 
-1. Create distributed availability groups custom resource on the primary site
-1. Create distributed availability group custom resource on the secondary site
+1. Create custom resource for distributed availability group at the primary site
+1. Create custom resource for distributed availability group at the secondary site
 1. Copy the mirroring certificates
 1. Set up the distributed availability group between the primary and secondary sites
 
@@ -46,7 +46,7 @@ The following image shows a properly configured distributed availability group:
    az sql mi-arc create --name sqlprimary --tier bc --replicas 3 --k8s-namespace my-namespace --use-k8s
    ```
 
-2. Provision the managed instance in the secondary site and configure as a disaster recovery instance. At this point the system databases are not part of the contained availability group yet.
+2. Provision the managed instance in the secondary site and configure as a disaster recovery instance. At this point, the system databases are not part of the contained availability group.
 
    ```azurecli
    az sql mi-arc create --name sqlsecondary --tier bc --replicas 3 --disaster-recovery-site true --k8s-namespace my-namespace --use-k8s
@@ -68,7 +68,7 @@ The following image shows a properly configured distributed availability group:
 
 4. Create the distributed availability group resource on both sites. 
 
-   Use `az sql mi-arc dag...` to complete the task. The command seeds system databases in the disaster recovery instance contained availability group, from the primary instance contained availability group.
+   Use `az sql mi-arc dag...` to complete the task. The command seeds system databases in the disaster recovery instance, from the primary instance.
  
    > [!NOTE]
    > The distributed availability group name should be identical on both sites.
@@ -87,11 +87,9 @@ The following image shows a properly configured distributed availability group:
    az sql mi-arc dag create --dag-name dagtest --name dagSecondary --local-instance-name sqlSecondary  --role secondary --remote-instance-name sqlPrimary --remote-mirroring-url tcp://10.20.5.50:970 --remote-mirroring-cert-file $HOME/sqlcerts/sqlprimary.pem --k8s-namespace my-namespace --use-k8s
    ```
 
-After you complete the steps above, you have configured the distributed availability group.
-
 ## Manual failover from primary to secondary instance
 
-Use `az sql mi-arc dag...` to initiate a failover from primary to secondary. The following command initiates a failover from the primary instance to the secondary instance. Any pending transactions on the geo-primary instance are replicated over to the geo-secondary disaster recovery instance before the failover. 
+Use `az sql mi-arc dag...` to initiate a failover from primary to secondary. The following command initiates a failover from the primary instance to the secondary instance. Any pending transactions on the geo-primary instance are replicated over to the geo-secondary instance before the failover. 
 
 ```azurecli
 az sql mi-arc dag update --name <name of DAG resource> --role secondary --k8s-namespace <namespace> --use-k8s 

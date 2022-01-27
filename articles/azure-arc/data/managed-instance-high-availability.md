@@ -14,7 +14,7 @@ ms.subservice: azure-arc-data
 
 # High Availability with Azure Arc-enabled SQL Managed Instance (preview)
 
-Azure Arc-enabled SQL Managed Instance is deployed on Kubernetes as a containerized application and uses Kubernetes constructs such as stateful sets and persistent storage to provide built-in health monitoring, failure detection, and failover mechanisms to maintain service health. For increased reliability, you can also configure Azure Arc-enabled SQL Managed Instance to deploy with extra replicas in a high availability configuration. Monitoring, failure detection, and automatic failover are managed by the Arc data services data controller. This service is provided without user intervention – all from availability group setup, configuring database mirroring endpoints, to adding databases to the availability group or failover and upgrade coordination. This document explores both types of high availability.
+Azure Arc-enabled SQL Managed Instance is deployed on Kubernetes as a containerized application. It uses Kubernetes constructs such as stateful sets and persistent storage to provide built-in health monitoring, failure detection, and failover mechanisms to maintain service health. For increased reliability, you can also configure Azure Arc-enabled SQL Managed Instance to deploy with extra replicas in a high availability configuration. Monitoring, failure detection, and automatic failover are managed by the Arc data services data controller. Arc-enabled data service provides this service is provided without user intervention. The service sets up the availability group, configures database mirroring endpoints, adds databases to the availability group, and coordinates failover and upgrade. This document explores both types of high availability.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -72,15 +72,15 @@ After all containers within the pod have recovered, you can connect to the manag
 
 ## High availability in Business Critical service tier
 
-In the Business Critical service tier, in addition to what is natively provided by Kubernetes orchestration, there is a new technology called Contained Availability Group (CAG) that provides higher levels of availability. Azure Arc-enabled SQL managed instances deployed with `Business Critical` service tier can be deployed with either 2 or 3 replicas. These replicas are always kept in sync with each other. Contained Availability Group is built on top of existing SQL Server Always On Availability Groups. With Contained Availability Groups, any pod crashes or node failures are transparent to the application as there is at least one other pod that has the SQL managed instance that has all the data from the primary and ready to take on connections.  
+In the Business Critical service tier, in addition to what is natively provided by Kubernetes orchestration, there is a new technology called Contained Availability Group (CAG) that provides higher levels of availability. Azure Arc-enabled SQL managed instances deployed with `Business Critical` service tier can be deployed with either 2 or 3 replicas. These replicas are always kept in sync with each other. Contained availability group is built on SQL Server Always On availability groups. With contained availability groups, any pod crashes or node failures are transparent to the application as there is at least one other pod that has the SQL managed instance that has all the data from the primary and ready to take on connections.  
 
-## Contained Availability Groups
+## Contained availability groups
 
-Always On Availability Group is a way to bind one or more user databases into a logical group so that when there is a failover, the entire group of databases fails over to the secondary replica as a single unit. An availability group only replicates data in the user databases but not the data in system databases such as logins, permissions, or agent jobs. A contained availability group includes metadata from system databases such as `msdb` and `master` databases. When a login is created or modified in the primary replica, it's automatically also created in the secondary replicas. Similarly, when an agent job is created or modified in the primary replica, the secondary replicas also receive those changes.
+An availability group binds one or more user databases into a logical group so that when there is a failover, the entire group of databases fails over to the secondary replica as a single unit. An availability group only replicates data in the user databases but not the data in system databases such as logins, permissions, or agent jobs. A contained availability group includes metadata from system databases such as `msdb` and `master` databases. When a login is created or modified in the primary replica, it's automatically also created in the secondary replicas. Similarly, when an agent job is created or modified in the primary replica, the secondary replicas also receive those changes.
 
 Azure Arc-enabled SQL Managed Instance takes this concept of Contained Availability Group and adds Kubernetes operator so these can be deployed and managed at scale. 
 
-Capabilities that Contained Availability Groups enable:
+Capabilities that contained availability groups enable:
 
 - When deployed with multiple replicas, a single availability group named with the same name as the Arc enabled SQL managed instance is created. By default, contained AG has three replicas, including primary. All CRUD operations for the availability group are managed internally, including creating the availability group or joining replicas to the availability group created. Additional availability groups cannot be created in the Azure Arc-enabled SQL Managed Instance.
 
@@ -104,7 +104,7 @@ From Azure portal, on the create Azure Arc-enabled SQL managed instance page:
 ### Deploy Azure Arc-enabled SQL managed instance with multiple replicas using Azure CLI
 
 
-When an Azure Arc-enabled SQL managed instance is deployed in Business Critical service tier, this enables multiple replicas to be created. The setup and configuration of Contained Availability Groups among those instances is automatically done during provisioning. 
+When an Azure Arc-enabled SQL managed instance is deployed in Business Critical service tier, this enables multiple replicas to be created. The setup and configuration of contained availability groups among those instances is automatically done during provisioning. 
 
 For instance, the following command creates a managed instance with 3 replicas.
 
@@ -196,7 +196,7 @@ And the Contained Availability Dashboard:
 
 ## Failover scenarios
 
-Unlike SQL Server Always on Availability Groups, the Contained Availability Groups is a managed high availability solution. Hence, the failover modes are limited compared to the typical modes available with SQL Server Always on Availability Groups.
+Unlike SQL Server Always On availability groups, the contained availability group is a managed high availability solution. Hence, the failover modes are limited compared to the typical modes available with SQL Server Always On availability groups.
 
 Deploy Business Critical service tier SQL managed instances in either 2-replica configuration or 3-replica configuration. The impact of failures and the subsequent recoverability is different with each configuration. A 3-replica instance provides a much higher level of availability and recovery, than a 2-replica instance. 
 
