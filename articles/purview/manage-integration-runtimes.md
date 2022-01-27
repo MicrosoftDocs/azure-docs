@@ -11,7 +11,7 @@ ms.date: 01/27/2022
 
 # Create and manage a self-hosted integration runtime
 
-The integration runtime (IR) is the compute infrastructure that Azure Purview use to power data scan across different network environments.
+The integration runtime (IR) is the compute infrastructure that Azure Purview uses to power data scan across different network environments.
 
 A self-hosted integration runtime (SHIR) can be used to scan data source in an on-premises network or a virtual network. The installation of a self-hosted integration runtime needs an on-premises machine or a virtual machine inside a private network.
 
@@ -38,7 +38,7 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 - The recommended minimum configuration for the self-hosted integration runtime machine is a 2-GHz processor with 4 cores, 8 GB of RAM, and 80 GB of available hard drive space. For the details of system requirements, see [Download](https://www.microsoft.com/download/details.aspx?id=39717).
 - If the host machine hibernates, the self-hosted integration runtime doesn't respond to data requests. Configure an appropriate power plan on the computer before you install the self-hosted integration runtime. If the machine is configured to hibernate, the self-hosted integration runtime installer prompts with a message.
 - You must be an administrator on the machine to successfully install and configure the self-hosted integration runtime.
-- Scan runs happen with a specific frequency per the schedule you've set up. Processor and RAM usage on the machine follows the same pattern with peak and idle times. Resource usage also depends heavily on the amount of data that is scanned. When multiple scan jobs are in progress, you see resource usage go up during peak times.
+- Scan runs happen with a specific frequency per the schedule you've set up. Processor and RAM usage on the machine follows the same pattern with peak and idle times. Resource usage also depends heavily on the amount of data that is scanned. When multiple scan jobs are in progress, you see resource usage goes up during peak times.
 - Scanning some data sources requires additional setup on the self-hosted integration runtime machine. For example, JDK, Visual C++ Redistributable, or specific driver. Refer to [each source article](purview-connector-overview.md) for prerequisite details.
 
 > [!IMPORTANT]
@@ -62,7 +62,7 @@ To create and set up a self-hosted integration runtime, use the following proced
 
    :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="Select on IR.":::
 
-3. On the **Integration runtime setup** page, select **Self-Hosted** to create a Self-Hosted IR, and then select **Continue**.
+3. On the **Integration runtime setup** page, select **Self-Hosted** to create a self-Hosted IR, and then select **Continue**.
 
    :::image type="content" source="media/manage-integration-runtimes/select-self-hosted-ir.png" alt-text="Create new SHIR.":::
 
@@ -98,9 +98,9 @@ You can delete a self-hosted integration runtime by navigating to **Integration 
 
 ## Service account for Self-hosted integration runtime
 
-The default log on service account of Self-hosted integration runtime is **NT SERVICE\DIAHostService**. You can see it in **Services -> Integration Runtime Service -> Properties -> Log on**.
+The default logon service account of self-hosted integration runtime is **NT SERVICE\DIAHostService**. You can see it in **Services -> Integration Runtime Service -> Properties -> Log on**.
 
-:::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/shir-service-account.png" alt-text="Service account for Self-hosted integration runtime":::
+:::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/shir-service-account.png" alt-text="Service account for self-hosted integration runtime":::
 
 Make sure the account has the permission of Log on as a service. Otherwise self-hosted integration runtime can't start successfully. You can check the permission in **Local Security Policy -> Security Settings -> Local Policies -> User Rights Assignment -> Log on as a service**
 
@@ -116,11 +116,11 @@ If you move your cursor over the icon or message in the notification area, you c
 
 ## Networking requirements
 
-Your self-hosted integration runtime machine need to connect to several resources to work correctly:
+Your self-hosted integration runtime machine needs to connect to several resources to work correctly:
 
 * The Azure Purview services used to manage the self-hosted integration runtime.
 * The data sources you want to scan using the self-hosted integration runtime.
-* The managed Storage account and Event Hub resource created by Azure Purview. Azure Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime need to be able to connect with these resources.
+* The managed Storage account and Event Hubs resource created by Azure Purview. Azure Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime need to be able to connect with these resources.
 * The Azure Key Vault used to store credentials.
 
 There are two firewalls to consider:
@@ -194,12 +194,12 @@ If using system proxy, make sure your proxy server allow outbound traffic to the
 
 ### Configure proxy server settings
 
-If you select the **Use system proxy** option for the HTTP proxy, the self-hosted integration runtime uses the proxy settings in the following four files to perform different operations:
+If you select the **Use system proxy** option for the HTTP proxy, the self-hosted integration runtime uses the proxy settings in the following four files under the path C:\Program Files\Microsoft Integration Runtime\5.0\ to perform different operations:
 
-- C:\Program Files\Microsoft Integration Runtime\5.0\Shared\diahost.exe.config
-- C:\Program Files\Microsoft Integration Runtime\5.0\Shared\diawp.exe.config
-- C:\Program Files\Microsoft Integration Runtime\5.0\Gateway\DataScan\Microsoft.DataMap.Agent.exe.config
-- C:\Program Files\Microsoft Integration Runtime\5.0\Gateway\DataScan\DataTransfer\Microsoft.DataMap.Agent.Connectors.Azure.DataFactory.ServiceHost.exe.config.
+- .\Shared\diahost.exe.config
+- .\Shared\diawp.exe.config
+- .\Gateway\DataScan\Microsoft.DataMap.Agent.exe.config
+- .\Gateway\DataScan\DataTransfer\Microsoft.DataMap.Agent.Connectors.Azure.DataFactory.ServiceHost.exe.config
 
 When no proxy is specified in these files, the self-hosted integration runtime connects to the services directly without going through a proxy. 
 
@@ -257,7 +257,7 @@ Restart the self-hosted integration runtime host service, which picks up the cha
 > [!IMPORTANT]
 > Don't forget to update all four files mentioned above.
 
-You also need to make sure that Microsoft Azure is in your company's allow list. You can download the list of valid Azure IP addresses. IP ranges for each cloud, broken down by region and by the tagged services in that cloud are now available on MS Download: 
+You also need to make sure that Microsoft Azure is in your company's allowlist. You can download the list of valid Azure IP addresses. IP ranges for each cloud, broken down by region and by the tagged services in that cloud are now available on MS Download: 
    - Public: https://www.microsoft.com/download/details.aspx?id=56519
 
 ### Possible symptoms for issues related to the firewall and proxy server
@@ -276,10 +276,10 @@ If you see error messages like the following ones, the likely reason is improper
 
 If you scan Parquet files using the self-hosted integration runtime with Azure Purview, you will need to install either the Java Runtime Environment or OpenJDK on your self-hosted IR machine.
 
-When scanning Parquet files using the Self-hosted IR, the service locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
+When scanning Parquet files using the self-hosted IR, the service locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
 
 - **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
-- **To use OpenJDK**: It's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into Self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.
+- **To use OpenJDK**: It's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.
 
 ## Next steps
 
