@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 09/28/2021
+ms.date: 01/26/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -72,7 +72,8 @@ The following scenarios are not supported:
 The following are known issues with role-assignable groups:
 
 - *Azure AD P2 licensed customers only*: Even after deleting the group, it is still shown an eligible member of the role in PIM UI. Functionally there's no problem; it's just a cache issue in the Azure portal.  
-- Use the new [Exchange admin center](https://admin.exchange.microsoft.com/) for role assignments via group membership. The old Exchange admin center doesn't support this feature yet. Exchange PowerShell cmdlets will work as expected.
+- Use the modern [Exchange admin center](https://admin.exchange.microsoft.com) for role assignments via group membership. The old Exchange admin center doesn't support this feature yet. Exchange PowerShell cmdlets will work as expected.
+- Permissions granted via [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md) won't work for Rules, Organization, or Public Folders in the modern [Exchange admin center](https://admin.exchange.microsoft.com). For more information, see [What's new in the Exchange admin center in Exchange Online](/exchange/whats-new#february-2021).
 - Azure Information Protection Portal (the classic portal) doesn't recognize role membership via group yet. You can [migrate to the unified sensitivity labeling platform](/azure/information-protection/configure-policy-migrate-labels) and then use the Office 365 Security & Compliance center to use group assignments to manage roles.
 - [Apps admin center](https://config.office.com/) doesn't support this feature yet. Assign users directly to Office Apps Administrator role.
 
