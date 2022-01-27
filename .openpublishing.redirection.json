@@ -45231,6 +45231,21 @@
       "source_path_from_root": "/articles/azure/cognitive-services/translator/custom-translator/v2-preview/project-overview.md",
       "redirect_url": "/azure/cognitive-services/translator/custom-translator/v2-preview/beginners-guide",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure/devtest-labs/scripts/create-verify-virtual-machine-in-lab-cli.md",
+      "redirect_url": "/azure/devtest-labs/samples-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure/devtest-labs/scripts/start-connect-virtual-machine-in-lab-cli.md",
+      "redirect_url": "/azure/devtest-labs/samples-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure/devtest-labs/scripts/stop-delete-virtual-machine-in-lab-cli.md",
+      "redirect_url": "/azure/devtest-labs/samples-cli",
+      "redirect_document_id": false
     }
   ]
 }
