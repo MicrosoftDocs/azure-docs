@@ -1,6 +1,6 @@
 ---
 title: Plan costs for Microsoft Sentinel
-description: Learn how to estimate your costs for Microsoft Sentinel by using the pricing calculator and other methods.
+description: Learn how to estimate your costs and billing for Microsoft Sentinel by using the pricing calculator and other methods.
 author: cwatson-cat
 ms.author: cwatson
 ms.custom: subject-cost-optimization
@@ -10,9 +10,11 @@ ms.date: 01/26/2022
 
 # Plan costs for Microsoft Sentinel
 
-Before you add any resources for the Microsoft Sentinel use the Azure pricing calculator to help estimate your costs.
+Microsoft Sentinel provides intelligent security analytics across your enterprise. The data for this analysis is stored in an Azure Monitor Log Analytics workspace. Microsoft Sentinel is billed based on the volume of data for analysis in Microsoft Sentinel and storage in the Azure Monitor Log Analytics workspace. For more information, see the [Microsoft Sentinel Pricing Page](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
-Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan costs for Microsoft Sentinel, you're billed for all Azure services and resources your Azure subscription uses, including Partner services.
+Before you add any resources for the Microsoft Sentinel use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help estimate your costs.
+
+Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan costs and understand the billing for Microsoft Sentinel, you're billed for all Azure services and resources your Azure subscription uses, including Partner services.
 
 ## Free trial
 
