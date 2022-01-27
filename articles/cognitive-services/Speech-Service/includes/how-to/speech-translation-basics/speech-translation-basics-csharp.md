@@ -336,7 +336,7 @@ static async Task TranslateSpeechAsync()
 
 For more information about speech synthesis, see [the basics of speech synthesis](../../../get-started-text-to-speech.md).
 
-## Multilingual translation with language identification
+## Multi-lingual translation with language identification
 
 In many scenarios, you might not know which input languages to specify. Using language identification allows you to specify up to 10 possible input languages and automatically translate to your target languages. 
 
