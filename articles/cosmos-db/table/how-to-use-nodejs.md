@@ -56,11 +56,11 @@ const { TableServiceClient } = require("@azure/data-tables");
 
 ## Connect to Azure Table service
 
-You can either connect to the Azure storage account or the Azure Cosmos DB Table API account. Get the connection string based on the type of account you are using.
+You can either connect to the Azure storage account or the Azure Cosmos DB Table API account. Get the shared key or connection string based on the type of account you are using.
 
 ### Creating the Table service client from a shared key
 
-The Azure module reads the environment variables AZURE_STORAGE_ACCOUNT and AZURE_STORAGE_ACCESS_KEY, or AZURE_TABLES_ENDPOINT for information required to connect to your Azure Storage account and Cosmos DB. If these environment variables are not set, you must specify the account information when calling `TableServiceClient`. For example, the following code creates a `TableServiceClient` object:
+The Azure module reads the environment variables AZURE_ACCOUNT and AZURE_ACCESS_KEY and AZURE_TABLES_ENDPOINT for information required to connect to your Azure Storage account or Cosmos DB. If these environment variables are not set, you must specify the account information when calling `TableServiceClient`. For example, the following code creates a `TableServiceClient` object:
 
 ```javascript
 const tableService = new TableServiceClient(
@@ -79,17 +79,10 @@ const tableService = TableServiceClient.fromConnectionString("<connection-string
 
 ## Create a table
 
-The following code creates a `TableServiceClient` object and uses it to create a new table.
-
-```javascript
-const tableService = TableServiceClient.fromConnectionString("<connection-string>");
-```
-
 The call to `createTable` creates a new table with the specified name if it does not already exist. The following example creates a new table named 'mytable' if it does not already exist:
 
 ```javascript
-await tableService.createTable(mytable);
-    // Table exists or created
+await tableService.createTable('mytable');
 ```
 
 ## Add an entity to a table
