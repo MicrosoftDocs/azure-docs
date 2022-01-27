@@ -30,15 +30,15 @@ information and status to Device Update services.
 |Name|Schema|Direction|Description|Example|
 |----|------|---------|-----------|-----------|
 |deviceProperties|Map|device to cloud|The set of properties that contain the manufacturer, model, and other device information.|See below for details|
-|compatPropertyNames|String (Comma seperated)|device to cloud|The device reported properties that are used to check for compatability of the device for targeting the update deployment. Limited to 5 device properties|Default Value: "manufacturer,model"|
+|compatPropertyNames|String (Comma seperated)|device to cloud|The device reported properties that are used to check for compatability of the device for targeting the update deployment. Limited to 5 device properties|"compatPropertyNames": "manufacturer,model"|
 |lastInstallResult|Map|device to cloud|The result reported by the agent containing result code, extended result code and result details for main update and other step updates||
 |resultCode|integer|device to cloud|A code that contains information about the result of the last update action. Can be populated for either success or failure.|700|
 |extendedResultCode|integer|device to cloud|A code that contains additional information about the result. Can be populated for either success or failure.|0x80004005|
 |resultDetails|string|device to cloud|Free form string set by user to provide additional result details. Returned to the twin without parsing||
-|stepResults|map|device to cloud|The result reported by the agent containing result code, extended result code and result details for step updates |stepResult { integer resultCode, integer extendedResultCode, string resultDetails }|
+|stepResults|map|device to cloud|The result reported by the agent containing result code, extended result code and result details for step updates |                            "step_1": { "resultCode": 0,"extendedResultCode": 0, "resultDetails": ""}|
 |state|integer|device to cloud|It is an integer that indicates the current state of the Device Update Agent. See below for details |0|
-|workflow|complex|device to cloud|It is a set of values that indicates which deployment the agent is currenlty working on, ID of current deployment, and acknowledgement of the any retry request sent from service to agent.|workflow { integer action, string id, string retryTimestamp |
-|installedUpdateId|string|device to cloud|An ID of the update that is currently installed (through Device Update). This value will be a string capturing the Update Id JSON or null for a device that has never taken an update through Device Update.|"{\"provider\":\"contoso\",\"name\":\"image-update\",\"version\":\"1.0.0\"}"|
+|workflow|complex|device to cloud|It is a set of values that indicates which deployment the agent is currenlty working on, ID of current deployment, and acknowledgement of the any retry request sent from service to agent.|"workflow": {"action": 3,"id": "11b6a7c3-6956-4b33-b5a9-87fdd79d2f01"}|
+|installedUpdateId|string|device to cloud|An ID of the update that is currently installed (through Device Update). This value will be a string capturing the Update Id JSON or null for a device that has never taken an update through Device Update.|installedUpdateID{\"provider\":\"contoso\",\"name\":\"image-update\",\"version\":\"1.0.0\"}"|
 
 
 #### State
