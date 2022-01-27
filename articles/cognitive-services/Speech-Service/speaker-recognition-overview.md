@@ -70,7 +70,7 @@ As with all of the Cognitive Services resources, developers who use the Speaker 
 | What audio formats are supported? | Mono 16 bit, 16 kHz PCM-encoded WAV |
 | **Accept** and **Reject** responses aren't accurate, how do you tune the threshold? | Since the optimal threshold varies highly with scenarios, the service decides whether to accept or reject based on a default threshold of 0.5. You should override the default decision and fine tune the result based on your own scenario. |
 | Can you enroll one speaker multiple times? | Yes, for text-dependent verification, you can enroll a speaker up to 50 times. For text-independent verification or speaker identification, you can enroll with up to 300 seconds of audio. |
-| What data is stored in Azure? | Enrollment audio is stored in the service until the voice profile is [deleted](./get-started-speaker-recognition.md#delete-voice-profile-enrollments). Recognition audio samples are not retained or stored. |
+| What data is stored in Azure? | Enrollment audio is stored in the service until the voice profile is [deleted](./get-started-speaker-recognition.md#delete-voice-profile-enrollments). Recognition audio samples are not retained or stored.  |
 
 ## Next steps
 
