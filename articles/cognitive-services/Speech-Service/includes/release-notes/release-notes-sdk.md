@@ -8,7 +8,6 @@ ms.author: eur
 
 ### Speech SDK 1.20.0: January 2022 release
 
-**Note**: Get started with the Speech SDK [here](../../speech-sdk.md#get-the-speech-sdk).
 
 #### New features
 
