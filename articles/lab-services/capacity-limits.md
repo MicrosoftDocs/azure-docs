@@ -27,17 +27,16 @@ To create a support request, you must be an [Owner](/azure/role-based-access-con
 
 The admin can follow these steps to request a limit increase:  
 
-1. [Create a lab plan](tutorial-setup-lab-plan.md).
+1. Open your lab plan or lab account.
 2. Click **Request limit increase** button at the top on the **Overview** page of the lab plan,
 3. Follow the steps in the form to submit a support request to increase the limit.  The issue type, subscription, and quota type information will be automatically filled out for you.
 
-![New support request](./media/capacity-limits/new-support-request.png)
+    ![New support request](./media/capacity-limits/new-support-request.png)
 
 4. Then, you will be prompted to provide more information about the limit increase. In the **Description** field, provide the following details:
-    - What you are trying to do? For example, creating a lab to teach a Computer Science class, run a hackathon, and so on.
     - Virtual machine size you are using for this lab. For size details, see [VM sizing](administrator-guide.md#vm-sizing).
     - Number of virtual machines you need.
-    - Azure Region the lab will be created in.
+    - Geography the lab will be created in.  If using the [January 2022 Update (preview)](lab-services-whats-new.md), specify the region instead.
 5. Submit the support request.
 
 Once you submit the support request, we will review the request. If necessary, we will contact you to get additional details.
@@ -48,13 +47,13 @@ Some rare subscription types that are more commonly used for fraud can have a de
 
 ## Per-customer assigned capacity
 
-Azure Lab Services hosts lab resources, including VMs, within special Microsoft-managed Azure subscriptions that are not visible to customers. Previously, VM capacity was available from a large pool shared across many customers. With the [January 2022 Update (preview)](lab-services-whats-new.md), VM capacity is now dedicated to each customer.
+Azure Lab Services hosts lab resources, including VMs, within special Microsoft-managed Azure subscriptions that are not visible to customers.  With the [January 2022 Update (preview)](lab-services-whats-new.md), VM capacity is dedicated to each customer.  Previous to this update, VM capacity was available from a large pool shared across many customers.
 
-Before you set up a large number of VMs across your labs, we recommend that you open a support ticket to pre-request VM capacity. Requests should include VM size, number, and region. Requesting capacity before lab creation helps us to ensure that you create your labs in a region that has a sufficient number of VM cores for the VM size that you need for your labs.  We can now assign VM capacity on a per-customer basis when you submit a support ticket to request capacity.
+Before you set up a large number of VMs across your labs, we recommend that you open a support ticket to pre-request VM capacity. Requests should include VM size, number, and region. Requesting capacity before lab creation helps us to ensure that you create your labs in a region that has a sufficient number of VM cores for the VM size that you need for your labs.
 
 ## Next steps
 
-See the following article:
+See the following articles:
 
 - [Administrator Guide - VM sizing](administrator-guide.md#vm-sizing).
 - [Frequently asked questions](classroom-labs-faq.yml).
