@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 # Azure AD-only authentication with Azure SQL
 
-[!INCLUDE[appliesto-sqldb-sqlmi-asa-formerly-sqldw](../includes/appliesto-sqldb-sqlmi-asa-formerly-sqldw.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi-asa-dedicated-only](../includes/appliesto-sqldb-sqlmi-asa-dedicated-only.md)]
 
 Azure AD-only authentication is a feature within [Azure SQL](../azure-sql-iaas-vs-paas-what-is-overview.md) that allows the service to only support Azure AD authentication, and is supported for [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), as well as to both dedicated SQL pools in Azure Synapse workspaces and dedicated SQL pools (formerly SQL DW). 
 

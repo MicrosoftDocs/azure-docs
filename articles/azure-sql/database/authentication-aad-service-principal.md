@@ -12,7 +12,7 @@ ms.date: 12/15/2021
 
 # Azure Active Directory service principal with Azure SQL
 
-[!INCLUDE[appliesto-sqldb-sqlmi-asa-formerly-sqldw](../includes/appliesto-sqldb-sqlmi-asa-formerly-sqldw.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi-asa-dedicated-only](../includes/appliesto-sqldb-sqlmi-asa-dedicated-only.md)]
 
 Azure Active Directory (Azure AD) supports user creation in Azure SQL Database (SQL DB) on behalf of Azure AD applications (service principals). This is supported for [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), as well as to both dedicated SQL pools in Azure Synapse workspaces and dedicated SQL pools (formerly SQL DW).
 
