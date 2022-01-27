@@ -202,7 +202,7 @@ Do the following to create the service.
     |**Ports**     | `12`        |
 
 1. Select **Add**.
-1. Finally, we'll create another data flow template for the same rule that matches on UDP packets flowing in either direction that are labelled with any remote address in the range 10.204.141.0/24 and port 15.
+1. Finally, we'll create another data flow template for the same rule that matches on UDP packets flowing in either direction that are labeled with any remote address in the range 10.204.141.0/24 and port 15.
 
     Under **Data flow templates**, select **Add a data flow template**. In the **Add a data flow template** pop-up, fill out the fields as follows.
 
@@ -219,7 +219,7 @@ Do the following to create the service.
 
 
     :::image type="complex" source="media/tutorial-create-example-set-of-policy-control-configuration/example-udp-blocking-rule.png" alt-text="Screenshot of the Azure portal. It shows the Add a policy rule screen with configuration for a rule to block certain UDP traffic.":::
-    Screenshot of the Azure portal. It shows the Add a policy rule screen with all fields correctly filled out for a rule to block certain UDP traffic. It includes two configured data flow templates. The first matches on UDP packets flowing towards UEs from 10.204.141.200 on port 12. The second matches on UDP packets flowing in either direction that are labelled with any remote address in the range 10.204.141.0/24 and port 15. The Add button is highlighted.
+    Screenshot of the Azure portal. It shows the Add a policy rule screen with all fields correctly filled out for a rule to block certain UDP traffic. It includes two configured data flow templates. The first matches on UDP packets flowing towards UEs from 10.204.141.200 on port 12. The second matches on UDP packets flowing in either direction that are labeled with any remote address in the range 10.204.141.0/24 and port 15. The Add button is highlighted.
     :::image-end:::
 
 1. We now have a single data flow policy rule on the service for blocking UDP traffic. This is displayed under the **Data flow policy rules** heading.
@@ -507,7 +507,7 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
 1. Once the deployment is complete, select **Go to Resource**.
 1. Check the **SIM policy** field in the **Management** section to confirm **sim-policy-1** has been successfully assigned.
 
-You now have now provisioned two SIMs and assigned each of them a different SIM policy. Each of these SIM policies provides access to a different set of services.
+You have now provisioned two SIMs and assigned each of them a different SIM policy. Each of these SIM policies provides access to a different set of services.
 
 ## Clean up resources
 
