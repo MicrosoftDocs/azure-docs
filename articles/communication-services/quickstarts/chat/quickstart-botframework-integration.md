@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Add a bot to your chat app
-titleSuffix: A quickstart on how to use Chat SDK with  Bot Services 
+titleSuffix: A quickstart on how to use Azure Chat SDK with Azure Bot Services 
 description: This quickstart shows you how to build chat experience with a bot using Communication Services Chat SDK and Bot Services. 
 author: gelli
 manager: juramir
