@@ -35,7 +35,7 @@ In this tutorial, you deploy the same applications from the Dapr [Hello World](h
 
 ::: zone pivot="container-apps-bicep"
 
-* [Bicep](/azure/azure-resource-manager/bicep/install)
+* [Bicep](../azure-resource-manager/bicep/install.md)
 
 ::: zone-end
 

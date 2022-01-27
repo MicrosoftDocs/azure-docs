@@ -127,6 +127,8 @@
     href: instance-metadata-service-load-balancer.md
 - name: How-to
   items:
+  - name: Migrate outbound access
+    href: ../virtual-network/nat-gateway/tutorial-migrate-outbound-nat.md?toc=%2fazure%2fload-balancer%2ftoc.json
   - name: Manage load balancer rules
     href: manage-rules-how-to.md
   - name: Virtual machine scale sets

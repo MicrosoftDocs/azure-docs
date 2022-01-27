@@ -39,7 +39,7 @@ Use the `npm install` command to install the Azure Communication Services Identi
 
 ```console
 
-npm install @azure/communication-identity@beta --save
+npm install @azure/communication-identity@next --save
 npm install @azure/msal-node --save
 npm install express --save
 

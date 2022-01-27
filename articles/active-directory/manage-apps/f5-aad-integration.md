@@ -75,7 +75,7 @@ Steps 1-4 in the diagram illustrate the front-end pre-authentication exchange be
 
 Whether a direct employee, affiliate, or consumer, most users are already acquainted with the Office 365 login experience, so accessing BIG-IP services via SHA remains largely familiar.
 
-Users now find their BIG-IP published services consolidated in the  [MyApps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) or [O365 launchpads](https://o365pp.blob.core.windows.net/media/Resources/Microsoft%20365%20Business/Launchpad%20Overview_for%20Partners_10292019.pdf) along with self-service capabilities to a broader set of services, no matter the type of device or location. Users can even continue accessing published services directly via the BIG-IPs proprietary Webtop portal, if preferred. When logging off, SHA ensures a users’ session is terminated at both ends, the BIG-IP and Azure AD, ensuring services remain fully protected from unauthorized access.  
+Users now find their BIG-IP published services consolidated in the  [MyApps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) or [O365 launchpads](https://airhead.io/airbase/launchpads/R3kW-RkDFEedipcU1AFlnA) along with self-service capabilities to a broader set of services, no matter the type of device or location. Users can even continue accessing published services directly via the BIG-IPs proprietary Webtop portal, if preferred. When logging off, SHA ensures a users’ session is terminated at both ends, the BIG-IP and Azure AD, ensuring services remain fully protected from unauthorized access.  
 
 The screenshots provided are from the Azure AD app portal that users access securely to find their BIG-IP published services and for managing their account properties.  
 
@@ -136,7 +136,7 @@ The following tutorials provide detailed guidance on implementing some of the mo
 
 The advanced approach provides a more elaborate, yet flexible way of implementing SHA by manually creating all BIG-IP configuration objects. You would use this approach for scenarios not covered by the guided configuration templates. 
 
-Refer to the following advanced configuration guides for your integration requirements:
+Refer to the following advanced configuration tutorials for your integration requirements:
 
 - [F5 BIG-IP in Azure deployment walk-through](f5-bigip-deployment-guide.md)
 
@@ -156,7 +156,7 @@ The Guided Configuration wizard, available from BIG-IP version 13.1 aims to mini
 
 The latest version of the Guided Configuration 16.1 now offers an Easy Button feature. With **Easy Button**, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for SHA. The end-to-end deployment and policy management is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures applications can quickly, easily support identity federation, SSO, and Azure AD Conditional Access, without management overhead of having to do so on a per app basis. 
 
-Refer to the following guided configuration guides using Easy Button templates for your integration requirements:
+Refer to the following guided configuration tutorials using Easy Button templates for your integration requirements:
 
 - [F5 BIG-IP Easy Button for SSO to Kerberos applications](f5-big-ip-kerberos-easy-button.md)
 
