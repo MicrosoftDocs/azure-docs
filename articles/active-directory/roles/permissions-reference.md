@@ -1769,6 +1769,7 @@ Windows Defender ATP and EDR | Assign roles<br>Manage machine groups<br>Configur
 [Microsoft 365 service health](/office365/enterprise/view-service-health) | View the health of Microsoft 365 services
 [Smart lockout](../authentication/howto-password-smart-lockout.md) | Define the threshold and duration for lockouts when failed sign-in events happen.
 [Password Protection](../authentication/concept-password-ban-bad.md) | Configure custom banned password list or on-premises password protection.
+[Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/prepare-deployment) | All permissions of the Security Reader role<br/>View machines/device inventory
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
