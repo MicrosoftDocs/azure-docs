@@ -14,6 +14,26 @@ Before you add any resources for the Microsoft Sentinel use the Azure pricing ca
 
 Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan costs for Microsoft Sentinel, you're billed for all Azure services and resources your Azure subscription uses, including Partner services.
 
+## Free trial
+
+Try Microsoft Sentinel free for the first 31 days. Microsoft Sentinel can be enabled at no extra cost on an Azure Monitor Log Analytics workspace, subject to the limits stated below:
+
+- **New Log Analytics workspaces** can ingest up to 10 GB/day of log data for the first 31-days at no cost. New workspaces include workspaces that are less than three days old.
+
+   Both Log Analytics data ingestion and Microsoft Sentinel charges are waived during the 31-day trial period. This free trial is subject to a 20 workspace limit per Azure tenant.
+
+- **Existing Log Analytics workspaces** can enable Microsoft Sentinel at no extra cost. Existing workspaces include any workspaces created more than three days ago.
+
+   Only the Microsoft Sentinel charges are waived during the 31-day trial period.
+
+Usage beyond these limits will be charged per the pricing listed on the [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page. Charges related to extra capabilities for [automation](automation.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial.
+
+> [!TIP]
+> During your free trial, find resources for cost management, training, and more on the **News & guides > Free trial** tab in Microsoft Sentinel.
+>
+> This tab also displays details about the dates of your free trial, and how many days you have left until it expires.
+>
+
 ## Identify data sources
 
 Identify the data sources you're ingesting or plan to ingest to your workspace in Microsoft Sentinel. Microsoft Sentinel allows you to bring in data from one or more data sources. Some of these data sources are free, and others incur charges. For more information, see [Free data sources](#free-data-sources).
@@ -106,25 +126,6 @@ Many devices and data sources allow for logging fields beyond the standard CEF s
 
 Removing Microsoft Sentinel doesn't remove the Log Analytics workspace Microsoft Sentinel was deployed on, or any separate charges that workspace might be incurring.
 
-## Free trial
-
-Try Microsoft Sentinel free for the first 31 days. Microsoft Sentinel can be enabled at no extra cost on an Azure Monitor Log Analytics workspace, subject to the limits stated below:
-
-- **New Log Analytics workspaces** can ingest up to 10 GB/day of log data for the first 31-days at no cost. New workspaces include workspaces that are less than three days old.
-
-   Both Log Analytics data ingestion and Microsoft Sentinel charges are waived during the 31-day trial period. This free trial is subject to a 20 workspace limit per Azure tenant.
-
-- **Existing Log Analytics workspaces** can enable Microsoft Sentinel at no extra cost. Existing workspaces include any workspaces created more than three days ago.
-
-   Only the Microsoft Sentinel charges are waived during the 31-day trial period.
-
-Usage beyond these limits will be charged per the pricing listed on the [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page. Charges related to extra capabilities for [automation](automation.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial.
-
-> [!TIP]
-> During your free trial, find resources for cost management, training, and more on the **News & guides > Free trial** tab in Microsoft Sentinel.
->
-> This tab also displays details about the dates of your free trial, and how many days you have left until it expires.
->
 ## Free data sources
 
 The following data sources are free with Microsoft Sentinel:
