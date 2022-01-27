@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 01/27/2022
 ---
 
 # Build the landing page for your transactable SaaS offer in the commercial marketplace
@@ -102,7 +102,9 @@ As part of the [OpenID Connect](../active-directory/develop/v2-protocols-oidc.md
 | oid | Identifier in the Microsoft identity system that uniquely identifies the user across applications. Microsoft Graph will return this value as the ID property for a given user account. |
 | tid | Identifier that represents the Azure AD tenant the buyer is from. In the case of an MSA identity, this will always be ``9188040d-6c67-4c5b-b112-36a304b66dad``. For more information, see the note in the next section: Use the Microsoft Graph API. |
 | sub | Identifier that uniquely identifies the user in this specific application. |
-|||
+|
+
+As part of the [OpenID Connect flow](/azure/active-directory/develop/v2-protocols-oidc), choose the tenant ID value you receive in `https://login.microsoftonline.com/{tenant}/v2.0`.
 
 ## Use the Microsoft Graph API
 
