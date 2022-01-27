@@ -149,7 +149,7 @@ public class SenderWorker : BackgroundService
                     .ConfigureAwait(false);
             }
         }
-        catch (OperationCanceledException)
+        catch (TaskCanceledException)
         {
             // graceful shutdown
         }
