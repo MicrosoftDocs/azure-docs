@@ -21,9 +21,9 @@ ms.custom: mode-other
 > 
 > For support, questions or to provide feedback or report issues, please use the [early adopters Teams channel](https://teams.microsoft.com/l/team/19%3af93daaae01b8427f8920eb7d3a552692%40thread.tacv2/conversations?groupId=d78f76f3-4229-4262-abfb-172587b7a6bb&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47). You must be a member of the Azure Communication Service TAP team.
 
-In this quickstart, we'll learn how to build conversational AI experiences in our chat application using 'Communication Services-Chat' messaging channel available under Azure Bot Services. We will create a bot using BotFramework SDK and learn how to integrate this bot into our chat application that is built using Communication Services Chat SDK.
+In this quickstart, we'll learn how to build conversational AI experiences in our chat application using 'Communication Services-Chat' messaging channel available under Azure Bot Services. We'll create a bot using BotFramework SDK and learn how to integrate this bot into our chat application that is built using Communication Services Chat SDK.
 
-You will learn how to:
+You'll learn how to:
 
 - [Create and deploy a bot](#step-1---create-and-deploy-a-bot)
 - [Get an Azure Communication Services Resource](#step-2---get-an-azure-communication-services-resource)
@@ -70,12 +70,12 @@ After creating the Azure Bot resource, next step would be to set a password for 
 
 ![App Registration.png](./media/App%20Registration.png)
 
-- Create a new password for your app from the `Certificates and Secrets` blade and copy the password you create as you will not be able to copy it again.. <br/><br/> 
+- Create a new password for your app from the `Certificates and Secrets` blade and copy the password you create as you won't be able to copy it again.. <br/><br/> 
 ![Save password.png](./media/Save%20password.png)
 
 ### Create a Web App where actual bot logic resides
 
-Create a Web App where actual bot logic resides. You could check out some samples [here](https://github.com/Microsoft/BotBuilder-Samples) and tweak them or use Bot Builder SDK to create one: [Bot Builder documentation](https://docs.microsoft.com/composer/introduction). One of the simplest ones to play around with is Echo Bot located here with steps on how to use it and it is the one we will use in this example [Echo Bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot). Generally, the Bot Service expects the Bot Application Web App Controller to expose an endpoint `/api/messages` which handles all the messages reaching the bot. To create the Bot application, follow these steps.
+Create a Web App where actual bot logic resides. You could check out some samples [here](https://github.com/Microsoft/BotBuilder-Samples) and tweak them or use Bot Builder SDK to create one: [Bot Builder documentation](https://docs.microsoft.com/composer/introduction). One of the simplest ones to play around with is Echo Bot located here with steps on how to use it and it's the one we will use in this example [Echo Bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot). Generally, the Bot Service expects the Bot Application Web App Controller to expose an endpoint `/api/messages` which handles all the messages reaching the bot. To create the Bot application, follow these steps.
 
    - As in previously shown create a resource and choose `Web App` in search. <br/><br/> 
 ![Web app.png](./media/Web%20app.png)
@@ -100,7 +100,7 @@ Configure the Azure Bot we created with its Web App endpoint where the bot logic
 
 ### Deploy the Azure Bot
 
-The final step would be to deploy the bot logic to the Web App we created. As we mentioned for this tutorial we will be using the Echo Bot. This bot only demonstrates a limited set of capabilities, such as echoing the user input. Here is how we deploy it to Azure Web App.
+The final step would be to deploy the bot logic to the Web App we created. As we mentioned for this tutorial we'll be using the Echo Bot. This bot only demonstrates a limited set of capabilities, such as echoing the user input. Here's how we deploy it to Azure Web App.
 
    - To use the samples, clone this Github repository using Git.
 
@@ -128,7 +128,7 @@ The final step would be to deploy the bot logic to the Web App we created. As we
    - Lastly, the above option opens the deployment config. Choose the Web App we had provisioned from the list of options it comes up with after signing into your Azure account. Once ready click on `Finish` to start the deployment. <br/><br/>![Deployment config.png](./media/Deployment%20config.png)
 
 ## Step 2 - Get an Azure Communication Services Resource
-Now that you got the bot part sorted out, we will need to get an ACS resource which we would use for configuring the ACS channel.
+Now that you got the bot part sorted out, we'll need to get an ACS resource which we would use for configuring the ACS channel.
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). You'll need to **record your resource endpoint and key** for this quickstart.
 - Create a ACS User and issue a user access token [User Access Token](../../quickstarts/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**.
 
@@ -143,14 +143,14 @@ With the ACS resource, we can configure the ACS channel in Azure Bot to bind an 
    ![DemoApp Connect Acs Resource.png](./media/DemoApp-ConnectAcsResource.png)
 
 
-3. Once the provided resource details are verified, you will see the **bot's ACS ID** assigned. With this ID, you can add the bot to the conversation at whenever appropriate using Chat's AddParticipant API. Once the bot is added as participant to a chat, it will start receiving chat related activities and can respond back in the chat thread. 
+3. Once the provided resource details are verified, you'll see the **bot's ACS ID** assigned. With this ID, you can add the bot to the conversation at whenever appropriate using Chat's AddParticipant API. Once the bot is added as participant to a chat, it will start receiving chat related activities and can respond back in the chat thread. 
 
  ![DemoApp Bot Detail.png](./media/DemoApp-BotDetail.png)
 
 
 
 ## Step 4 - Create a chat app and add bot as a participant
-Now that you have the bot's ACS ID, you will be able to create a chat thread with bot as a participant. 
+Now that you have the bot's ACS ID, you'll be able to create a chat thread with bot as a participant. 
 ### Create a new C# application
 
 ```console
