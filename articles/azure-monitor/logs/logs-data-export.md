@@ -33,10 +33,11 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 
 ## Limitations
 
-- All tables will be supported in export, but support is currently limited to those specified in the [supported tables](#supported-tables) section below. 
+- All tables will be supported in export, but currently limited to those specified in the [supported tables](#supported-tables) section below.
 - The legacy custom log won’t be supported in export. The next generation of custom log available in preview early 2022 can be exported.
 - You can define up to 10 enabled rules in your workspace. More rules are allowed when disabled. 
 - Destinations must be in the same region as the Log Analytics workspace.
+- Storage account must be unique across rules in workspace.
 - Tables names can be no longer than 60 characters when exporting to storage account and 47 characters to event hub. Tables with longer names will not be exported.
 - Data export isn't supported in these regions currently: 
 	- Korea South
@@ -149,7 +150,7 @@ If you have configured your storage account to allow access from selected networ
    - Use 'Premium' or 'Dedicated' tiers for higher throughput
 
 ### Create or update data export rule
-Data export rule defines the destination and tables for which data is exported. You can create 10 rules in 'enable' state in your workspace, more rules are allowed in 'disable' state. You can use the same storage account and event hub namespace in multiple rules in the same workspace. When event hub names are provided in rules, they must be unique in workspace.
+Data export rule defines the destination and tables for which data is exported. You can create 10 rules in 'enable' state in your workspace, more rules are allowed in 'disable' state. Storage account must be unique across rules in workspace. Multiple rules can use the same event hub namespace when sending to separate event hubs.
 
 > [!NOTE]
 > - You can include tables that aren't yet supported in export, and no data will be exported for these until the tables are supported.
