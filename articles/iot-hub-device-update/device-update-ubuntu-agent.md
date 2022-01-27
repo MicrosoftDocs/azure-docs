@@ -10,7 +10,7 @@ ms.service: iot-hub-device-update
 
 # Device Update for Azure IoT Hub tutorial using the package agent on Ubuntu Server 18.04 x64
 
-Device Update for IoT Hub supports two forms of updates – image-based and package-based.
+Device Update for IoT Hub supports image-based, package-based and script-based updates.
 
 Package-based updates are targeted updates that alter only a specific component or application on the device. They lead to lower consumption of bandwidth and helps reduce the time to download and install the update. Package-based updates also typically allow for less downtime of devices when applying an update and avoid the overhead of creating images. They use an [APT manifest](device-update-apt-manifest.md) which provides the Device Update Agent with the information it needs to download and install the packages specified in the APT Manifest file (as well as their dependencies) from a designated repository.
 
