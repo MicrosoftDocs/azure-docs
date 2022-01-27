@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 12/22/2021
+ms.date: 01/26/2022
 ms.author: anfdocs
 ---
 # Add volumes for an SAP HANA system as a DR system using cross-region replication
@@ -149,6 +149,37 @@ The following example adds volumes to an SAP HANA system. The system serves as a
     1. For each DP volume that you created, copy the volume **Resource ID**.
 
     2. For each source volume, click **Replication** and then **Authorize**. Paste the **Resource ID** of each corresponding destination volume. 
+
+## Setup options for replicating an SAP HANA database using HANA system replication for HA  
+
+In some situations, you might want to combine an HA setup of HANA system replication with a disaster-recovery (DR) setup using cross-region replication (CRR). Depending on the specific usage pattern and SLA, two setup options for replication are possible. This section describes the options.  
+
+### Replicate only the primary HANA database volumes 
+
+In this scenario, you typically don’t change roles for primary and secondary systems. A takeover is done only in an emergency case. As such, the application-consistent snapshot backups required for CRR are taken mostly on the primary host. This is the case because only the primary HANA database can be used to create a backup.
+
+The following diagram describes this scenario:
+
+[ ![Diagram that shows replication for only the primary HANA database volumes.](../media/azure-netapp-files/replicate-only-primary-database-volumes.png) ](../media/azure-netapp-files/replicate-only-primary-database-volumes.png#lightbox)
+
+In this scenario, a DR setup must include only the volumes of the primary HANA system. With the daily replication of the primary data volume and the log backups, the system can be recovered at the DR site.
+
+In case of a takeover by the secondary HSR host, the data volume won’t be replicated anymore, but log backups of the secondary will continue to be replicated. If a disaster happens, the system at the DR site can still be recovered using the old snapshot backup from the former primary and the replicated log backups from both hosts. RTO will increase because more logs are to be recovered, depending on how long the HSR pair will run in the takeover mode. If the takeover mode is significantly longer and RTO becomes a problem, you need to set up a new CRR replication for the data volume.
+
+The workflow for this scenario is identical to the [Add volumes](#add-volumes) workflow.
+
+### Replicate both primary and secondary HANA database volumes  
+
+For reasons other than HA, you might want to periodically switch roles between the primary and secondary HANA systems. In this scenario, applications-consistent backups must be created on both HANA hosts. 
+
+The following diagram describes this scenario. In this scenario, you might want to replicate both sets of volumes from the primary and secondary HANA systems as shown in the diagram:
+
+[ ![Diagram that shows replication for both the primary and the secondary HANA database volumes.](../media/azure-netapp-files/replicate-both-primary-secondary-database-volumes.png) ](../media/azure-netapp-files/replicate-both-primary-secondary-database-volumes.png#lightbox)
+
+To create the volumes for the secondary replication target, the naming convention will be adapted. To distinguish between the replication of the primary and secondary database, the prefix will change from `DR` to `DR2` for the secondary HANA system. Except this name change, the workflow is identical to the [Add volumes](#add-volumes) workflow.
+
+> [!NOTE]  
+> For a detailed discussion of a DR solution for HANA with Azure NetApp Files, see [NetApp technical report TR-4891: SAP HANA disaster recovery with Azure NetApp Files](https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-dr-anf_data_protection_overview_overview.html). This technical report provides detailed background and examples about using CRR for SAP HANA on Azure NetApp Files.
 
 ## Next steps  
 
