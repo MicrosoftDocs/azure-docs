@@ -54,7 +54,7 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 
 To create and set up a self-hosted integration runtime, use the following procedures.
 
-### Create a self-hosted integration runtime via UI
+### Create a self-hosted integration runtime
 
 1. On the home page of the [Azure Purview Studio](https://web.purview.azure.com/resource/), select **Data Map** from the left navigation pane.
 
@@ -135,15 +135,15 @@ Here are the domains and outbound ports that you need to allow at both **corpora
 
 | Domain names                  | Outbound ports | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net` | 443            | Required for interactive authoring, e.g. test connection on Azure Purview Studio. Currently wildcard is required as there is no dedicated resource. |
+| `*.servicebus.windows.net` | 443            | Required for interactive authoring, for example, test connection on Azure Purview Studio. Currently wildcard is required as there is no dedicated resource. |
 | `*.frontend.clouddatahub.net` | 443 | Required to connect to the Azure Purview service. Currently wildcard is required as there is no dedicated resource. |
 | `<managed_storage_account>.blob.core.windows.net` | 443 | Required to connect to the Azure Purview managed Azure Blob storage account. |
 | `<managed_storage_account>.queue.core.windows.net` | 443 | Required to connect to the Azure Purview managed Azure Queue storage account. |
-| `<managed_Event_Hub_resource>.servicebus.windows.net` | 443            | Azure Purview uses this to connect with the associated service bus. It will be covered by allowing the above domain, but if you are using Private Endpoints, you will need to test access to this single domain.|
+| `<managed_Event_Hub_resource>.servicebus.windows.net` | 443            | Azure Purview uses this to connect with the associated service bus. It's covered by allowing the above domain. If you use private endpoint, you need to test access to this single domain.|
 | `download.microsoft.com` | 443           | Required to download the self-hosted integration runtime updates. If you have disabled auto-update, you can skip configuring this domain. |
 | `login.windows.net`<br>`login.microsoftonline.com` | 443 | Required to sign in to the Azure Active Directory. |
 
-Based on the sources you want to scan, you also need to allow additional domains and outbound ports for other Azure or external sources. A few examples are provided below.
+Depending on the sources you want to scan, you also need to allow additional domains and outbound ports for other Azure or external sources. A few examples are provided here:
 
 | Domain names                  | Outbound ports | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
@@ -154,7 +154,7 @@ Based on the sources you want to scan, you also need to allow additional domains
 | `<your_ADLS_account>.azuredatalakestore.net` | 443            | When scan Azure Data Lake Store Gen 1. |
 | Various domains | Dependent | Domains and ports for any other sources the SHIR will scan. |
 
-For some cloud data stores, such as Azure SQL Database and Azure Storage, you might need to allow IP addresses of self-hosted integration runtime machines on their firewall configuration.
+For some cloud data stores such as Azure SQL Database and Azure Storage, you need to allow IP address of self-hosted integration runtime machine on their firewall configuration.
 
 > [!IMPORTANT]
 > In most environments, you will also need to make sure that your DNS is correctly configured. To confirm, you can use **nslookup** from your SHIR machine to check connectivity to each of the domains. Each nslookup should return the IP of the resource. If you are using [Private Endpoints](catalog-private-link.md), the private IP should be returned and not the Public IP. If no IP is returned, or if when using Private Endpoints the public IP is returned, you need to address your DNS/VNet association, or your Private Endpoint/VNet peering.
