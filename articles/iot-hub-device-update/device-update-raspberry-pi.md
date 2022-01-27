@@ -36,7 +36,7 @@ We provide sample images in "Assets" on the [Device Update GitHub releases page]
 ## Flash SD card with image
 
 Using your favorite OS flashing tool, install the Device Update base image
-(adu-base-image) on the SD Card that will be used in the Raspberry Pi 3 B+
+(adu-base-image) on the SD card that will be used in the Raspberry Pi 3 B+
 device.
 
 ### Using bmaptool to flash SD card
@@ -117,7 +117,7 @@ IoT Hub, a connection string will be generated for the device.
 1. On the left-hand side of the page, select 'IoT Devices'.
 2. Select the link with your device name.
 3. At the top of the page, select 'Device Twin' if directly connecting to Device Update using the IoT device identity. Otherwise select the module you created above and click on its ‘Module Twin’.
-4. Under the 'reported' section of the device twin properties, look for the Linux kernel version.
+4. Under the 'reported' section of the Device Twin properties, look for the Linux kernel version.
 For a new device, which hasn't received an update from Device Update, the
 [DeviceManagement:DeviceInformation:1.swVersion](device-update-plug-and-play.md) value will represent
 the firmware version running on the device.  Once an update has been applied to a device, Device Update will
@@ -239,7 +239,7 @@ You have now completed a successful end-to-end image update using Device Update 
 
 ## Clean up resources
 
-When no longer needed, clean up your device update account, instance, IoT Hub and IoT device. 
+When no longer needed, clean up your Device Update account, instance, IoT Hub and IoT device. 
 
 ## Next steps
 
