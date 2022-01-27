@@ -19,23 +19,23 @@ Lab Owner, Contributor, and DevTest Labs User roles can take the following actio
 The lab Owner role can take all of the following actions:
 
 Lab tasks:
-- Add users to the lab
-- Update cost settings
+- Add users to the lab.
+- Update cost settings.
 
 Virtual machine (VM) base tasks:
-- Add and remove custom images
-- Add, update, and delete formulas
-- Enable Marketplace images
+- Add and remove custom images.
+- Add, update, and delete formulas.
+- Enable Marketplace images.
 
 VM tasks:
-- Create VMs
-- Start, stop, or delete VMs
-- Update VM policies
-- Add or remove VM data disks
+- Create VMs.
+- Start, stop, or delete VMs.
+- Update VM policies.
+- Add or remove VM data disks.
 
 Artifact tasks:
-- Add and remove artifact repositories
-- Apply artifacts to VMs
+- Add and remove artifact repositories.
+- Apply artifacts to VMs.
 
 ### Contributor
 
@@ -58,22 +58,24 @@ The DevTest Labs User role can take the following actions in DevTest Labs:
 
 A lab owner can add members to lab roles by using the Azure portal or an Azure PowerShell script. The user to add can be an external user with a valid [Microsoft account (MSA)](./devtest-lab-faq.yml).
 
-Azure permissions propagate from parent scope to child scope. Owners of an Azure subscription that contains labs are automatically owners of the subscription's DevTest Labs service, the labs, and the VMs and other resources they contain. Subscription owners can add Owners, Contributors, and DevTest Labs Users to labs in the subscription.
+Azure permissions propagate from parent scope to child scope. Owners of an Azure subscription that contains labs are automatically owners of the subscription's DevTest Labs service, labs, and lab VMs and resources. Subscription owners can add Owners, Contributors, and DevTest Labs Users to labs in the subscription.
 
 > [!NOTE]
 > Added lab Owners' scope of administration is narrower than the subscription owner's scope. Added Owners don't have full access to some resources that the DevTest Labs service creates.
 
 ### Prerequisites
 
-To add members to a lab:
+To add members to a lab, you must:
 
-- You must be an Owner of the lab, either directly or by inheritance as a subscription owner.
+- Be an Owner of the lab, either directly or by inheritance as a subscription owner.
 - Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](../role-based-access-control/built-in-roles.md#owner) or [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator).
 
-### Add a lab user by using the Azure portal
+### Add a lab member by using the Azure portal
 
-- To add a user at the subscription level, open the subscription page.
-- To add a user at the lab level, open the resource group that has the lab, and select the lab from the list of resources.
+To add a member:
+
+- At the subscription level, open the subscription page.
+- At the lab level, open the resource group that has the lab, and select the lab from the list of resources.
 
 1. In the left navigation for the subscription or lab, select **Access control (IAM)**.
 
@@ -96,7 +98,7 @@ To add members to a lab:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-You can add a DevTest Labs User to a lab by using the following Azure PowerShell script. The script requires the user to be in the Azure Active Directory (Azure AD). For information about adding an external user to Azure AD as a guest, see [Add a new guest user](/active-directory/fundamentals/add-users-azure-active-directory#add-a-new-guest-user). If the user isn't in Azure AD, the script fails. Use the portal procedure instead.
+You can add a DevTest Labs User to a lab by using the following Azure PowerShell script. The script requires the user to be in the Azure Active Directory (Azure AD). For information about adding an external user to Azure AD as a guest, see [Add a new guest user](/active-directory/fundamentals/add-users-azure-active-directory#add-a-new-guest-user). If the user isn't in Azure AD, use the portal procedure instead.
 
 In the following script, update the parameter values under the `# Values to change` comment. You can get the `subscriptionId`, `labResourceGroup`, and `labName` values from the lab's main page in the Azure portal.
 
