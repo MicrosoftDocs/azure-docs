@@ -15,7 +15,7 @@ ms.author: sebansal
 
 # Quickstart: Create an Azure key vault and a key by using ARM template 
 
-[Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, certificates, and other secrets. This quickstart focuses on the process of deploying an Azure Resource Manager template (ARM template) to create a key vault and a key.
+[Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, and certificate. This quickstart focuses on the process of deploying an Azure Resource Manager template (ARM template) to create a key vault and a key.
 
 
 ## Prerequisites
@@ -42,10 +42,10 @@ To complete this article:
         (Get-AzADUser -UserPrincipalName $upn).Id
         Write-Host "Press [ENTER] to continue..."
         ```
-
         ---
 
-    1. Write down the object ID. You need it in the next section of this quickstart.
+        Write down the object ID. You need it in the next section of this quickstart.
+
 
 ## Review the template
 
@@ -168,7 +168,7 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
 |**keyOps**  | Specifies operations that can be performed by using the key. If you don't specify this parameter, all operations can be performed. The acceptable values for this parameter are a comma-separated list of key operations as defined by the [JSON Web Key (JWK) specification](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41): <br> `["sign", "verify", "encrypt", "decrypt", " wrapKey", "unwrapKey"]` |
 |**CurveName**  |  Elliptic curve (EC) name for EC key type. See [JsonWebKeyCurveName](/rest/api/keyvault/createkey/createkey#jsonwebkeycurvename) |
 |**Kty**  |  The type of key to create. For valid values, see [JsonWebKeyType](/rest/api/keyvault/createkey/createkey#jsonwebkeytype) |
-|**Tags** | Application specific metadata in the form of key-value pairs.  |
+|**Tags** | Application-specific metadata in the form of key-value pairs.  |
 |**nbf**  |  Specifies the time, as a DateTime object, before which the key can't be used. The format would be Unix time stamp (the number of seconds after Unix Epoch on January 1st, 1970 at UTC).  |
 |**exp**  |  Specifies the expiration time, as a DateTime object. The format would be Unix time stamp (the number of seconds after Unix Epoch on January 1st, 1970 at UTC). |
 
@@ -195,14 +195,13 @@ $keyVaultName = Read-Host -Prompt "Enter your key vault name"
 Get-AzKeyVaultKey -vaultName $keyVaultName
 Write-Host "Press [ENTER] to continue..."
 ```
-
 ---
 
 ## Creating key using ARM template is different from creating key via data plane
 
 ### Creating a key via ARM
 - It's only possible to create *new* keys. It isn't possible to update existing keys, nor create new versions of existing keys. If the key already exists, then the existing key is retrieved from storage and used (no write operations will occur).
-- To be authorized to use this API, the caller needs to have the **"Microsoft.KeyVault/vaults/keys/write"** role-based access control (RBAC) Action. The built-in "Key Vault Contributor" role is sufficient, since it authorizes all RBAC Actions that match the pattern "Microsoft.KeyVault/*". See these screenshots for more information.
+- To be authorized to use this API, the caller needs to have the **"Microsoft.KeyVault/vaults/keys/write"** role-based access control (RBAC) Action. The built-in "Key Vault Contributor" role is sufficient, since it authorizes all RBAC Actions that match the pattern "Microsoft.KeyVault/*". 
 
   :::image type="content" source="../media/keys-quick-template-1.png" alt-text="Create a key via ARM 1":::
   :::image type="content" source="../media/keys-quick-template-2.png" alt-text="Create a key via ARM 2":::
@@ -210,7 +209,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ### Existing API (creating key via data plane)
 - It's possible to create new keys, update existing keys, and create new versions of existing keys.
-- The caller must have "create" key permission if the vault uses access policies, or "Microsoft.KeyVault/vaults/keys/create/action" RBAC DataAction if the vault is enabled for RBAC, to be authorized to use this API.
+- The caller must be authorized to use this API. If the vault uses access policies, the caller must have "create" key permission; if the vault is enabled for RBAC, the caller must have "Microsoft.KeyVault/vaults/keys/create/action" RBAC DataAction.
 
 
 ## Clean up resources
