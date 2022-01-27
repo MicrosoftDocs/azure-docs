@@ -59,7 +59,6 @@ To uninstall the Azure Monitor agent using the Azure portal, navigate to your vi
 
 #### Update
 To perform a one time update of the agent, you must first uninstall the existing agent version and then install the new version as described above.  
-/*The recommendation is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature. Navigate to your virtual machine or scale set, select the **Extensions** tab and click on **AzureMonitorWindowsAgent** or **AzureMonitorLinuxAgent**. In the dialog that pops up, click **Enable automatic upgrade**.*/  
 
 
 ### Using Resource Manager template
@@ -112,18 +111,7 @@ Remove-AzVMExtension -Name AMALinux -ResourceGroupName <resource-group-name> -VM
 ---
 
 #### Update on Azure virtual machines
-To perform a one time update of the agent, you must first uninstall the existing agent version and then install the new version as described above.  
-/*The recommendation is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature, using the following PowerShell commands.
-# [Windows](#tab/PowerShellWindows)
-```powershell
-Set-AzVMExtension -ExtensionName AMAWindows -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Publisher Microsoft.Azure.Monitor -ExtensionType AzureMonitorWindowsAgent -TypeHandlerVersion <version-number> -Location <location> -EnableAutomaticUpgrade $true
-```
-# [Linux](#tab/PowerShellLinux)
-```powershell
-Set-AzVMExtension -ExtensionName AMALinux -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Publisher Microsoft.Azure.Monitor -ExtensionType AzureMonitorLinuxAgent -TypeHandlerVersion <version-number> -Location <location> -EnableAutomaticUpgrade $true
-```
---- 
-*/
+To perform a one time update of the agent, you must first uninstall the existing agent version and then install the new version as described above.   
 
 #### Install on Azure Arc-enabled servers
 Use the following PowerShell commands to install the Azure Monitor agent on Azure Arc-enabled servers.
@@ -204,17 +192,7 @@ az vm extension delete --resource-group <resource-group-name> --vm-name <virtual
 ---
 
 #### Update on Azure virtual machines
-To perform a one time update of the agent, you must first uninstall the existing agent version and then install the new version as described above.  
-/*The recommendation is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature, using the following CLI commands.
-# [Windows](#tab/CLIWindows)
-```azurecli
-az vm extension set -name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --vm-name <virtual-machine-name> --resource-group <resource-group-name> --enable-auto-upgrade true
-```
-# [Linux](#tab/CLILinux)
-```azurecli
-az vm extension set -name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --vm-name <virtual-machine-name> --resource-group <resource-group-name> --enable-auto-upgrade true
-```
----
+To perform a one time update of the agent, you must first uninstall the existing agent version and then install the new version as described above. 
 
 #### Install on Azure Arc-enabled servers
 Use the following CLI commands to install the Azure Monitor agent onAzure Azure Arc-enabled servers.
@@ -254,14 +232,14 @@ az connectedmachine upgrade-extension --extension-targets "{\"Microsoft.Azure.Mo
 ```
 ---
 
-/*The recommendation is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade (preview)](../../azure-arc/servers/manage-automatic-vm-extension-upgrade.md#enabling-automatic-extension-upgrade-preview) feature, using the following PowerShell commands.
+The recommendation is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade (preview)](../../azure-arc/servers/manage-automatic-vm-extension-upgrade.md#enabling-automatic-extension-upgrade-preview) feature, using the following PowerShell commands.
 # [Windows](#tab/CLIWindowsArc)
 ```azurecli
-az connectedmachine extension update --name AzureMonitorWindowsAgent --publisher "Microsoft.Azure.Monitor" --machine-name <arc-server-name> --resource-group <resource-group-name> --enable-auto-upgrade true
+az connectedmachine extension update --name AzureMonitorWindowsAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --enable-auto-upgrade true
 ```
 # [Linux](#tab/CLILinuxArc)
 ```azurecli
-az connectedmachine extension update --name AzureMonitorLinuxAgent --publisher "Microsoft.Azure.Monitor" --machine-name <arc-server-name> --resource-group <resource-group-name> --enable-auto-upgrade true
+az connectedmachine extension update --name AzureMonitorLinuxAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --enable-auto-upgrade true
 ```
 ---
 
