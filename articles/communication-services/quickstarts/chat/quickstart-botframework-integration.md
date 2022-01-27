@@ -56,7 +56,7 @@ In order to use ACS chat as a channel in Azure Bot Service, the first step would
    
    :::image type="content" source="./media/create-azure-bot.png" alt-text="Creat Azure Bot":::
 
-   4. Finally create an Azure Bot resource. You might use an existing Microsoft app ID that you must have created or create a new one that gets created automatically. 
+   4. Finally create an Azure Bot resource. You might use an existing Microsoft app ID or use a new one created automatically. 
    
    :::image type="content" source="./media/smaller-provision-azure-bot.png" alt-text="Provision Azure Bot" lightbox="./media/provision-azure-bot.png":::
 
@@ -72,13 +72,13 @@ After creating the Azure Bot resource, next step would be to set a password for 
 
    :::image type="content" source="./media/smaller-app-registration.png" alt-text="App Registration" lightbox="./media/app-registration.png":::
 
-3. Create a new password for your app from the `Certificates and Secrets` blade and copy the password you create as you won't be able to copy it again.
+3. Create a new password for your app from the `Certificates and Secrets` blade and save the password you create as you won't be able to copy it again.
  
    :::image type="content" source="./media/smaller-save-password.png" alt-text="Save password" lightbox="./media/save-password.png":::
 
 ### Create a Web App where actual bot logic resides
 
-Create a Web App where actual bot logic resides. You could check out some samples at [Bot Builder Samples](https://github.com/Microsoft/BotBuilder-Samples) and tweak them or use Bot Builder SDK to create one: [Bot Builder documentation](https://docs.microsoft.com/composer/introduction). One of the simplest ones to play around with is Echo Bot located here with steps on how to use it and it's the one we will use in this example [Echo Bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot). Generally, the Bot Service expects the Bot Application Web App Controller to expose an endpoint `/api/messages`, which handles all the messages reaching the bot. To create the Bot application, follow these steps.
+Create a Web App where actual bot logic resides. You could check out some samples at [Bot Builder Samples](https://github.com/Microsoft/BotBuilder-Samples) and tweak them or use Bot Builder SDK to create one: [Bot Builder documentation](https://docs.microsoft.com/composer/introduction). One of the simplest ones to play around with is Echo Bot located here with steps on how to use it and it's the one being used in this example [Echo Bot](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/02.echo-bot). Generally, the Bot Service expects the Bot Application Web App Controller to expose an endpoint `/api/messages`, which handles all the messages reaching the bot. To create the Bot application, follow these steps.
 
    1. As in previously shown create a resource and choose `Web App` in search. 
    
@@ -141,7 +141,7 @@ Now that you got the bot part sorted out, we'll need to get an ACS resource, whi
 2. Create a ACS User and issue a user access token [User Access Token](../../quickstarts/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**.
 
 ## Step 3 - Enable ACS Chat Channel
-With the ACS resource, we can configure the ACS channel in Azure Bot to bind an ACS User ID with a bot. Note that currently, only the allowlisted Azure subscription will be able to see ACS channel option.
+With the ACS resource, we can configure the ACS channel in Azure Bot to bind an ACS User ID with a bot. Note that currently, only the allowlisted Azure account will be able to see Azure Communication Services - Chat channel.
 1. Go to your Bot Services resource on Azure portal. Navigate to `Channels` blade and click on `Azure Communications Services - Chat` channel from the list provided. 
  
    :::image type="content" source="./media/smaller-demoapp-launch-acs-chat.png" alt-text="DemoApp Launch Acs Chat" lightbox="./media/demoapp-launch-acs-chat.png":::
