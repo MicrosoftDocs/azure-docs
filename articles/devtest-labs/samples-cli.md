@@ -33,7 +33,8 @@ The script then verifies that the virtual machine is available for use.
 
 :::code language="powershell" source="../../cli_scripts/devtest-lab/create-verify-virtual-machine-in-lab/create-verify-virtual-machine-in-lab.sh":::
 
-> [!NOTE] You can run the following command to remove the resource group, virtual machine, and all related resources:
+> [!NOTE]
+> You can run the following command to remove the resource group, virtual machine, and all related resources:
 >
 > ```azurecli
 > az group delete --name myResourceGroup
