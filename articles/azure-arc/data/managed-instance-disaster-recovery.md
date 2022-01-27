@@ -21,7 +21,7 @@ Disaster recovery features for Azure Arc-enabled SQL Managed Instance are availa
 
 ## Background
 
-The distributed availability groups used in Azure Arc-enabled SQL Managed Instance is the same technology that is in SQL Server. Because Azure Arc-enabled SQL Managed Instance runs on Kubernetes, there's no Windows failover cluster involved.  See [Distributed availability groups](/sql/database-engine/availability-groups/windows/distributed-availability-groups) for more information
+The distributed availability groups used in Azure Arc-enabled SQL Managed Instance is the same technology that is in SQL Server. Because Azure Arc-enabled SQL Managed Instance runs on Kubernetes, there's no Windows failover cluster involved.  For more information, see [Distributed availability groups](/sql/database-engine/availability-groups/windows/distributed-availability-groups).
 
 > [!NOTE]
 > 1. The Azure Arc-enabled SQL Managed Instance in both geo-primary and geo-secondary sites need to be identical in terms of their compute & capacity, as well as service tiers they are deployed in.
@@ -29,10 +29,10 @@ The distributed availability groups used in Azure Arc-enabled SQL Managed Instan
 
 To configure disaster recovery:
 
-1. Create distributed availability group custom resources on the primary site
-1. Create distributed availability group custom resources on the secondary site
+1. Create distributed availability groups custom resource on the primary site
+1. Create distributed availability group custom resource on the secondary site
 1. Copy the mirroring certificates
-1. Set up the distributed availability group between the primary and secondary sites.
+1. Set up the distributed availability group between the primary and secondary sites
 
 The following image shows a properly configured distributed availability group:
 
@@ -46,7 +46,7 @@ The following image shows a properly configured distributed availability group:
    az sql mi-arc create --name sqlprimary --tier bc --replicas 3 --k8s-namespace my-namespace --use-k8s
    ```
 
-2. Provision the managed instance in the secondary site and configure as a DR instance. At this point the system databases are not part of the contained availability group yet.
+2. Provision the managed instance in the secondary site and configure as a disaster recovery instance. At this point the system databases are not part of the contained availability group yet.
 
    ```azurecli
    az sql mi-arc create --name sqlsecondary --tier bc --replicas 3 --disaster-recovery-site true --k8s-namespace my-namespace --use-k8s
