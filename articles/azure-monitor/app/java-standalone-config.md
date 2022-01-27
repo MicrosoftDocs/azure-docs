@@ -30,7 +30,7 @@ Connection string and role name are the most common settings needed to get start
 }
 ```
 
-The connection string is required, and the role name is important any time you are sending data
+The connection string is required, and the role name is important anytime you are sending data
 from different applications to the same Application Insights resource.
 
 You will find more details and additional configuration options below.
