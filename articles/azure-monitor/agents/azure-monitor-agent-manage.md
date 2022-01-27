@@ -1,19 +1,19 @@
 ---
 title: Manage the Azure Monitor agent
-description: Options for managing the Azure Monitor Agent (AMA) on Azure virtual machines and Azure Arc-enabled servers.
+description: Options for managing the Azure Monitor agent (AMA) on Azure virtual machines and Azure Arc-enabled servers.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/02/2022
+ms.date: 01/27/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 
 # Manage the Azure Monitor agent
-This article provides the different options currently available to install, uninstall and update the [Azure Monitor agent](azure-monitor-agent-overview.md) on Azure virtual machines, scale sets and Azure Arc-enabled servers and also the options to create [associations with data collection rules](data-collection-rule-azure-monitor-agent.md) that define which data the agent should collect.
+This article provides the different options currently available to install, uninstall and update the [Azure Monitor agent](azure-monitor-agent-overview.md). This agent extension can be installed on Azure virtual machines, scale sets and Azure Arc-enabled servers. It also lists the options to create [associations with data collection rules](data-collection-rule-azure-monitor-agent.md) that define which data the agent should collect.
 
 ## Virtual machine extension details
-The Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-machines/extensions/overview.md) with the details in the following table. It can be installed using any of the methods to install virtual machine extensions including those described in this article.
+The Azure Monitor agent is implemented as an [Azure VM extension](../../virtual-machines/extensions/overview.md) with the details in the following table. It can be installed using any of the methods to install virtual machine extensions including those described in this article.
 
 | Property | Windows | Linux |
 |:---|:---|:---|
@@ -22,7 +22,7 @@ The Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-
 | TypeHandlerVersion  | 1.0 | 1.5 |
 
 ## Extension versions
-It is strongly recommended to update to GA+ versions listed below instead of using preview or intermediate versions.
+WE strongly recommended to update to generally available versions listed as follows instead of using preview or intermediate versions.
 
 | Release Date | Release notes | Windows | Linux |
 |:---|:---|:---|:---|:---|
@@ -41,7 +41,7 @@ It is strongly recommended to update to GA+ versions listed below instead of usi
 The following prerequisites must be met prior to installing the Azure Monitor agent.
 
 - For installing the agent on physical servers and virtual machines hosted *outside* of Azure (i.e. on-premises), you must [install the Azure Arc agent](../../azure-arc/servers/agent-overview.md#installation-and-configuration) first (at no added cost)
-- [Managed system identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) must be enabled on Azure virtual machines. This is not required for Azure Arc-enabled servers. The system identity will be enabled automatically if the agent is installed as part of the process for [creating and assigning a data collection rule using the Azure portal](#install-with-azure-portal).
+- [Managed system identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) must be enabled on Azure virtual machines. This is not required for Azure Arc-enabled servers. The system identity will be enabled automatically if the agent is installed via [creating and assigning a data collection rule using the Azure portal](data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal).
 - The [AzureResourceManager service tag](../../virtual-network/service-tags-overview.md) must be enabled on the virtual network for the virtual machine.
 - The virtual machine must have access to the following HTTPS endpoints:
   - *.ods.opinsights.azure.com
@@ -205,7 +205,8 @@ az vm extension delete --resource-group <resource-group-name> --vm-name <virtual
 
 #### Update on Azure virtual machines
 To perform a one time update of the agent, you must first uninstall the existing agent version and then install the new version as described above.  
-/*The recommendation is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature, using the following CLI commands.# [Windows](#tab/CLIWindows)
+/*The recommendation is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature, using the following CLI commands.
+# [Windows](#tab/CLIWindows)
 ```azurecli
 az vm extension set -name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --vm-name <virtual-machine-name> --resource-group <resource-group-name> --enable-auto-upgrade true
 ```
