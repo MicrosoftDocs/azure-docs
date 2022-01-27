@@ -51,14 +51,14 @@ Once you have your update files, create an import manifest to describe the updat
 
     $updateId = New-AduUpdateId -Provider Contoso -Name Toaster -Version 1.0
 
-    $compat = New-AduUpdateCompatibility New-AduUpdateCompatibility -Properties @{ deviceManufacturer = 'Contoso'; deviceModel = 'Toaster' }
+    $compat = New-AduUpdateCompatibility -Properties @{ deviceManufacturer = 'Contoso'; deviceModel = 'Toaster' }
 
     $installStep = New-AduInstallationStep -Handler 'microsoft/swupdate:1'-HandlerProperties @{ installedCriteria = '1.0' } -Files 'path to your update file'
 
     $update = New-AduImportManifest -UpdateId $updateId -Compatibility $compat -InstallationSteps $installStep
 
     # Write the import manifest to a file, ideally next to the update file(s).
-    $update | Out-File "./$($updateId.provider).$($updateId.name).$($updateId.version).importmanifest.json" -Encoding utf8NoBOM
+    $update | Out-File "./$($updateId.provider).$($updateId.name).$($updateId.version).importmanifest.json" -Encoding utf8
     ```
 
 ## Import an update
