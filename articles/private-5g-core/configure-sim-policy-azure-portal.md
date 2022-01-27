@@ -70,11 +70,11 @@ SIM policies allow you to define different sets of policies and interoperability
 
 1. Select your new SIM policy from the list.
 
-    :::image type="content" source="media/sim-policies-list.png" alt-text="Screenshot of the Azure portal. It shows a list of currently configured SIM policies for a private mobile network.":::
+    :::image type="content" source="media/sim-policies-list.png" alt-text="Screenshot of the Azure portal. It shows a list of currently configured SIM policies for a private mobile network." lightbox="media/sim-policies-list.png":::
 
 1. Check the configuration of your SIM policy to ensure it's correct. 
 
-    :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policy-resource.png" alt-text="Screenshot of the Azure portal showing a SIM policy resource.":::
+    :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policy-resource.png" alt-text="Screenshot of the Azure portal showing a SIM policy resource." lightbox="media/configure-sim-policy-azure-portal/sim-policy-resource.png":::
 
 ## Next steps
 

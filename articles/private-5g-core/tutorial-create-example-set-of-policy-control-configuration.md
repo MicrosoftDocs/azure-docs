@@ -376,7 +376,7 @@ Let's create the SIM policies.
 
 1. Select **sim-policy-1**.
 
-    :::image type="content" source="media/sim-policies-list.png" alt-text="Screenshot of the Azure portal with a list of configured SIM policies for a private mobile network. The sim-policy-1 resource is highlighted.":::
+    :::image type="content" source="media/sim-policies-list.png" alt-text="Screenshot of the Azure portal with a list of configured SIM policies for a private mobile network. The sim-policy-1 resource is highlighted." lightbox="media/sim-policies-list.png":::
 
 1. Check that the configuration for the SIM policy is as expected.
 
@@ -490,7 +490,7 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
 
 1. Your new **SIM1** and **SIM2** SIM resources are shown in the list.
 
-    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sims-list.png" alt-text="Screenshot of the Azure portal. It shows the SIMs currently provisioned for the private mobile network.":::
+    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/sims-list.png" alt-text="Screenshot of the Azure portal. It shows the SIMs currently provisioned for the private mobile network. lightbox="media/tutorial-create-example-set-of-policy-control-configuration/sims-list.png":::
 
 1. Tick the checkbox next to **SIM1**.
 1. In the command bar, select **Assign SIM policy**.
