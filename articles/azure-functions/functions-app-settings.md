@@ -282,11 +282,7 @@ The configuration is specific to Python function apps. It defines the prioritiza
 |PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`1`| Prioritize loading the Python libraries from application's package defined in requirements.txt. This prevents your libraries from colliding with internal Python worker's libraries. |
 
 ## PYTHON_ENABLE_DEBUG_LOGGING
-Enables debug-level logging in a Python function app. A value of '1' enables debug-level logging. Without this setting, only information and higher level logs are sent from the Python worker to the Functions host. Use this setting when debugging or tracing your Python function executions.
-
-|Key|Sample value|
-|---|------------|
-|PYTHON_ENABLE_DEBUG_LOGGING|`1`|
+Enables debug-level logging in a Python function app. A value of `1` enables debug-level logging. Without this setting or with a value of `0`, only information and higher level logs are sent from the Python worker to the Functions host. Use this setting when debugging or tracing your Python function executions.
 
 When debugging Python functions, make sure to also set a debug or trace [logging level](functions-host-json.md#logging) in the host.json file, as needed. To learn more, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
 
