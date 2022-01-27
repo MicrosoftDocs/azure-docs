@@ -644,6 +644,8 @@
     href: ./policy-reference.md
 - name: Resources
   items:
+  - name: Archived release notes
+    href: backup-release-notes-archived.md
   - name: Compliance
     href: compliance-offerings.md
   - name: Azure Roadmap
