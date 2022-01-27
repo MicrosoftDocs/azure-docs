@@ -164,5 +164,5 @@ New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType Azur
 
 ## Next steps
 
-- [Install the Azure Monitor agent](azure-monitor-agent-install.md) on Windows and Linux virtual machines.
+- [Install the Azure Monitor agent](azure-monitor-agent-manage.md) on Windows and Linux virtual machines.
 - [Create a data collection rule](data-collection-rule-azure-monitor-agent.md) to collect data from the agent and send it to Azure Monitor.
