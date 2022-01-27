@@ -204,28 +204,28 @@ Now that the web API is [registered and you've defined its scopes](#register-the
     
     *config.json*:
 
-       :::code language="json" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json":::
+    :::code language="json" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json":::
 
     *index.js*:
 
-        :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js":::
+    :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js":::
     
     Take note of the following code snippets in the `index.js`file:
         - Imports the passport Azure AD library
         
-          :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json" id="ms_docref_import_azuread_lib":::
+        :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_import_azuread_lib":::
         
         - Sets the Azure AD B2C options 
           
-          :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json" id="ms_docref_azureadb2c_options":::
+          :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_azureadb2c_options":::
 
         - Instantiate the passport Azure AD library with the Azure AD B2C options
            
-          :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json" id="ms_docref_init_azuread_lib":::
+          :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_init_azuread_lib":::
 
         - The protected API endpoint
 
-          :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json" id="ms_docref_protected_api_endpoint":::
+          :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_protected_api_endpoint":::
         
         - The anonymous API endpoint
 
@@ -246,7 +246,29 @@ You can now test your application. You need to start both your web application a
     ```
         node index.js
     ```
-1. In your browser, go to `http://localhost:3000`. You should see the page with a **Sign in** button.
+1. In your browser, go to `http://localhost:3000`. You should see the page with two buttons, **Sign in to call PROTECTED API** and **Or call the ANONYMOUS API**.
+
+    :::image type="content" source="./media/tutorial-call-api-using-access-token/sign-in-call-api.png" alt-text="Web page for sign in to call protected api.":::
+
+1. To call the anonymous API, select the **Or call the ANONYMOUS API**. The API responds with JSON object with `date` key such as:     
+
+    ```json
+        {"date":"2022-01-27T14:21:22.681Z"}.
+    ```
+
+
+1. Select **Sign in to call PROTECTED API** button. You're prompted to sign in. 
+
+1. Enter your sign-in credentials, such as email address and password. If you don't have an account, select **Sign up now** to create an account. If you have an account but have forgotten your password, select **Forgot your password?** to recover your password. After you successfully sign in or sign up, you should see the following page with **Call the PROTECTED API** button.
+
+
+    :::image type="content" source="./media/tutorial-call-api-using-access-token/signed-in-to-call-api.png" alt-text="Web page for signed to call protected api.":::
+
+1. To call the protected API, select the **Call the PROTECTED API** button. The API responds with JSON object with a `name` key whose value is the user's account surname such as:
+
+    ```json
+        {"name": "User 1"}.
+    ``` 
 
 ## Next steps
 - [Secure an Azure API Management API with Azure AD B2C](secure-api-management.md)
