@@ -2,7 +2,7 @@
 title: Permissions in Microsoft Defender for Cloud | Microsoft Docs
 description: This article explains how Microsoft Defender for Cloud uses role-based access control to assign permissions to users and identify the permitted actions for each role.
 ms.topic: overview
-ms.date: 01/25/2022
+ms.date: 01/27/2022
 ---
 
 # Permissions in Microsoft Defender for Cloud
