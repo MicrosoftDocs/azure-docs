@@ -2,14 +2,16 @@
 title: Linter rule - secure parameter default
 description: Linter rule - secure parameter default
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 11/18/2021
 ---
 
 # Linter rule - secure parameter default
 
 This rule finds hard-coded default values for secure parameters.
 
-## Returned code
+## Linter rule code
+
+Use the following value in the [Bicep configuration file](bicep-config-linter.md) to customize rule settings:
 
 `secure-parameter-default`
 

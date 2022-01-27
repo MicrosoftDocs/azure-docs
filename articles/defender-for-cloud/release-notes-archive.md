@@ -1,15 +1,9 @@
 ---
-title: Archive of what's new in Defender for Cloud
-description: A description of what's new and changed in Defender for Cloud from six months ago and earlier.
-author: memildin
-manager: rkarlin
-ms.service: security-center
+title: Archive of what's new in Microsoft Defender for Cloud
+description: A description of what's new and changed in Microsoft Defender for Cloud from six months ago and earlier.
 ms.topic: reference
-ms.date: 11/09/2021
-ms.author: memildin
-
+ms.date: 01/04/2022
 ---
-
 # Archive for what's new in Defender for Cloud?
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
@@ -21,6 +15,204 @@ This page provides you with information about:
 - New features
 - Bug fixes
 - Deprecated functionality
+
+## July 2021
+
+Updates in July include:
+
+- [Azure Sentinel connector now includes optional bi-directional alert synchronization (in preview)](#azure-sentinel-connector-now-includes-optional-bi-directional-alert-synchronization-in-preview)
+- [Logical reorganization of Azure Defender for Resource Manager alerts](#logical-reorganization-of-azure-defender-for-resource-manager-alerts)                                           
+- [Enhancements to recommendation to enable Azure Disk Encryption (ADE)](#enhancements-to-recommendation-to-enable-azure-disk-encryption-ade)                                     
+- [Continuous export of secure score and regulatory compliance data released for general availability (GA)](#continuous-export-of-secure-score-and-regulatory-compliance-data-released-for-general-availability-ga)
+- [Workflow automations can be triggered by changes to regulatory compliance assessments (GA)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-ga)
+- [Assessments API field 'FirstEvaluationDate' and 'StatusChangeDate' now available in workspace schemas and logic apps](#assessments-api-field-firstevaluationdate-and-statuschangedate-now-available-in-workspace-schemas-and-logic-apps)
+- ['Compliance over time' workbook template added to Azure Monitor Workbooks gallery](#compliance-over-time-workbook-template-added-to-azure-monitor-workbooks-gallery)
+
+### Azure Sentinel connector now includes optional bi-directional alert synchronization (in preview)
+
+Security Center natively integrates with [Azure Sentinel](../sentinel/index.yml), Azure's cloud-native SIEM and SOAR solution. 
+
+Azure Sentinel includes built-in connectors for Azure Security Center at the subscription and tenant levels. Learn more in [Stream alerts to Azure Sentinel](export-to-siem.md#stream-alerts-to-microsoft-sentinel).
+
+When you connect Azure Defender to Azure Sentinel, the status of Azure Defender alerts that get ingested into Azure Sentinel is synchronized between the two services. So, for example, when an alert is closed in Azure Defender, that alert will display as closed in Azure Sentinel as well. Changing the status of an alert in Azure Defender "won't"* affect the status of any Azure Sentinel **incidents** that contain the synchronized Azure Sentinel alert, only that of the synchronized alert itself.
+
+Enabling this preview feature, **bi-directional alert synchronization**, will automatically sync the status of the original Azure Defender alerts with Azure Sentinel incidents that contain the copies of those Azure Defender alerts. So, for example, when an Azure Sentinel incident containing an Azure Defender alert is closed, Azure Defender will automatically close the corresponding original alert.
+
+Learn more in [Connect Azure Defender alerts from Azure Security Center](../sentinel/connect-azure-security-center.md).
+
+### Logical reorganization of Azure Defender for Resource Manager alerts
+
+The alerts listed below were provided as part of the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) plan.
+
+As part of a logical reorganization of some of the Azure Defender plans, we've moved some alerts from **Azure Defender for Resource Manager** to **Azure Defender for servers**.
+
+The alerts are organized according to two main principles:
+
+- Alerts that provide control-plane protection - across many Azure resource types - are part of Azure Defender for Resource Manager
+- Alerts that protect specific workloads are in the Azure Defender plan that relates to the corresponding workload
+
+These are the alerts that were part of Azure Defender for Resource Manager, and which, as a result of this change, are now part of Azure Defender for servers:
+
+- ARM_AmBroadFilesExclusion
+- ARM_AmDisablementAndCodeExecution
+- ARM_AmDisablement
+- ARM_AmFileExclusionAndCodeExecution
+- ARM_AmTempFileExclusionAndCodeExecution
+- ARM_AmTempFileExclusion
+- ARM_AmRealtimeProtectionDisabled
+- ARM_AmTempRealtimeProtectionDisablement
+- ARM_AmRealtimeProtectionDisablementAndCodeExec
+- ARM_AmMalwareCampaignRelatedExclusion
+- ARM_AmTemporarilyDisablement
+- ARM_UnusualAmFileExclusion
+- ARM_CustomScriptExtensionSuspiciousCmd
+- ARM_CustomScriptExtensionSuspiciousEntryPoint
+- ARM_CustomScriptExtensionSuspiciousPayload
+- ARM_CustomScriptExtensionSuspiciousFailure
+- ARM_CustomScriptExtensionUnusualDeletion
+- ARM_CustomScriptExtensionUnusualExecution
+- ARM_VMAccessUnusualConfigReset
+- ARM_VMAccessUnusualPasswordReset
+- ARM_VMAccessUnusualSSHReset
+
+Learn more about the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for servers](defender-for-servers-introduction.md) plans.
+
+
+### Enhancements to recommendation to enable Azure Disk Encryption (ADE)
+
+Following user feedback, we've renamed the recommendation **Disk encryption should be applied on virtual machines**.
+
+The new recommendation uses the same assessment ID and is called **Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources**.
+
+The description has also been updated to better explain the purpose of this hardening recommendation:
+
+| Recommendation                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Severity |
+|--------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|
+| **Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources** | By default, a virtual machine’s OS and data disks are encrypted-at-rest using platform-managed keys; temp disks and data caches aren’t encrypted, and data isn’t encrypted when flowing between compute and storage resources. For a comparison of different disk encryption technologies in Azure, see https://aka.ms/diskencryptioncomparison.<br>Use Azure Disk Encryption to encrypt all this data. Disregard this recommendation if: (1) you’re using the encryption-at-host feature, or (2) server-side encryption on Managed Disks meets your security requirements. Learn more in Server-side encryption of Azure Disk Storage. | High     |
+|                                                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |          |
+
+
+### Continuous export of secure score and regulatory compliance data released for general availability (GA)
+
+[Continuous export](continuous-export.md) provides the mechanism for exporting your security alerts and recommendations for tracking with other monitoring tools in your environment.
+
+When you set up your continuous export, you configure what is exported, and where it will go. Learn more in the [overview of continuous export](continuous-export.md).
+
+We've enhanced and expanded this feature over time:
+
+- In November 2020, we added the **preview** option to stream changes to your **secure score**.<br/>For full details, see [Secure score is now available in continuous export (preview)](release-notes-archive.md#secure-score-is-now-available-in-continuous-export-preview).
+
+- In December 2020, we added the **preview** option to stream changes to your **regulatory compliance assessment data**.<br/>For full details, see [Continuous export gets new data types (preview)](release-notes-archive.md#continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies).
+
+With this update, these two options are released for general availability (GA). 
+
+
+### Workflow automations can be triggered by changes to regulatory compliance assessments (GA)
+
+In February 2021, we added a **preview** third data type to the trigger options for your workflow automations: changes to regulatory compliance assessments. Learn more in [Workflow automations can be triggered by changes to regulatory compliance assessments](release-notes-archive.md#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview).
+
+With this update, this trigger option is released for general availability (GA).
+
+Learn how to use the workflow automation tools in [Automate responses to Security Center triggers](workflow-automation.md).
+
+:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Using changes to regulatory compliance assessments to trigger a workflow automation." lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
+
+### Assessments API field 'FirstEvaluationDate' and 'StatusChangeDate' now available in workspace schemas and logic apps
+
+In May 2021, we updated the Assessment API with two new fields, **FirstEvaluationDate** and **StatusChangeDate**. For full details, see [Assessments API expanded with two new fields](release-notes-archive.md#assessments-api-expanded-with-two-new-fields).
+
+Those fields were accessible through the REST API, Azure Resource Graph, continuous export, and in CSV exports.
+
+With this change, we're making the information available in the Log Analytics workspace schema and from logic apps.
+
+
+### 'Compliance over time' workbook template added to Azure Monitor Workbooks gallery
+
+In March, we announced the integrated Azure Monitor Workbooks experience in Security Center (see [Azure Monitor Workbooks integrated into Security Center and three templates provided](release-notes-archive.md#azure-monitor-workbooks-integrated-into-security-center-and-three-templates-provided)).
+
+The initial release included three templates to build dynamic and visual reports about your organization's security posture.
+
+We've now added a workbook dedicated to tracking a subscription's compliance with the regulatory or industry standards applied to it. 
+
+Learn about using these reports or building your own in [Create rich, interactive reports of Security Center data](custom-dashboards-azure-workbooks.md).
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/compliance-over-time-details.png" alt-text="Azure Security Center's compliance over time workbook":::
+
+## June 2021
+
+Updates in June include:
+
+- [New alert for Azure Defender for Key Vault](#new-alert-for-azure-defender-for-key-vault)
+- [Recommendations to encrypt with customer-managed keys (CMKs) disabled by default](#recommendations-to-encrypt-with-customer-managed-keys-cmks-disabled-by-default)
+- [Prefix for Kubernetes alerts changed from "AKS_" to "K8S_"](#prefix-for-kubernetes-alerts-changed-from-aks_-to-k8s_)
+- [Deprecated two recommendations from "Apply system updates" security control](#deprecated-two-recommendations-from-apply-system-updates-security-control)
+
+
+### New alert for Azure Defender for Key Vault
+
+To expand the threat protections provided by Azure Defender for Key Vault, we've added the following alert:
+
+| Alert (alert type)                                                                 | Description                                                                                                                                                                                                                                                                                                                                                      | MITRE tactic | Severity |
+|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
+| Access from a suspicious IP address to a key vault<br>(KV_SuspiciousIPAccess)  | A key vault has been successfully accessed by an IP that has been identified by Microsoft Threat Intelligence as a suspicious IP address. This may indicate that your infrastructure has been compromised. We recommend further investigation. Learn more about [Microsoft's threat intelligence capabilities](https://go.microsoft.com/fwlink/?linkid=2128684). | Credential Access                            | Medium   |
+|||
+
+For more information, see:
+- [Introduction to Azure Defender for Key Vault](defender-for-resource-manager-introduction.md)
+- [Respond to Azure Defender for Key Vault alerts](defender-for-key-vault-usage.md)
+- [List of alerts provided by Azure Defender for Key Vault](alerts-reference.md#alerts-azurekv)
+
+
+### Recommendations to encrypt with customer-managed keys (CMKs) disabled by default
+
+Security Center includes multiple recommendations to encrypt data at rest with customer-managed keys, such as:
+
+- Container registries should be encrypted with a customer-managed key (CMK)
+- Azure Cosmos DB accounts should use customer-managed keys to encrypt data at rest
+- Azure Machine Learning workspaces should be encrypted with a customer-managed key (CMK)
+
+Data in Azure is encrypted automatically using platform-managed keys, so the use of customer-managed keys should only be applied when required for compliance with a specific policy your organization is choosing to enforce.
+
+With this change, the recommendations to use CMKs are now **disabled by default**. When relevant for your organization, you can enable them by changing the *Effect* parameter for the corresponding security policy to **AuditIfNotExists** or **Enforce**. Learn more in [Enable a security policy](tutorial-security-policy.md#enable-a-security-policy).
+
+This change is reflected in the names of the recommendation with a new prefix, **[Enable if required]**, as shown in the following examples:
+
+- [Enable if required] Storage accounts should use customer-managed key to encrypt data at rest
+- [Enable if required] Container registries should be encrypted with a customer-managed key (CMK)
+- [Enable if required] Azure Cosmos DB accounts should use customer-managed keys to encrypt data at rest
+
+:::image type="content" source="media/upcoming-changes/customer-managed-keys-disabled.png" alt-text="Security Center's CMK recommendations will be disabled by default." lightbox="media/upcoming-changes/customer-managed-keys-disabled.png":::
+
+
+### Prefix for Kubernetes alerts changed from "AKS_" to "K8S_"
+
+Azure Defender for Kubernetes recently expanded to protect Kubernetes clusters hosted on-premises and in multi-cloud environments. Learn more in [Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (in preview)](release-notes-archive.md#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-in-preview).
+
+To reflect the fact that the security alerts provided by Azure Defender for Kubernetes are no longer restricted to clusters on Azure Kubernetes Service, we've changed the prefix for the alert types from "AKS_" to "K8S_". Where necessary, the names and descriptions were updated too. For example, this alert:
+
+|Alert (alert type)|Description|
+|----|----|
+|Kubernetes penetration testing tool detected<br>(**AKS**_PenTestToolsKubeHunter)|Kubernetes audit log analysis detected usage of Kubernetes penetration testing tool in the **AKS** cluster. While this behavior can be legitimate, attackers might use such public tools for malicious purposes.
+|||
+
+was changed to:
+
+|Alert (alert type)|Description|
+|----|----|
+|Kubernetes penetration testing tool detected<br>(**K8S**_PenTestToolsKubeHunter)|Kubernetes audit log analysis detected usage of Kubernetes penetration testing tool in the **Kubernetes** cluster. While this behavior can be legitimate, attackers might use such public tools for malicious purposes.|
+|||
+
+Any suppression rules that refer to alerts beginning "AKS_" were automatically converted. If you've setup SIEM exports, or custom automation scripts that refer to Kubernetes alerts by alert type, you'll need to update them with the new alert types.
+
+For a full list of the Kubernetes alerts, see [Alerts for Kubernetes clusters](alerts-reference.md#alerts-k8scluster).
+
+### Deprecated two recommendations from "Apply system updates" security control
+
+The following two recommendations were deprecated:
+
+- **OS version should be updated for your cloud service roles** - By default, Azure periodically updates your guest OS to the latest supported image within the OS family that you've specified in your service configuration (.cscfg), such as Windows Server 2016.
+- **Kubernetes Services should be upgraded to a non-vulnerable Kubernetes version** - This recommendation's evaluations aren't as wide-ranging as we'd like them to be. We plan to replace the recommendation with an enhanced version that's better aligned with your security needs.
+
 
 ## May 2021
 
@@ -134,7 +326,7 @@ Learn more about Security Center's vulnerability scanners:
 
 The severity of the recommendation **Sensitive data in your SQL databases should be classified** has been changed from **High** to **Low**.
 
-This is part of the ongoing changes to this recommendation announced in [Enhancements to recommendation to classify sensitive data in SQL databases](upcoming-changes.md#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases).
+This is part of an ongoing change to this recommendation announced in our upcoming changes page.
 
 ### New recommendations to enable trusted launch capabilities (in preview)
 
@@ -165,7 +357,7 @@ The following recommendations allow you to further harden your Kubernetes cluste
 - **Kubernetes clusters should disable automounting API credentials** - To prevent a potentially compromised Pod resource from running API commands against Kubernetes clusters, disable automounting API credentials.
 - **Kubernetes clusters should not grant CAPSYSADMIN security capabilities**
 
-Learn how Security Center can protect your containerized environments in [Container security in Security Center](container-security.md).
+Learn how Security Center can protect your containerized environments in [Container security in Security Center](defender-for-containers-introduction.md).
 
 ### Assessments API expanded with two new fields
 
@@ -441,7 +633,7 @@ Security Center includes a built-in vulnerability scanner to help you discover, 
 
 If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
 
-Learn more in [Disable specific findings](defender-for-sql-on-machines-vulnerability-assessment.md#disable-specific-findings-preview).
+Learn more in [Disable specific findings](defender-for-sql-on-machines-vulnerability-assessment.md#disable-specific-findings).
 
 
 
@@ -578,7 +770,7 @@ When the Azure Policy add-on for Kubernetes is installed on your Azure Kubernete
 
 For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
 
-Learn more in [Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control).
+Learn more in [Workload protection best-practices using Kubernetes admission control](defender-for-containers-introduction.md#workload-protection-best-practices-using-kubernetes-admission-control).
 
 > [!NOTE]
 > While the recommendations were in preview, they didn't render an AKS cluster resource unhealthy, and they weren't included in the calculations of your secure score. with this GA announcement these will be included in the score calculation. If you haven't remediated them already, this might result in a slight impact on your secure score. Remediate them wherever possible as described in [Remediate recommendations in Azure Security Center](implement-security-recommendations.md).
@@ -1018,7 +1210,7 @@ These tools have been enhanced and expanded in the following ways:
     
     - **Support exporting secure score data.**
 
-- **Regulatory compliance assessment data added (in preview).** You can now continuously export updates to regulatory compliance assessments, including for any custom initiatives, to a Log Analytics workspace or Event Hub. This feature is unavailable on national/sovereign clouds.
+- **Regulatory compliance assessment data added (in preview).** You can now continuously export updates to regulatory compliance assessments, including for any custom initiatives, to a Log Analytics workspace or Event Hub. This feature is unavailable on national clouds.
 
     :::image type="content" source="media/release-notes/continuous-export-regulatory-compliance-option.png" alt-text="The options for including regulatory compliance assessment information with your continuous export data.":::
 
@@ -1202,7 +1394,7 @@ Azure Resource Graph is a service in Azure that is designed to provide efficient
 For Azure Security Center, you can use ARG and the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) to query a wide range of security posture data. For example:
 
 - Asset inventory utilizes (ARG)
-- We have documented a sample ARG query for how to [Identify accounts without multi-factor authentication (MFA) enabled](multi-factor-authentication-enforcement.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
+- We have documented a sample ARG query for how to [Identify accounts without multifactor authentication (MFA) enabled](multi-factor-authentication-enforcement.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
 
 Within ARG, there are tables of data for you to use in your queries.
 
@@ -1390,7 +1582,7 @@ This option is available from the recommendations details pages for:
 - **Vulnerabilities in Azure Container Registry images should be remediated**
 - **Vulnerabilities in your virtual machines should be remediated**
 
-Learn more in [Disable specific findings for your container images](defender-for-container-registries-usage.md#disable-specific-findings-preview) and [Disable specific findings for your virtual machines](remediate-vulnerability-findings-vm.md#disable-specific-findings-preview).
+Learn more in [Disable specific findings for your container images](defender-for-container-registries-usage.md#disable-specific-findings) and [Disable specific findings for your virtual machines](remediate-vulnerability-findings-vm.md#disable-specific-findings).
 
 
 ### Exempt a resource from a recommendation
@@ -1421,7 +1613,7 @@ When you've installed the Azure Policy add-on for Kubernetes on your AKS cluster
 
 For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
 
-Learn more in [Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control).
+Learn more in [Workload protection best-practices using Kubernetes admission control](defender-for-containers-introduction.md#workload-protection-best-practices-using-kubernetes-admission-control).
 
 
 ### Vulnerability assessment findings are now available in continuous export
@@ -1514,7 +1706,7 @@ The details page for recommendations now includes a freshness interval indicator
 Updates in August include:
 
 - [Asset inventory - powerful new view of the security posture of your assets](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
-- [Added support for Azure Active Directory security defaults (for multi-factor authentication)](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
+- [Added support for Azure Active Directory security defaults (for multifactor authentication)](#added-support-for-azure-active-directory-security-defaults-for-multifactor-authentication)
 - [Service principals recommendation added](#service-principals-recommendation-added)
 - [Vulnerability assessment on VMs - recommendations and policies consolidated](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
 - [New AKS security policies added to ASC_default initiative – for use by private preview customers only](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
@@ -1531,13 +1723,13 @@ You can use the view and its filters to explore your security posture data and t
 Learn more about [asset inventory](asset-inventory.md).
 
 
-### Added support for Azure Active Directory security defaults (for multi-factor authentication)
+### Added support for Azure Active Directory security defaults (for multifactor authentication)
 
 Security Center has added full support for [security defaults](../active-directory/fundamentals/concept-fundamentals-security-defaults.md), Microsoft's free identity security protections.
 
 Security defaults provide preconfigured identity security settings to defend your organization from common identity-related attacks. Security defaults already protecting more than 5 million tenants overall; 50,000 tenants are also protected by Security Center.
 
-Security Center now provides a security recommendation whenever it identifies an Azure subscription without security defaults enabled. Until now, Security Center recommended enabling multi-factor authentication using conditional access, which is part of the Azure Active Directory (AD) premium license. For customers using Azure AD free, we now recommend enabling security defaults. 
+Security Center now provides a security recommendation whenever it identifies an Azure subscription without security defaults enabled. Until now, Security Center recommended enabling multifactor authentication using conditional access, which is part of the Azure Active Directory (AD) premium license. For customers using Azure AD free, we now recommend enabling security defaults. 
 
 Our goal is to encourage more customers to secure their cloud environments with MFA, and mitigate one of the highest risks that is also the most impactful to your [secure score](secure-score-security-controls.md).
 
@@ -1693,12 +1885,11 @@ To improve the clarity and guidance regarding Azure Security Center's container 
 
 Learn more about Security Center's container security in the following articles:
 
-- [Overview of Security Center's container security features](container-security.md)
+- [Overview of Security Center's container security features](defender-for-containers-introduction.md)
 - [Details of the integration with Azure Container Registry](defender-for-container-registries-introduction.md)
 - [Details of the integration with Azure Kubernetes Service](defender-for-kubernetes-introduction.md)
-- [How-to scan your registries and harden your Docker hosts](container-security.md)
+- [How-to scan your registries and harden your Docker hosts](defender-for-containers-introduction.md)
 - [Security alerts from the threat protection features for Azure Kubernetes Service clusters](alerts-reference.md#alerts-k8scluster)
-- [Security alerts from the threat protection features for Azure Kubernetes Service hosts](alerts-reference.md#alerts-containerhost)
 - [Security recommendations for containers](recommendations-reference.md#recs-compute)
 
 
@@ -1803,7 +1994,7 @@ The policy definitions can be found in Azure Policy:
 
 |Goal  |Policy  |Policy ID  |
 |---------|---------|---------|
-|Continuous export to event hub|[Deploy export to Event Hub for Azure Security Center alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
+|Continuous export to Event Hub|[Deploy export to Event Hub for Azure Security Center alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
 |Continuous export to Log Analytics workspace|[Deploy export to Log Analytics workspace for Azure Security Center alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
 |Workflow automation for security alerts|[Deploy Workflow Automation for Azure Security Center alerts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
 |Workflow automation for security recommendations|[Deploy Workflow Automation for Azure Security Center recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
@@ -2024,7 +2215,7 @@ If you have subscriptions on the free pricing tier, their secure scores will be 
 
 Learn more about [identity and access recommendations](recommendations-reference.md#recs-identityandaccess).
 
-Learn more about [Managing multi-factor authentication (MFA) enforcement on your subscriptions](multi-factor-authentication-enforcement.md).
+Learn more about [Managing multifactor authentication (MFA) enforcement on your subscriptions](multi-factor-authentication-enforcement.md).
 
 
 
@@ -2076,7 +2267,7 @@ The Security Center defense includes:
 
 Learn more about [Azure Kubernetes Services' integration with Security Center](defender-for-kubernetes-introduction.md).
 
-Learn more about [the container security features in Security Center](container-security.md).
+Learn more about [the container security features in Security Center](defender-for-containers-introduction.md).
 
 
 ### Improved just-in-time experience

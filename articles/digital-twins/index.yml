@@ -120,15 +120,5 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: 'Learning path: Develop with Azure Digital Twins'
-            url: /learn/paths/develop-azure-digital-twins/
-      - linkListType: learn
-        links:
-          - text: 'Learn module: Introduction to Azure Digital Twins'
-            url: /learn/modules/develop-with-azure-digital-twins/introduction-to-azure-digital-twins/
-          - text: 'Learn module: Build an Azure Digital Twins graph for a chocolate factory production line'
-            url: /learn/modules/develop-with-azure-digital-twins/build-azure-digital-twins-graph-for-chocolate-factory/
-          - text: 'Learn module: Ingest data into Azure Digital Twins'
-            url: /learn/modules/develop-with-azure-digital-twins/ingest-data-into-azure-digital-twins/
-          - text: 'Learn module: Output from Azure Digital Twins to downstream services'
-            url: /learn/modules/develop-with-azure-digital-twins/route-output-from-azure-digital-twins-to-downstream-services/
+          - text: 'Learning path: Extend IoT solutions by using Azure Digital Twins'
+            url: /learn/paths/extend-iot-solutions-by-using-azure-digital-twins/

@@ -61,4 +61,4 @@ Chaos Studio encrypts all data by default. Chaos Studio only accepts input for s
 ## Next steps
 Now that you understand how to secure your chaos experiment you are ready to:
 - [Create and run your first experiment](chaos-studio-tutorial-service-direct-portal.md)
-- [Create and run your first Azure Kubernetes Service experiment](chaos-studio-tutorial-aks.md)
+- [Create and run your first Azure Kubernetes Service experiment](chaos-studio-tutorial-aks-portal.md)

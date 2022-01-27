@@ -1,15 +1,15 @@
 ---
 title: Azure Stream Analytics JavaScript user-defined functions
 description: This article is an introduction to JavaScript user-defined functions in Stream Analytics.
-author: rodrigoaatmicrosoft
-ms.author: rodrigoa
+author: fleid
+ms.author: fleide
 ms.service: stream-analytics
 ms.topic: tutorial
 
 ms.custom: mvc, devx-track-js
 ms.date: 12/15/2020
 
-#Customer intent: "As an IT admin/developer I want to run JavaScript user-defined functions within Stream Analytics jobs."
+#Customer intent: As an IT admin/developer I want to run JavaScript user-defined functions within Stream Analytics jobs.
 ---
 
 # JavaScript user-defined functions in Azure Stream Analytics

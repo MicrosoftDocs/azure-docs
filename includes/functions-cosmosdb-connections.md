@@ -2,7 +2,7 @@
 author: mattchenderson
 ms.service: azure-functions
 ms.topic: include
-ms.date: 10/08/2021
+ms.date: 11/12/2021
 ms.author: mahender
 ---
 
@@ -27,7 +27,7 @@ In this mode, the extension requires the following properties:
 
 | Property                  | Environment variable template                       | Description                                | Example value                                        |
 |---------------------------|-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
-| Account Endpoint | `<CONNECTION_NAME_PREFIX>__accountEndpoint` | The Azure Cosmos DB account endpoint URI. | <database_account_name>.documents.azure.com |
+| Account Endpoint | `<CONNECTION_NAME_PREFIX>__accountEndpoint` | The Azure Cosmos DB account endpoint URI. | https://<database_account_name>.documents.azure.com:443/ |
 
 Additional properties may be set to customize the connection. See [Common properties for identity-based connections](../articles/azure-functions/functions-reference.md#common-properties-for-identity-based-connections).
 

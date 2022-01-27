@@ -18,9 +18,9 @@ This article describes how you can connect a Rigado Cascade 500 gateway device t
 
 ## What is Cascade 500?
 
-Cascade 500 IoT gateway is a hardware offering from Rigado that is included as part of their Cascade Edge-as-a-Service solution. It provides commercial IoT project and product teams with flexible edge computing power, a robust containerized application environment, and a wide variety of wireless device connectivity options, including Bluetooth 5, LTE, & Wi-Fi.
+Cascade 500 IoT gateway is a hardware offering from Rigado that's part of their Cascade Edge-as-a-Service solution. It provides commercial IoT project and product teams with flexible edge computing power, a robust containerized application environment, and a wide variety of wireless device connectivity options such as Bluetooth 5, LTE, and Wi-Fi.
 
-Cascade 500 is certified for Azure IoT Plug and Play and allows you to easily onboard the device into your end to end solutions. The Cascade gateway allows you to wirelessly connect to a variety of condition monitoring sensors that are in proximity to the gateway device. These sensors can be onboarded into IoT Central via the gateway device.
+Cascade 500 is certified for Azure IoT Plug and Play and enables you to easily onboard the device into your end-to-end solutions. The Cascade gateway lets you wirelessly connect to various condition monitoring sensors that are in close proximity to the gateway device. You can use the gateway device to onboard these sensors into IoT Central.
 
 ## Prerequisites
 
@@ -32,39 +32,49 @@ To complete the steps in this how-to guide, you need:
 
 ## Add a device template
 
-In order to onboard a Cascade 500 gateway device into your Azure IoT Central application instance, you will need to configure a corresponding device template within your application.
+To onboard a Cascade 500 gateway device into your Azure IoT Central application instance, you need to configure a corresponding device template within your application.
 
-To add a Cascade 500 device template: 
+To add a Cascade 500 device template:
 
-1. Navigate to the ***Device Templates*** tab in the left pane, select **+ New**: 
-![Create new device template](./media/howto-connect-rigado-cascade-500/device-template-new.png)
-1. The page gives you an option to ***Create a custom template*** or ***Use a preconfigured device template***
+1. Navigate to the **Device Templates** tab in the left pane, select **+ New**:
+
+    ![Create new device template](./media/howto-connect-rigado-cascade-500/device-template-new.png)
+
+1. The page gives you an option to **Create a custom template** or **Use a preconfigured device template**.
+
 1. Select the C500 device template from the list of preconfigured device templates as shown below:
-![Select C500 device template](./media/howto-connect-rigado-cascade-500/device-template-preconfigured.png)
-1. Select ***Next: Customize*** to continue to the next step. 
-1. On the next screen, select ***Create*** to onboard the C500 device template into your IoT Central application.
+
+    ![Select C500 device template](./media/howto-connect-rigado-cascade-500/device-template-preconfigured.png)
+
+1. Select **Next: Customize** to continue to the next step.
+
+1. On the next screen, select **Create** to onboard the C500 device template into your IoT Central application.
 
 ## Retrieve application connection details
 
-You will now need to retrieve the **Scope ID** and **Primary key** for your Azure IoT Central application in order to connect the Cascade 500 device. 
+To connect the Cascade 500 device to your IoT Central application, you need to retrieve the **ID Scope** and **Primary key** for your application.
 
-1. Navigate to **Administration**  in the left pane and click on **Device connection**. 
-2. Make a note of the **Scope ID** for your IoT Central application.
-![App Scope ID](./media/howto-connect-rigado-cascade-500/app-scope-id.png)
-3. Now click on **View Keys** and make a note of the **Primary key**
-![Primary Key](./media/howto-connect-rigado-cascade-500/primary-key-sas.png)  
+1. Navigate to **Administration**  in the left pane and select **Device connection**.
 
-## Contact Rigado to connect the gateway 
+1. Make a note of the **ID Scope** for your IoT Central application:
 
-In order to connect the Cascade 500 device to your IoT Central application, you will need to contact Rigado and provide them with the application connection details from the above steps. 
+    ![App ID Scope](./media/howto-connect-rigado-cascade-500/app-scope-id.png)
 
-Once the device is connected to the internet, Rigado will be able to push down a configuration update down to the Cascade 500 gateway device through a secure channel. 
+1. Now select **View Keys** and make a note of the **Primary key**:
 
-This update will apply the IoT Central connection details on the Cascade 500 device and it will appear in your devices list. 
+    ![Primary Key](./media/howto-connect-rigado-cascade-500/primary-key-sas.png)  
+
+## Contact Rigado to connect the gateway
+
+To connect the Cascade 500 device to your IoT Central application, you need to contact Rigado and provide them with the application connection details from the previous steps.
+
+When the device connects to the internet, Rigado can push down a configuration update to the Cascade 500 gateway device through a secure channel.
+
+This update applies the IoT Central connection details on the Cascade 500 device and it then appears in your devices list:
 
 ![Devices list](./media/howto-connect-rigado-cascade-500/devices-list-c500.png)  
 
-You are now ready to use your C500 device in your IoT Central application!
+You're now ready to use your C500 device in your IoT Central application.
 
 ## Next steps
 

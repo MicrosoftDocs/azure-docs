@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
-ms.reviewer:
+ms.reviewer: kendralittle, mathoma
 ms.date: 11/02/2020
 ---
 # Configure Always Encrypted by using Azure Key Vault 

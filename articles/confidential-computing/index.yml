@@ -125,7 +125,7 @@ landingContent:
           - text: Azure IoT Edge
             url: ../iot-edge/deploy-confidential-applications.md
           - text: Azure Key Vault Managed HSM
-            url: https://docs.microsoft.com/azure/key-vault/managed-hsm/
+            url: ../key-vault/managed-hsm/index.yml
            
      
 

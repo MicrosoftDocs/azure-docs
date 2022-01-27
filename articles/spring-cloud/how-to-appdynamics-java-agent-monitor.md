@@ -1,7 +1,7 @@
 ---
 title:  "How to monitor Spring Boot apps with the AppDynamics Java Agent (Preview)"
 titleSuffix: Azure Spring Cloud
-description: How to use the AppDynamics Java agent to monitor Spring Boot applications running in Azure Spring Cloud.
+description: How to use the AppDynamics Java agent to monitor Spring Boot applications in Azure Spring Cloud.
 author:  KarlErickson
 ms.author: jiec
 ms.service: spring-cloud
@@ -12,7 +12,7 @@ ms.custom: devx-track-java
 
 # How to monitor Spring Boot apps with the AppDynamics Java Agent (Preview)
 
-This article explains how to use the AppDynamics Java Agent to monitor Spring Boot applications running in Azure Spring Cloud.
+This article explains how to use the AppDynamics Java Agent to monitor Spring Boot applications in Azure Spring Cloud.
 
 With the AppDynamics Java Agent, you can:
 
@@ -217,4 +217,4 @@ To understand the limitations of the AppDynamics Agent, see [Monitor Azure Sprin
 
 ## Next steps
 
-* [Use Application Insights Java In-Process Agent in Azure Spring Cloud](/azure/spring-cloud/how-to-application-insights)
+* [Use Application Insights Java In-Process Agent in Azure Spring Cloud](./how-to-application-insights.md)

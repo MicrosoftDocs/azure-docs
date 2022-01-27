@@ -92,41 +92,14 @@ To learn more about how to assign and manage Azure role assignments, see these a
 - [Assign Azure roles using Azure CLI](../role-based-access-control/role-assignments-cli.md)
 - [Assign Azure roles using Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md)
 
-## Sample codes while configuring your server
+## Sample codes
 
-### Using system-assigned identity
+We officially support 4 programming languages:
 
-You can use either [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) or [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential) to configure your Web PubSub endpoints while using system-assigned identity.
-
-However, the best practice is to use `ManagedIdentityCredential` directly.
-
-The system-assigned managed identity will be used by default, but **please make sure that you don't have configured any environment variables** that are preserved by [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) if you were using `DefaultAzureCredential`. Otherwise it will fall back to use `EnvironmentCredential` to make the request and it will results to a `401 Unauthorized` response in most cases.
-
-Here is sample codes for C#.
-
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var client = new WebPubSubServiceClient(endpoint, "hub", new ManagedIdentityCredential());
-```
-
-There are also samples for other supported languages, see [Java](), [JavaScript](), [Python]().
-
-### Using user-assigned identity
-
-Simply provide `ClientId` while creating the  `ManagedIdentityCredential` object.
-
-> [!IMPORTANT]
-> Use **Client Id**, not the Object (principal) ID even if they looked similar!
-
-Here is sample codes for C#.
-
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var clientId = "<your user-assigned identity client id>";
-var client = new WebPubSubServiceClient(endpoint, "hub", new ManagedIdentityCredential(clientId));
-```
-
-There are also samples for other supported languages, see [Java](), [JavaScript](), [Python]().
+- [C#](./howto-create-serviceclient-with-net-and-azure-identity.md)
+- [Python](./howto-create-serviceclient-with-python-and-azure-identity.md)
+- [Java](./howto-create-serviceclient-with-java-and-azure-identity.md)
+- [JavaScript](./howto-create-serviceclient-with-javascript-and-azure-identity.md)
 
 ## Next steps
 

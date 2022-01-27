@@ -6,9 +6,9 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 01/10/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -173,7 +173,7 @@ The following steps are needed to get the required information to connect your c
 1. Create service principal.
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --skip-assignment
+    az ad sp create-for-rbac
     ```
 
     Save the results `appId` value for the assignee parameter in step 3, `<appId>`. Save the `password` for the next section's client-secret parameter `<client-secret>`.

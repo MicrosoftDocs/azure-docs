@@ -104,7 +104,7 @@ To enable [self-service password reset](add-password-reset-policy.md) for the si
 
 1. Select the sign-up or sign-in user flow  you created.
 1. Under **Settings** in the left menu, select **Properties**.
-1. Under **Password complexity**, select **Self-service password reset**.
+1. Under **Password configuration**, select **Self-service password reset**.
 1. Select **Save**.
 
 ### Test the user flow

@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid:
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -250,7 +249,7 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
 
 7. In the **Device Manager** window, expand the **Network adapters** node.
 
-8. Confirm that the **Mellanox ConnectX-3 Virtual Function Ethernet Adapter** appears, as shown in the following image:
+8. Confirm that the **[Mellanox ConnectX-3 Virtual Function Ethernet Adapter](https://www.mellanox.com/products/adapter-software/ethernet/windows/winof-2)** appears, as shown in the following image:
 
     ![Mellanox ConnectX-3 Virtual Function Ethernet Adapter, new network adapter for accelerated networking, Device Manager](./media/create-vm-accelerated-networking/device-manager.png)
 

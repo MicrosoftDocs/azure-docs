@@ -16,11 +16,31 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 
 This article summarizes new releases and features in Azure Database for MySQL - Single Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
 
+## December 2021
+
+This release of Azure Database for MySQL - Single Server includes the following updates:
+
+- **Query Text removed in Query Performance Insights to avoid unauthorized access** 
+
+Starting December 2021, you will not be able to see the query text of the queries in Query performance insight blade in Azure portal. The query text is removed to avoid unauthorized access to the query text or underlying schema which can pose a security risk. The recommended steps to view the query text is shared below:
+
+- Identify the query_id of the top queries from the Query Performance Insight blade in Azure portal
+- Login to your Azure Database for MySQL server from MySQL Workbench or mysql.exe client or your preferred query tool and execute the following queries
+
+     ```sql
+    SELECT * FROM mysql.query_store where query_id = '<insert query id from Query performance insight blade in Azure portal';  // for queries in Query Store
+    SELECT * FROM mysql.query_store_wait_stats where query_id = '<insert query id from Query performance insight blade in Azure portal';  // for wait statistics 
+    ```
+
+- You can browse the query_digest_text column to identify the query text for the corresponding query_id
+
+The above steps will ensure only authenticated and authorized users can have secure access to the query text.
+
 ## October 2021
 
 - **Known Issues**
 
-The MySQL 8.0.27 client is incompatible with Azure Database for MySQL - Single Server. All connections from the MySQL 8.0.27 client created either via mysql.exe or workbench will fail. As a workaround, consider using an earlier version of the client (prior to MySQL 8.0.27) or creating an instance of [Azure Database for MySQL - Flexible Server](https://docs.microsoft.com/azure/mysql/flexible-server/overview) instead.
+The MySQL 8.0.27 client is incompatible with Azure Database for MySQL - Single Server. All connections from the MySQL 8.0.27 client created either via mysql.exe or workbench will fail. As a workaround, consider using an earlier version of the client (prior to MySQL 8.0.27) or creating an instance of [Azure Database for MySQL - Flexible Server](./flexible-server/overview.md) instead.
 
 ## June 2021
   

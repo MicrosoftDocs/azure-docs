@@ -15,7 +15,7 @@ import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
 import com.microsoft.cognitiveservices.speech.audio.AudioInputStream;
 import com.microsoft.cognitiveservices.speech.audio.AudioStreamFormat;
 import com.microsoft.cognitiveservices.speech.audio.PullAudioInputStream;
-import com.microsoft.cognitiveservices.speech.internal.AudioStreamContainerFormat;
+import com.microsoft.cognitiveservices.speech.audio.AudioStreamContainerFormat;
 
 // ... omitted for brevity
 

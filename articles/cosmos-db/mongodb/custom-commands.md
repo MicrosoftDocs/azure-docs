@@ -7,6 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 07/30/2021
+ms.devlang: javascript
 ms.custom: devx-track-js
 ---
 

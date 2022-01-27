@@ -5,7 +5,7 @@ author: abhirockzz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 12/09/2021
 ms.author: abhishgu
 ms.custom: ignite-fall-2021
 ---
@@ -22,10 +22,10 @@ This article provides examples for how to use Partial Document Update with .NET,
 
 ## .NET
 
-You can download the *3.22.1-preview* version of Azure Cosmos DB .NET SDK v3 from the [NuGet Gallery](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.22.1-preview)
+Support for Partial document update (Patch API) in the [Azure Cosmos DB .NET v3 SDK](sql/sql-api-sdk-dotnet-standard.md) is available from version *3.23.0* onwards. You can download it from the [NuGet Gallery](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.23.0)
 
 > [!NOTE]
-> A complete partial document update sample can be found in the [.NET v3 samples repository](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/3fa885fdd84e2f8852d2a1d5c75c56b642b5bba3/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs) on GitHub.
+> A complete partial document update sample can be found in the [.NET v3 samples repository](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs) on GitHub.
 
 **Executing a single patch operation**
 
@@ -94,18 +94,18 @@ transactionalBatchInternalFalse.ExecuteAsync());
 
 ## Java
 
-Patch API is currently in preview in the 4.20.0 version of the Java SDK. When GA'ed, it will be available in the 4.21.0 version. To use patch operations, add the *4.20.0* version of the [Azure Cosmos DB Java v4 SDK](sql-api-sdk-java-v4.md) to the list of dependencies in your `pom.xml` or download it directly from [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos).
+Support for Partial document update (Patch API) in the [Azure Cosmos DB Java v4 SDK](sql/sql-api-sdk-java-v4.md) is available from version *4.21.0* onwards. You can either add it to the list of dependencies in your `pom.xml` or download it directly from [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos).
 
 ```xml
 <dependency>
 	<groupId>com.azure</groupId>
 	<artifactId>azure-cosmos</artifactId>
-	<version>4.20.0</version>
+	<version>4.21.0</version>
 </dependency>
 ```
 
 > [!NOTE]
-> The full sample can be found in the [Java SDK v4 samples repository](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/) on GitHub
+> The full sample can be found in the [Java SDK v4 samples repository](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/tree/main/src/main/java/com/azure/cosmos/examples/patch/sync) on GitHub
 
 **Executing a single patch operation**
 
@@ -158,7 +158,12 @@ if (response.isSuccessStatusCode()) {
 }
 ```
 
-## Node
+## Node.js
+
+Support for Partial document update (Patch API) in the [Azure Cosmos DB JavaScript SDK](sql/sql-api-sdk-node.md) is available from version *3.15.0* onwards. You can download it from the [NPM Registry](https://www.npmjs.com/package/@azure/cosmos/v/3.15.0)
+
+> [!NOTE]
+> A complete partial document update sample can be found in the [.js v3 samples repository](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/cosmosdb/cosmos/samples/v3/typescript/src/ItemManagement.ts#L167) on GitHub.
 
 **Executing a single patch operation**
 
@@ -285,6 +290,40 @@ Partial Document Update operations can also be [executed on the server-side](sto
                 ); 
             }; 
 ```
+> [!NOTE]
+> Definition of validateOptionsAndCallback can be found in the [.js DocDbWrapperScript](https://github.com/Azure/azure-cosmosdb-js-server/blob/1dbe69893d09a5da29328c14ec087ef168038009/utils/DocDbWrapperScript.js#L289) on GitHub.
+
+
+**Sample parameter for patch operation**
+
+```javascript
+function () {
+   var doc = {
+      "id": "exampleDoc",
+      "field1": {
+         "field2": 10,
+         "field3": 20
+      }
+   };
+   var isAccepted = __.createDocument(__.getSelfLink(), doc, (err, doc) => {
+         if (err) throw err;
+         var patchSpec = [
+            {"op": "add", "path": "/field1/field2", "value": 20}, 
+            {"op": "remove", "path": "/field1/field3"}
+         ];
+         isAccepted = __.patchDocument(doc._self, patchSpec, (err, doc) => {
+               if (err) throw err;
+               else {
+                  getContext().getResponse().setBody(docPatched);
+               }
+            }
+         }
+         if(!isAccepted) throw new Error("patch was't accepted")
+      }
+   }
+   if(!isAccepted) throw new Error("create wasn't accepted")
+}
+```
 
 ## Troubleshooting
 
@@ -292,7 +331,7 @@ Here is a list of common errors that you might encounter while using this featur
 
 | **Error Message** | **Description** |
 | ------------ | -------- |
-| Invalid patch request: check syntax of patch specification| The Patch operation syntax is invalid. Please review [the specification](partial-document-update.md#partial-document-update-specification)
+| Invalid patch request: check syntax of patch specification| The Patch operation syntax is invalid. Please review [the specification](partial-document-update.md#rest-api-reference-for-partial-document-update)
 | Invalid patch request: Cannot patch system property `SYSTEM_PROPERTY`. | Patching system-generated properties like `_id`, `_ts`, `_etag`, `_rid` is not supported. To learn more: [Partial Document Update FAQs](partial-document-update-faq.yml#is-partial-document-update-supported-for-system-generated-properties-) 
 | The number of patch operations cannot exceed 10 | There is a limit of 10 patch operations that can be added in a single patch specification. To learn more: [Partial Document Update FAQs](partial-document-update-faq.yml#is-there-a-limit-to-the-number-of-partial-document-update-operations-)
 | For Operation(`PATCH_OPERATION_INDEX`): Index(`ARRAY_INDEX`) to operate on is out of array bounds | The index of array element to be patched is out of bounds 

@@ -1,12 +1,8 @@
 ---
 title: Adaptive network hardening in Microsoft Defender for Cloud | Microsoft Docs
 description: Learn how to use actual traffic patterns to harden your network security groups (NSG) rules and further improve your security posture.
-author: memildin
-manager: rkarlin
-ms.service: security-center
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.author: memildin
 ---
 # Improve your network security posture with adaptive network hardening
 
@@ -22,7 +18,7 @@ This page explains how to configure and manage adaptive network hardening in Def
 |Release state:|General availability (GA)|
 |Pricing:|Requires [Microsoft Defender for servers](defender-for-servers-introduction.md)|
 |Required roles and permissions:|Write permissions on the machine’s NSGs|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts|
 |||
 
 ## What is adaptive network hardening?
@@ -115,7 +111,7 @@ To add an adaptive network hardening rule:
 
 1. From the top toolbar, select **Add rule**.
 
-   ![add rule.](./media/adaptive-network-hardening/add-hard-rule.png)
+   ![add rule.](./media/adaptive-network-hardening/add-new-hard-rule.png)
 
 1. In the **New rule** window, enter the details and select **Add**.
 

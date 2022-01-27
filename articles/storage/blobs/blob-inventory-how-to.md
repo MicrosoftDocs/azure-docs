@@ -119,7 +119,7 @@ You can add, edit, or remove a policy by using the Azure PowerShell module.
 
 <a id="cli"></a>
 
-You can add, edit, or remove a policy by using the [Azure Command-Line Interface (CLI)](/cli/azure/).
+You can add, edit, or remove a policy via the [Azure CLI](/cli/azure/).
 
 1. First, open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 

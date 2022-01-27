@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
+ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, cc996988-fb4f-47, devx-track-python"
 ---
 

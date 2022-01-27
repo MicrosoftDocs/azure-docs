@@ -50,7 +50,10 @@ Azure Database Migration Service prerequisites that are common across all suppor
     - Contributor for the target Azure SQL Managed Instance (and Storage Account to upload your database backup files from SMB network share).
     - Owner or Contributor role for the Azure Resource Groups containing the target Azure SQL Managed Instance or the Azure storage account.
     - Owner or Contributor role for the Azure subscription.
-* Create a target [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md) or [SQL Server on Azure Virtual Machine](../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
+* Create a target [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md) or [SQL Server on Azure Virtual Machine](../azure-sql/virtual-machines/windows/create-sql-vm-portal.md)
+
+    > [!IMPORTANT]
+    > If you have an existing Azure Virtual Machine, it should be registered with [SQL IaaS Agent extension in Full management mode](../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md#management-modes).
 * Ensure that the logins used to connect the source SQL Server are members of the *sysadmin* server role or have `CONTROL SERVER` permission. 
 * Use one of the following storage options for the full database and transaction log backup files: 
     - SMB network share 

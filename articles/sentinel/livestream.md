@@ -1,18 +1,9 @@
 ---
 title: Use hunting Livestream in Microsoft Sentinel to detect threats | Microsoft Docs
 description: This article describes how to use hunting Livestream in Microsoft Sentinel to keep track of data.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ---

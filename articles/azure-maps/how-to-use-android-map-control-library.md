@@ -1,5 +1,5 @@
 ---
-title: Getting started with Android map control | Microsoft Azure Maps
+title: Get started with Android map control | Microsoft Azure Maps
 description: Become familiar with the Azure Maps Android SDK. See how to create a project in Android Studio, install the SDK, and create an interactive map.
 author: stevemunk
 ms.author: v-munksteve
@@ -7,11 +7,10 @@ ms.date: 2/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: eriklind
 zone_pivot_groups: azure-maps-android
 ---
 
-# Getting started with Azure Maps Android SDK
+# Get started with Azure Maps Android SDK
 
 The Azure Maps Android SDK is a vector map library for Android. This article guides you through the processes of installing the Azure Maps Android SDK and loading a map.
 
@@ -24,9 +23,9 @@ Be sure to complete the steps in the [Quickstart: Create an Android app](quick-a
 The Azure Maps Android SDK provides three ways to set the language and regional view of the map. The following code shows how to set the language to French ("fr-FR") and the regional view to "Auto".
 
 1. Pass the language and regional view information into the `AzureMaps` class using the static `setLanguage` and `setView` properties. This will set the default language and regional view properties in your app.
-    
+
     ::: zone pivot="programming-language-java-android"
-    
+
     ```java
     static {
         //Alternatively use Azure Active Directory authenticate.
@@ -42,11 +41,11 @@ The Azure Maps Android SDK provides three ways to set the language and regional 
         AzureMaps.setView("Auto");
     }
     ```
-    
+
     ::: zone-end
-    
+
     ::: zone pivot="programming-language-kotlin"
-    
+
     ```kotlin
     companion object {
         init {
@@ -64,7 +63,7 @@ The Azure Maps Android SDK provides three ways to set the language and regional 
         }
     }
     ```
-    
+
     ::: zone-end
 
 1. You can also pass the language and regional view information to the map control XML.
@@ -78,6 +77,7 @@ The Azure Maps Android SDK provides three ways to set the language and regional 
         app:azure_maps_view="Auto"
         />
     ```
+
 1. The final way of programmatically setting the language and regional view properties uses the maps `setStyle` method. This can be done at any time to change the language and regional view of the map.
 
     ::: zone pivot="programming-language-java-android"

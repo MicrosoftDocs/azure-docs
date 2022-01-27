@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 01/16/2022
 ms.author: eur
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: speech translation
@@ -17,13 +17,6 @@ keywords: speech translation
 # What is speech translation?
 
 In this overview, you learn about the benefits and capabilities of the speech translation service, which enables real-time, [multi-language speech-to-speech](language-support.md#speech-translation) and speech-to-text translation of audio streams. With the Speech SDK, your applications, tools, and devices have access to source transcriptions and translation outputs for provided audio. Interim transcription and translation results are returned as speech is detected, and final results can be converted into synthesized speech.
-
-This documentation contains the following article types:
-
-* **Quickstarts** are getting-started instructions to guide you through making requests to the service.
-* **How-to guides** contain instructions for using the service in more specific or customized ways.
-* **Concepts** provide in-depth explanations of the service functionality and features.
-* **Tutorials** are longer guides that show you how to use the service as a component in broader business solutions.
 
 ## Core features
 
@@ -38,7 +31,7 @@ See the [quickstart](get-started-speech-translation.md) to get started with spee
 
 ## Sample code
 
-Sample code for the Speech SDK is available on GitHub. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition/translation, and working with custom models.
+Sample code for the Speech SDK is available on GitHub. These samples cover common scenarios like reading audio from a file or stream, continuous and at-start recognition/translation, and working with custom models.
 
 * [Speech-to-text and translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 
@@ -51,7 +44,6 @@ If your applications, tools, or products are using the [Translator Speech API](.
 ## Reference docs
 
 * [Speech SDK](./speech-sdk.md)
-* [Speech Devices SDK](speech-devices-sdk.md)
 * [REST API: Speech-to-text](rest-speech-to-text.md)
 * [REST API: Text-to-speech](rest-text-to-speech.md)
 * [REST API: Batch transcription and customization](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)

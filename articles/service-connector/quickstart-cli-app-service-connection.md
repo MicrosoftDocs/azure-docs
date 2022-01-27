@@ -6,12 +6,12 @@ ms.author: xshi
 ms.service: serviceconnector
 ms.topic: quickstart
 ms.date: 10/29/2021
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-api
 ---
 
 # Quickstart: Create a service connection in App Service with the Azure CLI
 
-The [Azure command-line interface (Azure CLI)](/cli/azure) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. This quickstart shows you the options to create Azure Web PubSub instance with the Azure CLI.
+The [Azure CLI](/cli/azure) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. This quickstart shows you the options to create Azure Web PubSub instance with the Azure CLI.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,7 +51,7 @@ az webapp connection create storage-blob --secret
 #### [Using Managed Identity](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
-> Using Managed Identity requires you have the permission to [Azure AD role assignment](/active-directory/managed-identities-azure-resources/howto-assign-access-portal). If you don't have the permission, your connection creation would fail. You can ask your subscription owner for the permission or using access key to create the connection.
+> Using Managed Identity requires you have the permission to [Azure AD role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have the permission, your connection creation would fail. You can ask your subscription owner for the permission or using access key to create the connection.
 
 Use the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command to create a service connection to a blob storage with System-assigned Managed Identity, providing the following information:
 

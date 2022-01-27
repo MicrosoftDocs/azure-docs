@@ -1,12 +1,9 @@
 ---
 title: Onboard to Microsoft Defender for Cloud with PowerShell
 description: This document walks you through the process of enabling Microsoft Defender for Cloud with PowerShell cmdlets.
-author: memildin
-manager: rkarlin
-ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/09/2021
-ms.author: memildin
+ms.custom: mode-api
 ---
 # Automate onboarding of Microsoft Defender for Cloud using PowerShell
 
@@ -65,7 +62,7 @@ These steps should be performed before you run the Defender for Cloud cmdlets:
     ```
 
     ```powershell
-    Set-AzSecurityPricing -Name "default" -PricingTier "Standard"
+    Set-AzSecurityPricing -Name "VirtualMachines" -PricingTier "Standard"
     ```
 
 1. Configure a Log Analytics workspace to which the agents will report. You must have a Log Analytics workspace that you already created, that the subscription’s VMs will report to. You can define multiple subscriptions to report to the same workspace. If not defined, the default workspace will be used.
@@ -101,7 +98,9 @@ These steps should be performed before you run the Defender for Cloud cmdlets:
     ```
 
     ```powershell
-    $Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Azure Security Benchmark'} New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Defender for Cloud Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
+    $Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Azure Security Benchmark'} 
+
+    New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Defender for Cloud Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
     ```
 
 You've successfully onboarded Microsoft Defender for Cloud with PowerShell.

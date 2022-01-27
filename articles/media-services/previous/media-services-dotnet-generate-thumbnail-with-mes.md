@@ -10,7 +10,7 @@ ms.assetid: b8dab73a-1d91-4b6d-9741-a92ad39fc3f7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel

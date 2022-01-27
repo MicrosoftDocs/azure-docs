@@ -3,7 +3,7 @@ title: Troubleshoot Kerberos constrained delegation - App Proxy
 description: Troubleshoot Kerberos Constrained Delegation configurations for Application Proxy
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity

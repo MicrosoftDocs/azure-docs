@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: synapse
+ms.custom: synapse, contperf-fy22q2
 ms.date: 09/09/2021
 ---
 # Copy activity performance and scalability guide

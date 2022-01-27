@@ -2,15 +2,168 @@
 title: "What's new in Azure Monitor documentation"
 description: "What's new in Azure Monitor documentation"
 ms.topic: conceptual
-ms.date: 11/10/2021
+ms.date: 01/04/2022
 ---
 
 # What's new in Azure Monitor documentation
 
 This article lists significant changes to Azure Monitor documentation.
 
-## October, 2021
+## December, 2021
 
+## General
+
+**Updated articles**
+
+- [What is monitored by Azure Monitor?](monitor-reference.md)
+
+## Agents
+
+**Updated articles**
+
+- [Install Log Analytics agent on Windows computers](agents/agent-windows.md)
+- [Log Analytics agent overview](agents/log-analytics-agent.md)
+
+## Alerts
+
+**New articles**
+
+- [Manage alert rules created in previous versions](alerts/alerts-manage-alerts-previous-version.md)
+
+**Updated articles**
+
+- [Create an action group with a Resource Manager template](alerts/action-groups-create-resource-manager-template.md)
+- [Troubleshoot log alerts in Azure Monitor](alerts/alerts-troubleshoot-log.md)
+- [Troubleshooting problems in Azure Monitor alerts](alerts/alerts-troubleshoot.md)
+- [Create, view, and manage log alerts using Azure Monitor](alerts/alerts-log.md)
+- [Create, view, and manage activity log alerts by using Azure Monitor](alerts/alerts-activity-log.md)
+- [Create, view, and manage metric alerts using Azure Monitor](alerts/alerts-metric.md)
+
+## Application Insights
+
+**New articles**
+
+- [Analyzing product usage with HEART](app/usage-heart.md)
+
+**Updated articles**
+
+- [Tips for updating your JVM args - Azure Monitor Application Insights for Java](app/java-standalone-arguments.md)
+- [Troubleshooting guide: Azure Monitor Application Insights for Java](app/java-standalone-troubleshoot.md)
+- [Set up Azure Monitor for your Python application](app/opencensus-python.md)
+- [Click Analytics Auto-collection plugin for Application Insights JavaScript SDK](app/javascript-click-analytics-plugin.md)
+
+## Logs
+
+**New articles**
+
+- [Access the Azure Monitor Log Analytics API](logs/api/access-api.md)
+- [Set Up Authentication and Authorization for the Azure Monitor Log Analytics API](logs/api/authentication-authorization.md)
+- [Querying logs for Azure resources](logs/api/azure-resource-queries.md)
+- [Batch queries](logs/api/batch-queries.md)
+- [Caching](logs/api/cache.md)
+- [Cross workspace queries](logs/api/cross-workspace-queries.md)
+- [Azure Monitor Log Analytics API Errors](logs/api/errors.md)
+- [Azure Monitor Log Analytics API Overview](logs/api/overview.md)
+- [Prefer options](logs/api/prefer-options.md)
+- [Azure Monitor Log Analytics API request format](logs/api/request-format.md)
+- [Azure Monitor Log Analytics API response format](logs/api/response-format.md)
+- [Timeouts](logs/api/timeouts.md)
+
+**Updated articles**
+
+- [Log Analytics workspace data export in Azure Monitor (preview)](logs/logs-data-export.md)
+- [Resource Manager template samples for Log Analytics workspaces in Azure Monitor](logs/resource-manager-workspace.md)
+
+## Virtual Machines
+
+**Updated articles**
+
+- [Enable VM insights overview](vm/vminsights-enable-overview.md)
+
+
+
+## November, 2021
+
+### General
+
+**Updated articles**
+
+- [What is monitored by Azure Monitor?](monitor-reference.md)
+
+### Agents
+
+**Updated articles**
+
+- [Azure Monitor agent overview](agents/azure-monitor-agent-overview.md)
+
+### Alerts
+
+**Updated articles**
+
+- [Troubleshooting problems in Azure Monitor alerts](alerts/alerts-troubleshoot.md)
+- [How to update alert rules or alert processing rules when their target resource moves to a different Azure region](alerts/alerts-resource-move.md)
+- [Alert processing rules (preview)](alerts/alerts-action-rules.md)
+
+### Application Insights
+
+**Updated articles**
+
+- [Troubleshooting no data - Application Insights for .NET/.NET Core](app/asp-net-troubleshoot-no-data.md)
+- [Manage usage and costs for Application Insights](app/pricing.md)
+- [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](app/java-in-process-agent.md)
+- [Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (preview)](app/opentelemetry-enable.md)
+- [Release notes for Azure Web App extension for Application Insights](app/web-app-extension-release-notes.md)
+- [Tips for updating your JVM args - Azure Monitor Application Insights for Java](app/java-standalone-arguments.md)
+- [Configuration options - Azure Monitor Application Insights for Java](app/java-standalone-config.md)
+- [Supported languages](app/platforms.md)
+- [What is Distributed Tracing?](app/distributed-tracing.md)
+
+### Containers
+
+**New articles**
+
+- [Transition to using Container Insights on Azure Arc-enabled Kubernetes](containers/container-insights-transition-hybrid.md)
+
+**Updated articles**
+
+- [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](containers/container-insights-enable-arc-enabled-clusters.md)
+
+### Essentials
+
+**Updated articles**
+
+- [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](essentials/diagnostic-settings.md)
+
+### Insights
+
+**New articles**
+
+- [Azure Monitor - Service Bus insights](insights/service-bus-insights.md)
+
+**Updated articles**
+
+- [Enable SQL insights (preview)](insights/sql-insights-enable.md)
+- [Troubleshoot SQL insights (preview)](insights/sql-insights-troubleshoot.md)
+
+### Logs
+
+**Updated articles**
+
+- [Configure your Private Link](logs/private-link-configure.md)
+- [Design your Private Link setup](logs/private-link-design.md)
+- [Use Azure Private Link to connect networks to Azure Monitor](logs/private-link-security.md)
+- [Log Analytics workspace data export in Azure Monitor (preview)](logs/logs-data-export.md)
+- [Query data in Azure Monitor using Azure Data Explorer](logs/azure-data-explorer-monitor-proxy.md)
+- [Log data ingestion time in Azure Monitor](logs/data-ingestion-time.md)
+
+### Virtual Machines
+
+**Updated articles**
+
+- [VM insights guest health alerts (preview)](vm/vminsights-health-alerts.md)
+
+
+## October, 2021
 ### General
 
 **New articles**

@@ -74,7 +74,7 @@ To implement a high availability solution, you can use either a shared disk clus
  > [!NOTE]
  > Because Site Recovery does not replicate the cloud witness, we recommend that you deploy the cloud witness in the disaster recovery region.
 
-To support the failover cluster environment, [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) does the cluster shared volume function. In the function, SIOS DataKeeper Cluster replicates independent disks owned by the cluster nodes. Because Azure does not natively support shared disks, it requires solutions provided by SIOS.
+To support the failover cluster environment, [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) does the cluster shared volume function. In the function, SIOS DataKeeper Cluster replicates independent disks owned by the cluster nodes. 
 
 You can also handle clustering by implementing a file share cluster. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) recently modified the Central Services deployment pattern to access the /sapmnt global directories via a UNC path. We still recommend you ensure that the /sapmnt UNC share is highly available. You can check your Central Services instance. Use Windows Server Failover Cluster with Scale Out File Server (SOFS) and the Storage Spaces Direct (S2D) feature in Windows Server 2016.
 

@@ -165,7 +165,7 @@ The following built-in roles are available:
 
 |Azure role | Description |
 |-|-|
-|[Owner](../../role-based-access-control/built-in-roles.md#owner) | In addition to other permissions, includes all Azure Blueprint related permissions. |
+|[Owner](../../role-based-access-control/built-in-roles.md#owner) | In addition to other permissions, includes all Azure Blueprints related permissions. |
 |[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | In addition to other permissions, can create and delete blueprint definitions, but doesn't have blueprint assignment permissions. |
 |[Blueprint Contributor](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | Can manage blueprint definitions, but not assign them. |
 |[Blueprint Operator](../../role-based-access-control/built-in-roles.md#blueprint-operator) | Can assign existing published blueprints, but can't create new blueprint definitions. Blueprint assignment only works if the assignment is done with a user-assigned managed identity. |
@@ -196,7 +196,7 @@ The following limitations exist for certain fields:
 ## Video overview
 
 The following overview of Azure Blueprints is from Azure Fridays. For video download, visit
-[Azure Fridays - An overview of Azure Blueprints](https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints)
+[Azure Fridays - An overview of Azure Blueprints](/Shows/Azure-Friday/An-overview-of-Azure-Blueprints)
 on Channel 9.
 
 > [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]

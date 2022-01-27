@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 05/28/2021
+ms.date: 11/23/2021
 
 ms.author: kengaderdus
 author: kengaderdus
@@ -43,7 +43,7 @@ Identity Protection and Conditional Access in Azure AD B2C generally work the sa
 
 - Identity Protection and Conditional Access aren't supported for ROPC server-to-server flows in Azure AD B2C tenants.
 
-- In Azure AD B2C tenants, Identity Protection risk detections are available for local B2C accounts only, and not for social identities like Google or Facebook.
+- In Azure AD B2C tenants, Identity Protection risk detections are available for both local and social identities, such as Google or Facebook. For social identities, Conditional Access must be activated. Detection is limited because the social account credentials are managed by the external identity provider.
 
 - In Azure AD B2C tenants, a subset of the Identity Protection risk detections is available. See [Investigate risk with Identity Protection](identity-protection-investigate-risk.md), and [Add Conditional Access to user flows](conditional-access-user-flow.md).
 

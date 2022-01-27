@@ -1,15 +1,8 @@
 ---
 title: Defender for Cloud Planning and Operations Guide
 description: This document helps you to plan before adopting Defender for Cloud and considerations regarding daily operations.
-services: security-center
-author: memildin
-manager: rkarlin
-
-ms.service: security-center
 ms.topic: tutorial
-ms.date: 11/09/2021
-ms.author: memildin
-
+ms.date: 12/14/2021
 ---
 # Planning and operations guide
 
@@ -119,7 +112,7 @@ Defender for Cloud policies contain the following components:
 - [Data collection](enable-data-collection.md): agent provisioning and data collection settings.
 - [Security policy](tutorial-security-policy.md): an [Azure Policy](../governance/policy/overview.md) that determines which controls are monitored and recommended by Defender for Cloud, or use Azure Policy to create new definitions, define additional policies, and assign policies across management groups.
 - [Email notifications](configure-email-notifications.md): security contacts and notification settings.
-- [Pricing tier](enhanced-security-features-overview.md): with or without Microsoft Defender for Cloud's enhanced security features, which determine which Defender for Cloud features are available for resources in scope (can be specified for subscriptions and workspaces, or resource groups using the API).
+- [Pricing tier](enhanced-security-features-overview.md): with or without Microsoft Defender for Cloud's enhanced security features, which determine which Defender for Cloud features are available for resources in scope (can be specified for subscriptions and workspaces using the API).
 
 > [!NOTE]
 > Specifying a security contact will ensure that Azure can reach the right person in your organization if a security incident occurs. Read [Provide security contact details in Defender for Cloud](configure-email-notifications.md) for more information on how to enable this recommendation.
@@ -155,6 +148,8 @@ In the Azure portal, you can browse to see a list of your Log Analytics workspac
 * Resource Group: *DefaultResourceGroup-[geo]*
 
 For workspaces created by Defender for Cloud, data is retained for 30 days. For existing workspaces, retention is based on the workspace pricing tier. If you want, you can also use an existing workspace.
+
+If your agent reports to a workspace other than the **default** workspace, any Microsoft Defender plans providing [enhanced security features](enhanced-security-features-overview.md) that you've enabled on the subscription should also be enabled on the workspace.
 
 > [!NOTE]
 > Microsoft makes strong commitments to protect the privacy and security of this data. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service. For more information about data handling and privacy, read [Defender for Cloud Data Security](data-security.md).
@@ -220,7 +215,7 @@ This page shows the details regarding the time that the attack took place, the s
 
 Once you identify the compromised system, you can run a [workflow automation](workflow-automation.md) that was previously created. These are a collection of procedures that can be executed from Defender for Cloud once triggered by an alert.
 
-In the [How to Leverage the Defender for Cloud & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) video, you can see some demonstrations that show how Defender for Cloud can be used in each one of those stages.
+In the How to Leverage the Defender for Cloud & Microsoft Operations Management Suite for an Incident Response video, you can see some demonstrations that show how Defender for Cloud can be used in each one of those stages.
 
 > [!NOTE]
 > Read [Managing and responding to security alerts in Defender for Cloud](managing-and-responding-alerts.md) for more information on how to use Defender for Cloud capabilities to assist you during your Incident Response process.

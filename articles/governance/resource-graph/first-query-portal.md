@@ -3,7 +3,7 @@ title: 'Quickstart: Your first portal query'
 description: In this quickstart, you follow the steps to run your first query from Azure portal using Azure Resource Graph Explorer.
 ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 # Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer
 

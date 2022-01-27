@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 06/21/2019
 ---
 # Restore your Azure SQL Database or failover to a secondary
@@ -36,7 +36,7 @@ To learn about business continuity scenarios and the features supporting these s
 
 For success with recovery to another data region using either failover groups or geo-redundant backups, you need to prepare a server in another data center outage to become the new primary server should the need arise as well as have well-defined steps documented and tested to ensure a smooth recovery. These preparation steps include:
 
-- Identify the server in another region to become the new primary server. For geo-restore, this is generally a server in the [paired region](../../best-practices-availability-paired-regions.md) for the region in which your database is located. This eliminates the additional traffic cost during the geo-restoring operations.
+- Identify the server in another region to become the new primary server. For geo-restore, this is generally a server in the [paired region](../../availability-zones/cross-region-replication-azure.md) for the region in which your database is located. This eliminates the additional traffic cost during the geo-restoring operations.
 - Identify, and optionally define, the server-level IP firewall rules needed on for users to access the new primary database.
 - Determine how you are going to redirect users to the new primary server, such as by changing connection strings or by changing DNS entries.
 - Identify, and optionally create, the logins that must be present in the master database on the new primary server, and ensure these logins have appropriate permissions in the master database, if any. For more information, see [SQL Database security after disaster recovery](active-geo-replication-security-configure.md)
