@@ -45253,7 +45253,7 @@
       "redirect_document_id": false
       },
       {
-        "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
+        "source_path_from_root": "/articles/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis.md",
         "redirect_url": "/learn/modules/translate-text-with-translator-service",
         "redirect_document_id": false
         }
