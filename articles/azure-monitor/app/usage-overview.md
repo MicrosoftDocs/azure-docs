@@ -131,8 +131,11 @@ To do this, [set up a telemetry initializer](./api-filtering-sampling.md#addmodi
     public class ApplicationVersionTelemetryInitializer : ITelemetryInitializer
     {
         // In this example, to differentiate versions, we use the value specified in the AssemblyInfo.cs
-        // Make sure to set different assembly version when you deploy your application for A/B testing.
-        static readonly string _version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+        // for ASP.NET apps, or in your project file (.csproj) for the ASP.NET Core apps. 
+        // Make sure to set a different assembly version when you deploy your application for A/B testing.
+        static readonly string _version = 
+            System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            
         public void Initialize(ITelemetry item)
         {
             item.Context.Component.Version = _version;
@@ -147,7 +150,8 @@ In the web app initializer such as Global.asax.cs:
     protected void Application_Start()
     {
         // ...
-        TelemetryConfiguration.Active.TelemetryInitializers.Add(new ApplicationVersionTelemetryInitializer());
+        TelemetryConfiguration.Active.TelemetryInitializers
+            .Add(new ApplicationVersionTelemetryInitializer());
     }
 ```
 
@@ -159,11 +163,12 @@ In the web app initializer such as Global.asax.cs:
 For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, adding a new `TelemetryInitializer` is done by adding it to the Dependency Injection container, as shown below. This is done in `ConfigureServices` method of your `Startup.cs` class.
 
 ```csharp
- using Microsoft.ApplicationInsights.Extensibility;
- using CustomInitializer.Telemetry;
- public void ConfigureServices(IServiceCollection services)
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.Channel;
+
+public void ConfigureServices(IServiceCollection services)
 {
-    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+    services.AddSingleton<ITelemetryInitializer, ApplicationVersionTelemetryInitializer>();
 }
 ```
 
