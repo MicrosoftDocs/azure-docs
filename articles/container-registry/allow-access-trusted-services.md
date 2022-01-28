@@ -13,8 +13,6 @@ Azure Container Registry can allow select trusted Azure services to access a reg
 
 Use the Azure Cloud Shell or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.18 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-Allowing registry access by trusted Azure services is a **preview** feature.
-
 ## Limitations
 
 * Certain registry access scenarios with trusted services require a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). Except where noted that a user-assigned managed identity is supported, only a system-assigned identity may be used. 
