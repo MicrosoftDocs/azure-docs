@@ -11,7 +11,7 @@ ms.topic: reference
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: kendralittle
-ms.date: 01/28/2022
+ms.date: 02/02/2022
 ---
 # Azure SQL glossary of terms
 [!INCLUDE[appliesto-asf](./includes/appliesto-asf.md)] 
@@ -30,7 +30,7 @@ ms.date: 01/28/2022
 ||DTU-based purchasing model|The [Database Transaction Unit (DTU)-based purchasing model](database/service-tiers-dtu.md) is based on a bundled measure of compute, storage, and I/O resources. Compute sizes are expressed in DTUs for single databases and in elastic database transaction units (eDTUs) for elastic pools. |
 ||vCore-based purchasing model (recommended)| A virtual core (vCore) represents a logical CPU. The [vCore-based purchasing model](database/service-tiers-vcore.md) offers greater control over the hardware configuration to better match compute and memory requirements of the workload, pricing discounts for [Azure Hybrid Benefit (AHB)](azure-hybrid-benefit.md) and [Reserved Instance (RI)](database/reserved-capacity-overview.md), more granular scaling, and greater transparency in hardware details. Newer capabilities (for example, hyperscale, serverless) are only available in the vCore model. |
 |Service tier|| The service tier defines the storage architecture, storage and I/O limits, and business continuity options. Options for service tiers vary by purchasing model. |
-||DTU-based service tiers | [Basic, standard, and premium service tiers](database/service-tiers-dtu.md#compare-the-dtu-based-service-tiers) are available in the DTU-based purchasing model.|
+||DTU-based service tiers | [Basic, standard, and premium service tiers](database/service-tiers-dtu.md#compare-service-tiers) are available in the DTU-based purchasing model.|
 ||vCore-based service tiers (recommended) |[General purpose, business critical, and hyperscale service tiers](database/service-tiers-sql-database-vcore.md#service-tiers) are available in the vCore-based purchasing model (recommended).|
 |Compute tier|| The compute tier determines whether resources are continuously available (provisioned) or autoscaled (serverless). Compute tier availability varies by purchasing model and service tier. Only the vCore purchasing model's general purpose service tier makes serverless compute available.|
 ||Provisioned compute|The [provisioned compute tier](database/service-tiers-sql-database-vcore.md#compute-tiers) provides a specific amount of compute resources that are continuously provisioned independent of workload activity. Under the provisioned compute tier, you are billed at a fixed price per hour.

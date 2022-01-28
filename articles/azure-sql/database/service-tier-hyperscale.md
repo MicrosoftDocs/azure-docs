@@ -86,21 +86,19 @@ vCore resource limits are listed in the following articles, please be sure to up
 /managed-instance/resource-limits.md
 --->
 
-[single database resource limits](resource-limits-vcore-single-databases.md), [pooled database resource limits](resource-limits-vcore-elastic-pools.md) and [SQL Managed Instance resource limits](../managed-instance/resource-limits.md).
+The vCore-based service tiers are differentiated based on database availability and storage type, performance, and maximum storagesize, as described in the following table: 
 
-The vCore-based service tiers are differentiated based on database availability and storage type, performance, and maximum size, as described in the following table: 
-
-| | Resource type | General Purpose |  Hyperscale | Business Critical |
-|:---:|:---:|:---:|:---:|:---:|
-| **Best for** |All|Offers budget oriented balanced compute and storage options.|Most business workloads. Autoscaling storage size up to 100 TB,fast vertical and horizontal compute scaling, fast database restore.|OLTP applications with high transaction rate and low IO latency. Offers highestresilience to failures and fast failovers using multiple synchronously updated replicas.|
-| **Resource type** ||SQL Database / SQL Managed Instance | Single database | SQL Database / SQL Managed Instance |
-| **Compute size**|SQL Database<sup>1</sup> | 1 to 80 vCores | 1 to 80  vCores* | 1 to 80 vCores |
-| **Storage type** | All |Premium remote storage (per instance) | De-coupled storage with local SSD cache (per instance) | Super-fast local SSDstorage (per instance) |
-| **Storage size** | SQL Database <sup>1</sup>| 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
-| **IOPS** | Single database | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiplelevels. Effective IOPS will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
-|**Availability**|All|1 replica, no Read Scale-out, zone-redundant HA (preview), no local cache | Multiple replicas, up to 4 Read Scale-out, partiallocal cache | 3 replicas, 1 Read Scale-out, zone-redundant HA, full local storage |
-|**Backups**|All| A choice of geo-redundant, zone-redundant <sup>2</sup> , or locally-redundant<sup>2</sup> backup storage, 1-35 day retention (default 7 days) | A choice of geo-redundant, zone-redundant <sup>3</sup>, or locally-redundant<sup>3</sup> backup storage, 7 day retention. | A choice of geo-redundant,zone-redundant<sup>2</sup>, or locally-redundant<sup>2</sup> backup storage, 1-35 day retention (default 7 days) |
-||||||
+| |  General Purpose |  Hyperscale | Business Critical |
+|:---:|:---:|:---:|:---:|
+| **Best for** |Offers budget oriented balanced compute and storage options.|Most business workloads. Autoscaling storage size up to 100 TB,fast vertical and horizontal compute scaling, fast database restore.|OLTP applications with high transaction rate and low IO latency. Offers highestresilience to failures and fast failovers using multiple synchronously updated replicas.|
+| **Resource type** |SQL Database / SQL Managed Instance | Single database | SQL Database / SQL Managed Instance |
+| **Compute size** | 1 to 80 vCores | 1 to 80  vCores<sup>1</sup>| 1 to 80 vCores |
+| **Storage type** | Premium remote storage (per instance) | De-coupled storage with local SSD cache (per instance) | Super-fast local SSDstorage (per instance) |
+| **Storage size**<sup>1</sup>  5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
+| **IOPS** | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiplelevels. Effective IOPS will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
+|**Availability**| 1 replica, no Read Scale-out, zone-redundant HA (preview), no local cache | Multiple replicas, up to 4 Read Scale-out, partiallocal cache | 3 replicas, 1 Read Scale-out, zone-redundant HA, full local storage |
+|**Backups** | A choice of geo-redundant, zone-redundant <sup>2</sup> , or locally-redundant<sup>2</sup> backup storage, 1-35 day retention (default 7 days) | A choice of geo-redundant, zone-redundant <sup>3</sup>, or locally-redundant<sup>3</sup> backup storage, 7 day retention. | A choice of geo-redundant,zone-redundant<sup>2</sup>, or locally-redundant<sup>2</sup> backup storage, 1-35 day retention (default 7 days) |
+||||
 
 <sup>1</sup> Elastic pools are not supported in the Hyperscale service tier
 <sup>2</sup> In preview

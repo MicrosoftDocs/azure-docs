@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: kendralittle, mathoma, urmilano
-ms.date: 01/31/2022
+ms.date: 02/02/2022
 ---
 # General Purpose service tier - Azure SQL Database and Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -57,7 +57,7 @@ Review the table in this section to briefly compare resource limits between Azur
 
 To learn more about Azure SQL Database, review the [Hyperscale service tier resource limits](service-tier-hyperscale.md), and DTU resource limits for [single databases](resource-limits-dtu-single-databases.md) and [pooled databases](resource-limits-dtu-elastic-pools.md). 
 
-To compare features between SQL Database and SQL Managed Instance, see the [database engine features](features-comparison). 
+To compare features between SQL Database and SQL Managed Instance, see the [database engine features](features-comparison.md). 
 
 The following table shows resource limits for both Azure SQL Database and Azure SQL Managed Instance in the General Purpose service tier: 
 

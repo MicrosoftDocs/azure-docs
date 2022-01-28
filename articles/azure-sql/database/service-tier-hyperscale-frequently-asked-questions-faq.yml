@@ -11,7 +11,7 @@ metadata:
   author: dimitri-furman
   ms.author: dfurman
   ms.reviewer: kendralittle, mathoma
-  ms.date: 1/10/2022
+ms.date: 02/02/2022
     
 title: Azure SQL Database Hyperscale FAQ
 summary: |
@@ -39,7 +39,7 @@ sections:
       - question: |
           How does the Hyperscale service tier differ from the General Purpose and Business Critical service tiers?
         answer: |
-          The vCore-based service tiers are differentiated based on database availability and storage type, performance, and maximum size, as described in the following table. To learn more, compare [resource limits between service tiers](service-tier-hyperscale.md#compare-resource-limits)
+          The vCore-based service tiers are differentiated based on database availability and storage type, performance, and maximum storage size as described in [resource limit comparison](service-tier-hyperscale.md#compare-resource-limits). 
                    
       - question: |
           Who should use the Hyperscale service tier?

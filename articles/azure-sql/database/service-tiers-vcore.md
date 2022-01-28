@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 01/31/2022
+ms.date: 02/02/2022
 ms.custom: devx-track-azurepowershell
 ---
 # vCore purchasing model overview - Azure SQL Database and Azure SQL Managed Instance 

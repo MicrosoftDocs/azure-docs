@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: LitKnd
 ms.author: kendralittle
 ms.reviewer: mathoma
-ms.date: 01/31/2022
+ms.date: 02/02/2022
 ---
 # Compare vCore and DTU-based purchasing models of Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Azure SQL Database lets you easily purchase a fully managed platform as a servic
 
 There are two purchasing models:
 
-- [vCore-based purchasing model](service-tiers-vcore.md) is available for both [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). The [Hyperscale service tier](service-tier-Hyperscale.md) is available for single databases that are using the [vCore-based purchasing model](service-tiers-vcore.md).
+- [vCore-based purchasing model](service-tiers-vcore.md) is available for both [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). The [Hyperscale service tier](service-tier-hyperscale.md) is available for single databases that are using the [vCore-based purchasing model](service-tiers-vcore.md).
 - [DTU-based purchasing model](service-tiers-dtu.md) is available for [Azure SQL Database](single-database-manage.md).
 
 The following table and chart compares and contrasts the vCore-based and the DTU-based purchasing models:
