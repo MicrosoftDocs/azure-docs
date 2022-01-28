@@ -80,11 +80,11 @@ By denormalizing data, your application may need to issue fewer queries and upda
 
 In general, use embedded data models when:
 
-* There are **contained** relationships between entities.
-* There are **one-to-few** relationships between entities.
-* There is embedded data that **changes infrequently**.
-* There is embedded data that will not grow **without bound**.
-* There is embedded data that is **queried frequently together**.
+* There're **contained** relationships between entities.
+* There're **one-to-few** relationships between entities.
+* There's embedded data that **changes infrequently**.
+* There's embedded data that will not grow **without bound**.
+* There's embedded data that is **queried frequently together**.
 
 > [!NOTE]
 > Typically denormalized data models provide better **read** performance.
@@ -113,7 +113,7 @@ Take this JSON snippet.
 }
 ```
 
-This might be what a post entity with embedded comments would look like if we were modeling a typical blog, or CMS, system. The problem with this example is that the comments array is **unbounded**, meaning that there is no (practical) limit to the number of comments any single post can have. This may become a problem as the size of the item could grow infinitely large.
+This might be what a post entity with embedded comments would look like if we were modeling a typical blog, or CMS, system. The problem with this example is that the comments array is **unbounded**, meaning that there's no (practical) limit to the number of comments any single post can have. This may become a problem as the size of the item could grow infinitely large.
 
 As the size of the item grows the ability to transmit the data over the wire as well as reading and updating the item, at scale, will be impacted.
 
@@ -230,7 +230,7 @@ An immediate downside to this approach though is if your application is required
 
 ### What about foreign keys?
 
-Because there is currently no concept of a constraint, foreign-key or otherwise, any inter-document relationships that you have in documents are effectively "weak links" and will not be verified by the database itself. If you want to ensure that the data a document is referring to actually exists, then you need to do this in your application, or through the use of server-side triggers or stored procedures on Azure Cosmos DB.
+Because there's currently no concept of a constraint, foreign-key or otherwise, any inter-document relationships that you have in documents are effectively "weak links" and will not be verified by the database itself. If you want to ensure that the data a document is referring to actually exists, then you need to do this in your application, or through the use of server-side triggers or stored procedures on Azure Cosmos DB.
 
 ### When to reference
 
@@ -393,7 +393,7 @@ Book documents:
 
 Here we've (mostly) followed the embedded model, where data from other entities are embedded in the top-level document, but other data is referenced.
 
-If you look at the book document, we can see a few interesting fields when we look at the array of authors. There is an `id` field that is the field we use to refer back to an author document, standard practice in a normalized model, but then we also have `name` and `thumbnailUrl`. We could have stuck with `id` and left the application to get any additional information it needed from the respective author document using the "link", but because our application displays the author's name and a thumbnail picture with every book displayed we can save a round trip to the server per book in a list by denormalizing **some** data from the author.
+If you look at the book document, we can see a few interesting fields when we look at the array of authors. There's an `id` field that is the field we use to refer back to an author document, standard practice in a normalized model, but then we also have `name` and `thumbnailUrl`. We could have stuck with `id` and left the application to get any additional information it needed from the respective author document using the "link", but because our application displays the author's name and a thumbnail picture with every book displayed we can save a round trip to the server per book in a list by denormalizing **some** data from the author.
 
 Sure, if the author's name changed or they wanted to update their photo we'd have to go and update every book they ever published but for our application, based on the assumption that authors don't change their names often, this is an acceptable design decision.  
 
@@ -474,7 +474,7 @@ Another challenge is that not all characters are accepted by Azure Synapse Spark
 All properties in the root level of your Cosmos DB data will be represented in analytical store as a column and everything else that is in deeper levels of your document data model will be represented as JSON, also in nested structures. Nested structures demand extra processing from Azure Synapse runtimes to flatten the data in structured format, what may be a challenge in big data scenarios.
 
 
-The document below will have only 2 columns in analytical store, **"id"** and **"contactDetails"**. All other data, **"email"** and **"phone"** will require extra processing through SQL functions to be individually read.
+The document below will have only 2 columns in analytical store, `id` and `contactDetails`. All other data, `email` and `phone` will require extra processing through SQL functions to be individually read.
 
 ```json
 
@@ -487,7 +487,7 @@ The document below will have only 2 columns in analytical store, **"id"** and **
 }
 ```
 
-The document below will have 3 columns in analytical store, **"id"**, **"email"**, and **"phone"**. All data is directly accessible as columns.
+The document below will have 3 columns in analytical store, `id`, `email`, and `phone`. All data is directly accessible as columns.
 
 ```json
 
@@ -511,7 +511,7 @@ Azure Synapse Link allows you to reduce costs from the following perspectives:
 
 The biggest takeaways from this article are to understand that data modeling in a schema-free world is as important as ever.
 
-Just as there is no single way to represent a piece of data on a screen, there is no single way to model your data. You need to understand your application and how it will produce, consume, and process the data. Then, by applying some of the guidelines presented here you can set about creating a model that addresses the immediate needs of your application. When your applications need to change, you can leverage the flexibility of a schema-free database to embrace that change and evolve your data model easily.
+Just as there's no single way to represent a piece of data on a screen, there's no single way to model your data. You need to understand your application and how it will produce, consume, and process the data. Then, by applying some of the guidelines presented here you can set about creating a model that addresses the immediate needs of your application. When your applications need to change, you can leverage the flexibility of a schema-free database to embrace that change and evolve your data model easily.
 
 * To learn more about Azure Cosmos DB, refer to the service's [documentation](https://azure.microsoft.com/documentation/services/cosmos-db/) page.
 
