@@ -504,7 +504,7 @@ The document below will have 3 columns in analytical store, `id`, `email`, and `
 }
 ```
 
-### Data Tiering
+### Data tiering
 
 Azure Synapse Link allows you to reduce costs from the following perspectives:
 
