@@ -134,7 +134,7 @@ Next, step through the Easy Button configurations to federate and publish the in
 
 Once provisioned, the certificate can be used for every application published through Easy Button. You can also choose to upload a separate certificate for individual applications.
   
-    ![Screenshot for Configure Easy Button- Import SSL certificates and keys](./media/f5-big-ip-easy-button-ldap/configure-easy-button.png)
+   ![Screenshot for Configure Easy Button- Import SSL certificates and keys](./media/f5-big-ip-easy-button-ldap/configure-easy-button.png)
 
 4. Navigate to **Access > Guided Configuration > Microsoft Integration and select Azure AD Application**
 
