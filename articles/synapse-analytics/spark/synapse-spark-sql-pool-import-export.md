@@ -24,7 +24,7 @@ Authentication works automatically with the signed in Azure Active Directory use
 * Add the user to [Storage Blob Data Contributor role](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) on the storage account.
 
 The connector also supports password-based [SQL authentication](/azure/azure-sql/database/logins-create-manage#authentication-and-authorization) after the following prerequisites.
-  * Add the user to [db_exporter role](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) using system stored procedure [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+  * Add the user to [db_exporter role](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) using system-stored procedure [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
   * Create an [external data source](/sql/t-sql/statements/create-external-data-source-transact-sql), whose [database scoped credential](/sql/t-sql/statements/create-database-scoped-credential-transact-sql) secret is the access key to an Azure Storage Account. The API requires the name of this external data source.
 
 ## API reference
