@@ -16,7 +16,7 @@ ms.custom: devx-track-js
 [!INCLUDE [storage-selector-table-include](../../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-This article shows you how to create tables, store your data, and perform CRUD operations on said data.The samples are written in Node.js.
+This article shows you how to create tables, store your data, and perform CRUD operations on said data. The samples are written in Node.js.
 
 ## Create an Azure service account
 
