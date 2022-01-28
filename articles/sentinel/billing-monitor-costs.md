@@ -1,5 +1,5 @@
 ---
-title: Monitor costs for Microsoft Sentinel
+title: Manage and monitor costs for Microsoft Sentinel
 description: Learn how to manage and monitor costs and billing for Microsoft Sentinel by using cost analysis in the Azure portal and other methods.
 author: cwatson-cat
 ms.author: cwatson
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 01/26/2022
 ---
 
-# Monitor costs for Microsoft Sentinel
+# Manage and monitor costs for Microsoft Sentinel
 
 After you've started using Microsoft Sentinel resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. 
 

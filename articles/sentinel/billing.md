@@ -85,7 +85,7 @@ Basic logs have a reduced price and are charged at a flat rate per GB. They have
 - Eight-day retention
 - No support for scheduled alerts
 
-Basic logs are best suited for use in playbook automation, ad-hoc querying, investigations, and search. For more information, see {new article coming about basic logs usage scenarios}.
+Basic logs are best suited for use in playbook automation, ad-hoc querying, investigations, and search. For more information, see [Azure Monitor basic logs](../azure-monitor/logs/azure-monitor-basic-logs.md).
 
 ### Understand your Microsoft Sentinel bill
 
@@ -101,7 +101,7 @@ Microsoft Sentinel and Log Analytics charges appear on your Azure bill as separa
 
 The following sections show how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill depending on your pricing tier.
 
-#### Commitment tier
+#### [Commitment tier](#tab/commitment-tier)
 
 If you're billed at the commitment tier rate, the following table shows how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill.
 
@@ -114,7 +114,7 @@ If you're billed at the commitment tier rate, the following table shows how Micr
 | Basic logs data ingestion| `azure monitor` |**data ingestion - Basic Logs**|
 | Basic logs data analysis| `sentinel` |**Analysis - Basic Logs**|
 
-#### Pay-As-You-Go
+#### [Pay-As-You-Go](#tab/pay-as-you-go)
 
 If you're billed at Pay-As-You-Go rate, the following table shows how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill.
 
@@ -125,7 +125,7 @@ If you're billed at Pay-As-You-Go rate, the following table shows how Microsoft 
 | Basic logs data ingestion| `azure monitor` |**data ingestion - Basic Logs**|
 | Basic logs data analysis| `sentinel` |**Analysis - Basic Logs**|
 
-#### Free data meters
+#### [Free data meters](#tab/free-data-meters)
 
 The following table shows how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill for free data services.
 
@@ -135,6 +135,8 @@ The following table shows how Microsoft Sentinel and Log Analytics costs appear 
 | Microsoft Sentinel Free Trial – Sentinel Analysis| `sentinel` |**Free trial**|
 | M365 Defender Benefit – Data Ingestion| `azure monitor` |**Free Benefit - M365 Defender Data Ingestion**|
 | M365 Defender Benefit – Data Analysis| `sentinel` |**Free Benefit - M365 Defender Analysis**|
+
+---
 
 For more information on viewing and downloading your Azure bill, see [Azure cost and billing information](../cost-management-billing/understand/download-azure-daily-usage.md).
 
@@ -155,7 +157,7 @@ Any other services you use could have associated costs.
 
 After you enable Microsoft Sentinel on a Log Analytics workspace, you can retain all data ingested into the workspace at no charge for the first 90 days. Retention beyond 90 days is charged per the standard [Log Analytics retention prices](https://azure.microsoft.com/pricing/details/monitor/).
 
-You can specify different retention settings for individual data types. For more information, see [Retention by data type](../azure-monitor/logs/manage-cost-storage.md#retention-by-data-type). You can also enable long-term retention for your data and have access to historical logs by enabling archived logs. Data archive is a low-cost retention layer for archival storage. It's charged based on the volume of data stored and scanned. For more information, see {Link here for Data Archive costs}. Archived logs are in public preview.
+You can specify different retention settings for individual data types. For more information, see [Retention by data type](../azure-monitor/logs/manage-cost-storage.md#retention-by-data-type). You can also enable long-term retention for your data and have access to historical logs by enabling archived logs. Data archive is a low-cost retention layer for archival storage. It's charged based on the volume of data stored and scanned. For more information, see [Azure Monitor archived logs](../azure-monitor/logs/azure-monitor-archived-logs.md). Archived logs are in public preview.
 
 The 90 day retention doesn't apply to basic logs. If you want to extend data retention for basic logs beyond eight days, you can store that data in archived logs for up to seven years.
 

@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 01/26/2022
 ---
 
-
 # Reduce costs for Microsoft Sentinel
 
 Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azure bill. Although this article explains how to reduce costs for Microsoft Sentinel, you're billed for all Azure services and resources your Azure subscription uses, including Partner services.
@@ -37,7 +36,7 @@ When hunting or investigating threats in Microsoft Sentinel, you might need to a
 
 ## Turn on basic logs data ingestion for data that's high-volume low security value (preview)
 
-Unlike analytics logs, basic logs are typically verbose. They contains a mix of high volume and low security value data, that isn't frequently used or accessed on demand for ad-hoc querying, investigations and search. Microsoft Sentinel offers the ability to enable basic log data ingestion at a significantly reduced cost. See {Microsoft Sentinel Pricing}.
+Unlike analytics logs, [basic logs](../azure-monitor/logs/azure-monitor-basic-logs.md) are typically verbose. They contains a mix of high volume and low security value data, that isn't frequently used or accessed on demand for ad-hoc querying, investigations and search. Enable basic log data ingestion at a significantly reduced cost for eligible data tables. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
 ## Optimize Log Analytics costs with dedicated clusters
 
