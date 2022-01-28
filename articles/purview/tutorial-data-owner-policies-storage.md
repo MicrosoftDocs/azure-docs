@@ -16,6 +16,13 @@ This tutorial describes how a data owner can leverage Azure Purview to enable ac
 - Blob storage
 - Azure Data Lake Storage (ADLS) Gen2
 
+In this tutorial, you learn how to:
+> [!div class="checklist"]
+> * Prerequisites
+> * Configure permissions
+> * Register a data asset for Data use governance
+> * Create and publish a policy
+
 > [!Note]
 > These capabilities are currently in preview. This preview version is provided without a service level agreement, and should not be used for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -28,8 +35,8 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 ## Configuration
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
-### Register and scan data sources in Azure Purview
-Register and scan each data source with Azure Purview to later define access policies. You can follow these guides:
+### Register the data sources in Azure Purview for Data use governance
+Register and scan each Storage account with Azure Purview to later define access policies. You can follow these guides:
 
 -   [Register and scan Azure Storage Blob - Azure Purview](register-scan-azure-blob-storage-source.md)
 
@@ -42,7 +49,7 @@ Enable the data source for access policies in Azure Purview by setting the **Dat
 [!INCLUDE [Access policies generic registration](./includes/access-policies-registration-generic.md)]
 
 
-## Policy authoring
+## Create and publish a data owner policy
 Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owner-policy-authoring-generic.md) to create and publish a policy similar to the example shown in the image: a policy that provides group *Contoso Team* *read* access to Storage account *marketinglake1*:
 
 ![Image shows a sample data owner policy giving access to an Azure Storage account.](./media/tutorial-data-owner-policies-storage/data-owner-policy-example-storage.png)

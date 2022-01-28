@@ -279,8 +279,9 @@ items:
     - name: Conditional access
       href: catalog-conditional-access.md
   -name: Data owner policies
+      items:
       - name: Authoring and publishing data owner access policies
-      href: how-to-data-owner-policy-authoring-generic.md
+        href: how-to-data-owner-policy-authoring-generic.md
   - name: Manage Kafka notifications - .NET
     href: manage-kafka-dotnet.md
   - name: Disaster recovery
