@@ -20,7 +20,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: High-level overview
+  - title: About Lab Services
     linkLists:
       - linkListType: overview
         links:
@@ -28,12 +28,10 @@ landingContent:
             url: lab-services-overview.md                       
           - text: What's new in Lab Services?
             url: lab-services-whats-new.md
-      - linkListType: concept
-        links:
           - text: Lab Services concepts
             url: classroom-labs-concepts.md
   # Card
-  - title: Lab plans
+  - title: Lab plans (Administrators)
     linkLists:
     - linkListType: tutorial
       links:
@@ -48,17 +46,17 @@ landingContent:
         - text: Connect to a virtual network
           url: how-to-connect-vnet-injection.md
         
-  - title: Labs
+  - title: Create & manage labs (Educators)
     linkLists:
     - linkListType: tutorial
       links:
-        - text: Create a lab
+        - text: Create your lab
           url: tutorial-setup-lab.md
     - linkListType: how-to-guide
       links:
-        - text: Create and manage labs
+        - text: Manage labs
           url: how-to-manage-lab-plans.md
-        - text: Customize and publish templates
+        - text: Customize & publish templates
           url: how-to-create-manage-template.md
         - text: Manage the virtual machine pool 
           url: how-to-set-virtual-machine-passwords.md
@@ -66,14 +64,13 @@ landingContent:
           url: how-to-configure-student-usage.md
         - text: Create and manage schedules
           url: how-to-create-schedules.md
-  - title: Use labs
+          
+  - title: Access labs (Students)
     linkLists:
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
           - text: Access a lab
             url: tutorial-connect-lab-virtual-machine.md
-      - linkListType: how-to-guide
-        links:
           - text: Connect to Linux VMs
             url: how-to-use-remote-desktop-linux-student.md
           - text: Set or reset passwords
