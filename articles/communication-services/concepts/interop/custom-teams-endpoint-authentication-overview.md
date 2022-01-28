@@ -13,11 +13,9 @@ ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
 
-# Authentication
+# Authentication flow cases
 
 Azure Communication Services provides developers the ability to build custom Teams calling experience with Communication Services calling SDK. This article provides insights into the process of authentication and describes individual authentication artifacts. In the following use cases, we will demonstrate authentication for single and multi-tenant Azure Active Directory applications.
-
-# Authentication flow cases
 
 ## Case 1: Single-tenant application using Azure RBAC
 The following scenario shows an example of the company Fabrikam, which has built custom Teams calling application for internal use within a company. All Teams users are managed by Azure Active Directory, and the access to the Azure Communication Services is controlled via Azure role-based access control (Azure RBAC).
