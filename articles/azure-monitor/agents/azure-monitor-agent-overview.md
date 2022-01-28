@@ -108,11 +108,13 @@ The Azure Monitor agent sends data to Azure Monitor Metrics (preview) or a Log A
 
 | Data source | Destinations | Description |
 |:---|:---|:---|
-| Performance        | Azure Monitor Metrics (preview)<sup>1</sup><br>Log Analytics workspace | Numerical values measuring performance of different aspects of operating system and workloads |
-| Windows event logs | Log Analytics workspace | Information sent to the Windows event logging system |
-| Syslog             | Log Analytics workspace | Information sent to the Linux event logging system |
+| Performance        | Azure Monitor Metrics (preview)<sup>1</sup> - Insights.virtualmachine namespace<br>Log Analytics workspace - [Perf](../reference/tables/perf.md) table | Numerical values measuring performance of different aspects of operating system and workloads |
+| Windows event logs | Log Analytics workspace - [Event](../reference/tables/Event.md) table | Information sent to the Windows event logging system |
+| Syslog             | Log Analytics workspace - [Syslog](../reference/tables/syslog.md)<sup>2</sup> table | Information sent to the Linux event logging system |
 
-<sup>1</sup> [Click here](../essentials/metrics-custom-overview.md#quotas-and-limits) to review other limitations of using Azure Monitor Metrics. On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher. 
+<sup>1</sup> [Click here](../essentials/metrics-custom-overview.md#quotas-and-limits) to review other limitations of using Azure Monitor Metrics. On Linux, using Azure Monitor Metrics as the only destination is supported in v1.10.9.0 or higher. 
+<sup>2</sup> Azure Monitor Linux Agent v1.15.2 or higher supports syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee and CEF (Common Event Format).
+
 
 ## Security
 The Azure Monitor agent doesn't require any keys but instead requires a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before you deploy the agent.
