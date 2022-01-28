@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
 
-# Add an update to Device Update for IoT Hub
+# Prepare an update to import into Device Update for IoT Hub
 
 Learn how to obtain a new update and prepare the update for importing into Device Update for IoT Hub.
 
