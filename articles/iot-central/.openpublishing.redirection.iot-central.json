@@ -1319,6 +1319,11 @@
       "source_path_from_root": "/articles/iot-central/core/concepts-app-templates.md",
       "redirect_url": "/azure/iot-central/core/overview-iot-central/",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/concepts-best-practices.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-developer/",
+      "redirect_document_id": false
     }
   ]
 }

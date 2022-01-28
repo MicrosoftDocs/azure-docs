@@ -95,8 +95,6 @@
         href: core/concepts-iot-edge.md
       - name: Message payloads
         href: core/concepts-telemetry-properties-commands.md
-      - name: Device development best practices
-        href: core/concepts-best-practices.md
 
     - name: Device management guide
       href: core/overview-iot-central-operator.md
@@ -111,7 +109,7 @@
         href: core/concepts-faq-extend.md
       - name: What are IoT Central's scale limits?
         href: core/concepts-quotas-limits.md
-      - name: How do I move between aPaaS and PaaS solution approaches?
+      - name: How do I move between aPaaS and PaaS solutions?
         href: core/concepts-faq-apaas-paas.md
 - name: How-to guides
   items:
