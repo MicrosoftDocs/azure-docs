@@ -47,7 +47,7 @@ Artifacts:
 - Artifact D
   - Type: Azure Communication Services access token
   - Audience: _`Azure Communication Services`_ - data plane
-  - Azure Communication Resource ID: Fabrikam's _`Azure Communication Services Resource ID`_
+  - Azure Communication Services Resource ID: Fabrikam's _`Azure Communication Services Resource ID`_
   
 ## Case 2: Multi-tenant application using a connection string
 The following scenario shows an example of company Contoso, which has built custom Teams calling application for external customers, such as the company Fabrikam. Contoso infrastructure leverages custom authentication within the Contoso infrastructure. Contoso infrastructure is using a connection string to retrieve the token for Fabrikam's Teams user.
