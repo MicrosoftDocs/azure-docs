@@ -355,10 +355,32 @@ Here is a map of all the property data types and their suffix representations in
 
 Data tiering refers to the separation of data between storage infrastructures optimized for different scenarios. Thereby improving the overall performance and cost-effectiveness of the end-to-end data stack. With analytical store, Azure Cosmos DB now supports automatic tiering of data from the transactional store to analytical store with different data layouts. With analytical store optimized in terms of storage cost compared to the transactional store, allows you to retain much longer horizons of operational data for historical analysis.
 
-After the analytical store is enabled, based on the data retention needs of the transactional workloads, you can configure the 'Transactional Store Time to Live (Transactional TTL)' property to have records automatically deleted from the transactional store after a certain time period. Similarly, the  'Analytical Store Time To Live (Analytical TTL)' allows you to manage the lifecycle of data retained in the analytical store independent from the transactional store. By enabling analytical store and configuring TTL properties, you can seamlessly tier and define the data retention period for the two stores.
+After the analytical store is enabled, based on the data retention needs of the transactional workloads, you can configure the transactional store Time-to-Live (TTTL) property to have records automatically deleted from the transactional store after a certain time period. Similarly, the  analytical store Time-to-Live (ATTL)' allows you to manage the lifecycle of data retained in the analytical store independent from the transactional store. By enabling analytical store and configuring TTL properties, you can seamlessly tier and define the data retention period for the two stores.
 
-> [!NOTE]
->Currently analytical store doesn't support backup and restore. Your backup policy can't be planned relying on analytical store. For more information, check the limitations section of [this](synapse-link.md#limitations) document. It is important to note that the data in the analytical store has a different schema than what exists in the transactional store. While you can generate snapshots of your analytical store data, at no RUs costs, we cannot guarantee the use of this snapshot to backfeed the transactional store. This process is not supported.
+## Backup
+
+Currently analytical store doesn't support backup and restore, and your backup policy can't be planned relying on that. For more information, check the limitations section of [this](synapse-link.md#limitations) document. While continuous backup mode isn't supported in database accounts with Synapse Link enabled, periodic backup mode is. 
+
+With periodic backup mode and existing containers, you can:
+
+ ### Fully rebuild analytical store when TTTL >= ATTL
+ 
+ The original container is restored without analytical store. But you can enable it and it will be rebuild with all data that existing in the container.
+ 
+ ### Partially rebuild analytical store when TTTL < ATTL
+ 
+The data that was only in analytical store isn't restored, but it will be kept available for queries as long as you keep the original container. Analytical store is only deleted when you you delete the container. You analytical queries in Azure Synapse Analytics can read data from both original and restored container's analytical stores. Example:
+
+ * Container `OnlineOrders` has TTTL set to one month and ATTL set for one year.
+ * When you restore it to `OnlineOrdersNew` and turn on analytical store to rebuild it, there will be only one month of data in both transactional and analytical store.
+ * Original container `OnlineOrders` isn't deleted and its analytical store is still available.
+ * New data is only ingested into `OnlineOrdersNew`.
+ * Analytical queries will do a UNION ALL from analytical stores while the original data is still relevant.
+
+If you want to delete the original container but don't want to loose its analytical store data, you can persist the original container analytical store in another Azure data service. Synapse Analytics has the capability to perform joins between data stored in different locations. An example: A Synapse Analytics query joins analytical store data with external tables located in Azure Blob Storage, Azure Data Lake Store, etc.
+
+It is important to note that the data in the analytical store has a different schema than what exists in the transactional store. While you can generate snapshots of your analytical store data, and export it to any Azure Data service, at no RUs costs, we can't guarantee the use of this snapshot to back feed the transactional store. This process is not supported.
+
 
 ## Global Distribution
 
