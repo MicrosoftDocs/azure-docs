@@ -126,7 +126,7 @@ Go to your storage account in Azure portal to upload the csv file with your watc
 
 Create a shared access signature URL for Microsoft Sentinel to retrieve the watchlist data. 
 
-1. Follow the steps in [Generate SAS tokens for your storage containers](..cognitive-services/translator/document-translation/create-sas-tokens.md?tabs=blobs). 
+1. Follow the steps in [Generate SAS tokens for your storage containers](../cognitive-services/translator/document-translation/create-sas-tokens.md?tabs=blobs). 
 1. Set the shared access signature token expiry time to be at minimum 6 hours.
 1. Copy the value for **Blob SAS URL**.
 
@@ -175,8 +175,8 @@ If you delete and recreate a watchlist, you might see both the deleted and recre
 ## Next steps
 
 To learn more about Microsoft Sentinel, see the following articles:
-- Learn how to [get visibility into your data and potential threats](get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md).
+- Learn how to [get visibility into your data and potential threats](get-visibility.md)
+- Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md)
 - [Use workbooks](monitor-your-data.md) to monitor your data.
 - [Manage watchlists](watchlists-manage.md)
 - [Build queries and detection rules with watchlists](watchlists-queries.md)
