@@ -1,34 +1,33 @@
 ---
-title: Moving data in Azure API for FHIR to Azure Synapse Analytics
-description: This article describes moving FHIR data into Synapse in Azure API for FHIR
+title: Copy data from the FHIR service to Azure Synapse Analytics
+description: This article describes copying FHIR data into Synapse
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 01/27/2022
+ms.date: 01/28/2022
 ms.author: ginle
 ---
+# Copy data from the FHIR service to Azure Synapse Analytics
 
-# Moving data from Azure API for FHIR to Azure Synapse Analytics
+In this article, you’ll learn a couple of ways to copy data from the FHIR service to [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/), which is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. 
 
-In this article, you'll learn a couple of ways to move data from Azure API for FHIR to [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/), which is a limitless analytics service that brings together data integration, enterprise data warehousing, and big data analytics. 
+Copying data from the FHIR server to Synapse involves exporting the data using the FHIR `$export` operation followed by a series of steps to transform and load the data to Synapse. This article will walk you through two of the several approaches, both of which will show how to convert FHIR resources into tabular formats while copying them into Synapse.
 
-Moving data from the FHIR server to Synapse involves exporting the data using the FHIR `$export` operation followed by a series of steps to transform and load the data to Synapse. This article will walk you through two of the several approaches, both of which will show how to convert FHIR resources into tabular formats while moving them into Synapse.
-
-* **Load exported data to Synapse using T-SQL:** Use `$export` operation to move FHIR resources into a **Azure Data Lake Gen 2 (ADL Gen 2) blob storage** in `NDJSON` format. Load the data from the storage into **serverless or dedicated SQL pools** in Synapse using T-SQL. Convert these steps into a robust data movement pipeline using [Synapse pipelines](../../synapse-analytics/get-started-pipelines.md).
-* **Use the tools from the FHIR Analytics Pipelines OSS repo:** The [FHIR Analytics Pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines) repo contains tools that can create an **Azure Data Factory (ADF) pipeline** to move FHIR data into a **Common Data Model (CDM) folder**, and from the CDM folder to Synapse.
+* **Load exported data to Synapse using T-SQL:** Use `$export` operation to copy FHIR resources into a **Azure Data Lake Gen 2 (ADL Gen 2) blob storage** in `NDJSON` format. Load the data from the storage into **serverless or dedicated SQL pools** in Synapse using T-SQL. Convert these steps into a robust data movement pipeline using [Synapse pipelines](../../synapse-analytics/get-started-pipelines.md).
+* **Use the tools from the FHIR Analytics Pipelines OSS repo:** The [FHIR Analytics Pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines) repo contains tools that can create an **Azure Data Factory (ADF) pipeline** to copy FHIR data into a **Common Data Model (CDM) folder**, and from the CDM folder to Synapse.
 
 ## Load exported data to Synapse using T-SQL
 
 ### `$export` for moving FHIR data into Azure Data Lake Gen 2 storage
 
-:::image type="content" source="media/export-data/export-azure-storage-option.png" alt-text="Azure storage to Synapse using $export." lightbox="media/export-data/export-azure-storage-option.png":::
+:::image type="content" source="media/export-data/export-azure-storage-option.png" alt-text="Azure storage to Synapse using $export":::
 
 #### Configure your FHIR server to support `$export`
 
 Azure API for FHIR implements the `$export` operation defined by the FHIR specification to export all or a filtered subset of FHIR data in `NDJSON` format. In addition, it supports [de-identified export](./de-identified-export.md) to anonymize FHIR data during the export. If you use `$export`, you get de-identification feature by default its capability is already integrated in `$export`.
 
-To export FHIR data to Azure blob storage, you first need to configure your FHIR server to export data to the storage account. You’ll need to (1) enable Managed Identity, (2) go to Access Control in the storage account and add role assignment, (3) select your storage account for `$export`. More step by step can be found [here](./configure-export-data.md).
+To export FHIR data to Azure blob storage, you first need to configure your FHIR server to export data to the storage account. You’ll need to (1) enable Managed Identity, (2) go to Access Control in the storage account and add role assignment, (3) select your storage account for `$export`. More step-by-step instructions can be found [here](./configure-export-data.md).
 
 You can configure the server to export the data to any kind of Azure storage account, but we recommend exporting to ADL Gen 2 for best alignment with Synapse.
 
@@ -40,7 +39,7 @@ After configuring your FHIR server, you can follow the [documentation](./export-
 https://{{FHIR service base URL}}/Group/{{GroupId}}/$export?_container={{BlobContainer}}  
 ```
 
-You can also use `_type` parameter in the `$export` call above to restrict the resources we you want to export. For example, the following call will export only `Patient`, `MedicationRequest`, and `Observation` resources:
+You can also use `_type` parameter in the `$export` call above to restrict the resources you want to export. For example, the following call will export only `Patient`, `MedicationRequest`, and `Observation` resources:
 
 ```rest
 https://{{FHIR service base URL}}/Group/{{GroupId}}/$export?_container={{BlobContainer}}&
@@ -51,15 +50,15 @@ For more information on the different parameters supported, check out our `$expo
 
 ### Create a Synapse workspace
 
-Before using Synapse, you'll need a Synapse workspace. You’ll create an Azure Synapse Analytics service on Azure portal. More step-by-step guide can be found [here](../../synapse-analytics/get-started-create-workspace.md). You need an `ADLSGEN2` account to create a workspace. Your Azure Synapse workspace will use this storage account to store your Synapse workspace data.
+Before using Synapse, you’ll need a Synapse workspace. You’ll create an Azure Synapse Analytics service on Azure portal. More step-by-step guide can be found [here](../../synapse-analytics/get-started-create-workspace.md). You need an `ADLSGEN2` account to create a workspace. Your Azure Synapse workspace will use this storage account to store your Synapse workspace data.
 
 After creating a workspace, you can view your workspace on Synapse Studio by signing into your workspace on https://web.azuresynapse.net, or launching Synapse Studio in the Azure portal.
 
 #### Creating a linked service between Azure storage and Synapse
 
-To move your data to Synapse, you need to create a linked service that connects your Azure Storage account with Synapse. More step-by-step instructions can be found [here](../../synapse-analytics/data-integration/data-integration-sql-pool.md#create-linked-services).
+To copy your data to Synapse, you need to create a linked service that connects your Azure Storage account with Synapse. More step-by-step instructions can be found [here](../../synapse-analytics/data-integration/data-integration-sql-pool.md#create-linked-services).
 
-1. In Synapse Studio, browse to the **Manage** tab and under **External connections**, select **Linked services**.
+1. On Synapse Studio, navigate to the **Manage** tab, and under **External connections**, select **Linked services**.
 2. Select **New** to add a new linked service.
 3. Select **Azure Data Lake Storage Gen2** from the list and select **Continue**.
 4. Enter your authentication credentials. Select **Create** when finished.
@@ -166,18 +165,18 @@ GO
 
 ## Use FHIR Analytics Pipelines OSS tools
 
-:::image type="content" source="media/export-data/analytics-pipeline-option.png" alt-text="Using ADF pipeline to move data into CDM folder then into Synapse":::
+:::image type="content" source="media/export-data/analytics-pipeline-option.png" alt-text="Using ADF pipeline to copy data into CDM folder then into Synapse":::
 
 > [!Note]
 > [FHIR Analytics pipeline](https://github.com/microsoft/FHIR-Analytics-Pipelines) is an open source tool released under MIT license, and is not covered by the Microsoft SLA for Azure services.
 
 ### ADF pipeline for moving FHIR data into CDM folder
 
-Common Data Model (CDM) folder is a folder in a data lake that conforms to well-defined and standardized metadata structures and self-describing data. These folders facilitate metadata interoperability between data producers and data consumers. Before you move FHIR data into CDM folder, you can transform your data into a table configuration.
+Common Data Model (CDM) folder is a folder in a data lake that conforms to well-defined and standardized metadata structures and self-describing data. These folders facilitate metadata interoperability between data producers and data consumers. Before you copy FHIR data into CDM folder, you can transform your data into a table configuration.
 
 ### Generating table configuration
 
-Clone the repo get all the scripts and source code. Use `npm install` to install the dependencies. Run the following command from the `Configuration-Generator` folder to generate a table configuration folder using YAML format instructions:
+Clone the repo to get all the scripts and source code. Use `npm install` to install the dependencies. Run the following command from the `Configuration-Generator` folder to generate a table configuration folder using YAML format instructions:
 
 ```bash
 Configuration-Generator> node .\generate_from_yaml.js -r {resource configuration file} -p {properties group file} -o {output folder}
@@ -189,7 +188,7 @@ You may use the sample `YAML` files, `resourcesConfig.yml` and `propertiesGroupC
 
 Now you can use the content of the generated table configuration and a few other configurations to generate an ADF pipeline. This ADF pipeline, when triggered, exports the data from the FHIR server using `$export` API and writes to a CDM folder along with associated CDM metadata.
 
-1. Create an Azure Active Directory (Azure AD) application and service principal. The ADF pipeline uses an Azure batch service to do the transformation, and needs an Azure AD application for the batch service. Follow [Azure AD documentation](../../active-directory/develop/howto-create-service-principal-portal.md).
+1. Create an Azure Active Directory (AD) application and service principal. The ADF pipeline uses an Azure batch service to do the transformation, and needs an Azure AD application for the batch service. Follow [Azure AD documentation](../../active-directory/develop/howto-create-service-principal-portal.md).
 2. Grant access for export storage location to the service principal. In the `Access Control` of the export storage, grant `Storage Blob Data Contributor` role to the Azure AD application.
 3. Deploy the egress pipeline. Use the template `fhirServiceToCdm.json` for a custom deployment on Azure. This step will create the following Azure resources:
     - An ADF pipeline with the name `{pipelinename}-df`.
@@ -202,9 +201,9 @@ Now you can use the content of the generated table configuration and a few other
 
 ### From CDM folder to Synapse
 
-Once you have the data exported in a CDM format and stored in your ADL Gen 2 storage, you can now move your data in the CDM folder to Synapse.
+Once you have the data exported in a CDM format and stored in your ADL Gen 2 storage, you can now copy your data in the CDM folder to Synapse.
 
-You can create CDM to Synapse pipeline using a configuration file, which would look like the following example:
+You can create CDM to Synapse pipeline using a configuration file, which would look something like this:
 
 ```json
 {
@@ -222,13 +221,13 @@ You can create CDM to Synapse pipeline using a configuration file, which would l
 }
 ```
 
-Run the following script with the configuration file above:
+Run this script with the configuration file above:
 
 ```bash
 .\DeployCdmToSynapsePipeline.ps1 -Config: config.json
 ```
 
-Add ADF Managed Identity as a SQL user into SQL database. Below is a sample SQL script to create a user and an assign role:
+Add ADF Managed Identity as a SQL user into SQL database. Here’s a sample SQL script to create a user and an assign role:
 
 ```sql
 CREATE USER [datafactory-name] FROM EXTERNAL PROVIDER
@@ -239,12 +238,13 @@ GO
 
 ## Next steps
 
-In this article, you learned two different ways to move your FHIR data into Synapse: (1) using `$export` to move data into ADL Gen 2 blob storage then loading the data into Synapse SQL pools, and (2) using ADF pipeline for moving FHIR data into CDM folder then into Synapse.
+In this article, you learned two different ways to copy your FHIR data into Synapse: (1) using `$export` to copy data into ADL Gen 2 blob storage then loading the data into Synapse SQL pools, and (2) using ADF pipeline for moving FHIR data into CDM folder then into Synapse.
 
-Next, you can learn about anonymization of your FHIR data while moving data to Synapse to ensure your healthcare information is protected:
+Next, you can learn about anonymization of your FHIR data while copying data to Synapse to ensure your healthcare information is protected:
  
 >[!div class="nextstepaction"]
->[Exporting de-identified data](de-identified-export.md)
+>[Exporting de-identified data](./de-identified-export.md)
+
 
 
 

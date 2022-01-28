@@ -374,7 +374,7 @@
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/data-transformation/move-to-synapse.md",
-        "redirect_url": "/azure/healthcare-apis/fhir/move-to-synapse",
+        "redirect_url": "/azure/healthcare-apis/fhir/copy-to-synapse",
         "redirect_document_id": true
     },
     {
