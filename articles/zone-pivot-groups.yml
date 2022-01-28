@@ -1629,3 +1629,12 @@ groups:
     title: Front Door
   - id: front-door-standard-premium
     title: Standard/Premium
+# Owner: sadas
+- id: acs-pstn-phonenumbers
+  title: Number Type
+  prompt: Choose a Number Type
+  pivots:
+  - id: pstntollfree
+    title: Toll-Free
+  - id: pstngeographic
+    title: Geographic Numbers
