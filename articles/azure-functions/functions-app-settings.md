@@ -282,16 +282,9 @@ The configuration is specific to Python function apps. It defines the prioritiza
 |PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`1`| Prioritize loading the Python libraries from application's package defined in requirements.txt. This prevents your libraries from colliding with internal Python worker's libraries. |
 
 ## PYTHON_ENABLE_DEBUG_LOGGING
-Optional flag to turn on debug level logging in the function app. Setting to '1' will enable debug level logging; setting to '0' or not setting will set the function app log level to INFO.
+Enables debug-level logging in a Python function app. A value of `1` enables debug-level logging. Without this setting or with a value of `0`, only information and higher level logs are sent from the Python worker to the Functions host. Use this setting when debugging or tracing your Python function executions.
 
-|Key|Sample value|
-|---|------------|
-|PYTHON_ENABLE_DEBUG_LOGGING|`1`|
-
-> [!NOTE]
-> Please ensure your host.json [log levels](functions-host-json#logging.md) are consistent with this flag.
-> 
-> When the flag is '1', host.json log level for all categories must be set to DEBUG or lower levels to see debug logs for all functions inside the function app. For more information, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
+When debugging Python functions, make sure to also set a debug or trace [logging level](functions-host-json.md#logging) in the host.json file, as needed. To learn more, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
 
 
 ## PYTHON\_ENABLE\_WORKER\_EXTENSIONS
