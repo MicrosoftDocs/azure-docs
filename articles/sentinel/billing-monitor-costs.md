@@ -39,8 +39,7 @@ For example, to see charts of your daily costs for a certain time frame:
 1. Select the drop-down caret in the date field and select a date range.
 1. Select the drop-down caret next to **Granularity** and select **Daily**.
 
-> [!NOTE]
-> Microsoft Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
+Microsoft Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
 
 The Microsoft Sentinel pricing tiers don't include Log Analytics charges. To change your pricing tier commitment for Log Analytics, see [Changing pricing tier](../azure-monitor/logs/manage-cost-storage.md#changing-pricing-tier).
 
@@ -126,8 +125,7 @@ To define a daily volume cap, select **Usage and estimated costs** in the left n
 
 The **Usage and estimated costs** screen also shows your ingested data volume trend in the past 31 days, and the total retained data volume.
 
-> [!IMPORTANT]
-> The daily cap doesn't limit collection of all data types. Security data is excluded from the cap. For more information about managing the daily cap in Log Analytics, see [Manage your maximum daily data volume](../azure-monitor/logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume).
+The daily cap doesn't limit collection of all data types. Security data is excluded from the cap. For more information about managing the daily cap in Log Analytics, see [Manage your maximum daily data volume](../azure-monitor/logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume).
 
 ## Next steps
 

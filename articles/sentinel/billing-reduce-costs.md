@@ -25,8 +25,7 @@ To change your pricing tier commitment, select one of the other tiers on the pri
 
 ![Screenshot showing the Pricing page in Microsoft Sentinel Settings, with Pay-As-You-Go indicated as the current pricing tier.](media/billing/pricing.png)
 
-> [!NOTE]
-> Microsoft Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
+Microsoft Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
 
 The Microsoft Sentinel pricing tiers don't include Log Analytics charges. To change your pricing tier commitment for Log Analytics, see [Changing pricing tier](../azure-monitor/logs/manage-cost-storage.md#changing-pricing-tier).
 
@@ -36,7 +35,7 @@ Microsoft Sentinel analyzes all the data ingested into Microsoft Sentinel-enable
 
 When hunting or investigating threats in Microsoft Sentinel, you might need to access operational data stored in these standalone Azure Log Analytics workspaces. You can access this data by using cross-workspace querying in the log exploration experience and workbooks. However, you can't use cross-workspace analytics rules and hunting queries unless Microsoft Sentinel is enabled on all the workspaces.
 
-## Turn on basic logs data ingestion for high-volume low security value data
+## Turn on basic logs data ingestion for data that's high-volume low security value (public preview)
 
 Unlike analytics logs, basic logs are typically verbose. They contains a mix of high volume and low security value data, that isn't frequently used or accessed on demand for ad-hoc querying, investigations and search. Microsoft Sentinel offers the ability to enable basic log data ingestion at a significantly reduced cost. See {Microsoft Sentinel Pricing}.
 
@@ -64,7 +63,7 @@ Here are some other considerations for moving to a dedicated cluster for cost op
 
 For more information about dedicated clusters, see [Log Analytics dedicated clusters](../azure-monitor/logs/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
-## Reduce long-term data retention costs with Azure Data Explorer or archived logs (public preview)
+## Reduce long-term data retention costs with Azure Data Explorer or archived logs (preview)
 
 Microsoft Sentinel data retention is free for the first 90 days. To adjust the data retention period in Log Analytics, select **Usage and estimated costs** in the left navigation, then select **Data retention**, and then adjust the slider.
 

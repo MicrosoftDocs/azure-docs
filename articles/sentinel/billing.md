@@ -30,11 +30,8 @@ Try Microsoft Sentinel free for the first 31 days. Microsoft Sentinel can be ena
 
 Usage beyond these limits will be charged per the pricing listed on the [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page. Charges related to extra capabilities for [automation](automation.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial.
 
-> [!TIP]
-> During your free trial, find resources for cost management, training, and more on the **News & guides > Free trial** tab in Microsoft Sentinel.
->
-> This tab also displays details about the dates of your free trial, and how many days you have left until it expires.
->
+During your free trial, find resources for cost management, training, and more on the **News & guides > Free trial** tab in Microsoft Sentinel. This tab also displays details about the dates of your free trial, and how many days you have left until it expires.
+
 
 ## Identify data sources
 
@@ -52,8 +49,7 @@ For example, you can enter the GB of daily data you expect to ingest in Microsof
 - Data archive (archived logs)
 - Basic logs queries
 
-> [!NOTE]
-> The costs shown in this image are for example purposes only. They're not intended to reflect actual costs.
+The costs shown in following image are for example purposes only. They're not intended to reflect actual costs.
 
 :::image type="content" source="media/billing/pricing-calculator.png" alt-text="Sample screenshot showing estimated cost in the Azure pricing calculator." lightbox="media/billing/pricing-calculator.png" :::
 
@@ -63,11 +59,11 @@ Microsoft Sentinel offers a flexible and predictable pricing model. For more inf
 
 Microsoft Sentinel runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that there could be other, extra infrastructure costs that might accrue.
 
-## How you're charged for Microsoft Sentinel
+### How you're charged for Microsoft Sentinel
 
 Microsoft Sentinel offers flexible pricing based on the types of logs ingested into a workspace. Analytics logs typically make up the majority of your high security value logs. Basic logs tend to be verbose with low security value.
 
-### Analytics logs
+#### Analytics logs
 
 There are two ways to pay for the analytics logs: **Pay-As-You-Go** and **Commitment Tiers**.
 
@@ -81,7 +77,7 @@ There are two ways to pay for the analytics logs: **Pay-As-You-Go** and **Commit
 
     To set and change your Commitment Tier, see [Set or change pricing tier](billing-reduce-costs.md#set-or-change-pricing-tier).
 
-### Basic logs
+#### Basic logs (preview)
 
 Basic logs have a reduced price and are charged at a flat rate per GB. They have the following limitations:
 
@@ -91,14 +87,13 @@ Basic logs have a reduced price and are charged at a flat rate per GB. They have
 
 Basic logs are best suited for use in playbook automation, ad-hoc querying, investigations, and search.
 
-## Understand your Microsoft Sentinel bill
+### Understand your Microsoft Sentinel bill
 
 Billable meters are the individual components of your service that appear on your bill and are also shown in cost analysis under your service. At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Microsoft Sentinel costs. There's a separate line item for each meter.
 
 To see your Azure bill, select **Cost Analysis** in the left navigation of **Cost Management + Billing**. On the **Cost analysis** screen, select the drop-down caret in the **View** field, and select **Invoice details**.
 
-> [!NOTE]
-> The costs shown in this image are for example purposes only. They're not intended to reflect actual costs.
+The costs shown in the following image are for example purposes only. They're not intended to reflect actual costs.
 
 ![Screenshot showing the Microsoft Sentinel section of a sample Azure bill.](media/billing/sample-bill.png)
 
@@ -106,7 +101,9 @@ Microsoft Sentinel and Log Analytics charges appear on your Azure bill as separa
 
 The following sections show how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill depending on your pricing tier.
 
-### Commitment tier
+#### Commitment tier
+
+If you're billed at the commitment tier rate, the following table shows how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill.
 
 | Cost description | Service name | Meter |
 |--|--|--|
@@ -117,7 +114,9 @@ The following sections show how Microsoft Sentinel and Log Analytics costs appea
 | Basic logs data ingestion| `azure monitor` |**data ingestion - Basic Logs**|
 | Basic logs data analysis| `sentinel` |**Analysis - Basic Logs**|
 
-### Pay-As-You-Go
+#### Pay-As-You-Go
+
+If you're billed at Pay-As-You-Go rate, the following table shows how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill.
 
  Cost description | Service name | Meter |
 |--|--|--|
@@ -126,7 +125,9 @@ The following sections show how Microsoft Sentinel and Log Analytics costs appea
 | Basic logs data ingestion| `azure monitor` |**data ingestion - Basic Logs**|
 | Basic logs data analysis| `sentinel` |**Analysis - Basic Logs**|
 
-### Free data meters
+#### Free data meters
+
+The following table shows how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill for free data services.
 
  Cost description | Service name | Meter |
 |--|--|--|
@@ -154,7 +155,7 @@ Any other services you use could have associated costs.
 
 After you enable Microsoft Sentinel on a Log Analytics workspace, you can retain all data ingested into the workspace at no charge for the first 90 days. Retention beyond 90 days is charged per the standard [Log Analytics retention prices](https://azure.microsoft.com/pricing/details/monitor/).
 
-You can specify different retention settings for individual data types. For more information, see [Retention by data type](../azure-monitor/logs/manage-cost-storage.md#retention-by-data-type). You can also enable long-term retention for your data and have access to historical logs by enabling archived logs. Data archive is a low-cost retention layer for archival storage. It's charged based on the volume of data stored and scanned. For more information, see {Link here for Data Archive costs}
+You can specify different retention settings for individual data types. For more information, see [Retention by data type](../azure-monitor/logs/manage-cost-storage.md#retention-by-data-type). You can also enable long-term retention for your data and have access to historical logs by enabling archived logs. Data archive is a low-cost retention layer for archival storage. It's charged based on the volume of data stored and scanned. For more information, see {Link here for Data Archive costs}. Archived logs are in public preview.
 
 The 90 day retention doesn't apply to basic logs. If you want to extend data retention for basic logs beyond eight days, you can store that data in archived logs for up to seven years.
 
@@ -211,9 +212,8 @@ For data connectors that include both free and paid data types, you can select w
 
 For more information about free and paid data sources and connectors, see [Connect data sources](connect-data-sources.md).
 
-> [!NOTE]
-> Data connectors listed as Public Preview do not generate cost. Data connectors generate cost only once becoming Generally Available (GA).
->
+Data connectors listed as public preview do not generate cost. Data connectors generate cost only once becoming Generally Available (GA).
+
 
 ## Next steps
 
