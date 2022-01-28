@@ -368,7 +368,7 @@ To remove the system-assigned identity:
 az webapp identity remove --name <app-name> --resource-group <group-name>
 ```
 
-To remove one or more user-assigned identity:
+To remove one or more user-assigned identities:
 
 ```azurecli-interactive
 az webapp identity remove --name <app-name> --resource-group <group-name> --identities <identity-name1>,<identity-name2>,...
