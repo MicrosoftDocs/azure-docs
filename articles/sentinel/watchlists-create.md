@@ -11,7 +11,7 @@ ms.date: 1/28/2022
 
 Watchlists in Microsoft Sentinel allow you to correlate data from a data source you provide with the events in your Microsoft Sentinel environment. For example, you might create a watchlist with a list of high value assets, terminated employees, or service accounts in your environment.
 
-Create a watchlist from a local file or by using a template.
+Create a watchlist from a local file you created, by using a template (in preview), or by using a file you've uploaded to your Azure Storage account (in preview).
 
 Local file uploads are currently limited to files of up to 3.8 MB in size. If you have a watchlist file that's between 3.8 MB and 500 MB in size, upload the file to your Azure Storage account. Before you create a watchlist, review the [limitations of watchlists](watchlists.md).
 
@@ -53,7 +53,7 @@ You can upload a CSV file from your local machine to create a watchlist.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-complete.png" alt-text="watchlist successful creation notification" lightbox="./media/watchlists/sentinel-watchlist-complete.png":::
 
-## Create a watchlist by using a template (public preview)
+## Create a watchlist by using a template (preview)
 
 Download one of the watchlist templates from Microsoft Sentinel to populate with your data. Then upload that file when you create the watchlist in Microsoft Sentinel.
 

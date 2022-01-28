@@ -12,7 +12,7 @@ ms.date: 1/04/2022
 
 Watchlists in Microsoft Sentinel allow you to correlate data from a data source you provide with the events in your Microsoft Sentinel environment. For example, you might create a watchlist with a list of high-value assets, terminated employees, or service accounts in your environment.
 
-Use watchlists in your search, detection rules, threat hunting, and response playbooks. 
+Use watchlists in your search, detection rules, threat hunting, and response playbooks.
 
 Watchlists are stored in your Microsoft Sentinel workspace as name-value pairs and are cached for optimal query performance and low latency.
 
