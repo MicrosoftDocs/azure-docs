@@ -26,8 +26,8 @@ Batch will apply one of these disk encryption technologies on compute nodes, bas
 You won't be able to specify which encryption method will be applied to the nodes in your pool. Instead, you provide the target disks you want to encrypt on their nodes, and Batch can choose the appropriate encryption method, ensuring the specified disks are encrypted on the compute node.
 
 > [!IMPORTANT]
-> If you are creating your pool with a Linux [custom image](batch-sig-images.md), you can only enable disk encryption only if your pool is using an [Encryption At Host Supported VM size](https://docs.microsoft.com/en-us/azure/virtual-machines/disk-encryption#supported-vm-sizes).
-> Encryption At Host is not currently supported on User Subscription Pools until the feature becomes [publicly available in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-enable-host-based-encryption-portal#prerequisites).
+> If you are creating your pool with a Linux [custom image](batch-sig-images.md), you can only enable disk encryption only if your pool is using an [Encryption At Host Supported VM size](../virtual-machines/disk-encryption#supported-vm-sizes).
+> Encryption At Host is not currently supported on User Subscription Pools until the feature becomes [publicly available in Azure](../virtual-machines/disks-enable-host-based-encryption-portal#prerequisites).
 
 ## Azure portal
 
