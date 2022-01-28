@@ -1,5 +1,5 @@
 ---
-title: 'Upload or transfer files - native client'
+title: 'Upload and download files - native client'
 titleSuffix: Azure Bastion
 description: Learn how to upload or transfer files using Azure Bastion and the native client.
 services: bastion
@@ -13,13 +13,13 @@ ms.author: cherylmc
 
 ---
 
-# Upload or transfer files to a VM using Bastion via native client - Preview
+# Upload or download files to a VM using Azure Bastion and the native client (Preview)
 
-Azure Bastion offers support for file transfer between your target VM and local computer using Bastion and a native RDP or SSH client. To learn more about native client support, refer to [Connect to a VM using the native Windows client](connect-native-client-windows.md).
+Azure Bastion offers support for file transfer between your target VM and local computer using Bastion and a native RDP or SSH client. To learn more about native client support, refer to [Connect to a VM using the native Windows client](connect-native-client-windows.md). You can use either SSH or RDP to upload files to a VM from your local computer. To download files from a VM, you must use RDP.
 
-## Transfer files - RDP
+## Upload or download files - RDP
 
-This section helps you transfer files between your local Windows workstation and your target VM over RDP. Once connected to the target VM, users can transfer files using right-click **Copy** and **Paste**.
+This section helps you transfer files between your local Windows workstation and your target VM over RDP. Once connected to the target VM, you can transfer files using right-click, then **Copy** and **Paste**.
 
 1. Sign in to your Azure account and select your subscription containing your Bastion resource.
 
@@ -29,13 +29,13 @@ This section helps you transfer files between your local Windows workstation and
     az account set --subscription "<subscription ID>"
     ```
 
-1. Sign in to your target VM via RDP using the following command. You can use either a local username and password or your Azure AD credentials. To learn more about how to use Azure AD to sign in to your Azure Windows VMs, see [Azure Windows VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
+1. Sign in to your target VM via RDP using the following command. You can use either a local username and password, or your Azure AD credentials. To learn more about how to use Azure AD to sign in to your Azure Windows VMs, see [Azure Windows VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
     ```azurecli-interactive
     az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>"
     ```
 
-1. Once you sign in to your target VM, the native client on your workstation will open up with your VM session. You can now transfer files between your VM and local machine using right-click **Copy** and **Paste**.
+1. Once you sign in to your target VM, the native client on your workstation will open up with your VM session. You can now transfer files between your VM and local machine using right-click, then **Copy** and **Paste**.
 
 ## Upload files - SSH
 
@@ -65,9 +65,7 @@ This section helps you upload files from your local workstation to your target V
     scp -P <LocalMachinePort>  <local machine file path>  <username>@127.0.0.1:<target VM file path>
     ```
 
-1. Connect to your target VM using SSH, the native client of your choice, and the local machine port you specified in Step 3.
-
-    For example, you can use the following command if you have the OpenSSH client installed on your local workstation:
+1. Connect to your target VM using SSH, the native client of your choice, and the local machine port you specified in Step 3. For example, you can use the following command if you have the OpenSSH client installed on your local workstation:
 
     ```azurecli-interactive
     ssh <username>@127.0.0.1 -p <LocalMachinePort>
