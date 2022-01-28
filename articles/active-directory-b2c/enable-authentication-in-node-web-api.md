@@ -228,7 +228,7 @@ Now that the web API is [registered and you've defined its scopes](#register-the
         
     - The anonymous API endpoint
 
-    :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json" id="ms_docref_anonymous_api_endpoint":::
+    :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_anonymous_api_endpoint":::
 
 
 ## Test your application
