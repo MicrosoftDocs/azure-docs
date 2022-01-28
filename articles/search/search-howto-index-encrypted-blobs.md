@@ -30,17 +30,20 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 ## Prerequisites
 
++ [Azure Cognitive Search](search-create-service-portal.md) on any tier or region.
+
 + [Azure Storage](https://azure.microsoft.com/services/storage/), Standard performance (general-purpose v2)
 
 + Blobs encrypted with a customer-managed key. See [Tutorial: Encrypt and decrypt blobs using Azure Key Vault](../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md) if you need to create sample data.
 
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) in the same subscription as Azure Cognitive Search. The key vault must have **soft-delete** and **purge protection** enabled.
 
-+ [Azure Cognitive Search](search-create-service-portal.md) on a free tier if the blob count is under 20, otherwise use a [billable tier](search-sku-tier.md#tier-descriptions) (Basic or above, in any region).
-
-+ [Azure Function](https://azure.microsoft.com/services/functions/)
-
 + [Postman desktop app](https://www.getpostman.com/)
+
+Custom skill deployment creates an Azure Function app and an Azure Storage account. Since these resources are created for you, they aren't listed as a prerequisite. When you're finished with this tutorial, remember to clean up the resources so that you aren't billed for services you're not using.
+
+> [!NOTE]
+> Skillsets often require [attaching a Cognitive Services resource](cognitive-search-attach-cognitive-services.md). As written, this skillset has no dependency on Cognitive Services and thus no key is required. If you later add enrichments that invoke built-in skills, remember to update your skillset accordingly.
 
 ## 1 - Create services and collect credentials
 
@@ -93,18 +96,6 @@ You should have an Azure Function app that contains the decryption logic and an 
 1. Get the host key code, which can be found by navigating to **App keys**, clicking to show the **default** key, and copying the value.
 
     :::image type="content" source="media/indexing-encrypted-blob-files/function-host-key.png" alt-text="Screenshot of the App Keys page of the Azure Function app." border="true":::
-
-<!-- ### Cognitive Services
-
-AI enrichment and skillset execution are backed by Cognitive Services, including Language service and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
-
-For this exercise, however, you can skip resource provisioning because Azure Cognitive Search can connect to Cognitive Services behind the scenes and give you 20 free transactions per indexer run. After it processes 20 documents, the indexer will fail unless a Cognitive Services key is attached to the skillset. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md). Note that a Cognitive Services key is required to run a skillset with more than 20 documents even if none of your selected cognitive skills connect to Cognitive Services (such as with the provided skillset if no skills are added to it). -->
-
-<!-- ### Azure Cognitive Search
-
-The last component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier for this tutorial. 
-
-As with the Azure Function, take a moment to collect the admin key. Further on, when you begin structuring requests, you will need to provide the endpoint and admin api-key used to authenticate each request. -->
 
 ### Get an admin api-key and URL for Azure Cognitive Search
 
@@ -175,6 +166,12 @@ If you are using the Free tier, the following message is expected: `"Could not e
 ## 4 - Search
 
 After indexer execution is finished, you can run some queries to verify that the data has been successfully decrypted and indexed. Navigate to your Azure Cognitive Search service in the portal, and use the [search explorer](search-explorer.md) to run queries over the indexed data.
+
+## Clean up resources
+
+When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the All resources or Resource groups link in the left-navigation pane.
 
 ## Next steps
 
