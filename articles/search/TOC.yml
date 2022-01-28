@@ -357,7 +357,7 @@
           href: search-howto-index-cosmosdb.md
         - name: Gremlin API
           href: search-howto-index-cosmosdb-gremlin.md
-      - name: Azure MySQL
+      - name: Azure DB for MySQL
         href: search-howto-index-mysql.md
       - name: Azure SQL
         items:
