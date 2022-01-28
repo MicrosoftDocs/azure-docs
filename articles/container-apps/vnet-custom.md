@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  how-to
-ms.date: 1/24/2021
+ms.date: 1/28/2021
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -32,7 +32,7 @@ As a Container Apps environment is created, you provide resource IDs for two dif
 - **App subnet**: Subnet for user app containers. Subnet that contains IP ranges mapped to applications deployed as containers.
 - **Control plane subnet**: Subnet for [control plane infrastructure](/azure/azure-resource-manager/management/control-plane-and-data-plane) components and user app containers.
 
-If the [platformReservedCidr](#optional-networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
+If the [platformReservedCidr](#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
 
 ## Accessibility level
 
