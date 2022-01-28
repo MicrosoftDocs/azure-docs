@@ -7,23 +7,23 @@ ms.date: 01/25/2022
 ms.author: alexeyo
 ---
 
-### Use of Speech Studio
+## Use of Speech Studio
 
 [Speech Studio](../speech-studio-overview.md) is a set of UI-based tools for building and integrating features from Azure Cognitive Speech service in your applications. You normally use Speech Studio when working with features, like [Custom Speech](../custom-speech-overview.md), [Custom Voice](../how-to-custom-voice.md) and [Audio Content Creation](../how-to-audio-content-creation.md).
 
 When a user is working with Speech Studio, it performs background API calls on behalf of the user in the context of the Speech resource, that owns the Speech Studio project. Because of this, there are certain limitations on how you can use Speech Studio with the Speech resources, that have [private endpoints](../speech-services-private-link.md), [Virtual Network service endpoints](../speech-service-vnet-service-endpoint.md) or other Network security options enabled.
 
-#### Reaching Speech Studio UI from a Virtual network
+### Reaching Speech Studio UI from a Virtual network
 
 If you want to use Speech Studio UI (that is to reach Speech Studio web site with a browser) from a virtual machine within an Azure Virtual network, be sure you allow outgoing connections to the required set of [Service tags](../../../virtual-network/service-tags-overview.md) for this virtual network. See details [here](../../cognitive-services-virtual-networks.md#supported-regions-and-service-offerings). 
 
 Access to the Speech resource endpoint is *not* equal to access to Speech Studio UI. Access to Speech Studio UI via private or Virtual Network service endpoints is not supported.
 
-#### Working with Speech Studio projects
+### Working with Speech Studio projects
 
 This section describes working with the different kind of Speech Studio projects for the different network security options of the Speech resource. It's expected that the web browser connection to Speech Studio is established.
 
-**Custom Speech**
+#### Custom Speech
 
 The following table describes the Custom Speech project accessibility in different scenarios. Speech resource network security settings are set in Azure portal, using **Networking** property, that is in **Resource Management** group of the Speech resource properties. See also the additional note, that follows the table.
 
@@ -42,7 +42,7 @@ Note, that all Custom Speech operations, which you can do with the Speech Studio
 
 Alternatively, you may create two Speech resources: Production and Development. Set more relaxed network security rules on the Development resource to allow the comfortable usage of the Speech Studio and prepare your custom model. When you are satisfied with the model state, copy it to Production resource using [Copy Model](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) REST Request from [Speech-to-text REST API v3.0](../rest-speech-to-text.md#speech-to-text-rest-api-v30). This way you can ensure your Production Speech resource network settings are always set to the required security level.
 
-**Custom Voice. Audio Content Creation**
+#### Custom Voice. Audio Content Creation
 
 Custom Voice and Audio Content Creation allow the access to the related Speech Studio project only when the correspondent Speech resource network security setting is set to *All networks*. Network security settings are set in Azure portal, using **Networking** property, that is in **Resource Management** group of the Speech resource properties. 
 
