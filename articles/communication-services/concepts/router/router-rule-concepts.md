@@ -29,7 +29,7 @@ Depending on where you apply rules in Job Router, the result can vary. For examp
 
 The following rule engine types exist in Job Router to provide flexibility in how your Jobs are processed.
 
-**Static rule -** Used specify a static value such as selecting a specific Queue ID.
+**Static rule -** Used to specify a static value such as selecting a specific Queue ID.
 
 **Expression rule -** Uses the [PowerFx](https://powerapps.microsoft.com/en-us/blog/what-is-microsoft-power-fx/) language to define your rule as an inline expression.
 
