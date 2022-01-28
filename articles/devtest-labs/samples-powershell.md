@@ -21,7 +21,7 @@ This article includes the following samples:
 | [Add marketplace images to a lab](#add-a-marketplace-image-to-a-lab) | This PowerShell script adds marketplace images to a lab in Azure DevTest Labs. |
 | [Create a custom image from a virtual hard drive (VHD)](#create-a-custom-image-from-a-vhd-file) | This PowerShell script creates a custom image in a lab in Azure DevTest Labs. |
 | [Create a custom role in a lab](#create-a-custom-role-in-a-lab) | This PowerShell script creates a custom role in a lab in Azure Lab Services. |
-| [Set allowed VM sizes in a lab](#set-allowed-virtual-machine-sizes) | This PowerShell script sets allowed virtual machine sizes in a lab. |
+| [Set allowed virtual machine sizes in a lab](#set-allowed-virtual-machine-sizes) | This PowerShell script sets allowed virtual machine sizes in a lab. |
 
 ## Prerequisites
 
@@ -86,7 +86,7 @@ This script uses the following commands:
 
 ## Set allowed virtual machine sizes
 
-This sample PowerShell script sets allowed virtual machine (VM) sizes in Azure Lab Services.
+This sample PowerShell script sets allowed virtual machine sizes in Azure Lab Services.
 
 :::code language="powershell" source="../../powershell_scripts/devtest-lab/set-allowed-vm-sizes-in-lab/set-allowed-vm-sizes-in-lab.ps1":::
 
@@ -98,4 +98,4 @@ This sample PowerShell script sets allowed virtual machine (VM) sizes in Azure L
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
+For more information on Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
