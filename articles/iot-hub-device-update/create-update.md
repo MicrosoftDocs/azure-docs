@@ -1,0 +1,68 @@
+---
+title: How to prepare an update to be imported into Azure Device Update for IoT Hub | Microsoft Docs
+description: How-To guide for preparing to import a new update into Azure Device Update for IoT Hub.
+author: andrewbrownmsft
+ms.author: andbrown
+ms.date: 1/28/2022
+ms.topic: how-to
+ms.service: iot-hub-device-update
+---
+
+# Prepare an update to import into Device Update for IoT Hub
+
+Learn how to obtain a new update and prepare the update for importing into Device Update for IoT Hub.
+
+## Prerequisites
+
+* [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md).
+* An IoT device (or simulator) [provisioned for Device Update](device-update-agent-provisioning.md) within IoT Hub.
+* [PowerShell 5](/powershell/scripting/install/installing-powershell) or later (includes Linux, macOS, and Windows installs)
+* Supported browsers:
+  * [Microsoft Edge](https://www.microsoft.com/edge)
+  * Google Chrome
+
+## Obtain an update for your devices
+
+Now that you've set up Device Update and provisioned your devices, you'll need the update file(s) that you'll be deploying to those devices.
+
+* If you’ve purchased devices from an Original Equipment Manufacturer (OEM) or solution integrator, that organization will most likely provide update files for you, without you needing to create the updates. Contact the OEM or solution integrator to find out how they make updates available.
+
+* If your organization already creates software for the devices you use, that same group will be the ones to create the updates for that software.
+
+When creating an update to be deployed using Device Update for IoT Hub, start with either the [image-based or package-based approach](understand-device-update.md#support-for-a-wide-range-of-update-artifacts) depending on your scenario.
+
+## Create a Device Update import manifest
+
+Once you have your update files, create an import manifest to describe the update. If you haven't already done so, be sure to familiarize yourself with the basic [import concepts](import-concepts.md). While it is possible to author an import manifest JSON manually using a text editor, this guide will use PowerShell as example.
+
+> [!TIP]
+> Try the [image-based](device-update-raspberry-pi.md), [package-based](device-update-ubuntu-agent.md), or [proxy update](device-update-howto-proxy-updates.md) tutorials if you haven't already done so. You can also just view sample import manifest files from those tutorials for reference.
+
+1. [Clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) `Azure/iot-hub-device-update` [Git repository](https://github.com/Azure/iot-hub-device-update).
+
+2. Navigate to `Tools/AduCmdlets` in your local clone from PowerShell.
+
+3. Run the following commands after replacing the sample parameter values with your own. See [Import schema and API information](import-schema.md) for details on what values you can use. In particular, be aware that the same exact set of compatibility properties cannot be used with more than one Provider and Name combination.
+
+    ```powershell
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+
+    Import-Module ./AduUpdate.psm1
+
+    $updateId = New-AduUpdateId -Provider Contoso -Name Toaster -Version 1.0
+
+    $compat = New-AduUpdateCompatibility -Properties @{ deviceManufacturer = 'Contoso'; deviceModel = 'Toaster' }
+
+    $installStep = New-AduInstallationStep -Handler 'microsoft/swupdate:1'-HandlerProperties @{ installedCriteria = '1.0' } -Files 'path to your update file'
+
+    $update = New-AduImportManifest -UpdateId $updateId -Compatibility $compat -InstallationSteps $installStep
+
+    # Write the import manifest to a file, ideally next to the update file(s).
+    $update | Out-File "./$($updateId.provider).$($updateId.name).$($updateId.version).importmanifest.json" -Encoding utf8
+    ```
+
+
+## Next steps
+
+* [Import an update](import-update.md)
+* [Learn about import concepts](import-concepts.md)

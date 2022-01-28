@@ -68,6 +68,8 @@ items:
     href: create-device-update-account.md
   - name: Provisioning device update agent
     href: device-update-agent-provisioning.md
+  - name: Create an update
+    href: create-update.md
   - name: Import an update
     href: import-update.md
   - name: Create a device update group

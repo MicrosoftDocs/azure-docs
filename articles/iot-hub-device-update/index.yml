@@ -29,7 +29,9 @@ landingContent:
             url: create-device-update-account.md
           - text: Provisioning Device Update Agent
             url: device-update-agent-provisioning.md
-          - text: Add an update
+          - text: Create an update
+            url: create-update.md 
+          - text: Import an update
             url: import-update.md
           - text: Create an update group
             url: create-update-group.md

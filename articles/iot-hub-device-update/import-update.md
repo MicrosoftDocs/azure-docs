@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
 
-# Add an update to Device Update for IoT Hub
+# Import an update to Device Update for IoT Hub
 
 Learn how to obtain a new update and import it into Device Update for IoT Hub.
 
@@ -118,7 +118,7 @@ Once you have your update files, create an import manifest to describe the updat
 
 ## If you're importing via APIs instead
 
-In addition to using Azure Portal, you may also import an update programmatically by:
+In addition to using the Azure portal, you may also import an update programmatically by:
 * Using `Azure SDK` for [.NET](https://docs.microsoft.com/dotnet/api/azure.iot.deviceupdate), [Java](https://docs.microsoft.com/java/api/com.azure.iot.deviceupdate), [JavaScript](https://docs.microsoft.com/javascript/api/@azure/iot-device-update) or [Python](https://docs.microsoft.com/python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate)
 * Using [Import Update REST API](https://docs.microsoft.com/rest/api/deviceupdate/updates/import-update)
 * Using [sample PowerShell modules](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets)
