@@ -117,7 +117,7 @@ See the [ID token reference](id-tokens.md) for more details.
 
 ## Managed identities
 
-Eliminate the need for developers to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Azure AD authentication. Applications may use the managed identity to obtain Azure AD tokens. For example, an application may use a managed identity to access resources like Azure Key Vault where developers can store credentials in a secure manner or to access storage accounts. For more information, see [managed identities overview](/azure/active-directory/managed-identities-azure-resources/overview).
+Eliminate the need for developers to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Azure AD authentication. Applications may use the managed identity to obtain Azure AD tokens. For example, an application may use a managed identity to access resources like Azure Key Vault where developers can store credentials in a secure manner or to access storage accounts. For more information, see [managed identities overview](../managed-identities-azure-resources/overview.md).
 
 ## Microsoft identity platform
 

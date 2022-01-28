@@ -105,7 +105,11 @@ SFTP support in Azure Blob Storage currently limits its cryptographic algorithm 
 
 - Symbolic links are not supported.
 
-- PowerShell and Azure CLI and not supported. You can leverage Portal and ARM templates for Public Preview.
+- PowerShell and Azure CLI are not supported. You can leverage Portal and ARM templates for Public Preview.
+
+- `ssh-keyscan` is not supported.
+
+- SSH commands, that are not SFTP, are not supported.
 
 ## Troubleshooting
 

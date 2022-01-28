@@ -58,7 +58,7 @@ az sql mi-arc upgrade --name <instance name> --desired-version <version> --k8s-n
 Example:
 
 ````cli
-az sql mi-arc upgrade --name instance1 --target v1.0.0.20211028 --k8s-namespace arc1 --use-k8s
+az sql mi-arc upgrade --name instance1 --desired-version v1.0.0.20211028 --k8s-namespace arc1 --use-k8s
 ````
 
 ## Monitor

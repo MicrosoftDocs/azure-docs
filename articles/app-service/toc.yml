@@ -333,9 +333,9 @@
           href: webjobs-sdk-get-started.md
         - name: Use WebJobs SDK
           href: webjobs-sdk-how-to.md
-    - name: High availability
+    - name: Zone redundancy
       items:
-        - name: Configuring high availability
+        - name: Configuring zone redundancy
           href: how-to-zone-redundancy.md
     - name: Automate provisioning
       items:
@@ -391,7 +391,7 @@
         - name: Reference Architectures
           href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
         - name: Deployment Scripts
-          href: /azure/automation/automation-runbook-gallery
+          href: ../automation/automation-runbook-gallery.md
     - name: Troubleshooting
       items:
         - name: Troubleshoot intermittent outbound connection errors
