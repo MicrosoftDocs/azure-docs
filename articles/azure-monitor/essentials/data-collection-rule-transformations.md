@@ -315,4 +315,4 @@ print d=parse_json('{"a":123, "b":"hello", "c":[1,2,3], "d":{}}')
 
 ## Next steps
 
-- [Create a data collection rule](data-collection-rule-azure-monitor-agent.md) and an association to it from a virtual machine using the Azure Monitor agent.
+- [Create a data collection rule](../agents/data-collection-rule-azure-monitor-agent.md) and an association to it from a virtual machine using the Azure Monitor agent.

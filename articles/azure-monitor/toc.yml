@@ -94,11 +94,11 @@ items:
   - name: Data collection rules
     items: 
     - name: Agent
-      href: platform/dcr-sample-agent.md
+      href: essentials/dcr-sample-agent.md
     - name: Custom logs
-      href: platform/dcr-sample-custom-logs.md
+      href: essentials/dcr-sample-custom-logs.md
     - name: Default DCR
-      href: platform/dcr-sample-default.md
+      href: essentials/dcr-sample-default.md
   - name: Azure CLI
     href: cli-samples.md
   - name: Monitor Logs in Azure CLI
@@ -140,7 +140,7 @@ items:
       displayName: latency
       href: logs/data-ingestion-time.md
   - name: Data collection rules
-    href: platform/data-collection-rule-overview.md
+    href: essentials/data-collection-rule-overview.md
   - name: Direct ingestion
     href: logs/direct-ingestion-overview.md
   - name: Usage and cost
@@ -421,13 +421,13 @@ items:
     items:
     - name: Create
       displayName: Data collection rules
-      href: platform/data-collection-rule-create.md
+      href: essentials/data-collection-rule-create.md
     - name: Create and associate with agent
       displayName: Data collection rules
       href: agents/data-collection-rule-azure-monitor-agent.md
     - name: Transformations
       displayName: Data collection rules
-      href: platform/data-collection-rule-transformations.md
+      href: essentials/data-collection-rule-transformations.md
   - name: Agents
     items:
     - name: Overview

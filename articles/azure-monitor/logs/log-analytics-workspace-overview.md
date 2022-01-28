@@ -26,7 +26,7 @@ Log queries retrieve their data from a Log Analytics workspace. Each workspace c
 
 
 ## Cost
-There is no direct cost for creating or maintaining a workspace. You're charged for the data sent to it (data ingestion) and how long that data is stored (data retention). These costs may vary based on the data plan of each table as described in [Log data plans (preview)](#log-data-plans). 
+There is no direct cost for creating or maintaining a workspace. You're charged for the data sent to it (data ingestion) and how long that data is stored (data retention). These costs may vary based on the data plan of each table as described in [Log data plans (preview)](#log-data-plans-preview). 
 
 See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for detailed pricing and [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md) for guidance on reducing your costs. If you are using your Log Analytics workspace with services other than Azure Monitor, then see the documentation for those services for pricing information.
 

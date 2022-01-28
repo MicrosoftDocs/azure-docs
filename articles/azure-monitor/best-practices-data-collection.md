@@ -74,7 +74,7 @@ Azure Monitor monitors your custom applications using [Application Insights](app
 ### Create an application resource
 Application Insights is the feature of Azure Monitor for monitoring your cloud native and hybrid applications.
 
-You must create a resource in Application Insights for each application that you're going to monitor. Log data collected by Application Insights is stored in Azure Monitor Logs for a workspace-based application. Log data for classic applications is stored separate from your Log Analytics workspace as described in [Data structure](logs/data-platform-logs.md#data-structure).
+You must create a resource in Application Insights for each application that you're going to monitor. Log data collected by Application Insights is stored in Azure Monitor Logs for a workspace-based application. Log data for classic applications is stored separate from your Log Analytics workspace as described in [Data structure](logs/log-analytics-workspace-overview.md#data-structure).
 
  When you create the application, you must select whether to use classic or workspace-based. See [Create an Application Insights resource](app/create-new-resource.md) to create a classic application. 
 See [Workspace-based Application Insights resources (preview)](app/create-workspace-resource.md) to create a workspace-based application.

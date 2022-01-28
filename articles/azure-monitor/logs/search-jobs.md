@@ -20,7 +20,7 @@ Search jobs are one method that you can use to analyze Archived Logs and Basic L
 ## Basic operation
 A search job sends its results to a custom log table created in the same workspace as the source data. The results table is created as soon as the search job is started, and the first batch of results appear in the table at least 10 minutes after the job execution started. Additional data is ingested as its located by the query.
 
-This is an [Analytics Logs](log-analytics-workspace-overview.md#log-plans) table that is available for log queries or any other features of Azure Monitor that use tables in a workspace. The table uses the [retention value](data-retention-archive.md) set for the workspace, but you can modify this retention once the table is created.
+This is an [Analytics Logs](log-analytics-workspace-overview.md#log-data-plans-preview) table that is available for log queries or any other features of Azure Monitor that use tables in a workspace. The table uses the [retention value](data-retention-archive.md) set for the workspace, but you can modify this retention once the table is created.
 
  The search job execution is audited via the [activity log](../essentials/activity-log.md) as table write operation, and will not appear in [log query auditing](query-audit.md).  
 

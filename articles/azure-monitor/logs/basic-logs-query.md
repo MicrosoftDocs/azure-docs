@@ -85,6 +85,6 @@ https://api.loganalytics.io/v1/workspaces/testWS/search?timespan=P1D
 
 ## Next steps
 
-- [Learn more about Basic Logs and the different log plans.](log-analytics-workspace-overview.md#log-plans)
+- [Learn more about Basic Logs and the different log plans.](log-analytics-workspace-overview.md#log-data-plans-preview)
 - [Configure a table for Basic Logs.](basic-logs-configure.md)
 - [Use a search job to retrieve data from Basic Logs into Analytics Logs where it can be queries multiple times.](search-jobs.md)

@@ -14,9 +14,9 @@ Prior to the introduction of [workspace-based Application Insights resources](cr
 The structure of a Log Analytics workspace is described in [Log Analytics workspace overview](../logs/log-analytics-workspace-overview.md). For a classic application, the data is not stored in a Log Analytics workspace. It uses the same query language, and you create and run queries by using the same Log Analytics tool in the Azure portal. Data items for classic applications are stored separately from each other. The general structure is the same as for workspace-based applications, although the table and column names are different. 
 
 > [!NOTE]
-> The classic Application Insights experience includes backward compatibility for your resource queries, workbooks, and log-based alerts. To query or view against the [new workspace-based table structure or schema](../app/apm-tables.md), you must first go to your Log Analytics workspace. During the preview, selecting **Logs** from within the Application Insights panes will give you access to the classic Application Insights query experience. For more information, see [Query scope](./scope.md).
+> The classic Application Insights experience includes backward compatibility for your resource queries, workbooks, and log-based alerts. To query or view against the [new workspace-based table structure or schema](../app/apm-tables.md), you must first go to your Log Analytics workspace. During the preview, selecting **Logs** from within the Application Insights panes will give you access to the classic Application Insights query experience. For more information, see [Query scope](../logs/scope.md).
 
-[![Diagram that shows the Azure Monitor Logs structure for Application Insights.](../logs/media/data-platform-logs/logs-structure-ai.png)](media/data-platform-logs/logs-structure-ai.png#lightbox)
+[![Diagram that shows the Azure Monitor Logs structure for Application Insights.](../logs/media/data-platform-logs/logs-structure-ai.png)](../logs/media/data-platform-logs/logs-structure-ai.png#lightbox)
 
 ## Table structure
 
