@@ -34,18 +34,22 @@ Add the role [Storage Blob Data Contributor](../../role-based-access-control/bui
 
 Now you're ready to select the storage account in the FHIR service as a default storage account for import.
 
-## Specify the import storage account for the FHIR service
+## Set import configuration of the FHIR service
 
-The final step is to assign the Azure storage account that the FHIR service will use to import the data from.
+The final step is to set the import configuration of the FHIR service, which contains specify storage account, enable import and enable initial import mode.
 
 > [!NOTE]
 > If you haven't assigned storage access permissions to the FHIR service, the import operations ($import) will fail.
 
-To do this, you need to use [Rest Api](https://docs.microsoft.com/en-us/rest/api/healthcareapis/services/create-or-update) to update the fhir service. Firstly, click the **OverView** then **JsonView**:
+To specify the Azure Storage account, you need to use [Rest Api](https://docs.microsoft.com/en-us/rest/api/healthcareapis/services/create-or-update) to update the fhir service. Firstly, click the **OverView** then **JSON View**:
 
 [ ![Get Json View](media/bulk-import/fhir-json-view.png) ](media/bulk-import/fhir-json-view.png#lightbox)
 
-Copy the URL as target URL, add or change the integrationDataStore valued the import sotrage account name as body, then send the request to update.
+- Copy the URL as request URL.
+- Set enabled in importConfiguration to **true**
+- add or change the integrationDataStore with target storage account name 
+- Set initialImportMode in importConfiguration to **true**
+- Drop off provisioningState.
 
 [ ![Get Json View](media/bulk-import/importer-url-and-body.png) ](media/bulk-import/importer-url-and-body.png#lightbox)
 
