@@ -64,7 +64,6 @@ Use the following sample JSON as your body.
         "multilingual": true,
         "language": "en-us",
         "settings": {
-            "confidenceThreshold": 0.7
         }
     },
     "assets": {
@@ -81,22 +80,13 @@ Use the following sample JSON as your body.
         ],
         "entities": [
             {
-                "name": "Sender",
-                "compositionSetting": "ReturnLongestOverlap",
-                "list": null,
-                "prebuiltEntities": null
+                "name": "Sender"
             },
             {
-                "name": "FileName",
-                "compositionSetting": "ReturnLongestOverlap",
-                "list": null,
-                "prebuiltEntities": null
+                "name": "FileName"
             },
             {
-                "name": "FileType",
-                "compositionSetting": "ReturnLongestOverlap",
-                "list": null,
-                "prebuiltEntities": null
+                "name": "FileType"
             }
         ],
         "examples": [
