@@ -6,7 +6,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 01/27/2022
 ms.author: abnarain 
 ms.custom: devx-track-azurepowershell, synapse
 ---
@@ -286,7 +286,18 @@ You can retrieve the managed identity from Azure portal or programmatically. The
 
 #### Retrieve system-assigned managed identity using Azure portal
 
+# [Azure Data Factory](#tab/data-factory)
 You can find the managed identity information from Azure portal -> your data factory or Synapse workspace -> Properties.
+
+:::image type="content" source="media/data-factory-service-identity/system-managed-identity-in-portal.png" alt-text="Shows the Azure portal with the system managed identity object ID and Identity Tenant for an Azure Data Factory.":::
+
+# [Synapse Analytics](#tab/synapse-analytics)
+
+You can find the managed identity information from Azure portal -> your data factory or Synapse workspace -> Properties.
+
+:::image type="content" source="media/data-factory-service-identity/system-managed-identity-in-portal-synapse.png" alt-text="Shows the Azure portal with the system managed identity object ID for a Synapse workspace.":::
+
+---
 
 - Managed Identity Object ID
 - Managed Identity Tenant (only applicable for Azure Data Factory)
