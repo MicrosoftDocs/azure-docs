@@ -343,10 +343,57 @@ In this function, the value of the `name` query parameter is obtained from the `
 
 Likewise, you can set the `status_code` and `headers` for the response message in the returned [HttpResponse] object.
 
-### Using Flask
+### Using WSGI and ASGI-compatible frameworks
+You can also leverage the WSGI and ASGI framework such as Flask and FastAPI.
 
+First, function.json and host.json need to be modified.
 
-You can also leverage the Flask framework.
+Function.json should be updated to include `route`.
+```python
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "route": "test",
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
+```
+
+Host.json needs to be updated to include `routePrefix`.
+```python
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    },
+    "extensions": { "http": { "routePrefix": "" }}
+  },
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[2.*, 3.0.0)"
+  }
+}
+```
+
+In the file, `init.py`, the changes should be made based on the approach.
 
 ASGI, Handler Approach
 ```python
@@ -354,11 +401,11 @@ app=Flask("Test")
 
 @app.route("/api/HandleApproach")
 def test():
-    return "Hello!"
+  return "Hello!"
 
 def main(req: func.HttpRequest, context) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
-    return func.AsgiMiddleware(app).handle(req, context)
+  logging.info('Python HTTP trigger function processed a request.')
+  return func.AsgiMiddleware(app).handle(req, context)
 ```
 
 WSGI, Wrapper Approach
@@ -367,11 +414,11 @@ app=Flask("Test")
 
 @app.route("/api/WrapperApproach")
 def test():
-    return "Hello!" 
+  return "Hello!"
 
 def main(req: func.HttpRequest, context) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
-    return func.WsgiMiddleware(app).handle(req, context)
+  logging.info('Python HTTP trigger function processed a request.')
+  return func.WsgiMiddleware(app).handle(req, context)
 ```
 
 ## Scaling and Performance
