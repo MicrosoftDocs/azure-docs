@@ -346,8 +346,6 @@ Likewise, you can set the `status_code` and `headers` for the response message i
 ### Using WSGI and ASGI-compatible frameworks
 You can also leverage the WSGI and ASGI framework such as Flask and FastAPI.
 
-First, function.json and host.json need to be modified.
-
 Function.json should be updated to include `route`.
 ```python
 {
