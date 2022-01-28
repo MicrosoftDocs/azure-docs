@@ -2,7 +2,7 @@
 title: Concepts - Identity and access
 description: Learn about the identity and access concepts of Azure VMware Solution
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 01/31/2022
 ---
 
 # Azure VMware Solution identity concepts
@@ -100,7 +100,7 @@ You're responsible for NSX-T SDN configuration, for example:
 - Stateful services like gateway firewall 
 - Load balancer on Tier-1 gateways 
 
-Users can access NSX-T Manager using the built-in local user "admin" assigned to **Enterprise admin** role that gives full privileges to a user to manage NSX-T. While Microsoft manages the lifecycle of NSX-T, certain operations aren't allowed by a user. For example, editing the configuration of host and edge transport nodes or start an upgrade. For new users, Azure VMware Solution deploys them with a specific set of permissions needed by that user. The purpose is to provide a clear separation of control between the Azure VMware Solution control plane configuration and Azure VMware Solution private cloud user.  
+You can access NSX-T Manager using the built-in local user "admin" assigned to **Enterprise admin** role that gives full privileges to a user to manage NSX-T. While Microsoft manages the lifecycle of NSX-T, certain operations aren't allowed by a user. Operations not allowed include, editing the configuration of host and edge transport nodes or start an upgrade. For new users, Azure VMware Solution deploys them with a specific set of permissions needed by that user. The purpose is to provide a clear separation of control between the Azure VMware Solution control plane configuration and Azure VMware Solution private cloud user.  
 
 For new private cloud deployments starting **January 2022**, NSX-T access will be provided with a built-in local user cloud admin assigned to the **CloudAdmin** role with a specific set of permissions to use NSX-T functionality for workloads. You can add an identity source, like on-premises LDAP server, and assign AD users and groups to the **CloudAdmin** role in NSX-T. 
 
