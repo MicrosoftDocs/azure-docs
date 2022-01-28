@@ -21,7 +21,7 @@ You can view replication status on the source volume or the destination volume. 
 
 ## Display replication status
 
-1. From either the source volume or the destination volume, click **Replication** under Storage Service for either volume.
+1. From either the source volume or the destination volume, select **Replication** under Storage Service for either volume.
 
     The following information about replication status and health is displayed:  
     * **End point type** – Identifies whether the volume is the source or destination of replication.
@@ -52,8 +52,8 @@ You can view replication status on the source volume or the destination volume. 
 Follow the following steps to create [alert rules in Azure Monitor](../azure-monitor/alerts/alerts-overview.md) to help you monitor the status of cross-region replication:
 
 1.	From Azure Monitor, select **Alerts**.
-2.	From the Alerts window, click the **Create** dropdown and select **Create new alert rule**.
-3.	From the Scope tab of the Create an Alert Rule page, click **Select scope**. The **Select a Resource** page appears.  
+2.	From the Alerts window, select the **Create** dropdown and select **Create new alert rule**.
+3.	From the Scope tab of the Create an Alert Rule page, select **Select scope**. The **Select a Resource** page appears.  
 4.	From the Resource tab, find the **Volumes** resource type.
 5.	From the Condition tab, select **“Add condition**”. From there, find a signal called “**is volume replication healthy**”.
 6.	There you'll see “**Condition of the relationship, 1 or 0**” and the **Configure Signal Logic** window is displayed.
@@ -67,7 +67,7 @@ Follow the following steps to create [alert rules in Azure Monitor](../azure-mon
     1. Set **Aggregation** type to `Average`.
     1. Set **Threshold** value to `1`. 
     1. Set **Unit** to `Count`.
-9.	 Click **Review + create**. The alert rule is ready for use. 
+9.	 Select **Review + create**. The alert rule is ready for use. 
 
 :::image type="content" source="../media/azure-netapp-files/alert-config-signal-logic.png" alt-text="Azure interface showing the configure signal logic step with a backdrop of the Create alert rule page":::
 
