@@ -19,7 +19,7 @@ Azure Bastion offers support for file transfer between your target VM and local 
 
 ## Upload or download files - RDP
 
-This section helps you transfer files between your local Windows workstation and your target VM over RDP. Once connected to the target VM, you can transfer files using right-click, then **Copy** and **Paste**.
+This section helps you transfer files between your local Windows computer and your target VM over RDP. Once connected to the target VM, you can transfer files using right-click, then **Copy** and **Paste**.
 
 1. Sign in to your Azure account and select your subscription containing your Bastion resource.
 
@@ -35,11 +35,11 @@ This section helps you transfer files between your local Windows workstation and
     az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>"
     ```
 
-1. Once you sign in to your target VM, the native client on your workstation will open up with your VM session. You can now transfer files between your VM and local machine using right-click, then **Copy** and **Paste**.
+1. Once you sign in to your target VM, the native client on your computer will open up with your VM session. You can now transfer files between your VM and local machine using right-click, then **Copy** and **Paste**.
 
 ## Upload files - SSH
 
-This section helps you upload files from your local workstation to your target VM over SSH using the *az network bastion tunnel* command. To learn more about the tunnel command, refer to [Connect to a VM using the *az network bastion tunnel* command](connect-native-client-windows.md#connect-tunnel).
+This section helps you upload files from your local computer to your target VM over SSH using the *az network bastion tunnel* command. To learn more about the tunnel command, refer to [Connect to a VM using the *az network bastion tunnel* command](connect-native-client-windows.md#connect-tunnel).
 
 > [!NOTE]
 > File download over SSH is not currently supported.
@@ -65,7 +65,7 @@ This section helps you upload files from your local workstation to your target V
     scp -P <LocalMachinePort>  <local machine file path>  <username>@127.0.0.1:<target VM file path>
     ```
 
-1. Connect to your target VM using SSH, the native client of your choice, and the local machine port you specified in Step 3. For example, you can use the following command if you have the OpenSSH client installed on your local workstation:
+1. Connect to your target VM using SSH, the native client of your choice, and the local machine port you specified in Step 3. For example, you can use the following command if you have the OpenSSH client installed on your local computer:
 
     ```azurecli-interactive
     ssh <username>@127.0.0.1 -p <LocalMachinePort>
@@ -73,4 +73,4 @@ This section helps you upload files from your local workstation to your target V
 
 ## Next steps
 
-- Read the [Bastion FAQ](bastion-faq.md).
+- Read the [Bastion FAQ](bastion-faq.md) 
