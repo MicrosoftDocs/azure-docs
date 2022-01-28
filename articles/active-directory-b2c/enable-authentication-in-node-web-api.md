@@ -198,7 +198,6 @@ Now that the web API is [registered and you've defined its scopes](#register-the
     - For `tenantName`, use the [name of your tenant name](tenant-management.md#get-your-tenant-name) such as `fabrikamb2c`.
     - For `clientID`, use the **Application (Client) ID** for [the web API](#register-the-web-api-and-configure-scopes-in-azure-portal) you created earlier. 
     - For `policyName`, use the name of the **Sing in and sign up** [user flow you created](#create-sign-in-and-sign-up-user-flows-in-azure-portal) earlier, such as `B2C_1_susi_node_app`.
-    - For `scope`
    
    After the update, your code should look similar to the following sample: 
     
