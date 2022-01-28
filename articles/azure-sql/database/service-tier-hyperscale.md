@@ -100,9 +100,9 @@ The vCore-based service tiers are differentiated based on database availability 
 |**Backups** | A choice of geo-redundant, zone-redundant <sup>2</sup> , or locally-redundant<sup>2</sup> backup storage, 1-35 day retention (default 7 days) | A choice of geo-redundant, zone-redundant <sup>3</sup>, or locally-redundant<sup>3</sup> backup storage, 7 day retention. | A choice of geo-redundant,zone-redundant<sup>2</sup>, or locally-redundant<sup>2</sup> backup storage, 1-35 day retention (default 7 days) |
 ||||
 
-<sup>1</sup> Elastic pools are not supported in the Hyperscale service tier
-<sup>2</sup> In preview
-<sup>3</sup> In preview, for new Hyperscale databases only
+<sup>1</sup> Elastic pools are not supported in the Hyperscale service tier   
+<sup>2</sup> In preview   
+<sup>3</sup> In preview, for new Hyperscale databases only   
 
 ## Distributed functions architecture
 
