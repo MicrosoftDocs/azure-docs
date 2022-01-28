@@ -25,7 +25,7 @@ The following tables can currently be configured as Basic Logs.
 - [AppTraces](/azure/azure-monitor/reference/tables/apptraces), which contains freeform log records for application traces in Application Insights.
 
 ## Existing data
-Retention for tables configured for Basic Logs is essentials/ays. If you have existing data over 8 days old in a table that you configure for Basic Logs, that data will be moved to [Archived Logs](archived-logs-overview.md).
+Retention for tables configured for Basic Logs is essentials/ays. If you have existing data over 8 days old in a table that you configure for Basic Logs, that data will be moved to [Archived Logs](data-retention-archive.md).
 
 
 ## Configure with REST API
