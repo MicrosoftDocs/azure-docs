@@ -82,7 +82,7 @@ In this article, you'll:
 
 [Add](add-api-manually.md#add-and-test-an-operation) the following three operations to the API that you imported.
 
-1. `GET /$metadata`
+- `GET /$metadata`
 
     |Operation  |Description  |Further configuration for operation  |
     |---------|---------|---------|
@@ -90,7 +90,7 @@ In this article, you'll:
 
     :::image type="content" source="media/sap-api/get-metadata-operation.png" alt-text="Get metadata operation":::
 
-1. `HEAD /` 
+- `HEAD /` 
 
     |Operation  |Description  |Further configuration for operation  |
     |---------|---------|---------|
@@ -98,7 +98,7 @@ In this article, you'll:
 
     :::image type="content" source="media/sap-api/head-root-operation.png" alt-text="Operation to fetch tokens":::
 
-1. `GET /`
+- `GET /`
 
     Operation  |Description  |Further configuration for operation  |
     |---------|---------|---------|
