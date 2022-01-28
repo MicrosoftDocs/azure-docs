@@ -116,7 +116,7 @@ To use API portal, follow these steps to assign a public endpoint to the API por
 
    Select the assigned endpoint URL to go to API portal. You can see all the routes configured in Spring Cloud Gateway.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/api-portal-portal.png" alt-text="Screenshot of the API portal showing configured routes.":::
+   :::image type="content" source="media/enterprise/getting-started-enterprise/api-portal.png" alt-text="Screenshot of the API portal showing configured routes.":::
 
 1. Try out APIs through the API portal.
 

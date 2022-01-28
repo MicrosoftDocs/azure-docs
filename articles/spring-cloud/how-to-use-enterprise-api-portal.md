@@ -73,7 +73,7 @@ az spring-cloud api-portal update --assign-endpoint
 
 Select the `endpoint URL` to go to API portal. You will see all the routes configured in Spring Cloud Gateway.
 
-:::image type="content" source="media/enterprise/getting-started-enterprise/api-portal-portal.png" alt-text="Screenshot of the API portal showing configured routes.":::
+:::image type="content" source="media/enterprise/getting-started-enterprise/api-portal.png" alt-text="Screenshot of the API portal showing configured routes.":::
 
 ## Try APIs using the API portal
 
