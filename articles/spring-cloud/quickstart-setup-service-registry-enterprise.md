@@ -28,24 +28,30 @@ This quickstart shows you how to set up Service Registry for use with Azure Spri
 
 ## Use Service Registry
 
+### [Portal](#tab/azure-portal)
+
 To use Service Registry, follow these steps:
-### Portal
+
 1. In the Azure portal, select **Service Registry**.
 1. Select **Overview** to view the running state and resources allocated to Service Registry.
 1. Select **App binding**, then select **Bind app**.
 1. Choose one app in the dropdown, and then select **Apply** to bind the application to Service Registry.
 
-   ![Service Registry bind an app dropdown](./media/enterprise/getting-started-enterprise/service-reg-app-bind-dropdown.png)
+   :::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind-dropdown.png" alt-text="Azure portal screenshot of Azure Spring Cloud with Service Registry page and 'Bind app' dialog showing.":::
 
 A list under **App name** shows the apps bound with Service Registry, as shown in the following screenshot:
 
-![Bound Service Registry application list example](./media/enterprise/getting-started-enterprise/service-reg-app-bind.png)
+:::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind.png" alt-text="Azure portal screenshot of Azure Spring Cloud with Service Registry page and 'App binding' section showing.":::
 
-### CLI
+### [Azure CLI](#tab/azure-cli)
+
 To use Service Registry with applications, use the following command:
-```
+
+```azurecli
 az spring-cloud service-registry bind --app <app-name>
 ```
+
+---
 
 ## Next steps
 

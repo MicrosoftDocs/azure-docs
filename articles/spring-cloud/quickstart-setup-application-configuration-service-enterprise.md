@@ -29,12 +29,13 @@ This quickstart shows you how to set up Application Configuration Service for us
 ## Use Application Configuration Service
 
 To use Application Configuration Service, follow these steps.
-### Portal
+
+### [Portal](#tab/azure-portal)
 
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service.
 
-   ![Application Configuration Service Overview screen](./media/enterprise/getting-started-enterprise/config-service-overview.png)
+   ![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and Overview section showing.](./media/enterprise/getting-started-enterprise/config-service-overview.png)
 
 1. Select **Settings** and add a new entry in the **Repositories** section with the following information:
 
@@ -45,33 +46,36 @@ To use Application Configuration Service, follow these steps.
 
 1. Select **Validate** to validate access to the target URI. After validation completes successfully, select **Apply** to update the configuration settings.
 
-   ![Application Configuration Service Settings overview](./media/enterprise/getting-started-enterprise/config-service-settings.png)
+   ![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and Settings section showing.](./media/enterprise/getting-started-enterprise/config-service-settings.png)
 
 1. Select **App binding**, then select **Bind app**.
 1. Choose one app in the dropdown and select **Apply** to bind the application to Application Configuration Service.
 
-   ![ACS Bind an app dropdown](./media/enterprise/getting-started-enterprise/config-service-app-bind-dropdown.png)
+   ![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and 'App binding' section with 'Bind app' dialog showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind-dropdown.png)
 
 A list under **App name** shows the apps bound with Application Configuration Service, as shown in the following screenshot:
 
-![Bound ACS application list example](./media/enterprise/getting-started-enterprise/config-service-app-bind.png)
+![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and 'App binding' section with app list showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind.png)
 
-### CLI
+### [Azure CLI](#tab/azure-cli)
 
-1. Run the following command to set the Default repository.
+1. To set the default repository, use the following command:
 
-```
-az spring-cloud application-configuration-service git repo add \
---name default \
---patterns api-gateway,customers-service \
---uri https://github.com/Azure-Samples/spring-petclinic-microservices-config.git \
---label master
-```
+   ```azurecli
+   az spring-cloud application-configuration-service git repo add \
+       --name default \
+       --patterns api-gateway,customers-service \
+       --uri https://github.com/Azure-Samples/spring-petclinic-microservices-config.git \
+       --label master
+   ```
 
-2. To use Application Configuration Service with applications, use this command:
-```
-az spring-cloud application-configuration-service bind --app <app-name>
-```
+1. To use Application Configuration Service with applications, use the following command:
+
+   ```azurecli
+   az spring-cloud application-configuration-service bind --app <app-name>
+   ```
+
+---
 
 ## Next steps
 

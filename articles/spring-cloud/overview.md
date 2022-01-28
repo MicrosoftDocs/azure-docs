@@ -51,6 +51,7 @@ As part of the Azure ecosystem, Azure Spring Cloud allows easy binding to other 
 * Azure Spring Cloud is enterprise ready with fully managed infrastructure, built-in lifecycle management, and ease of monitoring.
 
 ## Enterprise Tier overview
+
 Azure Spring Cloud Enterprise Tier (preview) is optimized for the needs of enterprise Spring developers through advanced configuration, flexibility, portability, and enterprise-ready VMware Spring Runtime 24x7 support. Developers also benefit from proprietary Tanzu components such as Tanzu Build Service and Spring Cloud Gateway, and access to Spring experts. Via this new tier offering, you can secure the following benefits:
 
 * All features available in Azure Spring Cloud standard tier are also offered in enterprise tier with enterprise grade quality. Enterprise Tier will keep feature parity with the standard tier.
@@ -65,7 +66,7 @@ Azure Spring Cloud Enterprise Tier (preview) is optimized for the needs of enter
    * Tanzu products on demand: you decide which Tanzu products to use for your enterprise tier instances based on your needs. 
    * Build service can be customized to create or configure builders with exclusive Tanzu APM integrations, such as Dynatrace, New Relic, AppDynamics, and more. You can also configure how many dedicated resources will be allocated to run build tasks.
    * Zero code changes to land your workloads into Azure Spring Cloud Enterprise Tier.
-For a detailed comparison of each tier with both pricing and features, please see [Azure Spring Cloud pricing](https://azure.microsoft.com/pricing/details/spring-cloud/).
+For a detailed comparison of each tier with both pricing and features, see [Azure Spring Cloud pricing](https://azure.microsoft.com/pricing/details/spring-cloud/).
 
 ## Documentation overview
 

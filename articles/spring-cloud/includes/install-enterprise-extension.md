@@ -17,6 +17,5 @@ The Azure Spring Cloud Enterprise tier extension (3.0.0 or later). Use the follo
 
    ```azurecli
    az extension remove --name spring-cloud
-   az extension add \
-       --name spring-cloud
+   az extension add --name spring-cloud
    ```
