@@ -12,7 +12,7 @@ ms.reviewer:
 --- 
 # Azure Synapse Dedicated SQL Pool connector for Apache Spark
 
-The Synapse Dedicated SQL Pool Connector is an API that efficiently moves data between [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview) and [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) in Azure Synapse Analytics.
+The Synapse Dedicated SQL Pool Connector is an API that efficiently moves data between [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview) and [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) in Azure Synapse Analytics. This connector is available in `Scala`.
 
 It uses Azure Storage and [PolyBase](/sql/relational-databases/polybase/polybase-guide) to transfer data in parallel and at scale.
 
@@ -75,7 +75,7 @@ See the [Scala API reference](https://synapsesql.blob.core.windows.net/docs/1.0.
   df.show
   ```
 
-* Although the API supports only Scala, we can interact with content from a `DataFrame` in PySpark by using [DataFrame.createOrReplaceTempView](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.createOrReplaceTempView.html#pyspark.sql.DataFrame.createOrReplaceTempView) or [DataFrame.createOrReplaceGlobalTempView](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.createOrReplaceGlobalTempView.html#pyspark.sql.DataFrame.createOrReplaceGlobalTempView).
+* We can use the `Scala` connector API to interact with content from a `DataFrame` in `PySpark` by using [DataFrame.createOrReplaceTempView](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.createOrReplaceTempView.html#pyspark.sql.DataFrame.createOrReplaceTempView) or [DataFrame.createOrReplaceGlobalTempView](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.createOrReplaceGlobalTempView.html#pyspark.sql.DataFrame.createOrReplaceGlobalTempView).
 
   ```py
   %%pyspark
