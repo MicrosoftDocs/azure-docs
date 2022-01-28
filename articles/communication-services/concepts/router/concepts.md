@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Job Router concepts
+# Job Router key concepts
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
@@ -20,53 +20,51 @@ Azure Communication Services Job Router solves the problem of matching supply wi
 
 A real-world example of this may be call center agents (supply) being matched to incoming support calls (demand).
 
-## Key Concepts
-
-### Job
+## Job
 
 A Job represents a unit of work (demand), which needs to be routed to an available Worker (supply).
 
 A real-world example of this may be an incoming call or chat in the context of a call center.
 
-#### Job submission flow
+### Job submission flow
 
 1. Your application submits a Job via the Job Router SDK.
 2. The Job is classified and a [JobClassified Event][job_classified_event] is sent via EventGrid, which includes all the information about the Job and how the classification process may have modified its properties.
  
     :::image type="content" source="../media/router/acs-router-job-submission.png" alt-text="Diagram showing Communication Services' Job Router submitting a job.":::
 
-### Worker
+## Worker
 
 A Worker represents the supply available to handle a Job. Each worker registers with one or more queues to receive jobs.
 
 A real-world example of this may be an agent working in a call center.
 
-#### Worker registration flow
+### Worker registration flow
 
 1. When your Worker is ready to take on work, you can register the worker via the Job Router SDK.
 2. Job Router then sends a [WorkerRegistered Event][worker_registered_event]
 
     :::image type="content" source="../media/router/acs-router-worker-registration.png" alt-text="Diagram showing Communication Services' Job Router worker registration.":::
 
-### Queue
+## Queue
 
 A Queue represents an ordered list of jobs waiting to be served by a worker.  Workers will register with a queue to receive work from it.
 
 A real-world example of this may be a call queue in a call center.
 
-### Channel
+## Channel
 
 A Channel represents a grouping of jobs by some type.  When a worker registers to receive work, they must also specify for which channels they can handle work, and how much of each can they handle concurrently.  Channels are just a string discriminator and aren't explicitly created.
 
 A real-world example of this may be `voice calls` or `chats` in a call center.
 
-### Offer
+## Offer
 
 An Offer is extended by JobRouter to a worker to handle a particular job when it determines a match.  When this happens, you'll be notified via [EventGrid][subscribe_events].  You can either accept or decline the offer using the JobRouter SDK, or it will expire according to the time to live configured on the Distribution Policy.
 
 A real-world example of this may be the ringing of an agent in a call center.
 
-#### Offer flow
+### Offer flow
 
 1. When Job Router finds a matching Worker for a Job, it offers the work by sending a [OfferIssued Event][offer_issued_event] via EventGrid.
 2. The Offer is accepted via the Job Router API.
@@ -74,7 +72,7 @@ A real-world example of this may be the ringing of an agent in a call center.
 
     :::image type="content" source="../media/router/acs-router-accept-offer.png" alt-text="Diagram showing Communication Services' Job Router accept offer.":::
 
-### Distribution Policy
+## Distribution Policy
 
 A Distribution Policy represents a configuration set that controls how jobs in a queue are distributed to workers registered with that queue.
 This configuration includes:
@@ -83,7 +81,7 @@ This configuration includes:
 - The distribution mode, which define the order in which workers are picked when there are multiple available.
 - How many concurrent offers can there be for a given job.
 
-#### Distribution Modes
+### Distribution modes
 
 The 3 types of modes are
 
@@ -91,23 +89,23 @@ The 3 types of modes are
 - **Longest Idle**: The worker that has not been working on a job for the longest.
 - **Best Worker**: The workers that are best able to handle the job will be picked first.  The logic to determine this can be optionally customized by specifying an expression or azure function to compare 2 workers and determine which one to pick.
 
-### Labels
+## Labels
 
 You can attach labels to workers, jobs, and queues.  These are key value pairs that can be of `string`, `number` or `boolean` data types.
 
 A real-world example of this may be the skill level of a particular worker or the team or geographic location.
 
-### Label Selectors
+## Label selectors
 
 Label selectors can be attached to a job in order to target a subset of workers serving the queue.
 
 A real-world example of this may be a condition on an incoming call that the agent must have a minimum level of knowledge of a particular product.
 
-### Classification policy
+## Classification policy
 
 A classification policy can be used to dynamically select a queue, determine job priority and attach worker label selectors to a job by leveraging a rules engine.
 
-### Exception policy
+## Exception policy
 
 An exception policy controls the behavior of a Job based on a trigger and executes a desired action. The exception policy is attached to a Queue so it can control the behavior of Jobs in the Queue.
 

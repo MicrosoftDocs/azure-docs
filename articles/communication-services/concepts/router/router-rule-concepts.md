@@ -1,5 +1,5 @@
 ---
-title: Job Router Rule Engines
+title: Job Router rule engines
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the Azure Communication Services Job Router rules engine concepts.
 author: jasonshave
@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp
 ---
 
-# Job Router Rule Engines
+# Job Router rule engines
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 

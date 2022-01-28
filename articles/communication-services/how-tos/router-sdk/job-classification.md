@@ -25,7 +25,7 @@ Learn to use a classification policy in Job Router to dynamically resolve the qu
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - Optional: Complete the quickstart to [get started with Job Router](../../quickstarts/router/get-started-router.md)
 
-### Create a classification policy
+## Create a classification policy
 
 The following example will leverage [PowerFx Expressions](https://powerapps.microsoft.com/en-us/blog/what-is-microsoft-power-fx/) to select both the queue and priority. The expression will attempt to match the Job label called `Region` equal to `NA` resulting in the Job being put in the `XBOX_NA_QUEUE` if found, otherwise the `XBOX_DEFAULT_QUEUE`.  If the `XBOX_DEFAULT_QUEUE` was also not found, then the job will automatically be sent to the fallback queue `DEFAULT_QUEUE` as defined by `fallbackQueueId`.  Additionally, the priority will be `10` if a label called `Hardware_VIP` was matched, otherwise it will be `1`.
 
@@ -66,7 +66,7 @@ await client.upsertClassificationPolicy({
 
 ::: zone-end
 
-### Submit the job
+## Submit the job
 
 The following example will cause the classification policy to evaluate the Job labels. The outcome will place the Job in the queue called `XBOX_NA_QUEUE` and set the priority to `1`.
 
@@ -107,11 +107,11 @@ await client.createJob({
 
 ::: zone-end
 
-### Attaching Worker Selectors
+## Attaching Worker Selectors
 
 You can use the classification policy to attach additional worker selectors to a job.
 
-#### Static Attachments
+### Static Attachments
 
 In this example, we are using a static attachment, which will always attach the specified label selector to a job.
 
@@ -147,7 +147,7 @@ await client.upsertClassificationPolicy(
 
 ::: zone-end
 
-#### Conditional Attachments
+### Conditional Attachments
 
 In this example, we are using a conditional attachment, which will evaluate a condition against the job labels to determine if the said label selectors should be attached to the job.
 
@@ -192,7 +192,7 @@ await client.upsertClassificationPolicy(
 
 ::: zone-end
 
-#### Weighted Allocation Attachments
+### Weighted Allocation Attachments
 
 In this example, we are using a weighted allocation attachment, which will divide up jobs according to the weightings specified and attach different selectors accordingly.  Here, we are saying that 30% of jobs should go to workers with the label `Vendor` set to `A` and 70% should go to workers with the label `Vendor` set to `B`.
 
