@@ -129,13 +129,13 @@ This will create a Hyperscale database on Gen5 hardware with four cores.
 
 You can migrate your existing databases in Azure SQL Database to Hyperscale using the [Azure portal](https://portal.azure.com), [T-SQL](/sql/t-sql/statements/alter-database-transact-sql), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), or [CLI](/cli/azure/sql/db#az_sql_db_update). Migrating an existing database in Azure SQL Database to the Hyperscale tier is a size of data operation.
 
-To migrate a database to Hyperscale, see the article [How to migrate an existing database to Hyperscale](migrate-database-to-hyperscale.md).
+Learn [how to migrate an existing database to Hyperscale](administer-hyperscale-database.md#migrate-an-existing-database-to-Hyperscale).
 
 ## Reverse migrate a Hyperscale database back to the General Purpose service tier
 
 If you previously migrated an existing Azure SQL Database to the Hyperscale service tier, you can reverse migrate a Hyperscale database to the General Purpose service tier within 45 days of the original migration to Hyperscale. If you wish to migrate the database to another service tier, such as Business Critical, first reverse migrate to the General Purpose service tier, then perform a further migration.
 
-Learn more in the [How to reverse migrate a Hyperscale database to the General Purpose service tier](reverse-migrate-hyperscale-general-purpose.md) article.
+Learn [how to reverse migrate from Hyperscale](administer-hyperscale-database.md#reverse-migrate-from-hyperscale).
 
 
 ## Database high availability in Hyperscale
@@ -145,6 +145,8 @@ As in all other service tiers, Hyperscale guarantees data durability for committ
 For Hyperscale SLA, see [SLA for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database).
 
 ## Disaster recovery for Hyperscale databases
+
+Hyperscale supports the ability to restore a database within the same region where it is hosted, or to a different region.
 
 ### Restoring a Hyperscale database to a different region
 
@@ -186,8 +188,10 @@ These are the current limitations to the Hyperscale service tier as of GA.  We'r
 
 ## Next steps
 
+Learn more about Hyperscale in the following articles:
+
 - For an FAQ on Hyperscale, see [Frequently asked questions about Hyperscale](service-tier-hyperscale-frequently-asked-questions-faq.yml).
-- For information about service tiers, see [Service tiers](purchasing-models.md)
+- For information about service tiers, see [Service tiers](purchasing-models.md).
 - See [Overview of resource limits on a server](resource-limits-logical-server.md) for information about limits at the server and subscription levels.
 - For purchasing model limits for a single database, see [Azure SQL Database vCore-based purchasing model limits for a single database](resource-limits-vcore-single-databases.md).
 - For a features and comparison list, see [SQL common features](features-comparison.md).
