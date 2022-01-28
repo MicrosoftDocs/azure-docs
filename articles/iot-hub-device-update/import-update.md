@@ -42,7 +42,7 @@ Once you have your update files, create an import manifest to describe the updat
 
 2. Navigate to `Tools/AduCmdlets` in your local clone from PowerShell.
 
-3. Run the following commands after replacing the sample parameter values with your own (see [Import schema and API information](import-schema.md) for details on what values you can use):
+3. Run the following commands after replacing the sample parameter values with your own. See [Import schema and API information](import-schema.md) for details on what values you can use. In particular, be aware that the same exact set of compatibility properties cannot be used with more than one Provider and Name combination.
 
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
