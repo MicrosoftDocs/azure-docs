@@ -116,7 +116,7 @@ The Azure virtual machine has the following requirements:
 
 - Operating system: Ubuntu 18.04 using Azure Marketplace [image](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-pro-bionic). Custom images are not supported.
 - Recommended minimum Azure virtual machine sizes: Standard_B2s (2 CPUs, 4 GiB memory) 
-- Deployed in any Azure region [supported](../agents/azure-monitor-agent-overview.md#supported-regions) by the Azure Monitor agent, and meeting all Azure Monitor agent [prerequisites](../agents/azure-monitor-agent-install.md#prerequisites).
+- Deployed in any Azure region [supported](../agents/azure-monitor-agent-overview.md#supported-regions) by the Azure Monitor agent, and meeting all Azure Monitor agent [prerequisites](../agents/azure-monitor-agent-manage.md#prerequisites).
 
 > [!NOTE]
 > The Standard_B2s (2 CPUs, 4 GiB memory) virtual machine size will support up to 100 connection strings. You shouldn't allocate more than 100 connections to a single virtual machine.

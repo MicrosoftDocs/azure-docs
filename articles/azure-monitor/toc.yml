@@ -422,9 +422,9 @@ items:
       - name: Overview
         displayName: Azure Monitor agent
         href: agents/azure-monitor-agent-overview.md
-      - name: Install
+      - name: Install and manage
         displayName: Azure Monitor agent
-        href: agents/azure-monitor-agent-install.md
+        href: agents/azure-monitor-agent-manage.md
       - name: Data collection
         displayName: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
