@@ -6,7 +6,7 @@ ms.reviewer: abnarain
 ms.service: data-factory
 ms.subservice: concepts
 ms.topic: conceptual
-ms.date: 11/05/2020
+ms.date: 01/27/2022
 ms.author: abnarain
 ---
 
