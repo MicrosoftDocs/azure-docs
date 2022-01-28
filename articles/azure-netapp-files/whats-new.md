@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 01/25/2022
+ms.date: 01/28/2022
 ms.author: anfdocs
 ---
 
@@ -21,6 +21,16 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
 ## January 2022
+
+* [Azure Application Consistent Snapshot Tool (AzAcSnap) v5.1 Public Preview](azacsnap-release-notes.md)
+
+    [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (AzAcSnap) is a command-line tool that enables customers to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, SUSE and RHEL).  
+ 
+    The public preview of v5.1 brings the following new capabilities to AzAcSnap:  
+    * Oracle Database support
+    * Backint Co-existence
+    * Azure Managed Disk
+    * RunBefore and RunAfter capability 
 
 * [LDAP search scope](configure-ldap-extended-groups.md#ldap-search-scope)
 
