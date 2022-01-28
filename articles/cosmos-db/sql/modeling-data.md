@@ -32,7 +32,7 @@ For comparison, let's first see how we might model data in a relational database
 
 :::image type="content" source="./media/sql-api-modeling-data/relational-data-model.png" alt-text="Relational database model" border="false":::
 
-When working with relational databases, the strategy is to normalize all your data. Normalizing your data typically involves taking an entity, such as a person, and breaking it down into discrete components. In the example above, a person can have multiple contact detail records, as well as multiple address records. Contact details can be further broken down by further extracting common fields like a type. The same applies to address, each record can be of type *Home* or *Business*.
+When working with relational databases, the strategy is to normalize all your data. Normalizing your data typically involves taking an entity, such as a person, and breaking it down into discrete components. In the example above, a person may have multiple contact detail records, as well as multiple address records. Contact details can be further broken down by further extracting common fields like a type. The same applies to address, each record can be of type *Home* or *Business*.
 
 The guiding premise when normalizing data is to **avoid storing redundant data** on each record and rather refer to data. In this example, to read a person, with all their contact details and addresses, you need to use JOINS to effectively compose back (or denormalize) your data at run time.
 
@@ -69,7 +69,7 @@ Now let's take a look at how we would model the same data as a self-contained en
 }
 ```
 
-Using the approach above we have **denormalized** the person record, by **embedding** all the information related to this person, such as their contact details and addresses, into a *single JSON* document.
+Using the approach above we've **denormalized** the person record, by **embedding** all the information related to this person, such as their contact details and addresses, into a *single JSON* document.
 In addition, because we're not confined to a fixed schema we have the flexibility to do things like having contact details of different shapes entirely.
 
 Retrieving a complete person record from the database is now a **single read operation** against a single container and for a single item. Updating a person record, with their contact details and addresses, is also a **single write operation** against a single item.
@@ -154,7 +154,7 @@ Comment items:
 
 This model has the three most recent comments embedded in the post container, which is an array with a fixed set of attributes. The other comments are grouped in to batches of 100 comments and stored as separate items. The size of the batch was chosen as 100 because our fictitious application allows the user to load 100 comments at a time.  
 
-Another case where embedding data is not a good idea is when the embedded data is used often across items and will change frequently.
+Another case where embedding data isn't a good idea is when the embedded data is used often across items and will change frequently.
 
 Take this JSON snippet.
 
@@ -182,7 +182,7 @@ Stock *zaza* may be traded many hundreds of times in a single day and thousands 
 
 ## Referencing data
 
-Embedding data works nicely for many cases but there are scenarios when denormalizing your data will cause more problems than it is worth. So what do we do now?
+Embedding data works nicely for many cases but there are scenarios when denormalizing your data will cause more problems than it's worth. So what do we do now?
 
 Relational databases are not the only place where you can create relationships between entities. In a document database, you can have information in one document that relates to data in other documents. We do not recommend building systems that would be better suited to a relational database in Azure Cosmos DB, or any other document database, but simple relationships are fine and can be useful.
 
