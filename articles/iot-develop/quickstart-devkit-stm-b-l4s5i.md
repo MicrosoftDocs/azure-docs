@@ -8,6 +8,18 @@ ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/02/2021
 ms.custom: mode-other
+zone_pivot_groups: iot-develop-stm-toolset
+
+# Owner: timlt
+# - id: iot-develop-stm-toolset
+#   title: IoT Devices
+#   prompt: Choose a build environment
+#  pivots:
+#  - id: iot-toolset-cmake
+#    title: CMake
+#  - id: iot-toolset-iar-ewarm
+#    title: IAR EWARM
+
 ---
 
 # Quickstart: Connect an STMicroelectronics B-L4S5I-IOT01A Discovery kit to IoT Central
@@ -17,14 +29,22 @@ ms.custom: mode-other
 
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/B-L4S5I-IOT01A)
 
+:::zone pivot="iot-toolset-cmake"
+[![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/NXP/MIMXRT1060-EVK)
+:::zone-end
+:::zone pivot="iot-toolset-iar-ewarm"
+[![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/samples/)
+:::zone-end
+
 In this quickstart, you use Azure RTOS to connect the STMicroelectronics [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4S5i-iot01a.html) Discovery kit (from now on, the STM DevKit) to Azure IoT.
 
-You will complete the following tasks:
+You'll complete the following tasks:
 
 * Install a set of embedded development tools for programming the STM DevKit in C
 * Build an image and flash it onto the STM DevKit
 * Use Azure IoT Central to create cloud components, view properties, view device telemetry, and call direct commands
 
+:::zone pivot="iot-toolset-cmake"
 ## Prerequisites
 
 * A PC running Windows 10
@@ -61,11 +81,10 @@ The cloned repo contains a setup script that installs and configures the require
 
 To install the tools:
 
-1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain.bat*:
+1. From File Explorer, navigate to the following path in the repo and run the setup batch file named *get-toolchain.bat*:
 
     *getting-started\tools\get-toolchain.bat*
-
-1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
+1. After the installation, open a new console window to recognize the configuration changes made by the setup batch file. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
 1. Run the following code to confirm that CMake version 3.14 or later is installed.
 
     ```shell
@@ -113,9 +132,9 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
 
 ### Flash the image
 
-1. On the STM DevKit MCU, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You will refer to these items in the next steps. All of them are highlighted in the following picture:
+1. On the STM DevKit MCU, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You'll refer to these items in the next steps. All of them are highlighted in the following picture:
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/stm-board.png" alt-text="Locate key components on the STM DevKit board":::
+    ::: image type="content" source="media/quickstart-devkit-stm-b-l4s5i/stm-b-l4s5i.png" alt-text="Locate key components on the STM DevKit board":::
 
 1. Connect the Micro USB cable to the **USB STLINK** port on the STM DevKit, and then connect it to your computer.
 
@@ -126,7 +145,7 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
 
 1. Copy the binary file named *stm32l4s5_azure_iot.bin*.
 
-1. In File Explorer, find the STM Devkit that's connected to your computer. The device appears as a drive on your system with the drive label **DIS_LS5VI**.
+1. In File Explorer, find the STM Devkit that's connected to your computer. The device appears as a drive on your system.
 
 1. Paste the binary file into the root folder of the STM Devkit. Flashing starts automatically and completes in a few seconds.
 
@@ -192,59 +211,168 @@ You can use the **Termite** app to monitor communication and confirm that your d
     > [!IMPORTANT]
     > If the DNS client initialization fails and notifies you that the Wi-Fi firmware is out of date, you'll need to update the Wi-Fi module firmware. Download and install the [Inventek ISM 43362 Wi-Fi module firmware update](https://www.st.com/resource/en/utilities/inventek_fw_updater.zip). Then press the **Reset** button on the device to recheck your connection, and continue with this quickstart.
 
-
 Keep Termite open to monitor device output in the following steps.
 
-## Verify the device status
+:::zone-end
 
-To view the device status in IoT Central portal:
-1. From the application dashboard, select **Devices** on the side navigation menu.
-1. Confirm that the **Device status** is updated to **Provisioned**.
-1. Confirm that the **Device template** is updated to **Getting Started Guide**.
+:::zone pivot="iot-toolset-iar-ewarm"
+## Prerequisites
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-device-view-status.png" alt-text="Screenshot of device status in IoT Central":::
+* A PC running Windows 10
+* [Git](https://git-scm.com/downloads) for cloning the repository
+* Hardware
 
-## View telemetry
+    * The [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html) (STM DevKit)
+    * Wi-Fi 2.4 GHz
+    * USB 2.0 A male to Micro USB male cable
 
-With IoT Central, you can view the flow of telemetry from your device to the cloud.
+## Prepare the development environment
 
-To view telemetry in IoT Central portal:
+To set up your development environment, first you clone a GitHub repo that contains all the assets you need for the quickstart. Then you install a set of programming tools.
 
-1. From the application dashboard, select **Devices** on the side navigation menu.
-1. Select the device from the device list.
-1. View the telemetry as the device sends messages to the cloud in the **Overview** tab.
+### Clone the repo for the quickstart
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Central":::
+Clone the following repo to download all sample device code, setup scripts, and offline versions of the documentation. If you previously cloned this repo in another quickstart, you don't need to do it again.
+
+To clone the repo, run the following command:
+
+```shell
+git clone --recursive https://github.com/azure-rtos/getting-started.git
+```
+[!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
+
+## Download IAR Embedded Workbench for Arm
+
+A 14-day free trial of IAR’s EWARM can be downloaded from this page:
+https://www.iar.com/iar-embedded-workbench/#!?architecture=Arm
+
+You will need to create an IAR account in order to download the free trial.
+
+The sample distribution zip file contains the **azure_rtos.eww** workspace as well as following sub-folders:
+
+|Constant name|Value|
+|-------------|-----|
+|`iar` | *Contains the following sub-folders as well as the azure_rtos.eww workspace*|
+|`azure-iot` | *Azure loT Middleware for Azure RTOS source code*|
+|`common_hardware_code` | *Common code for STM32FL4S5I-DISCO board*|
+|`docs` | *User guides*|
+|`netxduo` | *NetX Duo*|
+|`sample_azure_iot_embedded_sdk` | *source code*|
+|`sample_azure_iot_embedded_sdk_pnp` | *Sample project to connect to Azure loT Hub using Azure loT Middleware for Azure RTOS*|
+|`sample_pnp_temperature_controller` | *Sample project to connect to Azure loT Hub using Azure loT Middleware for Azure RTOS via loT Plug and Play*|
+|`stm32l4xx_lib` | *Sample project with loT Plug and Play using multiple components STM32L4+ drivers*|
+|`threadx` | *ThreadX source code*|
+
+
+## Prepare the device
+
+To connect the device to Azure, you'll modify a configuration file for Azure IoT settings and IAR settings for Wi-Fi, and then build and flash the image to the device.
+
+### Add configuration
+
+1. Open the **azure_rtos.eww** EWARM Workspace in IAR from the extracted zip file.
+
+    :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/ewarm-workspace-in-iar.png" alt-text="EWARM workspace in IAR":::
+
+
+1. Expand the project, then expand the **Sample** subfolder and open the *sample_config.h* file.
+
+1. Near the top of the file uncomment the `#define ENABLE_DPS_SAMPLE` directive.
+
+    ```c
+    #define ENABLE_DPS_SAMPLE
+    ```
+
+1. Set the Azure IoT device information constants to the values that you saved after you created Azure resources. The `ENDPOINT` constant is set to the global endpoint for Azure Device Provisioning Service (DPS).
+
+    |Constant name|Value|
+    |-------------|-----|
+    |`DEVICE_ID`| {*Your deviceID value*}|
+    |`ID_SCOPE`| {*Your idScope value*}|
+    |`DEVICE_SYMMETRIC_KEY`| {*Your primaryKey value*}|
+
+     > [!NOTE]
+    > The`ENDPOINT`, `ID_SCOPE`, and `REGISTRATION_ID` values are set in a `#ifndef ENABLE_DPS_SAMPLE` statement. Make sure you set the values in the `#else` statement, which will be used when the `ENABLE_DPS_SAMPLE` value is defined.
+
+1. Save the file.
+
+1. Select the **sample_azure_iot_embedded_sdk**, right-click on it on in the left **Workspace** pane, and select **Set as active**.
+1. Right-click on the active project, select **Options > C/C++ Compiler > Preprocessor**. Replace the values for your WiFi to be used.
+
+    |Symbol name|Value|
+    |-----------|-----|
+    |`WIFI_SSID` |{*Your Wi-Fi SSID*}|
+    |`WIFI_PASSWORD` |{*Your Wi-Fi password*}|
+
+ :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/options-for-node-sample.png" alt-text="Options for node sample":::
+
+### Build the project
+
+In IAR, select **Project > Batch Build** and choose **build_all** and select **Make** to build all projects. You will observe compilation and linking of all sample projects.
+
+### Flash the image
+
+1. On the STM DevKit MCU, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You will refer to these items in the next steps. All of them are highlighted in the following picture:
+
+    :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/stm-b-l4s5i.png" alt-text="Locate key components on the STM DevKit board":::
+
+1. Connect the Micro USB cable to the **USB STLINK** port on the STM DevKit, and then connect it to your computer.
 
     > [!NOTE]
-    > You can also monitor telemetry from the device by using the Termite app.
+    > For detailed setup information about the STM DevKit, see the instructions on the packaging, or see [B-L4S5I-IOT01A Resources](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html#resource)
 
-## Call a direct method on the device
+1. In IAR, press the green **Download and Debug** button in the toolbar to download the program and run it. Then press *Go*.
+1. As the project runs, the demo displays the status information to the Terminal IO window (**View > Terminal I/O**). The demo also publishes the message to IoT Hub every few seconds. Check the Terminal I/O to verify that messages have been successfully sent to the Azure IoT hub.
 
-You can also use IoT Central to call a direct method that you have implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that enables you to turn an LED on or off.
+[!NOTE] The terminal output content varies depending on which sample you choose to build and run.
 
-To call a method in IoT Central portal:
+### Confirm device connection details
 
-1. Select the **Command** tab from the device page.
-1. In the **State** dropdown, select **True**, and then select **Run**.  The LED light should turn on.
+In the terminal window, you should see output like the following, to verify that the device is initialized and connected to Azure IoT.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-invoke-method.png" alt-text="Screenshot of calling a direct method on a device in IoT Central":::
+```output
+STM32L4XX Lib:
+> CMSIS Device Version: 1.7.0.0.
+> HAL Driver Version: 1.12.0.0.
+> BSP Driver Version: 1.0.0.0.
+ES-WIFI Firmware:
+> Product Name: Inventek eS-WiFi
+> Product ID: ISM43362-M3G-L44-SPI
+> Firmware Version: C3.5.2.5.STM
+> API Version: v3.5.2
+ES-WIFI MAC Address: C4:7F:51:7:D7:73
+wifi connect try 1 times
+ES-WIFI Connected.
+> ES-WIFI IP Address: 10.0.0.226
+> ES-WIFI Gateway Address: 10.0.0.1
+> ES-WIFI DNS1 Address: 75.75.75.75
+> ES-WIFI DNS2 Address: 75.75.76.76
+IP address: 10.0.0.226
+Mask: 255.255.255.0
+Gateway: 10.0.0.1
+DNS Server address: 1.1.1.1
+SNTP Time Sync...0.pool.ntp.org
+SNTP Time Sync successfully.
+Connected to IoTHub.
+Telemetry message send: {"Message ID":0}.
+Receive twin properties :{"desired":{"$version":1},"reported":{"$version":1}}
+Telemetry message send: {"Message ID":1}.
+Telemetry message send: {"Message ID":2}.
+Telemetry message send: {"Message ID":3}.
+Telemetry message send: {"Message ID":4}.
+Telemetry message send: {"Message ID":5}.
+```
 
-1. In the **State** dropdown, select **False**, and then select **Run**. The LED light should turn off.
+Keep the terminal open to monitor device output in the following steps.
 
-## View device information
+:::zone-end
 
-You can view the device information from IoT Central.
-
-Select **About** tab from the device page.
-
-:::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
-
-## Troubleshoot and debug
-
-If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
-
+:::zone pivot="iot-toolset-cmake"
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
+:::zone-end
+:::zone pivot="iot-toolset-iar-ewarm"
+For help with debugging the application, see the selections under **Help** in **IAR EW for ARM**.  
+:::zone-end
 
 ## Clean up resources
 
@@ -264,7 +392,6 @@ As a next step, explore the following articles to learn more about using the IoT
 > [Connect a simulated device to IoT Central](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]
 > [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
-
 
 > [!IMPORTANT]
 > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
