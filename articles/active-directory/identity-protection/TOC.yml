@@ -49,11 +49,11 @@
   - name: Graph APIs
     items: 
     - name: riskDetection API
-      href: /graph/api/resources/riskdetection?view=graph-rest-1.0
+      href: /graph/api/resources/riskdetection
     - name: riskyUsers API
-      href: /graph/api/resources/riskyuser?view=graph-rest-1.0
+      href: /graph/api/resources/riskyuser
     - name: signIn API
-      href: /graph/api/resources/signin?view=graph-rest-1.0
+      href: /graph/api/resources/signin
   - name: Glossary
     href: reference-identity-protection-glossary.md
 - name: Resources

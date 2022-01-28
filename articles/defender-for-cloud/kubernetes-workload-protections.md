@@ -2,7 +2,7 @@
 title: Workload protections for your Kubernetes workloads
 description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes workload protection security recommendations
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/26/2022
 ---
 
 # Protect your Kubernetes workloads
@@ -13,14 +13,10 @@ This page describes how to use Microsoft Defender for Cloud's set of security re
 
 Learn more about these features in [Workload protection best-practices using Kubernetes admission control](defender-for-containers-introduction.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
-Defender for Cloud offers more container security features if you enable Microsoft Defender for Kubernetes. Specifically:
-
-- Scan your container registries for vulnerabilities with [Microsoft Defender for container registries](defender-for-container-registries-introduction.md)
-- Get real-time threat detection alerts for your K8s clusters [Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)
+Defender for Cloud offers more container security features if you enable Microsoft Defender for Containers. Learn more in [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md)
 
 > [!TIP]
-> For a list of *all* security recommendations that might appear for Kubernetes clusters and nodes, see the [compute section](recommendations-reference.md#recs-compute) of the recommendations reference table.
-
+> For a list of the security recommendations that might appear for Kubernetes clusters and nodes, see the [Container recommendations](recommendations-reference.md#container-recommendations) of the recommendations reference table.
 
 
 ## Availability
@@ -38,6 +34,12 @@ Defender for Cloud offers more container security features if you enable Microso
 ## Set up your workload protection
 
 Microsoft Defender for Cloud includes a bundle of recommendations that are available when you've installed the **Azure Policy add-on for Kubernetes**.
+
+## Prerequisites
+
+Validate the following endpoints are configured for outbound access so that the Azure Policy add-on for Kubernetes can connect to Azure Policy to synchronize Kubernetes policies:
+
+See [Required FQDN/application rules for Azure policy](../aks/limit-egress-traffic.md#azure-policy) for the required FQDN/application rules.
 
 ### Step 1: Deploy the add-on
 

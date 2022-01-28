@@ -26,11 +26,11 @@ Your organization will need to enable Microsoft Authenticator push notifications
 
 When a user receives a Passwordless phone sign-in or MFA push notification in the Microsoft Authenticator app, they'll see the name of the application that requests the approval and the app location based on its IP address.
 
-![Screenshot of additional context in the MFA push notification.](media/howto-authentication-passwordless-phone/location.png)
+:::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/location.png" alt-text="Screenshot of additional context in the MFA push notification.":::
 
 The additional context can be combined with [number matching](how-to-mfa-number-match.md) to further improve sign-in security. 
 
-![Screenshot of additional context with number matching in the MFA push notification.](media/howto-authentication-passwordless-phone/location-with-number-match.png)
+:::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/location-with-number-match.png" alt-text="Screenshot of additional context with number matching in the MFA push notification.":::
 
 ### Policy schema changes 
 

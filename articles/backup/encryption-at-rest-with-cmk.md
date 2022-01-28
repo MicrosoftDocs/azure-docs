@@ -97,7 +97,7 @@ Example:
 ```AzurePowerShell
 $vault=Get-AzRecoveryServicesVault -ResourceGroupName "testrg" -Name "testvault"
 
-Update-AzRecoveryServicesVault -IdentityType SystemAssigned -VaultId $vault.ID
+Update-AzRecoveryServicesVault -IdentityType SystemAssigned -ResourceGroupName TestRG -Name TestVault
 
 $vault.Identity | fl
 ```
@@ -462,7 +462,9 @@ Data stored in the Recovery Services vault can be restored according to the step
 
 1. When recovering disk / VM from a "Snapshot" recovery point, the restored data will be encrypted with the DES used for encrypting the source VM's disks.
 
-2. When restoring disk / VM from a recovery point with Recovery Type as "Vault", you can choose to have the restored data encrypted using a DES, specified at the time of restore. Alternatively, you can choose to continue with the restore the data without specifying a DES, in which case it will be encrypted using Microsoft-managed keys.
+1. When restoring disk / VM from a recovery point with Recovery Type as "Vault", you can choose to have the restored data encrypted using a DES, specified at the time of restore. Alternatively, you can choose to continue with the restore the data without specifying a DES, in which case it will be encrypted using Microsoft-managed keys.
+
+1. During Cross Region Restore, CMK (customer-managed keys) enabled Azure VMs, which aren't backed-up in a CMK enabled Recovery Services vault, is restored as non-CMK enabled VMs in the secondary region.
 
 You can encrypt the restored disk / VM after the restore is complete, regardless of the selection made while initiating the restore.
 

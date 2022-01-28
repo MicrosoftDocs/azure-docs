@@ -24,6 +24,7 @@ The following procedures explain how to use Log Streaming, Log Analytics, Metric
   * [Provision Azure Spring Cloud service](./quickstart-provision-service-instance.md).
   * [Set up Azure Spring Cloud configuration server](./quickstart-setup-config-server.md).
   * [Build and deploy apps](./quickstart-deploy-apps.md).
+  * [Set up Log Analytics workspace](./quickstart-setup-log-analytics.md).
 
 ## Logs
 
@@ -113,6 +114,7 @@ Complete previous steps:
 * [Provision an instance of Azure Spring Cloud](./quickstart-provision-service-instance.md)
 * [Set up the config server](./quickstart-setup-config-server.md)
 * [Build and deploy apps](./quickstart-deploy-apps.md).
+* [Set up Log Analytics workspace](./quickstart-setup-log-analytics.md).
 
 ## Logs
 

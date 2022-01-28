@@ -20,7 +20,7 @@ DPS is not a full-featured MQTT broker and does not support all the behaviors sp
 
 All device communication with DPS must be secured using TLS/SSL. Therefore, DPS doesn't support non-secure connections over port 1883.
 
- > [!NOTE] 
+ > [!NOTE]
  > DPS does not currently support devices using TPM [attestation mechanism](./concepts-service.md#attestation-mechanism) over the MQTT protocol.
 
 ## Connecting to DPS
@@ -36,7 +36,10 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
 * For the **ClientId** field, use **registrationId**.
 
-* For the **Username** field, use `{idScope}/registrations/{registration_id}/api-version=2019-03-31`, where `{idScope}` is the [idScope](./concepts-service.md#id-scope) of the DPS.
+* For the **Username** field, use `{idScope}/registrations/{registration_id}/api-version=2019-03-31`, where `{idScope}` is the [ID scope](./concepts-service.md#id-scope) of the DPS and `{registration_id}` is the [Registration ID](./concepts-service.md#registration-id) for your device.
+
+  > [!NOTE]
+  > If you use X.509 certificate authentication, the registration ID is provided by the subject common name (CN) of your device leaf (end-entity) certificate. `{registration_id}` in the **Username** field must match the common name.
 
 * For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTPS and AMQP protocols:
 

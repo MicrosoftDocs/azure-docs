@@ -12,7 +12,8 @@ ms.topic: quickstart
 ms.date: 04/21/2021
 ms.author: mbullwin
 keywords: anomaly detection, algorithms
-ms.custom: mode-other
+ms.devlang: csharp, java, javascript, python
+ms.custom: mode-api
 ---
 
 # Quickstart: Use the Anomaly Detector multivariate client library

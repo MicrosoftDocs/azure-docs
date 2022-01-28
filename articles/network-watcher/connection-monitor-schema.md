@@ -8,7 +8,6 @@ manager: vinigam
 editor:
 
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services

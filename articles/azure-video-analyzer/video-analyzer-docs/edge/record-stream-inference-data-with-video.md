@@ -1,5 +1,5 @@
 ---
-title: Record and stream inference metadata with video - Azure Video Analyzer
+title: Record and stream inference metadata with video
 description: In this tutorial, you'll learn how to use Azure Video Analyzer to record video and inference metadata to the cloud and play back the recording with the visual inference metadata.
 ms.service: azure-video-analyzer
 ms.topic: how-to

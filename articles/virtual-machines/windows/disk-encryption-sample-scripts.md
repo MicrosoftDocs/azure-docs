@@ -117,7 +117,7 @@ reboot
 > Prepare the VM with a separate data/resource VHD for getting the external key by using BitLocker.
 
 ## Upload encrypted VHD to an Azure storage account
-After DM-Crypt encryption is enabled, the local encrypted VHD needs to be uploaded to your storage account.
+After BitLocker encryption is enabled, the local encrypted VHD needs to be uploaded to your storage account.
 ```powershell
     Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```

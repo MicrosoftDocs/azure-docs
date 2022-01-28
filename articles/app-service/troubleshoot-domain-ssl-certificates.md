@@ -105,7 +105,7 @@ The custom domain that you configured is missing a CNAME or A record.
 
 **Solution for cause 1**
 
-- If you added an A record, make sure that a TXT record is also added. For more information, see [Create the A record](./app-service-web-tutorial-custom-domain.md#4-create-the-dns-records).
+- If you added an A record, make sure that a TXT record is also added. For more information, see [Create the A record](./app-service-web-tutorial-custom-domain.md#3-create-the-dns-records).
 - If you don't have to use the root domain for your app, we recommend that you use a CNAME record instead of an A record.
 - Don't use both a CNAME record and an A record for the same domain. This issue can cause a conflict and prevent the domain from being resolved. 
 
@@ -265,7 +265,7 @@ This problem occurs for one of the following reasons:
 
 **Do I have to configure my custom domain for my website once I buy it?**
 
-When you purchase a domain from the Azure portal, the App Service application is automatically configured to use that custom domain. You don’t have to take any additional steps. For more information, watch [Azure App Service Self Help: Add a Custom Domain Name](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) on Channel9.
+When you purchase a domain from the Azure portal, the App Service application is automatically configured to use that custom domain. You don’t have to take any additional steps. For more information, watch Azure App Service Self Help: Add a Custom Domain Name on Channel9.
 
 **Can I use a domain purchased in the Azure portal to point to an Azure VM instead?**
 

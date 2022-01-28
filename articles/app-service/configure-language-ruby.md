@@ -4,6 +4,7 @@ description: Learn how to configure a pre-built Ruby container for your app. Thi
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.reviewer: astay; kraigb
+ms.devlang: ruby
 ms.custom: mvc, seodec18, devx-track-azurecli, mode-other
 ---
 

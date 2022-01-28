@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 10/11/2021
 author: mattmccleary
 ms.author: mmcc
+ms.devlang: csharp, javascript, python
 ---
 
 # Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (preview)

@@ -5,8 +5,8 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: connect
-ms.custom: sqldbrb=2 , mode-other
-ms.devlang: go
+ms.custom: sqldbrb=2, mode-api
+ms.devlang: golang
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier

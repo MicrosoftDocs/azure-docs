@@ -3,10 +3,10 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021
 ---
 
 [Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/)

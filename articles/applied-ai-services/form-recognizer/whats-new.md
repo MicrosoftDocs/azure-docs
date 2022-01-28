@@ -19,9 +19,9 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## November 2021
 
- The beta.2 version of the Azure Form Recognizer SDKs has been released. This new beta release incorporates bug fixes and minor feature updates.
+### Form Recognizer v3.0 preview SDK release update (beta.2)
 
-### Form Recognizer v3.0 preview release (beta.2)
+ The beta.2 version of the Azure Form Recognizer SDKs has been released. This new beta release incorporates bug fixes and minor feature updates.
 
 ### [**C#**](#tab/csharp)
 
@@ -565,7 +565,7 @@ pip package version 3.1.0b4
 
 * **CopyModel API added to client SDKs** - You can now use the client SDKs to copy models from one subscription to another. See [Back up and recover models](./disaster-recovery.md) for general information on this feature.
 * **Azure Active Directory integration** - You can now use your Azure AD credentials to authenticate your Form Recognizer client objects in the SDKs.
-* **SDK-specific changes** - This change includes both minor feature additions and breaking changes. For more informatin, *see* the SDK changelogs for more information.
+* **SDK-specific changes** - This change includes both minor feature additions and breaking changes. For more information, *see* the SDK changelogs for more information.
   * [C# SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
   * [Python SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
   * [Java SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)

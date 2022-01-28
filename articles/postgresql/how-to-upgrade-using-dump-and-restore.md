@@ -97,7 +97,7 @@ pg_dumpall -r --host=mySourceServer --port=5432 --username=myUser --database=myS
 Edit the `roles.sql` and remove references of `NOSUPERUSER` and `NOBYPASSRLS` before restoring the content using psql in the target server:
 
 ```azurecli-interactive
-psql -f roles.sql --host=myTargetServer --port=5432 --username=myUser
+psql -f roles.sql --host=myTargetServer --port=5432 --username=myUser --dbname=postgres
 ```
 
 The dump script should not be expected to run completely without errors. In particular, because the script will issue CREATE ROLE for every role existing in the source cluster, it is certain to get a “role already exists” error for the bootstrap superuser like azure_pg_admin or azure_superuser. This error is harmless and can be ignored. Use of the `--clean` option is likely to produce additional harmless error messages about non-existent objects, although you can minimize those by adding `--if-exists`.

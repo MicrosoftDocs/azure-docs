@@ -1,6 +1,6 @@
 ---
 title: Migrate from legacy agents to the new Azure Monitor agent
-description: Guidance for migrating from the existing legacy agents to the new Azure Monitor agent (AMA) and data collection rules (DCR).
+description: This article provides guidance for migrating from the existing legacy agents to the new Azure Monitor agent (AMA) and data collection rules (DCR).
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
@@ -34,7 +34,7 @@ This article provides high-level guidance on when and how to migrate to the new 
 	- Destinations, such as Log Analytics workspaces
 1. [Create new data collection rules](/rest/api/monitor/datacollectionrules/create#examples) by using the preceding configuration. As a best practice, you might want to have a separate data collection rule for Windows versus Linux sources. Or you might want separate data collection rules for individual teams with different data collection needs.
 1. [Enable system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#system-assigned-managed-identity) on target resources.
-2. Install the Azure Monitor agent extension. Deploy data collection rule associations on all target resources by using the [built-in policy initiative](azure-monitor-agent-install.md#install-with-azure-policy). Provide the preceding data collection rule as an input parameter. 
+2. Install the Azure Monitor agent extension. Deploy data collection rule associations on all target resources by using the [built-in policy initiative](azure-monitor-agent-manage.md#using-azure-policy). Provide the preceding data collection rule as an input parameter. 
 1. Validate data is flowing as expected via the Azure Monitor agent. Check the **Heartbeat** table for new agent version values. Ensure it matches data flowing through the existing Log Analytics agent.
 2. Validate all downstream dependencies like dashboards, alerts, and runbook workers. Workbooks all continue to function now by using data from the new agent.
 3. [Uninstall the Log Analytics agent](./agent-manage.md#uninstall-agent) from the resources. Don't uninstall it if you need to use it for System Center Operations Manager scenarios or other solutions not yet available on the Azure Monitor agent.

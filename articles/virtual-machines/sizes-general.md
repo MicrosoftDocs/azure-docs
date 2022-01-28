@@ -4,7 +4,6 @@ description: Lists the different general purpose sizes available for virtual mac
 author: brbell
 ms.service: virtual-machines
 ms.subservice: vm-sizes-general
-ms.devlang: na
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/20/2021

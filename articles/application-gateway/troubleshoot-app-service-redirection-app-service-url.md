@@ -79,7 +79,7 @@ In the previous example, notice that the response header has a status code of 30
 Set the host name in the location header to the application gateway's domain name. To do this, create a [rewrite rule](./rewrite-http-headers-url.md) with a condition that evaluates if the location header in the response contains azurewebsites.net. It must also perform an action to rewrite the location header to have the application gateway's host name. For more information, see instructions on [how to rewrite the location header](./rewrite-http-headers-url.md#modify-a-redirection-url).
 
 > [!NOTE]
-> The HTTP header rewrite support is only available for the [Standard_v2 and WAF_v2 SKU](./application-gateway-autoscaling-zone-redundant.md) of Application Gateway. We recommend [migrating to v2](./migrate-v1-v2.md) for Header Rewrite and other [advanced capabilities](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) that are available with v2 SKU.
+> The HTTP header rewrite support is only available for the [Standard_v2 and WAF_v2 SKU](./application-gateway-autoscaling-zone-redundant.md) of Application Gateway. We recommend [migrating to v2](./migrate-v1-v2.md) for Header Rewrite and other [advanced capabilities](./overview-v2.md#feature-comparison-between-v1-sku-and-v2-sku) that are available with v2 SKU.
 
 ## Alternate solution: Use a custom domain name
 
@@ -87,7 +87,7 @@ Using App Service's Custom Domain feature is another solution to always redirect
 
 You can follow the given method for both the Redirection and ARRAffinity's cookie domain mismatch issues. This method will need you to have your custom domain's DNS zone access.
 
-**Step1**: Set a Custom Domain in App Service and verify the domain ownership by adding the [CNAME & TXT DNS records](../app-service/app-service-web-tutorial-custom-domain.md#3-get-a-domain-verification-id).
+**Step1**: Set a Custom Domain in App Service and verify the domain ownership by adding the [CNAME & TXT DNS records](../app-service/app-service-web-tutorial-custom-domain.md#2-get-a-domain-verification-id).
 The records would look similar to
 -  `www.contoso.com` IN CNAME `contoso.azurewebsite.net`
 -  `asuid.www.contoso.com` IN TXT "`<verification id string>`"

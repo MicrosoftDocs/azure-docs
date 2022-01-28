@@ -10,7 +10,8 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: devx-track-python, mode-other
+ms.devlang: python
+ms.custom: devx-track-python, mode-api
 ---
 
 # Quickstart: Call your Bing Custom Search endpoint using Python
