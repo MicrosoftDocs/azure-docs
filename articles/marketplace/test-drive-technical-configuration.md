@@ -4,7 +4,7 @@ description: Learn about test drives. Test drives allow new customers to test dr
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 10/26/2021
+ms.date: 12/03/2021
 author: trkeya
 ms.author: trkeya
 ---
@@ -24,7 +24,7 @@ This is the only test drive option for virtual machine or Azure app offers and r
 
 ## Hosted test drive
 
-Microsoft can remove the complexity of setting up a test drive by hosting and maintaining the service provisioning and deprovisioning. The configuration for this type of test drive is the same regardless of whether the test drive is targeting a Dynamics 365 Customer Engagement or Dynamics 365 Operations audience.
+Microsoft can remove the complexity of setting up a test drive by hosting and maintaining the service provisioning and deprovisioning. The configuration for this type of test drive is the same regardless of whether the test drive is targeting a Dynamics 365 apps on Dataverse and Power Apps or Dynamics 365 Operations Apps audience.
 
 - **Max concurrent test drives** (required) – Set the maximum number of customers that can use your test drive at one time. Each concurrent user will consume a Dynamics 365 license while the test drive is active, so ensure you have enough licenses available to support the maximum limit set. The recommended value is 3-5.
 

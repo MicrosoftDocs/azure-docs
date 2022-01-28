@@ -6,6 +6,7 @@ ms.service: azure-australia
 ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: yvettep
+ms.custom: mode-other
 ---
 
 # Identity federation in Azure Australia

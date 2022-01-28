@@ -1,15 +1,23 @@
 ---
 title: What's New in Azure Cache for Redis
 description: Recent updates for Azure Cache for Redis
-author: curib
-ms.author: cauribeg
+author: flang-msft
+ms.author: franlanglois
 ms.service: cache
 ms.topic: reference
-ms.date: 10/11/2021
+ms.date: 01/21/2022
 
 ---
 
 # What's New in Azure Cache for Redis
+
+## January 2022
+
+### Support for managed identity in Azure Cache for Redis
+
+Azure Cache for Redis now supports authenticating storage account connections using managed identity. Identity is established through Azure Active Directory, and both system-assigned and user-assigned identities are supported. This further allows the service to establish trusted access to storage for uses including data persistence and importing/exporting cache data.
+
+For more information, see [Managed identity with Azure Cache for Redis (Preview)](cache-managed-identity.md).
 
 ## October 2021
 
@@ -18,9 +26,9 @@ ms.date: 10/11/2021
 Azure Cache for Redis 6.0 is now generally available. The new version includes:
 
 - Redis Streams, a new data type
-- performance enhancements
-- enhanced developer productivity
-- boosts security
+- Performance enhancements
+- Enhanced developer productivity
+- Boosts security
 
 You can now use an append-only data structure, Redis Streams, to ingest, manage, and make sense of data that is continuously being generated.
 

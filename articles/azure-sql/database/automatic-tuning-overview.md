@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: NikaKinska
 ms.author: nnikolic
-ms.reviewer: mathoma, wiassaf
+ms.reviewer: kendralittle, mathoma, wiassaf
 ms.date: 10/18/2021
 ---
 # Automatic tuning in Azure SQL Database and Azure SQL Managed Instance
@@ -84,5 +84,6 @@ Automatic tuning for SQL Managed Instance only supports **FORCE LAST GOOD PLAN**
 
 ## Next steps
 
-- To learn about built-in intelligence used in automatic tuning, see [Artificial Intelligence tunes Azure SQL Database](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
-- To learn how automatic tuning works under the hood, see [Automatically indexing millions of databases in Microsoft Azure SQL Database](https://www.microsoft.com/research/uploads/prod/2019/02/autoindexing_azuredb.pdf).
+- Read the blog post [Artificial Intelligence tunes Azure SQL Database](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
+- Learn how automatic tuning works under the hood in [Automatically indexing millions of databases in Microsoft Azure SQL Database](https://www.microsoft.com/research/uploads/prod/2019/02/autoindexing_azuredb.pdf).
+- Learn how automatic tuning can proactively help you [Diagnose and troubleshoot high CPU on Azure SQL Database](high-cpu-diagnose-troubleshoot.md)

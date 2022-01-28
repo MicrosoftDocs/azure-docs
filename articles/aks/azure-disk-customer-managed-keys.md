@@ -3,7 +3,7 @@ title: Use a customer-managed key to encrypt Azure disks in Azure Kubernetes Ser
 description: Bring your own keys (BYOK) to encrypt AKS OS and Data disks.
 services: container-service
 ms.topic: article
-ms.date: 09/01/2020
+ms.date: 1/9/2022
 
 ---
 
@@ -121,10 +121,10 @@ Create a file called **byok-azure-disk.yaml** that contains the following inform
 kind: StorageClass
 apiVersion: storage.k8s.io/v1  
 metadata:
-  name: hdd
-provisioner: kubernetes.io/azure-disk
+  name: byok
+provisioner: disk.csi.azure.com # replace with "kubernetes.io/azure-disk" if aks version is less than 1.21
 parameters:
-  skuname: Standard_LRS
+  skuname: StandardSSD_LRS
   kind: managed
   diskEncryptionSetID: "/subscriptions/{myAzureSubscriptionId}/resourceGroups/{myResourceGroup}/providers/Microsoft.Compute/diskEncryptionSets/{myDiskEncryptionSetName}"
 ```

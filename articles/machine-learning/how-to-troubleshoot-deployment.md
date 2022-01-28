@@ -113,6 +113,12 @@ After the image is successfully built, the system attempts to start a container 
 
 Use the info in the [Inspect the Docker log](how-to-troubleshoot-deployment-local.md#dockerlog) article.
 
+## Container azureml-fe-aci launch fails
+
+When deploying a service to an Azure Container Instance compute target, Azure Machine Learning attempts to create a front-end container that has the name `azureml-fe-aci` for the inference request. If `azureml-fe-aci` crashes, you can see logs by running `az container logs --name MyContainerGroup --resource-group MyResourceGroup --subscription MySubscription --container-name azureml-fe-aci`. You can follow the error message in the logs to make the fix. 
+
+The most common failure for `azureml-fe-aci` is that the provided SSL certificate or key is invalid.
+
 ## Function fails: get_model_path()
 
 Often, in the `init()` function in the scoring script, [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model#get-model-path-model-name--version-none---workspace-none-) function is called to locate a model file or a folder of model files in the container. If the model file or folder cannot be found, the function fails. The easiest way to debug this error is to run the below Python code in the Container shell:
@@ -226,5 +232,5 @@ For more information, visit the [interactive debugging in VS Code guide](how-to-
 Learn more about deployment:
 
 * [How to deploy and where](how-to-deploy-and-where.md)
-* [Tutorial: Train & deploy models](tutorial-train-models-with-aml.md)
+* [Tutorial: Train & deploy models](tutorial-train-deploy-notebook.md)
 * [How to run and debug experiments locally](./how-to-debug-visual-studio-code.md)

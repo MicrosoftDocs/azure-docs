@@ -7,6 +7,7 @@ ms.author: jgao
 ms.date: 09/27/2021
 ms.topic: quickstart
 ms.service: azure-resource-manager
+ms.custom: mode-api
 ---
 
 # Quickstart: Create a container registry by using a Bicep file

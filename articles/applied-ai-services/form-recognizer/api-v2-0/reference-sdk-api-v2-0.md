@@ -22,7 +22,7 @@ keywords: forms processing, automated data processing
 >
 >* For simplicity, the code in this article uses synchronous methods and unsecured credentials storage. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
 
-Get started with Azure Form Recognizer using the programming language of your choice. Azure Form Recognizer is a [Azure Applied AI Service](../../../applied-ai-services/index.yml) that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data, and more from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the REST API or SDK. Follow these steps to install the SDK package and try out the example code for basic tasks.
+Get started with Azure Form Recognizer using the programming language of your choice. Azure Form Recognizer is a [Azure Applied AI Service](../../../applied-ai-services/index.yml) that lets you build automated data processing software using machine-learning technology. Identify and extract text, key/value pairs, selection marks, table data, and more from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the REST API or SDK. Follow these steps to install the SDK package and try out the example code for basic tasks.
 
 ::: zone pivot="programming-language-csharp"
 

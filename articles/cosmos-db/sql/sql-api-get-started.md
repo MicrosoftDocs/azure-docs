@@ -4,7 +4,7 @@ description: 'Tutorial: Learn how to create Azure Cosmos DB SQL API resources us
 author: kirankumarkolli
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 08/26/2021
 ms.author: kirankk

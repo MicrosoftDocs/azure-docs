@@ -21,7 +21,7 @@ To step through this how-to guide, you need:
 
    :::image type="content" source="./media/howto-manage-firewall-using-portal/1-connection-security.png" alt-text="Azure portal - click Connection Security":::
 
-2. Click **Add My IP** on the toolbar. This automatically creates a firewall rule with the public IP address of your computer, as perceived by the Azure system.
+2. Click **Add client IP** on the toolbar. This automatically creates a firewall rule with the public IP address of your computer, as perceived by the Azure system.
 
    :::image type="content" source="./media/howto-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Azure portal - click Add My IP":::
 

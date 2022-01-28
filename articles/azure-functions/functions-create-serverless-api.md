@@ -75,6 +75,9 @@ A proxy can point to any HTTP resource, such as:
 
 To learn more about proxies, see [Working with Azure Functions Proxies].
 
+> [!NOTE]
+> Proxies is available in Azure Functions versions 1.x to 3.x.
+
 ## Create your first proxy
 
 In this section, you create a new proxy, which serves as a frontend to your overall API. 

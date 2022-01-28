@@ -42,7 +42,7 @@ You can use any of these tools to upload content to the **$web** container:
 > - [AzCopy](../common/storage-use-azcopy-v10.md)
 > - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 > - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> - [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) and [Channel 9 video demonstration](https://channel9.msdn.com/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player)
+> - [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) and [Channel 9 video demonstration](/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player)
 
 ## Viewing content
 
@@ -119,7 +119,7 @@ This table shows how this feature is supported in your account and the impact on
 | Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Premium block blobs          | ![Yes](../media/icons/yes-icon.png)|![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and Secure File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
 
 ## FAQ
 

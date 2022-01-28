@@ -20,6 +20,9 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 
 For pricing information please see Managed HSM Pools section on [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For supported key types, see [About keys](../keys/about-keys.md).
 
+> [!NOTE] 
+> The term "managed HSM instance" is synonymous with "managed HSM pool". To avoid confusion, we use "managed HSM instance" throughout these articles.
+
 ## Why use Managed HSM?
 
 ### Fully managed, highly available, single-tenant HSM as a service

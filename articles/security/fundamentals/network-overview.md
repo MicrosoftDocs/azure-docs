@@ -3,20 +3,18 @@ title: Network security concepts and requirements in Azure | Microsoft Docs
 description: This article provides basic explanations about core network security concepts and requirements, and information on what Azure offers in each of these areas.
 services: security
 documentationcenter: na
-author: TomShinder
-manager: barbkess
-editor: TomSh
+author: TerryLanfear
+manager: rkarlin
 
 ms.assetid: bedf411a-0781-47b9-9742-d524cf3dbfc1
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 01/06/2022
 ms.author: terrylan
-#Customer intent: As an IT Pro or decision maker I am looking for information on the network security controls available in Azure.
+#Customer intent: As an IT Pro or decision maker, I am looking for information on the network security controls available in Azure.
 
 ---
 # Azure network security overview
@@ -129,16 +127,13 @@ You can access these enhanced network security features by using an Azure partne
 
 ## Azure Firewall
 
-Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It is a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. Some features include:
+[Azure Firewall](../../firewall/overview.md) is a cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
 
-* High availability
-* Cloud scalability
-* Application FQDN filtering rules
-* Network traffic filtering rules
+Azure Firewall is offered in two SKUs: Standard and Premium. [Azure Firewall Standard](../../firewall/features.md) provides L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security. [Azure Firewall Premium](../../firewall/premium-features.md) provides advanced capabilities include signature-based IDPS to allow rapid detection of attacks by looking for specific patterns.
 
 Learn more:
 
-* [Azure Firewall overview](../../firewall/overview.md)
+* [What is Azure Firewall](../../firewall/overview.md)
 
 ## Secure remote access and cross-premises connectivity
 
@@ -312,7 +307,8 @@ Learn more:
 ## Azure DDoS protection
 
 Distributed denial of service (DDoS) attacks are some of the largest availability and security concerns facing customers that are moving their applications to the cloud. A DDoS attack attempts to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet.
-Microsoft provides DDoS protection known as **Basic** as part of the Azure Platform. This comes at no charge and includes always on monitoring and real-time mitigation of common network level attacks. In addition to the protections included with DDoS protection **Basic** you can enable the **Standard** option. DDoS Protection Standard features include:
+
+DDoS Protection Standard features include:
 
 * **Native platform integration:** Natively integrated into Azure. Includes configuration through the Azure portal. DDoS Protection Standard understands your resources and resource configuration.
 * **Turn-key protection:** Simplified configuration immediately protects all resources on a virtual network as soon as DDoS Protection Standard is enabled. No intervention or user definition is required. DDoS Protection Standard instantly and automatically mitigates the attack, once it is detected.
@@ -335,7 +331,7 @@ Learn more:
 
 Azure Front Door Service enables you to define, manage, and monitor the global routing of your web traffic. It optimizes your traffic's routing for best performance and high availability. Azure Front Door allows you to author custom web application firewall (WAF) rules for access control to protect your HTTP/HTTPS workload from exploitation based on client IP addresses, country code, and http parameters. Additionally, Front Door also enables you to create rate limiting rules to battle malicious bot traffic, it includes TLS offloading and per-HTTP/HTTPS request, application-layer processing.
 
-Front Door platform itself is protected by Azure DDoS Protection Basic. For further protection, Azure DDoS Protection Standard may be enabled at your VNETs and safeguard resources from network layer (TCP/UDP) attacks via auto tuning and mitigation. Front Door is a layer 7 reverse proxy, it only allows web traffic to pass through to back end servers and block other types of traffic by default.
+Front Door platform itself is protected by an Azure infrastructure-level DDoS protection. For further protection, Azure DDoS Protection Standard may be enabled at your VNETs and safeguard resources from network layer (TCP/UDP) attacks via auto tuning and mitigation. Front Door is a layer 7 reverse proxy, it only allows web traffic to pass through to back end servers and block other types of traffic by default.
 
 Learn more:
 
