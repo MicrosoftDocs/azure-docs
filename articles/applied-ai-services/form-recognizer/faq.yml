@@ -22,7 +22,7 @@ sections:
           What is Form Recognizer?
         answer: |
 
-          Azure Form Recognizer is a cloud-based [Azure Applied AI Service](/azure/applied-ai-services) that uses machine-learning models to extract and analyze form fields, text, and tables from your documents. The returned result is a structured JSON output.
+          Azure Form Recognizer is a cloud-based [Azure Applied AI Service](/azure/applied-ai-services) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. The returned result is a structured JSON output.
 
           Form Recognizer use cases include automating your data processing in applications and workflows, enhancing data-driven strategies, and enriching document search capabilities.
 
@@ -32,7 +32,7 @@ sections:
           Which Form Recognizer use cases require special consideration?
         answer: |
 
-          Give careful consideration to form processing projects that encompass financial, protected health, personal identity, or highly sensitive data.
+          Give careful consideration to document processing projects that encompass financial, protected health, personal identity, or highly sensitive data.
 
           Make certain to comply with all [national, regional, and industry-specific requirements](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
 
@@ -42,11 +42,9 @@ sections:
           What languages are supported by Form Recognizer?
         answer: |
 
-          Form Recognizer's deep-learning-based universal models can extract multi-lingual text in your documents, including text lines with mixed languages.
-
-          Form Recognizer currently supports 122 print and 7 handwritten language texts.
-
-          See [language support](language-support.md) for a complete list of the handwritten and printed text supported by Form Recognizer.
+           Form Recognizer's deep-learning-based universal models support many languages that can extract multi-lingual text from your images and documents, including text lines with mixed languages.
+         
+           Language support varies by Form Recognizer service functionality. See [language support](language-support.md) for a complete list of the handwritten and printed text supported by Form Recognizer.
 
       - question: |
          Is Form Recognizer available in my Azure region?
@@ -78,12 +76,10 @@ sections:
 
           OCR is used to extract text from printed and handwritten documents.
 
-          Form Recognizer uses OCR to detect and extract information in forms and AI to provide additional structure and information to the text extraction.
+          Form Recognizer uses OCR to detect and extract information from forms and documents supported by AI to provide additional structure and information to the text extraction.
 
           Learn more about [Form Recognizer and Applied AI Services](/azure/applied-ai-services/what-are-applied-ai-services).
 
-  - name: Image processing
-    questions:
       - question: |
            What is the confidence score and how is it calculated?
         answer: |
@@ -152,11 +148,10 @@ sections:
 
             | Supported Language | Azure SDK package| Supported API version|
             | ----------- | ----------------|:---------------------: |
-            |             |                 | 2021-09-30-preview, v2.1, v2.0|
-            | C#/.NET| [4.0.0-beta.2](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.1/index.html)| 〃 |
-            | Java | [4.0.0-beta.3](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.3/index.html)| 〃 |
-            | JavaScript| [4.0.0-beta.2](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.2/index.html)| 〃|
-            | Python | [3.2.0b2](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b2/index.html) | 〃 |
+            | C#/.NET| [4.0.0-beta.2](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.1/index.html)| 2021-09-30-preview, v2.1, v2.0 |
+            | Java | [4.0.0-beta.3](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.3/index.html)| 2021-09-30-preview, v2.1, v2.0 |
+            | JavaScript| [4.0.0-beta.2](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.2/index.html)| 2021-09-30-preview, v2.1, v2.0 |
+            | Python | [3.2.0b2](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b2/index.html) | 2021-09-30-preview, v2.1, v2.0 |
 
       - question: |
            What is the difference between Form Recognizer v3.0 and v2.1 and how do I migrate to the latest version?
