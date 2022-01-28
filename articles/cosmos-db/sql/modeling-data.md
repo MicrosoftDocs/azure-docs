@@ -321,8 +321,8 @@ Joining documents:
 
 This would work. However, loading either an author with their books, or loading a book with its author, would always require at least two additional queries against the database. One query to the joining document and then another query to fetch the actual document being joined.
 
-If all this join table is doing is gluing together two pieces of data, then why not drop it completely?
-Consider the following.
+If all this join is doing is gluing together two pieces of data, then why not drop it completely?
+Consider the following example.
 
 ```json
 Author documents:
@@ -451,7 +451,7 @@ Normalization becomes meaningless since with Azure Synapse Link you can join bet
  * Fewer properties per document.
  * Data structures with fewer nested levels.
 
-Please note that these last 2 factors, fewer properties and fewer levels, help in the performance of your analytical queries but also decrease the chances of parts of your data not being represented in the analytical store. As described in the article on automatic schema inference rules, there are limits to the number of levels and the amount of properties that are represented in analytical store.
+Please note that these last two factors, fewer properties and fewer levels, help in the performance of your analytical queries but also decrease the chances of parts of your data not being represented in the analytical store. As described in the article on automatic schema inference rules, there are limits to the number of levels and properties that are represented in analytical store.
 
 Another important factor for normalization is that SQL serverless pools in Azure Synapse support result sets with up to 1000 columns, and exposing nested columns also counts towards that limit. In other words, both analytical store and Synapse SQL serverless pools have a limit of 1000 properties.
 
@@ -459,13 +459,13 @@ But what to do since denormalization is an important data modeling technique for
 
 #### Partition Key
 
-Your Azure Cosmos DB partition key (PK) isn't used in analytical store. And now you can create multiple custom partitioned analytical stores, using any PK that you want. Because of this isolation, you can choose a PK for your transactional data with focus on data ingestion and point reads, while cross partition queries can be done with Azure Synapse Link. Let's see an example:
+Your Azure Cosmos DB partition key (PK) isn't used in analytical store. And now you can use [analytical store custom partitioning](https://devblogs.microsoft.com/cosmosdb/custom-partitioning-azure-synapse-link/) to copies of analytical store using any PK that you want. Because of this isolation, you can choose a PK for your transactional data with focus on data ingestion and point reads, while cross-partition queries can be done with Azure Synapse Link. Let's see an example:
 
-In an hypothetical global IoT scenario, *device id* is a good PK since all devices have a similar data volume and with that you won't have a hot partition problem. But if you want to analyze the data of more than one device, like "all data from yesterday" or "totals per city", you may have problems since those are cross partition queries. Those queries can hurt your transactional performance since they use part of your throughput in RUs to run. But with Azure Synapse Link, you can run these analytical queries at no RUs costs. Analytical store columnar format is optimized for analytical queries and Azure Synapse Link leverages this characteristic to allow great performance with Azure Synapse Analytics runtimes.
+In a hypothetical global IoT scenario, *device id* is a good PK since all devices have a similar data volume and with that you won't have a hot partition problem. But if you want to analyze the data of more than one device, like "all data from yesterday" or "totals per city", you may have problems since those are cross-partition queries. Those queries can hurt your transactional performance since they use part of your throughput in RUs to run. But with Azure Synapse Link, you can run these analytical queries at no RUs costs. Analytical store columnar format is optimized for analytical queries and Azure Synapse Link leverages this characteristic to allow great performance with Azure Synapse Analytics runtimes.
 
 #### Data types and properties names
 
-The automatic schema inference rules article lists what are the supported data types. While unsupported data type blocks the representation in analytical store, supported datatypes may be processed differently by the Azure Synapse runtimes. One example is: When using DateTime strings that follows the ISO 8601 UTC standard, Spark pools in Azure Synapse will represent these columns as string and SQL serverless pools in Azure Synapse will represent these columns as varchar(8000).
+The automatic schema inference rules article lists what are the supported data types. While unsupported data type blocks the representation in analytical store, supported datatypes may be processed differently by the Azure Synapse runtimes. One example is: When using DateTime strings that follow the ISO 8601 UTC standard, Spark pools in Azure Synapse will represent these columns as string and SQL serverless pools in Azure Synapse will represent these columns as varchar(8000).
 
 Another challenge is that not all characters are accepted by Azure Synapse Spark. While white spaces are accepted, characters like colon, grave accent, and comma are not. Let's say that your document has a property named **"First Name, Last Name". This property will be represented in analytical store and Synapse SQL serverless pool can read it without a problem. But since it is in analytical store, Azure Synapse Spark can't read any data from analytical store, including all other properties. At the end of the day, you can't use Azure Synapse Spark when you have one property using the unsupported characters in their names.
 
@@ -502,9 +502,9 @@ The document below will have 3 columns in analytical store, **"id"**, **"email"*
 
 Azure Synapse Link allows you to reduce costs from the following perspectives:
 
- * Less queries running in your transactional database.
+ * Fewer queries running in your transactional database.
  * A PK optimized for data ingestion and point reads, reducing data footprint, hot partition scenarios, and partitions splits.
- * Data tiering since analytical ttl (attl) is independent from transactional ttl (tttl). You can keep your transactional data in transactional store for a few days, weeks, months, and keep the data in analytical store for years or for ever. Analytical store columnar format brings a natural data compression, from 50% up to 90%. And it's cost per GB is ~10% of transactional store actual price. Please click [here](../analytical-store-introduction.md) to read the current analytical store backup limitations.
+ * Data tiering since analytical ttl (attl) is independent from transactional ttl (tttl). You can keep your transactional data in transactional store for a few days, weeks, months, and keep the data in analytical store for years or for ever. Analytical store columnar format brings a natural data compression, from 50% up to 90%. And its cost per GB is ~10% of transactional store actual price. Please click [here](../analytical-store-introduction.md) to read the current analytical store backup limitations.
  * No ETL jobs running in your environment, meaning that you don't need to provision RUs for them.
 
 ## Next steps
@@ -523,5 +523,5 @@ Data Modeling and Partitioning - a Real-World Example](how-to-model-partition-ex
 * See the learn module on how to [Model and partition your data in Azure Cosmos DB.](/learn/modules/model-partition-data-azure-cosmos-db/)
 
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+    * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
