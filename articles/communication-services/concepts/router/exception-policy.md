@@ -1,7 +1,7 @@
 ---
 title: Exception Policy
 titleSuffix: An Azure Communication Services concept document
-description: Learn about the Azure Communication Services Job Router exception policy.
+description: Learn about the Azure Communication Services Job Router Exception Policy.
 author: danielgerlag
 manager: bgao
 services: azure-communication-services
@@ -27,7 +27,7 @@ The following triggers can be used to drive actions:
 
 **Wait Time -** Fires when the job has been waiting in the queue for the specified threshold.
 
-When these triggers are fired, they will execute one or more actions and send an [Exception Triggered Event][exception_triggered_event] via [EventGrid][subscribe_events].
+When these triggers are fired, they'll execute one or more actions and send an [Exception Triggered Event][exception_triggered_event] via [Event Grid][subscribe_events].
 
 ## Actions
 
@@ -35,11 +35,11 @@ When these triggers are fired, they will execute one or more actions and send an
 
 **Reclassify -** Reapplies the specified Classification Policy with modified labels to the job.
 
-**Manual Reclassify -** Modifies the queue, priority and worker selectors to the job.
+**Manual Reclassify -** Modifies the queue, priority, and worker selectors to the job.
 
 ## Examples
 
-The following example shows how to configure an exception policy with a rule that will cancel a job entering a queue with a length greater then 100.
+In the following example, we configure an Exception Policy that will cancel a job before it joins a queue with a length greater than 100.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -81,7 +81,7 @@ await client.upsertExceptionPolicy({
 
 ::: zone-end
 
-The following example shows how to configure an exception policy with rules that will:
+In the following example, we configure an Exception Policy with rules that will:
 
 - Set the job priority to 10 after it has been waiting in the queue for 1 minute.
 - Move the job to `queue-2` after it has been waiting for 5 minutes.
