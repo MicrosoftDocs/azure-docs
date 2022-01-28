@@ -46,22 +46,22 @@ In this article, learn how to securely integrate with Azure Machine Learning fro
 1. From Azure Synapse Studio, [Create a new Azure Machine Learning linked service](/azure/synapse-analytics/machine-learning/quickstart-integrate-azure-machine-learning).
 1. After creating and publishing the linked service, select __Manage__,  __Managed private endpoints__, and then __+ New__ in Azure Synapse Studio.
 
-    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/add-managed-private-endpoint.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/add-managed-private-endpoint.png" alt-text="Screenshot of the managed private endpoints dialog.":::
 
 1. From the __New managed private endpoint__ page, search for __Azure Machine Learning__ and select the tile.
 
-    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/new-private-endpoint-select-machine-learning.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/new-private-endpoint-select-machine-learning.png" alt-text="Screenshot of selecting Azure Machine Learning.":::
 
 1. When prompted to select the Azure Machine Learning workspace, use the __Azure subscription__ and __Azure Machine Learning workspace__ you added previously as a linked service. Select __Create__ to create the endpoint.
     
-    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/new-managed-private-endpoint.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/new-managed-private-endpoint.png" alt-text="Screenshot of the new private endpoint dialog.":::
 
 1. The endpoint will be listed as __Provisioning__ until it has been created. Once created, the __Approval__ column will list a status of __Pending__. You will approve the endpoint in the [Configure Azure Machine Learning](#configure-azure-machine-learning) section.
 
     > [!NOTE]
     > In the following screenshot, a managed private endpoint has been created for the Azure Data Lake Storage Gen 2 associated with this Synapse workspace. For information on how to create an Azure Data Lake Storage Gen 2 and enable a private endpoint for it, see [Provision and secure a linked service with Managed VNet](/azure/synapse-analytics/data-integration/linked-service).
 
-    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/managed-private-endpoint-connections.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/managed-private-endpoint-connections.png" alt-text="Screenshot of the managed private endpoints list.":::
 
 ### Create a Spark pool
 
@@ -72,19 +72,19 @@ To verify that the integration between Azure Synapse and Azure Machine Learning 
 1. From the [Azure Portal](https://portal.azure.com), select your __Azure Machine Learning workspace__, and then select __Networking__.
 1. Select __Private endpoints__, and then select the endpoint you created in the previous steps. It should have a status of __pending__. Select __Approve__ to approve the endpoint connection.
 
-    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/approve-pending-private-endpoint.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/approve-pending-private-endpoint.png" alt-text="Screenshot of the private endpoint approval.":::
 
 1. From the left of the page, select __Access control (IAM)__. Select __+ Add__, and then select __Role assignment__.
 
-    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/workspace-role-assignment.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/workspace-role-assignment.png" alt-text="Screenshot of the role assignment.":::
 
 1. Select __Contributor__, and then select __Next__.
 
-    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/contributor-role.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/contributor-role.png" alt-text="Screenshot of selecting contributor.":::
 
 1. Select __User, group, or service principal__, and then __+ Select members__. Enter the name of the identity created earlier, select it, and then use the __Select__ button.
 
-    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/add-role-assignment.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/add-role-assignment.png" alt-text="Screenshot of assigning the role.":::
 
 1. Select __Review + assign__, verify the information, and then select the __Review + assign__ button.
 
@@ -107,7 +107,7 @@ To verify that the integration between Azure Synapse and Azure Machine Learning 
 
 1. From Azure Synapse Studio, select __Develop__, and then __+ Notebook__.
 
-    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/add-synapse-notebook.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/add-synapse-notebook.png" alt-text="Screenshot of adding a notebook.":::
 
 1. In the __Attach to__ field, select the Apache Spark pool for your Azure Synapse workspace, and enter the following code in the first cell:
 
