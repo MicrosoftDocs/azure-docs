@@ -35,11 +35,11 @@ Before you begin, verify that you have met the following criteria:
   * [Configure your Windows VM to be Azure AD-joined](../active-directory/devices/concept-azure-ad-join.md).
   * [Configure your Windows VM to be hybrid Azure AD-joined](../active-directory/devices/concept-azure-ad-join-hybrid.md).
 
-## Configure Bastion
+## <a name="configure"></a>Configure Bastion
 
 Follow the instructions that pertain to your environment.
 
-### To modify an existing bastion host
+### <a name="modify-host"></a>To modify an existing bastion host
 
 If you have already configured Bastion for your VNet, modify the following settings:
 
@@ -48,7 +48,7 @@ If you have already configured Bastion for your VNet, modify the following setti
 
     :::image type="content" source="./media/connect-native-client-windows/update-host.png" alt-text="Settings for updating an existing host with Native Client Support box selected." lightbox="./media/connect-native-client-windows/update-host-expand.png":::
 
-### To configure a new bastion host
+### <a name="configure-new"></a>To configure a new bastion host
 
 If you don't already have a bastion host configured, see [Create a bastion host](tutorial-create-host-portal.md#createhost). When configuring the bastion host, specify the following settings:
 
@@ -59,11 +59,11 @@ If you don't already have a bastion host configured, see [Create a bastion host]
 
    :::image type="content" source="./media/connect-native-client-windows/new-host.png" alt-text="Settings for a new bastion host with Native Client Support box selected." lightbox="./media/connect-native-client-windows/new-host-expand.png":::
 
-## Verify roles and ports
+## <a name="verify"></a>Verify roles and ports
 
 Verify that the following roles and ports are configured in order to connect.
 
-### Required roles
+### <a name="roles"></a>Required roles
 
 * Reader role on the virtual machine.
 * Reader role on the NIC with private IP of the virtual machine.
@@ -94,7 +94,7 @@ This section helps you connect to your virtual machine from a Windows local work
    az account set --subscription "<subscription ID>"
    ```
 
-### Connect to a Linux VM
+### <a name="connect-linux"></a>Connect to a Linux VM
 
 1. Sign in to your target Linux VM using one of the following options.
 
@@ -124,7 +124,7 @@ This section helps you connect to your virtual machine from a Windows local work
    > VM sessions using the **az network bastion ssh** command do not support file transfer. To use file transfer with SSH over Bastion, please see the section on the **az network bastion tunnel** command further below.
    >
 
-### Connect to a Windows VM
+### <a name="connect-windows"></a>Connect to a Windows VM
 
 1. Sign in to your target Windows VM using one of the following options.
 
@@ -146,7 +146,7 @@ This section helps you connect to your virtual machine from a Windows local work
 
 1. Once you sign in to your target VM, the native client on your workstation will open up with your VM session; **MSTSC** for RDP sessions, and **SSH CLI extension (az ssh)** for SSH sessions.
 
-## Connect to a VM using the *az network bastion tunnel* command
+## <a name="connect-tunnel"></a>Connect to a VM using the *az network bastion tunnel* command
 
 This section helps you connect to your virtual machine using the *az network bastion tunnel* command, which allows you to:
 * Use native clients on *non*-Windows local workstations (ex: a Linux PC)
