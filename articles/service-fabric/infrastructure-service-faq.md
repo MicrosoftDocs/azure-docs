@@ -8,8 +8,11 @@ ms.author: saharsh
 ---
 
 # Introduction to the Service Fabric Infrastructure Service
+In this article, we describe Infrastructure Service, which is a part of Azure Service Fabric and coordinates between Azure infrastructure updates and cluster health to update the underlying infrastructure safely.
 
-The Service Fabric Infrastructure Service is a system service for Azure clusters that ensures all infrastructure operations are done in a safe manner. The service is responsible for coordinating all infrastructure updates to the underlying virtual machine scale sets (VMSS) with durability level Silver and higher. Typically there's one Infrastructure Service per node type, but there will be three if it's a zone resilient node type. All Platform and Tenant updates on a virtual machine scale set corresponding to these node types take in to account the state of the cluster and potential impact of the update. The service then decides if the operation can take place without compromising the health of the replicas and instances running on the cluster.
+## Infrastructure Service Details
+
+The Service Fabric Infrastructure Service is a system service for Azure clusters that ensures all infrastructure operations are done in a safe manner. The service is responsible for coordinating all infrastructure updates to the underlying virtual machine scale sets with durability level Silver and higher. Typically there's one Infrastructure Service per node type, but there will be three if it's a zone resilient node type. All Platform and Tenant updates on a virtual machine scale set corresponding to these node types take in to account the state of the cluster and potential impact of the update. The service then decides if the operation can take place without compromising the health of the replicas and instances running on the cluster.
 
 The rest of this document covers frequently asked questions about Infrastructure Service: 
 
@@ -17,7 +20,7 @@ The rest of this document covers frequently asked questions about Infrastructure
 
 ### What are the different kinds of updates that are managed by Infrastructure Service?
  * Platform Update - An update to underlying host for the virtual machine scale set initiated by the Azure platform and performed in a safe manner by Upgrade Domain (UD). 
- * Tenant Update - User-initiated update of the VMSS such as modifying VM count, config, or modifying guest OS.
+ * Tenant Update - User-initiated update of the scale set such as modifying VM count, config, or modifying guest OS.
  * Tenant Maintainence - User-initiated repair to a single instance of the virtual machine scale set such as a reboot. 
  * Platform Maintainence - Maintenance initiated by Azure Compute on a virtual machine or set of virtual machines on a virtual machine scale set.
 
