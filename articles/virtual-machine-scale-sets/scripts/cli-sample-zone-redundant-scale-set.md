@@ -26,7 +26,7 @@ This script creates a virtual machine scale set running Ubuntu across multiple A
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine-scale-sets/create-zone-redundant-scale-set/create-zone-redundant-scale-set.sh" range="4-33":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine-scale-sets/create-zone-redundant-scale-set/create-zone-redundant-scale-set.sh" range="4-35":::
 
 ## Clean up resources
 
