@@ -37,6 +37,8 @@
       items:
       - name: ESPRESSIF ESP32
         href: quickstart-devkit-espressif-esp32.md
+      - name: STMicroelectronics L4S5I
+        href: quickstart-devkit-stm-b-l4s5i-freertos.md
 - name: Tutorials
   items:
     - name: Build a device solution with IoT Hub
