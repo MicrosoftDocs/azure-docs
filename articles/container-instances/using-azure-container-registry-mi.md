@@ -27,13 +27,15 @@ ms.custom: mvc, devx-track-azurecli
 
 * Virtual Network injected container groups do not support managed identity authentication image pulls with ACR.
 
+* Windows containers do not support managed identity authenticated image pulls with ACR.
+
 * Windows Server 2016 container groups do not support managed identity authentication image pulls with ACR.
 
-* Container groups cannot use managed identity to authenticate image pulls from Azure container registries that use [private DNS zones][private-dns-zones].
+* Container groups does not support pulling images from an Azure container registry using [private DNS zones][private-dns-zones].
 
 ## Configure registry authentication
 
-Your container registry must have Trusted Services enabled. To find instructions on how to enable trusted services, see [Allow trusted services to securely access a network-restricted container registry (preview)][allow-access-trusted-services].
+Your container registry must have Trusted Services enabled. To find instructions on how to enable trusted services, see [Allow trusted services to securely access a network-restricted container registry][allow-access-trusted-services].
 
 ## Create an identity
 
@@ -80,10 +82,10 @@ xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx
 
 ## Grant the identity a role assignment
 
-In order for your identity to access your container registry, you must grant it a role assignment. Use to following command to grant the `acrpull` roll to the identity you've just created:
+In order for your identity to access your container registry, you must grant it a role assignment. Use to following command to grant the `acrpull` role to the identity you've just created, making sure to provide your registry's ID and the service principal we obtained earlier:
 
 ```azurecli-interactive
-az role assignment create --assignee $spID --scope $registryID --role acrpull
+az role assignment create --assignee $spID --scope <registry-id> --role acrpull
 ```
 
 ## Deploy using an Azure Resource Manager (ARM) template
