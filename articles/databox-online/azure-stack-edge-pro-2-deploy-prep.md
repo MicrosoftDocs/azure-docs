@@ -40,8 +40,8 @@ For Azure Stack Edge Pro 2 deployment, you need to first prepare your environmen
 |**[4. Configure network settings for Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md)** |Configure network including the compute network and web proxy settings for your device.   |
 |**[5. Configure device settings for Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-set-up-device-update-time.md)** |Assign a device name and DNS domain, configure update server and device time. |
 |**[6. Configure security settings for Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-configure-certificates.md)** |Configure certificates for your device. Use device-generated certificates or bring your own certificates.   |
-|**[7. Activate Azure Stack Edge Pro 2](azure-stack-edge-gpu-deploy-activate.md)** |Use the activation key from service to activate the device. The device is ready to set up SMB or NFS shares or connect via REST. |
-|**[8. Configure compute](azure-stack-edge-pro-2-deploy-configure-compute.md)** |Configure the compute role on your device. A Kubernetes cluster is also created. |
+|**[7. Activate Azure Stack Edge Pro 2](azure-stack-edge-placeholder.md)** |Use the activation key from service to activate the device. The device is ready to set up SMB or NFS shares or connect via REST. |
+|**[8. Configure compute](azure-stack-edge-placeholder.md)** |Configure the compute role on your device. A Kubernetes cluster is also created. |
 |**[9A. Transfer data with Edge shares](./azure-stack-edge-gpu-deploy-add-shares.md)** |Add shares and connect to shares via SMB or NFS. |
 |**[9B. Transfer data with Edge storage accounts](./azure-stack-edge-gpu-deploy-add-storage-accounts.md)** |Add storage accounts and connect to blob storage via REST APIs. |
 
@@ -77,7 +77,7 @@ Before you begin, make sure that:
 Before you deploy a physical device, make sure that:
 
 - You've reviewed the safety information that was included in the shipment package.
-- You have a 1U slot available in a standard 19" rack in your datacenter for rack mounting the device.
+- You have a 2U slot available in a standard 19" rack in your datacenter for rack mounting the device.
 - You have access to a flat, stable, and level work surface where the device can rest safely.
 - The site where you intend to set up the device has standard AC power from an independent source or a rack power distribution unit (PDU) with an uninterruptible power supply (UPS).
 - You have access to a physical device.
