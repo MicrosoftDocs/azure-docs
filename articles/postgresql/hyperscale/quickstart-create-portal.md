@@ -18,11 +18,11 @@ Azure Database for PostgreSQL is a managed service that you use to run, manage, 
 
 Azure Database for PostgreSQL - Hyperscale (Citus) is a managed service that
 you use to run, manage, and scale highly available PostgreSQL databases in the
-cloud. Its [basic tier](concepts-server-group.md#tiers) is a a convenient
+cloud. Its [basic tier](concepts-server-group.md#tiers) is a convenient
 deployment option for initial development and testing.
 
 This quickstart shows you how to create a Hyperscale (Citus) basic tier server
-group using the Azure portal. You'll provision the server group and verify that
+group using the Azure portal. You'll create the server group and verify that
 you can connect to it to run queries.
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../../includes/azure-postgresql-hyperscale-create-db.md)]

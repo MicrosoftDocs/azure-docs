@@ -24,15 +24,15 @@ comes with several roles pre-defined:
 * `citus`
 
 Since Hyperscale (Citus) is a managed PaaS service, only Microsoft can sign in with the
-`postgres` super user role. For limited administrative access, Hyperscale (Citus)
+`postgres` superuser role. For limited administrative access, Hyperscale (Citus)
 provides the `citus` role.
 
 Permissions for the `citus` role:
 
 * Read all configuration variables, even variables normally visible only to
   superusers.
-* Read all pg\_stat\_\* views and use various statistics-related extensions --
-  even views or extensions normally visible only to superusers.
+* Read all pg\_stat\_\* views and use various statistics-related
+  extensions--even views or extensions normally visible only to superusers.
 * Execute monitoring functions that may take ACCESS SHARE locks on tables,
   potentially for a long time.
 * [Create PostgreSQL extensions](concepts-extensions.md) (because
@@ -48,17 +48,18 @@ Notably, the `citus` role has some restrictions:
 As mentioned, the `citus` admin account lacks permission to create additional
 users. To add a user, use the Azure portal interface.
 
-1. Go to the **Roles** page for your Hyperscale (Citus) server group, and click **+ Add**:
+1. Go to the **Roles** page for your Hyperscale (Citus) server group, and
+   select **+ Add**:
 
    :::image type="content" source="../media/howto-hyperscale-create-users/1-role-page.png" alt-text="The roles page":::
 
-2. Enter the role name and password. Click **Save**.
+2. Enter the role name and password. Select **Save**.
 
    :::image type="content" source="../media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="Add role":::
 
 The user will be created on the coordinator node of the server group,
 and propagated to all the worker nodes. Roles created through the Azure
-portal have the `LOGIN` attribute, which means they are true users who
+portal have the `LOGIN` attribute, which means they’re true users who
 can sign in to the database.
 
 ## How to modify privileges for user role
@@ -76,7 +77,7 @@ GRANT SELECT ON mytable TO db_user;
 
 Hyperscale (Citus) propagates single-table GRANT statements through the entire
 cluster, applying them on all worker nodes. It also propagates GRANTs that are
-system-wide (e.g. for all tables in a schema):
+system-wide (for example, for all tables in a schema):
 
 ```sql
 -- applies to the coordinator node and propagates to workers
@@ -86,7 +87,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 ## How to delete a user role or change their password
 
 To update a user, visit the **Roles** page for your Hyperscale (Citus) server group,
-and click the ellipses **...** next to the user. The ellipses will open a menu
+and select the ellipses **...** next to the user. The ellipses will open a menu
 to delete the user or reset their password.
 
    :::image type="content" source="../media/howto-hyperscale-create-users/edit-role.png" alt-text="Edit a role":::
@@ -99,7 +100,7 @@ Open the firewall for the IP addresses of the new users' machines to enable
 them to connect: [Create and manage Hyperscale (Citus) firewall rules using
 the Azure portal](howto-manage-firewall-using-portal.md).
 
-For more information about database user account management, see PostgreSQL
+For more information about database user management, see PostgreSQL
 product documentation:
 
 * [Database Roles and Privileges](https://www.postgresql.org/docs/current/static/user-manag.html)
