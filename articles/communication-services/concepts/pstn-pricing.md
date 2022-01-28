@@ -4,23 +4,21 @@ titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services' SMS Pricing Model.
 author: prakulka
 ms.author: prakulka
-ms.date: 11/30/2021
+ms.date: 1/28/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
-zone_pivot_groups: acs-pstn-phonenumbers
 ---
-# PSTN Pricing
+# Telephony (PSTN) Pricing
 
 > [!IMPORTANT]
 > Number Retention and Portability: Phone numbers that are assigned to you during any preview program will be returned to Microsoft at the end of the preview program unless otherwise agreed by Microsoft.  During private preview and public preview, telephone numbers are not eligible for porting. [Details on offers in Public Preview / GA](../concepts/numbers/sub-eligibility-number-capability.md)
 
-Numbers are available for purchase on a per month basis, and pricing differs based on the type of a number and the source (country) of the number. Once a number is purchased, Customers can make / receive calls using that number and are billed on a per minute basis. PSTN call pricing is based on the location in which a call is terminated (destination).
+Numbers are billed on a per month basis, and pricing differs based on the type of a number and the source (country) of the number. Once a number is purchased, Customers can make / receive calls using that number and are billed on a per minute basis. PSTN call pricing is based on the location in which a call is terminated (destination).
 
 In most cases, only customers with Azure subscriptions that match the offer location will be able to buy a number. Please see here for details on [in-country and cross-country purchases](../concepts/numbers/sub-eligibility-number-capability.md).
 
 All prices shown below are in USD.
 
-***
 
 ## United States Telephony Offers
 
@@ -36,7 +34,7 @@ All prices shown below are in USD.
 |Geographic     |Starting at USD 0.0130/min       |USD 0.0085/min        |
 |Toll-free |Starting at USD 0.0130/min   | USD 0.0220/min |
 
-For additional destinations, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+For destination-specific pricing, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
 ## United Kingdom Telephony Offers
 
@@ -52,7 +50,7 @@ For additional destinations, please refer to details [here](https://github.com/A
 |Geographic     |Starting at USD 0.0110/min       |USD 0.0090/min        |
 |Toll-free |Starting at USD 0.0110/min   |Starting at USD 0.0290/min |
 
-For additional destinations, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+For destination-specific pricing, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
 ## Denmark Telephony Offers
 
@@ -68,19 +66,18 @@ For additional destinations, please refer to details [here](https://github.com/A
 |Geographic     |Starting at USD 0.0100/min       |USD 0.0100/min        |
 |Toll-free |Starting at USD 0.0190/min   |Starting at USD 0.0343/min |
 
-For additional destinations, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+For destination-specific pricing, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
 ***
 
-Note: Pricing for all countries is subject to change as pricing is market-based and depends on third-party suppliers of telephony services.
+Note: Pricing for all countries is subject to change as pricing is market-based and depends on third-party suppliers of telephony services. Additionally, pricing may include requisite taxes and fees.
 
+***
 ## Next steps
 
-In this quickstart, you learned how PSTN Offers are priced for Azure Communication Services.
-
-> [!div class="nextstepaction"]
-> [Learn more about Telephony](../concepts/telephony/telephony-concept.md)
+In this quickstart, you learned how Telephony (PSTN) Offers are priced for Azure Communication Services.
 
 The following documents may be interesting to you:
+- [Learn more about Telephony](../concepts/telephony/telephony-concept.md)
 - Get an Telephony capable [phone number](../quickstarts/telephony/get-phone-number.md)
 - [Phone number types in Azure Communication Services](../concepts/telephony/plan-solution.md)
