@@ -51,7 +51,7 @@ The process for installing the extension varies depending on the extension versi
 Working with the bindings requires that you reference the appropriate NuGet package. Tables are included in a combined package for Azure Storage. Install the [Microsoft.Azure.WebJobs.Extensions.Storage NuGet package][storage-4.x], version 3.x or 4.x. 
 
 > [!NOTE]
-> Tables have been moved out of this package starting in its 5.x version. You need to instead use version 4.x of the extension NuGet package or additionally include the [Table API extension](#table-api-extension).
+> Tables have been moved out of this package starting in its 5.x version. You need to instead use version 4.x of the extension NuGet package or additionally include the [Table API extension](#table-api-extension) when using version 5.x.
 
 # [Table API extension (preview)](#tab/table-api/in-process)
 
@@ -85,7 +85,7 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 Tables are included in a combined package for Azure Storage. Install the [Microsoft.Azure.Functions.Worker.Extensions.Storage NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage/4.0.4), version 4.x. 
 
 > [!NOTE]
-> Tables have been moved out of this package starting in its 5.x version. You need to instead use version 4.x for now.
+> Tables have been moved out of this package starting in its 5.x version. You need to instead use version 4.x.
 
 # [Table API extension (preview)](#tab/table-api/isolated-process)
 

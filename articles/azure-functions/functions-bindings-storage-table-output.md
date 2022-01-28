@@ -462,7 +462,7 @@ The following table explains the binding configuration properties that you set i
 
 The usage of the binding depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
 
-# [In-process class library](#tab/in-process)
+# [In-process](#tab/in-process)
 
 An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
  

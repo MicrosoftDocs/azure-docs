@@ -22,7 +22,7 @@ For information on setup and configuration details, see the [overview](./functio
 
 The usage of the binding depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
 
-# [In-process class library](#tab/in-process)
+# [In-process](#tab/in-process)
 
 An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
  
@@ -721,7 +721,7 @@ In [C# class libraries](functions-dotnet-class-library.md), the `TableAttribute`
 |**RowKey** | Optional. The row key of a single table entity to read. Can't be used with `Take` or `Filter`. | 
 |**Take** | Optional. The maximum number of entities to return. Can't be used with `RowKey`. | 
 |**Filter** | Optional. An OData filter expression for the entities to return from the table. Can't be used with `RowKey`.| 
-|**Connection** |  The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+|**Connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
 
 The attribute's constructor takes the table name, partition key, and row key, as shown in the following example:
 
@@ -762,7 +762,7 @@ In [C# class libraries](dotnet-isolated-process-guide.md), the `TableInputAttrib
 |**RowKey** | Optional. The row key of the table entity to read. | 
 | **Take** | Optional. The maximum number of entities to read into an [`IEnumerable<T>`]. Can't be used with `RowKey`.| 
 |**Filter** | Optional. An OData filter expression for entities to read into an [`IEnumerable<T>`]. Can't be used with `RowKey`. | 
-|**Connection** |  The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+|**Connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
 
 # [C# script](#tab/csharp-script)
 
@@ -780,7 +780,7 @@ The following table explains the binding configuration properties for C# script 
 |**rowKey** |Optional. The row key of the table entity to read. Can't be used with `take` or `filter`.| 
 |**take** | Optional. The maximum number of entities to return. Can't be used with `rowKey`. |
 |**filter** | Optional. An OData filter expression for the entities to return from the table. Can't be used with `rowKey`.| 
-|**connection** |  The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+|**connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
 
 ---
 
@@ -797,7 +797,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 |**[RowKey](/java/api/com.microsoft.azure.functions.annotation.tableinput.rowkey)** | The row key of the table entity to read. | 
 |**[Take](/java/api/com.microsoft.azure.functions.annotation.tableinput.take)** | Optional. The maximum number of entities to read.| 
 |**[Filter](/java/api/com.microsoft.azure.functions.annotation.tableinput.filter)** | Optional. An OData filter expression for table input. | 
-|**[Connection](/java/api/com.microsoft.azure.functions.annotation.tableinput.connection)** |  The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+|**[Connection](/java/api/com.microsoft.azure.functions.annotation.tableinput.connection)** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
@@ -828,9 +828,9 @@ The following table explains the binding configuration properties that you set i
 
 The usage of the binding depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
 
-# [In-process class library](#tab/in-process)
+# [In-process](#tab/in-process)
 
-An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
+An in-process class library is a compiled C# function that runs in the same process as the Functions runtime.
  
 # [Isolated process](#tab/isolated-process)
 
