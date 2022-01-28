@@ -4,7 +4,7 @@ description: Create watchlist in  Microsoft Sentinel for allowlists or blocklist
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
-ms.date: 1/04/2022
+ms.date: 1/28/2022
 ---
 
 # Create watchlists in Microsoft Sentinel
@@ -13,7 +13,7 @@ Watchlists in Microsoft Sentinel allow you to correlate data from a data source 
 
 Create a watchlist from a local file or by using a template.
 
-File uploads are currently limited to files of up to 3.8 MB in size. Before you create a watchlist, review the [limitations of watchlists](watchlists.md).
+Local file uploads are currently limited to files of up to 3.8 MB in size. If you have a watchlist file that's between 3.8 MB and 500 MB in size, upload the file to your Azure Storage account. Before you create a watchlist, review the [limitations of watchlists](watchlists.md).
 
 ## Create a watchlist from a local file
 
@@ -86,6 +86,87 @@ To create the watchlist from the template you populated,
 1. On the **General** tab, notice that the **Name**, **Description**, and **Watchlist Alias** fields are all read-only.
 1. On the **Source** tab, select **Browse for files** and select the file you created from the template.
 1. Select **Next: Review and Create** > **Create**.
+
+## Create a large watchlist (preview)
+
+If your watchlist is over 3.8 MB and isn't larger than 500 MB  in size, upload your watchlist file to your Azure Storage account. Then create a shared access signature URL for Microsoft Sentinel to retrieve the watchlist data. A shared access signature URL is an URI that contains both the resource URI and shared access signature token of a resource like a csv file in your storage account. Finally, add the watchlist to your workspace in Microsoft Sentinel.
+
+### Upload watchlist file to Azure Storage
+
+If you don’t have a csv file with your watchlist data in the storage account, you can upload the file by using AzCopy or the Azure portal.
+
+1. If you don’t already have an Azure Storage account, [create a storage account](../storage/common/storage-account-create.md). The storage account can be in a different resource group or region from your workspace in Microsoft Sentinel.
+1. Use either AzCopy or the Azure portal to upload your csv file with watchlist data into the storage account.
+
+#### AzCopy
+
+Upload files and directories to Blob storage by using the AzCopy v10 command-line utility. To learn more, see [Upload files to Azure Blob storage by using AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md).
+
+1. If you don’t already have a storage container, create a new one using this command line:
+
+   ```azcopy
+   azcopy make 
+   https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>
+   ```
+
+2. Next, use this command to upload a file
+
+   ```azcopy
+   azcopy copy '<local-file-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-name>'
+   ```
+
+#### Azure portal
+
+Go to your storage account in Azure portal to upload the csv file with your watchlist data.
+
+1. If you don’t already have an existing storage container, [create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). For the level of public access to the container, we recommend the default which is that the level is set to Private (no anonymous access).
+1. Upload your csv file to the storage account by [uploading a block blob](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob).
+
+### Create shared access signature URL
+
+Create a shared access signature URL for Microsoft Sentinel to retrieve the watchlist data. 
+
+1. Follow the steps in [Generate SAS tokens for your storage containers](..cognitive-services/translator/document-translation/create-sas-tokens.md?tabs=blobs). 
+1. Set the shared access signature token expiry time to be at minimum 6 hours.
+1. Copy the value for **Blob SAS URL**.
+
+### Add watchlist to workspace
+
+1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
+1. Under **Configuration**, select **Watchlist**.
+1. Select **+ Add new**.
+
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-new.png" alt-text="new watchlist" lightbox="./media/watchlists/sentinel-watchlist-new.png":::
+
+1. On the **General** page, provide the name, description, and alias for the watchlist.
+
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-general.png" alt-text="watchlist general page":::
+
+1. Select **Next: Source**.
+1. Use the information in the following table to upload your watchlist data.
+
+
+    |Field  |Description |
+    |---------|---------|
+    |Source type     |  Azure Storage (preview)     | 
+    |Select a type for the dataset     |   CSV file with a header (.csv)     |
+    |Number of lines before row with headings     |  Enter the number of lines before the header row that's in your data file.       |
+    |Blob SAS URL (Preview)    |  Paste in the shared access URL you created.       |
+    |SearchKey  |  Enter the name of a column in your watchlist that you expect to use as a join with other data or a frequent object of searches. For example, if your server watchlist contains country names and their respective two-letter country codes, and you expect to use the country codes often for search or joins, use the **Code** column as the SearchKey.    |
+
+1. Select **Next: Review and Create**.
+1. Review the information, verify that it's correct, wait for the **Validation passed** message.
+1. Select **Create**.
+
+## View watchlist status
+
+After you add the watchlist in Microsoft Sentinel, it might take a few minutes for the watchlist to be created and the new data to be available in queries. View the status by selecting the watchlist in your workspace.
+
+1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
+1. Under **Configuration**, select **Watchlist**.
+1. On the **My Watchlists** tab, select the watchlist.
+1. On the details page, review the **Status (Preview)**.
+1. If the status is **Succeeded**, select **View in Log Analytics** to use the watchlist in a query. It might take several minutes for the watchlist to show in Log Analytics.
 
 ## Deleted and recreated watchlists in Log Analytics view
 
