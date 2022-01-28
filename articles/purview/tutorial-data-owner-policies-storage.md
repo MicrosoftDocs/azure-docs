@@ -1,6 +1,6 @@
 ---
 title: Access provisioning by data owner to Azure Storage datasets
-description: Step-by-step guide showing how a data owners can create access policies to datasets in Azure Storage
+description: Step-by-step guide showing how data owners can create access policies to datasets in Azure Storage
 author: ePpnqeqR
 ms.author: vlrodrig
 ms.service: purview
