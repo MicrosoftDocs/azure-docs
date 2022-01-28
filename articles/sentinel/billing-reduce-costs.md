@@ -35,7 +35,7 @@ Microsoft Sentinel analyzes all the data ingested into Microsoft Sentinel-enable
 
 When hunting or investigating threats in Microsoft Sentinel, you might need to access operational data stored in these standalone Azure Log Analytics workspaces. You can access this data by using cross-workspace querying in the log exploration experience and workbooks. However, you can't use cross-workspace analytics rules and hunting queries unless Microsoft Sentinel is enabled on all the workspaces.
 
-## Turn on basic logs data ingestion for data that's high-volume low security value (public preview)
+## Turn on basic logs data ingestion for data that's high-volume low security value (preview)
 
 Unlike analytics logs, basic logs are typically verbose. They contains a mix of high volume and low security value data, that isn't frequently used or accessed on demand for ad-hoc querying, investigations and search. Microsoft Sentinel offers the ability to enable basic log data ingestion at a significantly reduced cost. See {Microsoft Sentinel Pricing}.
 
@@ -85,8 +85,7 @@ Data collection rules enable you to manage collection settings at scale, while s
 
 Besides for the predefined sets of events that you can select to ingest, such as All events, Minimal, or Common, data collection rules enable you to build custom filters and select specific events to ingest. The Azure Monitor Agent uses these rules to filter the data at the source, and then ingest only the events you've selected, while leaving everything else behind. Selecting specific events to ingest can help you optimize your costs and save more.
 
-> [!NOTE]
-> The costs shown in this image are for example purposes only. They're not intended to reflect actual costs.
+The costs shown in the following image are for example purposes only. They're not intended to reflect actual costs.
 
 ![Screenshot showing a Cost Management + Billing Cost analysis screen.](media/billing/cost-management.png)
 

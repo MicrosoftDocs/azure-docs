@@ -85,7 +85,7 @@ Basic logs have a reduced price and are charged at a flat rate per GB. They have
 - Eight-day retention
 - No support for scheduled alerts
 
-Basic logs are best suited for use in playbook automation, ad-hoc querying, investigations, and search.
+Basic logs are best suited for use in playbook automation, ad-hoc querying, investigations, and search. For more information, see {new article coming about basic logs usage scenarios}.
 
 ### Understand your Microsoft Sentinel bill
 
