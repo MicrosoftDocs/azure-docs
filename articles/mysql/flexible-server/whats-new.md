@@ -16,12 +16,22 @@ ms.date: 10/12/2021
 [Azure Database for MySQL - Flexible Server](./overview.md) is a deployment mode that's designed to provide more granular control and flexibility over database management functions and configuration settings than does the Single Server deployment mode. The service currently supports community version of MySQL 5.7 and 8.0.
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
+
 ## January 2022
+
+This release of Azure Database for MySQL - Flexible Server includes the following updates.
+
 - **All Operations are disabled on Stopped Azure Database for MySQL - Flexible Server**
     Operations on servers that are in a [Stop](concept-servers.md#stopstart-an-azure-database-for-mysql-flexible-server) state are disabled and show as inactive in the Azure portal. Operations that are not supported on stopped servers include changing the pricing tier, number of vCores, storage size or IOPS, backup retention day, server tag, the server password, server parameters, storage auto-grow, GEO backup, HA, and user identity.
-    
+
+- **Availability in three additional Azure regions**
+
+   The public preview of Azure Database for MySQL - Flexible Server is now available in the following Azure regions:
+      - China East 2
+      - China North 2
+
 - **Bug fixes**
- 
+
     Restart workflow struck issue with servers with HA and Geo-redundant backup option enabled is fixed. 
 
 - **Known issues**
