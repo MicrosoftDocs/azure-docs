@@ -4,7 +4,9 @@ description: Improve the quality of your knowledge base with active learning. Re
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 01/11/2022
+ms.author: mbullwin
+author: mrbullwinkle
 ms.devlang: csharp, javascript
 ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
 ---
@@ -16,7 +18,7 @@ ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
 
 <a name="accept-an-active-learning-suggestion-in-the-knowledge-base"></a>
 
-Active Learning alters the Knowledge Base or Search Service after you approve the suggestion, then save and train. If you approve the suggestion it will be added as an alternate question.
+Active Learning alters the Knowledge Base or Search Service after you approve the suggestion, then save and train. If you approve the suggestion, it will be added as an alternate question.
 
 ## Turn on active learning
 

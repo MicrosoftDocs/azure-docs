@@ -27,13 +27,27 @@ This article uses [Helm 3][helm] to install the NGINX ingress controller on a [s
 
 For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
 
-This article also requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+### [Azure CLI](#tab/azure-cli)
 
 In addition, this article assumes you have an existing AKS cluster with an integrated ACR. For more details on creating an AKS cluster with an integrated ACR, see [Authenticate with Azure Container Registry from Azure Kubernetes Service][aks-integrated-acr].
 
+This article also requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+In addition, this article assumes you have an existing AKS cluster with an integrated ACR. For more details on creating an AKS cluster with an integrated ACR, see [Authenticate with Azure Container Registry from Azure Kubernetes Service][aks-integrated-acr-ps].
+
+This article also requires that you're running PowerShell 7.2 or newer and Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
+
+---
+
 ## Import the images used by the Helm chart into your ACR
 
-This article uses the [NGINX ingress controller Helm chart][ingress-nginx-helm-chart], which relies on three container images. Use `az acr import` to import those images into your ACR.
+This article uses the [NGINX ingress controller Helm chart][ingress-nginx-helm-chart], which relies on three container images. 
+
+### [Azure CLI](#tab/azure-cli)
+
+Use `az acr import` to import those images into your ACR.
 
 ```azurecli
 REGISTRY_NAME=<REGISTRY_NAME>
@@ -50,6 +64,28 @@ az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$PATCH_IMAGE:$PATC
 az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG --image $DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG
 ```
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+Use `Import-AzContainerRegistryImage` to import those images into your ACR.
+
+```azurepowershell-interactive
+$RegistryName = "<REGISTRY_NAME>"
+$ResourceGroup = (Get-AzContainerRegistry | Where-Object {$_.name -eq $RegistryName} ).ResourceGroupName
+$SourceRegistry = "k8s.gcr.io"
+$ControllerImage = "ingress-nginx/controller"
+$ControllerTag = "v1.0.4"
+$PatchImage = "ingress-nginx/kube-webhook-certgen"
+$PatchTag = "v1.1.1"
+$DefaultBackendImage = "defaultbackend-amd64"
+$DefaultBackendTag = "1.5"
+
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $SourceRegistry -SourceImage "${ControllerImage}:${ControllerTag}"
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $SourceRegistry -SourceImage "${PatchImage}:${PatchTag}"
+Import-AzContainerRegistryImage -ResourceGroupName $ResourceGroup -RegistryName $RegistryName -SourceRegistryUri $SourceRegistry -SourceImage "${DefaultBackendImage}:${DefaultBackendTag}"
+```
+
+---
+
 > [!NOTE]
 > In addition to importing container images into your ACR, you can also import Helm charts into your ACR. For more information, see [Push and pull Helm charts to an Azure container registry][acr-helm].
 
@@ -64,6 +100,8 @@ The ingress controller also needs to be scheduled on a Linux node. Windows Serve
 
 > [!TIP]
 > If you would like to enable [client source IP preservation][client-source-ip] for requests to containers in your cluster, add `--set controller.service.externalTrafficPolicy=Local` to the Helm install command. The client source IP is stored in the request header under *X-Forwarded-For*. When using an ingress controller with client source IP preservation enabled, TLS pass-through will not work.
+
+### [Azure CLI](#tab/azure-cli)
 
 ```console
 # Add the ingress-nginx repository
@@ -94,6 +132,41 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --set defaultBackend.image.digest=""
 ```
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+# Create a namespace for your ingress resources
+kubectl create namespace ingress-basic
+
+# Add the ingress-nginx repository
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
+# Set variable for ACR location to use for pulling images
+$AcrUrl = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $RegistryName).LoginServer
+
+# Use Helm to deploy an NGINX ingress controller
+helm install nginx-ingress ingress-nginx/ingress-nginx `
+    --namespace ingress-basic `
+    --set controller.replicaCount=2 `
+    --set controller.nodeSelector."kubernetes\.io/os"=linux `
+    --set controller.image.registry=$AcrUrl `
+    --set controller.image.image=$ControllerImage `
+    --set controller.image.tag=$ControllerTag `
+    --set controller.image.digest="" `
+    --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux `
+    --set controller.admissionWebhooks.patch.image.registry=$AcrUrl `
+    --set controller.admissionWebhooks.patch.image.image=$PatchImage `
+    --set controller.admissionWebhooks.patch.image.tag=$PatchTag `
+    --set controller.admissionWebhooks.patch.image.digest="" `
+    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux `
+    --set defaultBackend.image.registry=$AcrUrl `
+    --set defaultBackend.image.image=$DefaultBackendImage `
+    --set defaultBackend.image.tag=$DefaultBackendTag `
+    --set defaultBackend.image.digest=""
+```
+
+---
+
 During the installation, an Azure public IP address is created for the ingress controller. This public IP address is static for the life-span of the ingress controller. If you delete the ingress controller, the public IP address assignment is lost. If you then create an additional ingress controller, a new public IP address is assigned. If you wish to retain the use of the public IP address, you can instead [create an ingress controller with a static public IP address][aks-ingress-static-tls].
 
 To get the public IP address, use the `kubectl get service` command.
@@ -117,6 +190,8 @@ No ingress rules have been created yet. If you browse to the public IP address, 
 
 ## Generate TLS certificates
 
+### [Azure CLI](#tab/azure-cli)
+
 For this article, let's generate a self-signed certificate with `openssl`. For production use, you should request a trusted, signed certificate through a provider or your own certificate authority (CA). In the next step, you generate a Kubernetes *Secret* using the TLS certificate and private key generated by OpenSSL.
 
 The following example generates a 2048-bit RSA X509 certificate valid for 365 days named *aks-ingress-tls.crt*. The private key file is named *aks-ingress-tls.key*. A Kubernetes TLS secret requires both of these files.
@@ -130,11 +205,34 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
     -subj "/CN=demo.azure.com/O=aks-ingress-tls"
 ```
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+For this article, let's generate a self-signed certificate with `New-SelfSignedCertificate`. For production use, you should request a trusted, signed certificate through a provider or your own certificate authority (CA). In the next step, you generate a Kubernetes *Secret* using the TLS certificate and private key you generated.
+
+The following example generates a 2048-bit RSA X509 certificate valid for 365 days named *aks-ingress-tls.crt*. The private key file is named *aks-ingress-tls.key*. A Kubernetes TLS secret requires both of these files.
+
+This article works with the *demo.azure.com* subject common name and doesn't need to be changed. For production use, specify your own organizational values for the `-subj` parameter:
+
+```powershell-interactive
+$Certificate = New-SelfSignedCertificate -KeyAlgorithm RSA -KeyLength 2048 -Subject "CN=demo.azure.com,O=aks-ingress-tls" -KeyExportPolicy Exportable -CertStoreLocation Cert:\CurrentUser\My\
+$certificatePem =[System.Security.Cryptography.PemEncoding]::Write("CERTIFICATE", $Certificate.RawData)
+$certificatePem -join '' | Out-File -FilePath aks-ingress-tls.crt
+
+$privKeyBytes = $Certificate.PrivateKey.ExportPkcs8PrivateKey()
+$privKeyPem = [System.Security.Cryptography.PemEncoding]::Write("PRIVATE KEY", $privKeyBytes)
+$privKeyPem -join '' | Out-File -FilePath aks-ingress-tls.key
+
+```
+
+---
+
 ## Create Kubernetes secret for the TLS certificate
 
 To allow Kubernetes to use the TLS certificate and private key for the ingress controller, you create and use a Secret. The secret is defined once, and uses the certificate and key file created in the previous step. You then reference this secret when you define ingress routes.
 
 The following example creates a Secret name *aks-ingress-tls*:
+
+### [Azure CLI](#tab/azure-cli)
 
 ```console
 kubectl create secret tls aks-ingress-tls \
@@ -142,6 +240,17 @@ kubectl create secret tls aks-ingress-tls \
     --key aks-ingress-tls.key \
     --cert aks-ingress-tls.crt
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```powershell-interactive
+kubectl create secret tls aks-ingress-tls `
+    --namespace ingress-basic `
+    --key aks-ingress-tls.key `
+    --cert aks-ingress-tls.crt
+```
+
+---
 
 ## Run demo applications
 
@@ -450,4 +559,6 @@ You can also:
 [aks-supported versions]: supported-kubernetes-versions.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
+[aks-integrated-acr-ps]: cluster-container-registry-integration.md?tabs=azure-powershell#create-a-new-aks-cluster-with-acr-integration
+[azure-powershell-install]: /powershell/azure/install-az-ps
 [acr-helm]: ../container-registry/container-registry-helm-repos.md

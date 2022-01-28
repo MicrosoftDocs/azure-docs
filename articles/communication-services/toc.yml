@@ -319,7 +319,7 @@ items:
   - name: UI Library
     items:
     - name: UI Library (JavaScript)
-      href: https://docs.microsoft.com/javascript/api/@azure/communication-react/?view=azure-node-latest
+      href: /javascript/api/@azure/communication-react/?view=azure-node-latest
     - name: UI Library (iOS)
       href: https://github.com/Azure/communication-ui-library-ios/blob/main/docs/api/CallComposite/Reference.md
     - name: UI Library (Android)
