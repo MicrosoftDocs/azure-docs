@@ -156,7 +156,7 @@ Here's a description of how the control script works:
 
 1. In the page that opens, you'll see the run status.
 1. When the status of the run is **Completed**, select **Output + logs** at the top of the page.
-1. Select **70_driver_log.txt** to view the output of your run.
+1. Select **std_log.txt** to view the output of your run.
 
 ## <a name="monitor"></a>Monitor your code in the cloud in the studio
 
