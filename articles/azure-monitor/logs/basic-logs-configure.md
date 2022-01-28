@@ -1,6 +1,6 @@
 ---
 title: Configure Basic Logs in Azure Monitor (Preview)
-description: Configure a table for Basic logs in Azure Monitor.
+description: Configure a table for Basic Logs in Azure Monitor.
 author: bwren
 ms.author: bwren
 ms.subservice: logs
@@ -10,7 +10,7 @@ ms.date: 01/13/2022
 ---
 
 # Configure Basic Logs in Azure Monitor (Preview)
-[Basic Logs](log-analytics-workspace-overview.md#log-data-plans-preview) in Azure Monitor reduce the cost for high-value verbose logs that don’t require analytics and alerts. This articles describes how to configure basic logs for a particular table in your Log Analytics workspace.
+[Basic Logs](log-analytics-workspace-overview.md#log-data-plans-preview) in Azure Monitor reduce the cost for high-value verbose logs that don’t require analytics and alerts. This article describes how to configure Basic Logs for a particular table in your Log Analytics workspace.
 
 > [!IMPORTANT]
 > Switching between plans is limited to once a week.
@@ -18,14 +18,14 @@ ms.date: 01/13/2022
 ## Tables that support Basic Logs
 You configure particular tables your Log Analytics workspace to use Basic Logs. This does not affect other tables in the workspace. Not all tables can be configured for Basic Logs since other Azure Monitor features may rely on these tables.
 
-The following tables can currently be configured as basic logs.
+The following tables can currently be configured as Basic Logs.
 
 - All custom logs created with [direct ingestion](direct-ingestion-overview.md). Basic Logs is not supported for tables created with [Data Collector API](data-collector-api.md).
 -	[ContainerLog](/azure/azure-monitor/reference/tables/containerlog) and [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2), which are tables used by [Container Insights](../containers/container-insights-overview.md) and include cases verbose text-based log records.
 - [AppTraces](/azure/azure-monitor/reference/tables/apptraces), which contains freeform log records for application traces in Application Insights.
 
 ## Existing data
-Retention for tables configured for Basic Logs is 8 days. If you have existing data over 8 days old in a table that you configure for Basic Logs, that data will be moved to [Archived Logs](archived-logs-overview.md).
+Retention for tables configured for Basic Logs is essentials/ays. If you have existing data over 8 days old in a table that you configure for Basic Logs, that data will be moved to [Archived Logs](archived-logs-overview.md).
 
 
 ## Configure with REST API
@@ -75,7 +75,7 @@ Use the following request body to change to Analytics Logs:
 ```
 
 ### Sample Response
-The following is a response for a table changed to Basic Logs.
+The following response is for a table changed to Basic Logs.
 
 Status code: 200
 
@@ -96,7 +96,7 @@ Status code: 200
 
 
 ## Check configuration
-You can check the configuration for a particular table from Log Analytics in the Azure portal. From the **Azure Monitor** menu, select **Logs** and then make sure that your workspace is selected for the [scope](scope.md). Open the **Tables** tab which lists all the tables in the workspace. See [Log Analytics tutorial](log-analytics-tutorial.md#view-table-information) for a walkthrough.
+You can check the configuration for a particular table from Log Analytics in the Azure portal. From the **Azure Monitor** menu, select **Logs** and then make sure that your workspace is selected for the [scope](scope.md). Open the **Tables** tab, which lists all the tables in the workspace. See [Log Analytics tutorial](log-analytics-tutorial.md#view-table-information) for a walkthrough.
 
 When browsing the list of tables, Basic Logs tables are identified with a unique icon: 
 
@@ -116,7 +116,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{
 |Name | Type | Description |
 | --- | --- | --- |
 |properties.plan | string  | The table plan. Either "Analytics" or "Basic". |
-|properties.retentionInDays | integer  | The table's data retention in days. In _Basic Logs_ the value is 8 days, fixed. In _Analytics Logs_, between 7 and 730.| 
+|properties.retentionInDays | integer  | The table's data retention in days. In _Basic Logs_, the value is 8 days, fixed. In _Analytics Logs_, between 7 and 730.| 
 |properties.totalRetentionInDays | integer  | The table's data retention including Archive period|
 |properties.archiveRetentionInDays|integer|The table's archive period (read-only, calculated).|
 |properties.lastPlanModifiedDate|String|Last time when plan was set for this table. Null if no change was ever done from the default settings (read-only) 

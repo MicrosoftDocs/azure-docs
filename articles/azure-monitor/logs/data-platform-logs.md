@@ -33,7 +33,7 @@ The following table describes some of the ways that you can use Azure Monitor Lo
 ![Diagram that shows an overview of Azure Monitor Logs.](media/data-platform-logs/logs-overview.png)
 
 ## Data collection
-After you create a [Log Analytics workspace](#log-analytics-workspace.md), you must configure sources to send their data. No data is collected automatically. 
+After you create a [Log Analytics workspace](#log-analytics-workspaces), you must configure sources to send their data. No data is collected automatically. 
 
 This configuration will be different depending on the data source. For example:
 
