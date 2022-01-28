@@ -547,6 +547,8 @@ Data Modeling and Partitioning - a Real-World Example](how-to-model-partition-ex
 
 * See the learn module on how to [Model and partition your data in Azure Cosmos DB.](/learn/modules/model-partition-data-azure-cosmos-db/)
 
+* Configure and use [Azure Synapse Link for Azure Cosmos DB](../configure-synapse-link.md)
+
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
