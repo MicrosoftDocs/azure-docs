@@ -16,7 +16,7 @@ As you create an Azure Container Apps [environment](environment.md), a virtual n
 
 - You control the subnet range used by the Container Apps environment.
 - Once the environment is created, the subnet range is immutable.
-- A single load balancer and single Kubernetes service is associated with each container apps environment.
+- A single load balancer and single Kubernetes service are associated with each container apps environment.
 - Each [revision pod](revisions.md) is assigned an IP address in the subnet.
 - You can restrict inbound requests to the environment exclusively to the VNET by deploying the environment as internal.
 
@@ -32,7 +32,7 @@ As a Container Apps environment is created, you provide resource IDs for two dif
 - **App subnet**: Subnet for user app containers. Subnet that contains IP ranges mapped to applications deployed as containers.
 - **Control plane subnet**: Subnet for [control plane infrastructure](/azure/azure-resource-manager/management/control-plane-and-data-plane) components and user app containers.
 
-If the [platformReservedCidr](#optional-networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
+If the platformReservedCidr range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
 
 ## Accessibility level
 
@@ -46,7 +46,7 @@ Container Apps environments deployed as external resources are available for pub
 
 When set to internal, the environment has no public endpoint. Internal environments are deployed with a virtual IP (VIP) mapped to an internal IP address. The internal endpoint is an Azure internal load balancer (ILB) and IP addresses are issued from the custom VNET's list of private IP addresses.
 
-To create an internal only environment provide the `--internal-only` parameter to the `az containerapp env create` command.
+To create an internal only environment, provide the `--internal-only` parameter to the `az containerapp env create` command.
 
 ## Example
 
@@ -57,7 +57,7 @@ The following example shows you how to create a Container Apps environment in an
 <!-- Create -->
 [!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
 
-7. Select the **Neworking** tab to create a VNET.
+7. Select the **Networking** tab to create a VNET.
 8. Select **Yes** next to *Use your own virtual network*.
 9. Next to the *Virtual network* box, select the **Create new** link.
 10. Enter **my-custom-vnet** in the name box.
@@ -247,7 +247,7 @@ The following table describes the parameters used in for `containerapp env creat
 | `controlplane-subnet-resource-id` | The resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in `--app-subnet-resource-id`. |
 | `internal-only` | Optional parameter that scopes the environment to IP addresses only available the custom VNET. |
 
-With your environment created with your custom virtual network, you can create container apps into the environment using the `az containerapp create` command.
+With your environment created with your custom-virtual network, you can create container apps into the environment using the `az containerapp create` command.
 
 ### Optional configuration
 
@@ -343,7 +343,7 @@ az network private-dns record-set a add-record `
 
 #### Networking parameters
 
-There are three optional networking parameters you can choose to define when calling `containerapp env create`. You must either provide values for all three of these properties, or none of them. If they are not provided, the CLI generates the values for you.
+There are three optional networking parameters you can choose to define when calling `containerapp env create`. You must either provide values for all three of these properties, or none of them. If they aren’t provided, the CLI generates the values for you.
 
 | Parameter | Description |
 |---|---|
@@ -353,7 +353,7 @@ There are three optional networking parameters you can choose to define when cal
 
 - The `platform-reserved-cidr` and `docker-bridge-cidr` address ranges can't conflict with each other, or with the ranges of either provided subnet. Further, make sure these ranges don't conflict with any other address range in the VNET.
 
-- If these properties are not provided, the CLI auto-generates the range values based on the address range of the VNET to avoid range conflicts.
+- If these properties aren’t provided, the CLI autogenerates the range values based on the address range of the VNET to avoid range conflicts.
 
 ::: zone-end
 
