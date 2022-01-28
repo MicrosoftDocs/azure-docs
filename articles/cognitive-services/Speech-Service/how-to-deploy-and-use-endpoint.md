@@ -68,7 +68,43 @@ You can suspend and resume endpoint via portal or REST API.
 
 ### Suspend and resume endpoint via portal
 
-On the **Deploy model** tab of [Speech Studio](https://aka.ms/custom-voice-portal), select the endpoint you want to suspend, then select **Suspend** option displayed on the endpoint details page to suspend the endpoint. To reactivate your endpoint, select **Resume** option on the endpoint details page.
+The following section describes how to suspend or resume a custom neural voice endpoint via portal.
+
+#### Suspend endpoint
+
+1. On the **Deploy model** tab of [Speech Studio](https://aka.ms/custom-voice-portal), select the endpoint you want to suspend.
+
+   :::image type="content" source="media/custom-voice/select-endpoint.png" alt-text="select endpoint":::
+
+2. Select **Suspend** option above or the option displayed on the endpoint details page to suspend the endpoint. 
+
+   :::image type="content" source="media/custom-voice/select-suspend.png" alt-text="select suspend":::
+
+3. Select **Submit** to suspend the endpoint.
+
+   :::image type="content" source="media/custom-voice/suspend-endpoint.png" alt-text="suspend endpoint":::
+
+#### Endpoint status after suspension
+
+After you successfully suspend the endpoint, the status will become **Suspended** from **Succeeded**, as shown below.
+
+:::image type="content" source="media/custom-voice/status-after-suspension.png" alt-text="status after suspension":::
+
+#### Resume endpoint
+
+1. To reactivate your endpoint, select **Resume** option shown below or the option displayed on the endpoint details page.
+
+   :::image type="content" source="media/custom-voice/select-resume.png" alt-text="select resume":::
+
+2. Select **Submit** to resume the endpoint. 
+
+   :::image type="content" source="media/custom-voice/resume-endpoint.png" alt-text="resume endpoint":::
+
+####  Endpoint status after resumption
+
+After you successfully reactivate the endpoint, the status will change back to  **Succeeded**, as shown below.
+
+:::image type="content" source="media/custom-voice/status-after-resumption.png" alt-text="status after resumption":::
 
 ### Suspend and resume endpoint via REST API
 
