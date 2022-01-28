@@ -53,11 +53,11 @@ Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owne
 
 ## Additional information
 
-### Limits
-The limit for Azure Purview policies that can be enforced by Storage accounts is 100MB per subscription, which roughly equates to 5000 policies.
-
 >[!Important]
 > - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in the data source.
+
+### Limits
+The limit for Azure Purview policies that can be enforced by Storage accounts is 100MB per subscription, which roughly equates to 5000 policies.
 
 ## Next steps
 Check blog, demo and related tutorials

@@ -56,6 +56,7 @@ Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owne
 
 
 ## Additional information
+
 >[!Important]
 > - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in Storage account(s).
 
@@ -63,6 +64,8 @@ Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owne
   - [*abfs* for ADLS Gen2](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md#access-files-from-the-cluster)
   - [*az storage blob download* for Blob Storage](../storage/blobs/storage-quickstart-blobs-cli.md#download-a-blob)
  - Creating a policy at Storage account level will enable the Subjects to access system containers e.g., *$logs*. If this is undesired, first scan the data source and then create the policy at container or sub-container level.
+
+### Limits
 - The limit for Azure Purview policies that can be enforced by Storage accounts is 100MB per subscription, which roughly equates to 5000 policies.
 
 ### Known issues
@@ -70,7 +73,6 @@ Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owne
 > [!Warning]
 > **Known issues** related to Policy creation
 > - Do not create policy statements based on Azure Purview resource sets. Even if displayed in Azure Purview policy authoring UI, they are not yet enforced. Learn more about [resource sets](concept-resource-sets.md).
-> - Once subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets will still be allowed after that.
 
 ### Policy action mapping
 
