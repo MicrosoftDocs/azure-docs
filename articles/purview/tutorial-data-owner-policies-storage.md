@@ -1,6 +1,6 @@
 ---
-title: Tutorial 
-description: Step-by-step guide for data owners to create access policies for Azure Storage
+title: Access provisioning by data owner to Azure Storage datasets
+description: Step-by-step guide showing how a data owners can create access policies to datasets in Azure Storage
 author: ePpnqeqR
 ms.author: vlrodrig
 ms.service: purview
@@ -10,9 +10,9 @@ ms.date: 1/27/2022
 ms.custom:
 ---
 
-# Authoring data owner 
+# Access provisioning by data owner to Azure Storage datasets (preview)
 
-This guide describes how a data owner can leverage Azure Purview to enable access to datasets in Azure Storage. At this point, only the following data sources are supported:
+This tutorial describes how a data owner can leverage Azure Purview to enable access to datasets in Azure Storage. At this point, only the following data sources are supported:
 - Blob storage
 - Azure Data Lake Storage (ADLS) Gen2
 
@@ -87,7 +87,7 @@ This section contains a reference of how actions in Azure Purview data policies 
 
 
 ## Next steps
-Check the blog and demo related to the capabilities mentioned in this how-to guide
+Check blog, demo and related tutorials
 
 * [What's New in Azure Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
 * [Demo of access policy for Azure Storage](https://www.youtube.com/watch?v=CFE8ltT19Ss)

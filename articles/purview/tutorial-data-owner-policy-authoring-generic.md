@@ -1,6 +1,6 @@
 ---
-title: Dataset access provisioning by data owner for Azure Storage
-description: Step-by-step guide on authoring and publishing data owner policies from Azure Purview
+title: Authoring and publish data owner access policies
+description: Step-by-step guide on how a data owner can author and publish access policies in Azure Purview
 author: ePpnqeqR
 ms.author: vlrodrig
 ms.service: purview
@@ -10,23 +10,9 @@ ms.date: 1/27/2022
 ms.custom:
 ---
 
-# Dataset access provisioning by data owner for Azure Storage (preview)
+# Authoring and publish data owner access policies (preview)
 
-This guide describes how a data owner can leverage Azure Purview to enable access to datasets in Azure Storage. At this point, only the following data sources are supported:
-- Blob storage
-- Azure Data Lake Storage (ADLS) Gen2
-
----
-author: ePpnqeqR
-ms.author: vlrodrig
-ms.service: purview
-ms.subservice: purview-data-policies
-ms.topic: include
-ms.date: 01/25/2022
-ms.custom:
----
-
-This section describes the steps for creating, updating, and publishing Azure Purview access policies.
+This tutorial describes how a data owner can create, update and publish access policies in Azure Purview
 
 ### Create a new policy
 
@@ -106,3 +92,11 @@ The steps to publish a policy are as follows
 
 >[!Note]
 > - After making changes to a policy, there is no need to publish it again for it to take effect if the data source(s) continues to be the same.
+
+## Next steps
+Check blog, demo and related tutorials
+
+* [What's New in Azure Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)
+* [Demo of data owner access policies for Azure Storage](https://www.youtube.com/watch?v=CFE8ltT19Ss)
+* [Enable Azure Purview data owner policies on all data sources in a subscription or a resource group](./tutorial-data-owner-policies-resource-group.md)
+* [Enable Azure Purview data owner policies on an Azure Storage account](./tutorial-data-owner-policies-storage.md)
