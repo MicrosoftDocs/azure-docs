@@ -45368,7 +45368,11 @@
       "source_path_from_root": "/articles/azure-monitor/agents/azure-monitor-agent-install.md",
       "redirect_url": "/azure/azure-monitor/agents/azure-monitor-agent-manage",
       "redirect_document_id": true
+    },
+    {
+    "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
+    "redirect_url": "/azure/advisor/advisor-overview",
+    "redirect_document_id": false
     }
-
   ]
 }
