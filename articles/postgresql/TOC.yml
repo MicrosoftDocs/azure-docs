@@ -664,7 +664,7 @@
         href: hyperscale/concepts-choose-distribution-column.md
       - name: Table colocation
         href: hyperscale/concepts-colocation.md
-    - name: Data access and security
+    - name: Security and data access
       items:
       - name: Overview
         href: hyperscale/concepts-security-overview.md
@@ -722,7 +722,7 @@
         href: hyperscale/howto-scale-rebalance.md
       - name: Change compute quotas
         href: hyperscale/howto-compute-quota.md
-    - name: Data access and security
+    - name: Security and data access
       items:
       - name: Public access
         items:
