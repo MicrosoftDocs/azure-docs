@@ -10,7 +10,7 @@ ms.topic: sample
 author: rothja
 ms.author: jroth
 ms.reviewer: mathoma
-ms.date: 01/05/2022
+ms.date: 01/26/2022 
 ---
 
 # Use CLI to copy a database in Azure SQL Database to a new server
@@ -18,6 +18,8 @@ ms.date: 01/05/2022
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This Azure CLI script example creates a copy of an existing database in a new server.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 

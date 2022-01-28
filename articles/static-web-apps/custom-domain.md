@@ -13,13 +13,19 @@ ms.author: buhollan
 
 By default, Azure Static Web Apps provides an auto-generated domain name. This article shows you how to map a custom domain name to an Azure Static Web Apps application.
 
-## Free SSL/TLS certificate
-
 Azure Static Web Apps automatically provides a free SSL/TLS certificate for the auto-generated domain name and any custom domains you may add.
 
 ## Walkthrough Video
 
-> [!VIDEO https://channel9.msdn.com/Shows/5-Things/Configuring-a-custom-domain-with-Azure-Static-Web-Apps/player?format=ny]
+> [!VIDEO https://docs.microsoft.com/Shows/5-Things/Configuring-a-custom-domain-with-Azure-Static-Web-Apps/player?format=ny]
+
+## Working with subdomains
+
+Domain names without a subdomain are known as apex or "naked" domains. For example the domain `www.example.com` is the domain with *www* as the subdomain, while `example.com` is known as the apex domain.
+
+Some domain registrars (like Google and GoDaddy) don't allow you to point the apex domain to the generated Static Web Apps URL. If your registrar doesn't allow you to redirect the apex domain, consider forwarding the apex domain to the *www* subdomain.
+
+With this configuration, requests to the *www* subdomain will resolve to the generated Static Web Apps location after following the steps in this article.
 
 ## Prerequisites
 
@@ -62,6 +68,9 @@ CNAME record validation is the recommended way to add a custom domain, however, 
 You'll need to configure a CNAME with your domain provider. Azure DNS is recommended, but these steps will work with any domain provider.
 
 # [Azure DNS](#tab/azure-dns)
+
+> [!IMPORTANT]
+> If Azure DNS does not have the *Reader* permission to the static web app, the step to add an ALIAS record in Azure DNS returns an error. You need to grant permission to the Azure DNS application object to read the endpoint to update DNS.
 
 1. Make sure **CNAME** is selected from the _Hostname record type_ dropdown list.
 

@@ -7,7 +7,7 @@ ms.date: 10/14/2021
 ms.custom: devx-track-azurepowershell
 ---
 
-# Back up Azure PostgreSQL databases using Azure PowerShell
+# Back up Azure PostgreSQL databases using Azure PowerShell (preview)
 
 This article explains how to back up [Azure PostgreSQL database](../postgresql/overview.md#azure-database-for-postgresql---single-server) using Azure PowerShell.
 

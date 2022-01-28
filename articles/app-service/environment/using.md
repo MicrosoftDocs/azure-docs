@@ -46,7 +46,7 @@ Every App Service app runs in an App Service plan. App Service Environments hold
 
 When you scale an App Service plan, the needed infrastructure is added automatically. Be aware that there's a time delay to scale operations while the infrastructure is being added. For example, when you scale an App Service plan, and you have another scale operation of the same operating system and size running, there might be a delay of a few minutes until the requested scale starts.
 
-A scale operation on one size and operating system won't affect scaling of the other combinations of size and operating system. For example, if you are scaling a Windows I2v2 App Service plan, a scale operation to a Windows I3v2 App Service plan starts immediately. Scaling normally takes less than 20 minutes.
+A scale operation on one size and operating system won't affect scaling of the other combinations of size and operating system. For example, if you are scaling a Windows I2v2 App Service plan, a scale operation to a Windows I3v2 App Service plan starts immediately. Scaling normally takes less than 15 minutes.
 
 In a multi-tenant App Service, scaling is immediate, because a pool of shared resources is readily available to support it. App Service Environment is a single-tenant service, so there's no shared buffer, and resources are allocated based on need.
 
@@ -109,6 +109,10 @@ Without additional changes, internet-based CI systems like GitHub and Azure DevO
 ## Storage
 
 You have 1 TB of storage for all the apps in your App Service Environment. An App Service plan in the isolated pricing SKU has a limit of 250 GB. In an App Service Environment, 250 GB of storage is added per App Service plan, up to the 1 TB limit. You can have more App Service plans than just four, but there is no additional storage beyond the 1 TB limit.
+
+## Monitoring
+
+The platform infrastructure in App Service Environment v3 is being monitored and managed by Microsoft, and is scaled as needed. As a customer, you should only monitor the App Service plans and the individual apps running and take appropriate actions. You will see some metrics visible for your App Service Environment, but these are used for older version only and will not omit any values for this version. If you are using v1 or v2 of App Service Environment, refer to [this section](.\using-an-ase.md#monitoring) for guidance on monitoring and scaling.
 
 ## Logging
 

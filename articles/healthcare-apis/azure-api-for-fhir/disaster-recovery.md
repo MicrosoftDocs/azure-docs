@@ -91,7 +91,7 @@ Your access to the Azure API for FHIR will be maintained if the key vault hostin
 
 The export job will be picked up from another region after 10 minutes without an update to the job status. Follow the guidance for Azure storage for recovering your storage account in the event of a regional outage. For more information, see [Disaster recovery and storage account failover](../../storage/common/storage-disaster-recovery-guidance.md). 
 
-Ensure that you grant the same permissions to the system identity of the Azure API for FHIR. Also, if the storage account is configured with selected networks, see [How to export FHIR data](/azure/healthcare-apis/fhir/export-data).
+Ensure that you grant the same permissions to the system identity of the Azure API for FHIR. Also, if the storage account is configured with selected networks, see [How to export FHIR data](../fhir/export-data.md).
 
 ### IoMT FHIR Connector
 

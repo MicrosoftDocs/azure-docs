@@ -1,13 +1,13 @@
 ---
-title: Use private endpoints for secure access to Purview
-description: This article describes a high level overview of how you can use a private end point for your Purview account
+title: Use private endpoints for secure access to Azure Purview
+description: This article describes a high level overview of how you can use a private end point for your Azure Purview account
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/10/2022
-# Customer intent: As a Purview admin, I want to set up private endpoints for my Purview account, for secure access.
+# Customer intent: As an Azure Purview admin, I want to set up private endpoints for my Azure Purview account, for secure access.
 ---
 
 # Use private endpoints for your Azure Purview account
@@ -15,7 +15,7 @@ ms.date: 01/10/2022
 This article describes how to configure private endpoints for Azure Purview.
 
 ## Conceptual Overview
-You can use [Azure private endpoints](../private-link/private-endpoint-overview.md) for your Azure Purview accounts to allow users on a virtual network (VNet) to securely access the catalog over a Private Link. A private endpoint uses an IP address from the VNet address space for your Purview account. Network traffic between the clients on the VNet and the Purview account traverses over the VNet and a private link on the Microsoft backbone network. 
+You can use [Azure private endpoints](../private-link/private-endpoint-overview.md) for your Azure Purview accounts to allow users on a virtual network (VNet) to securely access the catalog over a Private Link. A private endpoint uses an IP address from the VNet address space for your Azure Purview account. Network traffic between the clients on the VNet and the Azure Purview account traverses over the VNet and a private link on the Microsoft backbone network. 
 
 You can deploy Azure Purview _account_ private endpoint, to allow only client calls to Azure Purview that originate from within the private network.
 
@@ -41,8 +41,8 @@ Use the following recommended checklist to perform deployment of Azure Purview a
 |Scenario  |Objectives  |
 |---------|---------|
 |**Scenario 1** - [Connect to your Azure Purview and scan data sources privately and securely](./catalog-private-link-end-to-end.md) |You need to restrict access to your Azure Purview account only via a private endpoint, including access to Azure Purview Studio, Atlas APIs and scan data sources in on-premises and Azure behind a virtual network using self-hosted integration runtime ensuring end to end network isolation. (Deploy _account_, _portal_ and _ingestion_ private endpoints.)   |
-|**Scenario 2** - [Connect privately and securely to your Purview account](./catalog-private-link-account-portal.md)   | You need to enable access to your Azure Purview account, including access to _Azure Purview Studio_ and Atlas API through private endpoints. (Deploy _account_ and _portal_ private endpoints).   |
-|**Scenario 3** - [Scan data source securely using Managed Virtual Network](./catalog-managed-vnet.md)   | You need to scan Azure data sources securely, without having to manage a virtual network or a self-hosted integration runtime VM. (Deploy managed private endpoint for Purview, managed storage account and Azure data sources).   |
+|**Scenario 2** - [Connect privately and securely to your Azure Purview account](./catalog-private-link-account-portal.md)   | You need to enable access to your Azure Purview account, including access to _Azure Purview Studio_ and Atlas API through private endpoints. (Deploy _account_ and _portal_ private endpoints).   |
+|**Scenario 3** - [Scan data source securely using Managed Virtual Network](./catalog-managed-vnet.md)   | You need to scan Azure data sources securely, without having to manage a virtual network or a self-hosted integration runtime VM. (Deploy managed private endpoint for Azure Purview, managed storage account and Azure data sources).   |
 
 
 ## Support matrix for Scanning data sources through _ingestion_ private endpoint
@@ -68,7 +68,7 @@ For scenarios where _ingestion_ private endpoint is used in your Azure Purview a
 For FAQs related to private endpoint deployments in Azure Purview, see [FAQ about Azure Purview private endpoints](./catalog-private-link-faqs.md).
  
 ## Troubleshooting guide 
-For troubleshooting private endpoint configuration for Purview accounts, see [Troubleshooting private endpoint configuration for Purview accounts](./catalog-private-link-troubleshoot.md).
+For troubleshooting private endpoint configuration for Azure Purview accounts, see [Troubleshooting private endpoint configuration for Azure Purview accounts](./catalog-private-link-troubleshoot.md).
 
 ## Known limitations
 To view list of current limitations related to Azure Purview private endpoints, see [Azure Purview private endpoints known limitations](./catalog-private-link-troubleshoot.md#known-limitations).
@@ -76,4 +76,4 @@ To view list of current limitations related to Azure Purview private endpoints, 
 ## Next steps
 
 - [Deploy end to end private networking](./catalog-private-link-end-to-end.md)
-- [Deploy private networking for the Purview Studio](./catalog-private-link-account-portal.md)
+- [Deploy private networking for the Azure Purview Studio](./catalog-private-link-account-portal.md)

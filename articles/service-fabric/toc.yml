@@ -318,6 +318,8 @@
         href: service-fabric-cluster-scaling.md
       - name: Cluster networking patterns
         href: service-fabric-patterns-networking.md
+      - name: Infrastructure Service for Azure clusters
+        href: infrastructure-service-faq.md
     - name: Standalone clusters
       items:
       - name: Overview of standalone clusters

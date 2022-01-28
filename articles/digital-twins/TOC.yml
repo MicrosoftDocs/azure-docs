@@ -319,8 +319,8 @@
       href: /samples/azure-samples/dtdl-validator/dtdl-validator/
     - name: DTMI spec
       href: https://github.com/Azure/digital-twin-model-identifier
-  - name: 'Learn: Develop with Azure Digital Twins'
-    href: /learn/paths/develop-azure-digital-twins/
+  - name: 'Microsoft Learn: Extend IoT solutions by using Azure Digital Twins'
+    href: /learn/paths/extend-iot-solutions-by-using-azure-digital-twins/
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
   - name: Azure tools

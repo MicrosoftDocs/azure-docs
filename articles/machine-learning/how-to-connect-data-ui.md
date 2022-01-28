@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 10/21/2021
+ms.date: 01/18/2021
 ms.custom: data4ml
 
 # Customer intent: As low code experience data scientist, I need to make my data in storage on Azure available to my remote compute to train my ML models.
@@ -47,6 +47,10 @@ For a code first experience, see the following articles to use the [Azure Machin
 
 You can create datastores from [these Azure storage solutions](how-to-access-data.md#matrix). **For unsupported storage solutions**, and to save data egress cost during ML experiments, you must [move your data](how-to-access-data.md#move) to a supported Azure storage solution. [Learn more about datastores](how-to-access-data.md). 
 
+You can create datastores with credential-based access or identity-based access. 
+
+# [Credential-based](#tab/credential)
+
 Create a new datastore in a few steps with the Azure Machine Learning studio.
 
 > [!IMPORTANT]
@@ -61,13 +65,31 @@ The following example demonstrates what the form looks like when you create an *
 
 ![Form for a new datastore](media/how-to-connect-data-ui/new-datastore-form.png)
 
+# [Identity-based](#tab/identity)
+
+Create a new datastore in a few steps with the Azure Machine Learning studio. Learn more about [identity-based data access](how-to-identity-based-data-access.md). 
+
+> [!IMPORTANT]
+> If your data storage account is in a virtual network, additional configuration steps are required to ensure the studio has access to your data. See [Network isolation & privacy](how-to-enable-studio-virtual-network.md) to ensure the appropriate configuration steps are applied.
+
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
+1. Select **Datastores** on the left pane under **Manage**.
+1. Select **+ New datastore**.
+1. Complete the form to create and register a new datastore. The form intelligently updates itself based on your selections for Azure storage type. See [which storage types support identity-based](how-to-identity-based-data-access.md#storage-access-permissions) data access.
+1. Select **No** to  not **Save credentials with the datastore for data access**.
+
+The following example demonstrates what the form looks like when you create an **Azure blob datastore**:
+
+![Form for a new datastore](media/how-to-connect-data-ui/new-id-based-datastore-form.png)
+
+---
+
 ## Create datasets
 
 After you create a datastore, create a dataset to interact with your data. Datasets package your data into a lazily evaluated consumable object for machine learning tasks, like training. [Learn more about datasets](how-to-create-register-datasets.md).
 
 There are two types of datasets, FileDataset and TabularDataset. 
-[FileDatasets](how-to-create-register-datasets.md#filedataset) create references to single or multiple files or public URLs. Whereas,
-[TabularDatasets](how-to-create-register-datasets.md#tabulardataset) represent your data in a tabular format. You can create TabularDatasets from .csv, .tsv, .parquet, .jsonl files, and from SQL query results.
+[FileDatasets](how-to-create-register-datasets.md#filedataset) create references to single or multiple files or public URLs. Whereas [TabularDatasets](how-to-create-register-datasets.md#tabulardataset) represent your data in a tabular format. You can create TabularDatasets from .csv, .tsv, .parquet, .jsonl files, and from SQL query results.
 
 The following steps and animation show how to create a dataset in [Azure Machine Learning studio](https://ml.azure.com).
 
@@ -87,7 +109,7 @@ To create a dataset in the studio:
 1. Select **Next** to populate the **Settings and preview** and **Schema** forms; they are intelligently populated based on file type and you can further configure your dataset prior to creation on these forms. 
     1.  On the Settings and preview form, you can indicate if your data contains multi-line data. 
     1. On the Schema form, you can specify that your TabularDataset has a time component by selecting type: **Timestamp** for your date or time column. 
-        1. If your data is formatted into subsets, for example time windows, and you want to use those subsets for training, select type **Partition timestamp**. Doing so enables timeseries operations on your dataset. Learn more about how to [leverage partitions in your dataset for training](how-to-monitor-datasets.md?tabs=azure-studio#create-target-dataset).
+        1. If your data is formatted into subsets, for example time windows, and you want to use those subsets for training, select type **Partition timestamp**. Doing so enables time series operations on your dataset. Learn more about how to [leverage partitions in your dataset for training](how-to-monitor-datasets.md?tabs=azure-studio#create-target-dataset).
 1. Select **Next** to review the **Confirm details** form. Check your selections and create an optional data profile for your dataset. Learn more about [data profiling](#profile).
 1. Select **Create** to complete your dataset creation.
 

@@ -144,6 +144,22 @@ With the **Logic App (Standard)** resource type, you can create these workflow t
   > unavailable, or unsupported triggers, actions, and connectors, see 
   > [Changed, limited, unavailable, or unsupported capabilities](#limited-unavailable-unsupported).
 
+### Summary differences between stateful and stateless workflows
+
+<center>
+
+| Stateless                                                    | Stateful                                                    |
+|--------------------------------------------------------------|-------------------------------------------------------------|
+| Doesn't store run history, inputs, or outputs by default     | Stores run history, inputs, and outputs                     |
+| Managed connector triggers are unavailable or not allowed    | Managed connector triggers are available and allowed        |
+| No support for chunking                                      | Supports chunking                                           |
+| No support for asynchronous operations                       | Supports asynchronous operations                            |
+| Best for workflows with max duration under 5 minutes         | Edit default max run duration in host configuration         |
+| Best for handling small message sizes (under 64K)            | Handles large messages                                      |
+|||
+
+</center>
+
 <a name="nested-behavior"></a>
 
 ### Nested behavior differences between stateful and stateless workflows
