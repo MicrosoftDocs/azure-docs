@@ -72,8 +72,8 @@ PetClinic is decomposed into 4 core microservices. All of them are independently
 
 There are several common patterns in distributed systems that support core services. Azure Spring Cloud provides tools that enhance Spring Boot applications to implement the following patterns:
 
-* **Config service**: Azure Spring Cloud Config is a horizontally scalable centralized configuration service for distributed systems. It uses a pluggable repository that currently supports local storage, Git, and Subversion.
-* **Service discovery**: It allows automatic detection of network locations for service instances, which could have dynamically assigned addresses because of autoscaling, failures, and upgrades.
+* **Application Configuration Service**: Application Configuration Service is one of the proprietary VMware Tanzu components. It enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+* **Service Registry**: Service Registry is one of the proprietary VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key tenets of a microservice-based architecture. Your apps can use the Service Registry to dynamically discover and call registered services.
 
 ## Database configuration
 
