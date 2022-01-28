@@ -439,7 +439,13 @@ With Synapse Link, you can now directly connect to your Azure Cosmos DB containe
 
 ### Analytical store automatic schema inference
 
-While Azure Cosmos DB transactional store is considered row-oriented semi-structured data, analytical store has columnar and structured format. This conversion is automatically made for customers, using the schema inference rules described [here](../analytical-store-introduction.md).
+While Azure Cosmos DB transactional store is considered row-oriented semi-structured data, analytical store has columnar and structured format. This conversion is automatically made for customers, using the schema inference rules described [here](../analytical-store-introduction.md). There are limits in the conversion process: maximum number of nested levels, maximum number of properties, unsupported data types, and more. 
+
+> [!NOTE]
+> In the context of analytical store, we consider the following structures as property:
+> * JSON "elements" or "string-value pairs separated by a `:` ".
+> * JSON objects, delimited by `{` and `}`.
+> * JSON arrays, delimited by `[` and `]`.
 
 You can minimize the impact of the schema inference conversions, and maximize your analytical capabilities, by using following techniques.
 
