@@ -3,12 +3,10 @@ title: Manage logic apps in the Azure portal
 description: Edit, enable, disable, or delete logic apps by using the Azure portal.
 services: logic-apps
 ms.suite: integration
-author: lauradolan
-ms.author: ladolan
-ms.reviewer: estfan, jonfan, logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.custom: mvc
-ms.date: 01/22/2022
+ms.date: 01/28/2022
 ---
 
 # Manage logic apps in the Azure portal
