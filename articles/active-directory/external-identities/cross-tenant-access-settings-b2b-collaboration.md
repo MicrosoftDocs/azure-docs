@@ -30,7 +30,7 @@ Use External Identities cross-tenant access settings to manage how you collabora
 - Use the tools and follow the recommendations in [Identify inbound and outbound sign-ins](cross-tenant-access-overview.md#identify-inbound-and-outbound-sign-ins) to understand which external Azure AD organizations and resources users are currently accessing.
 - Decide on the default level of access you want to apply to all external Azure AD organizations.
 - Identify any Azure AD organizations that will need customized settings so you can configure **Organizational settings** for them.
-- Obtain any required information from external organizations. If you want to apply access settings to specific users, groups, or applications within an external organization, you'll need to contact the organization to obtain object IDs for those groups, users, and applications before configuring access settings.
+- If you want to apply access settings to specific users, groups, or applications in an external organization, you'll need to contact the organization for information before configuring your settings. Obtain their user object IDs, group object IDs, or application IDs (*client app IDs* or *resource app IDs*) so you can target your settings correctly.
 
 ## Configure default settings
 
@@ -159,7 +159,7 @@ With inbound settings, you select which external users and groups will be able t
 1. If you chose **Select applications**, do the following for each application you want to add:
 
    - Select **Add Microsoft applications** or **Add other applications**.
-   - In the applications pane, type the application name in the search box and select the application in the search results.
+   - In the **Select** pane, type the application name or the application ID (either the *client app ID* or the *resource app ID*) in the search box. Then select the application in the search results.  Repeat for each application you want to add.
    - When you're done selecting applications, choose **Select**.
 
     ![Screenshot showing selecting applications](media/cross-tenant-access-settings-b2b-collaboration/generic-inbound-applications-add.png)
@@ -258,7 +258,7 @@ With outbound settings, you select which of your users and groups will be able t
 1. If you chose **Select external applications**, do the following for each application you want to add:
 
    - Select **Add Microsoft applications** or **Add other applications**.
-   - In the applications pane, type the application name in the search box and select the application in the search results.
+   - In the search box, type the application name or the application ID (either the *client app ID* or the *resource app ID*). Then select the application in the search results. Repeat for each application you want to add.
    - When you're done selecting applications, choose **Select**.
 
     ![Screenshot showing selecting applications for b2b collaboration](media/cross-tenant-access-settings-b2b-collaboration/outbound-b2b-collaboration-add-apps.png)

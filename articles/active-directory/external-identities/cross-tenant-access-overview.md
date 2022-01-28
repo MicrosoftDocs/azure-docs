@@ -55,6 +55,11 @@ You can configure organization-specific settings by adding an organization and m
 
 - Cross-tenant access settings are used to manage B2B collaboration with other Azure AD organizations. For non-Azure AD identities (for example, social identities or non-IT managed external accounts), use [external collaboration settings](external-collaboration-settings-configure.md). External collaboration settings include options for restricting guest user access, specifying who can invite guests, and allowing or blocking domains.
 
+- If you want to apply access settings to specific users, groups, or applications in an external organization, you'll need to contact the organization for information before configuring your settings. Obtain their user object IDs, group object IDs, or application IDs (*client app IDs* or *resource app IDs*) so you can target your settings correctly.
+
+  > [!TIP]
+  > You might be able to find the application IDs for apps in external organizations by checking your sign-in logs. See [Identify inbound and outbound sign-ins](#identify-inbound-and-outbound-sign-ins) below.
+
 - The access settings you configure for users and groups must match the access settings for applications. Conflicting settings aren't allowed, and you’ll see warning messages if you try to configure them.
 
   - **Example 1**: If you block inbound B2B collaboration for all external users and groups, access to all your applications must also be blocked.
