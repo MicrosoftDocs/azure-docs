@@ -1,0 +1,1 @@
+Select the **Delete resource group** button at the top of the page.
