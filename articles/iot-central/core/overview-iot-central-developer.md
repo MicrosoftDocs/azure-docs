@@ -1,9 +1,9 @@
 ---
 title: Azure IoT Central device connectivity guide | Microsoft Docs
-description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how to connect IoT devices to your IoT Central application. After a device connects, it uses telemetry to send streaming data and properties to report device state. Iot Central can set device state using writable properties and call commands on a device.
+description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how to connect IoT devices to your IoT Central application. After a device connects, it uses telemetry to send streaming data and properties to report device state. Iot Central can set device state using writable properties and call commands on a device. This article outlines best practices for device connectivity.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/16/2021
+ms.date: 01/28/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -32,7 +32,7 @@ A IoT device is a standalone device connects directly to IoT Central. A IoT devi
 
 ### IoT Edge device
 
-An IoT Edge device connects directly to IoT Central. An IoT Edge device can send its own telemetry, report its properties, and respond to writable property updates and commands. IoT Edge modules can process data locally on the IoT Edge device. An IoT Edge device can also act as an intermediary for other devices known as downstream devices. Scenarios that use IoT Edge devices include:
+An IoT Edge device connects directly to IoT Central. An IoT Edge device can send its own telemetry, report its properties, and respond to writable property updates and commands. IoT Edge modules process data locally on the IoT Edge device. An IoT Edge device can also act as an intermediary for other devices known as downstream devices. Scenarios that use IoT Edge devices include:
 
 - Aggregate or filter telemetry before it's sent to IoT Central. This approach can help to reduce the costs of sending data to IoT Central.
 - Enable devices that can't connect directly to IoT Central to connect through the IoT Edge device. For example, a downstream device might use bluetooth to connect to the IoT Edge device, which then connects over the internet to IoT Central.
@@ -205,6 +205,76 @@ For some sample code, see [Create and connect a client application](./tutorial-c
 ### Languages and SDKs
 
 For more information about the supported languages and SDKs, see [Understand and use Azure IoT Hub device SDKs](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks).
+
+## Best practices
+
+These recommendations show how to implement devices to take advantage of the built-in disaster recovery and automatic scaling in IoT Central.
+
+The following steps show the high-level flow when a device connects to IoT Central:
+
+1. Use DPS to provision the device and get a device connection string.
+
+1. Use the connection string to connect IoT Central's internal IoT Hub endpoint. Send data to and receive data from your IoT Central application.
+
+1. If the device gets connection failures, then depending on the error type, either retry the connection or reprovision the device.
+
+### Use DPS to provision the device
+
+To provision a device with DPS, use the scope ID, credentials, and device ID from your IoT Central application. To learn more about the credential types, see [X.509 group enrollment](concepts-get-connected.md#x509-group-enrollment) and [SAS group enrollment](concepts-get-connected.md#sas-group-enrollment). To learn more about device IDs, see [Device registration](concepts-get-connected.md#device-registration).
+
+On success, DPS returns a connection string the device can use to connect to your IoT Central application. To troubleshoot provisioning errors, see [Check the provisioning status of your device](troubleshoot-connection.md#check-the-provisioning-status-of-your-device).
+
+The device can cache the connection string to use for later connections. However, the device must be prepared to [handle connection failures](#handle-connection-failures).
+
+### Handle connection failures
+
+For scaling or disaster recovery purposes, IoT Central may update its underlying IoT hub. To maintain connectivity, your device code should handle specific connection errors by establishing a connection to the new IoT Hub endpoint.
+
+If the device gets any of the following errors when it connects, it should reprovision the device with DPS to get a new connection string. These errors mean the connection string is no longer valid:
+
+- Unreachable IoT Hub endpoint.
+- Expired security token.
+- Device disabled in IoT Hub.
+
+If the device gets any of the following errors when it connects, it should use a back-off strategy to retry the connection. These errors mean the connection string is still valid, but transient conditions are stopping the device from connecting:
+
+- Operator blocked device.
+- Internal error 500 from the service.
+
+To learn more about device error codes, see [Troubleshooting device connections](troubleshoot-connection.md).
+
+### Test failover capabilities
+
+The Azure CLI lets you test the failover capabilities of your device code. The CLI command works by temporarily switching a device registration to a different internal IoT hub. To verify the device failover worked, check that the device still sends telemetry and responds to commands.
+
+To run the failover test for your device, run the following command:
+
+```azurecli
+az iot central device manual-failover \
+    --app-id {Application ID of your IoT Central application} \
+    --device-id {Device ID of the device you're testing} \
+    --ttl-minutes {How to wait before moving the device back to it's original IoT hub}
+```
+
+> [!TIP]
+> To find the **Application ID**, navigate to **Administration > Your application** in your IoT Central application.
+
+If the command succeeds, you see output that looks like the following:
+
+```output
+Command group 'iot central device' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+{
+  "hubIdentifier": "6bd4...bafa",
+  "message": "Success! This device is now being failed over. You can check your device'’'s status using 'iot central device registration-info' command. The device will revert to its original hub at Tue, 18 May 2021 11:03:45 GMT. You can choose to failback earlier using device-manual-failback command. Learn more: https://aka.ms/iotc-device-test"
+}
+```
+
+To learn more about the CLI command, see [az iot central device manual-failover](/cli/azure/iot/central/device#az_iot_central_device_manual_failover).
+
+You can now check that telemetry from the device still reaches your IoT Central application.
+
+> [!TIP]
+> To see sample device code that handles failovers in various programing languages, see [IoT Central high availability clients](/samples/azure-samples/iot-central-high-availability-clients/iotc-high-availability-clients/).
 
 ## Next steps
 

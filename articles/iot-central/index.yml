@@ -21,8 +21,8 @@ landingContent:
             url: core/overview-iot-central.md
           - text: Tour of the UI
             url: core/overview-iot-central-tour.md
-          - text: REST API overview
-            url: /rest/api/iotcentral/
+          - text: Tour of the API
+            url: core/overview-iot-central-api-tour.md
       - linkListType: architecture
         links:
           - text: Azure IoT Central architecture
@@ -61,19 +61,19 @@ landingContent:
             url: core/overview-iot-central-developer.md
       - linkListType: concept
         links:
-          - text: How devices connect to IoT Central
+          - text: How devices connect
             url: core/concepts-get-connected.md
           - text: Message payloads sent and received by devices
             url: core/concepts-telemetry-properties-commands.md
       - linkListType: learn
         links:
-          - text: Simulate and connect a device
+          - text: Create and connect a device
             url: core/tutorial-connect-device.md
           - text: Set up device groups for data analysis
             url: core/tutorial-use-device-groups.md
           - text: Troubleshoot device connectivity
             url: core/troubleshoot-connection.md
-          - text: Connect an IoT Edge device to IoT Central
+          - text: Connect an IoT Edge device
             url: /learn/modules/connect-iot-edge-device-to-iot-central/
   - title: Manage devices and analyze IoT data
     linkLists:
@@ -106,9 +106,9 @@ landingContent:
             url: /learn/modules/set-up-rules-take-actions-telemetry-data-azure-iot-central/
           - text: Export data to cloud destinations
             url: core/howto-export-data.md           
-          - text: Transform data inside your IoT Central application for export
+          - text: Transform data inside your application for export
             url: core/howto-transform-data-internally.md
-          - text: Manage an IoT Central application with the REST API
+          - text: Manage an application with the REST API
             url: /learn/modules/manage-iot-central-apps-with-rest-api/
 
   - title: Secure and administer your application
