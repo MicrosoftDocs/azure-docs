@@ -131,12 +131,14 @@ See [Supported scenarios for HANA Large Instances](../virtual-machines/workloads
 The following matrix is provided as a guideline on which versions of SAP HANA
 are supported by SAP for Storage Snapshot Backups.
 
-| Database Versions       |1.0 SPS12|2.0 SPS0|2.0 SPS1|2.0 SPS2|2.0 SPS3|2.0 SPS4|
-|-------------------------|---------|--------|--------|--------|--------|--------|
-|Single Container Database| √       | √      | -      | -      | -      | -      |
-|MDC Single Tenant        | -       | -      | √      | √      | √      | √      |
-|MDC Multiple Tenants     | -       | -      | -      | -      | -      | √      |
-> √ = <small>supported by SAP for Storage Snapshots</small>
+ 
+|  Database type            | Minimum Database Versions | Notes                                                                                   |
+|---------------------------|---------------------------|-----------------------------------------------------------------------------------------|
+| Single Container Database | 1.0 SPS 12, 2.0 SPS 00    |                                                                                         |
+| MDC Single Tenant	        | 2.0 SPS 01                | or later versions where MDC Single Tenant supported by SAP for storage/data snapshots.* |
+| MDC Multiple Tenants      | 2.0 SPS 04                | or later where MDC Multiple Tenants supported by SAP for data snapshots.                |
+> \* SAP changed terminology from Storage Snapshots to Data Snapshots from 2.0 SPS 02
+
 
 ## Important things to remember
 
