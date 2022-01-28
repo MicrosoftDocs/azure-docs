@@ -100,7 +100,7 @@ When the connection name resolves to a single exact value, the runtime identifie
 
 However, a connection name can also refer to a collection of multiple configuration items, useful for configuring [identity-based connections](#configure-an-identity-based-connection). Environment variables can be treated as a collection by using a shared prefix that ends in double underscores `__`. The group can then be referenced by setting the connection name to this prefix.
 
-For example, the `connection` property for a Azure Blob trigger definition might be "Storage1". As long as there is no single string value configured by an environment variable named "Storage1",  an environment variable named `Storage1__blobServiceUri` could be used to inform the `blobServiceUri` property of the connection. The connection properties are different for each service. Refer to the documentation for the component that uses the connection.
+For example, the `connection` property for an Azure Blob trigger definition might be "Storage1". As long as there is no single string value configured by an environment variable named "Storage1",  an environment variable named `Storage1__blobServiceUri` could be used to inform the `blobServiceUri` property of the connection. The connection properties are different for each service. Refer to the documentation for the component that uses the connection.
 
 ### Configure an identity-based connection
 
@@ -180,7 +180,7 @@ When running locally, the above configuration tells the runtime to use your loca
 
 If none of these options are successful, an error will occur.
 
-Because this is using the your developer identity, you may already have some roles against development resources, but they may not provide data access. Management roles like [Owner](../role-based-access-control/built-in-roles.md#owner) are not sufficient. Double-check what permissions are required for connections for each component, and make sure that you have them assigned to yourself.
+Your identity may already have some role assignments against Azure resources used for development, but those roles may not provide the necessary data access. Management roles like [Owner](../role-based-access-control/built-in-roles.md#owner) are not sufficient. Double-check what permissions are required for connections for each component, and make sure that you have them assigned to yourself.
 
 In some cases, you may wish to specify use of a different identity. You can add configuration properties for the connection that point to the alternate identity based on a client ID and client Secret for an Azure Active Directory service principal. **This configuration option is not supported when hosted in the Azure Functions service.** To use an ID and secret on your local machine, define the connection with the following additional properties:
 
@@ -207,7 +207,7 @@ Here is an example of `local.settings.json` properties required for identity-bas
 
 #### Connecting to host storage with an identity (Preview)
 
-Azure Functions by default uses the "AzureWebJobsStorage" connection for core behaviors such as coordinating singleton execution of timer triggers and default app key storage. This can be configured to leverage an identity as well.
+The Azure Functions host uses the "AzureWebJobsStorage" connection for core behaviors such as coordinating singleton execution of timer triggers and default app key storage. This can be configured to leverage an identity as well.
 
 > [!CAUTION]
 > Other components in Functions rely on "AzureWebJobsStorage" for default behaviors. You should not move it to an identity-based connection if you are using older versions of extensions that do not support this type of connection, including triggers and bindings for Azure Blobs, Event Hubs, and Durable Functions. Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption, and if you enable this, you will need to deploy via [an external deployment package](run-functions-from-deployment-package.md).

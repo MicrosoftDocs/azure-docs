@@ -548,7 +548,7 @@ There are two options for outputting a Table storage row from a function by usin
 | Options | Description |
 |---|---|
 | **Return value**| By applying the annotation to the function itself, the return value of the function persists as a Table storage row. |
-|**Imperative**| To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), where `T` includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.|
+|**Imperative**| To explicitly set the table row, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), where `T` includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.|
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
@@ -566,7 +566,7 @@ There are two options for outputting a Table storage row message from a function
 | Options | Description |
 |---|---|
 | **Return value**| Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value persists as a Table storage row.|
-|**Imperative**| Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as an Event Hub message.|
+|**Imperative**| Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as table row.|
 ::: zone-end  
 
 For specific usage details, see [Example](#example). 
