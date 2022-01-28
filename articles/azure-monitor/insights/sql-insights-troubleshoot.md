@@ -77,7 +77,7 @@ To see error messages from the telegraf service, run it manually by using the fo
 
 ### mdsd service logs 
 
-Check [prerequisites](../agents/azure-monitor-agent-install.md#prerequisites) for the Azure Monitor agent. 
+Check [prerequisites](../agents/azure-monitor-agent-manage.md#prerequisites) for the Azure Monitor agent. 
 
 Prior to Azure Monitoring Agent v1.12, mdsd service logs were located in:
 - `/var/log/mdsd.err`

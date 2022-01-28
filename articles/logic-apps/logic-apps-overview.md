@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q4
-ms.date: 08/18/2021
+ms.date: 01/27/2022
 ---
 
 # What is Azure Logic Apps?
