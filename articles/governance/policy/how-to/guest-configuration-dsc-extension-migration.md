@@ -54,8 +54,8 @@ Other major differences:
 
 Guest configuration uses DSC version 3 with PowerShell version 7. DSC version 3 can coexist with
 older versions of DSC in
-[Windows](/powershell/dsc/getting-started/wingettingstarted) and
-[Linux](/powershell/dsc/getting-started/lnxgettingstarted).
+[Windows](/powershell/dsc/getting-started/wingettingstarted.md) and
+[Linux](/powershell/dsc/getting-started/lnxgettingstarted.md).
 The implementations are separate. However, there's no conflict detection.
 
 For machines that will only exist for days or weeks, update the deployment templates and switch from
