@@ -17,7 +17,7 @@
       },
       {
         "source_path_from_root": "/articles/purview/tutorial-asset-search.md",
-        "redirect_url": "/azure/purview/concept-search",
+        "redirect_url": "/azure/purview/how-to-search-catalog",
         "redirect_document_id": true
       },
       {
