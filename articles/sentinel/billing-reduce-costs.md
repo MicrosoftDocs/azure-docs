@@ -36,6 +36,10 @@ Microsoft Sentinel analyzes all the data ingested into Microsoft Sentinel-enable
 
 When hunting or investigating threats in Microsoft Sentinel, you might need to access operational data stored in these standalone Azure Log Analytics workspaces. You can access this data by using cross-workspace querying in the log exploration experience and workbooks. However, you can't use cross-workspace analytics rules and hunting queries unless Microsoft Sentinel is enabled on all the workspaces.
 
+## Turn on basic logs data ingestion for high-volume low security value data
+
+Unlike analytics logs, basic logs are typically verbose. They contains a mix of high volume and low security value data, that isn't frequently used or accessed on demand for ad-hoc querying, investigations and search. Microsoft Sentinel offers the ability to enable basic log data ingestion at a significantly reduced cost. See {Microsoft Sentinel Pricing}.
+
 ## Optimize Log Analytics costs with dedicated clusters
 
 If you ingest at least 500 GB into your Microsoft Sentinel workspace or workspaces in the same region, consider moving to a Log Analytics dedicated cluster to decrease costs. A Log Analytics dedicated cluster Commitment Tier aggregates data volume across workspaces that collectively ingest a total of 500 GB or more.
@@ -60,13 +64,17 @@ Here are some other considerations for moving to a dedicated cluster for cost op
 
 For more information about dedicated clusters, see [Log Analytics dedicated clusters](../azure-monitor/logs/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
-## Reduce long-term data retention costs with ADX
+## Reduce long-term data retention costs with Azure Data Explorer or archived logs (public preview)
 
-Microsoft Sentinel data retention is free for the first 90 days. To adjust the data retention time period in Log Analytics, select **Usage and estimated costs** in the left navigation, then select **Data retention**, and then adjust the slider.
+Microsoft Sentinel data retention is free for the first 90 days. To adjust the data retention period in Log Analytics, select **Usage and estimated costs** in the left navigation, then select **Data retention**, and then adjust the slider.
 
-Microsoft Sentinel security data might lose some of its value after a few months. Security operations center (SOC) users might not need to access older data as frequently as newer data, but still might need to access the data for sporadic investigations or audit purposes. To reduce Microsoft Sentinel data retention costs, you can use Azure Data Explorer for long-term data retention at lower cost. ADX provides the right balance of cost and usability for aged data that no longer needs Microsoft Sentinel security intelligence.
+Microsoft Sentinel security data might lose some of its value after a few months. Security operations center (SOC) users might not need to access older data as frequently as newer data, but still might need to access the data for sporadic investigations or audit purposes.
 
-With ADX, you can store data at a lower price, but still explore the data using the same Kusto Query Language (KQL) queries as in Microsoft Sentinel. You can also use the ADX proxy feature to do cross-platform queries. These queries aggregate and correlate data spread across ADX, Application Insights, Microsoft Sentinel, and Log Analytics.
+To help you reduce Microsoft Sentinel data retention costs, Azure Monitor now offers archived logs. Archived logs store log data for very long periods of time, up to 7 years, at a reduced cost with limitations on its usage. Archived logs are in public preview.
+
+Alternatively, you can use Azure Data Explorer for long-term data retention at lower cost. Azure Data Explorer provides the right balance of cost and usability for aged data that no longer needs Microsoft Sentinel security intelligence.
+
+With Azure Data Explorer, you can store data at a lower price, but still explore the data using the same Kusto Query Language (KQL) queries as in Microsoft Sentinel. You can also use the Azure Data Explorer proxy feature to do cross-platform queries. These queries aggregate and correlate data spread across Azure Data Explorer, Application Insights, Microsoft Sentinel, and Log Analytics.
 
 For more information, see [Integrate Azure Data Explorer for long-term log retention](store-logs-in-azure-data-explorer.md).
 
