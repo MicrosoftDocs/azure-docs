@@ -17,7 +17,7 @@ To download the container updates, go to [Azure Percept Studio](https://ms.porta
 ## December (2112) Release
 
 - Removed lines in the image frames using automatic image capture in Azure Percept Studio. This issue was introduced in the 2108 module release.  
-- Security fixes for docker services running as root in azureeyemodule, azureearspeechclientmodule, and webstreammodule. 
+- Security fixes for docker services running as root in azureeyemodule (mcr.microsoft.com/azureedgedevices/azureeyemodule:2112-1), azureearspeechclientmodule, and webstreammodule. 
 
 ## August (2108) Release
 

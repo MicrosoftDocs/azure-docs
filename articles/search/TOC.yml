@@ -357,7 +357,7 @@
           href: search-howto-index-cosmosdb.md
         - name: Gremlin API
           href: search-howto-index-cosmosdb-gremlin.md
-      - name: Azure MySQL
+      - name: Azure DB for MySQL
         href: search-howto-index-mysql.md
       - name: Azure SQL
         items:
@@ -369,7 +369,7 @@
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
       - name: Power Query data sources
         href: search-how-to-index-power-query-data-sources.md
-      - name: SharePoint Online
+      - name: SharePoint in Microsoft 365
         href: search-howto-index-sharepoint-online.md
   - name: Skillsets (indexers)
     items:

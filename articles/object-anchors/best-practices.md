@@ -25,7 +25,7 @@ We recommend trying some of these steps to get the best results.
   - Confirm the nominal gravity direction that corresponds to the real world vertical orientation of the object. If the
     object's downward vertical/gravity is -Y, use ***(0, -1, 0)*** or ***(0, 0, -1)*** for -Z, and likewise for any
     other direction.
-  - Make sure that the 3D model is encoded in one of the supported formats: `.glb`, `.gltf`, `.ply`, `.fbx`, `.obj`.
+  - Make sure that the 3D model is encoded in one of the supported formats: `.glb`, `.ply`, `.fbx`, `.obj`.
 - Our model conversion service could take a long time to process a large, high LOD (level-of-detail) model. For efficacy,
   you can preprocess your 3D model to remove the interior faces.
 
