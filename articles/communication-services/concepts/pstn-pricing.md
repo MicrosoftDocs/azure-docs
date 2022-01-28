@@ -16,13 +16,57 @@ zone_pivot_groups: acs-pstn-phonenumbers
 
 Numbers are available for purchase on a per month basis, and pricing differs based on the type of a number and the source (country) of the number. Once a number is purchased, Customers can make / receive calls using that number and are billed on a per minute basis. PSTN call pricing is based on the location in which a call is terminated (destination).
 
-::: zone pivot="pstntollfree"
-[!INCLUDE [Toll-Free](./includes/pstn-tollfree-pricing.md)]
-::: zone-end
+In most cases, only customers with Azure subscriptions that match the offer location will be able to buy a number. Please see here for details on [in-country and cross-country purchases](../concepts/numbers/sub-eligibility-number-capability.md).
 
-::: zone pivot="pstngeographic"
-[!INCLUDE [Geographic](./includes/sms-shortcode-pricing.md)]
-::: zone-end
+All prices shown below are in USD.
+
+## United States Telephony Offers
+
+### Phone Number Leasing Charges
+|Number type   |Monthly fee   |
+|--------------|-----------|
+|Geographic     |USD 1/mo        |
+|Toll-Free     |USD 2/mo        |
+
+### Usage Charges
+|Number type   |To make calls   |To receive calls|
+|--------------|-----------|------------|
+|Geographic     |Starting at USD 0.013/min       |USD 0.0085/min        |
+|Toll-free |USD 0.013/min   |USD 0.0220/min |
+
+For additional destinations, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+## United Kingdom Telephony Offers
+
+### Phone Number Leasing Charges
+|Number type   |Monthly fee   |
+|--------------|-----------|
+|Geographic     |USD 1/mo        |
+|Toll-Free     |USD 2/mo        |
+
+### Usage Charges
+|Number type   |To make calls   |To receive calls|
+|--------------|-----------|------------|
+|Geographic     |Starting at USD 0.013/min       |USD 0.0085/min        |
+|Toll-free |USD 0.013/min   |USD 0.0220/min |
+
+For additional destinations, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+## Denmark Telephony Offers
+
+### Phone Number Leasing Charges
+|Number type   |Monthly fee   |
+|--------------|-----------|
+|Geographic     |USD 1/mo        |
+|Toll-Free     |USD 2/mo        |
+
+### Usage Charges
+|Number type   |To make calls   |To receive calls|
+|--------------|-----------|------------|
+|Geographic     |Starting at USD 0.013/min       |USD 0.0085/min        |
+|Toll-free |USD 0.013/min   |USD 0.0220/min |
+
+For additional destinations, please refer to details [here](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
 Note: Pricing is subject to change as pricing is market-based and depends on third-party suppliers of telephony services.
 
