@@ -118,23 +118,14 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
 7. Navigate to **API permissions** and authorize the following Microsoft Graph permissions:
 
    * Application.Read.All
-
    * Application.ReadWrite.All
-
    * Application.ReadWrite.OwnedBy
-
    * Directory.Read.All
-
    * Group.Read.All
-
    * IdentityRiskyUser.Read.All
-
    * Policy.Read.All
-
    * Policy.ReadWrite.ApplicationConfiguration
-
    * Policy.ReadWrite.ConditionalAccess
-
    * User.Read.All
 
 8. Grant admin consent for your organization
