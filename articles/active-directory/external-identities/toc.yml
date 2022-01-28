@@ -34,7 +34,7 @@
     href: external-identities-pricing.md
   - name: Best practices
     href: b2b-fundamentals.md
-  - name: Cross-tenant access
+  - name: Cross-tenant access overview
     href: cross-tenant-access-overview.md
   - name: B2B collaboration
     expanded: false
