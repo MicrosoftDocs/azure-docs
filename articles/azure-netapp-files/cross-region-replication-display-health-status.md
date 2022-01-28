@@ -12,12 +12,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 12/03/2021
+ms.date: 01/28/2022
 ms.author: anfdocs
 ---
-# Display health status of replication relationship 
+# Display health and monitor status of replication relationship 
 
-You can view replication status on the source volume or the destination volume.  
+You can view replication status on the source volume or the destination volume. You can also set alert rules in Azure Monitor to help you monitor the replication status.
 
 ## Display replication status
 
@@ -46,6 +46,29 @@ You can view replication status on the source volume or the destination volume.
 
 > [!NOTE] 
 > Replication relationship shows health status as *unhealthy* if previous replication jobs are not complete. This status is a result of large volumes being transferred with a lower transfer window (for example, a ten-minute transfer time for a large volume). In this case, the relationship status shows *transferring* and health status shows *unhealthy*.
+
+## Set alert rules to monitor replication
+
+Follow the following steps to create [alert rules in Azure Monitor](../azure-monitor/alerts/alerts-overview.md) to help you monitor the status of cross-region replication:
+
+1.	From Azure Monitor, select **Alerts**.
+2.	From the Alerts window, click the **Create** dropdown and select **Create new alert rule**.
+3.	From the Scope tab of the Create an Alert Rule page, click **Select scope**. The **Select a Resource** page appears.  
+4.	From the Resource tab, find the **Volumes** resource type.
+5.	From the Condition tab, select **“Add condition**”. From there, find a signal called “**is volume replication healthy**”.
+6.	There you will see “**Condition of the relationship, 1 or 0**” and the **Configure Signal Logic** window is displayed.
+7.	To check if the replication is _unhealthy_: 
+    1. **Operator** to `Less than or equal to`.
+    1. Set **Aggregation type** to `Average`. 
+    1. Set **Threshold** value to `0`.
+    1. Set **Unit** to `Count`.
+8.	To check if the replication is healthy: 
+    1. Set **Operator** to `Greater than or equal to`.
+    1. Set **Aggregation** type to `Average`.
+    1. Set **Threshold** value to `1`. 
+    1. Set **Unit** to `Count`.
+9.	 Click **Review + create**. The alert rule is ready for use. 
+
 
 ## Next steps  
 
