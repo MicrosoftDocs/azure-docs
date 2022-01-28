@@ -131,7 +131,7 @@ The following matrix is provided as a guideline on which versions of SAP HANA
 are supported by SAP for Storage Snapshot Backups.
 
  
-|  Database type            | Minimum Database Versions | Notes                                                                                   |
+|  Database type            | Minimum database versions | Notes                                                                                   |
 |---------------------------|---------------------------|-----------------------------------------------------------------------------------------|
 | Single Container Database | 1.0 SPS 12, 2.0 SPS 00    |                                                                                         |
 | MDC Single Tenant	        | 2.0 SPS 01                | or later versions where MDC Single Tenant supported by SAP for storage/data snapshots.* |
