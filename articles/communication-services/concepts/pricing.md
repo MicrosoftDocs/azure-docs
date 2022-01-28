@@ -190,49 +190,16 @@ Rose sees the messages and starts chatting. In the meanwhile Casey gets a call a
 - Number of messages sent (20 + 30 + 18 + 30 + 25 + 35) x $0.0008 = $0.1264
 
 
-## Telephony
+## SMS and Telephony
 
-## Price
+Please refer to the following links for details on Telephony and SMS pricing
 
-Telephony services are priced on a per-minute basis. Pricing is determined by the type and location of the number you're using as well as the destination of your calls.
-
-### Telephone number leasing
-
-Fees for phone number leasing are charged upfront and then recur on a month-to-month basis:
-
-|Number type   |Monthly fee   |
-|--------------|-----------|
-|Local (United States)     |$1/mo        |
-|Toll-free (United States) |$2/mo |
-
-
-### Telephone calling
-
-Traditional telephone calling (calling that occurs over the public switched telephone network) is available with pay-as-you-go pricing for phone numbers based in the United States. The price is a per-minute charge based on the type of number used and the destination of the call. Pricing details for the most popular calling destinations are included in the table below. Please see the [detailed pricing list](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv) for a full list of destinations.
-
-
-#### United States calling prices
-
-The following prices include required communications taxes and fees:
-
-|Number type   |To make calls   |To receive calls|
-|--------------|-----------|------------|
-|Local     |Starting at $0.013/min       |$0.0085/min        |
-|Toll-free |$0.013/min   |$0.0220/min |
-
-#### Other calling destinations
-
-The following prices include required communications taxes and fees:
-
-|Make calls to   |Price per minute|
-|-----------|------------|
-|Canada     |Starting at $0.013/min   |
-|United Kingdom     |Starting at $0.015/min   |
-|Germany     |Starting at $0.015/min   |
-|France     |Starting at $0.016/min   |
+- [SMS Pricing Details](./sms-pricing.md)
+- [PSTN Pricing Details](./pstn-pricing.md)
 
 
 ## Next Steps
-The following documents may be interesting to you:
+Get started with ACS!
 
-- [SMS Pricing](./sms-pricing.md)
+- [Send an SMS](../quickstarts/sms/send.md)
+- [Add Voice calling to you app](../quickstarts/voice-video-calling/getting-started-with-calling.md)
