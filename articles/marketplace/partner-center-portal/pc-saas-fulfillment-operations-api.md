@@ -5,8 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 11/10/2021
-author: saasguide
-ms.author: souchak
+author: arifgani
+ms.author: argani
 ---
 
 # SaaS fulfillment operations APIs v2 in the Microsoft commercial marketplace

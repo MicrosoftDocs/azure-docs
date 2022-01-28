@@ -3,7 +3,7 @@ title: Secure user-based service accounts  | Azure Active Directory
 description: A guide to securing user-based service accounts.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals

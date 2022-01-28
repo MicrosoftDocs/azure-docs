@@ -15,7 +15,7 @@ ms.subservice: calling
 # Call Summary and Call Diagnostic Logs Preview
 
 > [!IMPORTANT]
-> The following refers to logs enabled through [Azure Monitor](/azure/azure-monitor/overview) (see also [FAQ](/azure/azure-monitor/faq)). To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](./enable-logging.md)
+> The following refers to logs enabled through [Azure Monitor](../../../azure-monitor/overview.md) (see also [FAQ](../../../azure-monitor/faq.yml)). To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](./enable-logging.md)
 
 
 ## Data Concepts

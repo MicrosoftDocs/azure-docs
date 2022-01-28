@@ -7,6 +7,7 @@ ms.date: 12/01/2020
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
+ms.devlang: java
 ms.custom: devx-track-java, mode-api
 ---
 

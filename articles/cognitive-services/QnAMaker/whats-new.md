@@ -31,7 +31,7 @@ Learn what's new with QnA Maker.
 
 * New version of QnA Maker launched in free Public Preview. Read more [here](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575).
 
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-QnA-managed-Now-in-Public-Preview/player]
+> [!VIDEO https://docs.microsoft.com/Shows/AI-Show/Introducing-QnA-managed-Now-in-Public-Preview/player]
 * Simplified resource creation
 * End to End region support
 * Deep learnt ranking model
@@ -63,7 +63,7 @@ Learn what's new with QnA Maker.
 ### November 2019
 
 * [US Government cloud support](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers) for QnA Maker
-* [Multi-turn](./how-to/multiturn-conversation.md) feature in GA
+* [Multi-turn](./how-to/multi-turn.md) feature in GA
 * [Chit-chat support](./how-to/chit-chat-knowledge-base.md#language-support) available in tier-1 languages
 
 ### October 2019

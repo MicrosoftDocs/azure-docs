@@ -54,6 +54,9 @@ root@aks-nodepool1-12345678-vmss000000:/#
 
 This privileged container gives access to the node.
 
+> [!NOTE]
+> You can interact with the node session by running `chroot /host` from the privileged container.
+
 ## Create the SSH connection to a Windows node
 
 At this time, you can't connect to a Windows Server node using SSH directly by using `kubectl debug`. Instead, you need to first connect to another node in the cluster, then connect to the Windows Server node from that node using SSH. Alternatively, you can [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp] instead of using SSH.

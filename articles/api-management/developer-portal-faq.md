@@ -162,7 +162,7 @@ If you don't need the sign-up functionality enabled by default in the developer 
  
 1. Modify the **Sign up** page content to remove fields used to enter identity data, in case users navigate directly to it.
    
-   Optionally, delete the **Sign up** page. Currently, you use the [contentItem](/rest/api/apimanagement/2021-01-01-preview/content-item) REST APIs to list and delete this page.
+   Optionally, delete the **Sign up** page. Currently, you use the [contentItem](/rest/api/apimanagement/current-ga/content-item) REST APIs to list and delete this page.
  
 1. Save your changes, and [republish the portal](api-management-howto-developer-portal-customize.md#publish).
 
@@ -184,7 +184,7 @@ Among other authentication methods, the developer portal supports single sign-on
 https://contoso.com/signin-sso?token=[user-specific token]
 ```
 ### Generate user tokens
-You can generate *user-specific tokens* (including admin tokens) using the [Get Shared Access Token](/rest/api/apimanagement/2020-12-01/user/get-shared-access-token) operation of the [API Management REST API](/rest/api/apimanagement/apimanagementrest/api-management-rest).
+You can generate *user-specific tokens* (including admin tokens) using the [Get Shared Access Token](/rest/api/apimanagement/current-ga/user/get-shared-access-token) operation of the [API Management REST API](/rest/api/apimanagement/apimanagementrest/api-management-rest).
 
 > [!NOTE]
 > The token must be URL-encoded.
@@ -201,4 +201,3 @@ Learn more about the new developer portal:
 Browse other resources:
 
 - [GitHub repository with the source code](https://github.com/Azure/api-management-developer-portal)
-

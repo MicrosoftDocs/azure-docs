@@ -242,42 +242,42 @@
   },
   {
     "source_path_from_root": "/articles/cosmos-db/restorable-database-accounts-list.md",
-    "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/list",
+    "redirect_url": "/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-database-accounts/list",
     "redirect_document_id": false
   },
   {
     "source_path_from_root": "/articles/cosmos-db/restorable-database-accounts-list-by-location.md",
-    "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/listbylocation",
+    "redirect_url": "/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-database-accounts/listbylocation",
     "redirect_document_id": false
   },
   {
     "source_path_from_root": "/articles/cosmos-db/restorable-sql-resources-list.md",
-    "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlresources/list",
+    "redirect_url": "/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-sql-resources/list",
     "redirect_document_id": false
   },
   {
     "source_path_from_root": "/articles/cosmos-db/restorable-sql-databases-list.md",
-    "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqldatabases/list",
+    "redirect_url": "/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-sql-databases/list",
     "redirect_document_id": false
   },
   {
     "source_path_from_root": "/articles/cosmos-db/restorable-sql-containers-list.md",
-    "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlcontainers/list",
+    "redirect_url": "/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-sql-containers/list",
     "redirect_document_id": false
   },
   {
     "source_path_from_root": "/articles/cosmos-db/restorable-mongodb-resources-list.md",
-    "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbresources/list",
+    "redirect_url": "/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-mongodb-resources/list",
     "redirect_document_id": false
   },
   {
     "source_path_from_root": "/articles/cosmos-db/restorable-mongodb-collections-list.md",
-    "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbcollections/list",
+    "redirect_url": "/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-mongodb-collections/list",
     "redirect_document_id": false
   },
   {
     "source_path_from_root": "/articles/cosmos-db/restorable-mongodb-databases-list.md",
-    "redirect_url": "/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbdatabases/list",
+    "redirect_url": "/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-mongodb-databases/list",
     "redirect_document_id": false
   },
   {
@@ -3579,6 +3579,21 @@
   {
     "source_path_from_root": "/articles/cosmos-db/table/tutorial-develop-table-dotnet.md",
     "redirect_url": "/azure/cosmos-db/table/create-table-dotnet",
+    "redirect_document_id": false
+  },   
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql/sql-api-dotnet-samples.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-api-dotnet-v3sdk-samples",
+    "redirect_document_id": false
+  },   
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql/mobile-apps-with-xamarin.md",
+    "redirect_url": "/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db",
+    "redirect_document_id": false
+  },   
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql/create-sql-api-xamarin-dotnet.md",
+    "redirect_url": "/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db",
     "redirect_document_id": false
   }
     ]

@@ -8,7 +8,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 07/23/2021
 ms.author: vvasic
-ms.reviewer: jrasnick, wiassaf
+ms.reviewer: sngun, wiassaf
 ms.custom: ignite-fall-2021
 ---
 

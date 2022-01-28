@@ -329,6 +329,7 @@ $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -Defa
 For HTTP Endpoints make sure of the following.
 - The metadata header must be present and should be set to "true".
 - A resource must be passed along with the request, as a query parameter for a GET request and as form data for a POST request.
+- Set the value of the environment variable IDENTITY_HEADER to X-IDENTITY-HEADER.
 - Content Type for the Post request must be `application/x-www-form-urlencoded`.
 
 ### Get Access token for user-assigned managed identity using HTTP Get  
@@ -339,6 +340,7 @@ $client_id="&client_id=<ClientId of USI>"
 $url = $env:IDENTITY_ENDPOINT + $resource + $client_id 
 $Headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"  
 $Headers.Add("Metadata", "True")
+$headers.Add("X-IDENTITY-HEADER", $env:IDENTITY_HEADER) 
 $accessToken = Invoke-RestMethod -Uri $url -Method 'GET' -Headers $Headers
 Write-Output $accessToken.access_token 
 ```
@@ -349,6 +351,7 @@ Write-Output $accessToken.access_token
 $url = $env:IDENTITY_ENDPOINT
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Metadata", "True")
+$headers.Add("X-IDENTITY-HEADER", $env:IDENTITY_HEADER) 
 $body = @{'resource'='https://management.azure.com/' 
 'client_id'='<ClientId of USI>'}
 $accessToken = Invoke-RestMethod $url -Method 'POST' -Headers $headers -ContentType 'application/x-www-form-urlencoded' -Body $body
@@ -382,9 +385,11 @@ import requests  
 resource = "?resource=https://management.azure.com/" 
 client_id = "&client_id=<ClientId of USI>" 
 endPoint = os.getenv('IDENTITY_ENDPOINT')+ resource +client_id 
+identityHeader = os.getenv('IDENTITY_HEADER') 
 payload={}  
 headers = {  
-  'Metadata': 'True'  
+  'X-IDENTITY-HEADER': identityHeader,
+  'Metadata': 'True' 
 }  
 response = requests.request("GET", endPoint, headers=headers, data=payload)  
 print(response.text) 

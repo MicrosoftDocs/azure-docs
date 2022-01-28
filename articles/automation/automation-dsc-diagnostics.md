@@ -2,14 +2,10 @@
 title: Integrate Azure Automation State Configuration with Azure Monitor Logs
 description: This article tells how to send Desired State Configuration reporting data from Azure Automation State Configuration to Azure Monitor Logs.
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: magoedte
 ms.date: 08/16/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
-manager: carmonm
 ---
 
 # Integrate Azure Automation State Configuration with Azure Monitor Logs

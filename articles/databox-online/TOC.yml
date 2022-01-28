@@ -51,7 +51,8 @@
         href: azure-stack-edge-gpu-technical-specifications-compliance.md
       - name: Power cord specifications
         href: azure-stack-edge-technical-specifications-power-cords-regional.md
-
+    - name: FAQ - Billing model
+      href: azure-stack-edge-gpu-faq-billing-model.yml
 - name: Azure Stack Edge Pro R
   items:
   - name: Overview
@@ -416,7 +417,9 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2110 - Current
+    - name: 2111 - Current
+      href: azure-stack-edge-gpu-2111-release-notes.md
+    - name: 2110 
       href: azure-stack-edge-gpu-2110-release-notes.md
     - name: 2106
       href: azure-stack-edge-gpu-2106-release-notes.md

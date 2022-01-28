@@ -1,16 +1,7 @@
 ---
 title: Work with near-real-time (NRT) detection analytics rules in Microsoft Sentinel | Microsoft Docs
 description: This article explains how to view and create near-real-time (NRT) detection analytics rules in Microsoft Sentinel.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin

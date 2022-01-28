@@ -1,8 +1,8 @@
 ---
 title: What is Azure Cache for Redis?
 description: Learn about Azure Cache for Redis to enable cache-aside, content caching, user session caching, job and message queuing, and distributed transactions.
-author: curib
-ms.author: cauribeg
+author: flang-msft
+ms.author: franlanglois
 ms.service: cache
 ms.topic: overview
 ms.date: 02/08/2021
@@ -94,7 +94,7 @@ The Enterprise tiers rely on Redis Enterprise, a commercial variant of Redis fro
 > separately from cache instances themselves. For more information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
 > If an Enterprise cache is configured for multiple Availability Zones, data
 > transfer will be billed at the [standard network bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/)
-> starting from July 1, 2021.
+> starting from July 1, 2022.
 >
 > In addition, data persistence adds Managed Disks. The use of these resources will be free during
 > the public preview of Enterprise data persistence. This may change when the feature becomes

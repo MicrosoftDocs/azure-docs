@@ -1,5 +1,5 @@
 ---
-title: How to use Azure portal to invoke direct methods for Azure Video Analyzer
+title: How to use Azure portal to invoke Video Analyzer direct methods
 description: This article is an overview using the Azure portal to invoke direct methods for Azure Video Analyzer.
 ms.topic: how-to
 ms.date: 11/04/2021

@@ -24,6 +24,10 @@ Azure managed identity is a service principal that creates an Azure Active Direc
 Managed identity supports both privately and publicly accessible Azure blob storage accounts.  For storage accounts with public access, you can opt to use a shared access signature (SAS) to grant limited access.   In this article, you'll learn to enable a system-assigned managed identity for your Form Recognizer instance.
 
 ## Private storage account access
+> [!NOTE]
+>
+> Form Recognizer only supports system-assigned managed identities today. User-assigned managed identities is on the roadmap and will be enabled in the near future. 
+
 
  Private Azure storage account access and authentication is supported by [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). If you have an Azure storage account protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS), Form Recognizer cannot directly access your storage account data; however, once a managed identity is enabled, the Form Recognizer service can access your storage account using an assigned managed identity credential.
 

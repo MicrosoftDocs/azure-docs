@@ -24,7 +24,7 @@ dotnet add package Microsoft.Azure.DigitalTwins.Parser
 ```
 
 > [!NOTE]
-> At the time of writing, the parser version is `3.12.5`.
+> At the time of writing, the parser version is `3.12.7`.
 
 ## Use the parser to validate a model
 

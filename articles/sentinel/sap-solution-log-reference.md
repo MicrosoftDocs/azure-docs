@@ -2,30 +2,25 @@
 title: Microsoft Sentinel SAP solution - Available logs reference | Microsoft Docs
 description: Learn about the SAP logs available from the Microsoft Sentinel SAP solution.
 author: batamig
-ms.author: bagold
-ms.service: azure-sentinel
+ms.author: bagol
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.subservice: azure-sentinel
 ---
 
 # Microsoft Sentinel SAP solution logs reference (public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-This article describes the SAP logs available from the Microsoft Sentinel SAP data connector, including the table names in Microsoft Sentinel, the log purposes, and detailed log schemas. Schema field descriptions are based on the field descriptions in the relevant [SAP documentation](https://help.sap.com/).
-
-This article is intended for advanced SAP users.
-
-> [!NOTE]
-> When using the XBP 3.0 interface, the Microsoft Sentinel SAP solution uses *Not Released* services. These services do not affect backend system or connector behavior.
->
-> To "release" these services, implement the [SAP Note 2910263 - Unreleased XBP functions](https://launchpad.support.sap.com/#/notes/2910263).
-
 > [!IMPORTANT]
 > The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+> Some logs, noted below, are not sent to Microsoft Sentinel by default, but you can manually add them as needed. For more information, see [Define the SAP logs that are sent to Microsoft Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+>
+
+This article describes the SAP logs available from the Microsoft Sentinel SAP data connector, including the table names in Microsoft Sentinel, the log purposes, and detailed log schemas. Schema field descriptions are based on the field descriptions in the relevant [SAP documentation](https://help.sap.com/).
+
+This article is intended for advanced SAP users.
 
 ## ABAP Application log
 
@@ -36,7 +31,6 @@ This article is intended for advanced SAP users.
 - **Log purpose**: Records the progress of an application execution so that you can reconstruct it later as needed.
 
     Available by using RFC with a custom service based on standard services of XBP interface. This log is generated per client.
-
 
 ### ABAPAppLog_CL log schema
 
@@ -161,6 +155,8 @@ This article is intended for advanced SAP users.
 
 ## ABAP DB table data log
 
+To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+
 - **Name in Microsoft Sentinel**: `ABAPTableDataLog_CL`
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcd2f36611d3a6510000e835363f.html)
@@ -193,6 +189,9 @@ This article is intended for advanced SAP users.
 
 ## ABAP Gateway log
 
+To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+
+
 - **Name in Microsoft Sentinel**: `ABAPOS_GW_CL`
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/62b4de4187cb43668d15dac48fc00732/7.5.7/en-US/48b2a710ca1c3079e10000000a42189b.html)
@@ -212,6 +211,9 @@ This article is intended for advanced SAP users.
 | | |
 
 ## ABAP ICM log
+
+To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+
 
 - **Name in Microsoft Sentinel**: `ABAPOS_ICM_CL`
 
@@ -439,6 +441,9 @@ This article is intended for advanced SAP users.
 
 ## ABAP SysLog
 
+To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+
+
 - **Name in Microsoft Sentinel**: `ABAPOS_Syslog_CL`
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcbaf36611d3a6510000e835363f.html)
@@ -523,6 +528,9 @@ This article is intended for advanced SAP users.
 
 ## ABAP WorkProcess log
 
+To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+
+
 - **Name in Microsoft Sentinel**: `ABAPOS_WP_CL`
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/d0739d980ecf42ae9f3b4c19e21a4b6e/7.3.15/en-US/46fb763b6d4c5515e10000000a1553f6.html)
@@ -548,6 +556,9 @@ This article is intended for advanced SAP users.
 
 ## HANA DB Audit Trail
 
+To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+
+
 - **Name in Microsoft Sentinel**: `Syslog`
 
 - **Related SAP documentation**: [General](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/48fd6586304c4f859bf92d64d0cd8b08.html) |  [Audit Trail](https://help.sap.com/viewer/b3ee5778bc2e4a089d3299b82ec762a7/2.0.03/en-US/0a57444d217649bf94a19c0b68b470cc.html)
@@ -571,6 +582,9 @@ This article is intended for advanced SAP users.
 | | |
 
 ## JAVA files
+
+To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+
 
 - **Name in Microsoft Sentinel**: `JavaFilesLogsCL`
 

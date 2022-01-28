@@ -8,7 +8,7 @@ ms.date: 01/07/2021
 ms.topic: quickstart
 ms.service: network-watcher
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
-# Customer intent: I need to enable the network security group flow logs by using an Azure Resource Manager template.
+#Customer intent: I need to enable the network security group flow logs by using an Azure Resource Manager template.
 ---
 
 # Quickstart: Configure network security group flow logs by using an ARM template

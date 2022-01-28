@@ -13,7 +13,7 @@ ms.date: 08/20/2021
 ms.author: davidmu
 ms.reviewer: hirsin
 ---
-# Home Realm Discovery for an application in Azure Active Directory
+# Home Realm Discovery for an application
 
 Home Realm Discovery (HRD) is the process that allows Azure AD to determine which identity provider ("IdP") a user needs to authenticate with at sign-in time.  When a user signs in to an Azure AD tenant to access a resource, or to the Azure AD common sign-in page, they type a user name (UPN). Azure AD uses that to discover where the user needs to sign in.
 

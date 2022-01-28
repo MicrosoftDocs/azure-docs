@@ -6,7 +6,6 @@ author: duongau
 manager: KumudD
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: yuajia 
