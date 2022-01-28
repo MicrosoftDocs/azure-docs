@@ -21,8 +21,8 @@ When you're finished with this tutorial, your Azure Function will connect to Azu
 An overview of the steps you'll take:
 
 > [!div class="checklist"]
-> * [Enable Azure AD authentication to the SQL database](#grant-database-access-to-Azure-AD-user)
-> * [Enable Azure Function managed identity](#enable-system-assigned-managed-identity-on-Azure-Function)
+> * [Enable Azure AD authentication to the SQL database](#grant-database-access-to-azure-ad-user)
+> * [Enable Azure Function managed identity](#enable-system-assigned-managed-identity-on-azure-function)
 > * [Grant SQL Database access to the managed identity](#grant-sql-database-access-to-the-managed-identity)
 > * [Configure Azure Function SQL connection string](#configure-azure-function-sql-connection-string)
 
@@ -69,7 +69,7 @@ To enable system-assigned managed identity in the Azure portal:
 ![Turn on system assigned identity for Function app](./media/functions-identity-access-sql-with-managed-identity/function-system-identity.png)
 
 
-For information on enabling system-assigned managed identity through Azure CLI or PowerShell, check out more information on [using managed identities with Azure Functions](azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet#add-a-system-assigned-identity).
+For information on enabling system-assigned managed identity through Azure CLI or PowerShell, check out more information on [using managed identities with Azure Functions](/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet#add-a-system-assigned-identity).
 
 
 ## Grant SQL database access to the managed identity
