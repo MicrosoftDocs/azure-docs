@@ -25,13 +25,11 @@ ms.custom: mvc, devx-track-azurecli
 > [!IMPORTANT]
 > Managed identity-authenticated container image pulls from ACR are not supported in Canada Central, South India, and West Central US at this time.  
 
-* Virtual Network injected container groups do not support managed identity authentication image pulls with ACR.
+* Virtual Network injected container groups don't support managed identity authentication image pulls with ACR.
 
-* Windows containers do not support managed identity authenticated image pulls with ACR.
+* Windows containers don't support managed identity-authenticated image pulls with ACR.
 
-* Windows Server 2016 container groups do not support managed identity authentication image pulls with ACR.
-
-* Container groups does not support pulling images from an Azure container registry using [private DNS zones][private-dns-zones].
+* Container groups don't support pulling images from an Azure Container Registry using [private DNS zones][private-dns-zones].
 
 ## Configure registry authentication
 
@@ -56,7 +54,7 @@ userID=$(az identity show --resource-group myResourceGroup --name myACRId --quer
 spID=$(az identity show --resource-group myResourceGroup --name myACRId --query principalId --output tsv)
 ```
 
-You will need the identity's resource ID to sign in to the CLI from your virtual machine. To show the value:
+You'll need the identity's resource ID to sign in to the CLI from your virtual machine. To show the value:
 
 ```bash
 echo $userID
@@ -68,7 +66,7 @@ The resource ID is of the form:
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACRId
 ```
 
-You will also need the service principal ID to grant the managed identity access to your container registry. To show the value:
+You'll also need the service principal ID to grant the managed identity access to your container registry. To show the value:
 
 ```bash
 echo $spID
