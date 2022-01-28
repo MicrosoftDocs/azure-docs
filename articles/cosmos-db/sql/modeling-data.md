@@ -504,7 +504,7 @@ Azure Synapse Link allows you to reduce costs from the following perspectives:
 
  * Fewer queries running in your transactional database.
  * A PK optimized for data ingestion and point reads, reducing data footprint, hot partition scenarios, and partitions splits.
- * Data tiering since analytical ttl (attl) is independent from transactional ttl (tttl). You can keep your transactional data in transactional store for a few days, weeks, months, and keep the data in analytical store for years or for ever. Analytical store columnar format brings a natural data compression, from 50% up to 90%. And its cost per GB is ~10% of transactional store actual price. Please click [here](../analytical-store-introduction.md) to read the current analytical store backup limitations.
+ * Data tiering since analytical ttl (attl) is independent from transactional ttl (tttl). You can keep your transactional data in transactional store for a few days, weeks, months, and keep the data in analytical store for years or for ever. Analytical store columnar format brings a natural data compression, from 50% up to 90%. And its cost per GB is ~10% of transactional store actual price. Please check the [analytical store overview](../analytical-store-introduction.md) to read about the current backup limitations.
  * No ETL jobs running in your environment, meaning that you don't need to provision RUs for them.
 
 ## Next steps
