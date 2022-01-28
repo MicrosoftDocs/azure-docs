@@ -108,7 +108,7 @@ az aks update-credentials \
 
 For small and midsize clusters, it takes a few moments for the service principal credentials to be updated in the AKS.
 
-## Update AKS Cluster with new Azure Azure AD Application credentials
+## Update AKS Cluster with new Azure AD Application credentials
 
 You may create new Azure AD Server and Client applications by following the [Azure AD integration steps][create-aad-app]. Or reset your existing Azure AD Applications following the [same method as for service principal reset](#reset-the-existing-service-principal-credential). After that you just need to update your cluster Azure AD Application credentials using the same [az aks update-credentials][az-aks-update-credentials] command but using the *--reset-aad* variables.
 
