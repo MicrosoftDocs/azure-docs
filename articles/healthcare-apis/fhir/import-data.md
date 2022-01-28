@@ -27,7 +27,7 @@ As the import is a long running task, users always need to know the status of th
 The FHIR service supports $import with the following format:
  `POST https://<<FHIR service base URL>>/$import>>`
 
-For each call, a **callback** will be returned in the location header, user can get this URL for checking status, below is the interpreted information from the response:
+For each call, a **callback** will be returned in the location header, use this URL to check status, below is the interpreted information from the response:
 
 | Response code      | Reponse body |Description |
 | ----------- | -----------  |-----------  |
