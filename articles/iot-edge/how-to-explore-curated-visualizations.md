@@ -11,7 +11,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Explore curated visualizations (Preview)
+# Explore curated visualizations
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
