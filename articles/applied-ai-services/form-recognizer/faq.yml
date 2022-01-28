@@ -116,7 +116,7 @@ sections:
 
           A bounding box is an abstract rectangle that surrounds text elements on a document or form.  It's used as a reference point for object detection.
 
-          - The bounding box specifies position using an x and y coordinate plane presented in and array of four numerical pairs. Each pair represents a corner of the box in the following order: top-left, top-right, bottom-right, bottom-left.
+          - The bounding box specifies position using an x and y coordinate plane presented in an array of four numerical pairs. Each pair represents a corner of the box in the following order: top-left, top-right, bottom-right, bottom-left.
 
           - For an image, coordinates are given in pixels.  
           
@@ -175,16 +175,22 @@ sections:
             | Python | [3.2.0b2](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/MIGRATION_GUIDE.md)|
 
       - question: |
-            What file formats does Form Recognizer support? Are there size limitations for input documents?
+            Which file formats does Form Recognizer support? Are there size limitations for input documents?
         answer:  |
-            Form Recognizer extracts data from form and document images and returns a structured output from JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned) file formats.
+            
+            - Form Recognizer extracts data from form and document images and returns a structured output from JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned) file formats.
+            - For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
+            - Your file size must be less than 50 MB.
+            - Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels.
+            - PDF dimensions can be a maximum of 17 x 17 inches (corresponding to Legal or A3 paper size) or smaller.
+            - The total allowable size of training data is 500 pages or less.
 
             To ensure the best results, see [input requirements](concept-model-overview.md#input-requirements).
 
       - question: |
-            I see that both Form Recognizer Studio and the FOTT sample labeling tool are available. Which one should I use?
+            Both Form Recognizer Studio and the FOTT sample labeling tool are available. Which one should I use?
         answer:  |
-           Most of time [Form Recognizer Studio]() is recommended since it can reduce your time for configuring Form Recognizer resource and storage. 
+           Most of time [Form Recognizer Studio]() is recommended since it can reduce your time for configuring Form Recognizer resource and storage services. 
            
            Consider using FOTT (Form OCR Testing Tool) for the following scenarios:
 
@@ -229,7 +235,7 @@ sections:
       - question: |
           How do I assemble the best training data?
         answer: |
-          When you use the Form Recognizer custom model, you provide your own training data. Here are a few tips to help train your model effectively:
+          When you use the Form Recognizer custom model, you provide your own training data. Here are a few tips to help train your models effectively:
 
             - Use text-based instead of image-based PDFs when possible. One way to identify an image-based PDF is to try selecting specific text in the document. If you can only select the entire image of the text, the document is image-based, not text-based.
 
