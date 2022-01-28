@@ -128,11 +128,11 @@ To do this, [set up a telemetry initializer](./api-filtering-sampling.md#addmodi
 
 ```csharp
     // Telemetry initializer class
-    public class ApplicationVersionTelemetryInitializer : ITelemetryInitializer
+    public class MyTelemetryInitializer : ITelemetryInitializer
     {
         // In this example, to differentiate versions, we use the value specified in the AssemblyInfo.cs
-        // for ASP.NET apps, or in your project file (.csproj) for the ASP.NET Core apps. 
-        // Make sure to set a different assembly version when you deploy your application for A/B testing.
+        // for ASP.NET apps, or in your project file (.csproj) for the ASP.NET Core apps. Make sure that
+        // you set a different assembly version when you deploy your application for A/B testing.
         static readonly string _version = 
             System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             
@@ -151,7 +151,7 @@ In the web app initializer such as Global.asax.cs:
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers
-            .Add(new ApplicationVersionTelemetryInitializer());
+            .Add(new MyTelemetryInitializer());
     }
 ```
 
@@ -164,11 +164,10 @@ For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, a
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;
-using Microsoft.ApplicationInsights.Channel;
 
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddSingleton<ITelemetryInitializer, ApplicationVersionTelemetryInitializer>();
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
 }
 ```
 
