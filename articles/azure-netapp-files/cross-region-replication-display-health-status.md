@@ -69,9 +69,9 @@ Follow the following steps to create [alert rules in Azure Monitor](../azure-mon
     1. Set **Unit** to `Count`.
 9.	 Click **Review + create**. The alert rule is ready for use. 
 
-    ![Azure interface showing the configure signal logic step with a backdrop of the Create alert rule page](../media/azure-netap-files/..)
+:::image type="content" source="../media/azure-netapp-files/alert-config-signal-logic.png" alt-text="Azure interface showing the configure signal logic step with a backdrop of the Create alert rule page":::
 
-## Next steps  
+## Next steps
 
 * [Cross-region replication](cross-region-replication-introduction.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
