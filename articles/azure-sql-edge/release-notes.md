@@ -6,14 +6,22 @@ services: sql-edge
 ms.service: sql-edge
 ms.topic: conceptual
 ms.subservice:
-author: VasiyaKrishnan
-ms.author: vakrishn
-ms.reviewer: sstein
+author: kendalvandyke
+ms.author: kendalv 
+ms.reviewer: jroth
 ms.date: 11/24/2020
 ---
 # Azure SQL Edge release notes 
 
 This article describes what's new and what has changed with every new build of Azure SQL Edge.
+
+## Azure SQL Edge 1.0.5
+
+SQL engine build 15.0.2000.1562
+
+### What's new?
+
+- Security bug fixes
 
 ## Azure SQL Edge 1.0.4
 

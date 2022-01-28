@@ -2,7 +2,7 @@
 title: Workbooks gallery in Microsoft Defender for Cloud
 description: Learn how to create rich, interactive reports of your Microsoft Defender for Cloud data with the integrated Azure Monitor Workbooks gallery
 ms.topic: conceptual
-ms.date: 01/20/2022
+ms.date: 01/23/2022
 ---
 
 # Create rich, interactive reports of Defender for Cloud data
@@ -35,7 +35,7 @@ With the integrated Azure Workbooks functionality, Microsoft Defender for Cloud 
 - ['System Updates' workbook](#use-the-system-updates-workbook) - View missing system updates by resources, OS, severity, and more
 - ['Vulnerability Assessment Findings' workbook](#use-the-vulnerability-assessment-findings-workbook) - View the findings of vulnerability scans of your Azure resources
 - ['Compliance Over Time' workbook](#use-the-compliance-over-time-workbook) - View the status of a subscription's compliance with the regulatory or industry standards you've selected 
-- [`Active Alerts` workbook](#use-the-active-alerts-workbook) - view active alerts by severity, type, tag, MITRE ATT&CK tactics, and location.
+- ['Active Alerts' workbook](#use-the-active-alerts-workbook) - view active alerts by severity, type, tag, MITRE ATT&CK tactics, and location.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-microsoft-defender-for-cloud.png" alt-text="Gallery of built-in workbooks in Microsoft Defender for Cloud.":::
 
