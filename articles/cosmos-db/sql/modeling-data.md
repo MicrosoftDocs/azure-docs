@@ -17,7 +17,7 @@ While schema-free databases, like Azure Cosmos DB, make it super easy to store a
 
 How is data going to be stored? How is your application going to retrieve and query data? Is your application read-heavy, or write-heavy?
 
-After reading this article, you will be able to answer the following questions:
+After reading this article, you'll be able to answer the following questions:
 
 * What is data modeling and why should I care?
 * How is modeling data in Azure Cosmos DB different to a relational database?
