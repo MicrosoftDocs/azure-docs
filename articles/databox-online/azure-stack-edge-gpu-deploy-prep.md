@@ -98,7 +98,7 @@ Before you begin, make sure that:
     - A minimum of 10-Mbps download bandwidth to ensure the device stays updated.
     - A minimum of 20-Mbps dedicated upload and download bandwidth to transfer files.
 
-## Create a resource
+## Create a new resource
 
 <!--If you have an existing Azure Stack Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).-->
 In this step, you’ll first order a device and then create a management resource to manage the device with the service in the cloud.
