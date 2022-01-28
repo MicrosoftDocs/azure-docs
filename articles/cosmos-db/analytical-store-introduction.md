@@ -369,7 +369,7 @@ With periodic backup mode and existing containers, you can:
  
  ### Partially rebuild analytical store when TTTL < ATTL
  
-The data that was only in analytical store isn't restored, but it will be kept available for queries as long as you keep the original container. Analytical store is only deleted when you you delete the container. You analytical queries in Azure Synapse Analytics can read data from both original and restored container's analytical stores. Example:
+The data that was only in analytical store isn't restored, but it will be kept available for queries as long as you keep the original container. Analytical store is only deleted when you delete the container. You analytical queries in Azure Synapse Analytics can read data from both original and restored container's analytical stores. Example:
 
  * Container `OnlineOrders` has TTTL set to one month and ATTL set for one year.
  * When you restore it to `OnlineOrdersNew` and turn on analytical store to rebuild it, there will be only one month of data in both transactional and analytical store.
