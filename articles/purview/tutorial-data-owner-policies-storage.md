@@ -35,7 +35,7 @@ Register and scan each data source with Azure Purview to later define access pol
 
 -   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](register-scan-adls-gen2.md)
 
-Enable the data source for access policies in Azure Purview by setting the **Data use governance** toggle to enable, as shown in the picture.
+Enable the data source for access policies in Azure Purview by setting the **Data use governance** toggle to **Enabled**, as shown in the picture.
 
 ![Image shows how to register a data source for policy.](./media/tutorial-data-owner-policies-storage/register-data-source-for-policy-storage.png)
 
