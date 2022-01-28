@@ -6,18 +6,12 @@ ms.topic: conceptual
 ---
 # Azure Policy exemption structure
 
-The Azure Policy exemptions (preview) feature is used to _exempt_ a resource hierarchy or an
+The Azure Policy exemptions feature is used to _exempt_ a resource hierarchy or an
 individual resource from evaluation of initiatives or definitions. Resources that are _exempt_ count
 toward overall compliance, but can't be evaluated or have a temporary waiver. For more information,
 see [Understand scope in Azure Policy](./scope.md). Azure Policy exemptions only work with
 [Resource Manager modes](./definition-structure.md#resource-manager-modes) and don't work with
 [Resource Provider modes](./definition-structure.md#resource-provider-modes).
-
-> [!IMPORTANT]
-> This feature is free during **preview**. For pricing details, see
-> [Azure Policy pricing](https://azure.microsoft.com/pricing/details/azure-policy/). For more
-> information about previews, see
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 You use JSON to create a policy exemption. The policy exemption contains elements for:
 
