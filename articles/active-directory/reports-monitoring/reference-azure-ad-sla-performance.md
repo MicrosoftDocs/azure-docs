@@ -13,7 +13,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/18/2022
+ms.date: 01/28/2022
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -50,16 +50,6 @@ To help you plan for moving workloads to Azure AD, we publish past SLA performan
 
 For each month, we truncate the SLA attainment at three places after the decimal. Numbers are not rounded up, so actual SLA attainment is higher than indicated. 
 
-| Year | January | February | March |	April |	May | June | July |	August | September | October | November | December |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 2021 | | 99.999 | 99.999 | 99.999 | 99.999 | 99.999 | 99.999 | 99.999 | 99.999 | 99.999 | 99.998 | 99.998 |
-|2022 | | | | | | | | | | | | |
-
-
-
-## Version 2
-
-
 
 | Month     | 2021   | 2022 |
 | ---       | ---    | ---  |
@@ -75,16 +65,6 @@ For each month, we truncate the SLA attainment at three places after the decimal
 | October   | 99.999 |      |
 | November  | 99.998 |      |
 | December  | 99.998 |      |
-
-
-
-
-
-
-
-
-
-  
 
   
 
