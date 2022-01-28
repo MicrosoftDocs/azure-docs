@@ -417,7 +417,7 @@ Use the following tips as a self-help guide.
 
 **What happens if the Arc for VMware section shows no data?**
 
-- If the Azure Arc VMware resources ni the Azure UI shows no data, verify your subscription was added in the global default subscription filter.
+- If the Azure Arc VMware resources in the Azure UI shows no data, verify your subscription was added in the global default subscription filter.
 
 **I see the error:** "`ApplianceClusterNotRunning` Appliance Cluster: `<resource-bridge-id>` expected states to be Succeeded found: Succeeded and expected status to be Running and found: Connected".
 
