@@ -69,7 +69,7 @@ Follow the following steps to create [alert rules in Azure Monitor](../azure-mon
     1. Set **Unit** to `Count`.
 9.	 Select **Review + create**. The alert rule is ready for use. 
 
-:::image type="content" source="../media/azure-netapp-files/alert-config-signal-logic.png" alt-text="Azure interface showing the configure signal logic step with a backdrop of the Create alert rule page":::
+:::image type="content" source="../media/azure-netapp-files/alert-config-signal-logic.png" alt-text="Screenshot of the Azure interface that shows the configure signal logic step with a backdrop of the Create alert rule page." lightbox="../media/azure-netapp-files/alert-config-signal-logic.png":::
 
 ## Next steps
 
