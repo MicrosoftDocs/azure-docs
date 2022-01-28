@@ -17,7 +17,7 @@ ms.author: sedusch
 ms.custom: subject-rbac-steps
 
 ---
-# SAP ILM with Microsoft Azure Blob Storage
+# SAP Information Lifecycle Management (ILM) with Microsoft Azure Blob Storage
 
 SAP Information Lifecycle Management (ILM) provides a broad range of capabilities for managing data
 volumes, Retention Management as well as the decommissioning of legacy systems, while balancing the
@@ -78,5 +78,4 @@ to store archive files from S/4 HANA System.
 
 ## Next steps
 
-* [Configure the SAP ILM Store in SAP system]()
 * [SAP ILM on the SAP help portal](https://help.sap.com/doc/c3b6eda797634474b7a3aac5a48e84d5/1610%20001/en-US/frameset.htm)
