@@ -87,4 +87,4 @@ A student does the following tasks:
 
 First action to take to use Azure Lab Services is to create one or more lab plan(s).  Labs can be created only after a lab plan is created.
 
-- [As an admin, set up a lab plan](tutorial-setup-lab-plan.md)
+- [As an admin, create a lab plan](tutorial-setup-lab-plan.md)
