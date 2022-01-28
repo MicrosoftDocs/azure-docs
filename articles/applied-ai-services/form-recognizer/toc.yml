@@ -14,6 +14,8 @@ items:
     href: service-limits.md
   - name: What's new
     href: whats-new.md
+  - name: Form Recognizer FAQ
+    href: faq.yml
 - name: Quickstarts
   items:
    - name: Form Recognizer v2.1

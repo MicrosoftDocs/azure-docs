@@ -16,21 +16,25 @@ title: Form Recognizer frequently asked questions
 summary: |
 
 sections:
-  - name: General
+  - name: General concepts
     questions:
       - question: |
           What is Form Recognizer?
         answer: |
 
-          Azure Form Recognizer is a cloud-based [Azure Applied AI Service](/azure/applied-ai-services) that uses machine-learning models to extract and analyze form fields, text, and tables from your documents. The returned result is a structured JSON output. Form Recognizer automates your data processing in applications and workflows, enhances data-driven strategies, and enriches document search capabilities.
+          Azure Form Recognizer is a cloud-based [Azure Applied AI Service](/azure/applied-ai-services) that uses machine-learning models to extract and analyze form fields, text, and tables from your documents. The returned result is a structured JSON output. 
+          
+          Form Recognizer use cases include automating your data processing in applications and workflows, enhancing data-driven strategies, and enriching document search capabilities.
 
-          Learn about [Form Recognizer use cases](/legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context#example-use-cases-for-form-recognizer).
+          Learn more about [Form Recognizer use case](/legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context#example-use-cases-for-form-recognizer) scenarios.
 
       - question: |
           Which Form Recognizer use cases require special consideration?
         answer: |
 
-          Give careful consideration to use cases encompassing financial, protected health, personal identity, and highly sensitive data. Make certain to comply with all [national, regional, and industry-specific requirements](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
+          Give careful consideration to form processing projects that encompass financial, protected health, personal identity, or highly sensitive data. 
+          
+          Make certain to comply with all [national, regional, and industry-specific requirements](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
 
           Learn more about [use case considerations](/legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context#considerations-when-choosing-other-use-cases).
 
@@ -38,7 +42,7 @@ sections:
           What languages are supported by Form Recognizer?
         answer: |
 
-          Form Recognizer's deep-learning-based universal models can extract multi-lingual text in your documents, including text lines with mixed languages, and don’t require specifying a language code.
+          Form Recognizer's deep-learning-based universal models can extract multi-lingual text in your documents, including text lines with mixed languages.
 
           Form Recognizer currently supports 122 print and 7 handwritten language texts.
 
@@ -56,19 +60,25 @@ sections:
           Does Form Recognizer integrate with other Microsoft services?
         answer: |
 
-          Yes. Form Recognizer integrates with the following services:
+          Yes, Form Recognizer integrates with the following services:
 
           - [AI Builder workflows](/ai-builder/create-form-processing-model?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json)
 
           - [Azure Cognitive Search](/azure/search/cognitive-search-custom-skill-form)
 
-          - [Azure Functions](tutorial-azure-function.md), and [Azure Logic Apps](tutorial-logic-apps.md)
+          - [Azure Functions](tutorial-azure-function.md)
+
+          - [Azure Logic Apps](tutorial-logic-apps.md)
 
       - question: |
-          How is Form Recognizer related to OCR (optical character recognition)?
+          How is Form Recognizer related to OCR?
         answer: |
 
-          Azure Form Recognizer is a cloud-based Azure Applied AI Service that is built using OCR, Text Analytics, and Custom Text from Azure Cognitive Services. OCR is used for text extraction from printed or handwritten documents. Form Recognizer uses OCR to detect and extract information in forms and AI to provide additional structure and information to the text extraction.
+          Azure Form Recognizer is a cloud-based Azure Applied AI Service that is built using optical character recognition (OCR), Text Analytics, and Custom Text from Azure Cognitive Services. 
+          
+          OCR is used to extract text from printed and handwritten documents. 
+          
+          Form Recognizer uses OCR to detect and extract information in forms and AI to provide additional structure and information to the text extraction.
 
           Learn more about [Form Recognizer and Applied AI Services](/azure/applied-ai-services/what-are-applied-ai-services).
 
@@ -78,13 +88,17 @@ sections:
            What is the confidence score and how is it calculated?
         answer: |
 
-           A confidence score indicates probability by measuring the degree of statistical certainty that the extracted result has been detected correctly. The confidence value range is a number between 0 (low) and 100 (high). It's good practice to target a score of 80 or higher. For more sensitive cases, like financial or medical records, a score of 100 is recommended.
+           A confidence score indicates probability by measuring the degree of statistical certainty that the extracted result has been detected correctly. 
+           
+           The confidence value range is a number between 0 (low) and 100 (high). 
+           
+           It's best to target a score of 80 or higher. For more sensitive cases, like financial or medical records, a score of 100 is recommended.
 
       - question: |
           How can I improve confidence scores?
         answer: |
 
-         Examine the `confidence` values for each key/value result under the `pageResults` node. You should also look at the confidence score in the `readResults` node, which corresponds to the text-read operation. The confidence of the read results doesn’t affect the confidence of the key/value extraction results, so you should check both.
+         Following an analysis operation, review the JSON output. Examine the `confidence` values for each key/value result under the `pageResults` node. You should also look at the confidence score in the `readResults` node, which corresponds to the text-read operation. The confidence of the read results doesn’t affect the confidence of the key/value extraction results, so you should check both.
 
             - If the confidence score for the `readResults` object is low, improve the quality of your input documents.
 
@@ -102,9 +116,11 @@ sections:
 
           A bounding box is an abstract rectangle that surrounds text elements on a document or form.  It's used as a reference point for object detection.
 
-          - The bounding box specifies position using an x and y coordinate plane in and array of four number pairs. Each pair represents a corner of the box in the following order: top-left, top-right, bottom-right, bottom-left.
+          - The bounding box specifies position using an x and y coordinate plane presented in and array of four numerical pairs. Each pair represents a corner of the box in the following order: top-left, top-right, bottom-right, bottom-left.
 
-          - For images, coordinates are in pixels.  For PDF, coordinates are in inches.
+          - For an image, coordinates are given in pixels.  
+          
+          - For a PDF, coordinates are given in inches.
 
           - You can use the bounding box returned by Form Recognizer to identify the location of recognized entities.
 
@@ -146,11 +162,13 @@ sections:
            What is the difference between Form Recognizer v3.0 and v2.1 and how do I migrate to the latest version?
         answer:  |
 
-          For improved usability, Form Recognizer v3.0 introduces a fully redesigned client library. To successfully use the latest Form Recognizer API features—version 2021-09-30-preview and newer—the most recent SDK is required and your application code must be updated to use the new clients. This table provides links to detailed instructions for migrating to the newest version of Form Recognizer:
+          For improved usability, Form Recognizer v3.0 introduces a fully redesigned client library. To successfully use the latest Form Recognizer API features—version 2021-09-30-preview and newer—the most recent SDK is required and your application code must be updated to use the new clients. 
+          
+          This table provides links to detailed instructions for migrating to the newest version of Form Recognizer:
 
             | Language / API | Migration guide|
             | ----------- | ----------------  |
-            | REST API    | v3-migration-guide.md|
+            | REST API    | [v3](v3-migration-guide.md)|
             | C#/.NET| [4.0.0-beta.2](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/MigrationGuide.md)|
             | Java | [4.0.0-beta.3](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/migration-guide.md)|
             | JavaScript| [4.0.0-beta.2](https://github.com/azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/MIGRATION-v3_v4.md)|
@@ -166,7 +184,9 @@ sections:
       - question: |
             I see that both Form Recognizer Studio and the FOTT sample labeling tool are available. Which one should I use?
         answer:  |
-           Most of time [Form Recognizer Studio]() is recommended since it can reduce your time for configuring the Form Recognizer resource and storage. Consider using FOTT ((Form OCR Testing Tool) for the following scenarios:
+           Most of time [Form Recognizer Studio]() is recommended since it can reduce your time for configuring Form Recognizer resource and storage. 
+           
+           Consider using FOTT (Form OCR Testing Tool) for the following scenarios:
 
               - Your data must remain within a single machine. Use the [FOTT sample labeling tool]() and [Form Recognizer container]().
 
@@ -209,7 +229,7 @@ sections:
       - question: |
           How do I assemble the best training data?
         answer: |
-          When you use the Form Recognizer custom model, you provide your own training data. Here are a few tips to help you train your model effectively:
+          When you use the Form Recognizer custom model, you provide your own training data. Here are a few tips to help train your model effectively:
 
             - Use text-based instead of image-based PDFs when possible. One way to identify an image-based PDF is to try selecting specific text in the document. If you can only select the entire image of the text, the document is image-based, not text-based.
 
@@ -224,7 +244,7 @@ sections:
             Learn more about [building a training data set](build-training-data-set.md)
 
       - question: |
-          What is the best practice for training a highly accurate custom model?
+          What are best practices for training a highly accurate custom model?
         answer: |
          The level of accuracy for your model is dependent on the quality of your training materials:
 
@@ -284,7 +304,7 @@ sections:
         answer: |
            You can start with the Form Recognizer [layout model](concept-layout.md) to extract texts, tables, selection marks, and structure information from documents and images. You can also consider the following:
 
-             - Is the data that you wish to extract presented as a table and is the table structure is meaningful?
+             - Is the data that you wish to extract presented as a table and is the table structure meaningful?
 
              - If the data isn’t in a table format, can the data fit in a two-dimensional grid?
 
@@ -352,4 +372,4 @@ sections:
       - question: |
             What should I do if specific text isn’t recognized or recognized incorrectly when labeling documents?
         answer: |
-            We continually update and improve the Form Recognizer OCR model. Please reach out to the Form Recognizer team: formrecog_contact@microsoft.com. If possible, please share a sample document with the issue highlighted.
+            We continually update and improve the Form Recognizer OCR model. Please reach out to the Form Recognizer team: [formrecog_contact@microsoft.com](mailto:formrecog_contact@microsoft.com). If possible, please share a sample document with the issue highlighted.
