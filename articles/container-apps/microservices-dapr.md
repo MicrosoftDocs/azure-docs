@@ -24,14 +24,14 @@ You learn how to:
 
 Azure Container Apps offers a fully managed version of the Dapr APIs when building microservices. When you use Dapr in Azure Container Apps, you can enable sidecars to run next to your microservices that provide a rich set of capabilities. Available Dapr APIs include [Service to Service calls](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/), [Pub/Sub](https://docs.dapr.io/developing-applications/building-blocks/pubsub/), [Event Bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/), [State Stores](https://docs.dapr.io/developing-applications/building-blocks/state-management/), and [Actors](https://docs.dapr.io/developing-applications/building-blocks/actors/).
 
-In this tutorial, you deploy the same applications from the Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/hello-kubernetes) quickstart, which consists of a client (Python) app that generates messages, and a service (Node) app that consumes and persists those messages in a configured state store. The following architecture diagram illustrates the components that make up this tutorial:
+In this tutorial, you deploy the same applications from the Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/hello-kubernetes) quickstart  The application consists of a client (Python) app that generates messages, and a service (Node) app that consumes and persists those messages in a configured state store. The following architecture diagram illustrates the components that make up this tutorial:
 
 :::image type="content" source="media/microservices-dapr/azure-container-apps-microservices-dapr.png" alt-text="Architecture diagram for Dapr Hello World microservices on Azure Container Apps":::
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]  
 
 
-Individual container apps are deployed to an Azure Container Apps environment. To create the environment, run the following command:
+Individual container applications are deployed to an Azure Container Apps environment. To create the environment, run the following command:
 
 # [Bash](#tab/bash)
 
@@ -61,7 +61,7 @@ az containerapp env create `
 
 ### Create an Azure Blob Storage account
 
-First setup a name for the storage account container.  Then, set the storage account name.  Replace the `<storage account name>` placeholder with your own value before you run this snippet. Storage account names must be unique within Azure, be between 3 and 24 characters in length, and may contain numbers or lowercase letters only. The storage account will be created in a following step.
+First set up a name for the storage account container.  Then, set the storage account name.  Replace the `<storage account name>` placeholder with your own value before you run this snippet. Storage account names must be unique within Azure, be between 3 and 24 characters in length, and may contain numbers or lowercase letters only. The storage account will be created in a following step.
 
 # [Bash](#tab/bash)
 
@@ -109,9 +109,9 @@ New-AzStorageAccount -ResourceGroupName $RESOURCE_GROUP `
 
 Once your Azure Blob Storage account is created, the following values are needed for subsequent steps in this tutorial.
 
-* `storage_account_name` is the value of the `STORAGE_ACCOUNT` variable you chose above.
+* `storage_account_name` is the value of the `STORAGE_ACCOUNT` variable you chose earlier.
 
-* `storage_container_name` is the value of `STORAGE_ACCOUNT_CONTAINER` defined above (for example, `mycontainer`). Dapr creates a container with this name if it doesn't already exist in your Azure Storage account.
+* `storage_container_name` is the value of `STORAGE_ACCOUNT_CONTAINER` you defined previously (for example, `mycontainer`). Dapr creates a container with this name if it doesn't already exist in your Azure Storage account.
 
 Get the storage account key with the following command.
 
@@ -139,7 +139,7 @@ echo $STORAGE_ACCOUNT_KEY
 
 ### Configure the state store component
 
-Using the properties you sourced from the steps above, create a config file named *components.yaml*. This file helps enable your Dapr app to access your state store. The following example shows how your *components.yaml* file should look when configured for your Azure Blob Storage account:
+Using the properties you sourced from the previous steps, create a config file named *components.yaml*. This file helps enable your Dapr app to access your state store. The following example shows how your *components.yaml* file should look when configured for your Azure Blob Storage account:
 
 ```yaml
 # components.yaml for Azure Blob storage component
@@ -168,7 +168,7 @@ To use this file, make sure to replace the placeholder values between the `<>` b
 
 ## Deploy the service application (HTTP web server)
 
-Navigate to the directory in which you stored the *components.yaml* file and run the command below to deploy the service container app.
+Navigate to the directory in which you stored the *components.yaml* file and run the following command to deploy the service container app.
 
 # [Bash](#tab/bash)
 
@@ -213,7 +213,7 @@ This command deploys the service (Node) app server on `--target-port 3000` (the 
 
 ## Deploy the client application (headless client)
 
-Run the command below to deploy the client container app.
+Run the following command to deploy the client container app.
 
 # [Bash](#tab/bash)
 
@@ -245,7 +245,7 @@ az containerapp create `
 
 ---
 
-This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there is no `--target-port` to start a server, nor is there a need to enable ingress.
+This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there’s no `--target-port` to start a server, nor is there a need to enable ingress.
 
 ## Verify the result
 
@@ -255,21 +255,21 @@ You can confirm the services are working correctly by viewing data in your Azure
 
 1. Open the [Azure portal](https://portal.azure.com) in your browser and navigate to your storage account.
 
-1. Select **Containers** on the left.
+1. Select **Containers** from the menu.
 
 1. Select **mycontainer**.
 
 1. Verify that you can see the file named `order` in the container.
 
-1. Click on the file.
+1. Select on the file.
 
-1. Click the **Edit** tab.
+1. Select the **Edit** tab.
 
-1. Click the **Refresh** button to observe how the data automatically updates.
+1. Select the **Refresh** button to observe how the data automatically updates.
 
 ### View Logs
 
-Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI. You may need to wait a few minutes for the analytics to arrive for the first time before you are able to query the logged data.
+Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI. You may need to wait a few minutes for the analytics to arrive for the first time before you’re able to query the logged data.
 
 Use the following CLI command to view logs on the command line.
 
@@ -308,7 +308,7 @@ nodeapp               Got a new order! Order ID: 63    PrimaryResult  2021-10-22
 
 ## Clean up resources
 
-Once you are done, clean up your Container App resources by running the following command to delete your resource group.
+Once you’re done, clean up your Container Apps resources by running the following command to delete your resource group.
 
 # [Bash](#tab/bash)
 
@@ -325,7 +325,7 @@ Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 
 ---
 
-This command deletes both container apps, the storage account, the container apps environment, and any other resources in the resource group.
+This command deletes everything in the resource group, including the storage account, the Container Apps environment, and the container applications.
 
 > [!NOTE]
 > Since `pythonapp` continuously makes calls to `nodeapp` with messages that get persisted into your configured state store, it is important to complete these cleanup steps to avoid ongoing billable operations.
