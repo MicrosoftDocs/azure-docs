@@ -24,6 +24,8 @@ To learn more, watch this video on [SQL Assessment](/shows/Data-Exposed/?WT.mc_i
 If you're new to Azure SQL, check out the *What is Azure SQL* video from our in-depth [Azure SQL video series](/shows/Azure-SQL-for-Beginners/?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://docs.microsoft.com/shows/Azure-SQL-for-Beginners/What-is-Azure-SQL-3-of-61/player]
 
+<iframe src="https://aka.ms/docs/player?id=video-ID-goes-here" width="1920" height="1080" style="border: 0; max-width: 100%; min-width: 100%;"></iframe>
+
 ## Overview
 
 Once the SQL Assessment feature is enabled, your SQL Server instance and databases are scanned to provide recommendations for things like indexes, deprecated features, enabled or missing trace flags, statistics, etc. Recommendations are surfaced to the [SQL VM management page](manage-sql-vm-portal.md) of the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines). 
