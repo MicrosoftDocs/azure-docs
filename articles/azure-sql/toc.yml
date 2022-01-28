@@ -6,9 +6,6 @@
     href: azure-sql-iaas-vs-paas-what-is-overview.md
   - name: Migrate to Azure SQL 
     href: migration-guides/index.yml
-  - name: Azure SQL glossary of terms
-    href: glossary-terms.md
-
 
 - name: Shared SQL DB & SQL MI docs
   items:
@@ -1528,6 +1525,8 @@
         
 - name: Reference
   items:
+  - name: Azure SQL glossary of terms
+    href: glossary-terms.md
   - name: T-SQL language reference
     href: /sql/t-sql/language-reference
   - name: Azure CLI
