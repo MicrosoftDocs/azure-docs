@@ -17,13 +17,11 @@ Use the IoT Central *in-store analytics* application template and the guidance i
 
 :::image type="content" source="media/tutorial-in-store-analytics-create-app/store-analytics-architecture-frame.png" alt-text="Azure IoT Central Store Analytics.":::
 
-- Set of IoT sensors sending telemetry data to a gateway device
-- Gateway devices sending telemetry and aggregated insights to IoT Central
-- Continuous data export to the desired Azure service for manipulation
-- Data can be structured in the desired format and sent to a storage service
-- Business applications can query data and generate insights that power retail operations
-
-Let's take a look at key components that generally play a part in an in-store analytics solution.
+- Set of IoT sensors sending telemetry data to a gateway device.
+- Gateway devices sending telemetry and aggregated insights to IoT Central.
+- Continuous data export to the desired Azure service for manipulation.
+- Data can be structured in the desired format and sent to a storage service.
+- Business applications can query data and generate insights that power retail operations.
 
 ## Condition monitoring sensors
 
@@ -31,11 +29,11 @@ An IoT solution starts with a set of sensors capturing meaningful signals from w
 
 ## Gateway devices
 
-Many IoT sensors can feed raw signals directly to the cloud or to a gateway device located near them. The gateway device performs data aggregation at the edge before sending summary insights to an IoT Central application. The gateway devices are also responsible for relaying command and control operations to the sensor devices when applicable. 
+Many IoT sensors can feed raw signals directly to the cloud or to a gateway device located near them. The gateway device performs data aggregation at the edge before sending summary insights to an IoT Central application. The gateway devices are also responsible for relaying command and control operations to the sensor devices when applicable.
 
 ## IoT Central application
 
-The Azure IoT Central application ingests data from different kinds of IoT sensors as well gateway devices within the retail store environment and generates a set of meaningful insights.
+The Azure IoT Central application ingests data from different kinds of IoT sensors and gateway devices within the retail store environment and generates a set of meaningful insights.
 
 Azure IoT Central also provides a tailored experience to the store operator enabling them to remotely monitor and manage the infrastructure devices.
 
@@ -218,8 +216,8 @@ After you have created and customized device templates, it's time to add devices
 
 For this tutorial, you use the following set of real and simulated devices to build the application:
 
-- A real Rigado C500 gateway
-- Two real RuuviTag sensors
+- A real Rigado C500 gateway.
+- Two real RuuviTag sensors.
 - A simulated **Occupancy** sensor. The simulated sensor is included in the application template, so you don't need to create it. 
 
 > [!NOTE]

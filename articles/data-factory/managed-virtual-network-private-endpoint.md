@@ -163,7 +163,6 @@ Generally, managed Virtual network is available to all Azure Data Factory region
 
 ### Outbound communications through public endpoint from ADF Managed Virtual Network
 - All ports are opened for outbound communications.
-- Azure Storage and Azure Data Lake Gen2 are not supported to be connected through public endpoint from ADF Managed Virtual Network.
 
 ### Linked Service creation of Azure Key Vault 
 - When you create a Linked Service for Azure Key Vault, there is no Azure Integration Runtime reference. So you can't create Private Endpoint during Linked Service creation of Azure Key Vault. But when you create Linked Service for data stores which references Azure Key Vault Linked Service and this Linked Service references Azure Integration Runtime with Managed Virtual Network enabled, then you are able to create a Private Endpoint for the Azure Key Vault Linked Service during the creation. 

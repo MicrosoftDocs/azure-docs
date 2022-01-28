@@ -442,6 +442,5 @@ Using the Azure Machine Learning extension, you can create and manage environmen
 
 ## Next steps
 
-* To use a managed compute target to train a model, see [Tutorial: Train a model](tutorial-train-models-with-aml.md).
 * After you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
 * View the [`Environment` class SDK reference](/python/api/azureml-core/azureml.core.environment%28class%29).

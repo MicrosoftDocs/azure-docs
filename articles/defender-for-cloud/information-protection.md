@@ -8,11 +8,11 @@ ms.date: 11/09/2021
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-[Azure Purview](../purview/overview.md), Microsoft's data governance service, provides rich insights into the *sensitivity of your data*. With automated data discovery, sensitive data classification, and end-to-end data lineage, Purview helps organizations manage and govern data in hybrid and multi-cloud environments.
+[Azure Purview](../purview/overview.md), Microsoft's data governance service, provides rich insights into the *sensitivity of your data*. With automated data discovery, sensitive data classification, and end-to-end data lineage, Azure Purview helps organizations manage and govern data in hybrid and multi-cloud environments.
 
 Microsoft Defender for Cloud customers using Azure Purview can benefit from an additional vital layer of metadata in alerts and recommendations: information about any potentially sensitive data involved. This knowledge helps solve the triage challenge and ensures security professionals can focus their attention on threats to sensitive data.
 
-This page explains the integration of Purview's data sensitivity classification labels within Defender for Cloud.
+This page explains the integration of Azure Purview's data sensitivity classification labels within Defender for Cloud.
 
 ## Availability
 |Aspect|Details|
@@ -38,10 +38,10 @@ However, where possible, you'd want to focus the security team's efforts on risk
 Azure Purview's data sensitivity classifications and data sensitivity labels provide that knowledge.
 
 ## Discover resources with sensitive data
-To provide the vital information about discovered sensitive data, and help ensure you have that information when you need it, Defender for Cloud displays information from Purview in multiple locations.
+To provide the vital information about discovered sensitive data, and help ensure you have that information when you need it, Defender for Cloud displays information from Azure Purview in multiple locations.
 
 > [!TIP]
-> If a resource is scanned by multiple Purview accounts, the information shown in Defender for Cloud relates to the most recent scan.
+> If a resource is scanned by multiple Azure Purview accounts, the information shown in Defender for Cloud relates to the most recent scan.
 
 
 ### Alerts and recommendations pages
@@ -52,7 +52,7 @@ This vital additional layer of metadata helps solve the triage challenge and ens
 
 
 ### Inventory filters
-The [asset inventory page](asset-inventory.md) has a collection of powerful filters to group your resources with outstanding alerts and recommendations according to the criteria relevant for any scenario. These filters include **Data sensitivity classifications** and **Data sensitivity labels**. Use these filters to evaluate the security posture of resources on which Purview has discovered sensitive data.
+The [asset inventory page](asset-inventory.md) has a collection of powerful filters to group your resources with outstanding alerts and recommendations according to the criteria relevant for any scenario. These filters include **Data sensitivity classifications** and **Data sensitivity labels**. Use these filters to evaluate the security posture of resources on which Azure Purview has discovered sensitive data.
 
 :::image type="content" source="./media/information-protection/information-protection-inventory-filters.png" alt-text="Screenshot of information protection filters in Microsoft Defender for Cloud's asset inventory page." lightbox="./media/information-protection/information-protection-inventory-filters.png":::
 
@@ -61,7 +61,7 @@ When you select a single resource - whether from an alert, recommendation, or th
 
 The resource health page provides a snapshot view of the overall health of a single resource. You can review detailed information about the resource and all recommendations that apply to that resource. Also, if you're using any of the Microsoft Defender plans, you can see outstanding security alerts for that specific resource too.
 
-When reviewing the health of a specific resource, you'll see the Purview information on this page and can use it determine what data has been discovered on this resource alongside the Purview account used to scan the resource.
+When reviewing the health of a specific resource, you'll see the Azure Purview information on this page and can use it determine what data has been discovered on this resource alongside the Azure Purview account used to scan the resource.
 
 :::image type="content" source="./media/information-protection/information-protection-resource-health.png" alt-text="Screenshot of Defender for Cloud's resource health page showing information protection labels and classifications from Azure Purview." lightbox="./media/information-protection/information-protection-resource-health.png":::
 
@@ -78,6 +78,6 @@ A graph shows the number of recommendations and alerts by classified resource ty
 For related information, see:
 
 - [What is Azure Purview?](../purview/overview.md)
-- [Purview's supported data sources and file types](../purview/sources-and-scans.md) and [supported data stores](../purview/purview-connector-overview.md)
+- [Azure Purview's supported data sources and file types](../purview/sources-and-scans.md) and [supported data stores](../purview/purview-connector-overview.md)
 - [Azure Purview deployment best practices](../purview/deployment-best-practices.md)
 - [How to label to your data in Azure Purview](../purview/how-to-automatically-label-your-content.md)

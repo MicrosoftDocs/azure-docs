@@ -178,11 +178,11 @@ After setting up storage connections, you can query the existing tables in the H
 
 ## Known limitations
 
-- Synapse Studio object explorer will continue to show objects in managed Synapse metastore instead of the external HMS, we are improving the experience of this.
+- Synapse Studio object explorer will continue to show objects in managed Synapse metastore instead of the external HMS.
 - [SQL <-> Spark synchronization](../sql/develop-storage-files-spark-tables.md) doesn't work when using external HMS.  
 - Only Azure SQL Database and Azure Database for MySQL are supported as external Hive Metastore database. Only SQL authorization is supported.
-- Currently Spark only works on external Hive tables and non-transactional/non-ACID managed Hive tables. It doesn't support Hive ACID/transactional tables now.
-- Apache Ranger integration is not supported as of now.
+- Currently Spark only works on external Hive tables and non-transactional/non-ACID managed Hive tables. It doesn't support Hive ACID/transactional tables.
+- Apache Ranger integration is not supported.
 
 ## Troubleshooting
 ### See below error when querying a Hive table with data stored in Blob Storage

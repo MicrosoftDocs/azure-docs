@@ -441,6 +441,7 @@ API Management configured in a virtual network provides a single gateway interfa
 
 ## Next steps
 
+* Set up using an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/private-webapp-with-app-gateway-and-apim).
 * Learn more about Application Gateway:
 
   * [Application Gateway overview](../application-gateway/overview.md)

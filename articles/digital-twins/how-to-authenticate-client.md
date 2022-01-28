@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Write app authentication code
 titleSuffix: Azure Digital Twins
-description: See how to write authentication code in a client application
+description: Learn how to write authentication code in a client application
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/1/2021
+ms.date: 1/3/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -25,7 +25,7 @@ This article describes how to obtain credentials using the `Azure.Identity` clie
 
 ## Prerequisites
 
-First, complete the setup steps in [Set up an instance and authentication](how-to-set-up-instance-portal.md). This setup will ensure that you have an Azure Digital Twins instance and that your user has access permissions. After that setup, you're ready to write client app code.
+First, complete the setup steps in [Set up an instance and authentication](how-to-set-up-instance-portal.md). This setup will ensure you have an Azure Digital Twins instance and your user has access permissions. After that setup, you're ready to write client app code.
 
 To continue, you'll need a client app project in which you write your code. If you don't already have a client app project set up, create a basic project in your language of choice to use with this tutorial.
 
@@ -50,7 +50,7 @@ The rest of this article shows how to use these methods with the [.NET (C#) SDK]
 
 To set up your .NET project to authenticate with `Azure.Identity`, complete the following steps:
 
-1. Include the SDK package `Azure.DigitalTwins.Core` and the `Azure.Identity` package in your project. Depending on your tools of choice, you can include the packages using the Visual Studio package manager or the `dotnet` command line tool. 
+1. Include the SDK package `Azure.DigitalTwins.Core` and the `Azure.Identity` package in your project. Depending on your tools of choice, you can include the packages using the Visual Studio package manager or the `dotnet` command-line tool. 
 
 1. Add the following using statements to your project code:
 

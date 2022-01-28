@@ -22,8 +22,8 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
 > |---|---|---|
-> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Used to parse an address into constituent elements. |
-> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Address Standardizer US dataset example|
+> |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 2.5.1           | Used to parse an address into constituent elements. |
+> |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 2.5.1           | Address Standardizer US dataset example|
 > |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
 > |[btree_gist](https://www.postgresql.org/docs/11/btree-gist.html)                   | 1.5             | support for indexing common datatypes in GiST|
 > |[citext](https://www.postgresql.org/docs/11/citext.html)                       | 1.5             | data type for case-insensitive character strings|
@@ -67,8 +67,8 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
 > |---|---|---|
-> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Used to parse an address into constituent elements. |
-> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Address Standardizer US dataset example|
+> |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 2.5.1           | Used to parse an address into constituent elements. |
+> |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 2.5.1           | Address Standardizer US dataset example|
 > |[btree_gin](https://www.postgresql.org/docs/10/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
 > |[btree_gist](https://www.postgresql.org/docs/10/btree-gist.html)                   | 1.5             | support for indexing common datatypes in GiST|
 > |[chkpass](https://www.postgresql.org/docs/10/chkpass.html)                       | 1.0             | data type for auto-encrypted passwords|
@@ -113,8 +113,8 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
 > |---|---|---|
-> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.2           | Used to parse an address into constituent elements. |
-> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.2           | Address Standardizer US dataset example|
+> |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 2.3.2           | Used to parse an address into constituent elements. |
+> |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 2.3.2           | Address Standardizer US dataset example|
 > |[btree_gin](https://www.postgresql.org/docs/9.6/btree-gin.html)                    | 1.0             | support for indexing common datatypes in GIN|
 > |[btree_gist](https://www.postgresql.org/docs/9.6/btree-gist.html)                   | 1.2             | support for indexing common datatypes in GiST|
 > |[chkpass](https://www.postgresql.org/docs/9.6/chkpass.html)                       | 1.0             | data type for auto-encrypted passwords|
@@ -162,8 +162,8 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
 > |---|---|---|
-> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.0           | Used to parse an address into constituent elements. |
-> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.0           | Address Standardizer US dataset example|
+> |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 2.3.0           | Used to parse an address into constituent elements. |
+> |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 2.3.0           | Address Standardizer US dataset example|
 > |[btree_gin](https://www.postgresql.org/docs/9.5/btree-gin.html)                    | 1.0             | support for indexing common datatypes in GIN|
 > |[btree_gist](https://www.postgresql.org/docs/9.5/btree-gist.html)                   | 1.1             | support for indexing common datatypes in GiST|
 > |[chkpass](https://www.postgresql.org/docs/9.5/chkpass.html)                       | 1.0             | data type for auto-encrypted passwords|

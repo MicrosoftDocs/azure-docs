@@ -315,7 +315,7 @@ There is a simple REST protocol for obtaining a token in App Service and Azure F
 ### Using the REST protocol
 
 > [!NOTE]
-> An older version of this protocol, using the "2017-09-01" API version, used the `secret` header instead of `X-IDENTITY-HEADER` and only accepted the `clientid` property for user-assigned. It also returned the `expires_on` in a timestamp format. MSI_ENDPOINT can be used as an alias for IDENTITY_ENDPOINT, and MSI_SECRET can be used as an alias for IDENTITY_HEADER. This version of the protocol is currently required for Linux Consumption hosting plans.
+> An older version of this protocol, using the "2017-09-01" API version, used the `secret` header instead of `X-IDENTITY-HEADER` and only accepted the `clientid` property for user-assigned. It also returned the `expires_on` in a timestamp format. MSI_ENDPOINT can be used as an alias for IDENTITY_ENDPOINT, and MSI_SECRET can be used as an alias for IDENTITY_HEADER.
 
 An app with a managed identity has two environment variables defined:
 
@@ -327,7 +327,7 @@ The **IDENTITY_ENDPOINT** is a local URL from which your app can request tokens.
 > | Parameter name    | In     | Description                                                                                                                                                                                                                                                                                                                                |
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | resource          | Query  | The Azure AD resource URI of the resource for which a token should be obtained. This could be one of the [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) or any other resource URI.    |
-> | api-version       | Query  | The version of the token API to be used. Please use "2019-08-01" or later (unless using Linux Consumption, which currently only offers "2017-09-01" - see note above).                                                                                                                                                                                                                                                                 |
+> | api-version       | Query  | The version of the token API to be used. Please use "2019-08-01" or later.                                                                                                                                                                            |
 > | X-IDENTITY-HEADER | Header | The value of the IDENTITY_HEADER environment variable. This header is used to help mitigate server-side request forgery (SSRF) attacks.                                                                                                                                                                                                    |
 > | client_id         | Query  | (Optional) The client ID of the user-assigned identity to be used. Cannot be used on a request that includes `principal_id`, `mi_res_id`, or `object_id`. If all ID parameters  (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                             |
 > | principal_id      | Query  | (Optional) The principal ID of the user-assigned identity to be used. `object_id` is an alias that may be used instead. Cannot be used on a request that includes client_id, mi_res_id, or object_id. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`)  are omitted, the system-assigned identity is used. |
@@ -472,29 +472,34 @@ To learn more about configuring AzureServiceTokenProvider and the operations it 
 
 For Java applications and functions, the simplest way to work with a managed identity is through the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java). This section shows you how to get started with the library in your code.
 
-1. Add a reference to the [Azure SDK library](https://mvnrepository.com/artifact/com.microsoft.azure/azure). For Maven projects, you might add this snippet to the `dependencies` section of the project's POM file:
+1. Add a reference to the [Azure SDK library](https://mvnrepository.com/artifact/com.azure.resourcemanager/azure-resourcemanager). For Maven projects, you might add this snippet to the `dependencies` section of the project's POM file:
 
     ```xml
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure</artifactId>
-        <version>1.23.0</version>
+      <groupId>com.azure.resourcemanager</groupId>
+      <artifactId>azure-resourcemanager</artifactId>
+      <version>2.10.0</version>
     </dependency>
     ```
 
-2. Use the `AppServiceMSICredentials` object for authentication. This example shows how this mechanism may be used for working with Azure Key Vault:
+2. Use the `ManagedIdentityCredential` object for authentication. This example shows how this mechanism may be used for working with Azure Key Vault:
 
     ```java
-    import com.microsoft.azure.AzureEnvironment;
-    import com.microsoft.azure.management.Azure;
-    import com.microsoft.azure.management.keyvault.Vault
+    import com.azure.core.management.AzureEnvironment;
+    import com.azure.core.management.profile.AzureProfile;
+    import com.azure.identity.ManagedIdentityCredential;
+    import com.azure.identity.ManagedIdentityCredentialBuilder;
+    import com.azure.resourcemanager.AzureResourceManager;
+    import com.azure.resourcemanager.keyvault.models.Vault;
     //...
-    Azure azure = Azure.authenticate(new AppServiceMSICredentials(AzureEnvironment.AZURE))
-            .withSubscription(subscriptionId);
-    Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName);
+    AzureProfile azureProfile = new AzureProfile(AzureEnvironment.AZURE);
+    ManagedIdentityCredential managedIdentityCredential = new ManagedIdentityCredentialBuilder().build();
+    AzureResourceManager azure = AzureResourceManager.authenticate(managedIdentityCredential, azureProfile).withSubscription("subscription");
+
+    Vault vault = azure.vaults().getByResourceGroup("resourceGroup", "keyVaultName");
 
     ```
-
+For more information on how to use the Azure SDK for Java, please refer to this [quickstart guide](https://aka.ms/azsdk/java/mgmt). To learn more about Azure Identiy and authentication and Managed Identity in general, please visit [this guide](https://github.com/Azure/azure-sdk-for-java/wiki/Azure-Identity-Examples#authenticating-a-user-assigned-managed-identity-with-defaultazurecredential)
 
 ## <a name="remove"></a>Remove an identity
 

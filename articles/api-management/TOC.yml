@@ -3,6 +3,7 @@
 - name: Overview
   items:
       - name: About API Management
+        displayName: Overview
         href: api-management-key-concepts.md
       - name: API Management features availability
         href: api-management-features.md
@@ -60,7 +61,7 @@
         href: api-management-terminology.md
       - name: Policies
         items:
-            - name: Overview
+            - name: Policies overview
               href: api-management-howto-policies.md
             - name: Policy reference index
               href: api-management-policies.md
@@ -331,9 +332,13 @@
               href: api-management-howto-migrate.md
             - name: Use managed identities for Azure resources
               href: api-management-howto-use-managed-service-identity.md
+            - name: Self-hosted gateway
+              items:
+              - name: Guidance for running on Kubernetes
+                href: how-to-self-hosted-gateway-on-kubernetes-in-production.md
             - name: Integrate with Service Fabric
               items:
-                  - name: Overview
+                  - name: Service Fabric integration overview
                     href: ../service-fabric/service-fabric-api-management-overview.md
                   - name: Tutorial
                     href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md

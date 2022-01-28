@@ -18,7 +18,7 @@ jobs:
         stale-pr-label: inactive
         close-pr-label: auto-close
         exempt-pr-labels: keep-open
-        operations-per-run: 1200
+        operations-per-run: 1300
         ascending: false
         # start-date: '2021-03-19'
         stale-pr-message: >

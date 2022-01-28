@@ -654,4 +654,5 @@ To avoid this problem, we recommend one of the following approaches:
 * [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md).
 * [Creating and deploying Azure resource groups through Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
 * [For other templates related to Azure Machine Learning, see the Azure Quickstart Templates repository](https://github.com/Azure/azure-quickstart-templates).
-* To check for problems with your workspace, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).
+* [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).
+* [Move an Azure Machine Learning workspace to another subscription](how-to-move-workspace.md).

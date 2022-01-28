@@ -80,7 +80,7 @@
     - name: Functions with Logic Apps
       href: functions-twitter-email.md
     - name: Develop Python functions with VS Code
-      href: /azure/azure-functions/create-first-function-vs-code-python
+      href: ./create-first-function-vs-code-python.md
     - name: Create serverless APIs using Visual Studio
       href: openapi-apim-integrate-visual-studio.md
       displayName: OpenAPI, Swagger

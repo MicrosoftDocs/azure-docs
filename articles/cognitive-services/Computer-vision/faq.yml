@@ -61,4 +61,4 @@ sections:
       - question: |
           Can Computer Vision be used to read license plates?
         answer: |
-          The Vision API includes the deep learning powered OCR capabilities with the latest Read feature. We are constantly trying to improve our services to work across all scenarios.
+          The Vision API includes the deep learning powered OCR capabilities with the latest Read feature. It is important to note that, at this time, the Computer Vision API is not optimized for license plate recognition (LPR). Although in some cases license plate text will be recognized, additional processing of the returned data might be needed to strip out state or province names and invalid characters. We are constantly trying to improve our services to work across all scenarios.

@@ -460,7 +460,7 @@ In the following tables, the term alphanumeric refers to:
 > | integrationAccounts / sessions | integration account | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
 > | integrationServiceEnvironments | resource group | 1-80 | Alphanumerics, hyphens, periods, and underscores. |
 > | integrationServiceEnvironments / managedApis | integration service environment | 1-80 | Alphanumerics, hyphens, periods, and underscores. |
-> | workflows | resource group | 1-80 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
+> | workflows | resource group | 1-43 | Alphanumerics, hyphens, underscores, periods, and parenthesis. |
 
 ## Microsoft.MachineLearning
 

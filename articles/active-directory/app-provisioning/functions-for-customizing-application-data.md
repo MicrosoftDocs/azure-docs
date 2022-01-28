@@ -274,6 +274,8 @@ Returns a date/time string representing a date to which a specified time interva
 | **value** |Required | Number | The number of units you want to add. It can be positive (to get dates in the future) or negative (to get dates in the past). |
 | **dateTime** |Required | DateTime | DateTime representing date to which the interval is added. |
 
+When passing a date string as input use [CDate](#cdate) function to wrap the datetime string. To get system time in UTC use the [Now](#now) function. 
+
 The **interval** string must have one of the following values: 
  * yyyy Year 
  * m Month
@@ -283,30 +285,17 @@ The **interval** string must have one of the following values:
  * n Minute
  * s Second
 
-**Example 1: Add 7 days to hire date**  
+**Example 1: Generate a date value based on incoming StatusHireDate from Workday** <br>
 `DateAdd("d", 7, CDate([StatusHireDate]))`
-* **INPUT** (StatusHireDate): 2012-03-16-07:00
-* **OUTPUT**: 3/23/2012 7:00:00 AM
 
-**Example 2: Get a date ten days prior to hire date**  
-`DateAdd("d", -10, CDate([StatusHireDate]))`
-* **INPUT** (StatusHireDate): 2012-03-16-07:00
-* **OUTPUT**: 3/6/2012 7:00:00 AM
+| Example | interval | value | dateTime (value of variable StatusHireDate) | output |
+| --- | --- | --- | --- | --- |
+| Add 7 days to hire date | "d" | 7 | 2012-03-16-07:00 | 3/23/2012 7:00:00 AM |
+| Get a date ten days prior to hire date | "d" | -10 | 2012-03-16-07:00 | 3/6/2012 7:00:00 AM |
+| Add two weeks to hire date | "ww" | 2 | 2012-03-16-07:00 | 3/30/2012 7:00:00 AM |
+| Add ten months to hire date | "m" | 10 | 2012-03-16-07:00 | 1/16/2013 7:00:00 AM |
+| Add two years to hire date | "yyyy" | 10 | 2012-03-16-07:00 | 3/16/2014 7:00:00 AM |
 
-**Example 3: Add two weeks to hire date**  
-`DateAdd("ww", 2, CDate([StatusHireDate]))`
-* **INPUT** (StatusHireDate): 2012-03-16-07:00
-* **OUTPUT**: 3/30/2012 7:00:00 AM
-
-**Example 4: Add ten months to hire date**  
-`DateAdd("m", 10, CDate([StatusHireDate]))`
-* **INPUT** (StatusHireDate): 2012-03-16-07:00
-* **OUTPUT**: 1/16/2013 7:00:00 AM
-
-**Example 5: Add two years to hire date**  
-`DateAdd("yyyy", 2, CDate([StatusHireDate]))`
-* **INPUT** (StatusHireDate): 2012-03-16-07:00
-* **OUTPUT**: 3/16/2014 7:00:00 AM
 ---
 ### DateDiff
 **Function:**  
@@ -325,6 +314,8 @@ This function uses the *interval* parameter to return a number that indicates th
 | **interval** |Required | String | Interval of time to use for calculating the difference. |
 | **date1** |Required | DateTime | DateTime representing a valid date. |
 | **date2** |Required | DateTime | DateTime representing a valid date. |
+
+When passing a date string as input use [CDate](#cdate) function to wrap the datetime string. To get system time in UTC use the [Now](#now) function. 
 
 The **interval** string must have one of the following values: 
  * yyyy Year 
@@ -464,9 +455,30 @@ The IIF function returns one of a set of possible values based on a specified co
 | **valueIfTrue** |Required |Variable or String | If the condition evaluates to true, the returned value. |
 | **valueIfFalse** |Required |Variable or String |If the condition evaluates to false, the returned value.|
 
-**Example:**
+The following comparison operators can be used in the *condition*: 
+* Equal to (=) and not equal to (<>)  
+* Greater than (>) and greater than equal to (>=) 
+* Less than (<) and less than equal to (<=)
+
+**Example:** Set the target attribute value to source country attribute if country="USA", else set target attribute value to source department attribute.
 `IIF([country]="USA",[country],[department])`
 
+#### Known limitations and workarounds for IIF function
+* The IIF function currently does not support AND and OR logical operators. 
+* To implement AND logic, use nested IIF statement chained along the *trueValue* path. 
+  Example: If country="USA" and state="CA", return value "True", else return "False".
+  `IIF([country]="USA",IIF([state]="CA","True","False"),"False")`
+* To implement OR logic, use nested IIF statement chained along the *falseValue* path. 
+  Example: If country="USA" or state="CA", return value "True", else return "False".
+  `IIF([country]="USA","True",IIF([state]="CA","True","False"))`
+* If the source attribute used within the IIF function is empty or null, the condition check fails. 
+   * Unsupported IIF expression examples: 
+     * `IIF([country]="","Other",[country])`
+     * `IIF(IsNullOrEmpty([country]),"Other",[country])`
+     * `IIF(IsPresent([country]),[country],"Other")`
+   * Recommended workaround: Use the [Switch](#switch) function to check for empty/null values. Example: If country attribute is empty, set value "Other". If it is present, pass the country attribute value to target attribute. 
+     * `Switch([country],[country],"","Other")` 
+<br>   
 ---
 ### InStr
 **Function:** 

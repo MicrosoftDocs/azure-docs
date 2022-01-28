@@ -101,7 +101,6 @@ The table below lists the available resources that support a private endpoint:
 | **SignalR** | Microsoft.SignalRService/SignalR | signalr |
 | **SignalR** | Microsoft.SignalRService/webPubSub | webpubsub |
 | **Azure SQL Database** | Microsoft.Sql/servers | Sql Server (sqlServer) |
-| **Azure SQL Managed Instance** | Microsoft.Sql/managedInstances | Sql Managed Instance (managedInstance) |
 | **Azure Storage** | Microsoft.Storage/storageAccounts | Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary) |
 | **Azure File Sync** | Microsoft.StorageSync/storageSyncServices | File Sync Service |
 | **Azure Synapse** | Microsoft.Synapse/privateLinkHubs | synapse |

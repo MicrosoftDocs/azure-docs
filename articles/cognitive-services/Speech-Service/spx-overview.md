@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 01/16/2022
 ms.author: eur
 ms.custom: devx-track-azurecli
 ---
@@ -31,7 +31,7 @@ Use the Speech SDK when:
 
 * Speech recognition - Convert speech-to-text either from audio files or directly from a microphone, or transcribe a recorded conversation.
 
-* Speech synthesis - Convert text-to-speech using either input from text files, or input directly from the command line. Customize speech output characteristics using [SSML configurations](speech-synthesis-markup.md), and [neural voices](speech-synthesis-markup.md#prebuilt-neural-voice-and-custom-neural-voice).
+* Speech synthesis - Convert text-to-speech using either input from text files, or input directly from the command line. Customize speech output characteristics using [SSML configurations](speech-synthesis-markup.md), and [neural voices](speech-synthesis-markup.md#prebuilt-neural-voices-and-custom-neural-voices).
 
 * Speech translation - Translate audio in a source language to text or audio in a target language.
 
