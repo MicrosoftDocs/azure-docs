@@ -110,16 +110,18 @@ The Easy Button client must also be registered as a client in Azure AD, before i
 5. Specify who can use the application > **Accounts in this organizational directory only**
 6. Select **Register** to complete the initial app registration
 7. Navigate to **API permissions** and authorize the following Microsoft Graph permissions:
-  * Application.Read.All
-  * Application.ReadWrite.All
-  * Application.ReadWrite.OwnedBy
-  * Directory.Read.All
-  * Group.Read.All
-  * IdentityRiskyUser.Read.All
-  * Policy.Read.All
-  * Policy.ReadWrite.ApplicationConfiguration
-  * Policy.ReadWrite.ConditionalAccess
-  * User.Read.All
+
+    * Application.Read.All
+    * Application.ReadWrite.All
+    * Application.ReadWrite.OwnedBy
+    * Directory.Read.All
+    * Group.Read.All
+    * IdentityRiskyUser.Read.All
+    * Policy.Read.All
+    * Policy.ReadWrite.ApplicationConfiguration
+    * Policy.ReadWrite.ConditionalAccess
+    * User.Read.All
+
 8. Grant admin consent for your organization
 9. In the **Certificates & Secrets** blade, generate a new **client secret** and note it down
 10. From the **Overview** blade, note the **Client ID** and **Tenant ID**
@@ -165,7 +167,7 @@ Some of these are global settings that can be reused for publishing more applica
 
 2. Enable **Single Sign-On (SSO) & HTTP Headers**
 
-3. Enter the **Tenant Id**, **Client ID**, and **Client Secret** from your registered application
+3. Enter the **Tenant Id**, **Client ID**, and **Client Secret** you noted down during tenant registration
 
 4. Confirm the BIG-IP can successfully connect to your tenant, and then select **Next**
 
@@ -246,9 +248,9 @@ In the **Additional User Attributes tab**, you can enable session augmentation r
 
 You can further protect the published application with policies returned from your Azure AD tenant. These policies are enforced after the first-factor authentication has been completed and uses signals from conditions like device platform, location, user or group membership, or application to determine access.
 
-The **Available Policies** list, by default, displays a list of policies that target selected apps.
+The **Available Policies** by default, lists all CA policies defined without user based actions.
 
-The **Selected Policies** list, by default, displays all policies targeting All cloud apps. These policies cannot be deselected or moved to the Available Policies list. They are included by default but can be excluded if necessary.
+The **Selected Policies** list, by default, displays all policies targeting All cloud apps. These policies cannot be deselected or moved to the Available Policies list.
 
 To select a policy to be applied to the application being published:
 
@@ -256,7 +258,7 @@ To select a policy to be applied to the application being published:
 
 2. Select the right arrow and move it to the **Selected Policies** list
 
-Selected policies should either have an **Include** or **Exclude option** checked. If both options are checked, the selected policy is not enforced. Exclude all policies while testing. You can go back and enable them later.
+Selected policies should either have an **Include** or **Exclude option** checked. If both options are checked, the selected policy is not enforced. Excluding all policies may ease testing, you can go back and enable them later.
 
 ![Screenshot for CA policies](./media/f5-big-ip-easy-button-ldap/conditional-access-policy.png)
 
