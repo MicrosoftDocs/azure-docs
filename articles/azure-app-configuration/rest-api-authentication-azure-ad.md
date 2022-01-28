@@ -37,7 +37,7 @@ Before acquiring an Azure AD token, you must identify what user you want to auth
 
 Request the Azure AD token with a proper audience. For Azure App Configuration use the following audience. The audience can also be referred to as the *resource* that the token is being requested for.
 
-- https://azconfig.io
+`https://azconfig.io`
 
 ### Azure AD authority
 
