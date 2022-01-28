@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/30/2021
+ms.date: 01/28/2022
 ms.author: tamram
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell
@@ -28,7 +28,7 @@ For an overview of each of these options, see [Azure Storage redundancy](storage
 
 ## Switch between types of replication
 
-You can switch a storage account from one type of replication to any other type, but some scenarios are more straightforward than others. If you want to add or remove geo-replication or read access to the secondary region, you can use the Azure portal, PowerShell, or Azure CLI to update the replication setting. However, if you want to change how data is replicated in the primary region, by moving from LRS to ZRS or vice versa, then you must either perform a manual migration or request a live migration. And if you want to move from ZRS to GZRS or RA-GZRS, then you must perform a live migration, unless you are performing a failback operation after failover.
+You can switch a storage account from one type of replication to any other type, but some scenarios are more straightforward than others. If you want to add or remove geo-replication or read access to the secondary region, you can use the Azure portal, PowerShell, or Azure CLI to update the replication setting in some scenarios; other scenarios require a manual or live migration. If you want to change how data is replicated in the primary region, by moving from LRS to ZRS or vice versa, then you must either perform a manual migration or request a live migration. And if you want to move from ZRS to GZRS or RA-GZRS, then you must perform a live migration, unless you are performing a failback operation after failover.
 
 The following table provides an overview of how to switch from each type of replication to another:
 
