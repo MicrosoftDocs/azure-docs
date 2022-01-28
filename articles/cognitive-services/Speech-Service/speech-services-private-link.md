@@ -341,6 +341,9 @@ Follow these steps to modify your code:
 
 After this modification, your application should work with the private-endpoint-enabled Speech resources. We're working on more seamless support of private endpoint scenarios.
 
+[!INCLUDE [](includes/speech-studio-vnet.md)]
+
+
 ## Adjust an application to use a Speech resource without private endpoints
 
 In this article, we've pointed out several times that enabling a custom domain for a Speech resource is *irreversible*. Such a resource will use a different way of communicating with Speech service, compared to the ones that are using [regional endpoint names](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints).

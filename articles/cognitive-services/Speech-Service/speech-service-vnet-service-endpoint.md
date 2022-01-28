@@ -90,6 +90,7 @@ This scenario is equivalent to [using a Speech resource that has a custom domain
 
 [!INCLUDE [](includes/speech-vnet-service-enpoints-private-endpoints-simultaneously.md)]
 
+[!INCLUDE [](includes/speech-studio-vnet.md)]
 
 ## Learn more
 
