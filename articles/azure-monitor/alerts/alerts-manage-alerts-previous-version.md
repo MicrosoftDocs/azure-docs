@@ -37,7 +37,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
         > [!NOTE]
         > Since the [bin()](/azure/data-explorer/kusto/query/binfunction) can result in uneven time intervals, the alert service will automatically convert the [bin()](/azure/data-explorer/kusto/query/binfunction) function to a [binat()](/azure/data-explorer/kusto/query/binatfunction) function with appropriate time at runtime, to ensure results with a fixed point.
         > [!NOTE]
-        > Split by alert dimensions is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource centric alerting at scale is only supported in the API version `2020-08-01` and above.
+        > Split by alert dimensions is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource centric alerting at scale is only supported in the API version `2021-08-01` and above.
 
         :::image type="content" source="media/alerts-log/aggregate-on.png" alt-text="Aggregate on.":::
 
@@ -66,7 +66,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!NOTE]
-> PowerShell is not currently supported in API version `2020-08-01`.
+> PowerShell is not currently supported in API version `2021-08-01`.
 
 Use the PowerShell cmdlets listed below to manage rules with the [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules).
 
