@@ -160,11 +160,13 @@ To delete a signing chain certificate from your Azure Stack Edge device, take th
 
 1. Select the signing chain certificate you want to delete. Then select **Delete**.
 
-    ![Screenshot of the Certificates blade of the local Web UI of an Azure Stack Edge device. The Delete option for the signing certificates is highlighted.](media/azure-stack-edge-gpu-manage-certificates/delete-signing-certificate-01.png)<!--Placeholder screen from video-->
+    <!--![Screenshot of the Certificates blade of the local Web UI of an Azure Stack Edge device. The Delete option for the signing certificates is highlighted.](media/azure-stack-edge-gpu-manage-certificates/delete-signing-certificate-01.png)-->
+
+    [ ![Screenshot of the Certificates blade of the local Web UI of an Azure Stack Edge device. The Delete option for the signing certificates is highlighted.](media/azure-stack-edge-gpu-manage-certificates/delete-signing-certificate-01.png) ](media/azure-stack-edge-gpu-manage-certificates/delete-signing-certificate-01.png)
 
 1. On the **Delete certificate** pane, verify the certificate's thumbprint, and then select **Delete**. Certificate deletion can't be reversed.
 
-    ![Screenshot of the Delete Certificate screen for a Signing Certificate on an Azure Stack Edge device. The certificate thumbprint and Delete button are highlighted.](media/azure-stack-edge-gpu-manage-certificates/delete-signing-certificate-02.png)<!--Placeholder screen from video-->
+    ![Screenshot of the Delete Certificate screen for a Signing Certificate on an Azure Stack Edge device. The certificate thumbprint and Delete button are highlighted.](media/azure-stack-edge-gpu-manage-certificates/delete-signing-certificate-02.png)
 
     After certificate deletion is complete, all dependent certificates in the signing chain are no longer valid.
 
