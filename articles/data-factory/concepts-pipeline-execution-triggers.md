@@ -159,7 +159,7 @@ Triggers are another way that you can execute a pipeline run. Triggers represent
 
 - Event-based trigger: A trigger that responds to an event.
 
-Pipelines and triggers have a many-to-many relationship (except for the tumbling window trigger).Multiple triggers can kick off a single pipeline, or a single trigger can kick off multiple pipelines. In the following trigger definition, the **pipelines** property refers to a list of pipelines that are triggered by the particular trigger. The property definition includes values for the pipeline parameters.
+Pipelines and triggers have a many-to-many relationship (except for the tumbling window trigger). Multiple triggers can kick off a single pipeline, or a single trigger can kick off multiple pipelines. In the following trigger definition, the **pipelines** property refers to a list of pipelines that are triggered by the particular trigger. The property definition includes values for the pipeline parameters.
 ### Basic trigger definition
 
 ```json
@@ -393,10 +393,10 @@ The following table provides a comparison of the tumbling window trigger and sch
 
 ## Event-based trigger
 
-An event-based trigger runs pipelines in response to an event. There are two flavors of event based triggers.
+An event-based trigger runs pipelines in response to an event. There are two flavors of event-based triggers.
 
 * _Storage event trigger_ runs a pipeline against events happening in a Storage account, such as the arrival of a file, or the deletion of a file in Azure Blob Storage account.
-* _Custom event trigger_ processes and handles [custom topics](../event-grid/custom-topics.md) in Event Grid
+* _Custom event trigger_ processes and handles [custom articles](../event-grid/custom-topics.md) in Event Grid
 
 For more information about event-based triggers, see [Storage Event Trigger](how-to-create-event-trigger.md) and [Custom Event Trigger](how-to-create-custom-event-trigger.md).
 
