@@ -79,10 +79,6 @@ The following table shows resource limits for both Azure SQL Database and Azure 
 | **Discount models** |[Reserved instances](reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions | [Reserved instances](reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions| 
 | | |
  
-To learn more, review [single database resource limits](resource-limits-vcore-single-databases.md), [pooled database resource limits](resource-limits-vcore-elastic-pools.md) and [SQL Managed Instance resource limits](../managed-instance/resource-limits.md).
-
-
-
 
 ## Next steps
 
