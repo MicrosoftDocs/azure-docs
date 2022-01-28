@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/26/2022
+ms.date: 01/27/2022
 ms.author: v-ydequadros
 ---
 
@@ -18,25 +18,44 @@ You can use the **Data collectors** dashboard in Microsoft CloudKnox Permissions
 
 ## Access and view data sources
 
-1. To access your data sources, at the top of the CloudKnox page, select **Settings** (the gear icon).
+1. To access your data sources, at the top of the CloudKnox page, select **Settings** (the gear icon). Then select the **Data collectors** tab.
 
-2. On the **Data collectors** dashboard, each authorization system is listed with the following details:
+1. On the **Data collectors** dashboard, select your authorization system: 
 
-     - **ID** - Displays the unique identification number for the authorization system.
-     - **IP address** - Displays the specific internet protocol (IP) address or domain name system (DNS) name for the authorization system.
-     - **Data types** - Displays the two data types that are collected:
+    - **AWS** for Amazon Web Services.
+    - **Azure** for Microsoft Azure.
+    - **GCP** for Google Cloud Platform.
+
+1. To display specific information about an account:
+
+    1. Enter the following information:
+
+        - **Uploaded on** - Select **All** accounts, **Online** accounts, or **Offline** accounts.
+        - **Transformed on** - Select **All** accounts, **Online** accounts, or **Offline** accounts.
+        - **Search** - Enter an ID or IP address to find a specific account.
+
+    1. Select **Apply** to display the results.
+
+        Select **Reset Filter** to discard your changes.
+
+1. The following information displays:
+
+    - The name of your authorization system.
+    - **ID** - The unique identification number for the account.
+    - **Data types** - Displays the two data types that are collected:
          - **Entitlements** - The permissions of all identities and resources for all the configured authentication systems.
          - **Benchmarks** - The results of security best practices tests.
-     - **Recently uploaded on** - Displays whether the entitlement and benchmark data are being collected. 
+    - **Recently uploaded on** - Displays whether the entitlement and benchmark data are being collected. 
 
         The status displays *ONLINE* if the data collection has no errors and *OFFLINE* if there are errors.
-     - **Recently transformed on** - Displays whether the entitlement and benchmark data are being processed.
+    - **Recently transformed on** - Displays whether the entitlement and benchmark data are being processed.
 
-        The status displays *ONLINE* if the data processing has no errors and *OFFLINE* if there are errors.
+        The status displays *ONLINE* if the data processing has no errors and *OFFLINE* if there are errors. - **IP address** - Displays the specific internet protocol (IP) address or domain name system (DNS) name for the account.
+    - The **Tenant ID** and **Tenant name**
 
-## Configure settings to collect data
+## Configure data collection settings
 
-1. Select the ellipses **(...)** at the end of the row.
+1. Select the ellipses **(...)** at the end of the row in the table.
 1. To configure CloudKnox to collect data, select **Configure**.
      
      The **Sentry appliance configuration** box displays.
@@ -45,30 +64,35 @@ You can use the **Data collectors** dashboard in Microsoft CloudKnox Permissions
 1. To link the appliance to CloudKnox, use the displayed **REGISTERED EMAIL** address and **PIN** combination.
 1. Return to the **Sentry appliance configuration** box and select **Close**.
 
+## Start collecting data from an authorization system   
+
+1. Select the ellipses **(...)** at the end of the row in the table.
+1. Select **Collect Data**.
+
+    A message displays to confirm data collection has started. 
+
+## Modify information about your authorization system   
+
+1. Select the ellipses **(...)** at the end of the row in the table.
+1. To change the information displayed, select **Edit**. 
+
+    The **Onboarding - Summary** box displays.
+
+1. Select **Edit** for each field you want to change. 
+1. Select **Verify now & save**.
+
+    To verify your changes later, select **Save & verify later**.
+
+    When your changes are saved, the following message displays: **Successfully updated configuration.**
+
 ## Stop collecting data from an authorization system   
 
-1. Select the ellipses **(...)** at the end of the row.
-1. To delete your authorization system, select **Delete**. 
+1. Select the ellipses **(...)** at the end of the row in the table.
+1. To delete your authorization system, select **Delete configuration**. 
 
-    The **Delete data collector** box displays.
+    The **Onboarding - Summary** box displays.
 
-1. Select **OK**. 
-
-
-## Deploy a data source
-
-1. Select **Deploy**.
-
-    The **Sentry appliance deployment** box displays.
-
-1. For instructions on how to deploy a data source, select the link in the **Follow the instructions here to deploy** message.
-
-4. Select **Next**.
-5. In the **Enter appliance DNS name or IP** box, enter a name or IP address.
-6. Select **Next**.
-7. For information on how to link the appliance, select the URL.
-8. Select **Configure appliance**.
-
+1. Select **Delete**. 
 
 ## Next steps
 

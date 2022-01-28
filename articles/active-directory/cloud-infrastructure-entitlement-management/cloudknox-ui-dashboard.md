@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - View key statistics and data about your authorization system on the CloudKnox dashboard
-description: How to view View  statistics and data about your authorization system in the Microsoft CloudKnox Permissions Management dashboard.
+title: View key statistics and data about your authorization system in Microsoft CloudKnox Permissions Management
+description: How to view statistics and data about your authorization system in the Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -12,48 +12,52 @@ ms.date: 01/27/2022
 ms.author: v-ydequadros
 ---
 
+<!---Home page--->
+
 # View key statistics and data about your authorization system
 
-Microsoft CloudKnox Permissions Management (CloudKnox) provides a dashboard that summarizes and updates key statistics and data about your authorization system on a regular basis. This dashboard is available for Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).
+Microsoft CloudKnox Permissions Management (CloudKnox) provides a summary of key statistics and data about your authorization system on a regular basis. This information is available for Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).
 
 ## View metrics related to avoidable risk
 
-The data provided by CloudKnox shows metrics related to avoidable risk. These metrics allow the CloudKnox administrator to quickly and easily identify areas where they can reduce risks related to the principle of least privilege.
+The data provided by CloudKnox includes metrics related to avoidable risk. These metrics allow the CloudKnox administrator to identify areas where they can reduce risks related to the principle of least privilege.
 
-You can view the following data on the CloudKnox dashboards:
+You can view the following information in CloudKnox:
 
-- The **PCI heat map** on the CloudKnox **Dashboard** identifies:
+- The **Permission creep index (PCI)** heat map on the CloudKnox **Dashboard** identifies:
     - The number of users who have been granted high-risk privileges aren't using them.
     - The number of users who contribute to the privilege creep index and where they appear on the scale.
 
-- The **Analytics summary** on the **Analytics** dashboard provides a snapshot of permission metrics within the last 90 days.
+- The **Usage Analytics** dashboard provides a snapshot of permission metrics within the last 90 days.
 
 
 ## Components of the CloudKnox Dashboard
 
 When you launch CloudKnox, select **Dashboard** to displays the following information:
 
-- **Authorization system types** - A drop-down list of authorization system types you can access: Amazon Web Services (AWS), Microsoft Azure (Azure), nd Google Cloud Platform (GCP).
+- **Authorization system types** - A drop-down list of authorization system types you can access: Amazon Web Services (AWS), Microsoft Azure (Azure), and Google Cloud Platform (GCP).
  
-- **Authorization systems** - Displays a **List** of accounts and **Folders** in the selected authorization system you can access.
+- **Authorization systems** - Displays a **List** of accounts and **Folders** in the selected authorization system you can access. 
 
-- **Permissions creep index (PCI)** - A graph displaying the **# of identities contributing to PCI** and the related PRIVILEGE CREEP INDEX.
+    - Select the accounts and filters you want, and then select **Apply**.
 
-    The PCI graph displays a bubble in the upper right corner. The bubble displays the number of identities that are considered high risk. *High-risk* refers to the number of users who have permissions that exceed their normal or required usage.
-    - To display a list of the number of identities contributing to the **Low PCI**, **Medium PCI**, and **High PCI**, select the list icon in the upper right of the graph.
-    - To display the privilege creep index graph again, select the graph icon in the upper right of the list box. 
+- The **Permission creep index (PCI)** graph displays the **# of identities contributing to PCI**.
 
-- **Highest PCI change** - A list of your accounts, the privilege creep index, and the change in the index over the past 7 days.
+    The PCI graph displays one or more bubbles. Each bubble displays the number of identities that are considered high risk. *High-risk* refers to the number of users who have permissions that exceed their normal or required usage.
+    - To display a list of the number of identities contributing to the **Low PCI**, **Medium PCI**, and **High PCI**, select the **List** icon in the upper right of the graph.
+    - To display the PCI graph again, select the **Graph** icon in the upper right of the list box. 
+
+- **Highest PCI change** - Displays a list of your accounts and information about the **PCI** and **Change** in the index over the past 7 days.
     - To download the list, select the down arrow in the upper right of the list box.
 
         The following message displays: **We'll email you a link to download the file.** 
         - Check your email for the message from the CloudKnox Customer Success Team. The email contains a link to the **PCI history** report in Microsoft Excel format.
         <!---Ad Link reports@cloudknox.io---> 
         - The email also includes a link to the **Reports** dashboard, where you can configure how and when you want to receive reports automatically.
-    - To view all the changes in the privilege creep index, select **View all**.
+    - To view all the PCI changes in the privilege creep index, select **View all**.
 
 - **Identity** - A summary of the **Findings** that includes the number of identities that are:
-    - **Inactive roles** - A list of roles that haven"t been accessed in over 90 days.
+    - **Inactive roles** - A list of roles that haven't been accessed in over 90 days.
     - **Roles that can access secret information** - A list of roles that can access secret information.
     - **Over-provisioned active roles** - A list of roles that have more permissions than they currently access.
     - **Resources that can access secret information** - A list of resources that can access secret information.
@@ -72,9 +76,9 @@ When you launch CloudKnox, select **Dashboard** to displays the following inform
 
 ## The PCI heat map
 
-The **Permissions creep index**  heat map shows the incurred risk of users with access to high-risk privileges, and is a function of:
+The **Permission creep index**  heat map shows the incurred risk of users with access to high-risk privileges, and provides information about:
 
-- Users who were given access to high-risk privileges but aren't actively using them. High-risk privileges include the ability to modify or delete contents within the authorization system.
+- Users who were given access to high-risk privileges but aren't actively using them. *High-risk privileges* include the ability to modify or delete information in the authorization system.
 
 - The number of resources a user has access to, otherwise known as resource reach.
 
@@ -92,24 +96,21 @@ The **Permissions creep index**  heat map shows the incurred risk of users with 
 
 ### View information on the heat map
 
-To view detailed information about the following, select the number displayed on the heat map:
+1. Select the number on the heat map to display:
 
-- **Users** - Displays the total number of users and how many fall into the high, medium, and low categories.
-- **Roles** - Displays the total number of roles and how many fall into the high, medium, and low categories.
-- **Resources** - Displays the total number of resources and how many fall into the high, medium, and low categories.
-- **PCI trend** - Displays a line graph of the privilege creep index trend over the last several weeks.
+- The total number of **Identities** and how many of them are in the high, medium, and low categories.
+- The **PCI trend** over the last several weeks.
 
-- The **Identity** section below the heat map on the left side of the page shows all the relevant findings about identities, including roles that can access secret information, roles that are inactive, over provisioned active roles, and so on. 
+1. The **Identity** section below the heat map on the left side of the page shows all the relevant findings about identities, including roles that can access secret information, roles that are inactive, over provisioned active roles, and so on. 
 
     - To expand the full list of identities, select **All findings**.
 
-- The **Resource** section below the heat map on the right side of the page shows all the relevant findings about resources. It includes unencrypted S3 buckets, open security groups, and so on.
-- 
-<!---Is this still in?
+1. The **Resource** section below the heat map on the right side of the page shows all the relevant findings about resources. It includes unencrypted S3 buckets, open security groups, and so on.
 
-## The Analytics summary
 
-The **Usage Analytics summary** section on the [Analytics dashboard](cloudknox-ui-usage-analytics.md) provides a snapshot of the following high-risk tasks or actions users have accessed, and displays the total number of users with the high-risk access, how many users are inactive or have unexecuted tasks, and how many users are active or have executed tasks:
+## The Usage Analytics summary
+
+You can also view a summary of users and activities section on the [Usage Analytics dashboard](cloudknox-ui-usage-analytics.md). This dashboard provides a snapshot of the following high-risk tasks or actions users have accessed, and displays the total number of users with the high-risk access, how many users are inactive or have unexecuted tasks, and how many users are active or have executed tasks:
 
 - **Users with access to high-risk tasks** - Displays the total number of users with access to a high risk task (**Total**), how many users have access but haven't used the task (**Inactive**), and how many users are actively using the task (**Active**).
 
@@ -121,13 +122,13 @@ The **Usage Analytics summary** section on the [Analytics dashboard](cloudknox-u
 
 - **Resources that permit high-risk tasks** - Displays the total number of resources a user has access to (**Total**), how many resources are available but not used (**Inactive**), and how many resources are used (**Active**).
 
-- **Resources that permit delete tasks** - Displays the total number of resources that permit delete tasks (**Total**), how many resources with delete tasks aren't used (**Inactive**), and how many resources with delete tasks are used (**Active**).--->
+- **Resources that permit delete tasks** - Displays the total number of resources that permit delete tasks (**Total**), how many resources with delete tasks aren't used (**Inactive**), and how many resources with delete tasks are used (**Active**).
 
 
 
 ## Next steps
 
-- For information on how to view authorization system and account activity data on the CloudKnox dashboard, see [View authorization system and account activity on the CloudKnox dashboard](cloudknox-product-dashboard.md).
-- For an overview of the Usage Analytics dashboard, see [An overview of the Analytics  dashboard](cloudknox-ui-usage-analytics.md).
+- For information on how to view authorization system and account activity data on the CloudKnox Dashboard, see [View data about the activity in your authorization system](cloudknox-product-dashboard.md).
+- For an overview of the Usage Analytics dashboard, see [An overview of the Usage Analytics  dashboard](cloudknox-ui-usage-analytics.md).
 
 

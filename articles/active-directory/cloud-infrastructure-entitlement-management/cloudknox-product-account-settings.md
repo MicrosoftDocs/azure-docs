@@ -6,7 +6,7 @@ manager: karenh444
 ms.service: active-directory
 ms.topic: overview
 author: Yvonne-deQ
-ms.date: 01/26/2022
+ms.date: 01/27/2022
 ms.author: v-ydequadros
 ---
 
@@ -53,8 +53,8 @@ The **Organizations information** page displays the following information:
 
 If you're part of multiple organizations:
 
-- You can switch to a particular organization. You'll be asked to log in into that organization when you make the change.
-- You can assign another organization as the primary organization. Next time you log in, you'll log in to your primary organization.
+- You can switch to a particular organization. You'll be asked to sign in into that organization when you make the change.
+- You can assign another organization as the primary organization. Next time you sign in, you'll sign in to your primary organization.
 
 ## Change the password for your account 
 

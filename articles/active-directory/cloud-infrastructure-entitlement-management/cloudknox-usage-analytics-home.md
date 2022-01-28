@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management - View analytic information with the Usage Analytics dashboard
-description: How to use the Usage Analytics dashboard in Microsoft CloudKnox Permissions Management to view details about users, groups, active resources, active tasks, access keys, and serverless functions.
+title: Microsoft CloudKnox Permissions Management - View analytic information with the Usage analytics dashboard
+description: How to use the Usage analytics dashboard in Microsoft CloudKnox Permissions Management to view details about users, groups, active resources, active tasks, access keys, and serverless functions.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -12,29 +12,26 @@ ms.date: 01/27/2022
 ms.author: v-ydequadros
 ---
 
-# View analytic information with the Usage Analytics dashboard
+# View analytic information with the Usage analytics dashboard
 
-The **Usage Analytics** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) displays detailed information about identities, resources, and tasks. You can use this information to make decisions about granting privileges and reducing risk on unused privileges.
+The **Usage analytics** dashboard in Microsoft CloudKnox Permissions Management (CloudKnox) displays detailed information about: 
 
-<!---Add link.(https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-ui-usage-analytics.html)--->
+- **Users**: Tracks assigned privileges and usage of various identities. For more information, see [View analytic information about users](cloudknox-usage-analytics-users.md).
+    
+- **Groups**: Tracks assigned privileges and usage of the group and the group members.  For more information, see [View analytic information about groups](cloudknox-usage-analytics-groups.md).
 
-- **Users**: Tracks assigned privileges and usage of various identities. For more information, see View usage analytics about users.
-    <!---Add link.(https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-users.html)--->
-- **Groups**: Tracks assigned privileges and usage of the group and the group members.  For more information, see View usage analytics about groups.
-    <!---Add link.(https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-groups.html)--->
-- **Active Resources**: Tracks resources that have been used in the last 90 days.  For more information, see View usage analytics about active resources.
-    <!---Add link. (https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-active-resources.html--->
-- **Active Tasks**: Tracks tasks that have been performed in the last 90 days.  For more information, see View usage analytics about active tasks.
-    <!---Add link. (https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-active-tasks.html)--->
-- **Access Keys**: Tracks the privilege usage of access keys for a given user.  For more information, see View usage analytics about access keys.
-    <!---Add link. (https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-access-keys.html)--->
-- **Serverless Functions**: Tracks assigned privileges and usage of the serverless functions.  For more information, see View usage analytics about serverless functions.
-    <!---Add link.(https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-serverless-functions.html)--->
+- **Active Resources**: Tracks resources that have been used in the last 90 days.  For more information, see [View analytic information about active resources](cloudknox-usage-analytics-active-resources.md).
 
-The Microsoft CloudKnox Permissions Management **Usage Analytics** dashboard allows system administrators to collect, analyze, report on, and visualize data about all identity types.
+- **Active Tasks**: Tracks tasks that have been performed in the last 90 days.  For more information, see [View analytic information about active tasks](cloudknox-usage-analytics-active-tasks.md).
 
-<!---## Next steps--->
+- **Access Keys**: Tracks the privilege usage of access keys for a given user.  For more information, see [View analytic information about access keys](cloudknox-usage-analytics-access-keys.md).
 
-<!---Add link: To find out more about the Usage Analytics dashboard, see [The Usage Analytics dashboard](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-ui-usage-analytics.html).--->
-<!---Add link: To find out more about the Usage Analytics explorers, see [The Usage Analytics explorers](https://azure/active-directory/cloud-infrastructure-entitlement-management/cloudknox-usage-analytics-explorers.html).--->
+- **Serverless Functions**: Tracks assigned privileges and usage of the serverless functions.  For more information, see [View analytic information about serverless functions](cloudknox-usage-analytics-serverless-functions.md).
+
+You can use this information to make decisions about granting privileges and reducing risk on unused privileges.
+
+
+## Next steps
+
+- For information about roles and identities that can access account information from external accounts, see [View roles and identities that can access account information from external accounts](cloudknox-product-account-explorer.md).
 
