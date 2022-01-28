@@ -5,7 +5,7 @@ author: kgremban
 manager: lizross
 ms.author: kgremban
 ms.reviewer: fcabrera
-ms.date: 06/18/2021
+ms.date: 01/25/2022
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -54,8 +54,12 @@ Make sure your IoT Edge device meets the following requirements:
   * Minimum Free Memory: 1 GB
   * Minimum Free Disk Space: 10 GB
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 >[!NOTE]
 >This quickstart uses PowerShell to create a deployment of IoT Edge for Linux on Windows. You can also use Windows Admin Center. If you wish to use Windows Admin Center to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-provision-single-device-linux-on-windows-symmetric.md?tabs=windowsadmincenter).
+:::moniker-end
+<!-- end 1.1 -->
 
 ## Create an IoT hub
 
@@ -111,11 +115,33 @@ Run the following PowerShell commands on the target device where you want to dep
 
 1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
 
+      <!-- 1.1 -->
+   :::moniker range="iotedge-2018-06"
    ```powershell
    $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
    $ProgressPreference = 'SilentlyContinue'
    ​Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
    ```
+   :::moniker-end
+   <!-- end 1.1 -->
+
+   <!-- 1.2 -->
+   :::moniker range=">=iotedge-2020-11"
+      * **X64/AMD64**
+         ```powershell
+         $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+         $ProgressPreference = 'SilentlyContinue'
+         Invoke-WebRequest "https://aka.ms/AzEFLOWMSI-CR-X64" -OutFile $msiPath
+         ```
+
+      * **ARM64**
+         ```powershell
+         $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+         $ProgressPreference = 'SilentlyContinue'
+         Invoke-WebRequest "https://aka.ms/AzEFLOWMSI-CR-ARM64" -OutFile $msiPath
+         ```
+   :::moniker-end
+   <!-- end 1.2 -->
 
 1. Install IoT Edge for Linux on Windows on your device.
 
@@ -275,6 +301,8 @@ az group list
 
 ### Remove Azure IoT Edge for Linux on Windows
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Use the dashboard extension in Windows Admin Center to uninstall Azure IoT Edge for Linux on Windows.
 
 1. Connect to the IoT Edge device in Windows Admin Center. The Azure dashboard tool extension loads.
@@ -283,6 +311,17 @@ Use the dashboard extension in Windows Admin Center to uninstall Azure IoT Edge 
 
 >[!Note]
 >Another way to remove Azure IoT Edge from your Windows system is to select **Start** > **Settings** > **Apps** > **Azure IoT Edge LTS** > **Uninstall** on your IoT Edge device. This method removes Azure IoT Edge from your IoT Edge device, but leaves the connection behind in Windows Admin Center. To complete the removal, uninstall Windows Admin Center from the **Settings** menu as well.
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+1. On the Windows host OS, select **Start** > **Settings** > **Apps** > **Apps & features**.
+
+1. Then select **Azure IoT Edge** > **Uninstall**
+:::moniker-end
+<!-- end 1.2 -->
 
 ## Next steps
 

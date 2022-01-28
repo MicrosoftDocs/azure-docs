@@ -116,6 +116,9 @@ If you want to update to the most recent version of IoT Edge, use the following 
 
 # [Linux on Windows](#tab/linuxonwindows)
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 >[!IMPORTANT]
 >If you are updating a device from the public preview version of IoT Edge for Linux on Windows to the generally available version, you need to uninstall and reinstall Azure IoT Edge.
 >
@@ -135,6 +138,20 @@ If you want to update to the most recent version of IoT Edge, use the following 
 >   ```
 >
 > Note: Fresh EFLOW 1.1.2110.0311 msi installations on Windows Server SKUs will result in EFLOW deployments using VMMS technology, so no migration is needed.
+
+<!-- end 1.1 -->
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+>[!IMPORTANT]
+>This is a Public Preview version of Azure IoT Edge for Linux on Windows Continuous Release, not intended for production use. A clean install may be required for production use once the final General Availability (GA) release is available.
+>
+>To find out if you're currently using the continuous release version, navigate to **Settings** > **Apps** on your Windows device. Find **Azure IoT Edge** in the list of apps and features. If your listed version is 1.2.x.y, you are running the continuous release version.
+<!-- end 1.2 -->
+:::moniker-end
+
 
 With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hosted on a Windows device. This virtual machine is pre-installed with IoT Edge, and you cannot manually update or change the IoT Edge components. Instead, the virtual machine is managed with Microsoft Update to keep the components up to date automatically.
 
