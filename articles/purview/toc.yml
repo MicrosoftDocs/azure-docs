@@ -36,6 +36,8 @@ items:
       href: tutorial-data-owner-policies-storage.md
     - name: Data owner policies on resource groups or subscriptions
       href: tutorial-data-owner-policies-resource-group.md
+    - name: Authoring and publish data owner access policies
+      href: tutorial-data-owner-policy-authoring-generic.md
   - name: Onboard an on-premises SQL Server instance
     href: tutorial-register-scan-on-premises-sql-server.md
   - name: Use REST APIs for data planes
@@ -156,7 +158,7 @@ items:
       href: register-scan-azure-synapse-analytics.md
     - name: Cassandra
       href: register-scan-cassandra-source.md
-    - name: DB2
+    - name: Db2
       href: register-scan-db2.md
     - name: Erwin
       href: register-scan-erwin-source.md

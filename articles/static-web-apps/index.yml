@@ -49,20 +49,20 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Gatsby
-            url: publish-gatsby.md
-          - text: Hugo
-            url: publish-hugo.md
-          - text: VuePress
-            url: publish-vuepress.md
-          - text: Jekyll
-            url: publish-jekyll.md
           - text: Blazor
             url: deploy-blazor.md
+          - text: Gatsby
+            url: publish-gatsby.md
+          - text: Jekyll
+            url: publish-jekyll.md
+          - text: Hugo
+            url: publish-hugo.md
           - text: Next.js
             url: deploy-nextjs.md
           - text: Nuxt.js
             url: deploy-nuxtjs.md
+          - text: VuePress
+            url: publish-vuepress.md
   - title: Key concepts
     linkLists:
       - linkListType: concept
