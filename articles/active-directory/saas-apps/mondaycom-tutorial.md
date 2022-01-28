@@ -150,9 +150,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Setup configuration](common/setup-sso.png)
 
-1. If you want to setup monday.com manually, open a new web browser window and sign in to monday.com as an administrator and perform the following steps:
+1. If you want to set up monday.com manually, open a new web browser window and sign in to monday.com as an administrator and perform the following steps:
 
-1. Go to the **Profile** on the top right corner of page and click on **Admin**.
+1. Go to the **Profile** on the top-right corner of page and click on **Admin**.
 
     ![Screenshot shows the Admin profile selected.](./media/mondaycom-tutorial/admin.png)
 
