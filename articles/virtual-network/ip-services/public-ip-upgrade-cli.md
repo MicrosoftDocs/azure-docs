@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Upgrade a public IP address using the Azure CLI
 
-Azure public IP addresses are created with a SKU, either basic or standard. The SKU determines their functionality including allocation method, feature support, and resources they can be associated with. 
+Azure public IP addresses are created with a SKU, either Basic or Standard. The SKU determines their functionality including allocation method, feature support, and resources they can be associated with. 
 
 In this article, you'll learn how to upgrade a static Basic SKU public IP address to Standard SKU using the Azure CLI.
 
