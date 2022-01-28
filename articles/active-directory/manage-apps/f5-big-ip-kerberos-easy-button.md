@@ -174,7 +174,7 @@ Some of these are global settings so can be re-used for publishing more applicat
 
 2. Enable **Single Sign-On (SSO) & HTTP Headers**
 
-3. Enter the **Tenant Id, Client ID,** and **Client Secret** you noted down from your registered application
+3. Enter the **Tenant Id, Client ID,** and **Client Secret** you noted down during tenant registration
 
    ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-kerberos-easy-button/azure-configuration-properties.png)
 
@@ -261,7 +261,7 @@ To select a policy to be applied to the application being published:
 
 2. Select the right arrow and move it to the **Selected Policies** list
 
-   Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced. Excluding all policies may ease testing, you can go back and enable them later.
+Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced. Excluding all policies may ease testing, you can go back and enable them later.
 
   ![Screenshot for CA policies](./media/f5-big-ip-kerberos-easy-button/conditional-access-policy.png)
 
