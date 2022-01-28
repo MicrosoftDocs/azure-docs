@@ -62,7 +62,7 @@ You can initialize `SpeechConfig` in a few other ways:
 
 ## Recognize speech from a microphone
 
-To recognize speech using your device microphone, create an [`AudioConfig`](/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig) instance by using `FromDefaultMicrophoneInput()`. Then initialize [`SpeechRecognizer`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer) by passing `audioConfig` and `speechConfig`.
+To recognize speech by using your device microphone, create an [`AudioConfig`](/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig) instance by using `FromDefaultMicrophoneInput()`. Then initialize [`SpeechRecognizer`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer) by passing `audioConfig` and `speechConfig`.
 
 ```csharp
 using System;
@@ -128,8 +128,8 @@ class Program
 For many use cases, it's likely that your audio data will come from blob storage or will otherwise already be in memory as a `byte[]` instance or a similar raw data structure. The following example uses [`PushAudioInputStream`](/dotnet/api/microsoft.cognitiveservices.speech.audio.pushaudioinputstream) to recognize speech, which is essentially an abstracted memory stream. The sample code does the following:
 
 * Writes raw audio data (PCM) to `PushAudioInputStream` by using the `Write()` function, which accepts a `byte[]` instance.
-* Reads a `.wav` file by using `FileReader` for demonstration purposes. But if you already have audio data in a `byte[]` instance, you can skip directly to writing the content to the input stream.
-* The default format is 16-bit, 16-khz mono PCM. To customize the format, you can pass an [`AudioStreamFormat`](/dotnet/api/microsoft.cognitiveservices.speech.audio.audiostreamformat) object to `CreatePushStream()` by using the static function `AudioStreamFormat.GetWaveFormatPCM(sampleRate, (byte)bitRate, (byte)channels)`.
+* Reads a `.wav` file by using `FileReader` for demonstration purposes. If you already have audio data in a `byte[]` instance, you can skip directly to writing the content to the input stream.
+* The default format is 16-bit, 16-KHz mono PCM. To customize the format, you can pass an [`AudioStreamFormat`](/dotnet/api/microsoft.cognitiveservices.speech.audio.audiostreamformat) object to `CreatePushStream()` by using the static function `AudioStreamFormat.GetWaveFormatPCM(sampleRate, (byte)bitRate, (byte)channels)`.
 
 ```csharp
 using System;
@@ -166,7 +166,7 @@ class Program
 }
 ```
 
-Using a push stream as input assumes that the audio data is a raw PCM and skips any headers. The API will still work in certain cases if the header has not been skipped. But for the best results, consider implementing logic to read off the headers so that the `byte[]` starts at the *start of the audio data*.
+Using a push stream as input assumes that the audio data is a raw PCM and skips any headers. The API will still work in certain cases if the header has not been skipped. But for the best results, consider implementing logic to read off the headers so that `byte[]` starts at the *start of the audio data*.
 
 ## Handle errors
 
@@ -218,7 +218,7 @@ Then create a `TaskCompletionSource<int>` instance to manage the state of speech
 var stopRecognition = new TaskCompletionSource<int>();
 ```
 
-Next, subscribe to the events sent from `SpeechRecognizer`:
+Next, subscribe to the events that `SpeechRecognizer` sends:
 
 * [`Recognizing`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizing): Signal for events that contain intermediate recognition results.
 * [`Recognized`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognized): Signal for events that contain final recognition results, which indicate a successful recognition attempt.
@@ -272,8 +272,8 @@ await recognizer.StartContinuousRecognitionAsync();
 // Waits for completion. Use Task.WaitAny to keep the task rooted.
 Task.WaitAny(new[] { stopRecognition.Task });
 
-// Make the following call at some point to stop recognition.
-// Await recognizer.StopContinuousRecognitionAsync();
+// Make the following call at some point to stop recognition:
+// await recognizer.StopContinuousRecognitionAsync();
 ```
 
 ### Dictation mode
@@ -288,7 +288,7 @@ speechConfig.EnableDictation();
 
 ## Change the source language
 
-A common task for speech recognition is specifying the input (or source) language. The following example show how you would change the input language to Italian. In your code, find your [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) instance and add this line directly below it:
+A common task for speech recognition is specifying the input (or source) language. The following example shows how you would change the input language to Italian. In your code, find your [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) instance and add this line directly below it:
 
 ```csharp
 speechConfig.SpeechRecognitionLanguage = "it-IT";
@@ -307,13 +307,11 @@ You can add single words or complete phrases to a phrase list. During recognitio
 > [!IMPORTANT]
 > Phrase lists are available in the following languages: en-US, de-DE, en-AU, en-CA, en-GB, en-IN, es-ES, fr-FR, it-IT, ja-JP, pt-BR, zh-CN.
 >
-> Use no more than a few hundred phrases in a phrase list. If you have a larger list or for languages that are not currently supported, [training a custom model](../../../custom-speech-overview.md) will likely be the better choice to improve accuracy.
+> Use no more than a few hundred phrases in a phrase list. If you have a larger list or you have languages that are not currently supported, [training a custom model](../../../custom-speech-overview.md) will likely be the better choice to improve accuracy.
 >
 > Phrase lists are not supported with custom endpoints. Don't use them with custom endpoints. Instead, train a custom model that includes the phrases.
 
-To use a phrase list, first create a [`PhraseListGrammar`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar) object. Then add specific words and phrases by using [`AddPhrase`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar.addphrase).
-
-Any changes to `PhraseListGrammar` take effect on the next recognition or after a reconnection to the Speech service.
+To use a phrase list, first create a [`PhraseListGrammar`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar) object. Then add specific words and phrases by using [`AddPhrase`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar.addphrase). Any changes to `PhraseListGrammar` take effect on the next recognition or after a reconnection to the Speech service.
 
 ```csharp
 var phraseList = PhraseListGrammar.FromRecognizer(recognizer);
