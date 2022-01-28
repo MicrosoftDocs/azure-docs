@@ -4,13 +4,13 @@ description: Learn how to connect from a Chromebook to a virtual machine in Azur
 services: devtest-lab, lab-services, virtual-machines
 author: nicolela
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 01/27/2022
 ms.author: nicolela
 ---
 
 # Connect to a VM using Remote Desktop Protocol on a Chromebook
 
-This section shows how a student can connect to a lab VM from a Chromebook by using RDP.
+This section shows how a student can connect to a lab VM from a Chromebook by using Remote Desktop Protocol (RDP).
 
 ## Install Microsoft Remote Desktop on a Chromebook
 
@@ -34,7 +34,7 @@ This section shows how a student can connect to a lab VM from a Chromebook by us
 
     ![Certificate warning](./media/how-to-use-classroom-lab/certificate-error-chromebook.png)
 
-1. You should see the desktop of the VM that you are connecting to.
+1. You should see the desktop of the VM that you're connecting to.
 
 ## Next steps
 
