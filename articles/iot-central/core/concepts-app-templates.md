@@ -1,9 +1,9 @@
 ---
 title: What are application templates in Azure IoT Central | Microsoft Docs
 description: Azure IoT Central application templates allow you to jump in to IoT solution development.
-author: ankitscribbles
-ms.author: ankitgup
-ms.date: 12/21/2021
+author: dominicbetts
+ms.author: dobett
+ms.date: 01/18/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -20,7 +20,7 @@ Application templates consist of:
 - Pre-configured rules and jobs
 - Rich documentation including tutorials and how-tos
 
-You choose the application template when you create your application. You can't change the template after the application is created.
+You choose the application template when you create your application. You can't change the template an application uses after it's created.
 
 ## Custom templates
 
@@ -34,17 +34,17 @@ Azure IoT Central is an industry agnostic application platform. Application temp
 
 ## Connected logistics
 
-Global logistics spending is expected to reach $10.6 trillion in 2020. Transportation of goods accounts for the majority of this spending and shipping providers are under intense competitive pressure and constraints.
+Global logistics spending is expected to reach $10.6 trillion in 2020. Transportation of goods accounts for most of this spending and shipping providers are under intense competitive pressure and constraints.
 
 You can use IoT sensors to collect and monitor ambient conditions such as temperature, humidity, tilt, shock, light, and the location of a shipment. You can combine telemetry gathered from IoT sensors and devices with other data sources such as weather and traffic information in cloud-based business intelligence systems.
 
 The benefits of a connected logistics solution include:
 
-* Shipment monitoring with real-time tracing and tracking. 
-* Shipment integrity with real-time ambient condition monitoring.
-* Security from theft, loss, or damage of shipments.
-* Geo-fencing, route optimization, fleet management, and vehicle analytics.
-* Forecasting for predictable departure and arrival of shipments.
+- Shipment monitoring with real-time tracing and tracking.
+- Shipment integrity with real-time ambient condition monitoring.
+- Security from theft, loss, or damage of shipments.
+- Geo-fencing, route optimization, fleet management, and vehicle analytics.
+- Forecasting for predictable departure and arrival of shipments.
 
 The following screenshots show the out-of-the-box dashboard in the application template. The dashboard is fully customizable to meet your specific solution requirements:
 
@@ -64,12 +64,12 @@ Solutions based on IoT enabled cameras can deliver transformational benefits by 
 
 The benefits of a digital distribution center include:
 
-* Cameras monitor goods as they arrive and move through the conveyor system.
-* Automatic identification of faulty goods.
-* Efficient order tracking.
-* Reduced costs, improved productivity, and optimized usage.
+- Cameras monitor goods as they arrive and move through the conveyor system.
+- Automatic identification of faulty goods.
+- Efficient order tracking.
+- Reduced costs, improved productivity, and optimized usage.
 
-The following screenshot shows the out-of-the-box dashboard in the application template. The dashboard is fully customizable to meet your specific solution requirements: 
+The following screenshot shows the out-of-the-box dashboard in the application template. The dashboard is fully customizable to meet your specific solution requirements:
 
 :::image type="content" source="media/concepts-app-templates/digital-distribution-center-dashboard.png" alt-text="Digital Distribution Center Dashboard":::
 
@@ -79,19 +79,19 @@ To learn more, see the [Deploy and walk through a digital distribution center ap
 
 For many retailers, environmental conditions within their stores are a key differentiator from their competitors. Retailers want to maintain pleasant conditions within their stores for the benefit of their customers.  
 
-You can use the IoT Central in-store analytics condition monitoring application template to build an end-to-end solution. The application template lets you digitally connect to and monitor a retail store environment using of  different kinds of sensor devices. These sensor devices generate telemetry that you can convert into business insights helping the retailer to reduce operating costs and create a great experience for their customers.
+You can use the IoT Central in-store analytics condition monitoring application template to build an end-to-end solution. The application template lets you digitally connect to and monitor a retail store environment using of  different kinds of sensor devices. These sensor devices generate telemetry that you can convert into business insights to help the retailer reduce operating costs and create a great experience for their customers.
 
 Use the application template to:
 
-* Connect different kinds of IoT sensors to an IoT Central application instance.
-* Monitor and manage the health of the sensor network and any gateway devices in the environment.
-* Create custom rules around the environmental conditions within a store to trigger  alerts for store managers.
-* Transform the environmental conditions within your store into insights that the retail store team can use to improve the customer experience.
-* Export the aggregated insights into existing or new business applications to provide useful and timely information to retail staff.
+- Connect different kinds of IoT sensors to an IoT Central application instance.
+- Monitor and manage the health of the sensor network and any gateway devices in the environment.
+- Create custom rules around the environmental conditions within a store to trigger  alerts for store managers.
+- Transform the environmental conditions within your store into insights that the retail store team can use to improve the customer experience.
+- Export the aggregated insights into existing or new business applications to provide useful and timely information to retail staff.
 
-The application template comes with a set of device templates and uses a set of simulated devices to populate the dashboard. 
+The application template comes with a set of device templates and uses a set of simulated devices to populate the dashboard.
 
-The following screenshot shows the out-of-the-box dashboard in the application template. The dashboard is fully customizable to meet your specific solution requirements: 
+The following screenshot shows the out-of-the-box dashboard in the application template. The dashboard is fully customizable to meet your specific solution requirements:
 
 :::image type="content" source="media/concepts-app-templates/in-store-analytics-condition-dashboard.png" alt-text="In-Store Analytics Condition Monitoring":::
 
@@ -105,15 +105,15 @@ You can use the IoT Central in-store analytics checkout application template to 
 
 Use the application template to:
 
-* Connect different kinds of IoT sensors to an IoT Central application instance.
-* Monitor and manage the health of the sensor network and any gateway devices in the environment.
-* Create custom rules around the checkout condition within a store to trigger alerts for retail staff.
-* Transform the checkout conditions within the store into insights that the retail store team can use to improve the customer experience.
-* Export the aggregated insights into existing or new business applications to provide useful and timely information to retail staff.
+- Connect different kinds of IoT sensors to an IoT Central application instance.
+- Monitor and manage the health of the sensor network and any gateway devices in the environment.
+- Create custom rules around the checkout condition within a store to trigger alerts for retail staff.
+- Transform the checkout conditions within the store into insights that the retail store team can use to improve the customer experience.
+- Export the aggregated insights into existing or new business applications to provide useful and timely information to retail staff.
 
-The application template comes with a set of device templates and uses a set of simulated devices to populate the dashboard with lane occupancy data. 
+The application template comes with a set of device templates and uses a set of simulated devices to populate the dashboard with lane occupancy data.
 
-The following screenshot shows the out-of-the-box dashboard in the application template. The dashboard is fully customizable to meet your specific solution requirements: 
+The following screenshot shows the out-of-the-box dashboard in the application template. The dashboard is fully customizable to meet your specific solution requirements:
 
 :::image type="content" source="media/concepts-app-templates/In-Store-Analytics-Checkout-Dashboard.png" alt-text="In-Store Analytics Checkout":::
 
@@ -127,9 +127,9 @@ IoT data generated from radio-frequency identification (RFID) tags, beacons, and
 
 The benefits of smart inventory management include:
 
-* Reducing the risk of items being out of stock and ensuring the desired customer service level. 
-* In-depth analysis and insights into inventory accuracy in near real time.
-* Tools to help decide on the right amount of inventory to hold to meet customer orders.
+- Reducing the risk of items being out of stock and ensuring the desired customer service level.
+- In-depth analysis and insights into inventory accuracy in near real time.
+- Tools to help decide on the right amount of inventory to hold to meet customer orders.
 
 This application template focuses on device connectivity, and the configuration and management of RFID and Bluetooth low energy (BLE) reader devices.
 
@@ -145,12 +145,12 @@ In the increasingly competitive retail landscape, retailers constantly face pres
 
 The IoT Central micro-fulfillment center application template enables you to monitor and manage all aspects of your fully automated fulfillment centers. The template includes a set of simulated condition monitoring sensors and robotic carriers to accelerate the solution development process. These sensor devices capture meaningful signals that can be converted into business insights allowing retailers to reduce their operating costs and create experiences for their customers.
 
-The application template enables you to: 
+The application template enables you to:
 
 - Seamlessly connect different kinds of IoT sensors such as robots or condition monitoring sensors to an IoT Central application instance.
 - Monitor and manage the health of the sensor network, and any gateway devices in the environment.
 - Create custom rules around the environmental conditions within a fulfillment center to trigger appropriate alerts.
-- Transform the environmental conditions within your fulfillment center into insights that can be leveraged by the retail warehouse team.
+- Transform the environmental conditions within your fulfillment center into insights that the retail warehouse team can use.
 - Export the aggregated insights into existing or new business applications for the benefit of the retail staff members.
 
 The following screenshot shows the out-of-the-box dashboard in the application template. The dashboard is fully customizable to meet your specific solution requirements:
@@ -161,14 +161,14 @@ To learn more, see the [Deploy and walk through the micro-fulfillment center app
 
 ## Smart meter monitoring
 
- The smart meters not only enable automated billing, but also advanced metering use cases such as real-time readings and bi-directional communication. The smart meter app template enables utilities and partners to monitor smart meters status and data, define alarms and notifications. It provides sample commands, such as disconnect meter and update software. The meter data can be set up to egress to other business applications and to develop custom solutions. 
+ The smart meters not only enable automated billing, but also advanced metering use cases such as real-time readings and bi-directional communication. The smart meter app template enables utilities and partners to monitor smart meters status and data, define alarms and notifications. It provides sample commands, such as disconnect meter and update software. The meter data can be set up to egress to other business applications and to develop custom solutions.
 
 App's key functionalities:
 
 - Meter sample device model
 - Meter info and live status
 - Meter readings such as energy, power, and voltages
-- Meter command samples 
+- Meter command samples
 - Built-in visualization and dashboards
 - Extensibility for custom solution development
 
@@ -180,11 +180,11 @@ After you deploy the app, you'll see the simulated meter data on the dashboard, 
 
 ## Solar panel monitoring
 
-The solar panel monitoring app enables utilities and partners to monitor solar panels, such as their energy generation and connection status in near real time. It can send notifications based on defined threshold criteria. It provides sample commands, such as update firmware and other properties. The solar panel data can be set up to egress to other business applications and to develop custom solutions. 
+The solar panel monitoring app enables utilities and partners to monitor solar panels, such as their energy generation and connection status in near real time. It can send notifications based on defined threshold criteria. It provides sample commands, such as update firmware and other properties. The solar panel data can be set up to egress to other business applications and to develop custom solutions.
 
-App's key functionalities: 
+App's key functionalities:
 
-- Solar panel sample device model 
+- Solar panel sample device model
 - Solar Panel info and live status
 - Solar energy generation and other readings
 - Command and control samples
@@ -193,7 +193,7 @@ App's key functionalities:
 
 You can try the [solar panel monitoring app for free](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring) without an Azure subscription and any commitments.
 
-After you deploy the app, you'll see the simulated solar panel data within 1-2 minutes, as shown in the dashboard below. This template is a sample app that you can easily extend and customize for your specific use cases. 
+After you deploy the app, you'll see the simulated solar panel data within 1-2 minutes, as shown in the dashboard below. This template is a sample app that you can easily extend and customize for your specific use cases.
 
 :::image type="content" source="media/concepts-app-templates/solar-panel-app-dashboard.png" alt-text="Solar Panel App Dashboard":::
 
@@ -211,15 +211,15 @@ The App template consists of:
 - Sample water quality monitor device templates
 - Simulated water quality monitor devices
 - Pre-configured rules and jobs
-- Branding using white labeling 
+- Branding using white labeling
 
 Get started with the [Water Quality Monitoring application tutorial](../government/tutorial-water-quality-monitoring.md).
 
 ## Water Consumption Monitoring
 
-Traditional water consumption tracking relies on water operators manually reading water consumption meters at the meter sites. More and more cities are replacing traditional meters with advanced smart meters enabling remote monitoring of consumption and remotely controlling valves to control water flow. Water consumption monitoring coupled with digital feedback message to the citizen can increase awareness and reduce water consumption. 
+Traditional water consumption tracking relies on water operators manually reading water consumption meters at the meter sites. More cities are replacing traditional meters with advanced smart meters enabling remote monitoring of consumption and remotely controlling valves to control water flow. Water consumption monitoring coupled with digital feedback message to the citizen can increase awareness and reduce water consumption.
 
-Water Consumption Monitoring app is an IoT Central app template to help you kickstart your IoT solution development to enable water utilities and cities to remotely monitor and control water flow to reduce consumption. 
+Water Consumption Monitoring app is an IoT Central app template to help you kickstart your IoT solution development to enable water utilities and cities to remotely monitor and control water flow to reduce consumption.
 
 :::image type="content" source="media/concepts-app-templates/water-consumption-monitoring-dashboard-full.png" alt-text="Water Consumption Monitoring App template":::
 
@@ -233,23 +233,23 @@ The Water Consumption Monitoring app template consists of pre-configured:
 
  Get started with the [Water Consumption Monitoring application tutorial](../government/tutorial-water-consumption-monitoring.md).
 
-## Connected Waste Management 
+## Connected Waste Management
 
-Connected Waste Management app is an IoT Central app template to help you kickstart your IoT solution development to enable smart cities to remotely monitor to maximize efficient waste collection. 
+Connected Waste Management app is an IoT Central app template to help you kickstart your IoT solution development to enable smart cities to remotely monitor to maximize efficient waste collection.
 
 :::image type="content" source="media/concepts-app-templates/connected-waste-management-dashboard.png" alt-text="Connected Waste Management App template":::
 
-The Connected Waste Management app template consist of pre-configured:
+The Connected Waste Management app template consists of pre-configured:
 
 - Sample dashboards
 - Sample connected waste bin device templates
 - Simulated connected waste bin devices
 - Pre-configured rules and jobs
-- Branding using white labeling 
+- Branding using white labeling
 
 Get started with the [Connected Waste Management application tutorial](../government/tutorial-connected-waste-management.md).
 
-## Continuous patient monitoring 
+## Continuous patient monitoring
 
 In the healthcare IoT space, Continuous Patient Monitoring is one of the key enablers of reducing the risk of readmissions, managing chronic diseases more effectively, and improving patient outcomes. Continuous Patient Monitoring can be split into two major categories:
 
@@ -265,7 +265,6 @@ This application template can be used to build solutions for both categories of 
 - Export the aggregated insights into existing or new business applications.
 
 :::image type="content" source="media/concepts-app-templates/in-patient-dashboard.png" alt-text="CPM-dashboard":::
-
 
 ## Next steps
 

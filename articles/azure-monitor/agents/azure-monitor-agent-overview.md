@@ -29,7 +29,6 @@ In addition to consolidating this functionality into a single agent, the Azure M
 When compared with the existing agents, this new agent doesn't yet have full parity.
 - **Comparison with Log Analytics agents (MMA/OMS):**
 	- Not all Log Analytics solutions are supported today. [View supported features and services](#supported-services-and-features).
-	- No support for Azure Private Links.
 	- No support for collecting file based logs or IIS logs.
 
 - **Comparison with Azure Diagnostics extensions (WAD/LAD):**
@@ -74,14 +73,14 @@ The following table shows the current support for the Azure Monitor agent with o
 | Azure service | Current support | More information |
 |:---|:---|:---|
 | [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) | Private preview | [Sign-up link](https://aka.ms/AMAgent) |
-| [Microsoft Sentinel](../../sentinel/overview.md) | <ul><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview)</li><li>Windows Security Events: [GA](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>No sign-up needed </li><li>No sign-up needed</li></ul> |
+| [Microsoft Sentinel](../../sentinel/overview.md) | <ul><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview)</li><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>No sign-up needed </li><li>No sign-up needed</li></ul> |
 
 The following table shows the current support for the Azure Monitor agent with Azure Monitor features.
 
 | Azure Monitor feature | Current support | More information |
 |:---|:---|:---|
 | [VM insights](../vm/vminsights-overview.md) | Private preview  | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
-| [Connect using private links or AMPLS](../logs/private-link-security.md) | Private preview for AMA | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
+| [Connect using private links](data-collection-endpoint-overview.md#enable-network-isolation-for-the-azure-monitor-agent) | Public preview | No sign-up needed |
 | [VM insights guest health](../vm/vminsights-health-overview.md) | Public preview | Available only on the new agent |
 | [SQL insights](../insights/sql-insights-overview.md) | Public preview | Available only on the new agent |
 
@@ -168,5 +167,5 @@ To configure the agent to use private links for network communications with Azur
 
 ## Next steps
 
-- [Install the Azure Monitor agent](azure-monitor-agent-install.md) on Windows and Linux virtual machines.
+- [Install the Azure Monitor agent](azure-monitor-agent-manage.md) on Windows and Linux virtual machines.
 - [Create a data collection rule](data-collection-rule-azure-monitor-agent.md) to collect data from the agent and send it to Azure Monitor.

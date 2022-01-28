@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/18/2021
+ms.date: 01/23/2022
 ms.author: eur
 ---
 
@@ -26,7 +26,7 @@ A Speech service subscription is required before you can use Custom Neural Voice
 Once you've created an Azure account and a Speech service subscription, you'll need to sign in Speech Studio and connect your subscription.
 
 1. Get your Speech service subscription key from the Azure portal.
-2. Sign in to [Speech Studio](https://speech.microsoft.com), then click **Custom Voice**.
+2. Sign in to [Speech Studio](https://speech.microsoft.com), then select **Custom Voice**.
 3. Select your subscription and create a speech project.
 4. If you'd like to switch to another Speech subscription, use the cog icon located in the top navigation.
 
@@ -37,7 +37,11 @@ Once you've created an Azure account and a Speech service subscription, you'll n
 
 Content like data, models, tests, and endpoints are organized into **Projects** in Speech Studio. Each project is specific to a country/language and the gender of the voice you want to create. For example, you may create a project for a female voice for your call center's chat bots that use English in the United States ('en-US').
 
-To create your first project, select the **Text-to-Speech/Custom Voice** tab, then click **Create project**. Follow the instructions provided by the wizard to create your project. After you've created a project, you will see four tabs: **Set up voice talent**, **Prepare training data**, **Train model**, and **Deploy model**. Use the links provided in [next steps](#next-steps) to learn how to use each tab.
+To create a custom voice project:
+1. Sign in [Speech Studio](https://speech.microsoft.com).
+1. Select **Text-to-Speech** > **Custom Voice** > **Create project**. 
+1. Follow the instructions provided by the wizard to create your project. 
+1. After you've created a project, you will see four tabs: **Set up voice talent**, **Prepare training data**, **Train model**, and **Deploy model**. See [Prepare data for custom neural voice](how-to-custom-voice-prepare-data.md) to set up voice talent and proceed to training data.
 
 ## Tips for creating a custom neural voice
 
@@ -59,7 +63,7 @@ Once the recordings are ready, follow [Prepare training data](how-to-custom-voic
 
 ### Training
 
-Once you have prepared the training data, go to [Speech Studio](https://aka.ms/custom-voice) to create your custom neural voice. You need to select at least 300 utterances to create a custom neural voice. A series of data quality checks are automatically performed when you upload them. To build high quality voice models, you should fix the errors and submit again.
+Once you have prepared the training data, go to [Speech Studio](https://aka.ms/custom-voice) to create your custom neural voice. You need to select at least 300 utterances to create a custom neural voice. A series of data quality checks are automatically performed when you upload them. To build high-quality voice models, you should fix the errors and submit again.
 
 ### Testing
 
