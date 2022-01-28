@@ -129,7 +129,7 @@ To monitor your storage accounts for compliance with the key expiration policy, 
 1. Select the policy name with the desired scope.
 1. On the **Policy assignment** page for the built-in policy, select **View compliance**. Any storage accounts in the specified subscription and resource group that do not meet the policy requirements appear in the compliance report.
 
-    :::image type="content" source="media/sas-expiration-policy/policy-compliance-report-portal.png" alt-text="Screenshot showing how to view the compliance report for the SAS expiration built-in policy":::
+    :::image type="content" source="media/sas-expiration-policy/policy-compliance-report-portal-inline.png" alt-text="Screenshot showing how to view the compliance report for the SAS expiration built-in policy" lightbox="media/sas-expiration-policy/policy-compliance-report-portal-expanded.png":::
 
 To bring a storage account into compliance, configure a SAS expiration policy for that account, as described in [Create a SAS expiration policy](#create-a-sas-expiration-policy).
 
