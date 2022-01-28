@@ -1,5 +1,21 @@
+---
+title: Securely integrate with Azure Synapse
+titleSuffix: Azure Machine Learning
+description: 'How to use a virtual network when integrating Azure Synapse with Azure Machine Learning.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: enterprise-readiness
+ms.topic: how-to
+ms.author: jhirono
+author: jhirono
+ms.reviewer: larryfr
+ms.date: 01/28/2022
+ms.custom: devx-track-python, ignite-fall-2021
+---
 
-#
+# How to securely integrate Azure Machine Learning and Azure Synapse
+
+In this article, learn how to securely integrate with Azure Machine Learning from Azure Synapse.
 
 ## Prerequisites
 
@@ -14,7 +30,7 @@
     * Azure Key Vault
     * Azure Container Registry
 
-    A quick and easy way to build this configuration is to use a [Microsoft Bicep or Hashicorp Terraform template](tutorial-create-secure-workspace-template.md).
+    A quick and easy way to build this configuration is to use a [Microsoft Bicep or HashiCorp Terraform template](tutorial-create-secure-workspace-template.md).
 
     > [!IMPORTANT]
     > The steps in this article assume that you can connect to the Azure Machine Learning studio of your workspace, but does not provide details on how to connect. Depending on your VNet configuration, you might be connecting through a jump box (VM), Azure VPN Gateway, or Azure ExpressRoute.
@@ -63,24 +79,36 @@ To verify that the integration between Azure Synapse and Azure Machine Learning 
     :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/workspace-role-assignment.png" alt-text="{alt-text}":::
 
 1. Select __Contributor__, and then select __Next__.
-1. Select __User, group, or service principal__, and then __+ Select members__.
-1. Enter the name of the identity created earlier, select it, and then use the __Select__ button.
-1. Select __Review + assign__, verify the information, and then select __Review + assign__.
+
+    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/contributor-role.png" alt-text="{alt-text}":::
+
+1. Select __User, group, or service principal__, and then __+ Select members__. Enter the name of the identity created earlier, select it, and then use the __Select__ button.
+
+    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/add-role-assignment.png" alt-text="{alt-text}":::
+
+1. Select __Review + assign__, verify the information, and then select the __Review + assign__ button.
 
     > [!TIP]
     > It may take several minutes for the Azure Machine Learning workspace to update the credentials cache. Until it has been updated, you may receive errors when trying to access the Azure Machine Learning workspace from Synapse.
 
-1. From the left of the page, select __Overview__ and then select __Launch studio__.
+<!-- 1. From the left of the page, select __Overview__ and then select __Launch studio__.
 1. From the Azure Machine Learning studio, select __Linked Services__ and then select __Add Integration__.
-1. Provide a friendly name for the linked workspace, select the Azure subscription that contains the Azure Synapse workspace, and then select the Synapse workspace.
+
+    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/machine-learning-add-integration.png" alt-text="{alt-text}":::
+
+1. Provide a friendly name for the linked Azure Synapse workspace, select the Azure subscription that contains the Synapse workspace, and then select the Synapse workspace.
+
+    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/link-workspace.png" alt-text="{alt-text}":::
+
 1. Select __Next__, and then select the Spark pool. Enter a name for the compute resource, and then select __Next__.
-1. Select __Create__.
+1. Select __Create__. -->
 
 ## Verify connectivity
 
-### From Azure Synapse to Azure Machine Learning
-
 1. From Azure Synapse Studio, select __Develop__, and then __+ Notebook__.
+
+    :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/add-synapse-notebook.png" alt-text="{alt-text}":::
+
 1. In the __Attach to__ field, select the Apache Spark pool for your Azure Synapse workspace, and enter the following code in the first cell:
 
     ```python
@@ -94,5 +122,3 @@ To verify that the integration between Azure Synapse and Azure Machine Learning 
     ```
 
     This code snippet connects to the linked workspace, and then prints the workspace info. Note that in the printed output, the value displayed is the name of the Azure Machine Learning workspace, not the linked service name that was used in the `getWorkspace()` call.
-
-### From Azure Machine Learning to Azure Synapse
