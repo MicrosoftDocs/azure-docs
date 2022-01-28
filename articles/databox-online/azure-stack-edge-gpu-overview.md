@@ -49,6 +49,7 @@ Azure Stack Edge Pro GPU has the following capabilities:
 |Encryption    | BitLocker support to locally encrypt data and secure data transfer to cloud over *https*.|
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours. <br> For more information, see [Manage bandwidth schedules on your Azure Stack Edge](azure-stack-edge-gpu-manage-bandwidth-schedules.md).|
 |Easy ordering| Bulk ordering and tracking of the device via Azure Edge Hardware Center (Preview). <br> For more information, see [Order a device via Azure Edge Hardware Center](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).|
+|Scale out | Devices can be deployed as a single node or a two-node cluster. For more information, see [What is clustering on Azure Stack Edge?](azure-stack-edge-gpu-clustering-overview.md).|
 |Specialized network functions|Use the Marketplace experience from Azure Network Function Manager to rapidly deploy network functions such as mobile packet core, SD-WAN edge, and VPN services to an Azure Stack Edge device running in your on-premises environment. For more information, see [What is Azure Network Function Manager? (Preview)](../network-function-manager/overview.md).|
 
 <!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).|-->
@@ -63,6 +64,8 @@ The Azure Stack Edge Pro GPU solution includes the Azure Stack Edge resource, Az
 
     For more information, go to [Create an order for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
     
+    The devices can be deployed as a single node or a two-node cluster. For more information, see [What is clustering for Azure Stack Edge?](azure-stack-edge-gpu-clustering-overview.md) and how to [Deploy a two-node cluster](azure-stack-edge-gpu-deploy-prep.md). 
+
 * **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage an Azure Stack Edge Pro GPU device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
    
 
