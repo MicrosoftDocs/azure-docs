@@ -88,11 +88,9 @@ To enable the `hbi_workspace` flag when creating an Azure Machine Learning works
 
 ## How to rotate keys
 
-## Rotate keys
-
 * Cosmos DB: If you need to __rotate or revoke__ your key, you can do so at any time. When rotating a key, Cosmos DB will start using the new key (latest version) to encrypt data at rest. When revoking (disabling) a key, Cosmos DB takes care of failing requests. It usually takes an hour for the rotation or revocation to be effective.
 
-
+### Automatic key rotation
 ## How-to info
 
 TODO: Can we link out to other docs for this? For example, there's maybe a key vault article on creating keys.
