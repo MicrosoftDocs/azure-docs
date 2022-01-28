@@ -1,22 +1,21 @@
 ---
-title: Enable private access (preview) - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Enable private access - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: How to set up private link in a server group for Azure Database for PostgreSQL - Hyperscale (Citus)
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 01/14/2022
 ---
 
-# Private access (preview) in Azure Database for PostgreSQL Hyperscale (Citus)
+# Private access in Azure Database for PostgreSQL Hyperscale (Citus)
 
-[Private access](concepts-private-access.md) (preview) allows
-resources in an Azure virtual network to connect securely and privately to
-nodes in a Hyperscale (Citus) server group. This how-to assumes you've already
-created a virtual network and subnet. For an example of setting up
-prerequisites, see the [private access
-tutorial](tutorial-private-access.md).
+[Private access](concepts-private-access.md) allows resources in an Azure
+virtual network to connect securely and privately to nodes in a Hyperscale
+(Citus) server group. This how-to assumes you've already created a virtual
+network and subnet. For an example of setting up prerequisites, see the
+[private access tutorial](tutorial-private-access.md).
 
 ## Create a server group with a private endpoint
 
@@ -36,18 +35,7 @@ tutorial](tutorial-private-access.md).
 
 6. Select **Next: Networking** at the bottom of the page.
 
-7. Select **Private access (preview)**.
-
-	> [!NOTE]
-	>
-	> Private access is available for preview in only [certain
-	> regions](concepts-limits.md#regions).
-	>
-	> If the private access option is not selectable for your server group
-	> even though your server group is within an allowed region,
-	> please open an Azure [support
-	> request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest),
-	> and include your Azure subscription ID, to get access.
+7. Select **Private access**.
 
 8. A screen appears called **Create private endpoint**. Choose appropriate values
    for your existing resources, and click **OK**:
@@ -96,7 +84,6 @@ To create a private endpoint to a node in an existing server group, open the
 
 ## Next steps
 
-* Learn more about [private access](concepts-private-access.md)
-  (preview).
-* Follow a [tutorial](tutorial-private-access.md) to see private
-  access (preview) in action.
+* Learn more about [private access](concepts-private-access.md).
+* Follow a [tutorial](tutorial-private-access.md) to see private access in
+  action.
