@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/27/2022
+ms.date: 01/28/2022
 ms.author: alkohli
 ---
 # Upload, import, export, and delete certificates on Azure Stack Edge Pro GPU
@@ -152,7 +152,7 @@ If you bring in your own certificates, the certificates will expire typically in
 
 ## Delete signing chain certificate
 
-You can delete an old, expired signing chain certificate from your device. When you do, any dependent certificates in the signing chain become invalid. Only signing chain certificates can be deleted.
+You can delete an old, expired signing chain certificate from your device. When you do, any dependent certificates in the signing chain will no longer be valid. Only signing chain certificates can be deleted.
 
 To delete a signing chain certificate from your Azure Stack Edge device, take the following steps:
 
@@ -162,11 +162,11 @@ To delete a signing chain certificate from your Azure Stack Edge device, take th
 
     ![Screenshot of the Certificates blade of the local Web UI of an Azure Stack Edge device. The Delete option for the signing certificates is highlighted.](media/azure-stack-edge-gpu-manage-certificates/delete-signing-certificate-01.png)<!--Placeholder screen from video-->
 
-1. On the **Delete certificate** pane, verify the certificate's thumbprint, and then click **Delete**. Certificate deletion can't be reversed.
+1. On the **Delete certificate** pane, verify the certificate's thumbprint, and then select **Delete**. Certificate deletion can't be reversed.
 
     ![Screenshot of the Delete Certificate screen for a Signing Certificate on an Azure Stack Edge device. The certificate thumbprint and Delete button are highlighted.](media/azure-stack-edge-gpu-manage-certificates/delete-signing-certificate-02.png)<!--Placeholder screen from video-->
 
-    After certificate deletion is complete, all dependent certificates in the signing chain become invalid.
+    After certificate deletion is complete, all dependent certificates in the signing chain are no longer valid.
 
 1. To see the status updates, refresh the display. The signing chain certificate will no longer be displayed, and dependent certificates will have **Not valid** status.
 
