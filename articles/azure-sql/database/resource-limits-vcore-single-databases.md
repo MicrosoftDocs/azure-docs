@@ -40,6 +40,17 @@ You can set the service tier, compute size (service objective), and storage amou
 
 ## General purpose - serverless compute - Gen5
 
+<!---
+vCore resource limits are listed in the following articles, please be sure to update all of them: 
+/database/resource-limits-vcore-single-databases.md
+/database/resource-limits-vcore-elastic-pools.md
+/database/resource-limits-logical-server.md
+/database/service-tier-general-purpose.md
+/database/service-tier-business-critical.md
+/database/service-tier-hyperscale.md
+/managed-instance/resource-limits.md
+--->
+
 The [serverless compute tier](serverless-tier-overview.md) is currently available on Gen5 hardware only.
 
 ### Gen5 compute generation (part 1)

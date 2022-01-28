@@ -46,6 +46,10 @@ Hardware generations have different characteristics, as described in the followi
 
 \* Dependent on [the number of vCores](#service-tier-characteristics).
 
+>[!NOTE]
+> If your business requires storage sizes greater than the available resource limits for Azure SQL Managed Instance, consider the Azure SQL Database [Hyperscale service tier](../database/service-tier-hyperscale.md#compare-resource-limits).
+
+
 ### Regional support for premium-series hardware generations (preview)
 
 Support for the premium-series hardware generations (public preview) is currently available only in these specific regions: <br>

@@ -40,7 +40,24 @@ Whenever the database engine or operating system is upgraded, some part of under
 
 The General Purpose service tier is a default service tier in Azure SQL Database and Azure SQL Managed Instance that is designed for most of generic workloads. If you need a fully managed database engine with a default SLA and storage latency between 5 and 10 ms, the General Purpose tier is the option for you.
 
-## Compare products
+## Compare General Purpose resource limits
+
+<!---
+vCore resource limits are listed in the following articles, please be sure to update all of them: 
+/database/resource-limits-vcore-single-databases.md
+/database/resource-limits-vcore-elastic-pools.md
+/database/resource-limits-logical-server.md
+/database/service-tier-general-purpose.md
+/database/service-tier-business-critical.md
+/database/service-tier-hyperscale.md
+/managed-instance/resource-limits.md
+--->
+
+Review the table in this section to briefly compare resource limits between Azure SQL Database and Azure SQL managed Instance in the General Purpose service tier. For comprehensive details, review [single database resource limits](resource-limits-vcore-single-databases.md), [pooled database resource limits](resource-limits-vcore-elastic-pools.md) and [SQL Managed Instance resource limits](../managed-instance/resource-limits.md) in the vCore purchasing model.
+
+To learn more about Azure SQL Database, review the [Hyperscale service tier resource limits](service-tier-hyperscale.md), and DTU resource limits for [single databases](resource-limits-dtu-single-databases.md) and [pooled databases](resource-limits-dtu-elastic-pools.md). 
+
+To compare features between SQL Database and SQL Managed Instance, see the [database engine features](features-comparison). 
 
 The following table shows resource limits for both Azure SQL Database and Azure SQL Managed Instance in the General Purpose service tier: 
 
