@@ -128,16 +128,15 @@ To do this, [set up a telemetry initializer](./api-filtering-sampling.md#addmodi
 
 ```csharp
     // Telemetry initializer class
-    public class MyTelemetryInitializer : ITelemetryInitializer
+    public class ApplicationVersionTelemetryInitializer : ITelemetryInitializer
     {
+        // In this example, to differentiate versions, we use the value specified in the AssemblyInfo.cs
+        // Make sure to set different assembly version when you deploy your application for A/B testing.
+        static readonly string _version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
         public void Initialize(ITelemetry item)
-            {
-                var itemProperties = item as ISupportProperties;
-                if (itemProperties != null && !itemProperties.Properties.ContainsKey("AppVersion"))
-                {
-                    itemProperties.Properties["AppVersion"] = "v2.1";
-                }
-            }
+        {
+            item.Context.Component.Version = _version;
+        }
     }
 ```
 
@@ -148,8 +147,7 @@ In the web app initializer such as Global.asax.cs:
     protected void Application_Start()
     {
         // ...
-        TelemetryConfiguration.Active.TelemetryInitializers
-         .Add(new MyTelemetryInitializer());
+        TelemetryConfiguration.Active.TelemetryInitializers.Add(new ApplicationVersionTelemetryInitializer());
     }
 ```
 
@@ -168,8 +166,6 @@ For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, a
     services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
 }
 ```
-
-All new TelemetryClients automatically add the property value you specify. Individual telemetry events can override the default values.
 
 ## Next steps
    - [Users, Sessions, Events](usage-segmentation.md)
