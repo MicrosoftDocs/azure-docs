@@ -292,8 +292,6 @@ items:
       href: reference-purview-glossary.md
     - name: Supported browsers
       href: supported-browsers.md
-    - name: Supported data sources and file types
-      href: sources-and-scans.md
     - name: Supported classifications
       href: supported-classifications.md
     - name: Azure Purview limits
