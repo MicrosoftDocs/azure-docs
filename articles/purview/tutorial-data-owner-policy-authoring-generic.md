@@ -14,7 +14,7 @@ ms.custom:
 
 This tutorial describes how a data owner can create, update and publish access policies in Azure Purview
 
-### Create a new policy
+## Create a new policy
 
 This section describes the steps to create a new policy in Azure Purview.
 
@@ -54,7 +54,7 @@ This section describes the steps to create a new policy in Azure Purview.
 
 1. Select the **Save** button to save the policy
 
-### Update or delete a policy
+## Update or delete a policy
 
 Steps to create a new policy in Azure Purview are as follows.
 
@@ -70,7 +70,7 @@ Steps to create a new policy in Azure Purview are as follows.
 
     ![Image shows how a data owner can edit or delete a policy statement.](./media/access-policies-common/edit-policy.png)
 
-### Publish the policy
+## Publish the policy
 
 A newly created policy is in the draft state. The process of publishing associates the new policy with one or more data sources under governance. This is called "binding" a policy to a data source.
 
