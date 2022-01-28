@@ -2,17 +2,17 @@
 title: Import and Export data between serverless Apache Spark pools and SQL pools
 description: This article introduces the Synapse Dedicated SQL Pool Connector API for moving data between dedicated SQL pools and serverless Apache Spark pools.
 services: synapse-analytics
-author: kalyankadiyala-Microsoft,kevxmsft
+author: kevxmsft
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.date: 01/27/2022
-ms.author: kakadiya,kevx
-ms.reviewer: 
+ms.author: kevx
+ms.reviewer: kalyankadiyala-Microsoft
 --- 
 # Azure Synapse Dedicated SQL Pool connector for Apache Spark
 
-The Synapse Dedicated SQL Pool Connector is an API that efficiently moves data between [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview) and [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) in Azure Synapse Analytics. This connector is available in `Scala`.
+The Synapse Dedicated SQL Pool Connector is an API that efficiently moves data between [Apache Spark runtime](../../synapse-analytics/spark/apache-spark-overview.md) and [Dedicated SQL pool](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) in Azure Synapse Analytics.
 
 It uses Azure Storage and [PolyBase](/sql/relational-databases/polybase/polybase-guide) to transfer data in parallel and at scale.
 
@@ -75,7 +75,9 @@ See the [Scala API reference](https://synapsesql.blob.core.windows.net/docs/1.0.
   df.show
   ```
 
-* We can use the `Scala` connector API to interact with content from a `DataFrame` in `PySpark` by using [DataFrame.createOrReplaceTempView](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.createOrReplaceTempView.html#pyspark.sql.DataFrame.createOrReplaceTempView) or [DataFrame.createOrReplaceGlobalTempView](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.createOrReplaceGlobalTempView.html#pyspark.sql.DataFrame.createOrReplaceGlobalTempView).
+* Register a temporary view from a `DataFrame`, created by the `Scala` connector, to interact with its content from `PySpark`.
+
+* Although the API supports only Scala, we can interact with content from a `DataFrame` in PySpark by using [DataFrame.createOrReplaceTempView](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.createOrReplaceTempView.html#pyspark.sql.DataFrame.createOrReplaceTempView) or [DataFrame.createOrReplaceGlobalTempView](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.createOrReplaceGlobalTempView.html#pyspark.sql.DataFrame.createOrReplaceGlobalTempView).
 
   ```py
   %%pyspark
