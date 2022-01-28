@@ -39,7 +39,7 @@ If you're connecting one or more LUIS applications, specify the deployment name,
 * The *slot* deployment type requires you to pick between a production and staging slot.
 * The *version* deployment type requires you to specify the version you have published.
 
-No configurations are required for custom question answering and CLU connections, or unlinked intents.
+No configurations are required for custom question answering and conversational language understanding connections, or unlinked intents.
 
 LUIS projects **must be published** to the slot configured during the Orchestration deployment, and custom question answering KBs must also be published to their Production slots.
 
@@ -102,7 +102,7 @@ In a conversations project, you'll get predictions for both your intents and ent
 
 ## API response for an orchestration Workflow Project
 
-An orchestration workflow project returns with the response of the top scoring intent, and the response of the service it is connected to.
+Orchestration workflow projects return with the response of the top scoring intent, and the response of the service it is connected to.
 - Within the intent, the *targetKind* parameter lets you determine the type of response that was returned by the orchestrator's top intent (conversation, LUIS, or QnA Maker).
 - You will get the response of the connected service in the *result* parameter. 
 
