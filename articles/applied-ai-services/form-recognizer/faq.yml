@@ -299,7 +299,7 @@ sections:
           Learn more about [composed models](concept-custom.md#what-is-a-composed-model).
 
       - question: |
-            I'm building a custom model, what does the signature detection label return?
+            I'm building a custom model, what does the signature-detection label return?
         answer: |
             [Signature detection](quickstarts/try-v3-form-recognizer-studio.md#labeling-for-signature-detection) looks for the presence of a signature, not the identity of the person signing the document.
 
@@ -308,7 +308,7 @@ sections:
       - question: |
              What should I consider and what are best practices for extracting tables from documents?
         answer: |
-           You can start with the Form Recognizer [layout model](concept-layout.md) to extract texts, tables, selection marks, and structure information from documents and images. You can also consider the following:
+           You can start with the Form Recognizer [layout model](concept-layout.md) to extract texts, tables, selection marks, and structure information from documents and images. You can also consider the following factors:
 
              - Is the data that you wish to extract presented as a table and is the table structure meaningful?
 
