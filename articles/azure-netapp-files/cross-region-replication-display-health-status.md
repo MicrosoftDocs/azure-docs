@@ -23,7 +23,7 @@ You can view replication status on the source volume or the destination volume. 
 
 1. From either the source volume or the destination volume, click **Replication** under Storage Service for either volume.
 
-    The following replication status and health information is displayed:  
+    The following information about replication status and health is displayed:  
     * **End point type** – Identifies whether the volume is the source or destination of replication.
     * **Health** – Displays the health status of the replication relationship.
     * **Mirror state** – Shows one of the following values:
@@ -40,7 +40,7 @@ You can view replication status on the source volume or the destination volume. 
             A transfer operation is in progress and future transfers are not disabled.
     * **Replication schedule** – Shows how frequently incremental mirroring updates will be performed when the initialization (baseline copy) is complete.
 
-    * **Total progress** -- Shows the total amount of cumulative bytes transferred over the lifetime of the relationship. This amount is the actual bytes transferred, and it might differ from the logical space that the source and destination volumes report.  
+    * **Total progress** – Shows the total number of cumulative bytes transferred over the lifetime of the relationship. This amount is the actual bytes transferred, and it might differ from the logical space that the source and destination volumes report.  
 
     ![Replication health status](../media/azure-netapp-files/cross-region-replication-health-status.png)
 
@@ -56,7 +56,7 @@ Follow the following steps to create [alert rules in Azure Monitor](../azure-mon
 3.	From the Scope tab of the Create an Alert Rule page, click **Select scope**. The **Select a Resource** page appears.  
 4.	From the Resource tab, find the **Volumes** resource type.
 5.	From the Condition tab, select **“Add condition**”. From there, find a signal called “**is volume replication healthy**”.
-6.	There you will see “**Condition of the relationship, 1 or 0**” and the **Configure Signal Logic** window is displayed.
+6.	There you'll see “**Condition of the relationship, 1 or 0**” and the **Configure Signal Logic** window is displayed.
 7.	To check if the replication is _unhealthy_: 
     1. **Operator** to `Less than or equal to`.
     1. Set **Aggregation type** to `Average`. 
