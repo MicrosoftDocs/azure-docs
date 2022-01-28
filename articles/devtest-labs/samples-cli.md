@@ -2,7 +2,7 @@
 title: Azure CLI Samples
 description: Learn about Azure CLI scripts. With these samples, you can create a virtual machine and then start, stop, and delete it in Azure Lab Services.
 ms.topic: sample
-ms.date: 06/26/2020
+ms.date: 02/02/2022
 ---
 
 # Azure CLI Samples for Azure Lab Services
@@ -32,13 +32,6 @@ The virtual machine created based on a marketplace image with SSH authentication
 The script then verifies that the virtual machine is available for use.
 
 :::code language="powershell" source="../../cli_scripts/devtest-lab/create-verify-virtual-machine-in-lab/create-verify-virtual-machine-in-lab.sh":::
-
-> [!NOTE]
-> You can run the following command to remove the resource group, virtual machine, and all related resources:
->
-> ```azurecli
-> az group delete --name myResourceGroup
-> ```
 
 This script uses the following commands:
 
@@ -78,7 +71,7 @@ This script uses the following commands:
 Run the following command to remove the resource group, virtual machine, and all related resources.
 
 ```azurecli
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## Next steps
