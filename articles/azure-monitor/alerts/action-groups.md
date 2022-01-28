@@ -213,7 +213,7 @@ The Action Groups Secure Webhook action enables you to take advantage of Azure A
     - Configure your protected API to be [called by a daemon app](../../active-directory/develop/scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
     
     > [!NOTE]
-    > Your protected web API must be configured to [accept V2.0 access tokens](../../active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute).
+    > Your protected web API must be configured to [accept V2.0 access tokens](../../active-directory/develop/reference-app-manifest.md#accesstokenacceptedversion-attribute).
     
 2. Enable Action Group to use your Azure AD Application.
 
