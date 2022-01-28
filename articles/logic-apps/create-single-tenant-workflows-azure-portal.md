@@ -175,7 +175,7 @@ Before you can add a trigger to a blank workflow, make sure that the workflow de
 
 1. To save your work, on the designer toolbar, select **Save**.
 
-   When you save a workflow for the first time, and that workflow starts with a Request trigger, the Logic Apps service automatically generates a URL for an endpoint that's created by the Request trigger. Later, when you test your workflow, you send a request to this URL, which fires the trigger and starts the workflow run.
+   When you save a workflow for the first time, and that workflow starts with a Request trigger, Azure Logic Apps automatically generates a URL for an endpoint that's created by the Request trigger. Later, when you test your workflow, you send a request to this URL, which fires the trigger and starts the workflow run.
 
 ### Add the Office 365 Outlook action
 
@@ -267,7 +267,7 @@ To find the fully qualified domain names (FQDNs) for connections, follow these s
 
 ## Trigger the workflow
 
-In this example, the workflow runs when the Request trigger receives an inbound request, which is sent to the URL for the endpoint that's created by the trigger. When you saved the workflow for the first time, the Logic Apps service automatically generated this URL. So, before you can send this request to trigger the workflow, you need to find this URL.
+In this example, the workflow runs when the Request trigger receives an inbound request, which is sent to the URL for the endpoint that's created by the trigger. When you saved the workflow for the first time, Azure Logic Apps automatically generated this URL. So, before you can send this request to trigger the workflow, you need to find this URL.
 
 1. On the workflow designer, select the Request trigger that's named **When an HTTP request is received**.
 
