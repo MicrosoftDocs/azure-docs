@@ -23,7 +23,7 @@ This article applies to the **Azure Stack Edge 2101** release, which maps to sof
 
 The following new features are available in the Azure Stack Edge 2101 release. 
 
-- **General availability of Azure Stack Edge Pro R and Azure Stack Edge Mini R devices** - Starting with this release, Azure Stack Edge Pro R and Azure Stack Edge Mini R devices will be available. For more information, see [What is Azure Stack Edge Pro R](azure-stack-edge-pro-r-overview.md) and [What is Azure Stack Edge Mini R](azure-stack-edge-mini-r-overview.md).  
+- **General availability of Azure Stack Edge Pro R and Azure Stack Edge Mini R devices** - Starting with this release, Azure Stack Edge Pro R and Azure Stack Edge Mini R devices will be available. For more information, see [What is Azure Stack Edge Pro R](azure-stack-edge-pro-r-overview.md) and [What is Azure Stack Edge Mini R](azure-stack-edge-mini-r-overview.md).  "
 - **Cloud management of Virtual Machines** - Beginning this release, you can create and manage the virtual machines on your device via the Azure portal. For more information, see [Deploy VMs via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
 - **Integration with Azure Monitor** - You can now use Azure Monitor to monitor containers from the compute applications that run on your device. The Azure Monitor metrics store is not supported in this release. For more information, see how to [Enable Azure Monitor on your device](azure-stack-edge-gpu-enable-azure-monitor.md).
 - **Edge container registry** - In this release, an Edge container registry is available that provides a repository at the edge on your device. You can use this registry to store and manage container images. For more information, see [Enable Edge container registry](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). 
@@ -47,7 +47,6 @@ The following table provides a summary of known issues in the 2101 release.
 |**7.**|NFS |Applications that use NFS share mounts on your device to write data should use Exclusive write. That ensures the writes are written to the disk.| |
 |**8.**|Compute configuration |Compute configuration fails in network configurations where gateways or switches or routers respond to Address Resolution Protocol (ARP) requests for systems that do not exist on the network.| |
 |**9.**|Compute and Kubernetes |If Kubernetes is set up first on your device, it claims all the available GPUs. Hence, it is not possible to create Azure Resource Manager VMs using GPUs after setting up the Kubernetes. |If your device has 2 GPUs, then you can create 1 VM that uses the GPU and then configure Kubernetes. In this case, Kubernetes will use the remaining available 1 GPU. |
-|**10.**|Certificates|Alerts related to signing chain certificates aren't removed from the portal even after uploading new signing chain certificates.| |
 
 
 ## Known issues from previous releases
@@ -78,6 +77,7 @@ The following table provides a summary of known issues carried over from the pre
 |**20**|Internet Explorer|If enhanced security features are enabled, you may not be able to access local web UI pages. | Disable enhanced security, and restart your browser.|
 
 <!--|**18.**|Azure Private Edge Zone (Preview) |There is a known issue with Virtual Network Function VM if the VM was created on Azure Stack Edge device running earlier preview builds such as 2006/2007b and then the device was updated to 2009 GA release. The issue is that the VNF information can't be retrieved or any new VNFs can't be created unless the VNF VMs are deleted before the device is updated.  |Before you update Azure Stack Edge device to 2009 release, use the PowerShell command `get-mecvnf` followed by `remove-mecvnf <VNF guid>` to remove all Virtual Network Function VMs one at a time. After the upgrade, you will need to redeploy the same VNFs.|-->
+
 
 ## Next steps
 
