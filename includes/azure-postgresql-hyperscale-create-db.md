@@ -35,13 +35,15 @@ Follow these steps to create an Azure Database for PostgreSQL server:
    | Location          | The location that is closest to your users. |
    | Admin username    | Currently required to be the value "citus", and can't be changed. |
    | Password          | A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.). |
-   | Version           | The latest PostgreSQL major version, unless you have specific requirements otherwise. |
+   | Version           | The latest PostgreSQL major version, unless you have specific requirements. |
    | Compute + storage | The compute, storage, and Tier configurations for your new server. Select **Configure server group**. |
 
    ![compute and storage](./media/azure-postgresql-hyperscale-create-db/compute.png)
 
-5. For the purpose of this quickstart, you can accept the default values of
-   compute and storage. Click **Save**.
+5. For the purpose of this quickstart, you can accept the default value of
+   **Basic** for **Tiers**. The other option, standard tier, provisions worker
+   nodes for greater total data capacity and query parallelism. See
+   [tiers](concepts-server-group.md#tiers) for a more in-depth comparison.
 6. Click **Next : Networking >** at the bottom of the screen.
 7. In the **Networking** tab, select **Allow public access from Azure services
    and resources within Azure to this server group**. Then select **+ Add
