@@ -42,6 +42,8 @@ landingContent:
         links:
           - text: Deployment scenarios
             url: deployment-scenarios.md
+          - text: Certification and compliance
+            url: certification-compliance.md
 
   # Card
   - title: References

@@ -12,6 +12,8 @@
   items:
   - name: Deployment scenarios
     href: deployment-scenarios.md
+  - name: Certification and compliance
+    href: certification-compliance.md
 - name: Reference
   items:
   - name: Thales payShield 10K

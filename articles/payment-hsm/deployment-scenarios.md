@@ -35,4 +35,5 @@ This scenario caters to regional level failure (i.e., DR scenario), the usual st
 
 - Learn more about [Azure Payment HSM](overview.md)
 - Find out how to [get started with Azure Payment HSM](getting-started.md)
+- Learn about [Certification and compliance](certification-compliance.md)
 - Read the [frequently asked questions](faq.yml)

@@ -52,6 +52,7 @@ Customers are responsible for applying payShield security patches and upgrading 
 
 - Learn more about [Azure Payment HSM](overview.md)
 - See some common [deployment scenarios](deployment-scenarios.md)
+- Learn about [Certification and compliance](certification-compliance.md)
 - Read the [frequently asked questions](faq.yml)
 
 
