@@ -89,7 +89,7 @@
       href: analyze-videos-tutorial.md
       displayName: SDK, Tutorial, .NET, sample, analyze, video analyzer, audio analyzer, speech to text, captions, subtitles
     - name: Encrypt dynamically with AES-128
-      href: drm-playready-license-template-concept.md
+      href: drm-protect-with-aes128-tutorial.md
       displayName: SDK, Tutorial, .NET, sample, streaming, content protection, AES-128, encrypt
     - name: Encrypt dynamically with DRM
       href: drm-protect-with-drm-tutorial.md
