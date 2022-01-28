@@ -34,8 +34,6 @@ items:
       href: tutorial-data-owner-policies-storage.md
     - name: Data owner policies on resource groups or subscriptions
       href: tutorial-data-owner-policies-resource-group.md
-    - name: Authoring and publish data owner access policies
-      href: tutorial-data-owner-policy-authoring-generic.md
   - name: Onboard an on-premises SQL Server instance
     href: tutorial-register-scan-on-premises-sql-server.md
   - name: Use REST APIs for data planes
@@ -280,6 +278,10 @@ items:
       href: create-purview-portal-faq.md
     - name: Conditional access
       href: catalog-conditional-access.md
+  - name: Data owner policies
+    items:
+    - name: Authoring and publishing data owner access policies
+      href: how-to-data-owner-policy-authoring-generic.md
   - name: Manage Kafka notifications - .NET
     href: manage-kafka-dotnet.md
   - name: Disaster recovery
@@ -294,8 +296,6 @@ items:
       href: reference-purview-glossary.md
     - name: Supported browsers
       href: supported-browsers.md
-    - name: Supported data sources and file types
-      href: sources-and-scans.md
     - name: Supported classifications
       href: supported-classifications.md
     - name: Azure Purview limits
