@@ -1,7 +1,7 @@
 ---
 title: Get resource changes
 description: Understand how to find when a resource was changed and query the list of resource configuration changes at scale
-ms.date: 01/27/20212
+ms.date: 01/27/2022
 ms.topic: how-to
 ---
 # Get resource changes
