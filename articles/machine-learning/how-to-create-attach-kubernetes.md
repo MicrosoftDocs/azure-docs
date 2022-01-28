@@ -386,15 +386,24 @@ In Azure Machine Learning studio, select __Compute__, __Inference clusters__, an
 
 Updates to Azure Machine Learning components installed in an Azure Kubernetes Service cluster must be manually applied. 
 
-You can apply these updates by detaching the cluster from the Azure Machine Learning workspace, deleting the azureml-fe related resources, and then reattaching the cluster to the workspace.
+You can apply these updates by detaching the cluster from the Azure Machine Learning workspace and reattaching the cluster to the workspace. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
 compute_target.detach()
 compute_target.wait_for_completion(show_output=True)
 ```
+Before you can re-attach the cluster to your workspace, you need to first delete any `azureml-fe` related resources. If there is no active service in the cluster, you can delete your `azureml-fe` related resources with the following code. 
 
-If there is none active service in cluster, follow the [guidance](how-to-create-attach-kubernetes.md#delete-azureml-fe-related-resources) to delete azureml-fe related resources.
+```shell
+kubectl delete sa azureml-fe
+kubectl delete clusterrole azureml-fe-role
+kubectl delete clusterrolebinding azureml-fe-binding
+kubectl delete svc azureml-fe
+kubectl delete svc azureml-fe-int-http
+kubectl delete deploy azureml-fe
+kubectl delete secret azuremlfessl
+kubectl delete cm azuremlfeconfig
 
 If TLS is enabled in the cluster, you will need to supply the TLS/SSL certificate and private key when reattaching the cluster.
 
