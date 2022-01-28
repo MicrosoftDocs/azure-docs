@@ -210,25 +210,25 @@ Now that the web API is [registered and you've defined its scopes](#register-the
     :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js":::
     
     Take note of the following code snippets in the `index.js`file:
-        - Imports the passport Azure AD library
+    - Imports the passport Azure AD library
         
-        :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_import_azuread_lib":::
+    :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_import_azuread_lib":::
         
-        - Sets the Azure AD B2C options 
+    - Sets the Azure AD B2C options 
           
-          :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_azureadb2c_options":::
+    :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_azureadb2c_options":::
 
-        - Instantiate the passport Azure AD library with the Azure AD B2C options
+    - Instantiate the passport Azure AD library with the Azure AD B2C options
            
-          :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_init_azuread_lib":::
+    :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_init_azuread_lib":::
 
-        - The protected API endpoint
+    - The protected API endpoint
 
-          :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_protected_api_endpoint":::
+    :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/index.js" id="ms_docref_protected_api_endpoint":::
         
-        - The anonymous API endpoint
+    - The anonymous API endpoint
 
-          :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json" id="ms_docref_anonymous_api_endpoint":::
+    :::code language="JavaScript" source="~/active-directory-b2c-javascript-nodejs-webapi/config.json" id="ms_docref_anonymous_api_endpoint":::
 
 
 ## Test your application
