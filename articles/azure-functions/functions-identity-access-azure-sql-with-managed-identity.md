@@ -13,25 +13,25 @@ ms.reviewer: cachai
 
 # Tutorial: Connect a function app to Azure SQL with managed identity and SQL bindings
 
-Azure Functions provides a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview.md), which is a turn-key solution for securing access to [Azure SQL Database](/azure/sql-database/) and other Azure services. Managed identities make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. In this tutorial, you will add managed identity to an Azure Function that utilizes [Azure SQL bindings](/azure/azure-functions/functions-bindings-azure-sql).  A sample Azure Function project with SQL bindings is available in the [ToDo backend example](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/)).
+Azure Functions provides a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview.md), which is a turn-key solution for securing access to [Azure SQL Database](/azure/sql-database/) and other Azure services. Managed identities make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. In this tutorial, you'll add managed identity to an Azure Function that utilizes [Azure SQL bindings](/azure/azure-functions/functions-bindings-azure-sql).  A sample Azure Function project with SQL bindings is available in the [ToDo backend example](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/)).
 
 
-When you're finished with this tutorial, your Azure Function will connect to Azure SQL Database without the need of username and password.
+When you're finished with this tutorial, your Azure Function will connect to Azure SQL database without the need of username and password.
 
-An overview of the steps you will take:
+An overview of the steps you'll take:
 
 > [!div class="checklist"]
-> * [Enable Azure AD authentication to SQL Database](#Grant-database-access-to-Azure-AD-user)
-> * [Enable Azure Function managed identity](#Enable-system-assigned-managed-identity-on-Azure-Function)
-> * [Grant SQL Database access to the managed identity](#Grant-SQL-database-access-to-the-managed-identity)
-> * Configure Azure Function SQL connection string
+> * [Enable Azure AD authentication to the SQL database](#grant-database-access-to-Azure-AD-user)
+> * [Enable Azure Function managed identity](#enable-system-assigned-managed-identity-on-Azure-Function)
+> * [Grant SQL Database access to the managed identity](#grant-sql-database-access-to-the-managed-identity)
+> * [Configure Azure Function SQL connection string](#configure-azure-function-sql-connection-string)
 
 
 ## Grant database access to Azure AD user
 
-First enable Azure AD authentication to SQL Database by assigning an Azure AD user as the Active Directory admin of the server. This user is different from the Microsoft account you used to sign up for your Azure subscription. It must be a user that you created, imported, synced, or invited into Azure AD. For more information on allowed Azure AD users, see [Azure AD features and limitations in SQL Database](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations).
+First enable Azure AD authentication to SQL database by assigning an Azure AD user as the Active Directory admin of the server. This user is different from the Microsoft account you used to sign up for your Azure subscription. It must be a user that you created, imported, synced, or invited into Azure AD. For more information on allowed Azure AD users, see [Azure AD features and limitations in SQL database](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations).
 
-Enabling Azure AD authentication can be completed via the Azure Portal, PowerShell, or Azure CLI.  Directions for Azure CLI are below and information completing this via Azure Portal and PowerShell is available in the [Azure SQL documentation on Azure AD authentication](/azure/azure-sql/database/authentication-aad-configure).
+Enabling Azure AD authentication can be completed via the Azure portal, PowerShell, or Azure CLI.  Directions for Azure CLI are below and information completing this via Azure portal and PowerShell is available in the [Azure SQL documentation on Azure AD authentication](/azure/azure-sql/database/authentication-aad-configure).
 
 1. If your Azure AD tenant doesn't have a user yet, create one by following the steps at [Add or delete users using Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
@@ -57,9 +57,9 @@ For more information on adding an Active Directory admin, see [Provision an Azur
 
 ## Enable system-assigned managed identity on Azure Function
 
-In this step we will add a system-assigned identity to the Azure Function.  In later steps, this identity will be given access to the SQL database.
+In this step we'll add a system-assigned identity to the Azure Function.  In later steps, this identity will be given access to the SQL database.
 
-To enable system-assigned managed identity in the Azure Portal:
+To enable system-assigned managed identity in the Azure portal:
 
 1. Create an Azure Function in the portal as you normally would. Navigate to it in the portal.
 1. Scroll down to the Settings group in the left navigation.
@@ -74,7 +74,7 @@ For information on enabling system-assigned managed identity through Azure CLI o
 
 ## Grant SQL database access to the managed identity
 
-In this step we will connect to the SQL database with an Azure AD user account and grant the managed identity access to the database.
+In this step we'll connect to the SQL database with an Azure AD user account and grant the managed identity access to the database.
 
 1. Open your preferred SQL tool and login with an Azure AD user account (such as the Azure AD user we assigned as administrator).  This can be accomplished in Cloud Shell with the SQLCMD command.
 
@@ -96,7 +96,7 @@ In this step we will connect to the SQL database with an Azure AD user account a
 
 ## Configure Azure Function SQL connection string
 
-In the final step we will configure the Azure Function SQL connection string to use Azure AD managed identity authentication.
+In the final step we'll configure the Azure Function SQL connection string to use Azure AD managed identity authentication.
 
 The connection string setting name is identified in our Functions code as the binding attribute "ConnectionStringSetting", as seen in the SQL input binding [attributes and annotations](/azure/azure-functions/functions-bindings-azure-sql-input?tabs=csharp#attributes-and-annotations). 
 
@@ -104,7 +104,7 @@ In the application settings of our Function App the SQL connection string settin
 
 `Server=demo.database.windows.net; Authentication=Active Directory Managed Identity; Database=testdb`
 
-*testdb* is the name of the database we are connecting to and *demo.database.windows.net* is the name of the server we are connecting to.
+*testdb* is the name of the database we're connecting to and *demo.database.windows.net* is the name of the server we're connecting to.
 
 ## Next steps
 
