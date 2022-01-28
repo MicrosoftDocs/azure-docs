@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 01/28/2022
 ---
 
-# Tutorial: Index encrypted blobs used by blob indexers and skillsets in Azure Cognitive Search
+# Tutorial: Index and enrich encrypted blobs for full-text search in Azure Cognitive Search
 
 This tutorial shows you how to use [Azure Cognitive Search](search-what-is-azure-search.md) to index documents that have been previously encrypted with a customer-managed key in [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). 
 
@@ -152,7 +152,7 @@ Install and set up Postman.
     | `skillset-name` | Leave as **encrypted-blobs-ss**. |
     | `indexer-name` | Leave as **encrypted-blobs-ixr**. |
 
-### Review the request collection in Postman
+### Review and run each request
 
 In this section, you'll issue four HTTP requests:
 
