@@ -31,7 +31,7 @@ The connector also supports password-based [SQL authentication](/azure/azure-sql
 
 See the [Scala API reference](https://synapsesql.blob.core.windows.net/docs/1.0.0/scaladocs/com/microsoft/spark/sqlanalytics/index.html).
 
-## Example Usage
+## Example usage
 
 * Create and show a `DataFrame` representing a database table in the dedicated SQL pool.
 
