@@ -45,7 +45,6 @@ For Azure Stack Edge Pro 2 deployment, you need to first prepare your environmen
 |**[9A. Transfer data with Edge shares](./azure-stack-edge-gpu-deploy-add-shares.md)** |Add shares and connect to shares via SMB or NFS. |
 |**[9B. Transfer data with Edge storage accounts](./azure-stack-edge-gpu-deploy-add-storage-accounts.md)** |Add storage accounts and connect to blob storage via REST APIs. |
 
-
 You can now begin to gather information regarding the software configuration for your Azure Stack Edge Pro 2 device.
 
 ## Deployment configuration checklist
@@ -59,25 +58,14 @@ Following are the configuration prerequisites for your Azure Stack Edge resource
 
 ### For the Azure Stack Edge resource
 
-Before you begin, make sure that:
-
-- Your Microsoft Azure subscription is enabled for an Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions aren't supported. To identify the type of Azure subscription you have, see [What is an Azure offer?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer).
-- You have owner or contributor access at resource group level for the Azure Stack Edge, IoT Hub, and Azure Storage resources.
-
-    - To create any Azure Stack Edge resource, you should have permissions as a contributor (or higher) scoped at resource group level. 
-    - You also need to make sure that the `Microsoft.DataBoxEdge` and `Microsoft.KeyVault` resource providers are registered. To create any IoT Hub resource, `Microsoft.Devices` provider should be registered. 
-        - To register a resource provider, in the Azure portal, go to **Home > Subscriptions > Your-subscription > Resource providers**. 
-        - Search for the specific resource provider, for example, `Microsoft.DataBoxEdge`, and register the resource provider. 
-    - To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider.
-- To create an order in the Azure Edge Hardware Center, you need to make sure that the `Microsoft.EdgeOrder` provider is registered. For information on how to register, go to [Register resource provider](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#register-resource-providers).
-- You have admin or user access to Azure Active Directory Graph API for generating activation key or credential operations such as share creation that uses a storage account. For more information, see [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+[!INCLUDE [Azure Stack Edge resource prerequisites](../../includes/azure-stack-edge-gateway-resource-prerequisites.md)]
 
 ### For the Azure Stack Edge Pro 2 device
 
-Before you deploy a physical device, make sure that:
+Before you begin, make sure that:
 
-- You've reviewed the safety information that was included in the shipment package.
-- You have a 2U slot available in a standard 19" rack in your datacenter for rack mounting the device.
+- You've reviewed the safety information for this device at: [Safety guidelines for your Azure Stack Edge device](azure-stack-edge-pro-2-safety.md).
+- You have a 2U slot available in a standard 19" rack in your datacenter if you plan to mount the device on a rack. 
 - You have access to a flat, stable, and level work surface where the device can rest safely.
 - The site where you intend to set up the device has standard AC power from an independent source or a rack power distribution unit (PDU) with an uninterruptible power supply (UPS).
 - You have access to a physical device.
@@ -98,9 +86,9 @@ Before you begin, make sure that:
 
 If you have an existing Azure Stack Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).
 
-### [Azure Edge Hardware Center (Preview)](#tab/azure-edge-hardware-center)
+### Create an order 
 
-Azure Edge Hardware Center (Preview) lets you explore and order a variety of hardware from the Azure hybrid portfolio including Azure Stack Edge Pro 2 devices.
+You can use the Azure Edge Hardware Center to explore and order a variety of hardware from the Azure hybrid portfolio including Azure Stack Edge Pro 2 devices.
 
 When you place an order through the Azure Edge Hardware Center, you can order multiple devices, to be shipped to more than one address, and you can reuse ship to addresses from other orders.
 
