@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Azure Digital Twins CLI command set
 titleSuffix: Azure Digital Twins
-description: Understand the Azure Digital Twins CLI command set.
+description: Learn about the Azure Digital Twins CLI command set.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/25/2021
+ms.date: 12/07/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,7 +17,9 @@ ms.service: digital-twins
 
 # Azure Digital Twins CLI command set
 
-Apart from managing your Azure Digital Twins instance in the Azure portal, Azure Digital Twins also has a command set for the [Azure CLI](/cli/azure/what-is-azure-cli) that you can use to do most major actions with the service, including:
+Apart from managing your Azure Digital Twins instance in the Azure portal, Azure Digital Twins also has a command set for the [Azure CLI](/cli/azure/what-is-azure-cli) that you can use to do most major actions with the service. This article covers the [Azure CLI](/cli/azure/what-is-azure-cli) in terms of its uses, how to get it, and the requirements for using it.
+
+Some of the actions you can do using the command set include:
 * Managing an Azure Digital Twins instance
 * Managing models
 * Managing digital twins
@@ -26,7 +28,7 @@ Apart from managing your Azure Digital Twins instance in the Azure portal, Azure
 * Managing [routes](concepts-route-events.md)
 * Configuring [security](concepts-security.md) via Azure role-based access control (Azure RBAC)
 
-The command set is called **az dt**, and is part of the [Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension). You can view the full list of commands and their usage as part of the reference documentation for the `az iot` command set: [az dt command reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
+The command set is called **az dt**, and is part of the [Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension). You can view the full list of commands and their usage as part of the reference documentation for the `az iot` command set: [az dt command reference](/cli/azure/dt).
 
 ## Uses (deploy and validate)
 
@@ -62,4 +64,4 @@ az extension add --upgrade --name azure-iot
 ## Next steps
 
 Explore the CLI and its full set of commands through the reference docs:
-* [az dt command reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
+* [az dt command reference](/cli/azure/dt)

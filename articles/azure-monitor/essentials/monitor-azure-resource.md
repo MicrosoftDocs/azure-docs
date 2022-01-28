@@ -16,7 +16,7 @@ In this tutorial, you learn:
 > [!div class="checklist"]
 > * What Azure Monitor is and how it's integrated into the portal for other Azure services
 > * The types of data collected by Azure Monitor for Azure resources
-> * Azure Monitor tools used to used to collect and analyze data
+> * Azure Monitor tools used to collect and analyze data
 
 > [!NOTE]
 > This tutorial describes Azure Monitor concepts and walks you through different menu items. To jump right into using Azure Monitor features, start with [Tutorial: Analyze metrics for an Azure resource](../essentials/tutorial-metrics.md).
@@ -42,7 +42,7 @@ Azure resources generate the following monitoring data:
 
 
 ## Menu options
-While you can access Azure Monitor features from the **Monitor** menu in the Azure portal, Azure Monitor features can be access directly from the menu for different Azure services. While different Azure services may have slightly different experiences, they share a common set of monitoring options in the Azure portal. This includes **Overview** and **Activity log** and multiple options in the **Monitoring** section of the menu. 
+While you can access Azure Monitor features from the **Monitor** menu in the Azure portal, Azure Monitor features can be accessed directly from the menu for different Azure services. While different Azure services may have slightly different experiences, they share a common set of monitoring options in the Azure portal. This includes **Overview** and **Activity log** and multiple options in the **Monitoring** section of the menu. 
 
 :::image type="content" source="media/monitor-azure-resource/menu-01.png" lightbox="media/monitor-azure-resource/menu-01.png" alt-text="Monitor menu 1":::
 

@@ -3,7 +3,7 @@ title: Azure IoT Central quotas and limits | Microsoft Docs
 description: This article lists the key quotas and limits that apply to an IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/28/2021
+ms.date: 12/15/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -13,6 +13,9 @@ services: iot-central
 # Quotas and limits
 
 There are various quotas and limits that apply to IoT Central applications. IoT Central applications internally use multiple Azure services such as IoT Hub and the Device Provisioning Service (DPS), and these services also have quotas and limits. Where relevant, quotas and limits in the underlying services are called out in this article.
+
+> [!NOTE]
+> The quotas and limits described in this article apply to the new multiple IoT hub architecture. Currently, there are a few legacy IoT Central applications that were created before April 2021 that haven't yet been migrated to the multiple IoT hub architecture. Use the `az iot central device manual-failover` command to check if your application still uses a single IoT hub.
 
 ## Devices
 
@@ -89,6 +92,11 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 | ---- | -------------- | ----- |
 | Number of rules in an application | 50 | Contact support to discuss increasing this quota for your application. |
 | Number of actions in a rule | 5 | This quota is fixed and can't be changed. |
+| Number of alerts for an email action | One alert every minute per rule | This quota is fixed and can't be changed. |
+| Number of alerts for a webhook action | One alert every 10 seconds per action | This quota is fixed and can't be changed. |
+| Number of alerts for a Power Automate action | One alert every 10 seconds per action | This quota is fixed and can't be changed. |
+| Number of alerts for an Azure Logic App action | One alert every 10 seconds per action | This quota is fixed and can't be changed. |
+| Number of alerts for an Azure Monitor Group action | One alert every 10 seconds per action | This quota is fixed and can't be changed. |
 
 ## Jobs
 

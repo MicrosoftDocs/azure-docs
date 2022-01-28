@@ -22,7 +22,7 @@ This sample was built for developers and makes it very easy for you to get start
 ## Get started with the web calling sample
 
 > [!IMPORTANT]
-> [This sample is available **on Github**.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
+> [This sample is available **on GitHub**.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
 
 Follow the /Project/readme.md to set up the project and run it locally on your machine.
 Once the [web calling sample](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) is running on your machine, you'll see the following landing page:

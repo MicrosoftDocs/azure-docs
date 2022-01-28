@@ -1,6 +1,6 @@
 ---
 title: Find and redact faces in Azure Media Services v3 API | Microsoft Docs
-description: Azure Media Services v3 provides a face detection and redaction (blur) preset that enables you to submit a video file, detect faces, and optionally apply redaction (blurring) to them in a single combined pass, or through a two stage operation allowing for editing. This article demonstrates how to find and redact faces with the Face Detector preset in the v3 API.
+description: Azure Media Services v3 provides a face detection and redaction (blur) preset that enables you to submit a video file, detect faces, and optionally apply redaction (blurring) to them in a single combined pass, or through a two-stage operation allowing for editing. This article demonstrates how to find and redact faces with the Face Detector preset in the v3 API.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -9,7 +9,7 @@ editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: article
 ms.date: 03/25/2021
 ms.author: johndeu
@@ -119,7 +119,7 @@ The output from the Analyze pass does not include the original video. The video 
 | Stage | File Name | Notes |
 | --- | --- | --- |
 | Input asset |"ignite-sample.mp4" |Video in WMV, MPV, or MP4 format. Same video as in step 1. |
-| Input asset |"ignite-sample_annotations.json" |annotations metadata file from phase one, with optional modifications if you wish to change the faces blurred. This must be edited in an external application, code, or text editor. |
+| Input asset |"ignite-sample_annotations.json" |Annotations metadata file from phase one, with optional modifications if you wish to change the faces blurred. This must be edited in an external application, code, or text editor. |
 | Input asset | "ignite-sample_IDList.txt" (Optional) | Optional new line separated list of face IDs to redact. If left blank, all faces in the source will have blur applied. You can use the list to selectively choose not to blur specific faces. |
 | Face Detector preset  |Preset configuration  | **mode**: FaceRedactorMode.Redact, **blurType**: BlurType.Med |
 | Output asset |"ignite-sample-redacted.mp4" |Video with blurring applied based on annotations |
@@ -174,7 +174,7 @@ The Redaction MP provides high precision face location detection and tracking th
 The following program shows how to use the **Combined** single-pass redaction mode:
 
 - Create an asset and upload a media file into the asset.
-- Configure the the Face Detector preset that uses the mode and blurType settings.
+- Configure the Face Detector preset that uses the mode and blurType settings.
 - Create a new Transform using the Face Detector preset
 - Download the output redacted video file.
 
@@ -188,11 +188,11 @@ Clone a GitHub repository that contains the .NET sample to your machine using th
 
 The sample is located in the [FaceRedactor](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoAnalytics/FaceRedactor) folder. Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/VideoAnalytics/FaceRedactor/appsettings.json) in your downloaded project. Replace the values with the credentials you got from [accessing APIs](./access-api-howto.md).
 
-**Optionally** you can copy the **[sample.env](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/sample.env)** file at the root of the repository and fill out the details in there, and rename that file to **.env** (Note the dot on the front!) so that it can be used across all sample projects in the repository.  This eliminates the need to have a populated appsettings.json file in each sample, and also protects you from checking any settings into your own Git hub cloned repositories.
+**Optionally** you can copy the **[sample.env](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/sample.env)** file at the root of the repository and fill out the details in there, and rename that file to **.env** (Note the dot on the front!) so that it can be used across all sample projects in the repository.  This eliminates the need to have a populated appsettings.json file in each sample, and also protects you from checking any settings into your own GitHub cloned repositories.
 
 #### Examples
 
-This code shows how to setup the **FaceDetectorPreset** for a **Combined** mode blur.
+This code shows how to set up the **FaceDetectorPreset** for a **Combined** mode blur.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/VideoAnalytics/FaceRedactor/Program.cs#FaceDetectorPreset)]
 

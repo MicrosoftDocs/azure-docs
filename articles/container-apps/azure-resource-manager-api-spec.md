@@ -80,7 +80,7 @@ The following is an example ARM template used to deploy a container app.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "containerappName": {

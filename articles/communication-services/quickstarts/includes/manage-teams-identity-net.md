@@ -90,7 +90,7 @@ var aadClient = PublicClientApplicationBuilder
                 .WithRedirectUri(redirectUri)
                 .Build();
 
-string scope = "https://auth.msft.communication.azure.com/VoIP";
+string scope = "https://auth.msft.communication.azure.com/Teams.ManageCalls";
 
 var teamsUserAadToken = await aadClient
                         .AcquireTokenInteractive(new List<string> { scope })

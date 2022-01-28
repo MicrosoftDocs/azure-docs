@@ -4,7 +4,7 @@ description: Learn how to grant access to Azure resources for users external to 
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: role-based-access-control
 ms.devlang:
 ms.topic: how-to

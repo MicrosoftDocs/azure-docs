@@ -46,9 +46,9 @@ landingContent:
       - linkListType: video
         links:
           - text: Introducing Azure Logic Apps
-            url: https://channel9.msdn.com/Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps/
+            url: /Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps/
           - text: Connect and extend your mainframe to the cloud with Logic Apps
-            url: https://channel9.msdn.com/Shows/Azure-Friday/Connect-and-extend-your-mainframe-to-the-cloud-with-Logic-Apps
+            url: /Shows/Azure-Friday/Connect-and-extend-your-mainframe-to-the-cloud-with-Logic-Apps
           - text: Azure Logic Apps - Code & API free integration
             url: https://www.youtube.com/watch?v=Z3qaBQS0w20
 

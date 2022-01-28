@@ -80,7 +80,7 @@ The [OAuth 2 client credentials flow](v2-oauth2-client-creds-grant-flow.md) allo
 The client credentials grant flow permits a web service (a confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. In this scenario, the client is typically a middle-tier web service, a daemon service, or a website. For a higher level of assurance, the Microsoft identity platform also allows the calling service to use a certificate (instead of a shared secret) as a credential.
 
 > [!NOTE]
-> The confidential client flow isn't available on mobile platforms like UWP, Xamarin.iOS, and Xamarin.Android because they support only public client applications. Public client applications don't know how to prove the application's identity to the identity provider. A secure connection can be achieved on web app or web API back-ends by deploying a certificate.
+> The confidential client flow isn't available on mobile platforms like UWP, iOS, and Android because they support only public client applications. Public client applications don't know how to prove the application's identity to the identity provider. A secure connection can be achieved on web app or web API back-ends by deploying a certificate.
 
 ### Application secrets
 

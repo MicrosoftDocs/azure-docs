@@ -226,7 +226,7 @@ The mesh topology can be used in as few as two tenants, such as in the scenario 
 
 #### Single resource tenant topology
 
-![Single resource tenant](media/multi-tenant-user-management-scenarios/single-resource-tenant.png)
+![Single resource tenant](media/multi-tenant-user-management-scenarios/single-resource-tenant-scenario.png)
 
 In a single resource tenant topology, users and their attributes are synchronized to the resource tenant (Company A in the illustration above). 
 

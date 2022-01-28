@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 12/17/2021
 ms.custom: references_regions
 ---
 
@@ -33,22 +33,26 @@ Power Query connectors can reach a broader range of data sources, including thos
 This article shows you an Azure portal-based approach for setting up an indexer using Power Query connectors. Currently, there is no SDK support.
 
 > [!NOTE]
-> Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Preview functionality is provided under [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) and is not recommended for production workloads.
 
 ## Supported functionality
+
 Power Query connectors are used in indexers. An indexer in Azure Cognitive Search is a crawler that extracts searchable data and metadata from an external data source and populates an index based on field-to-field mappings between the index and your data source. This approach is sometimes referred to as a 'pull model' because the service pulls data in without you having to write any code that adds data to an index. Indexers provide a convenient way for users to index content from their data source without having to write their own crawler or push model.
 
 Indexers that reference Power Query data sources have the same level of support for skillsets, schedules, high water mark change detection logic, and most parameters that other indexers support.
 
 ## Prerequisites
+
 Before you start pulling data from one of the supported data sources, you'll want to make sure you have all your resources set up.
-+ Azure Cognitive Search service
-    + Azure Cognitive Search service set up in a [supported region](search-how-to-index-power-query-data-sources.md#regional-availability).
-    + Ensure that the Azure Cognitive Search team has enabled your search service for the preview. You can sign up for the preview by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). 
-+ Azure Blob Storage account
-    + A Blob Storage account is required for the preview to be used as an intermediary for your data. The data will flow from your data source, then to Blob Storage, then to the index. This requirement only exists with the initial gated preview.
+
++ Azure Cognitive Search service in a [supported region](search-how-to-index-power-query-data-sources.md#regional-availability).
+
++ [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview). This feature must be enabled on the backend.
+
++ Azure Blob Storage account, used as an intermediary for your data. The data will flow from your data source, then to Blob Storage, then to the index. This requirement only exists with the initial gated preview.
 
 ## Getting started using the Azure portal
+
 The Azure portal provides support for the Power Query connectors. By sampling data and reading metadata on the container, the Import data wizard in Azure Cognitive Search can create a default index, map source fields to target index fields, and load the index in a single operation. Depending on the size and complexity of source data, you could have an operational full text search index in minutes.
 
  The following video shows how to set up a Power Query connector in Azure Cognitive Search.
@@ -66,8 +70,8 @@ After you're approved for the preview, the Azure Cognitive Search team will prov
 ### Step 3 – Select your data source
 There are a few data sources that you can pull data from using this preview. All data sources that use Power Query will include a "Powered By Power Query" on their tile. 
 Select your data source. 
- 
-![Select a data source](./media/search-power-query-connectors/power-query-import-data.png "Select a data source")
+
+:::image type="content" source="media/search-power-query-connectors/power-query-import-data.png" alt-text="Screenshot of the Select a data source page." border="true":::
 
 Once you've selected your data source, select **Next: Configure your data** to move to the next section.
 
@@ -82,8 +86,8 @@ Once you've provided your connection credentials, select **Next**.
 
 ### Step 5 – Select your data
 The import wizard will preview various tables that are available in your data source. In this step you'll check one table that contains the data you want to import into your index.
- 
-![Preview your data](./media/search-power-query-connectors/power-query-preview-data.png "Preview your data")
+
+:::image type="content" source="media/search-power-query-connectors/power-query-preview-data.png" alt-text="Screenshot of data preview." border="true":::
 
 Once you've selected your table, select **Next**.
 
@@ -92,7 +96,7 @@ Power Query connectors provide you with a rich UI experience that allows you to 
 
 It's not required that you transform your data before importing it into Azure Cognitive Search.
 
-![Transform your data](./media/search-power-query-connectors/power-query-transform-your-data.png "Transform your data") 
+:::image type="content" source="media/search-power-query-connectors/power-query-transform-your-data.png" alt-text="Screenshot of Transform your data page." border="true":::
 
 For more information about transforming data with Power Query, look at [Using Power Query in Power BI Desktop](/power-query/power-query-quickstart-using-power-bi). 
 
@@ -101,8 +105,9 @@ Once you're done transforming your data, select **Next**.
 ### Step 7 – Add Azure Blob storage
 The Power Query connector preview currently requires you to provide a blob storage account. This step only exists with the initial gated preview. This blob storage account will serve as temporary storage for data that moves from your data source to an Azure Cognitive Search index.
 
-We recommend providing a full access storage account connection string: 
-```
+We recommend providing a full access storage account connection string:
+ 
+```JSON
 { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }
 ```
 
@@ -124,7 +129,7 @@ Review the description of index attributes and language analyzers for more infor
 
 Take a moment to review your selections. Once you run the wizard, physical data structures are created and you won't be able to edit most of the properties for these fields without dropping and recreating all objects.
 
-![Create your index](./media/search-power-query-connectors/power-query-index.png "Create your index")
+:::image type="content" source="media/search-power-query-connectors/power-query-index.png" alt-text="Screenshot of Create your index page." border="true":::
 
 When complete, select **Next: Create an Indexer**.
 
@@ -135,25 +140,30 @@ The output of the Import data wizard is an indexer that crawls your data source 
 
 When creating the indexer, you can optionally choose to run the indexer on a schedule and add change detection. To add change detection, designate a 'high water mark' column.
 
-![Create your indexer](./media/search-power-query-connectors/power-query-indexer-configuration.png "Create your indexer")
+:::image type="content" source="media/search-power-query-connectors/power-query-indexer-configuration.png" alt-text="Screenshot of Create your indexer page." border="true":::
 
 Once you've finished filling out this page select **Submit**.
 
 ## High Water Mark Change Detection policy
+
 This change detection policy relies on a "high water mark" column capturing the version or time when a row was last updated.
 
 ### Requirements
+
 + All inserts specify a value for the column.
 + All updates to an item also change the value of the column.
 + The value of this column increases with each insert or update.
 
 ## Unsupported column names
+
 Field names in an Azure Cognitive Search index have to meet certain requirements. One of these requirements is that some characters such as "/" are not allowed. If a column name in your database does not meet these requirements, the index schema detection will not recognize your column as a valid field name and you won't see that column listed as a suggested field for your index. Normally, using [field mappings](search-indexer-field-mappings.md) would solve this problem but field mappings are not supported in the portal.
 
 To index content from a column in your table that has an unsupported field name, rename the column during the "Transform your data" phase of the import data process. For example, you can rename a column named "Billing code/Zip code" to "zipcode". By renaming the column, the index schema detection will recognize it as a valid field name and add it as a suggestion to your index definition.
 
 ## Regional availability
+
 The preview is only available to customers with search services in the following regions:
+
 + Central US
 + East US
 + East US 2
@@ -166,9 +176,13 @@ The preview is only available to customers with search services in the following
 + West US 2
 
 ## Preview limitations
+
 There is a lot to be excited about with this preview, but there are a few limitations. This section describes the limitations that are specific to the current version of the preview.
+
 + Pulling binary data from your data source is not supported in this version of the preview. 
+
 + [Debug sessions](cognitive-search-debug-session.md) are not supported at this time.
 
 ## Next steps
+
 You have learned how to pull data from new data sources using the Power Query connectors. To learn more about indexers, see [Indexers in Azure Cognitive Search](search-indexer-overview.md).

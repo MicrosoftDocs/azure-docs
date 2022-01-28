@@ -3,7 +3,7 @@ title: Device connectivity in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating to device connectivity in Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/07/2021
+ms.date: 12/21/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -231,7 +231,7 @@ Watch the following video to learn more about how to monitor device connection s
 
 > [!VIDEO https://www.youtube.com/embed/EUZH_6Ihtto]
 
-You can include connection and disconnection events in [exports from IoT Central](howto-export-data.md#set-up-data-export). To learn more, see [React to IoT Hub events > Limitations for device connected and device disconnected events](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
+You can include connection and disconnection events in [exports from IoT Central](howto-export-data.md#set-up-a-data-export). To learn more, see [React to IoT Hub events > Limitations for device connected and device disconnected events](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
 
 ## SDK support
 

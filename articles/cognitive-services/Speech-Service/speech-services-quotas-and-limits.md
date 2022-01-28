@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 01/24/2022
 ms.author: alexeyo
 ---
 
@@ -19,7 +19,7 @@ This article contains a quick reference and the **detailed description** of Azur
 ## Quotas and Limits quick reference
 Jump to [Text-to-Speech Quotas and limits](#text-to-speech-quotas-and-limits-per-speech-resource)
 ### Speech-to-Text Quotas and Limits per Speech resource
-In the tables below Parameters without "Adjustable" row are **not** adjustable for all price tiers.
+In the following tables, the parameters without "Adjustable" row are **not** adjustable for all price tiers.
 
 #### Online Transcription
 For the usage with [Speech SDK](speech-sdk.md) and/or [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio).
@@ -106,10 +106,9 @@ Before requesting a quota increase (where applicable), ensure that it is necessa
 To minimize issues related to throttling (Response Code 429), we recommend using the following techniques:
 - Implement retry logic in your application
 - Avoid sharp changes in the workload. Increase the workload gradually <br/>
-*Example.* Your application is using Text-to-Speech and your current workload is 5 TPS (transactions per second). The next second you increase the load to 20 TPS (that is four times more). The Service immediately starts scaling up to fulfill the new load, but likely it will not be able to do it within a second, so some of the requests will get Response Code 429.
-- Test different load increase patterns
-  - See [Workload pattern example](#example-of-a-workload-pattern-best-practice)
-- Create additional Speech resources in the same or different Regions and distribute the workload among them using "Round Robin" technique. This is especially important for **Text-to-Speech TPS (transactions per second)** parameter, which is set as 200 per Speech Resource and cannot be adjusted
+*Example.* Your application is using text-to-speech and your current workload is 5 Transactions per Second (TPS). The next second you increase the load to 20 TPS (that is four times more). The Service immediately starts scaling up to fulfill the new load, but likely it will not be able to do it within a second, so some of the requests will get Response Code 429.
+- Test different load increase patterns. See the [workload pattern example](#example-of-a-workload-pattern-best-practice)
+- Create additional Speech resources in the same or different Regions and distribute the workload among them using "Round Robin" technique. This is especially important for the text-to-speech Transactions per Second (TPS) parameter, which is set to 200 per Speech resource and cannot be adjusted.
 
 The next sections describe specific cases of adjusting quotas.<br/>
 Jump to [Text-to-Speech: increasing concurrent request limit for custom neural voices](#text-to-speech-increasing-concurrent-request-limit-for-custom-neural-voices)
@@ -119,7 +118,6 @@ By default the number of concurrent requests is limited to 100 per Speech resour
 
 >[!NOTE]
 > If you use custom models, please be aware, that one Speech resource may be associated with many custom endpoints hosting many custom model deployments. Each Custom endpoint has the default number of concurrent request limit (100) set by creation. If you need to adjust it, you need to make the adjustment of each custom endpoint **separately**. Please also note, that the value of the number of concurrent request limit for the base model of a Speech resource has **no** effect to the custom endpoints associated with this resource.
-
 
 Increasing the Concurrent Request limit does **not** directly affect your costs. Speech service uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
 

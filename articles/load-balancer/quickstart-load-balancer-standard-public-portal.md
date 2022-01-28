@@ -7,8 +7,8 @@ ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 08/09/2021
 ms.author: allensu
-ms.custom: mvc, mode-other
-# Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
+ms.custom: mvc, mode-ui
+#Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs using the Azure portal

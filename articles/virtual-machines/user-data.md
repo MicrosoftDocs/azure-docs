@@ -169,7 +169,7 @@ The VM.Properties in these requests should contain your desired UserData field, 
           "osDisk": {
             "caching": "ReadWrite",
             "managedDisk": {
-              "storageAccountType": "Standard_LRS"
+              "storageAccountType": "StandardSSD_LRS"
             },
             "name": "vmOSdisk",
             "createOption": "FromImage"
