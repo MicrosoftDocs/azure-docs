@@ -53,7 +53,8 @@ You can get the full URL for your endpoint by going to the **Deploy model** page
 
 :::image type="content" source="../media/prediction-url.png" alt-text="Screenshot showing the prediction request and URL" lightbox="../media/prediction-url.png":::
 
-Replace the query and language, 
+Add your key to the `Ocp-Apim-Subscription-Key` header value, and replace the query and language parameters.
+ 
 > [!TIP]
 > As you construct your requests, see the [quickstart](../quickstart.md?pivots=rest-api#query-model) and REST API [reference documentation](https://aka.ms/clu-apis) for more information.
 
