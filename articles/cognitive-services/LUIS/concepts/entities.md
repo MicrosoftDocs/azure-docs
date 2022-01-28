@@ -40,7 +40,7 @@ To create an entity, you have to give it a name and a type. There are several ty
 
 A list entity represents a fixed, closed set of related words along with their synonyms. You can use list entities to recognize multiple synonyms or variations and extract a normalized output for them. Use the _recommend_ option to see suggestions for new words based on the current list.
 
-A list entity isn't machine-learned, meaning that LUIS does not discover more values for list entities. LUIS marks any match to an item in any list as an entity in the response.
+A list entity isn't machine-learned, meaning that LUIS doesn’t discover more values for list entities. LUIS marks any match to an item in any list as an entity in the response.
 
 Matching list entities is both case sensitive and it has to be an exact match. Normalized values are also used when matching the list entity. For example:
 
@@ -68,7 +68,7 @@ See the [regex entities reference article](../reference-entity-regular-expressio
 
 LUIS includes a set of prebuilt entities for recognizing common types of information, like dates, times, numbers, measurements, and currency. Prebuilt entity support varies by the culture of your LUIS app. For a full list of the prebuilt entities that LUIS supports, including support by culture, see the [prebuilt entity reference](../luis-reference-prebuilt-entities.md).
 
-When a prebuilt entity is included in your application, its predictions are included in your published application. The behavior of prebuilt entities is pre-trained and  cannot  be modified.
+When a prebuilt entity is included in your application, its predictions are included in your published application. The behavior of prebuilt entities is pre-trained and can’t be modified.
 
 
 | Prebuilt entity | Example value |
@@ -93,7 +93,7 @@ See the [Pattern.Any entities reference article](../reference-entity-pattern-any
 
 ## Machine learned (ML) entity
 
-Machine learned entity uses context to extract entities based on labeled examples. It is the preferred entity for building LUIS applications. It relies on machine-learning algorithms and requires labeling to be tailored to your application successfully. Use an ML entity to identify data that is not always well formatted but have the same meaning.
+Machine learned entity uses context to extract entities based on labeled examples. It is the preferred entity for building LUIS applications. It relies on machine-learning algorithms and requires labeling to be tailored to your application successfully. Use an ML entity to identify data that isn’t always well formatted but have the same meaning.
 
 
 | Example utterance | Extracted product entity |
@@ -120,8 +120,8 @@ An ML entity can be composed of smaller sub-entities, each of which can have its
 To build machine learned entities effectively, follow these best practices:
 
 * If you have a machine learned entity with sub-entities, make sure that the different orders and variants of the entity and sub-entities are presented in the labeled utterances. Labeled example utterances should include all valid forms, and include entities that appear and are absent and also reordered within the utterance.
-* Avoid overfitting the entities to a fixed set. Overfitting happens when the model doesn't generalize well, and is a common problem in machine-learning models. This implies the app would not work on new types of examples adequately. In turn, you should vary the labeled example utterances so the app can generalize beyond the limited examples you provide.
-* Your labeling should be consistent across the intents. This includes even utterances you provide in the _None_ intent that includes this entity. Otherwise the model will not be able to determine the sequences effectively.
+* Avoid overfitting the entities to a fixed set. Overfitting happens when the model doesn't generalize well, and is a common problem in machine-learning models. This implies the app wouldn’t work on new types of examples adequately. In turn, you should vary the labeled example utterances so the app can generalize beyond the limited examples you provide.
+* Your labeling should be consistent across the intents. This includes even utterances you provide in the _None_ intent that includes this entity. Otherwise the model won’t be able to determine the sequences effectively.
 
 ## Entities as features
 
@@ -138,11 +138,11 @@ You can use entities as a signal for an intent. For example, the presence of a c
 
 ## Entities as Feature for entities
 
-You can also use entities as an indicator of the presence of other entities. A common example of this is using a prebuilt entity as a feature for another ML entity. If you are building a flight booking system and your utterance looks like 'Book me a flight from Cairo to Seattle', you likely will have _Origin City_ and _Destination City_ as ML entities. A good practice would be to use the prebuilt GeographyV2 entity as a feature for both entities.
+You can also use entities as an indicator of the presence of other entities. A common example of this is using a prebuilt entity as a feature for another ML entity. If you’re building a flight booking system and your utterance looks like 'Book me a flight from Cairo to Seattle', you likely will have _Origin City_ and _Destination City_ as ML entities. A good practice would be to use the prebuilt GeographyV2 entity as a feature for both entities.
 
-See the [GeographyV2 entities reference article](../luis-reference-prebuilt-geographyv2.md) for more information.
+For more information, see the [GeographyV2 entities reference article](../luis-reference-prebuilt-geographyv2.md).
 
-You can also use entities as required features for other entities. This helps in the resolution of extracted entities. For example, if you are creating a pizza-ordering application and you have a Size ML entity, you can create SizeList list entity and use it as a required feature for the Size entity. Your application will return the normalized value as the extracted entity from the utterance.
+You can also use entities as required features for other entities. This helps in the resolution of extracted entities. For example, if you’re creating a pizza-ordering application and you have a Size ML entity, you can create SizeList list entity and use it as a required feature for the Size entity. Your application will return the normalized value as the extracted entity from the utterance.
 
 See [features](../concepts/patterns-features.md) for more information, and [prebuilt entities](../luis-reference-prebuilt-entities.md) to learn more about prebuilt entities resolution available in your culture.
 
@@ -158,7 +158,7 @@ All entities are returned in the  entities  array of the response from the endpo
 
 ### Use machine-learning entities
 
-Machine learned entities are tailored to your app and require labeling to be successful. If you are not using machine learned entities, you might be using the wrong entities.
+Machine learned entities are tailored to your app and require labeling to be successful. If you aren’t using machine learned entities, you might be using the wrong entities.
 
 Machine learned entities can use other entities as features. These other entities can be custom entities such as regular expression entities or list entities, or you can use prebuilt entities as features.
 
