@@ -45246,6 +45246,16 @@
     "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
     "redirect_url": "/azure/advisor/advisor-overview",
     "redirect_document_id": false
-    }
+    },
+    {
+      "source_path_from_root": "/articles/azure/cognitive-services/translator/tutorial-wpf-translation-csharp.md",
+      "redirect_url": "/ai-builder/flow-text-translation",
+      "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
+        "redirect_url": "/learn/modules/translate-text-with-translator-service",
+        "redirect_document_id": false
+        }
   ]
 }
