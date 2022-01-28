@@ -20,7 +20,7 @@ It uses Azure Storage and [PolyBase](/sql/relational-databases/polybase/polybase
 
 Authentication works automatically with the signed in Azure Active Directory user after the following prerequisites.
 
-* Add the user to [db_exporter role](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) using system stored procedure [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+* Add the user to [db_exporter role](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) using system-stored procedure [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
 * Add the user to [Storage Blob Data Contributor role](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) on the storage account.
 
 The connector also supports password-based [SQL authentication](/azure/azure-sql/database/logins-create-manage#authentication-and-authorization) after the following prerequisites.
