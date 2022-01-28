@@ -435,7 +435,7 @@ Review documents:
 
 This integration happens through [Azure Cosmos DB analytical store](../analytical-store-introduction.md), a columnar representation of your transactional data that enables large-scale analytics without any impact to your transactional workloads. This analytical store is suitable for fast, cost effective queries on large operational data sets, without copying data and impacting the performance of your transactional workloads. When you create a container with analytical store enabled, or when you enable analytical store on an existing container, all transactional inserts, updates, and deletes are synchronized with analytical store in near real time, no change feed or ETL jobs are required.
 
-With Synapse Link, you can now directly connect to your Azure Cosmos DB containers from Azure Synapse Analytics and access the analytical store, at no Request Units (RUs) costs. Azure Synapse Analytics currently supports Synapse Link with Synapse Apache Spark and serverless SQL pool. If you have a globally distributed Azure Cosmos DB account, after you enable analytical store for a container, it will be available in all regions for that account. 
+With Synapse Link, you can now directly connect to your Azure Cosmos DB containers from Azure Synapse Analytics and access the analytical store, at no Request Units (RUs) costs. Azure Synapse Analytics currently supports Synapse Link with Synapse Apache Spark and serverless SQL pools. If you have a globally distributed Azure Cosmos DB account, after you enable analytical store for a container, it will be available in all regions for that account. 
 
 ### Analytical store automatic schema inference
 
@@ -443,7 +443,7 @@ While Azure Cosmos DB transactional store is considered row-oriented semi-struct
 
 You can minimize the impact of the schema inference conversions, and maximize your analytical capabilities, by using following techniques.
 
-#### Normalization
+### Normalization
 
 Normalization becomes meaningless since with Azure Synapse Link you can join between your containers, using T-SQL or Spark SQL. The expected benefits of normalization are:
  * Smaller data footprint in both transactional and analytical store.
@@ -457,19 +457,19 @@ Another important factor for normalization is that SQL serverless pools in Azure
 
 But what to do since denormalization is an important data modeling technique for Azure Cosmos DB? The answer is that you must find the right balance for your transactional and analytical workloads.
 
-#### Partition Key
+### Partition Key
 
 Your Azure Cosmos DB partition key (PK) isn't used in analytical store. And now you can use [analytical store custom partitioning](https://devblogs.microsoft.com/cosmosdb/custom-partitioning-azure-synapse-link/) to copies of analytical store using any PK that you want. Because of this isolation, you can choose a PK for your transactional data with focus on data ingestion and point reads, while cross-partition queries can be done with Azure Synapse Link. Let's see an example:
 
 In a hypothetical global IoT scenario, *device id* is a good PK since all devices have a similar data volume and with that you won't have a hot partition problem. But if you want to analyze the data of more than one device, like "all data from yesterday" or "totals per city", you may have problems since those are cross-partition queries. Those queries can hurt your transactional performance since they use part of your throughput in RUs to run. But with Azure Synapse Link, you can run these analytical queries at no RUs costs. Analytical store columnar format is optimized for analytical queries and Azure Synapse Link leverages this characteristic to allow great performance with Azure Synapse Analytics runtimes.
 
-#### Data types and properties names
+### Data types and properties names
 
 The automatic schema inference rules article lists what are the supported data types. While unsupported data type blocks the representation in analytical store, supported datatypes may be processed differently by the Azure Synapse runtimes. One example is: When using DateTime strings that follow the ISO 8601 UTC standard, Spark pools in Azure Synapse will represent these columns as string and SQL serverless pools in Azure Synapse will represent these columns as varchar(8000).
 
-Another challenge is that not all characters are accepted by Azure Synapse Spark. While white spaces are accepted, characters like colon, grave accent, and comma are not. Let's say that your document has a property named **"First Name, Last Name". This property will be represented in analytical store and Synapse SQL serverless pool can read it without a problem. But since it is in analytical store, Azure Synapse Spark can't read any data from analytical store, including all other properties. At the end of the day, you can't use Azure Synapse Spark when you have one property using the unsupported characters in their names.
+Another challenge is that not all characters are accepted by Azure Synapse Spark. While white spaces are accepted, characters like colon, grave accent, and comma are not. Let's say that your document has a property named **"First Name, Last Name"**. This property will be represented in analytical store and Synapse SQL serverless pool can read it without a problem. But since it is in analytical store, Azure Synapse Spark can't read any data from analytical store, including all other properties. At the end of the day, you can't use Azure Synapse Spark when you have one property using the unsupported characters in their names.
 
-#### Columns and nested data
+### Data flattening
 
 All properties in the root level of your Cosmos DB data will be represented in analytical store as a column and everything else that is in deeper levels of your document data model will be represented as JSON, also in nested structures. Nested structures demand extra processing from Azure Synapse runtimes to flatten the data in structured format, what may be a challenge in big data scenarios.
 
@@ -498,7 +498,7 @@ The document below will have 3 columns in analytical store, `id`, `email`, and `
 }
 ```
 
-#### RUs Optimization
+### Data Tiering
 
 Azure Synapse Link allows you to reduce costs from the following perspectives:
 
@@ -506,6 +506,25 @@ Azure Synapse Link allows you to reduce costs from the following perspectives:
  * A PK optimized for data ingestion and point reads, reducing data footprint, hot partition scenarios, and partitions splits.
  * Data tiering since analytical ttl (attl) is independent from transactional ttl (tttl). You can keep your transactional data in transactional store for a few days, weeks, months, and keep the data in analytical store for years or for ever. Analytical store columnar format brings a natural data compression, from 50% up to 90%. And its cost per GB is ~10% of transactional store actual price. Please check the [analytical store overview](../analytical-store-introduction.md) to read about the current backup limitations.
  * No ETL jobs running in your environment, meaning that you don't need to provision RUs for them.
+
+### Controlled redundancy
+
+This is a great alternative for situations when a data model already exists and can't be changed. And the existing data model doesn't fit well into analytical store due to automatic schema inference rules like the limit of nested levels or the maximum number of properties. If this is your case, you can leverage [Azure Cosmos DB Change Feed](../change-feed.md) to replicate your data into another container, applying the required transformations for a Synapse Link friendly data model. Let's see an example:
+
+#### Scenario
+
+Container `CustomersOrdersAndItems` is used to store on-line orders including customer and items details: billing address, delivery address, delivery method, delivery status, items price, etc. Only the first 1000 properties are represented and key information isn't included in analytical store, blocking Azure Synapse Link usage. The container has PBs of records it's not possible to change the application and remodel the data. 
+
+Another perspective of the problem is the big data volume. Billions of rows are constantly used by the Analytics Department, what prevents them to use tttl for old data deletion. Maintaining the entire data history in the transactional database because of analytical needs forces them to constantly increase RUs provisioning, impacting costs. Transactional and analytical workloads compete for the same resources at the same time. 
+
+What to do?
+ 
+#### Solution with Change Feed
+
+* The engineering team decided to use Change Feed to populate 3 new containers: `Customers`, `Orders`, and `Items`. With Change Feed they are not only normalizing and flattening the data. Unnecessary information is removed from the data model and each container has close to 100 properties, avoiding data loss due to automatic schema inference limits. 
+* These new containers have analytical store enabled and now the Analytics Department is using Synapse Analytics to read the data, reducing the RUs usage since the analytical queries are happening in Synapse Apache Spark and serverless SQL pools.
+* Container `CustomersOrdersAndItems` now has tttl set to keep data for 6 months only, which allows for another RUs usage reduction, since there is a minimum of 10 RUs per GB in Azure Cosmos DB. Less data, less RUs.
+
 
 ## Next steps
 
