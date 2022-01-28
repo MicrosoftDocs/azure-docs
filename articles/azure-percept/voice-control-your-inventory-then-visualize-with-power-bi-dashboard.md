@@ -207,7 +207,7 @@ In this section, you will train, test, and publish your Custom Commands
 
 1. Replace the web endpoints URL
    1. Click Web endpoints and replace the URL
-   2. Replace the value in the URL to the <strong>HTTP Trigger Url</strong> you noted down in section 2 (ex: https://xxx.azurewebsites.net/api/httpexample)
+   2. Replace the value in the URL to the <strong>HTTP Trigger Url</strong> you noted down in section 2 (ex: `https://xxx.azurewebsites.net/api/httpexample`)
     ![Replace the value in the URL](./media/voice-control-your-inventory-images/web-point-url.png)
 2. Create LUIS prediction resource
    1. Click <strong>settings</strong> and create a <strong>S0</strong> prediction resource under LUIS <strong>prediction resource</strong>.
