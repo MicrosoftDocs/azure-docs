@@ -33,24 +33,35 @@ The capabilities that are available to you depend on the country that you're ope
 
 The tables below summarize current availability:
 
-### Customers with US Azure Billing Addresses
+## Customers with US Azure Billing Addresses
 |Number|Type   |Send SMS   | Receive SMS |Make Calls   |Receive Calls|
 |:---|:---|:---|:---|:---|:---|
-|USA (includes PR)   |Toll-Free   |GA   |GA   |GA   |GA   |
-|USA (includes PR)   |Local |  |   |GA   |GA   |
-|USA  |Short-Codes |Public Preview  |Public Preview   |   |   |
+|USA (includes PR)   |Toll-Free   |GA   |GA   |GA   |GA*   |
+|USA (includes PR)   |Local |  |   |GA   |GA*   |
+|USA  |Short-Codes |Public Preview  |Public Preview*   |   |   |
 
-### (New) Customers with UK Azure Billing Addresses
+## Customers with UK Azure Billing Addresses
 |Number|Type   |Send SMS   | Receive SMS |Make Calls   |Receive Calls|
 |:---|:---|:---|:---|:---|:---|
-|USA (includes PR)   |Toll-Free   |GA   |GA  |Public Preview   |Public Preview   |
-|USA (includes PR)   |Local |   |   |Public Preview   |Public Preview   |
+|UK  |Toll-Free   |  |  |Public Preview   |Public Preview*   |
+|UK  |Local |   |   |Public Preview   |Public Preview*   |
+|USA (includes PR)   |Toll-Free   |GA   |GA  |Public Preview   |Public Preview*   |
+|USA (includes PR)   |Local |   |   |Public Preview   |Public Preview*   |
 
-### (New) Customers with Ireland Azure Billing Addresses
+## Customers with Ireland Azure Billing Addresses
 |Number|Type   |Send SMS   | Receive SMS |Make Calls   |Receive Calls|
 |:---|:---|:---|:---|:---|:---|
-|USA (includes PR)   |Toll-Free   |GA   |GA   |GA   |GA   |
-|USA (includes PR)   |Local |  |   |GA   |GA   |
+|USA (includes PR)   |Toll-Free   |GA   |GA   |GA   |GA*   |
+|USA (includes PR)   |Local |  |   |GA   |GA*   |
+
+## Customers with Denmark Azure Billing Addresses
+|Number|Type   |Send SMS   | Receive SMS |Make Calls   |Receive Calls|
+|:---|:---|:---|:---|:---|:---|
+|Denmark  |Toll-Free   |  |  |Public Preview   |Public Preview*   |
+|Denmark  |Local |   |   |Public Preview   |Public Preview*   |
+
+***
+* Available through Azure Bot Framework and Dynamics only
 
 ## Next Steps
 - Get a [Toll-Free or Local Phone Number](../../quickstarts/telephony/get-phone-number.md)
