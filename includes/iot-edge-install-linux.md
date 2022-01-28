@@ -17,9 +17,6 @@ First, run the following commands to add the package repository and then add the
 
 Installing with APT can be done with a few commands.  Open a terminal and run the following commands:
 
-<!-- 1.2 -->
-::: moniker range=">=iotedge-2020-11"
-
 * **20.04**:
 
    ```bash
@@ -27,9 +24,6 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
    sudo dpkg -i packages-microsoft-prod.deb
    rm packages-microsoft-prod.deb
    ```
-
-<!-- end 1.2 -->
-::: moniker-end
 
 * **18.04**:
 
