@@ -8,7 +8,7 @@ ms.author: ladolan
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 04/23/2021
+ms.date: 01/22/2022
 ---
 
 # Manage logic apps in the Azure portal
@@ -87,6 +87,9 @@ To stop the trigger from firing the next time when the trigger condition is met,
      > If your logic app is already enabled, you only see the **Disable** option.
 
 1. To confirm whether your operation succeeded or failed, on the main Azure toolbar, open the **Notifications** list (bell icon).
+
+> [!NOTE]
+> When a logic app workflow is disabled, you can still resubmit runs.
 
 <a name="disable-or-enable-multiple-logic-apps"></a>
 

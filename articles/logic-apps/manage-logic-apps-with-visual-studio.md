@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 04/23/2021
+ms.date: 01/28/2022
 ---
 
 # Manage logic apps with Visual Studio
@@ -269,6 +269,9 @@ To stop the trigger from firing the next time when the trigger condition is met,
 In Cloud Explorer, open your logic app's shortcut menu, and select **Disable**.
 
 ![Disable your logic app in Cloud Explorer](./media/manage-logic-apps-with-visual-studio/disable-logic-app-cloud-explorer.png)
+
+> [!NOTE]
+> When a logic app workflow is disabled, you can still resubmit runs.
 
 <a name="enable-logic-apps"></a>
 

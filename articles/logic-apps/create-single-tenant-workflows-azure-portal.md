@@ -547,6 +547,8 @@ To stop the trigger from firing the next time when the trigger condition is met,
   1. Save your changes. This step resets your trigger's current state.
   1. [Reactivate your workflow](#disable-enable-workflows).
 
+* When a workflow is disabled, you can still resubmit runs.
+
 > [!NOTE]
 > The disable workflow and stop logic app operations have different effects. For more information, review 
 > [Considerations for stopping logic apps](#considerations-stop-logic-apps).
