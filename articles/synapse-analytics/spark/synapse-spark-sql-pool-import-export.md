@@ -27,7 +27,7 @@ The connector also supports password-based [SQL authentication](/azure/azure-sql
   * Add the user to [db_exporter role](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-azure-synapse) using system stored procedure [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
   * Create an [external data source](/sql/t-sql/statements/create-external-data-source-transact-sql), whose [database scoped credential](/sql/t-sql/statements/create-database-scoped-credential-transact-sql) secret is the access key to an Azure Storage Account. The API requires the name of this external data source.
 
-## API Reference
+## API reference
 
 See the [Scala API reference](https://synapsesql.blob.core.windows.net/docs/1.0.0/scaladocs/com/microsoft/spark/sqlanalytics/index.html).
 
