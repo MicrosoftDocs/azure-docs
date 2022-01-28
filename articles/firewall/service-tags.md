@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/5/2021
+ms.date: 01/28/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -34,7 +34,7 @@ $ResourceGroup = "AzureFirewall-RG"
 $azfirewall = Get-AzFirewall -Name $FirewallName -ResourceGroupName $ResourceGroup
 ```
 
-Next, we must create a new Rule.  For the Source or Destination, you can specify the text value of the Service Tag you wish to leverage, as mentioned earlier above in this article.
+Next, we must create a new Rule.  For the Destination, you can specify the text value of the Service Tag you wish to leverage, as mentioned previously.
 
 ````Create new Network Rules using Service Tags
 $rule = New-AzFirewallNetworkRule -Name "AllowSQL" -Description "Allow access to Azure Database as a Service (SQL, MySQL, PostgreSQL, Datawarehouse)" -SourceAddress "10.0.0.0/16" -DestinationAddress Sql -DestinationPort 1433 -Protocol TCP
